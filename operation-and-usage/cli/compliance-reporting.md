@@ -15,7 +15,7 @@ Compliance reporting can be configured to check the current situation, check his
 
 The reports can be created in either plain text, HTML, or DocBook XML format. In addition, the data can also be exported to a SQLite database file. The DocBook XML format allows you to use the report in further post-processing, such as creating a PDF using Apache FOP and your own custom styling.
 
-Reports can be generated using the CLI or Web UI. In the NSO Web UI, compliance reporting options are available under the 'Compliance reporting' card. The CLI options are described in the sections below.
+Reports can be generated using either the CLI or Web UI. The suggested and favored way of generating compliance reports is via the Web UI, which provides a convenient way of creating, configuring, and consuming compliance reports. In the NSO Web UI, compliance reporting options are accessible from the **Tools** menu, see [Web User Interface](../webui/) for more information. The CLI options are described in the sections below.
 
 ## Creating Compliance Report Definitions <a href="#d5e4797" id="d5e4797"></a>
 
@@ -23,41 +23,31 @@ It is possible to create several named compliance report definitions. Each named
 
 Let us walk through a simple compliance report definition. This example is based on the `examples.ncs/service-provider/mpls-vpn` example. For the details of the included services and devices in this example, see the `README` file.
 
-First of all, the reports have a name which is key in the report list. Furthermore, the report has a `device-check` and a `service-check` container for specifying devices and services to check. The `compare-template` list allows for specifying templates to compare device configurations against.&#x20;
+Each report definition has a name and can specify device and service checks. Device checks are further classified into sync and configuration checks. Device sync checks verify the in-sync status of the devices included in the report, while device configuration checks verify individual device configuration against a compliance template (see [Device Configuration Checks](compliance-reporting.md#device-configuration-checks)).
 
-A report definition can specify all containers at the same time:
+For device checks, you can select the devices to be checked in four different ways:
 
-```
-$ ncs_cli -u admin -C
-admin connected from 127.0.0.1 using console on ncs
-ncs# config
-Entering configuration mode terminal
-ncs(config)# compliance reports report gold-check
-Possible completions:
-  compare-template   Diff devices against templates
-  device-check       Report on devices
-  run                Run this compliance report
-  service-check      Report on services out of sync
-  <cr>
-```
+* **all-devices** - Check all defined devices.
+* **device-group** - Specified list of device groups.
+* **device** - Specified list of devices.
+* **select-devices** - Specified by an XPath expression.
 
-We will first use the `device-check` container to specify which devices to check. Devices can be defined in one of four different ways:
-
-* `all-devices`: Check all defined devices.
-* `device-group`_:_ Specified list of device groups.
-* `device`: Specified list of devices.
-* `select-devices`_:_ Specified by an XPath expression.
-
-Furthermore, for a `device-check`, the behavior or the verification can be specified.&#x20;
-
-The default behavior for device verification is the following:
-
-* To request a `check-sync` action to verify that the device is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
-* To scan the commit log (i.e. rollback files) for changes on the devices and report these. This behavior is controlled by the `leaf historic-changes` (default `true`).
+Consider the following example report definition named `gold-check`:
 
 ```
 ncs(config)# compliance reports report gold-check
-ncs(config-report-gold-check)# device-check
+ncs(config-report-gold-check)# device-check all-devices
+```
+
+This report definition, when executed, checks whether all devices known to NSO are in sync.
+
+For such a check, the behavior of the verification can be specified:
+
+* To request a check-sync action to verify that the device is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
+* To scan the commit log (i.e. rollback files) for changes on the devices and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
+
+```
+ncs(config-report-gold-check)# device-check ?
 Possible completions:
   all-devices            Report on all devices
   current-out-of-sync    Should current check-sync action be performed?
@@ -69,101 +59,45 @@ Possible completions:
   <cr>
 ```
 
-We will choose the default behavior and check all devices:
+For the example `gold-check`, you can also use service checks. This type of check verifies if the specified service instances are in sync, that is if the network devices contain configuration as defined by these services. You can select the services to be checked in four different ways:
 
-```
-ncs(config-report-gold-check)# device-check all-devices
-```
+* **all-services** - Check all known service instances.
+* **service** - Specified list of service instances.
+* **select-services** - Specified list of service instances through an XPath expression.
+* **service-type** - Specified list of service types.
 
-In our example, we also use the `service-check` container to specify which services to check. Services can be defined in one of 3 ways:
+For service checks, the verification behavior can be specified as well:
 
-* `all-services`_:_ Check all defined services.
-* `service`_:_ Specified list of services.
-* `select-services`_:_ Specified by an XPath expression.
-
-Also for the `service-check`, the verification behavior can be specified. The default behavior for service verification is the following:
-
-* To request a `check-sync` action to verify that the service is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
+* To request a check-sync action to verify that the service is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
 * To scan the commit log (i.e. rollback files) for changes on the services and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
 
 ```
-ncs(config-report-gold-check)# service-check
+ncs(config-report-gold-check)# service-check ?
 Possible completions:
-  all-services           Report on all services
-  current-out-of-sync    Should current check-sync action be performed?
-  historic-changes       Include commit log events from within the report
-                         interval
-  select-services        Report on services selected by an XPath expression
-  service                Report on specific services
+  all-services          Report on all services
+  current-out-of-sync   Should current check-sync action be performed?
+  historic-changes      Include commit log events from within the report
+                        interval
+  select-services       Report on services selected by an XPath expression
+  service               Report on specific services
+  service-type          The type of service.
   <cr>
 ```
 
-In our report, we choose the default behavior and check the `l3vpn` service:
+In the example report, you might choose the default behavior and check all instances of the `l3vpn` service:
 
 ```
-ncs(config-report-gold-check)# service-check select-services /l3vpn:vpn/l3vpn:l3vpn
+ncs(config-report-gold-check)# service-check service-type /l3vpn:vpn/l3vpn:l3vpn
 ncs(config-report-gold-check)# commit
 Commit complete.
 ncs(config-report-gold-check)# show full-configuration
 compliance reports report gold-check
  device-check all-devices
- service-check select-services /l3vpn:vpn/l3vpn:l3vpn
+ service-check service-type /l3vpn:vpn/l3vpn:l3vpn
 !
 ```
 
-Our next example will illustrate how to add a device template to the compliance report. This template will be used to compare against part of the device configuration. First, we define the device template:
-
-```
-ncs(config-report-gold-check)# top
-ncs(config)# devices template gold-conf config
-ncs(config-config)# ios:snmp-server community {$COMMUNITY}
-ncs(config-community-{$COMMUNITY})# commit
-Commit complete.
-ncs(config-community-{$COMMUNITY})# show full-configuration
-devices template gold-conf
- config
-  ios:snmp-server community {$COMMUNITY}
-  !
- !
-!
-```
-
-We will also need a device group which will be used later in the report definition. For the sake of simplicity, in this example, we will just choose some of the `ce` devices:
-
-```
-ncs(config-community-{$COMMUNITY})# top
-ncs(config)# devices device-group mygrp device-name
-(list): [ce0 ce1 ce2 ce3]
-ncs(config-device-group-mygrp)# commit
-Commit complete.
-```
-
-Now, we add the template to the already-defined report `gold-check`. An entry in the `compare-template` list contains the combination of a template and a device group which implies that the template will be applied to all devices in the device group and the difference (if any) will be reported as a compliance violation. Note, that no data will be changed on the device. Since the device template can contain variables, each `compare-template` also has a `variable` list.
-
-In our example report, we use the `gold-conf` template and the `mygrp` group:
-
-```
-ncs(config-device-group-mygrp)# top
-ncs(config)# compliance reports report gold-check
-ncs(config-report-gold-check)# compare-template gold-conf mygrp
-```
-
-Since the `gold-conf` template uses variables, we will set the values for this variable in the report:
-
-```
-ncs(config-compare-template-gold-conf/mygrp)# variable COMMUNITY
-ncs(config-variable-COMMUNITY)# value 'public'
-ncs(config-variable-COMMUNITY)# show configuration
-compliance reports report gold-check
- compare-template gold-conf mygrp
-  variable COMMUNITY
-   value 'public'
-  !
- !
-!
-ncs(config-variable-COMMUNITY)# commit
-Commit complete.
-```
+You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui\_compliance) for details.
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
@@ -172,8 +106,6 @@ Compliance reporting is a read-only operation. When running a compliance report,
 Here is an example of such a report listing:
 
 ```
-ncs(config-variable-COMMUNITY)# top
-ncs(config)# exit
 ncs# show compliance report-results
 compliance report-results report 1
  name              gold-check
@@ -396,37 +328,27 @@ Device ce3
 ```
 {% endcode %}
 
-## Additional Configuration Checks
+## Device Configuration Checks <a href="#device-configuration-checks" id="device-configuration-checks"></a>
 
-In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
+Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
 
-To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
+Often, each device will have a somewhat different configuration, such as its own set of IP addresses, which makes checking against a static template impossible. For this reason, NSO supports compliance templates.
 
-You can configure this mode in the report definition, when specifying the device template to check against, for example:
+These templates are similar to but separate from, device templates. With compliance templates, you use regular expressions to check compliance, instead of simple fixed values. You can also define and reference variables that get their values when a report is run. All selected devices are then checked against the compliance template and the differences (if any) are reported as a compliance violation.
 
-```
-ncs(config)# compliance reports report gold-check
-ncs(config-report-gold-check)# compare-template gold-conf mygrp strict
-```
-
-However, in practice, using the strict mode with device templates may prove challenging. Often, each device will have its own set of IP addresses configured. While you can supply variable values to the template, you likely need to maintain a separate set for each device (since each uses its own unique IPs).
-
-One way to overcome this problem is to use services to configure all aspects of the managed device. But perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation with the help of compliance templates, which are similar to, but separate from device templates.
-
-With compliance templates, you use regular expressions to check compliance, instead of simple fixed values or variables, and they can be used with or without strict mode.
-
-You can create a compliance template from scratch, similar to how you create a device template. To check that the router uses only internal DNS servers from the 10.0.0.0/8 range, you might create a compliance template such as:
+You can create a compliance template from scratch. For example, to check that the router uses only internal DNS servers from the 10.0.0.0/8 range, you might create a compliance template such as:
 
 ```
 admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
 
-Here, the value for the `/sys/dns/server` must start with `10.`, followed by any string (regular expression `.+`). Since a dot has a special meaning with regular expressions (any character), it must be escaped with a backslash to match only the actual dot character. But note the required multiple escaping (`\\\\`) in this case.
+Here, the value of the `/sys/dns/server` must start with "10.", followed by any string (the regular expression ".+"). Since a dot has a special meaning with regular expressions (any character), it must be escaped with a backslash to match only the actual dot character. But note the required multiple escaping ("\\\\\\\\") in this case.
 
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
-<pre><code>admin@ncs(config)# show full-configuration devices device ex0 config sys dns server
+```
+admin@ncs(config)# show full-configuration devices device ex0 config sys dns server
 devices device ex0
  config
   sys dns server 10.2.3.4
@@ -435,9 +357,9 @@ devices device ex0
   !
  !
 !
-<strong>admin@ncs(config)# compliance template internal-dns
-</strong><strong>admin@ncs(config-template-internal-dns)# check device ex0
-</strong>check-result {
+admin@ncs(config)# compliance template internal-dns
+admin@ncs(config-template-internal-dns)# check device ex0
+check-result {
     device ex0
     result violations
     diff  config {
@@ -451,12 +373,51 @@ devices device ex0
  }
 
 }
-</code></pre>
+```
 
-Alternatively, you can use the `/compliance/create-template` action when you already have existing device templates that you would like to use as a starting point for a compliance template.
+Alternatively, you can use the `/compliance/create-template` action when you already have existing device templates that you would like to use as a starting point for a compliance template. For example:
+
+```
+admin@ncs(config)# show full-configuration devices template use-internal-dns
+devices template use-internal-dns
+ ned-id router-nc-1.0
+  config
+   ! Tags: replace (/devices/template{use-internal-dns}/ned-id{router-nc-1.0:router-nc-1.0}/config/r:sys/dns)
+   sys dns server 10.8.8.8
+   !
+  !
+ !
+!
+admin@ncs(config)# compliance create-template name internal-dns device-template use-internal-dns
+admin@ncs(config)# show configuration
+compliance template internal-dns
+ ned-id router-nc-1.0
+  config
+   ! Tags: replace (/compliance/template{internal-dns}/ned-id{router-nc-1.0:router-nc-1.0}/config/r:sys/dns)
+   sys dns server 10.8.8.8
+   !
+  !
+ !
+!
+admin@ncs(config)# compliance template internal-dns
+admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
+```
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
 ```
 admin@ncs(config-report-gold-check)# device-check template internal-dns
+```
+
+## Additional Configuration Checks
+
+In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
+
+To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
+
+You can configure this mode in the report definition, when specifying the device template to check against, for example:
+
+```
+ncs(config)# compliance reports report gold-check
+ncs(config-report-gold-check)# device-check template internal-dns strict
 ```
