@@ -57,7 +57,7 @@
   * [Alarm Manager](operation-and-usage/cli/alarm-manager.md)
   * [Plug-and-Play Scripting](operation-and-usage/cli/plug-and-play-scripting.md)
   * [Compliance Reporting](operation-and-usage/cli/compliance-reporting.md)
-  * [Viewing Packages](operation-and-usage/cli/viewing-packages.md)
+  * [Listing Packages](operation-and-usage/cli/viewing-packages.md)
   * [Lifecycle Operations](operation-and-usage/cli/lifecycle-operations.md)
   * [Network Simulator](operation-and-usage/cli/network-simulator-netsim.md)
 * [Web UI](operation-and-usage/webui/README.md)
