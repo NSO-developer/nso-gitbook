@@ -27,10 +27,10 @@ Each report definition has a name and can specify device and service checks. Dev
 
 For device checks, you can select the devices to be checked in four different ways:
 
-* **all-devices** - Check all defined devices.
-* **device-group** - Specified list of device groups.
-* **device** - Specified list of devices.
-* **select-devices** - Specified by an XPath expression.
+* `all-devices` - Check all defined devices.
+* `device-group` - Specified list of device groups.
+* `device` - Specified list of devices.
+* `select-devices` - Specified by an XPath expression.
 
 Consider the following example report definition named `gold-check`:
 
@@ -61,10 +61,10 @@ Possible completions:
 
 For the example `gold-check`, you can also use service checks. This type of check verifies if the specified service instances are in sync, that is if the network devices contain configuration as defined by these services. You can select the services to be checked in four different ways:
 
-* **all-services** - Check all known service instances.
-* **service** - Specified list of service instances.
-* **select-services** - Specified list of service instances through an XPath expression.
-* **service-type** - Specified list of service types.
+* `all-services` - Check all known service instances.
+* `service` - Specified list of service instances.
+* `select-services` - Specified list of service instances through an XPath expression.
+* `service-type` - Specified list of service types.
 
 For service checks, the verification behavior can be specified as well:
 
@@ -148,10 +148,10 @@ When running the report, there are a number of parameters that can be specified 
 
 The parameters that are possible to specify for a report `run` action are:
 
-* `title`_:_ The title in the resulting report
+* `title`_:_ The title in the resulting report.
 * `from`_:_ The date and time from which the report should start the information gathering. If not set, the oldest available information is implied.
 * `to`_:_ The date and time when the information gathering should stop. If not set, the current date and time are implied. If set, no new check-syncs of devices and/or services will be attempted.
-* `outformat`_:_ One of `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will formatted using the docbook schema.
+* `outformat`_:_ One of `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will formatted using the DocBook schema.
 
 We will request a report run with a `title` and formatted as `text`.
 
