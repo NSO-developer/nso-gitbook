@@ -105,7 +105,7 @@ See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of th
 Service configuration is viewed and carried out in the Configuration Editor.
 
 {% hint style="info" %}
-The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to [Developing a Simple Service](../../development/development/developing-services/creating-a-service.md) for more information.
+The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/concepts/services.md) and [Developing Services](../../development/development/developing-services/) documentation for more information.
 {% endhint %}
 
 To start configuring a service:
