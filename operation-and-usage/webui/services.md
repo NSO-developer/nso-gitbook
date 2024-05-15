@@ -61,11 +61,7 @@ To apply an action on multiple services:
 
 **Actions Possible in the Service Manager View**
 
-Available actions include:
-
-* **check-sync**
-* **re-deploy**
-* **re-deploy dry-run**
+Available actions include **check-sync**, **re-deploy**, and **re-deploy dry-run**.
 
 See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of these actions.
 
