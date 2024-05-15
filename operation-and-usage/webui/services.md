@@ -34,7 +34,7 @@ To filter the service list:
 ## Create a Service <a href="#d5e6142" id="d5e6142"></a>
 
 1. In the **Select service point** drop-down list, select a service point.
-2. Click the plus <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/add-action.png#developer.cisco.com" alt="" data-size="line"> button.
+2. Click the add <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/add-action.png#developer.cisco.com" alt="" data-size="line"> button.
 3. In the **Create service** pop-up, enter the name of the service.
 4. Confirm the intent.
 5. Review and commit the service to NSO in the **Commit manager**.
@@ -81,13 +81,7 @@ Expand the button further to get more information about the result.
 {% endhint %}
 {% endtab %}
 
-{% tab title="Second Tab" %}
-
-{% endtab %}
-{% endtabs %}
-
-**From the Configuration Editor -> Actions Tab**
-
+{% tab title="From the Configuration Editor -> Actions Tab" %}
 Additional actions are applied per individual service. Use this option if you want to run an action with additional parameters.
 
 1. Click the service name in the list.
@@ -95,36 +89,28 @@ Additional actions are applied per individual service. Use this option if you wa
 3. Click the desired action in the list.
 4.  At this point, you can configure different parameters.
 
-    \
-    &#x20;           (Use the **Reset action parameters** option to reset all parameters to default value).\
-    &#x20;        &#x20;
+    (Use the **Reset action parameters** option to reset all parameters to default value).
 5. Run the action.
 
-#### Note
-
-Fetch the action information by clicking the info ![](https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso\_user\_guide/pics/actions-info.png#developer.cisco.com) icon in the **Configuration editor** -> **Actions** tab.
+{% hint style="info" %}
+Fetch the action information by clicking the info <img src="../../.gitbook/assets/image (27).png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
+{% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions:
+Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, **purge**.
 
-* **reactive-re-deploy**
-* **un-deploy**
-* **deep-check-sync**
-* **touch**
-* **set-rank**
-* **get-modifications**
-* **purge**
+See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of these actions.
+{% endtab %}
+{% endtabs %}
 
-See [_Life-cycle Operations - Manipulating Existing Services and Devices_ ](https://developer.cisco.com/docs/nso-guides-6.3/life-cycle-operations-manipulating-existing-services-and-devices)for the details of these actions.
-
-#### Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
+## Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
 
 Service configuration is viewed and carried out in the Configuration Editor.
 
-#### Note
-
-The **Configuration editor** shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to [_Developing a Simple Service_ ](https://developer.cisco.com/docs/nso-guides-6.3/developing-a-simple-service)in Development Guide for more information.
+{% hint style="info" %}
+The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to [Developing a Simple Service](../../development/development/developing-services/creating-a-service.md) for more information.
+{% endhint %}
 
 To start configuring a service:
 
@@ -132,15 +118,15 @@ To start configuring a service:
 2. In the **Configuration editor**, access the **Edit config** tab to make changes to the service.
 3. Commit the changes in the **Commit manager**.
 
-#### Note
-
+{% hint style="info" %}
 The other two tabs, i.e., **Config** and **Operdata** can be respectively used to:
 
 * View the service configuration, and,
 * View the service's operational data.
+{% endhint %}
 
-#### Delete a Service <a href="#d5e6324" id="d5e6324"></a>
+## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
 1. In the services list, click the service that you want to delete. You can select multiple services.
-2. Click the minus ![](https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso\_user\_guide/pics/remove-action.png#developer.cisco.com) button.
+2. Click the remove <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/remove-action.png#developer.cisco.com" alt="" data-size="line"> button.
 3. Review and commit the change in the **Commit manager**.
