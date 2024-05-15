@@ -113,7 +113,11 @@ In the **Commit manager** view, the following tabs are shown.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
-The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historic events, or both. The recommended and preferred way of running the compliance reports is through the Web UI.
+The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historical events, or both.&#x20;
+
+{% hint style="success" %}
+The recommended and preferred way of running the compliance reports is through the Web UI.
+{% endhint %}
 
 The following main tabs are available in this view:
 
