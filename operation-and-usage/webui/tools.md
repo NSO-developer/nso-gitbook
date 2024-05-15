@@ -10,13 +10,13 @@ The **Tools** view offers individual utilities that you can use to run specific 
 
 The following tools are available:
 
-* **Insights**: Gathers and displays useful statistics of your deployment.
-* **Package upgrade**: Used to perform upgrades to the packages running in NSO.
-* **High availability**: Used to manage a High Availability (HA) setup in your deployment.
-* **Dashboard**: Provides a current overview of your deployment.
-* **Alarms**: Shows current alarms/events in your deployment and provides options to manage them.
-* **Commit manager**: Shortcut to the Commit Manager.
-* **Compliance reports**: Used to run compliance checks on your NSO network.
+* [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
+* [**Package upgrade**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
+* [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
+* [**Dashboard**](tools.md#d5e6549): Provides a current overview of your deployment.
+* [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
+* [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
+* [**Compliance reports**](tools.md#sec.webui\_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
