@@ -148,10 +148,10 @@ When running the report, there are a number of parameters that can be specified 
 
 The parameters that are possible to specify for a report `run` action are:
 
-* `title`_:_ The title in the resulting report.
-* `from`_:_ The date and time from which the report should start the information gathering. If not set, the oldest available information is implied.
-* `to`_:_ The date and time when the information gathering should stop. If not set, the current date and time are implied. If set, no new check-syncs of devices and/or services will be attempted.
-* `outformat`_:_ One of `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will formatted using the DocBook schema.
+* `title`: The title in the resulting report.
+* `from`: The date and time from which the report should start the information gathering. If not set, the oldest available information is implied.
+* `to`: The date and time when the information gathering should stop. If not set, the current date and time are implied. If set, no new check-syncs of devices and/or services will be attempted.
+* `outformat`: One of `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will formatted using the DocBook schema.
 
 We will request a report run with a `title` and formatted as `text`.
 
