@@ -196,7 +196,7 @@ location http://.../report_7_admin_1_2015-2-4T20:42:45.019012+00:00.text
 
 Below is an example of a compliance report result (in `text` format):
 
-{% code title="Compliance report result" %}
+{% code title="Compliance Report Result" %}
 ```
 $ cat ./state/compliance-reports/report_7_admin_1_2015-2-4T20\:42\:45.019012+00\:00.text
 reportcookie : g2gCbQAAAAtGaWZ0aCBjaGVja20AAAAKZ29sZC1jaGVjaw==
@@ -343,7 +343,7 @@ admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
 
-Here, the value of the `/sys/dns/server` must start with "10.", followed by any string (the regular expression ".+"). Since a dot has a special meaning with regular expressions (any character), it must be escaped with a backslash to match only the actual dot character. But note the required multiple escaping ("\\\\\\\\") in this case.
+Here, the value of the `/sys/dns/server` must start with `10.`, followed by any string (the regular expression `.+`). Since a dot has a special meaning with regular expressions (any character), it must be escaped with a backslash to match only the actual dot character. But note the required multiple escaping (`\\\\`) in this case.
 
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
