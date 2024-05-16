@@ -171,7 +171,7 @@ NSO only needs to be synchronized with the devices in the event of a change bein
 
 The above incorrect (or not necessary) sequence stems from the assumption that the NSO CLI talks directly to the devices. This is not the case; the northbound interfaces in NSO modify the configuration in the NSO data store, NSO calculates a minimum difference between the current configuration and the new configuration, giving only the changes to the configuration to the NEDS that runs the commands to the devices. All this as one single change-set.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_user_guide/pics/ncs_nwe_transaction.png#developer.cisco.com" alt="" width="563"><figcaption><p>Device transaction</p></figcaption></figure>
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_user_guide/pics/ncs_nwe_transaction.png#developer.cisco.com" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
 
 View the configuration of the `c0` device using the command:
 
