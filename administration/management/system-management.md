@@ -240,7 +240,7 @@ Below is an example of Syslog configuration:
 
 Visit the link below for log messages and formats.
 
-{% embed url="https://developer.cisco.com/docs/nso-guides-6.1/#!nso-system-management/monitoring-nso" %}
+{% embed url="https://developer.cisco.com/docs/nso-guides-6.3/nso-system-management/#monitoring-nso" %}
 
 ### Trace ID <a href="#d5e2587" id="d5e2587"></a>
 
