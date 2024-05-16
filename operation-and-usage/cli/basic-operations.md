@@ -12,7 +12,7 @@ Make sure that you have installed NSO and that you have sourced the `ncsrc` file
 
 We will use the NSO network simulator to simulate three Cisco IOS routers. NSO will talk Cisco CLI to those devices. You will use the NSO CLI and Web UI to perform the tasks. Sometimes you will use the native Cisco device CLI to inspect configuration or do out-of-band changes.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_user_guide/pics/c7200-example.png#developer.cisco.com" alt="" width="375"><figcaption><p>The first example</p></figcaption></figure>
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_user_guide/pics/c7200-example.png#developer.cisco.com" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
 
 \
 Note that both the NSO software (NCS) and the simulated network devices run on your local machine.
@@ -301,7 +301,7 @@ Possible completions:
   dry-run                Show the diff but do not perform commit
 ```
 
-As seen by the details output, NSO stores a roll-back file for every commit so that the whole transaction can be rolled back manually. The following is an example of a roll-back file:
+As seen by the details output, NSO stores a roll-back file for every commit so that the whole transaction can be rolled back manually. The following is an example of a rollback file:
 
 ```
 admin@ncs(config)# do file show logs/rollback1000
@@ -330,7 +330,7 @@ ncs:devices {
     }
 ```
 
-(Viewing files as an operational command, prefixing a command in configuration mode with **do** executes in operational mode.) To perform a manual roll-back, first load the rollback file:
+(Viewing files as an operational command, prefixing a command in configuration mode with `do` executes in operational mode.) To perform a manual rollback, first load the rollback file:
 
 ```
 admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10005
@@ -1017,12 +1017,12 @@ Commit complete.
 
 admin@ncs(config)# do show devices commit-queue | notab
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- transient-errors [ c0 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ transient c0
+  reason "Failed to connect to device c0: connection refused"
+ is-atomic true
 ```
 
 Go to the UNIX shell, start the device, and monitor the commit queue:
@@ -1035,20 +1035,19 @@ $ncs_cli -C -u admin
 
 admin@ncs# show devices commit-queue
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- transient-errors [ c0 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ transient c0
+  reason "Failed to connect to device c0: connection refused"
+ is-atomic true
 
 admin@ncs# show devices commit-queue
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ is-atomic true
 
 admin@ncs# show devices commit-queue
 % No entries found.
