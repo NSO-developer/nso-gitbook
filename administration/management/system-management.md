@@ -240,7 +240,10 @@ Below is an example of Syslog configuration:
 
 Visit the link below for log messages and formats.
 
-{% content-ref url="logdefs.md" %} Log Messages and Formats {% endcontent-ref %}
+{% content-ref url="./logdefs.md" %}
+[logdefs.md](./logdefs.md)
+{% endcontent-ref %}
+
 
 {% embed url="https://developer.cisco.com/docs/nso-guides-6.3/nso-system-management/#monitoring-nso" %}
 
