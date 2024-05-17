@@ -99,7 +99,7 @@ Aborted: Resource authgroup for jim doesn't exist
 
 ## Monitoring NSO <a href="#d5e7876" id="d5e7876"></a>
 
-This section describes how to monitor NSO. Read also the dedicated section called Overview in [NSO Alarms.](https://developer.cisco.com/docs/nso-guides-6.1/#!nso-alarms)
+This section describes how to monitor NSO. See also [NSO Alarms](system-management.md#nso-alarms).&#x20;
 
 Use the command `ncs --status` to get runtime information on NSO.
 
