@@ -238,7 +238,7 @@ Below is an example of Syslog configuration:
 
 ### Log Messages and Formats <a href="#ug.ncs_monitoring.messages" id="ug.ncs_monitoring.messages"></a>
 
-Visit the link below for log messages and formats.
+Log messages are described on the link below:
 
 {% content-ref url="logdefs.md" %}
 [logdefs.md](logdefs.md)
