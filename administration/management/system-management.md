@@ -240,8 +240,8 @@ Below is an example of Syslog configuration:
 
 Log messages are described on the link below:
 
-{% content-ref url="logdefs.md" %}
-[logdefs.md](logdefs.md)
+{% content-ref url="system-management/logdefs.md" %}
+[logdefs.md](system-management/logdefs.md)
 {% endcontent-ref %}
 
 ### NSO Alarms <a href="#nso-alarms" id="nso-alarms"></a>
