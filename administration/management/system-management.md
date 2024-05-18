@@ -99,7 +99,7 @@ Aborted: Resource authgroup for jim doesn't exist
 
 ## Monitoring NSO <a href="#d5e7876" id="d5e7876"></a>
 
-This section describes how to monitor NSO. See also [NSO Alarms](system-management.md#nso-alarms).&#x20;
+This section describes how to monitor NSO. See also [NSO Alarms](system-management.md#nso-alarms).
 
 Use the command `ncs --status` to get runtime information on NSO.
 
@@ -215,7 +215,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 
 ### Syslog <a href="#d5e259" id="d5e259"></a>
 
-NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog settings. All Syslog messages are documented in Log Messages. The `ncs.conf` also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, netconf, SNMP, and WebUI access logs to syslog with the facility set to daemon in `ncs.conf`. For reference, see the upgrade-l2 example, located in `examples.ncs/development-guide/high-availability/hcc` .
+NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog settings. All Syslog messages are documented in Log Messages. The `ncs.conf` also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, netconf, SNMP, and WebUI access logs to syslog with the facility set to daemon in `ncs.conf`. For reference, see the `upgrade-l2` example, located in `examples.ncs/development-guide/high-availability/hcc` .
 
 Below is an example of Syslog configuration:
 
@@ -236,7 +236,7 @@ Below is an example of Syslog configuration:
     </ncs-log>
 ```
 
-### Log Messages and Formats <a href="#ug.ncs_monitoring.messages" id="ug.ncs_monitoring.messages"></a>
+#### Log Messages and Formats <a href="#ug.ncs_monitoring.messages" id="ug.ncs_monitoring.messages"></a>
 
 Log messages are described on the link below:
 
