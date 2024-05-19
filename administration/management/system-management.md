@@ -14,7 +14,7 @@ By default, NSO starts in the background without an associated terminal. It is r
 
 ## Licensing NSO <a href="#ug.ncs_sys_mgmt.licensing" id="ug.ncs_sys_mgmt.licensing"></a>
 
-NSO is licensed using Cisco Smart Licensing. To register your NSO instance, you need to enter a token from your Cisco Smart Software Manager account. For more information on this topic, see [Cisco Smart Licensing](cisco-smart-licensing.md)_._
+NSO is licensed using Cisco Smart Licensing. To register your NSO instance, you need to enter a token from your Cisco Smart Software Manager account. For more information on this topic, see [Cisco Smart Licensing](system-management/cisco-smart-licensing.md)_._
 
 ## Configuring NSO
 
