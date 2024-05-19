@@ -1,5 +1,5 @@
 ---
-description: Develop services, applications, and nano services.
+description: Develop services and applications in NSO.
 ---
 
 # Developing Services
