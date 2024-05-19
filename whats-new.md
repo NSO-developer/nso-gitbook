@@ -5,7 +5,7 @@ description: Latest features and enhancements added in this release.
 # What's New
 
 {% hint style="info" %}
-Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/).
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.2\&to=6.3).
 {% endhint %}
 
 ## Release Highlights <a href="#d5e42" id="d5e42"></a>
@@ -14,31 +14,31 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary>Web UI Improvements</summary>
+<summary><strong>Web UI Improvements</strong></summary>
 
 The web-based management interface has been improved to streamline user experience with a modernized look and feel and usability improvements in certain areas, such as device management.&#x20;
 
 Documentation Updates:
 
-* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to add more information.&#x20;
+* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.&#x20;
 
 </details>
 
 <details>
 
-<summary>Device Management Improvements</summary>
+<summary><strong>Device Management Improvements</strong></summary>
 
 Devices now support `auto-configure` and `rename` actions to assist with the initial onboarding as well as the renaming of devices. Additionally, the listing of services, that have modified a device, has been improved and now includes Nano service zombies using a new `/devices/device/services/service` list.
 
 Documentation Updates:
 
-* Added new sections, "Auto-configuring Devices in NSO" and "Renaming Devices in NSO".&#x20;
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/cli/nso-device-manager.md#renaming-devices-in-nso).&#x20;
 
 </details>
 
 <details>
 
-<summary>Support for Linux/arm64 Platform</summary>
+<summary><strong>Support for Linux/arm64 Platform</strong></summary>
 
 Binaries for the Linux OS on the arm64 architecture are now available for download from the Cisco [Software Download](https://software.cisco.com/download/home) site.
 
@@ -50,7 +50,7 @@ Documentation Updates:
 
 <details>
 
-<summary>Platform Tools Packages</summary>
+<summary><strong>Platform Tools Packages</strong></summary>
 
 A number of additional packages are now bundled with the NSO installer binary. These are optional packages that can be added to the NSO instance and were previously distributed separately.
 
@@ -62,7 +62,7 @@ Documentation Updates:
 
 <details>
 
-<summary>Improved Services Documentation</summary>
+<summary><strong>Improved Services Documentation</strong></summary>
 
 The service development documentation has been improved and expanded, allowing for a more gradual introduction to service concepts.
 
@@ -76,51 +76,49 @@ Documentation Updates:
 
 <details>
 
-<summary>Observability Improvements for Distributed Deployments</summary>
+<summary><strong>Observability Improvements for Distributed Deployments</strong></summary>
 
 NETCONF and RESTCONF APIs now support the propagation of standards-based Trace Context to aid distributed tracing.
 
 Documentation Updates:
 
-* For NETCONF, added documentation on [the section called “Trace Context”](https://developer.cisco.com/docs/nso-guides-6.3/the-nso-netconf-server/#ug.netconf\_agent.trace\_context) in Northbound APIs.
-* For RESTCONF, added documentation on [the section called “Trace Context”](https://developer.cisco.com/docs/nso-guides-6.3/the-restconf-api/#ncs.northbound.restconf.trace\_context) in Northbound APIs.
+* For NETCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context) in Northbound APIs.
+* For RESTCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context-1) in Northbound APIs.
 
 </details>
 
 <details>
 
-<summary>JSON Metadata Support</summary>
+<summary><strong>JSON Metadata Support</strong></summary>
 
 NSO now supports RFC-7952-encoded metadata, as well as setting metadata when using JSON data encoding.
 
 Documentation Updates:
 
-* Expanded [_The RESTCONF API_ ](https://developer.cisco.com/docs/nso-guides-6.3/the-restconf-api)in Northbound APIs with details on metadata handling.
+* Expanded the [RESTCONF API](development/concepts/northbound-apis.md#the-restconf-api) in Northbound APIs with details on metadata handling.
 
 </details>
 
 <details>
 
-<summary>RESTCONF Data Filtering</summary>
+<summary><strong>RESTCONF Data Filtering</strong></summary>
 
-Added the "exclude" query parameter support to the GET RESTCONF method that excludes a subtree from the returned output.
+Added the `exclude` query parameter support to the GET RESTCONF method that excludes a subtree from the returned output.
 
 Documentation Updates:
 
-* Expanded [the section called “Query Parameters”](https://developer.cisco.com/docs/nso-guides-6.3/the-restconf-api/#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of "exclude" usage.
+* Expanded the section [Query Parameters](development/concepts/northbound-apis.md#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
 
 </details>
 
 <details>
 
-<summary>Other Notable Highlights</summary>
+<summary><strong>Other Notable Highlights</strong></summary>
 
 * Improved YANG 1.1 support: Allow type `empty` in list keys and unions, as well as improve the handling of unions of enumerations.
 * Implement alarms for certificate expiry: The functionality now covers all certificates in use by NSO.
 * Automatic migration of templates: Migrating a device to a new NED ID will trigger a copy of the device and compliance templates for the old NED ID to the new NED ID (unless the template already contains configuration for the new NED ID).
 * Faster upgrades: The performance of the CDB upgrade process has been significantly improved by utilizing more parallelization.
 * `ncs.conf` management: `ncs.conf` file can now use environment variable references and parts of the file can be placed in separate configuration files in the `ncs.conf.d` sub-directory, next to the `ncs.conf` file.
-
-For a full list of changes, refer to the [online changelog](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.2\&to=6.3).
 
 </details>
