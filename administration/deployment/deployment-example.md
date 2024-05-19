@@ -201,7 +201,7 @@ Depending on your installation, e.g., the size and speed of the managed devices 
 
 There are quite a few different global settings for NSO. The two mentioned above often need to be changed.
 
-### Cisco Smart Licensing <a href="#d5e7928" id="d5e7928"></a>
+## Cisco Smart Licensing <a href="#d5e7928" id="d5e7928"></a>
 
 NSO uses Cisco Smart Licensing, which is described in detail in [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md). After registering your NSO instance(s), and receiving a token, following steps 1-6 as described in the [Create a License Registration Token](../management/system-management/cisco-smart-licensing.md#d5e2927) section of Cisco Smart Licensing, enter a token from your Cisco Smart Software Manager account on each host. Use the same token for all instances and script entering the token as part of the initial NSO configuration or from the management node:
 
