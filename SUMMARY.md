@@ -27,7 +27,6 @@
   * [System Management](administration/management/system-management.md)
     * [Log Messages and Formats](administration/management/system-management/logdefs.md)
     * [Alarm Types](administration/management/system-management/alarms.md)
-  * [Configuring NSO](administration/management/user-management.md)
   * [Cisco Smart Licensing](administration/management/cisco-smart-licensing.md)
   * [Package Management](administration/management/nso-packages.md)
   * [High Availability](administration/management/high-availability.md)
