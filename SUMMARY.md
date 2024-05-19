@@ -33,8 +33,6 @@
   * [High Availability](administration/management/high-availability.md)
   * [AAA Infrastructure](administration/management/aaa-infrastructure.md)
   * [NED Administration](administration/management/ned-administration.md)
-  * [Backup and Restore](administration/management/backup-and-restore.md)
-  * [Rollbacks](administration/management/rollbacks.md)
 * [Advanced Topics](administration/advanced-topics/README.md)
   * [Locks](administration/advanced-topics/locks.md)
   * [Compaction](administration/advanced-topics/compaction.md)

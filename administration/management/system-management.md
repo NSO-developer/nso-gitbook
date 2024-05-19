@@ -10,7 +10,7 @@ NSO consists of a number of modules and executable components. These executable 
 
 When NSO is started, it reads its configuration file and starts all subsystems configured to start (such as NETCONF, CLI, etc.).
 
-By default, NSO starts in the background without an associated terminal. It is recommended to use a [System Install](../deployment/system-install.md) when installing NSO for production deployment. This will create an `init` script that starts NSO when the system boots, and make NSO start the service manager.
+By default, NSO starts in the background without an associated terminal. It is recommended to use a [System Install](../deployment/system-install.md) when installing NSO for production deployment. This will create an `init` script that starts NSO when the system boots, and makes NSO start the service manager.
 
 ## Licensing NSO <a href="#ug.ncs_sys_mgmt.licensing" id="ug.ncs_sys_mgmt.licensing"></a>
 
@@ -340,6 +340,67 @@ When NSO considers the configuration to be in an inconsistent state, operations 
 ```
 
 The MAAPI API has two interface functions that can be used to set and retrieve the consistency status, those are `maapi_set_running_db_status()` and `maapi_get_running_db_status()` corresponding. This API can thus be used to manually reset the consistency state. The only alternative to reset the state to a consistent state is by reloading the entire configuration.
+
+## Backup and Restore
+
+All parts of the NSO installation can be backed up and restored with standard file system backup procedures.
+
+The most convenient way to do backup and restore is to use the `ncs-backup` command. In that case, the following procedure is used.
+
+### Take a Backup <a href="#d5e7884" id="d5e7884"></a>
+
+NSO Backup backs up the database (CDB) files, state files, config files, and rollback files from the installation directory. To take a complete backup (for disaster recovery), use:
+
+```
+# ncs-backup
+```
+
+The backup will be stored in the "run directory", by default `/var/opt/ncs`, as `/var/opt/ncs/backups/ncs-VERSION@DATETIME.backup`.
+
+For more information on backup, refer to the [ncs-backup(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-1/man.1.ncs-backup) in Manual Pages.
+
+### Restore a Backup <a href="#d5e7896" id="d5e7896"></a>
+
+NSO Restore is performed if you would like to switch back to a previous good state or restore a backup.
+
+It is always advisable to stop NSO before performing a restore.
+
+1.  First stop NSO if NSO is not stopped yet.
+
+    ```
+    /etc/init.d/ncs stop
+    ```
+
+
+2.  Restore the backup.
+
+    ```
+    ncs-backup --restore
+    ```
+
+    \
+    Select the backup to be restored from the available list of backups. The configuration and database with run-time state files are restored in `/etc/ncs` and `/var/opt/ncs`.
+3.  Start NSO.
+
+    ```
+    /etc/init.d/ncs start
+    ```
+
+## Rollbacks <a href="#ug.sys_mgmt.tshoot" id="ug.sys_mgmt.tshoot"></a>
+
+NSO supports creating rollback files during the commit of a transaction that allows for rolling back the introduced changes. Rollbacks do not come without a cost and should be disabled if the functionality is not going to be used. Enabling rollbacks impacts both the time it takes to commit a change and requires sufficient storage on disk.
+
+Rollback files contain a set of headers and the data required to restore the changes that were made when the rollback was created. One of the header fields includes a unique rollback ID that can be used to address the rollback file independent of the rollback numbering format.
+
+The use of rollbacks from the supported APIs and the CLI is documented in the documentation for the given API.
+
+### `ncs.conf` Config for Rollback <a href="#d5e5666" id="d5e5666"></a>
+
+As described [earlier](user-management.md), NSO is configured through the configuration file, `ncs.conf`. In that file, we have the following items related to rollbacks:
+
+* `/ncs-config/rollback/enabled`: If set to `true`, then a rollback file will be created whenever the running configuration is modified.
+* `/ncs-config/rollback/directory`: Location where rollback files will be created.
+* `/ncs-config/rollback/history-size`: The number of old rollback files to save.
 
 ## Troubleshooting <a href="#ug.sys_mgmt.tshoot" id="ug.sys_mgmt.tshoot"></a>
 
