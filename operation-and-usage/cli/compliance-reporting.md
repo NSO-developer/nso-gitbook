@@ -15,7 +15,7 @@ Compliance reporting can be configured to check the current situation, check his
 
 The reports can be created in either plain text, HTML, or DocBook XML format. In addition, the data can also be exported to a SQLite database file. The DocBook XML format allows you to use the report in further post-processing, such as creating a PDF using Apache FOP and your own custom styling.
 
-Reports can be generated using either the CLI or Web UI. The suggested and favored way of generating compliance reports is via the Web UI, which provides a convenient way of creating, configuring, and consuming compliance reports. In the NSO Web UI, compliance reporting options are accessible from the **Tools** menu, see [Web User Interface](../webui/) for more information. The CLI options are described in the sections below.
+Reports can be generated using either the CLI or Web UI. The suggested and favored way of generating compliance reports is via the Web UI, which provides a convenient way of creating, configuring, and consuming compliance reports. In the NSO Web UI, compliance reporting options are accessible from the **Tools** menu (see [Web User Interface](../webui/) for more information). The CLI options are described in the sections below.
 
 ## Creating Compliance Report Definitions <a href="#d5e4797" id="d5e4797"></a>
 
