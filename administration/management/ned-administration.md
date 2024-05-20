@@ -4,7 +4,7 @@ description: Learn about Cisco-provided NEDs and how to manage them.
 
 # NED Administration
 
-This section provides necessary information on NED (Network Element Driver) administration with a focus on Cisco-provided NEDs. If you're planning to use NEDs not provided by Cisco, refer to the [NED Development](../../development/development/developing-neds.md) to build your own NED packages.
+This section provides necessary information on NED (Network Element Driver) administration with a focus on Cisco-provided NEDs. If you're planning to use NEDs not provided by Cisco, refer to the [NED Development](../../development/development/developing-neds/) to build your own NED packages.
 
 NED represents a key NSO component that makes it possible for the NSO core system to communicate southbound with network devices in most deployments. NSO has a built-in client that can be used to communicate southbound with NETCONF-enabled devices. Many network devices are, however, not NETCONF-enabled, and there exist a wide variety of methods and protocols for configuring network devices, ranging from simple CLI to HTTP/REST-enabled devices. For such cases, it is necessary to use a NED to allow NSO communicate southbound with the network device.
 

@@ -292,7 +292,7 @@ Lots of additional information can be found in the YANG module itself. The manda
 
 #### **NED**
 
-A Network Element Driver component is used southbound of NSO to communicate with managed devices (described in [Network Element Drivers (NEDs](../development/developing-neds.md)). The easiest NED to understand is the NETCONF NED which is built into NSO.
+A Network Element Driver component is used southbound of NSO to communicate with managed devices (described in [Network Element Drivers (NEDs](../development/developing-neds/)). The easiest NED to understand is the NETCONF NED which is built into NSO.
 
 There are four different types of NEDs:
 

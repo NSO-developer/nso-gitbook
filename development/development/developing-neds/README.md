@@ -8,7 +8,7 @@ description: Develop your own NEDs to integrate unsupported devices in your netw
 
 A Network Element Driver (NED) represents a key NSO component that allows NSO to communicate southbound with network devices. The device YANG models contained in the Network Element Drivers (NEDs) enable NSO to store device configurations in the CDB and expose a uniform API to the network for automation. The YANG models can cover only a tiny subset of the device or all of the device. Typically, the YANG models contained in a NED represent the subset of the device's configuration data, state data, Remote Procedure Calls, and notifications to be managed using NSO.
 
-This guide provides information on NED development, focusing on building your own NED package. For a general introduction to NEDs, Cisco-provided NEDs, and NED administration, refer to the [NED Administration](../../administration/management/ned-administration.md) in Administration.
+This guide provides information on NED development, focusing on building your own NED package. For a general introduction to NEDs, Cisco-provided NEDs, and NED administration, refer to the [NED Administration](../../../administration/management/ned-administration.md) in Administration.
 
 ## Types of NED Packages <a href="#d5e8952" id="d5e8952"></a>
 
@@ -76,7 +76,7 @@ Creating and installing a NETCONF NED consists of the following steps:
 * Install the NED with NSO
 * Configure the device connection and notification events in NSO
 
-Creating a NETCONF NED that uses the built-in NSO NETCONF client can be a pleasant experience with devices and nodes that strictly follow the specification for the NETCONF protocol and YANG mappings to NETCONF. If the device does not, the smooth sailing will quickly come to a halt, and you are recommended to visit the [NED Administration](../../administration/management/ned-administration.md) in Administration and get help from the Cisco NSO NED team who can diagnose, develop and maintain NEDs that bypass misbehaving devices special quirks.
+Creating a NETCONF NED that uses the built-in NSO NETCONF client can be a pleasant experience with devices and nodes that strictly follow the specification for the NETCONF protocol and YANG mappings to NETCONF. If the device does not, the smooth sailing will quickly come to a halt, and you are recommended to visit the [NED Administration](../../../administration/management/ned-administration.md) in Administration and get help from the Cisco NSO NED team who can diagnose, develop and maintain NEDs that bypass misbehaving devices special quirks.
 
 ### Tools for NETCONF NED Development <a href="#d5e9069" id="d5e9069"></a>
 
@@ -595,7 +595,7 @@ $ make clean all
 YANG data models that do not compile due to YANG RFC compliance issues can either be updated in the cache folder directly or in the device and re-uploaded again through `get-schema` operation by removing them from the cache folder and repeating the previous process to rebuild the NED. The YANG modules can be deselected from the build if they are not needed for your use case.
 
 {% hint style="info" %}
-Having device vendors update their YANG models to comply with the NETCONF and YANG standards can be time-consuming. Visit the [NED Administration](../../administration/management/ned-administration.md) and get help from the Cisco NSO NED team, who can diagnose, develop and maintain NEDs that bypass misbehaving device's special quirks.
+Having device vendors update their YANG models to comply with the NETCONF and YANG standards can be time-consuming. Visit the [NED Administration](../../../administration/management/ned-administration.md) and get help from the Cisco NSO NED team, who can diagnose, develop and maintain NEDs that bypass misbehaving device's special quirks.
 {% endhint %}
 
 #### **Export the NED package and Load**
@@ -4716,7 +4716,7 @@ device-type snmp version v3 snmp-authgroup my-authgroup
 state admin-state unlocked
 ```
 
-To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
 
 ```
 admin@host# show running-config devices authgroups snmp-group my-authgroup

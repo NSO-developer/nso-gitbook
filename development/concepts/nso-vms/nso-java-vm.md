@@ -115,7 +115,7 @@ For instance, the `DpMuxManager` controls all callback implementations (services
 
 ## The NED Component Type <a href="#d5e1240" id="d5e1240"></a>
 
-NEDs can be of type `netconf`, `snmp`, `cli`_,_ or `generic`. Only the `cli` and `generic` types are relevant for the NSO Java VM because these are the ones that have a Java implementation. Normally these NED components come in self-contained and prefabricated NSO packages for some equipment or class of equipment. It is however possible to tailor make NEDs for any protocol. For more information on this see [Network Element Drivers (NEDs)](../../development/developing-neds.md) and [Writing a data model for a CLI NED](../../development/developing-neds.md#writing-a-data-model-for-a-cli-ned) in NED Development
+NEDs can be of type `netconf`, `snmp`, `cli`_,_ or `generic`. Only the `cli` and `generic` types are relevant for the NSO Java VM because these are the ones that have a Java implementation. Normally these NED components come in self-contained and prefabricated NSO packages for some equipment or class of equipment. It is however possible to tailor make NEDs for any protocol. For more information on this see [Network Element Drivers (NEDs)](../../development/developing-neds/) and [Writing a data model for a CLI NED](../../development/developing-neds/#writing-a-data-model-for-a-cli-ned) in NED Development
 
 ### The Callback Component Type <a href="#d5e1251" id="d5e1251"></a>
 
