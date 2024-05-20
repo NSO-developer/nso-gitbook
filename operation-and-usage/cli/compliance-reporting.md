@@ -11,11 +11,13 @@ When the network configuration is broken, there is a need to gather information 
 
 What defines a correctly configured network? Where is the authoritative configuration kept? Naturally, NSO, with the configurations stored in CDB, is the authority. Checking the live devices against the NSO-stored device configuration is a fundamental part of compliance reporting. Compliance reporting can also be based on one or a number of stored templates which the live devices are compared against. The compliance reports can also be a combination of both approaches.
 
-Compliance reporting can be configured to check the current situation, check historic events, or both. To assemble historic events, rollback files are used. Therefore this functionality must be enabled in NSO before report execution, otherwise, the history view cannot be presented.
+Compliance reporting can be configured to check the current situation, check historical events, or both. To assemble historical events, rollback files are used. Therefore this functionality must be enabled in NSO before report execution, otherwise, the history view cannot be presented.
 
 The reports can be created in either plain text, HTML, or DocBook XML format. In addition, the data can also be exported to a SQLite database file. The DocBook XML format allows you to use the report in further post-processing, such as creating a PDF using Apache FOP and your own custom styling.
 
+{% hint style="info" %}
 Reports can be generated using either the CLI or Web UI. The suggested and favored way of generating compliance reports is via the Web UI, which provides a convenient way of creating, configuring, and consuming compliance reports. In the NSO Web UI, compliance reporting options are accessible from the **Tools** menu (see [Web User Interface](../webui/) for more information). The CLI options are described in the sections below.
+{% endhint %}
 
 ## Creating Compliance Report Definitions <a href="#d5e4797" id="d5e4797"></a>
 
