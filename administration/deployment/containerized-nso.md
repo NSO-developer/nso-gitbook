@@ -464,14 +464,14 @@ You can also use the `docker exec -it cisco-nso ncs_cli -u admin` command to acc
 
 ### Upgrading NSO using Docker CLI <a href="#d5e8715" id="d5e8715"></a>
 
-This example describes how to upgrade your NSO to run a newer NSO version in the container. The overall upgrade process is outlined in the steps below. In the example below, NSO is to be upgraded from version 6.1 to 6.2.
+This example describes how to upgrade your NSO to run a newer NSO version in the container. The overall upgrade process is outlined in the steps below. In the example below, NSO is to be upgraded from version 6.3 to 6.4.
 
 To upgrade your NSO version:
 
 1.  Start a container with the `docker run` command. In the example below, it mounts the `/nso` directory in the container to the `NSO-vol` named volume to persist the data. Another option is using a bind mount of the directory on the host machine. At this point, the `/cdb` directory is empty.
 
     ```
-    docker run -itd -—name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.1
+    docker run -itd -—name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.3
     ```
 2.  Perform a backup, either by running the `docker exec` command (make sure that the backup is placed somewhere we have mounted) or by creating a tarball of `/data/nso` on the host machine.
 
@@ -483,7 +483,7 @@ To upgrade your NSO version:
     ```
     docker exec -it cisco-nso ncs --stop 
     ```
-4.  Remove the old NSO
+4.  Remove the old NSO.
 
     ```
     docker rm -f cisco-nso   
@@ -491,10 +491,10 @@ To upgrade your NSO version:
 5.  Start a new container and mount the `/nso` directory in the container to the `NSO-vol` named volume. This time the `/cdb` folder is not empty, so instead of starting a fresh NSO, an upgrade will be performed.
 
     ```
-    docker run -itd --name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.2   
+    docker run -itd --name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.4   
     ```
 
-At this point, you only have one container that is running the desired version 6.2 and you do not need to uninstall the old NSO.
+At this point, you only have one container that is running the desired version 6.4 and you do not need to uninstall the old NSO.
 
 ### Running the NSO Images using Docker Compose <a href="#sec.example-docker-compose" id="sec.example-docker-compose"></a>
 
