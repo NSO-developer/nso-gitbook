@@ -1435,7 +1435,7 @@ In the example above (Excerpt from RFC 8341 Appendix A.4), the path is namespace
 
 NSO's AAA subsystem will cache the AAA information in order to speed up the authorization process. This cache must be updated whenever there is a change to the AAA information. The mechanism for this update depends on how the AAA information is stored, as described in the following two sections.
 
-## Populating AAA using CDB <a href="#d5e6802" id="d5e6802"></a>
+### Populating AAA using CDB <a href="#d5e6802" id="d5e6802"></a>
 
 To start NSO, the data models for AAA must be loaded. The defaults in the case that no actual data is loaded for these models allow all read and exec access, while write access is denied. Access may still be further restricted by the NACM extensions, though - e.g. the `/nacm` container has `nacm:default-deny-all`, meaning that not even read access is allowed if no data is loaded.
 
@@ -1449,7 +1449,7 @@ The default `aaa_init.xml` file provided with the NSO system installation must n
 
 Normally the AAA data will be stored as configuration in CDB. This allows for changes to be made through NSO's transaction-based configuration management. In this case, the AAA cache will be updated automatically when changes are made to the AAA data. If changing the AAA data via NSO's configuration management is not possible or desirable, it is alternatively possible to use the CDB operational data store for AAA data. In this case, the AAA cache can be updated either explicitly e.g. by using the `maapi_aaa_reload()` function, see the [confd\_lib\_maapi(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd\_lib\_maapi) in the Manual Pages manual page, or by triggering a subscription notification by using the subscription lock when updating the CDB operational data store, see [Using CDB](../../development/concepts/using-cdb.md) in Development.
 
-## Hiding the AAA Tree <a href="#d5e6817" id="d5e6817"></a>
+### Hiding the AAA Tree <a href="#d5e6817" id="d5e6817"></a>
 
 Some applications may not want to expose the AAA data to end users in the CLI or the Web UI. Two reasonable approaches exist here and both rely on the `tailf:export` statement. If a module has `tailf:export none` it will be invisible to all agents. We can then either use a transform whereby we define another AAA model and write a transform program that maps our AAA data to the data that must exist in `tailf-aaa.yang` and `ietf-netconf-acm.yang`. This way we can choose to export and and expose an entirely different AAA model.
 
