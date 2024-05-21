@@ -1184,7 +1184,7 @@ module tailf-hcc {
 
 ## Setup with an External Load Balancer <a href="#ug.ha.lb" id="ug.ha.lb"></a>
 
-As an alternative to the HCC package, NSO built-in HA can also be used in conjunction with a load balancer device in a reverse proxy configuration. Instead of managing the virtual IP address directly as HCC does, this setup relies on an external load balancer to route traffic to the currently active primary node.
+As an alternative to the HCC package, NSO built-in HA, either rule-based or HA Raft, can also be used in conjunction with a load balancer device in a reverse proxy configuration. Instead of managing the virtual IP address directly as HCC does, this setup relies on an external load balancer to route traffic to the currently active primary node.
 
 <figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_admin_guide/pics/ha-load-balancer.png#developer.cisco.com" alt="" width="563"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure>
 
