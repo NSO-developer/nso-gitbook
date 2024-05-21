@@ -110,7 +110,7 @@ Smart Account user management is available in the **Administration** section of 
 
 ### Validation and Troubleshooting <a href="#d5e2975" id="d5e2975"></a>
 
-#### Available `show` Commands <a href="#d5e2977" id="d5e2977"></a>
+#### Available `show` and `debug` Commands <a href="#d5e2977" id="d5e2977"></a>
 
 * `show license all`: Displays all information.
 * `show license status`: Displays status information.
