@@ -1,5 +1,5 @@
 ---
-description: Operate and interact with NSO using the Web UI.
+description: Operate NSO using the Web UI.
 ---
 
 # Web UI
