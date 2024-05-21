@@ -41,7 +41,7 @@ To filter the service list:
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
-You can apply actions on an existing service from the **Service manager** view or the **Configuration editor**.&#x20;
+You can apply actions on a service from the **Service manager** view or the **Configuration editor**.&#x20;
 
 Start by selecting a service point to populate all services under it, and then follow the instructions below.
 
