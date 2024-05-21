@@ -390,7 +390,7 @@ Trace ID is propagated downwards in LSA setups and is fully integrated with comm
 
 Trace ID can be passed to NSO over NETCONF, RESTCONF, JSON-RPC, or CLI as a commit parameter.
 
-If Trace ID is not given as a commit parameter, NSO will generate one if the feature is enabled. This generated Trace ID will be on the form UUID version 4.
+If Trace ID is not given as a commit parameter, NSO will generate one. The generated Trace ID is an array of 16 random bytes, encoded as a 32-character hexadecimal string, in accordance with [Trace ID](https://www.w3.org/TR/trace-context/#trace-id).
 
 For RESTCONF requests, this generated Trace ID will be communicated back to the requesting client as an HTTP header called `X-Cisco-NSO-Trace-ID`. The `trace-id` query parameter can also be used with RPCs and actions to relay a trace-id from northbound requests.
 
