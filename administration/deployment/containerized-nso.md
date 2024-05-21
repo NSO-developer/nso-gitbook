@@ -24,7 +24,16 @@ Running NSO in a container offers several benefits that you would generally expe
 
 ## Overview of NSO Images <a href="#d5e8294" id="d5e8294"></a>
 
-Cisco provides the following two NSO images based on Red Hat UBI. The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
+Cisco provides the following two NSO images based on Red Hat UBI.&#x20;
+
+* [Production Image](containerized-nso.md#production-image)
+* [Development Image](containerized-nso.md#development-image)
+
+<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td><p>Development Host </p><p><img src="../../.gitbook/assets/image (41).png" alt="" data-size="line"> </p></td><td><img src="../../.gitbook/assets/image (31).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (32).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (33).png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td><p>Development Image </p><p><img src="../../.gitbook/assets/image (40).png" alt="" data-size="line"></p></td><td><img src="../../.gitbook/assets/image (34).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (35).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (36).png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td><p>Production Image </p><p><img src="../../.gitbook/assets/image (30).png" alt="" data-size="line"></p></td><td><img src="../../.gitbook/assets/image (37).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (38).png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/image (39).png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
+
+{% hint style="info" %}
+The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
+{% endhint %}
 
 ### Production Image
 
@@ -54,11 +63,11 @@ The container provides the necessary environment to build custom packages. The D
 
 To fetch and extract NSO images:
 
-1. On Cisco's official [Software Download](https://software.cisco.com/download/home) site, search for "Network Services Orchestrator". Select the relevant NSO version in the drop-down list, e.g., "Crosswork Network Services Orchestrator 6"**,** and click "Network Services Orchestrator Software". Locate the binary, which is delivered as a signed package (e.g., `nso-6.2.container-image-prod.linux.x86_64.signed.bin`).
+1. On Cisco's official [Software Download](https://software.cisco.com/download/home) site, search for "Network Services Orchestrator". Select the relevant NSO version in the drop-down list, e.g., "Crosswork Network Services Orchestrator 6"**,** and click "Network Services Orchestrator Software". Locate the binary, which is delivered as a signed package (e.g., `nso-6.4.container-image-prod.linux.x86_64.signed.bin`).
 2.  Extract the image and other files from the signed package, for example:
 
     ```
-    sh nso-6.2.container-image-prod.linux.x86_64.signed.bin
+    sh nso-6.4.container-image-prod.linux.x86_64.signed.bin
     ```
 
 {% hint style="info" %}
@@ -68,16 +77,16 @@ The signed archive file name has the following pattern:&#x20;
 
 `nso-VERSION.container-image-PROD_DEV.linux.ARCH.signed.bin`, where:
 
-* `VERSION` denotes the image's NSO version
-* `PROD_DEV` denotes the type of the container (i.e., `prod` for Production, and `dev` for Development)
-* `ARCH` is the CPU architecture (only x86\_64 is supported at this time)
+* `VERSION` denotes the image's NSO version.
+* `PROD_DEV` denotes the type of the container (i.e., `prod` for Production, and `dev` for Development).
+* `ARCH` is the CPU architecture.
 {% endhint %}
 
 ## System Requirements <a href="#sec.system-reqs" id="sec.system-reqs"></a>
 
 To run the images, make sure that your system meets the following requirements:
 
-* A system running Linux/x86\_64 (recommended) or macOS on x86\_64 or Apple silicon (arm64) with Linux/amd64 as the Docker platform.&#x20;
+* A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
 * A container platform, such as Docker. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may, however, use another container runtime of your choice. Note, however, that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
 
 {% hint style="info" %}
@@ -139,7 +148,7 @@ Migrate:
     ```
     docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
     --name cisco-nso -e EXTRA_ARGS=--with-package-reload -e ADMIN_USERNAME=admin \
-    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.2
+    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
     ```
 
 Finalize:
@@ -198,12 +207,19 @@ The backup behavior of running NSO in vs. outside the container is largely the s
 
 **Take a Backup**
 
+Let's assume we start a production image container using:
+
+```
+docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
+```
+
 To take a backup:
 
 *   Run the `ncs-backup` command. The backup file is written to `/nso/run/backups`.
 
     ```
     docker exec -it cisco-nso ncs-backup
+    INFO  Backup /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz created successfully
     ```
 
 **Restore a Backup**
@@ -212,19 +228,29 @@ To restore a backup, NSO must not be running. As you likely only have access to 
 
 To restore a backup:
 
-1.  Shut down the NSO container and start a new one with the same persistent shared volume mounted but with a different command. Instead of running the `/run-nso.sh`, which is the normal command of the NSO container, run a command that keeps the container alive but also does not start NSO, for example `tail -f /dev/null`. A full Docker command would look like this:
+1.  Shut down the NSO container:&#x20;
 
     ```
-    docker run -itd --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log \
-    cisco-nso-prod:6.2 tail -f /dev/null
+    docker stop cisco-nso
+    docker rm cisco-nso
     ```
-2.  Run the `ncs-backup --restore` command.
+2.  Run the `ncs-backup --restore` command. Start a new container with the same persistent shared volumes mounted but with a different command. Instead of running the `/run-nso.sh`, which is the normal command of the NSO container, run the `restore` command.
 
     ```
-    docker exec -it cisco-nso ncs-backup --restore \
-    /nso/run/backups/ncs-6.2.2@2024-02-26T19:42:57.backup.gz
+    docker run -it --rm --volumes-from cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log \
+    --entrypoint ncs-backup cisco-nso-prod:6.4 \
+    --restore /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz
+
+    Restore /etc/ncs from the backup (y/n)? y
+    Restore /nso/run from the backup (y/n)? y
+    INFO  Restore completed successfully
     ```
-3. Restoring an NSO backup should move the current run directory (`/nso/run` to `/nso/run.old`) and restore the run directory from the backup to the main run directory (`/nso/run`). After this is done, shut down your temporary container and start the regular NSO container again as usual.
+3.  Restoring an NSO backup should move the current run directory (`/nso/run` to `/nso/run.old`) and restore the run directory from the backup to the main run directory (`/nso/run`). After this is done, start the regular NSO container again as usual.\
+
+
+    ```
+    docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
+    ```
 
 ### SSH Host Key <a href="#d5e8566" id="d5e8566"></a>
 
@@ -278,6 +304,48 @@ By default, NSO writes a system dump to the NSO run-time directory, default `NCS
 The `docker run` command `--memory="[ram]"` and `--memory-swap="[ram+swap]"` option settings can be used to limit Docker container memory usage. The default setting is max, i.e., all of the host memory is used. Suppose the Docker container reaches a memory limit set by the --memory option. In that case, the default Docker setting is to have Docker terminate the container, no NSO system dump will be generated, and the debug information will be lost.
 {% endhint %}
 
+### Startup Arguments
+
+The `/nso-run.sh` script that starts NSO is executed as an `ENTRYPOINT` instruction and the `CMD` instruction can be used to provide arguments to the entrypoint-script. Another alternative is to use the `EXTRA_ARGS` variable to provide arguments. The `/nso-run.sh` script will first check the `EXTRA_ARGS` variable before the `CMD` instruction.
+
+An example using `docker run` with the `CMD` instruction:
+
+```
+docker run --name nso -itd cisco-nso-prod:6.4 --with-package-reload \
+--ignore-initial-validation
+```
+
+With the `EXTRA_ARGS` variable:
+
+```
+docker run --name nso \
+-e EXTRA_ARGS='--with-package-reload --ignore-initial-validation' \
+-itd cisco-nso-prod:6.4
+```
+
+An example using a Docker Compose file, `compose.yaml`, with the `CMD` instruction:
+
+```
+services:
+    nso:
+        image: cisco-nso-prod:6.4
+        container_name: nso
+        command:
+            - --with-package-reload
+            - --ignore-initial-validation
+```
+
+With the `EXTRA_ARGS` variable:
+
+```
+services:
+    nso:
+        image: cisco-nso-prod:6.4
+        container_name: nso
+        environment:
+            - EXTRA_ARGS=--with-package-reload --ignore-initial-validation
+```
+
 ## Examples <a href="#d5e8625" id="d5e8625"></a>
 
 This section provides examples to exhibit the use of NSO images.
@@ -298,7 +366,7 @@ Follow the steps below to run the Production Image using Docker CLI:
 2. Next, load the image and run it. Navigate to the directory where you extracted the base image and load it. This will restore the image and its tag:
 
 ```
-docker load -i nso-6.2.container-image-prod.linux.x86_64.tar.gz
+docker load -i nso-6.4.container-image-prod.linux.x86_64.tar.gz
 ```
 
 3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin\_guide.containers.ncs).
@@ -310,7 +378,7 @@ docker run -itd --name cisco-nso \
 --net=host \
 -e ADMIN_USERNAME=admin\
 -e ADMIN_PASSWORD=admin\
-cisco-nso-prod:6.2
+cisco-nso-prod:6.4
 ```
 
 {% hint style="warning" %}
@@ -459,7 +527,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
 
                 services:
                   NSO-1:
-                    image: cisco-nso-prod:6.2
+                    image: cisco-nso-prod:6.4
                     container_name: nso1
                     profiles:
                       - prod
@@ -490,7 +558,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                       timeout: 10s
 
                   BUILD-NSO-PKGS:
-                    image: cisco-nso-dev:6.2
+                    image: cisco-nso-dev:6.4
                     container_name: build-nso-pkgs
                     network_mode: none
                     profiles:
@@ -501,7 +569,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                         target: /nso/run/packages
 
                   EXAMPLE:
-                    image: cisco-nso-prod:6.2
+                    image: cisco-nso-prod:6.4
                     container_name: ex-netsim
                     profiles:
                       - example
@@ -513,7 +581,8 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                       retries: 5
                       start_period: 10s
                       timeout: 10s
-                    command:  bash -c 'rm -rf /netsim
+                      entrypoint: bash
+                    command: -c 'rm -rf /netsim
                         && mkdir /netsim
                         && ncs-netsim --dir /netsim create-network /network-element 1 ex
                         && PYTHONPATH=/opt/ncs/current/src/ncs/pyapi ncs-netsim --dir
@@ -656,9 +725,9 @@ This example describes how to upgrade NSO when using Docker Compose.
 
 #### **Upgrade to a New Minor or Major Version**
 
-To upgrade to a new minor or major version, for example, from 6.2.1 to 6.3, follow the steps below:
+To upgrade to a new minor or major version, for example, from 6.3 to 6.4, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.3.
+1. Change the image version in the Compose file to the new version, i.e., 6.4.
 2. Run the `docker compose up --profile dev -d` command to start up the Development container with the new image.
 3.  Compile the packages using the Development container.
 
@@ -668,11 +737,11 @@ To upgrade to a new minor or major version, for example, from 6.2.1 to 6.3, foll
     ```
 4. Run the `docker compose up --profile prod --wait` command to start the Production container with the new packages that were just compiled.
 
-#### **Upgrade to a New Patch Version**
+#### **Upgrade to a New Maintenance Version**
 
-To upgrade to a new patch version, for example, to 6.2.1, follow the steps below:
+To upgrade to a new maintenance release version, for example, to 6.4.1, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.2.1.
+1. Change the image version in the Compose file to the new version, i.e., 6.4.1.
 2.  Run the `docker compose up --profile prod --wait` command.
 
     Upgrading in this way does not require a recompile. Docker detects changes and upgrades the image in the container to the new version.
