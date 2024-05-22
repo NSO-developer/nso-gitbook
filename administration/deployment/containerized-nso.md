@@ -184,7 +184,7 @@ An admin user can be created on startup by the run script in the container. Thre
 As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMIN_SSHKEY` need to be set in order to create an admin user. For example:
 
 ```
-docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.2
+docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
 ```
 
 This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
