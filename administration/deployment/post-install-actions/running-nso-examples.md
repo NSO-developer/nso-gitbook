@@ -8,9 +8,11 @@ description: Run and interact with practice examples provided with the NSO insta
 Applies to Local Install.&#x20;
 {% endhint %}
 
-The NSO installer comes with practical examples that enrich your learning experience. The examples are pivotal for understanding the diverse functionalities and capabilities of NSO. Located in `$NCS_DIR/examples.ncs`, the examples serve as a hands-on guide to various NSO aspects.&#x20;
+This section provides an overview of how to run the examples provided with the NSO installer. By working through the examples, the reader should get a good overview of the various aspects of NSO and hands-on experience from interacting with it.
 
-Inside the examples directory, a `README` file also exists that provides instructions on how to use each example effectively. It's designed to help you navigate the examples with ease, ensuring that you make the most out of your learning experience.
+{% hint style="info" %}
+This section references the examples located in `$NCS_DIR/examples.ncs`. The examples all have `README` files that include instructions related to the example.
+{% endhint %}
 
 ## General Instructions <a href="#d5e1220" id="d5e1220"></a>
 
