@@ -16,7 +16,7 @@ This release includes major enhancements in the following areas:
 
 <summary><strong>Web UI Improvements</strong></summary>
 
-The web-based management interface has been improved to streamline user experience with a modernized look and feel and usability improvements in certain areas, such as device management.&#x20;
+The web-based management interface has been improved to streamline user experience with a modernized look and feel. Usability improvements have been made in certain areas, such as device management.&#x20;
 
 Documentation Updates:
 
