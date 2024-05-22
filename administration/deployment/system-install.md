@@ -25,7 +25,7 @@ To install NSO:
 
 Primary requirements to do a System Install include:
 
-* Linux for `x86_64` architecture is required for production. Linux or macOS Darwin for `x86_64` or macOS Darwin for `arm64` is required for development purposes.
+* A system running Linux or macOS on either the x86\_64 or ARM64 architecture for development. Linux for production.
 * GNU libc 2.24 or higher.
 * Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
@@ -134,6 +134,10 @@ To unpack the installer:
     -rw-r--r--  1 user  staff   1.4K Nov 29 06:05 tailf.cer
     ```
 
+{% hint style="info" %}
+There may also be additional files present.
+{% endhint %}
+
 <details>
 
 <summary>Description of Unpacked Files</summary>
@@ -145,6 +149,17 @@ The following contents are unpacked:
 * `tailf.cer`: An enclosed Cisco signed x.509 end-entity certificate containing the public key that is used to verify the signature.
 * `README.signature`: File with further details on the unpacked content and steps on how to run the signature verification program. To manually verify the signature, refer to the steps in this file.
 * `cisco_x509_verify_release.py`: Python program that can be used to verify the 3-tier x.509 certificate chain and signature.
+* Multiple `.tar.gz` files: Bundled packages, extending the base NSO functionality.
+* Multiple `.tar.gz.signature` files: Digital signatures for the bundled packages.
+
+Since NSO version 6.3, a few additional NSO packages are included. They contain the following platform tools:
+
+* HCC
+* Observability Exporter
+* Phased Provisioning
+* Resource Manager
+
+For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://developer.cisco.com/docs/nso).
 
 **NED Packages**
 
@@ -154,7 +169,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in HTML and PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-1) in Manual Pages.
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1) in Manual Pages.&#x20;
 
 Following is a list of a few of the installed manual pages:
 
