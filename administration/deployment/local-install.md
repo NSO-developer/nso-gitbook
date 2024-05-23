@@ -27,7 +27,7 @@ To install NSO:
 
 Primary requirements to do a Local Install include:
 
-* A system running Linux or macOS on either the x86\_64 or ARM64 architecture for development.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development.
 * GNU libc 2.24 or higher.
 * Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
