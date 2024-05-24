@@ -651,7 +651,7 @@ Follow the steps below to run the images using Docker Compose:
     ```
     docker compose --profile dev up -d
     ```
-2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Development container. The easiest way to do this is by using the **docker exec** command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
+2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Development container. The easiest way to do this is by using the `docker exec` command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
 
     ```
     docker exec -it build-nso-pkgs sh -c 'cp -r ${NCS_DIR}/examples.ncs/development-guide \
