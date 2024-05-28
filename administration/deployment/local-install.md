@@ -29,7 +29,7 @@ Primary requirements to do a Local Install include:
 
 * Linux for `x86_64` architecture is required for production. Linux or macOS Darwin for `x86_64` or macOS Darwin for `arm64` is required for development purposes.
 * GNU libc 2.24 or higher.
-* Java JRE 8 (version 1.8) or higher. Used by Cisco Smart Licensing.
+* Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
   * `tar` command. Unpack the installer.
   * `gzip` command. Unpack the installer.
@@ -47,9 +47,9 @@ Primary requirements to do a Local Install include:
 
 <summary>Additional Requirements</summary>
 
-Additional requirements to, for example, build and run NSO examples, and services, include:
+Additional requirements to, for example, build and run NSO examples/services, include:
 
-* Java JDK 8 or higher.
+* Java JDK 17 or higher.
 * Ant 1.9.3 or higher.
 * Python 3.7 or higher.
 * Python Setuptools is required to build the Python API.
@@ -330,7 +330,7 @@ Since the Runtime Directory is self-contained, this is also the way to move betw
 
 ### Step 7 - Generate License Registration Token <a href="#li.generate.license.token" id="li.generate.license.token"></a>
 
-To conclude the NSO installation, a license registration token must be created using a (CSSM) account. This is because NSO uses Cisco Smart Licensing, as described in the [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md) to make it easy to deploy and manage NSO license entitlements. Login credentials to the [Cisco Smart Software Manager](https://www.cisco.com/c/en/us/buy/smart-accounts/software-manager.html) (CSSM) account are provided by your Cisco contact and detailed instructions on how to create a registration token can be found in the Cisco Smart Licensing. General licensing information covering licensing models, how licensing works, usage compliance, etc., is covered in the [Cisco Software Licensing Guide](https://www.cisco.com/c/en/us/buy/licensing/licensing-guide.html).
+To conclude the NSO installation, a license registration token must be created using a (CSSM) account. This is because NSO uses Cisco Smart Licensing, as described in the [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md) to make it easy to deploy and manage NSO license entitlements. Login credentials to the [Cisco Smart Software Manager](https://www.cisco.com/c/en/us/buy/smart-accounts/software-manager.html) (CSSM) account are provided by your Cisco contact and detailed instructions on how to [create a registration token](../management/system-management/cisco-smart-licensing.md#d5e2927) can be found in the Cisco Smart Licensing. General licensing information covering licensing models, how licensing works, usage compliance, etc., is covered in the [Cisco Software Licensing Guide](https://www.cisco.com/c/en/us/buy/licensing/licensing-guide.html).
 
 To generate a license registration token:
 

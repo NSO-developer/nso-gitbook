@@ -148,15 +148,8 @@ The service configuration is implemented in YANG by a `key-auth` list where the 
 For the nano service YANG part, an NSO YANG nano service behavior tree extension that references a plan outline extension implements the above steps for setting up SSH public key authentication with a network element:
 
 ```
-  ncs:plan-outline distkey-plan {
+    ncs:plan-outline distkey-plan {
     description "Plan for distributing a public key";
-    ncs:self-as-service-status; // Makes the self component show when all
-                                // components have reached the init and ready
-                                // states
-    ncs:component-type "ncs:self" {
-      ncs:state "ncs:init";
-      ncs:state "ncs:ready";
-    }
     ncs:component-type "dk:ne" {
       ncs:state "ncs:init";
       ncs:state "dk:generated" {
@@ -211,10 +204,6 @@ For the nano service YANG part, an NSO YANG nano service behavior tree extension
       // The unique component name
       ncs:variable "NAME" {
         ncs:value-expr "concat(current()/ne-name, '-', current()/local-user)";
-      }
-      // Self component is here used to keep track of the other components
-      ncs:create-component "'self'" {
-        ncs:component-type-ref "ncs:self";
       }
       // Component for setting up public key authentication
       ncs:create-component "$NAME" {

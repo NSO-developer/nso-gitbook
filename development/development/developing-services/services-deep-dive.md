@@ -7,7 +7,7 @@ description: Deep dive into service implementation.
 {% hint style="warning" %}
 **Before you Proceed**
 
-This section discusses the implementation details of services in NSO. The reader should already be familiar with the concepts described in the introductory sections and [Implementing Services](developing-nso-services.md).
+This section discusses the implementation details of services in NSO. The reader should already be familiar with the concepts described in the introductory sections and [Implementing Services](implementing-services.md).
 
 For an introduction to services, see [Develop a Simple Service](creating-a-service.md) instead.
 {% endhint %}
@@ -421,11 +421,11 @@ You may also obtain some useful information by using the `debug service` commit 
 
 * **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features. \
   \
-  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](developing-nso-services.md#ch\_services.oper)) populated in a pre-modification callback.
+  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
 *   **Never overwrite service inputs**: Service input parameters capture client intent and a service should never change its own configuration. Such behavior not only muddles the intent but is also temporary when done in the create callback, as the changes are reverted on the next invocation.
 
     \
-    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](developing-nso-services.md#ch\_services.oper)) populated in a pre-modification callback.
+    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
 * **No service ordering in a transaction**: NSO is a transactional system and as such does not have the concept of order inside a single transaction. That means NSO does not guarantee any specific order in which the service mapping code executes if the same transaction touches multiple service instances. Likewise, your code should not make any assumptions about running before or after other service code.
 * **Return value of create callback**: The create callback is not the exclusive user of the opaque object; the object can be chained in several different callbacks, such as pre- and post-modification. Therefore, returning `None/null` from create callback is not a good practice. Instead, always return the opaque object even if the create callback does not use it.
 *   **Avoid delete in service create**: Unlike creation, deleting configuration does not support reference counting, as there is no data left to reference count. This means the deleted elements are tied to the service instance that deleted them.

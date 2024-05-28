@@ -6,7 +6,7 @@ description: Develop service packages to run user code.
 
 When setting up an application project, there are several things to think about. A service package needs a service model, NSO configuration files, and mapping code. Similarly, NED packages need YANG files and NED code. We can either copy an existing example and modify that, or we can use the tool `ncs-make-package` to create an empty skeleton for a package for us. The `ncs-make-package` tool provides a good starting point for a development project. Depending on the type of package, we use `ncs-make-package` to set up a working development structure.
 
-As explained in [NSO Packages](../concepts/packages.md), NSO runs all user Java code and also loads all data models through an NSO package. Thus a development project is the same as developing a package. Testing and running the package is done by putting the package in the NSO load-path and running NSO.
+As explained in [NSO Packages](../concepts/packages.md), NSO runs all user Java code and also loads all data models through an NSO package. Thus, a development project is the same as developing a package. Testing and running the package is done by putting the package in the NSO load-path and running NSO.
 
 There are different kinds of packages; NED packages, service packages, etc. Regardless of package type, the structure of the package as well as the deployment of the package into NSO is the same. The script `ncs-make-package` creates the following for us:
 
@@ -18,7 +18,7 @@ In this section, we will develop an MPLS service for a network of provider edge 
 
 We first want to create a simulation environment where ConfD is used as a NETCONF server to simulate the routers in our network. We plan to create a network that looks like this:
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_development/pics/mplsnetwork.png#developer.cisco.com" alt="" width="563"><figcaption><p>MPLS network</p></figcaption></figure>
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_development/pics/mplsnetwork.png#developer.cisco.com" alt="" width="563"><figcaption><p>MPLS Network</p></figcaption></figure>
 
 To create the simulation network, the first thing we need to do is create NSO packages for the two router models. The packages are also exactly what NSO needs to manage the routers.
 
@@ -63,7 +63,7 @@ In the previous section, we described how to use `ncs-make-package` and `ncs-net
  $ ncs
 ```
 
-The above commands, db, log, etc., directories and also create an NSO XML initialization file in `./NCS/ncs-cdb/netsim_devices_init.xml`. The `init` file is important; it is created from the content of the netsim directory and it contains the IP address, port, auth credentials, and NED type for all the devices in the netsim environment. There is a dependency order between ncs-setup and ncs-netsim since ncs-setup creates the XML init file based on the contents in the netsim environment, therefor we must run the `ncs-netsim create-network` command before we execute the `ncs-setup` command. Once `ncs-setup` has been run, and the `init` XML file has been generated, it is possible to manually edit that file.
+The above commands, db, log, etc., directories and also create an NSO XML initialization file in `./NCS/ncs-cdb/netsim_devices_init.xml`. The `init` file is important; it is created from the content of the netsim directory and it contains the IP address, port, auth credentials, and NED type for all the devices in the netsim environment. There is a dependency order between `ncs-setup` and `ncs-netsim` since `ncs-setup` creates the XML init file based on the contents in the netsim environment; therefore we must run the `ncs-netsim create-network` command before we execute the `ncs-setup` command. Once `ncs-setup` has been run, and the `init` XML file has been generated, it is possible to manually edit that file.
 
 If we start the NSO CLI, we have for example :
 
@@ -140,7 +140,7 @@ The ConfD devices in our simulated network all have a Juniper CLI engine, thus w
 
 To achieve this, we need to have some additional XML initializing files for the ConfD instances. It is the responsibility of the `install` target in the netsim Makefile to ensure that each ConfD instance gets initialized with the proper init data. In the NSO example collection, the example `$NCS_DIR/examples.ncs/mpls` contains precisely the two above-mentioned PE and CE packages but modified, so that the network elements in the simulated network get initialized properly.
 
-If we run that example in the NSO example collection we see
+If we run that example in the NSO example collection we see:
 
 ```
   $ cd $NCS_DIR/examples.ncs/mpls/mpls-devices
@@ -206,7 +206,7 @@ In this complete example `examples.ncs/getting-started/developing-with-ncs/11-sc
 
 ## Creating a Service Package <a href="#d5e5354" id="d5e5354"></a>
 
-So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Developing NSO Services](developing-services/developing-nso-services.md).
+So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Implementing Services](developing-services/implementing-services.md).
 
 We can generate a service package skeleton, using `ncs-make-package`, as:
 
@@ -323,7 +323,7 @@ This is crucial to understand, the Mapping Logic fastmap mode relies on the fact
 
 The best way to debug this and to ensure that a modification of a service instance really only sends the minimal NETCONF diff to the southbound managed devices, is to turn on NETCONF trace in the NSO, modify a service instance, and inspect the XML sent to the managed devices. A badly behaving `create()` method will incur large reconfigurations of the managed devices, possibly leading to traffic interruptions.
 
-It is highly recommended to also implement a `selftest()` action in conjunction to a service. The purpose of the `selftest()` action is to trigger a test of the service. The `ncs-make-package` tool creates an `selftest()` action that takes no input parameters and has two output parameters.
+It is highly recommended to also implement a `selftest()` action in conjunction with a service. The purpose of the `selftest()` action is to trigger a test of the service. The `ncs-make-package` tool creates an `selftest()` action that takes no input parameters and has two output parameters.
 
 {% code title="Example: Selftest yang Definition" %}
 ```
@@ -380,7 +380,7 @@ The `selftest()` implementation is expected to do some diagnosis of the service.
 
 ## Tracing Within the NSO Service Manager
 
-The NSO Java VM logging functionality is provided using LOG4J. The logging is composed of a configuration file (`log4j2.xml`) where static settings are made i.e. all settings that could be done for LOG4J (see [https://logging.apache.org/log4j/2.x](https://logging.apache.org/log4j/2.x) for more comprehensive log settings). There are also dynamically configurable log settings under `/java-vm/java-logging`.
+The NSO Java VM logging functionality is provided using LOG4J. The logging is composed of a configuration file (`log4j2.xml`) where static settings are made i.e. all settings that could be done for LOG4J (see [LOG4J](https://logging.apache.org/log4j/2.x/) for more comprehensive log settings). There are also dynamically configurable log settings under `/java-vm/java-logging`.
 
 When we start the NSO Java VM in `main()` the `log4j2.xml` log file is parsed by the LOG4J framework and it applies the static settings to the NSO Java VM environment. The file is searched for in the Java CLASSPATH.
 
@@ -767,7 +767,7 @@ Since we can run the NSO Java VM standalone in a UNIX Shell, we can also run it 
 $ ncs-setup --eclipse-setup
 ```
 
-This will generate two files, `.classpath` and `.project`. If we add this directory to Eclipse as a **File**->**New**->**Java Project**, uncheck the **Use the default location** and enter the directory where the `.classpath` and `.project` have been generated. We're immediately ready to run this code in Eclipse. All we need to do is to choose the `main()` routine in the `NcsJVMLauncher` class.
+This will generate two files, `.classpath` and `.project`. If we add this directory to Eclipse as a **File** -> **New** -> **Java Project**, uncheck the **Use default location** and enter the directory where the `.classpath` and `.project` have been generated. We're immediately ready to run this code in Eclipse. All we need to do is to choose the `main()` routine in the `NcsJVMLauncher` class.
 
 The Eclipse debugger works now as usual, and we can at will, start and stop the Java code. One caveat here that is worth mentioning is that there are a few timeouts between NSO and the Java code that will trigger when we sit in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable all these timeouts.
 

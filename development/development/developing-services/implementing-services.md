@@ -359,7 +359,7 @@ There are three notable things about this leaf:
 
 YANG is very powerful and allows you to model all kinds of values and restrictions on the data. In addition to the ones defined in the YANG language ([RFC 7950, section 9](https://datatracker.ietf.org/doc/html/rfc7950#section-9)), predefined types describing common networking concepts, such as those from the `inet` namespace ([RFC 6991](https://datatracker.ietf.org/doc/html/rfc6991#section-2)), are available to you out of the box. It is much easier to validate the inputs when so many options are supported.
 
-The one missing piece for the service is the XML template. You can take the Example [Static DNS Configuration Template](developing-nso-services.md#static-dns-configuration-template-example) as a base and tweak it to reference the defined inputs.
+The one missing piece for the service is the XML template. You can take the Example [Static DNS Configuration Template](implementing-services.md#static-dns-configuration-template-example) as a base and tweak it to reference the defined inputs.
 
 Using the code `{`_`XYZ`_`}` or `{/`_`XYZ`_`}` in the template, instructs NSO to look for the value in the service instance data, in the node with the name _`XYZ`_. So, you can refer to the target-device input parameter as defined in YANG with the `{/target-device}` code in the XML template.
 
@@ -1541,7 +1541,7 @@ The basic concepts of nano services are covered in detail by [Nano Services for 
 1. Generates the NSO SSH client authentication key files using the OpenSSH `ssh-keygen` utility from a nano service side-effect action implemented in Python.
 2. Distributes the public key to the netsim (ConfD) network elements to be stored as an authorized key using a Python service `create()` callback.
 3. Configures NSO to use the public key for authentication with the netsim network elements using a Python service `create()` callback and service template.
-4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in `connect` action.
+4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in **connect** action.
 
 Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../developing-nano-services.md).
 

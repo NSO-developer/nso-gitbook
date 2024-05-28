@@ -122,7 +122,7 @@ Now let's see how you can use this knowledge for network automation.
 
 Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can configure.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-02-13 at 16.24.43.png" alt="" width="563"><figcaption><p>The lab topology</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-02-13 at 16.24.43.png" alt="" width="563"><figcaption><p>The Lab Topology</p></figcaption></figure>
 
 1.  Navigate to the `0-router-network` directory with the following command.
 

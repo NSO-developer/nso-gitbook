@@ -106,7 +106,7 @@ make: Leaving directory 'dns-config/src'
 
 ### Step 4 - Add Python Code <a href="#d5e693" id="d5e693"></a>
 
-In a text or code editor open the `main.py` file, located inside `dns-config/python/dns_config/`. Find the following snippet:
+In a text or code editor, open the `main.py` file, located inside `dns-config/python/dns_config/`. Find the following snippet:
 
 ```
     @Service.create
@@ -120,7 +120,7 @@ Right after the `self.log.info()` call, read the value of the `dns-server` param
         dns_ip = service.dns_server
 ```
 
-Mind the 8 spaces in front to make sure the line is correctly aligned. After that, add the code that configures the `ex1` router:
+Mind the 8 spaces in front to make sure that the line is correctly aligned. After that, add the code that configures the `ex1` router:
 
 ```
         ex1_device = root.devices.device['ex1']
@@ -129,7 +129,7 @@ Mind the 8 spaces in front to make sure the line is correctly aligned. After tha
         dns_server_list.create(dns_ip)
 ```
 
-Here, you are using the `dns_ip` variable that contains the operator-provided IP address instead of a hard-coded value. Also, note that there is no need to check if the entry for this DNS server already exists in the list.
+Here, you are using the `dns_ip` variable that contains the operator-provided IP address instead of a hard-coded value. Also, note that there is no need to check if the entry for this DNS server already exists in the list.&#x20;
 
 In the end, the `cb_create()` method should look like the following:
 

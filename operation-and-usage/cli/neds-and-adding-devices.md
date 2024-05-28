@@ -40,15 +40,16 @@ packages package f5-bigip
 
 The core parts of a NED are:
 
-*   **Data-Model:** Independent of underlying device interface technology NEDs come with a data model in YANG that specifies configuration data and operational data that is supported for the device.&#x20;
+* **A Driver Element**: Running in a Java VM.
+*   **Data Model:** Independent of the underlying device interface technology, NEDs come with a data model in YANG that specifies configuration data and operational data that is supported for the device.&#x20;
 
-    * For native NETCONF devices, the YANG comes from the device,.
-    * For JunOS NSO generates the model from the JunOS XML schema.&#x20;
-    * For SNMP devices NSO generates the model from the MIBs.&#x20;
-    * For CLI devices the NED designer wrote the YANG to map the CLI.&#x20;
+    * For native NETCONF devices, the YANG comes from the device.
+    * For JunOS, NSO generates the model from the JunOS XML schema.
+    * For SNMP devices, NSO generates the model from the MIBs.
+    * For CLI devices, the NED designer writes the YANG to map the CLI.&#x20;
 
-    NSO only cares about the data that is in the model for the NED. The rest is ignored. See the [NED documentation](../../development/development/developing-neds/) to learn more about what is covered for the NED.
-* **Code:** For NETCONF and SNMP devices there is no code. For CLI devices there is a minimum of code managing connecting over SSH/Telnet and looking for version strings. The rest is auto-rendered from the data model.
+    NSO only cares about the data that is in the model for the NED. The rest is ignored. See the [NED documentation](../../development/development/developing-neds/) to learn more about what is covered by the NED.
+* **Code:** For NETCONF and SNMP devices, there is no code. For CLI devices there is a minimum of code managing connecting over SSH/Telnet and looking for version strings. The rest is auto-rendered from the data model.
 
 There are four categories of NEDs depending on the device interface:
 
@@ -223,9 +224,9 @@ admin@ncs(config-device-bigip01)# authgroup default
 admin@ncs(config-device-bigip01)# commit
 ```
 
-### Multi-NED Devices <a href="#d5e596" id="d5e596"></a>
+### Live Status Protocol <a href="#d5e596" id="d5e596"></a>
 
-Assume you have a Cisco device that you would like NSO to configure over CLI but read statistics over SNMP. This can be achieved by adding settings for `live-device-protocol`:
+Assume that you have a Cisco device that you would like NSO to configure over CLI but read statistics over SNMP. This can be achieved by adding settings for `live-device-protocol`:
 
 ```
 admin@ncs(config)# devices device c0 live-status-protocol snmp \
@@ -249,6 +250,50 @@ devices device c0
 ```
 
 Device `c0` has a config tree from the CLI NED and a live-status tree (read-only) from the SNMP NED using all MIBs in the group `snmp`.
+
+#### Multi-NEDs for Statistics
+
+Sometimes we wish to use a different protocol to collect statistics from the live tree than the protocol that is used to configure a managed device. There are many interesting use cases where this pattern applies. For example, if we wish to access SNMP data as statistics in the live tree on a Juniper router, or alternatively, if we have a CLI NED to a Cisco-type device, and wish to access statistics in the live tree over SNMP.
+
+The solution is to configure additional protocols for the live tree. We can have an arbitrary number of NEDs associated to statistics data for an individual managed device.
+
+The additional NEDs are configured under `/devices/device/live-status-protocol`.
+
+In the configuration snippet below, we have configured two additional NEDs for statistics data.
+
+```
+devices {
+    authgroups {
+        snmp-group g1 {
+            umap admin {
+                community-name public;
+            }
+        }
+    }
+    mib-group m1 {
+        mib-module [ SIMPLE-MIB ];
+    }
+    device device0 {
+        live-status-protocol x1 {
+            port 4001;
+            device-type {
+                snmp {
+                    version        v2c;
+                    snmp-authgroup g1;
+                    mib-group      [ m1 ];
+                }
+            }
+        }
+        live-status-protocol x2 {
+            authgroup default;
+            device-type {
+                cli {
+                    ned-id xstats;
+                }
+            }
+        }
+     }
+```
 
 ## Administrative State for Devices <a href="#d5e605" id="d5e605"></a>
 
@@ -319,7 +364,7 @@ Copyright (c) 1986-2007 by Cisco Systems, Inc.^M
 
 ### Device Communication Failure
 
-If NSO fails to talk to the device the typical root causes are:
+If NSO fails to talk to the device, the typical root causes are:
 
 <details>
 
@@ -357,7 +402,7 @@ Possible completions:
 
 <summary>Device Management Interface Problems</summary>
 
-Examples, not enabling the NETCONF SSH subsystem on Juniper, not enabling the SNMP agent, using the wrong port numbers, etc. Use standalone tools to make sure that you can connect, read configuration, and write configuration over the device interface that NSO is using.
+Examples, not enabling the NETCONF SSH subsystem on Juniper, not enabling the SNMP agent, using the wrong port numbers, etc. Use standalone tools to make sure that you can connect, read configuration, and write configuration over the device interface that NSO is using
 
 </details>
 

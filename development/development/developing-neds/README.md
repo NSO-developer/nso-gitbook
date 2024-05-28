@@ -4,2901 +4,849 @@ description: Develop your own NEDs to integrate unsupported devices in your netw
 
 # Developing NEDs
 
-NSO knows how to automatically communicate southbound to NETCONF and SNMP-enabled devices. By supplying NSO with the YANG models of a NETCONF device, NSO knows the data models of the device, and through the NETCONF protocol knows exactly how to manipulate the device configuration. This can be used for a NETCONF device such as a Juniper router, any device that uses ConfD as a management system, or any other device that runs a compliant NETCONF server. Similarly, by providing NSO with the MIBs for a device, NSO can automatically manage such a device.
+## Creating a NED <a href="#creating-a-ned" id="creating-a-ned"></a>
 
-Unfortunately, the majority of existing devices in current networks do not speak NETCONF and SNMP is usually mostly used to retrieve data from devices. By far the most common way to configure network devices is through the CLI. Management systems typically connect over SSH to the CLI of the device and issue a series of CLI configuration commands. Some devices do not even have a CLI, and thus SNMP, or even worse, various proprietary protocols, are used to configure the device.
+A Network Element Driver (NED) represents a key NSO component that allows NSO to communicate southbound with network devices. The device YANG models contained in the Network Element Drivers (NEDs) enable NSO to store device configurations in the CDB and expose a uniform API to the network for automation. The YANG models can cover only a tiny subset of the device or all of the device. Typically, the YANG models contained in a NED represent the subset of the device's configuration data, state data, Remote Procedure Calls, and notifications to be managed using NSO.
 
-NSO can speak southbound not only to NETCONF-enabled devices, but through the NED architecture it can speak to an arbitrary management interface. This is not entirely automatic like with NETCONF, and depending on the type of interface the device has for configuration, this may involve some programming. SNMP devices can be managed automatically, by supplying NSO with the MIBs for the device, with some additional declarative annotations. Devices with a Cisco-style CLI can be managed by writing YANG models describing the data in the CLI, and a relatively thin layer of Java code to handle the communication to the devices. Other types of devices require more coding.
+This guide provides information on NED development, focusing on building your own NED package. For a general introduction to NEDs, Cisco-provided NEDs, and NED administration, refer to the [NED Administration](../../../administration/management/ned-administration.md) in Administration.
 
-The NSO architecture is described in the picture below, with a built-in NED for NETCONF, another built-in NED for SNMP, one NED for Cisco CLIs, and a generic NED for other protocols. The NED is the adaptation layer between the XML representation of the network configuration contained inside NSO and the wire protocol between NSO and managed devices. The NETCONF and SNMP NEDs are built in, the CLI NED is entirely model-driven, whereas the generic NED requires a Java program to translate operations on the NSO XML tree into configuration operations toward the device. Depending on what means are used to configure the device, this may be more or less complicated.
+## Types of NED Packages <a href="#d5e8952" id="d5e8952"></a>
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ncs-neds.png#developer.cisco.com" alt=""><figcaption><p>NSO NED architecture</p></figcaption></figure>
+A NED package allows NSO to manage a network device of a specific type. NEDs typically contain YANG models and the code, specifying how NSO should configure and retrieve status. When developing your own NED, there are four categories supported by NSO.
 
-## SNMP NED <a href="#ug.ned.snmpned" id="ug.ned.snmpned"></a>
+* A NETCONF NED is used with the NSO's built-in NETCONF client and requires no code. Only YANG models. This NED is suitable for devices that strictly follow the specification for the NETCONF protocol and YANG mappings to NETCONF targeting a standardized machine-to-machine interface.
+* CLI NED targeted devices that use a Cisco-style CLI as a human-to-machine configuration interface. Various YANG extensions are used to annotate the YANG model representation of the device together with code-converting data between NSO and device formats.
+* A generic NED is typically used to communicate with non-CLI devices, such as devices using protocols like REST, TL1, Corba, SOAP, RESTCONF, or gNMI as a configuration interface. Even NETCONF-enabled devices often require a generic NED to function properly with NSO.
+* NSO's built-in SNMP client can manage SNMP devices by supplying NSO with the MIBs, with some additional declarative annotations and code to handle the communication to the device. Usually, this legacy protocol is used to read state data. Albeit limited, NSO has support for configuring devices using SNMP.
 
-NSO can use SNMP to configure a managed device, under certain circumstances. SNMP in general is not suitable for configuration, and it is important to understand why:
+In summary, the NETCONF and SNMP NEDs use built-in NSO clients; the CLI NED is model-driven, whereas the generic NED requires a Java program to translate operations toward the device.
 
-* In SNMP, the size of a SET request, which is used to write to a device, is limited to what fits into one UDP packet. This means that a large configuration change must be split into many packets. Each such packet contains some parameters to set, and each such packet is applied on its own by the device. If one SET request out of many fails, there is no abort command to undo the already applied changes, meaning that rollback is very difficult.
-* The data modeling language used in SNMP, SMIv2, does not distinguish between configuration objects and other writable objects. This means that it is not possible to retrieve only the configuration from a device without explicit, exact knowledge of all objects in all MIBs supported by the device.
-* SNMP supports only two basic operations, read and write. There is no protocol support for creating or deleting data. Such operations must be modeled in the MIBs, explicitly.
-* SMIv2 has limited support for semantic constraints in the data model. This means that it is difficult to know if a certain configuration will apply cleanly on a device. If it doesn't, rollback is tricky, as explained above.
-* Because of all of the above, ordering of SET requests becomes very important. If a device refuses to create some object A before another B, an SNMP manager must make sure to create B before creating A. It is also common that objects cannot be modified without first making them disabled or inactive. There is no standard way to do this, so again, different data models do this in different ways.
+## Dumb Versus Capable Devices <a href="#ncs.development.ned.dvsc" id="ncs.development.ned.dvsc"></a>
 
-Despite all this, if a device can be configured over SNMP, NSO can use its built-in multilingual SNMP manager to communicate with the device. However, to solve the problems mentioned above, the MIBs supported by the device need to be carefully annotated with some additional information that instructs NSO on how to write configuration data to the device. This additional information is described in detail below.
+NSO differentiates between managed devices that can handle transactions and devices that can not. This discussion applies regardless of NED type, i.e., NETCONF, SNMP, CLI, or Generic.
 
-### Overview <a href="#d5e72" id="d5e72"></a>
+NEDs for devices that cannot handle abort must indicate so in the reply of the `newConnection()` method indicating that the NED wants a reverse diff in case of an abort. Thus, NSO has two different ways to abort a transaction towards a NED, invoke the `abort()` method with or without a generated reverse diff.
 
-To add a device, the following steps need to be followed. They are described in more detail in the following sections.
+For non-transactional devices, we have no other way of trying out a proposed configuration change than to send the change to the device and see what happens.
 
-* [ ] Collect (a subset of) the MIBs supported by the device.
-* [ ] Optionally, annotate the MIBs with annotations to instruct NSO on how to talk to the device, for example, ordering dependencies that are not explicitly modeled in the MIB. This step is not required.
-* [ ] Compile the MIBs and load them into NSO.
-* [ ] Configure NSO with the address and authentication parameter for the SNMP devices.
-* [ ] Optionally configure a named MIB group in NSO with the MIBs supported by the device, and configure the managed device in NSO to use this MIB group. If this step is not done, NSO assumes the device implements all MIBs known to NSO.
+The table below shows the seven different data-related callbacks that could or must be implemented by all NEDs. It also differentiates between 4 different types of devices and what the NED must do in each callback for the different types of devices.
 
-### Compiling and Loading MIBs <a href="#d5e86" id="d5e86"></a>
+The table below displays the device types:
 
-(See the Makefile `snmp-ned/basic/packages/ex-snmp-ned/src/Makefile`, for an example of the below description.) Make sure that you have all MIBs available, including import dependencies, and that they contain no errors.
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td>SNMP, Cisco IOS, NETCONF devices with startup+running.</td><td>Devices that can abort, NETCONF devices without confirmed commit.</td><td>Cisco XR type of devices.</td><td>ConfD, Junos.</td></tr></tbody></table>
 
-The `ncsc --ncs-compile-mib-bundle` compiler is used to compile MIBs and MIB annotation files into NSO load files. Assuming a directory with input MIB files (and optional MIB annotation files) exist, the following command compiles all the MIBs in `device-models` and writes the output to `ncs-device-model-dir`.
+**INITIALIZE**: The initialize phase is used to initialize a transaction. For instance, if locking or other transaction preparations are necessary, they should be performed here. This callback is not mandatory to implement if no NED-specific transaction preparations are needed.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>initialize()</code>. NED code shall make the device go into config mode (if applicable) and lock (if applicable).</td><td><code>initialize()</code>. NED code shall start a transaction on the device.</td><td><code>initialize()</code>. NED code shall do the equivalent of configure exclusive.</td><td>Built in, NSO will lock.</td></tr></tbody></table>
+
+**UNINITIALIZE**: If the transaction is not completed and the NED has done INITIALIZE, this method is called to undo the transaction preparations, that is restoring the NED to the state before INITIALIZE. This callback is not mandatory to implement if no NED-specific preparations were performed in INITIALIZE.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>uninitialize()</code>. NED code shall unlock (if applicable).</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td>Built in, NSO will unlock.</td></tr></tbody></table>
+
+**PREPARE**: In the prepare phase, the NEDs get exposed to all the changes that are destined for each managed device handled by each NED. It is the responsibility of the NED to determine the outcome here. If the NED replies successfully from the prepare phase, NSO assumes the device will be able to go through with the proposed configuration change.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>prepare(Data)</code>. NED code shall send all data to the device.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td>Built in, NSO will edit-config towards the candidate, validate and commit confirmed with a timeout.</td></tr></tbody></table>
+
+**ABORT**: If any participants in the transaction reject the proposed changes, all NEDs will be invoked in the `abort()` method for each managed device the NED handles. It is the responsibility of the NED to make sure that whatever was done in the PREPARE phase is undone. For NEDs that indicate as a reply in `newConnection()` that they want the reverse diff, they will get the reverse data as a parameter here.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>abort(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
+
+**COMMIT**: Once all NEDs that get invoked in `commit(Timeout)` reply OK, the transaction is permanently committed to the system. The NED may still reject the change in COMMIT. If any NED rejects the COMMIT, all participants will be invoked in REVERT, NEDs that support confirmed commit with a timeout, Cisco XR may choose to use the provided timeout to make REVERT easy to implement.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>commit(Timeout)</code>. Do nothing</td><td><code>commit(Timeout)</code>. Commit the transaction.</td><td><code>commit(Timeout)</code>. Execute commit confirmed [Timeout] on the device.</td><td>Built in, commit confirmed with the timeout.</td></tr></tbody></table>
+
+**REVERT**: This state is reached if any NED reports failure in the COMMIT phase. Similar to the ABORT state, the reverse diff is supplied to the NED if the NED has asked for that.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code>. discard-changes</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
+
+**PERSIST**: This state is reached at the end of a successful transaction. Here it's the responsibility of the NED to make sure that if the device reboots, the changes are still there.
+
+<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code>. confirm.</td><td>Built in, commit confirm.</td></tr></tbody></table>
+
+The following state diagram depicts the different states the NED code goes through in the life of a transaction.
+
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/ned-states.png#developer.cisco.com" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
+
+## NETCONF NED Development <a href="#ncs.development.ned.ncdev" id="ncs.development.ned.ncdev"></a>
+
+Creating and installing a NETCONF NED consists of the following steps:
+
+* Make the device YANG data models available to NSO
+* Build the NED package from the YANG data models using NSO tools
+* Install the NED with NSO
+* Configure the device connection and notification events in NSO
+
+Creating a NETCONF NED that uses the built-in NSO NETCONF client can be a pleasant experience with devices and nodes that strictly follow the specification for the NETCONF protocol and YANG mappings to NETCONF. If the device does not, the smooth sailing will quickly come to a halt, and you are recommended to visit the [NED Administration](../../../administration/management/ned-administration.md) in Administration and get help from the Cisco NSO NED team who can diagnose, develop and maintain NEDs that bypass misbehaving devices special quirks.
+
+### Tools for NETCONF NED Development <a href="#d5e9069" id="d5e9069"></a>
+
+Before NSO can manage a NETCONF-capable device, a corresponding NETCONF NED needs to be loaded. While no code needs to be written for such NED, it must contain YANG data models for this kind of device. While in some cases, the YANG models may be provided by the device's vendor, devices that implement RFC 6022 YANG Module for NETCONF Monitoring can provide their YANG models using the functionality described in this RFC.
+
+The NSO example under `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` implements two shell scripts that use different tools to build a NETCONF NED from a simulated hardware chassis system controller device.
+
+#### **The `netconf-console` and `ncs-make-package` Tools**
+
+The `netconf-console` NETCONF client tool is a Python script that can be used for testing, debugging, and simple client duties. For example, making the device YANG models available to NSO using the NETCONF IETF RFC 6022 `get-schema` operation to download YANG modules and the RFC 6241`get` operation, where the device implements the RFC 7895 YANG module library to provide information about all the YANG modules used by the NETCONF server. Type `netconf-console -h` for documentation.
+
+Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-1/#man.1.ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
+
+The `demo.sh` script in the `netconf-ned` example uses the `netconf-console` and `ncs-make-package` combination to create, build, and install the NETCONF NED. When you know beforehand which models you need from the device, you often begin with this approach when encountering a new NETCONF device.
+
+#### **The NETCONF NED Builder Tool**
+
+The NETCONF NED builder uses the functionality of the two previous tools to assist the NSO developer onboard NETCONF devices by fetching the YANG models from a device and building a NETCONF NED using CLI commands as a frontend.
+
+The `demo_nb.sh` script in the `netconf-ned` example uses the NSO CLI NETCONF NED builder commands to create, build, and install the NETCONF NED. This tool can be beneficial for a device where the YANG models are required to cover the dependencies of the must-have models. Also, devices known to have behaved well with previous versions can benefit from using this tool and its selection profile and production packaging features.
+
+### Using the **`netconf-console`** and **`ncs-make-package`** Combination <a href="#d5e9098" id="d5e9098"></a>
+
+For a demo of the steps below, see README in the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` example and run the demo.sh script.
+
+#### **Make the Device YANG Data Models Available to NSO**
+
+List the YANG version 1.0 models the device supports using NETCONF `hello` message.
 
 ```
-$ ncsc --ncs-compile-mib-bundle device-models \
-    --ncs-device-dir ./ncs-device-model-dir
+$ netconf-console --port $DEVICE_NETCONF_PORT --hello | grep "module="
+<capability>http://tail-f.com/ns/aaa/1.1?module=tailf-aaa&amp;revision=2023-04-13</capability>
+<capability>http://tail-f.com/ns/common/query?module=tailf-common-query&amp;revision=2017-12-15</capability>
+<capability>http://tail-f.com/ns/confd-progress?module=tailf-confd-progress&amp;revision=2020-06-29</capability>
+...
+<capability>urn:ietf:params:xml:ns:yang:ietf-yang-metadata?module=ietf-yang-metadata&amp;revision=2016-08-05</capability>
+<capability>urn:ietf:params:xml:ns:yang:ietf-yang-types?module=ietf-yang-types&amp;revision=2013-07-15</capability>
 ```
 
-The compilation steps performed by the `ncsc --ncs-compile-mib-bundle` are elaborated below:
-
-1. Transform the MIBs into YANG according to the IETF standardized mapping ([https://www.ietf.org/rfc/rfc6643.txt](https://www.ietf.org/rfc/rfc6643.txt)). The IETF-defined mapping makes all MIB objects read-only over NETCONF.
-2. Generate YANG deviations from the MIB, this makes SMIv2 `read-write` objects YANG `config true` as a YANG deviation.
-3. Include the optional MIB annotations.
-4. Merge the read-only YANG from step 1 with the read-write deviation from step 2.
-5. Compile the merged YANG files into NSO load format.
-
-These steps are illustrated in the figure below:
-
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-compile.png#developer.cisco.com" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
-
-Finally make sure that the NSO configuration file points to the correct device model directory:
+List the YANG version 1.1 models supported by the device from the device yang-library.
 
 ```
-<device-model-dir>./ncs-device-model-dir</device-model-dir>
+$ netconf-console --port=$DEVICE_NETCONF_PORT --get -x /yang-library/module-set/module/name
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
+  <data>
+    <yang-library xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-library">
+      <module-set>
+        <name>common</name>
+        <module>
+          <name>iana-crypt-hash</name>
+        </module>
+        <module>
+          <name>ietf-hardware</name>
+        </module>
+        <module>
+          <name>ietf-netconf</name>
+        </module>
+        <module>
+          <name>ietf-netconf-acm</name>
+        </module>
+        <module>
+        ...
+        <module>
+          <name>tailf-yang-patch</name>
+        </module>
+        <module>
+          <name>timestamp-hardware</name>
+        </module>
+      </module-set>
+    </yang-library>
+  </data>
+</rpc-reply>
 ```
 
-### Configuring NSO to Speak SNMP Southbound <a href="#d5e120" id="d5e120"></a>
-
-Each managed device is configured with a name, IP address, and port (161 by default), and the SNMP version to use (v1, v2c, or v3).
+The `ietf-hardware.yang` model is of interest to manage the device hardware. Use the `netconf-console` NETCONF `get-schema` operation to get the `ietf-hardware.yang` model.
 
 ```
-admin@host# show running-config devices device r3
-      
-address 127.0.0.1
-port    2503
-device-type snmp version v3 snmp-authgroup my-authgroup
-state admin-state unlocked
+$ netconf-console --port=$DEVICE_NETCONF_PORT \
+  --get-schema=ietf-hardware > dev-yang/ietf-hardware.yang
 ```
 
-To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+The `ietf-hardware.yang` import a few YANG models.
 
 ```
-admin@host# show running-config devices authgroups snmp-group my-authgroup
-      
-devices authgroups snmp-group my-authgroup
- default-map community-name public
+$ cat dev-yang/ietf-hardware.yang | grep import
+<import ietf-inet-types {
+import ietf-yang-types {
+import iana-hardware {
+```
+
+Two of the imported YANG models are shipped with NSO.
+
+```
+$ find ${NCS_DIR} \
+  \( -name "ietf-inet-types.yang" -o -name "ietf-yang-types.yang" -o -name "iana-hardware.yang" \)
+/path/to/nso/src/ncs/builtin_yang/ietf-inet-types.yang
+/path/to/nso/src/ncs/builtin_yang/ietf-yang-types.yang
+```
+
+Use the `netconf-console` NETCONF `get-schema` operation to get the `iana-hardware.yang` module.
+
+```
+$ netconf-console --port=$DEVICE_NETCONF_PORT --get-schema=iana-hardware > \
+  dev-yang/iana-hardware.yang
+```
+
+The `timestamp-hardware.yang` module augments a node onto the `ietf-hardware.yang` model. This is not visible in the YANG library. Therefore, information on the augment dependency must be available, or all YANG models must be downloaded and checked for imports and augments of the `ietf-hardware.yang model` to make use of the augmented node(s).
+
+```
+$ netconf-console --port=$DEVICE_NETCONF_PORT --get-schema=timestamp-hardware > \
+  dev-yang/timestamp-hardware.yang
+```
+
+#### **Build the NED from the YANG Data Models**
+
+Create and build the NETCONF NED package from the device YANG models using the `ncs-make-package` script.
+
+```
+$ ncs-make-package --netconf-ned dev-yang --dest nso-rundir/packages/devsim --build \
+  --verbose --no-test --no-java --no-netsim --no-python --no-template --vendor "Tail-f" \
+  --package-version "1.0" devsim
+```
+
+If you make any changes to, for example, the YANG models after creating the package above, you can rebuild the package using `make -C nso-rundir/packages/devsim all`.
+
+#### **Configure the Device Connection**
+
+Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
+
+```
+$ ncs --cd ./nso-rundir
+```
+
+As communication with the devices being managed by NSO requires authentication, a custom authentication group will likely need to be created with mapping between the NSO user and the remote device username and password, SSH public-key authentication, or external authentication. The example used here has a 1-1 mapping between the NSO admin user and the ConfD-enabled simulated device admin user for both username and password.
+
+In the example below, the device name is set to `hw0`, and as the device here runs on the same host as NSO, the NETCONF interface IP address is 127.0.0.1 while the port is set to 12022 to not collide with the NSO northbound NETCONF port. The standard NETCONF port, 830, is used for production.
+
+The `default` authentication group, as shown above, is used.
+
+```
+$ ncs_cli -u admin -C
+# config
+Entering configuration mode terminal
+(config)# devices device hw0 address 127.0.0.1 port 12022 authgroup default
+(config-device-hw0)# devices device hw0 trace pretty
+(config-device-hw0)# state admin-state unlocked
+(config-device-hw0)# device-type netconf ned-id devsim-nc-1.0
+(config-device-hw0)# commit
+Commit complete.
+```
+
+Fetch the public SSH host key from the device and sync the configuration covered by the `ietf-hardware.yang` from the device.
+
+```
+$ ncs_cli -u admin -C
+# devices fetch-ssh-host-keys
+fetch-result {
+    device hw0
+    result updated
+    fingerprint {
+        algorithm ssh-ed25519
+        value 00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff
+    }
+}
+# device device hw0 sync-from
+result true
+```
+
+NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/demo.sh` example script for a demo.
+
+### Using the NETCONF NED Builder Tool <a href="#d5e9185" id="d5e9185"></a>
+
+For a demo of the steps below, see README in the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` example and run the demo\_nb.sh script.
+
+#### **Configure the Device Connection**
+
+As communication with the devices being managed by NSO requires authentication, a custom authentication group will likely need to be created with mapping between the NSO user and the remote device username and password, SSH public-key authentication, or external authentication.
+
+The example used here has a 1-1 mapping between the NSO admin user and the ConfD-enabled simulated device admin user for both username and password.
+
+```
+admin@ncs# show running-config devices authgroups group
+devices authgroups group default
  umap admin
-  usm remote-name admin
-  usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  remote-name     admin
+  remote-password $9$xrr1xtyI/8l9xm9GxPqwzcEbQ6oaK7k5RHm96Hkgysg=
+ !
+ umap oper
+  remote-name     oper
+  remote-password $9$Pr2BRIHRSWOW2v85PvRGvU7DNehWL1hcP3t1+cIgaoE=
  !
 !
 ```
 
-In the example above, when NSO needs to speak to the device `r3`, it sees that the device is of type `snmp`, and that SNMP v3 should be used with authentication parameters from the SNMP authgroup `my-authgroup`. This authgroup maps the local NSO user `admin` to the USM user `admin`, with explicit remote passwords given. These passwords will be localized for each SNMP engine that NSO communicates with. While the passwords above are shown encrypted, when you enter them in the CLI you write them in clear text. Note also that the remote engine ID is not configured; NSO performs a discovery process to find it automatically.
+In the example below, the device name is set to `hw0`, and as the device here runs on the same host as NSO, the NETCONF interface IP address is 127.0.0.1 while the port is set to 12022 to not collide with the NSO northbound NETCONF port. The standard NETCONF port, 830, is used for production.
 
-No NSO user other than `admin` is mapped by the `authgroup my-authgroup` for SNMP v3.
-
-### **Configure MIB Groups**
-
-With SNMP, there is no standardized, generic way for an SNMP manager to learn which MIBs an SNMP agent implements. By default, NSO assumes that an SNMP device implements all MIBs known to NSO, i.e., all MIBs that have been compiled with the `ncsc --ncs-compile-mib-bundle` command. This works just fine if all SNMP devices NSO manages are of the same type, and implement the same set of MIBs. But if NSO is configured to manage many different SNMP devices, some other mechanism is needed.
-
-In NSO, this problem is solved by using MIB groups. MIB group is a named collection of MIB module names. A managed SNMP device can refer to one or more MIB groups. For example, below two MIB groups are defined:
+The `default` authentication group, as shown above, is used.
 
 ```
-admin@ncs# show running-config devices mib-group
-        
-devices mib-group basic
- mib-module [ BASIC-CONFIG-MIB BASIC-TC ]
-!
-devices mib-group snmp
- mib-module [ SNMP* ]
-!
+# config
+Entering configuration mode terminal
+(config)# devices device hw0 address 127.0.0.1 port 12022 authgroup default
+(config-device-hw0)# devices device hw0 trace pretty
+(config-device-hw0)# state admin-state unlocked
+(config-device-hw0)# device-type netconf ned-id netconf
+(config-device-hw0)# commit
 ```
 
-The wildcard `*` can be used only at the end of a string; it is thus used to define a prefix of the MIB module name. So the string `SNMP*` matches all loaded standard SNMP modules, such as SNMPv2-MIB, SNMP-TARGET-MIB, etc.
+{% hint style="info" %}
+A temporary NED identity is configured to `netconf` as the NED package has not yet been built. It will be changed to match the NETCONF NED package NED ID once the package is installed. The generic `netconf` ned-id allows NSO to connect to the device for basic NETCONF operations, such as `get` and `get-schema` for listing and downloading YANG models from the device.
+{% endhint %}
 
-An SNMP device can then be configured to refer to one or more of the MIB groups:
+#### **Make the Device YANG Data Models Available to NSO**
 
-```
-admin@ncs# show running-config devices device r3 device-type snmp
-        
-devices device r3
- device-type snmp version v3
- device-type snmp snmp-authgroup default
- device-type snmp mib-group [ basic snmp ]
-!
-```
-
-### Annotations for MIB Objects <a href="#d5e149" id="d5e149"></a>
-
-Most annotations for MIB objects are used to instruct NSO on how to split a large transaction into suitable SNMP SET requests. This step is not necessary for a default integration. But when for example ordering dependencies in the MIB is discovered it is better to add this as annotations and let NSO handle the ordering rather than leaving it to the CLI user or Java programmer.
-
-In some cases, NSO can automatically understand when rows in a table must be created or deleted before rows in some other table. Specifically, NSO understands that if table B has an INDEX object in table A (i.e., B sparsely augments A), then rows in table B must be created after rows in table B, and vice versa for deletions. NSO also understands that if table B AUGMENTS table A, then a row in table A must be created before any column in B is modified.
-
-However, in some MIBs, table dependencies cannot be detected automatically. In this case, these tables must be annotated with a `sort-priority`. By default, all rows have sort-priority 0. If table A has a lower sort priority than table B, then rows in table A are created before rows in table B.
-
-In some tables, existing rows cannot be modified unless the row is inactivated. Once inactive, the row can be modified and then activated again. Unfortunately, there is no formal way to declare this is SMIv2, so these tables must be annotated with two statements; `ned-set-before-row-modification` and `ned-modification-dependent`. The former is used to instruct NSO which column and which value is used to inactivate a row, and the latter is used on each column that requires the row to be inactivated before modification. `ned-modification-dependent` can be used in the same table as `ned-set-before-row-modification`, or in a table that augments or sparsely augments the table with `ned-set-before-row-modification`.
-
-By default, NSO treats a writable SMIv2 object as configuration, except if the object is of type RowStatus. Any writable object that does not represent configuration must be listed in a MIB annotation file when the MIB is compiled, with the "operational" modifier.
-
-When NSO retrieves data from an SNMP device, e.g., when doing a `sync from-device`, it uses the GET-NEXT request to scan the table for available rows. When doing the GET-NEXT, NSO must ask for an accessible column. If the row has a column of type RowStatus, NSO uses this column. Otherwise, if one of the INDEX objects is accessible, it uses this object. Otherwise, if the table has been annotated with `ned-accessible-column`, this column is used. And, as a last resort, NSO does not indicate any column in the first GET-NEXT request, and uses the column returned from the device in subsequent requests. If the table has "holes" for this column, i.e., the column is not instantiated in all rows, NSO will not detect those rows.
-
-NSO can automatically create and delete table rows for tables that use the RowStatus TEXTUAL-CONVENTION, defined in RFC 2580.
-
-It is pretty common to mix configuration objects with non-configuration objects in MIBs. Specifically, it is quite common that rows are created automatically by the device, but then some columns in the row are treated as configuration data. In this case, the application programmer must tell NSO to sync from the device before attempting to modify the configuration columns, to let NSO learn which rows exist on the device.
-
-Some SNMP agents require a certain order of row deletions and creations. By default, the SNMP NED sends all creates before deletes. The annotation `ned-delete-before-create` can be used on a table entry to send row deletions before row creations, for that table.
-
-Sometimes rows in some SNMP agents cannot be modified once created. Such rows can be marked with the annotation `ned-recreate-when-modified`. This makes the SNMP NED to first delete the row, and then immediately recreate it with the new values.
-
-A good starting point for understanding annotations is to look at the example in `examples.ncs/snmp-ned` directory. The BASIC-CONFIG-MIB mib has a table where rows can be modified if the `bscActAdminState` is set to locked. To have NSO do this automatically when modifying entries rather then leaving it to users an annotation file can be created. See the `BASIC-CONFIG-MIB.miba` which contains the following:
+Create a NETCONF NED Builder project called `hardware` for the device, here named `hw0`.
 
 ```
-## NCS Annotation module for BASIC-CONFIG-MIB
-
-bscActAdminState  ned-set-before-row-modification = locked
-bscActFlow        ned-modification-dependent
+# devtools true
+# config
+(config)# netconf-ned-builder project hardware 1.0 device hw0 local-user admin vendor Tail-f
+(config)# commit
+(config)# end
+# show netconf-ned-builder project hardware
+netconf-ned-builder project hardware 1.0
+ download-cache-path /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/
+                     state/netconf-ned-builder/cache/hardware-nc-1.0
+ ned-directory-path  /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/
+                     state/netconf-ned-builder/hardware-nc-1.0
 ```
 
-This tells NSO that before modifying the `bscActFlow` column set the `bscActAdminState` to locked and restore the previous value after committing the set operation.
+The NETCONF NED Builder is a developer tool that must be enabled first through the `devtools true` command. The NETCONF NED Builder feature is not expected to be used by the end users of NSO.
 
-All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.mib\_annotations) in manual pages for details.
+The cache directory above is where additional YANG and YANG annotation files can be added in addition to the ones downloaded from the device. Files added need to be configured with the NED builder to be included with the project, as described below.
 
-Make sure that the MIB annotation file is put into the directory where all the MIB files are which is given as input to the `ncsc --ncs-compile-mib-bundle` command
+The project argument for the `netconf-ned-builder` command requires both the project name and a version number for the NED being built. A version number often picked is the version number of the device software version to match the NED to the device software it is tested with. NSO uses the project name and version number to create the NED name, here `hardware-nc-1.0`. The device's name is linked to the device name configured for the device connection.
 
-### Using the SNMP NED <a href="#d5e185" id="d5e185"></a>
+Copying Manually to the Cache Directory:
 
-NSO can manage SNMP devices within transactions, a transaction can span Cisco devices, NETCONF devices, and SNMP devices. If a transaction fails NSO will generate the reverse operation to the SNMP device.
+{% hint style="info" %}
+This step is not required if the device supports the NETCONF `get-schema` operation and all YANG modules can be retrieved from the device.. Otherwise, you copy the YANG models to the `state/netconf-ned-builder/cache/hardware-nc-1.0` directory for use with the device.
+{% endhint %}
 
-The basic features of the SNMP will be illustrated below by using the `examples.ncs/snmp-ned` example. First, try to connect to all SNMP devices:
+After downloading the YANG data models and before building the NED with the NED builder, you need to register the YANG module with the NSO NED builder. For example, if you want to include a `dummy.yang` module with the NED, you first copy it to the cache directory and then, for example, create an XML file for use with the `ncs_load` command to update the NSO CDB operational datastore:
 
 ```
-admin@ncs# devices connect
-        
-connect-result {
-    device r1
-    result true
-    info (admin) Connected to r1 - 127.0.0.1:2501
+$ cp dummy.yang $NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/\
+  nso-rundir/state/netconf-ned-builder/cache/hardware-nc-1.0/
+$ cat dummy.xml
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <netconf-ned-builder xmlns="http://tail-f.com/ns/ncs/netconf-ned-builder">
+    <project>
+      <family-name>hardware</family-name>
+      <major-version>1.0</major-version>
+      <module>
+        <name>dummy</name>
+        <revision>2023-11-10</revision>
+        <location>NETCONF</location>
+        <status>selected downloaded</status>
+      </module>
+    </project>
+  </netconf-ned-builder>
+</config>
+$ ncs_load -O -m -l dummy.xml
+$ ncs_cli -u admin -C
+# devtools true
+# show netconf-ned-builder project hardware 1.0 module dummy 2023-11-10
+SELECT  BUILD    BUILD
+NAME   REVISION    NAMESPACE  FEATURE  LOCATION     STATUS
+-----------------------------------------------------------------------
+dummy  2023-11-10  -          -        [ NETCONF ]  selected,downloaded
+```
+
+Adding YANG Annotation Files:
+
+In some situations, you want to annotate the YANG data models that were downloaded from the device. For example, when an encrypted string is stored on the device, the encrypted value that is stored on the device will differ from the value stored in NSO if the two initialization vectors differ.
+
+Say you have a YANG data model:
+
+```
+module dummy {
+  namespace "urn:dummy";
+  prefix dummy;
+
+  revision 2023-11-10 {
+    description
+      "Initial revision.";
+  }
+
+  grouping my-grouping {
+    container my-container {
+      leaf my-encrypted-password {
+        type tailf:aes-cfb-128-encrypted-string;
+      }
+    }
+  }
 }
-connect-result {
-    device r2
-    result true
-    info (admin) Connected to r2 - 127.0.0.1:2502
-}
-connect-result {
-    device r3
-    result true
-    info (admin) Connected to r3 - 127.0.0.1:2503
-}
 ```
 
-When NSO executes the connect request for SNMP devices it performs a get-next request with 1.1 as var-bind. When working with the SNMP NED it is helpful to turn on the NED tracing:
+And create a YANG annotation module:
 
 ```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs config
-```
-
-```
-admin@ncs(config)# devices global-settings trace pretty trace-dir .
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-This creates a trace file named `ned-devicename.trace`. The trace for the NCS `connect` action looks like:
-
-```
-$ more ned-r1.trace
-get-next-request reqid=2
-    1.1
-get-response reqid=2
-    1.3.6.1.2.1.1.1.0=Tail-f ConfD agent - 1
-```
-
-When looking at SNMP trace files it is useful to have the OBJECT-DESCRIPTOR rather than the OBJECT-IDENTIFIER. To do this, pipe the trace file to the `smixlate` tool:
-
-```
-$ more ned-r1.trace | smixlate $NCS_DIR/src/ncs/snmp/mibs/SNMPv2-MIB.mib
-        
-get-next-request reqid=2
-    1.1
-get-response reqid=2
-    sysDescr.0=Tail-f ConfD agent - 1
-```
-
-You can access the data in the SNMP systems directly (read-only and read-write objects):
-
-```
-admin@ncs# show devices device live-status
-      
-ncs live-device r1
- live-status SNMPv2-MIB system sysDescr "Tail-f ConfD agent - 1"
- live-status SNMPv2-MIB system sysObjectID 1.3.6.1.4.1.24961
- live-status SNMPv2-MIB system sysUpTime 596197
- live-status SNMPv2-MIB system sysContact ""
- live-status SNMPv2-MIB system sysName ""
-...
-```
-
-NSO can synchronize all writable objects into CDB:
-
-```
-admin@ncs# devices sync-from
-sync-result {
-    device r1
-    result true
-...
-```
-
-```
-admin@ncs# show running-config devices device r1 config r:SNMPv2-MIB
-    
-devices device r1
-  config
-    system
-      sysContact  ""
-      sysName     ""
-      sysLocation ""
-    !
-    snmp
-      snmpEnableAuthenTraps disabled;
-    !
-```
-
-All the standard features of NSO with transactions and roll-backs will work with SNMP devices. The sequence below shows how to enable authentication traps for all devices as one transaction. If any device fails, NSO will automatically roll back the others. At the end of the CLI sequence a manual rollback is shown:
-
-```
-admin@ncs# config
-```
-
-<pre><code><strong>admin@ncs(config)# devices device r1-3 config r:SNMPv2-MIB snmp snmpEnableAuthenTraps enabled
-</strong></code></pre>
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-```
-admin@ncs(config)# top rollback configuration
-```
-
-```
-admin@ncs(config)# commit dry-run outformat cli
-```
-
-```
-cli  devices {
-         device r1 {
-             config {
-                 r:SNMPv2-MIB {
-                     snmp {
-    -                    snmpEnableAuthenTraps enabled;
-    +                    snmpEnableAuthenTraps disabled;
-                     }
-                 }
-             }
-         }
-         device r2 {
-             config {
-                 r:SNMPv2-MIB {
-                     snmp {
-    -                    snmpEnableAuthenTraps enabled;
-    +                    snmpEnableAuthenTraps disabled;
-                     }
-                 }
-             }
-         }
-         device r3 {
-             config {
-                 r:SNMPv2-MIB {
-                     snmp {
-    -                    snmpEnableAuthenTraps enabled;
-    +                    snmpEnableAuthenTraps disabled;
-                     }
-                 }
-             }
-         }
-     }
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-## NED Identification <a href="#ug.ned.identification" id="ug.ned.identification"></a>
-
-Each managed device in NSO has a device type, which informs NSO how to communicate with the device. The device type is one of `netconf`, `snmp`, `cli`, or `generic`. In addition, a special `ned-id` identifier is needed.
-
-NSO uses a technique called YANG Schema Mount, where all the data models from a device are mounted into the `/devices` tree in NSO. Each set of mounted data models is completely separated from the others (they are confined to a "mount jail"). This makes it possible to load different versions of the same YANG module for different devices. The functionality is called Common Data Models (CDM).
-
-In most cases, there are many devices running the same software version in the network managed by NSO, thus using the exact same set of YANG modules. With CDM, all YANG modules for a certain device (or family of devices) are contained in a NED package (or just NED for short). If the YANG modules on the device are updated in a backward-compatible way, the NED is also updated.
-
-However, if the YANG modules on the device are updated in an incompatible way in a new version of the device's software, it might be necessary to create a new NED package for the new set of modules. Without CDM, this would not be possible, since there would be two different packages that contained different versions of the same YANG module.
-
-When a NED is being built, its YANG modules are compiled to be mounted into the NSO YANG model. This is done by device compilation of the device's YANG modules and is performed via the `ncsc` tool provided by NSO.
-
-The ned-id identifier is a YANG identity, which must be derived from one of the pre-defined identities in `tailf-ncs-ned.yang`:
-
-{% code title="Example: tailf-ncs-ned.yang" %}
-```
-module tailf-ncs-ned {
-  namespace "http://tail-f.com/ns/ncs-ned";
-  prefix ned;
+module dummy-ann {
+  namespace "urn:dummy-ann";
+  prefix dummy-ann;
 
   import tailf-common {
     prefix tailf;
   }
-
-  organization "Tail-f Systems";
-
-  description
-    "This module defines the Tail-f NCS NED base identities.
-
-     Copyright 2011-2021 Cisco Systems, Inc.
-     All rights reserved.
-     Permission is hereby granted to redistribute this file without
-     modification.";
-
-  revision 2021-09-02 {
-    description
-      "Released as part of NCS-5.6.
-
-       Added identity 'generic-ned-notification-id'.
-
-       Added idenity 'cli-ned-notification-id'.";
+  tailf:annotate-module "dummy" {
+    tailf:annotate-statement "grouping[name='my-grouping']" {
+      tailf:annotate-statement "container[name='my-container']" {
+        tailf:annotate-statement "leaf[name=' my-encrypted-password']" {
+          tailf:ned-ignore-compare-config;
+        }
+      }
+    }
   }
-
-  revision 2019-04-09 {
-    description
-      "Released as part of NCS-5.1.
-
-       Added 'ned-id' as base to all protocol specific ned ids.";
-  }
-
-  revision 2016-11-24 {
-    description
-      "Released as part of NCS-4.3.
-
-       Added base identity for NETCONF devices.
-       Added identity lsa-netconf";
-  }
-
-  revision 2011-06-01 {
-    description
-      "Released as part of NCS-1.6.";
-  }
-
-  identity ned-id {
-    description
-      "Base identity for Tail-f NEDs.";
-  }
-
-  identity netconf-ned-id {
-    base ned-id;
-    tailf:abstract;
-    description
-      "Base identity for NETCONF NEDs.";
-  }
-  identity generic-ned-id {
-    base ned-id;
-    tailf:abstract;
-    description
-      "Base identity for generic NEDs.";
-  }
-
-  identity cli-ned-id {
-    base ned-id;
-    tailf:abstract;
-    description
-      "Base identity for CLI NEDs.";
-  }
-  identity snmp-ned-id {
-    base ned-id;
-    tailf:abstract;
-    description
-      "Base identity for SNMP NEDs.
-
-       Note that currently there is no way to actually set a ned-id
-       for SNMP devices.";
-  }
-
-  identity rfc5277-id {
-    base netconf-ned-id;
-    tailf:abstract;
-    description
-      "Special internal id for the data model in RFC 5277.";
-  }
-
-  identity generic-ned-notification-id {
-    base generic-ned-id;
-    tailf:abstract;
-    description
-      "Special internal id for generic NEDs with notification capability.";
-  }
-
-  identity cli-ned-notification-id {
-    base cli-ned-id;
-    tailf:abstract;
-    description
-      "Special internal id for CLI NEDs with notification capability.";
-  }
-
-  identity netconf {
-    base netconf-ned-id;
-    description
-      "Default identity for a netconf device.";
-  }
-
-  identity lsa-netconf {
-    base netconf-ned-id;
-    description
-      "Base identity for LSA nodes.";
-  }
-
-  identity snmp {
-    base snmp-ned-id;
-    description
-      "Default identity for an SNMP device.";
-  }
-
 }
 ```
-{% endcode %}
 
-A YANG model for devices handled by NED code needs to extend the base identity and provide a new identity that can be configured.
+After downloading the YANG data models and before building the NED with the NED builder, you need to register the `dummy-ann.yang` annotation module, as was done above with the XML file for the `dummy.yang` module.
 
-{% code title="Example: Defining a User Identity" %}
+Using NETCONF `get-schema` with the NED Builder:
+
+If the device supports `get-schema` requests, the device can be contacted directly to download the YANG data models. The hardware system example returns the below YANG source files when the NETCONF `get-schema` operation is issued to the device from NSO. Only a subset of the list is shown.
+
 ```
-import tailf-ncs-ned {
-    prefix ned;
+$ ncs_cli -u admin -C
+# devtools true
+# devices fetch-ssh-host-keys
+fetch-result {
+    device hw0
+    result updated
+    fingerprint {
+        algorithm ssh-ed25519
+        value 00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff
+    }
 }
-
-identity cisco-ios {
- base ned:cli-ned-id;
-}
-```
-{% endcode %}
-
-The Java NED code registers the identity it handles with NSO.
-
-Similar to how we import device models for NETCONF-based devices, we use the `ncsc --ncs-compile-bundle` command to import YANG models for NED-handled devices.
-
-Once we have imported such a YANG model into NSO, we can configure the managed device in NSO to be handled by the appropriate NED handler (which is user Java code, more on that later)
-
-{% code title="Example: Setting the Device Type" %}
-```
-admin@ncs# show running config devices device r1
-    
-address   127.0.0.1
-port      2025
-authgroup default
-device-type cli ned-id cisco-ios
-state admin-state unlocked
+# netconf-ned-builder project hardware 1.0 fetch-module-list
+# show netconf-ned-builder project hardware 1.0 module
+module iana-crypt-hash 2014-08-06
+    namespace urn:ietf:params:xml:ns:yang:iana-crypt-hash
+    feature   [ crypt-hash-md5 crypt-hash-sha-256 crypt-hash-sha-512 ]
+    location  [ NETCONF ]
+module iana-hardware 2018-03-13
+    namespace urn:ietf:params:xml:ns:yang:iana-hardware
+    location  [ NETCONF ]
+module ietf-datastores 2018-02-14
+    namespace urn:ietf:params:xml:ns:yang:ietf-datastores
+    location  [ NETCONF ]
+module ietf-hardware 2018-03-13
+    namespace urn:ietf:params:xml:ns:yang:ietf-hardware
+    location  [ NETCONF ]
+module ietf-inet-types 2013-07-15
+    namespace urn:ietf:params:xml:ns:yang:ietf-inet-types
+    location  [ NETCONF ]
+module ietf-interfaces 2018-02-20
+    namespace urn:ietf:params:xml:ns:yang:ietf-interfaces
+    feature   [ arbitrary-names if-mib pre-provisioning ]
+    location  [ NETCONF ]
+module ietf-ip 2018-02-22
+    namespace urn:ietf:params:xml:ns:yang:ietf-ip
+    feature   [ ipv4-non-contiguous-netmasks ipv6-privacy-autoconf ]
+    location  [ NETCONF ]
+module ietf-netconf 2011-06-01
+    namespace urn:ietf:params:xml:ns:netconf:base:1.0
+    feature   [ candidate confirmed-commit rollback-on-error validate xpath ]
+    location  [ NETCONF ]
+module ietf-netconf-acm 2018-02-14
+    namespace urn:ietf:params:xml:ns:yang:ietf-netconf-acm
+    location  [ NETCONF ]
+module ietf-netconf-monitoring 2010-10-04
+    namespace urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring
+    location  [ NETCONF ]
 ...
-```
-{% endcode %}
-
-When NSO needs to communicate southbound towards a managed device that is not of type NETCONF, it will look for a NED that has registered with the name of the identity, in the case above, the string `ios`.
-
-Thus, before NSO attempts to connect to a NED device before it tries to sync or manipulate the configuration of the device, a user-based Java NED code must have registered with the NSO service manager indicating which Java class is responsible for the NED with the string of the identity, in this case, the string `ios`. This happens automatically when the NSO Java VM gets a `instantiate-component` request for an NSO package component of type `ned`.
-
-The component Java class `myNed` needs to implement either of the interfaces `NedGeneric` or `NedCli`. Both interfaces require the NED class to implement the following:
-
-{% code title="Example: NED Identification Callbacks" %}
-```
-// should return "cli" or "generic"
-String type();
-
-// Which YANG modules are covered by the class
-String [] modules();
-
-// Which identity is implemented by the class
-String identity();
-```
-{% endcode %}
-
-The above three callbacks are used by the NSO Java VM to connect the NED Java class with NSO. They are called at when the NSO Java VM receives the `instantiate-component request`.
-
-The underlying NedMux will start a number of threads, and invoke the registered class with other data callbacks as transactions execute.
-
-## YANG Module Namespace Identifier <a href="#d5e288" id="d5e288"></a>
-
-Internally in NSO, a YANG module is identified by its namespace. Each such namespace must be unique. Without CDM, the namespace identifier would be the same as the XML namespace defined in the YANG module. But with CDM, the namespace is constructed from a mount ID and the XML namespace. The resulting namespace is sometimes referred to as a crunched namespace.
-
-## Mount Point <a href="#d5e294" id="d5e294"></a>
-
-To implement CDM, NSO uses the YANG Schema Mount, defined in [RFC 8528](https://www.ietf.org/rfc/rfc8528.txt). This document introduces a mount point, under which YANG models are mounted. NSO defines two such mount points, in `/devices/device/config` and `/devices/device/live-status`. Under these mount points, all the device's YANG modules are mounted.
-
-This implies that traversing a path in the schema that crosses a mount-point, signals that referencing a node under the mount point by using a module's name, prefix, or XML namespace may be ambiguous (since there may be multiple versions of the same module, with different definitions of the same node). To resolve this ambiguity, it is necessary to know the mount ID.
-
-A NED package must define a NED ID that identifies the device type for the NED. In NSO, the NED ID is also the mount ID for the crunched namespaces.
-
-This means that the NED ID must be unique for each NED and will serve the dual role of defining the device type and mount ID.
-
-So, when traversing a mount-point, NSO will internally look up the ned-id for the specific device instance and resolve the ambiguities in the module name, prefix, or XML namespace. This way all user-code can and must use paths and XML namespaces just as before. There is no need for user code to ever handle crunched namespaces.
-
-## NED Version Scheme <a href="#ug.ned.migration.version-scheme" id="ug.ned.migration.version-scheme"></a>
-
-A NED has a version associated with it. A version consists of a sequence of numbers separated by dots (`.`). The first two numbers define the major and minor version number, the third number defines the maintenance version number and any following numbers are patch release version numbers.
-
-For instance, the 5.8.1 number indicates a maintenance release (1) on the minor release 5.8, and 5.8.1.1 indicates a patch release (1) on the maintenance release 5.8.1. Any incompatible YANG model change will require the major or minor version number to change, i.e. any 5.8.x version is to be backward compatible with the previous.
-
-When a NED release is replaced with a later maintenance/patch release with the same major/minor version, NSO can do a simple data model upgrade to handle stored instance data in CDB. There is no risk that any data would be lost by this sort of upgrade.
-
-On the other hand, when a NED is replaced by a new major/minor release this becomes a NED migration. These are nontrivial since the YANG model changes can result in loss of instance data if not handled correctly.
-
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-versions.png#developer.cisco.com" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
-
-## NED Settings
-
-NED settings are YANG models augmented as config in NSO that controls the behavior of the NED. These settings are augmented under `/devices/global-settings/ned-settings`, `/devices/profiles/ned-settings` and `/devices/device/ned-settings`. Traditionally, these NED settings have been accompanied by a _when_ expression specifying the NED ID for which the settings are legal. With the introduction of CDM, such _when_ expressions on specific NED IDs are not recommended since NED ID will change with NED releases.
-
-Instead, there is a need to introduce a 'family' identity that becomes base for all NED releases for a certain family. The `when` expressions can then use `derived-from` syntax to be legal for all NED releases in the family.
-
-## Schema Traversals in NED Java code <a href="#d5e331" id="d5e331"></a>
-
-As stated above schema traversal works as before until a mount-point is reached in the path. At that point, a lookup of the current mount-id (ned-id) is necessary to resolve any ambiguities in the module name, prefix, or XML namespace. Since the NED, by definition, works on devices under a NED any schema traversal in NED code falls under the latter case.
-
-Pre CDM retrieving a CSNode from the Maapi Schema for a path was as simple as calling the `findCSNode(Namespace, Path)` function.
-
-```
-private  MaapiSchemas.CSNode getCSNode(String path) throws MaapiException {
-  return schemas.findCSNode(Ncs.uri, path);
-}
-```
-
-With CDM the original `findCSNode(Namespace, Path)` still exists for backward compatibility but in the NED code case all paths are under a mount-point and hence this function will return an error that a lookup cannot be performed. The reason for this is that a maapi call to the NSO service is necessary to retrieve the mount-id for the device. This is accomplished with a mount-id callback `MountIdCb(Maapi, Th)` which takes a Maapi instance and optionally a current transaction.
-
-```
-private  MaapiSchemas.CSNode getCSNode(String path) throws MaapiException {
-  return schemas.findCSNode(new MountIdCb(this.mm, -1), Ncs.uri, path);
-}
-```
-
-## Dumb Versus Capable Devices <a href="#ug.ned.devs" id="ug.ned.devs"></a>
-
-NSO differentiates between managed devices that can handle transactions and devices that can not. This discussion applies regardless of NED type, i.e., NETCONF, SNMP, CLI, or Generic.
-
-NEDs for devices that cannot handle abort, must indicate so in the reply of the `newConnection()` method indicating that the NED wants a reverse diff in case of abort. Thus, NSO has two different ways to abort a transaction towards a NED, invoke the `abort()` method with or without a generated reverse diff.
-
-For non-transactional devices, we have no other way of trying out a proposed configuration change than to send the change to the device and see what happens.
-
-The table below shows the 7 different data-related callbacks that could or must be implemented by all NEDs. It also differentiates between 4 different types of devices and what the NED must do in each callback for the different types of devices.
-
-The table lists device types.
-
-<table data-full-width="false"><thead><tr><th width="238">Non transactional devices</th><th width="198">Transactional devices</th><th width="180">Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td>SNMP, Cisco IOS, NETCONF devices with startup+running.</td><td>Devices that can abort, NETCONF devices without confirmed commit.</td><td>Cisco XR type of devices.</td><td>ConfD, Junos.</td></tr><tr><td><strong>INITIALIZE</strong>: The initialize phase is used to initialize a transaction. For instance, if locking or other transaction preparations are necessary, they should be performed here. This callback is not mandatory to implement if no NED specific transaction preparations are needed.</td><td></td><td></td><td></td></tr><tr><td><code>initialize()</code>. NED code shall make the device go into config mode (if applicable) and lock (if applicable).</td><td><code>initialize()</code>. NED code shall start a transaction on the device.</td><td><code>initialize()</code>. NED code shall do the equivalent of configure exclusive.</td><td>Built in, NSO will lock.</td></tr><tr><td><strong>UNINITIALIZE</strong>: If the transaction is not completed and the NED has done INITIALIZE, this method is called to undo the transaction preparations, that is restoring the NED to the state before INITIALIZE. This callback is not mandatory to implement if no NED specific preparations was performed in INITIALIZE.</td><td></td><td></td><td></td></tr><tr><td><code>uninitialize()</code>. NED code shall unlock (if applicable).</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td>Built in, NSO will unlock.</td></tr><tr><td><strong>PREPARE</strong>: In the prepare phase, the NEDs get exposed to all the changes that are destined for each managed device handled by each NED. It is the responsibility of the NED to determine the outcome here. If the NED replies successfully from the prepare phase, NSO assumes the device will be able to go through with the proposed configuration change.</td><td></td><td></td><td></td></tr><tr><td><code>prepare(Data)</code>. NED code shall send all data to the device.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td>Built in, NSO will edit-config towards the candidate, validate and commit confirmed with a timeout.</td></tr><tr><td><strong>ABORT</strong>: If any participants in the transaction reject the proposed changes, all NEDs will be invoked in the <code>abort()</code> method for each managed device the NED handles. It is the responsibility of the NED to make sure that whatever was done in the PREPARE phase is undone. For NEDs that indicate as reply in <code>newConnection()</code> that they want the reverse diff, they will get the reverse data as a parameter here.</td><td></td><td></td><td></td></tr><tr><td><code>abort(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td>Built in, discard-changes and close.</td></tr><tr><td><strong>COMMIT</strong>: Once all NEDs that get invoked in <code>commit(Timeout)</code> reply ok, the transaction is permanently committed to the system. The NED may still reject the change in COMMIT. If any NED reject the COMMIT, all participants will be invoked in REVERT, NEDs that support confirmed commit with a timeout, Cisco XR, may choose to use the provided timeout to make REVERT easy to implement.</td><td></td><td></td><td></td></tr><tr><td><code>commit(Timeout)</code>. Do nothing</td><td><code>commit(Timeout)</code>. Commit the transaction.</td><td><code>commit(Timeout)</code>. Execute commit confirmed [Timeout] on the device.</td><td>Built in, commit confirmed with the timeout.</td></tr><tr><td><strong>REVERT</strong>: This state is reached if any NED reports failure in the COMMIT phase. Similar to the ABORT state, the reverse diff is supplied to the NED if the NED has asked for that.</td><td></td><td></td><td></td></tr><tr><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code>. discard-changes</td><td>Built in, discard-changes and close.</td></tr><tr><td><strong>PERSIST</strong>: This state is reached at the end of a successful transaction. Here it's responsibility of the NED to make sure that if the device reboots, the changes are still there.</td><td></td><td></td><td></td></tr><tr><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code>. confirm.</td><td>Built in, commit confirm.</td></tr></tbody></table>
-
-The following state diagram depicts the different states the NED code goes through in the life of a transaction.
-
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-states.png#developer.cisco.com" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
-
-## CLI NED <a href="#ug.ned.clined" id="ug.ned.clined"></a>
-
-The CLI NED is magic, it is an entirely model-driven way to CLI script towards all Cisco-like devices. The basic idea is that the Cisco CLI engine found in ConfD can be run in both directions.
-
-*   A sequence of Cisco CLI commands can be turned into the equivalent manipulation of the internal XML tree that represents the configuration inside NSO/ConfD. This is the normal mode of operations of ConfD, run in Cisco mode.
-
-    A YANG model, annotated appropriately, will produce a Cisco CLI. The user can enter Cisco commands and ConfD will, using the annotated YANG model, parse the Cisco CLI commands and change the internal XML tree accordingly. Thus this is the CLI parser and interpreter. Model-driven.
-*   The reverse operation is also possible. Given two different XML trees, each representing a configuration state, in the ConfD case it represents the configuration of a single device, i.e. the device using ConfD as a management framework, whereas in the NSO case, it represents the entire network configuration, we can generate the list of Cisco commands that would take us from one XML tree to another.
-
-    This technology is used by NSO to generate CLI commands southbound when we manage Cisco-like devices.
-
-It will become clear later in the examples how the CLI engine is run in forward and also reverse mode. The key point though, is that the Cisco CLI NED Java programmer doesn't have to understand and parse the structure of the CLI, this is entirely done by the NSO CLI engine.
-
-To implement a CLI NED, the following components are required:
-
-*   A YANG data model that describes the CLI. An important development tool here is ConfD, the Tail-f on-device management toolkit. For NSO to manage a CLI device, it needs a YANG file with exactly the right annotations to produce precisely the CLI of the managed device. In the NSO example collection, we have a few examples of annotated YANG models that render different variants of Cisco CLI. See for example `$NCS_DIR/packages/neds/dell-ftos` and `$NCS_DIR/packages/neds/cisco-nx`.
-
-    \
-    Thus, to create annotated YANG files for a device with a Cisco-like CLI, the work procedure is thus to run ConfD and write a YANG file which renders the correct CLI. This procedure is well described in the ConfD user guide documentation.
-
-    \
-    Furthermore, this YANG model must declare an identity with `ned:cli-ned-id` as base.
-* The next thing we need is a Java class that implements the NED. This is typically not a lot of code, and the existing example NED Java classes are easily extended and modified to fit other needs. The most important point of Java NED class code though is that the code can be oblivious of the actual CLI commands sent and received.
-
-Java CLI NED code must implement the `CliNed` interface.
-
-{% code title="Example: NedConnectionBase.java" %}
-```
-/*    -*- Java -*-
- *
- *  Copyright 2010 Tail-F Systems AB. All rights reserved.
- *
- *  This software is the confidential and proprietary
- *  information of Tail-F Systems AB.
- *
- *  $Id$
- *
- */
-package com.tailf.ned;
-
-import java.io.InputStream;
-import java.util.Calendar;
-
-import javax.xml.XMLConstants;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-
-import com.tailf.conf.ConfPath;
-import com.tailf.conf.ConfXMLParam;
-import com.tailf.maapi.Maapi;
-import com.tailf.maapi.MaapiSchemas.CSSchema;
-import com.tailf.ned.NedWorker.TransactionIdMode;
-
-/**
- * A NedConnection is the interface used by the NedMux for keeping
- * track of connections to different devices. One instance of each
- * type should be registered with the NedMux before the NedMux is
- * started. Specific sub-classes are defined for cli and generic
- * neds, see NedCli and NedGeneric.
- *
- * The life of a specific connection to a backend device is as
- * follows.
- *
- * 1 Initially an instance is created through the invocation of
- *   the create method, and a connection to the backend
- *   device is set up.
- * 2 a mix of prepare/abort/revert/commit/persist/show/getTransId/
- *   showStatsPath, etc
- * 3 possibly get invocations to the isAlive() method. This method
- *   is involved when the connection is pooled.
- * 4 possibly get an invocation to the reconnect method, and start
- *   over at 2
- * 5 finally one of the close() methods will be involved. The
- *   connection should close the connection to the device and
- *   release all resources.
- *
- * If the connection is poolable then it may live in the connection
- * pool. The state of the connection is polled by the connection
- * pool manager using the isAlive() method.
- *
- */
-
-abstract public class NedConnectionBase {
-
-    private static Logger LOGGER = LogManager.getLogger(
-            NedConnectionBase.class);
-
-    private NedCapability[] capas;
-    private NedCapability[] statscapas;
-    private boolean wantRevertDiff;
-    private TransactionIdMode transMode = TransactionIdMode.NONE;
-    private ConfXMLParam[] platformData;
-    private int connectionId;
-    private long poolTimestamp = Long.MAX_VALUE;
-    private boolean useStoredCapas = false;
-    // Holds reference to the new style SSH connection
-    protected SSHClient sshClient = null;
-
-    protected void setPoolTimestamp(long timestamp) {
-        this.poolTimestamp = timestamp;
-    }
-
-    public long getTimeInPool() {
-        return Calendar.getInstance().getTimeInMillis() - poolTimestamp;
-    }
-
-    /**
-     * This function is used to set the parameters of NedConnection for
-     * a specific NED.
-     *
-     * @param capas
-     *  an array of capabilities for config data
-     * @param statscapas
-     *  an array of capabilities for stats data
-     * @param wantRevertDiff
-     *  Indicates if the NED should be provided with the edit operations
-     *    needed to undo the configuration changes done in
-     *    the prepare method when a transaction is aborted.
-     * @param transMode
-     *  Indicates the mode of Transaction ID supported by the NED.
-     *    NONE if not supported. If supported, then getTransId()
-     *    should be implemented. Support for Transaction IDs is required
-     *    for check-sync action.
-     */
-    public void setConnectionData(NedCapability[] capas,
-                                  NedCapability[] statscapas,
-                                  boolean wantRevertDiff,
-                                  TransactionIdMode transMode) {
-        this.capas = capas;
-        this.statscapas = statscapas;
-        this.wantRevertDiff = wantRevertDiff;
-        this.transMode = transMode;
-    }
-
-    /**
-     * This function is used to set the capabilities for a specific NED.
-     * It has the same functionality as setConnectionData, but only for
-     * config capabilities. This is useful when initializing a NED instance
-     * without establishing connection to the device because other connection
-     * parameters such as stats capabilities, reverse diff and
-     * transaction id mode are irrelevant in this case
-     *
-     * @param capas
-     *  an array of capabilities for config data
-     */
-    public void setCapabilities(NedCapability[] capas) {
-        this.capas = capas;
-    }
-
-    /**
-     * This function is used to set the same capabilities as stored in
-     * CDB for a particular device. This method can only be used when
-     * initializing a NED instance without establishing connection to
-     * the device.
-     */
-    public void useStoredCapabilities() {
-        this.useStoredCapas = true;
-    }
-
-    /**
-     * This function is used to set the platform operational data for
-     * a specific NED. This is optional data that can be retrieved and
-     * used for instance in service code.
-     *
-     * It is possible to augment NED specific data into the platform container
-     * in the NCS device model. This method is then used to set both standard
-     * and augmented data.
-     *
-     * The ConfXMLParam[] array is expected to start with the platform tag:
-     *
-     * The following is an example of how the platformData array would
-     * be structured in an example with both the NCS standard name,
-     * model and version leaves as well as a augmented inventory list
-     * with three list elements:
-     * <pre>
-     * ConfXMLParam[] platformData =
-     *     new ConfXMLParam[] {
-     *         new ConfXMLParamStart("ncs", "platform"),
-     *         new ConfXMLParamValue("ncs", "name",
-     *                               new ConfBuf("ios")),
-     *         new ConfXMLParamValue("ncs", "version",
-     *                               new ConfBuf("15.0M")),
-     *         new ConfXMLParamValue("ncs", "model",
-     *                               new ConfBuf("7200")),
-     *
-     *         new ConfXMLParamStart("ginv", "inventory"),
-     *         new ConfXMLParamValue("ginv", "name",
-     *                               new ConfBuf("lx-345")),
-     *         new ConfXMLParamValue("ginv", "value",
-     *                               new ConfBuf("line-card")),
-     *         new ConfXMLParamStop("ginv", "inventory"),
-     *         new ConfXMLParamStart("ginv", "inventory"),
-     *         new ConfXMLParamValue("ginv", nameStr,
-     *                               new ConfBuf("lx-1001")),
-     *         new ConfXMLParamValue("ginv", "value",
-     *                               new ConfBuf("line-card")),
-     *         new ConfXMLParamStop("ginv", "inventory"),
-     *         new ConfXMLParamStart("ginv", "inventory"),
-     *         new ConfXMLParamValue("ginv", "name",
-     *                               new ConfBuf("FA1209A4E389")),
-     *         new ConfXMLParamValue("ginv", "value",
-     *                               new ConfBuf("licence")),
-     *         new ConfXMLParamStop("ginv", "inventory"),
-     *
-     *         new ConfXMLParamStop("ncs", "platform")
-     *     };
-     *
-     *      setPlatformData(platformData);
-     *
-     * </pre>
-     *
-     * @param platformData
-     *  An ConfXMLParam array containing operational data to be set under
-     *  the platform container in the device model. Expected to start with
-     *  the platform tag. If the platform container is augmented with some user
-     *  specific model such data should also be part of this array to be set at
-     *  connection time.
-     */
-    public void setPlatformData(ConfXMLParam[] platformData) {
-        this.platformData = platformData;
-    }
-
-    public int connection_id() {
-        return getConnectionId();
-    }
-
-    protected void setConnectionId(int connectionId) {
-        this.connectionId = connectionId;
-    }
-
-    public int getConnectionId() {
-        return connectionId;
-    }
-
-    public NedCapability[] getCapas() {
-        return capas;
-    }
-
-    public NedCapability[] getStatsCapas() {
-        return statscapas;
-    }
-
-    public boolean getWantRevertDiff() {
-        return wantRevertDiff;
-    }
-
-    public TransactionIdMode getTransactionIdMode() {
-        return transMode;
-    }
-
-    public ConfXMLParam[] getSystemStateData() {
-        return platformData;
-    }
-
-    public boolean getUseStoredCapas() {
-        return useStoredCapas;
-    }
-
-    /**
-     * The device_id is originally provided by NCS to properly identify
-     * the device. It is the name used for the device by NCS in the
-     * list of devices.
-     */
-    abstract public String device_id();
-
-    /**
-     * The type is one of "cli" and "generic". This information is sent to
-     * NCS when the NedMux is started to let NCS know how to communicate
-     * with each device.
-     */
-    abstract public String type();
-
-    /**
-     * Which YANG modules are covered by the class instance. This information
-     * is defined by the setConnectionData() call and is sent to NCS after
-     * initiating a new connection, or when re-establishing a connection.
-     * The modules() method is not actually used.
-     */
-    abstract public String [] modules();
-
-    /**
-     * This should return the a unique (among registered NedConnection classes)
-     * identity. It will be used by NCS when creating new connections to
-     * control which of the registered NedConnection classes to use.
-     */
-    public String identity() {
-        // obsolete since NSO 4.7
-        return null;
-    }
-
-    /**
-     * This indicates that the current set of operations should be
-     * committed to the running configuration. When completed the
-     * w.commitResponse() method should be invoked. Devices that does
-     * not support commit() should invoke the w.commitResponse() method
-     * without delay. On error invoke the w.error(NedCmd.COMMIT,
-     * Error, Reason) method.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param timeout
-     *    If the commit operation does not complete within 'timeout' seconds
-     *    the operation should be aborted.
-     */
-    abstract public void commit(NedWorker w, int timeout) throws Exception;
-
-    /**
-     * This method is invoked when the currently committed change set
-     * should be made permanent. This corresponds to copying the
-     * running configuration to the startup configuration, on a
-     * running/startup device, or issuing the confirming commit operation
-     * on a device that supports that. When completed the
-     * w.persistResponse() should be invoked. On error invoke the
-     * w.error(NedCmd.PERSIST,Error, Reason) method.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    abstract public void persist(NedWorker w) throws Exception;
-
-    /**
-     * This method is invoked when the connection is terminated. It is
-     * not invoked when placing the connection in the connection pool.
-     * No response is required, but trace messages may be generated
-     * during the close down.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    abstract public void close(NedWorker w) throws Exception;
-
-    /**
-     * This method is invoked when a connection close is forced and no
-     * NedWorker is involved. This typically occurs when a connection
-     * is removed from the connection pool. No response or trace
-     * messages can be sent during the operation.
-     */
-    abstract public void close();
-
-    /**
-     * @deprecated Use the method
-     * {@link #isAlive(NedWorker)}
-     * instead.
-     *
-     * If the {@link #isAlive(NedWorker)}
-     * method is implemented in the NED, this method will not be
-     * invoked. The NED must implement one of these methods.
-     *
-     */
-    @Deprecated
-    public boolean isAlive() {
-        return false;
-    }
-
-    /**
-     * This method is invoked to check if a connection is still
-     * alive. When a connection is stored in the connection pool
-     * it will periodically be polled to see if it is alive. If
-     * false is returned the connection will be closed using the
-     * close() method invocation.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    public boolean isAlive(NedWorker w) {
-        return this.isAlive();
-    }
-
-    protected void isSessionAlive(NedWorker w) throws Exception {
-        boolean alive = false;
-        try {
-            alive = this.isAlive(w);
-        } catch (Exception e) {
-            alive = false;
-        }
-        w.isAliveResponse(alive);
-    }
-
-    /**
-     * This method is invoked periodically to keep an connection
-     * alive. If false is returned the connection will be closed using the
-     * close() method invocation.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    public boolean keepAlive(NedWorker w) {
-        return true;
-    }
-
-    protected void keepSessionAlive(NedWorker w) throws Exception {
-        boolean alive = true;
-        try {
-            alive = this.keepAlive(w);
-        } catch (Exception e) {
-            alive = false;
-        }
-        w.isAliveResponse(alive);
-    }
-
-    /**
-     * This is for any optional commands on the device that are
-     * not part of the yang files config data, but is modeled as
-     * tailf:actions or rpcs in the device yang files.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param cmdName
-     *    Name of the command (path to action?)
-     * @param params
-     *
-     */
-    abstract public void command(NedWorker w, String cmdName,
-                                 ConfXMLParam[] params) throws Exception;
-
-    /**
-     * When this method is invoked depending on the node type the NED should:
-     *  * If the path points to the list node or leaf-list node without
-     *    specifying the key, then the NED should populate the list keys.
-     *    The NED should also set the TTL on the list node or individual list
-     *    instances. It may choose to write more data into the list instances
-     *    in which case it may populate TTL values for this data as well.
-     *  * If the path indicates a list entry, presence container, empty leaf or
-     *    a leaf-list instance, then the NED should indicate the existence of
-     *    this node in the data tree and return the corresponding TTL value. It
-     *    may populate more data into the list instance or presence container in
-     *    which case it may populate TTL values for this data as well.
-     *  * If the path points to a leaf, then the NED should write the value of
-     *    the leaf and indicate its TTL.
-     *  * If the NED chooses to populate the entire subtree below the path and
-     *    has nothing more to fetch, it should indicate so in the TTL value.
-     *    The TTL value for this path will act as the default TTL.
-     *
-     * The abovementioned operations should be performed on the provided
-     * transaction th.
-     *
-     * The method should indicate its return status by invoking
-     * the method w.error() or w.showStatsPathResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param th
-     *    a transaction handler that can be used in Maapi
-     * @param path
-     *    a ConfPath indication which list is requested
-     *
-     */
-    public void showStatsPath(NedWorker w, int th, ConfPath path)
-        throws Exception {
-        w.error(NedCmd.SHOW_STATS_PATH, "not implemented");
-    }
-
-    /**
-     * When this method is invoked the NED should populate the provided
-     * transaction th with the data corresponding to the filter.
-     *
-     * This method will be invoked if the NED announces the
-     * http://tail-f.com/ns/ncs-ned/show-stats?format=path capability.
-     *
-     * The method should indicate its return status by invoking
-     * the method w.error() or w.showStatsFilterResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param th
-     *    a transaction handler that can be used in Maapi
-     * @param paths
-     *    an array of ConfPath objects indicating what is requested
-     *
-     */
-    public void showStatsFilter(NedWorker w, int th, ConfPath[] paths)
-        throws Exception {
-        w.error(NedCmd.SHOW_STATS_FILTER, "not implemented");
-    }
-
-    /**
-     * When this method is invoked the NED should populate the provided
-     * transaction th with the data corresponding to the filter.
-     *
-     * This method will be invoked if the NED announces the
-     * http://tail-f.com/ns/ncs-ned/show-stats?format=xpath capability.
-     *
-     * The method should indicate its return status by invoking
-     * the method w.error() or w.showStatsFilterResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param th
-     *    a transaction handler that can be used in Maapi
-     * @param xpaths
-     *    an array of xpath strings indicating what is requested
-     *
-     */
-    public void showStatsFilter(NedWorker w, int th, String[] xpaths)
-        throws Exception {
-        w.error(NedCmd.SHOW_STATS_FILTER, "not implemented");
-    }
-
-    /**
-     * When this method is invoked the NED should populate the provided
-     * transaction th with the data corresponding to the filter.
-     *
-     * This method will be invoked if the NED announces the
-     * http://tail-f.com/ns/ncs-ned/show-stats?format=filter capability.
-     *
-     * The method should indicate its return status by invoking
-     * the method w.error() or w.showStatsFilterResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param th
-     *    a transaction handler that can be used in Maapi
-     * @param filters
-     *    an array of NedShowFilter indicating what is requested
-     *
-     */
-    public void showStatsFilter(NedWorker w, int th, NedShowFilter[] filters)
-        throws Exception {
-        w.error(NedCmd.SHOW_STATS_FILTER, "not implemented");
-    }
-
-    /**
-     * When this method is invoked the NED should produce a transaction
-     * id that must be changed if any changes has been made to the
-     * configuration since the last time the transaction id was requested.
-     * The transaction id can either be requested from the system,
-     * or calculated by the callback, for example by calculating an
-     * MD5 checksum of the configuration text.
-     *
-     *    The method should indicate its return status by invoking
-     *    the method w.error() or w.getTransIdResponse()
-     *
-     *    The method should be implemented if the NED claimed
-     *    a NedWorker.TransactionIdMode which is not NONE
-     *    in setConnectionData().
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    abstract public void getTransId(NedWorker w) throws Exception;
-
-    /**
-     * Used for resuming a connection found in the connection pool.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    abstract public void reconnect(NedWorker w) throws Exception;
-
-    /**
-     * Used for initializing an transaction. For instance if locking
-     * or other transaction preparations are necessary,
-     * they should be performed here.
-     * Note, that this method has a proper implementation in the base class
-     * and is therefore not necessary to override if no NED specific
-     * transaction preparations are needed.
-     *
-     *    The method should indicate its return status by invoking
-     *    the method w.error() or w.initializeResponse()
-     *
-     *    If the NED has claimed a NedWorker.TransactionIdMode other than
-     *    not NONE a transaction id must be produced in the response same
-     *    as for the getTransId() call.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     */
-    public void initialize(NedWorker w) throws Exception {
-        if (transMode == TransactionIdMode.NONE || w.isSuppressTransId()) {
-            w.initializeResponse("");
-        } else {
-            getTransId(w);
-        }
-    }
-
-    /**
-     * If the transaction is not completed and the NED has done initialize
-     * this method is called to undo the transaction preparations.
-     * That is restoring the NED to the state before initialize.
-     * Note, that this method has a proper implementation in the base class
-     * and is therefore not necessary to override if no NED specific operations
-     * was performed in initialize.
-     *
-     *    The method should indicate its return status by invoking
-     *    the method w.error() or w.uninitializeResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     */
-    public void uninitialize(NedWorker w) throws Exception {
-        w.uninitializeResponse();
-    }
-
-    /**
-     * This method is invoked to create a notification subscription.
-     * After the subscription has been created the NedWorker can
-     * send notifiction messages, in the NETCONF notification format,
-     * with the w.notification() method.
-     *
-     *    The method should indicate its return status by invoking
-     *    the method w.error() or w.createSubscriptionResponse()
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker
-     *    instance should be used when communicating with NCS, i.e,
-     *    for sending responses, errors, and trace messages. It is also
-     *    implements the NedTracer API and can be used in, for example,
-     *    the SSHSession as a tracer.
-     * @param stream
-     *    The notification stream to establish the subscription on.
-     * @param startTime
-     *    Trigger the replay feature and indicate that the replay should
-     *    start at the time specified. If null, this is not a replay
-     *    subscription. It is not valid to specify start times that are
-     *    later than the current time. If the time specified is
-     *    earlier than the log can support, the replay will begin with
-     *    the earliest available notification. This parameter is of
-     *    dateTime XML schema type and compliant to RFC 3339.
-     *    Implementations must support time zones.
-     * @param filter
-     *    Indicates which subset of all possible events is of interest.
-     *    The format of this parameter is the same as that of the filter
-     *    parameter in the NETCONF protocol operations. If not present,
-     *    all events not precluded by other parameters will be sent.
-     * @param filterType
-     *    Indicates the type of filter if it is used:
-     *    <ul>
-     *    <li> {@link com.tailf.ned.NedCmd#FILTER_NONE}
-     *    <li> {@link com.tailf.ned.NedCmd#FILTER_XPATH}
-     *    <li> {@link com.tailf.ned.NedCmd#FILTER_SUBTREE}
-     *    </ul>
-     *
-     * @see <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>
-     * @see <a href="https://tools.ietf.org/html/rfc5277">RFC 5277</a>
-     * @see <a href="https://www.w3.org/TR/xmlschema-2/">
-     *      XSD-TYPES: XML Schema Part 2: Datatypes Second Edition
-     *      </a>
-     */
-    public void createSubscription(NedWorker w, String stream, String startTime,
-                                   String filter, int filterType)
-        throws Exception {
-        w.error(NedCmd.CREATE_SUBSCRIPTION, "not implemented");
-    }
-
-    static protected String retrieveIdentity(NedConnectionBase ned)
-        throws NedException {
-        InputStream stream = ned.getClass().getClassLoader().
-                                getResourceAsStream("package-meta-data.xml");
-        if (stream == null) {
-            // backward compatibility with old neds.
-            String nedName = ned.getClass().getName();
-            LOGGER.warn("Ned '" + nedName +
-                        "' do not contain the package-meta-data.xml in any " +
-                        "of its private jar files");
-            return ned.identity();
-        }
-        // The Xalan/Xerces libraries have their own impl for this factory
-        // and it doesn't support disabling external DTD/schema.
-        // So, we have to force usage of JDK's built-in implementation here
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance(
-                "com.sun.org.apache.xerces.internal.jaxp." +
-                "DocumentBuilderFactoryImpl",
-                NedConnectionBase.class.getClassLoader());
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD,
-                ""); // SQ Rule java:S2755
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA,
-                ""); // SQ Rule java:S2755
-        dbf.setNamespaceAware(true);
-        DocumentBuilder db;
-        try {
-            db = dbf.newDocumentBuilder();
-            InputSource src = new InputSource(stream);
-            Document doc = db.parse(src);
-
-            org.w3c.dom.NodeList nlist = doc.getElementsByTagName("ned-id");
-            org.w3c.dom.Node node = nlist.item(0);
-            String[] sarr1 = node.getTextContent().split(":");
-            String lprefix = sarr1[0].trim();
-            String nedid = sarr1[1].trim();
-            String attrname = "xmlns:"+lprefix;
-            org.w3c.dom.Node nsnode =
-                node.getAttributes().getNamedItem(attrname);
-            String uri = nsnode.getNodeValue().trim();
-            CSSchema schema = Maapi.getSchemas().findCSSchema(uri);
-            String prefix = schema.getPrefix();
-            String identity = prefix+":"+nedid;
-            return identity;
-        } catch (Exception e) {
-            String nedName = ned.getClass().getName();
-            throw new NedException(NedErrorCode.CONNECT_BADKEY,
-                     "Could not retrieve ned-id from package-meta-data.xml " +
-                      "for ned '" + nedName + "'.", e);
-        }
-    }
-}
-```
-{% endcode %}
-
-{% code title="Example: NedCliBase.java" %}
-```
-/*    -*- Java -*-
- *
- *  Copyright 2010 Tail-F Systems AB. All rights reserved.
- *
- *  This software is the confidential and proprietary
- *  information of Tail-F Systems AB.
- *
- *  $Id$
- *
- */
-package com.tailf.ned;
-
-import java.net.InetAddress;
-import com.tailf.conf.ConfPath;
-
-/**
- * This class is used for connections between the NCS and CLI based
- * NEDs. A NedCli instance must be combined with a YANG data model
- * that models the data and CLI commands used for talking to the device.
- */
-
-abstract public class NedCliBase extends NedConnectionBase {
-    // mangle output, we're invoked during prepare phase
-    // of NCS
-
-    /**
-     * Is invoked by NCS to take the configuration to a new state. The Ned may
-     * choose to apply the changes directly to the device, preferably to a
-     * candidate
-     * configuration, but if the device lacks candidate support it may choose
-     * to apply the changes directly to the running config (typically the case
-     * on IOS like boxes). If the configuration changes are later aborted, or
-     * reverted, the NCS will provide the necessary commands for restoring the
-     * configuration to its previous state. The device should invoke the
-     * w.prepareResponse() when the operation is completed.
-     *
-     *        initialize (prepare transaction)
-     *              / \
-     *             /   uninitialize (undo preparations)
-     *            v
-     *        prepare (send data to device)
-     *            /   \
-     *           v     v
-     *        abort | commit(send confirmed commit (ios would do noop))
-     *                 /   \
-     *                v     v
-     *            revert | persist (send confirming commit)
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param data
-     *    is the CLI commands for transforming the configuration to
-     *    a new state. The commands are generated using the YANG data
-     *    model in combination with the tailf: extensions to guide the
-     *    mapping.
-     */
-    abstract public void prepare(NedWorker w, String data) throws Exception;
-
-    /**
-     * Is invoked by NCS to tell the NED what actions it should take towards
-     * the device if it should do a prepare.
-     *
-     * The NED should invoke the method
-     * {@link com.tailf.ned.NedWorker#prepareDryResponse(String)
-     * prepareDryResponse()}
-     * when the operation is completed. If no changes needs to be done
-     * just answer <code>prepareDryResponse(data)</code>
-     *
-     * If an error is detected answer this through a call to
-     * {@link com.tailf.ned.NedWorker#error(int,String,String) error()}
-     * in <code>NedWorker w</code>.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the
-     *    {@link NedTracer}
-     *    API and can be used in, for example, the {@link SSHSession}
-     *    as a tracer.
-     *
-     * @param data
-     *    is the CLI commands for transforming the configuration to
-     *    a new state. The commands are generated using the YANG data
-     *    model in combination with the tailf: extensions to guide the
-     *    mapping.
-     */
-    abstract public void prepareDry(NedWorker w, String data)
-        throws Exception;
-
-    /**
-     * Is invoked by NCS to abort the configuration to the state before the
-     * previous prepare() invocation. The NCS has calculated the commands needed
-     * to reach that state from the current state. The instance may choose
-     * to use there commands, or use some other mechanism to reach the same
-     * state. When the operation is completed it should invoke the
-     * w.abortResponse() method in the NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param data
-     *    is the commands for taking the config back to the previous
-     *    state. The commands are generated using the YANG data
-     *    model in combination with the tailf: extensions to guide the
-     *    mapping.
-     */
-    abstract public void abort(NedWorker w, String data) throws Exception;
-
-    /**
-     * Is invoked by NCS to undo the changes introduced in the last commit
-     * operation (communicated to the NED in the prepare method invocation).
-     * The difference between abort() and revert() is that revert() is invoked
-     * after commit() (but before persist), whereas abort() is invoked before
-     * commit(). Once the configuration has been made persistent by persist()
-     * it can no longer be restored to any previous  (potentially saved) state.
-     * When the revert operation has been completed the w.revertResponse()
-     * method should be called.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param data
-     *    is the commands for taking the config back to the previous
-     *    state.
-     */
-    abstract public void revert(NedWorker w, String data) throws Exception;
-
-    /**
-     * Extract parts of the configuration and send it to NCS. The response
-     * is sent by invoking the w.showCliResponse() method in the provided
-     * NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param toptag
-     *    is the top level tag indicating which part of the config
-     *    should be extracted.
-     */
-    abstract public void show(NedWorker w, String toptag) throws Exception;
-
-    /**
-     * @deprecated Use the method
-     * {@link #showPartial(NedWorker,ConfPath[],String[])}
-     * instead.
-     *
-     * Extract parts of the configuration and send it to NCS. The response
-     * is sent by invoking the w.showCliResponse() method in the provided
-     * NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param cmdpaths
-     *    are cmd paths to filter the various parts of the configuration tree
-     *    that should be extracted.
-     */
-    @Deprecated
-    public void showPartial(NedWorker w, String[] cmdpaths)
-        throws Exception {
-        w.error(NedCmd.SHOW_PARTIAL_CLI, "not implemented");
-    }
-
-    /**
-     * Extract parts of the configuration and send it to NCS. The response
-     * is sent by invoking the w.showCliResponse() method in the provided
-     * NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param paths
-     *    are paths to filter the various parts of the configuration tree
-     *    that should be extracted.
-     */
-    public void showPartial(NedWorker w, ConfPath[] paths)
-        throws Exception {
-        w.error(NedCmd.SHOW_PARTIAL_CLI, "not implemented");
-    }
-
-    /**
-     * Extract parts of the configuration and send it to NCS. The response
-     * is sent by invoking the w.showCliResponse() method in the provided
-     * NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param paths
-     *    are paths to filter the various parts of the configuration tree
-     *    that should be extracted.
-     *
-     * @param cmdpaths
-     *    are cmd paths to filter the various parts of the configuration tree
-     *    that should be extracted.
-     */
-    public void showPartial(NedWorker w, ConfPath[] paths, String[] cmdpaths)
-        throws Exception {
-        throw new NedWorker.NotImplementedException();
-    }
-
-    /**
-     * Extract parts of the configuration and send it to NCS. The response
-     * is sent by invoking the w.showCliResponse() method in the provided
-     * NedWorker.
-     *
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     *
-     * @param toptag
-     *    is the top level tag indicating which part of the config
-     *    should be extracted.
-     *
-     * @param data
-     *    is the CLI commands in native format.
-     */
-    public void showOffline(NedWorker w, String toptag, String data)
-        throws Exception {
-        w.error(NedCmd.SHOW_OFFLINE_CLI, "not implemented");
-    }
-
-    /**
-     * Used by the connection pool to find a matching connection. If
-     * the current connection is has the same parameters it should return
-     * true, otherwise false.
-     *
-     * @param deviceId name of device
-     * @param ip address to connect to device
-     * @param port port to connect to
-     * @param proto ssh or telnet
-     * @param ruser name of user to connect as
-     * @param pass password to use when connecting
-     * @param secpass secondary password to use when entering config mode,
-     *        set to empty string if not configured in the authgroup
-     * @param trace indicates if raw trace messages should be generated or not
-     * @param connectTimeout in milliseconds
-     * @param readTimeout in milliseconds
-     * @param writeTimeout in milliseconds
-     */
-    abstract public boolean isConnection(String deviceId,
-                                         InetAddress ip,
-                                         int port,
-                                         String proto,  // ssh or telnet
-                                         String ruser,
-                                         String pass,
-                                         String secpass,
-                                         String keydir,
-                                         boolean trace,
-                                         int connectTimeout, // msecs
-                                         int readTimeout,    // msecs
-                                         int writeTimeout    // msecs
-                                        );
-
-    /**
-     * Establish a new connection to a device and send response to
-     * NCS with information about the device. This information is set by
-     * using the setConnectionData() method.
-     * A new instance representing the new connection should
-     * be returned. That instance will then be used for further communication
-     * with the device. Different worker instances may be used for that
-     * communication and the instance cannot assume that the worker used in
-     * this invocation will be the same used for the invocations of the
-     * prepare, abort, revert, persist, show, etc methods.
-     *
-     * @return the connection instance
-     * @param deviceId name of device
-     * @param ip address to connect to device
-     * @param port port to connect to
-     * @param proto ssh or telnet
-     * @param ruser name of user to connect as
-     * @param pass password to use when connecting
-     * @param secpass secondary password to use when entering config mode,
-     *        set to empty string if not configured in the authgroup
-     * @param publicKeyDir directory to read public keys. null if password is
-     *        given
-     * @param trace indicates if raw trace messages should be generated or not
-     * @param connectTimeout in milliseconds
-     * @param readTimeout in milliseconds
-     * @param writeTimeout in milliseconds
-     * @param mux
-     * @param w
-     *    The NedWorker instance currently responsible for driving the
-     *    communication
-     *    between NCS and the device. This NedWorker instance should be
-     *    used when communicating with the NCS, ie for sending responses,
-     *    errors, and trace messages. It is also implements the NedTracer
-     *    API and can be used in, for example, the SSHSession as a tracer.
-     */
-    abstract public NedCliBase newConnection(String deviceId,
-                                         InetAddress ip,
-                                         int port,
-                                         String proto,  // ssh or telnet
-                                         String ruser,
-                                         String pass,
-                                         String secpass,
-                                         String publicKeyDir,
-                                         boolean trace,
-                                         int connectTimeout, // msecs
-                                         int readTimeout,    // msecs
-                                         int writeTimeout,   // msecs
-                                         NedMux mux,
-                                         NedWorker w
-                                        );
-
-    /**
-     * Make a new instance of Ned object without establishing a connection
-     * towards the device. The NED should use previously stored information
-     * about the device to initialize its state if needed or throw
-     * NedWorker.NotEnoughDataException. It should then send the information
-     * about the device using the setConnectionData() method.  A new instance
-     * representing the new connection should be returned. That instance can
-     * only be used for invoking prepareDry() callback and not for actual
-     * communication with the device. close() callback will be invoked
-     * before destroying the NED instance, so the implementation of the close()
-     * callback should handle cleanup both for instances created with
-     * newConnection() and instanced created with initNoConnect()
-     *
-     * @return the NED instance
-     * @param device_id name of device
-     * @param mux
-     * @param worker
-     *    The NedWorker instance currently responsible for driving the
-     *    communication between NCS and the device. This NedWorker instance
-     *    should be used when communicating with the NCS, ie for sending
-     *    responses, errors, and trace messages.
-     */
-    public NedCliBase initNoConnect(String device_id,
-                                    NedMux mux,
-                                    NedWorker worker)
-        throws NedWorker.NotEnoughDataException {
-        throw new NedWorker.NotEnoughDataException();
-    }
-}
-```
-{% endcode %}
-
-Thus the Java NED class has the following responsibilities.
-
-* It must implement the identification callbacks, i.e. `modules()`, `type()`, and `identity()`_._
-*   It must implement the connection-related callback methods `newConnection()`, `isConnection()`, and `reconnect()`_._
-
-    \
-    NSO will invoke the `newConnection()` when it requires a connection to a managed device. It is the responsibility of the `newConnection()` method to connect to the device, figure out exactly what type of device it is, and return an array of `NedCapability` objects.\
-
-
-    ```
-    public class NedCapability {
-
-        public String str;
-        public String uri;
-        public String module;
-        public String features;
-        public String revision;
-        public String deviations;
-
-        ....
-    ```
-
-    \
-    This is very much in line with how a NETCONF connect works and how the NETCONF client and server exchange hello messages.
-*   Finally, the NED code must implement a series of data methods. For example, the method `void prepare(NedWorker w, String data)` get a String object which is the set of Cisco CLI commands it shall send to the device.
-
-    \
-    In the other direction, when NSO wants to collect data from the device, it will invoke `void show(NedWorker w, String toptag)` for each tag found at the top of the data model(s) loaded for that device. For example, if the NED gets invoked with `show(w, "interface")`, it's responsibility is to invoke the relevant show configuration command for `"interface"`, i.e., _s_`how running-config interface` over the connection to the device, and then dumbly reply with all the data the device replies with. NSO will parse the output data and feed it into its internal XML trees.
-
-    \
-    NSO can order the `showPartial()` to collect part of the data if the NED announces the capability _http://tail-f.com/ns/ncs-ned/show-partial?path-format=FORMAT_ in which FORMAT is of the following:
-
-    * `key-path`: support regular instance keypath format.
-    * `top-tag`: support top tags under the `/devices/device/config` tree.
-    * `cmd-path-full`: support Cisco's CLI edit path with instances.
-    * `path-modes-only`: support Cisco CLI mode path.
-    * `cmd-path-modes-only-existing`: same as `path-mode-only` but NSO only supplies the path mode of existing nodes.
-
-## Generic NED <a href="#ug.ned.generic" id="ug.ned.generic"></a>
-
-As described in previous sections, the CLI NEDs are almost programming-free. The NSO CLI engine takes care of parsing the stream of characters that come from "show running-config \[toptag]" and also automatically produces the sequence of CLI commands required to take the system from one state to another.
-
-A generic NED is required when we want to manage a device that neither speaks NETCONF or SNMP nor can be modeled so that ConfD - loaded with those models - gets a CLI that looks almost/exactly like the CLI of the managed device. For example, devices that have other proprietary CLIs, devices that can only be configured over other protocols such as REST, Corba, XML-RPC, SOAP, other proprietary XML solutions, etc.
-
-In a manner similar to the CLI NED, the Generic NED needs to be able to connect to the device, return the capabilities, perform changes to the device, and finally, grab the entire configuration of the device.
-
-The interface that a Generic NED has to implement is very similar to the interface of a CLI NED. The main differences are:
-
-* When NSO has calculated a diff for a specific managed device, it will for CLI NEDS also calculate the exact set of CLI commands to send to the device, according to the YANG models loaded for the device. In the case of a generic NED, NSO will instead send an array of operations to perform towards the device in the form of DOM manipulations. The generic NED class will receive an array of `NedEditOp` objects. Each `NedEditOp` object contains:
-  * The operation to perform, i.e. CREATED, DELETED, VALUE\_SET, etc.
-  * The keypath to the object in case.
-  * An optional value
-* When NSO wants to sync the configuration from the device to NSO, the CLI NED only has to issue a series of `show running-config [toptag]` commands and reply with the output received from the device. A generic NED has to do more work. It is given a transaction handler, which it must attach to over the Maapi interface. Then the NED code must - by some means - retrieve the entire configuration and write into the supplied transaction, again using the Maapi interface.
-
-Once the generic NED is implemented, all other functions in NSO work precisely in the same manner as with NETCONF and CLI NED devices. NSO still has the capability to run network-wide transactions. The caveat is that to abort a transaction towards a device that doesn't support transactions, we calculate the reverse diff and send it to the device, i.e. we automatically calculate the undo operations.
-
-Another complication with generic NEDs is how the NED class shall authenticate towards the managed device. This depends entirely on the protocol between the NED class and the managed device. If SSH is used to a proprietary CLI, the existing authgroup structure in NSO can be used as is. However, if some other authentication data is needed, it is up to the generic NED implementer to augment the authgroups in `tailf-ncs.yang` accordingly.
-
-We must also configure a managed device, indicating that its configuration is handled by a specific generic NED. Below we see that the NED with identity `xmlrpc` is handling this device.
-
-```
-admin@ncs# show running-config devices device x1
-    
-address   127.0.0.1
-port      12023
-authgroup default
-device-type generic ned-id xmlrpc
-state admin-state unlocked
+module ietf-yang-types 2013-07-15
+    namespace urn:ietf:params:xml:ns:yang:ietf-yang-types
+    location  [ NETCONF ]
+module tailf-aaa 2023-04-13
+    namespace http://tail-f.com/ns/aaa/1.1
+    location  [ NETCONF ]
+module tailf-acm 2013-03-07
+    namespace http://tail-f.com/yang/acm
+    location  [ NETCONF ]
+module tailf-common 2023-10-16
+    namespace http://tail-f.com/yang/common
+    location  [ NETCONF ]
 ...
+module timestamp-hardware 2023-11-10
+    namespace urn:example:timestamp-hardware
+    location  [ NETCONF ]
 ```
 
-The example `examples.ncs/generic-ned/xmlrpc-device` in the NSO examples collection implements a generic NED that speaks XML-RPC to 3 HTTP servers. The HTTP servers run the apache XML-RPC server code and the NED code manipulates the 3 HTTP servers using a number of predefined XML RPC calls.
+The `fetch-ssh-host-key` command fetches the public SSH host key from the device to set up NETCONF over SSH. The `fetch-module-list` command will look for existing YANG modules in the download-cache-path folder, YANG version 1.0 models in the device NETCONF `hello` message, and issue a `get` operation to look for YANG version 1.1 models in the device `yang-library`. The `get-schema` operation fetches the YANG modules over NETCONF and puts them in the download-cache-path folder.
 
-A good starting point when we wish to implement a new generic NED is the `ncs-make-package --generic-ned-skeleton ...` command, which is used to generate a skeleton package for a generic NED.
+After the list of YANG modules is fetched, the retrieved list of modules can be shown. Select the ones you want to download and include in the NETCONF NED.
 
-```
-$ ncs-make-package --generic-ned-skeleton abc --build
-```
+When you select a module with dependencies on other modules, the modules dependent on are automatically selected, such as those listed below for the `ietf-hardware` module including `iana-hardware` `ietf-inet-types` and `ietf-yang-types`. To select all available modules, use the wild card for both fields. Use the `deselect` command to exclude modules previously included from the build.
 
 ```
-$ ncs-setup --ned-package abc --dest ncs
+$ ncs_cli -u admin -C
+# devtools true
+# netconf-ned-builder project hardware 1.0 module ietf-hardware 2018-03-13 select
+# netconf-ned-builder project hardware 1.0 module timestamp-hardware 2023-11-10 select
+# show netconf-ned-builder project hardware 1.0 module status
+NAME                REVISION    STATUS
+-----------------------------------------------------
+iana-hardware       2018-03-13  selected,downloaded
+ietf-hardware       2018-03-13  selected,downloaded
+ietf-inet-types     2013-07-15  selected,pending
+ietf-yang-types     2013-07-15  selected,pending
+timestamp-hardware  2023-11-10  selected,pending
+
+Waiting for NSO to download the selected YANG models (see demo-nb.sh for details)
+
+NAME                REVISION    STATUS
+-----------------------------------------------------
+iana-hardware       2018-03-13  selected,downloaded
+ietf-hardware       2018-03-13  selected,downloaded
+ietf-inet-types     2013-07-15  selected,downloaded
+ietf-yang-types     2013-07-15  selected,downloaded
+timestamp-hardware  2023-11-10  selected,downloaded
 ```
 
-```
-$ cd ncs
-```
+Principles of Selecting the YANG Modules:
+
+Before diving into more details, the principles of selecting the modules for inclusion in the NED are crucial steps in building the NED and deserve to be highlighted.
+
+The best practice recommendation is to select only the modules necessary to perform the tasks for the given NSO deployment to reduce memory consumption, for example, for the `sync-from` command, and improve upgrade wall-clock performance.
+
+For example, suppose the aim of the NSO installation is exclusively to manage BGP on the device, and the necessary configuration is defined in a separate module. In that case, only this module and its dependencies need to be selected. If several services are running within the NSO deployment, it will be necessary to include more data models in the single NED that may serve one or many devices. However, if the NSO installation is used to, for example, take a full backup of the device's configuration, all device modules need to be included with the NED.
+
+Selecting a module will also require selecting the module's dependencies, namely, modules imported by the selected modules, modules that augment the selected modules with the required functionality, and modules known to deviate from the selected module in the device's implementation.
+
+Avoid selecting YANG modules that overlap where, for example, configuring one leaf will update another. Including both will cause NSO to get out of sync with the device after a NETCONF `edit-config` operation, forcing time-consuming sync operations.
+
+#### **Build the NED from the YANG Data Models**
+
+An NSO NED is a package containing the device YANG data models. The NED package must first be built, then installed with NSO, and finally, the package must be loaded for NSO to communicate with the device via NETCONF using the device YANG data models as the schema for what to configure, state to read, etc.
+
+After the files have been downloaded from the device, they must be built before being used. The following example shows how to build a NED for the `hw0` device.
+
+<pre><code># devtools true
+# netconf-ned-builder project hardware 1.0 build-ned
+<strong># show netconf-ned-builder project hardware 1.0 build-status
+</strong>build-status success
+# show netconf-ned-builder project hardware 1.0 module build-warning
+% No entries found.
+# show netconf-ned-builder project hardware 1.0 module build-error
+% No entries found.
+# unhide debug
+# show netconf-ned-builder project hardware 1.0 compiler-output
+% No entries found.
+</code></pre>
+
+{% hint style="info" %}
+Build errors can be found in the `build-error` leaf under the module list entry. If there are errors in the build, resolve the issues in the YANG models, update them and their revision on the device, and download them from the device or place the YANG models in the cache as described earlier.
+{% endhint %}
+
+Warnings after building the NED can be found in the `build-warning` leaf under the module list entry. It is good practice to clean up build warnings in your YANG models.
+
+A build error example:
 
 ```
-$ ncs -c ncs.conf
+# netconf-ned-builder project cisco-iosxr 6.6 build-ned
+Error: Failed to compile NED bundle
+# show netconf-ned-builder project cisco-iosxr 6.6 build-status
+build-status error
+# show netconf-ned-builder project cisco-iosxr 6.6 module build-error
+module openconfig-telemetry 2016-02-04
+ build-error at line 700: <error message>
 ```
 
-```
-$ ncs_cli -C -u admin
-```
+The full compiler output for debugging purposes can be found in the `compiler-output` leaf under the project list entry. The `compiler-output` leaf is hidden by `hide-group debug` and may be accessed in the CLI using the `unhide debug` command if the hide-group is configured in `ncs.conf`. Example `ncs.conf` config:
 
 ```
-admin@ncs# show packages package abc
-packages package abc
-package-version 1.0
-description     "Skeleton for a generic NED"
-ncs-min-version [ 3.3 ]
-component MyDevice
- callback java-class-name [ com.example.abc.abcNed ]
- ned generic ned-id abc
- ned device vendor "Acme abc"
- ...
+<hide-group>
+    <name>debug</name>
+</hide-group>
+```
+
+For the ncs.conf configuration change to take effect, it must be either reloaded or NSO restarted. A reload using the `ncs_cmd` tool:
+
+```
+$ ncs_cmd -c reload
+```
+
+As the compilation will halt if an error is found in a YANG data model, it can be helpful to first check all YANG data models at once using a shell script plus the NSO yanger tool.
+
+```
+$ ls -1
+check.sh
+yang    # directory with my YANG modules
+$ cat check.sh
+#!/bin/sh
+for f in yang/*.yang
+do
+    $NCS_DIR/bin/yanger -p yang $f
+done
+```
+
+As an alternative to debugging the NED building issues inside an NSO CLI session, the `make-development-ned` action creates a development version of NED, which can be used to debug and fix the issue in the YANG module.
+
+```
+$ ncs_cli -u admin -C
+# devtools true
+(config)# netconf-ned-builder project hardware 1.0 make-development-ned in-directory /tmp
+ned-path /tmp/hardware-nc-1.0
+(config)# end
+# exit
+$ cd /tmp/hardware-nc-1.0/src
+$ make clean all
+```
+
+YANG data models that do not compile due to YANG RFC compliance issues can either be updated in the cache folder directly or in the device and re-uploaded again through `get-schema` operation by removing them from the cache folder and repeating the previous process to rebuild the NED. The YANG modules can be deselected from the build if they are not needed for your use case.
+
+{% hint style="info" %}
+Having device vendors update their YANG models to comply with the NETCONF and YANG standards can be time-consuming. Visit the [NED Administration](../../../administration/management/ned-administration.md) and get help from the Cisco NSO NED team, who can diagnose, develop and maintain NEDs that bypass misbehaving device's special quirks.
+{% endhint %}
+
+#### **Export the NED package and Load**
+
+A successfully built NED may be exported as a `tar` file using the `export-ned action`. The `tar` file name is constructed according to the naming convention below.
+
+```
+ncs-<ncs-version>-<ned-family>-nc-<ned-version>.tar.gz
+```
+
+The user chooses the directory the file needs to be created in. The user must have write access to the directory. I.e., configure the NSO user with the same uid (id -u) as the non-root user:
+
+```
+$ id -u
+501
+$ ncs_cli -u admin -C
+# devtools true
+# config
+(config)# aaa authentication users user admin uid 501
+(config-user-admin)# commit
+Commit complete.
+(config-user-admin)# end
+# netconf-ned-builder project hardware 1.0 export-ned to-directory \
+  /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/packages
+tar-file /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/
+         nso-rundir/packages/ncs-6.2-hardware-nc-1.0.tar.gz
+```
+
+When the NED package has been copied to the NSO run-time packages directory, the NED package can be loaded by NSO.
+
+```
+# packages reload
+>>>> System upgrade is starting.
+>>>> Sessions in configure mode must exit to operational mode.
+>>>> No configuration changes can be performed until upgrade has completed.
+>>>> System upgrade has completed successfully.
+reload-result {
+    package hardware-nc-1.0
+    result true
+}
+# show packages | nomore
+packages package hardware-nc-1.0
+ package-version 1.0
+ description     "Generated by NETCONF NED builder"
+ ncs-min-version [ 6.2 ]
+ directory       ./state/packages-in-use/1/hardware-nc-1.0
+ component hardware
+  ned netconf ned-id hardware-nc-1.0
+  ned device vendor Tail-f
  oper-status up
 ```
 
-## Getting started with a CLI NED <a href="#ug.ned.starting.generic" id="ug.ned.starting.generic"></a>
+#### **Update the `ned-id` for the `hw0` Device**
 
-NSO ships with several CLI NED examples. A good starting point is `$NCS_DIR/packages/neds/cisco-ios` which contains that allows NSO to control Cisco IOS/Catalyst routers.
-
-Implementing a CLI NED is almost entirely a YANG model activity. The tool to use while developing the YANG model is ConfD. The task is to write a YANG model, that when run with ConfD, make ConfD produce a CLI that is as close as possible to the target device, in this case, a Cisco IOS router.
-
-The ConfD example found under `$CONFD_DIR/examples.confd/cli/c7200` doesn't cover the entire Cisco c7200 router. It only covers certain aspects of the device. This is important, to have NSO manage a device with a Cisco-like CLI we do not have to model the entire device, we only need to cover the commands that we intend to use. When the `show()` callback issues its `show running-config [toptag]` command, and the device replies with data that is fed to NSO, NSO will ignore all command dump output that is not covered by the loaded YANG models.
-
-Thus, whichever Cisco-like device we wish to manage, we must first have YANG models that cover all aspects of the device we wish to use from NSO. Tailf ships various YANG models covering different variants of Cisco routers and switches in the NSO example collection. Either of these is a good starting point. Once we have a YANG model, we load it into NSO, modify the example CLI NED class to return the `NedCapability` list of the device.
-
-The NED code gets to see all data that goes from and to the device. If it's impossible or too hard to get the YANG model exactly right for all commands, a last resort is to let the NED code modify the data inline. Hopefully, this shall never be necessary.
-
-NSO can order the `showPartial()` to collect part of the data if the NED announces the capability `http://tail-f.com/ns/ncs-ned/show-partial?path-format=key-path`_._
-
-## Getting started with a generic NED <a href="#ug.ned.generic.gettingstarted" id="ug.ned.generic.gettingstarted"></a>
-
-A generic NED always requires more work than a CLI NED. The generic NED needs to know how to map arrays of `NedEditOp` objects into the equivalent reconfiguration operations on the device. Depending on the protocol and configuration capabilities of the device, this may be arbitrarily difficult.
-
-Regardless of the device, we must always write a YANG model that describes the device. The array of `NedEditOp` objects that the generic NED code gets exposed to is relative the YANG model that we have written for the device. Again, this model doesn't necessarily have to cover all aspects of the device.
-
-Often a useful technique with generic NEDs can be to write a pyang plugin to generate code for the generic NED. Again, depending on the device it may be possible to generate Java code from a pyang plugin that covers most or all aspects of mapping an array of `NedEditOp` objects into the equivalent reconfiguration commands for the device.
-
-Pyang is an extensible and open-source YANG parser (written by Tail-f) available at `http://www.yang-central.org`. pyang is also part of the NSO release. A number of plugins are shipped in the NSO release, for example `$NCS_DIR/lib/pyang/pyang/plugins/tree.py` is a good plugin to start with if we wish to write our own plugin.
-
-`$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` is a good example to start with if we wish to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
-
-* Defined a fictitious YANG model for the device.
-* Implemented an XML-RPC server exporting a set of RPCs to manipulate that fictitious data model. The XML-RPC server runs the apache `org.apache.xmlrpc.server.XmlRpcServer` Java package.
-* Implemented a Generic NED which acts as an XML-RPC client speaking HTTP to the XML-RPC servers.
-
-The example is self-contained, and we can, using the NED code, manipulate these XML-RPC servers in a manner similar to all other managed devices.
+When the NETCONF NED has been built for the `hw0` device, the `ned-id` for `hw0` needs to be updated before the NED can be used to manage the device.
 
 ```
-$ cd $NCS_DIR/generic-ned/xmlrpc-device
+$ ncs_cli -u admin -C
+# show packages package hardware-nc-1.0 component hardware ned netconf ned-id
+ned netconf ned-id hardware-nc-1.0
+# config
+(config)# devices device hw0 device-type netconf ned-id hardware-nc-1.0
+(config-device-hw0)# commit
+Commit complete.
+(config-device-hw0)# end
+# devices device hw0 sync-from
+result true
+# show running-config devices device hw0 config | nomore
+devices device hw0
+ config
+  hardware component carbon
+   class          module
+   parent         slot-1-4-1
+   parent-rel-pos 1040100
+   alias          dummy
+   asset-id       dummy
+   uri            [ urn:dummy ]
+  !
+  hardware component carbon-port-4
+   class          port
+   parent         carbon
+   parent-rel-pos 1040104
+   alias          dummy-port
+   asset-id       dummy
+   uri            [ urn:dummy ]
+  !
+...
 ```
 
-```
-$ make all start
-```
+NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/demo-nb.sh` example script for a demo.
+
+#### **Remove a NED from NSO**
+
+Installed NED packages can be removed from NSO by deleting them from the NSO project's packages folder and then deleting the device and the NETCONF NED project through the NSO CLI. To uninstall a NED built for the device `hw0`:
 
 ```
 $ ncs_cli -C -u admin
+# devtools true
+# config
+(config)# no netconf-ned-builder project hardware 1.0
+(config)# commit
+Commit complete.
+(config)# end
+# packages reload
+Error: The following modules will be deleted by upgrade:
+hardware-nc-1.0: iana-hardware
+hardware-nc-1.0: ietf-hardware
+hardware-nc-1.0: hardware-nc
+hardware-nc-1.0: hardware-nc-1.0
+If this is intended, proceed with 'force' parameter.
+# packages reload force
+
+>>>> System upgrade is starting.
+>>>> Sessions in configure mode must exit to operational mode.
+>>>> No configuration changes can be performed until upgrade has completed.
+>>>> System upgrade has completed successfully.
 ```
 
-```
-admin@ncs# devices sync-from
-sync-result {
-    device r1
-    result true
-}
-sync-result {
-    device r2
-    result true
-}
-sync-result {
-    device r3
-    result true
-}
-```
+## CLI NED Development <a href="#ncs.development.ned.cli" id="ncs.development.ned.cli"></a>
 
-```
-admin@ncs# show running-config devices r1 config
-    
-ios:interface eth0
-  macaddr      84:2b:2b:9e:af:0a
-  ipv4-address 192.168.1.129
-  ipv4-mask    255.255.255.0
-  status       Up
-  mtu          1500
-  alias 0
-    ipv4-address 192.168.1.130
-    ipv4-mask    255.255.255.0
-    !
-  alias 1
-    ipv4-address 192.168.1.131
-    ipv4-mask    255.255.255.0
-    !
-speed        100
-txqueuelen   1000
-!
-```
+The CLI NED is a model-driven way to CLI script towards all Cisco-like devices. Some Java code is necessary for handling the corner cases a human-to-machine interface presents. The NSO CLI NED southbound of NSO shares a Cisco-style CLI engine with the northbound NSO CLI interface, and the CLI engine can thus run in both directions, producing CLI southbound and interpreting CLI data coming from southbound while presenting a CLI interface northbound. It is helpful to keep this in mind when learning and working with CLI NEDs.
 
-### Tweaking the Order of NedEditOp Objects <a href="#ug.gen.ned.diff" id="ug.gen.ned.diff"></a>
+*   A sequence of Cisco CLI commands can be turned into the equivalent manipulation of the internal XML tree that represents the configuration inside NSO.
 
-As it was mentioned earlier the `NedEditOp` objects are relative to the YANG model of the device, and they are to be translated into the equivalent reconfiguration operations on the device. Applying reconfiguration operations may only be valid in a certain order.
+    A YANG model, annotated appropriately, will produce a Cisco CLI. The user can enter Cisco commands, and NSO will parse the Cisco CLI commands using the annotated YANG model and change the internal XML tree accordingly. Thus, this is the CLI parser and interpreter. Model-driven.
+*   The reverse operation is also possible. Given two different XML trees, each representing a configuration state, in the netsim/ConfD case and NSO's northbound CLI interface, it represents the configuration of a single device, i.e., the device using ConfD as a management framework. In contrast, the NSO case represents the entire network configuration and can generate the list of Cisco commands going from one XML tree to another.
 
-For Generic NEDs, NSO provides a feature to ensure dependency rules are being obeyed when generating a diff to commit. It controls the order of operations delivered in the `NedEditOp` array. The feature is activated by adding the following option to `package-meta-data.xml`:
+    NSO uses this technology to generate CLI commands southbound when we manage Cisco-like devices.
 
-```
-<option>
-  <name>ordered-diff</name>
-</option>
-```
+It will become clear later in the examples how the CLI engine runs in forward and reverse mode. The key point though, is that the Cisco CLI NED Java programmer doesn't have to understand and parse the structure of the CLI; this is entirely done by the NSO CLI engine.
 
-When the `ordered-diff` flag is set, the `NedEditOp` objects follow YANG schema order and consider dependencies between leaf nodes. Dependencies can be defined using leafrefs and the _`tailf:cli-diff-after`_, _`tailf:cli-diff-create-after`_, _`tailf:cli-diff-modify-after`_, _`tailf:cli-diff-set-after`_, _`tailf:cli-diff-delete-after`_ YANG extensions. Read more about the above YANG extensions in the Tail-f CLI YANG extensions man page.
+To implement a CLI NED, the following components are required:
 
-## NED Commands <a href="#ug.ned.commands" id="ug.ned.commands"></a>
-
-A device we wish to manage using a NED usually has not just configuration data that we wish to manipulate from NSO, but the device usually has a set of commands that do not relate to configuration.
-
-The commands on the device we wish to be able to invoke from NSO must be modeled as actions. We model this as actions and compile it using a special `ncsc` command to compile NED data models that do not directly relate to configuration data on the device.
-
-The NSO example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` contains an example where the managed device, a fictitious XML-RPC device contains a YANG snippet :
-
-```
-container commands {
-  tailf:action idle-timeout {
-    tailf:actionpoint ncsinternal {
-      tailf:internal;
-    }
-    input {
-      leaf time {
-        type int32;
-      }
-    }
-    output {
-      leaf result {
-        type string;
-      }
-    }
-  }
-}
-```
-
-When that action YANG is imported into NSO it ends up under the managed device. We can invoke the action _on_ the device as :
-
-<pre><code><strong>admin@ncs# devices device r1 config ios:commands idle-timeout time 55
-</strong></code></pre>
-
-```
-result OK
-```
-
-The NED code is obviously involved here. All NEDs must always implement:
-
-```
-void command(NedWorker w, String cmdName, ConfXMLParam[] params)
-    throws NedException, IOException;
-```
-
-The `command()` method gets invoked in the NED, the code must then execute the command. The input parameters in the `params` parameter correspond to the data provided in the action. The `command()` method must reply with another array of `ConfXMLParam` objects.
-
-```
-public void command(NedWorker worker, String cmdname, ConfXMLParam[] p)
-    throws NedException, IOException {
-    session.setTracer(worker);
-    if (cmdname.compareTo("idle-timeout") == 0) {
-            worker.commandResponse(new ConfXMLParam[]{
-               new ConfXMLParamValue(new interfaces(),
-                                     "result",
-                                      new ConfBuf("OK"))
-        });
- }
-```
-
-The above code is fake, on a real device, the job of the `command()` method is to establish a connection to the device, invoke the command, parse the output, and finally reply with an `ConfXMLParam` array.
-
-The purpose of implementing NED commands is usually that we want to expose device commands to the programmatic APIs in the NSO DOM tree.
-
-## Statistics <a href="#ug.ned.stats" id="ug.ned.stats"></a>
-
-NED devices have runtime data and statistics. The first part is being able to collect non-configuration data from a NED device is to model the statistics data we wish to gather. In normal YANG files, it is common to have the runtime data nested inside the configuration data. In gathering runtime data for NED devices we have chosen to separate configuration data and runtime data. In the case of the archetypical CLI device, the `show running-config ...` and friends are used to display the running configuration of the device whereas other different `show ...` commands are used to display runtime data, for example `show interfaces`, `show routes`. Different commands for different types of routers/switches and in particular, the different tabular output formats for different device types.
-
-To expose runtime data from a NED controlled device, regardless of whether it's a CLI NED or a Generic NED, we need to do two things:
-
-* Write YANG models for the aspects of runtime data we wish to expose northbound in NSO.
-* Write Java NED code that is responsible for collecting that data.
-
-The NSO NED for the Avaya 4k device contains a data model for some real statistics for the Avaya router and also the accompanying Java NED code. Let's start to take a look at the YANG model for the stats portion, we have:
-
-{% code title="Example: NED Stats YANG Model" %}
-```
-module tailf-ned-avaya-4k-stats {
-  namespace 'http://tail-f.com/ned/avaya-4k-stats';
-  prefix avaya4k-stats;
-
-  import tailf-common {
-    prefix tailf;
-  }
-  import ietf-inet-types {
-    prefix inet;
-  }
-
-  import ietf-yang-types {
-    prefix yang;
-  }
-
-  container stats {
-    config false;
-    container interface {
-      list gigabitEthernet {
-        key "num port";
-        tailf:cli-key-format "$1/$2";
-
-        leaf num {
-          type uint16;
-        }
-
-        leaf port {
-          type uint16;
-        }
-
-        leaf in-packets-per-second {
-          type uint64;
-        }
-
-        leaf out-packets-per-second {
-          type uint64;
-        }
-
-        leaf in-octets-per-second {
-          type uint64;
-        }
-
-        leaf out-octets-per-second {
-          type uint64;
-        }
-
-        leaf in-octets {
-          type uint64;
-        }
-
-        leaf out-octets {
-          type uint64;
-        }
-
-        leaf in-packets {
-          type uint64;
-        }
-
-        leaf out-packets {
-          type uint64;
-        }
-      }
-    }
-  }
-}
-```
-{% endcode %}
-
-It's a `config false;` list of counters per interface. We compile the NED stats module with the `--ncs-compile-module` flag or with the `--ncs-compile-bundle` flag. It's the same `non-config` module that contains both runtime data as well as commands and rpcs.
-
-```
-$ ncsc --ncs-compile-module avaya4k-stats.yang \
-    --ncs-device-dir <dir>
-```
-
-The `config false;` data from a module that has been compiled with the `--ncs-compile-module` flag will end up mounted under `/devices/device/live-status` tree. Thus running the NED towards a real router we have:
-
-{% code title="Example: Displaying NED Stats in the CLI" %}
-```
-admin@ncs# show devices device r1 live-status interfaces
-        
-live-status {
-    interface gigabitEthernet1/1 {
-        in-packets-per-second   234;
-        out-packets-per-second  177;
-        in-octets-per-second   4567;
-        out-octets-per-second  3561;
-        in-octets             12666;
-        out-octets            16888;
-        in-packets             7892;
-        out-packets            2892;
-     }
-        ............
-```
-{% endcode %}
-
-It is the responsibility of the NED code to populate the data in the live device tree. Whenever a northbound agent tries to read any data in the live device tree for a NED device, the NED code is invoked.
-
-The NED code implements an interface called, `NedConnection` This interface contains:
-
-```
-void showStatsPath(NedWorker w, int th, ConfPath path)
-        throws NedException, IOException;
-```
-
-This interface method is invoked by NSO in the NED. The Java code must return what is requested, but it may also return more. The Java code always needs to signal errors by invoking `NedWorker.error()` and success by invoking `NedWorker.showStatsPathResponse()`. The latter function indicates what is returned, and also how long it shall be cached inside NSO.
-
-The reason for this design, is that it is common for many `show` commands to work on for example an entire interface, or some other item in the managed device. Say that the NSO operator (or maapi code) invokes:
-
-```
-admin@host> show status devices device r1 live-status  \
-     interface gigabitEthernet1/1/1 out-octets
-out-octets 340;
-```
-
-requesting a single leaf, the NED Java code can decide to execute any arbitrary `show` command towards the managed device, parse the output, and populate as much data as it wants. The Java code also decides how long the NSO shall cache the data.
-
-*   When the `showStatsPath()` is invoked, the NED should indicate the state/value of the node indicated by the path (i.e. if a leaf was requested, the NED should write the value of this leaf to the provided transaction handler (th) using MAAPI, or indicate its absence as described below; if a list entry or a presence container was requested then the NED should indicate presence or absence of the element, if the whole list is requested then the NED should populate the keys for this list). Often requesting such data from the actual device will give the NED more data than specifically requested, in which case the worker is free to write other values as well. The NED is not limited to populating the subtree indicated by the path, it may also write values outside this subtree. NSO will then not request those paths but read them directly from the transaction. Different timeouts can be provided for different paths.
+*   A YANG data model that describes the CLI. An important development tool here is netsim (ConfD), the Tail-f on-device management toolkit. For NSO to manage a CLI device, it needs a YANG file with exactly the right annotations to produce precisely the managed device's CLI. A few examples exist in the NSO NED evaluation collection with annotated YANG models that render different Cisco CLI variants.
 
     \
-    If a leaf does not have a value or does not exist, the NED can indicate this by returning a TTL for the path to the leaf, without setting the value in the provided transaction. This has changed from earlier versions of NSO. The same applies to optional containers and list entries. If the NED populates the keys for a certain list (both when it is requested to do so or when it decided to do so because it has received this data from the device), it should set the TTL value for the list itself to indicate the time the set of keys should be considered up to date. It may choose to provide different TTL values for some or all list entries, but it is not required to do so.
+    See, for example, `$NCS_DIR/packages/neds/dell-ftos` and `$NCS_DIR/packages/neds/cisco-nx`. Look for `tailf:cli-*` extensions in the NED `src/yang` directory YANG models.
 
-## Multi NEDs for Statistics <a href="#ug.ned.stats2" id="ug.ned.stats2"></a>
+    \
+    Thus, to create annotated YANG files for a device with a Cisco-like CLI, the work procedure is to run netsim (ConfD) and write a YANG file that renders the correct CLI.
 
-Sometimes we wish to use a different protocol to collect statistics from the live tree than the protocol that is used to configure a managed device. There are many interesting use cases where this pattern applies. For example, if we wish to access SNMP data as statistics in the live tree on a Juniper router, or alternatively if we have a CLI NED to a Cisco-type device, and wish to access statistics in the live tree over SNMP.
+    \
+    Furthermore, this YANG model must declare an identity with `ned:cli-ned-id` as a base.
+*   It is important to note that a NED only needs to cover certain aspects of the device. To have NSO manage a device with a Cisco-like CLI you do not have to model the entire device, only the commands intended to be used need to be covered. When the `show()` callback issues its `show running-config [toptag]` command and the device replies with data that is fed to NSO, NSO will ignore all command dump output that the loaded YANG models do not cover.
 
-The solution is to configure additional protocols for the live tree. We can have an arbitrary number of NEDs associated with statistics data for an individual managed device.
+    \
+    Thus, whichever Cisco-like device we wish to manage, we must first have YANG models from NSO that cover all aspects of the device we want to use. Once we have a YANG model, we load it into NSO and modify the example CLI NED class to return the NedCapability list of the device.
+* The NED code gets to see all data from and to the device. If it's impossible or too hard to get the YANG model exactly right for all commands, a last resort is to let the NED code modify the data inline.
+* The next thing required is a Java class that implements the NED. This is typically not a lot of code, and the existing example NED Java classes are easily extended and modified to fit other needs. The most important point of the Java NED class code is that the code can be oblivious to the CLI commands sent and received.
 
-The additional NEDs are configured under `/devices/device/live-status-protocol`.
+Java CLI NED code must implement the `CliNed` interface.
 
-In the configuration snippet below, we have configured two additional NEDs for statistics data.
+* **`NedConnectionBase.java`**. See `$NCS_DIR/java/jar/ncs-src.jar`. Use jar xf ncs-src.jar to extract the JAR file. Look for `src/com/tailf/ned/NedConnectionBase.java`.
+* **`NedCliBase.java`**. See `$NCS_DIR/java/jar/ncs-src.jar`. Use jar xf ncs-src.jar to extract the JAR file. Look for `src/com/tailf/ned/NedCliBase.java`.
 
-```
-devices {
-    authgroups {
-        snmp-group g1 {
-            umap admin {
-                community-name public;
-            }
-        }
-    }
-    mib-group m1 {
-        mib-module [ SIMPLE-MIB ];
-    }
-    device device0 {
-        live-status-protocol x1 {
-            port 4001;
-            device-type {
-                snmp {
-                    version        v2c;
-                    snmp-authgroup g1;
-                    mib-group      [ m1 ];
-                }
-            }
-        }
-        live-status-protocol x2 {
-            authgroup default;
-            device-type {
-                cli {
-                    ned-id xstats;
-                }
-            }
-        }
-     }
-```
+Thus, the Java NED class has the following responsibilities.
 
-## Making the NED Handle Default Values Properly <a href="#ug.ned.defaultvalues" id="ug.ned.defaultvalues"></a>
+* It must implement the identification callbacks, i.e `modules()`, `type()`, and `identity()`
+*   It must implement the connection-related callback methods `newConnection()`, `isConnection()` and `reconnect()`
 
-One important task when implementing a NED of any type is to make it mimic the devices handling of default values as closely as possible. Network equipment can typically deal with default values in many different ways.
+    \
+    NSO will invoke the `newConnection()` when it requires a connection to a managed device. The `newConnection()` method is responsible for connecting to the device, figuring out exactly what type of device it is, and returning an array of `NedCapability` objects.\
 
-Some devices display default values on leafs even if they have not been explicitly set. Others use trimming, meaning that if a leaf is set to its default value it will be 'unset' and disappear from the devices configuration dump.
-
-It is the responsibility of the NED to make the NSO aware of how the device handles default values. This is done by registering a special NED Capability entry with the NSO. Two modes are currently supported by the NSO: `trim` and `report-all`.
-
-
-
-This is the typical behavior of a Cisco IOS device. The simple YANG code snippet below illustrates the behavior. A container with a boolean leaf. Its default value is `true`.
-
-{% code title="Example: A Device Trimming Default Values" %}
-```
-container aaa {
-  leaf enabled {
-    default true;
-    type boolean;
-  }
-}
-```
-{% endcode %}
-
-Try setting the leaf to true in NSO and commit. Then, compare the configuration:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config aaa enabled true
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-<pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
-</strong>      
-diff
- devices {
-     device a0 {
-         config {
-             aaa {
--                enabled;
-             }
-         }
-     }
-}
-</code></pre>
-
-The result shows that the configurations differ. The reason is that the device does not display the value of the leaf 'enabled'. It has been trimmed since it has its default value. The NSO is now out of sync with the device.
-
-To solve this issue, make the NED tell the NSO that the device is trimming default values. Register an extra NED Capability entry in the Java code.
-
-```
-NedCapability capas[] = new NedCapability[2];
-capas[0] = new NedCapability(
-         "",
-         "urn:ios",
-         "tailf-ned-cisco-ios",
-         "",
-         "2015-01-01",
-         "");
-capas[1] = new NedCapability(
-        "urn:ietf:params:netconf:capability:" +
-        "with-defaults:1.0?basic-mode=trim",    // Set mode to trim
-        "urn:ietf:params:netconf:capability:" +
-        "with-defaults:1.0",
-        "",
-        "",
-        "",
-        "");
-```
-
-Now, try the same operation again:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config aaa enabled true
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-<pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
-</strong></code></pre>
-
-```
-admin@ncs(config)#
-```
-
-The NSO is now in sync with the device.
-
-Some devices display default values for leafs even if they have not been explicitly set. The simple YANG code below will be used to illustrate this behavior. A list containing a key and a leaf with a default value.
-
-{% code title="Example: A Device Displaying all Default Values" %}
-```
-list interface {
-  key id;
-  leaf id {
-    type string;
-  }
-  leaf treshold {
-    default 20;
-    type uint8;
-  }
-}
-```
-{% endcode %}
-
-Try creating a new list entry in NSO and commit. Then compare the configuration:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config interface myinterface
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-admin@ncs(config)# top devices device a0 compare-config
-    
-diff
- devices {
-     device a0 {
-         config {
-            interface myinterface {
-+              treshold 20;
-            }
-         }
-     }
-  }
-```
-
-The result shows that the configurations differ. The NSO is out of sync. This is because the device displays the default value of the 'threshold' leaf even if it has not been explicitly set through the NSO.
-
-To solve this issue, make the NED tell the NSO that the device is reporting all default values. Register an extra NED Capability entry in the Java code.
-
-```
-NedCapability capas[] = new NedCapability[2];
-capas[0] = new NedCapability(
-       "",
-       "urn:abc",
-       "tailf-ned-abc",
-       "",
-       "2015-01-01",
-       "");
-capas[1] = new NedCapability(
-      "urn:ietf:params:netconf:capability:" +
-      "with-defaults:1.0?basic-mode=report-all",  // Set mode to report-all
-      "urn:ietf:params:netconf:capability:" +
-      "with-defaults:1.0",
-      "",
-      "",
-      "",
-      "");
-```
-
-Now, try the same operation again:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config interface myinterface
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-Commit complete.
-```
-
-<pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
-</strong></code></pre>
-
-```
-admin@ncs(config)#
-```
-
-The NSO is now in sync with the device.
-
-## Using set Hooks in the NED <a href="#d5e766" id="d5e766"></a>
-
-When implementing a NED it sometimes happens that the device has a really tricky behavior regarding how different parts of the configuration are related to each other. This is typically so complex making it impossible to model it in YANG.
-
-Examples of such are:
-
-*   A device that alters unrelated configuration. For instance, if a value of leaf A is changed through NSO the device will also automatically modify the value of leaf B.
 
     ```
-    leaf A {
-      type uint8;
-    }
-    leaf B {
-      type uint8;
-    }
-    ```
-*   A device that creates additional configuration. For instance, if a new entry in list A is created through NSO the device will also automatically create an entry in the sub-list B.
+        public class NedCapability {
 
-    ```
-    list A {
-      key a;
-      leaf a {
-        type uint8;
-      }
-      list B {
-        key b;
-        leaf b {
-          type uint8;
-        }
-      }
-    }
+            public String str;
+            public String uri;
+            public String module;
+            public String features;
+            public String revision;
+            public String deviations;
+
+            ....
     ```
 
-Both these cases will result in out-of-sync issues in the NSO.
+    This is very much in line with how a NETCONF connect works and how the NETCONF client and server exchange hello messages.
+*   Finally, the NED code must implement a series of data methods. For example, the method `void prepare(NedWorker w, String data)` get a `String` object which is the set of Cisco CLI commands it shall send to the device.
 
-One fairly straightforward way to solve this is by using set hooks in the NED. A set hook is a callback routine in Java that is mapped to something in the YANG model. This can for instance be a certain leaf or list in the model. The set hook can be configured to be called upon different operations. Typically this involves create, set, or delete operations.
+    \
+    In the other direction, when NSO wants to collect data from the device, it will invoke `void show(NedWorker w, String toptag)` for each tag found at the top of the data model(s) loaded for that device. For example, if the NED gets invoked with `show(w, "interface")` it's responsibility is to invoke the relevant show configuration command for "interface", i.e. `show running-config interface` over the connection to the device, and then dumbly reply with all the data the device replies with. NSO will parse the output data and feed it into its internal XML trees.
 
-**Example: Using a set hook to create additional configuration**
+    \
+    NSO can order the `showPartial()` to collect part of the data if the NED announces the capability `http://tail-f.com/ns/ncs-ned/show-partial?path-format=FORMAT` in which FORMAT is of the following:
 
-Assume a device that creates additional configuration as described above. The YANG code snippet below will be used to illustrate this.
+    * key-path: support regular instance keypath format.
+    * top-tag: support top tags under the `/devices/device/config` tree.
+    * cmd-path-full: support Cisco's CLI edit path with instances.
+    * path-modes-only: support Cisco CLI mode path.
+    * cmd-path-modes-only-existing: same as `path-mode-only` but NSO only supplies the path mode of existing nodes.
 
-```
-list A {
-  key a;
-  leaf a {
-    type string;
-  }
-  list B {
-    key b;
-    leaf b {
-      type string;
-    }
-  }
-}
-```
-
-Try creating a new list entry in NSO and commit. Then compare the configuration:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config A mylist
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-admin@ncs(config)# commit dry-run outformat cli
-cli  devices {
-         device a0 {
-             config {
-    +            A mylist {
-    +            }
-             }
-         }
-     }
-```
-
-```
-Commit complete.
-```
-
-<pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
-</strong>  
-diff
- devices {
-     device a0 {
-         config {
-            A mylist {
-+              B default {
-+              }
-            }
-         }
-     }
- }
-</code></pre>
-
-The device has automatically created the sub list 'default' when it created the list `mylist`. The result is that NSO is now out of sync with the device.
-
-The solution is to implement a set hook in the NED that makes the NSO mimic the device properly. In this case, it shall create an entry named 'default' in the sub-list B each time it creates an entry in list A.
-
-The Java implementation of the set hook would look something like this:
-
-```
-public class XYZDp {
-
-    @Resource(type=ResourceType.MAAPI, scope=Scope.INSTANCE)
-    public Maapi mm;
-
-    /*
-     * Set hook.
-     * Called when a new entry in the A list is created.
-     * The callpoint to be mapped in the YANG model is
-     * "list-a-create-hook"
-     */
-    @DataCallback(callPoint="list-a-create-hook", callType=DataCBType.CREATE)
-    public int createSublistBEntry(DpTrans trans, ConfObject[] keyPath)
-        throws DpCallbackException {
-
-        try {
-            int tid = trans.getTransaction();
-            ConfPath cp = new ConfPath(keyPath);
-
-            // Create a sublist entry <path>/B{"default"}
-            cp.append("/B{default}");
-            mm.safeCreate(tid, cp);
-
-            return Conf.REPLY_OK;
-        }
-        catch (Exception e) {
-            throw new DpCallbackException("", e);
-        }
-    }
-
-    // Init routine
-    @TransCallback(callType=TransCBType.INIT)
-    public void XYZDpInit(DpTrans trans) throws DpCallbackException {
-
-        try {
-            if (mm == null) {
-                // Need a Maapi socket so that we can attach
-                Socket s = new Socket("127.0.0.1", NcsMain.getInstance().
-                                      getNcsPort());
-                mm = new Maapi(s);
-            }
-            mm.attach(trans.getTransaction(),0,
-                      trans.getUserInfo().getUserId());
-            return;
-        }
-        catch (Exception e) {
-            throw new DpCallbackException("Failed to attach", e);
-        }
-    }
-
-
-    // Finish routine
-    @TransCallback(callType=TransCBType.FINISH)
-    public void XYZDpFinish(DpTrans trans) throws DpCallbackException {
-
-        try {
-            mm.detach(trans.getTransaction());
-        }
-        catch (Exception e) {
-            ;
-        }
-    }
-}
-```
-
-Finally, the YANG model is extended with an extra annotation:
-
-```
-list A {
-  tailf:callpoint list-a-create-hook { tailf:set-hook node; }
-  key a;
-  leaf a {
-    type string;
-  }
-  list B {
-    key b;
-    leaf b {
-      type string;
-    }
-  }
-}
-```
-
-Now, try the same operation again. Create a new list entry in NSO and commit. Then compare the configuration:
-
-```
-$ ncs_cli -C -u admin
-```
-
-```
-admin@ncs# config
-```
-
-```
-admin@ncs(config)# devices device a0 config A mylist
-```
-
-```
-admin@ncs(config)# commit
-```
-
-```
-admin@ncs(config)# commit dry-run outformat cli
-cli  devices {
-         device a0 {
-             config {
-    +            A mylist {
-    +                B default;
-    +            }
-             }
-         }
-     }
-```
-
-```
-Commit complete.
-```
-
-```
-admin@ncs(config)# top devices device a0 compare-config
-```
-
-```
-admin@ncs(config)#
-```
-
-The NSO has now automatically created the `default` entry in sub-list B the same way as the device does. The NSO will now be in sync with the device.
-
-## Dry-run Considerations <a href="#d5e822" id="d5e822"></a>
-
-The possibility to do a dry-run on a transaction is a feature in NSO that allows examination of the changes to be pushed out to the managed devices in the network. The output can be produced in different formats, namely `cli`, `xml` , and `native`. To produce a dry-run in the native output format, NSO needs to know the exact syntax used by the device, and the task of converting the commands or operations produced by the NSO into the device-specific output belongs the corresponding NED. This is the purpose of the `prepareDry()` callback in the NED interface.
-
-To be able to invoke a callback an instance of the NED object needs to be created first. There are two ways to instantiate a NED:
-
-* `newConnection()` callback that tells the NED to establish a connection to the device which can later be used to perform any action such as show configuration, apply changes, or view operational data as well as produce dry-run output.
-* Optional `initNoConnect()` callback that tells the NED to create an instance that would not need to communicate with the device, and hence must not establish a connection or otherwise communicate with the device. This instance will only be used to calculate dry-run output. It is possible for a NED to reject the initNoConnect() request if it is not able to calculate the dry-run output without establishing a connection to the device, for example, if a NED is capable of managing devices with different flavors of syntax and it is not known at the moment which syntax is used by this particular device.
-
-The following state diagram displays NED states specific to the dry-run scenario.
-
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-dry.png#developer.cisco.com" alt="" width="375"><figcaption><p>NED dry-run states</p></figcaption></figure>
-
-## Naming Conventions <a href="#ug.ned.naming_conventions" id="ug.ned.naming_conventions"></a>
-
-NED packages should follow some naming conventions. A package is a directory where the package name is the same as the directory name. At the top level of this directory, a file called `package-meta-data.xml` must exist. The package name in that file should follow `<vendor>-<ned_name>-<ned_version>` for example, `cisco-iosxr-cli-7.29`. A package may also be a tar archive with the same directory layout. The tar archive can be either uncompressed with suffix `.tar`, or gzip-compressed with suffix `.tar.gz` or `.tgz`. The archive file should also follow some naming conventions, it should be named by `ncs-<ncs_version>-<vendor>-<ned_name>-<ned_version>.<suffix>`, for example, `ncs-5.4-cisco-iosxr-7.29.1.tar.gz` The NED name is expected to be two words (no dashes within the words) separated by a dash, for example, `cisco-iosxr`. It may also include NED type at the end, for example, `cisco-iosxr_netconf`.
-
-## Revision Merge Functionality <a href="#d5e852" id="d5e852"></a>
-
-The YANG modeling language supports the notion of a module `revision`. It allows users to distinguish between different versions of a module, so the module can evolve over time. If you wish to use a new revision of a module for a managed device, for example, to access new features, you generally need to create a new NED.
-
-When a model evolves quickly and you have many devices that require the use of a lot of different revisions, you will need to maintain a high number of NEDs, which are mostly the same. This can become especially burdensome during NSO version upgrades, when all NEDs may need to be recompiled.
-
-When a YANG module is only updated in a backward-compatible way (following the upgrade rules in RFC6020 or RFC7950), the NSO compiler, `ncsc`, allows you to pack multiple module revisions into the same package. This way, a single NED with multiple device model revisions can be used, instead of multiple NEDs. Based on the capabilities exchange, NSO will then use the correct revision for communication with each device.
-
-However, there is a major downside to this approach. While the exact revision is known for each communication session with the managed device, the device model in NSO does not have that information. For that reason, the device model always uses the latest revision. When pushing configuration to a device that only supports an older revision, NSO silently drops the unsupported parts. This may have surprising results, as the NSO copy can contain configuration that is not really supported on the device. Use the **no-revision-drop** commit parameter when you want to make sure you are not committing a config that is not supported by a device.
-
-If you still wish to use this functionality, you can create a NED package with the `ncs-make-package --netconf-ned` command as you would otherwise. However, the supplied source YANG directory should contain YANG modules with different revisions. The files should follow the _`module-or-submodule-name@revision-date`_`.yang` naming convention, as specified in the RFC6020. Some versions of the compiler require you to use the `--no-fail-on-warnings` option with the `ncs-make-package` command or the build process may fail.
-
-The `examples.ncs/development-guide/ned-upgrade/yang-revision` example shows how you can perform a YANG model upgrade. The original, 1.0 version of the router NED uses the `router@2020-02-27.yang` YANG model. First, it is updated to the version 1.0.1 `router@2020-09-18.yang` using a revision merge approach. This is possible because the changes are backward-compatible.
-
-In the second part of the example, the updates in `router@2022-01-25.yang` introduce breaking changes, therefore the version is increased to 1.1 and a different ned-id is assigned to the NED. In this case, you can't use revision merge and the usual NED migration procedure is required.
-
-## NETCONF NED Builder <a href="#netconf-ned-builder" id="netconf-ned-builder"></a>
-
-Before a NETCONF-capable device can be managed by NSO, a corresponding NETCONF NED needs to be loaded. While no code needs to be written for such a NED, it needs to contain YANG data models for this kind of devices.
-
-While in some cases the YANG models may be provided by the device's vendor, devices that implement RFC 6022 YANG Module for NETCONF monitoring are able to provide their YANG models using the functionality described in this RFC.
-
-The NETCONF NED builder functionality helps the NSO developer to onboard new kind of devices by fetching the YANG models from a reference device of this kind and building a NETCONF NED of them.
-
-### Overview of the NETCONF NED Builder Workflow <a href="#ug.ned.builder.overview" id="ug.ned.builder.overview"></a>
-
-The following steps need to be performed to build a new NED using NETCONF NED builder functionality:
-
-* Configure the reference device in NSO under `/devices/device` list. Use the base `netconf` NED ID for this device as there is no NED ID specific to this kind of device defined in NSO yet.
-* Create a new NETCONF NED builder project. To access the NETCONF NED builder data model `devtools` session parameter should be set to `true` using `devtools true` (C-style) / `set devtools true` (J-style) command in the CLI. The project's family name typically consists of the vendor and the name of the OS the device is running (for example, cisco-iosxr) and the major version is the NED version which may or may not reflect the actual device's OS version. The idea is that the NED major version only needs to be changed if backward-incompatible changes have been introduced in the device's YANG model compared to the previous NED version. The rules for backwards compatibility between YANG modules are described in RFC 6020 YANG section 10 Updating a Module.
-* Running the `fetch-module-list` initiates NETCONF connection to the device and collects the list of YANG modules supported by the device which is stored in the `module` list under the NETCONF NED builder project.
-* Once the list of modules has been collected the developer needs to decide which YANG modules need to be included in the NED and indicate these modules by using `select` action on these modules in the `module` list. By default, all the modules are deselected. Once a module is selected it will be downloaded from the device in the background.
-* Once the modules are selected and successfully downloaded the developer may initiate a NED build using `build-ned` action. See [Building the NED](./#ug.ned.builder.building).
-* A successfully built NED may be exported in form of a tar file using the `export-ned` action. The tar file name is constructed according to the naming convention ( `ncs-<ncs-version>-<ned-family>-nc-<ned-version>.tar.gz` ) and the user chooses the directory the file needs to be created in. The user must have write access to the directory.
-* An alternative to letting NSO build the NED is to create a development version of the NED using `make-development-ned` action. This is useful if, for example, there is an intention to maintain this version of the NED with the upcoming minor (backward compatible) YANG model revisions, if the NED needs to support creating a NETSIM device, or if the YANG models provided by the device need to be manually edited due to errors in compilation. A development version of the NED is not built but instead contains the `Makefile` with the rules to build the NED. Essentially, it is the same package that would be created using the `ncs-make-package` tool with `--netconf-ned` flag.
-* It is important to note that deleting the NETCONF NED builder project also deletes the list of modules along with the selection data all of the downloaded YANG modules and a working copy of the NED. Only the exported NED tarball or development NED are kept. The selection data may also be saved in the form of a selection profile as described in [Selecting the Modules](./#ug.ned.builder.selecting).
-
-## Selecting the Modules <a href="#ug.ned.builder.selecting" id="ug.ned.builder.selecting"></a>
-
-### Principles of Selecting the Modules <a href="#d5e921" id="d5e921"></a>
-
-Selecting the modules for inclusion in the NED is a crucial step in the process of building the NED. The recommendation is to select only the modules necessary to perform the tasks within the given NSO installation to reduce memory consumption and size of sync-from and improve upgrade times.
-
-For example, if the aim of the NSO installation is exclusively to manage BGP on the device and necessary configuration is defined in a separate module, then only this module needs to be selected. If there are several services running within the NSO installation, then it might be necessary to include more data models in the single NED for a given kind of device. However, if the NSO installation is used, for example, to take full backups of the devices' configuration, then all modules need to be included in the NED.
-
-Selecting a module will also, by default, select the module's dependencies (namely, modules that are known to deviate this module in the device's implementation and modules imported by the selected modules). To disable this behaviour a `no-dependencies` flag may be used, but it should be noted that with dependencies missing the NED will fail to build. Deselecting a module, on the other hand, does not automatically deselect modules depending on it.
-
-### Selecting Modules using CLI <a href="#d5e927" id="d5e927"></a>
-
-Using `select` action on the module list entry will set a selection flag on it.
-
-```
-# don't forget to enable devtools
-ncs# devtools true
-ncs# netconf-ned-builder project cisco-iosxr 6.6 module \
-     Cisco-IOS-XR-ifmgr-cfg 2017-09-07 select
-ncs#
-```
-
-Once the module is selected the download starts automatically in the background.
-
-```
-ncs# show netconf-ned-builder project cisco-iosxr 6.6 \
-     module Cisco-IOS-XR-ifmgr-cfg 2017-09-07
-module Cisco-IOS-XR-ifmgr-cfg 2017-09-07
- namespace http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg
- import Cisco-IOS-XR-types
- location  [ NETCONF ]
- status    selected,downloaded
-ncs#
-```
-
-We also see that the NETCONF NED Builder identified module Cisco-IOS-XR-types as being imported by Cisco-IOS-XR-ifmgr-cfg and it has been also selected.
-
-```
-ncs# show netconf-ned-builder project cisco-iosxr 6.6 \
-     module Cisco-IOS-XR-types
-module Cisco-IOS-XR-types 2018-06-29
- namespace http://cisco.com/ns/yang/cisco-xr-types
- location  [ NETCONF ]
- status    selected,downloaded
-ncs#
-```
-
-CLI wildcards may be used to select multiple modules
-
-```
-ncs# netconf-ned-builder project cisco-iosxr 6.6 \
-     module Cisco-IOS-XR-* * select
-ncs#
-```
-
-### Selection Profiles <a href="#d5e947" id="d5e947"></a>
-
-One may want to reuse a selection of modules, for example, if the same modules should be selected for the new major version of the NED as for the previous one. For this purpose, NETCONF NED builder supports selection profiles.
-
-The selection profile is configuration data. It may be created in two ways:
-
-* By exporting current selection from existing project using `save-selection` action on the project list entry.
-* By manually creating a profile in configuration mode. As any other configuration it may be also, for example, be exported to XML file and loaded later.
-
-A profile is applied to a certain project using `apply` action on the profile list entry.
-
-```
-ncs# netconf-ned-builder profile xr-profile apply \
-     family-name cisco-iosxr major-version 6.6
-result applied
-selected [ <modules that have been selected> ]
-ncs#
-```
-
-It is important to note that while `select` action selects modules with dependencies, a profile is assumed to be an exhaustive selection of modules and hence the dependencies are ignored. This is also indicated by `no-dependencies` status flag on the selected modules.
-
-### Deselecting Modules <a href="#d5e965" id="d5e965"></a>
-
-Modules that have been selected but are not needed anymore may be deselected using `deselect` action. It should be noted that this action only deselects the target module and does not automatically deselect modules that are dependent on it nor its dependencies (so, `select` and `deselect` actions are asymmetrical in this regard).
-
-Modules that had been downloaded prior to being deselected are not removed from the NETCONF NED Builder cache, but they will not be included into the NED package upon building or making a development package. At the same time, a deselected module is not removed from a package that has already been built.
-
-## Building the NED <a href="#ug.ned.builder.building" id="ug.ned.builder.building"></a>
-
-The NED build is triggered using `build-ned` action on the project list entry.
-
-```
-ncs# netconf-ned-builder project cisco-iosxr 6.6 build-ned
-
-ncs# show netconf-ned-builder project cisco-iosxr 6.6 build-status
-build-status success
-ncs#
-```
-
-If there was no error reported, then the build has been successful. There might be some warnings issued by the compiler that will be saved in `build-warning` leaf under module list entries. If the action returned an error mentioning that it was not possible to compile the NED bundle, then in addition to warnings there will be some errors that are saved in `build-error` leaf under module list entries.
-
-```
-ncs# netconf-ned-builder project cisco-iosxr 6.6 build-ned
-Error: Failed to compile NED bundle
-ncs# show netconf-ned-builder project cisco-iosxr 6.6 build-status
-build-status error
-ncs# show netconf-ned-builder project cisco-iosxr 6.6 \
-     module build-error
-module openconfig-telemetry 2016-02-04
- build-error at line 700: <error message>
-ncs#
-```
-
-Possible ways to resolve this error would be to
-
-* deselect the module if it is not critical for NSO operations towards this kind of devices
-* use `make-development-ned` action to create a development version of NED and fix the issue in the YANG module
-
-In addition to the processed compiler output that is saved per module list entry, it may be necessary to see the full compiler output. It is saved in the `compiler-output` leaf under the project list entry. The leaf is hidden by a hide-group `debug` and may be accessed on the CLI using `unhide debug` command if the hide group is configured in `ncs.conf`.
-
-## Writing a Data Model for a CLI NED <a href="#writing-a-data-model-for-a-cli-ned" id="writing-a-data-model-for-a-cli-ned"></a>
+### Writing a Data Model for a CLI NED <a href="#d5e9507" id="d5e9507"></a>
 
 The idea is to write a YANG data model and feed that into the NSO CLI engine such that the resulting CLI mimics that of the device to manage. This is fairly straightforward once you have understood how the different constructs in YANG are mapped into CLI commands. The data model usually needs to be annotated with a specific Tail-f CLI extension to tailor exactly how the CLI is rendered.
 
-This chapter will describe how the general principles work and give a number of cookbook-style examples of how certain CLI constructs are modeled.
+This section will describe how the general principles work and give a number of cookbook-style examples of how certain CLI constructs are modeled.
 
-The CLI NED is primarily designed to be used with devices that has a CLI that is similar to the CLIs on a typical Cisco box (i.e. IOS, XR, NX-OS, etc). However, if the CLI follows the same principles but with a slightly different syntax, it may still be possible to use a CLI NED if some of the differences are handled by the Java part of the CLI NED. This chapter will describe how this can be done.
+The CLI NED is primarily designed to be used with devices that has a CLI that is similar to the CLIs on a typical Cisco box (i.e. IOS, XR, NX-OS, etc). However, if the CLI follows the same principles but with a slightly different syntax, it may still be possible to use a CLI NED if some of the differences are handled by the Java part of the CLI NED. This section will describe how this can be done.
 
-Let's start with the basic data model for CLI mapping. YANG consists of three major elements: containers, lists, and leaves. For example
+Let's start with the basic data model for CLI mapping. YANG consists of three major elements: containers, lists, and leaves. For example:
 
 ```
 container interface {
-  list ethernet {
+list ethernet {
     key id;
 
     leaf id {
-      type uint16 {
+    type uint16 {
         range "0..66";
-      }
+    }
     }
 
     leaf description {
-      type string {
+    type string {
         length "1..80";
-      }
+    }
     }
 
     leaf mtu {
-      type uint16 {
+    type uint16 {
         range "64..18000";
-      }
     }
-  }
+    }
+}
 }
 ```
 
-The basic rendering of the constructs is as follows. Containers are rendered as command prefixes which can be stacked at any depth. Leaves are rendered as commands that take one parameter. Lists are rendered as submodes, where the key of the list is rendered as a submode parameter. The example above would result in the command
+The basic rendering of the constructs is as follows. Containers are rendered as command prefixes which can be stacked at any depth. Leaves are rendered as commands that take one parameter. Lists are rendered as submodes, where the key of the list is rendered as a submode parameter. The example above would result in the command:
 
 ```
 interface ethernet ID
 ```
 
-for entering the interface ethernet submode. The interface is a container and is rendered as a prefix, ethernet is a list and is rendered as a submode. Two additional commands would be available in the submode
+For entering the interface ethernet submode. The interface is a container and is rendered as a prefix, ethernet is a list and is rendered as a submode. Two additional commands would be available in the submode:
 
 ```
 description WORD
 mtu INTEGER<64-18000>
 ```
 
-A typical configuration with two interfaces could look like this
+A typical configuration with two interfaces could look like this:
 
 ```
 interface ethernet 0
-  description "customer a"
-  mtu 1400
+description "customer a"
+mtu 1400
 !
 interface ethernet 1
-  description "customer b"
-  mtu 1500
+description "customer b"
+mtu 1500
 !
 ```
 
@@ -2906,70 +854,70 @@ Note that it makes sense to add help texts to the data model since these texts w
 
 ```
 container interface {
-  tailf:info "Configure interfaces";
+tailf:info "Configure interfaces";
 
-  list ethernet {
+list ethernet {
     tailf:info "FastEthernet IEEE 802.3";
     key id;
 
     leaf id {
-      type uint16 {
+    type uint16 {
         range "0..66";
         tailf:info "<0-66>;;FastEthernet interface number";
     }
 
     leaf description {
-      type string {
+    type string {
         length "1..80";
         tailf:info "LINE;;Up to 80 characters describing this interface";
-      }
+    }
     }
 
     leaf mtu {
-      type uint16 {
+    type uint16 {
         range "64..18000";
         tailf:info "<64-18000>;;MTU size in bytes";
-      }
     }
-  }
+    }
+}
 }
 ```
 
 I will generally not include the help texts in the examples below to save some space but they should be present in a production data model.
 
-### Tweaking the Basic Rendering Scheme <a href="#d5e1017" id="d5e1017"></a>
+### Tweaking the Basic Rendering Scheme <a href="#d5e9523" id="d5e9523"></a>
 
 The basic rendering suffice in many cases but is also not enough in many situations. What follows is a list of ways to annotate the data model in order to make the CLI engine mimic a device.
 
-#### Suppressing submodes <a href="#d5e1020" id="d5e1020"></a>
+#### **Suppressing Submodes**
 
-Sometimes you want a number of instances (a list) but do not want a submode. For example
+Sometimes you want a number of instances (a list) but do not want a submode. For example:
 
 ```
 container dns {
-  leaf domain {
+leaf domain {
     type string;
-  }
-  list server {
+}
+list server {
     ordered-by user;
     tailf:cli-suppress-mode;
     key ip;
 
     leaf ip {
-      type inet:ipv4-address;
+    type inet:ipv4-address;
     }
-  }
+}
 }
 ```
 
-The above would result in the commands
+The above would result in the following commands:
 
 ```
 dns domain WORD
 dns server IPAddress
 ```
 
-A typical show-config output may look like:
+A typical `show-config` output may look like:
 
 ```
 dns domain tail-f.com
@@ -2977,11 +925,11 @@ dns server 192.168.1.42
 dns server 8.8.8.8
 ```
 
-#### Adding a Submode <a href="#d5e1028" id="d5e1028"></a>
+#### **Adding a Submode**
 
-Sometimes you want a submode to be created without having a list instance, for example a submode called **aaa** where all aaa configuration is located.
+Sometimes you want a submode to be created without having a list instance, for example, a submode called `aaa` where all AAA configuration is located.
 
-This is done by using the tailf:cli-add-mode extension. For example:
+This is done by using the `tailf:cli-add-mode` extension. For example:
 
 ```
 container aaa {
@@ -2993,7 +941,7 @@ container aaa {
 }
 ```
 
-This would result in the command **aaa** for entering the container. However, sometimes the CLI requires that a certain set of elements are also set when entering the submode, but without being a list. For example the police rules inside a policy map in the Cisco 7200.
+This would result in the command **aaa** for entering the container. However, sometimes the CLI requires that a certain set of elements are also set when entering the submode, but without being a list. For example, the police rules inside a policy map in the Cisco 7200.
 
 ```
 container police {
@@ -3049,9 +997,9 @@ container police {
 }
 ```
 
-Here the leaves with the annotation `tailf:cli-hide-in-submode` are not present as commands once the submode has been entered, but are instead only available as options the police command when entering the police submode.
+Here, the leaves with the annotation `tailf:cli-hide-in-submode` is not present as commands once the submode has been entered, but are instead only available as options the police command when entering the police submode.
 
-#### Commands with Multiple Parameters <a href="#d5e1038" id="d5e1038"></a>
+#### **Commands with Multiple Parameters**
 
 Often a command is defined as taking multiple parameters in a typical Cisco CLI. This is achieved in the data model by using the annotations `tailf:cli-sequence-commands`, `tailf:cli-compact-syntax`, `tailf:cli-drop-node-name`, and possibly `tailf:cli-reset-siblings`.
 
@@ -3095,8 +1043,7 @@ container udld-timeout {
             range "1..60";
             tailf:info "<1-60>;;timeout in unit of seconds";
         }
-    }
-}
+    }}
 ```
 
 This results in the command:
@@ -3105,19 +1052,13 @@ This results in the command:
 udld-timeout [fast <millisecs> | slow <secs> ]
 ```
 
-The `tailf:cli-sequence-commands` annotation tells the CLI engine to process the leaves in sequence.&#x20;
-
-The `tailf:cli-reset-siblings` tells the CLI to reset all leaves in the container if one is set. This is necessary to ensure that no lingering config remains from a previous invocation of the command where more parameters were configured.&#x20;
-
-The `tailf:cli-drop-node-name` tells the CLI that the leaf name shouldn't be specified.&#x20;
-
-The `tailf:cli-compact-syntax` annotation tells the CLI that the leaves should be formatted on one line, i.e. as:
+The `tailf:cli-sequence-commands` annotation tells the CLI engine to process the leaves in sequence. The `tailf:cli-reset-siblings` tells the CLI to reset all leaves in the container if one is set. This is necessary in order to ensure that no lingering config remains from a previous invocation of the command where more parameters were configured. The `tailf:cli-drop-node-name` tells the CLI that the leaf name shouldn't be specified. The `tailf:cli-compact-syntax` annotation tells the CLI that the leaves should be formatted on one line, i.e. as:
 
 ```
 udld-timeout fast 1000
 ```
 
-As opposed to the following without the annotation:
+As opposed to without the annotation:
 
 ```
 uldl-timeout fast
@@ -3130,14 +1071,14 @@ This command could also be written using a choice construct as:
 
 ```
 container udld-timeout {
-  tailf:cli-sequence-command;
-  choice  udld-timeout-choice {
+tailf:cli-sequence-command;
+choice  udld-timeout-choice {
     case fast-case {
-      leaf fast {
+    leaf fast {
         tailf:info "in unit of milli-seconds";
         type empty;
-      }
-      leaf milli {
+    }
+    leaf milli {
         tailf:cli-drop-node-name;
         must "../fast" { tailf:dependency "../fast"; }
         type uint16 {
@@ -3146,14 +1087,14 @@ container udld-timeout {
                 +"milli-seconds";
         }
         mandatory true;
-      }
+    }
     }
     case slow-case {
-      leaf slow {
+    leaf slow {
         tailf:info "in unit of milli-seconds";
         type empty;
-      }
-      leaf "secs" {
+    }
+    leaf "secs" {
         must "../slow" { tailf:dependency "../slow"; }
         tailf:cli-drop-node-name;
         type uint16 {
@@ -3161,15 +1102,15 @@ container udld-timeout {
             tailf:info "<1-60>;;timeout in unit of seconds";
         }
         mandatory true;
-      }
     }
-  }
+    }
+}
 }
 ```
 
-Sometimes the `tailf:cli-incomplete-command` is used to ensure that all parameters are configured. The `cli-incomplete-command` only applies to the C- and I-style CLI. To ensure that prior leaves in a container are also configured when the configuration is written using J-style or Netconf, proper `must` declarations should be used.
+Sometimes the `tailf:cli-incomplete-command` is used to ensure that all parameters are configured. The `cli-incomplete-command` only applies to the C- and I-style CLI. To ensure that prior leaves in a container are also configured when the configuration is written using J-style or Netconf proper 'must' declarations should be used.
 
-Another example is below where `tailf:cli-optional-in-sequence` is used:
+Another example is this, where `tailf:cli-optional-in-sequence` is used:
 
 ```
 list pool {
@@ -3256,7 +1197,7 @@ list pool {
 
 The `tailf:cli-optional-in-sequence` means that the parameters should be processed in sequence but a parameter can be skipped. However, if a parameter is specified then only parameters later in the container can follow it.
 
-It is also possible to have some parameters in sequence initially in the container, and then the rest in any order. This is indicated by the tailf:cli-break-sequence command. For example:
+It is also possible to have some parameters in sequence initially in the container, and then the rest in any order. This is indicated by the `tailf:cli-break-sequence command`. For example:
 
 ```
 list address {
@@ -3287,16 +1228,16 @@ list address {
 Where it is possible to write:
 
 ```
-ip 1.1.1.1 link-local anycast
+    ip 1.1.1.1 link-local anycast
 ```
 
 As well as:
 
 ```
-ip 1.1.1.1 anycast link-local
+    ip 1.1.1.1 anycast link-local
 ```
 
-#### Leaf Values Not Really Part of the Key <a href="#d5e1062" id="d5e1062"></a>
+#### **Leaf Values Not Really Part of the Key**
 
 Sometimes a command for entering a submode has parameters that are not really key values, i.e. not part of the instance identifier, but still need to be given when entering the submode. For example
 
@@ -3335,7 +1276,7 @@ list service-group {
 }
 ```
 
-In this case, the `tcpudp` is a non-key leaf that needs to be specified as a parameter when entering the `service-group` submode. Once in the submode, the commands `backup-server-event-log` and `extended-stat`s are present. Leaves with the `tailf:cli-hide-in-submode` attribute are given after the last key, in the sequence they appear in the list.
+In this case, the `tcpudp` is a non-key leaf that needs to be specified as a parameter when entering the `service-group` submode. Once in the submode the commands backup-server-event-log and extended-stats are present. Leaves with the `tailf:cli-hide-in-submode` attribute are given after the last key, in the sequence they appear in the list.
 
 It is also possible to allow leaf values to be entered in between key elements. For example:
 
@@ -3392,40 +1333,40 @@ community read WORD [oid WORD] remote HOSTNAME [/nn or A.B.C.D]
 
 The `tailf:cli-reset-container` attribute means that all leaves in the container will be reset if any leaf is given.
 
-#### Change Controlling Annotations <a href="#d5e1072" id="d5e1072"></a>
+#### **Change Controlling Annotations**
 
-Some devices require that a setting is removed before it can be changed, for example, the service-group list above. This is indicated with the `tailf:cli-remove-before-change` annotation. It can be used both on lists and on leaves. A leaf example:
+Some devices require that a setting be removed before it can be changed, for example, the service-group list above. This is indicated with the `tailf:cli-remove-before-change` annotation. It can be used both on lists and on leaves. A leaf example:
 
 ```
-  leaf source-ip {
-      tailf:cli-remove-before-change;
-      tailf:cli-no-value-on-delete;
-      tailf:cli-full-command;
-      type inet:ipv6-address {
-          tailf:info "X:X::X:X;;Source IPv6 address used by DNS";
-      }
-  }
+leaf source-ip {
+    tailf:cli-remove-before-change;
+    tailf:cli-no-value-on-delete;
+    tailf:cli-full-command;
+    type inet:ipv6-address {
+        tailf:info "X:X::X:X;;Source IPv6 address used by DNS";
+    }
+}
 ```
 
-This means that the diff sent to the device will contain first a `no source-ip` command, followed by a new source-ip command to set the new value.
+This means that the diff sent to the device will contain first a `no source-ip` command, followed by a new `source-ip` command to set the new value.
 
-The data model also uses the `tailf:cli-no-value-on-delete` annotation which means that the leaf value should not be present in the no command. With the annotation, a diff to modify the source IP from 1.1.1.1 to 2.2.2.2 would look like:
+The data model also use the tailf:cli-no-value-on-delete annotation which means that the leaf value should not be present in the no command. With the annotation, a diff to modify the source IP from 1.1.1.1 to 2.2.2.2 would look like:
 
 ```
 no source-ip
 source-ip 2.2.2.2
 ```
 
-And without the annotation as:
+And, without the annotation as:
 
 ```
 no source-ip 1.1.1.1
 source-ip 2.2.2.2
 ```
 
-#### Ordered-by User Lists <a href="#d5e1081" id="d5e1081"></a>
+#### **Ordered-by User Lists**
 
-By default, a diff for an `ordered-by user` list contains information about where a new item should be inserted. This is typically not supported by the device. Instead, the commands (diff) to send the device needs to remove all items following the new item, and then reinsert the items in the proper order. This behavior is controlled using the `tailf:cli-long-obu-diff` annotation. For example:
+By default, a diff for an ordered-by-user list contains information about where a new item should be inserted. This is typically not supported by the device. Instead, the commands (diff) to send the device needs to remove all items following the new item, and then reinsert the items in the proper order. This behavior is controlled using the `tailf:cli-long-obu-diff` annotation. For example
 
 ```
 list access-list {
@@ -3481,7 +1422,7 @@ Without the annotation, the diff would be:
 access-list 90 permit host 10.34.94.109
 ```
 
-#### Default Values <a href="#d5e1093" id="d5e1093"></a>
+#### **Default Values**
 
 Often in a config when a leaf is set to its default value it is not displayed by the `show running-config` command, but we still need to set it explicitly. Suppose we have the leaf `state`. By default, the value is `active`.
 
@@ -3500,7 +1441,7 @@ leaf  state {
 }
 ```
 
-If the device state is `block` and we want to set it to `active`, i.e. the default value. The default behavior is to send to the device.
+If the device state is `block` and we want to set it to `active`, i.e. the default value. The default behavior is to send to the device:
 
 ```
 no state block
@@ -3512,7 +1453,7 @@ This will not work. The correct command sequence should be:
 state active
 ```
 
-The way to achieve this is to do the following.
+The way to achieve this is to do the following:
 
 ```
 leaf  state {
@@ -3531,13 +1472,13 @@ leaf  state {
 }
 ```
 
-This way a value for 'state' will always be generated. This may seem unintuitive but the reason this works comes from how the diff is calculated. When generating the diff, the target configuration and the desired configuration is compared (per line). The target config will be:
+This way a value for 'state' will always be generated. This may seem unintuitive but the reason this works comes from how the diff is calculated. When generating the diff the target configuration and the desired configuration is compared (per line). The target config will be:
 
 ```
 state block
 ```
 
-The desired config will be:
+And the desired config will be:
 
 ```
 state active
@@ -3545,7 +1486,7 @@ state active
 
 This will be interpreted as a leaf value change and the resulting diff will be to set the new value, i.e. active.
 
-However, without the `cli-show-with-default` option the desired config will be an empty line, i.e. no value set. When we compare the two lines we get:
+However, without the `cli-show-with-default` option, the desired config will be an empty line, i.e. no value set. When we compare the two lines we get:
 
 (current config)
 
@@ -3559,48 +1500,50 @@ state block
 <empty>
 ```
 
-This will result in the command to remove the configured leaf, i.e., the following, which does not work
+This will result in the command to remove the configured leaf, i.e.
 
 ```
 state block
 ```
 
-#### Understanding How the Diffs Are Generated <a href="#d5e1116" id="d5e1116"></a>
+Which does not work.
 
-What you see in the C-style CLI when you do `show configuration` is the commands needed to go from the running config to the configuration you have in your current session. It usually corresponds to the command you have just issued in your CLI session, but not always.
+#### **Understanding How the Diffs are Generated**
 
-The output is actually generated by comparing the two configurations, i.e. the running config and your current uncommitted configuration. It is done by running `show running-config` on both the running config and your uncommitted config and then comparing the output line by line. Each line is complemented by some meta information which makes it possible to generate a better diff.
+What you see in the C-style CLI when you do 'show configuration' is the commands needed to go from the running config to the configuration you have in your current session. It usually corresponds to the command you have just issued in your CLI session, but not always.
 
-For example, if you modify a leaf value, say set the `mtu` to `1400` and the previous value was `1500`. The two configs will then be:
+The output is actually generated by comparing the two configurations, i.e. the running config and your current uncommitted configuration. It is done by running 'show running-config' on both the running config and your uncommitted config, and then comparing the output line by line. Each line is complemented by some meta information which makes it possible to generate a better diff.
+
+For example, if you modify a leaf value, say set the MTU to 1400 and the previous value was 1500. The two configs will then be
 
 ```
 interface FastEthernet0/0/1     interface FastEthernet0/0/1
-  mtu 1500                        mtu 1400
+mtu 1500                        mtu 1400
 !                               !
 ```
 
-When we compare these configs, the first line is the same -> no action but we remember that we have entered the FastEthernet0/0/1 submode. The second line differs in value (the meta-information associated with the lines has the path and the value). When we analyze the two lines we determine that a `value_set` has occurred. The default action when the value has been changed is to output the command for setting the new value, i.e. `mtu` `1500`. However, we also need to reposition to the current submode. If this is the first line we are outputting in the submode, we need to issue the command before issuing the `mtu 1500` command.
+When we compare these configs, the first lines are the same -> no action but we remember that we have entered the FastEthernet0/0/1 submode. The second line differs in value (the meta-information associated with the lines has the path and the value). When we analyze the two lines we determine that a value\_set has occurred. The default action when the value has been changed is to output the command for setting the new value, i.e. MTU 1500. However, we also need to reposition to the current submode. If this is the first line we are outputting in the submode we need to issue the command before issuing the MTU 1500 command.
 
 ```
 interface FastEthernet0/0/1
 ```
 
-Similarly, suppose a value has been removed, i.e. mtu used to be set but it is no longer present:
+Similarly, suppose a value has been removed, i.e. mtu used to be set but it is no longer present
 
 ```
 interface FastEthernet0/0/1     interface FastEthernet0/0/1
 !                                 mtu 1400
-                               !
+                                !
 ```
 
-As before, the first lines are equivalent, but the second line has `!` in the new config, and `mtu 1400` in the running config. This is analyzed as being a delete and the commands. The following is generated:
+As before, the first lines are equivalent, but the second line has a `!` in the new config, and MTU 1400 in the running config. This is analyzed as being a delete and the commands are generated:
 
 ```
 interface FastEthernet0/0/1
     no mtu 1400
 ```
 
-There are tweaks to this behavior. For example, some machines do not like the no command to include the old value but want instead the command
+There are tweaks to this behavior. For example, some machines do not like the `no` command to include the old value but want instead the command:
 
 ```
 no mtu
@@ -3610,8 +1553,8 @@ We can instruct the CLI diff engine to behave in this way by using the YANG anno
 
 ```
 leaf mtu {
-  tailf:cli-no-value-on-delete;
-  type uint16;
+tailf:cli-no-value-on-delete;
+type uint16;
 }
 ```
 
@@ -3645,26 +1588,26 @@ container password {
 }
 ```
 
-### Modifying the Java part of the CLI NED <a href="#d5e1140" id="d5e1140"></a>
+### Modifying the Java Part of the CLI NED <a href="#d5e9646" id="d5e9646"></a>
 
-It is often necessary to do some minor modifications to the Java part of a CLI NED. There are mainly four functions that needs to be modified: connect, show, applyConfig, enter/exit config mode.
+It is often necessary to do some minor modifications to the Java part of a CLI NED. There are mainly four functions that needs to be modified: connect, show, applyConfig, and enter/exit config mode.
 
-#### Connecting to a device <a href="#d5e1143" id="d5e1143"></a>
+**Connecting to a Device**
 
 The CLI NED code should do a few things when the connect callback is invoked.
 
-* Set up a connection to the device (usually ssh).
-* If necessary send a secondary password to enter exec mode. Typically a Cisco IOS-like CLI requires the user to give the **enable** command followed by a password.
+* Set up a connection to the device (usually SSH).
+* If necessary send a secondary password to enter exec mode. Typically a Cisco IOS-like CLI requires the user to give the `enable` command followed by a password.
 * Verify that it is the right kind of device and respond to NSO with a list of capabilities. This is usually done by running the `show version` command, or equivalent, and parsing the output.
 * Configure the CLI session on the device to not use pagination. This is normally done by setting the screen length to 0 (or infinity or disable). Optionally it may also fiddle with the idle time.
 
 Some modifications may be needed in this section if the commands for the above differ from the Cisco IOS style.
 
-#### Displaying the Configuration of a Device <a href="#d5e1158" id="d5e1158"></a>
+#### **Displaying the Configuration of a Device**
 
 The NSO will invoke the `show()` callback multiple times, one time for each top-level tag in the data model. Some devices have support for displaying just parts of the configuration, others do not.
 
-For a device that cannot display only parts of a config the recommended strategy is to wait for a show() invocation with a well known top tag and send the entire config at that point. If you know that the data model has a top tag called **interface** then you can use code like:
+For a device that cannot display only parts of a config the recommended strategy is to wait for a show() invocation with a well known top tag and send the entire config at that point. If, if you know that the data model has a top tag called **interface** then you can use code like:
 
 ```
 public void show(NedWorker worker, String toptag)
@@ -3683,11 +1626,11 @@ public void show(NedWorker worker, String toptag)
 }
 ```
 
-From the point of NSO, it is perfectly ok to send the entire config as a response to one of the requested top tags, and to send an empty response otherwise.
+From the point of NSO, it is perfectly ok to send the entire config as a response to one of the requested toptags and to send an empty response otherwise.
 
 Often some filtering is required of the output from the device. For example, perhaps part of the configuration should not be sent to NSO, or some keywords replaced with others. Here are some examples:
 
-**Stripping Sections, Headers, and Footers**
+Stripping Sections, Headers, and Footers:
 
 Some devices start the output from `show running-config` with a short header, and some add a footer. Common headers are `Current configuration:` and a footer may be `end` or `return`. In the example below we strip out a header and remove a footer.
 
@@ -3746,12 +1689,12 @@ if (toptag.equals("context")) {
 }
 ```
 
-**Removing Keywords**
+Removing keywords:
 
-Sometimes a device generates non-parsable commands in the output from `show running-config`. For example, some A10 devices add a keyword `cpu-process` at the end of the `ip route` command, i.e.
+Sometimes a device generates non-parsable commands in the output from `show running-config`. For example, some A10 devices add a keyword `cpu-process` at the end of the `ip route` command, i.e.:
 
 ```
-ip route 10.40.0.0 /14 10.16.156.65 cpu-process
+    ip route 10.40.0.0 /14 10.16.156.65 cpu-process
 ```
 
 However, it does not accept this keyword when a route is configured. The solution is to simply strip the keyword before sending the config to NSO and to not include the keyword in the data model for the device. The code to do this may look like this:
@@ -3778,9 +1721,9 @@ if (toptag.equals("interface")) {
 }
 ```
 
-**Replacing Keywords**
+Replacing keywords:
 
-Sometimes a device has some other names for delete than the standard **no** command found in a typical Cisco CLI. NSO will only generate `no` commands when, for example, an element does not exist (i.e. `no shutdown` for an interface), but the device may need `undo` instead. This can be dealt with as a simple transformation of the configuration before sending it to NSO. For example:
+Sometimes a device has some other names for delete than the standard **no** command found in a typical Cisco CLI. NSO will only generate **no** commands when, for example, an element does not exist (i.e. `no shutdown` for an interface), but the device may need `undo` instead. This can be dealt with as a simple transformation of the configuration before sending it to NSO. For example:
 
 ```
 if (toptag.equals("aaa")) {
@@ -3814,7 +1757,7 @@ if (toptag.equals("aaa")) {
 }
 ```
 
-Another example is the following situation. A device has a configuration for `port trunk permit vlan 1-3` and may at the same time have disallowed some VLANs using the command `no port trunk permit vlan 4-6`. Since we cannot use a `no` container in the config, we instead add a `disallow` container, and then rely on the Java code to do some processing, e.g.:
+Another example is the following situation. A device has a configuration for `port trunk permit vlan 1-3` and may at the same time have disallowed some VLANs using the command `no port trunk permit vlan 4-6`. Since we cannot use a **no** container in the config, we instead add a `disallow` container, and then rely on the Java code to do some processing, e.g.:
 
 ```
 container disallow {
@@ -3838,7 +1781,7 @@ container disallow {
 }
 ```
 
-And in the Java `show()` code:
+And, in the Java `show()` code:
 
 ```
 if (toptag.equals("aaa")) {
@@ -3879,9 +1822,9 @@ for (i=0 ; i < lines.length ; i++) {
 }
 ```
 
-**Different Quoting Practices**
+Different Quoting Practices:
 
-If the way a device quotes strings differs from the way it can be modeled in NSO, it can be handled in the Java code. For example, one device does not quote encrypted password strings which may contain odd characters like the command character `!`. Java code to deal with this may look like:
+If the way a device quotes strings differ from the way it can be modeled in NSO, it can be handled in the Java code. For example, one device does not quote encrypted password strings which may contain odd characters like the command character `!`. Java code to deal with this may look like:
 
 ```
 if (toptag.equals("aaa")) {
@@ -3953,11 +1896,11 @@ for (i=0 ; i < lines.length ; i++) {
 }
 ```
 
-#### Applying a Config <a href="#d5e1209" id="d5e1209"></a>
+#### **Applying a Config**
 
-NSO will send the configuration to the device in three different callbacks: `prepare()`, `abort()`, and `revert()`. The Java code should issue these commands to the device but some processing of the commands may be necessary. Also, the ongoing CLI session needs to enter configure mode, issue the commands, and then exit configure mode. Some processing may be needed if the device has different keywords, or different quoting, as described under the [Displaying the Configuration of a Device](./#d5e1158) section above.
+NSO will send the configuration to the device in three different callbacks: `prepare()`, `abort()`, and `revert()`. The Java code should issue these commands to the device but some processing of the commands may be necessary. Also, the ongoing CLI session needs to enter configure mode, issue the commands, and then exit configure mode. Some processing may be needed if the device has different keywords, or different quoting, as described under the "Displaying the configuration of a device" section above.
 
-For example, if a device uses **undo** in place of **no** then the code may look like this, where `data` is the string of commands received from NSO:
+For example, if a device uses `undo` in place of `no` then the code may look like this, where `data` is the string of commands received from NSO:
 
 ```
 lines = data.split("\n");
@@ -3970,11 +1913,11 @@ for (i=0 ; i < lines.length ; i++) {
 
 This relies on the fact that NSO will not have any indentation in the commands sent to the device (as opposed to the indentation usually present in the output from `show running-config`).
 
-## Tail-f CLI NED Annotations <a href="#tail-f-cli-ned-annotations" id="tail-f-cli-ned-annotations"></a>
+### Tail-f CLI NED Annotations <a href="#ncs.development.ned.cliannotintro" id="ncs.development.ned.cliannotintro"></a>
 
 The typical Cisco CLI has two major modes, operational mode and configure mode. In addition, the configure mode has submodes. For example, interfaces are configured in a submode that is entered by giving the command `interface <InterfaceType> <Number>`. Exiting a submode, i.e. giving the **exit** command, leaves you in the parent mode. Submodes can also be embedded in other submodes.
 
-In a typical Cisco CLI, you do not necessary have to exit a submode to execute a command in a parent mode. In fact, the output of the command `show running-config` hardly contains any exit commands. Instead, there is an exclamation mark, `!`, to indicate that a submode is done, which is only a comment. The config is formatted to rely on the fact that if a command isn't found in the current submode, the CLI engine searches for the command in its parent mode.
+In a typical Cisco CLI, you do not necessarily have to exit a submode to execute a command in a parent mode. In fact, the output of the command `show running-config` hardly contains any exit commands. Instead, there is an exclamation mark, `!`, to indicate that a submode is done, which is only a comment. The config is formatted to rely on the fact that if a command isn't found in the current submode, the CLI engine searches for the command in its parent mode.
 
 Another interesting mapping problem is how to interpret the **no** command when multiple leaves are given on a command line. Consider the model:
 
@@ -4010,7 +1953,7 @@ There is no clear principle here and no one right solution. The annotations are 
 
 ### Annotations <a href="#ug.cli-annot.annotations" id="ug.cli-annot.annotations"></a>
 
-The full set of annotations can be found in the `tailf_yang_cli_extensions` man page. All are not applicable in an NSO context, but most are. The most commonly used annotations are (in alphabetical order):
+The full set of annotations can be found in the `tailf_yang_cli_extensions` Man Page. All are not applicable in an NSO context, but most are. The most commonly used annotations are (in alphabetical order):
 
 <details>
 
@@ -4092,7 +2035,7 @@ In the example above, a leaf FastEthernet is used to point to an existing interf
 
 <details>
 
-<summary><code>tailf:cli-prefix-key and tailf:cli-before-key</code></summary>
+<summary><code>tailf:cli-prefix-key</code> and <code>tailf:cli-before-key</code></summary>
 
 Normally, keys come before other leaves when a list command is used, and this is required in YANG. However, this is not always the case in Cisco-style CLIs. For example the `route-map` command where the name and sequence numbers are the keys, but the leaf operation (permit or deny) is given in between the first and the second key. The `tailf:cli-prefix-key` annotation tells the parser to expect a given leaf before the keys, but the substatement `tailf:cli-before-key <N>` can be used to specify that the leaf should occur in between two keys. For example:
 
@@ -4175,7 +2118,7 @@ leaf shutdown {
 
 <details>
 
-<summary><code>tailf:cli-sequence-commands and tailf:cli-break-sequence-commands</code></summary>
+<summary><code>tailf:cli-sequence-commands</code> and <code>tailf:cli-break-sequence-commands</code></summary>
 
 These annotations are used to tell the CLI to only accept leaves in a container in the same order as they appears in the data model. This is typically required when the leaf names are hidden using the `tailf:cli-drop-node-name` annotation. It is very common in the Cisco CLI that commands accept multiple parameters, and such commands must be mapped to setting of multiple leaves in the data model. For example the `aggregate-address` command in the `router bgp` submode:
 
@@ -4384,7 +2327,7 @@ In this case, the `tailf:cli-delete-when-empty` annotation tells the CLI engine 
 
 <summary><code>tailf:cli-diff-dependency</code></summary>
 
-This annotation tells the CLI engine that there is a dependency between the current account when generating diff commands to send to the device, or when rendering the `show configuratio`**n** command output. It can have two different substatements: `tailf:cli-trigger-on-set` and `tailf:cli-trigger-on-all`.
+This annotation tells the CLI engine that there is a dependency between the current account when generating diff commands to send to the device, or when rendering the `show configuration` command output. It can have two different substatements: `tailf:cli-trigger-on-set` and `tailf:cli-trigger-on-all`.
 
 Without substatements, it should be thought of as similar to a leaf-ref, i.e. if the dependency target is delete, first perform any modifications to this leaf. For example, the redistribute `ospf` submode in `router bgp`:
 
@@ -5213,7 +3156,7 @@ In the above example, the description command will take all tokens to the end of
 
 <details>
 
-<summary><code>tailf:cli-multi-word-key and tailf:cli-max-words</code></summary>
+<summary><code>tailf:cli-multi-word-key</code> and <code>tailf:cli-max-words</code></summary>
 
 By default, all key values consist of a single parser token, i.e. a string without spaces, or a quoted string. If multiple tokens should be accepted for a single key element, without quotes, then the `tailf:cli-multi-word-key` annotation can be used. The sub-annotation `tailf:cli-max-words` can be used to tell the parser that at most a fixed number of words should be allowed for the key. For example:
 
@@ -5244,7 +3187,7 @@ The `tailf:cli-max-words` annotation can be used to allow more things to be ente
 
 <details>
 
-<summary><code>tailf:cli-no-name-on-delete and tailf:cli-no-value-on-delete</code></summary>
+<summary><code>tailf:cli-no-name-on-delete</code> and <code>tailf:cli-no-value-on-delete</code></summary>
 
 When generating delete commands towards the device, the default behavior is to simply add `no` in front of the line you are trying to remove. However, this is not always allowed. In some cases, only parts of the command are allowed. For example, suppose you have the data model:
 
@@ -5570,7 +3513,7 @@ The `timeslots` leaf is changed by writing the entire range value. The default w
 
 <details>
 
-<summary><code>tailf:cli-reset-siblings and tailf:cli-reset-all-siblings</code></summary>
+<summary><code>tailf:cli-reset-siblings</code> and <code>tailf:cli-reset-all-siblings</code></summary>
 
 This annotation is a sub-annotation to `tailf:cli-sequence-commands`. The problem it addresses is what should happen when a command that takes multiple parameters is run a second time. Consider the data model:
 
@@ -5764,7 +3707,7 @@ container extended {
 
 <summary><code>tailf:cli-show-no</code></summary>
 
-One common CLI behavior is to not only show when something is configured but also when it isn't configured by displaying it as **no \<command>**. You can tell the CLI engine that you want this behavior by using the `tailf:cli-show-no` annotation. It can be used both on leaves and on presence containers. For example:
+One common CLI behavior is to not only show when something is configured but also when it isn't configured by displaying it as `no <command>`. You can tell the CLI engine that you want this behavior by using the `tailf:cli-show-no` annotation. It can be used both on leaves and on presence containers. For example:
 
 ```
 // ipv6 cef
@@ -6491,3 +4434,1547 @@ foo bar 1
 ```
 
 </details>
+
+## Generic NED Development <a href="#ug.ned.generic" id="ug.ned.generic"></a>
+
+As described in previous sections, the CLI NEDs are almost programming-free. The NSO CLI engine takes care of parsing the stream of characters that come from "show running-config \[toptag]" and also automatically produces the sequence of CLI commands required to take the system from one state to another.
+
+A generic NED is required when we want to manage a device that neither speaks NETCONF or SNMP nor can be modeled so that ConfD - loaded with those models - gets a CLI that looks almost/exactly like the CLI of the managed device. For example, devices that have other proprietary CLIs, devices that can only be configured over other protocols such as REST, Corba, XML-RPC, SOAP, other proprietary XML solutions, etc.
+
+In a manner similar to the CLI NED, the Generic NED needs to be able to connect to the device, return the capabilities, perform changes to the device, and finally, grab the entire configuration of the device.
+
+The interface that a Generic NED has to implement is very similar to the interface of a CLI NED. The main differences are:
+
+* When NSO has calculated a diff for a specific managed device, it will for CLI NEDS also calculate the exact set of CLI commands to send to the device, according to the YANG models loaded for the device. In the case of a generic NED, NSO will instead send an array of operations to perform towards the device in the form of DOM manipulations. The generic NED class will receive an array of `NedEditOp` objects. Each `NedEditOp` object contains:
+  * The operation to perform, i.e. CREATED, DELETED, VALUE\_SET, etc.
+  * The keypath to the object in case.
+  * An optional value
+* When NSO wants to sync the configuration from the device to NSO, the CLI NED only has to issue a series of `show running-config [toptag]` commands and reply with the output received from the device. A generic NED has to do more work. It is given a transaction handler, which it must attach to over the Maapi interface. Then the NED code must - by some means - retrieve the entire configuration and write into the supplied transaction, again using the Maapi interface.
+
+Once the generic NED is implemented, all other functions in NSO work precisely in the same manner as with NETCONF and CLI NED devices. NSO still has the capability to run network-wide transactions. The caveat is that to abort a transaction towards a device that doesn't support transactions, we calculate the reverse diff and send it to the device, i.e. we automatically calculate the undo operations.
+
+Another complication with generic NEDs is how the NED class shall authenticate towards the managed device. This depends entirely on the protocol between the NED class and the managed device. If SSH is used to a proprietary CLI, the existing authgroup structure in NSO can be used as is. However, if some other authentication data is needed, it is up to the generic NED implementer to augment the authgroups in `tailf-ncs.yang` accordingly.
+
+We must also configure a managed device, indicating that its configuration is handled by a specific generic NED. Below we see that the NED with identity `xmlrpc` is handling this device.
+
+```
+admin@ncs# show running-config devices device x1
+    
+address   127.0.0.1
+port      12023
+authgroup default
+device-type generic ned-id xmlrpc
+state admin-state unlocked
+...
+```
+
+The example `examples.ncs/generic-ned/xmlrpc-device` in the NSO examples collection implements a generic NED that speaks XML-RPC to 3 HTTP servers. The HTTP servers run the Apache XML-RPC server code and the NED code manipulates the 3 HTTP servers using a number of predefined XML RPC calls.
+
+A good starting point when we wish to implement a new generic NED is the `ncs-make-package --generic-ned-skeleton ...` command, which is used to generate a skeleton package for a generic NED.
+
+```
+$ ncs-make-package --generic-ned-skeleton abc --build
+```
+
+```
+$ ncs-setup --ned-package abc --dest ncs
+```
+
+```
+$ cd ncs
+```
+
+```
+$ ncs -c ncs.conf
+```
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# show packages package abc
+packages package abc
+package-version 1.0
+description     "Skeleton for a generic NED"
+ncs-min-version [ 3.3 ]
+component MyDevice
+ callback java-class-name [ com.example.abc.abcNed ]
+ ned generic ned-id abc
+ ned device vendor "Acme abc"
+ ...
+ oper-status up
+```
+
+### Getting Started with a Generic NED <a href="#ug.ned.generic.gettingstarted" id="ug.ned.generic.gettingstarted"></a>
+
+A generic NED always requires more work than a CLI NED. The generic NED needs to know how to map arrays of `NedEditOp` objects into the equivalent reconfiguration operations on the device. Depending on the protocol and configuration capabilities of the device, this may be arbitrarily difficult.
+
+Regardless of the device, we must always write a YANG model that describes the device. The array of `NedEditOp` objects that the generic NED code gets exposed to is relative the YANG model that we have written for the device. Again, this model doesn't necessarily have to cover all aspects of the device.
+
+Often a useful technique with generic NEDs can be to write a pyang plugin to generate code for the generic NED. Again, depending on the device it may be possible to generate Java code from a pyang plugin that covers most or all aspects of mapping an array of `NedEditOp` objects into the equivalent reconfiguration commands for the device.
+
+Pyang is an extensible and open-source YANG parser (written by Tail-f) available at `http://www.yang-central.org`. pyang is also part of the NSO release. A number of plugins are shipped in the NSO release, for example `$NCS_DIR/lib/pyang/pyang/plugins/tree.py` is a good plugin to start with if we wish to write our own plugin.
+
+`$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` is a good example to start with if we wish to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
+
+* Defined a fictitious YANG model for the device.
+* Implemented an XML-RPC server exporting a set of RPCs to manipulate that fictitious data model. The XML-RPC server runs the Apache `org.apache.xmlrpc.server.XmlRpcServer` Java package.
+* Implemented a Generic NED which acts as an XML-RPC client speaking HTTP to the XML-RPC servers.
+
+The example is self-contained, and we can, using the NED code, manipulate these XML-RPC servers in a manner similar to all other managed devices.
+
+```
+$ cd $NCS_DIR/generic-ned/xmlrpc-device
+```
+
+```
+$ make all start
+```
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# devices sync-from
+sync-result {
+    device r1
+    result true
+}
+sync-result {
+    device r2
+    result true
+}
+sync-result {
+    device r3
+    result true
+}
+```
+
+```
+admin@ncs# show running-config devices r1 config
+    
+ios:interface eth0
+  macaddr      84:2b:2b:9e:af:0a
+  ipv4-address 192.168.1.129
+  ipv4-mask    255.255.255.0
+  status       Up
+  mtu          1500
+  alias 0
+    ipv4-address 192.168.1.130
+    ipv4-mask    255.255.255.0
+    !
+  alias 1
+    ipv4-address 192.168.1.131
+    ipv4-mask    255.255.255.0
+    !
+speed        100
+txqueuelen   1000
+!
+```
+
+#### Tweaking the Order of `NedEditOp` Objects <a href="#ug.gen.ned.diff" id="ug.gen.ned.diff"></a>
+
+As it was mentioned earlier the `NedEditOp` objects are relative to the YANG model of the device, and they are to be translated into the equivalent reconfiguration operations on the device. Applying reconfiguration operations may only be valid in a certain order.
+
+For Generic NEDs, NSO provides a feature to ensure dependency rules are being obeyed when generating a diff to commit. It controls the order of operations delivered in the `NedEditOp` array. The feature is activated by adding the following option to `package-meta-data.xml`:
+
+```
+<option>
+  <name>ordered-diff</name>
+</option>
+```
+
+When the `ordered-diff` flag is set, the `NedEditOp` objects follow YANG schema order and consider dependencies between leaf nodes. Dependencies can be defined using leafrefs and the _`tailf:cli-diff-after`_, _`tailf:cli-diff-create-after`_, _`tailf:cli-diff-modify-after`_, _`tailf:cli-diff-set-after`_, _`tailf:cli-diff-delete-after`_ YANG extensions. Read more about the above YANG extensions in the Tail-f CLI YANG extensions man page.
+
+### NED Commands <a href="#ug.ned.commands" id="ug.ned.commands"></a>
+
+A device we wish to manage using a NED usually has not just configuration data that we wish to manipulate from NSO, but the device usually has a set of commands that do not relate to configuration.
+
+The commands on the device we wish to be able to invoke from NSO must be modeled as actions. We model this as actions and compile it using a special `ncsc` command to compile NED data models that do not directly relate to configuration data on the device.
+
+The NSO example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` contains an example where the managed device, a fictitious XML-RPC device contains a YANG snippet :
+
+```
+container commands {
+  tailf:action idle-timeout {
+    tailf:actionpoint ncsinternal {
+      tailf:internal;
+    }
+    input {
+      leaf time {
+        type int32;
+      }
+    }
+    output {
+      leaf result {
+        type string;
+      }
+    }
+  }
+}
+```
+
+When that action YANG is imported into NSO it ends up under the managed device. We can invoke the action _on_ the device as :
+
+```
+admin@ncs# devices device r1 config ios:commands idle-timeout time 55
+```
+
+```
+result OK
+```
+
+The NED code is obviously involved here. All NEDs must always implement:
+
+```
+void command(NedWorker w, String cmdName, ConfXMLParam[] params)
+    throws NedException, IOException;
+```
+
+The `command()` method gets invoked in the NED, the code must then execute the command. The input parameters in the `params` parameter correspond to the data provided in the action. The `command()` method must reply with another array of `ConfXMLParam` objects.
+
+```
+public void command(NedWorker worker, String cmdname, ConfXMLParam[] p)
+    throws NedException, IOException {
+    session.setTracer(worker);
+    if (cmdname.compareTo("idle-timeout") == 0) {
+            worker.commandResponse(new ConfXMLParam[]{
+               new ConfXMLParamValue(new interfaces(),
+                                     "result",
+                                      new ConfBuf("OK"))
+        });
+ }
+```
+
+The above code is fake, on a real device, the job of the `command()` method is to establish a connection to the device, invoke the command, parse the output, and finally reply with an `ConfXMLParam` array.
+
+The purpose of implementing NED commands is usually that we want to expose device commands to the programmatic APIs in the NSO DOM tree.
+
+## SNMP NED <a href="#ug.ned.snmpned" id="ug.ned.snmpned"></a>
+
+NSO can use SNMP to configure a managed device, under certain circumstances. SNMP in general is not suitable for configuration, and it is important to understand why:
+
+* In SNMP, the size of a SET request, which is used to write to a device, is limited to what fits into one UDP packet. This means that a large configuration change must be split into many packets. Each such packet contains some parameters to set, and each such packet is applied on its own by the device. If one SET request out of many fails, there is no abort command to undo the already applied changes, meaning that rollback is very difficult.
+* The data modeling language used in SNMP, SMIv2, does not distinguish between configuration objects and other writable objects. This means that it is not possible to retrieve only the configuration from a device without explicit, exact knowledge of all objects in all MIBs supported by the device.
+* SNMP supports only two basic operations, read and write. There is no protocol support for creating or deleting data. Such operations must be modeled in the MIBs, explicitly.
+* SMIv2 has limited support for semantic constraints in the data model. This means that it is difficult to know if a certain configuration will apply cleanly on a device. If it doesn't, rollback is tricky, as explained above.
+* Because of all of the above, ordering of SET requests becomes very important. If a device refuses to create some object A before another B, an SNMP manager must make sure to create B before creating A. It is also common that objects cannot be modified without first making them disabled or inactive. There is no standard way to do this, so again, different data models do this in different ways.
+
+Despite all this, if a device can be configured over SNMP, NSO can use its built-in multilingual SNMP manager to communicate with the device. However, to solve the problems mentioned above, the MIBs supported by the device need to be carefully annotated with some additional information that instructs NSO on how to write configuration data to the device. This additional information is described in detail below.
+
+### Overview <a href="#d5e72" id="d5e72"></a>
+
+To add a device, the following steps need to be followed. They are described in more detail in the following sections.
+
+* [ ] Collect (a subset of) the MIBs supported by the device.
+* [ ] Optionally, annotate the MIBs with annotations to instruct NSO on how to talk to the device, for example, ordering dependencies that are not explicitly modeled in the MIB. This step is not required.
+* [ ] Compile the MIBs and load them into NSO.
+* [ ] Configure NSO with the address and authentication parameter for the SNMP devices.
+* [ ] Optionally configure a named MIB group in NSO with the MIBs supported by the device, and configure the managed device in NSO to use this MIB group. If this step is not done, NSO assumes the device implements all MIBs known to NSO.
+
+### Compiling and Loading MIBs <a href="#d5e86" id="d5e86"></a>
+
+(See the Makefile `snmp-ned/basic/packages/ex-snmp-ned/src/Makefile`, for an example of the below description.) Make sure that you have all MIBs available, including import dependencies, and that they contain no errors.
+
+The `ncsc --ncs-compile-mib-bundle` compiler is used to compile MIBs and MIB annotation files into NSO load files. Assuming a directory with input MIB files (and optional MIB annotation files) exist, the following command compiles all the MIBs in `device-models` and writes the output to `ncs-device-model-dir`.
+
+```
+$ ncsc --ncs-compile-mib-bundle device-models \
+    --ncs-device-dir ./ncs-device-model-dir
+```
+
+The compilation steps performed by the `ncsc --ncs-compile-mib-bundle` are elaborated below:
+
+1. Transform the MIBs into YANG according to the IETF standardized mapping ([https://www.ietf.org/rfc/rfc6643.txt](https://www.ietf.org/rfc/rfc6643.txt)). The IETF-defined mapping makes all MIB objects read-only over NETCONF.
+2. Generate YANG deviations from the MIB, this makes SMIv2 `read-write` objects YANG `config true` as a YANG deviation.
+3. Include the optional MIB annotations.
+4. Merge the read-only YANG from step 1 with the read-write deviation from step 2.
+5. Compile the merged YANG files into NSO load format.
+
+These steps are illustrated in the figure below:
+
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-compile.png#developer.cisco.com" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
+
+Finally make sure that the NSO configuration file points to the correct device model directory:
+
+```
+<device-model-dir>./ncs-device-model-dir</device-model-dir>
+```
+
+### Configuring NSO to Speak SNMP Southbound <a href="#d5e120" id="d5e120"></a>
+
+Each managed device is configured with a name, IP address, and port (161 by default), and the SNMP version to use (v1, v2c, or v3).
+
+```
+admin@host# show running-config devices device r3
+      
+address 127.0.0.1
+port    2503
+device-type snmp version v3 snmp-authgroup my-authgroup
+state admin-state unlocked
+```
+
+To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+
+```
+admin@host# show running-config devices authgroups snmp-group my-authgroup
+      
+devices authgroups snmp-group my-authgroup
+ default-map community-name public
+ umap admin
+  usm remote-name admin
+  usm security-level auth-priv
+  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+ !
+!
+```
+
+In the example above, when NSO needs to speak to the device `r3`, it sees that the device is of type `snmp`, and that SNMP v3 should be used with authentication parameters from the SNMP authgroup `my-authgroup`. This authgroup maps the local NSO user `admin` to the USM user `admin`, with explicit remote passwords given. These passwords will be localized for each SNMP engine that NSO communicates with. While the passwords above are shown encrypted, when you enter them in the CLI you write them in clear text. Note also that the remote engine ID is not configured; NSO performs a discovery process to find it automatically.
+
+No NSO user other than `admin` is mapped by the `authgroup my-authgroup` for SNMP v3.
+
+### **Configure MIB Groups**
+
+With SNMP, there is no standardized, generic way for an SNMP manager to learn which MIBs an SNMP agent implements. By default, NSO assumes that an SNMP device implements all MIBs known to NSO, i.e., all MIBs that have been compiled with the `ncsc --ncs-compile-mib-bundle` command. This works just fine if all SNMP devices NSO manages are of the same type, and implement the same set of MIBs. But if NSO is configured to manage many different SNMP devices, some other mechanism is needed.
+
+In NSO, this problem is solved by using MIB groups. MIB group is a named collection of MIB module names. A managed SNMP device can refer to one or more MIB groups. For example, below two MIB groups are defined:
+
+```
+admin@ncs# show running-config devices mib-group
+        
+devices mib-group basic
+ mib-module [ BASIC-CONFIG-MIB BASIC-TC ]
+!
+devices mib-group snmp
+ mib-module [ SNMP* ]
+!
+```
+
+The wildcard `*` can be used only at the end of a string; it is thus used to define a prefix of the MIB module name. So the string `SNMP*` matches all loaded standard SNMP modules, such as SNMPv2-MIB, SNMP-TARGET-MIB, etc.
+
+An SNMP device can then be configured to refer to one or more of the MIB groups:
+
+```
+admin@ncs# show running-config devices device r3 device-type snmp
+        
+devices device r3
+ device-type snmp version v3
+ device-type snmp snmp-authgroup default
+ device-type snmp mib-group [ basic snmp ]
+!
+```
+
+### Annotations for MIB Objects <a href="#d5e149" id="d5e149"></a>
+
+Most annotations for MIB objects are used to instruct NSO on how to split a large transaction into suitable SNMP SET requests. This step is not necessary for a default integration. But when for example ordering dependencies in the MIB is discovered it is better to add this as annotations and let NSO handle the ordering rather than leaving it to the CLI user or Java programmer.
+
+In some cases, NSO can automatically understand when rows in a table must be created or deleted before rows in some other table. Specifically, NSO understands that if table B has an INDEX object in table A (i.e., B sparsely augments A), then rows in table B must be created after rows in table B, and vice versa for deletions. NSO also understands that if table B AUGMENTS table A, then a row in table A must be created before any column in B is modified.
+
+However, in some MIBs, table dependencies cannot be detected automatically. In this case, these tables must be annotated with a `sort-priority`. By default, all rows have sort-priority 0. If table A has a lower sort priority than table B, then rows in table A are created before rows in table B.
+
+In some tables, existing rows cannot be modified unless the row is inactivated. Once inactive, the row can be modified and then activated again. Unfortunately, there is no formal way to declare this is SMIv2, so these tables must be annotated with two statements; `ned-set-before-row-modification` and `ned-modification-dependent`. The former is used to instruct NSO which column and which value is used to inactivate a row, and the latter is used on each column that requires the row to be inactivated before modification. `ned-modification-dependent` can be used in the same table as `ned-set-before-row-modification`, or in a table that augments or sparsely augments the table with `ned-set-before-row-modification`.
+
+By default, NSO treats a writable SMIv2 object as configuration, except if the object is of type RowStatus. Any writable object that does not represent configuration must be listed in a MIB annotation file when the MIB is compiled, with the "operational" modifier.
+
+When NSO retrieves data from an SNMP device, e.g., when doing a `sync from-device`, it uses the GET-NEXT request to scan the table for available rows. When doing the GET-NEXT, NSO must ask for an accessible column. If the row has a column of type RowStatus, NSO uses this column. Otherwise, if one of the INDEX objects is accessible, it uses this object. Otherwise, if the table has been annotated with `ned-accessible-column`, this column is used. And, as a last resort, NSO does not indicate any column in the first GET-NEXT request, and uses the column returned from the device in subsequent requests. If the table has "holes" for this column, i.e., the column is not instantiated in all rows, NSO will not detect those rows.
+
+NSO can automatically create and delete table rows for tables that use the RowStatus TEXTUAL-CONVENTION, defined in RFC 2580.
+
+It is pretty common to mix configuration objects with non-configuration objects in MIBs. Specifically, it is quite common that rows are created automatically by the device, but then some columns in the row are treated as configuration data. In this case, the application programmer must tell NSO to sync from the device before attempting to modify the configuration columns, to let NSO learn which rows exist on the device.
+
+Some SNMP agents require a certain order of row deletions and creations. By default, the SNMP NED sends all creates before deletes. The annotation `ned-delete-before-create` can be used on a table entry to send row deletions before row creations, for that table.
+
+Sometimes rows in some SNMP agents cannot be modified once created. Such rows can be marked with the annotation `ned-recreate-when-modified`. This makes the SNMP NED to first delete the row, and then immediately recreate it with the new values.
+
+A good starting point for understanding annotations is to look at the example in `examples.ncs/snmp-ned` directory. The BASIC-CONFIG-MIB mib has a table where rows can be modified if the `bscActAdminState` is set to locked. To have NSO do this automatically when modifying entries rather than leaving it to users an annotation file can be created. See the `BASIC-CONFIG-MIB.miba` which contains the following:
+
+```
+## NCS Annotation module for BASIC-CONFIG-MIB
+
+bscActAdminState  ned-set-before-row-modification = locked
+bscActFlow        ned-modification-dependent
+```
+
+This tells NSO that before modifying the `bscActFlow` column set the `bscActAdminState` to locked and restore the previous value after committing the set operation.
+
+All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.mib\_annotations) in manual pages for details.
+
+Make sure that the MIB annotation file is put into the directory where all the MIB files are which is given as input to the `ncsc --ncs-compile-mib-bundle` command
+
+### Using the SNMP NED <a href="#d5e185" id="d5e185"></a>
+
+NSO can manage SNMP devices within transactions, a transaction can span Cisco devices, NETCONF devices, and SNMP devices. If a transaction fails NSO will generate the reverse operation to the SNMP device.
+
+The basic features of the SNMP will be illustrated below by using the `examples.ncs/snmp-ned` example. First, try to connect to all SNMP devices:
+
+```
+admin@ncs# devices connect
+        
+connect-result {
+    device r1
+    result true
+    info (admin) Connected to r1 - 127.0.0.1:2501
+}
+connect-result {
+    device r2
+    result true
+    info (admin) Connected to r2 - 127.0.0.1:2502
+}
+connect-result {
+    device r3
+    result true
+    info (admin) Connected to r3 - 127.0.0.1:2503
+}
+```
+
+When NSO executes the connect request for SNMP devices it performs a get-next request with 1.1 as var-bind. When working with the SNMP NED it is helpful to turn on the NED tracing:
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs config
+```
+
+```
+admin@ncs(config)# devices global-settings trace pretty trace-dir .
+```
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+This creates a trace file named `ned-devicename.trace`. The trace for the NCS `connect` action looks like:
+
+```
+$ more ned-r1.trace
+get-next-request reqid=2
+    1.1
+get-response reqid=2
+    1.3.6.1.2.1.1.1.0=Tail-f ConfD agent - 1
+```
+
+When looking at SNMP trace files it is useful to have the OBJECT-DESCRIPTOR rather than the OBJECT-IDENTIFIER. To do this, pipe the trace file to the `smixlate` tool:
+
+```
+$ more ned-r1.trace | smixlate $NCS_DIR/src/ncs/snmp/mibs/SNMPv2-MIB.mib
+        
+get-next-request reqid=2
+    1.1
+get-response reqid=2
+    sysDescr.0=Tail-f ConfD agent - 1
+```
+
+You can access the data in the SNMP systems directly (read-only and read-write objects):
+
+```
+admin@ncs# show devices device live-status
+      
+ncs live-device r1
+ live-status SNMPv2-MIB system sysDescr "Tail-f ConfD agent - 1"
+ live-status SNMPv2-MIB system sysObjectID 1.3.6.1.4.1.24961
+ live-status SNMPv2-MIB system sysUpTime 596197
+ live-status SNMPv2-MIB system sysContact ""
+ live-status SNMPv2-MIB system sysName ""
+...
+```
+
+NSO can synchronize all writable objects into CDB:
+
+```
+admin@ncs# devices sync-from
+sync-result {
+    device r1
+    result true
+...
+```
+
+```
+admin@ncs# show running-config devices device r1 config r:SNMPv2-MIB
+    
+devices device r1
+  config
+    system
+      sysContact  ""
+      sysName     ""
+      sysLocation ""
+    !
+    snmp
+      snmpEnableAuthenTraps disabled;
+    !
+```
+
+All the standard features of NSO with transactions and roll-backs will work with SNMP devices. The sequence below shows how to enable authentication traps for all devices as one transaction. If any device fails, NSO will automatically roll back the others. At the end of the CLI sequence a manual rollback is shown:
+
+```
+admin@ncs# config
+```
+
+<pre><code><strong>admin@ncs(config)# devices device r1-3 config r:SNMPv2-MIB snmp snmpEnableAuthenTraps enabled
+</strong></code></pre>
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+```
+admin@ncs(config)# top rollback configuration
+```
+
+```
+admin@ncs(config)# commit dry-run outformat cli
+```
+
+```
+cli  devices {
+         device r1 {
+             config {
+                 r:SNMPv2-MIB {
+                     snmp {
+    -                    snmpEnableAuthenTraps enabled;
+    +                    snmpEnableAuthenTraps disabled;
+                     }
+                 }
+             }
+         }
+         device r2 {
+             config {
+                 r:SNMPv2-MIB {
+                     snmp {
+    -                    snmpEnableAuthenTraps enabled;
+    +                    snmpEnableAuthenTraps disabled;
+                     }
+                 }
+             }
+         }
+         device r3 {
+             config {
+                 r:SNMPv2-MIB {
+                     snmp {
+    -                    snmpEnableAuthenTraps enabled;
+    +                    snmpEnableAuthenTraps disabled;
+                     }
+                 }
+             }
+         }
+     }
+```
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+## Statistics <a href="#ncs.development.ned.stats" id="ncs.development.ned.stats"></a>
+
+NED devices have runtime data and statistics. The first part of being able to collect non-configuration data from a NED device is to model the statistics data we wish to gather. In normal YANG files, it is common to have the runtime data nested inside the configuration data. In gathering runtime data for NED devices we have chosen to separate configuration data and runtime data. In the case of the archetypical CLI device, the `show running-config ...` and friends are used to display the running configuration of the device whereas other different `show ...` commands are used to display runtime data, for example `show interfaces`, `show routes`. Different commands for different types of routers/switches and in particular, different tabular output format for different device types.
+
+To expose runtime data from a NED controlled device, regardless of whether it's a CLI NED or a Generic NED, we need to do two things:
+
+* Write YANG models for the aspects of runtime data we wish to expose northbound in NSO.
+* Write Java NED code that is responsible for collecting that data.
+
+The NSO NED for the Avaya 4k device contains a data model for some real statistics for the Avaya router and also the accompanying Java NED code. Let's start to take a look at the YANG model for the stats portion, we have:
+
+{% code title="Example: NED Stats YANG Model" %}
+```
+module tailf-ned-avaya-4k-stats {
+  namespace 'http://tail-f.com/ned/avaya-4k-stats';
+  prefix avaya4k-stats;
+
+  import tailf-common {
+    prefix tailf;
+  }
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import ietf-yang-types {
+    prefix yang;
+  }
+
+  container stats {
+    config false;
+    container interface {
+      list gigabitEthernet {
+        key "num port";
+        tailf:cli-key-format "$1/$2";
+
+        leaf num {
+          type uint16;
+        }
+
+        leaf port {
+          type uint16;
+        }
+
+        leaf in-packets-per-second {
+          type uint64;
+        }
+
+        leaf out-packets-per-second {
+          type uint64;
+        }
+
+        leaf in-octets-per-second {
+          type uint64;
+        }
+
+        leaf out-octets-per-second {
+          type uint64;
+        }
+
+        leaf in-octets {
+          type uint64;
+        }
+
+        leaf out-octets {
+          type uint64;
+        }
+
+        leaf in-packets {
+          type uint64;
+        }
+
+        leaf out-packets {
+          type uint64;
+        }
+      }
+    }
+  }
+}
+```
+{% endcode %}
+
+It's a `config false;` list of counters per interface. We compile the NED stats module with the `--ncs-compile-module` flag or with the `--ncs-compile-bundle` flag. It's the same `non-config` module that contains both runtime data as well as commands and rpcs.
+
+```
+$ ncsc --ncs-compile-module avaya4k-stats.yang \
+    --ncs-device-dir <dir>
+```
+
+The `config false;` data from a module that has been compiled with the `--ncs-compile-module` flag will end up mounted under `/devices/device/live-status` tree. Thus running the NED towards a real router we have:
+
+{% code title="Example: Displaying NED Stats in the CLI" %}
+```
+admin@ncs# show devices device r1 live-status interfaces
+        
+live-status {
+    interface gigabitEthernet1/1 {
+        in-packets-per-second   234;
+        out-packets-per-second  177;
+        in-octets-per-second   4567;
+        out-octets-per-second  3561;
+        in-octets             12666;
+        out-octets            16888;
+        in-packets             7892;
+        out-packets            2892;
+     }
+        ............
+```
+{% endcode %}
+
+It is the responsibility of the NED code to populate the data in the live device tree. Whenever a northbound agent tries to read any data in the live device tree for a NED device, the NED code is invoked.
+
+The NED code implements an interface called, `NedConnection` This interface contains:
+
+```
+void showStatsPath(NedWorker w, int th, ConfPath path)
+        throws NedException, IOException;
+```
+
+This interface method is invoked by NSO in the NED. The Java code must return what is requested, but it may also return more. The Java code always needs to signal errors by invoking `NedWorker.error()` and success by invoking `NedWorker.showStatsPathResponse()`. The latter function indicates what is returned, and also how long it shall be cached inside NSO.
+
+The reason for this design is that it is common for many `show` commands to work on for example an entire interface, or some other item in the managed device. Say that the NSO operator (or MAAPI code) invokes:
+
+```
+admin@host> show status devices device r1 live-status  \
+     interface gigabitEthernet1/1/1 out-octets
+out-octets 340;
+```
+
+requesting a single leaf, the NED Java code can decide to execute any arbitrary `show` command towards the managed device, parse the output, and populate as much data as it wants. The Java code also decides how long time the NSO shall cache the data.
+
+* When the `showStatsPath()` is invoked, the NED should indicate the state/value of the node indicated by the path (i.e. if a leaf was requested, the NED should write the value of this leaf to the provided transaction handler (th) using MAAPI, or indicate its absence as described below; if a list entry or a presence container was requested then the NED should indicate presence or absence of the element, if the whole list is requested then the NED should populate the keys for this list). Often requesting such data from the actual device will give the NED more data than specifically requested, in which case the worker is free to write other values as well. The NED is not limited to populating the subtree indicated by the path, it may also write values outside this subtree. NSO will then not request those paths but read them directly from the transaction. Different timeouts can be provided for different paths.\
+  \
+  If a leaf does not have a value or does not exist, the NED can indicate this by returning a TTL for the path to the leaf, without setting the value in the provided transaction. This has changed from earlier versions of NSO. The same applies to optional containers and list entries. If the NED populates the keys for a certain list (both when it is requested to do so or when it decided to do so because it has received this data from the device), it should set the TTL value for the list itself to indicate the time the set of keys should be considered up to date. It may choose to provide different TTL values for some or all list entries, but it is not required to do so.
+
+## Making the NED Handle Default Values Properly <a href="#ncs.development.ned.defaultvalues" id="ncs.development.ned.defaultvalues"></a>
+
+One important task when implementing a NED of any type is to make it mimic the devices handling of default values as close as possible. Network equipment can typically deal with default values in many different ways.
+
+Some devices display default values on leafs even if they have not been explicitly set. Others use trimming, meaning that if a leaf is set to its default value it will be 'unset' and disappear from the devices configuration dump.
+
+It is the responsibility of the NED to make the NSO aware of how the device handles default values. This is done by registering a special NED Capability entry with the NSO. Two modes are currently supported by the NSO: `trim` and `report-all`.
+
+Example 129. A device trimming default values
+
+This is the typical behavior of a Cisco IOS device. The simple YANG code snippet below illustrates the behavior. A container with a boolean leaf. Its default value is true.
+
+```
+container aaa {
+  leaf enabled {
+    default true;
+    type boolean;
+  }
+}
+```
+
+Try setting the leaf to true in NSO and commit. Then compare the configuration:
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# config
+```
+
+```
+admin@ncs(config)# devices device a0 config aaa enabled true
+```
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+```
+admin@ncs(config)# top devices device a0 compare-config
+      
+diff
+ devices {
+     device a0 {
+         config {
+             aaa {
+-                enabled;
+             }
+         }
+     }
+}
+```
+
+The result shows that the configurations differ. The reason is that the device does not display the value of the leaf 'enabled'. It has been trimmed since it has its default value. The NSO is now out of sync with the device.
+
+To solve this issue, make the NED tell the NSO that the device is trimming default values. Register an extra NED Capability entry in the Java code.
+
+```
+NedCapability capas[] = new NedCapability[2];
+capas[0] = new NedCapability(
+         "",
+         "urn:ios",
+         "tailf-ned-cisco-ios",
+         "",
+         "2015-01-01",
+         "");
+capas[1] = new NedCapability(
+        "urn:ietf:params:netconf:capability:" +
+        "with-defaults:1.0?basic-mode=trim",    // Set mode to trim
+        "urn:ietf:params:netconf:capability:" +
+        "with-defaults:1.0",
+        "",
+        "",
+        "",
+        "");
+```
+
+Now, try the same operation again:
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# config
+```
+
+```
+admin@ncs(config)# devices device a0 config aaa enabled true
+```
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+```
+admin@ncs(config)# top devices device a0 compare-config
+```
+
+```
+admin@ncs(config)#
+```
+
+The NSO is now in sync with the device.
+
+**Example: A Device Displaying All Default Values**
+
+Some devices display default values for leafs even if they have not been explicitly set. The simple YANG code below will be used to illustrate this behavior. A list containing a key and a leaf with a default value.
+
+```
+list interface {
+  key id;
+  leaf id {
+    type string;
+  }
+  leaf treshold {
+    default 20;
+    type uint8;
+  }
+}
+```
+
+Try creating a new list entry in NSO and commit. Then compare the configuration:
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# config
+```
+
+```
+admin@ncs(config)# devices device a0 config interface myinterface
+```
+
+```
+admin@ncs(config)# commit
+```
+
+```
+admin@ncs(config)# top devices device a0 compare-config
+    
+diff
+ devices {
+     device a0 {
+         config {
+            interface myinterface {
++              treshold 20;
+            }
+         }
+     }
+  }
+```
+
+The result shows that the configurations differ. The NSO is out of sync. This is because the device displays the default value of the 'threshold' leaf even if it has not been explicitly set through the NSO.
+
+To solve this issue, make the NED tell the NSO that the device is reporting all default values. Register an extra NED Capability entry in the Java code.
+
+```
+NedCapability capas[] = new NedCapability[2];
+capas[0] = new NedCapability(
+       "",
+       "urn:abc",
+       "tailf-ned-abc",
+       "",
+       "2015-01-01",
+       "");
+capas[1] = new NedCapability(
+      "urn:ietf:params:netconf:capability:" +
+      "with-defaults:1.0?basic-mode=report-all",  // Set mode to report-all
+      "urn:ietf:params:netconf:capability:" +
+      "with-defaults:1.0",
+      "",
+      "",
+      "",
+      "");
+```
+
+Now, try the same operation again:
+
+```
+$ ncs_cli -C -u admin
+```
+
+```
+admin@ncs# config
+```
+
+<pre><code><strong>admin@ncs(config)# devices device a0 config interface myinterface
+</strong></code></pre>
+
+```
+admin@ncs(config)# commit
+```
+
+```
+Commit complete.
+```
+
+<pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
+</strong></code></pre>
+
+```
+admin@ncs(config)#
+```
+
+The NSO is now in sync with the device.
+
+## Dry-run Considerations <a href="#d5e10809" id="d5e10809"></a>
+
+The possibility to do a dry-run on a transaction is a feature in NSO that allows to examine the changes to be pushed out to the managed devices in the network. The output can be produced in different formats, namely `cli`, `xml`, and `native`. In order to produce a dry run in the native output format NSO needs to know the exact syntax used by the device, and the task of converting the commands or operations produced by the NSO into the device-specific output belongs the corresponding NED. This is the purpose of the `prepareDry()` callback in the NED interface.
+
+In order to be able to invoke a callback an instance of the NED object needs to be created first. There are two ways to instantiate a NED:
+
+* `newConnection()` callback that tells the NED to establish a connection to the device which can later be used to perform any action such as show configuration, apply changes, or view operational data as well as produce dry-run output.
+* Optional `initNoConnect()` callback that tells the NED to create an instance that would not need to communicate with the device, and hence must not establish a connection or otherwise communicate with the device. This instance will only be used to calculate dry-run output. It is possible for a NED to reject the `initNoConnect()` request if it is not able to calculate the dry-run output without establishing a connection to the device, for example, if a NED is capable of managing devices with different flavors of syntax and it is not known at the moment which syntax is used by this particular device.
+
+The following state diagram displays NED states specific to the dry-run scenario.
+
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/ned-dry.png#developer.cisco.com" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
+
+## NED Identification <a href="#ncs.development.ned.identification" id="ncs.development.ned.identification"></a>
+
+Each managed device in NSO has a device type, which informs NSO how to communicate with the device. The device type is one of `netconf`, `snmp`, `cli`, or `generic`. In addition, a special `ned-id` identifier is needed.
+
+NSO uses a technique called YANG Schema Mount, where all the data models from a device are mounted into the `/devices` tree in NSO. Each set of mounted data models is completely separated from the others (they are confined to a "mount jail"). This makes it possible to load different versions of the same YANG module for different devices. The functionality is called Common Data Models (CDM).
+
+In most cases, there are many devices running the same software version in the network managed by NSO, thus using the exact same set of YANG modules. With CDM, all YANG modules for a certain device (or family of devices) are contained in a NED package (or just NED for short). If the YANG modules on the device are updated in a backward-compatible way, the NED is also updated.
+
+However, if the YANG modules on the device are updated in an incompatible way in a new version of the device's software, it might be necessary to create a new NED package for the new set of modules. Without CDM, this would not be possible, since there would be two different packages that contained different versions of the same YANG module.
+
+When a NED is being built, its YANG modules are compiled to be mounted into the NSO YANG model. This is done by device compilation of the device's YANG modules and is performed via the `ncsc` tool provided by NSO.
+
+The ned-id identifier is a YANG identity, which must be derived from one of the pre-defined identities in `$NCS_DIR/src/ned/yang/tailf-ncs-ned.yang`.
+
+A YANG model for devices handled by NED code needs to extend the base identity and provide a new identity that can be configured.
+
+{% code title="Example: Defining a User Identity" %}
+```
+import tailf-ncs-ned {
+    prefix ned;
+}
+
+identity cisco-ios {
+ base ned:cli-ned-id;
+}
+```
+{% endcode %}
+
+The Java NED code registers the identity it handles with NSO.
+
+Similar to how we import device models for NETCONF-based devices, we use the `ncsc --ncs-compile-bundle` command to import YANG models for NED-handled devices.
+
+Once we have imported such a YANG model into NSO, we can configure the managed device in NSO to be handled by the appropriate NED handler (which is user Java code, more on that later)
+
+{% code title="Example: Setting the Device Type" %}
+```
+admin@ncs# show running config devices device r1
+    
+address   127.0.0.1
+port      2025
+authgroup default
+device-type cli ned-id cisco-ios
+state admin-state unlocked
+...
+```
+{% endcode %}
+
+When NSO needs to communicate southbound towards a managed device which is not of type NETCONF, it will look for a NED that has registered with the name of the identity, in the case above, the string "ios".
+
+Thus before the NSO attempts to connect to a NED device before it tries to sync, or manipulate the configuration of the device, a user-based Java NED code must have registered with the NSO service manager indicating which Java class is responsible for the NED with the string of the identity, in this case, the string "ios". This happens automatically when the NSO Java VM gets a `instantiate-component` request for a NSO package component of type `ned`.
+
+The component java class `myNed` needs to implement either of the interfaces `NedGeneric` or `NedCli`. Both interfaces require the NED class to implement the following:
+
+{% code title="Example: NED Identification Callbacks" %}
+```
+// should return "cli" or "generic"
+String type();
+
+// Which YANG modules are covered by the class
+String [] modules();
+
+// Which identity is implemented by the class
+String identity();
+```
+{% endcode %}
+
+\
+The above three callbacks are used by the NSO Java VM to connect the NED Java class with NSO. They are called at when the NSO Java VM receives the `instantiate-component request`.
+
+The underlying NedMux will start a number of threads, and invoke the registered class with other data callbacks as transactions execute.
+
+## Migrating to the `juniper-junos_nc-gen` NED <a href="#migrating-to-the-juniper-junos_nc-gen-ned" id="migrating-to-the-juniper-junos_nc-gen-ned"></a>
+
+NSO has supported Junos devices from early on. The legacy Junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.
+
+Juniper nowadays provides YANG modules for Junos devices. Junos YANG modules can be downloaded from the device and used directly in NSO with the new `juniper-junos_nc-gen` NED.
+
+By downloading the YANG modules using `juniper-junos_nc-gen` NED tools and rebuilding the NED, the NED can provide full coverage immediately when the device is updated instead of waiting for a new legacy NED release.
+
+This guide describes how to replace the legacy `juniper-junos` NED and migrate NSO applications to the `juniper-junos_nc-gen` NED using the NSO MPLS VPN example from the NSO examples collection as a reference.
+
+Prepare the example:
+
+1. Add the `juniper-junos` and `juniper-junos_nc-gen` NED packages to the example.
+2. Configure the connection to the Junos device.
+3. Add the MPLS VPN service configuration to the simulated network, including the Junos device using the legacy `juniper-junos` NED.
+
+Adapting the service to the `juniper-junos_nc-gen` NED:
+
+1. Un-deploy MPLS VPN service instances with `no-networking`.
+2. Delete Junos device config with `no-networking`.
+3. Set the Junos device to NETCONF/YANG compliant mode.
+4. Switch the ned-id for the Junos device to the `juniper-junos_nc-gen` NED package.
+5. Download the compliant YANG models, build, and reload the `juniper-junos_nc-gen` NED package.
+6. Sync from the Junos device to get the compliant Junos device config.
+7. Update the MPLS VPN service to handle the difference between the non-compliant and compliant configurations belonging to the service.
+8. Re-deploy the MPLS VPN service instances with `no-networking` to make the MPLS VPN service instances own the device configuration again.
+
+{% hint style="info" %}
+If applying the steps for this example on a production system, you should first take a backup using the `ncs-backup` tool before proceeding.
+{% endhint %}
+
+### Prepare the Example <a href="#d5e10954" id="d5e10954"></a>
+
+This guide uses the MPLS VPN example in Python from the NSO example set under `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python` to demonstrate porting an existing application to use the `juniper-junos_nc-gen` NED. The simulated Junos device is replaced with a Junos vMX 21.1R1.11 container, but other NETCONF/YANG-compliant Junos versions also work.
+
+### **Add the `juniper-junos` and `juniper-junos_nc-gen` NED Packages**
+
+The first step is to add the latest `juniper-junos` and `juniper-junos_nc-gen` NED packages to the example's package directory. The NED tar-balls must be available and downloaded from your [https://software.cisco.com/download/home](https://software.cisco.com/download/home) account to the `17-mpls-vpn-python` example directory. Replace the `NSO_VERSION` and `NED_VERSION` variables with the versions you use:
+
+```
+$ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python
+$ cp ./ncs-NSO_VERSION-juniper-junos-NED_VERSION.tar.gz packages/
+$ cd packages
+$ tar xfz ../ncs-NSO_VERSION-juniper-junos_nc-NED_VERSION.tar.gz
+$ cd -
+```
+
+Build and start the example:
+
+```
+$ make all start
+```
+
+### **Configure the Connection to the Junos Device**
+
+Replace the netsim device connection configuration in NSO with the configuration for connecting to the Junos device. Adjust the `USER_NAME`, `PASSWORD`, and `HOST_NAME/IP_ADDR` variables and the timeouts as required for the Junos device you are using with this example:
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# config
+admin@ncs(config)# devices authgroups group juniper umap admin remote-name USER_NAME \
+                   remote-password PASSWORD
+admin@ncs(config)# devices device pe2 authgroup juniper address HOST_NAME/IP_ADDR port 830
+admin@ncs(config)# devices device pe2 connect-timeout 240
+admin@ncs(config)# devices device pe2 read-timeout 240
+admin@ncs(config)# devices device pe2 write-timeout 240
+admin@ncs(config)# commit
+admin@ncs(config)# end
+admin@ncs# exit
+```
+
+Open a CLI terminal or use NETCONF on the Junos device to verify that the `rfc-compliant` and `yang-compliant` modes are not yet enabled. Examples:
+
+```
+$ ssh USER_NAME@HOST_NAME/IP_ADDR
+junos> configure
+junos# show system services netconf
+ssh;
+```
+
+Or:
+
+```
+$ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR \
+ --port=830 --get-config
+ --subtree-filter=-<<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
+                        <system>
+                          <services>
+                            <netconf/>
+                          </services>
+                        </system>
+                      </configuration>'
+
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/21.1R0/junos"
+           xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
+  <data>
+    <configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
+      <system>
+        <services>
+          <netconf>
+            <ssh>
+            </ssh>
+          </netconf>
+        </services>
+      </system>
+    </configuration>
+  </data>
+</rpc-reply>
+```
+
+The `rfc-compliant` and `yang-compliant` nodes must not be enabled yet for the legacy Junos NED to work. If enabled, delete in the Junos CLI or using NETCONF. A netconf-console example:
+
+```
+$ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --port=830
+  --db=candidate
+  --edit-config=- <<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm"
+                                     xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+                        <system>
+                          <services>
+                            <netconf>
+                              <rfc-compliant nc:operation="remove"/>
+                              <yang-compliant nc:operation="remove"/>
+                            </netconf>
+                          </services>
+                        </system>
+                      </configuration>'
+
+$ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR \
+                  --port=830 --commit
+```
+
+Back to the NSO CLI to upgrade the legacy `juniper-junos` NED to the latest version:
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# config
+admin@ncs(config)# devices device pe2 ssh fetch-host-keys
+admin@ncs(config)# devices device pe2 migrate new-ned-id juniper-junos-nc-NED_VERSION
+admin@ncs(config)# devices sync-from
+admin@ncs(config)# end
+```
+
+### **Add the MPLS VPN Service Configuration to the Simulated Network**
+
+Turn off `autowizard` and `complete-on-space` to make it possible to paste configs:
+
+```
+admin@ncs# autowizard false
+admin@ncs# complete-on-space false
+```
+
+The example service config for two MPLS VPNs where the endpoints have been selected to pass through the `PE` node `PE2`, which is a Junos device:
+
+```
+vpn l3vpn ikea
+as-number 65101
+endpoint branch-office1
+  ce-device    ce1
+  ce-interface GigabitEthernet0/11
+  ip-network   10.7.7.0/24
+  bandwidth    6000000
+!
+endpoint branch-office2
+  ce-device    ce4
+  ce-interface GigabitEthernet0/18
+  ip-network   10.8.8.0/24
+  bandwidth    300000
+!
+endpoint main-office
+  ce-device    ce0
+  ce-interface GigabitEthernet0/11
+  ip-network   10.10.1.0/24
+  bandwidth    12000000
+!
+qos qos-policy GOLD
+!
+vpn l3vpn spotify
+as-number 65202
+endpoint branch-office1
+  ce-device    ce5
+  ce-interface GigabitEthernet0/1
+  ip-network   10.2.3.0/24
+  bandwidth    10000000
+!
+endpoint branch-office2
+  ce-device    ce3
+  ce-interface GigabitEthernet0/4
+  ip-network   10.4.5.0/24
+  bandwidth    20000000
+!
+endpoint main-office
+  ce-device    ce2
+  ce-interface GigabitEthernet0/8
+  ip-network   10.0.1.0/24
+  bandwidth    40000000
+!
+qos qos-policy GOLD
+!
+```
+
+To verify that the traffic passes through `PE2`:
+
+```
+admin@ncs(config)# commit dry-run outformat native
+```
+
+Toward the end of this lengthy output, observe that some config changes are going to the `PE2` device using the `http://xml.juniper.net/xnm/1.1/xnm` legacy namespace:
+
+```
+device {
+    name pe2
+    data <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
+          <edit-config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <target>
+              <candidate/>
+            </target>
+            <test-option>test-then-set</test-option>
+            <error-option>rollback-on-error</error-option>
+            <with-inactive xmlns="http://tail-f.com/ns/netconf/inactive/1.0"/>
+            <config>
+              <configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
+                <interfaces>
+                  <interface>
+                    <name>xe-0/0/2</name>
+                    <unit>
+                      <name>102</name>
+                      <description>Link to CE / ce5 - GigabitEthernet0/1</description>
+                      <family>
+                        <inet>
+                          <address>
+                            <name>192.168.1.22/30</name>
+                          </address>
+                        </inet>
+                      </family>
+                      <vlan-id>102</vlan-id>
+                    </unit>
+                  </interface>
+                </interfaces>
+      ...
+```
+
+Looks good. Commit to the network:
+
+```
+admin@ncs(config)# commit
+```
+
+### Adapting the Service to the `juniper-junos_nc-gen` NED <a href="#d5e11047" id="d5e11047"></a>
+
+Now that the service's configuration is in place using the legacy `juniper-junos` NED to configure the `PE2` Junos device, proceed and switch to using the `juniper-junos_nc-gen` NED with `PE2` instead. The service template and Python code will need a few adaptations.
+
+### **Un-deploy MPLS VPN Services Instances with `no-networking`**
+
+To keep the NSO service meta-data information intact when bringing up the service with the new `juniper-junos_nc-gen` NED, first `un-deploy` the service instances in NSO, only keeping the configuration on the devices:
+
+```
+admin@ncs(config)# vpn l3vpn * un-deploy no-networking
+```
+
+### **Delete Junos Device Config with `no-networking`**
+
+First, save the legacy Junos non-compliant mode device configuration to later diff against the compliant mode config:
+
+```
+admin@ncs(config)# show full-configuration devices device pe2 config \
+                                   configuration | display xml | save legacy.xml
+```
+
+Delete the `PE2` configuration in NSO to prepare for retrieving it from the device in a NETCONF/YANG compliant format using the new NED:
+
+```
+admin@ncs(config)# no devices device pe2 config
+admin@ncs(config)# commit no-networking
+admin@ncs(config)# end
+admin@ncs# exit
+```
+
+### **Set the Junos Device to NETCONF/YANG Compliant Mode**
+
+Using the Junos CLI:
+
+```
+$ ssh USER_NAME@HOST_NAME/IP_ADDR
+junos> configure
+junos# set system services netconf rfc-compliant
+junos# set system services netconf yang-compliant
+junos# show system services netconf
+ssh;
+rfc-compliant;
+ÿang-compliant;
+junos# commit
+```
+
+Or, using the NSO `netconf-console` tool:
+
+```
+$ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --port=830 \
+  --db=candidate
+  --edit-config=- <<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
+                        <system>
+                          <services>
+                            <netconf>
+                              <rfc-compliant/>
+                              <yang-compliant/>
+                            </netconf>
+                          </services>
+                        </system>
+                      </configuration>'
+
+$ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --port=830 \
+                  --commit
+```
+
+### **Switch the NED ID for the Junos Device to the `juniper-junos_nc-gen` NED Package**
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# config
+admin@ncs(config)# devices device pe2 device-type generic ned-id juniper-junos_nc-gen-1.0
+admin@ncs(config)# commit
+admin@ncs(config)# end
+```
+
+### **Download the Compliant YANG models, Build, and Load the `juniper-junos_nc-gen` NED Package**
+
+The `juniper-junos_nc-gen` NED is delivered without YANG modules, enabling populating it with device-specific YANG modules. The YANG modules are retrieved directly from the Junos device:
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# devices device pe2 connect
+admin@ncs# devices device pe2 rpc rpc-get-modules get-modules
+admin@ncs# exit
+```
+
+See the `juniper-junos_nc-gen` `README` for more options and details.
+
+Build the YANG modules retrieved from the Junos device with the `juniper-junos_nc-gen` NED:
+
+```
+$ make -C packages/juniper-junos_nc-gen-1.0/src
+```
+
+Reload the packages to load the `juniper-junos_nc-gen` NED with the added YANG modules:
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# packages reload
+```
+
+### **Sync From the Junos Device to get the Device Configuration in NETCONF/YANG Compliant Format**
+
+```
+admin@ncs# devices device pe2 sync-from
+```
+
+### **Update the MPLS VPN Service**
+
+The service must be updated to handle the difference between the Junos device's non-compliant and compliant configuration. The NSO service uses Python code to configure the Junos device using a service template. One way to find the required updates to the template and code is to check the difference between the non-compliant and compliant configurations for the parts covered by the template.
+
+<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_development/pics/junos-side.png#developer.cisco.com" alt=""><figcaption><p>Side by Side, Running Config on the Left, Template on the Right.</p></figcaption></figure>
+
+Checking the `packages/l3vpn/templates/l3vpn-pe.xml` service template Junos device part under the legacy `http://xml.juniper.net/xnm/1.1/xnm` namespace, you can observe that it configures `interfaces`, `routing-instances`, `policy-options`, and `class-of-service`.
+
+You can save the NETCONF/YANG compliant Junos device configuration and diff it against the non-compliant configuration from the previously stored `legacy.xml` file:
+
+```
+admin@ncs# show running-config devices device pe2 config configuration \
+                          | display xml | save new.xml
+```
+
+Examining the difference between the configuration in the `legacy.xml` and `new.xml` files for the parts covered by the service template:
+
+1. There is no longer a single namespace covering all configurations. The configuration is now divided into multiple YANG modules with a namespace for each.
+2. The `/configuration/policy-options/policy-statement/then/community` node choice identity is no longer provided with a leaf named `key1`. Instead, the leaf name is `choice-ident`, and a `choice-value` leaf is set.
+3. The `/configuration/class-of-service/interfaces/interface/unit/shaping-rate/rate` leaf format has changed from using an `int32` value to a string with either no suffix or a "k", "m" or "g" suffix. This differs from the other devices controlled by the template, so a new template `BW_SUFFIX` variable set from the Python code is needed.
+
+To enable the template to handle a Junos device in NETCONF/YANG compliant mode, add the following to the `packages/l3vpn/templates/l3vpn-pe.xml` service template:
+
+```
+            </interfaces>
+          </class-of-service>
+        </configuration>
++
++        <configuration xmlns="http://yang.juniper.net/junos/conf/root" tags="merge">
++          <interfaces xmlns="http://yang.juniper.net/junos/conf/interfaces">
++            <interface>
++              <name>{$PE_INT_NAME}</name>
++              <no-traps/>
++              <vlan-tagging/>
++              <per-unit-scheduler/>
++              <unit>
++                <name>{$VLAN_ID}</name>
++                <description>Link to CE / {$CE} - {$CE_INT_NAME}</description>
++                <vlan-id>{$VLAN_ID}</vlan-id>
++                <family>
++                  <inet>
++                    <address>
++                      <name>{$LINK_PE_ADR}/{$LINK_PREFIX}</name>
++                    </address>
++                  </inet>
++                </family>
++              </unit>
++            </interface>
++          </interfaces>
++          <routing-instances xmlns="http://yang.juniper.net/junos/conf/routing-instances">
++            <instance>
++              <name>{/name}</name>
++              <instance-type>vrf</instance-type>
++              <interface>
++                <name>{$PE_INT_NAME}.{$VLAN_ID}</name>
++              </interface>
++              <route-distinguisher>
++                <rd-type>{/as-number}:1</rd-type>
++              </route-distinguisher>
++              <vrf-import>{/name}-IMP</vrf-import>
++              <vrf-export>{/name}-EXP</vrf-export>
++              <vrf-table-label>
++              </vrf-table-label>
++              <protocols>
++                <bgp>
++                  <group>
++                    <name>{/name}</name>
++                    <local-address>{$LINK_PE_ADR}</local-address>
++                    <peer-as>{/as-number}</peer-as>
++                    <local-as>
++                      <as-number>100</as-number>
++                    </local-as>
++                    <neighbor>
++                      <name>{$LINK_CE_ADR}</name>
++                    </neighbor>
++                  </group>
++                </bgp>
++              </protocols>
++            </instance>
++          </routing-instances>
++          <policy-options xmlns="http://yang.juniper.net/junos/conf/policy-options">
++            <policy-statement>
++              <name>{/name}-EXP</name>
++              <from>
++                <protocol>bgp</protocol>
++              </from>
++              <then>
++                <community>
++                  <choice-ident>add</choice-ident>
++                  <choice-value/>
++                  <community-name>{/name}-comm-exp</community-name>
++                </community>
++                <accept/>
++              </then>
++            </policy-statement>
++            <policy-statement>
++              <name>{/name}-IMP</name>
++              <from>
++                <protocol>bgp</protocol>
++                <community>{/name}-comm-imp</community>
++              </from>
++              <then>
++                <accept/>
++              </then>
++            </policy-statement>
++            <community>
++              <name>{/name}-comm-imp</name>
++              <members>target:{/as-number}:1</members>
++            </community>
++            <community>
++              <name>{/name}-comm-exp</name>
++              <members>target:{/as-number}:1</members>
++            </community>
++          </policy-options>
++          <class-of-service xmlns="http://yang.juniper.net/junos/conf/class-of-service">
++            <interfaces>
++              <interface>
++                <name>{$PE_INT_NAME}</name>
++                <unit>
++                  <name>{$VLAN_ID}</name>
++                  <shaping-rate>
++                    <rate>{$BW_SUFFIX}</rate>
++                  </shaping-rate>
++                </unit>
++              </interface>
++            </interfaces>
++          </class-of-service>
++        </configuration>
+      </config>
+    </device>
+  </devices>
+```
+
+The Python file changes to handle the new `BW_SUFFIX` variable to generate a string with a suffix instead of an `int32`:
+
+```
+# of the service. These functions can be useful e.g. for
+# allocations that should be stored and existing also when the
+# service instance is removed.
++
++    @staticmethod
++    def int32_to_numeric_suffix_str(val):
++        for suffix in ["", "k", "m", "g", ""]:
++            suffix_val = int(val / 1000)
++            if suffix_val * 1000 != val:
++                return str(val) + suffix
++            val = suffix_val
++
+@ncs.application.Service.create
+def cb_create(self, tctx, root, service, proplist):
+    # The create() callback is invoked inside NCS FASTMAP and must
+```
+
+Code that uses the function and set the string to the service template:
+
+```
+            tv.add('LOCAL_CE_NET', getIpAddress(endpoint.ip_network))
+            tv.add('CE_MASK', getNetMask(endpoint.ip_network))
++            tv.add('BW_SUFFIX', self.int32_to_numeric_suffix_str(endpoint.bandwidth))
+            tv.add('BW', endpoint.bandwidth)
+            tmpl = ncs.template.Template(service)
+            tmpl.apply('l3vpn-pe', tv)
+```
+
+After making the changes to the service template and Python code, reload the updated package(s):
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# packages reload
+```
+
+### **Re-deploy the MPLS VPN Service Instances**
+
+The service instances need to be re-deployed to own the device configuration again:
+
+```
+admin@ncs# vpn l3vpn * re-deploy no-networking
+```
+
+The service is now in sync with the device configuration stored in NSO CDB:
+
+```
+admin@ncs# vpn l3vpn * check-sync
+vpn l3vpn ikea check-sync
+in-sync true
+vpn l3vpn spotify check-sync
+in-sync true
+```
+
+When re-deploying the service instances, any issues with the added service template section for the compliant Junos device configuration, such as the added namespaces and nodes, are discovered.
+
+As there is no validation for the rate leaf string with a suffix in the Junos device model, no errors are discovered if it is provided in the wrong format until updating the Junos device. Comparing the device configuration in NSO with the configuration on the device shows such inconsistencies without having to test the configuration with the device:
+
+```
+admin@ncs# devices device pe2 compare-config
+```
+
+If there are issues, correct them and redo the `re-deploy no-networking` for the service instances.
+
+When all issues have been resolved, the service configuration is in sync with the device configuration, and the NSO CDB device configuration matches to the configuration on the Junos device:
+
+```
+$ ncs_cli -u admin -C
+admin@ncs# vpn l3vpn * re-deploy
+```
+
+The NSO service instances are now in sync with the configuration on the Junos device using the `juniper-junos_nc-gen` NED.

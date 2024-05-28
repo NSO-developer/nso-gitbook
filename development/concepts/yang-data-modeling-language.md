@@ -4,7 +4,7 @@ description: Learn the working aspects of YANG data modeling language in NSO.
 
 # YANG
 
-YANG is a data modeling language used to model configuration and state data manipulated by a NETCONF agent. The YANG modeling language is defined in RFC 6020 (version 1) and RFC 7950 (version 1.1). YANG as a language will not be described in its entirety here - rather, we refer to the IETF RFC text at [RFC6020](https://www.ietf.org/rfc/rfc6020.txt) and [RFC7950](https://www.ietf.org/rfc/rfc7950.txt).&#x20;
+YANG is a data modeling language used to model configuration and state data manipulated by a NETCONF agent. The YANG modeling language is defined in RFC 6020 (version 1) and RFC 7950 (version 1.1). YANG as a language will not be described in its entirety here - rather, we refer to the IETF RFC text at [RFC6020](https://www.ietf.org/rfc/rfc6020.txt) and [RFC7950](https://www.ietf.org/rfc/rfc7950.txt).
 
 ## YANG in NSO <a href="#d5e1847" id="d5e1847"></a>
 
@@ -664,7 +664,7 @@ We specify that the combination of IP and port must be unique. Thus the configur
 </server>
 ```
 
-The usage of leafrefs (See the YANG specification) ensures that we do not end up with configurations with dangling pointers. Leafrefs are also especially good since the CLI and Web UI can render a better interface.
+The usage of leafrefs (See the YANG specification) ensures that we do not end up with configurations with dangling pointers. Leafrefs are also especially good, since the CLI and Web UI can render a better interface.
 
 If other constraints are necessary, validation callback functions can be programmed in Java, Python, or Erlang. See `tailf:validate` in [tailf\_yang\_extensions(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.tailf\_yang\_extensions) in Manual Pages for details.
 
