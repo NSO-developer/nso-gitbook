@@ -1,2 +1,0 @@
-# Log Messages and Formats
-

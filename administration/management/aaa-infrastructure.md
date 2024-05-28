@@ -46,7 +46,7 @@ NSO itself is configured through a configuration file - `ncs.conf`. In that file
   PAM is a complicated - albeit powerful - subsystem. It may be easier to have all users stored locally on the host, However, if we want to store users in a central location, PAM can be used to access the remote information. PAM can be configured to perform most login scenarios including RADIUS and LDAP. One major drawback with PAM authentication is that there is no easy way to extract the group information from PAM. PAM authenticates users, it does not also assign a user to a set of groups. PAM authentication is thoroughly described later in this chapter.
 * `/ncs-config/aaa/default-group`: If this configuration parameter is defined and if the group of a user cannot be determined, a logged-in user ends up in the given default group.
 * `/ncs-config/aaa/external-authentication`: NSO can authenticate users using an external executable. This is further described later in [External Authentication](aaa-infrastructure.md#ug.aaa.external\_authentication). As an alternative, you may consider using package authentication.
-* `/ncs-config/aaa/external-validation`: NSO can authenticate users by validation of tokens using an external executable. This is very similar to what is further described later in [External Token Validation](aaa-infrastructure.md#ug.aaa.external\_validation). Where external authentication uses a username and password to authenticate a user, external validation uses a token. The validation script should use the token to authenticate a user and can, optionally, also return a new token to be returned with the result of the request. It is currently only supported for RESTCONF.
+* `/ncs-config/aaa/external-validation`: NSO can authenticate users by validation of tokens using an external executable. This is further described later in [External Token Validation](aaa-infrastructure.md#ug.aaa.external\_validation). Where external authentication uses a username and password to authenticate a user, external validation uses a token. The validation script should use the token to authenticate a user and can, optionally, also return a new token to be returned with the result of the request. It is currently only supported for RESTCONF.
 * `/ncs-config/aaa/external-challenge`: NSO has support for multi-factor authentication by sending challenges to a user. Challenges may be sent from any of the external authentication mechanisms but are currently only supported by JSON-RPC and CLI over SSH. This is further described later in [External Multi-factor Authentication](aaa-infrastructure.md#ug.aaa.external\_challenge).
 * `/ncs-config/aaa/package-authentication`: NSO can authenticate users using package authentication. It extends the concept of external authentication by allowing multiple packages to be used for authentication instead of a single executable. This is further described in [Package Authentication](aaa-infrastructure.md#ug.aaa.packageauth).
 * `/ncs-config/aaa/single-sign-on`: With this setting enabled, NSO invokes Package Authentication on all requests to HTTP endpoints with the `/sso` prefix. This way, Package Authentication packages that require custom endpoints can expose them under the `/sso` base route. \
@@ -113,11 +113,12 @@ NSO's AAA authentication is not used in the following cases:
 
 *   When NETCONF uses an external SSH daemon, such as OpenSSH.
 
+    \
     In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs.
 * When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
-*   When the CLI uses an external SSH daemon, such as OpenSSH, or a telnet daemon.
-
-    In this case, the CLI session is initiated through the command **ncs\_cli**. An important special case here is when a user has logged in to the host and invokes the command `ncs_cli` from the shell. In NSO deployments, it is crucial to consider this case. If non-trusted users have shell access to the host, the `NCS_IPC_ACCESS_FILE` feature as described in [Restricting Access to IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) must be used.
+* When accessing the CLI by invoking the `ncs_cli`, e.g. through an external SSH daemon, such as OpenSSH, or a telnet daemon.\
+  \
+  An important special case here is when a user has shell access to the host and runs **ncs\_cli** from the shell. This command, as well as direct access to the IPC socket, allows for authentication bypass. It is crucial to consider this case for your deployment. If non-trusted users have shell access to the host, IPC access must be restricted. See [Authenticating IPC Access](aaa-infrastructure.md#authenticating-ipc-access).
 * When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/concepts/northbound-apis.md#the-nso-snmp-agent) in Northbound APIs.
 * When the method `Maapi.startUserSession()` is used without a preceding call of `Maapi.authenticate()`.
 
@@ -209,11 +210,11 @@ If authentication succeeds, the user's group membership is established as descri
 
 On operating systems supporting PAM, NSO also supports PAM authentication. Using PAM,  authentication with NSO can be very convenient since it allows us to have the same set of users and groups having access to NSO as those that have access to the UNIX/Linux host itself.
 
-If we use PAM, we do not have to have any users or any groups configured in the NSO aaa namespace at all.&#x20;
-
-{% hint style="success" %}
+{% hint style="info" %}
 PAM is the recommended way to authenticate NSO users.
 {% endhint %}
+
+If we use PAM, we do not have to have any users or any groups configured in the NSO aaa namespace at all.&#x20;
 
 To configure PAM we typically need to do the following:
 
@@ -573,21 +574,21 @@ When this is enabled, `/ncs-config/aaa/package-authentication/package-challenge/
 The fields `challengeid` and response are base64 encoded when passed to the script.
 {% endhint %}
 
-## Restricting the IPC Port <a href="#d5e6381" id="d5e6381"></a>
+## Authenticating IPC Access <a href="#authenticating-ipc-access" id="authenticating-ipc-access"></a>
 
-NSO listens for client connections on the NSO IPC port. See `/ncs-config/ncs-ipc-address/ip` in `ncs.conf`. Access to this port is by default not authenticated. That means that all users with shell access to the host can connect to this port. So NSO deployment ends up in either of two cases: untrusted users have access to the host(s) where NSO is deployed, or they do not have shell access to the host(s) where NSO is deployed. If all shell users on the deployment host(s) are trusted, no further action is required, however, if untrusted users do have shell access to the hosts, access to the IPC port must be restricted, see [Restricting Access to the IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) for more information.
+NSO communicates with clients (client libraries, **ncs\_cli**, and similar) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 
-If IPC port access is not used, an untrusted shell user can simply invoke the following to impersonate an `admin` user:
-
-```
-bob> ncs_cli --user admin
-```
-
-Or,  invoke the following to retrieve the entire configuration:
+By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of **ncs\_cli** does. For example:
 
 ```
-bob> ncs_load > all.xml
+ncs_cli --user admin
 ```
+
+connects to NSO as the user `admin`. The same is possible for the group. This unauthenticated access is currently the default.
+
+The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
+
+In general, authenticating access to the IPC socket is a security best practice and should always be used. NSO implements it as an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) on how to enable it.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 
@@ -1386,9 +1387,49 @@ Finally, if we wish members of the `oper` group to never be able to execute the 
 </rule-list>
 ```
 
-Debugging the AAA rules can be hard. The best way to debug rules that behave unexpectedly is to add the `log-if-permit` leaf to some or all of the rules that have `action` `permit`. Whenever such a rule triggers a permit action, an entry is written to the developer log.
+### Troubleshooting NACM Rules
 
-Finally, it is worth mentioning that when a user session is initially created it will gather the authorization rules that are relevant for that user session and keep these rules for the life of the user session. Thus when we update the AAA rules in e.g. the CLI the update will not apply to the current session - only to future user sessions.
+In this section, we list some tips to make it easier to troubleshoot NACM rules.
+
+{% hint style="success" %}
+Use `log-if-permit` and `log-if-default-permit` together with the developer log level set to `trace`.
+{% endhint %}
+
+Use the `tailf-acm.yang` module augmentation `log-if-permit` leaf for rules with `action` `permit`. When those rules trigger a permit action a trace entry is added to the developer log. To see trace entries make sure the `/ncs-config/logs/developer-log-level` is set to `trace`.
+
+If you have a default rule with `action` `permit` you can use the `log-if-default-permit` leaf instead.
+
+{% hint style="success" %}
+NACM rules are read at the start of the session and are used throughout the session.
+{% endhint %}
+
+When a user session is created it will gather the authorization rules that are relevant for that user's group(s). The rules are used throughout the user session lifetime. When we update the AAA rules the active sessions are not affected. For example, if an administrator updates the NACM rules in one session the update will not apply to any other currently active sessions. The updates will apply to new sessions created after the update.
+
+{% hint style="success" %}
+Explicitly state NACM groups when starting the CLI. For example `ncs_cli -u oper -g oper`.
+{% endhint %}
+
+It is the user's group membership that determines what rules apply. Starting the CLI using the `ncs_cli` command without explicitly setting the groups, defaults to the actual UNIX groups the user is a member of. On Darwin, one of the default groups is usually `admin`, which can lead to the wrong group being used.
+
+{% hint style="success" %}
+Be careful with namespaces in rulepaths.
+{% endhint %}
+
+Unless a rulepath is made explicit by specifying namespace it will apply to that specific path in all namespaces. Below we show parts of an example from [RFC 8341](https://tools.ietf.org/html/rfc8341), where the `path` element has an `xmlns` attribute and the path is namespaced. If these would not have been namespaced, the rules would not behave as expected.
+
+{% code title="Example: Excerpt from RFC 8341 Appendix A.4" %}
+```
+         <rule>
+           <name>permit-acme-config</name>
+           <path xmlns:acme="http://example.com/ns/netconf">
+             /acme:acme-netconf/acme:config-parameters
+           </path>
+         ...
+```
+{% endcode %}
+
+\
+In the example above (Excerpt from RFC 8341 Appendix A.4), the path is namespaced.
 
 ## The AAA Cache <a href="#d5e6799" id="d5e6799"></a>
 

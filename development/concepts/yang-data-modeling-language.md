@@ -14,7 +14,7 @@ NSO uses YANG for Service Models as well as for specifying device interfaces. Wh
 
 NSO also relies on the revision statement in YANG modules for revision management of different versions of the same type of managed device, but running different software versions.
 
-A YANG module can be directly transformed into a final schema (.fxs) file that can be loaded into NSO. Currently all features of the YANG language except the `anyxml` statement is supported.
+A YANG module can be directly transformed into a final schema (.fxs) file that can be loaded into NSO. Currently, all features of the YANG 1.0 language except the `anyxml` statement are supported. Most features of the YANG 1.1 language are supported. For a list of exceptions, please refer to the `YANG 1.1` section of the `ncsc` man page.
 
 The data models including the .fxs file along with any code are bundled into packages that can be loaded to NSO. This is true for service applications as well as for NEDs and other packages. The corresponding YANG can be found in the `src/yang` directory in the package.
 
@@ -1635,3 +1635,18 @@ To avoid issues when working with unions place wider types at the end. As an exa
 When using user-defined types together with NSO the compiled schema does not contain the original type as specified in the YANG file. This imposes some limitations on the running system.
 
 High-level APIs are unable to infer the correct type of a value as this information is left out when the schema is compiled. It is possible to work around this issue by specifying the type explicitly whenever setting values of a user-defined type.
+
+### XML Representation: Union of `type` `empty` and `type` `string`
+
+The normal representation of a type `empty` leaf in XML is `<leaf-name/>`. However, there is an exception when a leaf is a union of type `empty` and for example type `string`. Consider the example below:
+
+```
+leaf example {
+  type union {
+    type empty;
+    type string;
+  }
+}
+```
+
+In this case, both `<example>example</example>` and `</example>` will represent `empty` being set.

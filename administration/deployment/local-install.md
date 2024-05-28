@@ -27,7 +27,7 @@ To install NSO:
 
 Primary requirements to do a Local Install include:
 
-* Linux for `x86_64` architecture is required for production. Linux or macOS Darwin for `x86_64` or macOS Darwin for `arm64` is required for development purposes.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development.
 * GNU libc 2.24 or higher.
 * Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
@@ -143,6 +143,17 @@ The following contents are unpacked:
 * `tailf.cer`: An enclosed Cisco signed x.509 end-entity certificate containing the public key that is used to verify the signature.
 * `README.signature`: File with further details on the unpacked content and steps on how to run the signature verification program. To manually verify the signature, refer to the steps in this file.
 * `cisco_x509_verify_release.py`: Python program that can be used to verify the 3-tier x.509 certificate chain and signature.
+* Multiple `.tar.gz` files: Bundled packages, extending the base NSO functionality.
+* Multiple `.tar.gz.signature` files: Digital signatures for the bundled packages.
+
+Since NSO version 6.3, a few additional NSO packages are included. They contain the following platform tools:
+
+* HCC
+* Observability Exporter
+* Phased Provisioning
+* Resource Manager
+
+For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://developer.cisco.com/docs/nso).
 
 **NED packages**
 
@@ -152,7 +163,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual pages**
 
-The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in HTML and PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-1) in Manual Pages.
+The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-1) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -425,7 +436,7 @@ When configuring NSO in HA mode, the license registration token must be provided
 
 <summary>Licensing Log</summary>
 
-Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management/#d5e7876). For example, a successful token registration results in the following log entry:
+Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management.md#d5e7876). For example, a successful token registration results in the following log entry:
 
 ```
 <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:

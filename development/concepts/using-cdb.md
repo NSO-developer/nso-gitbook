@@ -232,7 +232,7 @@ Given the YANG model in the example above (L3 VPN YANG Extract), the initial dat
 
 Another example of using these features is when initializing the AAA database. This is described in [AAA infrastructure](../../administration/management/aaa-infrastructure.md).
 
-All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
+All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management.md#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
 ```
@@ -435,7 +435,7 @@ We will walk through the code and highlight different aspects. We start with how
 ```
 {% endcode %}
 
-The `init()` method (shown in the example below, (Plain Subscriber Init) is called before this application component thread is started. For this subscriber, this is the place to setup the subscription. First, an `CdbSubscription` instance is created and in this instance, the subscription points are registered (one in this case). When all subscription points are registered a call to `CdbSubscriber.subscribeDone()` will indicate that the registration is finished and the subscriber is ready to start.
+The `init()` method (shown in the example below, (Plain Subscriber Init) is called before this application component thread is started. For this subscriber, this is the place to set up the subscription. First, an `CdbSubscription` instance is created and in this instance, the subscription points are registered (one in this case). When all subscription points are registered a call to `CdbSubscriber.subscribeDone()` will indicate that the registration is finished and the subscriber is ready to start.
 
 {% code title="Example: Plain Subscriber Init" %}
 ```
@@ -513,7 +513,7 @@ The call to the `CdbSubscription.diffIterate()` requires an object instance impl
 ```
 {% endcode %}
 
-areThe `finish()` method (Example below (Plain Subscriber `finish`)) is called when the NSO Java-VM wants the application component thread to stop execution. An orderly stop of the thread is expected. Here the subscription will stop if the subscription socket and underlying `Cdb` instance are closed. This will be done by the `ResourceManager` when we tell it that the resources retrieved for this Java object instance could be unregistered and closed. This is done by a call to the `ResourceManager.unregisterResources()` method.
+The `finish()` method (Example below (Plain Subscriber `finish`)) is called when the NSO Java-VM wants the application component thread to stop execution. An orderly stop of the thread is expected. Here the subscription will stop if the subscription socket and underlying `Cdb` instance are closed. This will be done by the `ResourceManager` when we tell it that the resources retrieved for this Java object instance could be unregistered and closed. This is done by a call to the `ResourceManager.unregisterResources()` method.
 
 {% code title="Example: Plain Subscriber finish" %}
 ```
@@ -943,7 +943,14 @@ CDB can automatically handle the following changes to the schema:
   \
   If the coercion fails, any supplied default value will be used. If no default value is present in the new schema, the automatic upgrade will fail and the leaf will be deleted after the CDB upgrade.\
   \
+  Note: The conversion between the `empty` and `boolean` types deviate from the aforementioned rule. Let's consider a scenario where a leaf of type `boolean` is being upgraded to a leaf of type `empty`. If the original leaf is set to `true`, it will be upgraded to a `set` empty leaf. Conversely, if the original leaf is set to `false`, it will be deleted after the upgrade. On the other hand, a `set` empty leaf will be upgraded to a leaf of type `boolean` and will be set to `true`.\
+  \
   Type changes when user-defined types are used are also handled automatically, provided that some straightforward rules are followed for the type definitions. Read more about user-defined types in the confd\_types(3) manual page, which also describes these rules.
+* **Node type changes**: CDB can handle automatic type changes between a container and a list. When converting from a container to a list, the child nodes of the container are mapped to the child nodes of the list, applying type coercion on the nodes when necessary. Conversely, a list can be automatically transformed into a container provided the list contains at most one list entry. Node attributes will remain intact, with the exception of the list key entry. Attributes set on a container will be transferred to the list key entry and vice versa. However, attributes on the container child node corresponding to the list key value will be lost in the upgrade.\
+  \
+  Additionally, type changes between leaf and leaf-list are allowed, and the data is kept intact if the number of entries in the leaf-list is exactly one. If a leaf-list has more than one entry, all entries will be deleted when upgrading to leaf.\
+  \
+  Type changes to and from empty leaf are possible to some extent. A type change from any type is allowed to empty leaf, but an empty leaf can only be changed to a presence container. Node attributes will only be preserved for node changes between empty leaf and container.
 * **Hash changes**: When a hash value of a particular element has changed (due to an addition of, or a change to, a `tailf:id-value` statement) CDB will update that element.
 * **Key changes**: When a key of a list is modified, CDB tries to upgrade the key using the same rules as explained above for adding, deleting, re-ordering, change of type, and change of hash value. If an automatic upgrade of a key fails the entire list entry will be deleted.\
   \
@@ -955,7 +962,7 @@ CDB can automatically handle the following changes to the schema:
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
-Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.disaster)).
+Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management.md#ug.ncs\_sys\_mgmt.disaster)).
 
 ## Using Initialization Files for Upgrade <a href="#d5e3066" id="d5e3066"></a>
 

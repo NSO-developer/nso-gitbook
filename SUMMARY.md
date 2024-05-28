@@ -24,10 +24,10 @@
   * [Upgrade NSO](administration/deployment/upgrade-nso.md)
   * [Containerized NSO](administration/deployment/containerized-nso.md)
 * [Management](administration/management/README.md)
-  * [System Management](administration/management/system-management/README.md)
+  * [System Management](administration/management/system-management.md)
     * [Cisco Smart Licensing](administration/management/system-management/cisco-smart-licensing.md)
-    * [Log Messages and Formats](administration/management/system-management/log-messages-and-formats.md)
-    * [Alarms](administration/management/system-management/alarms.md)
+    * [Log Messages and Formats](administration/management/system-management/logdefs.md)
+    * [Alarm Types](administration/management/system-management/alarms.md)
   * [Package Management](administration/management/nso-packages.md)
   * [High Availability](administration/management/high-availability.md)
   * [AAA Infrastructure](administration/management/aaa-infrastructure.md)
@@ -58,7 +58,12 @@
   * [Listing Packages](operation-and-usage/cli/viewing-packages.md)
   * [Lifecycle Operations](operation-and-usage/cli/lifecycle-operations.md)
   * [Network Simulator](operation-and-usage/cli/network-simulator-netsim.md)
-* [Web UI](operation-and-usage/webui.md)
+* [Web UI](operation-and-usage/webui/README.md)
+  * [Home](operation-and-usage/webui/home.md)
+  * [Devices](operation-and-usage/webui/devices.md)
+  * [Services](operation-and-usage/webui/services.md)
+  * [Config Editor](operation-and-usage/webui/config-editor.md)
+  * [Tools](operation-and-usage/webui/tools.md)
 
 ## Development
 

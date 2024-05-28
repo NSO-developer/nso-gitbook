@@ -180,7 +180,7 @@ This behavior tree always creates a single `“vrouter”` component for the ser
 
 The following figure visualizes the resulting service plan and its states.
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Plan</p></figcaption></figure>
 
 Along with the behavior tree, a nano service also relies on the `ncs:nano-plan-data` grouping in its service model. It is responsible for storing state and other provisioning details for each service instance. Other than that, the nano service model follows the standard YANG definition of a service:
 
@@ -934,19 +934,19 @@ There is just one type of execution node:
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="563"><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt="" width="563"><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
 
 Having a selector on root implies that all plan-components are created if they don't have any pre-conditions, or for which the pre-conditions are satisfied.
 
 An example of a more elaborated behavior tree is the following:
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="563"><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt="" width="563"><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
 
 This behavior tree has a selector node as the root. It will always synthesize the "base-config" plan component and then evaluate then pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 
 The multiplier control flow node is used when a plan component of a certain type should be cloned into several copies depending on some service input parameters. For this reason, the multiplier node defines a `foreach`, a `when`, and a `variable`. The `foreach` is evaluated and for each node in the nodeset that satisfies the `when`, the `variable` is evaluated as the outcome. The value is used for parameter substitution to a unique name for a duplicated plan component.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 The value is also added to the nano service opaque which enables the individual state nano service `create()` callbacks to retrieve the value.
 
@@ -1058,7 +1058,7 @@ The drawback with this flexible callback registration is that there must be a wa
 
 All callback registrations in NSO require a daemon to be instantiated, such as a Python or Java process. For nano services, it is allowed to have many daemons where each daemon is responsible for a subset of the plan state callback registrations. The neat thing here is that it becomes possible to mix different callback types (Template/Python/Java) for different plan states.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 The mixed callback feature caters to the case where most of the callbacks are templates and only some are Java or Python. This works well because nano services try to resolve the template parameters using the nano service opaque when applying a template. This is a unique functionality for nano services that makes Java or Python apply-template callbacks unnecessary.
 

@@ -384,18 +384,3 @@ Another way of telling NSO to start a specific Python executable is to configure
 ### Updating the Default Start Command (not recommended) <a href="#d5e1739" id="d5e1739"></a>
 
 Changing the last line of `$NCS_DIR/bin/ncs-start-python-vm` is of course an option but altering any of the installation files of NSO is discouraged.
-
-## Caveats <a href="#caveats" id="caveats"></a>
-
-### Using Multiprocessing <a href="#ncs.development.pythonvm.caveats.multiprocessing" id="ncs.development.pythonvm.caveats.multiprocessing"></a>
-
-Using the multiprocessing library from Python components, where the `callpoint-model` is set to `threading`, can cause unexpected disconnects from NSO if errors occur in the code executed by the multiprocessing library.
-
-As a workaround to this, either use `multiprocessing` as the `callpoint-model` or force the start method to be `spawn` by executing:
-
-{% code title="Example: Set Start Method to spawn" %}
-```
-if multiprocessing.get_start_method() != 'spawn':
-    multiprocessing.set_start_method('spawn', force=True)
-```
-{% endcode %}

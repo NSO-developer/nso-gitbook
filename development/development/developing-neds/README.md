@@ -1811,7 +1811,7 @@ if (toptag.equals("aaa")) {
 }
 ```
 
-A similar transformation needs to take place when the NSO sends a configuration change to the device. A more detailed discussion about applying config modifications follows later but the corresponding code would in this case be:
+A similar transformation needs to take place when the NSO sends a configuration change to the device. A more detailed discussion about apply config modifications follows later but the corresponding code would in this case be:
 
 ```
 lines = data.split("\n");
@@ -1917,7 +1917,7 @@ This relies on the fact that NSO will not have any indentation in the commands s
 
 The typical Cisco CLI has two major modes, operational mode and configure mode. In addition, the configure mode has submodes. For example, interfaces are configured in a submode that is entered by giving the command `interface <InterfaceType> <Number>`. Exiting a submode, i.e. giving the **exit** command, leaves you in the parent mode. Submodes can also be embedded in other submodes.
 
-In a typical Cisco CLI, you do not necessarily have to exit a submode to execute a command in a parent mode. In fact, the output of the command `show running-config` hardly contains any exit commands. Instead, there is an exclamation mark, `!`, to indicate that a submode is done, which is only a comment. The config is formatted to rely on the fact that if a command isn't found in the current submode, the CLI engine searches for the command in its parent mode.
+In a typical Cisco CLI, you do not necessary have to exit a submode to execute a command in a parent mode. In fact, the output of the command `show running-config` hardly contains any exit commands. Instead, there is an exclamation mark, `!`, to indicate that a submode is done, which is only a comment. The config is formatted to rely on the fact that if a command isn't found in the current submode, the CLI engine searches for the command in its parent mode.
 
 Another interesting mapping problem is how to interpret the **no** command when multiple leaves are given on a command line. Consider the model:
 
@@ -1953,7 +1953,7 @@ There is no clear principle here and no one right solution. The annotations are 
 
 ### Annotations <a href="#ug.cli-annot.annotations" id="ug.cli-annot.annotations"></a>
 
-The full set of annotations can be found in the `tailf_yang_cli_extensions` Man Page. All are not applicable in an NSO context, but most are. The most commonly used annotations are (in alphabetical order):
+The full set of annotations can be found in the `tailf_yang_cli_extensions` Manual Page. All annotation YANG extensions are not applicable in an NSO context, but most are. The most commonly used annotations are (in alphabetical order):
 
 <details>
 
@@ -5394,9 +5394,9 @@ state admin-state unlocked
 
 When NSO needs to communicate southbound towards a managed device which is not of type NETCONF, it will look for a NED that has registered with the name of the identity, in the case above, the string "ios".
 
-Thus before the NSO attempts to connect to a NED device before it tries to sync, or manipulate the configuration of the device, a user-based Java NED code must have registered with the NSO service manager indicating which Java class is responsible for the NED with the string of the identity, in this case, the string "ios". This happens automatically when the NSO Java VM gets a `instantiate-component` request for a NSO package component of type `ned`.
+Thus before the NSO attempts to connect to a NED device before it tries to sync, or manipulate the configuration of the device, a user-based Java NED code must have registered with the NSO service manager indicating which Java class is responsible for the NED with the string of the identity, in this case, the string "ios". This happens automatically when the NSO Java VM gets a `instantiate-component` request for an NSO package component of type `ned`.
 
-The component java class `myNed` needs to implement either of the interfaces `NedGeneric` or `NedCli`. Both interfaces require the NED class to implement the following:
+The component Java class `myNed` needs to implement either of the interfaces `NedGeneric` or `NedCli`. Both interfaces require the NED class to implement the following:
 
 {% code title="Example: NED Identification Callbacks" %}
 ```

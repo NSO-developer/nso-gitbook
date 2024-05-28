@@ -12,9 +12,9 @@ As usual, sufficient preparation avoids many pitfalls and makes the process more
 
 There are multiple aspects that you should consider before starting with the actual upgrade procedure. While the development team tries to provide as much compatibility between software releases as possible, they cannot always avoid all incompatible changes. For example, when a deviation from an RFC standard is found and resolved, it may break clients that depend on the non-standard behavior. For this reason, a distinction is made between maintenance and a major NSO upgrade.
 
-A maintenance NSO upgrade is within the same branch, i.e., when the first two version numbers stay the same (x.y in the x.y.z NSO version). An example is upgrading from version 6.1.1 to 6.1.2. In the case of a maintenance upgrade, the NSO release contains only corrections and minor enhancements, minimizing the changes. It includes binary compatibility for packages, so there is no need to recompile the .fxs files for a maintenance upgrade.
+A maintenance NSO upgrade is within the same branch, i.e., when the first two version numbers stay the same (x.y in the x.y.z NSO version). An example is upgrading from version 6.2.1 to 6.2.2. In the case of a maintenance upgrade, the NSO release contains only corrections and minor enhancements, minimizing the changes. It includes binary compatibility for packages, so there is no need to recompile the .fxs files for a maintenance upgrade.
 
-Correspondingly, when the first or second number in the version changes, that is called a full or major upgrade. For example, upgrading version 6.1.1 to 6.2 is a major, non-maintenance upgrade. Due to new features, packages must be recompiled, and some incompatibilities could manifest.
+Correspondingly, when the first or second number in the version changes, that is called a full or major upgrade. For example, upgrading version 6.2.1 to 6.3 is a major, non-maintenance upgrade. Due to new features, packages must be recompiled, and some incompatibilities could manifest.
 
 In addition to the above, a package upgrade is when you replace a package with a newer version, such as a NED or a service package. Sometimes, when package changes are not too big, it is possible to supply the new packages as part of the NSO upgrade, but this approach brings additional complexity. Instead, package upgrade and NSO upgrade should in general, be performed as separate actions and are covered as such.
 
@@ -36,7 +36,7 @@ If you use the High Availability (HA) feature, the upgrade consists of multiple 
 
 Likewise, NSO 5.3 added support for 256-bit AES encrypted strings, requiring the AES256CFB128 key in the `ncs.conf` configuration. You can generate one with the `openssl rand -hex 32` or a similar command. Alternatively, if you use an external command to provide keys, ensure that it includes a value for an `AES256CFB128_KEY` in the output.
 
-Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management/#backup-and-restore).
+Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management.md#backup-and-restore).
 
 {% hint style="danger" %}
 #### Caution
@@ -59,7 +59,7 @@ The upgrade of a single NSO instance requires the following steps:
 7. Update the packages in `/var/opt/ncs/packages/` if recompilation is needed.
 8. Start the NSO server process, instructing it to reload the packages.
 
-The following steps suppose that you are upgrading to the 5.7 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.&#x20;
+The following steps assume that you are upgrading to the 6.3 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.&#x20;
 
 As a best practice, always create a backup before trying to upgrade.
 
@@ -70,10 +70,10 @@ As a best practice, always create a backup before trying to upgrade.
 For the upgrade itself, you must first download to the host and install the new NSO release.
 
 ```
-# sh nso-6.2.linux.x86_64.installer.bin --system-install
+# sh nso-6.3.linux.x86_64.installer.bin --system-install
 ```
 
-Then, you stop the currently running server with the help of the init.d script or an equivalent command relevant to your system.
+Then, stop the currently running server with the help of the `init.d` script or an equivalent command relevant to your system.
 
 ```
 # /etc/init.d/ncs stop
@@ -82,12 +82,12 @@ Stopping ncs: .
 
 Compact the CDB files write log using, for example, the `ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
 
-Next, you update the symbolic link for the currently selected version to point to the newly installed one, 6.2 in this case.
+Next, you update the symbolic link for the currently selected version to point to the newly installed one, 6.3 in this case.
 
 ```
 # cd /opt/ncs
 # rm -f current
-# ln -s ncs-6.2 current
+# ln -s ncs-6.3 current
 ```
 
 While seldom necessary, at this point, you would also update the `/etc/ncs/ncs.conf` file.
@@ -99,7 +99,7 @@ As a best practice, the available packages are kept in `/opt/ncs/packages/` and 
 ```
 # cd /var/opt/ncs/packages/
 # rm -f *
-# for pkg in /opt/ncs/packages/ncs-6.2-*; do ln -s $pkg; done
+# for pkg in /opt/ncs/packages/ncs-6.3-*; do ln -s $pkg; done
 ```
 
 {% hint style="warning" %}
@@ -352,13 +352,13 @@ In a single-node environment, the procedure is straightforward. Create a backup 
 
 ```
 # ncs-backup
-INFO  Backup /var/opt/ncs/backups/ncs-6.2@2024-01-21T10:34:42.backup.gz created
+INFO  Backup /var/opt/ncs/backups/ncs-6.3@2024-04-21T10:34:42.backup.gz created
 successfully
 # ls /opt/ncs/packages
-ncs-6.2-router-nc-1.0 ncs-6.2-router-nc-1.0.2
+ncs-6.3-router-nc-1.0 ncs-6.3-router-nc-1.0.2
 # ncs_cli -C
 admin@ncs# software packages install package router-nc-1.0.2 replace-existing
-installed ncs-6.2-router-nc-1.0.2
+installed ncs-6.3-router-nc-1.0.2
 admin@ncs# packages reload
 
 >>> System upgrade is starting.

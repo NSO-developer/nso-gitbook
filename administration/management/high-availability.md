@@ -685,9 +685,7 @@ paris   827   running  192.168.31.2  ESTABLISHED  true
 ```
 
 {% hint style="info" %}
-GoBGP must be installed separately. The gobgp and gobgpd binaries must be found in paths specified by the `$PATH` environment variable. For System Install, NSO reads `$PATH` in the systemd init script `/etc/init.d/ncs`. Since tailf-hcc 6.0.2, the path to gobgp/gobgpd is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`. The leaf has been removed from the tailf-hcc/src/yang/tailf-hcc.yang module.
-
-Upgrades: If BGP is enabled and the gobgp or gobgpd binaries are not found, the tailf-hcc package will fail to load. The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true /etc/init.d/ncs restart`.
+GoBGP must be installed separately and its location provided to HCC as configuration data.
 {% endhint %}
 
 #### **Configuration**
@@ -698,13 +696,13 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="196">Parameters</th><th width="186">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
 Per-Neighbor BGP Configuration:
 
-<table><thead><tr><th width="193">Parameters</th><th width="195">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Parameters</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
 
 #### **Example**
 
