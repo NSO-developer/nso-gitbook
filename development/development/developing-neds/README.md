@@ -12,7 +12,7 @@ NSO can speak southbound not only to NETCONF-enabled devices, but through the NE
 
 The NSO architecture is described in the picture below, with a built-in NED for NETCONF, another built-in NED for SNMP, one NED for Cisco CLIs, and a generic NED for other protocols. The NED is the adaptation layer between the XML representation of the network configuration contained inside NSO and the wire protocol between NSO and managed devices. The NETCONF and SNMP NEDs are built in, the CLI NED is entirely model-driven, whereas the generic NED requires a Java program to translate operations on the NSO XML tree into configuration operations toward the device. Depending on what means are used to configure the device, this may be more or less complicated.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ncs-neds.png#developer.cisco.com" alt=""><figcaption><p>NSO NED architecture</p></figcaption></figure>
+<figure><img src="../../../images/ncs-neds.png" alt=""><figcaption><p>NSO NED architecture</p></figcaption></figure>
 
 ## SNMP NED <a href="#ug.ned.snmpned" id="ug.ned.snmpned"></a>
 
@@ -57,7 +57,7 @@ The compilation steps performed by the `ncsc --ncs-compile-mib-bundle` are elabo
 
 These steps are illustrated in the figure below:
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-compile.png#developer.cisco.com" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
+<figure><img src="../../../images/ned-compile.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
 
 Finally make sure that the NSO configuration file points to the correct device model directory:
 
@@ -564,7 +564,7 @@ When a NED release is replaced with a later maintenance/patch release with the s
 
 On the other hand, when a NED is replaced by a new major/minor release this becomes a NED migration. These are nontrivial since the YANG model changes can result in loss of instance data if not handled correctly.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-versions.png#developer.cisco.com" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
+<figure><img src="../../../images/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
 
 ## NED Settings
 
@@ -608,7 +608,7 @@ The table lists device types.
 
 The following state diagram depicts the different states the NED code goes through in the life of a transaction.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-states.png#developer.cisco.com" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
+<figure><img src="../../../images/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
 
 ## CLI NED <a href="#ug.ned.clined" id="ug.ned.clined"></a>
 
@@ -2682,7 +2682,7 @@ To be able to invoke a callback an instance of the NED object needs to be create
 
 The following state diagram displays NED states specific to the dry-run scenario.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.1/docs/nso_ned/pics/ned-dry.png#developer.cisco.com" alt="" width="375"><figcaption><p>NED dry-run states</p></figcaption></figure>
+<figure><img src="../../../images/ned-dry.png" alt="" width="375"><figcaption><p>NED dry-run states</p></figcaption></figure>
 
 ## Naming Conventions <a href="#ug.ned.naming_conventions" id="ug.ned.naming_conventions"></a>
 

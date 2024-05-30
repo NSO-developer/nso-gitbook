@@ -18,11 +18,11 @@ Based on the Raft consensus algorithm, the HA Raft version provides the best fau
 
 For the HA Raft setup, the NSO nodes `paris.fra`, `london.eng`, and `berlin.ger` nodes make up a cluster of one leader and two followers.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_admin_guide/pics/raft_container_deployment.png#developer.cisco.com" alt="" width="563"><figcaption><p>The HA Raft Deployment Network</p></figcaption></figure>
+<figure><img src="../../images/raft_container_deployment.png" alt="" width="563"><figcaption><p>The HA Raft Deployment Network</p></figcaption></figure>
 
 For the rule-based HA setup, the NSO nodes `paris` and `london` make up one HA pair — one primary and one secondary.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_admin_guide/pics/container_deployment.png#developer.cisco.com" alt="" width="563"><figcaption><p>The rule-based HA Deployment Network</p></figcaption></figure>
+<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The rule-based HA Deployment Network</p></figcaption></figure>
 
 HA is usually not optional for a deployment. Data resides in CDB, a RAM database with a disk-based journal for persistence. Both HA variants can be set up to avoid the need for manual intervention in a failure scenario, where HA Raft does the best job of keeping the cluster up. See [High Availability](../management/high-availability.md) for details.
 

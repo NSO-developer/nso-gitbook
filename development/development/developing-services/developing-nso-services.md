@@ -20,7 +20,7 @@ Much like you can bake many cakes using a single cake recipe, you can create man
 
 A network engineer on the CLI, or an API call from a northbound system, provides the values for input parameters when requesting a new service instance, and NSO uses the service recipe, called a 'service mapping', to configure the network.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-intro.png#developer.cisco.com" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure>
+<figure><img src="../../../images/services-intro.png" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure>
 
 A similar process takes place when deleting the service instance or modifying the input parameters. The main task of a service is therefore: from a given set of input parameters, calculate the minimal set of device operations to achieve the desired service change. Here, it is very important that the service supports any change; create, delete, and update of any service parameter.
 
@@ -48,7 +48,7 @@ Who writes the models?
 
 A service application then has two primary artifacts: a YANG service model and a mapping definition to the device YANG, as illustrated in the following figure.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-mapping.png#developer.cisco.com" alt="" width="375"><figcaption><p>Service Model and Mapping</p></figcaption></figure>
+<figure><img src="../../../images/services-mapping.png" alt="" width="375"><figcaption><p>Service Model and Mapping</p></figcaption></figure>
 
 To reiterate:
 
@@ -393,7 +393,7 @@ The final, improved version of the DNS service template that takes into account 
 
 The following figure captures the relationship between the YANG model and the XML template that ultimately produces the desired device configuration.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-template.png#developer.cisco.com" alt="" width="563"><figcaption><p>XML Template and Model Relationship</p></figcaption></figure>
+<figure><img src="../../../images/services-template.png" alt="" width="563"><figcaption><p>XML Template and Model Relationship</p></figcaption></figure>
 
 The complete service is available in the `examples.ncs/implement-a-service/dns-v2.1` example. Feel free to investigate on your own how it differs from the initial, no-validation service.
 
@@ -472,7 +472,7 @@ Suppose you pick the following names for the variable parameters:
 
 Generally, you can make up any name for a parameter but it is best to follow the same rules that apply for naming variables in programming languages, such as making the name descriptive but not excessively verbose. It is customary to use a hyphen (minus sign) to concatenate words and use all-lowercase (“kebab-case”), which is the convention used in the YANG language standards.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-extract-model.png#developer.cisco.com" alt="" width="563"><figcaption><p>Making a Configuration Template</p></figcaption></figure>
+<figure><img src="../../../images/services-extract-model.png" alt="" width="563"><figcaption><p>Making a Configuration Template</p></figcaption></figure>
 
 The corresponding template then becomes:
 
@@ -504,7 +504,7 @@ The corresponding template then becomes:
 
 Having completed the template, you can add all the parameters, three in this case, to the service model.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-extract-model2.png#developer.cisco.com" alt="" width="563"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure>
+<figure><img src="../../../images/services-extract-model2.png" alt="" width="563"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure>
 
 The partially completed model is now:
 
@@ -607,17 +607,17 @@ It is therefore very important that the service create code produces the same de
 
 If the service instance is deleted, NSO applies the reverse diff of the service, effectively removing all configuration changes the service did on the devices.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/fastmap_create.png#developer.cisco.com" alt="" width="563"><figcaption><p>FASTMAP Create a Service</p></figcaption></figure>
+<figure><img src="../../../images/fastmap_create.png" alt="" width="563"><figcaption><p>FASTMAP Create a Service</p></figcaption></figure>
 
 Assume we have a service model that defines a service with attributes X, Y, and Z. The mapping logic calculates that attributes A, B, and C must be set on the devices. When the service is instantiated, the previous values of the corresponding device attributes A, B, and C are stored with the service instance in the CDB. This allows NSO to bring the network back to the state before the service was instantiated.
 
 Now let us see what happens if one service attribute is changed. Perhaps the service attribute Z is changed. NSO will execute the mapping as if the service was created from scratch. The resulting device configurations are then compared with the actual configuration and the minimal diff is sent to the devices. Note that this is managed automatically, there is no code to handle the specific "change Z" operation.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/fastmap_change_service.png#developer.cisco.com" alt="" width="563"><figcaption><p>FASTMAP Change a Service</p></figcaption></figure>
+<figure><img src="../../../images/fastmap_change_service.png" alt="" width="563"><figcaption><p>FASTMAP Change a Service</p></figcaption></figure>
 
 When a user deletes a service instance, NSO retrieves the stored device configuration from the moment before the service was created and reverts to it.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/fastmap_delete.png#developer.cisco.com" alt="" width="563"><figcaption><p>FASTMAP Delete a Service</p></figcaption></figure>
+<figure><img src="../../../images/fastmap_delete.png" alt="" width="563"><figcaption><p>FASTMAP Delete a Service</p></figcaption></figure>
 
 ## Templates and Code
 
@@ -635,7 +635,7 @@ Suppose you want to extend the template-based ethernet interface addressing serv
 
 Such a service will ultimately contain three parts: the service YANG model, the translation code, and the XML template. The model and the template serve the same purpose as before, while custom code provides fine-grained control over how templates are applied and the data available to them.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-code-template.png#developer.cisco.com" alt="" width="375"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure>
+<figure><img src="../../../images/services-code-template.png" alt="" width="375"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure>
 
 Since the service is based on the previous interface addressing service, you can save yourself a lot of work by starting with the existing YANG model and XML template.
 
@@ -878,7 +878,7 @@ You can test it out in the `examples.ncs/implement-a-service/iface-v2-java` exam
 
 A service instance may require configuration on more than just a single device. In fact, it is quite common for a service to configure multiple devices.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-multidevice.png#developer.cisco.com" alt="" width="375"><figcaption><p>Service Provisioning Multiple Devices</p></figcaption></figure>
+<figure><img src="../../../images/services-multidevice.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Devices</p></figcaption></figure>
 
 There are a few ways in which you can achieve this for your services:
 
@@ -938,7 +938,7 @@ Being explicit, the latter is usually much easier to understand and maintain for
 
 Applying the same template works fine as long as you have a uniform network with similar devices. What if two different devices can provide the same service but require different configuration? Should you create two different services in NSO? No. Services allow you to abstract and hide the device specifics through a device-independent service model, while still allowing customization of device configuration per device type.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.2/docs/nso_development/pics/services-multidevice2.png#developer.cisco.com" alt="" width="375"><figcaption><p>Service Provisioning Multiple Device Types</p></figcaption></figure>
+<figure><img src="../../../images/services-multidevice2.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Device Types</p></figcaption></figure>
 
 One way to do this is to apply a different XML template from the service code, depending on the device type. However, the same is also possible through XML templates alone.
 
