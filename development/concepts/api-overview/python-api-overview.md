@@ -989,7 +989,7 @@ See `pydoc3 _ncs` and `man confd_lib_lib` for further information.
 
 This API is a direct mapping of the NSO MAAPI C API. See `pydoc3 _ncs.maapi` and `man confd_lib_maapi` for further information.
 
-Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [the section called “Reference Counting Overlapping Configuration”](https://developer.cisco.com/docs/nso-guides-6.2/services-deep-dive/#ch\_svcref.refcount)).
+Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../development/developing-services/services-deep-dive.md#ch\_svcref.refcount)).
 
 In the service code, you should use the `shared_*` set of functions, such as:
 
