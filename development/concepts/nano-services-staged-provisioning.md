@@ -18,7 +18,7 @@ Services ideally perform the configuration all at once, with all the benefits of
 
 This is most evident with, for example, virtual machine (VM) provisioning, during virtual network function (VNF) orchestration. Consider a service that deploys and configures a router in a VM. When the service is first instantiated, it starts provisioning a router VM. However, it will likely take some time before the router has booted up and is ready to accept a new configuration. In turn, the service cannot configure the router just yet. The service must wait for the router to become ready. That is the event that triggers a re-deploy and the service can finish configuring the router, as the following figure illustrates:
 
-<figure><img src="../../images/Screenshot 2024-02-16 at 13.13.37.png" alt="" width="563"><figcaption><p>Virtual router provisioning steps</p></figcaption></figure>
+<figure><img src="../../images/Screenshot 2024-02-16 at 13.13.37.png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Steps</p></figcaption></figure>
 
 While each step of provisioning happens inside a transaction and is still atomic, the whole service is not. Instead of a simple fully-provisioned or not-provisioned-at-all status, a nano service can be in a number of other _states_, depending on how far in the provisioning process it is.
 
@@ -174,7 +174,7 @@ This behavior tree always creates a single `self` component for the service. The
 
 The following figure visualizes the resulting service plan and its states.
 
-<figure><img src="../../images/nano-states.png" alt="" width="563"><figcaption><p>Virtual router provisioning plan</p></figcaption></figure>
+<figure><img src="../../images/nano-states.png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Plan</p></figcaption></figure>
 
 Along with the behavior tree, a nano service also relies on the `ncs:nano-plan-data` grouping in its service model. It is responsible for storing state and other provisioning details for each service instance. Other than that, the nano service model follows the standard YANG definition of a service:
 
@@ -284,7 +284,7 @@ This is illustrated in the following figure:
 
 <figure><img src="../../images/nano-fastmap.png" alt="" width="563"><figcaption><p>Per-state FASTMAP with nano services</p></figcaption></figure>
 
-You can still use the service `get-modifications` action to visualize all data changes performed by the service as an aggregate. In addition, each state also has its own `get-modifications` action that visualizes the data-changes for that particular state. It allows you to more easily identify the state and, by extension, the code that produced those changes.
+You can still use the service `get-modifications` action to visualize all data changes performed by the service as an aggregate. In addition, each state also has its own `get-modifications` action that visualizes the data changes for that particular state. It allows you to more easily identify the state and, by extension, the code that produced those changes.
 
 Before nano services became available, RFM services could only be implemented by creating a CDB subscriber. With the subscriber approach, the service can still leverage the plan-data grouping, which `nano-plan-data` is based on, to report the progress of the service under the resulting `plan` container. But the `create()` callback becomes responsible for creating the plan components, their states, and setting the status of the individual states as the service creation progresses.
 
@@ -298,7 +298,7 @@ Another example is the management of a web server VM for a web application. Here
 
 Both examples require two distinct steps for de-provisioning. Can nano services be of help in this case? Certainly. In addition to the state-by-state provisioning of the defined components, the nano service system in NSO is responsible for back-tracking during their removal. This process traverses all reached states in the reverse order, removing the changes previously done for each state one by one.
 
-<figure><img src="../../images/nano-backtrack.png" alt="" width="563"><figcaption><p>Staged delete with backtracking</p></figcaption></figure>
+<figure><img src="../../images/nano-backtrack.png" alt="" width="563"><figcaption><p>Staged Delete with Backtracking</p></figcaption></figure>
 
 In doing so, the back-tracking process checks for a 'delete pre-condition' of a state. A delete pre-condition is similar to the create pre-condition, but only relevant when back-tracking. If the condition is not fulfilled, the back-tracking process stops and waits until it becomes satisfied. Behind the scenes, a kicker is configured to restart the process when that happens.
 
@@ -358,7 +358,7 @@ The exception to this setting is when a component switches to a backtracking mod
 
 The side-effect-queue and a corresponding kicker are responsible for invoking the actions on behalf of the nano service and reporting the result in the respective state's post-action-status leaf. The following figure shows an entry is made in the side-effect-queue (2) after the state is reached (1) and its post-action status is updated (3) once the action finishes executing.
 
-<figure><img src="../../images/nano-service-side-effect.png" alt="" width="563"><figcaption><p>Post-action execution through side-effect-queue</p></figcaption></figure>
+<figure><img src="../../images/nano-service-side-effect.png" alt="" width="563"><figcaption><p>Post-action Execution Through side-effect-queue</p></figcaption></figure>
 
 You can use the `show side-effect-queue` command to inspect the queue. The queue will run multiple actions in parallel and keep the failed ones for you to inspect. Please note that High Availability (HA) setups require special consideration: the side effect queue is disabled when High Availability is enabled and the High Availability mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) for more details.
 
@@ -881,7 +881,7 @@ For each RFM loop, NSO traverses each component and state in order. For each non
 
 <figure><img src="../../images/back-state.png" alt="" width="563"><figcaption></figcaption></figure>
 
-While traversing the states, a `create` pre-condition that was previously satisfied may become un-satisfied. If there are subsequent reached states that contain reverse diff-sets, then the component must be set to back-tracking mode. The back-tracking mode has as its goal to revert all changes up to the state that originally failed to satisfy its `create` pre-condition. While back-tracking, the delete pre-condition for each state is evaluated, if it exists. If the delete pre-condition is satisfied, the state's reverse diff-set is applied, and the next state is considered. If the delete pre-condition is not satisfied, a kicker is created to monitor this delete pre-condition. When the kicker triggers, a `reactive-re-deploy` is called and the back-tracking will continue until the goal is reached.
+While traversing the states, a `create` pre-condition that was previously satisfied may become unsatisfied. If there are subsequent reached states that contain reverse diff-sets, then the component must be set to back-tracking mode. The back-tracking mode has as its goal to revert all changes up to the state that originally failed to satisfy its `create` pre-condition. While back-tracking, the delete pre-condition for each state is evaluated, if it exists. If the delete pre-condition is satisfied, the state's reverse diff-set is applied, and the next state is considered. If the delete pre-condition is not satisfied, a kicker is created to monitor this delete pre-condition. When the kicker triggers, a `reactive-re-deploy` is called and the back-tracking will continue until the goal is reached.
 
 <figure><img src="../../images/back-state1.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -950,13 +950,13 @@ There is just one type of execution node:
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
-<figure><img src="../../images/behave-simple.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../images/behave-simple.png" alt="" width="563"><figcaption>Behavior Tree with a Static nano-plan</figcaption></figure>
 
 Having a selector on root implies that all plan-components are created if they don't have any pre-conditions, or for which the pre-conditions are satisfied.
 
 An example of a more elaborated behavior tree is the following:
 
-<figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption>Elaborated Behavior Tree</figcaption></figure>
 
 This behavior tree has a selector node as the root. It will always synthesize the "self" plan component and then evaluate the pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 

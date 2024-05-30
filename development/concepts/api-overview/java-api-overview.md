@@ -372,7 +372,7 @@ A transaction has a number of phases, the external data provider gets called in 
 
 The following picture illustrates the conceptual state machine an NSO transaction goes through.
 
-<figure><img src="../../../images/trans_state.png" alt="" width="375"><figcaption><p>NSO transaction state machine</p></figcaption></figure>
+<figure><img src="../../../images/trans_state.png" alt="" width="375"><figcaption><p>NSO Transaction State Machine</p></figcaption></figure>
 
 All callback methods are optional. If a callback method is not implemented, it is the same as having an empty callback which simply returns.
 
