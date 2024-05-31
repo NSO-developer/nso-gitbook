@@ -394,7 +394,8 @@ We have the following data callbacks:
             throws DpCallbackException {
                .....
     ```
-*   `existsOptional()`: This callback is called for all type less and optional elements, i.e. `presence` containers and leafs of type `empty`. If we have presence containers or leafs of type `empty`, we cannot use the `getElem()` callback to read the value of such a node, since it does not have a type. An example of a data model could be:\
+* `existsOptional()`: This callback is called for all type less and optional elements, i.e. `presence` containers and leafs of type `empty` (unless in a union). If we have presence containers or leafs of type `empty` (unless in a union), we cannot use the `getElem()` callback to read the value of such a node, since it does not have a type. Type `empty` leafs in a union are instead read using `getElem()` callback.
+*   An example of a data model could be:\
 
 
     ```

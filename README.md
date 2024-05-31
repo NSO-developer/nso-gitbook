@@ -27,7 +27,7 @@ Use this page to navigate your way through the NSO documentation and access the 
 
 An NSO deployment typically consists of the following roles:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td></tr></tbody></table>
 
 ## Learn NSO
 

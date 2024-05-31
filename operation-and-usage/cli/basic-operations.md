@@ -1017,12 +1017,12 @@ Commit complete.
 
 admin@ncs(config)# do show devices commit-queue | notab
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- transient-errors [ c0 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ transient c0
+  reason "Failed to connect to device c0: connection refused"
+ is-atomic true
 ```
 
 Go to the UNIX shell, start the device, and monitor the commit queue:
@@ -1035,20 +1035,19 @@ $ncs_cli -C -u admin
 
 admin@ncs# show devices commit-queue
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- transient-errors [ c0 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ transient c0
+  reason "Failed to connect to device c0: connection refused"
+ is-atomic true
 
 admin@ncs# show devices commit-queue
 devices commit-queue queue-item 2236633674
- age              11
- status           executing
- kilo-bytes-size  1
- devices          [ c0 c1 c2 ]
- is-atomic        true
+ age       11
+ status    executing
+ devices   [ c0 c1 c2 ]
+ is-atomic true
 
 admin@ncs# show devices commit-queue
 % No entries found.

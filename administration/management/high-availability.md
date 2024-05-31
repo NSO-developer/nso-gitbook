@@ -685,9 +685,7 @@ paris   827   running  192.168.31.2  ESTABLISHED  true
 ```
 
 {% hint style="info" %}
-GoBGP must be installed separately. The gobgp and gobgpd binaries must be found in paths specified by the `$PATH` environment variable. For System Install, NSO reads `$PATH` in the systemd init script `/etc/init.d/ncs`. Since tailf-hcc 6.0.2, the path to gobgp/gobgpd is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`. The leaf has been removed from the tailf-hcc/src/yang/tailf-hcc.yang module.
-
-Upgrades: If BGP is enabled and the gobgp or gobgpd binaries are not found, the tailf-hcc package will fail to load. The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true /etc/init.d/ncs restart`.
+GoBGP must be installed separately and its location provided to HCC as configuration data.
 {% endhint %}
 
 #### **Configuration**
@@ -698,13 +696,13 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="196">Parameters</th><th width="186">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
 Per-Neighbor BGP Configuration:
 
-<table><thead><tr><th width="193">Parameters</th><th width="195">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Parameters</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
 
 #### **Example**
 
@@ -1009,43 +1007,15 @@ module tailf-hcc {
   import tailf-ncs {
     prefix ncs;
   }
-  import ietf-yang-types {
-     prefix yang;
-  }
 
   organization "Cisco Systems";
   description
     "This module defines Layer-2 and Layer-3 virtual IPv4 and IPv6 address
      (VIP) management for clustered operation.";
 
-  revision 2024-03-18 {
+  revision 2022-05-20 {
     description
-      "Removed leaf /hcc/bgp/node/gobgp-bin-dir,
-       Added validation callpoint hcc-validate-gobgp.
-
-       Released as part of tailf-hcc 6.0.2.";
-  }
-
-  revision 2023-08-31 {
-    description
-      "Added  /hcc/dns for DNS update and Site location support.
-
-       Released as part of tailf-hcc 6.0.1.";
-  }
-
-  revision 2023-06-26 {
-    description
-      "Added support for HA Raft, changed /hcc/bgp/node leafref to
-       completion point and validation callback.
-
-       Released as part of tailf-hcc 6.0.0.";
-  }
-
-  revision 2022-09-28 {
-    description
-      "Use bias-free language.
-
-       Released as part of tailf-hcc 5.0.4.";
+      "Use bias-free language.";
   }
 
   revision 2020-06-29 {
@@ -1093,21 +1063,14 @@ module tailf-hcc {
         "Run a local BGP daemon and advertise VIP routes to neighbors.";
 
       list node {
-        tailf:validate hcc-validate-gobgp {
-          tailf:dependency '.';
-          tailf:dependency '../../enabled';
-        }
-        key "node-id";
-        description
-          "Unique NCS HA node ID. Valid values are:
-             - /high-availability/ha-node when built-in HA is used or
-             - /ha-raft/status/member for HA Raft.";
+        key node-id;
+
         leaf node-id {
-          tailf:cli-completion-actionpoint "hcc-complete-members";
-          tailf:validate hcc-validate-members {
-            tailf:dependency '.';
+          type leafref {
+            path "/ncs:high-availability/ncs:ha-node/ncs:id";
           }
-          type string;
+          description "Unique NCS node ID";
+          mandatory true;
         }
 
         leaf enabled {
@@ -1116,6 +1079,15 @@ module tailf-hcc {
           description
             "If set to 'true' this node uses BGP to announce VIP
              addresses in the primary state.";
+        }
+
+        leaf gobgp-bin-dir {
+          type string;
+          tailf:info "Directory containing gobgp/gobgpd binaries";
+          mandatory true;
+          description
+            "The directory where 'gobgp' and 'gobgpd' binary executables
+             have been installed separately.";
         }
 
         leaf as {
@@ -1172,10 +1144,6 @@ module tailf-hcc {
               "Optional minimum TTL value for BGP packets. When configured
                enables BGP Generalized TTL Security Mechanism (GTSM).";
           }
-          leaf multihop-ttl{
-            type uint8;
-            description "eBGP multihop TTL";
-          }
           leaf password {
             type string;
             tailf:info "Optional BGP MD5 auth password.";
@@ -1207,121 +1175,6 @@ module tailf-hcc {
             description
               "Flag indicating whether the BGP session to this neighbor
                is currently established.";
-          }
-        }
-      }
-    }
-
-    container dns {
-      tailf:info "DNS Config for dynamic DNS updates";
-      description  "DNS Config for dynamic DNS updates";
-      presence true;
-      leaf enabled {
-        type boolean;
-        default false;
-        description
-          "If set to 'true' dns updates will be enabled";
-      }
-      leaf fqdn {
-        tailf:info "DNS domain-name of the HA primary";
-        type inet:domain-name;
-        mandatory true;
-      }
-      leaf ttl {
-        tailf:info "Time to live for DNS record";
-        type uint32;
-        default 86400;
-      }
-      leaf key-file {
-        tailf:info "Specifies the file path for nsupdate keyfile";
-        type string;
-      }
-      leaf server {
-        tailf:info "DNS server";
-        type inet:ip-address;
-      }
-      leaf port {
-        tailf:info "DNS server port";
-        when "../server";
-        type uint32;
-        default 53;
-      }
-      leaf zone {
-        tailf:info "DNS zone";
-        type inet:host;
-      }
-      leaf timeout {
-        tailf:info "Timeout for nsupdate command";
-        type uint32;
-        default 300;
-      }
-
-      container status {
-        config false;
-        leaf time {
-          type yang:date-and-time;
-        }
-        leaf exit-code {
-          tailf:info "Exit code returned by os upon executing nsupdate";
-          type uint32;
-        }
-        leaf error-message {
-          tailf:info "Status message returned by os upon executing nsupdate when exit-code is non-zero";
-          type string;
-        }
-      }
-
-      list member {
-        key "node-id";
-        description "Details about all members involved in HA - nso node, ip and location.";
-        min-elements 1;
-        leaf node-id {
-          description
-          "Unique NCS HA node ID. Valid values are:
-              - /high-availability/ha-node when built-in HA is used or
-              - /ha-raft/status/member for HA Raft.";
-          tailf:cli-completion-actionpoint "hcc-complete-members";
-          tailf:validate hcc-validate-dns-member {
-            tailf:dependency '.';
-            tailf:dependency '../../member';
-          }
-          type string;
-        }
-        leaf-list ip-address {
-          type inet:ip-address;
-          description "IP where NSO listens for incoming request to any northbound interfaces";
-          tailf:info "IP where NSO listens for incoming request to any northbound interfaces";
-          min-elements 1;
-        }
-        leaf location {
-          type string;
-          description "Name of the Location/Site/Availability-Zone where node is placed";
-          tailf:info "Name of the Location/Site/Availability-Zone where node is placed";
-        }
-      }
-
-      action update {
-        tailf:actionpoint hcc-dns-update-action;
-        description "Update DNS RR entry";
-        tailf:info "Manually retry update of the DNS RR configuration to the DNS server.
-          This can help if the automatic DNS update failed for some reason.
-          Reason of failure is specified in the /hcc/dns/status/error-message";
-        output {
-          leaf error-status {
-            type string;
-          }
-        }
-      }
-      action get-node-location {
-        tailf:actionpoint hcc-get-node-location-action;
-        tailf:info "Returns the location of node";
-        description "Returns the location of node";
-        output {
-          leaf location {
-            type string;
-          }
-          leaf error-status {
-            type string;
           }
         }
       }

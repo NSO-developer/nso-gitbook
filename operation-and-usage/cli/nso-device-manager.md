@@ -243,19 +243,18 @@ packages package juniper-junos-nc-3.0
 
 The CLI command in the above example (Installed Packages) shows all the loaded packages. NSO loads packages at startup and can reload packages at run-time. By default, the packages reside in the `packages` directory in the NSO run-time directory.
 
-```
-$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn
+<pre><code>$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn
 total 160
 ...
 drwxr-xr-x   8 stefan  staff    272 Oct  1 16:57 packages
 ...
-$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn/packages
-total 24
+<strong>$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn/packages
+</strong>total 24
 cisco-ios
 cisco-iosxr
 juniper-junos
 ...
-```
+</code></pre>
 
 ## Starting the NSO Daemon <a href="#user_guide.devicemanager.starting-ncs" id="user_guide.devicemanager.starting-ncs"></a>
 
@@ -1734,12 +1733,13 @@ The device template created in the example above (Create ce-initialize template)
 
 In the following CLI session, a new device `ce10` is created:
 
-<pre><code>ncs(config)# devices device ce10 address 127.0.0.1 port 10032
-<strong>ncs(config-device-ce10)# device-type cli ned-id cisco-ios-cli-3.8
-</strong>ncs(config-device-ce10)# authgroup default
+```
+ncs(config)# devices device ce10 address 127.0.0.1 port 10032
+ncs(config-device-ce10)# device-type cli ned-id cisco-ios-cli-3.8
+ncs(config-device-ce10)# authgroup default
 ncs(config-device-ce10)# top
 ncs(config)# commit
-</code></pre>
+```
 
 Initialize the newly created device `ce10` with the device template `ce-initialize`:
 
@@ -1764,7 +1764,7 @@ apply-template-result {
 }
 ```
 
-Inspect the changes made by the template `ce-initialize`
+Inspect the changes made by the template `ce-initialize`:
 
 ```
 ncs(config)# show configuration
@@ -1912,6 +1912,222 @@ Operation 'merge' on non-existing node:
 /devices/device[name='ce2']/config/ios:snmp-server/community[name='FUZBAR']
 Operation 'merge' on non-existing node:
 /devices/device[name='ce2']/config/ios:snmp-server/community[name='FUZBAR']/RO
+```
+
+## Renaming Devices in NSO <a href="#renaming-devices-in-nso" id="renaming-devices-in-nso"></a>
+
+The usual way to rename an instance in a list is to delete it and create a new instance. Aside from having to explicitly create all its children, an obvious problem with this method is the dependencies - if there is a leafref that refers to this instance, this method of deleting and recreating will fail unless the leafref is also explicitly reset to the value of the new instance.
+
+The `/devices/device/rename` action renames an existing device and fixes the node/data dependencies in CDB. When renaming a device, the action fixes the following dependencies:
+
+* Leafrefs and instance-identifiers (both config true and config false).
+* Monitor and kick-node of kickers, if they refer to this device.
+* Diff-sets and forward-diff-sets of services that touch this device (This includes nano-services and also zombies).
+
+NSO maintains a history of past renames at `/devices/device/rename-history`.
+
+### Examples <a href="#d5e3500" id="d5e3500"></a>
+
+```
+admin@ncs> request devices device ex0 rename new-name foo
+result true
+[ok][2024-04-16 20:51:51]
+admin@ncs> show devices device foo rename-history | tab
+FROM  TO   WHEN                              USER
+----------------------------------------------------
+ex0   foo  2024-04-16T18:51:51.578439+00:00  admin
+
+[ok][2024-04-16 20:52:07]
+admin@ncs> show configuration devices device ex0
+---------------------------------------------^
+syntax error: element does not exist
+[error][2024-04-16 20:52:09]
+admin@ncs> show configuration devices device foo
+address   127.0.0.1;
+port      12022;
+...
+```
+
+The `rename` action takes a device lock to prevent modifications to the device while renaming it. Depending on the input parameters, the action will either immediately fail if it cannot get the device lock, or wait wait a specified amount of seconds before timing out.
+
+```
+admin@ncs> request devices commit-queue add-lock device [ ex1 ]
+commit-queue-id 1713297244546
+[ok][2024-04-16 21:54:04]
+admin@ncs> request devices device ex1 rename new-name foo wait-for-lock { timeout 5 }
+result false
+info ex1: A timeout occured when trying to add device lock to the commit queue
+[ok][2024-04-16 21:54:26]
+```
+
+The parameter `no-wait-for-lock` makes the action fail immediately if the device lock is unavailable, while a timeout of `infinity` can be used to make it wait indefinitely for the lock.
+
+### Limitations <a href="#d5e3516" id="d5e3516"></a>
+
+If a nano-service has components whose names are derived from the device name, and that device is renamed, the corresponding service components in its plan are not automatically renamed.
+
+For example, let's say the nano-service has components with names matching device names.
+
+```
+admin@ncs% run show vlan-state test plan | tab
+                                                                           POST
+              BACK                                                         ACTION
+TYPE  NAME  TRACK  GOAL  STATE        STATUS   WHEN                 ref  STATUS
+---------------------------------------------------------------------------------
+self  self  false  -     init         reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+vlan  ex1   false  -     init         reached  2024-04-16T21:38:34  -    -
+                         router-init  reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+vlan  ex2   false  -     init         reached  2024-04-16T21:38:34  -    -
+                         router-init  reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+
+[ok][2024-04-16 21:38:44]
+```
+
+If this device is renamed, the corresponding nano-service component is not renamed.
+
+```
+admin@ncs% request devices device ex1 rename new-name newex1
+result true
+[ok][2024-04-16 21:39:21]
+
+[edit]
+admin@ncs% run show vlan-state test plan | tab
+                                                                           POST
+              BACK                                                         ACTION
+TYPE  NAME  TRACK  GOAL  STATE        STATUS   WHEN                 ref  STATUS
+---------------------------------------------------------------------------------
+self  self  false  -     init         reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+vlan  ex1   false  -     init         reached  2024-04-16T21:38:34  -    -
+                         router-init  reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+vlan  ex2   false  -     init         reached  2024-04-16T21:38:34  -    -
+                         router-init  reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+
+[ok][2024-04-16 21:39:24]
+```
+
+To handle this, the component with the old name must be force-back-tracked and the service re-deployed.
+
+```
+admin@ncs% request vlan-state test plan component vlan ex1 force-back-track
+result true
+[ok][2024-04-16 21:39:51]
+
+[edit]
+admin@ncs% run show vlan-state test plan | tab
+                                                                         POST
+            BACK                                                         ACTION
+TYPE  NAME  TRACK  GOAL  STATE        STATUS   WHEN                 ref  STATUS
+---------------------------------------------------------------------------------
+self  self  false  -     init         reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+vlan  ex2   false  -     init         reached  2024-04-16T21:38:34  -    -
+                         router-init  reached  2024-04-16T21:38:34  -    -
+                         ready        reached  2024-04-16T21:38:34  -    -
+
+[ok][2024-04-16 21:39:54]
+
+[edit]
+admin@ncs% request vlan test re-deploy
+[ok][2024-04-16 21:40:02]
+
+[edit]
+admin@ncs% run show vlan-state test plan | tab
+                                                                           POST
+              BACK                                                         ACTION
+TYPE  NAME    TRACK  GOAL  STATE        STATUS   WHEN                 ref  STATUS
+-----------------------------------------------------------------------------------
+self  self    false  -     init         reached  2024-04-16T21:38:34  -    -
+                           ready        reached  2024-04-16T21:40:02  -    -
+vlan  ex2     false  -     init         reached  2024-04-16T21:38:34  -    -
+                           router-init  reached  2024-04-16T21:38:34  -    -
+                           ready        reached  2024-04-16T21:38:34  -    -
+vlan  newex1  false  -     init         reached  2024-04-16T21:40:02  -    -
+                           router-init  reached  2024-04-16T21:40:02  -    -
+                           ready        reached  2024-04-16T21:40:02  -    -
+
+[ok][2024-04-17 08:40:05]
+```
+
+When a device is renamed, all components that derive their name from that device's name in all the service instances must be force-back-tracked.
+
+## Auto-configuring Devices in NSO <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
+
+When multiple versions of a NED are loaded, provisioning new devices can be tedious since one has to configure the 'correct' ned-id manually. Connecting and fetching host keys from the device and doing a sync-from are additional steps that must be done separately before the device can be used from NSO.
+
+NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected. In the same transaction, NSO also fetches the host keys and syncs the config from the device.
+
+### Examples <a href="#d5e3539" id="d5e3539"></a>
+
+NSO will auto-configure a new device in a transaction if either `/devices/device/auto-configure/vendor` or `/devices/device/auto-configure/ned-id` is set in that transaction.
+
+```
+admin@ncs% show packages package component ned device
+packages package router-nc-1.0
+ component router
+  ned device vendor "Acme Inc."
+  ned device product-family [ "Acme Netconf router 1.0" ]
+  ned device operating-system [ AcmeOS "AcmeOS 2.0" ]
+[ok][2024-04-16 19:53:20]
+admin@ncs% set devices device mydev address 127.0.0.1 port 12022 authgroup default
+[ok][2024-04-16 19:53:34]
+
+[edit]
+admin@ncs% set devices device mydev auto-configure vendor "Acme Inc." operating-system AcmeOs
+[ok][2024-04-16 19:53:36]
+
+[edit]
+admin@ncs% commit | details
+...
+ 2024-04-16T19:53:37.655 device mydev: auto configuring...
+ 2024-04-16T19:53:37.655 device mydev: find matching packages...
+ 2024-04-16T19:53:37.659 device mydev: package router-nc-1.0 matches
+ 2024-04-16T19:53:37.659 device mydev: picking package router-nc-1.0
+ 2024-04-16T19:53:37.659 device mydev: find matching packages: ok (0.004 s)
+ 2024-04-16T19:53:37.659 device mydev: configuring admin state... ok (0.000 s)
+ 2024-04-16T19:53:37.659 device mydev: fetching ssh host keys... ok (0.011 s)
+ 2024-04-16T19:53:37.671 device mydev: copying configuration from device... ok (0.054 s)
+ 2024-04-16T19:53:37.726 device mydev: auto configuring: ok (0.070 s)
+...
+```
+
+One can configure either `vendor` and `product-family`, or `vendor` and `operating-system` or just the `ned-id` explicitly.
+
+```
+admin@ncs% set devices device d1 auto-configure vendor "Acme Inc." product-family "Acme router"
+
+admin@ncs% set devices device d2 auto-configure vendor "Acme Inc." operating-system AcmeOS
+
+admin@ncs% set devices device d3 auto-configure ned-id router-nc-1.0
+```
+
+The `admin-state` for the device, if configured, will be honored. i.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and sync config from the device.
+
+```
+admin@ncs% set devices device mydev2 auto-configure vendor "Acme Inc." operating-system AcmeOS
+[ok][2024-04-16 20:03:05]
+
+[edit]
+admin@ncs% set devices device mydev2 state admin-state southbound-locked
+[ok][2024-04-16 20:03:05]
+
+[edit]
+admin@ncs% commit | details
+...
+ 2024-04-16T20:03:08.604 device mydev2: auto configuring...
+ 2024-04-16T20:03:08.604 device mydev2: find matching packages...
+ 2024-04-16T20:03:08.606 device mydev2: package router-nc-1.0 matches
+ 2024-04-16T20:03:08.606 device mydev2: picking package router-nc-1.0
+ 2024-04-16T20:03:08.606 device mydev2: find matching packages: ok (0.002 s)
+ 2024-04-16T20:03:08.606 device mydev2: configuring admin state... ok (0.000 s)
+ 2024-04-16T20:03:08.606 device mydev2: fetching ssh host keys... southbound-locked (0.001 s)
+ 2024-04-16T20:03:08.608 device mydev2: auto configuring: ok (0.003 s)
+...
 ```
 
 ## `oper-state` and `admin-state` <a href="#user_guide.devicemanager.state" id="user_guide.devicemanager.state"></a>
@@ -2396,13 +2612,11 @@ Policies allow you to specify network-wide constraints that always must be true.
 
 Assume you would like to enforce all CE routers to have a Gigabit interface `0/1`.
 
-{% code title="Example: Policies" %}
-```
-ncs(config)# policy rule gb-one-zero
+<pre data-title="Example: Policies"><code>ncs(config)# policy rule gb-one-zero
 ncs(config-rule-gb-one-zero)# foreach /ncs:devices/device[starts-with(name,'ce')]/config
 ncs(config-rule-gb-one-zero)# expr ios:interface/ios:GigabitEthernet[ios:name='0/1']
-ncs(config-rule-gb-one-zero)# warning-message "{../name} should have 0/1 interface"
-ncs(config-rule-gb-one-zero)# commit
+<strong>ncs(config-rule-gb-one-zero)# warning-message "{../name} should have 0/1 interface"
+</strong>ncs(config-rule-gb-one-zero)# commit
 zork(config-rule-gb-one-zero)# top
 zork(config)# !
 ncs(config)# show full-configuration policy
@@ -2426,8 +2640,7 @@ The following warnings were generated:
   ce0 should have 0/1 interface
 Proceed? [yes,no] yes
 Commit complete.
-```
-{% endcode %}
+</code></pre>
 
 As seen in the example above (Policies) , a policy rule has (an optional) for each statement and a mandatory expression and error message. The `foreach` statement evaluates to a node set, and the expression is then evaluated on each node. So in this example, the expression would be evaluated for every device in NSO which begins with ce. The name variable in the warning message refers to a leaf available from the for-each node set.
 
@@ -2538,19 +2751,18 @@ You can view the queue in the CLI. There are three different view modes, `summar
 ```
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 9494446997
- age              144
- status           executing
- kilo-bytes-size  1
- devices          [ ce0 ce1 ce2 ]
- transient-errors [ ce0 ]
- is-atomic        true
+ age       144
+ status    executing
+ devices   [ ce0 ce1 ce2 ]
+ transient ce0
+  reason "Failed to connect to device ce0: connection refused"
+ is-atomic true
 devices commit-queue queue-item 9494530158
- age              61
- status           blocked
- kilo-bytes-size  1
- devices          [ ce0 ]
- waiting-for      [ ce0 ]
- is-atomic        true
+ age         61
+ status      blocked
+ devices     [ ce0 ]
+ waiting-for [ ce0 ]
+ is-atomic   true
 ```
 {% endcode %}
 
@@ -2561,12 +2773,11 @@ You can also view the queue items in detailed mode:
 ```
 ncs# show devices commit-queue queue-item 9494530158 details | notab
 devices commit-queue queue-item 9494530158
- age             278
- status          blocked
- kilo-bytes-size 1
- devices         [ ce0 ]
- waiting-for     [ ce0 ]
- is-atomic       true
+ age         278
+ status      blocked
+ devices     [ ce0 ]
+ waiting-for [ ce0 ]
+ is-atomic   true
  modification ce0
   data       <interface xmlns="urn:ios">
                <GigabitEthernet>
@@ -2620,26 +2831,24 @@ alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='c
     commit-queue-id 9577950918
     ncs# show devices commit-queue | notab
     devices commit-queue queue-item 9494446997
-     age              1444
-     status           executing
-     kilo-bytes-size  1
-     devices          [ ce0 ce1 ce2 ]
-     transient-errors [ ce0 ]
-     is-atomic        true
+     age       1444
+     status    executing
+     devices   [ ce0 ce1 ce2 ]
+     transient ce0
+      reason "Failed to connect to device ce0: connection refused"
+     is-atomic true
     devices commit-queue queue-item 9494530158
-     age              1361
-     status           blocked
-     kilo-bytes-size  1
-     devices          [ ce0 ]
-     waiting-for      [ ce0 ]
-     is-atomic        true
+     age         1361
+     status      blocked
+     devices     [ ce0 ]
+     waiting-for [ ce0 ]
+     is-atomic   true
     devices commit-queue queue-item 9577950918
-     age              55
-     status           locked
-     kilo-bytes-size  1
-     devices          [ ce0 ]
-     waiting-for      [ ce0 ]
-     is-atomic        true
+     age         55
+     status      locked
+     devices     [ ce0 ]
+     waiting-for [ ce0 ]
+     is-atomic   true
     ```
 
     \
@@ -2698,20 +2907,18 @@ commit-queue-id 9494530158
 
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 9494446997
- age             60
- status          executing
- kilo-bytes-size 1
- devices         [ lsa-nso2 lsa-nso3 ]
- is-atomic       true
+ age       60
+ status    executing
+ devices   [ lsa-nso2 lsa-nso3 ]
+ is-atomic true
 
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 9494446997
- age             66
- status          executing
- kilo-bytes-size 1
- devices         [ lsa-nso2 ]
- completed       [ lsa-nso3 ]
- is-atomic       true
+ age       66
+ status    executing
+ devices   [ lsa-nso2 ]
+ completed [ lsa-nso3 ]
+ is-atomic true
 
 ncs# show devices commit-queue
 % No entries found.

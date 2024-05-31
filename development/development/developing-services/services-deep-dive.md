@@ -320,7 +320,11 @@ FASTMAP knows that a particular piece of configuration belongs to a service inst
 
 A well-known solution to this kind of problem is reference counting. NSO uses reference counting by default with the XML templates and Python Maagic API, while in Java Maapi and Navu APIs, the `sharedCreate()`, `sharedSet()`, and `sharedSetValues()` functions need to be used.
 
-When enabled, the reference counter allows FASTMAP algorithm to keep track of the usage and only delete data when the last service instance referring to this data is removed. Furthermore, everything that is created using the `sharedCreate()` and `sharedSetValues()` functions also gets an additional attribute called `backpointer`. `backpointer` points back to the service instance that created the entity in the first place. This makes it possible to look at part of the configuration, say under `/devices` tree, and answer the question: which parts of the device configuration were created by which service?
+When enabled, the reference counter allows FASTMAP algorithm to keep track of the usage and only delete data when the last service instance referring to this data is removed.&#x20;
+
+Furthermore, containers and list items created using the `sharedCreate()` and `sharedSetValues()` functions also get an additional attribute called `backpointer`. (But this functionality is currently not available for individual leafs.)
+
+`backpointer` points back to the service instance that created the entity in the first place. This makes it possible to look at part of the configuration, say under `/devices` tree, and answer the question: which parts of the device configuration were created by which service?
 
 To see reference counting in action, start the `examples.ncs/implement-a-service/iface-v3` example with `make demo` and configure a service instance.
 
@@ -367,6 +371,8 @@ Notice how `commit dry-run` produces no new device configuration but the system 
 But what happens if the two services produce different configurations for the same node? Say, one sets the IP address to `10.1.2.3` and the other to `10.1.2.4`. Conceptually, these two services are incompatible, and instantiating both at the same time produces a broken configuration (instantiating the second service instance breaks the configuration for the first). What is worse is that the current configuration depends on the order the services were deployed or re-deployed. For example, re-deploying the first service will change the configuration from `10.1.2.4` back to `10.1.2.3` and vice versa. Such inconsistencies break the declarative configuration model and really should be avoided.
 
 In practice, however, NSO does not prevent services from producing such configuration. But note that we strongly recommend against it and that there are associated limitations, such as service un-deploy not reverting configuration to that produced by the other instance (but when all services are removed, the original configuration is still restored).
+
+The `commit | debug` service pipe command warns about any such conflict that it finds but may miss conflicts on individual leafs. The best practice is to use integration tests in the service development life cycle to ensure there are no conflicts, especially when multiple teams develop their own set of services that are to be deployed on the same NSO instance.
 
 ## Stacked Services <a href="#ch_svcref.stacking" id="ch_svcref.stacking"></a>
 

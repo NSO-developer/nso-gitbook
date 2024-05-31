@@ -453,13 +453,13 @@ x.model.bits = b
 
 ### Empty Leaf <a href="#d5e4591" id="d5e4591"></a>
 
-An empty leaf is created using the `create` method:
+An empty leaf is created using the `create` method. If the type empty leaf is part of a union, the leaf must be set to the `C_EMPTY` value instead.
 
 ```
 pc = root.container.empty_leaf.create()
 ```
 
-Existence is checked with the `exists` or `bool` functions:
+If the type empty leaf is part of a union, then you read the leaf to see if `empty` is the current value. Otherwise, existence is checked with the `exists` or `bool` functions:
 
 ```
 root.container.empty_leaf.exists() # Returns True or False

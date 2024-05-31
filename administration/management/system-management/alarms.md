@@ -2,8 +2,8 @@
 
 ```
 alarm-type
+    certificate-expiration
     ha-alarm
-        certificate-expiration
         ha-node-down-alarm
             ha-primary-down
             ha-secondary-down

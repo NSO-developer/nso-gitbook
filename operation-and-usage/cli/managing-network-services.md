@@ -558,12 +558,12 @@ This service is not provisioned fully in the network, since `ce0` was down. It w
 ```
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 10777927137
- age              1934
- status           executing
- kilo-bytes-size  2
- devices          [ ce0 ce1 pe0 ]
- transient-errors [ ce0 ]
- is-atomic        true
+ age       1934
+ status    executing
+ devices   [ ce0 ce1 pe0 ]
+ transient ce0
+  reason "Failed to connect to device ce0: connection refused"
+ is-atomic true
 
 ncs# show vpn l3vpn volvo commit-queue | notab
 commit-queue queue-item 1498812003922
@@ -584,20 +584,19 @@ If we start `ce0` and inspect the queue, we will see that the queue will finally
 ```
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 10777927137
- age              3357
- status           executing
- kilo-bytes-size  2
- devices          [ ce0 ce1 pe0 ]
- transient-errors [ ce0 ]
- is-atomic        true
+ age       3357
+ status    executing
+ devices   [ ce0 ce1 pe0 ]
+ transient ce0
+  reason "Failed to connect to device ce0: connection refused"
+ is-atomic true
 
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 10777927137
- age              3359
- status           executing
- kilo-bytes-size  2
- devices          [ ce0 ce1 pe0 ]
- is-atomic        true
+ age       3359
+ status    executing
+ devices   [ ce0 ce1 pe0 ]
+ is-atomic true
 
 ncs# show devices commit-queue
 % No entries found.

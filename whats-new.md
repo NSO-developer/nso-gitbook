@@ -5,7 +5,7 @@ description: Latest features and enhancements added in this release.
 # What's New
 
 {% hint style="info" %}
-Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/).
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.2\&to=6.3).
 {% endhint %}
 
 ## Release Highlights <a href="#d5e42" id="d5e42"></a>
@@ -14,82 +14,111 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary><strong>Containerized Build Environment for NSO Packages</strong></summary>
+<summary><strong>Web UI Improvements</strong></summary>
 
-A new container image, called Development Image, is available from [Cisco Software Download](https://software.cisco.com/download/home). This image comes with the necessary environment and software for building NSO packages.
+The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.&#x20;
 
 Documentation Updates:
 
-* Updated and expanded the [Containerized NSO](administration/deployment/containerized-nso.md) describing the new image flavor.
+* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.&#x20;
 
 </details>
 
 <details>
 
-<summary><strong>Support for LDAP and TACACS+ Authentication</strong></summary>
+<summary><strong>Device Management Improvements</strong></summary>
 
-Two new authentication packages are now available in `$NCS_DIR/packages/auth`: `cisco-nso-ldap-auth` and `cisco-nso-tacacs-auth`. They provide support for LDAP and TACACS+ protocols through the Package Authentication mechanism.
+Devices now support `auto-configure` and `rename` actions to assist with the initial onboarding as well as the renaming of devices. Additionally, the listing of services, that have modified a device, has been improved and now includes Nano service zombies using a new `/devices/device/services/service` list.
 
 Documentation Updates:
 
-* Refer to the respective `README` file inside each package for usage and configuration options.
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/cli/nso-device-manager.md#renaming-devices-in-nso).&#x20;
 
 </details>
 
 <details>
 
-<summary><strong>DNS Update Support for Tailf-hcc</strong></summary>
+<summary><strong>Support for Linux/arm64 Platform</strong></summary>
 
-The tailf-hcc package now allows submitting an RFC2136 Dynamic DNS Update to a name server on High Availability (HA) failover, simplifying geographically redundant NSO HA setup.
+Binaries for the Linux OS on the arm64 architecture are now available for download from the Cisco [Software Download](https://software.cisco.com/download/home) site.
 
 Documentation Updates:
 
-* Added the section [Layer-3 DNS Update](administration/management/high-availability.md#ug.ha.hcc.deployment) describing the new functionality.
+* Updated system requirements in the Installation ([Local Install](administration/deployment/local-install.md), [System Install](administration/deployment/system-install.md)) and [Containerized NSO](administration/deployment/containerized-nso.md) sections.&#x20;
 
 </details>
 
 <details>
 
-<summary><strong>Nano Service Usability</strong></summary>
+<summary><strong>Platform Tools Packages</strong></summary>
 
-Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/concepts/nano-services-staged-provisioning.md)) streamline their development and use:
-
-* The `ncs-make-package` command now supports the `--nano-skeleton [python/java]` option.
-* The functionality of `self-as-service-status` is now the default.
-* The self component in a nano service plan is now generated automatically if not defined in the service model.
-* Canceled actions in the side effects queue can be manually scheduled for a retry.
-* Improved performance of initial create of a nano service with the `converge-on-re-deploy` extension.
+A number of additional packages are now bundled with the NSO installer binary. These are optional packages that can be added to the NSO instance and were previously distributed separately.
 
 Documentation Updates:
 
-* Updated the section [NACM Rules and Services](administration/management/aaa-infrastructure.md#d5e6693) to better document required permissions for nano services.
+* Expanded the [Installation](administration/deployment/#d5e46-1) section with information on additional bundled packages.
 
 </details>
 
 <details>
 
-<summary><strong>Upgrade Improvements</strong></summary>
+<summary><strong>Improved Services Documentation</strong></summary>
 
-CDB schema upgrades now use an optimized algorithm, resulting in faster upgrades and the ability to preview schema changes through a packages reload dry-run option. A separate upgrade log can be configured for information about CDB upgrade as well.
-
-Additionally, information on upgrading HA Raft clusters has been added.
+The service development documentation has been improved and expanded, allowing for a more gradual introduction to service concepts.
 
 Documentation Updates:
 
-* Updated the section [Loading Packages](administration/management/nso-packages.md#ug.package\_mgmt.loading) describing the dry-run functionality.
-* Added the section [Packages Upgrades in Raft Cluster](administration/management/high-availability.md#packages-upgrades-in-raft-cluster) and the section called [Version Upgrade of Cluster Nodes](administration/management/high-availability.md#ch\_ha.raft\_upgrade) for Raft HA.
+* Replaced the old Services section with a new [Implementing Services](development/development/developing-services/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/development/developing-services/creating-a-service.md) with additional fundamental service functionality.
+* Replaced the old Services section with a new [Services Deep Dive](development/development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
+* Substantially revised and improved the [Templates](development/development/templates.md) section.
 
 </details>
 
 <details>
 
-<summary><strong>NED Documentation Update</strong></summary>
+<summary><strong>Observability Improvements for Distributed Deployments</strong></summary>
 
-The old NED Development document has been updated and split into two parts. The part on managing and using NEDs is now incorporated into Administration, while the part detailing the creation of new NEDs is now found in the Development.
+NETCONF and RESTCONF APIs now support the propagation of standards-based Trace Context to aid distributed tracing.
 
 Documentation Updates:
 
-* Added [NED Administration](administration/management/ned-administration.md) on managing and using NEDs.
-* Added [NED Development](development/development/developing-neds/) on the creation of new NEDs.
+* For NETCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context) in Northbound APIs.
+* For RESTCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context-1) in Northbound APIs.
+
+</details>
+
+<details>
+
+<summary><strong>JSON Metadata Support</strong></summary>
+
+NSO now supports RFC-7952-encoded metadata, as well as setting metadata when using JSON data encoding.
+
+Documentation Updates:
+
+* Expanded the [RESTCONF API](development/concepts/northbound-apis.md#the-restconf-api) in Northbound APIs with details on metadata handling.
+
+</details>
+
+<details>
+
+<summary><strong>RESTCONF Data Filtering</strong></summary>
+
+Added the `exclude` query parameter support to the GET RESTCONF method that excludes a subtree from the returned output.
+
+Documentation Updates:
+
+* Expanded the section [Query Parameters](development/concepts/northbound-apis.md#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
+
+</details>
+
+<details>
+
+<summary><strong>Other Notable Highlights</strong></summary>
+
+* Improved YANG 1.1 support: Allow type `empty` in list keys and unions, as well as improve the handling of unions of enumerations.
+* Implement alarms for certificate expiry: The functionality now covers all certificates in use by NSO.
+* Automatic migration of templates: Migrating a device to a new NED ID will trigger a copy of the device and compliance templates for the old NED ID to the new NED ID (unless the template already contains configuration for the new NED ID).
+* Faster upgrades: The performance of the CDB upgrade process has been significantly improved by utilizing more parallelization.
+* `ncs.conf` management: `ncs.conf` file can now use environment variable references and parts of the file can be placed in separate configuration files in the `ncs.conf.d` sub-directory, next to the `ncs.conf` file.
 
 </details>

@@ -1,5 +1,5 @@
 ---
-description: Perform NSO system management activities.
+description: Perform NSO system management and configuration.
 ---
 
 # System Management
@@ -10,11 +10,11 @@ NSO consists of a number of modules and executable components. These executable 
 
 When NSO is started, it reads its configuration file and starts all subsystems configured to start (such as NETCONF, CLI, etc.).
 
-By default, NSO starts in the background without an associated terminal. It is recommended to use a [System Install](../../deployment/system-install.md) when installing NSO for production deployment. This will create an `init` script that starts NSO when the system boots, and makes NSO start the service manager.
+By default, NSO starts in the background without an associated terminal. It is recommended to use a [System Install](../deployment/system-install.md) when installing NSO for production deployment. This will create an `init` script that starts NSO when the system boots, and makes NSO start the service manager.
 
 ## Licensing NSO <a href="#ug.ncs_sys_mgmt.licensing" id="ug.ncs_sys_mgmt.licensing"></a>
 
-NSO is licensed using Cisco Smart Licensing. To register your NSO instance, you need to enter a token from your Cisco Smart Software Manager account. For more information on this topic, see [Cisco Smart Licensing](cisco-smart-licensing.md)_._
+NSO is licensed using Cisco Smart Licensing. To register your NSO instance, you need to enter a token from your Cisco Smart Software Manager account. For more information on this topic, see [Cisco Smart Licensing](system-management/cisco-smart-licensing.md)_._
 
 ## Configuring NSO
 
@@ -72,7 +72,7 @@ If you decide to allow remote access to the web server, also make sure you use T
 Using `/ncs-config/webui/match-host-name = true` requires you to use the configured hostname when accessing the server. Web browsers do this automatically but you may need to set the `Host` header when performing requests programmatically using an IP address instead of the hostname.
 {% endhint %}
 
-To additionally secure IPC access, refer to [Restricting Access to the IPC port](../../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting).
+To additionally secure IPC access, refer to [Restricting Access to the IPC port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting).
 
 For more details on individual interfaces and their use, see [Northbound APIs](https://developer.cisco.com/docs/nso-guides-6.1/#!northbound-apis-introduction).
 
@@ -191,7 +191,7 @@ Adding a user includes the following steps:
 2. Add the user to a NACM group: `admin@ncs(config)# nacm groups <group-name> admin user-name <user-name>`.
 3. Verify/change access rules.
 
-It is likely that the new user also needs access to work with device configuration. The mapping from NSO users and corresponding device authentication is configured in `authgroups`. So, the user needs to be added there as well.&#x20;
+It is likely that the new user also needs access to work with device configuration. The mapping from NSO users and corresponding device authentication is configured in `authgroups`. So, the user needs to be added there as well.
 
 ```
 admin@ncs(config)# show full-configuration devices authgroups
@@ -217,7 +217,7 @@ Aborted: Resource authgroup for jim doesn't exist
 
 ## Monitoring NSO <a href="#d5e7876" id="d5e7876"></a>
 
-This section describes how to monitor NSO. See also [NSO Alarms](./#nso-alarms).&#x20;
+This section describes how to monitor NSO. See also [NSO Alarms](./#nso-alarms).
 
 Use the command `ncs --status` to get runtime information on NSO.
 
@@ -235,16 +235,16 @@ Or, in the CLI:
 ncs# show ncs-state
 ```
 
-For details on the output see `$NCS_DIR/src/yang/tailf-common-monitoring2.yang`.&#x20;
+For details on the output see `$NCS_DIR/src/yang/tailf-common-monitoring2.yang`.
 
 Below is an overview of the output:
 
-<table data-header-hidden data-full-width="true"><thead><tr><th width="246"></th><th></th></tr></thead><tbody><tr><td><code>daemon-status</code> </td><td>You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td><code>version</code></td><td>The NSO version.</td></tr><tr><td><code>smp</code></td><td>Number of threads used by the daemon.</td></tr><tr><td><code>ha</code></td><td>The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td><code>internal/callpoints</code></td><td><p></p><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
+<table data-header-hidden data-full-width="true"><thead><tr><th width="246"></th><th></th></tr></thead><tbody><tr><td><code>daemon-status</code></td><td>You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td><code>version</code></td><td>The NSO version.</td></tr><tr><td><code>smp</code></td><td>Number of threads used by the daemon.</td></tr><tr><td><code>ha</code></td><td>The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td><code>internal/callpoints</code></td><td><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
   id=l3vpn-servicepoint daemonId=10 daemonName=ncs-dp-6-l3vpn:L3VPN
   id=nsr-servicepoint daemonId=11 daemonName=ncs-dp-7-nsd:NSRService
   id=vm-esc-servicepoint daemonId=12 daemonName=ncs-dp-8-vm-manager-esc:ServiceforVMstarting
   id=vnf-catalogue-esc daemonId=13 daemonName=ncs-dp-9-vnf-catalogue-esc:ESCVNFCatalogueService
-</code></pre></td></tr><tr><td><code>internal/cdb</code> </td><td>The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td><code>loaded-data-models</code></td><td>The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td> All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here. </td></tr><tr><td><code>patches</code></td><td> Lists any installed patches.</td></tr><tr><td><code>upgrade-mode</code></td><td> If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
+</code></pre></td></tr><tr><td><code>internal/cdb</code></td><td>The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td><code>loaded-data-models</code></td><td>The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td>All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here.</td></tr><tr><td><code>patches</code></td><td>Lists any installed patches.</td></tr><tr><td><code>upgrade-mode</code></td><td>If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
 
 It is also important to look at the packages that are loaded. This can be done in the CLI with:
 
@@ -283,7 +283,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 * `ncserr.log.1`_,_ `ncserr.log.idx`_,_ `ncserr.log.siz`: if the NSO daemon has a problem. this contains debug information relevant to support. The content can be displayed with `ncs --printlog ncserr.log`.
 * `audit.log`: central audit log covering all northbound interfaces. See [Log Messages and Formats](./#ug.ncs\_monitoring.messages). Can be configured to Syslog.
 * `localhost:8080.access`: all HTTP requests to the daemon. This is an access log for the embedded Web server. This file adheres to the Common Log Format, as defined by Apache and others. This log is not enabled by default and is not rotated, i.e. use logrotate(8). Can be configured to Syslog.
-*   `devel.log`: developer-log is a debug log for troubleshooting user-written code. This log is enabled by default and is not rotated, i.e. use logrotate(8). This log shall be used in combination with the `java-vm` or `python-vm` logs. The user code logs in the VM logs and the corresponding library logs in `devel.log`. Disable this log in production systems. Can be configured to Syslog. \
+*   `devel.log`: developer-log is a debug log for troubleshooting user-written code. This log is enabled by default and is not rotated, i.e. use logrotate(8). This log shall be used in combination with the `java-vm` or `python-vm` logs. The user code logs in the VM logs and the corresponding library logs in `devel.log`. Disable this log in production systems. Can be configured to Syslog.\
     \
     You can manage this log and set its logging level in `ncs.conf`.
 
@@ -327,13 +327,13 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     ```
     admin@ncs(config)# devices device r0 trace pretty
     ```
-* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/connected-topics/progress-trace.md).
+* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../development/connected-topics/progress-trace.md).
 * Transaction error log: log for collecting information on failed transactions that lead to either a CDB boot error or a runtime transaction failure. The default is `false` (disabled). More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#tailf-ncs-config.yang\_config) under Configuration Parameters (see `logs/transaction-error-log`).
 * Upgrade log: log containing information about CDB upgrade. The log is enabled by default and not rotated (i.e., use logrotate). With the NSO example set, the following examples populate the log in the `logs/upgrade.log` file: `examples.ncs/development-guide/ned-upgrade/yang-revision`, `examples.ncs/development-guide/high-availability/upgrade-basic`, `examples.ncs/development-guide/high-availability/upgrade-cluster`, and `examples.ncs/getting-started/developing-with-ncs/14-upgrade-service`. More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#tailf-ncs-config.yang\_config) under Configuration Parameters (see `logs/upgrade-log)`.
 
 ### Syslog <a href="#d5e259" id="d5e259"></a>
 
-NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog settings. All Syslog messages are documented in Log Messages. The `ncs.conf` also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, netconf, SNMP, and WebUI access logs to syslog with the facility set to daemon in `ncs.conf`. For reference, see the upgrade-l2 example, located in `examples.ncs/development-guide/high-availability/hcc` .
+NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog settings. All Syslog messages are documented in Log Messages. The `ncs.conf` also lets you decide which of the logs should go into Syslog: `ncs.log, devel.log, netconf.log, snmp.log, audit.log, WebUI access log`. There is also a possibility to integrate with `rsyslog` to log the NCS, developer, audit, netconf, SNMP, and WebUI access logs to syslog with the facility set to daemon in `ncs.conf`. For reference, see the `upgrade-l2` example, located in `examples.ncs/development-guide/high-availability/hcc` .
 
 Below is an example of Syslog configuration:
 
@@ -358,8 +358,8 @@ Below is an example of Syslog configuration:
 
 Log messages are described on the link below:
 
-{% content-ref url="log-messages-and-formats.md" %}
-[log-messages-and-formats.md](log-messages-and-formats.md)
+{% content-ref url="system-management/log-messages-and-formats.md" %}
+[log-messages-and-formats.md](system-management/log-messages-and-formats.md)
 {% endcontent-ref %}
 
 ### NSO Alarms <a href="#nso-alarms" id="nso-alarms"></a>
@@ -372,8 +372,8 @@ This is also documented in the example `/examples.ncs/getting-started/using-ncs/
 
 Alarms are described on the link below:
 
-{% content-ref url="alarms.md" %}
-[alarms.md](alarms.md)
+{% content-ref url="system-management/alarms.md" %}
+[alarms.md](system-management/alarms.md)
 {% endcontent-ref %}
 
 ### Trace ID <a href="#d5e2587" id="d5e2587"></a>
@@ -390,7 +390,7 @@ Trace ID is propagated downwards in LSA setups and is fully integrated with comm
 
 Trace ID can be passed to NSO over NETCONF, RESTCONF, JSON-RPC, or CLI as a commit parameter.
 
-If Trace ID is not given as a commit parameter, NSO will generate one if the feature is enabled. This generated Trace ID will be on the form UUID version 4.
+If Trace ID is not given as a commit parameter, NSO will generate one. The generated Trace ID is an array of 16 random bytes, encoded as a 32-character hexadecimal string, in accordance with [Trace ID](https://www.w3.org/TR/trace-context/#trace-id).
 
 For RESTCONF requests, this generated Trace ID will be communicated back to the requesting client as an HTTP header called `X-Cisco-NSO-Trace-ID`. The `trace-id` query parameter can also be used with RPCs and actions to relay a trace-id from northbound requests.
 
@@ -435,7 +435,7 @@ If the AAA database is broken, NSO will start but with no authorization rules lo
 NSO attempts to handle all runtime problems without terminating, e.g., by restarting specific components. However, there are some cases where this is not possible, described below. When NSO is started the default way, i.e. as a daemon, the exit codes will of course not be available, but see the `--foreground` option in the [ncs(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-1/man.1.ncs) Manual Page.
 
 * **Out of memory**: If NSO is unable to allocate memory, it will exit by calling abort(3). This will generate an exit code, as for reception of the SIGABRT signal - e.g. if NSO is started from a shell script, it will see 134, as the exit code (128 + the signal number).
-*   **Out of file descriptors for accept(2)**: If NSO fails to accept a TCP connection due to lack of file descriptors, it will log this and then exit with code 25. To avoid this problem, make sure that the process and system-wide file descriptor limits are set high enough, and if needed configure session limits in `ncs.conf`.  The out-of-file descriptors issue may also manifest itself in that applications are no longer able to open new file descriptors.\
+*   **Out of file descriptors for accept(2)**: If NSO fails to accept a TCP connection due to lack of file descriptors, it will log this and then exit with code 25. To avoid this problem, make sure that the process and system-wide file descriptor limits are set high enough, and if needed configure session limits in `ncs.conf`. The out-of-file descriptors issue may also manifest itself in that applications are no longer able to open new file descriptors.\
     \
     In many Linux systems, the default limit is 1024, but if we, for example, assume that there are four northbound interface ports, CLI, RESTCONF, SNMP, WebUI/JSON-RPC, or similar, plus a few hundred IPC ports, x 1024 == 5120. But one might as well use the next power of two, 8192, to be on the safe side.
 
@@ -522,7 +522,7 @@ As described [earlier](./#configuring-nso), NSO is configured through the config
 
 ## Troubleshooting <a href="#ug.sys_mgmt.tshoot" id="ug.sys_mgmt.tshoot"></a>
 
-New users can face problems when they start to use NSO. If you face an issue, reach out to our support team regardless if your problem is listed here or not.&#x20;
+New users can face problems when they start to use NSO. If you face an issue, reach out to our support team regardless if your problem is listed here or not.
 
 {% hint style="success" %}
 A useful tool in this regard is the `ncs-collect-tech-report` tool, which is the Bash script that comes with the product. It collects all log files, CDB backup, and several debug dumps as a TAR file. Note that it works only with a System Install.
@@ -532,7 +532,7 @@ root@linux:/# ncs-collect-tech-report --full
 ```
 {% endhint %}
 
-&#x20;Some noteworthy issues are covered here.
+Some noteworthy issues are covered here.
 
 <details>
 
@@ -601,7 +601,7 @@ root@linux:/# ncs-collect-tech-report --full
 <!---->
 
 * **Impact**\
-  Sending NETCONF commands and queries with `netconf-console` fails, while it works using `netconf-console-tcp`.&#x20;
+  Sending NETCONF commands and queries with `netconf-console` fails, while it works using `netconf-console-tcp`.
 
 <!---->
 
@@ -613,8 +613,7 @@ root@linux:/# ncs-collect-tech-report --full
 *   **Resolution**\
     Install Paramiko using the instructions from [https://www.paramiko.org](https://www.paramiko.org/).\
     \
-    When properly installed, you will be able to import the Paramiko module without error messages.\
-
+    When properly installed, you will be able to import the Paramiko module without error messages.\\
 
     ```
     $ python
@@ -637,7 +636,7 @@ root@linux:/# ncs-collect-tech-report --full
 
 <summary>Problems Using and Developing Services</summary>
 
-If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../../development/development/developing-services/implementing-services.md#ncs.development.services.tshoot) section in [Implementing Services](../../../development/development/developing-services/implementing-services.md).
+If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../development/development/developing-services/implementing-services.md#ncs.development.services.tshoot) section in [Implementing Services](../../development/development/developing-services/implementing-services.md).
 
 </details>
 
@@ -735,7 +734,7 @@ Another thing you can do in case you suspect that you have experienced a bug in 
 
 <summary>System Dump</summary>
 
-If NSO aborts due to failure to allocate memory (see [Disaster Management](./#ug.ncs\_sys\_mgmt.disaster)), and you believe that this is due to a memory leak in NSO, creating one or more debug dumps as described above (before NSO aborts) will produce the most useful information for Support. If this is not possible, NSO will produce a system dump by default before aborting, unless `DISABLE_NCS_DUMP` is set.&#x20;
+If NSO aborts due to failure to allocate memory (see [Disaster Management](./#ug.ncs\_sys\_mgmt.disaster)), and you believe that this is due to a memory leak in NSO, creating one or more debug dumps as described above (before NSO aborts) will produce the most useful information for Support. If this is not possible, NSO will produce a system dump by default before aborting, unless `DISABLE_NCS_DUMP` is set.
 
 The default system dump file name is `ncs_crash.dump` and it could be changed by setting the environment variable `$NCS_DUMP` before starting NSO. The dumped information is only comprehensible to the NSO development team, so send the dump to your support contact.
 
@@ -745,7 +744,7 @@ The default system dump file name is `ncs_crash.dump` and it could be changed by
 
 <summary>System Call Trace</summary>
 
-To catch certain types of problems, especially relating to system start and configuration, the operating system's system call trace can be invaluable. This tool is called `strace`/`ktrace`/`truss`. Please send the result to your support contact for a diagnosis.&#x20;
+To catch certain types of problems, especially relating to system start and configuration, the operating system's system call trace can be invaluable. This tool is called `strace`/`ktrace`/`truss`. Please send the result to your support contact for a diagnosis.
 
 By running the instructions below.
 

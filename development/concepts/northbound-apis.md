@@ -6,7 +6,7 @@ description: Understand different types of northbound APIs and their working mec
 
 This section describes the various northbound programmatic APIs in NSO NETCONF, REST, and SNMP. These APIs are used by external systems that need to communicate with NSO, such as portals, OSS, or BSS systems.
 
-NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../operation-and-usage/cli/) and [Web User Interface](../../operation-and-usage/webui.md) respectively.
+NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../operation-and-usage/cli/) and [Web User Interface](../../operation-and-usage/webui/) respectively.
 
 There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../development/developing-services/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
 
@@ -938,6 +938,58 @@ This module adds a parameter `with-rollback-id` to the following RPCs:
 
 If `with-rollback-id` is given, rollbacks are enabled, and the operation results in a rollback file being created the response will contain a rollback reference.
 
+### Trace Context <a href="#trace-context" id="trace-context"></a>
+
+NETCONF supports the IETF standard draft [I-D.draft-ietf-netconf-trace-ctx-extension-00](https://www.ietf.org/archive/id/draft-ietf-netconf-trace-ctx-extension-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context standardizes the format of `trace-id`, `parent-id`, and key-value pairs sent between distributed entities. The `parent-id` will become the `parent-span-id` for the next generated `span-id` in NSO.
+
+Trace Context consists of two XML attributes `traceparent` and `tracestate` corresponding to the capabilities `urn:ietf:params:xml:ns:yang:traceparent:1.0` and `urn:ietf:params:xml:ns:yang:tracestate:1.0` respectively. The attributes belong to the start XML element `rpc` in a NETCONF request.
+
+Attribute `traceparent` must be of the format:
+
+```
+traceparent = <version>-<trace-id>-<parent-id>-<flags>
+```
+
+where `version` = "00" and `flags` = "01". The support for the values of `version` and `flags` may change in the future depending on the extension of the standard or functionality.
+
+Attribute `tracestate` is a vendor-specific list of key-value pairs and must be of the format:
+
+```
+tracestate = key1=value1,key2=value2
+```
+
+Where a value may contain space characters but not end with a space.
+
+Here is an example of the usage of the attributes `traceparent` and `tracestate`:
+
+{% code title="Example: Attributes traceparent and tracestate in NETCONF Request" %}
+```
+<rpc message-id="101"
+     xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
+     xmlns:w3ctc="urn:ietf:params:xml:ns:netconf:w3ctc:1.0"
+     w3ctc:traceparent="00-100456789abcde10123456789abcde10-001006789abcdef0-01"
+     w3ctc:tracestate="key1=value1,key2=value2">
+  <edit-config>
+    <target>
+      <running/>
+    </target>
+    <config>
+      <interfaces xmlns="http://example.com/ns/if">
+        <interface>
+          <name>eth0</name>
+          ...
+        </interface>
+      </interfaces>
+    </config>
+  </edit-config>
+</rpc>
+```
+{% endcode %}
+
+NSO implements Trace Context alongside the legacy way of handling trace-id found in [NETCONF Extensions in NSO](northbound-apis.md#d5e896). The support of Trace Context covers the same scenarios as the legacy `trace-id` functionality, except for the scenario where both `trace-id` and Trace Context are absent in a request, in which case legacy `trace-id` is generated. The two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. Read about `trace-id` legacy functionality in [NETCONF Extensions in NSO](northbound-apis.md#d5e896).
+
+NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. For NSO to consider the attributes of Trace Context in a NETCONF request, the `trace-id` element in the configuration file must be enabled. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../connected-topics/progress-trace.md).
+
 ### NETCONF Extensions in NSO <a href="#d5e896" id="d5e896"></a>
 
 The YANG module `tailf-netconf-ncs` augments some NETCONF operations with additional parameters to control the behavior in NSO over NETCONF. See that YANG module for all the details. In this section, the options are summarized.
@@ -983,7 +1035,8 @@ To control the commit behavior of NSO the following input parameters are availab
   \
   Read about error recovery in [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id`\
-  Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing.
+  Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. \
+  **Note**: `trace-id` within NETCONF extensions is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [Trace Context](northbound-apis.md#trace-context).
 
 These optional input parameters are augmented into the following NETCONF operations:
 
@@ -1435,9 +1488,9 @@ RESTCONF is an HTTP-based protocol as defined in [RFC 8040](https://www.ietf.org
 
 RESTCONF uses HTTP methods to provide Create, Read, Update, Delete (CRUD) operations on a conceptual datastore containing YANG-defined data, which is compatible with a server that implements NETCONF datastores as defined in [RFC 6241](https://www.ietf.org/rfc/rfc6241.txt).
 
-Configuration data and state data are exposed as resources that can be retrieved with the GET method. Resources representing configuration data can be modified with the DELETE, PATCH, POST, and PUT methods. Data is encoded with either XML ([W3C.REC-xml-20081126](https://www.w3.org/TR/2008/REC-xml-20081126)) or JSON ([RFC 7159](https://www.ietf.org/rfc/rfc6241.txt))
+Configuration data and state data are exposed as resources that can be retrieved with the GET method. Resources representing configuration data can be modified with the DELETE, PATCH, POST, and PUT methods. Data is encoded with either XML ([W3C.REC-xml-20081126](https://www.w3.org/TR/2008/REC-xml-20081126)) or JSON ([RFC 7951](https://www.ietf.org/rfc/rfc7951.txt)).
 
-This chapter describes the NSO implementation and extension to or deviation from [RFC 8040](https://www.ietf.org/rfc/rfc8040.txt) respectively.
+This section describes the NSO implementation and extension to or deviation from [RFC 8040](https://www.ietf.org/rfc/rfc8040.txt) respectively.
 
 As of this writing, the server supports the following specifications:
 
@@ -1454,6 +1507,7 @@ As of this writing, the server supports the following specifications:
 * [RFC 8341](https://www.ietf.org/rfc/rfc8341.txt) - Network Configuration Access Control Model
 * [RFC 8525](https://www.ietf.org/rfc/rfc8525.txt) - YANG Library
 * [RFC 8528](https://www.ietf.org/rfc/rfc8528.txt) - YANG Schema Mount
+* [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html) - RESTCONF Extension to support Trace Context Headers
 
 ### Getting started <a href="#ncs.northbound.restconf.getting_started" id="ncs.northbound.restconf.getting_started"></a>
 
@@ -1776,6 +1830,8 @@ Accept: application/yang-data+xml
   <capability>http://tail-f.com/ns/restconf/query-api/1.0</capability>
   <capability>http://tail-f.com/ns/restconf/partial-response/1.0</capability>
   <capability>http://tail-f.com/ns/restconf/unhide/1.0</capability>
+  <capability>urn:ietf:params:xml:ns:yang:traceparent:1.0</capability>
+  <capability>urn:ietf:params:xml:ns:yang:tracestate:1.0</capability>
 </capabilities>
 </restconf-state>
 ```
@@ -2017,7 +2073,7 @@ HTTP/1.1 200 OK
 
 There are additional NSO query parameters available for the RESTCONF API. These additional query parameters are described in the table below (Additional Query Parameters).
 
-<table><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <em>true</em> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../operation-and-usage/cli/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
+<table><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../operation-and-usage/cli/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="northbound-apis.md#trace-context">Trace Context</a>.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
 
 ### Edit Collision Prevention
 
@@ -2758,6 +2814,36 @@ unhide=extra,debug;secret
 
 This example unhides the unprotected group _extra_ and the password-protected group `debug` with the password `secret;`.
 
+### Trace Context <a href="#trace-context" id="trace-context"></a>
+
+This functionality is supported if the `urn:ietf:params:xml:ns:yang:traceparent:1.0` and `urn:ietf:params:xml:ns:yang:tracestate:1.0` capability is presented. See also [How to View the Capabilities of the RESTCONF Server](northbound-apis.md#ncs.northbound.restconf.capabilities).
+
+RESTCONF supports the IETF standard draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context standardizes the format of `trace-id`, `parent-id`, and key-value pairs to be sent between distributed entities. The `parent-id` will become the `parent-span-id` for the next generated `span-id` in NSO.
+
+Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format
+
+```
+traceparent = <version>-<trace-id>-<parent-id>-<flags>
+```
+
+where `version` = "00" and `flags` = "01". The support for the values of `version` and `flags` may change in the future depending on the extension of the standard or functionality.
+
+An example of header `traceparent` in use is:
+
+```
+traceparent: 00-100456789abcde10123456789abcde10-001006789abcdef0-01
+```
+
+Header `tracestate` is a vendor-specific list of key-value pairs. An example of the header `tracestate` in use is:
+
+```
+tracestate: key1=value1,key2=value2
+```
+
+where a value may contain space characters but not end with a space.
+
+NSO implements Trace Context alongside the legacy way of handling `trace-id`, where the `trace-id` comes as a query parameter. These two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. If a request does not include `trace-id` or the header `traceparent`, a `traceparent` will be generated internally in NSO. NSO will consider the headers of Trace Context in RESTCONF requests if the `trace-id` element is enabled in the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../connected-topics/progress-trace.md) in Development.
+
 ### Configuration Metadata <a href="#d5e2268" id="d5e2268"></a>
 
 It is possible to associate metadata with the configuration data. For RESTCONF, resources such as containers, lists as well as leafs and leaf-lists can have such meta-data. For XML, this meta-data is represented as attributes attached to the XML element in question. For JSON, there does not exist a natural way to represent this info. Hence a special special notation has been introduced, based on the [RFC 7952](https://www.ietf.org/rfc/rfc7952.txt), see the example below.
@@ -2778,26 +2864,52 @@ It is possible to associate metadata with the configuration data. For RESTCONF, 
 ```
 {
   "x": {
-    "id": 42,
-    "@id": {"tags": ["important","ethernet"],"annotation": "hello world"},
-    "person": {
-      // NB: the below refers to the parent object
-      "@@person": {"annotation": "This is a person"},
-      "name": "Bill",
-      "person": "grandma",
-      // NB: the below refers to the sibling object
-      "@person": {"annotation": "This is another person"}
+    "foo": 42,
+    "@foo": {"tailf_netconf:tags": ["tags","for","foo"],
+             "tailf_netconf:annotation": "annotation for foo"},
+    "y": {
+      "@": {"tailf_netconf:annotation": "Annotation for parent y"},
+      "y": 1,
+      "@y": {"tailf_netconf:annotation": "Annotation for sibling y"}
+    }
+  }
+}
+
+```
+{% endcode %}
+
+The meta-data for an object is represented by another object constructed either of an "@" sign if the meta-data object refers to the parent object, or by the object name prefixed with an "@" sign if the meta-data object refers to a sibling object.
+
+Note that the meta-data node types, e.g., tags and annotations, are prefixed by the module name of the YANG module where the meta-data object is defined. This representation conforms to [RFC 7952 Section 5.2](https://www.rfc-editor.org/rfc/rfc7952.html#section-5.2). The YANG module name prefixes for meta-data node types are listed below:
+
+| Meta-data type    | Prefix                   |
+| ----------------- | ------------------------ |
+| `origin`          | `ietf-origin`            |
+| `inactive/active` | `tailf-netconf-inactive` |
+| `default`         | `tailf-netconf-defaults` |
+| `All other`       | `tailf_netconf`          |
+
+Compare this to the encoding in NSO versions prior to 6.3, where we represented meta-data for an object by another object constructed of the object name prefixed with either one or two "@" signs. The meta-data object "@x" referred to the sibling object "x" and the "@@x" object referred to the parent object. No module name prefixes were included for the meta-data data object types. This did not conform to [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) for legacy reasons. See the example below.
+
+{% code title="Example: Legacy JSON Representation of Meta-data" %}
+```
+{
+  "x": {
+    "foo": 42,
+    "@foo": {"tags": ["tags","for","foo"], "annotation": "annotation for foo"},
+    "y": {
+      "@@y": {"annotation": "Annotation for parent y"},
+      "y": 1,
+      "@y": {"annotation": "Annotation for sibling y"}
     }
   }
 }
 ```
 {% endcode %}
 
-For JSON, note how we represent the metadata for a certain object `"x"` by another object constructed of the object name prefixed with either one or two `"@"` signs. The meta-data object `"@x"` refers to the sibling object `"x"` and the `"@@x"` object refers to the parent object.
+To continue using the old meta-data format, set `legacy-attribute-format` to `true` in `ncs.conf`. The default is `false`, which uses the [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) format. The `legacy-attribute-format` setting is deprecated and will be removed in a future release.
 
-{% hint style="info" %}
-This differs from the RFC 7952.
-{% endhint %}
+It is also possible to set meta-data objects in JSON format, which was previously only possible with XML. Note that the new attribute format must be used and `legacy-attribute-format` set to `false`. Except for setting the `default` and `insert` meta-data types, which are not supported using JSON.
 
 ### Authentication Cache <a href="#d5e2282" id="d5e2282"></a>
 
@@ -3156,11 +3268,11 @@ Note, that this only relates to initialization the first time NSO is started. On
 The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines a table of alarms and SNMP alarm notifications corresponding to alarm state changes. Based on the alarm model in NSO (see [NSO Alarms](https://developer.cisco.com/docs/nso-guides-6.1/#!northbound-apis-nso-alarms)), the notifications as well as the alarm table contain the parameters that are required for alarm standards compliance (X.733 and 3GPP). The MIB files are located in `$NCS_DIR/src/ncs/snmp/mibs`.
 
 * **TAILF-TOP-MIB.mib**\
-  The tail-f enterprise OID.
+  **T**he tail-f enterprise OID.
 * **TAILF-TC-MIB.mib**\
   Textual conventions for the alarm mib.
 * **TAILF-ALARM-MIB.mib**\
-  The actual alarm MIB.
+  **T**he actual alarm MIB.
 * **IANA-ITU-ALARM-TC-MIB.mib**\
   Import of IETF mapping of X.733 parameters.
 * **ITU-ALARM-TC-MIB.mib**\
