@@ -89,7 +89,7 @@ Additional actions are applied per individual service. Use this option if you wa
 5. Run the action.
 
 {% hint style="info" %}
-Fetch the action information by clicking the info <img src="../../.gitbook/assets/image (27).png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
+Fetch the action information by clicking the info <img src="broken-reference" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**

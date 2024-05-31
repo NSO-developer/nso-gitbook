@@ -10,7 +10,7 @@ The **Devices** view provides options to manage devices and device groups in the
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/device-management.png#developer.cisco.com" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
 
 ### **Search**
 
@@ -38,7 +38,7 @@ An action can be applied to a single or multiple devices at once.
 2. Using the **Choose actions** button, select the desired action. The result of the action is returned immediately.
 
 {% hint style="info" %}
-In the **Device management** view, you can also apply actions on a device using the more options <img src="../../.gitbook/assets/image (1).png" alt="" data-size="line"> button.
+In the **Device management** view, you can also apply actions on a device using the more options <img src="broken-reference" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Management View**
@@ -46,7 +46,7 @@ In the **Device management** view, you can also apply actions on a device using 
 Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, **Apply template**, **Modify in Config editor**, and **Delete**.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** actions are accessible by clicking the more options <img src="../../.gitbook/assets/image (25).png" alt="" data-size="line"> button on the device row.
+The **Modify in Config Editor** and **Delete** actions are accessible by clicking the more options <img src="broken-reference" alt="" data-size="line"> button on the device row.
 {% endhint %}
 
 See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of these actions.
@@ -64,7 +64,7 @@ Additional actions are applied per individual device. Use this option if you wan
 5. Run the action.
 
 {% hint style="info" %}
-To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info  <img src="../../.gitbook/assets/image (3).png" alt="" data-size="line"> icon.
+To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info  <img src="broken-reference" alt="" data-size="line"> icon.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
@@ -128,7 +128,7 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/image (6).png" alt="" data-size="line"> button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="broken-reference" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
@@ -136,5 +136,5 @@ In the **Device groups** view, you can also apply actions on a device group usin
 The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../cli/lifecycle-operations.md).
 
 {% hint style="info" %}
-The **Modify in Config editor** option is accessible by clicking the more options <img src="../../.gitbook/assets/image (7).png" alt="" data-size="line"> button on a device group.
+The **Modify in Config editor** option is accessible by clicking the more options <img src="broken-reference" alt="" data-size="line"> button on a device group.
 {% endhint %}
