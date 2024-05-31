@@ -29,11 +29,11 @@ The file layout of a package is:
                     netsim/
 ```
 
-The `package-meta-data.xml` defines several important aspects of the package, such as the name, dependencies on other packages, the package's components, etc. This will be thoroughly described later in this chapter.
+The `package-meta-data.xml` defines several important aspects of the package, such as the name, dependencies on other packages, the package's components, etc. This will be thoroughly described later in this section.
 
 When NSO starts, it needs to search for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. All .fxs (compiled YANG files) and .ccl (compiled CLI spec files) files found in the directory `load-dir` in a package are loaded. On subsequent startups, NSO will by default only load and start the copied packages - see [Loading Packages](../development/nso-packages.md#loading-packages) for different ways to get NSO to search the load path for changed or added packages.
 
-A package usually contains Java code. This Java code is loaded by a class loader in the NSO Java VM. A package that contains Java code must compile the Java code so that the compilation results are divided into .jar files where code that is supposed to be shared among multiple packages is compiled into one set of .jar files, and code that is private to the package itself is compiled into another set of .jar files. The shared and the common jar files shall go into the `shared-jar` directory and the `private-jar` directory, respectively. By putting for example the code for a specific service in a private jar, NSO can dynamically upgrade the service without affecting any other service.
+A package usually contains Java code. This Java code is loaded by a class loader in the NSO Java VM. A package that contains Java code must compile the Java code so that the compilation results are divided into .jar files where code, that is supposed to be shared among multiple packages, is compiled into one set of .jar files, and code that is private to the package itself is compiled into another set of .jar files. The shared and the common jar files shall go into the `shared-jar` directory and the `private-jar` directory, respectively. By putting for example the code for a specific service in a private jar, NSO can dynamically upgrade the service without affecting any other service.
 
 The optional `webui` directory contains the WEB UI customization files.
 
@@ -286,7 +286,7 @@ list component {
   ....
 ```
 
-Lots of additional information can be found in the YANG module itself. The mandatory choice that defines a component must be one of `ned`, `callback`, `application`, or `upgrade`. We have:
+Lots of additional information can be found in the YANG module itself. The mandatory choice that defines a component must be one of `ned`, `callback`, `application`, or `upgrade`.
 
 ### Component Types
 
@@ -294,7 +294,7 @@ Lots of additional information can be found in the YANG module itself. The manda
 
 A Network Element Driver component is used southbound of NSO to communicate with managed devices (described in [Network Element Drivers (NEDs](../development/developing-neds/)). The easiest NED to understand is the NETCONF NED which is built into NSO.
 
-There are 4 different types of NEDs:
+There are four different types of NEDs:
 
 * **NETCONF**: used for NETCONF-enabled devices such as Juniper routers, ConfD-powered devices, or any device that speaks proper NETCONF and also has YANG models. Plenty of packages in the NSO example collection have NETCONF NED components, for example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network/packages/router`.
 *   **SNMP**: Used for SNMP devices.
@@ -309,7 +309,7 @@ A CLI NED and a generic NED component must also come with additional user-writte
 
 This defines a component with one or many Java classes that implement callbacks using the Java callback annotations.
 
-If we look at the components in the `stats` package above we have:
+If we look at the components in the `stats` package above, we have:
 
 ```
   <component>

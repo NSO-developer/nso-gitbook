@@ -72,7 +72,7 @@ In most cases, this means the `ADDRESS` must appear in the node certificate's Su
 
 Create and use a self-signed CA to secure the NSO HA Raft cluster. A self-signed CA is the only secure option. The CA should only be used to sign the certificates of the member nodes in one NSO HA Raft cluster. It is critical for security that the CA is not used to sign any other certificates. Any certificate signed by the CA can be used to gain complete control of the NSO HA Raft cluster.
 
-See the `examples.ncs/high-availability/raft-cluster` example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.
+See the `examples.ncs/high-availability/raft-cluster` example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.&#x20;
 
 Examples using separate containers for each HA Raft cluster member with NSO system installations that use a variant of the `gen_tls_certs.sh` script are available and referenced in the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
@@ -412,7 +412,7 @@ However, if the upgrade fails after the original leader was successfully upgrade
 
 ## NSO Rule-based HA <a href="#ug.ha.builtin" id="ug.ha.builtin"></a>
 
-NSO can manage the HA groups based on a set of predefined rules. This functionality was added in NSO 5.4 and is sometimes referred to simply as the built-in HA. However, since NSO 6.1, HA Raft (which is also built-in) is available as well, and is likely a better choice in most situations.
+NSO can manage the HA groups based on a set of predefined rules. This functionality was added in NSO 5.4 and is sometimes referred to simply as the built-in HA. However, since NSO 6.1, HA Raft  (which is also built-in) is available as well, and is likely a better choice in most situations.
 
 Rule-based HA allows administrators to:
 
@@ -432,7 +432,7 @@ NSO rule-based HA does not manage any virtual IP addresses, or advertise any BGP
 To use NSO rule-based HA, HA must first be enabled in `ncs.conf` - See [Mode of Operation](high-availability.md#ha.moo).
 
 {% hint style="info" %}
-If the package tailf-hcc with a version less than 5.0 is loaded, NSO rule-based HA will not function. These HCC versions may still be used but NSO built-in HA will not function in parallel.
+&#x20;If the package tailf-hcc with a version less than 5.0 is loaded, NSO rule-based HA will not function. These HCC versions may still be used but NSO built-in HA will not function in parallel.
 {% endhint %}
 
 ### HA Member Configuration <a href="#d5e4830" id="d5e4830"></a>
@@ -698,13 +698,13 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="211">Parameters</th><th width="202">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="196">Parameters</th><th width="186">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
 Per-Neighbor BGP Configuration:
 
-<table><thead><tr><th width="185">Parameters</th><th width="208">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th width="193">Parameters</th><th width="195">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
 
 #### **Example**
 
@@ -880,7 +880,7 @@ Layer-3 operation is configured for each NSO HA group node separately. The HCC c
 
 Addresses:
 
-<table><thead><tr><th>Hostname</th><th>Address</th><th width="101">AS</th><th>Role</th></tr></thead><tbody><tr><td><code>paris</code></td><td>192.168.31.99</td><td>64512</td><td>Paris node</td></tr><tr><td><code>london</code></td><td>192.168.30.98</td><td>64513</td><td>London node</td></tr><tr><td><code>router</code></td><td><p>192.168.30.2</p><p>192.168.31.2</p></td><td>64514</td><td>BGP-enabled router</td></tr><tr><td><code>vip4</code></td><td>192.168.23.122</td><td></td><td>Primary node IPv4 VIP address</td></tr></tbody></table>
+<table><thead><tr><th>Hostname</th><th>Address</th><th width="101">AS</th><th>Role</th></tr></thead><tbody><tr><td><code>paris</code></td><td>192.168.31.99</td><td>64512</td><td>Paris node</td></tr><tr><td><code>london</code></td><td>192.168.30.98</td><td>64513</td><td>London node</td></tr><tr><td><code>router</code></td><td><p>192.168.30.2</p><p>192.168.31.2</p></td><td>64514</td><td>BGP-enabled router</td></tr><tr><td><code>vip4</code></td><td>192.168.23.122</td><td> </td><td>Primary node IPv4 VIP address</td></tr></tbody></table>
 
 Configuring BGP for Paris Node:
 

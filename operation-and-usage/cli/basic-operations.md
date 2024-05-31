@@ -148,7 +148,7 @@ connect-result {
 
 NSO does not need to have the connections active continuously, instead, NSO will establish a connection when needed and connections are pooled to conserve resources. At this time, NSO can read the configurations from the devices and populate the configuration database, CDB.
 
-The following command will synchronize the configurations of the devices with the CDB and respond with "true" if successful:
+The following command will synchronize the configurations of the devices with the CDB and respond with `true` if successful:
 
 ```
 admin@ncs# devices sync-from
@@ -532,7 +532,7 @@ c2    tailf-ned-cisco-ios        2014-02-12  -         -
       tailf-ned-cisco-ios-stats  2014-02-12  -         -
 ```
 
-So here we see that `c0` uses a `tailf-ned-cisco-ios` module which tells NSO which data model to use for the device. Every NED comes with a YANG data model for the device. This renders the NSO data store (CDB) schema, the NSO CLI, WebUI, and southbound commands.
+So here we see that `c0` uses a `tailf-ned-cisco-ios` module which tells NSO which data model to use for the device. Every NED package comes with a YANG data model for the device (except for third-party YANG NED for which the YANG device model must be downloaded and fixed before it can be used). This renders the NSO data store (CDB) schema, the NSO CLI, WebUI, and southbound commands.
 
 The model introduces namespace prefixes for every configuration item. This also resolves issues around different vendors using the same configuration command for different configuration elements. Note that every item is prefixed with `ios`:
 
@@ -552,13 +552,14 @@ Another important question is how to control if the template merges the list or 
 
 Assume that `c0` has the following configuration:
 
-<pre><code><strong>admin@ncs# show running-config devices device c0 config ios:ip community-list
-</strong>devices device c0
+```
+admin@ncs# show running-config devices device c0 config ios:ip community-list
+devices device c0
  config
   ios:ip community-list 1 permit
   ios:ip community-list 2 deny
   ios:ip community-list standard s permit}
-</code></pre>
+```
 
 If we apply the template the default result would be:
 

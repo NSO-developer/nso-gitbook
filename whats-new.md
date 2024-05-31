@@ -14,129 +14,82 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary><strong>HA Raft</strong></summary>
+<summary><strong>Containerized Build Environment for NSO Packages</strong></summary>
 
-Introduced HA Raft, a consensus-based high-availability solution. HA Raft is based on the Raft algorithm and provides secure and durable state replication with robust automatic cluster management.
+A new container image, called Development Image, is available from [Cisco Software Download](https://software.cisco.com/download/home). This image comes with the necessary environment and software for building NSO packages.
 
 Documentation Updates:
 
-* Added a new section [NSO HA Raft](administration/management/high-availability.md#ug.ha.raft) with comprehensive documentation on this new feature.
+* Updated and expanded the [Containerized NSO](administration/deployment/containerized-nso.md) describing the new image flavor.
 
 </details>
 
 <details>
 
-<summary><strong>CDB Compaction</strong></summary>
+<summary><strong>Support for LDAP and TACACS+ Authentication</strong></summary>
 
-Compaction improvements have been made to schedule periodic compaction and disable compaction on start.
+Two new authentication packages are now available in `$NCS_DIR/packages/auth`: `cisco-nso-ldap-auth` and `cisco-nso-tacacs-auth`. They provide support for LDAP and TACACS+ protocols through the Package Authentication mechanism.
 
 Documentation Updates:
 
-* Added a new section [Compaction](administration/advanced-topics/compaction.md) to describe automatic and manual compaction. A new `ncs` command option `--disable-compaction-on-start` added to disable compaction on start.
-* Added a new section [Periodic Compaction](development/connected-topics/scheduler.md#ug.sc.compaction) to include scheduling of NSO compaction during low utilization periods.
-* Updated the [Manual Pages, NCS man-pages Volume 5](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5) to add a new configuration parameter `ncs-config/compaction/delayed-compaction-timeout`.
+* Refer to the respective `README` file inside each package for usage and configuration options.
 
 </details>
 
 <details>
 
-<summary><strong>Containerized NSO</strong></summary>
+<summary><strong>DNS Update Support for Tailf-hcc</strong></summary>
 
-It is now possible to run NSO in a container runtime, such as Docker. A pre-built image is available for download from software.cisco.com.
+The tailf-hcc package now allows submitting an RFC2136 Dynamic DNS Update to a name server on High Availability (HA) failover, simplifying geographically redundant NSO HA setup.
 
 Documentation Updates:
 
-* Added a new guide [Containerized NSO](administration/deployment/containerized-nso.md) describing how to run NSO in a containerized environment, such as Docker.
+* Added the section [Layer-3 DNS Update](administration/management/high-availability.md#ug.ha.hcc.deployment) describing the new functionality.
 
 </details>
 
 <details>
 
-<summary><strong>NED Packages</strong></summary>
+<summary><strong>Nano Service Usability</strong></summary>
 
-NED packages can now be added to the system without triggering a package reload/service outage.
+Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/concepts/nano-services-staged-provisioning.md)) streamline their development and use:
+
+* The `ncs-make-package` command now supports the `--nano-skeleton [python/java]` option.
+* The functionality of `self-as-service-status` is now the default.
+* The self component in a nano service plan is now generated automatically if not defined in the service model.
+* Canceled actions in the side effects queue can be manually scheduled for a retry.
+* Improved performance of initial create of a nano service with the `converge-on-re-deploy` extension.
 
 Documentation Updates:
 
-* Added a new section [Adding NED Packages](administration/management/nso-packages.md#ug.package\_mgmt.ned\_package\_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/nso-packages.md#ug.package\_mgmt.ned\_migration) and [Upgrade](administration/deployment/upgrade-nso.md) sections.
+* Updated the section [NACM Rules and Services](administration/management/aaa-infrastructure.md#d5e6693) to better document required permissions for nano services.
 
 </details>
 
 <details>
 
-<summary><strong>AAA</strong></summary>
+<summary><strong>Upgrade Improvements</strong></summary>
 
-NSO authentication mechanism has been improved to include Single Sign-on and package authentication.
+CDB schema upgrades now use an optimized algorithm, resulting in faster upgrades and the ability to preview schema changes through a packages reload dry-run option. A separate upgrade log can be configured for information about CDB upgrade as well.
+
+Additionally, information on upgrading HA Raft clusters has been added.
 
 Documentation Updates:
 
-* Added a new section [Package Authentication](administration/management/aaa-infrastructure.md#ug.aaa.packageauth) to describe the NSO package authentication mechanism.
-
-<!---->
-
-* Added a new section [Single Sign-on](development/development/web-ui-development.md#single-sign-on-sso) to describe the NSO package authentication mechanism.
+* Updated the section [Loading Packages](administration/management/nso-packages.md#ug.package\_mgmt.loading) describing the dry-run functionality.
+* Added the section [Packages Upgrades in Raft Cluster](administration/management/high-availability.md#packages-upgrades-in-raft-cluster) and the section called [Version Upgrade of Cluster Nodes](administration/management/high-availability.md#ch\_ha.raft\_upgrade) for Raft HA.
 
 </details>
 
 <details>
 
-<summary><strong>Compliance Reporting</strong></summary>
+<summary><strong>NED Documentation Update</strong></summary>
 
-The device, service, and template checks now run in parallel across the CPU cores in the system while utilizing less memory by streaming the report to disk instead of building the report in memory. Compliance templates can check devices for compliance. In addition, strict mode checks that the template configuration is the only configuration on the device. Reports can now be generated in `sqlite` format, which will produce an SQLite database file as the output of a report run.
-
-Documentation Updates:
-
-* Added a new section called [Additional Configuration Checks](operation-and-usage/cli/compliance-reporting.md#additional-configuration-checks).
-
-</details>
-
-<details>
-
-<summary><strong>Deprecating RFM in Favor of Nano Services</strong></summary>
-
-Updates in documentation to promote using nano services over Reactive FastMAP.
+The old NED Development document has been updated and split into two parts. The part on managing and using NEDs is now incorporated into Administration, while the part detailing the creation of new NEDs is now found in the Development.
 
 Documentation Updates:
 
-* Updated the section [Developing NSO Services](development/development/developing-services/developing-nso-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/connected-topics/kicker.md) section.
-
-</details>
-
-<details>
-
-<summary><strong>Progress Trace</strong></summary>
-
-The progress trace framework has been improved to add the concepts of spans and links.&#x20;
-
-* A span represents a unit of work or operation that occurs over a span of time.&#x20;
-* A link is a reference to another span event and can be used to find related events.
-
-Documentation Updates:
-
-* Updated the section [Progress Trace](development/connected-topics/progress-trace.md).
-
-</details>
-
-<details>
-
-<summary><strong>Phased Provisioning</strong></summary>
-
-NSO now provides Phased Provisioning as a support tool to schedule provisioning tasks. Phased Provisioning gives you more fine-grained control over how and when changes are introduced into the network.
-
-Documentation Updates:
-
-* Updated the NSO [Platform Tools](https://developer.cisco.com/docs/nso/#!phased-provisioning) documentation to include Cisco NSO Phased Provisioning.
-
-</details>
-
-<details>
-
-<summary><strong>Observability Exporter</strong></summary>
-
-NSO Observability Exporter package allows Cisco NSO to export observability-related data using software-industry-standard formats and protocols, such as the OpenTelemetry protocol (OTLP).
-
-Documentation Updates:
-
-* Updated the NSO [Platform Tools](https://developer.cisco.com/docs/nso/#!observability-exporter) documentation to include Cisco NSO Observability Exporter.
+* Added [NED Administration](administration/management/ned-administration.md) on managing and using NEDs.
+* Added [NED Development](development/development/developing-neds/) on the creation of new NEDs.
 
 </details>

@@ -1053,6 +1053,20 @@
 
 <details>
 
+<summary><code>JIT_ENABLED</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  "Show if JIT is enabled."
+* **Format String**  
+  `"JIT ~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>JSONRPC_LOG_MSG</code></summary>
 
 * **Severity**  
@@ -1537,6 +1551,20 @@
   "The cleartext header indicating user and groups was badly formatted."
 * **Format String**  
   `"Got bad NETCONF TCP header"`
+
+</details>
+
+
+<details>
+
+<summary><code>NIF_LOG</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  "Log message from NIF code."
+* **Format String**  
+  `"~s: ~s"`
 
 </details>
 

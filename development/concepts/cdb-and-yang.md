@@ -1,5 +1,5 @@
 ---
-description: Learn how NSO keeps record of its managed devices using CDB.
+description: Learn how NSO keeps a record of its managed devices using CDB.
 ---
 
 # CDB and YANG

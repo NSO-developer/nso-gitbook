@@ -84,7 +84,7 @@ with ncs.maapi.Maapi() as m:
 
 ## Maagic API
 
-Maagic is a module provided as part of the NSO Python APIs. It reduces the complexity of programming towards NSO, is used on top of the MAAPI high-level API, and addresses areas which require more programming. First, it helps in navigating the model, using standard Python object dot notation, giving very clear and easily read code. The context handlers remove the need to close sockets, user sessions, and transactions and the problems when they are forgotten and kept open. Finally, it removes the need to know the data types of the leafs, helping you to focus on the data to be set.
+Maagic is a module provided as part of the NSO Python APIs. It reduces the complexity of programming towards NSO, is used on top of the MAAPI high-level API, and addresses areas that require more programming. First, it helps in navigating the model, using standard Python object dot notation, giving very clear and easily read code. The context handlers remove the need to close sockets, user sessions, and transactions and the problems when they are forgotten and kept open. Finally, it removes the need to know the data types of the leafs, helping you to focus on the data to be set.
 
 When using Maagic, you still do the same procedure of starting a transaction.
 
@@ -363,10 +363,6 @@ A leaf-list is represented by a `LeafList` object. This object behaves very much
 
 {% hint style="info" %}
 From NSO version 4.5 and onwards, a Yang leaf-list is represented differently than before. Reading a leaf-list using Maagic used to result in an ordinary Python list (or None if the leaf-list was non-existent). Now, reading a leaf-list will give back a `LeafList` object whether it exists or not. The `LeafList` object may be iterated like a Python list and you may check for existence using the `exists()` method or the `bool()` operator. A Maagic leaf-list node may be assigned using a Python list, just like before, and you may convert it to a Python list using the `as_list()` method or by doing `list(my_leaf_list_node)`.
-
-You should update your code to cope with the new behavior. If you for any reason are unable to do so, you can instruct Maagic to behave as in previous versions by setting the environment variable `DEPRECATED_MAAGIC_WANT_LEAF_LIST_AS_LEAF` to `true`, `yes` or `1` before starting your Python process (or NSO).
-
-Note that this environment variable is deprecated and will be removed in the future.
 {% endhint %}
 
 ```
@@ -1000,7 +996,7 @@ See `pydoc3 _ncs` and `man confd_lib_lib` for further information.
 
 This API is a direct mapping of the NSO MAAPI C API. See `pydoc3 _ncs.maapi` and `man confd_lib_maapi` for further information.
 
-Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [the section called “Reference Counting Overlapping Configuration”](https://developer.cisco.com/docs/nso-guides-6.2/services-deep-dive/#ch\_svcref.refcount)).
+Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../development/developing-services/services-deep-dive.md#ch\_svcref.refcount)).
 
 In the service code, you should use the `shared_*` set of functions, such as:
 

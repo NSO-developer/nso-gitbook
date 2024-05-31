@@ -455,7 +455,7 @@ The `init()` method (shown in the example below, (Plain Subscriber Init) is call
 ```
 {% endcode %}
 
-The `run()` method comes from the standard Java API Runnable interface and is executed when the application component thread is started. For this subscriber (see example below (Plain CDB Subscriber)) a loop over the `CdbSubscription.read()` method drives the subscription. This call will be blocked until data has changed for some of the subscription points that were registered, and the IDs for these subscription points will then be returned. In our example, since we only have one subscription point, we know that this is the one stored as `subId`. This subscriber chooses to find the changes by calling the `CdbSubscription.diffIterate()` method. Important is to acknowledge the subscription by calling `CdbSubscription.sync()` or else this subscription will block the ongoing transaction.
+The `run()` method comes from the standard Java API Runnable interface and is executed when the application component thread is started. For this subscriber (see example below (Plain CDB Subscriber)) a loop over the `CdbSubscription.read()` method drives the subscription. This call will block until data has changed for some of the subscription points that were registered, and the IDs for these subscription points will then be returned. In our example, since we only have one subscription point, we know that this is the one stored as `subId`. This subscriber chooses to find the changes by calling the `CdbSubscription.diffIterate()` method. Important is to acknowledge the subscription by calling `CdbSubscription.sync()` or else this subscription will block the ongoing transaction.
 
 {% code title="Example: Plain CDB Subscriber" %}
 ```
@@ -936,32 +936,22 @@ The CDB upgrade can be followed by checking the `devel.log`. The development log
 
 CDB can automatically handle the following changes to the schema:
 
-* **Deleted elements**\
-  When an element is deleted from the schema, CDB simply deletes it (and any children) from the database.
-* **Added elements**\
-  If a new element is added to the schema it needs to either be optional, dynamic, or have a default value. New elements with a default are added and set to their default value. New dynamic or optional elements are simply noted as a schema change.
-* **Re-ordering elements**\
-  An element with the same name, but in a different position on the same level, is considered to be the same element. If its type hasn't changed it will retain its value, but if the type has changed it will be upgraded as described below.
-* **Type changes**\
-  If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!). \
+* **Deleted elements**: When an element is deleted from the schema, CDB simply deletes it (and any children) from the database.
+* **Added elements**: If a new element is added to the schema it needs to either be optional, dynamic, or have a default value. New elements with a default are added and set to their default value. New dynamic or optional elements are simply noted as a schema change.
+* **Re-ordering elements**: An element with the same name, but in a different position on the same level, is considered to be the same element. If its type hasn't changed it will retain its value, but if the type has changed it will be upgraded as described below.
+* **Type changes**: If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!). \
   \
   If the coercion fails, any supplied default value will be used. If no default value is present in the new schema, the automatic upgrade will fail and the leaf will be deleted after the CDB upgrade.\
   \
   Type changes when user-defined types are used are also handled automatically, provided that some straightforward rules are followed for the type definitions. Read more about user-defined types in the confd\_types(3) manual page, which also describes these rules.
-* **Hash changes**\
-  When a hash value of a particular element has changed (due to an addition of, or a change to, a `tailf:id-value` statement) CDB will update that element.
-* **Key changes**\
-  When a key of a list is modified, CDB tries to upgrade the key using the same rules as explained above for adding, deleting, re-ordering, change of type, and change of hash value. If an automatic upgrade of a key fails the entire list entry will be deleted.\
+* **Hash changes**: When a hash value of a particular element has changed (due to an addition of, or a change to, a `tailf:id-value` statement) CDB will update that element.
+* **Key changes**: When a key of a list is modified, CDB tries to upgrade the key using the same rules as explained above for adding, deleting, re-ordering, change of type, and change of hash value. If an automatic upgrade of a key fails the entire list entry will be deleted.\
   \
   When individual entries upgrade successfully but result in an invalid list, all list entries will be deleted. This can happen, e.g., when an upgrade removes a leaf from the key, resulting in several entries having the same key.
-* **Default values**\
-  If a leaf has a default value, that has not been changed from its default, then the automatic upgrade will use the new default value (if any). If the leaf value has been changed from the old default, then that value will be kept.
-* **Adding / Removing namespaces**\
-  If a namespace no longer is present after an upgrade, CDB removes all data in that namespace. When CDB detects a new namespace, it is initialized with default values.
-* **Changing to/from operational**\
-  Elements that previously had `config false` set that are changed into database elements will be treated as added elements. In the opposite case, where data elements in the new data model are tagged with `config false`, the elements will be deleted from the database.
-* **Callpoint changes**\
-  CDB only considers the part of the data model in YANG modules that do not have external data callpoints. But while upgrading, CDB handles moving subtrees into CDB from a callpoint and vice versa. CDB simply considers these as added and deleted schema elements.\
+* **Default values**: If a leaf has a default value, that has not been changed from its default, then the automatic upgrade will use the new default value (if any). If the leaf value has been changed from the old default, then that value will be kept.
+* **Adding / Removing namespaces**: If a namespace no longer is present after an upgrade, CDB removes all data in that namespace. When CDB detects a new namespace, it is initialized with default values.
+* **Changing to/from operational**: Elements that previously had `config false` set that are changed into database elements will be treated as added elements. In the opposite case, where data elements in the new data model are tagged with `config false`, the elements will be deleted from the database.
+* **Callpoint changes**: CDB only considers the part of the data model in YANG modules that do not have external data callpoints. But while upgrading, CDB handles moving subtrees into CDB from a callpoint and vice versa. CDB simply considers these as added and deleted schema elements.\
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
@@ -1537,7 +1527,7 @@ public class UpgradeService {
 ```
 {% endcode %}
 
-We will walk throw this code also and point out the aspects that differ from the earlier more simple scenario. First, we want to create the `Cdb` instance and get the CdbSession. However, in this scenario, the old namespace is removed and the Java API cannot retrieve it from NSO. To be able to use CDB to read and interpret the old YANG Model, the old generated and removed Java namespace classes have to be temporarily reinstalled. This is solved by adding a jar (Java archive) containing these removed namespaces to the `private-jar` directory of the tunnel package. The removed namespace can then be instantiated and passed to Cdb via an overridden version of the `Cdb.setUseForCdbUpgrade()` method:
+We will walk through this code also and point out the aspects that differ from the earlier more simple scenario. First, we want to create the `Cdb` instance and get the CdbSession. However, in this scenario, the old namespace is removed and the Java API cannot retrieve it from NSO. To be able to use CDB to read and interpret the old YANG Model, the old generated and removed Java namespace classes have to be temporarily reinstalled. This is solved by adding a jar (Java archive) containing these removed namespaces to the `private-jar` directory of the tunnel package. The removed namespace can then be instantiated and passed to Cdb via an overridden version of the `Cdb.setUseForCdbUpgrade()` method:
 
 ```
         ArrayList<ConfNamespace> nsList = new ArrayList<ConfNamespace>();

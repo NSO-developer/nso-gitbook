@@ -28,7 +28,9 @@ For these reasons, service states are central to the design of a nano service. A
 
 ### Plan Outline <a href="#d5e9593" id="d5e9593"></a>
 
-The following YANG snippet, also part of the `examples.ncs/development-guide/nano-services/basic-vrouter` example shows a plan outline with the two VM-provisioning states presented above:
+By default, the plan outline consists of a single component, the `self` component, with the two states `init` and `ready`. It can be used to track the progress of the service as a whole. You can add any number of additional components and states to form the nano service.
+
+The following YANG snippet, also part of the `examples.ncs/development-guide/nano-services/basic-vrouter` example, shows a plan outline with the two VM-provisioning states presented above:
 
 ```
 module vrouter {
@@ -42,10 +44,14 @@ module vrouter {
     base ncs:plan-state;
   }
 
+  identity vrouter {
+    base ncs:plan-component-type;
+  }
+
   ncs:plan-outline vrouter-plan {
     description "Plan for configuring a VM-based router";
 
-    ncs:component-type "ncs:self" {
+    ncs:component-type "vr:vrouter" {
       ncs:state "vr:vm-requested";
       ncs:state "vr:vm-configured";
     }
@@ -53,9 +59,9 @@ module vrouter {
 }
 ```
 
-The first part contains a definition of states as identities, deriving from the `ncs:plan-state` base. These identities are then used with the `ncs:plan-outline`, inside an `ncs:component-type` statement. The YANG code defines a single `ncs:self` component, that tracks the progress of the service as a whole, but additional components can be used, as described later. Also, note that it is customary to use past tense for state names, for example, `configured-vm` or `vm-configured` instead of `configure-vm` and `configuring-vm`.
+The first part contains a definition of states as identities, deriving from the `ncs:plan-state` base. These identities are then used with the `ncs:plan-outline`, inside an `ncs:component-type` statement. Also, note that it is customary to use past tense for state names, for example, `configured-vm` or `vm-configured` instead of `configure-vm` and `configuring-vm`.
 
-At present, the plan contains the two states but no logic. If you wish to do any provisioning for a state, the state must declare a special nano create callback, otherwise, it just acts as a checkpoint. The nano create callback is similar to an ordinary create service callback, allowing service code or templates to perform configuration. To add a callback for a state, extend the definition in the plan outline:
+At present, the plan contains one component and two states but no logic. If you wish to do any provisioning for a state, the state must declare a special nano create callback, otherwise, it just acts as a checkpoint. The nano create callback is similar to an ordinary create service callback, allowing service code or templates to perform configuration. To add a callback for a state, extend the definition in the plan outline:
 
 ```
 ncs:state "vr:vm-requested" {
@@ -91,7 +97,7 @@ If a state defines a nano callback, you can register a configuration template to
 ```
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="vrouter-servicepoint"
-                 componenttype="ncs:self"
+                 componenttype="vr:vrouter"
                  state="vr:vm-configured">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <!-- ... -->
@@ -105,7 +111,7 @@ Likewise, you can implement a callback in the service code. The registration req
 class NanoApp(ncs.application.Application):
     def setup(self):
         self.register_nano_service('vrouter-servicepoint',  # Service point
-                                   'ncs:self',              # Component
+                                   'vr:vrouter',            # Component
                                    'vr:vm-requested',       # State
                                    NanoServiceCallbacks)
 ```
@@ -134,7 +140,7 @@ That is why each service component must have the built-in `ncs:init` state as th
 ncs:plan-outline vrouter-plan {
   description "Plan for configuring a VM-based router";
 
-  ncs:component-type "ncs:self" {
+  ncs:component-type "vr:vrouter" {
     ncs:state "ncs:init";
     ncs:state "vr:vm-requested" {
       ncs:create {
@@ -163,14 +169,14 @@ ncs:service-behavior-tree vrouter-servicepoint {
   description "A static, single component behavior tree";
   ncs:plan-outline-ref "vr:vrouter-plan";
   ncs:selector {
-    ncs:create-component "'self'" {
-      ncs:component-type-ref "ncs:self";
+    ncs:create-component "'vrouter'" {
+      ncs:component-type-ref "vr:vrouter";
     }
   }
 }
 ```
 
-This behavior tree always creates a single `self` component for the service. The service point is provided as an argument to the `ncs:service-behavior-tree` statement, while the `ncs:plan-outline-ref` statement provides the name for the plan outline to use.
+This behavior tree always creates a single `“vrouter”` component for the service. The service point is provided as an argument to the `ncs:service-behavior-tree` statement, while the `ncs:plan-outline-ref` statement provides the name for the plan outline to use.
 
 The following figure visualizes the resulting service plan and its states.
 
@@ -208,14 +214,16 @@ For example, when you create a new instance of the VM-router service, the `vm-up
 
 ```
 admin@ncs# show vrouter vr-01 plan
-                                                                               POST
-            BACK                                                               ACTION
-TYPE  NAME  TRACK  GOAL  STATE          STATUS       WHEN                 ref  STATUS
----------------------------------------------------------------------------------------
-self  self  false  -     init           reached      2021-09-16T14:04:38  -    -
-                         vm-requested   reached      2021-09-16T14:04:38  -    -
-                         vm-configured  not-reached  -                    -    -
-                         ready          not-reached  -                    -    -
+                                                                                     POST
+                  BACK                                                               ACTION
+TYPE     NAME     TRACK  GOAL  STATE          STATUS       WHEN                 ref  STATUS
+---------------------------------------------------------------------------------------------
+self     self     false  -     init           reached      2023-08-11T07:45:20  -    -
+                               ready          not-reached  -                    -    -
+vrouter  vrouter  false  -     init           reached      2023-08-11T07:45:20  -    -
+                               vm-requested   reached      2023-08-11T07:45:20  -    -
+                               vm-configured  not-reached  -                    -    -
+                               ready          not-reached  -                    -    -
 ```
 
 Since neither the `init` nor the `vm-requested` states have any pre-conditions, they are reached right away. In fact, NSO can optimize it into a single transaction (this behavior can be disabled if you use forced commits, discussed later on).
@@ -236,23 +244,25 @@ cli {
 }
 ```
 
-At the same time, a kicker was installed under the `kickers` container but you may need to use the **unhide debug** command to inspect it. More information on kickers in general is available in [Kicker](../connected-topics/kicker.md).
+At the same time, a kicker was installed under the `kickers` container but you may need to use the `unhide debug` command to inspect it. More information on kickers in general is available in [Kicker](../connected-topics/kicker.md).
 
 At a later point in time, the router VM becomes ready, and the `vm-up-and-running` leaf is set to a `true` value. The installed kicker notices the change and automatically calls the `reactive-re-deploy` action on the service instance. In turn, the service gets fully deployed.
 
 ```
 admin@ncs# show vrouter vr-01 plan
-                                                                           POST
-            BACK                                                           ACTION
-TYPE  NAME  TRACK  GOAL  STATE          STATUS   WHEN                 ref  STATUS
------------------------------------------------------------------------------------
-self  self  false  -     init           reached  2021-09-16T14:26:30  -    -
-                         vm-requested   reached  2021-09-16T14:26:30  -    -
-                         vm-configured  reached  2021-09-16T14:28:40  -    -
-                         ready          reached  2021-09-16T14:28:40  -    -
+                                                                                 POST
+                  BACK                                                           ACTION
+TYPE     NAME     TRACK  GOAL  STATE          STATUS   WHEN                 ref  STATUS
+-----------------------------------------------------------------------------------------
+self     self     false  -     init           reached  2023-08-11T07:45:20  -    -
+                               ready          reached  2023-08-11T07:47:36  -    -
+vrouter  vrouter  false  -     init           reached  2023-08-11T07:45:20  -    -
+                               vm-requested   reached  2023-08-11T07:45:20  -    -
+                               vm-configured  reached  2023-08-11T07:47:36  -    -
+                               ready          reached  2023-08-11T07:47:36  -    -
 ```
 
-The get-modifications output confirms this fact. It contains the additional IP address configuration, performed as part of the `vm-configured` step:
+The `get-modifications` output confirms this fact. It contains the additional IP address configuration, performed as part of the `vm-configured` step:
 
 ```
 admin@ncs# vrouter vr-01 get-modifications
@@ -362,7 +372,22 @@ The side-effect-queue and a corresponding kicker are responsible for invoking th
 
 You can use the `show side-effect-queue` command to inspect the queue. The queue will run multiple actions in parallel and keep the failed ones for you to inspect. Please note that High Availability (HA) setups require special consideration: the side effect queue is disabled when High Availability is enabled and the High Availability mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) for more details.
 
-In case of a failure, a post-action sets the post-action status accordingly and, if the action is synchronous, the nano service stops progressing. To retry the failed action, execute a (reactive) re-deploy, which will also restart the nano service if it is stopped.
+In case of a failure, a post action sets the post-action-status accordingly and, if the action is synchronous, the nano service stops progressing. To retry the failed action, you can perform the action `reschedule`.
+
+```
+$ ncs_cli -u admin
+admin@ncs> show side-effect-queue side-effect status
+ID  STATUS
+------------
+2   failed
+
+[ok][2023-08-15 11:01:10]
+admin@ncs> request side-effect-queue side-effect 2 reschedule
+side-effect-id 2
+[ok][2023-08-15 11:01:18]
+```
+
+Or, execute a (reactive) re-deploy, which will also restart the nano service if it was stopped.
 
 Using the post-action mechanism, it is possible to define side effects for a nano service in a safe way. A post-action is only executed one time. That is if the post-action-status is already at the `create-reached` in the create case or `delete-reached` in the delete case, then new calls of the post-actions are suppressed. In dry-run operations, post-actions are never called.
 
@@ -390,11 +415,11 @@ The following snippet of a plan outline defines a `create` and `delete` post-act
       }
 ```
 
-Let's see how this plan manifests during provisioning. After the first (init) state is reached and committed, it fires off an allocation action on the service instance, called `allocate-ip`. The job of the `allocate-ip` action is to communicate with the external system, the IP Address Management (IPAM), and allocate an address for the service instance. This process may take a while, however it does not tie up NSO, since it runs outside of the configuration transaction and other configuration sessions can proceed in the meantime.
+Let's see how this plan manifests during provisioning. After the first (`init`) state is reached and committed, it fires off an allocation action on the service instance, called `allocate-ip`. The job of the `allocate-ip` action is to communicate with the external system, the IP Address Management (IPAM), and allocate an address for the service instance. This process may take a while, however, it does not tie up NSO, since it runs outside of the configuration transaction and other configuration sessions can proceed in the meantime.
 
 The `$SERVICE` XPath variable is automatically populated by the system and allows you to easily reference the service instance. There are other automatic variables defined. You can find the complete list inside the `tailf-ncs-plan.yang` submodule, in the `$NCS_DIR/src/ncs/yang/` folder.
 
-Due to the `ncs:sync` statement, service provisioning can continue only after the allocation process (the action) completes. Once that happens, the service resumes processing in the ip-allocated state, with the IP value now available for configuration.
+Due to the `ncs:sync` statement, service provisioning can continue only after the allocation process (the action) completes. Once that happens, the service resumes processing in the `ip-allocated` state, with the IP value now available for configuration.
 
 On service deprovisioning, the back-tracking mechanism works backwards through the states. When it is the ip-allocated state's turn to deprovision, NSO reverts any configuration done as part of this state, and then runs the `release-ip` action, defined inside the `ncs:delete` block. Of course, this only happens if the state previously had a reached status. Implemented as a post-action, `release-ip` can safely use the external IPAM API to deallocate the IP address, without impacting other sessions.
 
@@ -404,7 +429,7 @@ The actions, as defined in the example, do not take any parameters. When needed,
 
 The discussion on basic concepts briefly mentions the role of a nano behavior tree but it does not fully explore its potential. Let's now consider in which situations you may find a non-trivial behavior tree beneficial.
 
-Suppose you are implementing a service that requires not one but two VMs. While you can always add more states to the main (self) component, these states are processed sequentially. However, you might want to provision the two VMs in parallel, since they take a comparatively long time, and it makes little sense having to wait until the first one is finished before starting with the second one. Nano services provide an elegant solution to this challenge in the form of multiple plan components: provisioning of each VM can be tracked by a separate plan component, allowing the two to advance independently, in parallel.
+Suppose that you are implementing a service that requires not one but two VMs. While you can always add more states to the component, these states are processed sequentially. However, you might want to provision the two VMs in parallel, since they take a comparatively long time, and it makes little sense having to wait until the first one is finished before starting with the second one. Nano services provide an elegant solution to this challenge in the form of multiple plan components: provisioning of each VM can be tracked by a separate plan component, allowing the two to advance independently, in parallel.
 
 If the two VMs go through the same states, you can use a single component type in the plan outline for both. It is the job of the behavior tree to create or synthesize actual components for each service instance. Therefore, you could use a behavior tree similar to the following example:
 
@@ -425,47 +450,7 @@ ncs:service-behavior-tree multirouter-servicepoint {
 
 The two `ncs:create-component` statements instruct NSO to create two components, named `vm1` and `vm2`, of the same `vr:router-vm` type. Note the required use of single quotes around component names, because the value is actually an XPath expression. The quotes ensure the name is used verbatim when the expression is evaluated.
 
-But this behavior tree has a flaw: It is missing the self component to tell the overall provisioning status. With multiple components in place, the self-component should naturally reflect the cumulative status of the service. You can define the plan outline in the following way:
-
-```
-ncs:plan-outline multirouter-plan {
-  description "Plan for configuring VM-based routers";
-  ncs:self-as-service-status;
-
-  ncs:component-type "ncs:self" {
-    ncs:state "ncs:init";
-    ncs:state "ncs:ready";
-  }
-
-  ncs:component-type "vr:router-vm" {
-    ncs:state "ncs:init";
-    // additional states
-    ncs:state "ncs:ready";
-  }
-}
-```
-
-With the `ncs:self-as-service-status` statement present on a plan outline, the ready state of the self component will never have its status set to reached until all other components have the ready state status set to reached and all post actions have been run, too. Likewise, during backtracking, the init state will never be set to “not-reached” until all other components have been fully backtracked and all delete post actions have been run. Additionally, the self ready or init state status will be set to failed if any other state has a failed status or a failed post action, thus signaling that something has failed while executing the service instance.
-
-To make use of the self component, you must also add it to the behavior tree:
-
-```
-ncs:service-behavior-tree multirouter-servicepoint {
-  description "A 2-VM behavior tree";
-  ncs:plan-outline-ref "vr:multirouter-plan";
-  ncs:selector {
-    ncs:create-component "'self'" {
-      ncs:component-type-ref "ncs:self";
-    }
-    ncs:create-component "'vm1'" {
-      ncs:component-type-ref "vr:router-vm";
-    }
-    ncs:create-component "'vm2'" {
-      ncs:component-type-ref "vr:router-vm";
-    }
-  }
-}
-```
+With multiple components in place, the implicit `self` component reflects the cumulative status of the service. The `ready` state of the `self` component will never have its status set to `reached` until all other components have the `ready` state status set to `reached` and all post-actions have been run, too. Likewise, during backtracking, the `init` state will never be set to `not-reached` until all other components have been fully backtracked and all delete post actions have been run. Additionally, the `self` `ready` or `init` state status will be set to `failed` if any other state has a `failed` status or a failed post-action, thus signaling that something has failed while executing the service instance.
 
 As you can see, all the `ncs:create-component` statements are placed inside an `ncs:selector` block. A selector is a so-called control flow node. It selects a group of components and allows you to decide whether they are created or not, based on a pre-condition. The pre-condition can reference a service parameter, which in turn controls if the relevant components are provisioned for this service instance. The mechanism enables you to dynamically produce just the necessary plan components.
 
@@ -476,7 +461,7 @@ ncs:service-behavior-tree multirouter-servicepoint {
   description "A conditional 2-VM behavior tree";
   ncs:plan-outline-ref "vr:multirouter-plan";
   ncs:selector {
-    ncs:create-component "'self'" { ... }
+    ncs:create-component "'router'" { ... }
     ncs:selector {
       ncs:pre-condition {
         ncs:monitor "$SERVICE" {
@@ -490,7 +475,7 @@ ncs:service-behavior-tree multirouter-servicepoint {
 }
 ```
 
-The described behavior tree always synthesizes the self component and evaluates the child selector. However, the child selector only synthesizes the two VM components if the service configuration requested so by setting the `use-virtual-devices` to `true`.
+The described behavior tree always synthesizes the `router` component and evaluates the child selector. However, the child selector only synthesizes the two VM components if the service configuration requested so by setting the `use-virtual-devices` to `true`.
 
 What is more, if the pre-condition value changes, the system re-evaluates the behavior tree and starts the backtracking operation for any removed components.
 
@@ -527,7 +512,6 @@ The service, called `vrouter`, defines three component types in the `src/yang/vr
 
 * `vr:vrouter`: A “day-0” component that creates and initializes a netsim process as a virtual router device.
 * `vr:vrouter-day1`: A “day-1” component for configuring the created device and tracking NETCONF notifications.
-* `ncs:self`: The overall status indicator. It summarizes the status of all service components through the `self-as-service-status` mechanism.
 
 As the name implies, the day-0 component must be provisioned before the day-1 component. Since the two provision in sequence, in general, a single component would suffice. However the components are kept separate to illustrate component dependencies.
 
@@ -578,7 +562,7 @@ The `vr:requested` state also has a `delete` post-action, analogous to `create`,
 
 Inspecting the Python code for these post actions will reveal that a semaphore is used to control access to the common netsim resource. It is needed because multiple `vrouter` instances may run the create and delete action callbacks in parallel. The Python semaphore is shared between the delete and create action processes using a Python multiprocessing manager, as the example configures the NSO Python VM to start the actions in multiprocessing mode. See [The Application Component](nso-vms/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
 
-In `vr:onboarded`, the nano Python callback function from the `main.py` file adds the relevant NSO device entry for a newly created netsim device. It also configures NSO to receive notifications from this device through a NETCONF subscription. When the NSO configuration is complete, the state transitions into the reached status, denoting the onboarding has been completed successfully.
+In `vr:onboarded`, the nano Python callback function from the `main.py` file adds the relevant NSO device entry for a newly created netsim device. It also configures NSO to receive notifications from this device through a NETCONF subscription. When the NSO configuration is complete, the state transitions into the `reached` status, denoting the onboarding has completed successfully.
 
 The `vr:vrouter` component handles so-called day-0 provisioning. Alongside this component, the `vr:vrouter-day1` component starts provisioning in parallel. During provisioning, it transitions through the following states:
 
@@ -587,7 +571,7 @@ The `vr:vrouter` component handles so-called day-0 provisioning. Alongside this 
 * `vr:deployed`
 * `ncs:ready`
 
-The component reaches the init state right away. However, the `vr:configured` state has a precondition:
+The component reaches the `init` state right away. However, the `vr:configured` state has a precondition:
 
 ```
       ncs:state "vr:configured" {
@@ -635,11 +619,11 @@ These zombie actions behave a bit differently than their normal service counterp
 
 1. Start a temporary transaction in which the service is reinstated (created). The service plan will have the same status as it had when it mutated.
 2. Back-track plan components in a normal fashion, that is, removing device changes for states with delete pre-conditions satisfied.
-3. If all components are completely back-tracked, the zombie is removed from the zombie-list. Otherwise, the service and the current plan states are stored back into the zombie-list, with new kickers waiting to activate the zombie when some delete pre-condition is satisfied.
+3. If all components are completely back-tracked, the zombie is removed from the zombie list. Otherwise, the service and the current plan states are stored back into the zombie list, with new kickers waiting to activate the zombie when some delete pre-condition is satisfied.
 
 In addition, zombie services support the `resurrect` action. The action reinstates the zombie back in the configuration tree as a real service, with the current plan status, and reverts plan components back from back-tracking to normal mode. It is an “undo” for a nano service delete.
 
-In some situations, especially during nano service development, a zombie may get stuck because of a misconfigured precondition or similar issues. A re-deploy is unlikely to help in that case and you may need to forcefully remove the problematic plan component. The `force-back-track` action performs this job and allows you to backtrack to a specific state, if specified. But beware that using the action avoids calling any post-actions or delete callbacks for the forcefully backtracked states, even though the recorded configuration modifications are reverted. It can and will leave your systems in an inconsistent or broken state if you are not careful.
+In some situations, especially during nano service development, a zombie may get stuck because of a misconfigured precondition or similar issues. A re-deploy is unlikely to help in that case and you may need to forcefully remove the problematic plan component. The `force-back-track` action performs this job and allows you to backtrack to a specific state if specified. But beware that using the action avoids calling any post-actions or delete callbacks for the forcefully backtracked states, even though the recorded configuration modifications are reverted. It can and will leave your systems in an inconsistent or broken state if you are not careful.
 
 ## Using Notifications to Track the Plan and its Status <a href="#d5e9981" id="d5e9981"></a>
 
@@ -651,7 +635,7 @@ The built-in service-state-changes NETCONF/RESTCONF stream is used by NSO to gen
 
 When a service's plan component changes state, the `plan-state-change` notification is generated with the new state of the plan. It includes the status, which indicates one of not-reached, reached, or failed. The notification is sent when the state is `created`, `modified`, or `deleted`, depending on the configuration. For reference on the structure and all the fields present in the notification, please see the YANG model in the `tailf-ncs-plan.yang` file.
 
-As a common use case, suppose the `self-as-service-status` statement has been set on the plan outline. An event with status `reached` for the `self` component `ready` state signifies that all nano service components have reached their ready state and provisioning is complete. A simple example of this scenario is included in the `examples.ncs/development-guide/nano-services/netsim-vrouter/demo.py` Python script, using RESTCONF.
+As a common use case, an event with status `reached` for the `self` component `ready` state signifies that all nano service components have reached their `ready` state and provisioning is complete. A simple example of this scenario is included in the `examples.ncs/development-guide/nano-services/netsim-vrouter/demo.py` Python script, using RESTCONF.
 
 To enable the plan-state-change notifications to be sent, you must enable them for a specific service in NSO. For example, can load the following configuration into the CDB as an XML initialization file:
 
@@ -767,7 +751,7 @@ $ netconf-console create-subscription=service-state-changes
 
 See [Notification Capability](northbound-apis.md#ug.netconf\_agent.notif) in Northbound APIs for further reference.
 
-CLI shows received notifications using **ncs\_cli**:
+CLI shows received notifications using `ncs_cli`:
 
 ```
 $ ncs_cli -u admin -C <<<'show notification stream service-state-changes'
@@ -796,7 +780,7 @@ notification
 
 ### The `trace-id` in the Notification <a href="#d5e10037" id="d5e10037"></a>
 
-You have likely noticed the trace-id field at the end of the example notifications above. The trace id is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the `examples.ncs/development-guide/nano-services/netsim-vrouter` example, are emitted after applying a RESTCONF plain patch:
+You have likely noticed the trace-id field at the end of the example notifications above. The trace ID is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the `examples.ncs/development-guide/nano-services/netsim-vrouter` example, are emitted after applying a RESTCONF plain patch:
 
 ```
 $ curl -isu admin:admin -X PATCH
@@ -806,7 +790,7 @@ $ curl -isu admin:admin -X PATCH
           
 ```
 
-Note that the trace id is specified as part of the URL. If missing, NSO will generate and assign one on its own.
+Note that the trace ID is specified as part of the URL. If missing, NSO will generate and assign one on its own.
 
 ## Developing and Updating a Nano Service <a href="#d5e10046" id="d5e10046"></a>
 
@@ -814,7 +798,7 @@ At times, especially when you use an iterative development approach or simply du
 
 In the simple case, updating the model of a nano service and getting the changes to show up in an already created instance is a matter of executing a normal re-deploy. This will synthesize any new components and provision them, along with the new configuration, just like you would expect from a non-nano service.
 
-A major difference occurs if a service instance is deleted and is in a zombie state when the nano service is updated. You should be aware that no synthetization is done for that service instance. The only goal of a deleted service is to revert any changes made by the service instance. Therefore, in that case, the synthetization is not needed. It means that, if you've made changes to callbacks, post actions, or pre-conditions, those changes will not be applied to zombies of the nano service. If a service instance requires the new changes to be applied, you must re-deploy it before it is deleted.
+A major difference occurs if a service instance is deleted and is in a zombie state when the nano service is updated. You should be aware that no synthetization is done for that service instance. The only goal of a deleted service is to revert any changes made by the service instance. Therefore, in that case, the synthetization is not needed. It means that, if you've made changes to callbacks, post-actions, or pre-conditions, those changes will not be applied to zombies of the nano service. If a service instance requires the new changes to be applied, you must re-deploy it before it is deleted.
 
 When updating nano services, you also need to be aware that any old callbacks, post actions and any other models that the service depends on, need to be available in the new nano service package until all service instances created before the update have either been updated (through a re-deploy) or fully deleted. Therefore, you must take great care with any updates to a service if there are still zombies left in the system.
 
@@ -854,28 +838,28 @@ The text in this section sums up as well as adds additional detail on the way na
 
 To reiterate, the purpose of a nano service is to break down an RFM service into its isolated steps. It extends the normal `ncs:servicepoint` YANG mechanism and requires the following:
 
-* A YANG definition of the service input parameters, with a service point name and the additional _nano-plan-data_ grouping.
-* A YANG definition of the plan component types and their states in a _plan outline_.
-* A YANG definition of a _behavior tree_ for the service. The behavior tree defines how and when to instantiate components in the plan.
+* A YANG definition of the service input parameters, with a service point name and the additional nano-plan-data grouping.
+* A YANG definition of the plan component types and their states in a plan outline.
+* A YANG definition of a behavior tree for the service. The behavior tree defines how and when to instantiate components in the plan.
 * Code or templates for individual state transfers in the plan.
 
 When a nano service is committed, the system evaluates its behavior tree. The result of this evaluation is a set of components that form the current plan for the service. This set of components is compared with the previous plan (before the commit). If there are new components, they are processed one by one.
 
-For each component in the plan, it is executed state by state in the defined order. Before entering a new state, the _create pre-condition_ for the state is evaluated if it exists. If a create pre-condition exists and if it is not satisfied, the system stops progressing this component and jumps to the next one. A kicker is then defined for the pre-condition that was not satisfied. Later, when this kicker triggers and the pre-condition is satisfied, it performs a `reactive-re-deploy` and the kicker is removed. This kicker mechanism becomes a self-sustained RFM loop.
+For each component in the plan, it is executed state by state in the defined order. Before entering a new state, the create pre-condition for the state is evaluated if it exists. If a create pre-condition exists and if it is not satisfied, the system stops progressing this component and jumps to the next one. A kicker is then defined for the pre-condition that was not satisfied. Later, when this kicker triggers and the pre-condition is satisfied, it performs a `reactive-re-deploy` and the kicker is removed. This kicker mechanism becomes a self-sustained RFM loop.
 
-If a state's pre-conditions are met, the callback function or template associated with the state is invoked, if it exists. If the callback is successful, the state is marked as _reached_, and the next state is executed.
+If a state's pre-conditions are met, the callback function or template associated with the state is invoked, if it exists. If the callback is successful, the state is marked as `reached`, and the next state is executed.
 
-A component, that is no longer present but was in the previous plan, goes into _back-tracking mode_, during which the goal is to remove all reached states and eventually remove the component from the plan. Removing state data changes is performed in a strict reverse order, beginning with the last reached state and taking into account a _delete pre-condition_ if defined.
+A component, that is no longer present but was in the previous plan, goes into back-tracking mode, during which the goal is to remove all reached states and eventually remove the component from the plan. Removing state data changes is performed in a strict reverse order, beginning with the last reached state and taking into account a delete pre-condition if defined.
 
-A nano service is expected to have a `ncs:self` component type, all other component types are optional. Any component type, including `ncs:self`, are expected to have `ncs:init` as its first state and `ncs:ready` as its last state. Any component type, including `ncs:self`, can have any number of specific states in between `ncs:init` and `ncs:ready`.
+A nano service is expected to have a component. All components are expected to have `ncs:init` as its first state and `ncs:ready` as its last state. A component-type can have any number of specific states in between `ncs:init` and `ncs:ready`.
 
 ### Back-Tracking <a href="#d5e10107" id="d5e10107"></a>
 
 Back-tracking is completely automatic and occurs in the following scenarios:
 
-* State pre-condition not satisfied_:_ A reached state's pre-condition is no longer satisfied, and there are subsequent states that are reached and contain reverse diff-sets.
-* Plan component is removed_:_ When a plan component is removed and has reached states that contain reverse diff-sets.
-* Service is deleted_:_ When a service is deleted, NSO will set all plan components to back-tracking mode before deleting the service.
+* **State pre-condition not satisfied**: A `reached` state's pre-condition is no longer satisfied, and there are subsequent states that are reached and contain reverse diff-sets.
+* **Plan component is removed**: When a plan component is removed and has reached states that contain reverse diff-sets.
+* **Service is deleted**: When a service is deleted, NSO will set all plan components to back-tracking mode before deleting the service.
 
 For each RFM loop, NSO traverses each component and state in order. For each non-satisfied create pre-condition, a kicker is started that monitors and triggers when the pre-condition becomes satisfied.
 
@@ -941,12 +925,12 @@ If an invocation of an RFM loop (for example, a re-deploy) synthesizes the behav
 
 The following control flow nodes are defined:
 
-* **Selector**_:_ A selector node has a set of children which are synthesized as described above.
-* **Multiplier**_:_ A multiplier has a 'foreach_'_ mechanism that produces a list of elements. For each resulting element, the children are synthesized as described above. This can be used, for example, to create several plan-components of the same type.
+* **Selector**: A selector node has a set of children which are synthesized as described above.
+* **Multiplier**: A multiplier has a 'foreach_'_ mechanism that produces a list of elements. For each resulting element, the children are synthesized as described above. This can be used, for example, to create several plan-components of the same type.
 
 There is just one type of execution node:
 
-* Create component_:_ The create-component execution node creates an instance of the component type that it refers to in the plan.
+* **Create component**: The create-component execution node creates an instance of the component type that it refers to in the plan.
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
@@ -958,7 +942,7 @@ An example of a more elaborated behavior tree is the following:
 
 <figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption>Elaborated Behavior Tree</figcaption></figure>
 
-This behavior tree has a selector node as the root. It will always synthesize the "self" plan component and then evaluate the pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
+This behavior tree has a selector node as the root. It will always synthesize the "base-config" plan component and then evaluate then pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 
 The multiplier control flow node is used when a plan component of a certain type should be cloned into several copies depending on some service input parameters. For this reason, the multiplier node defines a `foreach`, a `when`, and a `variable`. The `foreach` is evaluated and for each node in the nodeset that satisfies the `when`, the `variable` is evaluated as the outcome. The value is used for parameter substitution to a unique name for a duplicated plan component.
 
@@ -977,7 +961,7 @@ When working with pre-conditions, you need to be aware that they work a bit diff
 Support for pre-conditions checking, if a node has been deleted, is handled a bit differently due to the difference in how the pre-condition is evaluated. Kickers always trigger for changed nodes (add, deleted, or modified) and can check that the node was deleted in the commit that triggered the kicker. While in the nano service evaluation, you only have the current state of the database and the monitor expression will not return any nodes for evaluation of the trigger expression, consequently evaluating the pre-condition to false. To support deletes in both cases, you can create a pre-condition with a monitor expression and a child node `ncs:trigger-on-delete` which then both create a kicker that checks for deletion of the monitored node and also does the right thing in the nano service evaluation of the pre-condition. For example, you could have the following component:
 
 ```
-            ncs:component "self" {
+            ncs:component "base-config" {
               ncs:state "init" {
                 ncs:delete {
                   ncs:pre-condition {
@@ -993,10 +977,10 @@ Support for pre-conditions checking, if a node has been deleted, is handled a bi
 
 The component would only trigger the init states delete pre-condition when the device named test is deleted.
 
-It is possible to add multiple monitors to a pre-condition by using the `ncs:all` or `ncs:any` extensions. Both extensions take one or multiple monitors as argument. A pre-condition using the `ncs:all` extension is satisfied if all monitors given as arguments evaluate to true. A pre-condition using the `ncs:any` extension is satisfied if at least one of the monitors given as argument evaluates to true. The following component uses the `ncs:all` and `ncs:any` extensions for its _self_ state's create and delete pre-condition, respectively:
+It is possible to add multiple monitors to a pre-condition by using the `ncs:all` or `ncs:any` extensions. Both extensions take one or multiple monitors as argument. A pre-condition using the `ncs:all` extension is satisfied if all monitors given as arguments evaluate to true. A pre-condition using the `ncs:any` extension is satisfied if at least one of the monitors given as argument evaluates to true. The following component uses the `ncs:all` and `ncs:any` extensions for its self state's create and delete pre-condition, respectively:
 
 ```
-          ncs:component "self" {
+          ncs:component "base-config" {
             ncs:state "init" {
               ncs:create {
                 ncs:pre-condition {
@@ -1037,33 +1021,34 @@ The nano services handle the opaque in a similar fashion, where a callback for e
 
 For example, take the following behavior tree snippet:
 
-<pre><code>    ncs:selector {
+```
+     ncs:selector {
       ncs:variable "VAR1" {
         ncs:value-expr "'value1'";
       }
-      ncs:create-component "'self'" {
-        ncs:component-type-ref "ncs:self";
+      ncs:create-component "'base-config'" {
+        ncs:component-type-ref "t:base-config";
       }
       ncs:selector {
         ncs:variable "VAR2" {
           ncs:value-expr "'value2'";
         }
         ncs:create-component "'component1'" {
-<strong>          ncs:component-type-ref "t:my-component";
-</strong>        }
+          ncs:component-type-ref "t:my-component";
+        }
       }
     }
-</code></pre>
+```
 
-The callbacks for states in the “self” component only see the `VAR1` variable, while those in “component1” see both `VAR1` and `VAR2` as component properties.
+The callbacks for states in the `“base-config”` component only see the `VAR1` variable, while those in “component1” see both `VAR1` and `VAR2` as component properties.
 
 Additionally, both the service opaque and component variables (properties) are used to look up substitutions in nano service XML templates and in the behavior tree. If used in the behavior tree, the same rules apply for the opaque as for component variables. So, a value needs to contain single quotes if you wish to use it verbatim in preconditions and similar constructs, for example:
 
 ```
-    proplist.append(('VARX', "'some value'"))
+proplist.append(('VARX', "'some value'"))
 ```
 
-Using this scheme at an early state, such as the “self” component's “ncs:init”, you can have a callback that sets name-value pairs for all other states that are then implemented solely with templates and preconditions.
+Using this scheme at an early state, such as the `“base-config”` component's `“ncs:init”`, you can have a callback that sets name-value pairs for all other states that are then implemented solely with templates and preconditions.
 
 ### Nano Service Callbacks <a href="#ug.nano_services.callbacks" id="ug.nano_services.callbacks"></a>
 
@@ -1071,7 +1056,7 @@ The nano service can have several callback registrations, one for each plan comp
 
 The drawback with this flexible callback registration is that there must be a way for the NSO Service Manager to know if all expected nano service callbacks have been registered. For this reason, all nano service plan component states that require callbacks are marked with this information. When the plan is executed and the callback markings in the plan mismatch with the actual registrations, this results in an error.
 
-All callback registrations in NSO require a daemon to be instantiated, such as a Python or Java process. For nano services, it is allowed to have many _daemons_ where each daemon is responsible for a subset of the plan state callback registrations. The neat thing here is that it becomes possible to mix different callback types (Template/Python/Java) for different plan states.
+All callback registrations in NSO require a daemon to be instantiated, such as a Python or Java process. For nano services, it is allowed to have many daemons where each daemon is responsible for a subset of the plan state callback registrations. The neat thing here is that it becomes possible to mix different callback types (Template/Python/Java) for different plan states.
 
 <figure><img src="../../images/nano-service-impl.png" alt=""><figcaption></figcaption></figure>
 
@@ -1113,7 +1098,7 @@ class NanoServiceCallbacks(ncs.application.NanoService):
 In the majority of cases, you should not need to manage the status of nano states yourself. However, should you need to override the default behavior, you can set the status explicitly, in the callback, using code similar to the following :
 
 ```
-        plan.component[component].state[state].status = 'failed'
+plan.component[component].state[state].status = 'failed'
 ```
 
 The Python nano service callback needs a registration call for the specific service point, `componentType`, and state that it should be invoked for.
@@ -1171,16 +1156,18 @@ In some scenarios, there is a need to be able to register a callback for a certa
 
 In Python, the component type is provided as an argument to the callback (`component`) and a generic callback is registered with an asterisk for a component, such as:
 
-<pre><code><strong>self.register_nano_service('my-servicepoint', '*', state, ServiceCallbacks)
-</strong></code></pre>
+```
+self.register_nano_service('my-servicepoint', '*', state, ServiceCallbacks)
+```
 
 In Java, you can perform the registration in the method annotation, as before. To retrieve the calling component type, use the `NanoServiceContext.getComponent()` method. For example:
 
-<pre><code>    @NanoServiceCallback(servicePoint="my-servicepoint",
+```
+    @NanoServiceCallback(servicePoint="my-servicepoint",
                          componentType="*", state="my:some-state",
                          callType=NanoServiceCBType.CREATE)
-<strong>    public Properties genericNanoCreate(NanoServiceContext context,
-</strong>                                        NavuNode service,
+    public Properties genericNanoCreate(NanoServiceContext context,
+                                        NavuNode service,
                                         NavuNode ncsRoot,
                                         Properties opaque,
                                         Properties componentProperties)
@@ -1189,7 +1176,7 @@ In Java, you can perform the registration in the method annotation, as before. T
         String currentComponent = context.getComponent();
         // ...
     }
-</code></pre>
+```
 
 The generic callback can then act for the registered state in any component type.
 
@@ -1206,7 +1193,7 @@ When implementing a nano service, you might end up in a situation where a commit
 To force a commit in between two states of a component, add the `ncs:force-commit` tag in a `ncs:create` or `ncs:delete` tag. See the following example:
 
 ```
-              ncs:component "self" {
+              ncs:component "base-config" {
                 ncs:state "init" {
                   ncs:create {
                     ncs:force-commit;
@@ -1230,6 +1217,10 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
 
 {% code title="Nano services custom plan location example" %}
 ```
+    identity base-config {
+    base ncs:plan-component-type;
+  }
+  
   list custom {
     description "Custom plan location example service.";
 
@@ -1261,7 +1252,7 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
     description
       "Custom plan location example outline";
 
-    ncs:component-type "ncs:self" {
+    ncs:component-type "p:base-config" {
       ncs:state "ncs:init";
       ncs:state "ncs:ready";
     }
@@ -1275,8 +1266,8 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
     ncs:plan-location "/custom-plan";
 
     ncs:selector {
-      ncs:create-component "'self'" {
-        ncs:component-type-ref "ncs:self";
+      ncs:create-component "'base-config'" {
+        ncs:component-type-ref "p:base-config";
       }
     }
   }
@@ -1306,15 +1297,15 @@ While error recovery helps keeping the network consistent, the end result remain
 * The nano plan is marked as failed by creating the `failed` leaf under the plan.
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
-After such an event, manual intervention is required. If not using the `rollback-on-error` option or rollback transaction fails, please consult [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
-You can find another nano service example under `examples.ncs/getting-started/developing-with-ncs/20-nano-services`. The example illustrates a situation with a simple VPN link that should be set up between two devices. The link is considered established only after it is tested and a _test-passed_ leaf is set to `true`. If the VPN link changes, the new endpoints must be set up before removing the old endpoints, to avoid disturbing customer traffic during the operation.
+You can find another nano service example under `examples.ncs/getting-started/developing-with-ncs/20-nano-services`. The example illustrates a situation with a simple VPN link that should be set up between two devices. The link is considered established only after it is tested and a `test-passed` leaf is set to `true`. If the VPN link changes, the new endpoints must be set up before removing the old endpoints, to avoid disturbing customer traffic during the operation.
 
-The package named link contains the nano service definition. The service has a list containing at most one element, which constitutes the VPN link and is keyed on a-device a-interface b-device b-interface. The list element corresponds to a component type `link:vlan-link` in the nano service plan.
+The package named `link` contains the nano service definition. The service has a list containing at most one element, which constitutes the VPN link and is keyed on a-device a-interface b-device b-interface. The list element corresponds to a component type `link:vlan-link` in the nano service plan.
 
-{% code title="20-nano-services link example plan" %}
+{% code title="Example: 20-nano-services Link Example Plan" %}
 ```
   identity vlan-link {
     base ncs:plan-component-type;
@@ -1327,11 +1318,6 @@ The package named link contains the nano service definition. The service has a l
   ncs:plan-outline link:link-plan {
     description
       "Make before brake vlan plan";
-
-    ncs:component-type "ncs:self" {
-      ncs:state "ncs:init";
-      ncs:state "ncs:ready";
-    }
 
     ncs:component-type "link:vlan-link" {
       ncs:state "ncs:init";
@@ -1352,7 +1338,7 @@ The package named link contains the nano service definition. The service has a l
           ncs:pre-condition {
             ncs:monitor "$SERVICE/plan" {
               ncs:trigger-expr
-                "component[name != 'self'][back-track = 'false']"
+                "component[type = 'vlan-link'][back-track = 'false']"
               + "/state[name = 'ncs:ready'][status = 'reached']"
               + " or not(component[back-track = 'false'])";
             }
@@ -1376,7 +1362,7 @@ In the plan definition, note that there is only one nano service callback regist
 
 The callback is a template. You can find it under packages/link/templates as `link-template.xml`.
 
-For the state `ncs:ready` in the `link:vlan-link` component type there are both a create and a delete pre-condition. The `create` pre-condition for this state is as follows:
+For the state `ncs:ready` in the `link:vlan-link` component type there are both a `create` and a `delete` pre-condition. The `create` pre-condition for this state is as follows:
 
 ```
         ncs:create {
@@ -1388,16 +1374,16 @@ For the state `ncs:ready` in the `link:vlan-link` component type there are both 
         }
 ```
 
-This pre-condition implies that the components based on this component type are not considered finished until the test-passed leaf is set to a `true` value. The pre-condition implements the requirement that after the initial setup of a link configured by the `link:dev-setup` state, a manual test and setting of the test-passed leaf is performed before the link is considered finished.
+This pre-condition implies that the components based on this component type are not considered finished until the `test-passed` leaf is set to a `true` value. The pre-condition implements the requirement that after the initial setup of a link configured by the `link:dev-setup` state, a manual test and setting of the `test-passed` leaf is performed before the link is considered finished.
 
-The delete pre-condition for the same state is as follows:
+The `delete` pre-condition for the same state is as follows:
 
 ```
         ncs:delete {
           ncs:pre-condition {
             ncs:monitor "$SERVICE/plan" {
               ncs:trigger-expr
-                "component[name != 'self'][back-track = 'false']"
+                "component[type = 'vlan-link'][back-track = 'false']"
               + "/state[name = 'ncs:ready'][status = 'reached']"
               + " or not(component[back-track = 'false'])";
             }
@@ -1405,9 +1391,9 @@ The delete pre-condition for the same state is as follows:
         }
 ```
 
-This pre-condition implies that before you start deleting (back-tracking) an old component, the new component must have reached the `ncs:ready` state, that is, after being successfully tested. The first part of the pre-condition checks the status of the non-self components. Since there can be at most one link configured in the service instance, the only non-backtracking component, other than self, is the new link component. However, that condition on its own prevents the component from being deleted when deleting the service. So, the second part, after the `or` statement, checks if all components are back-tracking, which signifies service deletion. This approach illustrates a create-before-break scenario where the new link is created first, and only when it is set up, the old one is removed.
+This pre-condition implies that before you start deleting (back-tracking) an old component, the new component must have reached the `ncs:ready` state, that is, after being successfully tested. The first part of the pre-condition checks the status of the `vlan-link` components. Since there can be at most one link configured in the service instance, the only non-backtracking component, other than self, is the new link component. However, that condition on its own prevents the component to be deleted when deleting the service. So, the second part, after the `or` statement, checks if all components are back-tracking, which signifies service deletion. This approach illustrates a "create-before-break" scenario where the new link is created first, and only when it is set up, the old one is removed.
 
-{% code title="20-nano-services link example behavior tree" %}
+{% code title="Example: 20-nano-services Link Example Behavior Tree" %}
 ```
   ncs:service-behavior-tree link-servicepoint {
     description
@@ -1416,10 +1402,6 @@ This pre-condition implies that before you start deleting (back-tracking) an old
     ncs:plan-outline-ref "link:link-plan";
 
     ncs:selector {
-      ncs:create-component "'self'" {
-        ncs:component-type-ref "ncs:self";
-      }
-
       ncs:multiplier {
         ncs:foreach "endpoints" {
           ncs:variable "VALUE" {
@@ -1435,15 +1417,13 @@ This pre-condition implies that before you start deleting (back-tracking) an old
 ```
 {% endcode %}
 
-The `ncs:service-behavior-tree` is registered on the service point `link-servicepoint` that is defined by the nano service. It refers to the plan definition named `link:link-plan`. The behavior tree has a selector on top, which chooses to synthesize its children depending on their pre-conditions. In this tree, there are no pre-conditions, so all children will be synthesized.
+The `ncs:service-behavior-tree` is registered on the servicepoint `link-servicepoint` that is defined by the nano service. It refers to the plan definition named `link:link-plan`. The behavior tree has a selector on top, which chooses to synthesize its children depending on their pre-conditions. In this tree, there are no pre-conditions, so all children will be synthesized.
 
-First, there is a component `self` based on the `ncs:self` component type in the plan that is always synthesized.
-
-Second, there is a multiplier control node that chooses a node set. A variable named VALUE is created with a unique value for each node in that node set and creates a component of the `link:vlan-link` type for each node in the chosen node set. The name for each individual component is the value of the variable VALUE.
+The `multiplier` control node chooses a node set. A variable named `VALUE` is created with a unique value for each node in that node-set and creates a component of the `link:vlan-link` type for each node in the chosen node-set. The name for each individual component is the value of the variable `VALUE`.
 
 Since the chosen node-set is the "endpoints" list that can contain at most one element, it produces only one component. However, if the link in the service is changed, that is, the old list entry is deleted and a new one is created, then the multiplier creates a component with a new name.
 
-This forces the old component (which is no longer synthesized) to be back-tracked and the plan definition above handles the create-before-break behavior of the back-tracking.
+This forces the old component (which is no longer synthesized) to be back-tracked and the plan definition above handles the "create-before-break" behavior of the back-tracking.
 
 To run the example, do the following:
 
@@ -1482,7 +1462,7 @@ admin@ncs(config)# config
 Entering configuration mode terminal
 ```
 
-Now you create a service that sets up a VPN link between devices `ex1` and `ex2`, and is completed immediately since the test-passed leaf is set to true.
+Now you create a service that sets up a VPN link between devices `ex1` and `ex2`, and is completed immediately since the `test-passed` leaf is set to `true`.
 
 ```
 admin@ncs(config)# link t2 unit 17 vlan-id 1
@@ -1539,9 +1519,9 @@ ex1-eth0-ex2-eth0  init       reached
                    ready      reached
 ```
 
-All components in the plan have reached their ready state.
+All components in the plan have reached their `ready` state.
 
-Now, change the link by changing the interface on one of the devices. To do this, you must remove the old list entry in `endpoints` and create a new one.
+Now, change the link by changing the interface on one of the devices. To do this, you must remove the old list entry in "endpoints" and create a new one.
 
 ```
 admin@ncs# config
@@ -1550,7 +1530,7 @@ admin@ncs(config)# no link t2 endpoints ex1 eth0 ex2 eth0
 admin@ncs(config)# link t2 endpoints ex1 eth0 ex2 eth1
 ```
 
-Commit dry-run to inspect what happens:
+Commit a dry-run to inspect what happens:
 
 ```
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit dry-run
@@ -1588,7 +1568,7 @@ cli  devices {
      }
 ```
 
-Upon committing, the service just adds the new interface and does not remove anything at this point. The reason is that the test-passed leaf is not set to `true` for the new component. Commit this change and inspect the plan:
+Upon committing, the service just adds the new interface and does not remove anything at this point. The reason is that the `test-passed` leaf is not set to `true` for the new component. Commit this change and inspect the plan:
 
 ```
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit
@@ -1609,7 +1589,7 @@ ex1-eth0-ex2-eth0  vlan-link  true   -     init       reached      ...
                                            ready      reached      ...
 ```
 
-Notice that the new component `ex1-eth0-ex2-eth1` has not reached its ready state yet. Therefore, the old component `ex1-eth0-ex2-eth0` still exists in back-track mode but is still waiting for the new component to finish.
+Notice that the new component `ex1-eth0-ex2-eth1` has not reached its `ready` state yet. Therefore, the old component `ex1-eth0-ex2-eth0` still exists in back-track mode but is still waiting for the new component to finish.
 
 If you check what the service has configured at this point, you get the following:
 
@@ -1650,7 +1630,7 @@ cli  devices {
       }
 ```
 
-Both the old and the new links exist at this point. Now, set the test-passed leaf to true to force the new component to reach its ready state.
+Both the old and the new link exist at this point. Now, set the `test-passed` leaf to `true` to force the new component to reach its ready state.
 
 ```
 admin@ncs(config)# link t2 endpoints ex1 eth0 ex2 eth1 test-passed true

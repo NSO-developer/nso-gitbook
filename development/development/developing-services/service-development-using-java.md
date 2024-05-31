@@ -6,7 +6,7 @@ description: Learn service development in Java with Examples.
 
 As using Java for service development may be somewhat more involved than Python, this section provides further examples and additional tips for setting up the development environment for Java.
 
-The two examples, a simple VLAN service and a Layer 3 MPLS VPN service are more elaborate but show the same techniques as [Implementing Services](developing-nso-services.md).&#x20;
+The two examples, a simple VLAN service and a Layer 3 MPLS VPN service are more elaborate but show the same techniques as [Implementing Services](implementing-services.md).&#x20;
 
 {% hint style="success" %}
 If you or your team primarily focuses on services implemented in Python, feel free to skip or only skim through this section.

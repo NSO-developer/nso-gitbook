@@ -156,15 +156,75 @@ The context filter can be used to only log events that originate through a speci
 admin@ncs% set progress trace test filter context netconf
 ```
 
-## Report Progress Events from User Code <a href="#d5e9559" id="d5e9559"></a>
+## Report Progress Events from User Code <a href="#report-progress-events-from-user-code" id="report-progress-events-from-user-code"></a>
 
-API methods to report progress events exist for Java, Python, and C. There also exist specific methods to report progress events for services.
+API methods to report progress events exist for Python, Java, Erlang, and C.
+
+### Python `ncs.maapi` Example <a href="#d5e12711" id="d5e12711"></a>
 
 ```
-...
-Maapi maapi = service.context().getMaapi();
-int tHandle = service.context().getMaapiHandle();
-ConfPath servicePath = new ConfPath(service.getKeyPath());
-maapi.reportServiceProgress(tHandle, Maapi.Verbosity.VERBOSE,
-                            "service test", servicePath);
+class ServiceCallbacks(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        maapi = ncs.maagic.get_maapi(root)
+        trans = maapi.attach(tctx)
+
+        with trans.start_progress_span("service create()", path=service._path):
+            ipv4_addr = None
+            with trans.start_progress_span("allocate IP address") as sp11:
+                self.log.info('alloc trace-id: ' + sp11.trace_id + \
+                    ' span-id: ' + sp11.span_id)
+                ipv4_addr = alloc_ipv4_addr('192.168.0.0', 24)
+                trans.progress_info('got IP address ' + ipv4_addr)
+            with trans.start_progress_span("apply template",
+                    attrs={'ipv4_addr':ipv4_addr}) as sp12:
+                self.log.info('templ trace-id: ' + sp12.trace_id + \
+                    ' span-id: ' + sp12.span_id)
+                vars = ncs.template.Variables()
+                vars.add('IPV4_ADDRESS', ipv4_addr)
+                template = ncs.template.Template(service)
+                template.apply('ipv4-addr-template', vars)
 ```
+
+Further details can be found in the NSO Python API reference under `ncs.maapi.start_progress_span` and `ncs.maapi.progress_info`.
+
+### Java `com.tailf.progress.ProgressTrace` Example <a href="#d5e12719" id="d5e12719"></a>
+
+```
+    @ServiceCallback(servicePoint="...",
+        callType=ServiceCBType.CREATE)
+    public Properties create(ServiceContext context,
+                             NavuNode service,
+                             NavuNode ncsRoot,
+                             Properties opaque)
+                             throws DpCallbackException {
+        try {
+            Maapi maapi = service.context().getMaapi();
+            int tid = service.context().getMaapiHandle();
+            ProgressTrace progress = new ProgressTrace(maapi, tid,
+                service.getConfPath());
+            Span sp1 = progress.startSpan("service create()");
+
+            Span sp11 = progress.startSpan("allocate IP address");
+            LOGGER.info("alloc trace-id: " + sp11.getTraceId() +
+                    " span-id: " + sp11.getSpanId());
+            String ipv4Addr = allocIpv4Addr("192.168.0.0", 24);
+            progress.event("got IP address " + ipv4Addr);
+            progress.endSpan(sp11);
+
+            Attributes attrs = new Attributes();
+            attrs.set("ipv4_addr", ipv4Addr);
+            Span sp12 = progress.startSpan(Maapi.Verbosity.NORMAL,
+                "apply template", attrs, null);
+            LOGGER.info("templ trace-id: " + sp12.getTraceId() +
+                    " span-id: " + sp12.getSpanId());
+            TemplateVariables ipVar = new TemplateVariables();
+            ipVar.putQuoted("IPV4_ADDRESS", ipv4Addr);
+            Template ipTemplate = new Template(context, "ipv4-addr-template");
+            ipTemplate.apply(service, ipVar);
+            progress.endSpan(sp12);
+
+            progress.endSpan(sp1);
+```
+
+Further details can be found in the NSO Java API reference under `com.tailf.progress.ProgressTrace` and `com.tailf.progress.Span`.

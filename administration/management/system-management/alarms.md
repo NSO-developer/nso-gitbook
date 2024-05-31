@@ -14,6 +14,7 @@ alarm-type
         bad-user-input
         commit-through-queue-blocked
         commit-through-queue-failed
+        commit-through-queue-failed-transiently
         commit-through-queue-rollback-failed
         configuration-error
         connection-failure
@@ -169,17 +170,40 @@ queue indefinitely.
 * **Clear Condition(s)**  
   This alarm is not cleared.
 * **Alarm Message(s)**  
+  * `Failed to authenticate towards device {device}: {reason}`
+  * `Device {dev} is locked`
+  * `{Reason}`
+  * `Device {dev} is southbound locked`
+  * `Commit queue item {CqId} rollback invoked`
+  * `Commit queue item {CqId} has failed: Operation failed because:
+  inconsistent database`
+  * `Remote commit queue item ~p cannot be unlocked:
+  cluster node not configured correctly`
+
+</details>
+
+<details>
+
+<summary><code>commit-through-queue-failed-transiently</code></summary>
+
+* **Initial Perceived Severity**  
+  critical
+* **Description**  
+  A queued commit failed as it exhausted its retry attempts
+on transient errors.
+* **Recommended Action**  
+  Resolve with rollback if possible.
+* **Clear Condition(s)**  
+  This alarm is not cleared.
+* **Alarm Message(s)**  
   * `Failed to connect to device {dev}: {reason}`
   * `Connection to {dev} timed out`
   * `Failed to authenticate towards device {device}: {reason}`
   * `The configuration database is locked for device {dev}: {reason}`
   * `the configuration database is locked by session {id} {identification}`
-  * `Device {dev} is locked`
   * `the configuration database is locked by session {id} {identification}`
-  * `{Reason}`
   * `{Dev}: Device is locked in a {Op} operation by session {session-id}`
   * `resource denied`
-  * `Device {dev} is southbound locked`
   * `Commit queue item {CqId} rollback invoked`
   * `Commit queue item {CqId} has failed: Operation failed because:
   inconsistent database`

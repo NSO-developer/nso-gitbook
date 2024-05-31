@@ -229,7 +229,7 @@ Notice there was no evaluation done.
 
 ### Variable Bindings <a href="#ug.data.kicker.named_xpath" id="ug.data.kicker.named_xpath"></a>
 
-A data kicker may be provided with a list of variables (named values). Each variable binding consists of a name and an XPath expression. The XPath expressions are evaluated on-demand, i.e. when used in either of `monitor` or `trigger-expression` nodes.
+A data kicker may be provided with a list of variables (named values). Each variable binding consists of a name and a XPath expression. The XPath expressions are evaluated on-demand, i.e. when used in either of `monitor` or `trigger-expression` nodes.
 
 ```
 admin@ncs(config)# set kickers data-kicker k3 monitor $PATH/c
@@ -594,7 +594,7 @@ admin@ncs(config)# commit
 
 ## Nano Services Reactive FastMap with Kicker <a href="#ug.kicker.rfm" id="ug.kicker.rfm"></a>
 
-Nano services use kickers to trigger executing state callback code, run templates, and execute actions according to a plan when pre-conditions are met. For more information see [Nano Services for Provisioning with Side Effects](../development/developing-services/developing-nso-services.md#ncs.development.reactive\_fastmap) and [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md).
+Nano services use kickers to trigger executing state callback code, run templates, and execute actions according to a plan when pre-conditions are met. For more information see [Nano Services for Provisioning with Side Effects](../development/developing-services/implementing-services.md#ncs.development.reactive\_fastmap) and [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md).
 
 ## Debugging Kickers <a href="#ug.kicker.debugging" id="ug.kicker.debugging"></a>
 

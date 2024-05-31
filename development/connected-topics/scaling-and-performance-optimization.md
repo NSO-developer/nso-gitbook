@@ -4,7 +4,7 @@ description: Optimize NSO for scaling and performance.
 
 # Scaling and Performance Optimization
 
-With an increasing number of services and managed devices in NSO, performance becomes a more important aspect of the system. At the same time, other aspects, such as the way you organize code, also start playing an important role when using NSO on a bigger scale.
+With an increasing number of services and managed devices in NSO, performance becomes a more important aspect of the system. At the same time, other aspects, such as the way you organize code, also start playing an important role when using NSO on a bigger scale.&#x20;
 
 The following section examines these concerns and presents the available options for scaling your NSO automation solution.
 
@@ -205,27 +205,7 @@ The provided code sets up an NSO instance that exports tracing data to a `.csv` 
 Play with the `perf-trans` example by tweaking the `measure.py` script parameters:
 
 ```code
--nt NTRANS, --ntrans NTRANS
-    The number of transactions updating the same service in parallel. For this
-    example, we use NTRANS parallel RESTCONF <tag>plain patch</tag>.
-    Default: 1.
-
--nw NWORK, --nwork NWORK
-    Work per transaction in the service creation and validation phases. One
-    second of CPU time per work item.
-    Default: 3 seconds of CPU time.
-
--nd 0..10, --ndtrans 0..10
-    Number of devices the service will configure per service transaction.
-    Default: 1
-
--dd DDELAY, --ddelay DDELAY
-    Transaction delay (simulated by sleeping) on the netsim devices (seconds).
-    Default: 0s
-
--cq {async,sync,bypass,none}, --cqparam {async,sync,bypass,none}
-    Commit queue behavior. Select "none" to use the global or device setting.
-    Default: none
+plain patch
 ```
 
 See the README in the `perf-trans` example for details.
@@ -290,7 +270,7 @@ Conflicts between transactions and how to avoid them are described in [Minimizin
 
 ### Design to Minimize Service and Validation Processing Time <a href="#d5e8544" id="d5e8544"></a>
 
-An overly complex service or validation implementation using templates, code, and XPath expressions increases the processing required and, even if transactions are processed concurrently, will affect the wall-clock time spent processing and, thus, transaction throughput.
+An overly complex service or validation implementation using templates, code, and XPath expressions increases the processing required and, even if transactions are processed concurrently, will affect the wall-clock time spent processing and, thus, transaction throughput.&#x20;
 
 When data processing performance is of interest, the best practice rule of thumb is to ensure that `must` and `when` statement XPath expressions in YANG models and service templates are only used as necessary and kept as simple as possible.
 
@@ -728,9 +708,9 @@ Forming a rough estimate of CDB resource consumption for planning can be helpful
 
 Divide your devices into categories. Get a rough measurement for an exemplar in each category, add a safety margin, e.g., double the resource consumption, and multiply by the number of devices in that category. Example:
 
-<table data-full-width="true"><thead><tr><th>Device Type</th><th>RAM</th><th>Disk</th><th>Number of Devices</th><th>Margin</th><th>Total RAM</th><th>Total Disk</th></tr></thead><tbody><tr><td>FTTB access switch</td><td>200KiB</td><td>25KiB</td><td>30000</td><td>100%</td><td>11718MiB</td><td>1464MiB</td></tr><tr><td>Mobile Base Station</td><td>120KiB</td><td>11KiB</td><td>15000</td><td>100%</td><td>3515MiB</td><td>322MiB</td></tr><tr><td>Business CPE</td><td>50KiB</td><td>4KiB</td><td>50000</td><td>50%</td><td>3662MiB</td><td>292MiB</td></tr><tr><td>PE / Edge Router</td><td>10MiB</td><td>1MiB</td><td>1000</td><td>25%</td><td>12GiB</td><td>1.2GiB</td></tr><tr><td>Total</td><td></td><td></td><td></td><td></td><td>20.6GiB</td><td>3.3GiB</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Device Type</th><th>RAM</th><th>Disk</th><th>Number of Devices</th><th>Margin</th><th>Total RAM</th><th>Total Disk</th></tr></thead><tbody><tr><td>FTTB access switch</td><td>200KiB</td><td>25KiB</td><td>30000</td><td>100%</td><td>11718MiB</td><td>1464MiB</td></tr><tr><td>Mobile Base Station</td><td>120KiB</td><td>11KiB</td><td>15000</td><td>100%</td><td>3515MiB</td><td>322MiB</td></tr><tr><td>Business CPE</td><td>50KiB</td><td>4KiB</td><td>50000</td><td>50%</td><td>3662MiB</td><td>292MiB</td></tr><tr><td>PE / Edge Router</td><td>10MiB</td><td>1MiB</td><td>1000</td><td>25%</td><td>12GiB</td><td>1.2GiB</td></tr><tr><td>Total</td><td> </td><td> </td><td> </td><td> </td><td>20.6GiB</td><td>3.3GiB</td></tr></tbody></table>
 
-### The Size of a Service
+### &#x20;The Size of a Service
 
 A YANG model describes the input to services, and just like any other data in CDB, it consumes resources. Compared to the typical device configuration, where even small devices often have a few hundred lines of configuration, a small service might only have a handful of configurable inputs. Even extensive services rarely have more than 50 inputs.
 

@@ -2396,11 +2396,13 @@ Policies allow you to specify network-wide constraints that always must be true.
 
 Assume you would like to enforce all CE routers to have a Gigabit interface `0/1`.
 
-<pre data-title="Example: Policies"><code>ncs(config)# policy rule gb-one-zero
+{% code title="Example: Policies" %}
+```
+ncs(config)# policy rule gb-one-zero
 ncs(config-rule-gb-one-zero)# foreach /ncs:devices/device[starts-with(name,'ce')]/config
 ncs(config-rule-gb-one-zero)# expr ios:interface/ios:GigabitEthernet[ios:name='0/1']
-<strong>ncs(config-rule-gb-one-zero)# warning-message "{../name} should have 0/1 interface"
-</strong>ncs(config-rule-gb-one-zero)# commit
+ncs(config-rule-gb-one-zero)# warning-message "{../name} should have 0/1 interface"
+ncs(config-rule-gb-one-zero)# commit
 zork(config-rule-gb-one-zero)# top
 zork(config)# !
 ncs(config)# show full-configuration policy
@@ -2424,7 +2426,8 @@ The following warnings were generated:
   ce0 should have 0/1 interface
 Proceed? [yes,no] yes
 Commit complete.
-</code></pre>
+```
+{% endcode %}
 
 As seen in the example above (Policies) , a policy rule has (an optional) for each statement and a mandatory expression and error message. The `foreach` statement evaluates to a node set, and the expression is then evaluated on each node. So in this example, the expression would be evaluated for every device in NSO which begins with ce. The name variable in the warning message refers to a leaf available from the for-each node set.
 
