@@ -13,7 +13,7 @@ The main components of the Web UI are shown in the figure below.
 The UI works by auto-rendering the underlying device and service models. This gives the benefit that the Web UI is immediately updated when new devices or services are added to the system. For example, say you have added support for a new device vendor. Then, without any programming requirements, the NSO Web UI provides the capability to configure those devices.
 
 {% hint style="info" %}
-It's important to realize that bulk of concepts and configuration options in Web UI are shared with the NSO CLI. The rest of the documentation covers these in detail. You need to be familiar with the fundamental concepts to work with the Web UI.
+It's important to realize that the bulk of concepts and configuration options in Web UI are shared with the NSO CLI. The rest of the documentation covers these in detail. You need to be familiar with the fundamental concepts to work with the Web UI.
 {% endhint %}
 
 ## Browser Requirements <a href="#d5e5676" id="d5e5676"></a>
