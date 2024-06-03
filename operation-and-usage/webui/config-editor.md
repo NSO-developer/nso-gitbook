@@ -18,7 +18,7 @@ All NSO configuration is performed in this view. You can edit the configuration 
 
 An important component of Configuration Editor is the Configuration Navigator which you can use to traverse and edit the configuration defined by the YANG model in a hierarchical tree-like fashion. This provides an efficient way to browse and configure aspects of NSO. Let's say, for example, you want to access all the devices in your deployment and choose a specific one to view and configure. In the Configuration Editor, you can do this by typing in `ncs-devices` in the navigator, and then choosing further guided options (automatically suggested by the Web UI), e.g., `ncs-devices/device/ce0/config/...`.
 
-<figure><img src="../../images/config-nav.png" alt=""><figcaption><p>Configuration Navigator</p></figcaption></figure>
+<figure><img src="../../images/config-nav.png" alt="" width="367"><figcaption><p>Configuration Navigator</p></figcaption></figure>
 
 ### **Using the Configuration Navigator**
 

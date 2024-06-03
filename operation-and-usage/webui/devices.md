@@ -10,7 +10,7 @@ The **Devices** view provides options to manage devices and device groups in the
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
-<figure><img src="../../images/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+<figure><img src="../../images/device-management (1).png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
 
 ### **Search**
 
@@ -18,7 +18,7 @@ You can search for a device by its name, IP address, or other parameters. Narrow
 
 ### **Add a Device**
 
-To add a new device to NSO:&#x20;
+To add a new device to NSO:
 
 1. Click **Add device**.
 2. In the **Add device** pop-up, specify the device name.
@@ -60,11 +60,11 @@ Additional actions are applied per individual device. Use this option if you wan
 3. Click the desired action in the list.
 4.  At this point, you can configure different parameters.
 
-    (To reset all the parameters to their default value, use the **Reset action parameters** option).   &#x20;
+    (To reset all the parameters to their default value, use the **Reset action parameters** option).
 5. Run the action.
 
 {% hint style="info" %}
-To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info  <img src="broken-reference" alt="" data-size="line"> icon.
+To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info <img src="broken-reference" alt="" data-size="line"> icon.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
@@ -77,7 +77,7 @@ See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of th
 
 ### **Edit Device Configuration**
 
-To edit the device configuration of an existing device:&#x20;
+To edit the device configuration of an existing device:
 
 1. In the **Devices** view, click the desired device from the list.
 2. In the **Configuration editor**, click the **Edit config** tab.
@@ -104,7 +104,7 @@ The **Device groups** view lists all the available groups and devices belonging 
 Device groups allow for the grouping and collective management of devices.
 
 1. Click **Add device group**.
-2. In the **Create device group** pop-up, specify the group name.&#x20;
+2. In the **Create device group** pop-up, specify the group name.
    * If you want to place the new device group under a parent group, select the **Place under parent device group** option and specify the parent group.
 3. Click **Create**. You will be redirected to the group's details page. Here, the following panes are available:
    * **Details**: Displays basic details of the group, i.e., its name and parent/subgroup information. To link a sub-group, use the **Connect sub device group** option.
