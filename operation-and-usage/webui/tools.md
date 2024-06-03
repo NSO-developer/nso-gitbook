@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view offers individual utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/tools-view.png#developer.cisco.com" alt=""><figcaption><p>Tools View</p></figcaption></figure>
+<figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
 
 The following tools are available:
 
@@ -66,7 +66,7 @@ The **Dashboard** view displays useful information about:
 
 The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by device.
 
-You can run actions on an alarm by selecting it and using the **run action** <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/run-action.png#developer.cisco.com" alt="" data-size="line"> button.
+You can run actions on an alarm by selecting it and using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
@@ -82,13 +82,13 @@ Any network-wide configuration change can be picked up as a rollback file. The r
 
 ### **Review a Configuration Change**
 
-1. Access the Commit Manager by clicking its icon <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/commit-manager.png#developer.cisco.com" alt="" data-size="line"> in the banner.
+1. Access the Commit Manager by clicking its icon <img src="../../images/commit-manager.png" alt="" data-size="line"> in the banner.
 2. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
 3. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](https://developer.cisco.com/docs/nso-guides-6.3/the-json-rpc-api/#methods-transaction-commit-changes).
 
 {% hint style="info" %}
-In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/more-node-options.png#developer.cisco.com" alt="" data-size="line"> and clicking the info <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/info-button.png#developer.cisco.com" alt="" data-size="line"> button.
+In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="../../images/more-node-options.png" alt="" data-size="line"> and clicking the info <img src="../../images/info-button.png" alt="" data-size="line"> button.
 {% endhint %}
 
 #### **Load/Save Configuration Data**
@@ -126,7 +126,7 @@ The following main tabs are available in this view:
 
 ### **Create a Compliance Report**
 
-1. In the **Compliance reporting** view, click **Add list item** <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/add-action.png#developer.cisco.com" alt="" data-size="line">.
+1. In the **Compliance reporting** view, click **Add list item** <img src="../../images/add-action.png" alt="" data-size="line">.
 2. In the **New report** pop-up, enter the report name and confirm.
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../cli/lifecycle-operations.md) documentation.
    *   **General** tab: to configure the report name. Configuration options include:
