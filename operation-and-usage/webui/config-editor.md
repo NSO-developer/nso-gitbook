@@ -6,7 +6,7 @@ description: Traverse and edit NSO configuration using the YANG model.
 
 The **Configuration editor** view is where you view and manage aspects of your NSO deployment using the underlying YANG model, for example, to configure devices, services, packages, etc.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/config-editor.png#developer.cisco.com" alt=""><figcaption><p>Configuration Editor View</p></figcaption></figure>
+<figure><img src="../../images/config-editor.png" alt=""><figcaption><p>Configuration Editor View</p></figcaption></figure>
 
 The Configuration Editor's home page shows all the currently loaded YANG modules in NSO, i.e., the database schema. In this view, you can also browse and manage the configuration defined by the YANG modules.
 
@@ -18,15 +18,15 @@ All NSO configuration is performed in this view. You can edit the configuration 
 
 An important component of Configuration Editor is the Configuration Navigator which you can use to traverse and edit the configuration defined by the YANG model in a hierarchical tree-like fashion. This provides an efficient way to browse and configure aspects of NSO. Let's say, for example, you want to access all the devices in your deployment and choose a specific one to view and configure. In the Configuration Editor, you can do this by typing in `ncs-devices` in the navigator, and then choosing further guided options (automatically suggested by the Web UI), e.g., `ncs-devices/device/ce0/config/...`.
 
-<figure><img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/config-nav.png#developer.cisco.com" alt="" width="375"><figcaption><p>Configuration Navigator</p></figcaption></figure>
+<figure><img src="../../images/config-nav.png" alt=""><figcaption><p>Configuration Navigator</p></figcaption></figure>
 
 ### **Using the Configuration Navigator**
 
 As you navigate through the Web UI, the Configuration Navigator automatically displays and updates the path you are located at.
 
-* To exit back to the home page from another path, click the home <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/home-config-editor.png#developer.cisco.com" alt="" data-size="line"> button.
-* Click the up arrow <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/up-arrow.png#developer.cisco.com" alt="" data-size="line"> to go back one step to the parent node.
-* To fetch information about a property/component, click the info <img src="https://pubhub.devnetcloud.com/media/nso-guides-6.3/docs/nso_user_guide/pics/info-button.png#developer.cisco.com" alt="" data-size="line"> button.
+* To exit back to the home page from another path, click the home <img src="../../images/home-config-editor.png" alt="" data-size="line"> button.
+* Click the up arrow <img src="../../images/up-arrow.png" alt="" data-size="line"> to go back one step to the parent node.
+* To fetch information about a property/component, click the info <img src="../../images/info-button.png" alt="" data-size="line"> button.
 * Use the **TAB** key to complete the config path.
 
 ## Configuration Editor Tabs <a href="#d5e6388" id="d5e6388"></a>
