@@ -10,7 +10,7 @@ The **Devices** view provides options to manage devices and device groups in the
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
-<figure><img src="../../images/device-management (1).png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+<figure><img src="../../images/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
 
 ### **Search**
 
