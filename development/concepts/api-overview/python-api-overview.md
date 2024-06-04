@@ -23,7 +23,7 @@ The high-level APIs are an abstraction layer on top of the low-level APIs to mak
 
 ## Python scripting <a href="#d5e4389" id="d5e4389"></a>
 
-Scripting in Python is a very easy and powerful way of accessing NSO. This document has several examples of scripts showing various ways of accessing data and requesting actions in NSO.
+Scripting in Python is a straightforward and powerful way of accessing NSO. This document has several examples of scripts showing various ways of accessing data and requesting actions in NSO.
 
 The examples are directly executable with the Python interpreter after sourcing the `ncsrc` file in the NSO installation directory. This sets up the `PYTHONPATH` environment variable, which enables access to the NSO Python modules.
 
