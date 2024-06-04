@@ -358,8 +358,8 @@ Below is an example of Syslog configuration:
 
 Log messages are described on the link below:
 
-{% content-ref url="system-management/log-messages-and-formats.md" %}
-[log-messages-and-formats.md](system-management/log-messages-and-formats.md)
+{% content-ref url="log-messages-and-formats.md" %}
+[log-messages-and-formats.md](log-messages-and-formats.md)
 {% endcontent-ref %}
 
 ### NSO Alarms <a href="#nso-alarms" id="nso-alarms"></a>
@@ -372,8 +372,8 @@ This is also documented in the example `/examples.ncs/getting-started/using-ncs/
 
 Alarms are described on the link below:
 
-{% content-ref url="system-management/alarms.md" %}
-[alarms.md](system-management/alarms.md)
+{% content-ref url="alarms.md" %}
+[alarms.md](alarms.md)
 {% endcontent-ref %}
 
 ### Trace ID <a href="#d5e2587" id="d5e2587"></a>
@@ -488,8 +488,6 @@ It is always advisable to stop NSO before performing a restore.
     ```
     /etc/init.d/ncs stop
     ```
-
-
 2.  Restore the backup.
 
     ```
