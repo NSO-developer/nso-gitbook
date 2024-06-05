@@ -391,7 +391,7 @@ The procedure differentiates between the current leader node versus followers. T
 
 **Procedure 2. Cluster version upgrade**
 
-1. On the leader, first, enable read-only mode using the **ha-raft read-only mode true** command and then verify all cluster nodes are in sync with the `show ha-raft status log replications state` command.
+1. On the leader, first, enable read-only mode using the `ha-raft read-only mode true` command and then verify all cluster nodes are in sync with the `show ha-raft status log replications state` command.
 2. Take a backup of each node before attempting the upgrade procedure. For example, using the `$NCS_DIR/bin/ncs-backup` command.
 3. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
 4. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step.
