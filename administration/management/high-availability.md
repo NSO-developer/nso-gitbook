@@ -72,7 +72,7 @@ In most cases, this means the `ADDRESS` must appear in the node certificate's Su
 
 Create and use a self-signed CA to secure the NSO HA Raft cluster. A self-signed CA is the only secure option. The CA should only be used to sign the certificates of the member nodes in one NSO HA Raft cluster. It is critical for security that the CA is not used to sign any other certificates. Any certificate signed by the CA can be used to gain complete control of the NSO HA Raft cluster.
 
-See the `examples.ncs/high-availability/raft-cluster` example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.&#x20;
+See the `examples.ncs/high-availability/raft-cluster` example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.
 
 Examples using separate containers for each HA Raft cluster member with NSO system installations that use a variant of the `gen_tls_certs.sh` script are available and referenced in the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
@@ -383,7 +383,7 @@ For more details, troubleshooting, and general upgrade recommendations, see [NSO
 
 ### Version Upgrade of Cluster Nodes <a href="#ch_ha.raft_upgrade" id="ch_ha.raft_upgrade"></a>
 
-Currently, the only supported and safe way of upgrading the Raft HA cluster NSO version requires that the cluster be taken offline since the nodes must at all times run the same software version.
+Currently, the only supported and safe way of upgrading the Raft HA cluster NSO version requires that the cluster be taken offline since the nodes must, at all times, run the same software version.
 
 Do not attempt an upgrade unless all cluster member nodes are up and actively participating in the cluster. Verify the current cluster state with the `show ha-raft status` command. All member nodes must also be present in the connected-node list.
 
@@ -392,17 +392,18 @@ The procedure differentiates between the current leader node versus followers. T
 **Procedure 2. Cluster version upgrade**
 
 1. On the leader, first, enable read-only mode using the `ha-raft read-only mode true` command and then verify all cluster nodes are in sync with the `show ha-raft status log replications state` command.
-2. Stop the `ncs` process on all the follower nodes, for example invoking the `/etc/init.d/ncs stop` command on each node.
-3. Stop the `ncs` process on the leader node only after you have stopped all the follower nodes in the previous step.
-4. Remember to take a backup of each node before attempting the upgrade procedure.
-5. Perform the full single-node upgrade procedure on the original leader node. Upon completion, the node will come back up but will not have a quorum to become a leader because all other nodes are stopped.
-6. Upgrade each original follower node one by one by performing the following actions:
-   1. Delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as **r**`m -rf /var/opt/ncs/state/raft/` for a typical system install or `rm -rf /nso/run/state/raft/` in an NSO container. Note that is action is done only on the follower nodes, not the original leader.
-   2. Perform a single-node upgrade.
-7. Once follower nodes are back online, the original leader node will attain a quorum and be re-elected a leader. Verify the state of the cluster through the `show ha-raft status` command.
-8. Finally, verify that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically on being re-elected.
+2. Take a backup of each node before attempting the upgrade procedure. For example, using the `$NCS_DIR/bin/ncs-backup` command.
+3. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
+4. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step.
+5. Compact the CDB write log on all nodes using, for example, the `$NCS_DIR/bin/ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
+6. On all nodes, delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as `rm -rf $NCS_RUN_DIR/state/raft/`.
+7. Upgrade the NSO packages on the leader to support the new NSO version.
+8. Install the new NSO version on all nodes.
+9. Start NSO on all nodes.
+10. Re-initialize the HA cluster using the `ha-raft create-cluster` action on the node to become the leader.
+11. Finally, verify the cluster's state through the `show ha-raft status` command. Ensure that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically after re-initializing the HA cluster.
 
-For a standard system install, the single-node procedure is described in [Single Instance Upgrade](../deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
+For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
 
 For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
@@ -412,7 +413,7 @@ However, if the upgrade fails after the original leader was successfully upgrade
 
 ## NSO Rule-based HA <a href="#ug.ha.builtin" id="ug.ha.builtin"></a>
 
-NSO can manage the HA groups based on a set of predefined rules. This functionality was added in NSO 5.4 and is sometimes referred to simply as the built-in HA. However, since NSO 6.1, HA Raft  (which is also built-in) is available as well, and is likely a better choice in most situations.
+NSO can manage the HA groups based on a set of predefined rules. This functionality was added in NSO 5.4 and is sometimes referred to simply as the built-in HA. However, since NSO 6.1, HA Raft (which is also built-in) is available as well, and is likely a better choice in most situations.
 
 Rule-based HA allows administrators to:
 
@@ -432,7 +433,7 @@ NSO rule-based HA does not manage any virtual IP addresses, or advertise any BGP
 To use NSO rule-based HA, HA must first be enabled in `ncs.conf` - See [Mode of Operation](high-availability.md#ha.moo).
 
 {% hint style="info" %}
-&#x20;If the package tailf-hcc with a version less than 5.0 is loaded, NSO rule-based HA will not function. These HCC versions may still be used but NSO built-in HA will not function in parallel.
+If the package tailf-hcc with a version less than 5.0 is loaded, NSO rule-based HA will not function. These HCC versions may still be used but NSO built-in HA will not function in parallel.
 {% endhint %}
 
 ### HA Member Configuration <a href="#d5e4830" id="d5e4830"></a>
@@ -880,7 +881,7 @@ Layer-3 operation is configured for each NSO HA group node separately. The HCC c
 
 Addresses:
 
-<table><thead><tr><th>Hostname</th><th>Address</th><th width="101">AS</th><th>Role</th></tr></thead><tbody><tr><td><code>paris</code></td><td>192.168.31.99</td><td>64512</td><td>Paris node</td></tr><tr><td><code>london</code></td><td>192.168.30.98</td><td>64513</td><td>London node</td></tr><tr><td><code>router</code></td><td><p>192.168.30.2</p><p>192.168.31.2</p></td><td>64514</td><td>BGP-enabled router</td></tr><tr><td><code>vip4</code></td><td>192.168.23.122</td><td> </td><td>Primary node IPv4 VIP address</td></tr></tbody></table>
+<table><thead><tr><th>Hostname</th><th>Address</th><th width="101">AS</th><th>Role</th></tr></thead><tbody><tr><td><code>paris</code></td><td>192.168.31.99</td><td>64512</td><td>Paris node</td></tr><tr><td><code>london</code></td><td>192.168.30.98</td><td>64513</td><td>London node</td></tr><tr><td><code>router</code></td><td><p>192.168.30.2</p><p>192.168.31.2</p></td><td>64514</td><td>BGP-enabled router</td></tr><tr><td><code>vip4</code></td><td>192.168.23.122</td><td></td><td>Primary node IPv4 VIP address</td></tr></tbody></table>
 
 Configuring BGP for Paris Node:
 
