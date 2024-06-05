@@ -383,7 +383,7 @@ For more details, troubleshooting, and general upgrade recommendations, see [NSO
 
 ### Version Upgrade of Cluster Nodes <a href="#ch_ha.raft_upgrade" id="ch_ha.raft_upgrade"></a>
 
-Currently, the only supported and safe way of upgrading the Raft HA cluster NSO version requires that the cluster be taken offline since the nodes must at all times run the same software version.
+Currently, the only supported and safe way of upgrading the Raft HA cluster NSO version requires that the cluster be taken offline since the nodes must, at all times, run the same software version.
 
 Do not attempt an upgrade unless all cluster member nodes are up and actively participating in the cluster. Verify the current cluster state with the `show ha-raft status` command. All member nodes must also be present in the connected-node list.
 
@@ -392,17 +392,18 @@ The procedure differentiates between the current leader node versus followers. T
 **Procedure 2. Cluster version upgrade**
 
 1. On the leader, first, enable read-only mode using the `ha-raft read-only mode true` command and then verify all cluster nodes are in sync with the `show ha-raft status log replications state` command.
-2. Stop the `ncs` process on all the follower nodes, for example invoking the `/etc/init.d/ncs stop` command on each node.
-3. Stop the `ncs` process on the leader node only after you have stopped all the follower nodes in the previous step.
-4. Remember to take a backup of each node before attempting the upgrade procedure.
-5. Perform the full single-node upgrade procedure on the original leader node. Upon completion, the node will come back up but will not have a quorum to become a leader because all other nodes are stopped.
-6. Upgrade each original follower node one by one by performing the following actions:
-   1. Delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as **r**`m -rf /var/opt/ncs/state/raft/` for a typical system install or `rm -rf /nso/run/state/raft/` in an NSO container. Note that is action is done only on the follower nodes, not the original leader.
-   2. Perform a single-node upgrade.
-7. Once follower nodes are back online, the original leader node will attain a quorum and be re-elected a leader. Verify the state of the cluster through the `show ha-raft status` command.
-8. Finally, verify that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically on being re-elected.
+2. Take a backup of each node before attempting the upgrade procedure. For example, using the `$NCS_DIR/bin/ncs-backup` command.
+3. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
+4. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step.
+5. Compact the CDB write log on all nodes using, for example, the `$NCS_DIR/bin/ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
+6. On all nodes, delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as `rm -rf $NCS_RUN_DIR/state/raft/`.
+7. Upgrade the NSO packages on the leader to support the new NSO version.
+8. Install the new NSO version on all nodes.
+9. Start NSO on all nodes.
+10. Re-initialize the HA cluster using the `ha-raft create-cluster` action on the node to become the leader.
+11. Finally, verify the cluster's state through the `show ha-raft status` command. Ensure that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically after re-initializing the HA cluster.
 
-For a standard system install, the single-node procedure is described in [Single Instance Upgrade](../deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
+For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
 
 For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
