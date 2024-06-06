@@ -223,7 +223,7 @@ With all the nodes configured and running, connect to the node that you would li
 This action makes the current node a cluster leader and joins the other specified nodes to the newly created cluster. For example:
 
 ```
-admin@ncs# ha-raft create-cluster members [ birch.example.org cedar.example.org ]
+admin@ncs# ha-raft create-cluster member [ birch.example.org cedar.example.org ]
 admin@ncs# show ha-raft
 ha-raft status role leader
 ha-raft status leader ash.example.org
@@ -323,7 +323,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 6.  On the old designated primary (node1) invoke the `ha-raft create-cluster` action and create a two-node Raft cluster with the old fail-over primary (`node2`, actual secondary). The action takes a list of nodes identified by their names. If you have configured `seed-nodes`, you will get auto-completion support, otherwise you have to type in the name of the node yourself.
 
     ```
-    admin@node1# ha-raft create-cluster members [ node2.example.org ]
+    admin@node1# ha-raft create-cluster member [ node2.example.org ]
     admin@node1# show ha-raft
     ha-raft status role leader
     ha-raft status leader node1.example.org
