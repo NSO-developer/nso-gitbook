@@ -6,7 +6,7 @@ description: Learn about the NSO Java API and its usage.
 
 The NSO Java library contains a variety of APIs for different purposes. In this section, we introduce these and explain their usage. The Java library deliverables are found as two jar files (`ncs.jar` and `conf-api.jar`). The jar files and their dependencies can be found under `$NCS_DIR/java/jar/`.
 
-For convenience the Java build tool Apache ant ([https://ant.apache.org/](https://ant.apache.org/)) is used to run all of the examples. However, this tool is not a requirement for NSO.
+For convenience, the Java build tool Apache ant ([https://ant.apache.org/](https://ant.apache.org/)) is used to run all of the examples. However, this tool is not a requirement for NSO.
 
 General for all APIs is that they communicate with NSO using TCP sockets. This makes it possible to use all APIs from a remote location.&#x20;
 
