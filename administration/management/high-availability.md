@@ -223,7 +223,7 @@ With all the nodes configured and running, connect to the node that you would li
 This action makes the current node a cluster leader and joins the other specified nodes to the newly created cluster. For example:
 
 ```
-admin@ncs# ha-raft create-cluster members [ birch.example.org cedar.example.org ]
+admin@ncs# ha-raft create-cluster member [ birch.example.org cedar.example.org ]
 admin@ncs# show ha-raft
 ha-raft status role leader
 ha-raft status leader ash.example.org
@@ -323,7 +323,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 6.  On the old designated primary (node1) invoke the `ha-raft create-cluster` action and create a two-node Raft cluster with the old fail-over primary (`node2`, actual secondary). The action takes a list of nodes identified by their names. If you have configured `seed-nodes`, you will get auto-completion support, otherwise you have to type in the name of the node yourself.
 
     ```
-    admin@node1# ha-raft create-cluster members [ node2.example.org ]
+    admin@node1# ha-raft create-cluster member [ node2.example.org ]
     admin@node1# show ha-raft
     ha-raft status role leader
     ha-raft status leader node1.example.org
@@ -391,12 +391,12 @@ The procedure differentiates between the current leader node versus followers. T
 
 **Procedure 2. Cluster version upgrade**
 
-1. On the leader, first, enable read-only mode using the `ha-raft read-only mode true` command and then verify all cluster nodes are in sync with the `show ha-raft status log replications state` command.
-2. Take a backup of each node before attempting the upgrade procedure. For example, using the `$NCS_DIR/bin/ncs-backup` command.
-3. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
-4. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step.
-5. Compact the CDB write log on all nodes using, for example, the `$NCS_DIR/bin/ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
-6. On all nodes, delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as `rm -rf $NCS_RUN_DIR/state/raft/`.
+1. On the leader, first enable read-only mode using the `ha-raft read-only mode true` command and then verify that all cluster nodes are in sync with the `show ha-raft status log replications state` command.
+2. Before embarking on the upgrade procedure, it's imperative to backup each node. This ensures that you have a safety net in case of any unforeseen issues. For example, you can use the `$NCS_DIR/bin/ncs-backup` command.
+3. Delete the `$NCS_RUN_DIR/cdb/compact.lock` file and compact the CDB write log on all nodes using, for example, the `$NCS_DIR/bin/ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
+4. On all nodes, delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as `rm -rf $NCS_RUN_DIR/state/raft/`.
+5. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
+6. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step. Alternatively NSO can be stopped on the nodes before deleting the HA Raft state and compacting the CDB write log without needing to delete the `compact.lock` file.
 7. Upgrade the NSO packages on the leader to support the new NSO version.
 8. Install the new NSO version on all nodes.
 9. Start NSO on all nodes.
@@ -686,9 +686,14 @@ paris   827   running  192.168.31.2  ESTABLISHED  true
 ```
 
 {% hint style="info" %}
-GoBGP must be installed separately. The gobgp and gobgpd binaries must be found in paths specified by the `$PATH` environment variable. For System Install, NSO reads `$PATH` in the systemd init script `/etc/init.d/ncs`. Since tailf-hcc 6.0.2, the path to gobgp/gobgpd is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`. The leaf has been removed from the tailf-hcc/src/yang/tailf-hcc.yang module.
+GoBGP must be installed separately.
+The `gobgp` and `gobgpd` binaries must be found in paths specified by the `$PATH` environment variable.
+For system install, NSO reads `$PATH` in the init script /etc/init.d/ncs.
+Since tailf-hcc 6.0.2, the path to gobgp/gobgpd is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`.
+The leaf has been removed from the tailf-hcc/src/yang/tailf-hcc.yang module.
 
-Upgrades: If BGP is enabled and the gobgp or gobgpd binaries are not found, the tailf-hcc package will fail to load. The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true /etc/init.d/ncs restart`.
+Upgrades: If BGP is enabled and the gobgp or gobgpd binaries are not found, the tailf-hcc package will fail to load.
+The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true /etc/init.d/ncs restart`.
 {% endhint %}
 
 #### **Configuration**
@@ -699,13 +704,13 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="196">Parameters</th><th width="186">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>gobgp-bin-dir</code></td><td><code>string</code></td><td>Directory containing <code>gobgp</code> and <code>gobgpd</code> binaries.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
 Per-Neighbor BGP Configuration:
 
-<table><thead><tr><th width="193">Parameters</th><th width="195">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th width="178">Parameters</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
 
 #### **Example**
 
