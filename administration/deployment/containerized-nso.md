@@ -69,11 +69,11 @@ The container provides the necessary environment to build custom packages. The D
 
 To fetch and extract NSO images:
 
-1. On Cisco's official [Software Download](https://software.cisco.com/download/home) site, search for "Network Services Orchestrator". Select the relevant NSO version in the drop-down list, e.g., "Crosswork Network Services Orchestrator 6"**,** and click "Network Services Orchestrator Software". Locate the binary, which is delivered as a signed package (e.g., `nso-6.4.container-image-prod.linux.x86_64.signed.bin`).
+1. On Cisco's official [Software Download](https://software.cisco.com/download/home) site, search for "Network Services Orchestrator". Select the relevant NSO version in the drop-down list, e.g., "Crosswork Network Services Orchestrator 6"**,** and click "Network Services Orchestrator Software". Locate the binary, which is delivered as a signed package (e.g., `nso-6.3.container-image-prod.linux.x86_64.signed.bin`).
 2.  Extract the image and other files from the signed package, for example:
 
     ```
-    sh nso-6.4.container-image-prod.linux.x86_64.signed.bin
+    sh nso-6.3.container-image-prod.linux.x86_64.signed.bin
     ```
 
 {% hint style="info" %}
@@ -154,7 +154,7 @@ Migrate:
     ```
     docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
     --name cisco-nso -e EXTRA_ARGS=--with-package-reload -e ADMIN_USERNAME=admin \
-    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
+    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.3
     ```
 
 Finalize:
@@ -190,7 +190,7 @@ An admin user can be created on startup by the run script in the container. Thre
 As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMIN_SSHKEY` need to be set in order to create an admin user. For example:
 
 ```
-docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
+docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.3
 ```
 
 This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
@@ -216,7 +216,7 @@ The backup behavior of running NSO in vs. outside the container is largely the s
 Let's assume we start a production image container using:
 
 ```
-docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
+docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.3
 ```
 
 To take a backup:
@@ -225,7 +225,7 @@ To take a backup:
 
     ```
     docker exec -it cisco-nso ncs-backup
-    INFO  Backup /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz created successfully
+    INFO  Backup /nso/run/backups/ncs-6.3@2024-11-03T11:31:07.backup.gz created successfully
     ```
 
 **Restore a Backup**
@@ -244,8 +244,8 @@ To restore a backup:
 
     ```
     docker run -it --rm --volumes-from cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log \
-    --entrypoint ncs-backup cisco-nso-prod:6.4 \
-    --restore /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz
+    --entrypoint ncs-backup cisco-nso-prod:6.3 \
+    --restore /nso/run/backups/ncs-6.3@2024-11-03T11:31:07.backup.gz
 
     Restore /etc/ncs from the backup (y/n)? y
     Restore /nso/run from the backup (y/n)? y
@@ -255,7 +255,7 @@ To restore a backup:
 
 
     ```
-    docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
+    docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.3
     ```
 
 ### SSH Host Key <a href="#d5e8566" id="d5e8566"></a>
@@ -317,7 +317,7 @@ The `/nso-run.sh` script that starts NSO is executed as an `ENTRYPOINT` instruct
 An example using `docker run` with the `CMD` instruction:
 
 ```
-docker run --name nso -itd cisco-nso-prod:6.4 --with-package-reload \
+docker run --name nso -itd cisco-nso-prod:6.3 --with-package-reload \
 --ignore-initial-validation
 ```
 
@@ -326,7 +326,7 @@ With the `EXTRA_ARGS` variable:
 ```
 docker run --name nso \
 -e EXTRA_ARGS='--with-package-reload --ignore-initial-validation' \
--itd cisco-nso-prod:6.4
+-itd cisco-nso-prod:6.3
 ```
 
 An example using a Docker Compose file, `compose.yaml`, with the `CMD` instruction:
@@ -334,7 +334,7 @@ An example using a Docker Compose file, `compose.yaml`, with the `CMD` instructi
 ```
 services:
     nso:
-        image: cisco-nso-prod:6.4
+        image: cisco-nso-prod:6.3
         container_name: nso
         command:
             - --with-package-reload
@@ -346,7 +346,7 @@ With the `EXTRA_ARGS` variable:
 ```
 services:
     nso:
-        image: cisco-nso-prod:6.4
+        image: cisco-nso-prod:6.3
         container_name: nso
         environment:
             - EXTRA_ARGS=--with-package-reload --ignore-initial-validation
@@ -372,7 +372,7 @@ Follow the steps below to run the Production Image using Docker CLI:
 2. Next, load the image and run it. Navigate to the directory where you extracted the base image and load it. This will restore the image and its tag:
 
 ```
-docker load -i nso-6.4.container-image-prod.linux.x86_64.tar.gz
+docker load -i nso-6.3.container-image-prod.linux.x86_64.tar.gz
 ```
 
 3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin\_guide.containers.ncs).
@@ -384,7 +384,7 @@ docker run -itd --name cisco-nso \
 --net=host \
 -e ADMIN_USERNAME=admin\
 -e ADMIN_PASSWORD=admin\
-cisco-nso-prod:6.4
+cisco-nso-prod:6.3
 ```
 
 {% hint style="warning" %}
@@ -470,14 +470,14 @@ You can also use the `docker exec -it cisco-nso ncs_cli -u admin` command to acc
 
 ### Upgrading NSO using Docker CLI <a href="#d5e8715" id="d5e8715"></a>
 
-This example describes how to upgrade your NSO to run a newer NSO version in the container. The overall upgrade process is outlined in the steps below. In the example below, NSO is to be upgraded from version 6.3 to 6.4.
+This example describes how to upgrade your NSO to run a newer NSO version in the container. The overall upgrade process is outlined in the steps below. In the example below, NSO is to be upgraded from version 6.2 to 6.3.
 
 To upgrade your NSO version:
 
 1.  Start a container with the `docker run` command. In the example below, it mounts the `/nso` directory in the container to the `NSO-vol` named volume to persist the data. Another option is using a bind mount of the directory on the host machine. At this point, the `/cdb` directory is empty.
 
     ```
-    docker run -itd -—name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.3
+    docker run -itd -—name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.2
     ```
 2.  Perform a backup, either by running the `docker exec` command (make sure that the backup is placed somewhere we have mounted) or by creating a tarball of `/data/nso` on the host machine.
 
@@ -492,15 +492,15 @@ To upgrade your NSO version:
 4.  Remove the old NSO.
 
     ```
-    docker rm -f cisco-nso   
+    docker rm -f cisco-nso
     ```
 5.  Start a new container and mount the `/nso` directory in the container to the `NSO-vol` named volume. This time the `/cdb` folder is not empty, so instead of starting a fresh NSO, an upgrade will be performed.
 
     ```
-    docker run -itd --name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.4   
+    docker run -itd --name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.3
     ```
 
-At this point, you only have one container that is running the desired version 6.4 and you do not need to uninstall the old NSO.
+At this point, you only have one container that is running the desired version 6.3 and you do not need to uninstall the old NSO.
 
 ### Running the NSO Images using Docker Compose <a href="#sec.example-docker-compose" id="sec.example-docker-compose"></a>
 
@@ -533,7 +533,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
 
                 services:
                   NSO-1:
-                    image: cisco-nso-prod:6.4
+                    image: cisco-nso-prod:6.3
                     container_name: nso1
                     profiles:
                       - prod
@@ -564,7 +564,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                       timeout: 10s
 
                   BUILD-NSO-PKGS:
-                    image: cisco-nso-dev:6.4
+                    image: cisco-nso-dev:6.3
                     container_name: build-nso-pkgs
                     network_mode: none
                     profiles:
@@ -575,7 +575,7 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                         target: /nso/run/packages
 
                   EXAMPLE:
-                    image: cisco-nso-prod:6.4
+                    image: cisco-nso-prod:6.3
                     container_name: ex-netsim
                     profiles:
                       - example
@@ -731,9 +731,9 @@ This example describes how to upgrade NSO when using Docker Compose.
 
 #### **Upgrade to a New Minor or Major Version**
 
-To upgrade to a new minor or major version, for example, from 6.3 to 6.4, follow the steps below:
+To upgrade to a new minor or major version, for example, from 6.2 to 6.3, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.4.
+1. Change the image version in the Compose file to the new version, i.e., 6.3.
 2. Run the `docker compose up --profile dev -d` command to start up the Development container with the new image.
 3.  Compile the packages using the Development container.
 
@@ -745,9 +745,9 @@ To upgrade to a new minor or major version, for example, from 6.3 to 6.4, follow
 
 #### **Upgrade to a New Maintenance Version**
 
-To upgrade to a new maintenance release version, for example, to 6.4.1, follow the steps below:
+To upgrade to a new maintenance release version, for example, to 6.3.1, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.4.1.
+1. Change the image version in the Compose file to the new version, i.e., 6.3.1.
 2.  Run the `docker compose up --profile prod --wait` command.
 
     Upgrading in this way does not require a recompile. Docker detects changes and upgrades the image in the container to the new version.
