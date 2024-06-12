@@ -411,6 +411,12 @@ Finally, to use compliance templates in a report, reference them from `device-ch
 admin@ncs(config-report-gold-check)# device-check template internal-dns
 ```
 
+{% hint style="info" %}
+By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI.
+This reduces the memory usage for large device data models.
+The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
+{% endhint %}
+
 ## Additional Configuration Checks
 
 In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.

@@ -281,10 +281,6 @@ java-vm stdout-capture file ./logs/ncs-java-vm.log
 java-vm connect-time           60
 java-vm initialization-time    60
 java-vm synchronization-timeout-action log-stop
-java-vm jmx jndi-address 127.0.0.1
-java-vm jmx jndi-port 9902
-java-vm jmx jmx-address 127.0.0.1
-java-vm jmx jmx-port 9901
 ```
 
 By default, NCS will start the Java VM by invoking the command `$NCS_DIR/bin/ncs-start-java-vm`. That script will invoke

@@ -1700,7 +1700,10 @@ container devices {
     }
 ```
 
-The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`
+The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`.
+By default the schemas for device templates are not accessible from application client libraries such as MAAPI.
+This reduces the memory usage for large device data models.
+The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
 
 A device template is created by setting the desired data in the configuration. The created device template is stored in NSO CDB.
 

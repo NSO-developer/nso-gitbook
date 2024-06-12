@@ -655,12 +655,6 @@ java-thread-pool {
         cfg-maximum-pool-size 256;
     }
 }
-jmx {
-    jndi-address 127.0.0.1;
-    jndi-port    9902;
-    jmx-address  127.0.0.1;
-    jmx-port     9901;
-}
 [ok][2012-07-12 10:45:59]
 ```
 

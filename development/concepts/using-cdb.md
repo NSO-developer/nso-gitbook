@@ -1386,8 +1386,6 @@ At the end of the program, the sockets are closed. Important to note is that no 
         s2.close();
 ```
 
-More complicated service package upgrade scenarios occur when a YANG model containing a service point is renamed or moved and augmented to a new place in the NSO model. This is because, not only, does the complete config data set need to be recreated on the new position but a service also has hidden private data that is part of the FASTMAP algorithm and necessary for the service to be valid. For this reason a specific MAAPI method `Maapi.ncsMovePrivateData()` exists that takes both the old and the new positions for the service point and moves the service data between these positions.
-
 <figure><img src="../../images/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
 
 In the 14-upgrade-service example, this more complicated scenario is illustrated with the tunnel package. The tunnel package YANG model maps the vlan\_v2 package one-to-one but is a complete rename of the model containers and all leafs:
@@ -1590,10 +1588,4 @@ The new data structure with the service data is created and written to NSO via M
                 new ConfXMLParamValue("tl", "descr",     data[4].getValue()),
             };
             maapi.setValues(th, newparams, newPath);
-```
-
-Last the service private data is moved from the old position to the new position via the method `Maapi.ncsMovePrivateData()`:
-
-```
-            maapi.ncsMovePrivateData(th, oldPath, newPath);
 ```

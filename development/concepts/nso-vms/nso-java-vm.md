@@ -61,11 +61,6 @@ Many of the nodes beneath `java-vm` are by default invisible due to a hidden att
      |  +--rw logger* [logger-name]
      |     +--rw logger-name    string
      |     +--rw level          log-level-type
-     +--rw jmx!
-     |  +--rw jndi-address?   inet:ip-address
-     |  +--rw jndi-port?      inet:port-number
-     |  +--rw jmx-address?    inet:ip-address
-     |  +--rw jmx-port?       inet:port-number
      +--ro start-status?                     enumeration
      +--ro status?                           enumeration
      +---x stop
@@ -285,8 +280,6 @@ ncsThread.start();
 {% endcode %}
 
 However, with the embedding of the NSO Java VM comes the responsibility to manage the life cycle of the NSO Java VM thread. This thread cannot be started before NSO has started and is running or else the NSO Java VM control socket connection will fail. Also, running NSO without the NSO Java VM being launched will render runtime errors as soon as NSO needs NSO Java VM functionality.
-
-To be able to control an embedded NSO Java VM from another supervising Java thread or program an optional JMX interface is provided. The main functionality in this interface is listing, starting, and stopping the NSO Java VM and its Component Managers.
 
 ## Logging
 

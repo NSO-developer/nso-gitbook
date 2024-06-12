@@ -18,7 +18,7 @@ The following APIs are included in the library:
 <tr><td><strong>MAAPI (Management Agent API)</strong><br>Northbound interface that is transactional and user session-based. Using this interface both configuration and operational data can be read. Configuration data can be written and committed as one transaction. The API is complete in the way that it is possible to write a new northbound agent using only this interface. It is also possible to attach to ongoing transactions in order to read uncommitted changes and/or modify data in these transactions.</td><td><img src="../../../images/java_maapi.png" alt="" data-size="original"></td></tr>
 <tr><td><strong>CDB API</strong><br>The southbound interface provides access to the CDB configuration database. Using this interface configuration data can be read. In addition, operational data that is stored in CDB can be read and written. This interface has a subscription mechanism to subscribe to changes. A subscription is specified on a path that points to an element in a YANG model or an instance in the instance tree. Any change under this point will trigger the subscription. CDB has also functions to iterate through the configuration changes when a subscription has been triggered.</td><td><img src="../../../images/java_cdbapi.png" alt="" data-size="original"></td></tr>
 <tr><td><strong>DP API</strong><br>Southbound interface that enables callbacks, hooks, and transforms. This API makes it possible to provide the service callbacks that handle service-to-device mapping logic. Other usual cases are external data providers for operational data or action callback implementations. There are also transaction and validation callbacks, etc. Hooks are callbacks that are fired when certain data is written and the hook is expected to do additional modifications of data. Transforms are callbacks that are used when complete mediation between two different models is necessary.</td><td><img src="../../../images/java_dpapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>NED API (Network Equipment Driver)</strong><br>Southbound interface that mediates communication for devices that do not speak either NETCONF or SNMP. All prepackaged NEDs for different devices are written using this interface. It is possible to use the same interface to write your own NED. There are two types of NEDs, CLI NEDs and Generic NEDs. CLI NEDs can be used for devices that can be controlled by a Cisco-style CLI syntax, in this case the NED is developed primarily by building a YANG model and a relatively small part in Java. In other cases the Generic NED can be used for any type of communication protocol.</td><td><img src="../../../images/java_nedapi.png" alt="" data-size="original"></td></tr>
+<tr><td><strong>NED API (Network Element Driver)</strong><br>Southbound interface that mediates communication for devices that do not speak either NETCONF or SNMP. All prepackaged NEDs for different devices are written using this interface. It is possible to use the same interface to write your own NED. There are two types of NEDs, CLI NEDs and Generic NEDs. CLI NEDs can be used for devices that can be controlled by a Cisco-style CLI syntax, in this case the NED is developed primarily by building a YANG model and a relatively small part in Java. In other cases the Generic NED can be used for any type of communication protocol.</td><td><img src="../../../images/java_nedapi.png" alt="" data-size="original"></td></tr>
 <tr><td><strong>NAVU API (Navigation Utilities)</strong><br>API that resides on top of the Maapi and Cdb APIs. It provides schema model navigation and instance data handling (read/write). Uses either a Maapi or Cdb context as data access and incorporates a subset of functionality from these (navigational and data read/write calls). Its major use is in service implementations which normally is about navigating device models and setting device data.</td><td><img src="../../../images/java_navuapi.png" alt="" data-size="original"></td></tr>
 <tr><td><strong>ALARM API</strong><br>Eastbound API that is used both to consume and produce alarms in alignment with the NSO Alarm model. To consume alarms the AlarmSource interface is used. To produce a new alarm the AlarmSink interface is used. There is also a possibility to buffer produced alarms and make asynchronous writes to CDB to improve alarm performance.</td><td><img src="../../../images/java_alarmapi.png" alt="" data-size="original"></td></tr>
 <tr><td><strong>NOTIF API</strong><br>Northbound API that is used to subscribe to system events from NSO. These events are generated for audit log events, for different transaction states, for HA state changes, upgrade events, user sessions, etc.</td><td><img src="../../../images/java_notifapi.png" alt="" data-size="original"></td></tr>
@@ -49,11 +49,7 @@ When a Maapi socket has been created the next step is to create a user session a
 
 {% code title="Example: Starting a User Session" %}
 ```
-    maapi.startUserSession("admin",
-                           InetAddress.getByName("localhost"),
-                           "maapi",
-                           new String[] {"admin"},
-                           MaapiUserSessionFlag.PROTO_TCP);
+    maapi.startUserSession("admin", "maapi", new String[] {"admin"});
 ```
 {% endcode %}
 
@@ -1263,9 +1259,7 @@ To directly store alarms an AlarmSink instance is created using the `AlarmSink(M
         //
         Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
         Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("system", InetAddress.getByName(host),
-                               "system", new String[] {},
-                               MaapiUserSessionFlag.PROTO_TCP);
+        maapi.startUserSession("system", "system");
 
         AlarmSink sink = new AlarmSink(maapi);
 ```
@@ -1284,9 +1278,7 @@ However, this case requires that the `AlarmSinkServer` is started prior to the i
        //
        Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
        Maapi maapi = new Maapi(socket);
-       maapi.startUserSession("system", InetAddress.getByName(host),
-                              "system", new String[] {},
-                              MaapiUserSessionFlag.PROTO_TCP);
+       maapi.startUserSession("system", "system");
 
        AlarmSinkCentral sinkCentral = AlarmSinkCentral.getAlarmSink(1000, maapi);
        sinkCentral.start();

@@ -1269,8 +1269,7 @@ The complete implementation requires you to supply your own Maapi read transacti
         // session and transaction
         try (Socket socket = new Socket("localhost", port)) {
             Maapi maapi = new Maapi(socket);
-            maapi.startUserSession("admin", InetAddress.getByName("localhost"),
-                "system", new String[] {}, MaapiUserSessionFlag.PROTO_TCP);
+            maapi.startUserSession("admin", "system");
 
             NavuContext context = new NavuContext(maapi);
             context.startRunningTrans(Conf.MODE_READ);
@@ -1491,8 +1490,7 @@ int port = NcsMain.getInstance().getNcsPort();
 // session and transaction
 try (Socket socket = new Socket("localhost", port)) {
     Maapi maapi = new Maapi(socket);
-    maapi.startUserSession("admin", InetAddress.getByName("localhost"),
-        "system", new String[] {}, MaapiUserSessionFlag.PROTO_TCP);
+    maapi.startUserSession("admin", "system");
 
     NavuContext context = new NavuContext(maapi);
     context.startOperationalTrans(Conf.MODE_READ_WRITE);

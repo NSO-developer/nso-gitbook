@@ -272,9 +272,7 @@ public class MyProgram {
     public static void main(String[] arg) throws Exception {
         Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
         Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("admin", InetAddress.getByName(null),
-                               "system", new String[]{},
-                               MaapiUserSessionFlag.PROTO_TCP);
+        maapi.startUserSession("admin", "system");
         NavuContext context = new NavuContext(maapi);
         int tid = context.startRunningTrans(Conf.MODE_READ_WRITE);
 
@@ -321,9 +319,7 @@ public class MyProgram {
     public static void main(String[] arg) throws Exception {
         Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
         Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("admin", InetAddress.getByName(null),
-                               "system", new String[]{},
-                               MaapiUserSessionFlag.PROTO_TCP);
+        maapi.startUserSession("admin", "system");
         // Deletegate work to MyProvisioningOp, with retry.
         maapi.ncsRunWithRetry(new MyProvisioningOp());
         // No more calling applyClearTrans() or friends,
