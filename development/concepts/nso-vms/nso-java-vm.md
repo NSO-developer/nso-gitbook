@@ -305,7 +305,7 @@ An example of a JMX connection URL connecting to localhost is: `service:jmx:rmi:
 
 In addition to the JMX URL, the JMX user needs to authenticate using a legitimate user/password from the AAA configuration. An example of JMX authentication using the JConsol standard Java tool is the following:
 
-<figure><img src="../../../images/jconsole-auth.png" alt="" width="375"><figcaption><p>jconsole login window</p></figcaption></figure>
+<figure><img src="../../../images/jconsole-auth.png" alt="" width="375"><figcaption><p>jconsole Login Window</p></figcaption></figure>
 
 The following JMX MBeans interfaces are defined:
 
