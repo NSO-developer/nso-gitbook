@@ -936,7 +936,7 @@ If the partially typed command uniquely identifies a command, the full command n
 
 Long lines can be broken into multiple lines using the backslash (`\`) character at the end of the line. This is primarily useful inside scripts.
 
-Completion is disabled inside quotes. To type an argument containing spaces either quote them with a \ (e.g. `file show foo\ bar`) or with a " (e.g. `file show "foo bar`**"**). Space completion is disabled when entering a filename.
+Completion is disabled inside quotes. To type an argument containing spaces either quote them with a \ (e.g. `file show foo\ bar`) or with a " (e.g. `file show "foo bar"`). Space completion is disabled when entering a filename.
 
 Command completion also applies to filenames and directories:
 

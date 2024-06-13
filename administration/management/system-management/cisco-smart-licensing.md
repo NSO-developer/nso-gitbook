@@ -67,7 +67,7 @@ Smart Account user management is available in the **Administration** section of 
 6.  Copy the token from the dialogue window into your clipboard.
 
     <figure><img src="../../../images/device_register1f.png" alt=""><figcaption></figcaption></figure>
-7.  Go to the NSO CLI and provide the token to the `license smart register idtoke`**n** command:
+7.  Go to the NSO CLI and provide the token to the `license smart register idtoken` command:
 
     ```
     admin@ncs# license smart register idtoken YzY2YjFlOTYtOWYzZi00MDg1...
