@@ -481,7 +481,7 @@ Smart Licensing is ENABLED
 
 Registration:
 Status: REGISTERED
-Smart Account: Network Service Orchestrator
+Smart Account: Network Services Orchestrator
 Virtual Account: Default
 Export-Controlled Functionality: Allowed
 Initial Registration: SUCCEEDED on Apr 21 09:29:11 2016 UTC

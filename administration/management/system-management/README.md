@@ -611,7 +611,7 @@ Some noteworthy issues are covered here.
 *   **Resolution**\
     Install Paramiko using the instructions from [https://www.paramiko.org](https://www.paramiko.org/).\
     \
-    When properly installed, you will be able to import the Paramiko module without error messages.\\
+    When properly installed, you will be able to import the Paramiko module without error messages.
 
     ```
     $ python
