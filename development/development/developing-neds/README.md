@@ -2745,7 +2745,7 @@ container foo {
 }
 ```
 
-In the above example the `tailf:cli-flatten-containe`**r** tells the parser that it should exit the outbound/inbound container once both values have been entered. Without the annotation, it would not be possible to exit the container once it has been entered. It would be possible to have the command `foo inbound 1 3` or `foo outbound 1 2` but not both at the same time, and not the final mtu leaf. The `tailf:cli-compact-syntax` annotation tells the renderer to display all leaves on the same line. If it wasn't used the line setting `foo inbound 1 2 outbound 3 4 mtu 1500` would be displayed as:
+In the above example the `tailf:cli-flatten-container` tells the parser that it should exit the outbound/inbound container once both values have been entered. Without the annotation, it would not be possible to exit the container once it has been entered. It would be possible to have the command `foo inbound 1 3` or `foo outbound 1 2` but not both at the same time, and not the final mtu leaf. The `tailf:cli-compact-syntax` annotation tells the renderer to display all leaves on the same line. If it wasn't used the line setting `foo inbound 1 2 outbound 3 4 mtu 1500` would be displayed as:
 
 ```
 foo inbound 1
