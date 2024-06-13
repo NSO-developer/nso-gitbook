@@ -12,7 +12,7 @@ NSO can speak southbound not only to NETCONF-enabled devices, but through the NE
 
 The NSO architecture is described in the picture below, with a built-in NED for NETCONF, another built-in NED for SNMP, one NED for Cisco CLIs, and a generic NED for other protocols. The NED is the adaptation layer between the XML representation of the network configuration contained inside NSO and the wire protocol between NSO and managed devices. The NETCONF and SNMP NEDs are built in, the CLI NED is entirely model-driven, whereas the generic NED requires a Java program to translate operations on the NSO XML tree into configuration operations toward the device. Depending on what means are used to configure the device, this may be more or less complicated.
 
-<figure><img src="../../../images/ncs-neds.png" alt=""><figcaption><p>NSO NED architecture</p></figcaption></figure>
+<figure><img src="../../../images/ncs-neds.png" alt=""><figcaption><p>NSO NED Architecture</p></figcaption></figure>
 
 ## SNMP NED <a href="#ug.ned.snmpned" id="ug.ned.snmpned"></a>
 
