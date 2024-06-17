@@ -24,18 +24,12 @@ Running NSO in a container offers several benefits that you would generally expe
 
 ## Overview of NSO Images <a href="#d5e8294" id="d5e8294"></a>
 
-Cisco provides the following two NSO images based on Red Hat UBI.&#x20;
+Cisco provides the following two NSO images based on Red Hat UBI.
 
 * [Production Image](containerized-nso.md#production-image)
 * [Development Image](containerized-nso.md#development-image)
 
-<table data-full-width="true">
-<thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead>
-<tbody>
-<tr><td><p>Development Host </p><p><img src="../../images/laptop.png" alt="" data-size="line"></p></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr>
-<tr><td><p>Development Image </p><p><img src="../../images/container.png" alt="" data-size="line"></p></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr>
-<tr><td><p>Production Image </p><p><img src="../../images/container.png" alt="" data-size="line"></p></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr>
-</tbody></table>
+<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td><p>Development Host</p><p><img src="../../images/laptop.png" alt="" data-size="line"></p></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td><p>Development Image</p><p><img src="../../images/container.png" alt="" data-size="line"></p></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td><p>Production Image</p><p><img src="../../images/container.png" alt="" data-size="line"></p></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -43,7 +37,7 @@ The Red Hat UBI is an OCI-compliant image that is freely distributable and indep
 
 ### Production Image
 
-The Production Image is a production-ready NSO image for system-wide deployment and use. It is a pre-built Red Hat UBI-based NSO image created on [System Install](system-install.md) and available from the [Cisco Software Download](https://software.cisco.com/download/home) site.&#x20;
+The Production Image is a production-ready NSO image for system-wide deployment and use. It is a pre-built Red Hat UBI-based NSO image created on [System Install](system-install.md) and available from the [Cisco Software Download](https://software.cisco.com/download/home) site.
 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
@@ -52,16 +46,16 @@ Consult the [Installation](./#d5e46-1) documentation for information on installi
 {% endhint %}
 
 {% hint style="info" %}
-See [Developing and Deploying a Nano Service](../../development/development/developing-nano-services.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.&#x20;
+See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/developing-nano-services.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
 The `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-sshkey/README` provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
 ### Development Image
 
-The Development Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.&#x20;
+The Development Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.
 
-The image is available as a signed package (e.g., `nso-VERSION.container-image-dev.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Development Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).&#x20;
+The image is available as a signed package (e.g., `nso-VERSION.container-image-dev.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Development Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).
 
 The container provides the necessary environment to build custom packages. The Development Image adds a few Linux packages that are useful for development, such as Ant, JDK, net-tools, pip, etc. Additional Linux packages can be added using, for example, the `dnf` command. The `dnf list installed` command lists all the installed packages.
 
@@ -79,7 +73,7 @@ To fetch and extract NSO images:
 {% hint style="info" %}
 **Signed Archive File Pattern**
 
-The signed archive file name has the following pattern:&#x20;
+The signed archive file name has the following pattern:
 
 `nso-VERSION.container-image-PROD_DEV.linux.ARCH.signed.bin`, where:
 
@@ -234,7 +228,7 @@ To restore a backup, NSO must not be running. As you likely only have access to 
 
 To restore a backup:
 
-1.  Shut down the NSO container:&#x20;
+1.  Shut down the NSO container:
 
     ```
     docker stop cisco-nso
@@ -251,8 +245,7 @@ To restore a backup:
     Restore /nso/run from the backup (y/n)? y
     INFO  Restore completed successfully
     ```
-3.  Restoring an NSO backup should move the current run directory (`/nso/run` to `/nso/run.old`) and restore the run directory from the backup to the main run directory (`/nso/run`). After this is done, start the regular NSO container again as usual.\
-
+3.  Restoring an NSO backup should move the current run directory (`/nso/run` to `/nso/run.old`) and restore the run directory from the backup to the main run directory (`/nso/run`). After this is done, start the regular NSO container again as usual.\\
 
     ```
     docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.3

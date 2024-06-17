@@ -134,13 +134,13 @@ Even though the auto-generated CLI is fully functional it can be customized and 
 * A command timeout can be added, both a global timeout for all commands and command-specific timeouts.
 * Actions and parts of the configuration tree can be hidden and can later be made visible when the user enters a password.
 
-How to customize and extend the auto-generated CLI is described in [Plug-and-play Scripting](plug-and-play-scripting.md).
+How to customize and extend the auto-generated CLI is described in [Plug-and-play Scripting](../cli-1/plug-and-play-scripting.md).
 
 ## CLI Modes <a href="#d5e1216" id="d5e1216"></a>
 
-The CLI is entirely data model-driven. The YANG model(s) defines a hierarchy of configuration elements. The CLI follows this tree. The NSO CLI provides various commands for configuring and monitoring software, hardware, and network connectivity of managed devices.&#x20;
+The CLI is entirely data model-driven. The YANG model(s) defines a hierarchy of configuration elements. The CLI follows this tree. The NSO CLI provides various commands for configuring and monitoring software, hardware, and network connectivity of managed devices.
 
-The CLI supports two modes:&#x20;
+The CLI supports two modes:
 
 * **Operational** **mode**: For monitoring the state of the NSO node.
 * **Configure** **mode**: For changing the state of the network.
@@ -416,7 +416,7 @@ Possible completions:
 The precise list of pipe commands depends on the command executed. Some pipe commands, like `select` and `de-select`, are only available for the `show` command, whereas others are universally available.
 
 {% hint style="info" %}
-Note that the `tab` pipe target is used to enforce table output which is only suitable for the list element. Naturally, the table format is not suitable for displaying arbitrary data output since it needs to map the data to columns and rows.&#x20;
+Note that the `tab` pipe target is used to enforce table output which is only suitable for the list element. Naturally, the table format is not suitable for displaying arbitrary data output since it needs to map the data to columns and rows.
 
 For example, the following are clearly not suitable because the data has a nested structure. It could take an incredibly long time to display it if you use the `tab` pipe target on a huge amount of data which is not a list element.
 
@@ -534,7 +534,7 @@ admin@ncs# show running-config aaa | exclude password | save /tmp/saved
 
 The regular expressions are a subset of the regular expressions found in egrep and in the AWK programming language. Some common operators are:
 
-<table><thead><tr><th width="198">Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>.</code></td><td>Matches any character.</td></tr><tr><td><code>^</code></td><td>Matches the beginning of a string.</td></tr><tr><td><code>$</code></td><td>Matches the end of a string.</td></tr><tr><td><p><code>[abc...]</code></p><p></p></td><td>Character class, which matches any of the characters abc... Character ranges are specified by a pair of characters separated by a -.</td></tr><tr><td><code>[^abc...]</code></td><td>Negated character class, which matches any character except abc... .</td></tr><tr><td><code>r1 | r2</code></td><td>Alternation. It matches either r1 or r2.</td></tr><tr><td><code>r1r2</code></td><td>Concatenation. It matches r1 and then r2.</td></tr><tr><td><code>r+</code></td><td>Matches one or more rs.</td></tr><tr><td><code>r*</code></td><td>Matches zero or more rs.</td></tr><tr><td><code>r?</code></td><td>Matches zero or one rs.</td></tr><tr><td><code>(r)</code></td><td>Grouping. It matches r.</td></tr></tbody></table>
+<table><thead><tr><th width="198">Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>.</code></td><td>Matches any character.</td></tr><tr><td><code>^</code></td><td>Matches the beginning of a string.</td></tr><tr><td><code>$</code></td><td>Matches the end of a string.</td></tr><tr><td><code>[abc...]</code></td><td>Character class, which matches any of the characters abc... Character ranges are specified by a pair of characters separated by a -.</td></tr><tr><td><code>[^abc...]</code></td><td>Negated character class, which matches any character except abc... .</td></tr><tr><td><code>r1 | r2</code></td><td>Alternation. It matches either r1 or r2.</td></tr><tr><td><code>r1r2</code></td><td>Concatenation. It matches r1 and then r2.</td></tr><tr><td><code>r+</code></td><td>Matches one or more rs.</td></tr><tr><td><code>r*</code></td><td>Matches zero or more rs.</td></tr><tr><td><code>r?</code></td><td>Matches zero or one rs.</td></tr><tr><td><code>(r)</code></td><td>Grouping. It matches r.</td></tr></tbody></table>
 
 For example, to only display `uid` and `gid` do the following:
 
@@ -792,7 +792,7 @@ admin@ncs# show running-config hosts | display json
 ...
 ```
 
-Still working with the same data model as used in the example above, we might want to see the current configuration in keypath format.&#x20;
+Still working with the same data model as used in the example above, we might want to see the current configuration in keypath format.
 
 The following example shows how to do that and shows the resulting output:
 
@@ -1437,7 +1437,7 @@ Session User  Context From         Proto Date     Mode
 
 <summary><code>script reload</code></summary>
 
-Reload scripts found in the `scripts/command`directory. New scripts will be added and if a script file has been removed the corresponding CLI command will be purged. See [Plug-and-play Scripting](plug-and-play-scripting.md).
+Reload scripts found in the `scripts/command`directory. New scripts will be added and if a script file has been removed the corresponding CLI command will be purged. See [Plug-and-play Scripting](../cli-1/plug-and-play-scripting.md).
 
 </details>
 
@@ -1652,7 +1652,7 @@ admin@ncs#
 
 Set a parameter. If a new identifier is created and `autowizard` is enabled, then the CLI will prompt the user for all mandatory sub-elements of that identifier.
 
-This command is auto-generated from the YANG file_._
+This command is auto-generated from the YANG file\_.\_
 
 If no `<value>` is provided, then the CLI will prompt the user for the value. No echo of the entered value will occur if `<path>` is an encrypted value, i.e. of the type MD5DigestString, DESDigestString, DES3CBCEncryptedString, AESCFB128EncryptedString, or AES256CFB128EncryptedString as documented in the `tailf-common.yang` data model.
 
@@ -1672,7 +1672,7 @@ Only available when the system has been configured with attributes enabled.
 
 <details>
 
-<summary><code>commit (check | and-quit | confirmed | to-startup)</code> <br><code>[comment &#x3C;text>] [label &#x3C;text>]</code></summary>
+<summary><code>commit (check | and-quit | confirmed | to-startup)</code><br><code>[comment &#x3C;text>] [label &#x3C;text>]</code></summary>
 
 Commit the current configuration to "running".
 
@@ -1839,7 +1839,7 @@ devices device p1
 !
 ```
 
-The file can then be used with the command `load merge`` `_`FILENAME`_ to achieve the desired results.
+The file can then be used with the command ` load merge`` `` `_`FILENAME`_ to achieve the desired results.
 
 </details>
 
@@ -1890,7 +1890,7 @@ Load file relative to the current sub-mode. For example, given a file with a dev
 
 <details>
 
-<summary><code>rollback-files apply-rollback-file (id | fixed-number)</code> <br><code>&#x3C;number> [path &#x3C;path>] [selective]</code></summary>
+<summary><code>rollback-files apply-rollback-file (id | fixed-number)</code><br><code>&#x3C;number> [path &#x3C;path>] [selective]</code></summary>
 
 Return the configuration to a previously committed configuration. The system stores a limited number of old configurations. The number of old configurations to store is configured in the `ncs.conf` file. If more than the configured number of configurations is stored, then the oldest configuration is removed before creating a new one.
 
@@ -2113,7 +2113,7 @@ Display the current set of commands.
 
 ### Adding New Commands <a href="#d5e2650" id="d5e2650"></a>
 
-New commands can be added by placing a script in the `scripts/command` directory. See [Plug-and-play Scripting](plug-and-play-scripting.md).
+New commands can be added by placing a script in the `scripts/command` directory. See [Plug-and-play Scripting](../cli-1/plug-and-play-scripting.md).
 
 ### File Access <a href="#d5e2655" id="d5e2655"></a>
 

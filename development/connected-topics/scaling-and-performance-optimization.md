@@ -4,7 +4,7 @@ description: Optimize NSO for scaling and performance.
 
 # Scaling and Performance Optimization
 
-With an increasing number of services and managed devices in NSO, performance becomes a more important aspect of the system. At the same time, other aspects, such as the way you organize code, also start playing an important role when using NSO on a bigger scale.&#x20;
+With an increasing number of services and managed devices in NSO, performance becomes a more important aspect of the system. At the same time, other aspects, such as the way you organize code, also start playing an important role when using NSO on a bigger scale.
 
 The following section examines these concerns and presents the available options for scaling your NSO automation solution.
 
@@ -112,7 +112,7 @@ All changes in NSO happen inside a transaction. Network devices participate in t
 
 So, in many cases, the NSO system is not really resource-constrained but merely experiencing lock contention. Therefore, making locks as short as possible is the best way to improve performance. In the example trace from the section [Understanding Your Use Case](scaling-and-performance-optimization.md#ncs.development.scaling.tracing), most of the time is spent in the prepare phase, where configuration changes are propagated to the network devices. Change propagation requires a management session with each participating device, as well as updating and validating the new configuration on the device side. Understandably, all of these tasks take time.
 
-NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
+NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
 
 ## Improving Subscribers <a href="#ncs.development.scaling.kicker" id="ncs.development.scaling.kicker"></a>
 
@@ -270,7 +270,7 @@ Conflicts between transactions and how to avoid them are described in [Minimizin
 
 ### Design to Minimize Service and Validation Processing Time <a href="#d5e8544" id="d5e8544"></a>
 
-An overly complex service or validation implementation using templates, code, and XPath expressions increases the processing required and, even if transactions are processed concurrently, will affect the wall-clock time spent processing and, thus, transaction throughput.&#x20;
+An overly complex service or validation implementation using templates, code, and XPath expressions increases the processing required and, even if transactions are processed concurrently, will affect the wall-clock time spent processing and, thus, transaction throughput.
 
 When data processing performance is of interest, the best practice rule of thumb is to ensure that `must` and `when` statement XPath expressions in YANG models and service templates are only used as necessary and kept as simple as possible.
 
@@ -355,7 +355,7 @@ Writing to a commit queue instead of the device moves the device configuration p
 
 <figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
 
-For commit queue documentation, see [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
+For commit queue documentation, see [Commit Queue](../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
 
 ### Enabling Commit Queues for the perf-trans Example <a href="#d5e8585" id="d5e8585"></a>
 
@@ -404,7 +404,7 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 <figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
-See [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../development/developing-nano-services.md) for Nano service documentation.
+See [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/developing-nano-services.md) for Nano service documentation.
 
 ### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
 
@@ -708,9 +708,9 @@ Forming a rough estimate of CDB resource consumption for planning can be helpful
 
 Divide your devices into categories. Get a rough measurement for an exemplar in each category, add a safety margin, e.g., double the resource consumption, and multiply by the number of devices in that category. Example:
 
-<table data-full-width="true"><thead><tr><th>Device Type</th><th>RAM</th><th>Disk</th><th>Number of Devices</th><th>Margin</th><th>Total RAM</th><th>Total Disk</th></tr></thead><tbody><tr><td>FTTB access switch</td><td>200KiB</td><td>25KiB</td><td>30000</td><td>100%</td><td>11718MiB</td><td>1464MiB</td></tr><tr><td>Mobile Base Station</td><td>120KiB</td><td>11KiB</td><td>15000</td><td>100%</td><td>3515MiB</td><td>322MiB</td></tr><tr><td>Business CPE</td><td>50KiB</td><td>4KiB</td><td>50000</td><td>50%</td><td>3662MiB</td><td>292MiB</td></tr><tr><td>PE / Edge Router</td><td>10MiB</td><td>1MiB</td><td>1000</td><td>25%</td><td>12GiB</td><td>1.2GiB</td></tr><tr><td>Total</td><td> </td><td> </td><td> </td><td> </td><td>20.6GiB</td><td>3.3GiB</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Device Type</th><th>RAM</th><th>Disk</th><th>Number of Devices</th><th>Margin</th><th>Total RAM</th><th>Total Disk</th></tr></thead><tbody><tr><td>FTTB access switch</td><td>200KiB</td><td>25KiB</td><td>30000</td><td>100%</td><td>11718MiB</td><td>1464MiB</td></tr><tr><td>Mobile Base Station</td><td>120KiB</td><td>11KiB</td><td>15000</td><td>100%</td><td>3515MiB</td><td>322MiB</td></tr><tr><td>Business CPE</td><td>50KiB</td><td>4KiB</td><td>50000</td><td>50%</td><td>3662MiB</td><td>292MiB</td></tr><tr><td>PE / Edge Router</td><td>10MiB</td><td>1MiB</td><td>1000</td><td>25%</td><td>12GiB</td><td>1.2GiB</td></tr><tr><td>Total</td><td></td><td></td><td></td><td></td><td>20.6GiB</td><td>3.3GiB</td></tr></tbody></table>
 
-### &#x20;The Size of a Service
+### The Size of a Service
 
 A YANG model describes the input to services, and just like any other data in CDB, it consumes resources. Compared to the typical device configuration, where even small devices often have a few hundred lines of configuration, a small service might only have a handful of configurable inputs. Even extensive services rarely have more than 50 inputs.
 

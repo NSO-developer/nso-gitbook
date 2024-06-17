@@ -1,8 +1,8 @@
 ---
-description: Learn about different ways to deploy NSO.
+description: Learn about different ways to install and deploy NSO.
 ---
 
-# Deployment
+# Installation and Deployment
 
 ## Ways to Deploy NSO <a href="#d5e46" id="d5e46"></a>
 

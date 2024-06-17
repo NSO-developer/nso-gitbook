@@ -25,7 +25,7 @@ Some of these flags may be configured to apply globally for all commits, under `
 Some of the more important flags are:
 
 * `and-quit`: Exit to (CLI operational mode) after commit.
-* `check`: Validate the pending configuration changes. Equivalent to `validate` command (See [NSO CLI](introduction-to-nso-cli.md) ).
+* `check`: Validate the pending configuration changes. Equivalent to `validate` command (See [NSO CLI](../cli/introduction-to-nso-cli.md) ).
 * `comment | label`: Add a commit comment/label visible in compliance reports, rollback files, etc.
 * `dry-run`: Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. The output format can be set with the `outformat` option. Possible output formats are: `xml`, `cli`, and `native`.
   * The `xml` format displays all changes in the whole data model. The changes will be displayed in NETCONF XML edit-config format, i.e., the edit-config that would be applied locally (at NCS) to get a config that is equal to that of the managed device.

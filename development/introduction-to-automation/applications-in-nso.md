@@ -14,11 +14,11 @@ You have seen two different ways in which you can make a configuration change on
 
 The purpose of the Device Manager is to manage different devices uniformly. The Device Manager uses the Network Element Drivers (NEDs) to abstract away the different protocols and APIs towards the devices. The NED contains a YANG data model for a supported device. So, each device type requires an appropriate NED package that allows the Device Manager to handle all devices in the same, YANG-model-based way.
 
-The second way to make configuration changes is through services. Here, the Service Manager adds a layer on top of the Device Manager to process the service request and enlists the help of service-aware applications to generate the device changes.&#x20;
+The second way to make configuration changes is through services. Here, the Service Manager adds a layer on top of the Device Manager to process the service request and enlists the help of service-aware applications to generate the device changes.
 
 The following figure illustrates the difference between the two approaches.
 
-<figure><img src="../../../images/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure>
+<figure><img src="../../images/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure>
 
 The Device Manager and the Service Manager are tightly integrated into one transactional engine, using the CDB to store data. Another thing the two managers have in common is packages. Like Device Manager uses NED packages to support specific devices, Service Manager relies on service packages to provide an application-specific mapping for each service type.
 
@@ -28,7 +28,7 @@ However, a network application can consist of more than just a configuration rec
 
 NSO allows augmenting the base functionality of the system by delegating certain functions to applications. As the communication must happen on demand, NSO implements a system of callbacks. Usually, the application code registers the required callbacks on start-up, and then NSO can invoke each callback as needed. A prime example is a Python service, which registers the `cb_create()` function as a service callback that NSO uses to construct the actual configuration.
 
-<figure><img src="../../../images/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure>
+<figure><img src="../../images/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure>
 
 In a Python service skeleton, callback registration happens inside a class `Main`, found in `main.py`:
 
@@ -62,7 +62,7 @@ list my-svc {
 
 Service point therefore links the definition in the model with custom code. Some methods in the code will have names starting with `cb_`, for instance, the `cb_create()` method, letting you know quickly that they are an implementation of a callback.
 
-NSO implements additional callbacks for each service point, that may be required in some specific circumstances. Most of these callbacks perform work outside of the automatic change tracking, so you need to consider that before using them. The section [Service Callbacks](services-deep-dive.md#ch\_svcref.cbs) offers more details.
+NSO implements additional callbacks for each service point, that may be required in some specific circumstances. Most of these callbacks perform work outside of the automatic change tracking, so you need to consider that before using them. The section [Service Callbacks](../development/developing-services/services-deep-dive.md#ch\_svcref.cbs) offers more details.
 
 As well as services, other extensibility options in NSO also rely on callbacks and `callpoints`, a generalized version of a service point. Two notable examples are validation callbacks, to implement additional validation logic to that supported by YANG, and custom actions. The section [Overview of Extension Points](applications-in-nso.md#overview-of-extension-points) provides a comprehensive list and an overview of when to use each.
 
@@ -124,7 +124,7 @@ The `name` argument has the name of the called action (such as `my-test`), to he
 Finally, the `uinfo` contains information on the user invoking the action and the `trans` argument represents a transaction, that you can use to access data other than input. This transaction is read-only, as configuration changes should normally be done through services instead. Still, the action may need some data from NSO, such as an IP address of a device, which you can access by using `trans` with the `ncs.maagic.get_root()` function and navigate to the relevant information.
 
 {% hint style="info" %}
-If, for any reason, your action requires a new, read-write transaction, please also read through [NSO Concurrency Model](../../concepts/nso-concurrency-model.md) to learn about the possible pitfalls.
+If, for any reason, your action requires a new, read-write transaction, please also read through [NSO Concurrency Model](../concepts/nso-concurrency-model.md) to learn about the possible pitfalls.
 {% endhint %}
 
 Further details and the format of the arguments can be found in the NSO Python API reference.
@@ -385,7 +385,7 @@ You can use the `show devices list` command to verify that the result is correct
 
 NSO supports a number of extension points for custom callbacks:
 
-<table data-full-width="true"><thead><tr><th>Type</th><th>Supported In</th><th>YANG Extension</th><th>Description</th></tr></thead><tbody><tr><td>Service</td><td>Python, Java, Erlang</td><td><code>ncs:servicepoint</code></td><td>Transforms a list or container into a model for service instances. When the configuration of a service instance changes, NSO invokes Service Manager and FASTMAP, which may call service create and similar callbacks. See <a href="creating-a-service.md">Developing a Simple Service</a> for an introduction.</td></tr><tr><td>Action</td><td>Python, Java, Erlang</td><td><code>tailf:actionpoint</code></td><td>Defines callbacks when an action or RPC is invoked. See <a href="applications-in-nso.md#d5e959">Actions</a> for an introduction.</td></tr><tr><td>Validation</td><td>Python, Java, Erlang</td><td><code>tailf:validate</code></td><td>Defines callbacks for additional validation of data when the provided YANG functionality, such as <code>must</code> and <code>unique</code> statements are insufficient. See the respective API documentation for examples; the section <a href="../../concepts/api-overview/python-api-overview.md#validation-point-handler">ValidationPoint Handler</a> (Python), the section <a href="../../concepts/api-overview/java-api-overview.md#d5e3761">Validation Callbacks</a> (Java), and <a href="../../connected-topics/embedded-erlang-applications.md">Embedded Erlang applications</a> (Erlang).</td></tr><tr><td>Data Provider</td><td>Java, Python (low-level API with experimental high-level API), Erlang</td><td><code>tailf:callpoint</code></td><td>Defines callbacks for transparently accessing external data (data not stored in the CDB) or callbacks for special processing of data nodes (transforms, set, and transaction hooks). Requires careful implementation and understanding of transaction intricacies. Rarely used in NSO.</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Type</th><th>Supported In</th><th>YANG Extension</th><th>Description</th></tr></thead><tbody><tr><td>Service</td><td>Python, Java, Erlang</td><td><code>ncs:servicepoint</code></td><td>Transforms a list or container into a model for service instances. When the configuration of a service instance changes, NSO invokes Service Manager and FASTMAP, which may call service create and similar callbacks. See <a href="creating-a-service.md">Developing a Simple Service</a> for an introduction.</td></tr><tr><td>Action</td><td>Python, Java, Erlang</td><td><code>tailf:actionpoint</code></td><td>Defines callbacks when an action or RPC is invoked. See <a href="applications-in-nso.md#d5e959">Actions</a> for an introduction.</td></tr><tr><td>Validation</td><td>Python, Java, Erlang</td><td><code>tailf:validate</code></td><td>Defines callbacks for additional validation of data when the provided YANG functionality, such as <code>must</code> and <code>unique</code> statements are insufficient. See the respective API documentation for examples; the section <a href="../concepts/api-overview/python-api-overview.md#validation-point-handler">ValidationPoint Handler</a> (Python), the section <a href="../concepts/api-overview/java-api-overview.md#d5e3761">Validation Callbacks</a> (Java), and <a href="../connected-topics/embedded-erlang-applications.md">Embedded Erlang applications</a> (Erlang).</td></tr><tr><td>Data Provider</td><td>Java, Python (low-level API with experimental high-level API), Erlang</td><td><code>tailf:callpoint</code></td><td>Defines callbacks for transparently accessing external data (data not stored in the CDB) or callbacks for special processing of data nodes (transforms, set, and transaction hooks). Requires careful implementation and understanding of transaction intricacies. Rarely used in NSO.</td></tr></tbody></table>
 
 Each extension point in the list has a corresponding YANG extension that defines to which part of the data model the callbacks apply, as well as the individual name of the call point. The name is required during callback registration and helps distinguish between multiple uses of the extension. Each extension generally specifies multiple callbacks, however, you often need to implement only the main one, e.g. create for services or action for actions.
 
@@ -397,7 +397,7 @@ Services and actions are examples of something that happens directly as a result
 
 NSO provides out-of-the-box support for the automation of not only notifications but also changes to the operational and configuration data, using the concept of kickers. With kickers, you can watch for a particular change to occur in the system and invoke a custom action that handles the change.
 
-The kicker system is further described in [Kicker](../../connected-topics/kicker.md).
+The kicker system is further described in [Kicker](../connected-topics/kicker.md).
 
 ## Running Application Code <a href="#ncs.development.applications.running" id="ncs.development.applications.running"></a>
 
@@ -420,11 +420,11 @@ While the Python package skeleton names the derived class `Main`, you can choose
 
 When starting the package, NSO reads the class name from `package-meta-data.xml`, starts the Python interpreter, and instantiates a class instance. The base `Application` class takes care of establishing communication with the NSO process and calling the `setup` and `teardown` methods. The two methods are a good place to do application-specific initialization and cleanup, along with any callback registrations you require.
 
-The communication between the application process and NSO happens through a dedicated control socket, as described in the section called [IPC Ports](../../../administration/advanced-topics/ipc-ports.md) in Administration. This setup prevents a faulty application from bringing down the whole system along with it and enables NSO to support different application environments.
+The communication between the application process and NSO happens through a dedicated control socket, as described in the section called [IPC Ports](../../administration/advanced-topics/ipc-ports.md) in Administration. This setup prevents a faulty application from bringing down the whole system along with it and enables NSO to support different application environments.
 
-In fact, NSO can manage applications written in Java or Erlang in addition to those in Python. If you replace the `python-class-name` element of a component with `java-class-name` in the `package-meta-data.xml` file, NSO will instead try to run the specified Java class in the managed Java VM. If you wanted to, you could implement all of the same services and actions in Java, too. For example, see [Service Actions](implementing-services.md#ch\_services.actions) to compare Python and Java code.
+In fact, NSO can manage applications written in Java or Erlang in addition to those in Python. If you replace the `python-class-name` element of a component with `java-class-name` in the `package-meta-data.xml` file, NSO will instead try to run the specified Java class in the managed Java VM. If you wanted to, you could implement all of the same services and actions in Java, too. For example, see [Service Actions](../development/developing-services/implementing-services.md#ch\_services.actions) to compare Python and Java code.
 
-Regardless of the programming language you use, the high-level approach to automation with NSO does not change, registering and implementing callbacks as part of your network application. Of course, the actual function calls (the API) and other specifics differ for each language. The [NSO Python VM](../../concepts/nso-vms/nso-python-vm.md), [NSO Java VM](../../concepts/nso-vms/nso-java-vm.md), and [Embedded Erlang Applications](../../connected-topics/embedded-erlang-applications.md) cover the details. Even so, the concepts of actions, services, and YANG modeling remain the same.&#x20;
+Regardless of the programming language you use, the high-level approach to automation with NSO does not change, registering and implementing callbacks as part of your network application. Of course, the actual function calls (the API) and other specifics differ for each language. The [NSO Python VM](../concepts/nso-vms/nso-python-vm.md), [NSO Java VM](../concepts/nso-vms/nso-java-vm.md), and [Embedded Erlang Applications](../connected-topics/embedded-erlang-applications.md) cover the details. Even so, the concepts of actions, services, and YANG modeling remain the same.
 
 As you have seen, everything in NSO is ultimately tied to the YANG model, making YANG knowledge such a valuable skill for any NSO developer.
 
@@ -432,10 +432,10 @@ As you have seen, everything in NSO is ultimately tied to the YANG model, making
 
 As your NSO application evolves, you will create newer versions of your application package, which will replace the existing one. If the application becomes sufficiently complex, you might even split it across multiple packages.
 
-When you replace a package, NSO must redeploy the application code and potentially replace the package-provided part of the YANG schema. For the latter, NSO can perform the data migration for you, as long as the schema is backward compatible. This process is documented in [Automatic Schema Upgrades and Downgrades](../../concepts/using-cdb.md#ug.cdb.upgrade) and is automatic when you request a reload of the package with `packages reload` or a similar command.
+When you replace a package, NSO must redeploy the application code and potentially replace the package-provided part of the YANG schema. For the latter, NSO can perform the data migration for you, as long as the schema is backward compatible. This process is documented in [Automatic Schema Upgrades and Downgrades](../concepts/using-cdb.md#ug.cdb.upgrade) and is automatic when you request a reload of the package with `packages reload` or a similar command.
 
-If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../../concepts/nso-vms/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and `examples.ncs/getting-started/developing-with-ncs/14-upgrade-service` example (Java) for details.
+If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../concepts/nso-vms/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and `examples.ncs/getting-started/developing-with-ncs/14-upgrade-service` example (Java) for details.
 
 Note that changing the schema in any way requires you to recompile the `.fxs` files in the package, which is typically done by running `make` in the package's `src` folder.
 
-However, if the schema does not change, you can request that only the application code and templates be redeployed by using the `packages package`` `_`my-pkg`_` ``redeploy` command.
+However, if the schema does not change, you can request that only the application code and templates be redeployed by using the ` packages package`` `` `_`my-pkg`_` `` ``redeploy ` command.

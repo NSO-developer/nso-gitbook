@@ -41,7 +41,7 @@ For users working in a production-wide NSO deployment.
 
 ### Administration
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#deployment">#deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Learn about advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Installation &#x26; Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#deployment">#deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Learn about advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
 
 ### Operation and Usage
 

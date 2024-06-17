@@ -6,13 +6,13 @@ description: Understand different types of northbound APIs and their working mec
 
 This section describes the various northbound programmatic APIs in NSO NETCONF, REST, and SNMP. These APIs are used by external systems that need to communicate with NSO, such as portals, OSS, or BSS systems.
 
-NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../operation-and-usage/cli/) and [Web User Interface](../../operation-and-usage/webui/) respectively.
+NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../operation-and-usage/cli-1/) and [Web User Interface](../../operation-and-usage/webui/) respectively.
 
-There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../development/developing-services/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
+There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../introduction-to-automation/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
 
 ## Integrating an External System with NSO <a href="#d5e48" id="d5e48"></a>
 
-There are two APIs to choose from when an external system should communicate with NSO:&#x20;
+There are two APIs to choose from when an external system should communicate with NSO:
 
 * NETCONF
 * REST
@@ -69,12 +69,12 @@ When integrating NSO into larger OSS/NMS environments, the NETCONF API is a good
 
 The NETCONF server in NSO supports the following capabilities in both NETCONF 1.0 ([RFC 4741](https://www.ietf.org/rfc/rfc4741.txt)) and NETCONF 1.1 ([RFC 6241](https://www.ietf.org/rfc/rfc6241.txt)).
 
-<table><thead><tr><th width="234">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:writable-running</code></td><td>This capability is always advertised.</td></tr><tr><td><code>:candidate</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:confirmed-commit</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:rollback-on-error</code></td><td>This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td><code>:validate</code></td><td>NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td><code>:startup</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:url</code></td><td><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol).  There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
+<table><thead><tr><th width="234">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:writable-running</code></td><td>This capability is always advertised.</td></tr><tr><td><code>:candidate</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:confirmed-commit</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:rollback-on-error</code></td><td>This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td><code>:validate</code></td><td>NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td><code>:startup</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:url</code></td><td><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol). There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
 </code></pre><p>Note that user name and password must be given for <code>sftp</code> URLs. NSO does not support <code>validate</code> from a URL.</p></td></tr><tr><td><code>:xpath</code></td><td>The NETCONF server supports XPath according to the W3C XPath 1.0 specification (<a href="https://www.w3.org/TR/xpath">https://www.w3.org/TR/xpath</a>).</td></tr></tbody></table>
 
 The following list of optional standard capabilities is also supported:
 
-<table><thead><tr><th width="237">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:notification</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="northbound-apis.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td><code>:with-defaults</code></td><td><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p></p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td><code>:yang-library:1.0</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td><code>:yang-library:1.1</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
+<table><thead><tr><th width="237">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:notification</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="northbound-apis.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td><code>:with-defaults</code></td><td><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td><code>:yang-library:1.0</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td><code>:yang-library:1.1</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
 
 ### Protocol YANG Modules <a href="#d5e255" id="d5e255"></a>
 
@@ -1031,11 +1031,11 @@ To control the commit behavior of NSO the following input parameters are availab
 * `commit-queue/tag`\
   The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.
 * `commit-queue/error-option`\
-  The error option to use. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked the data will be removed. Possible values are: `continue-on-error`, `rollback-on-error`, and `stop-on-error`. The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created. The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked. \
+  The error option to use. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked the data will be removed. Possible values are: `continue-on-error`, `rollback-on-error`, and `stop-on-error`. The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created. The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.\
   \
-  Read about error recovery in [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+  Read about error recovery in [Commit Queue](../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id`\
-  Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. \
+  Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing.\
   **Note**: `trace-id` within NETCONF extensions is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [Trace Context](northbound-apis.md#trace-context).
 
 These optional input parameters are augmented into the following NETCONF operations:
@@ -1563,7 +1563,7 @@ If you want to run RESTCONF with a different transport configuration than what t
 
 It is now possible to do a RESTCONF requests towards NSO. Any HTTP client can be used, in the following examples curl will be used. The example below will show what a typical RESTCONF request could look like.
 
-{% code title="Example: A RESTCONF Request using 'curl'" %}
+{% code title="Example: A RESTCONF Request using " %}
 ```
 # Note that the command is wrapped in several lines in order to fit.
 #
@@ -1600,7 +1600,7 @@ Note the HTTP return code (200 OK) in the example, which will be displayed toget
 
 #### Top-level GET request <a href="#d5e1282" id="d5e1282"></a>
 
-Send a RESTCONF query to get a representation of the top-level resource, which is accessible through the path: `/restconf`.&#x20;
+Send a RESTCONF query to get a representation of the top-level resource, which is accessible through the path: `/restconf`.
 
 {% code title="Example: A Top-level RESTCONF Request" %}
 ```
@@ -1626,7 +1626,7 @@ As can be seen from the result, the server exposes three additional resources:
 
 To fetch configuration, operational data, or both, from the server, a request to the `data` resource is made. To restrict the amount of returned data, the following example will prune the amount of output to only consist of the topmost nodes. This is achieved by using the `depth` query argument as shown in the example below:
 
-{% code title="Example: Get the Top-most Resources Under 'data'" %}
+{% code title="Example: Get the Top-most Resources Under " %}
 ```
 GET /restconf/data?depth=1
 Accept: application/yang-data+xml
@@ -1649,7 +1649,7 @@ Accept: application/yang-data+xml
 
 Let's assume we are interested in the `dhcp/subnet` resource in our configuration. In the following examples, assume that it is defined by a corresponding Yang module that we have named `dhcp.yang`, looking like this:
 
-{% code title="Example: The 'dhcp.yang' Resource" %}
+{% code title="Example: The " %}
 ```
 > yanger -f tree examples.confd/restconf/basic/dhcp.yang
 module: dhcp
@@ -1673,7 +1673,7 @@ We can issue an HTTP GET request to retrieve the value content of the resource. 
 
 Note also how we have prefixed the `dhcp:dhcp` resource. This is how RESTCONF handles namespaces, where the prefix is the YANG module name and the namespace is as defined by the namespace statement in the YANG module.
 
-{% code title="Example: Get the 'dhcp/subnet' Resource" %}
+{% code title="Example: Get the " %}
 ```
 GET /restconf/data/dhcp:dhcp/subnet
 
@@ -1683,7 +1683,7 @@ HTTP/1.1 204 No Content
 
 We can now create the `dhcp/subnet` resource by sending an HTTP POST request + the data that we want to store. Note the `Content-Type` HTTP header, which indicates the format of the provided body. Two formats are supported: XML or JSON. In this example, we are using XML, which is indicated by the `Content-Type` value: `application/yang-data+xml`.
 
-{% code title="Example: Create a New 'dhcp/subnet' Resource" %}
+{% code title="Example: Create a New " %}
 ```
 POST /restconf/data/dhcp:dhcp
 Content-Type: application/yang-data+xml
@@ -1716,7 +1716,7 @@ If we now want to modify a part of our `dhcp/subnet` config, we can use the HTTP
 
 Also, note the difference of the `PATCH` URI compared to the earlier `POST` request. With the latter, since the resource does not yet exist, we `POST` to the parent resource (`dhcp:dhcp`), while with the `PATCH` request we address the (existing) resource (`10.254.239.0%2F27`).
 
-{% code title="Example: Modify a Part of the 'dhcp/subnet' Resource" %}
+{% code title="Example: Modify a Part of the " %}
 ```
 PATCH /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
@@ -1732,7 +1732,7 @@ HTTP/1.1 204 No Content
 
 We can also replace the subnet with some new configuration. To do this, we make use of the `PUT` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
-{% code title="Example: Replace a 'dhcp/subnet' Resource" %}
+{% code title="Example: Replace a " %}
 ```
 PUT /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 Content-Type: application/yang-data+xml
@@ -1753,7 +1753,7 @@ HTTP/1.1 204 No Content
 
 To delete the subnet, we make use of the `DELETE` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
-{% code title="Example: Delete a 'dhcp/subnet' Resource" %}
+{% code title="Example: Delete a " %}
 ```
 DELETE /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
@@ -1780,7 +1780,7 @@ The RESTCONF API root will now be `/my_own_restconf_root`.
 
 A client may discover the root resource by getting the `/.well-known/host-meta` resource as shown in the example below:
 
-{% code title="Example: Example Returning '/restconf'" %}
+{% code title="Example: Example Returning " %}
 ```
    The client might send the following:
 
@@ -1841,7 +1841,7 @@ Accept: application/yang-data+xml
 
 This Capability identifies the `basic-mode` default-handling mode that is used by the server for processing default leafs in requests for data resources.
 
-{% code title="Example:The 'default' capability URI" %}
+{% code title="Example:The " %}
 ```
           urn:ietf:params:restconf:capability:defaults:1.0
 ```
@@ -1903,7 +1903,7 @@ For a full definition of the `fields` value can be constructed, refer to the [RF
 
 Note that the `fields` query parameter cannot be used together with the `exclude` query parameter. This will result in an error.
 
-{% code title="Example: Example of How to Use the 'fields' Query Parameter" %}
+{% code title="Example: Example of How to Use the " %}
 ```
 GET /restconf/data/dhcp:dhcp?fields=subnet/range(low;high)
 Accept: application/yang-data+xml
@@ -1943,7 +1943,7 @@ Selecting multiple nodes to exclude can be done the same way as for the `fields`
 
 When `exclude` is not used:
 
-{% code title="Example: Example of How to Use the 'exclude' Query Parameter" %}
+{% code title="Example: Example of How to Use the " %}
 ```
 GET /restconf/data/dhcp:dhcp/subnet
 Accept: application/yang-data+xml
@@ -1999,7 +1999,7 @@ The `insert` query parameter is used to specify how a resource should be inserte
 
 This parameter is only valid if the target data represents a YANG list or leaf-list that is `ordered-by user`. In the example below, we will insert a new `router` value, first, in the `ordered-by user` leaf-list of `dhcp-options/router` values. Remember that the default behavior is for new entries to be inserted last in an `ordered-by user` leaf-list.
 
-{% code title="Example: Insert 'first' into a 'ordered-by user' Leaf-list" %}
+{% code title="Example: Insert " %}
 ```
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
@@ -2035,7 +2035,7 @@ HTTP/1.1 200 OK
 
 The `point` query parameter is used to specify the insertion point for a data resource that is being created or moved within an `ordered-by user` list or leaf-list. In the example below, we will insert the new `router` value: `two.acme.org`, after the first value: `one.acme.org` in the `ordered-by user` leaf-list of `dhcp-options/router` values.
 
-{% code title="Example: Insert 'first' into a 'ordered-by user' Leaf-list" %}
+{% code title="Example: Insert " %}
 ```
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
@@ -2073,7 +2073,7 @@ HTTP/1.1 200 OK
 
 There are additional NSO query parameters available for the RESTCONF API. These additional query parameters are described in the table below (Additional Query Parameters).
 
-<table><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../operation-and-usage/cli/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="northbound-apis.md#trace-context">Trace Context</a>.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
+<table><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../operation-and-usage/cli-1/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="northbound-apis.md#trace-context">Trace Context</a>.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="northbound-apis.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
 
 ### Edit Collision Prevention
 
@@ -2421,7 +2421,7 @@ HTTP/1.1 200 OK
 
 To verify that our modify and delete operations took place we make use of two RESTCONF `GET` requests as shown below.
 
-{% code title="Example: Verify the Modified 'max-release-time' Value" %}
+{% code title="Example: Verify the Modified " %}
 ```
 GET /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/max-lease-time
 Accept: application/yang-data+xml
@@ -2434,7 +2434,7 @@ HTTP/1.1 200 OK
 ```
 {% endcode %}
 
-{% code title="Example: Verify the Default Values after Delete of the 'max-release-time' Value" %}
+{% code title="Example: Verify the Default Values after Delete of the " %}
 ```
 GET /restconf/data/dhcp:dhcp/subnet=10.254.244.0%2F27/max-lease-time?\
       with-defaults=report-all-tagged
@@ -2566,7 +2566,7 @@ The API consists of the following replies:
 
 In the following examples, we'll use this data model:
 
-{% code title="Example: 'example.yang:' Model for the Query API Example" %}
+{% code title="Example: " %}
 ```
 container x {
   list host {
@@ -2590,7 +2590,7 @@ container x {
 
 The actual format of the payload should be represented either in XML or JSON. Note how we indicate the type of content using the `Content-Type` HTTP header. For XML, it could look like this:
 
-{% code title="Example: Example of a 'start-query' Request" %}
+{% code title="Example: Example of a " %}
 ```
 POST /restconf/tailf/query
 Content-Type: application/yang-data+xml
@@ -2618,7 +2618,7 @@ Content-Type: application/yang-data+xml
 
 The same request in JSON format would look like:
 
-{% code title="Example: JSON Example of a 'start-query' Request" %}
+{% code title="Example: JSON Example of a " %}
 ```
 POST /restconf/tailf/query
 Content-Type: application/yang-data+json
@@ -3311,7 +3311,7 @@ The alarm table has the following columns:
 * **tfAlarmText**\
   The latest alarm text.
 * **tfAlarmOperatorState**\
-  The latest operator alarm state such as ack.&#x20;
+  The latest operator alarm state such as ack.
 * **tfAlarmOperatorNote**\
   The latest operator note.
 
