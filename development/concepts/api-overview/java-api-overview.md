@@ -173,7 +173,7 @@ After the `cdb` socket has been established, a user could either start a CDB Ses
      * Retrieve the number of children in the list and
      * loop over these children
      */
-    for(int i = 0; i < session.numInstances("/servers/server"); i++) {
+    for(int i = 0; i < session.getNumberOfInstances("/servers/server"); i++) {
         ConfBuf name =
            (ConfBuf) session.getElem("/servers/server[%d]/hostname", i);
         ConfIPv4 ip =
