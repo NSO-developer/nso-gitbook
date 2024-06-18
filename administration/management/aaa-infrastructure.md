@@ -485,7 +485,7 @@ Compared to external authentication, the Package Authentication mechanism allows
 Authentication packages are NSO packages with the required content of an executable file `scripts/authenticate`. This executable basically follows the same API, and limitations, as the external auth script, but with a different input format and some additional functionality. Other than these requirements, it is possible to customize the package arbitrarily.
 
 {% hint style="info" %}
-Package authentication is supported for Single Sign-On (see [Single Sign-On](../../development/development/web-ui-development.md#single-sign-on-sso) in Web UI), JSON-RPC, and RESTCONF. Note that Single Sign-On and (non-batch) JSON-RPC allow all functionality while the RESTCONF interface will treat anything other than a "`accept_username`" reply from the package as if authentication failed!
+Package authentication is supported for Single Sign-On (see [Single Sign-On](../../development/development/web-ui-development/#single-sign-on-sso) in Web UI), JSON-RPC, and RESTCONF. Note that Single Sign-On and (non-batch) JSON-RPC allow all functionality while the RESTCONF interface will treat anything other than a "`accept_username`" reply from the package as if authentication failed!
 {% endhint %}
 
 Package authentication is enabled by setting the `ncs.conf` options `/ncs-config/aaa/package-authentication/enabled` to true, and adding the package by name in the `/ncs-config/aaa/package-authentication/packages` list. The order of the configured packages is the order that the packages will be used when attempting to authenticate a user. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.

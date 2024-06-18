@@ -436,7 +436,7 @@ When configuring NSO in HA mode, the license registration token must be provided
 
 <summary>Licensing Log</summary>
 
-Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management/README.md#d5e7876). For example, a successful token registration results in the following log entry:
+Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management/#d5e7876). For example, a successful token registration results in the following log entry:
 
 ```
 <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
@@ -520,6 +520,8 @@ Yes.
 Yes. You can move the directory where you installed NSO to a new location in your directory tree. Simply move NSO's root directory to the new desired location, and update this file: `$NCS_DIR/ncsrc` (and `ncsrc.tcsh` if you want). This is a small and handy script that sets up some environment variables for you. Update the paths to the new location. The `$NCS_DIR/bin/ncs` and `$NCS_DIR/bin/ncsc` scripts will determine the location of NSO's root directory automatically.
 
 </details>
+
+***
 
 **Next Steps**
 

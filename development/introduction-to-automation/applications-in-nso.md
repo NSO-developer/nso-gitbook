@@ -439,3 +439,11 @@ If your schema changes are not backward compatible, you can implement a data mig
 Note that changing the schema in any way requires you to recompile the `.fxs` files in the package, which is typically done by running `make` in the package's `src` folder.
 
 However, if the schema does not change, you can request that only the application code and templates be redeployed by using the ` packages package`` `` `_`my-pkg`_` `` ``redeploy ` command.
+
+***
+
+**Next Steps**
+
+{% content-ref url="../concepts/implementing-services.md" %}
+[implementing-services.md](../concepts/implementing-services.md)
+{% endcontent-ref %}
