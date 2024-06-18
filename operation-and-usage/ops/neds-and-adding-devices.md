@@ -4,7 +4,7 @@ description: Learn about NEDs, their types, and how to work with them.
 
 # NEDs and Adding Devices
 
-Network Element Drivers, NEDs, provides the connectivity between NSO and the devices. NEDs are installed as NSO packages. For information on how to add a package for a new device type, see NSO [Package Management](../../administration/management/nso-packages.md).
+Network Element Drivers, NEDs, provides the connectivity between NSO and the devices. NEDs are installed as NSO packages. For information on how to add a package for a new device type, see NSO [Package Management](../../administration/management/package-mgmt.md).
 
 To see the list of installed packages (you will not see the F5 BigIP):
 
@@ -41,12 +41,12 @@ packages package f5-bigip
 The core parts of a NED are:
 
 * **A Driver Element**: Running in a Java VM.
-*   **Data Model:** Independent of the underlying device interface technology, NEDs come with a data model in YANG that specifies configuration data and operational data that is supported for the device.&#x20;
+*   **Data Model:** Independent of the underlying device interface technology, NEDs come with a data model in YANG that specifies configuration data and operational data that is supported for the device.
 
     * For native NETCONF devices, the YANG comes from the device.
     * For JunOS, NSO generates the model from the JunOS XML schema.
     * For SNMP devices, NSO generates the model from the MIBs.
-    * For CLI devices, the NED designer writes the YANG to map the CLI.&#x20;
+    * For CLI devices, the NED designer writes the YANG to map the CLI.
 
     NSO only cares about the data that is in the model for the NED. The rest is ignored. See the [NED documentation](../../development/development/developing-neds/) to learn more about what is covered by the NED.
 * **Code:** For NETCONF and SNMP devices, there is no code. For CLI devices there is a minimum of code managing connecting over SSH/Telnet and looking for version strings. The rest is auto-rendered from the data model.

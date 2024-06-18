@@ -379,7 +379,7 @@ Note that while the upgrade is in progress, writes to the CDB are not allowed an
 
 For a `packages ha sync and-reload` example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
-For more details, troubleshooting, and general upgrade recommendations, see [NSO Packages](nso-packages.md) and [Upgrade](../deployment/upgrade-nso.md).
+For more details, troubleshooting, and general upgrade recommendations, see [NSO Packages](package-mgmt.md) and [Upgrade](../deployment/upgrade-nso.md).
 
 ### Version Upgrade of Cluster Nodes <a href="#ch_ha.raft_upgrade" id="ch_ha.raft_upgrade"></a>
 
@@ -994,7 +994,7 @@ location SanJose
 
 ### Data Model <a href="#ug.ha.hcc.data_models" id="ug.ha.hcc.data_models"></a>
 
-The HCC data model can be found in the HCC package (`tailf-hcc.yang`).&#x20;
+The HCC data model can be found in the HCC package (`tailf-hcc.yang`).
 
 ## Setup with an External Load Balancer <a href="#ug.ha.lb" id="ug.ha.lb"></a>
 

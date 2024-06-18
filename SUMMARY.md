@@ -28,7 +28,7 @@
     * [Cisco Smart Licensing](administration/management/system-management/cisco-smart-licensing.md)
     * [Log Messages and Formats](administration/management/system-management/log-messages-and-formats.md)
     * [Alarm Types](administration/management/system-management/alarms.md)
-  * [Package Management](administration/management/nso-packages.md)
+  * [Package Management](administration/management/package-mgmt.md)
   * [High Availability](administration/management/high-availability.md)
   * [AAA Infrastructure](administration/management/aaa-infrastructure.md)
   * [NED Administration](administration/management/ned-administration.md)
@@ -63,7 +63,7 @@
   * [Alarm Manager](operation-and-usage/ops/alarm-manager.md)
   * [Plug-and-Play Scripting](operation-and-usage/ops/plug-and-play-scripting.md)
   * [Compliance Reporting](operation-and-usage/ops/compliance-reporting.md)
-  * [Listing Packages](operation-and-usage/ops/viewing-packages.md)
+  * [Listing Packages](operation-and-usage/ops/listing-packages.md)
   * [Lifecycle Operations](operation-and-usage/ops/lifecycle-operations.md)
   * [Network Simulator](operation-and-usage/ops/network-simulator-netsim.md)
 

@@ -36,10 +36,10 @@ If you use the High Availability (HA) feature, the upgrade consists of multiple 
 
 Likewise, NSO 5.3 added support for 256-bit AES encrypted strings, requiring the AES256CFB128 key in the `ncs.conf` configuration. You can generate one with the `openssl rand -hex 32` or a similar command. Alternatively, if you use an external command to provide keys, ensure that it includes a value for an `AES256CFB128_KEY` in the output.
 
-Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management/README.md#backup-and-restore).
+Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management/#backup-and-restore).
 
 {% hint style="danger" %}
-#### Caution
+**Caution**
 
 The `ncs-backup` (and consequently the `nct backup`) command does not back up the `/opt/ncs/packages` folder. If you make any file changes, back them up separately.
 
@@ -59,7 +59,7 @@ The upgrade of a single NSO instance requires the following steps:
 7. Update the packages in `/var/opt/ncs/packages/` if recompilation is needed.
 8. Start the NSO server process, instructing it to reload the packages.
 
-The following steps assume that you are upgrading to the 6.4 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.&#x20;
+The following steps assume that you are upgrading to the 6.4 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.
 
 As a best practice, always create a backup before trying to upgrade.
 
@@ -374,7 +374,7 @@ reload-result {
 On the other hand, upgrading packages in an HA setup is an error-prone process. Thus, NSO provides an action, `packages ha sync and-reload`to minimize such complexity. This action loads new data models into NSO instead of restarting the server process. As a result, it is considerably more efficient, and the time difference to upgrade can be considerable if the amount of data in CDB is huge.
 
 {% hint style="info" %}
-If the only change in the packages is the addition of new NED packages, the `and-add` can replace `and-reload` command for an even more optimized and less intrusive update. See [Adding NED Packages](../management/nso-packages.md#ug.package\_mgmt.ned\_package\_add) for details.
+If the only change in the packages is the addition of new NED packages, the `and-add` can replace `and-reload` command for an even more optimized and less intrusive update. See [Adding NED Packages](../management/package-mgmt.md#ug.package\_mgmt.ned\_package\_add) for details.
 {% endhint %}
 
 The action executes on the `primary` node. First, it syncs the physical packages from the `primary` node to the `secondary` nodes as tar archive files, regardless if the packages were initially added as directories or tar archives. Then, it performs the upgrade on all nodes in one go. The action does not perform the sync and the upgrade on the node with `none` role.
@@ -412,13 +412,13 @@ Example implementations that use scripts to upgrade a 2- and 3-node setup using 
 
 We have been using a two-node HCC layer 2 upgrade reference example elsewhere in the documentation to demonstrate installing NSO and adding the initial configuration. The upgrade-l2 example referenced in `examples.ncs/development-guide/high-availability/hcc` implements shell and Python scripted steps to upgrade the `primary` `paris` package versions and sync the packages to the `secondary` `london` using `ssh` to the Linux shell and the NSO CLI or Python Requests RESTCONF for accessing the `paris` and `london` nodes. See the example for details.
 
-In some cases, NSO may warn when the upgrade looks suspicious. For more information on this, see [Loading Packages](../management/nso-packages.md#ug.package\_mgmt.loading). If you understand the implications and are willing to risk losing data, use the `force` option with `packages reload` or set the `NCS_RELOAD_PACKAGES` environment variable to `force` when restarting NSO. It will force NSO to ignore warnings and proceed with the upgrade. In general, this is not recommended.
+In some cases, NSO may warn when the upgrade looks suspicious. For more information on this, see [Loading Packages](../management/package-mgmt.md#ug.package\_mgmt.loading). If you understand the implications and are willing to risk losing data, use the `force` option with `packages reload` or set the `NCS_RELOAD_PACKAGES` environment variable to `force` when restarting NSO. It will force NSO to ignore warnings and proceed with the upgrade. In general, this is not recommended.
 
 In addition, you must take special care of NED upgrades because services depend on them. For example, since NSO 5 introduced the CDM feature, which allows loading multiple versions of a NED, a major NED upgrade requires a procedure involving the `migrate` action.
 
 When a NED contains nontrivial YANG model changes, that is called a major NED upgrade. The NED ID changes, and the first or second number in the NED version changes since NEDs follow the same versioning scheme as NSO. In this case, you cannot simply replace the package, as you would for a maintenance or patch NED release. Instead, you must load (add) the new NED package alongside the old one and perform the migration.
 
-Migration uses the `/ncs:devices/device/migrate` action to change the ned-id of a single device or a group of devices. It does not affect the actual network device, except possibly reading from it. So, the migration does not have to be performed as part of the package upgrade procedure described above but can be done later, during normal operations. The details are described in [NED Migration](../management/nso-packages.md#ug.package\_mgmt.ned\_migration). Once the migration is complete, you can remove the old NED by performing another package upgrade, where you deinstall the old NED package. It can be done straight after the migration or as part of the next upgrade cycle.
+Migration uses the `/ncs:devices/device/migrate` action to change the ned-id of a single device or a group of devices. It does not affect the actual network device, except possibly reading from it. So, the migration does not have to be performed as part of the package upgrade procedure described above but can be done later, during normal operations. The details are described in [NED Migration](../management/package-mgmt.md#ug.package\_mgmt.ned\_migration). Once the migration is complete, you can remove the old NED by performing another package upgrade, where you deinstall the old NED package. It can be done straight after the migration or as part of the next upgrade cycle.
 
 ## Patch Management <a href="#d5e7173" id="d5e7173"></a>
 

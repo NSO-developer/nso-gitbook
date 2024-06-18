@@ -32,7 +32,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Package upgrade** view, you can load custom packages in NSO.
 
-The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../ops/viewing-packages.md).
+The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../ops/listing-packages.md).
 
 ### **Install a Package**
 

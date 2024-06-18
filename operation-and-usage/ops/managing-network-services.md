@@ -631,7 +631,7 @@ To have NSO deploy services across devices, two pieces are needed:
 
 ### Defining the Service Model <a href="#d5e881" id="d5e881"></a>
 
-The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/nso-packages.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the `1-simulated-cisco-ios/` example. Make sure that you have stopped any running NSO and netsim.
+The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/package-mgmt.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the `1-simulated-cisco-ios/` example. Make sure that you have stopped any running NSO and netsim.
 
 Navigate to the simulated ios directory and create a new package for the VLAN service model:
 
