@@ -332,7 +332,7 @@ Device ce3
 
 ## Device Configuration Checks <a href="#device-configuration-checks" id="device-configuration-checks"></a>
 
-Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
+Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/core-concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
 
 Often, each device will have a somewhat different configuration, such as its own set of IP addresses, which makes checking against a static template impossible. For this reason, NSO supports compliance templates.
 

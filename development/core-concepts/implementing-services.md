@@ -531,7 +531,7 @@ FASTMAP covers the complete service life cycle: creating, changing, and deleting
 FASTMAP is based on generating changes from an initial create operation. When the service instance is created the reverse of the resulting device configuration is stored together with the service instance. If an NSO user later changes the service instance, NSO first applies (in an isolated transaction) the reverse diff of the service, effectively undoing the previous create operation. Then it runs the logic to create the service again and finally performs a diff against the current configuration. Only the result of the diff is then sent to the affected devices.
 
 {% hint style="warning" %}
-It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](../development/developing-services/services-deep-dive.md#ch\_svcref.opaque) for techniques to achieve this.
+It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.opaque) for techniques to achieve this.
 {% endhint %}
 
 If the service instance is deleted, NSO applies the reverse diff of the service, effectively removing all configuration changes the service did on the devices.
@@ -1500,7 +1500,7 @@ You can use these general steps to give you a high-level idea of how to approach
 1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../administration/management/system-management/#ug.sys\_mgmt.tshoot) in Administration.\
    \
    If you encounter a blank CLI when you connect to NSO you must also make sure that your user is added to the correct NACM group (for example `ncsadmin`) and that the rules for this group allow the user to view and edit your service through CLI. You can find out more about groups and authorization rules in [AAA Infrastructure](../../administration/management/aaa-infrastructure.md) in Administration.
-2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../development/nso-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
+2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../advanced-development/nso-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
     \
     Compiling packages uses the `ncsc` compiler internally, which means that this part of the process reveals any syntax errors that might exist in YANG models or Java code. You do not need to rely on `ncsc` for compile-level errors though and should use specialized tools such as `pyang` or `yanger` for YANG, and one of the many IDEs and syntax validation tools for Java.\\
 
@@ -1569,7 +1569,7 @@ You can use these general steps to give you a high-level idea of how to approach
     admin@ncs(config)# xpath eval /devices/device
     admin@ncs(config)# xpath eval /devices/device[name='r0']
     ```
-4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-vms/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../development/nso-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-vms/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
+4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-vms/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../advanced-development/nso-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-vms/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
 5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.logging) in Administration.
 
     \
@@ -1592,7 +1592,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 
     \
-    Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../development/progress-trace.md).
+    Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../advanced-development/progress-trace.md).
 7.  Double-check your service points in the model, templates, and in code. Since configuration templates don't get applied if the servicepoint attribute doesn't match the one defined in the service model or are not applied from the callbacks registered to specific service points, make sure they match and that they are not missing. Otherwise, you might notice errors such as the following ones.\\
 
     ```
@@ -1637,6 +1637,6 @@ You can use these general steps to give you a high-level idea of how to approach
 
 **Next steps**
 
-{% content-ref url="../development/developing-services/services-deep-dive.md" %}
-[services-deep-dive.md](../development/developing-services/services-deep-dive.md)
+{% content-ref url="../advanced-development/developing-services/services-deep-dive.md" %}
+[services-deep-dive.md](../advanced-development/developing-services/services-deep-dive.md)
 {% endcontent-ref %}

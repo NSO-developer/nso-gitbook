@@ -124,7 +124,7 @@ admin# request progress trace test purge
 
 ### Log as Notification Events <a href="#d5e9521" id="d5e9521"></a>
 
-Progress events can be subscribed to as Notifications events. See [NOTIF API](../concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.notif) for further details.
+Progress events can be subscribed to as Notifications events. See [NOTIF API](../core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.notif) for further details.
 
 ### Verbosity <a href="#d5e9525" id="d5e9525"></a>
 

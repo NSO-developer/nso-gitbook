@@ -134,7 +134,7 @@ Even though the auto-generated CLI is fully functional it can be customized and 
 * A command timeout can be added, both a global timeout for all commands and command-specific timeouts.
 * Actions and parts of the configuration tree can be hidden and can later be made visible when the user enters a password.
 
-How to customize and extend the auto-generated CLI is described in [Plug-and-play Scripting](../ops/plug-and-play-scripting.md).
+How to customize and extend the auto-generated CLI is described in [Plug-and-play Scripting](../operations/plug-and-play-scripting.md).
 
 ## CLI Modes <a href="#d5e1216" id="d5e1216"></a>
 
@@ -1203,7 +1203,7 @@ Terminal type. This setting is used for controlling how line editing is performe
 
 ### Adding New Commands <a href="#d5e2650" id="d5e2650"></a>
 
-New commands can be added by placing a script in the `scripts/command` directory. See [Plug-and-play Scripting](../ops/plug-and-play-scripting.md).
+New commands can be added by placing a script in the `scripts/command` directory. See [Plug-and-play Scripting](../operations/plug-and-play-scripting.md).
 
 ### File Access <a href="#d5e2655" id="d5e2655"></a>
 

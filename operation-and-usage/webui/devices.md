@@ -49,7 +49,7 @@ Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **C
 The **Modify in Config Editor** and **Delete** actions are accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
 {% endhint %}
 
-See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 
 {% tab title="From the Configuration Editor -> Actions Tab" %}
@@ -71,7 +71,7 @@ To fetch information about an action in the **Configuration editor** -> **Action
 
 If you access the device in the **Configuration editor**, the following additional actions are available: **migrate**, **copy-capabilities**, **find-capabilities**, **add-capability**, **instantiate-from-other-device**, **check-yang-modules**, **disconnect**, **delete-config**, **scp-to scp-from**, **load-native-config**.
 
-See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
@@ -133,7 +133,7 @@ In the **Device groups** view, you can also apply actions on a device group usin
 
 **Actions Possible in the Device Groups View**
 
-The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../ops/lifecycle-operations.md).
+The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../operations/lifecycle-operations.md).
 
 {% hint style="info" %}
 The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a device group.

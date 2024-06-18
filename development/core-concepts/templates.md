@@ -612,7 +612,7 @@ However, in some situations, you may not desire to change the context. You can a
 
 ## Namespaces and Multi-NED Support <a href="#ch_templates.multined" id="ch_templates.multined"></a>
 
-When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
+When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
 
 Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](implementing-services.md#ch\_services.devs\_types)).
 
@@ -728,7 +728,7 @@ While the template (file) name is not referred to in this case, it must still be
 
 In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services-staged-provisioning.md#ug.nano\_services.callbacks) contains examples.
 
-Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../development/developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
+Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
 
 These pre- and post-modification templates can only be used in classic (non-nano) services when the create callback is implemented as a template. That is, they cannot be used together with create callbacks implemented in Java or Python. If you want to mix the two approaches for the same service, consider using nano services.
 
