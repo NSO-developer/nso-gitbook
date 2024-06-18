@@ -155,7 +155,7 @@ All methods may return one of the following JSON RPC or application-defined erro
 {"type": "session.overload"}
 ```
 
-### FAQ <a href="#ug.jsonrpc.faq" id="ug.jsonrpc.faq"></a>
+### FAQs <a href="#ug.jsonrpc.faq" id="ug.jsonrpc.faq"></a>
 
 <details>
 
@@ -361,5 +361,129 @@ A handle to the batch command is returned (equal to `handle` if provided).
 
 </details>
 
+<details>
 
+<summary><mark style="color:green;"><code>send_cmd_data</code></mark></summary>
 
+Sends data to batch command started with _init\_cmd_
+
+**Params**
+
+```json
+{"handle": <string>,
+ "data": <string>}
+```
+
+The `handle` param is as returned from a call to `init_cmd` and the _data_ param is what is to be sent to the batch command started with `init_cmd`.
+
+**Result**
+
+```json
+{}
+```
+
+**Errors (specific)**
+
+```json
+{"type": "cmd.not_initialized"}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>start_cmd</code></mark></summary>
+
+Signals that a batch command can start to generate output.
+
+**Note**: This method must be called to actually start the activity initiated by calls to one of the methods `init_cmd`.
+
+**Params**
+
+```
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `init_cmd`.
+
+**Result**
+
+```
+{}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>suspend_cmd</code></mark></summary>
+
+Suspends output from a batch command
+
+**Note**: the `init_cmd` method must have been called with the `emulate` param set to true for this to work
+
+**Params**
+
+```
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `init_cmd`.
+
+**Result**
+
+```
+{}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>resume_cmd</code></mark></summary>
+
+Resumes a batch command started with `init_cmd`_._
+
+**Note**: the `init_cmd` method must have been called with the `emulate` param set to `true` for this to work.
+
+**Params**
+
+```
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `init_cmd`.
+
+**Result**
+
+```
+{}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>stop_cmd</code></mark></summary>
+
+Stops a batch command.
+
+**Note**: This method must be called to stop the activity started by calls to one of the methods `init_cmd`.
+
+**Params**
+
+```
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `init_cmd`.
+
+**Result**
+
+```
+{}
+```
+
+</details>
+
+## Methods - Commands - Subscribe <a href="#methods-commands-subscribe" id="methods-commands-subscribe"></a>
