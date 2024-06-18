@@ -232,7 +232,7 @@ Given the YANG model in the example above (L3 VPN YANG Extract), the initial dat
 
 Another example of using these features is when initializing the AAA database. This is described in [AAA infrastructure](../../administration/management/aaa-infrastructure.md).
 
-All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/README.md#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
+All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
 ```
@@ -274,7 +274,7 @@ We will take a first look at the `examples.ncs/getting-started/developing-with-n
 * `cdb`: This package has an even simpler YANG model to illustrate some aspects of CDB data retrieval. The package consists of five application components:
   * Plain CDB Subscriber: This CDB subscriber subscribes to changes under the path `/devices/device{ex0}/config`. Whenever a change occurs there, the code iterates through the change and prints the values.
   * CdbCfgSubscriber: A more advanced CDB subscriber that subscribes to changes under the path `/devices/device/config/sys/interfaces/interface`.
-  * OperSubscriber:  An operational data subscriber that subscribes to changes under the path `/t:test/stats-item`.
+  * OperSubscriber: An operational data subscriber that subscribes to changes under the path `/t:test/stats-item`.
 
 The `cdb` package includes the YANG shown in the example below (1-cdb Simple Config Data).
 
@@ -939,7 +939,7 @@ CDB can automatically handle the following changes to the schema:
 * **Deleted elements**: When an element is deleted from the schema, CDB simply deletes it (and any children) from the database.
 * **Added elements**: If a new element is added to the schema it needs to either be optional, dynamic, or have a default value. New elements with a default are added and set to their default value. New dynamic or optional elements are simply noted as a schema change.
 * **Re-ordering elements**: An element with the same name, but in a different position on the same level, is considered to be the same element. If its type hasn't changed it will retain its value, but if the type has changed it will be upgraded as described below.
-* **Type changes**: If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!). \
+* **Type changes**: If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!).\
   \
   If the coercion fails, any supplied default value will be used. If no default value is present in the new schema, the automatic upgrade will fail and the leaf will be deleted after the CDB upgrade.\
   \
@@ -962,7 +962,7 @@ CDB can automatically handle the following changes to the schema:
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
-Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/README.md#ug.ncs\_sys\_mgmt.disaster)).
+Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.disaster)).
 
 ## Using Initialization Files for Upgrade <a href="#d5e3066" id="d5e3066"></a>
 
@@ -1079,7 +1079,7 @@ Since it was considered important that the user explicitly specified the protoco
 ```
 {% endcode %}
 
-We can then just use this new init file for the upgrade, and the existing server instances in the user's configuration will get the new `/servers/server/protocol` leaf filled in as expected. However some users may have deleted some of the original servers from their configuration, and in those cases, we do not want those servers to get re-created during the upgrade just because they are present in the XML file - the above restrictions make sure that this does not happen. The configuration after the upgrade can be seen in the example below (Configuration After Upgrade).&#x20;
+We can then just use this new init file for the upgrade, and the existing server instances in the user's configuration will get the new `/servers/server/protocol` leaf filled in as expected. However some users may have deleted some of the original servers from their configuration, and in those cases, we do not want those servers to get re-created during the upgrade just because they are present in the XML file - the above restrictions make sure that this does not happen. The configuration after the upgrade can be seen in the example below (Configuration After Upgrade).
 
 Here is what the configuration looks like after the upgrade if the `smtp` server has been deleted before the upgrade:
 
@@ -1146,7 +1146,7 @@ As with any package component type, the `upgrade` component has to be defined in
 ```
 {% endcode %}
 
-Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/nso-packages.md#ug.package\_mgmt.loading).
+Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package\_mgmt.loading).
 
 <figure><img src="../../images/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
 

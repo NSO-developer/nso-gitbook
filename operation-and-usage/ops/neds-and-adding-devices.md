@@ -4,7 +4,7 @@ description: Learn about NEDs, their types, and how to work with them.
 
 # NEDs and Adding Devices
 
-Network Element Drivers, NEDs, provides the connectivity between NSO and the devices. NEDs are installed as NSO packages. For information on how to add a package for a new device type, see NSO [Package Management](../../administration/management/nso-packages.md).
+Network Element Drivers, NEDs, provides the connectivity between NSO and the devices. NEDs are installed as NSO packages. For information on how to add a package for a new device type, see NSO [Package Management](../../administration/management/package-mgmt.md).
 
 To see the list of installed packages (you will not see the F5 BigIP):
 
