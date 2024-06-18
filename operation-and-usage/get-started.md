@@ -17,7 +17,7 @@ layout:
 
 ## CLI
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Introduction to CLI</strong></td><td>Familiarize yourself with the NSO CLI.</td><td><a href="cli/introduction-to-nso-cli.md">introduction-to-nso-cli.md</a></td></tr><tr><td><strong>CLI Commands</strong></td><td>List of available CLI commands.</td><td><a href="cli/cli-commands.md">cli-commands.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Introduction to NSO CLI</strong></td><td>Familiarize yourself with the NSO CLI.</td><td><a href="cli/introduction-to-nso-cli.md">introduction-to-nso-cli.md</a></td></tr><tr><td><strong>CLI Commands</strong></td><td>List of available CLI commands.</td><td><a href="cli/cli-commands.md">cli-commands.md</a></td></tr></tbody></table>
 
 ## Web UI
 
