@@ -1,6 +1,6 @@
 ---
-description: Operate NSO.
+description: Perform usage operations on NSO.
 ---
 
-# Operation and Usage
+# Operations
 
