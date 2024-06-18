@@ -35,9 +35,9 @@ A typical template for configuring an NSO-managed device is:
 </config-template>
 ```
 
-The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the `devices device`` `_`name`_` ``config` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
+The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the ` devices device`` `` `_`name`_` `` ``config ` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
 
-You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then generate the XML structure with the help of NSO output filters. You can use `commit dry-run outformat xml or show ... | display xml` commands, or even the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](developing-services/implementing-services.md#ch\_services.just\_template).
+You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then generate the XML structure with the help of NSO output filters. You can use `commit dry-run outformat xml or show ... | display xml` commands, or even the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
 
 ```
 admin@ncs(config)# devices device rtr01 config ...
@@ -502,8 +502,7 @@ When using macros, be mindful of the following:
 *   A macro definition takes a name and an optional list of parameters. Each parameter may define a default value.
 
     \
-    In the preceding example, a macro is defined as:\
-
+    In the preceding example, a macro is defined as:\\
 
     ```
       <?macro GbEth name='{/name}' ip mask='255.255.255.0'?>
@@ -612,13 +611,13 @@ However, in some situations, you may not desire to change the context. You can a
 
 ## Namespaces and Multi-NED Support <a href="#ch_templates.multined" id="ch_templates.multined"></a>
 
-When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
+When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
 
-Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](developing-services/implementing-services.md#ch\_services.devs\_types)).
+Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](implementing-services.md#ch\_services.devs\_types)).
 
 Additionally, the system performs validation of the template against the specified namespace when loading the template as part of the package load sequence, allowing you to detect a lot of the errors at load time instead of at run time.
 
-In case the namespace matching is insufficient, such as when you want to check for a particular version of a NED, you can use special processing instructions `if-ned-id` or `if-ned-id-match`. See [Processing Instructions Reference](templates.md#ch\_templates.xml\_instructions) for details and [Supporting Different Device Types](developing-services/implementing-services.md#ch\_services.devs\_types) for an example.
+In case the namespace matching is insufficient, such as when you want to check for a particular version of a NED, you can use special processing instructions `if-ned-id` or `if-ned-id-match`. See [Processing Instructions Reference](templates.md#ch\_templates.xml\_instructions) for details and [Supporting Different Device Types](implementing-services.md#ch\_services.devs\_types) for an example.
 
 However, strict validation against the currently loaded schema may become a problem for developing generic, reusable templates that should run in different environments with different sets of NEDs and NED versions loaded. For example, an NSO instance having fewer NED versions than the template is designed for may result in some elements not being recognized, while having more NED versions may introduce ambiguities.
 
@@ -651,7 +650,7 @@ If the package does not declare any `supported-ned-ids`, then the templates are 
 
 ## Passing Deep Structures from API <a href="#d5e2638" id="d5e2638"></a>
 
-When applying the template via API, you typically pass parameters to a template through variables, as described in [Templates and Code](developing-services/implementing-services.md#templates-and-code) and [Values in a Template](templates.md#ch\_templates.values). One limitation of this mechanism is that a variable can only hold one string value. Yet, sometimes there is a need to pass not just a single value, but a list, map, or even more complex data structures from API to the template.
+When applying the template via API, you typically pass parameters to a template through variables, as described in [Templates and Code](implementing-services.md#templates-and-code) and [Values in a Template](templates.md#ch\_templates.values). One limitation of this mechanism is that a variable can only hold one string value. Yet, sometimes there is a need to pass not just a single value, but a list, map, or even more complex data structures from API to the template.
 
 One way to achieve this is to use smaller templates, such as invoking the template repeatedly, one by one for each list item (or perhaps pair-by-pair in the case of a map). However, there are certain disadvantages to this approach. One of them is the performance: every invocation of the template from the API requires a context switch between the user application process and the NSO core process, which can be costly. Another disadvantage is that the logic is split between Java or Python code and the template, which makes it harder to understand and implement.
 
@@ -726,9 +725,9 @@ Adding the attribute registers this template for the given servicepoint, defined
 While the template (file) name is not referred to in this case, it must still be unique in an NSO node.
 {% endhint %}
 
-In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](../concepts/nano-services-staged-provisioning.md#ug.nano\_services.callbacks) contains examples.
+In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services-staged-provisioning.md#ug.nano\_services.callbacks) contains examples.
 
-Services also have pre- and post-modification callbacks, further described in [Service Callbacks](developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
+Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../development/developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
 
 These pre- and post-modification templates can only be used in classic (non-nano) services when the create callback is implemented as a template. That is, they cannot be used together with create callbacks implemented in Java or Python. If you want to mix the two approaches for the same service, consider using nano services.
 
@@ -1022,7 +1021,7 @@ NSO template engine supports a number of XML processing instructions to allow mo
     &#x3C;?else?>
         ...
     &#x3C;?end?>
-</code></pre></td><td> The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions work similarly to <code>if-ned-id</code> and <code>elif-ned-id</code> but they accept a regular expression as an argument instead of a list of ned-ids. The regular expression is matched against all of the ned-ids supported by the package. If the <code>if-ned-id-match</code> processing instruction is nested inside of another <code>if-ned-id-match</code> or <code>if-ned-id</code> processing instruction, then the regular expression will only be matched against the subset of ned-ids matched by the encompassing processing instruction. The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions are only allowed inside a device's mounted configuration subtree rooted at /devices/device/config.</td></tr><tr><td><pre><code>    &#x3C;?macro name params...?>
+</code></pre></td><td>The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions work similarly to <code>if-ned-id</code> and <code>elif-ned-id</code> but they accept a regular expression as an argument instead of a list of ned-ids. The regular expression is matched against all of the ned-ids supported by the package. If the <code>if-ned-id-match</code> processing instruction is nested inside of another <code>if-ned-id-match</code> or <code>if-ned-id</code> processing instruction, then the regular expression will only be matched against the subset of ned-ids matched by the encompassing processing instruction. The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions are only allowed inside a device's mounted configuration subtree rooted at /devices/device/config.</td></tr><tr><td><pre><code>    &#x3C;?macro name params...?>
         ...
     &#x3C;?endmacro?>
 </code></pre></td><td>Define a new macro with the specified name and optional parameters. Macro definitions must come at the top of the template, right after the <code>config-template</code> tag. For a detailed description see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr><tr><td><pre><code>    &#x3C;?expand name params...?>

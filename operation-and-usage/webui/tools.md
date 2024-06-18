@@ -32,13 +32,13 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Package upgrade** view, you can load custom packages in NSO.
 
-The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../cli/viewing-packages.md).
+The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../ops/viewing-packages.md).
 
 ### **Install a Package**
 
 1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar`) from your local disk.
 2. Click **Upload**. The package becomes visible under the **Available** pane.\
-   (The **Progress Trace** shows the real-time progress of the upload).  &#x20;
+   (The **Progress Trace** shows the real-time progress of the upload).
 3. Click **Install**.
 4. On the **Loaded** pane, click **Reload** and confirm the intent.
 
@@ -109,11 +109,11 @@ In the **Commit manager** view, the following tabs are shown.
 * **warnings** tab, to list the warnings encountered while doing changes.
 * **config** tab, to list the configuration changes associated with the change.
 * **native config** tab, to list the device configuration data in the native config.
-* **commit queue** tab, to manage commit queues. See [Commit Queue](../cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for more information.
+* **commit queue** tab, to manage commit queues. See [Commit Queue](../ops/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for more information.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
-The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historical events, or both.&#x20;
+The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historical events, or both.
 
 {% hint style="success" %}
 The recommended and preferred way of running the compliance reports is through the Web UI.
@@ -128,7 +128,7 @@ The following main tabs are available in this view:
 
 1. In the **Compliance reporting** view, click **Add list item** <img src="../../images/add-action.png" alt="" data-size="line">.
 2. In the **New report** pop-up, enter the report name and confirm.
-3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../cli/lifecycle-operations.md) documentation.
+3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../ops/lifecycle-operations.md) documentation.
    *   **General** tab: to configure the report name. Configuration options include:
 
        \- **Report name**: Displays the report name and allows editing of the report name.

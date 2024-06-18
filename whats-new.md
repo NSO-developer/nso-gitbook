@@ -16,11 +16,11 @@ This release includes major enhancements in the following areas:
 
 <summary><strong>Web UI Improvements</strong></summary>
 
-The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.&#x20;
+The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.
 
 Documentation Updates:
 
-* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.&#x20;
+* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.
 
 </details>
 
@@ -32,7 +32,7 @@ Devices now support `auto-configure` and `rename` actions to assist with the ini
 
 Documentation Updates:
 
-* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/cli/nso-device-manager.md#renaming-devices-in-nso).&#x20;
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/ops/nso-device-manager.md#renaming-devices-in-nso).
 
 </details>
 
@@ -44,7 +44,7 @@ Binaries for the Linux OS on the arm64 architecture are now available for downlo
 
 Documentation Updates:
 
-* Updated system requirements in the Installation ([Local Install](administration/deployment/local-install.md), [System Install](administration/deployment/system-install.md)) and [Containerized NSO](administration/deployment/containerized-nso.md) sections.&#x20;
+* Updated system requirements in the Installation ([Local Install](administration/deployment/local-install.md), [System Install](administration/deployment/system-install.md)) and [Containerized NSO](administration/deployment/containerized-nso.md) sections.
 
 </details>
 
@@ -68,9 +68,9 @@ The service development documentation has been improved and expanded, allowing f
 
 Documentation Updates:
 
-* Replaced the old Services section with a new [Implementing Services](development/development/developing-services/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/development/developing-services/creating-a-service.md) with additional fundamental service functionality.
+* Replaced the old Services section with a new [Implementing Services](development/concepts/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
 * Replaced the old Services section with a new [Services Deep Dive](development/development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
-* Substantially revised and improved the [Templates](development/development/templates.md) section.
+* Substantially revised and improved the [Templates](development/concepts/templates.md) section.
 
 </details>
 

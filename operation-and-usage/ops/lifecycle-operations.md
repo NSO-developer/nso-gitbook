@@ -25,62 +25,47 @@ Some of these flags may be configured to apply globally for all commits, under `
 Some of the more important flags are:
 
 * `and-quit`: Exit to (CLI operational mode) after commit.
-* `check`: Validate the pending configuration changes. Equivalent to `validate` command (See [NSO CLI](introduction-to-nso-cli.md) ).
+* `check`: Validate the pending configuration changes. Equivalent to `validate` command (See [NSO CLI](../cli/introduction-to-nso-cli.md) ).
 * `comment | label`: Add a commit comment/label visible in compliance reports, rollback files, etc.
 * `dry-run`: Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. The output format can be set with the `outformat` option. Possible output formats are: `xml`, `cli`, and `native`.
   * The `xml` format displays all changes in the whole data model. The changes will be displayed in NETCONF XML edit-config format, i.e., the edit-config that would be applied locally (at NCS) to get a config that is equal to that of the managed device.
   * The `cli` format displays all changes in the whole data model. The changes will be displayed in CLI curly bracket format.
   * The `native` format displays only changes under `/devices/device/config`. The changes will be displayed in native device format. The `native` format can be used with the `reverse` option to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data, the `reverse` device commands returned are invalid.
-*   `no-networking`: Validate the configuration changes, and update the CDB but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked, then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.\
-
+*   `no-networking`: Validate the configuration changes, and update the CDB but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked, then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.\\
 
     {% hint style="danger" %}
     If the commit implies changes, it will make the device out-of-sync.
 
     The `sync-to` command can then be used to push the change to the network.
     {% endhint %}
+* `no-out-of-sync-check`: Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action `sync-from` first. Verify the result by using the action `compare-config`.\\
 
+{% hint style="danger" %}
+```
+The device's sync state is assumed to be unknown after such commit and the stored last-transaction-id value is cleared.
+```
+{% endhint %}
 
-*   `no-out-of-sync-check`: Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action `sync-from` first. Verify the result by using the action `compare-config`.\
-
-
-    {% hint style="danger" %}
-    The device's sync state is assumed to be unknown after such commit and the stored last-transaction-id value is cleared.
-    {% endhint %}
-*   `no-overwrite`: NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. This is a fine-granular sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted. \
-    \
-    This parameter is particularly useful in brownfield scenarios where the device always is out of sync due to being directly modified by operators or other management systems.\
-
-
-    {% hint style="danger" %}
-    The device's sync state is assumed to be unknown after such commit and the stored last-transaction-id value is cleared.
-    {% endhint %}
-* `no-revision-drop`: Fail if one or more devices have obsolete device models.\
+* `no-overwrite`: NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. This is a fine-granular sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted.\
   \
-  When NSO connects to a managed device the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device.
-* `no-deploy`: Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
-* `reconcile`: Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed before the service. If manually configured data exists below in the configuration tree that data is kept unless the option `discard-non-service-config` is used.
-* `use-lsa`: Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are: `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
-* `no-lsa`: Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
-* `commit-queue`: Commit through the commit queue (see [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue)). While the configuration change is committed to CDB immediately it is not committed to the actual device but rather queued for eventual commit to increase transaction throughput. This enables the use of the commit queue feature for individual `commit` commands without enabling it by default.\
-  \
-  Possible operation modes are: `async`, `sync` and `bypass`.
-  * If the `async` mode is set, the operation returns successfully if the transaction data has been successfully placed in the queue.
-  * The `sync` mode will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. If the timeout occurs the transaction data stays in the queue and the operation returns successfully. The timeout value can be specified with the `timeout` or `infinity` option. By default, the timeout value is determined by what is configured in `/devices/global-settings/commit-queue/sync`.
-  * The `bypass` mode means that if `/devices/global-settings/commit-queue/enabled-by-default` is `true`_,_ the data in this transaction will bypass the commit queue. The data will be written directly to the devices. The operation will still fail if the commit queue contains one or more entries affecting the same device(s) as the transaction to be committed.\
-    \
-    In addition, the `commit-queue` flag has a number of other useful options that affect the resulting queue item:
-  * The `tag` option sets a user-defined opaque tag that is present in all notifications and events sent referencing the queue item.
-  * The `block-others` option will cause the resulting queue item to block subsequent queue items which use any of the devices in this queue item, from being queued.
-  * The `lock` option will place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions `unlock` and `lock` in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
-  * The `atomic` option sets the atomic behavior of the resulting queue item. If this is set to _false_, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to _true_, the atomic integrity of the queue item is preserved.
-  *   Depending on the selected `error-option`, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked, the data will be removed. Possible values are: `continue-on-error`, `rollback-on-error`_,_ and `stop-on-error`.&#x20;
+  This parameter is particularly useful in brownfield scenarios where the device always is out of sync due to being directly modified by operators or other management systems.\\
 
-      * The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created.&#x20;
-      * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback.&#x20;
-      * The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the `rollback` action under `/devices/commit-queue/completed` be invoked.
+{% hint style="danger" %}
+```
+The device's sync state is assumed to be unknown after such commit and the stored last-transaction-id value is cleared.
+```
+{% endhint %}
 
-      Read about error recovery in [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+\* \`no-revision-drop\`: Fail if one or more devices have obsolete device models.\ \ When NSO connects to a managed device the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device. \* \`no-deploy\`: Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network. \* \`reconcile\`: Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed before the service. If manually configured data exists below in the configuration tree that data is kept unless the option \`discard-non-service-config\` is used. \* \`use-lsa\`: Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are: \`dry-run\`, \`no-networking\`, \`no-out-of-sync-check\`, \`no-overwrite\` and \`no-revision-drop\`. \* \`no-lsa\`: Do not handle any of the LSA nodes as such. These nodes will be handled as any other device. \* \`commit-queue\`: Commit through the commit queue (see \[Commit Queue]\(nso-device-manager.md#user\\\_guide.devicemanager.commit-queue)). While the configuration change is committed to CDB immediately it is not committed to the actual device but rather queued for eventual commit to increase transaction throughput. This enables the use of the commit queue feature for individual \`commit\` commands without enabling it by default.\ \ Possible operation modes are: \`async\`, \`sync\` and \`bypass\`. \* If the \`async\` mode is set, the operation returns successfully if the transaction data has been successfully placed in the queue. \* The \`sync\` mode will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. If the timeout occurs the transaction data stays in the queue and the operation returns successfully. The timeout value can be specified with the \`timeout\` or \`infinity\` option. By default, the timeout value is determined by what is configured in \`/devices/global-settings/commit-queue/sync\`. \* The \`bypass\` mode means that if \`/devices/global-settings/commit-queue/enabled-by-default\` is \`true\`\_,\_ the data in this transaction will bypass the commit queue. The data will be written directly to the devices. The operation will still fail if the commit queue contains one or more entries affecting the same device(s) as the transaction to be committed.\ \ In addition, the \`commit-queue\` flag has a number of other useful options that affect the resulting queue item: \* The \`tag\` option sets a user-defined opaque tag that is present in all notifications and events sent referencing the queue item. \* The \`block-others\` option will cause the resulting queue item to block subsequent queue items which use any of the devices in this queue item, from being queued. \* The \`lock\` option will place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions \`unlock\` and \`lock\` in \`/devices/commit-queue/queue-item\`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place. \* The \`atomic\` option sets the atomic behavior of the resulting queue item. If this is set to \_false\_, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to \_true\_, the atomic integrity of the queue item is preserved. \* Depending on the selected \`error-option\`, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the \`/devices/commit-queue/completed\` tree from where it can be viewed and invoked with the \`rollback\` action. When invoked, the data will be removed. Possible values are: \`continue-on-error\`, \`rollback-on-error\`\_,\_ and \`stop-on-error\`.
+
+```
+  * The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created.&#x20;
+  * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback.&#x20;
+  * The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the `rollback` action under `/devices/commit-queue/completed` be invoked.
+
+  Read about error recovery in [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+```
+
 * `trace-id`: Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:

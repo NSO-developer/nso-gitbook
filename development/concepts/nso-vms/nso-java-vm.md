@@ -4,7 +4,7 @@ description: Run your Java code using Java Virtual Machine (VM).
 
 # NSO Java VM
 
-The NSO Java VM is the execution container for all Java classes supplied by deployed NSO packages.&#x20;
+The NSO Java VM is the execution container for all Java classes supplied by deployed NSO packages.
 
 The classes, and other resources, are structured in `jar` files and the specific use of these classes is described in the `component` tag in the respective `package-meta-data.xml` file. Also as a framework, it starts and controls other utilities for the use of these components. To accomplish this, a main class `com.tailf.ncs.NcsMain`, implementing the `Runnable` interface is started as a thread. This thread can be the main thread (running in a java `main()`) or be embedded into another Java program.
 
@@ -28,8 +28,7 @@ The file `tailf-ncs-java-vm.yang` defines the `java-vm` container which, along w
 
 Many of the nodes beneath `java-vm` are by default invisible due to a hidden attribute. To make everything under `java-vm` visible in the CLI, two steps are required:
 
-1.  First, the following XML snippet must be added to `ncs.conf`:\
-
+1.  First, the following XML snippet must be added to `ncs.conf`:\\
 
     ```
     <hide-group>
@@ -264,7 +263,7 @@ try {
 
 ## The Alarm Centrals
 
-The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/cli/alarm-manager.md).
+The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/ops/alarm-manager.md).
 
 ## Embedding the NSO Java VM <a href="#d5e1325" id="d5e1325"></a>
 

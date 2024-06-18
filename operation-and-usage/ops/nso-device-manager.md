@@ -80,7 +80,7 @@ submodule tailf-ncs-devices {
 ```
 {% endcode %}
 
-Each managed device is uniquely identified by its name, which is a free-form text string. This is typically the DNS name of the managed device but could equally well be the string format of the IP address of the managed device or anything else. Furthermore, each managed device has a mandatory address/port pair that together with the `authgroup` leaf provides information to NSO on how to connect and authenticate over SSH/NETCONF to the device. Each device also has a mandatory parameter `device-type` that specifies which southbound protocol to use for communication with the device.&#x20;
+Each managed device is uniquely identified by its name, which is a free-form text string. This is typically the DNS name of the managed device but could equally well be the string format of the IP address of the managed device or anything else. Furthermore, each managed device has a mandatory address/port pair that together with the `authgroup` leaf provides information to NSO on how to connect and authenticate over SSH/NETCONF to the device. Each device also has a mandatory parameter `device-type` that specifies which southbound protocol to use for communication with the device.
 
 The following device types are available:
 
@@ -943,7 +943,7 @@ devices authgroups snmp-group default
 ```
 {% endcode %}
 
-In the example (Configured authgroup),  only two users `admin` and `oper` were configured. If the `default-map` in example (authgroup default-map) is configured, all local users not found in the `umap` list will end up in the `default-map`. For example, if the user `rocky` logs in to NSO with the password `secret`. Since NSO has a built-in SSH server and also a built-in HTTPS server, NSO will be able to pick up the clear text passwords and can then reuse the same password when NSO attempts to establish southbound SSH connections. The user `rocky` will end up in the `default-map` and when NSO attempts to propagate `rocky`'s changes towards the managed devices, NSO will use the remote user name `rocky` with whatever password `rocky` used to log into NSO.
+In the example (Configured authgroup), only two users `admin` and `oper` were configured. If the `default-map` in example (authgroup default-map) is configured, all local users not found in the `umap` list will end up in the `default-map`. For example, if the user `rocky` logs in to NSO with the password `secret`. Since NSO has a built-in SSH server and also a built-in HTTPS server, NSO will be able to pick up the clear text passwords and can then reuse the same password when NSO attempts to establish southbound SSH connections. The user `rocky` will end up in the `default-map` and when NSO attempts to propagate `rocky`'s changes towards the managed devices, NSO will use the remote user name `rocky` with whatever password `rocky` used to log into NSO.
 
 Authenticating southbound using stored configuration has two main components to define remote user and remote credentials. This is defined by the authgroup. As for the southbound user, there exist two options, the same user logged in to NSO or another user, as specified in the authgroup. As for the credentials, there are three options.
 
@@ -953,7 +953,7 @@ Authenticating southbound using stored configuration has two main components to 
 
 In the case of authenticating southbound using a callback, remote user and remote credentials are obtained by an action invocation. The action is defined by the `callback-node` and `action-name` as in the example below (authgroup-callback) and supported credentials are remote password and optionally a secondary password for the provided local user, authgroup, and device.
 
-With remote passwords, you may encounter issues if you use special characters, such as quotes (`"`) and backslash (`\`) in your password. See [Configure Mode](introduction-to-nso-cli.md#d5e2199) for recommendations on how to avoid running into password issues.
+With remote passwords, you may encounter issues if you use special characters, such as quotes (`"`) and backslash (`\`) in your password. See [Configure Mode](../cli/introduction-to-nso-cli.md#d5e2199) for recommendations on how to avoid running into password issues.
 
 {% code title="Example: authgroup-callback" %}
 ```
@@ -1700,10 +1700,7 @@ container devices {
     }
 ```
 
-The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`.
-By default the schemas for device templates are not accessible from application client libraries such as MAAPI.
-This reduces the memory usage for large device data models.
-The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
+The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`. By default the schemas for device templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
 
 A device template is created by setting the desired data in the configuration. The created device template is stored in NSO CDB.
 
@@ -1790,7 +1787,7 @@ devices device ce10
 
 ## Device Templates <a href="#ncs.user_guide.devicemanager.device.templates" id="ncs.user_guide.devicemanager.device.templates"></a>
 
-This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/development/templates.md#introduction) in Templates for other ways of using templates.
+This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/concepts/templates.md#introduction) in Templates for other ways of using templates.
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 
@@ -2420,7 +2417,7 @@ NSO divides devices into the following groups.
 * `lock_reset_candidate`: This mode is used for devices that support the candidate data and also allow direct writes to the running data store. This is the default mode for Tail-f ConfD NETCONF server. Since the running data store is configurable, we must, before each configuration attempt, copy all of the running to the candidate. (ConfD has optimized this particular usage pattern, so this is a very cheap operation for ConfD)
 * `startup`: This mode is used for devices that have writable running, no candidate but do support the startup data store. This is the typical mode for Cisco-like devices.
 * `running-only`: This mode is used for devices that only support writable running.
-* `NED`:  The transaction is controlled by a Network Element Driver. The exact transaction mode depends on the type of the NED.
+* `NED`: The transaction is controlled by a Network Element Driver. The exact transaction mode depends on the type of the NED.
 
 Which category NSO chooses for a managed device depends on which NETCONF capabilities the device sends to NSO in its NETCONF hello message. You can see in the CLI what NSO has decided for a device as in:
 

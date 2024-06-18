@@ -13,7 +13,7 @@ The **Service manager** view is where you create, deploy, and manage services in
 
 * **name**: The name of the service.
 * **plan**: Shows the service plan.
-* **devices**: Shows the number of devices associated with the service. Use the refresh  <img src="../../images/refresh.png" alt="" data-size="line"> button to reload the devices list.
+* **devices**: Shows the number of devices associated with the service. Use the refresh <img src="../../images/refresh.png" alt="" data-size="line"> button to reload the devices list.
 * **check-sync**, **re-deploy**, and **re-deploy dry-run** denote the actions that you can perform on a service.
 {% endhint %}
 
@@ -41,7 +41,7 @@ To filter the service list:
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
-You can apply actions on a service from the **Service manager** view or the **Configuration editor**.&#x20;
+You can apply actions on a service from the **Service manager** view or the **Configuration editor**.
 
 Start by selecting a service point to populate all services under it, and then follow the instructions below.
 
@@ -63,7 +63,7 @@ To apply an action on multiple services:
 
 Available actions include **check-sync**, **re-deploy**, and **re-deploy dry-run**.
 
-See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
 **Action Result**
@@ -96,7 +96,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, **purge**.
 
-See [Lifecycle Operations](../cli/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
