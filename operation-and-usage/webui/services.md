@@ -63,7 +63,7 @@ To apply an action on multiple services:
 
 Available actions include **check-sync**, **re-deploy**, and **re-deploy dry-run**.
 
-See [Lifecycle Operations](../cli-1/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
 **Action Result**
@@ -96,7 +96,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, **purge**.
 
-See [Lifecycle Operations](../cli-1/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 

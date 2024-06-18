@@ -32,7 +32,7 @@ Devices now support `auto-configure` and `rename` actions to assist with the ini
 
 Documentation Updates:
 
-* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/cli-1/nso-device-manager.md#renaming-devices-in-nso).&#x20;
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/ops/nso-device-manager.md#renaming-devices-in-nso).&#x20;
 
 </details>
 

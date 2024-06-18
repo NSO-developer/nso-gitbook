@@ -268,7 +268,7 @@ try {
 
 ## The Alarm Centrals
 
-The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/cli-1/alarm-manager.md).
+The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/ops/alarm-manager.md).
 
 ## Embedding the NSO Java VM <a href="#d5e1325" id="d5e1325"></a>
 

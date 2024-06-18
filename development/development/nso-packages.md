@@ -198,7 +198,7 @@ A fully simulated router network loaded into NSO, with ConfD simulating the 7 ro
 
 ## Plug-and-play Scripting <a href="#ug.scripting_devel" id="ug.scripting_devel"></a>
 
-With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/cli-1/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
+With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/ops/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
 
 Scripts defined in an NSO package work pretty much as system-level scripts configured with the `/ncs-config/scripts/dir` configuration parameter. The difference is that the location of the scripts is predefined. The scripts directory must be named `scripts` and must be located in the top directory of the package.
 

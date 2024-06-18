@@ -1193,7 +1193,7 @@ The examples above have described how to attach to the NSO module and navigate t
 
 Since this API is potent for both producing and consuming alarms, this becomes an API that can be used both north and eastbound. It adheres to the NSO Alarm model.
 
-For more information see [Alarm Manager](../../../operation-and-usage/cli-1/alarm-manager.md)_._
+For more information see [Alarm Manager](../../../operation-and-usage/ops/alarm-manager.md)_._
 
 The `com.tailf.ncs.alarmman.consumer.AlarmSource` class is used to subscribe to alarms. This class establishes a listener towards an alarm subscription server called `com.tailf.ncs.alarmman.consumer.AlarmSourceCentral`. The `AlarmSourceCentral` needs to be instantiated and started prior to the instantiation of the `AlarmSource` listener. The NSO Java VM takes care of starting the `AlarmSourceCentral` so any use of the ALARM API inside the NSO Java VM can expect this server to be running.
 
