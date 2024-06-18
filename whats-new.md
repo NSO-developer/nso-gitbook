@@ -68,9 +68,9 @@ The service development documentation has been improved and expanded, allowing f
 
 Documentation Updates:
 
-* Replaced the old Services section with a new [Implementing Services](development/development/developing-services/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
+* Replaced the old Services section with a new [Implementing Services](development/concepts/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
 * Replaced the old Services section with a new [Services Deep Dive](development/development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
-* Substantially revised and improved the [Templates](development/development/templates.md) section.
+* Substantially revised and improved the [Templates](development/concepts/templates.md) section.
 
 </details>
 

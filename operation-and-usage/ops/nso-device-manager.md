@@ -1787,7 +1787,7 @@ devices device ce10
 
 ## Device Templates <a href="#ncs.user_guide.devicemanager.device.templates" id="ncs.user_guide.devicemanager.device.templates"></a>
 
-This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/development/templates.md#introduction) in Templates for other ways of using templates.
+This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/concepts/templates.md#introduction) in Templates for other ways of using templates.
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 

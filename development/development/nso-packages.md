@@ -206,7 +206,7 @@ In this complete example `examples.ncs/getting-started/developing-with-ncs/11-sc
 
 ## Creating a Service Package <a href="#d5e5354" id="d5e5354"></a>
 
-So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Implementing Services](developing-services/implementing-services.md).
+So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Implementing Services](../concepts/implementing-services.md).
 
 We can generate a service package skeleton, using `ncs-make-package`, as:
 

@@ -6,7 +6,7 @@ description: Learn service development in Java with Examples.
 
 As using Java for service development may be somewhat more involved than Python, this section provides further examples and additional tips for setting up the development environment for Java.
 
-The two examples, a simple VLAN service and a Layer 3 MPLS VPN service are more elaborate but show the same techniques as [Implementing Services](implementing-services.md).&#x20;
+The two examples, a simple VLAN service and a Layer 3 MPLS VPN service are more elaborate but show the same techniques as [Implementing Services](../../concepts/implementing-services.md).
 
 {% hint style="success" %}
 If you or your team primarily focuses on services implemented in Python, feel free to skip or only skim through this section.
@@ -34,7 +34,7 @@ These steps are no different from defining services using templates. Next is to 
 
 ### Setting Up the Environment <a href="#d5e8299" id="d5e8299"></a>
 
-We will start by setting up a run-time environment that includes simulated Cisco IOS devices and configuration data for NSO. Make sure you have sourced the `ncsrc` file.&#x20;
+We will start by setting up a run-time environment that includes simulated Cisco IOS devices and configuration data for NSO. Make sure you have sourced the `ncsrc` file.
 
 1. Create a new directory that will contain the files for this example, such as:
 
@@ -170,7 +170,7 @@ total 8
 cisco-ios -> .../packages/neds/cisco-ios
 ```
 
-Currently, there is only one package, the Cisco IOS NED.&#x20;
+Currently, there is only one package, the Cisco IOS NED.
 
 2. We will now create a new package that will contain the VLAN service.
 
@@ -377,7 +377,7 @@ To use a GUI-based IDE Eclipse, first generate an environment for Eclipse:
 $ ncs-setup --eclipse-setup
 ```
 
-This will generate two files, `.classpath` and `.project`. If we add this directory to Eclipse as a **File** -> **New** -> J**ava Project**, uncheck the **Use default location** and enter the directory where the `.classpath` and `.project` have been generated.&#x20;
+This will generate two files, `.classpath` and `.project`. If we add this directory to Eclipse as a **File** -> **New** -> J**ava Project**, uncheck the **Use default location** and enter the directory where the `.classpath` and `.project` have been generated.
 
 We are immediately ready to run this code in Eclipse.
 
@@ -388,7 +388,7 @@ All we need to do is choose the `main()` routine in the `NcsJVMLauncher` class. 
 {% hint style="warning" %}
 **Timeouts**
 
-A caveat worth mentioning here is that there exist a few timeouts between NSO and the Java code that will trigger when we are in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable these timeouts.&#x20;
+A caveat worth mentioning here is that there exist a few timeouts between NSO and the Java code that will trigger when we are in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable these timeouts.
 
 First, we have the three timeouts in `ncs.conf` that matter. Set the three values of `/ncs-config/japi/new-session-timeout`, `/ncs-config/japi/query-timeout`, and `/ncs-config/japi/connect-timeout` to a large value (see man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) for a detailed description on what those values are). If these timeouts are triggered, NSO will close all sockets to the Java VM.
 

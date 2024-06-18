@@ -988,7 +988,7 @@ Here is an example of the usage of the attributes `traceparent` and `tracestate`
 
 NSO implements Trace Context alongside the legacy way of handling trace-id found in [NETCONF Extensions in NSO](northbound-apis.md#d5e896). The support of Trace Context covers the same scenarios as the legacy `trace-id` functionality, except for the scenario where both `trace-id` and Trace Context are absent in a request, in which case legacy `trace-id` is generated. The two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. Read about `trace-id` legacy functionality in [NETCONF Extensions in NSO](northbound-apis.md#d5e896).
 
-NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. For NSO to consider the attributes of Trace Context in a NETCONF request, the `trace-id` element in the configuration file must be enabled. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../connected-topics/progress-trace.md).
+NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. For NSO to consider the attributes of Trace Context in a NETCONF request, the `trace-id` element in the configuration file must be enabled. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../development/progress-trace.md).
 
 ### NETCONF Extensions in NSO <a href="#d5e896" id="d5e896"></a>
 
@@ -2842,7 +2842,7 @@ tracestate: key1=value1,key2=value2
 
 where a value may contain space characters but not end with a space.
 
-NSO implements Trace Context alongside the legacy way of handling `trace-id`, where the `trace-id` comes as a query parameter. These two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. If a request does not include `trace-id` or the header `traceparent`, a `traceparent` will be generated internally in NSO. NSO will consider the headers of Trace Context in RESTCONF requests if the `trace-id` element is enabled in the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../connected-topics/progress-trace.md) in Development.
+NSO implements Trace Context alongside the legacy way of handling `trace-id`, where the `trace-id` comes as a query parameter. These two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. If a request does not include `trace-id` or the header `traceparent`, a `traceparent` will be generated internally in NSO. NSO will consider the headers of Trace Context in RESTCONF requests if the `trace-id` element is enabled in the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../development/progress-trace.md) in Development.
 
 ### Configuration Metadata <a href="#d5e2268" id="d5e2268"></a>
 

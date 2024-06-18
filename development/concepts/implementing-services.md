@@ -185,7 +185,7 @@ The template actually allows a decent amount of programmability through XPath an
 </config-template>
 ```
 
-In the preceding printout, the XPath `starts-with()` function is used to check if the device name starts with a specific prefix. Then one set of configuration items is used, and a different one otherwise. For additional available instructions and the complete set of template features, see [Templates](../templates.md).
+In the preceding printout, the XPath `starts-with()` function is used to check if the device name starts with a specific prefix. Then one set of configuration items is used, and a different one otherwise. For additional available instructions and the complete set of template features, see [Templates](templates.md).
 
 However, most provisioning tasks require some kind of input to be useful. Fortunately, you can define any number of input parameters in the service model that you can then reference from the template; either to use directly in the configuration or as something to base provisioning decisions on.
 
@@ -198,7 +198,7 @@ Even a service as simple as the DNS configuration service usually needs some par
 Suppose you want to add a parameter for the target device to the simple DNS configuration service. You need to construct an appropriate service model, adding a YANG leaf to capture this input.
 
 {% hint style="info" %}
-This task requires some basic YANG knowledge. Review the section [Data Modeling Basics](../../introduction-to-automation/cdb-and-yang.md#d5e154) for a primer on the main building blocks of the YANG language.
+This task requires some basic YANG knowledge. Review the section [Data Modeling Basics](../introduction-to-automation/cdb-and-yang.md#d5e154) for a primer on the main building blocks of the YANG language.
 {% endhint %}
 
 The service model is located in the `src/yang/servicename.yang` file in the package. It typically resembles the following structure:
@@ -322,7 +322,7 @@ The final, improved version of the DNS service template that takes into account 
 
 The following figure captures the relationship between the YANG model and the XML template that ultimately produces the desired device configuration.
 
-<figure><img src="../../../images/services-template.png" alt="" width="563"><figcaption><p>XML Template and Model Relationship</p></figcaption></figure>
+<figure><img src="../../images/services-template.png" alt="" width="563"><figcaption><p>XML Template and Model Relationship</p></figcaption></figure>
 
 The complete service is available in the `examples.ncs/implement-a-service/dns-v2.1` example. Feel free to investigate on your own how it differs from the initial, no-validation service.
 
@@ -401,7 +401,7 @@ Suppose you pick the following names for the variable parameters:
 
 Generally, you can make up any name for a parameter but it is best to follow the same rules that apply for naming variables in programming languages, such as making the name descriptive but not excessively verbose. It is customary to use a hyphen (minus sign) to concatenate words and use all-lowercase (“kebab-case”), which is the convention used in the YANG language standards.
 
-<figure><img src="../../../images/services-extract-model.png" alt="" width="563"><figcaption><p>Making a Configuration Template</p></figcaption></figure>
+<figure><img src="../../images/services-extract-model.png" alt="" width="563"><figcaption><p>Making a Configuration Template</p></figcaption></figure>
 
 The corresponding template then becomes:
 
@@ -433,7 +433,7 @@ The corresponding template then becomes:
 
 Having completed the template, you can add all the parameters, three in this case, to the service model.
 
-<figure><img src="../../../images/services-extract-model2.png" alt="" width="563"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure>
+<figure><img src="../../images/services-extract-model2.png" alt="" width="563"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure>
 
 The partially completed model is now:
 
@@ -531,22 +531,22 @@ FASTMAP covers the complete service life cycle: creating, changing, and deleting
 FASTMAP is based on generating changes from an initial create operation. When the service instance is created the reverse of the resulting device configuration is stored together with the service instance. If an NSO user later changes the service instance, NSO first applies (in an isolated transaction) the reverse diff of the service, effectively undoing the previous create operation. Then it runs the logic to create the service again and finally performs a diff against the current configuration. Only the result of the diff is then sent to the affected devices.
 
 {% hint style="warning" %}
-It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque) for techniques to achieve this.
+It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](../development/developing-services/services-deep-dive.md#ch\_svcref.opaque) for techniques to achieve this.
 {% endhint %}
 
 If the service instance is deleted, NSO applies the reverse diff of the service, effectively removing all configuration changes the service did on the devices.
 
-<figure><img src="../../../images/fastmap_create.png" alt="" width="563"><figcaption><p>FASTMAP Create a Service</p></figcaption></figure>
+<figure><img src="../../images/fastmap_create.png" alt="" width="563"><figcaption><p>FASTMAP Create a Service</p></figcaption></figure>
 
 Assume we have a service model that defines a service with attributes X, Y, and Z. The mapping logic calculates that attributes A, B, and C must be set on the devices. When the service is instantiated, the previous values of the corresponding device attributes A, B, and C are stored with the service instance in the CDB. This allows NSO to bring the network back to the state before the service was instantiated.
 
 Now let us see what happens if one service attribute is changed. Perhaps the service attribute Z is changed. NSO will execute the mapping as if the service was created from scratch. The resulting device configurations are then compared with the actual configuration and the minimal diff is sent to the devices. Note that this is managed automatically, there is no code to handle the specific "change Z" operation.
 
-<figure><img src="../../../images/fastmap_change_service.png" alt="" width="563"><figcaption><p>FASTMAP Change a Service</p></figcaption></figure>
+<figure><img src="../../images/fastmap_change_service.png" alt="" width="563"><figcaption><p>FASTMAP Change a Service</p></figcaption></figure>
 
 When a user deletes a service instance, NSO retrieves the stored device configuration from the moment before the service was created and reverts to it.
 
-<figure><img src="../../../images/fastmap_delete.png" alt="" width="563"><figcaption><p>FASTMAP Delete a Service</p></figcaption></figure>
+<figure><img src="../../images/fastmap_delete.png" alt="" width="563"><figcaption><p>FASTMAP Delete a Service</p></figcaption></figure>
 
 ## Templates and Code
 
@@ -564,7 +564,7 @@ Suppose you want to extend the template-based ethernet interface addressing serv
 
 Such a service will ultimately contain three parts: the service YANG model, the translation code, and the XML template. The model and the template serve the same purpose as before, while custom code provides fine-grained control over how templates are applied and the data available to them.
 
-<figure><img src="../../../images/services-code-template.png" alt="" width="375"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure>
+<figure><img src="../../images/services-code-template.png" alt="" width="375"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure>
 
 Since the service is based on the previous interface addressing service, you can save yourself a lot of work by starting with the existing YANG model and XML template.
 
@@ -673,7 +673,7 @@ Reading instance parameters is straightforward with the help of the `service` fu
         cidr_mask = service.cidr_netmask
 ```
 
-Note that the hyphen in `cidr-netmask` is replaced with the underscore in `service.cidr_netmask` as documented in [Python API Overview](../../concepts/api-overview/python-api-overview.md).
+Note that the hyphen in `cidr-netmask` is replaced with the underscore in `service.cidr_netmask` as documented in [Python API Overview](api-overview/python-api-overview.md).
 
 The way configuration variables are prepared depends on the type of the service. For the interface addressing service with netmask, the netmask must be converted into dot-decimal format:
 
@@ -732,7 +732,7 @@ The create code usually performs the following tasks:
 * Prepare configuration variables.
 * Apply one or more XML templates.
 
-Reading instance parameters is done with the help of the `service` function parameter, using [NAVU API](../../concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.navu). For example:
+Reading instance parameters is done with the help of the `service` function parameter, using [NAVU API](api-overview/java-api-overview.md#ug.java\_api\_overview.navu). For example:
 
 ```
     public Properties create(ServiceContext context,
@@ -807,7 +807,7 @@ You can test it out in the `examples.ncs/implement-a-service/iface-v2-java` exam
 
 A service instance may require configuration on more than just a single device. In fact, it is quite common for a service to configure multiple devices.
 
-<figure><img src="../../../images/services-multidevice.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Devices</p></figcaption></figure>
+<figure><img src="../../images/services-multidevice.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Devices</p></figcaption></figure>
 
 There are a few ways in which you can achieve this for your services:
 
@@ -867,7 +867,7 @@ Being explicit, the latter is usually much easier to understand and maintain for
 
 Applying the same template works fine as long as you have a uniform network with similar devices. What if two different devices can provide the same service but require different configuration? Should you create two different services in NSO? No. Services allow you to abstract and hide the device specifics through a device-independent service model, while still allowing customization of device configuration per device type.
 
-<figure><img src="../../../images/services-multidevice2.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Device Types</p></figcaption></figure>
+<figure><img src="../../images/services-multidevice2.png" alt="" width="375"><figcaption><p>Service Provisioning Multiple Device Types</p></figcaption></figure>
 
 One way to do this is to apply a different XML template from the service code, depending on the device type. However, the same is also possible through XML templates alone.
 
@@ -1106,7 +1106,7 @@ Typically, such actions are defined per service instance, so you model them unde
 
 The action needs no special inputs; because it is defined on the service instance, it can find the relevant interface to query. The output has a single leaf, called `status`, which uses an `enumeration` type for explicitly defining all the possible values it can take (`up`, `down`, or `unknown`).
 
-Note that using the `action` statement requires you to also use the `yang-version 1.1` statement in the YANG module header (see [Actions](../../introduction-to-automation/applications-in-nso.md#d5e959)).
+Note that using the `action` statement requires you to also use the `yang-version 1.1` statement in the YANG module header (see [Actions](../introduction-to-automation/applications-in-nso.md#d5e959)).
 
 ### Action Code in Python <a href="#d5e1944" id="d5e1944"></a>
 
@@ -1312,7 +1312,7 @@ But where does the operational data come from? The service application code prov
 
 This approach works well when operational data is updated based on some event, such as a received notification or a user action, and NSO is used to cache its value.
 
-For cases, where this is insufficient, NSO also allows producing operational data on demand, each time a client requests it, through the Data Provider API. See [DP API](../../concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.dp) for this alternative approach.
+For cases, where this is insufficient, NSO also allows producing operational data on demand, each time a client requests it, through the Data Provider API. See [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp) for this alternative approach.
 
 ### Writing Operational Data in Python <a href="#d5e2012" id="d5e2012"></a>
 
@@ -1450,7 +1450,7 @@ Another thing to keep in mind with operational data is that NSO by default does 
     }
 ```
 
-You can also register a custom `com.tailf.ncs.ApplicationComponent` class with the service application to populate the data on package load, if you are not using `tailf:persistent`. Please refer to [The Application Component Type](../../concepts/nso-vms/nso-java-vm.md#d5e1255) for details.
+You can also register a custom `com.tailf.ncs.ApplicationComponent` class with the service application to populate the data on package load, if you are not using `tailf:persistent`. Please refer to [The Application Component Type](nso-vms/nso-java-vm.md#d5e1255) for details.
 
 The `examples.ncs/implement-a-service/iface-v5-java` example implements such code.
 
@@ -1465,14 +1465,14 @@ The services discussed previously in this section were modeled to give all requi
 * Allocating a resource from an external system, such as an IP address, or generating an authentication key file using an external command. It is impossible to do this allocation from within the normal FASTMAP `create()` code since there is no way to deallocate the resource on commit, abort, or failure and when deleting the service. Furthermore, the `create()` code runs within the transaction lock. The time spent in services `create()` code should be as short as possible.
 * The service requires the start of one or more Virtual Machines, Virtual Network Functions. The VMs do not yet exist, and the `create()` code needs to trigger something that starts the VMs, and then later, when the VMs are operational, configure them.
 
-The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](../../concepts/nano-services-staged-provisioning.md). The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
+The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](nano-services-staged-provisioning.md). The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
 
 1. Generates the NSO SSH client authentication key files using the OpenSSH `ssh-keygen` utility from a nano service side-effect action implemented in Python.
 2. Distributes the public key to the netsim (ConfD) network elements to be stored as an authorized key using a Python service `create()` callback.
 3. Configures NSO to use the public key for authentication with the netsim network elements using a Python service `create()` callback and service template.
 4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in **connect** action.
 
-Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../../introduction-to-automation/developing-nano-services.md).
+Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../introduction-to-automation/developing-nano-services.md).
 
 The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the `examples.ncs/development-guide/nano-services` directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
 
@@ -1481,7 +1481,7 @@ The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the `e
 3. Mount the device in the NSO device tree.
 4. Fetch the ssh-keys and perform a `sync-from` on the newly created device.
 
-See the `mpls-vpn-vrouter` example for details on how the `l3vpn.yang` YANG model `l3vpn-plan` `pe-created` state and `vm-manager.yang` `vm-plan` for more information. `vm-manager` plan states with a nano-callback have their callbacks implemented by the `escstart.java` `escstart` class. Nano services are documented in [Nano Services for Staged Provisioning](../../concepts/nano-services-staged-provisioning.md).
+See the `mpls-vpn-vrouter` example for details on how the `l3vpn.yang` YANG model `l3vpn-plan` `pe-created` state and `vm-manager.yang` `vm-plan` for more information. `vm-manager` plan states with a nano-callback have their callbacks implemented by the `escstart.java` `escstart` class. Nano services are documented in [Nano Services for Staged Provisioning](nano-services-staged-provisioning.md).
 
 ## Service Troubleshooting <a href="#ncs.development.services.tshoot" id="ncs.development.services.tshoot"></a>
 
@@ -1497,10 +1497,10 @@ This is why it is important to have a systematic approach when debugging and tro
 
 You can use these general steps to give you a high-level idea of how to approach troubleshooting your NSO services:
 
-1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../../administration/management/system-management/#ug.sys\_mgmt.tshoot) in Administration.\
+1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../administration/management/system-management/#ug.sys\_mgmt.tshoot) in Administration.\
    \
-   If you encounter a blank CLI when you connect to NSO you must also make sure that your user is added to the correct NACM group (for example `ncsadmin`) and that the rules for this group allow the user to view and edit your service through CLI. You can find out more about groups and authorization rules in [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) in Administration.
-2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../nso-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
+   If you encounter a blank CLI when you connect to NSO you must also make sure that your user is added to the correct NACM group (for example `ncsadmin`) and that the rules for this group allow the user to view and edit your service through CLI. You can find out more about groups and authorization rules in [AAA Infrastructure](../../administration/management/aaa-infrastructure.md) in Administration.
+2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../development/nso-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
     \
     Compiling packages uses the `ncsc` compiler internally, which means that this part of the process reveals any syntax errors that might exist in YANG models or Java code. You do not need to rely on `ncsc` for compile-level errors though and should use specialized tools such as `pyang` or `yanger` for YANG, and one of the many IDEs and syntax validation tools for Java.\\
 
@@ -1560,7 +1560,7 @@ You can use these general steps to give you a high-level idea of how to approach
 3.  Examine what the template and XPath expressions evaluate to. If some service instance parameters are missing or are mapped incorrectly, there might be an error in the service template parameter mapping or in their XPath expressions. Use the CLI pipe command `debug template` to show all the XPath expression results from your service configuration templates or `debug xpath` to output all XPath expression results for the current transaction (e.g., as a part of the YANG model as well).
 
     \
-    In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](../templates.md#ncs.development.templates.debug). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](../templates.md#ch\_templates.multined) when applying different bits of configuration to different versions of devices.\\
+    In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](templates.md#ncs.development.templates.debug). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](templates.md#ch\_templates.multined) when applying different bits of configuration to different versions of devices.\\
 
     ```
     admin@ncs# devtools true
@@ -1569,8 +1569,8 @@ You can use these general steps to give you a high-level idea of how to approach
     admin@ncs(config)# xpath eval /devices/device
     admin@ncs(config)# xpath eval /devices/device[name='r0']
     ```
-4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](../../concepts/nso-vms/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../nso-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](../../concepts/nso-vms/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
-5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../../administration/management/system-management/#ug.ncs\_sys\_mgmt.logging) in Administration.
+4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-vms/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../development/nso-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-vms/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
+5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.logging) in Administration.
 
     \
     Another useful option is to append a custom trace ID to your service commits. The trace ID can be used to follow the request in logs from its creation all the way to the configuration changes that get pushed to the device. In case no trace ID is specified, NSO will generate a random one, but custom trace IDs are useful for focused troubleshooting sessions.\\
@@ -1592,7 +1592,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 
     \
-    Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../../connected-topics/progress-trace.md).
+    Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../development/progress-trace.md).
 7.  Double-check your service points in the model, templates, and in code. Since configuration templates don't get applied if the servicepoint attribute doesn't match the one defined in the service model or are not applied from the callbacks registered to specific service points, make sure they match and that they are not missing. Otherwise, you might notice errors such as the following ones.\\
 
     ```
@@ -1632,3 +1632,11 @@ You can use these general steps to give you a high-level idea of how to approach
     admin@ncs(config)# devices global-settings trace-dir ./my-trace
     admin@ncs(config)# commit
     ```
+
+***
+
+**Next steps**
+
+{% content-ref url="../development/developing-services/services-deep-dive.md" %}
+[services-deep-dive.md](../development/developing-services/services-deep-dive.md)
+{% endcontent-ref %}
