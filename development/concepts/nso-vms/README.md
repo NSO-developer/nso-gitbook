@@ -1,7 +1,7 @@
 ---
 description: >-
-  Extend the functionality of the product, such as adding custom service code or
-  exposing data through a data provider mechanism.
+  Extend product functionality to add custom service code or expose data through
+  data provider mechanism.
 ---
 
 # NSO Virtual Machines

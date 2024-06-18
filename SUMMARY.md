@@ -47,6 +47,7 @@
 * [Get Started](operation-and-usage/get-started.md)
 * [CLI](operation-and-usage/cli/README.md)
   * [Introduction to NSO CLI](operation-and-usage/cli/introduction-to-nso-cli.md)
+  * [CLI Commands](operation-and-usage/cli/cli-commands.md)
 * [Web UI](operation-and-usage/webui/README.md)
   * [Home](operation-and-usage/webui/home.md)
   * [Devices](operation-and-usage/webui/devices.md)

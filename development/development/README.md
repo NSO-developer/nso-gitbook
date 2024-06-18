@@ -1,6 +1,6 @@
 ---
-description: Develop services and more in NSO.
+description: Advanced-level NSO development.
 ---
 
-# Development
+# Advanced Development
 
