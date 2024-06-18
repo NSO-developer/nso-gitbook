@@ -244,7 +244,7 @@ cli {
 }
 ```
 
-At the same time, a kicker was installed under the `kickers` container but you may need to use the `unhide debug` command to inspect it. More information on kickers in general is available in [Kicker](../development/kicker.md).
+At the same time, a kicker was installed under the `kickers` container but you may need to use the `unhide debug` command to inspect it. More information on kickers in general is available in [Kicker](../advanced-development/kicker.md).
 
 At a later point in time, the router VM becomes ready, and the `vm-up-and-running` leaf is set to a `true` value. The installed kicker notices the change and automatically calls the `reactive-re-deploy` action on the service instance. In turn, the service gets fully deployed.
 
@@ -1276,7 +1276,7 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
 
 ### Nano Services and Commit Queue
 
-The commit queue feature, described in [Commit Queue](../../operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
+The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
 
 When the commit queue is enabled and there are outstanding commit queue items, the network is lagging behind the CDB. The CDB is forward-looking and shows the desired state of the network. Hence, the nano plan shows the desired state as well, since changes to reach this state may not have been pushed to the devices yet.
 
@@ -1297,7 +1297,7 @@ While error recovery helps keeping the network consistent, the end result remain
 * The nano plan is marked as failed by creating the `failed` leaf under the plan.
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
-After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 

@@ -594,7 +594,7 @@ admin@ncs(config)# commit
 
 ## Nano Services Reactive FastMap with Kicker <a href="#ug.kicker.rfm" id="ug.kicker.rfm"></a>
 
-Nano services use kickers to trigger executing state callback code, run templates, and execute actions according to a plan when pre-conditions are met. For more information see [Nano Services for Provisioning with Side Effects](../concepts/implementing-services.md#ncs.development.reactive\_fastmap) and [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md).
+Nano services use kickers to trigger executing state callback code, run templates, and execute actions according to a plan when pre-conditions are met. For more information see [Nano Services for Provisioning with Side Effects](../core-concepts/implementing-services.md#ncs.development.reactive\_fastmap) and [Nano Services for Staged Provisioning](../core-concepts/nano-services-staged-provisioning.md).
 
 ## Debugging Kickers <a href="#ug.kicker.debugging" id="ug.kicker.debugging"></a>
 

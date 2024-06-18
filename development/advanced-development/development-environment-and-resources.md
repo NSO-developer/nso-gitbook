@@ -22,13 +22,13 @@ If you work with multiple projects in parallel, local install also allows you to
 
 The main downside of using a local install is that it differs slightly from a system (production) install, such as in the filesystem paths used and the out-of-the-box configuration.
 
-See [Local Install](../../administration/deployment/local-install.md) for installation instructions.
+See [Local Install](../../administration/installation-and-deployment/local-install.md) for installation instructions.
 
 ## Examples and Showcases <a href="#ch_devenv.examples" id="ch_devenv.examples"></a>
 
 There are a number of examples and showcases in this guide. We encourage you to follow them through. They are also a great reference if you are experimenting with a new feature and have trouble getting it to work; you can inspect and compare with the implementation in the example.
 
-To run the examples, you will need access to an NSO instance. A development instance described in this chapter is the perfect option for running locally. See [Running NSO Examples](../../administration/deployment/post-install-actions/running-nso-examples.md).
+To run the examples, you will need access to an NSO instance. A development instance described in this chapter is the perfect option for running locally. See [Running NSO Examples](../../administration/installation-and-deployment/post-install-actions/running-nso-examples.md).
 
 {% hint style="success" %}
 Cisco also provides an online sandbox and containerized environments, such as a [Learning Lab](https://developer.cisco.com/learning/labs/nso-examples) or [NSO Sandbox](https://developer.cisco.com/catalogs/sandbox/nso), designed for this purpose. Refer to the [NSO Docs Home](https://developer.cisco.com/docs/nso/) site for additional resources.
@@ -57,7 +57,7 @@ Once you get familiar with NSO development and gain some experience, a single NS
 
 NSO includes tooling to help you quickly set up new local instances when such a need arises.
 
-The following recipe relies on the `ncs-setup` command, which is available in the local install variant and requires a correctly set up shell environment (e.g. running `source ncsrc`). See [Local Install](../../administration/deployment/local-install.md) for details.
+The following recipe relies on the `ncs-setup` command, which is available in the local install variant and requires a correctly set up shell environment (e.g. running `source ncsrc`). See [Local Install](../../administration/installation-and-deployment/local-install.md) for details.
 
 A new instance typically needs a few things to be useful:
 
@@ -69,7 +69,7 @@ In its simplest form, the `ncs-setup` invocation requires only a destination dir
 
 Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory and NSO will load it at the first start, as described in [Initialization Files](../introduction-to-automation/cdb-and-yang.md#d5e268).
 
-NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/ops/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
+NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
 
 Most of the time, you must also invoke a sync with the device so that it performs correctly with NSO. If you wish to push some initial configuration to the device, you may add the configuration in the form of initial XML data and perform a `sync-to`. Alternatively, you can simply do a `sync-from`. You can use the `ncs_cmd` command for this purpose.
 

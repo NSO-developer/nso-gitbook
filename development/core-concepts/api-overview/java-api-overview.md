@@ -673,7 +673,7 @@ We can see how the `prepare()` callback goes through all write operations and ac
 
 Both service and action callbacks are fundamental in NSO.
 
-Implementing a service callback is one way of creating a service type. This and other ways of creating service types are in-depth described in the [Package Development](../../development/nso-packages.md) section.
+Implementing a service callback is one way of creating a service type. This and other ways of creating service types are in-depth described in the [Package Development](../../advanced-development/nso-packages.md) section.
 
 Action callbacks are used to implement arbitrary operations in Java. These operations can be basically anything, e.g. downloading a file, performing some test, resetting alarms, etc, but they should not modify the modeled configuration.
 
@@ -810,7 +810,7 @@ To specify that changes to some part of the configuration should trigger a hook 
 
 ## NED API <a href="#d5e3823" id="d5e3823"></a>
 
-NSO can speak southbound to an arbitrary management interface. This is of course not entirely automatic like with NETCONF or SNMP, and depending on the type of interface the device has for configuration, this may involve some programming. Devices with a Cisco-style CLI can however be managed by writing YANG models describing the data in the CLI, and a relatively thin layer of Java code to handle the communication to the devices. Refer to [Network Element Drivers (NEDs)](../../development/developing-neds/) for more information.
+NSO can speak southbound to an arbitrary management interface. This is of course not entirely automatic like with NETCONF or SNMP, and depending on the type of interface the device has for configuration, this may involve some programming. Devices with a Cisco-style CLI can however be managed by writing YANG models describing the data in the CLI, and a relatively thin layer of Java code to handle the communication to the devices. Refer to [Network Element Drivers (NEDs)](../../advanced-development/developing-neds/) for more information.
 
 ## NAVU API <a href="#ug.java_api_overview.navu" id="ug.java_api_overview.navu"></a>
 
@@ -1189,7 +1189,7 @@ The examples above have described how to attach to the NSO module and navigate t
 
 Since this API is potent for both producing and consuming alarms, this becomes an API that can be used both north and eastbound. It adheres to the NSO Alarm model.
 
-For more information see [Alarm Manager](../../../operation-and-usage/ops/alarm-manager.md)_._
+For more information see [Alarm Manager](../../../operation-and-usage/operations/alarm-manager.md)_._
 
 The `com.tailf.ncs.alarmman.consumer.AlarmSource` class is used to subscribe to alarms. This class establishes a listener towards an alarm subscription server called `com.tailf.ncs.alarmman.consumer.AlarmSourceCentral`. The `AlarmSourceCentral` needs to be instantiated and started prior to the instantiation of the `AlarmSource` listener. The NSO Java VM takes care of starting the `AlarmSourceCentral` so any use of the ALARM API inside the NSO Java VM can expect this server to be running.
 

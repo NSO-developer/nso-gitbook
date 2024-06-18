@@ -55,7 +55,7 @@ To create an NSO instance:
     Following is a description of the important files and folders:
 
     * `ncs.conf` is the NSO application configuration file, and is used to customize aspects of the NSO instance (for example, to change ports, enable/disable features, and so on.) See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for information.
-    * `packages/` is the directory that has symlinks to the NEDs that we referenced in the `--package` arguments at the time of setup. See [NSO Packages](../../../development/concepts/packages.md) in Development for more information.
+    * `packages/` is the directory that has symlinks to the NEDs that we referenced in the `--package` arguments at the time of setup. See [NSO Packages](../../../development/core-concepts/packages.md) in Development for more information.
     * `logs/` is the directory that contains all the logs from NSO. This directory is useful for troubleshooting.
 3. Start the NSO instance by navigating to the `nso-instance` directory and typing the `ncs` command. You must be situated in the `nso-instance` directory each time you want to start or stop NSO. If you have multiple instances, you need to navigate to each one and use the `ncs` command to start or stop each one.
 4.  Verify that NSO is running by using the `ncs --status | grep status` command.

@@ -32,7 +32,7 @@ Devices now support `auto-configure` and `rename` actions to assist with the ini
 
 Documentation Updates:
 
-* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/ops/nso-device-manager.md#renaming-devices-in-nso).
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/operations/nso-device-manager.md#renaming-devices-in-nso).
 
 </details>
 
@@ -44,7 +44,7 @@ Binaries for the Linux OS on the arm64 architecture are now available for downlo
 
 Documentation Updates:
 
-* Updated system requirements in the Installation ([Local Install](administration/deployment/local-install.md), [System Install](administration/deployment/system-install.md)) and [Containerized NSO](administration/deployment/containerized-nso.md) sections.
+* Updated system requirements in the Installation ([Local Install](administration/installation-and-deployment/local-install.md), [System Install](administration/installation-and-deployment/system-install.md)) and [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) sections.
 
 </details>
 
@@ -56,7 +56,7 @@ A number of additional packages are now bundled with the NSO installer binary. T
 
 Documentation Updates:
 
-* Expanded the [Installation](administration/deployment/#d5e46-1) section with information on additional bundled packages.
+* Expanded the [Installation](administration/installation-and-deployment/#d5e46-1) section with information on additional bundled packages.
 
 </details>
 
@@ -68,9 +68,9 @@ The service development documentation has been improved and expanded, allowing f
 
 Documentation Updates:
 
-* Replaced the old Services section with a new [Implementing Services](development/concepts/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
-* Replaced the old Services section with a new [Services Deep Dive](development/development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
-* Substantially revised and improved the [Templates](development/concepts/templates.md) section.
+* Replaced the old Services section with a new [Implementing Services](development/core-concepts/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
+* Replaced the old Services section with a new [Services Deep Dive](development/advanced-development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
+* Substantially revised and improved the [Templates](development/core-concepts/templates.md) section.
 
 </details>
 
@@ -82,8 +82,8 @@ NETCONF and RESTCONF APIs now support the propagation of standards-based Trace C
 
 Documentation Updates:
 
-* For NETCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context) in Northbound APIs.
-* For RESTCONF, added documentation on [Trace Context](development/concepts/northbound-apis.md#trace-context-1) in Northbound APIs.
+* For NETCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis.md#trace-context) in Northbound APIs.
+* For RESTCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis.md#trace-context-1) in Northbound APIs.
 
 </details>
 
@@ -95,7 +95,7 @@ NSO now supports RFC-7952-encoded metadata, as well as setting metadata when usi
 
 Documentation Updates:
 
-* Expanded the [RESTCONF API](development/concepts/northbound-apis.md#the-restconf-api) in Northbound APIs with details on metadata handling.
+* Expanded the [RESTCONF API](development/core-concepts/northbound-apis.md#the-restconf-api) in Northbound APIs with details on metadata handling.
 
 </details>
 
@@ -107,7 +107,7 @@ Added the `exclude` query parameter support to the GET RESTCONF method that excl
 
 Documentation Updates:
 
-* Expanded the section [Query Parameters](development/concepts/northbound-apis.md#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
+* Expanded the section [Query Parameters](development/core-concepts/northbound-apis.md#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
 
 </details>
 

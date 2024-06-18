@@ -6,7 +6,7 @@ description: Develop service packages to run user code.
 
 When setting up an application project, there are several things to think about. A service package needs a service model, NSO configuration files, and mapping code. Similarly, NED packages need YANG files and NED code. We can either copy an existing example and modify that, or we can use the tool `ncs-make-package` to create an empty skeleton for a package for us. The `ncs-make-package` tool provides a good starting point for a development project. Depending on the type of package, we use `ncs-make-package` to set up a working development structure.
 
-As explained in [NSO Packages](../concepts/packages.md), NSO runs all user Java code and also loads all data models through an NSO package. Thus, a development project is the same as developing a package. Testing and running the package is done by putting the package in the NSO load-path and running NSO.
+As explained in [NSO Packages](../core-concepts/packages.md), NSO runs all user Java code and also loads all data models through an NSO package. Thus, a development project is the same as developing a package. Testing and running the package is done by putting the package in the NSO load-path and running NSO.
 
 There are different kinds of packages; NED packages, service packages, etc. Regardless of package type, the structure of the package as well as the deployment of the package into NSO is the same. The script `ncs-make-package` creates the following for us:
 
@@ -198,7 +198,7 @@ A fully simulated router network loaded into NSO, with ConfD simulating the 7 ro
 
 ## Plug-and-play Scripting <a href="#ug.scripting_devel" id="ug.scripting_devel"></a>
 
-With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/ops/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
+With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/operations/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
 
 Scripts defined in an NSO package work pretty much as system-level scripts configured with the `/ncs-config/scripts/dir` configuration parameter. The difference is that the location of the scripts is predefined. The scripts directory must be named `scripts` and must be located in the top directory of the package.
 
@@ -206,7 +206,7 @@ In this complete example `examples.ncs/getting-started/developing-with-ncs/11-sc
 
 ## Creating a Service Package <a href="#d5e5354" id="d5e5354"></a>
 
-So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Implementing Services](../concepts/implementing-services.md).
+So far we have only talked about packages that describe a managed device, i.e., `ned` packages. There are also `callback`, `application`, and `service` packages. A service package is a package with some YANG code that models an NSO service together with Java code that implements the service. See [Implementing Services](../core-concepts/implementing-services.md).
 
 We can generate a service package skeleton, using `ncs-make-package`, as:
 
@@ -614,7 +614,7 @@ It is also possible to request a running NSO to reload all its packages.
 admin@iron> request packages reload
 ```
 
-This request can only be performed in operational mode, and the effect is that all packages will be updated, and any change in YANG models or code will be effectuated. If any YANG models are changed an automatic CDB data upgrade will be executed. If manual (user code) data upgrades are necessary the package should contain an `upgrade` component. This `upgrade` component will be executed as a part of the package reload. See [Writing an Upgrade Package Component](../concepts/using-cdb.md#ncs.cdb.upgrade.comp) for information on how to develop an upgrade component.
+This request can only be performed in operational mode, and the effect is that all packages will be updated, and any change in YANG models or code will be effectuated. If any YANG models are changed an automatic CDB data upgrade will be executed. If manual (user code) data upgrades are necessary the package should contain an `upgrade` component. This `upgrade` component will be executed as a part of the package reload. See [Writing an Upgrade Package Component](../core-concepts/using-cdb.md#ncs.cdb.upgrade.comp) for information on how to develop an upgrade component.
 
 If the change in a package does not affect the data model or shared Java code, there is another command:
 
@@ -660,7 +660,7 @@ java-thread-pool {
 
 We see some of the settings that are used to control how the NSO Java VM runs. In particular, here we're interested in `/java-vm/stdout-capture/file`
 
-The NSO daemon will, when it starts, also start the NSO Java VM, and it will capture the stdout output from the NSO Java VM and send it to the file `./logs/ncs-java-vm.log`. For more details on the Java VM settings, see the [NSO Java VM](../concepts/nso-vms/nso-java-vm.md).
+The NSO daemon will, when it starts, also start the NSO Java VM, and it will capture the stdout output from the NSO Java VM and send it to the file `./logs/ncs-java-vm.log`. For more details on the Java VM settings, see the [NSO Java VM](../core-concepts/nso-vms/nso-java-vm.md).
 
 Thus if we `tail -f` that file, we get all the output from the Java code. That leads us to the first and most simple way of developing Java code. If we now:
 

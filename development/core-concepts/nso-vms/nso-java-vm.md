@@ -109,7 +109,7 @@ For instance, the `DpMuxManager` controls all callback implementations (services
 
 ## The NED Component Type <a href="#d5e1240" id="d5e1240"></a>
 
-NEDs can be of type `netconf`, `snmp`, `cli`_,_ or `generic`. Only the `cli` and `generic` types are relevant for the NSO Java VM because these are the ones that have a Java implementation. Normally these NED components come in self-contained and prefabricated NSO packages for some equipment or class of equipment. It is however possible to tailor make NEDs for any protocol. For more information on this see [Network Element Drivers (NEDs)](../../development/developing-neds/) and [Writing a data model for a CLI NED](../../development/developing-neds/#writing-a-data-model-for-a-cli-ned) in NED Development
+NEDs can be of type `netconf`, `snmp`, `cli`_,_ or `generic`. Only the `cli` and `generic` types are relevant for the NSO Java VM because these are the ones that have a Java implementation. Normally these NED components come in self-contained and prefabricated NSO packages for some equipment or class of equipment. It is however possible to tailor make NEDs for any protocol. For more information on this see [Network Element Drivers (NEDs)](../../advanced-development/developing-neds/) and [Writing a data model for a CLI NED](../../advanced-development/developing-neds/#writing-a-data-model-for-a-cli-ned) in NED Development
 
 ### The Callback Component Type <a href="#d5e1251" id="d5e1251"></a>
 
@@ -263,7 +263,7 @@ try {
 
 ## The Alarm Centrals
 
-The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/ops/alarm-manager.md).
+The `AlarmSourceCentral` and `AlarmSinkCentral`, which is part of the NSO Alarm API, can be used to simplify reading and writing alarms. The NSO Java VM will start these centrals at initialization. User implementations can therefore expect this to be set up without having to handle the start and stop of either the `AlarmSinkCentral` or the `AlarmSourceCentral`. For more information on the alarm API, see [Alarm Manager](../../../operation-and-usage/operations/alarm-manager.md).
 
 ## Embedding the NSO Java VM <a href="#d5e1325" id="d5e1325"></a>
 

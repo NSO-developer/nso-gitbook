@@ -76,8 +76,7 @@ The pipe details in the CLI are useful during development cycles of for example 
 
 The top-level container `progress` is by default invisible due to a hidden attribute. To make `progress` visible in the CLI, two steps are required:
 
-1.  First, the following XML snippet must be added to `ncs.conf` :\
-
+1.  First, the following XML snippet must be added to `ncs.conf` :\\
 
     ```
     <hide-group>
@@ -124,7 +123,7 @@ admin# request progress trace test purge
 
 ### Log as Notification Events <a href="#d5e9521" id="d5e9521"></a>
 
-Progress events can be subscribed to as Notifications events. See [NOTIF API](../concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.notif) for further details.
+Progress events can be subscribed to as Notifications events. See [NOTIF API](../core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.notif) for further details.
 
 ### Verbosity <a href="#d5e9525" id="d5e9525"></a>
 

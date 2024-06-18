@@ -242,7 +242,7 @@ Session User  Context From         Proto Date     Mode
 
 <summary><code>script reload</code></summary>
 
-Reload scripts found in the `scripts/command`directory. New scripts will be added and if a script file has been removed the corresponding CLI command will be purged. See [Plug-and-play Scripting](../ops/plug-and-play-scripting.md).
+Reload scripts found in the `scripts/command`directory. New scripts will be added and if a script file has been removed the corresponding CLI command will be purged. See [Plug-and-play Scripting](../operations/plug-and-play-scripting.md).
 
 </details>
 

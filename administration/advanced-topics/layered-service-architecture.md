@@ -24,7 +24,7 @@ More practically, taking a service in NSO and deploying a single instance on an 
 
 Moreover, multiple NSO nodes present a higher operational complexity and administrative burden. There is no longer a “single pane of glass” view of all the individual devices. That's why you must weigh the benefits of the LSA approach against the scale at which you operate. When LSA starts making sense will depend on the type of devices you manage, the services you have, the geographical distribution of resources, and so on.
 
-A distributed system can push the overall throughput way beyond what a single instance can do. But you will achieve a much better outcome by first focusing on eliminating the bottlenecks in the provisioning code, as discussed in [Scaling and Performance Optimization](../../development/development/scaling-and-performance-optimization.md). Only when that proves insufficient, consider deploying LSA.
+A distributed system can push the overall throughput way beyond what a single instance can do. But you will achieve a much better outcome by first focusing on eliminating the bottlenecks in the provisioning code, as discussed in [Scaling and Performance Optimization](../../development/advanced-development/scaling-and-performance-optimization.md). Only when that proves insufficient, consider deploying LSA.
 
 LSA also addresses the memory limitations of NSO when device configurations become very large (individually or all together). If the NSO server is memory-constrained and more memory cannot be added, the LSA approach can be a solution.
 

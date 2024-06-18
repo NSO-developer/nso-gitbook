@@ -4,7 +4,7 @@ description: Learn about Cisco-provided NEDs and how to manage them.
 
 # NED Administration
 
-This section provides necessary information on NED (Network Element Driver) administration with a focus on Cisco-provided NEDs. If you're planning to use NEDs not provided by Cisco, refer to the [NED Development](../../development/development/developing-neds/) to build your own NED packages.
+This section provides necessary information on NED (Network Element Driver) administration with a focus on Cisco-provided NEDs. If you're planning to use NEDs not provided by Cisco, refer to the [NED Development](../../development/advanced-development/developing-neds/) to build your own NED packages.
 
 NED represents a key NSO component that makes it possible for the NSO core system to communicate southbound with network devices in most deployments. NSO has a built-in client that can be used to communicate southbound with NETCONF-enabled devices. Many network devices are, however, not NETCONF-enabled, and there exist a wide variety of methods and protocols for configuring network devices, ranging from simple CLI to HTTP/REST-enabled devices. For such cases, it is necessary to use a NED to allow NSO communicate southbound with the network device.
 
@@ -162,7 +162,7 @@ This section describes the NED installation in NSO for Local and System installs
 
 ### Local Install of NED in NSO <a href="#sec.local_install_ned_nso" id="sec.local_install_ned_nso"></a>
 
-This section describes how to install a NED package on a locally installed NSO. See [Local Install Steps](../deployment/local-install.md) for more information.
+This section describes how to install a NED package on a locally installed NSO. See [Local Install Steps](../installation-and-deployment/local-install.md) for more information.
 
 Follow the instructions below to install a NED package:
 
@@ -178,8 +178,6 @@ Follow the instructions below to install a NED package:
     > chmod u+x ncs-6.0-cisco-iosxr-7.43.signed.bin
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin
     ```
-
-
 
     In case the signature cannot be verified (for instance, if access to internet is down), do as below instead:
 
@@ -225,7 +223,7 @@ Alternatively, the `tar.gz` file can be installed directly into NSO. In this cas
 
 ### System Install of Cisco-provided NED in NSO <a href="#d5e9127" id="d5e9127"></a>
 
-This section describes how to install a NED package on a system-installed NSO. See [System Install Steps](../deployment/system-install.md) for more information.
+This section describes how to install a NED package on a system-installed NSO. See [System Install Steps](../installation-and-deployment/system-install.md) for more information.
 
 1. Download the latest production-grade version of the NED from software.cisco.com using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO_VERSION>-<NED NAME>-<NED VERSION>.signed.bin`. The NED package `ncs-6.0-cisco-iosxr-7.43.signed.bin` will be used in the example below. It is assumed that the package has been downloaded into the directory named `/tmp/ned-package-store`.
 2.  Unpack the NED package and verify its signature.
@@ -235,8 +233,6 @@ This section describes how to install a NED package on a system-installed NSO. S
     > chmod u+x ncs-6.0-cisco-iosxr-7.43.signed.bin
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin
     ```
-
-
 
     In case the signature cannot be verified (for instance, if access to internet is down), do as below instead.
 
@@ -451,8 +447,6 @@ This section gives a brief instruction on how to download the device YANG models
     result /nso-lab-rundir/packages/onf-tapi_rc-2.0/src/yang
     admin@ncs#
     ```
-
-
 
     This RPC will throw an error if the NED package was installed directly using the `tar.gz` file. See [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso) for more information.
 

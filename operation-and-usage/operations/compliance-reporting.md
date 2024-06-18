@@ -103,7 +103,7 @@ You can also use the web UI to define compliance reports. See the section [Compl
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
-Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.&#x20;
+Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.
 
 Here is an example of such a report listing:
 
@@ -332,7 +332,7 @@ Device ce3
 
 ## Device Configuration Checks <a href="#device-configuration-checks" id="device-configuration-checks"></a>
 
-Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
+Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/core-concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
 
 Often, each device will have a somewhat different configuration, such as its own set of IP addresses, which makes checking against a static template impossible. For this reason, NSO supports compliance templates.
 
@@ -412,9 +412,7 @@ admin@ncs(config-report-gold-check)# device-check template internal-dns
 ```
 
 {% hint style="info" %}
-By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI.
-This reduces the memory usage for large device data models.
-The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
+By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
 {% endhint %}
 
 ## Additional Configuration Checks

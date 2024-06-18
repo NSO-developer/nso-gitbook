@@ -4715,7 +4715,7 @@ device-type snmp version v3 snmp-authgroup my-authgroup
 state admin-state unlocked
 ```
 
-To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/ops/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
 
 ```
 admin@host# show running-config devices authgroups snmp-group my-authgroup

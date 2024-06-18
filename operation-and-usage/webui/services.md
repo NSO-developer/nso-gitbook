@@ -63,7 +63,7 @@ To apply an action on multiple services:
 
 Available actions include **check-sync**, **re-deploy**, and **re-deploy dry-run**.
 
-See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
 **Action Result**
@@ -96,7 +96,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, **purge**.
 
-See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of these actions.
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
@@ -105,7 +105,7 @@ See [Lifecycle Operations](../ops/lifecycle-operations.md) for the details of th
 Service configuration is viewed and carried out in the Configuration Editor.
 
 {% hint style="info" %}
-The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/concepts/services.md) and [Developing Services](../../development/development/developing-services/) documentation for more information.
+The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/core-concepts/services.md) and [Developing Services](../../development/advanced-development/developing-services/) documentation for more information.
 {% endhint %}
 
 To start configuring a service:
