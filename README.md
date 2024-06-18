@@ -45,7 +45,7 @@ For users working in a production-wide NSO deployment.
 
 ### Operation and Usage
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and its base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; perform actions on NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operation &#x26; Usage</strong></td><td>Key topics of importance in NSO operation. </td><td><a href="broken-reference">Broken link</a></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and its base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; perform actions on NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operations</strong></td><td>Key topics of importance in NSO operation. </td><td><a href="broken-reference">Broken link</a></td><td></td></tr></tbody></table>
 
 ### Development
 

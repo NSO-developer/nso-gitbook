@@ -53,7 +53,7 @@
   * [Services](operation-and-usage/webui/services.md)
   * [Config Editor](operation-and-usage/webui/config-editor.md)
   * [Tools](operation-and-usage/webui/tools.md)
-* [Operation and Usage](operation-and-usage/cli-1/README.md)
+* [Operations](operation-and-usage/cli-1/README.md)
   * [Basic Operations](operation-and-usage/cli-1/basic-operations.md)
   * [NEDs and Adding Devices](operation-and-usage/cli-1/neds-and-adding-devices.md)
   * [Manage Network Services](operation-and-usage/cli-1/managing-network-services.md)
