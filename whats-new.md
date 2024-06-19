@@ -46,7 +46,7 @@ It is now possible to run NSO in a container runtime, such as Docker. A pre-buil
 
 Documentation Updates:
 
-* Added a new guide [Containerized NSO](administration/deployment/containerized-nso.md) describing how to run NSO in a containerized environment, such as Docker.
+* Added a new guide [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) describing how to run NSO in a containerized environment, such as Docker.
 
 </details>
 
@@ -58,7 +58,7 @@ NED packages can now be added to the system without triggering a package reload/
 
 Documentation Updates:
 
-* Added a new section [Adding NED Packages](administration/management/nso-packages.md#ug.package\_mgmt.ned\_package\_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/nso-packages.md#ug.package\_mgmt.ned\_migration) and [Upgrade](administration/deployment/upgrade-nso.md) sections.
+* Added a new section [Adding NED Packages](administration/management/package-management.md#ug.package\_mgmt.ned\_package\_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/package-management.md#ug.package\_mgmt.ned\_migration) and [Upgrade](administration/installation-and-deployment/upgrade-nso.md) sections.
 
 </details>
 
@@ -74,7 +74,7 @@ Documentation Updates:
 
 <!---->
 
-* Added a new section [Single Sign-on](development/development/web-ui-development.md#single-sign-on-sso) to describe the NSO package authentication mechanism.
+* Added a new section [Single Sign-on](development/advanced-development/web-ui-development.md#single-sign-on-sso) to describe the NSO package authentication mechanism.
 
 </details>
 
@@ -86,7 +86,7 @@ The device, service, and template checks now run in parallel across the CPU core
 
 Documentation Updates:
 
-* Added a new section called [Additional Configuration Checks](operation-and-usage/cli/compliance-reporting.md#additional-configuration-checks).
+* Added a new section called [Additional Configuration Checks](operation-and-usage/cli-1/compliance-reporting.md#additional-configuration-checks).
 
 </details>
 
@@ -98,7 +98,7 @@ Updates in documentation to promote using nano services over Reactive FastMAP.
 
 Documentation Updates:
 
-* Updated the section [Developing NSO Services](development/development/developing-services/developing-nso-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/connected-topics/kicker.md) section.
+* Updated the section [Developing NSO Services](development/advanced-development/developing-services/developing-nso-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/connected-topics/kicker.md) section.
 
 </details>
 
