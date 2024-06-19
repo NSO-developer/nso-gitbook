@@ -327,7 +327,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     ```
     admin@ncs(config)# devices device r0 trace pretty
     ```
-* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/connected-topics/progress-trace.md).
+* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/advanced-development/progress-trace.md).
 * Transaction error log: log for collecting information on failed transactions that lead to either a CDB boot error or a runtime transaction failure. The default is `false` (disabled). More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#tailf-ncs-config.yang\_config) under Configuration Parameters (see `logs/transaction-error-log`).
 * Upgrade log: log containing information about CDB upgrade. The log is enabled by default and not rotated (i.e., use logrotate). With the NSO example set, the following examples populate the log in the `logs/upgrade.log` file: `examples.ncs/development-guide/ned-upgrade/yang-revision`, `examples.ncs/development-guide/high-availability/upgrade-basic`, `examples.ncs/development-guide/high-availability/upgrade-cluster`, and `examples.ncs/getting-started/developing-with-ncs/14-upgrade-service`. More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#tailf-ncs-config.yang\_config) under Configuration Parameters (see `logs/upgrade-log)`.
 
@@ -634,7 +634,7 @@ Some noteworthy issues are covered here.
 
 <summary>Problems Using and Developing Services</summary>
 
-If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../../development/development/developing-services/implementing-services.md#ncs.development.services.tshoot) section in [Implementing Services](../../../development/development/developing-services/implementing-services.md).
+If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../../development/core-concepts/implementing-services.md#ncs.development.services.tshoot) section in [Implementing Services](../../../development/core-concepts/implementing-services.md).
 
 </details>
 

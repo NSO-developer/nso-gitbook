@@ -190,10 +190,9 @@ As an alternative to using the CLI approach to find this path, you can also cons
 
 ### Step 3 - Create the Script <a href="#d5e463" id="d5e463"></a>
 
-You will place the script into the `ex1-dns.py` file.&#x20;
+You will place the script into the `ex1-dns.py` file.
 
-1.  In a text editor, create a new file and add the following text at the start.\
-
+1.  In a text editor, create a new file and add the following text at the start.\\
 
     ```
     import ncs
@@ -278,7 +277,7 @@ You will place the script into the `ex1-dns.py` file.&#x20;
 
 ## A Note on Robustness <a href="#d5e519" id="d5e519"></a>
 
-The code in this chapter is intentionally kept simple to demonstrate the core concepts and lacks robustness in error handling. In particular, it is missing the retry mechanism in case of concurrency conflicts as described in [Handling Conflicts](../concepts/nso-concurrency-model.md#ncs.development.concurrency.handling).
+The code in this chapter is intentionally kept simple to demonstrate the core concepts and lacks robustness in error handling. In particular, it is missing the retry mechanism in case of concurrency conflicts as described in [Handling Conflicts](../core-concepts/nso-concurrency-model.md#ncs.development.concurrency.handling).
 
 ## The Magic Behind the API <a href="#d5e523" id="d5e523"></a>
 

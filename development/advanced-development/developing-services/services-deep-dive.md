@@ -7,9 +7,9 @@ description: Deep dive into service implementation.
 {% hint style="warning" %}
 **Before you Proceed**
 
-This section discusses the implementation details of services in NSO. The reader should already be familiar with the concepts described in the introductory sections and [Implementing Services](implementing-services.md).
+This section discusses the implementation details of services in NSO. The reader should already be familiar with the concepts described in the introductory sections and [Implementing Services](../../core-concepts/implementing-services.md).
 
-For an introduction to services, see [Develop a Simple Service](creating-a-service.md) instead.
+For an introduction to services, see [Develop a Simple Service](../../introduction-to-automation/creating-a-service.md) instead.
 {% endhint %}
 
 ## Common Service Model <a href="#ch_svcref.model" id="ch_svcref.model"></a>
@@ -108,7 +108,7 @@ Contains log entries for important service events, such as those related to the 
 
 <summary><code>plan-location</code> leaf</summary>
 
-Location of the plan data if the service plan is used. See [Nano Services for Staged Provisioning](../../concepts/nano-services-staged-provisioning.md) for more on service plans and using alternative plan locations.
+Location of the plan data if the service plan is used. See [Nano Services for Staged Provisioning](../../core-concepts/nano-services-staged-provisioning.md) for more on service plans and using alternative plan locations.
 
 </details>
 
@@ -137,7 +137,7 @@ If all systems took the new configuration successfully, enter the commit phase, 
 
 <figure><img src="../../../images/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure>
 
-There are also two types of locks involved with the transaction that are of interest to the service developer; the service write lock and the transaction lock. The latter is a global lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../../connected-topics/scaling-and-performance-optimization.md) for more details and their impact on performance.
+There are also two types of locks involved with the transaction that are of interest to the service developer; the service write lock and the transaction lock. The latter is a global lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../scaling-and-performance-optimization.md) for more details and their impact on performance.
 
 The first phase, historically called validation, does more than just validate data and is the phase a service deals with the most. The other three support the NSO service framework but a service developer rarely interacts with directly.
 
@@ -159,7 +159,7 @@ After transforms, there are no more changes to the configuration data, and the f
 
 <figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
 
-Throughout the phase, the transaction engine makes checkpoints, so it can restart the transaction faster in case of concurrency conflicts. The check for conflicts happens at the end of this first phase when NSO also takes the global transaction lock. Concurrency is further discussed in [NSO Concurrency Model](../../concepts/nso-concurrency-model.md).
+Throughout the phase, the transaction engine makes checkpoints, so it can restart the transaction faster in case of concurrency conflicts. The check for conflicts happens at the end of this first phase when NSO also takes the global transaction lock. Concurrency is further discussed in [NSO Concurrency Model](../../core-concepts/nso-concurrency-model.md).
 
 ## Service Callbacks <a href="#ch_svcref.cbs" id="ch_svcref.cbs"></a>
 
@@ -234,7 +234,7 @@ The Java callbacks use the following function arguments:
 
 See `examples.ncs/development-guide/services/post-modification-py` and `examples.ncs/development-guide/services/post-modification-java` examples for a sample implementation of the post-modification callback.
 
-Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../templates.md#ch\_templates.servicepoint) for details.
+Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch\_templates.servicepoint) for details.
 
 ### Persistent Opaque Data <a href="#ch_svcref.opaque" id="ch_svcref.opaque"></a>
 
@@ -292,7 +292,7 @@ The `examples.ncs/development-guide/services/post-modification-py` and `examples
 
 ## Defining Static Service Conflicts <a href="#ch_svcref.conflicts" id="ch_svcref.conflicts"></a>
 
-NSO by default enables concurrent scheduling and execution of services to maximize throughput. However, concurrent execution can be problematic for non-thread-safe services or services that are known to always conflict with themselves or other services, such as when they read and write the same shared data. See [NSO Concurrency Model](../../concepts/nso-concurrency-model.md) for details.
+NSO by default enables concurrent scheduling and execution of services to maximize throughput. However, concurrent execution can be problematic for non-thread-safe services or services that are known to always conflict with themselves or other services, such as when they read and write the same shared data. See [NSO Concurrency Model](../../core-concepts/nso-concurrency-model.md) for details.
 
 To prevent NSO from scheduling a service instance together with an instance of another service, declare a static conflict in the service model, using the `ncs:conflicts-with` extension. The following example shows a service with two declared static conflicts, one with itself and one with another service, named `other-service`.
 
@@ -384,7 +384,7 @@ Service stacking concepts usually come into play for bigger, more complex servic
 * Separation of concerns and responsibility.
 * Clearer ownership across teams for (parts of) overall service.
 * Smaller services reusable as components across the solution.
-* Avoiding overlapping configuration between service instances causing conflicts, such as using one service instance per device (see examples in [Designing for Maximal Transaction Throughput](../../connected-topics/scaling-and-performance-optimization.md#ncs.development.scaling.throughput)).
+* Avoiding overlapping configuration between service instances causing conflicts, such as using one service instance per device (see examples in [Designing for Maximal Transaction Throughput](../scaling-and-performance-optimization.md#ncs.development.scaling.throughput)).
 
 Stacked services are also the basis for LSA, which takes this concept even further. See [Layered Service Architecture](../../../administration/advanced-topics/layered-service-architecture.md) for details.
 
@@ -427,11 +427,11 @@ You may also obtain some useful information by using the `debug service` commit 
 
 * **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features.\
   \
-  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
 *   **Never overwrite service inputs**: Service input parameters capture client intent and a service should never change its own configuration. Such behavior not only muddles the intent but is also temporary when done in the create callback, as the changes are reverted on the next invocation.
 
     \
-    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
 * **No service ordering in a transaction**: NSO is a transactional system and as such does not have the concept of order inside a single transaction. That means NSO does not guarantee any specific order in which the service mapping code executes if the same transaction touches multiple service instances. Likewise, your code should not make any assumptions about running before or after other service code.
 * **Return value of create callback**: The create callback is not the exclusive user of the opaque object; the object can be chained in several different callbacks, such as pre- and post-modification. Therefore, returning `None/null` from create callback is not a good practice. Instead, always return the opaque object even if the create callback does not use it.
 *   **Avoid delete in service create**: Unlike creation, deleting configuration does not support reference counting, as there is no data left to reference count. This means the deleted elements are tied to the service instance that deleted them.
@@ -467,7 +467,7 @@ You may also obtain some useful information by using the `debug service` commit 
 
     \
     Likewise, do not use MAAPI `load_config` variants from the service code. Use the `sharedSetValues()` function to load XML data from a file or a string.
-*   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../templates.md#d5e7962)) or using service stacking with a helper service.
+*   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#d5e7962)) or using service stacking with a helper service.
 
     In general, however, you should reconsider your design and try to avoid such scenarios.
 *   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.
@@ -548,7 +548,7 @@ devices device c1
 
 A prerequisite for service discovery to work is that it is possible to construct a list of the already existing services. Such a list may exist in an inventory system, an external database, or perhaps just an Excel spreadsheet.
 
-You can import the list of services in a number of ways. If you are reading it in from a spreadsheet, a Python script using NSO API directly ([Basic Automation with Python](../basic-automation-with-python.md)) and a module to read Excel files is likely a good choice.
+You can import the list of services in a number of ways. If you are reading it in from a spreadsheet, a Python script using NSO API directly ([Basic Automation with Python](../../introduction-to-automation/basic-automation-with-python.md)) and a module to read Excel files is likely a good choice.
 
 {% code title="Example: Sample Service Excel import Script" %}
 ```

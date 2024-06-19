@@ -274,7 +274,7 @@ We will take a first look at the `examples.ncs/getting-started/developing-with-n
 * `cdb`: This package has an even simpler YANG model to illustrate some aspects of CDB data retrieval. The package consists of five application components:
   * Plain CDB Subscriber: This CDB subscriber subscribes to changes under the path `/devices/device{ex0}/config`. Whenever a change occurs there, the code iterates through the change and prints the values.
   * CdbCfgSubscriber: A more advanced CDB subscriber that subscribes to changes under the path `/devices/device/config/sys/interfaces/interface`.
-  * OperSubscriber:  An operational data subscriber that subscribes to changes under the path `/t:test/stats-item`.
+  * OperSubscriber: An operational data subscriber that subscribes to changes under the path `/t:test/stats-item`.
 
 The `cdb` package includes the YANG shown in the example below (1-cdb Simple Config Data).
 
@@ -425,7 +425,7 @@ public class PlainCdbSub implements ApplicationComponent  {
 ```
 {% endcode %}
 
-We will walk through the code and highlight different aspects. We start with how the `Cdb` instance is retrieved in this example. It is always possible to open a socket to NSO and create the `Cdb` instance with this socket. But with this comes the responsibility to manage that socket. In NSO, there is a resource manager that can take over this responsibility. In the code, the field that should contain the `Cdb` instance is simply annotated with a `@Resource` annotation. The resource manager will find this annotation and create the `Cdb` instance as specified. In this example below (Resource Annotation) `Scope.INSTANCE` implies that new instances of this example class should have unique `Cdb` instances (see more in [The Resource Manager](nso-vms/nso-java-vm.md#ncs.ug.javavm.resman)).
+We will walk through the code and highlight different aspects. We start with how the `Cdb` instance is retrieved in this example. It is always possible to open a socket to NSO and create the `Cdb` instance with this socket. But with this comes the responsibility to manage that socket. In NSO, there is a resource manager that can take over this responsibility. In the code, the field that should contain the `Cdb` instance is simply annotated with a `@Resource` annotation. The resource manager will find this annotation and create the `Cdb` instance as specified. In this example below (Resource Annotation) `Scope.INSTANCE` implies that new instances of this example class should have unique `Cdb` instances (see more in [The Resource Manager](nso-virtual-machines/nso-java-vm.md#ncs.ug.javavm.resman)).
 
 {% code title="Example: Resource Annotation" %}
 ```
@@ -939,7 +939,7 @@ CDB can automatically handle the following changes to the schema:
 * **Deleted elements**: When an element is deleted from the schema, CDB simply deletes it (and any children) from the database.
 * **Added elements**: If a new element is added to the schema it needs to either be optional, dynamic, or have a default value. New elements with a default are added and set to their default value. New dynamic or optional elements are simply noted as a schema change.
 * **Re-ordering elements**: An element with the same name, but in a different position on the same level, is considered to be the same element. If its type hasn't changed it will retain its value, but if the type has changed it will be upgraded as described below.
-* **Type changes**: If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!). \
+* **Type changes**: If a leaf is still present but its type has changed, automatic coercions are performed, so for example integers may be transformed to their string representation if the type changed from e.g. int32 to string. Automatic type conversion succeeds as long as the string representation of the current value can be parsed into its new type. (Which of course also implies that a change from a smaller integer type, e.g. int8, to a larger type, e.g., int32, succeeds for any value - while the opposite will not hold, but might!).\
   \
   If the coercion fails, any supplied default value will be used. If no default value is present in the new schema, the automatic upgrade will fail and the leaf will be deleted after the CDB upgrade.\
   \
@@ -1072,7 +1072,7 @@ Since it was considered important that the user explicitly specified the protoco
 ```
 {% endcode %}
 
-We can then just use this new init file for the upgrade, and the existing server instances in the user's configuration will get the new `/servers/server/protocol` leaf filled in as expected. However some users may have deleted some of the original servers from their configuration, and in those cases, we do not want those servers to get re-created during the upgrade just because they are present in the XML file - the above restrictions make sure that this does not happen. The configuration after the upgrade can be seen in the example below (Configuration After Upgrade).&#x20;
+We can then just use this new init file for the upgrade, and the existing server instances in the user's configuration will get the new `/servers/server/protocol` leaf filled in as expected. However some users may have deleted some of the original servers from their configuration, and in those cases, we do not want those servers to get re-created during the upgrade just because they are present in the XML file - the above restrictions make sure that this does not happen. The configuration after the upgrade can be seen in the example below (Configuration After Upgrade).
 
 Here is what the configuration looks like after the upgrade if the `smtp` server has been deleted before the upgrade:
 

@@ -433,4 +433,4 @@ In the end, it depends on the situation whether list enumeration can affect thro
 
 ### Python Assigning to Self <a href="#d5e8655" id="d5e8655"></a>
 
-As several service invocations may run in parallel, Python self-assignment in service handling code can cause difficult-to-debug issues. Therefore, NSO checks for such patterns and issues an alarm (default) or a log entry containing a warning and a keypath to the service instance that caused the warning. See [NSO Python VM](nso-vms/nso-python-vm.md) for details.
+As several service invocations may run in parallel, Python self-assignment in service handling code can cause difficult-to-debug issues. Therefore, NSO checks for such patterns and issues an alarm (default) or a log entry containing a warning and a keypath to the service instance that caused the warning. See [NSO Python VM](nso-virtual-machines/nso-python-vm.md) for details.

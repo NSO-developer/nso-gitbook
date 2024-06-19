@@ -65,7 +65,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 * The `root` user is set up for Linux shell access only.
 * The NSO installer, `tailf-hcc` package, application YANG modules, scripts for generating and authenticating RESTCONF tokens, and scripts for running the demo are all available to the NSO and manager containers.
 * `admin` user permissions are set for the NSO directories and files created by the system install, as well as for the `root`, `admin`, and `oper` home directories.
-* The `ncs.crypto_keys` are generated and distributed to all nodes. \
+* The `ncs.crypto_keys` are generated and distributed to all nodes.\
   \
   **Note**: The `ncs.crypto_keys` file is highly sensitive. It contains the encryption keys for all encrypted CDB data, which often includes passwords for various entities, such as login credentials to managed devices.\
   \
@@ -86,8 +86,7 @@ The initialization steps are also performed as `root` for the nodes that make up
   \
   NSO runs as the non-root `admin` user and, therefore, the `ncs` command is used to start NSO instead of the `/etc/init.d/ncs` and `/etc/profile.d` scripts. The environment variables are copied to a `.pam_environment` file so that the `root` and `admin` users can set the required environment variables when those users access the shell via SSH.
 * The start script is installed as part of the NSO system install, and it can be customized if you would like to use it to start NSO. The available NSO start script variants can be found under `/opt/ncs/current/src/ncs/package-skeletons/etc`. The scripts may provide what you need and can be used as a starting point.
-*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:\
-
+*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:\\
 
     ```
     $ mkdir -p /etc/init.d
@@ -118,8 +117,6 @@ The initialization steps are also performed as `root` for the nodes that make up
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
 *   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
-
-
 
     **Note**: The SSL certificates that NSO generates are self-signed:
 
@@ -246,11 +243,11 @@ Thus, it is usually not good enough to control the NED trace from `/devices/glob
 
 ### Python Logs <a href="#d5e7999" id="d5e7999"></a>
 
-While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../development/concepts/nso-vms/nso-python-vm.md#debugging-of-python-packages) for more details.
+While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../development/core-concepts/nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages) for more details.
 
 ### Java Logs <a href="#d5e8006" id="d5e8006"></a>
 
-User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../development/concepts/nso-vms/nso-java-vm.md#logging) in Java VM for more details.
+User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../development/core-concepts/nso-virtual-machines/nso-java-vm.md#logging) in Java VM for more details.
 
 ### Internal NSO Log <a href="#d5e8011" id="d5e8011"></a>
 

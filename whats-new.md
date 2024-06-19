@@ -52,7 +52,7 @@ Documentation Updates:
 
 <summary><strong>Nano Service Usability</strong></summary>
 
-Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/concepts/nano-services-staged-provisioning.md)) streamline their development and use:
+Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/core-concepts/nano-services-staged-provisioning.md)) streamline their development and use:
 
 * The `ncs-make-package` command now supports the `--nano-skeleton [python/java]` option.
 * The functionality of `self-as-service-status` is now the default.
@@ -90,6 +90,6 @@ The old NED Development document has been updated and split into two parts. The 
 Documentation Updates:
 
 * Added [NED Administration](administration/management/ned-administration.md) on managing and using NEDs.
-* Added [NED Development](development/development/developing-neds/) on the creation of new NEDs.
+* Added [NED Development](development/advanced-development/developing-neds/) on the creation of new NEDs.
 
 </details>

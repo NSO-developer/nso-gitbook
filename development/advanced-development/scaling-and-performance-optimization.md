@@ -132,7 +132,7 @@ The time it takes to complete a transaction is certainly an important performanc
 
 In practice and as the figure shows, some parts must still be processed sequentially to ensure transactional properties. However, there is a significant gain in the overall time it takes to process all transactions in a busy system, even though each might take a little longer individually due to the concurrency overhead.
 
-Throughput then becomes a more relevant metric. It is the number of requests or transactions that the system can process in a given time unit. While throughput is still related to individual transaction times, other factors also come into play. An important one is the way in which NSO implements concurrency and the interaction between the transaction system and your, user, code. Designing for transaction throughput is covered in detail later in this section, and the NSO concurrency model is detailed in [NSO Concurrency Model](../concepts/nso-concurrency-model.md).
+Throughput then becomes a more relevant metric. It is the number of requests or transactions that the system can process in a given time unit. While throughput is still related to individual transaction times, other factors also come into play. An important one is the way in which NSO implements concurrency and the interaction between the transaction system and your, user, code. Designing for transaction throughput is covered in detail later in this section, and the NSO concurrency model is detailed in [NSO Concurrency Model](../core-concepts/nso-concurrency-model.md).
 
 The section provides guidance on identifying transaction conflicts and what affects their occurrence, so you can make your code more resistant to producing them. Conflicts arise more frequently on busier systems and negatively affect throughput, which makes them a good candidate for optimization.
 
@@ -144,7 +144,7 @@ Depending on the specifics of the server running NSO, additional performance imp
 
 If you are experiencing high resource utilization, such as memory and CPU usage, while individual transactions are optimized to execute fast and the rate of conflicts is low, it's possible you are starting to see the level of demand that pushes the limits of this system.
 
-First, you should try adding more resources, in a scale-up manner, if possible. At the same time, you might also have some services that are using an older, less performant user code execution model. For example, the way Python code is executed is controlled by the callpoint-model option, described in [The `application` Component](../concepts/nso-vms/nso-python-vm.md#ncs.development.pythonvm.cthread), which you should ensure is set to the most performant setting.
+First, you should try adding more resources, in a scale-up manner, if possible. At the same time, you might also have some services that are using an older, less performant user code execution model. For example, the way Python code is executed is controlled by the callpoint-model option, described in [The `application` Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread), which you should ensure is set to the most performant setting.
 
 Regardless, a single system cannot scale indefinitely. After you have exhausted all other options, you will need to “scale out,” that is, split the workload across multiple NSO instances. You can achieve this by using the Layered Service Architecture (LSA) approach. But the approach has its trade-offs, so make sure it provides the right benefits in your case. The LSA is further documented in [LSA Overview](../../administration/advanced-topics/layered-service-architecture.md) in Layered Service Architecture.
 
@@ -156,7 +156,7 @@ If NSO is frequently brought out of sync, it can be tempting to invoke `sync-fro
 
 But other alternatives are often better:
 
-* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](../development/developing-services/services-deep-dive.md#ch\_svcref.partialsync).
+* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch\_svcref.partialsync).
 * Using the `devices sync-from` command does not hold the transaction lock and run across devices concurrently, which reduces the total amount of time spent time synchronizing. This is particularly useful for periodic synchronization to lower the risk of being out-of-sync when committing configuration changes.
 * Using the `no-overwrite` commit flag, you can be more lax about being in sync and focus on not overwriting the modified configuration.
 * If the configuration is 100% automated and controlled by NSO alone, using `out-of-sync-behaviour accept`, you can completely ignore if the device is in sync or not.
@@ -264,7 +264,7 @@ One transaction per RFS instance and device will allow each NSO transaction to r
 
 ### Design to Minimize Conflicts <a href="#ncs.development.scaling.throughput.conflicts" id="ncs.development.scaling.throughput.conflicts"></a>
 
-Conflicts between transactions and how to avoid them are described in [Minimizing Concurrency Conflicts](scaling-and-performance-optimization.md#ncs.development.scaling.conflicts) and in detail by the [NSO Concurrency Model](../concepts/nso-concurrency-model.md). While NSO can handle transaction conflicts gracefully with retries, retries affect transaction throughput performance. A simple but effective design pattern to avoid conflicts is to update one device with one Resource Facing Service (RFS) instance where service instances do not read each other's configuration changes.
+Conflicts between transactions and how to avoid them are described in [Minimizing Concurrency Conflicts](scaling-and-performance-optimization.md#ncs.development.scaling.conflicts) and in detail by the [NSO Concurrency Model](../core-concepts/nso-concurrency-model.md). While NSO can handle transaction conflicts gracefully with retries, retries affect transaction throughput performance. A simple but effective design pattern to avoid conflicts is to update one device with one Resource Facing Service (RFS) instance where service instances do not read each other's configuration changes.
 
 <figure><img src="../../images/rfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -404,7 +404,7 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 <figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
-See [Nano Services for Staged Provisioning](../concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../development/developing-nano-services.md) for Nano service documentation.
+See [Nano Services for Staged Provisioning](../core-concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/developing-nano-services.md) for Nano service documentation.
 
 ### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
 

@@ -8,7 +8,7 @@ This section describes the various northbound programmatic APIs in NSO NETCONF, 
 
 NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../operation-and-usage/operations/) and [Web User Interface](../../operation-and-usage/webui.md) respectively.
 
-There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../development/developing-services/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
+There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../introduction-to-automation/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
 
 ## Integrating an External System with NSO <a href="#d5e48" id="d5e48"></a>
 

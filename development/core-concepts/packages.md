@@ -31,7 +31,7 @@ The file layout of a package is:
 
 The `package-meta-data.xml` defines several important aspects of the package, such as the name, dependencies on other packages, the package's components, etc. This will be thoroughly described later in this section.
 
-When NSO starts, it needs to search for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. All .fxs (compiled YANG files) and .ccl (compiled CLI spec files) files found in the directory `load-dir` in a package are loaded. On subsequent startups, NSO will by default only load and start the copied packages - see [Loading Packages](../development/nso-packages.md#loading-packages) for different ways to get NSO to search the load path for changed or added packages.
+When NSO starts, it needs to search for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. All .fxs (compiled YANG files) and .ccl (compiled CLI spec files) files found in the directory `load-dir` in a package are loaded. On subsequent startups, NSO will by default only load and start the copied packages - see [Loading Packages](../advanced-development/nso-packages.md#loading-packages) for different ways to get NSO to search the load path for changed or added packages.
 
 A package usually contains Java code. This Java code is loaded by a class loader in the NSO Java VM. A package that contains Java code must compile the Java code so that the compilation results are divided into .jar files where code, that is supposed to be shared among multiple packages, is compiled into one set of .jar files, and code that is private to the package itself is compiled into another set of .jar files. The shared and the common jar files shall go into the `shared-jar` directory and the `private-jar` directory, respectively. By putting for example the code for a specific service in a private jar, NSO can dynamically upgrade the service without affecting any other service.
 
@@ -237,7 +237,7 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
 * `ncs-max-version` - the latest known NSO version where the package works.
 * `python-package` - Python-specific package data.
   * `vm-name` - the Python VM name for the package. Default is the package `vm-name`. Packages with the same `vm-name` run in the same Python VM. Applicable only when `callpoint-model = threading`.
-  * `callpoint-model` - A Python package runs Services, Nano Services, and Actions in the same OS process. If the `callpoint-model` is set to `multiprocessing` each will get a separate worker process. Running Services, Nano Services, and Actions in parallel can, depending on the application, improve the performance at the cost of complexity. See [The Application Component](nso-vms/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
+  * `callpoint-model` - A Python package runs Services, Nano Services, and Actions in the same OS process. If the `callpoint-model` is set to `multiprocessing` each will get a separate worker process. Running Services, Nano Services, and Actions in parallel can, depending on the application, improve the performance at the cost of complexity. See [The Application Component](nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
 * `directory` - the path to the directory of the package.
 * `templates` - the templates defined by the package.
 * `template-loading-mode` - control if the templates are interpreted in strict or relaxed mode.
@@ -292,7 +292,7 @@ Lots of additional information can be found in the YANG module itself. The manda
 
 #### **NED**
 
-A Network Element Driver component is used southbound of NSO to communicate with managed devices (described in [Network Element Drivers (NEDs](../development/developing-neds/)). The easiest NED to understand is the NETCONF NED which is built into NSO.
+A Network Element Driver component is used southbound of NSO to communicate with managed devices (described in [Network Element Drivers (NEDs](../advanced-development/developing-neds/)). The easiest NED to understand is the NETCONF NED which is built into NSO.
 
 There are four different types of NEDs:
 
@@ -301,7 +301,7 @@ There are four different types of NEDs:
 
     The example `$NCS_DIR/examples.ncs/snmp-ned/basic` has a package that has an SNMP NED component.
 * **CLI**: used for CLI devices. The package `$NCS_DIR/packages/neds/cisco-ios` is an example of a package that has a CLI NED component.
-* **Generic**: used for generic NED devices. The example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` has a package called `xml-rpc` which defines a NED component of type generic_._
+* **Generic**: used for generic NED devices. The example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` has a package called `xml-rpc` which defines a NED component of type generic\_.\_
 
 A CLI NED and a generic NED component must also come with additional user-written Java code, whereas a NETCONF NED and an SNMP NED have no Java code.
 
@@ -326,7 +326,7 @@ The `Stats` class here implements a read-only data provider. See [DP API](api-ov
 
 The `callback` type of component is used for a wide range of callback-type Java applications, where one of the most important are the Service Callbacks. The following list of Java callback annotations applies to callback components.
 
-* `ServiceCallback` to implement service-to-device mappings. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/4-rfs-service` See [Developing NSO Services](../development/developing-services/) for a thorough introduction to services.
+* `ServiceCallback` to implement service-to-device mappings. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/4-rfs-service` See [Developing NSO Services](../advanced-development/developing-services/) for a thorough introduction to services.
 * `ActionCallback` to implement user-defined `tailf:actions` or YANG RPCs. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/2-actions`.
 * `DataCallback` to implement the data getters and setters for a data provider. See the example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/3-aggregated-stats`.
 * `TransCallback` to implement the transaction portions of a data provider callback. See the example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/3-aggregated-stats`.
@@ -352,7 +352,7 @@ The example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/14-upgrad
 
 ## Creating Packages <a href="#ug.packages.creating" id="ug.packages.creating"></a>
 
-NSO ships with a tool `ncs-make-package` that can be used to create packages. [Package Development](../development/nso-packages.md) discusses in depth how to develop a package.
+NSO ships with a tool `ncs-make-package` that can be used to create packages. [Package Development](../advanced-development/nso-packages.md) discusses in depth how to develop a package.
 
 ### Creating a NETCONF NED Package <a href="#d5e5156" id="d5e5156"></a>
 
@@ -365,7 +365,7 @@ This use case applies if we have a set of YANG files that define a managed devic
 
 The above command will create a package called `acme` in `./acme`. The `acme` package can be used for two things; managing real `acme` routers, and as input to the `ncs-netsim` tool to simulate a network of `acme` routers.
 
-In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../development/nso-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
+In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/nso-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
 
 ```
  $ ncs-setup --ned-package ./acme --dest ./ncs-project

@@ -31,12 +31,11 @@ The example `examples.ncs/service-provider/mpls-vpn` will be used to explain NSO
 
 <figure><img src="../../images/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
 
-The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.&#x20;
+The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.
 
 The topology information has two parts:
 
-*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\
-
+*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\\
 
     ```
      topology connection c0
@@ -50,8 +49,7 @@ The topology information has two parts:
      link-vlan 77
     !
     ```
-*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\
-
+*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\\
 
     ```
     topology role ce
@@ -118,8 +116,7 @@ qos qos-class MISSION-CRITICAL
 
 Run the example as follows:
 
-1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\
-
+1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\\
 
     ```
     Copy$ 
@@ -127,14 +124,12 @@ Run the example as follows:
 
     \
     This will set up the environment and start the simulated network.
-2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\
-
+2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\\
 
     ```
     Copyncs# 
     ```
-3.  Add another VPN.\
-
+3.  Add another VPN.\\
 
     ```
     top
@@ -175,11 +170,11 @@ We later show how to define this, for now, assume that the job is done.
 
 ### Service Changes <a href="#d5e759" id="d5e759"></a>
 
-When NSO applies services to the network, NSO stores the service configuration along with resulting device configuration changes. This is used as a base for the FASTMAP algorithm which automatically can derive device configuration changes from a service change.&#x20;
+When NSO applies services to the network, NSO stores the service configuration along with resulting device configuration changes. This is used as a base for the FASTMAP algorithm which automatically can derive device configuration changes from a service change.
 
 **Example 1**
 
-Going back to the example L3 VPN above, any part of `volvo` VPN instance can be modified.&#x20;
+Going back to the example L3 VPN above, any part of `volvo` VPN instance can be modified.
 
 A simple change like changing the `as-number` on the service results in many changes in the network. NSO does this automatically.
 
@@ -201,9 +196,9 @@ ncs(config-l3vpn-volvo)# commit
 
 **Example 2**
 
-Let us look at a more challenging modification.&#x20;
+Let us look at a more challenging modification.
 
-A common use case is of course to add a new CE device and add that as an end-point to an existing VPN. Below is the sequence to add two new CE devices and add them to the VPNs. (In the CLI snippets below we omit the prompt to enhance readability).&#x20;
+A common use case is of course to add a new CE device and add that as an end-point to an existing VPN. Below is the sequence to add two new CE devices and add them to the VPNs. (In the CLI snippets below we omit the prompt to enhance readability).
 
 First, we add them to the topology:
 
@@ -260,7 +255,7 @@ Finally, commit the configuration to the network
 
 ### Service Impacting Out-of-band Changes <a href="#d5e779" id="d5e779"></a>
 
-Next, we will show how NSO can be used to check if the service configuration in the network is up to date.&#x20;
+Next, we will show how NSO can be used to check if the service configuration in the network is up to date.
 
 In a new terminal window, we connect directly to the device `ce0` which is a Cisco device emulated by the tool `ncs-netsim`.
 
@@ -637,7 +632,7 @@ To have NSO deploy services across devices, two pieces are needed:
 
 ### Defining the Service Model <a href="#d5e881" id="d5e881"></a>
 
-The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/nso-packages.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the `1-simulated-cisco-ios/` example. Make sure that you have stopped any running NSO and netsim.&#x20;
+The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/nso-packages.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the `1-simulated-cisco-ios/` example. Make sure that you have stopped any running NSO and netsim.
 
 Navigate to the simulated ios directory and create a new package for the VLAN service model:
 
@@ -1164,7 +1159,7 @@ A limitation in the scenarios described so far is that the mapping definition co
 
 Nano services using Reactive FASTMAP handle these scenarios with an executable plan that the system can follow to provision the service. The general idea is to implement the service as several smaller (nano) steps or stages, by using reactive FASTMAP and provide a framework to safely execute actions with side effects.
 
-The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../development/development/developing-nano-services.md).
+The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../development/introduction-to-automation/developing-nano-services.md).
 
 ## Reconciling Existing Services <a href="#d5e1032" id="d5e1032"></a>
 

@@ -113,12 +113,12 @@ NSO's AAA authentication is not used in the following cases:
 
 *   When NETCONF uses an external SSH daemon, such as OpenSSH.
 
-    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs.
-* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
+    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs.
+* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
 *   When the CLI uses an external SSH daemon, such as OpenSSH, or a telnet daemon.
 
     In this case, the CLI session is initiated through the command **ncs\_cli**. An important special case here is when a user has logged in to the host and invokes the command `ncs_cli` from the shell. In NSO deployments, it is crucial to consider this case. If non-trusted users have shell access to the host, the `NCS_IPC_ACCESS_FILE` feature as described in [Restricting Access to IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) must be used.
-* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/concepts/northbound-apis.md#the-nso-snmp-agent) in Northbound APIs.
+* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/core-concepts/northbound-apis.md#the-nso-snmp-agent) in Northbound APIs.
 * When the method `Maapi.startUserSession()` is used without a preceding call of `Maapi.authenticate()`.
 
 ### Public Key Login <a href="#ug.aaa.public_key_login" id="ug.aaa.public_key_login"></a>
@@ -486,7 +486,7 @@ Compared to external authentication, the Package Authentication mechanism allows
 Authentication packages are NSO packages with the required content of an executable file `scripts/authenticate`. This executable basically follows the same API, and limitations, as the external auth script, but with a different input format and some additional functionality. Other than these requirements, it is possible to customize the package arbitrarily.
 
 {% hint style="info" %}
-Package authentication is supported for Single Sign-On (see [Single Sign-On](../../development/development/web-ui-development.md#single-sign-on-sso) in Web UI), JSON-RPC, and RESTCONF. Note that Single Sign-On and (non-batch) JSON-RPC allow all functionality while the RESTCONF interface will treat anything other than a "`accept_username`" reply from the package as if authentication failed!
+Package authentication is supported for Single Sign-On (see [Single Sign-On](../../development/advanced-development/web-ui-development/#single-sign-on-sso) in Web UI), JSON-RPC, and RESTCONF. Note that Single Sign-On and (non-batch) JSON-RPC allow all functionality while the RESTCONF interface will treat anything other than a "`accept_username`" reply from the package as if authentication failed!
 {% endhint %}
 
 Package authentication is enabled by setting the `ncs.conf` options `/ncs-config/aaa/package-authentication/enabled` to true, and adding the package by name in the `/ncs-config/aaa/package-authentication/packages` list. The order of the configured packages is the order that the packages will be used when attempting to authenticate a user. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
@@ -1406,7 +1406,7 @@ The local installation variant, targeting development only, defines two users, `
 The default `aaa_init.xml` file provided with the NSO system installation must not be used as-is in a deployment without reviewing and verifying that every NACM rule in the file matches
 {% endhint %}
 
-Normally the AAA data will be stored as configuration in CDB. This allows for changes to be made through NSO's transaction-based configuration management. In this case, the AAA cache will be updated automatically when changes are made to the AAA data. If changing the AAA data via NSO's configuration management is not possible or desirable, it is alternatively possible to use the CDB operational data store for AAA data. In this case, the AAA cache can be updated either explicitly e.g. by using the `maapi_aaa_reload()` function, see the [confd\_lib\_maapi(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd\_lib\_maapi) in the Manual Pages manual page, or by triggering a subscription notification by using the subscription lock when updating the CDB operational data store, see [Using CDB](../../development/concepts/using-cdb.md) in Development.
+Normally the AAA data will be stored as configuration in CDB. This allows for changes to be made through NSO's transaction-based configuration management. In this case, the AAA cache will be updated automatically when changes are made to the AAA data. If changing the AAA data via NSO's configuration management is not possible or desirable, it is alternatively possible to use the CDB operational data store for AAA data. In this case, the AAA cache can be updated either explicitly e.g. by using the `maapi_aaa_reload()` function, see the [confd\_lib\_maapi(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd\_lib\_maapi) in the Manual Pages manual page, or by triggering a subscription notification by using the subscription lock when updating the CDB operational data store, see [Using CDB](../../development/core-concepts/using-cdb.md) in Development.
 
 ### Hiding the AAA Tree <a href="#d5e6817" id="d5e6817"></a>
 

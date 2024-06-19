@@ -67,7 +67,7 @@ A new instance typically needs a few things to be useful:
 
 In its simplest form, the `ncs-setup` invocation requires only a destination directory. However, you can specify additional packages to use with the `--package` option. Use the option to add as many packages as you need.
 
-Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory and NSO will load it at the first start, as described in [Initialization Files](../concepts/cdb-and-yang.md#d5e268).
+Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory and NSO will load it at the first start, as described in [Initialization Files](../introduction-to-automation/cdb-and-yang.md#d5e268).
 
 NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
 

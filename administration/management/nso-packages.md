@@ -52,7 +52,7 @@ When reloading packages, NSO will give a warning when the upgrade looks suspicio
 
 If a warning has been triggered it is a strong recommendation to fix the root cause. If all of the warnings are intended, it is possible to proceed with `packages reload force` command.
 
-In some specific situations, upgrading a package with newly added custom validation points in the data model may produce an error similar to `no registration found for callpoint NEW-VALIDATION/validate` or simply `application communication failure`, resulting in an aborted upgrade. See [New Validation Points](../../development/concepts/using-cdb.md#cdb.upgrade-add-vp) on how to proceed.
+In some specific situations, upgrading a package with newly added custom validation points in the data model may produce an error similar to `no registration found for callpoint NEW-VALIDATION/validate` or simply `application communication failure`, resulting in an aborted upgrade. See [New Validation Points](../../development/core-concepts/using-cdb.md#cdb.upgrade-add-vp) on how to proceed.
 
 In some cases, we may want NSO to do the same operation as the `reload` action at NSO startup, i.e. copy all packages from the load path before loading, even though the private directory copy already exists. This can be achieved in the following ways:
 

@@ -685,7 +685,7 @@ define([
 The Single Sign-On functionality enables users to log in via HTTP-based northbound APIs with a single sign-on authentication scheme, such as SAMLv2. Currently, it is only supported for the JSON-RPC northbound interface.
 
 {% hint style="info" %}
-For Single Sign-On to work, the Package Authentication needs to be enabled, see [Package Authentication](../../administration/management/aaa-infrastructure.md#ug.aaa.packageauth)).
+For Single Sign-On to work, the Package Authentication needs to be enabled, see [Package Authentication](../../../administration/management/aaa-infrastructure.md#ug.aaa.packageauth)).
 {% endhint %}
 
 When enabled, the endpoint `/sso` is made public and handles Single Sign-on attempts.
@@ -712,4 +712,4 @@ A client attempting single sign-on authentication should request the `/sso` endp
 
 ## Web Server
 
-An embedded basic web server can be used to deliver static and Common Gateway Interface (CGI) dynamic content to a web client, such as a web browser. See [Web Server](../connected-topics/web-server.md) for more information.
+An embedded basic web server can be used to deliver static and Common Gateway Interface (CGI) dynamic content to a web client, such as a web browser. See [Web Server](../../connected-topics/web-server.md) for more information.

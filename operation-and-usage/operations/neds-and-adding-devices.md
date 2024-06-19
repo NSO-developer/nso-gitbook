@@ -48,7 +48,7 @@ The core parts of a NED are:
     * For SNMP devices, NSO generates the model from the MIBs.
     * For CLI devices, the NED designer writes the YANG to map the CLI.&#x20;
 
-    NSO only cares about the data that is in the model for the NED. The rest is ignored. See the [NED documentation](../../development/development/developing-neds/) to learn more about what is covered by the NED.
+    NSO only cares about the data that is in the model for the NED. The rest is ignored. See the [NED documentation](../../development/advanced-development/developing-neds/) to learn more about what is covered by the NED.
 * **Code:** For NETCONF and SNMP devices, there is no code. For CLI devices there is a minimum of code managing connecting over SSH/Telnet and looking for version strings. The rest is auto-rendered from the data model.
 
 There are four categories of NEDs depending on the device interface:
