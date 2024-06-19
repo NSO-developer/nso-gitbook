@@ -404,7 +404,7 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 <figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
-See [Nano Services for Staged Provisioning](../core-concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/developing-nano-services.md) for Nano service documentation.
+See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
 ### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
 

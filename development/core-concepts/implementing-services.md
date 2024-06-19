@@ -4,77 +4,6 @@ description: Explore service development in detail.
 
 # Implementing Services
 
-Services are the cornerstone of network automation with NSO. A service is not just a reusable recipe for provisioning network configurations; it allows you to manage the full configuration life-cycle with minimal effort.
-
-This section examines in greater detail how services work, how to design them, and the different ways to implement them.
-
-{% hint style="success" %}
-For a quicker introduction and a simple showcase of services, see [Develop a Simple Service](../introduction-to-automation/creating-a-service.md).
-{% endhint %}
-
-## Introduction <a href="#ch_services.intro" id="ch_services.intro"></a>
-
-In NSO, the term service has a special meaning and represents an automation construct that orchestrates create, modify, and delete of a service instance into the resulting native commands to devices in the network. In its simplest form, a service takes some input parameters and maps them to device-specific configurations. It is a recipe or a set of instructions.
-
-Much like you can bake many cakes using a single cake recipe, you can create many service instances using the same service. But unlike cakes, having the recipe produce exactly the same output, is not very useful. That is why service instances define a set of input parameters, which the service uses to customize the produced configuration.
-
-A network engineer on the CLI, or an API call from a northbound system, provides the values for input parameters when requesting a new service instance, and NSO uses the service recipe, called a 'service mapping', to configure the network.
-
-<figure><img src="../../images/services-intro.png" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure>
-
-A similar process takes place when deleting the service instance or modifying the input parameters. The main task of a service is therefore: from a given set of input parameters, calculate the minimal set of device operations to achieve the desired service change. Here, it is very important that the service supports any change; create, delete, and update of any service parameter.
-
-Device configuration is usually the primary goal of a service. However, there may be other supporting functions that are expected from the service, such as service-specific actions. The complete service application, implementing all the service functionality, is packaged in an NSO service package.
-
-The following definitions are used throughout this section:
-
-* **Service type**: Often referred to simply as a service, denotes a specific type of service, such as "L2 VPN", "L3 VPN", "Firewall", or "DNS".
-* **Service instance**: A specific instance of a service type, such as "L3 VPN for ACME" or "Firewall for user X".
-* **Service model**: The schema definition for a service type, defined in YANG. It specifies the names and format of input parameters for the service.
-* **Service mapping**: The instructions that implement a service by mapping the input parameters for a service instance to device configuration.
-* **Device configuration**: Network devices are configured to perform network functions. A service instance results in corresponding device configuration changes.
-* **Service application**: The code and models implementing the complete service functionality, including service mapping, actions, models for auxiliary data, and so on.
-
-## Service Mapping <a href="#d5e1405" id="d5e1405"></a>
-
-Developing a service that transforms a service instance request to the relevant device configurations is done differently in NSO than in most other tools on the market. As a service developer, you create a mapping from a YANG service model to the corresponding device YANG model.
-
-This is a declarative, model-to-model mapping. Irrespective of the underlying device type and its native device interface, the mapping is towards a YANG device model and not the native CLI (or any other protocol/API). As you write the service mapping, you do not have to worry about the syntax of different CLI commands or in which order these commands are sent to the device. It is all taken care of by the NSO device manager and device NEDs. Implementing a service in NSO is reduced to transforming the input data structure, described in YANG, to device data structures, also described in YANG.
-
-Who writes the models?
-
-* Developing the service model is part of developing the service application and is covered later in this section.
-* Every device NED comes with a corresponding device YANG model. This model has been designed by the NED developer to capture the configuration data that is supported by the device.
-
-A service application then has two primary artifacts: a YANG service model and a mapping definition to the device YANG, as illustrated in the following figure.
-
-<figure><img src="../../images/services-mapping.png" alt="" width="375"><figcaption><p>Service Model and Mapping</p></figcaption></figure>
-
-To reiterate:
-
-* The mapping is not defined using workflows, or sequences of device commands.
-* The mapping is not defined in the native device interface language.
-
-This approach may seem somewhat unorthodox at first, but allows NSO to streamline and greatly simplify how you implement services.
-
-A common problem for traditional automation systems is that a set of instructions needs to be defined for every possible service instance change. Take for example a VPN service. During a service life cycle, you want to:
-
-1. Create the initial VPN.
-2. Add a new site or leg to the VPN.
-3. Remove a site or leg from the VPN.
-4. Modify the parameters of a VPN leg, such as the IP addresses used.
-5. Change the interface used for the VPN on a device.
-6. ...
-7. Delete the VPN.
-
-The possible run-time changes for an existing service instance are numerous. If a developer must define instructions for every possible change, such as a script or a workflow, the task is daunting, error-prone, and never-ending.
-
-NSO reduces this problem to a single data-mapping definition for the "create" scenario. At run-time, NSO renders the minimum resulting change for any possible change in the service instance. It achieves this with the FASTMAP algorithm.
-
-Another challenge in traditional systems is that a lot of code goes into managing error scenarios. The NSO built-in transaction manager takes that burden away from the developer of the service application by providing automatic rollback of incomplete changes.
-
-Another benefit of this approach is that NSO can automatically generate the northbound APIs and database schema from the YANG models, enabling a true DevOps way of working with service models. A new service model can be defined as part of a package and loaded into NSO. An existing service model can be modified and the package upgraded, and all northbound APIs and User Interfaces are automatically regenerated to reflect the new or updated models.
-
 ## A Template is All You Need <a href="#ch_services.just_template" id="ch_services.just_template"></a>
 
 To demonstrate the simplicity a pure model-to-model service mapping affords, let us consider the most basic approach to providing the mapping: the service XML template. The XML template is an XML-encoded file that tells NSO what configuration to generate when someone requests a new service instance.
@@ -1536,14 +1465,14 @@ The services discussed previously in this section were modeled to give all requi
 * Allocating a resource from an external system, such as an IP address, or generating an authentication key file using an external command. It is impossible to do this allocation from within the normal FASTMAP `create()` code since there is no way to deallocate the resource on commit, abort, or failure and when deleting the service. Furthermore, the `create()` code runs within the transaction lock. The time spent in services `create()` code should be as short as possible.
 * The service requires the start of one or more Virtual Machines, Virtual Network Functions. The VMs do not yet exist, and the `create()` code needs to trigger something that starts the VMs, and then later, when the VMs are operational, configure them.
 
-The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](nano-services-staged-provisioning.md). The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
+The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](nano-services.md). The example in `examples.ncs/development-guide/nano-services/netsim-sshkey` implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
 
 1. Generates the NSO SSH client authentication key files using the OpenSSH `ssh-keygen` utility from a nano service side-effect action implemented in Python.
 2. Distributes the public key to the netsim (ConfD) network elements to be stored as an authorized key using a Python service `create()` callback.
 3. Configures NSO to use the public key for authentication with the netsim network elements using a Python service `create()` callback and service template.
 4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in **connect** action.
 
-Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../introduction-to-automation/developing-nano-services.md).
+Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md).
 
 The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the `examples.ncs/development-guide/nano-services` directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
 
@@ -1552,7 +1481,7 @@ The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the `e
 3. Mount the device in the NSO device tree.
 4. Fetch the ssh-keys and perform a `sync-from` on the newly created device.
 
-See the `mpls-vpn-vrouter` example for details on how the `l3vpn.yang` YANG model `l3vpn-plan` `pe-created` state and `vm-manager.yang` `vm-plan` for more information. `vm-manager` plan states with a nano-callback have their callbacks implemented by the `escstart.java` `escstart` class. Nano services are documented in [Nano Services for Staged Provisioning](nano-services-staged-provisioning.md).
+See the `mpls-vpn-vrouter` example for details on how the `l3vpn.yang` YANG model `l3vpn-plan` `pe-created` state and `vm-manager.yang` `vm-plan` for more information. `vm-manager` plan states with a nano-callback have their callbacks implemented by the `escstart.java` `escstart` class. Nano services are documented in [Nano Services for Staged Provisioning](nano-services.md).
 
 ## Service Troubleshooting <a href="#ncs.development.services.tshoot" id="ncs.development.services.tshoot"></a>
 
@@ -1571,7 +1500,7 @@ You can use these general steps to give you a high-level idea of how to approach
 1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../administration/management/system-management/#ug.sys\_mgmt.tshoot) in Administration.\
    \
    If you encounter a blank CLI when you connect to NSO you must also make sure that your user is added to the correct NACM group (for example `ncsadmin`) and that the rules for this group allow the user to view and edit your service through CLI. You can find out more about groups and authorization rules in [AAA Infrastructure](../../administration/management/aaa-infrastructure.md) in Administration.
-2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../advanced-development/nso-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
+2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../advanced-development/developing-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
     \
     Compiling packages uses the `ncsc` compiler internally, which means that this part of the process reveals any syntax errors that might exist in YANG models or Java code. You do not need to rely on `ncsc` for compile-level errors though and should use specialized tools such as `pyang` or `yanger` for YANG, and one of the many IDEs and syntax validation tools for Java.
 
@@ -1640,7 +1569,7 @@ You can use these general steps to give you a high-level idea of how to approach
     admin@ncs(config)# xpath eval /devices/device
     admin@ncs(config)# xpath eval /devices/device[name='r0']
     ```
-4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-virtual-machines/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../advanced-development/nso-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
+4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-virtual-machines/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../advanced-development/developing-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
 5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.logging) in Administration.
 
     \

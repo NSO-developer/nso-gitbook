@@ -31,7 +31,7 @@ The file layout of a package is:
 
 The `package-meta-data.xml` defines several important aspects of the package, such as the name, dependencies on other packages, the package's components, etc. This will be thoroughly described later in this section.
 
-When NSO starts, it needs to search for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. All .fxs (compiled YANG files) and .ccl (compiled CLI spec files) files found in the directory `load-dir` in a package are loaded. On subsequent startups, NSO will by default only load and start the copied packages - see [Loading Packages](../advanced-development/nso-packages.md#loading-packages) for different ways to get NSO to search the load path for changed or added packages.
+When NSO starts, it needs to search for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. All .fxs (compiled YANG files) and .ccl (compiled CLI spec files) files found in the directory `load-dir` in a package are loaded. On subsequent startups, NSO will by default only load and start the copied packages - see [Loading Packages](../advanced-development/developing-packages.md#loading-packages) for different ways to get NSO to search the load path for changed or added packages.
 
 A package usually contains Java code. This Java code is loaded by a class loader in the NSO Java VM. A package that contains Java code must compile the Java code so that the compilation results are divided into .jar files where code, that is supposed to be shared among multiple packages, is compiled into one set of .jar files, and code that is private to the package itself is compiled into another set of .jar files. The shared and the common jar files shall go into the `shared-jar` directory and the `private-jar` directory, respectively. By putting for example the code for a specific service in a private jar, NSO can dynamically upgrade the service without affecting any other service.
 
@@ -352,7 +352,7 @@ The example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/14-upgrad
 
 ## Creating Packages <a href="#ug.packages.creating" id="ug.packages.creating"></a>
 
-NSO ships with a tool `ncs-make-package` that can be used to create packages. [Package Development](../advanced-development/nso-packages.md) discusses in depth how to develop a package.
+NSO ships with a tool `ncs-make-package` that can be used to create packages. [Package Development](../advanced-development/developing-packages.md) discusses in depth how to develop a package.
 
 ### Creating a NETCONF NED Package <a href="#d5e5156" id="d5e5156"></a>
 
@@ -365,7 +365,7 @@ This use case applies if we have a set of YANG files that define a managed devic
 
 The above command will create a package called `acme` in `./acme`. The `acme` package can be used for two things; managing real `acme` routers, and as input to the `ncs-netsim` tool to simulate a network of `acme` routers.
 
-In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/nso-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
+In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/developing-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
 
 ```
  $ ncs-setup --ned-package ./acme --dest ./ncs-project

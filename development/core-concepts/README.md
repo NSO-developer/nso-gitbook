@@ -1,6 +1,6 @@
 ---
-description: Learn key concepts in NSO development.
+description: Key concepts in NSO development.
 ---
 
-# Concepts
+# Core Concepts
 

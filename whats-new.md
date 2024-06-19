@@ -52,7 +52,7 @@ Documentation Updates:
 
 <summary><strong>Nano Service Usability</strong></summary>
 
-Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/core-concepts/nano-services-staged-provisioning.md)) streamline their development and use:
+Multiple changes with nano services (documented in [Nano Services for Staged Provisioning](development/core-concepts/nano-services.md)) streamline their development and use:
 
 * The `ncs-make-package` command now supports the `--nano-skeleton [python/java]` option.
 * The functionality of `self-as-service-status` is now the default.

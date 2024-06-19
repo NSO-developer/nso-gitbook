@@ -10,7 +10,7 @@ Another limitation is that the service mapping code must not produce any side ef
 
 Nano services help you overcome these limitations. They implement a service as several smaller (nano) steps or stages, by using a technique called reactive FASTMAP (RFM), and provide a framework to safely execute actions with side effects. Reactive FASTMAP can also be implemented directly, using the CDB subscribers, but nano services offer a more streamlined and robust approach for staged provisioning.
 
-The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services-staged-provisioning.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
+The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
 
 ## Basic Concepts <a href="#d5e9577" id="d5e9577"></a>
 
@@ -128,7 +128,7 @@ class NanoServiceCallbacks(ncs.application.NanoService):
 
 The `component` and `state` parameters allow the function to distinguish calls for different callbacks when registered for more than one.
 
-For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services-staged-provisioning.md#ug.nano\_services.callbacks).
+For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks).
 
 ### Link Plan Outline to Service <a href="#d5e9633" id="d5e9633"></a>
 

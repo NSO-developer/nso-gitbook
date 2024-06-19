@@ -4,7 +4,7 @@ description: Learn about different transaction locks in NSO and their interactio
 
 # Locks
 
-This section explains the different locks that exist in NSO and how they interact. It is important to understand the architecture of NSO with its management backplane, and the transaction state machine as described in [Package Development](../../development/advanced-development/nso-packages.md) to be able to understand how the different locks fit into the picture.
+This section explains the different locks that exist in NSO and how they interact. It is important to understand the architecture of NSO with its management backplane, and the transaction state machine as described in [Package Development](../../development/advanced-development/developing-packages.md) to be able to understand how the different locks fit into the picture.
 
 ## Global Locks <a href="#d5e4197" id="d5e4197"></a>
 
@@ -45,7 +45,7 @@ The NETCONF agent translates the `<lock>` operation into a request for the globa
 
 ## External Data Providers <a href="#d5e4238" id="d5e4238"></a>
 
-Implementing the `lock()` and `unlock()` callbacks is not required of an external data provider. NSO will never try to initiate the `transLock()` state transition (see the transaction state diagram in [Package Development](../../development/advanced-development/nso-packages.md)) towards a data provider while a global lock is taken - so the reason for a data provider to implement the locking callbacks is if someone else can write (or lock for example to take a backup) to the data providers database.
+Implementing the `lock()` and `unlock()` callbacks is not required of an external data provider. NSO will never try to initiate the `transLock()` state transition (see the transaction state diagram in [Package Development](../../development/advanced-development/developing-packages.md)) towards a data provider while a global lock is taken - so the reason for a data provider to implement the locking callbacks is if someone else can write (or lock for example to take a backup) to the data providers database.
 
 ## CDB and Locks <a href="#d5e4245" id="d5e4245"></a>
 

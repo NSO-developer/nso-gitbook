@@ -617,7 +617,7 @@ if __name__ == '__main__':
 
 ## PlanComponent
 
-This class is a helper to support service progress reporting using `plan-data` as part of a Reactive FASTMAP nano service. More info about `plan-data` is found in [Nano Services for Staged Provisioning](../nano-services-staged-provisioning.md).
+This class is a helper to support service progress reporting using `plan-data` as part of a Reactive FASTMAP nano service. More info about `plan-data` is found in [Nano Services for Staged Provisioning](../nano-services.md).
 
 The interface of the `PlanComponent` is identical to the corresponding Java class and supports the setup of plans and setting the transition states.
 
