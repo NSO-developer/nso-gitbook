@@ -58,7 +58,7 @@
   * [Alarm Manager](operation-and-usage/operations/alarm-manager.md)
   * [Plug-and-Play Scripting](operation-and-usage/operations/plug-and-play-scripting.md)
   * [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md)
-  * [Listing Packages](operation-and-usage/operations/viewing-packages.md)
+  * [Listing Packages](operation-and-usage/operations/listing-packages.md)
   * [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md)
   * [Network Simulator](operation-and-usage/operations/network-simulator-netsim.md)
 
