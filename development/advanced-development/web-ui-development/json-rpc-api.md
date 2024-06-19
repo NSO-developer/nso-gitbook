@@ -4,7 +4,7 @@ description: API documentation for JSON-RPC API.
 
 # JSON-RPC API
 
-Protocol Overview
+## Protocol Overview
 
 The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details you need to understand the protocol but a short version is given here:&#x20;
 
