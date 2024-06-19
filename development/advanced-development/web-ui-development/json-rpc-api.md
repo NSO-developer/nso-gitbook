@@ -4,7 +4,7 @@ description: API documentation for JSON-RPC API.
 
 # JSON-RPC API
 
-## Protocol Overview
+Protocol Overview
 
 The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details you need to understand the protocol but a short version is given here:&#x20;
 
@@ -353,7 +353,7 @@ Starts a batch command.
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -365,7 +365,7 @@ A handle to the batch command is returned (equal to `handle` if provided).
 
 <summary><mark style="color:green;"><code>send_cmd_data</code></mark></summary>
 
-Sends data to batch command started with _init\_cmd_
+Sends data to batch command started with `init_cmd`_._
 
 **Params**
 
@@ -374,7 +374,7 @@ Sends data to batch command started with _init\_cmd_
  "data": <string>}
 ```
 
-The `handle` param is as returned from a call to `init_cmd` and the _data_ param is what is to be sent to the batch command started with `init_cmd`.
+The `handle` param is as returned from a call to `init_cmd` and the `data` param is what is to be sent to the batch command started with `init_cmd`.
 
 **Result**
 
@@ -400,7 +400,7 @@ Signals that a batch command can start to generate output.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -408,7 +408,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -424,7 +424,7 @@ Suspends output from a batch command
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -448,7 +448,7 @@ Resumes a batch command started with `init_cmd`_._
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -456,7 +456,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -472,7 +472,7 @@ Stops a batch command.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -480,10 +480,134 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 </details>
 
 ## Methods - Commands - Subscribe <a href="#methods-commands-subscribe" id="methods-commands-subscribe"></a>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_subscriptions</code></mark></summary>
+
+Get a list of the session's subscriptions
+
+**Params**
+
+```json
+{}
+```
+
+**Result**
+
+```json
+{"subscriptions": <array of subscription>}
+
+subscription =
+ {"params": <object>,
+  "comet_id": <string>,
+  "handle": <string>,
+  "tag": <"string">,
+  "started": <boolean>,
+  "stopped": <boolean; should be always false>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>subscribe_cdboper</code></mark></summary>
+
+Starts a subscriber to operational data in CDB. Changes done to configuration data will not be seen here.
+
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
+
+**Note**: The `unsubscribe` method should be used to end the subscription.
+
+**Note**: As soon as a subscription message is generated it will be sent as a message and turn up as result to your polling call to the `comet` method.
+
+**Params**
+
+```json
+{"comet_id": <string>,
+ "handle": <string, optional>,
+ "path": <string>}
+```
+
+The `path` param is a keypath restricting the subscription messages to only be about changes done under that specific keypath.
+
+**Result**
+
+```json
+{"handle": <string>}
+```
+
+A handle to the subscription is returned (equal to `handle` if provided).
+
+Subscription messages will end up in the `comet` method and the format of that message will be an array of changes of the same type as returned by the `subscribe_changes` method. See below.
+
+**Errors (specific)**
+
+```json
+{"type": "db.cdb_operational_not_enabled"}
+```
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
+
+<details>
+
+<summary></summary>
+
+
+
+</details>
