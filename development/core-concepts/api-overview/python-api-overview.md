@@ -617,7 +617,7 @@ if __name__ == '__main__':
 
 ## PlanComponent
 
-This class is a helper to support service progress reporting using `plan-data` as part of a Reactive FASTMAP nano service. More info about `plan-data` is found in [Nano Services for Staged Provisioning](../nano-services-staged-provisioning.md).
+This class is a helper to support service progress reporting using `plan-data` as part of a Reactive FASTMAP nano service. More info about `plan-data` is found in [Nano Services for Staged Provisioning](../nano-services.md).
 
 The interface of the `PlanComponent` is identical to the corresponding Java class and supports the setup of plans and setting the transition states.
 
@@ -713,7 +713,7 @@ pyaction/
 
 This example action handler takes a number as input, doubles it, and returns the result.
 
-When debugging Python packages refer to [Debugging of Python Packages](../nso-vms/nso-python-vm.md#debugging-of-python-packages).
+When debugging Python packages refer to [Debugging of Python Packages](../nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages).
 
 {% code title="Example: Action Server Implementation" %}
 ```
@@ -802,7 +802,7 @@ pyservice/
 
 This example has some code added for the service logic, including a service template.
 
-When debugging Python packages, refer to [Debugging of Python Packages](../nso-vms/nso-python-vm.md#debugging-of-python-packages).
+When debugging Python packages, refer to [Debugging of Python Packages](../nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages).
 
 Add some service logic to the `cb_create`:
 
@@ -915,7 +915,7 @@ pyaction/
 
 This example validation point handler accepts all values except `invalid`.
 
-When debugging Python packages refer to [Debugging of Python Packages](../nso-vms/nso-python-vm.md#debugging-of-python-packages).
+When debugging Python packages refer to [Debugging of Python Packages](../nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages).
 
 {% code title="Example: Validation Implementation" %}
 ```

@@ -677,7 +677,7 @@ We can see how the `prepare()` callback goes through all write operations and ac
 
 Both service and action callbacks are fundamental in NSO.
 
-Implementing a service callback is one way of creating a service type. This and other ways of creating service types are in-depth described in the [Package Development](../../advanced-development/nso-packages.md) section.
+Implementing a service callback is one way of creating a service type. This and other ways of creating service types are in-depth described in the [Package Development](../../advanced-development/developing-packages.md) section.
 
 Action callbacks are used to implement arbitrary operations in Java. These operations can be basically anything, e.g. downloading a file, performing some test, resetting alarms, etc, but they should not modify the modeled configuration.
 

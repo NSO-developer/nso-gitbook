@@ -108,7 +108,7 @@ Contains log entries for important service events, such as those related to the 
 
 <summary><code>plan-location</code> leaf</summary>
 
-Location of the plan data if the service plan is used. See [Nano Services for Staged Provisioning](../../core-concepts/nano-services-staged-provisioning.md) for more on service plans and using alternative plan locations.
+Location of the plan data if the service plan is used. See [Nano Services for Staged Provisioning](../../core-concepts/nano-services.md) for more on service plans and using alternative plan locations.
 
 </details>
 

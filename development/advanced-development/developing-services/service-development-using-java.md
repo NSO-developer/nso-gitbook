@@ -303,7 +303,7 @@ Possible completions:
   standard  trace  verbose
 ```
 
-For more details on the Java VM settings, see [NSO Java VM](../../core-concepts/nso-vms/nso-java-vm.md).
+For more details on the Java VM settings, see [NSO Java VM](../../core-concepts/nso-virtual-machines/nso-java-vm.md).
 
 ### A First Look at Java Development <a href="#d5e8420" id="d5e8420"></a>
 
