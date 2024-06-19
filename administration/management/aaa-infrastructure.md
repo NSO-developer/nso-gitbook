@@ -1100,7 +1100,7 @@ It might be desirable to deny everything for a user group and only allow access 
 
 ### Device Group Authorization <a href="#d5e6700" id="d5e6700"></a>
 
-In deployments with many devices, it can become cumbersome to handle data authorization per device. To help with this there is a rule type that works on device group membership (for more on device groups, see [Device Groups](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.device\_groups)). To do this, devices are added to different device groups, and the rule type `device-group-rule` is used.
+In deployments with many devices, it can become cumbersome to handle data authorization per device. To help with this there is a rule type that works on device group membership (for more on device groups, see [Device Groups](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.device\_groups)). To do this, devices are added to different device groups, and the rule type `device-group-rule` is used.
 
 The IETF NACM rule type is augmented with a new rule type named `device-group-rule` which contains a leafref to the device groups. See the following example.
 

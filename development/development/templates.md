@@ -612,7 +612,7 @@ However, in some situations, you may not desire to change the context. You can a
 
 ## Namespaces and Multi-NED Support <a href="#ch_templates.multined" id="ch_templates.multined"></a>
 
-When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
+When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
 
 Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](developing-services/implementing-services.md#ch\_services.devs\_types)).
 

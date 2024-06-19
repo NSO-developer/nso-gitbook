@@ -20,7 +20,7 @@ A new container image, called Development Image, is available from [Cisco Softwa
 
 Documentation Updates:
 
-* Updated and expanded the [Containerized NSO](administration/deployment/containerized-nso.md) describing the new image flavor.
+* Updated and expanded the [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) describing the new image flavor.
 
 </details>
 

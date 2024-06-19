@@ -84,7 +84,7 @@ List of customer services (defined under `/services/customer-service`) that this
 
 <summary><code>commit-queue</code> container</summary>
 
-Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
+Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
 
 </details>
 
@@ -127,11 +127,11 @@ When applied, a transaction goes through multiple stages, as shown by the progre
 3. prepare
 4. commit
 
-These phases deal with how the network-wide transactions work:&#x20;
+These phases deal with how the network-wide transactions work:
 
-The validation phase prepares and validates the new configuration (including NSO copy of device configurations), then the CDB processes the changes and prepares them for local storage in the write-start phase.&#x20;
+The validation phase prepares and validates the new configuration (including NSO copy of device configurations), then the CDB processes the changes and prepares them for local storage in the write-start phase.
 
-The prepare stage sends out the changes to the network through the Device Manager and the HA system. The changes are staged (e.g. in the candidate data store) and validated if the device supports it, otherwise, the changes are activated immediately.&#x20;
+The prepare stage sends out the changes to the network through the Device Manager and the HA system. The changes are staged (e.g. in the candidate data store) and validated if the device supports it, otherwise, the changes are activated immediately.
 
 If all systems took the new configuration successfully, enter the commit phase, marking the new NSO configuration as active and activating or committing the staged configuration on remote devices. Otherwise, enter the abort phase, discarding changes, and ask NEDs to revert activated changes on devices that do not support transactions (e.g. without candidate data store).
 
@@ -155,7 +155,7 @@ Then the first, partial validation takes place. It ensures the service input par
 
 Next, NSO runs transaction hooks and performs the necessary transforms, which alter the data before it is saved, for example encrypting passwords. This is also where the Service Manager invokes FASTMAP and service mapping callbacks, recording the resulting changes. NSO takes service write locks in this stage, too.
 
-After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/cli/basic-operations.md#d5e319) in Operation and Usage).
+After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/operations/basic-operations.md#d5e319) in Operation and Usage).
 
 <figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
 
@@ -320,7 +320,7 @@ FASTMAP knows that a particular piece of configuration belongs to a service inst
 
 A well-known solution to this kind of problem is reference counting. NSO uses reference counting by default with the XML templates and Python Maagic API, while in Java Maapi and Navu APIs, the `sharedCreate()`, `sharedSet()`, and `sharedSetValues()` functions need to be used.
 
-When enabled, the reference counter allows FASTMAP algorithm to keep track of the usage and only delete data when the last service instance referring to this data is removed.&#x20;
+When enabled, the reference counter allows FASTMAP algorithm to keep track of the usage and only delete data when the last service instance referring to this data is removed.
 
 Furthermore, containers and list items created using the `sharedCreate()` and `sharedSetValues()` functions also get an additional attribute called `backpointer`. (But this functionality is currently not available for individual leafs.)
 
@@ -425,7 +425,7 @@ This section lists some specific advice for implementing services, as well as an
 
 You may also obtain some useful information by using the `debug service` commit pipe command, such as `commit dry-run | debug service`. The command display the net effect of the service create code, as well as issue warnings about potentially problematic usage of overlapping shared data.
 
-* **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features. \
+* **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features.\
   \
   If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
 *   **Never overwrite service inputs**: Service input parameters capture client intent and a service should never change its own configuration. Such behavior not only muddles the intent but is also temporary when done in the create callback, as the changes are reverted on the next invocation.
@@ -440,8 +440,7 @@ You may also obtain some useful information by using the `debug service` commit 
     Additionally, FASTMAP must store the entire deleted tree and restore it on every service change or re-deploy, only to be deleted again. Depending on the amount of deleted data, this is potentially an expensive operation.
 
     \
-    So, a general rule of thumb is to never use delete in service create code. If an explicit delete is used, `debug service` may display the following warning:\
-
+    So, a general rule of thumb is to never use delete in service create code. If an explicit delete is used, `debug service` may display the following warning:\\
 
     ```
     *** WARNING ***: delete in service create code is unsafe if data is
@@ -459,8 +458,7 @@ You may also obtain some useful information by using the `debug service` commit 
 *   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount) for details.
 
     \
-    In general, you should prefer `sharedCreate()`, `sharedSet()`, and `sharedSetValues()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\
-
+    In general, you should prefer `sharedCreate()`, `sharedSet()`, and `sharedSetValues()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\\
 
     ```
     *** WARNING ***: set in service create code is unsafe if data is

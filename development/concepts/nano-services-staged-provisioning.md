@@ -926,7 +926,7 @@ If an invocation of an RFM loop (for example, a re-deploy) synthesizes the behav
 The following control flow nodes are defined:
 
 * **Selector**: A selector node has a set of children which are synthesized as described above.
-* **Multiplier**: A multiplier has a 'foreach_'_ mechanism that produces a list of elements. For each resulting element, the children are synthesized as described above. This can be used, for example, to create several plan-components of the same type.
+* **Multiplier**: A multiplier has a 'foreach\_'\_ mechanism that produces a list of elements. For each resulting element, the children are synthesized as described above. This can be used, for example, to create several plan-components of the same type.
 
 There is just one type of execution node:
 
@@ -934,13 +934,13 @@ There is just one type of execution node:
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
-<figure><img src="../../images/behave-simple.png" alt="" width="563"><figcaption>Behavior Tree with a Static nano-plan</figcaption></figure>
+<figure><img src="../../images/behave-simple.png" alt="" width="563"><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
 
 Having a selector on root implies that all plan-components are created if they don't have any pre-conditions, or for which the pre-conditions are satisfied.
 
 An example of a more elaborated behavior tree is the following:
 
-<figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption>Elaborated Behavior Tree</figcaption></figure>
+<figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
 
 This behavior tree has a selector node as the root. It will always synthesize the "base-config" plan component and then evaluate then pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 
@@ -1276,7 +1276,7 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
 
 ### Nano Services and Commit Queue
 
-The commit queue feature, described in [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
+The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
 
 When the commit queue is enabled and there are outstanding commit queue items, the network is lagging behind the CDB. The CDB is forward-looking and shows the desired state of the network. Hence, the nano plan shows the desired state as well, since changes to reach this state may not have been pushed to the devices yet.
 
@@ -1297,7 +1297,7 @@ While error recovery helps keeping the network consistent, the end result remain
 * The nano plan is marked as failed by creating the `failed` leaf under the plan.
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
-After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/cli/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 

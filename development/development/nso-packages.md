@@ -198,7 +198,7 @@ A fully simulated router network loaded into NSO, with ConfD simulating the 7 ro
 
 ## Plug-and-play Scripting <a href="#ug.scripting_devel" id="ug.scripting_devel"></a>
 
-With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/cli/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
+With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. See [Plug-and-play Scripting](../../operation-and-usage/operations/plug-and-play-scripting.md) about the scripting concept in general. It is also possible for a developer of an NSO package to enclose scripts in the package.
 
 Scripts defined in an NSO package work pretty much as system-level scripts configured with the `/ncs-config/scripts/dir` configuration parameter. The difference is that the location of the scripts is predefined. The scripts directory must be named `scripts` and must be located in the top directory of the package.
 
@@ -718,7 +718,7 @@ The `ncs-setup --reset` command stops the NSO daemon and resets NSO back to fact
 
 ### Running the NSO Java VM Standalone <a href="#d5e5580" id="d5e5580"></a>
 
-It's possible to tell NSO to not start the NSO Java VM at all. This is interesting in two different scenarios. First is if want to run the NSO Java code embedded in a larger application, such as a Java Application Server (JBoss), the other is when debugging a package.&#x20;
+It's possible to tell NSO to not start the NSO Java VM at all. This is interesting in two different scenarios. First is if want to run the NSO Java code embedded in a larger application, such as a Java Application Server (JBoss), the other is when debugging a package.
 
 First, we configure NSO to not start the NSO Java VM at all by adding the following snippet to `ncs.conf`:
 
@@ -771,7 +771,7 @@ This will generate two files, `.classpath` and `.project`. If we add this direct
 
 The Eclipse debugger works now as usual, and we can at will, start and stop the Java code. One caveat here that is worth mentioning is that there are a few timeouts between NSO and the Java code that will trigger when we sit in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable all these timeouts.
 
-First, we have three timeouts in `ncs.conf` that matter. Copy the system `ncs.conf` and set the three values of the following to a large value. See man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/ncs-conf) for a detailed description of what those values are.&#x20;
+First, we have three timeouts in `ncs.conf` that matter. Copy the system `ncs.conf` and set the three values of the following to a large value. See man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/ncs-conf) for a detailed description of what those values are.
 
 ```
 /ncs-config/japi/new-session-timeout
@@ -1227,7 +1227,7 @@ The order of the XML entries in a `project-meta-data.xml` must be in the same or
   * `git`
     * `repo`: Default git package repositories.
     * `branch`, `tag`, or `commit` ID.
-* `netsim`:  List netsim devices used by the project to generate a proper Makefile running the `ncs-project setup` script.
+* `netsim`: List netsim devices used by the project to generate a proper Makefile running the `ncs-project setup` script.
   * `device`
   * `prefix`
   * `num-devices`

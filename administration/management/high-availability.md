@@ -379,7 +379,7 @@ Note that while the upgrade is in progress, writes to the CDB are not allowed an
 
 For a `packages ha sync and-reload` example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
-For more details, troubleshooting, and general upgrade recommendations, see [NSO Packages](nso-packages.md) and [Upgrade](../deployment/upgrade-nso.md).
+For more details, troubleshooting, and general upgrade recommendations, see [NSO Packages](nso-packages.md) and [Upgrade](../installation-and-deployment/upgrade-nso.md).
 
 ### Version Upgrade of Cluster Nodes <a href="#ch_ha.raft_upgrade" id="ch_ha.raft_upgrade"></a>
 
@@ -403,7 +403,7 @@ The procedure differentiates between the current leader node versus followers. T
 10. Re-initialize the HA cluster using the `ha-raft create-cluster` action on the node to become the leader.
 11. Finally, verify the cluster's state through the `show ha-raft status` command. Ensure that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically after re-initializing the HA cluster.
 
-For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
+For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../installation-and-deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
 
 For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
 
@@ -450,7 +450,7 @@ In an NSO System Install setup, not only does the shared token need to match bet
 
 The token configured on the secondary node is overwritten with the encrypted token of type `aes-256-cfb-128-encrypted-string` from the primary node when the secondary node connects to the primary. If there is a mismatch between the encrypted-string configuration on the nodes, NSO will not decrypt the HA token to match the token presented. As a result, the primary node denies the secondary node access the next time the HA connection needs to reestablish with a "Token mismatch, secondary is not allowed" error.
 
-See the `upgrade-l2` example, referenced from `examples.ncs/development-guide/high-availability/hcc`, for an example setup and the [Deployment Example](../deployment/deployment-example.md) for a description of the example.
+See the `upgrade-l2` example, referenced from `examples.ncs/development-guide/high-availability/hcc`, for an example setup and the [Deployment Example](../installation-and-deployment/deployment-example.md) for a description of the example.
 
 Also, note that the `ncs.crypto_keys` file is highly sensitive. The file contains the encryption keys for all CDB data that is encrypted on disk. Besides the HA token, this often includes passwords for various entities, such as login credentials to managed devices.
 
@@ -621,7 +621,7 @@ HCC 5.x or later automatically associates VIP addresses with Linux network inter
 
 ### Upgrading <a href="#ug.ha.hcc.upgrade" id="ug.ha.hcc.upgrade"></a>
 
-Since version 5.0, HCC relies on the NSO built-in HA for cluster management and only performs address or route management in reaction to cluster changes. Therefore, no special measures are necessary if using HCC when performing an NSO version upgrade or a package upgrade. Instead, you should follow the standard best practice HA upgrade procedure from [NSO HA Version Upgrade](../deployment/upgrade-nso.md#ch\_upgrade.ha).
+Since version 5.0, HCC relies on the NSO built-in HA for cluster management and only performs address or route management in reaction to cluster changes. Therefore, no special measures are necessary if using HCC when performing an NSO version upgrade or a package upgrade. Instead, you should follow the standard best practice HA upgrade procedure from [NSO HA Version Upgrade](../installation-and-deployment/upgrade-nso.md#ch\_upgrade.ha).
 
 A reference to upgrade examples can be found in the NSO example set under `examples.ncs/development-guide/high-availability/hcc/README`.
 

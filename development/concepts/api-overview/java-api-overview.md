@@ -8,22 +8,11 @@ The NSO Java library contains a variety of APIs for different purposes. In this 
 
 For convenience, the Java build tool Apache ant ([https://ant.apache.org/](https://ant.apache.org/)) is used to run all of the examples. However, this tool is not a requirement for NSO.
 
-General for all APIs is that they communicate with NSO using TCP sockets. This makes it possible to use all APIs from a remote location.&#x20;
+General for all APIs is that they communicate with NSO using TCP sockets. This makes it possible to use all APIs from a remote location.
 
 The following APIs are included in the library:
 
-<table data-header-hidden data-full-width="false">
-<thead><tr><th width="345"></th><th></th></tr></thead>
-<tbody>
-<tr><td><strong>MAAPI (Management Agent API)</strong><br>Northbound interface that is transactional and user session-based. Using this interface both configuration and operational data can be read. Configuration data can be written and committed as one transaction. The API is complete in the way that it is possible to write a new northbound agent using only this interface. It is also possible to attach to ongoing transactions in order to read uncommitted changes and/or modify data in these transactions.</td><td><img src="../../../images/java_maapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>CDB API</strong><br>The southbound interface provides access to the CDB configuration database. Using this interface configuration data can be read. In addition, operational data that is stored in CDB can be read and written. This interface has a subscription mechanism to subscribe to changes. A subscription is specified on a path that points to an element in a YANG model or an instance in the instance tree. Any change under this point will trigger the subscription. CDB has also functions to iterate through the configuration changes when a subscription has been triggered.</td><td><img src="../../../images/java_cdbapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>DP API</strong><br>Southbound interface that enables callbacks, hooks, and transforms. This API makes it possible to provide the service callbacks that handle service-to-device mapping logic. Other usual cases are external data providers for operational data or action callback implementations. There are also transaction and validation callbacks, etc. Hooks are callbacks that are fired when certain data is written and the hook is expected to do additional modifications of data. Transforms are callbacks that are used when complete mediation between two different models is necessary.</td><td><img src="../../../images/java_dpapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>NED API (Network Equipment Driver)</strong><br>Southbound interface that mediates communication for devices that do not speak either NETCONF or SNMP. All prepackaged NEDs for different devices are written using this interface. It is possible to use the same interface to write your own NED. There are two types of NEDs, CLI NEDs and Generic NEDs. CLI NEDs can be used for devices that can be controlled by a Cisco-style CLI syntax, in this case the NED is developed primarily by building a YANG model and a relatively small part in Java. In other cases the Generic NED can be used for any type of communication protocol.</td><td><img src="../../../images/java_nedapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>NAVU API (Navigation Utilities)</strong><br>API that resides on top of the Maapi and Cdb APIs. It provides schema model navigation and instance data handling (read/write). Uses either a Maapi or Cdb context as data access and incorporates a subset of functionality from these (navigational and data read/write calls). Its major use is in service implementations which normally is about navigating device models and setting device data.</td><td><img src="../../../images/java_navuapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>ALARM API</strong><br>Eastbound API that is used both to consume and produce alarms in alignment with the NSO Alarm model. To consume alarms the AlarmSource interface is used. To produce a new alarm the AlarmSink interface is used. There is also a possibility to buffer produced alarms and make asynchronous writes to CDB to improve alarm performance.</td><td><img src="../../../images/java_alarmapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>NOTIF API</strong><br>Northbound API that is used to subscribe to system events from NSO. These events are generated for audit log events, for different transaction states, for HA state changes, upgrade events, user sessions, etc.</td><td><img src="../../../images/java_notifapi.png" alt="" data-size="original"></td></tr>
-<tr><td><strong>HA API (High Availability)</strong><br>Northbound api used to manage a High Availability cluster of NSO instances. An NSO instance can be in one of three states NONE, PRIMARY or SECONDARY. With the HA API the state can be queried and changed for NSO instances in the cluster.</td><td><img src="../../../images/java_haapi.png" alt="" data-size="original"></td></tr>
-</tbody></table>
+<table data-header-hidden data-full-width="false"><thead><tr><th width="345"></th><th></th></tr></thead><tbody><tr><td><strong>MAAPI (Management Agent API)</strong><br>Northbound interface that is transactional and user session-based. Using this interface both configuration and operational data can be read. Configuration data can be written and committed as one transaction. The API is complete in the way that it is possible to write a new northbound agent using only this interface. It is also possible to attach to ongoing transactions in order to read uncommitted changes and/or modify data in these transactions.</td><td><img src="../../../images/java_maapi.png" alt="" data-size="original"></td></tr><tr><td><strong>CDB API</strong><br>The southbound interface provides access to the CDB configuration database. Using this interface configuration data can be read. In addition, operational data that is stored in CDB can be read and written. This interface has a subscription mechanism to subscribe to changes. A subscription is specified on a path that points to an element in a YANG model or an instance in the instance tree. Any change under this point will trigger the subscription. CDB has also functions to iterate through the configuration changes when a subscription has been triggered.</td><td><img src="../../../images/java_cdbapi.png" alt="" data-size="original"></td></tr><tr><td><strong>DP API</strong><br>Southbound interface that enables callbacks, hooks, and transforms. This API makes it possible to provide the service callbacks that handle service-to-device mapping logic. Other usual cases are external data providers for operational data or action callback implementations. There are also transaction and validation callbacks, etc. Hooks are callbacks that are fired when certain data is written and the hook is expected to do additional modifications of data. Transforms are callbacks that are used when complete mediation between two different models is necessary.</td><td><img src="../../../images/java_dpapi.png" alt="" data-size="original"></td></tr><tr><td><strong>NED API (Network Equipment Driver)</strong><br>Southbound interface that mediates communication for devices that do not speak either NETCONF or SNMP. All prepackaged NEDs for different devices are written using this interface. It is possible to use the same interface to write your own NED. There are two types of NEDs, CLI NEDs and Generic NEDs. CLI NEDs can be used for devices that can be controlled by a Cisco-style CLI syntax, in this case the NED is developed primarily by building a YANG model and a relatively small part in Java. In other cases the Generic NED can be used for any type of communication protocol.</td><td><img src="../../../images/java_nedapi.png" alt="" data-size="original"></td></tr><tr><td><strong>NAVU API (Navigation Utilities)</strong><br>API that resides on top of the Maapi and Cdb APIs. It provides schema model navigation and instance data handling (read/write). Uses either a Maapi or Cdb context as data access and incorporates a subset of functionality from these (navigational and data read/write calls). Its major use is in service implementations which normally is about navigating device models and setting device data.</td><td><img src="../../../images/java_navuapi.png" alt="" data-size="original"></td></tr><tr><td><strong>ALARM API</strong><br>Eastbound API that is used both to consume and produce alarms in alignment with the NSO Alarm model. To consume alarms the AlarmSource interface is used. To produce a new alarm the AlarmSink interface is used. There is also a possibility to buffer produced alarms and make asynchronous writes to CDB to improve alarm performance.</td><td><img src="../../../images/java_alarmapi.png" alt="" data-size="original"></td></tr><tr><td><strong>NOTIF API</strong><br>Northbound API that is used to subscribe to system events from NSO. These events are generated for audit log events, for different transaction states, for HA state changes, upgrade events, user sessions, etc.</td><td><img src="../../../images/java_notifapi.png" alt="" data-size="original"></td></tr><tr><td><strong>HA API (High Availability)</strong><br>Northbound api used to manage a High Availability cluster of NSO instances. An NSO instance can be in one of three states NONE, PRIMARY or SECONDARY. With the HA API the state can be queried and changed for NSO instances in the cluster.</td><td><img src="../../../images/java_haapi.png" alt="" data-size="original"></td></tr></tbody></table>
 
 In addition, the Conf API framework contains utility classes for data types, keypaths, etc.
 
@@ -66,8 +55,7 @@ When the user has been authenticated and a user session has been created the Maa
 ```
 {% endcode %}
 
-\
-
+\\
 
 The `startTrans(int db,int mode)` method of the Maapi class returns an integer that represents a transaction handler. This transaction handler is used when invoking the various Maapi methods.
 
@@ -190,7 +178,7 @@ We can refer to an element in a model with an expression like `/servers/server`.
 
 This can be performed either by pinpointing the sequence number in the ordered list, starting from 0. For instance the path: `/servers/server[2]/port` refers to the `port` leaf of the third server in the configuration. This numbering is only valid during the current CDB session. Note, the database is locked during this session.
 
-We can also refer to list instances using the key values for the list. Remember that we specify in the data model which leaf or leafs in list that constitute the key. In our case, a server has the `name` leaf as key. The syntax for keys is a space-separated list of key values enclosed within curly brackets: `{ Key1 Key2 ...}`. So,  `/servers/server{www}/ip` refers to the `ip` leaf of the server whose name is `www`.
+We can also refer to list instances using the key values for the list. Remember that we specify in the data model which leaf or leafs in list that constitute the key. In our case, a server has the `name` leaf as key. The syntax for keys is a space-separated list of key values enclosed within curly brackets: `{ Key1 Key2 ...}`. So, `/servers/server{www}/ip` refers to the `ip` leaf of the server whose name is `www`.
 
 A YANG list may have more than one key for example the keypath: `/dhcp/subNets/subNet{192.168.128.0 255.255.255.0}/routers` refers to the routers list of the subnet which has key `192.168.128.0`, `255.255.255.0`.
 
@@ -282,8 +270,7 @@ It is also possible to start a new read-session to the `CDB_PRE_COMMIT_RUNNING` 
 
 Subscriptions towards the operational data in CDB are similar to the above, but because the operational data store is designed for light-weight access (and thus, does not have transactions and normally avoids the use of any locks), there are several differences, in particular:
 
-*   Subscription notifications are only generated if the writer obtains the subscription lock, by using the `startSession()` with the `CdbLockType.LOCKREQUEST`. In addition, when starting a session towards the operation data, we need to pass the `CdbDBType.CDB_OPERATIONAL` when starting a CDB session:\
-
+*   Subscription notifications are only generated if the writer obtains the subscription lock, by using the `startSession()` with the `CdbLockType.LOCKREQUEST`. In addition, when starting a session towards the operation data, we need to pass the `CdbDBType.CDB_OPERATIONAL` when starting a CDB session:\\
 
     ```
         CdbSession sess =
@@ -336,8 +323,7 @@ The basic idea for a data provider is that it participates entirely in each NSO 
 
 A transaction has a number of phases, the external data provider gets called in all the different phases. This is done by implementing a transaction callback class and then registering that class. We have the following distinct phases of an NSO transaction:
 
-*   `init()`: In this phase, the transaction callback class `init()` methods get invoked. We use annotation on the method to indicate that it's the `init()` method as in:\
-
+*   `init()`: In this phase, the transaction callback class `init()` methods get invoked. We use annotation on the method to indicate that it's the `init()` method as in:\\
 
     ```
         public  class MyTransCb {
@@ -380,11 +366,9 @@ Similar to how we have to register transaction callbacks, we must also register 
 
 We have the following data callbacks:
 
-*   `getElem()`: This callback is invoked by NSO when NSO needs to read the actual value of a leaf element. We must also implement the `getElem()` callback for the keys. NSO invokes `getElem()` on a key as an existence test.\
+*   `getElem()`: This callback is invoked by NSO when NSO needs to read the actual value of a leaf element. We must also implement the `getElem()` callback for the keys. NSO invokes `getElem()` on a key as an existence test.\\
 
-
-    We define the `getElem` callback inside a class as:\
-
+    We define the `getElem` callback inside a class as:\\
 
     ```
     public static class DataCb {
@@ -394,8 +378,7 @@ We have the following data callbacks:
             throws DpCallbackException {
                .....
     ```
-*   `existsOptional()`: This callback is called for all type less and optional elements, i.e. `presence` containers and leafs of type `empty`. If we have presence containers or leafs of type `empty`, we cannot use the `getElem()` callback to read the value of such a node, since it does not have a type. An example of a data model could be:\
-
+*   `existsOptional()`: This callback is called for all type less and optional elements, i.e. `presence` containers and leafs of type `empty`. If we have presence containers or leafs of type `empty`, we cannot use the `getElem()` callback to read the value of such a node, since it does not have a type. An example of a data model could be:\\
 
     ```
       container bs {
@@ -599,7 +582,7 @@ Furthermore, the `getElem()` switches on the tag `keyPath[0]` which is a `ConfTa
 
 The three write callbacks, `setElem()`, `create()` and `remove()` all return the value `Conf.REPLY_ACCUMULATE`. If our backend database has real support to abort transactions, it is a good idea to initiate a new backend database transaction in the Transaction callback `init()` (more on that later), whereas if our backend database doesn't support proper transactions, we can fake real transactions by returning `Conf.REPLY_ACCUMULATE` instead of actually writing the data. Since the final verdict of the NSO transaction as a whole may very well be to abort the transaction, we must be prepared to undo all write operations. The `Conf.REPLY_ACCUMULATE` return value means that we ask the library to cache the write for us.
 
-&#x20;The transaction callback class looks like this:
+The transaction callback class looks like this:
 
 {% code title="Example: TransCb Class" %}
 ```
@@ -779,30 +762,32 @@ Similar to the case of transaction and data callbacks, there are transaction val
 
 The transaction validation callbacks are:
 
-*   `init()`: This callback is invoked when the validation phase starts. It will typically attach to the current transaction:
+* `init()`: This callback is invoked when the validation phase starts. It will typically attach to the current transaction:
 
-
-
-    {% code title="Example: Attach Maapi to the Current Transaction" %}
-    ```
-        public class SimpleValidator implements DpTransValidateCallback{
-          ...
-          @TransValidateCallback(callType=TransValidateCBType.INIT)
-          public void init(DpTrans trans) throws DpCallbackException{
-            try {
-              th = trans.thandle;
-              maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid);
-              ..
-            } catch(Exception e) {
-              throw new DpCallbackException("failed to attach via maapi: "+
-                                           e.getMessage());
-            }
-          }
+{% code title="Example: Attach Maapi to the Current Transaction" %}
+````
+```
+    public class SimpleValidator implements DpTransValidateCallback{
+      ...
+      @TransValidateCallback(callType=TransValidateCBType.INIT)
+      public void init(DpTrans trans) throws DpCallbackException{
+        try {
+          th = trans.thandle;
+          maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid);
+          ..
+        } catch(Exception e) {
+          throw new DpCallbackException("failed to attach via maapi: "+
+                                       e.getMessage());
         }
-    ```
-    {% endcode %}
+      }
+    }
+```
+````
+{% endcode %}
 
-    \
+```
+\
+```
 
 * `stop()`: This callback is invoked when the validation phase ends. If `init()` attached to the transaction, `stop()` should detach from it.
 
@@ -1207,7 +1192,7 @@ The examples above have described how to attach to the NSO module and navigate t
 
 Since this API is potent for both producing and consuming alarms, this becomes an API that can be used both north and eastbound. It adheres to the NSO Alarm model.
 
-For more information see [Alarm Manager](../../../operation-and-usage/cli/alarm-manager.md)_._
+For more information see [Alarm Manager](../../../operation-and-usage/operations/alarm-manager.md)_._
 
 The `com.tailf.ncs.alarmman.consumer.AlarmSource` class is used to subscribe to alarms. This class establishes a listener towards an alarm subscription server called `com.tailf.ncs.alarmman.consumer.AlarmSourceCentral`. The `AlarmSourceCentral` needs to be instantiated and started prior to the instantiation of the `AlarmSource` listener. The NSO Java VM takes care of starting the `AlarmSourceCentral` so any use of the ALARM API inside the NSO Java VM can expect this server to be running.
 
