@@ -144,7 +144,7 @@ Depending on the specifics of the server running NSO, additional performance imp
 
 If you are experiencing high resource utilization, such as memory and CPU usage, while individual transactions are optimized to execute fast and the rate of conflicts is low, it's possible you are starting to see the level of demand that pushes the limits of this system.
 
-First, you should try adding more resources, in a scale-up manner, if possible. At the same time, you might also have some services that are using an older, less performant user code execution model. For example, the way Python code is executed is controlled by the callpoint-model option, described in [The `application` Component](../core-concepts/nso-vms/nso-python-vm.md#ncs.development.pythonvm.cthread), which you should ensure is set to the most performant setting.
+First, you should try adding more resources, in a scale-up manner, if possible. At the same time, you might also have some services that are using an older, less performant user code execution model. For example, the way Python code is executed is controlled by the callpoint-model option, described in [The `application` Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread), which you should ensure is set to the most performant setting.
 
 Regardless, a single system cannot scale indefinitely. After you have exhausted all other options, you will need to “scale out,” that is, split the workload across multiple NSO instances. You can achieve this by using the Layered Service Architecture (LSA) approach. But the approach has its trade-offs, so make sure it provides the right benefits in your case. The LSA is further documented in [LSA Overview](../../administration/advanced-topics/layered-service-architecture.md) in Layered Service Architecture.
 
@@ -156,7 +156,7 @@ If NSO is frequently brought out of sync, it can be tempting to invoke `sync-fro
 
 But other alternatives are often better:
 
-* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.partialsync).
+* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch\_svcref.partialsync).
 * Using the `devices sync-from` command does not hold the transaction lock and run across devices concurrently, which reduces the total amount of time spent time synchronizing. This is particularly useful for periodic synchronization to lower the risk of being out-of-sync when committing configuration changes.
 * Using the `no-overwrite` commit flag, you can be more lax about being in sync and focus on not overwriting the modified configuration.
 * If the configuration is 100% automated and controlled by NSO alone, using `out-of-sync-behaviour accept`, you can completely ignore if the device is in sync or not.
@@ -424,7 +424,7 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 <figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
-See [Nano Services for Staged Provisioning](../core-concepts/nano-services-staged-provisioning.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
+See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
 ### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
 

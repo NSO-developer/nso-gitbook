@@ -1020,7 +1020,7 @@ module authgroup-callback {
 ```
 {% endcode %}
 
-In the example above (`authgroup-callback`), the configuration for the `umap` entry of the `oper` user is changed to use a callback to retrieve southbound authentication credentials. Thus, NSO is going to invoke the action `auth-cb` defined in the callback-node `callback`. The callback node is of type `instance-identifier` and refers to the container called `callback` defined in the example, (`authgroup-callback.yang`), which includes an action defined by action-name `auth-cb` and uses groupings `authgroup-callback-input-params` and `authgroup-callback-output-params` for input and output parameters respectively. In the example, (authgroup-callback), `authgroup-callback` module was loaded in NSO within an example package. Package development and action callbacks are not described here but more can be read in [Package Development](../../development/advanced-development/nso-packages.md), the section called [DP API](../../development/core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.dp) and [Python API Overview](../../development/core-concepts/api-overview/python-api-overview.md).
+In the example above (`authgroup-callback`), the configuration for the `umap` entry of the `oper` user is changed to use a callback to retrieve southbound authentication credentials. Thus, NSO is going to invoke the action `auth-cb` defined in the callback-node `callback`. The callback node is of type `instance-identifier` and refers to the container called `callback` defined in the example, (`authgroup-callback.yang`), which includes an action defined by action-name `auth-cb` and uses groupings `authgroup-callback-input-params` and `authgroup-callback-output-params` for input and output parameters respectively. In the example, (authgroup-callback), `authgroup-callback` module was loaded in NSO within an example package. Package development and action callbacks are not described here but more can be read in [Package Development](../../development/advanced-development/developing-packages.md), the section called [DP API](../../development/core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.dp) and [Python API Overview](../../development/core-concepts/api-overview/python-api-overview.md).
 
 ### Caveats <a href="#d5e3032" id="d5e3032"></a>
 
@@ -1787,7 +1787,7 @@ devices device ce10
 
 ## Device Templates <a href="#ncs.user_guide.devicemanager.device.templates" id="ncs.user_guide.devicemanager.device.templates"></a>
 
-This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/advanced-development/templates.md#introduction) in Templates for other ways of using templates.
+This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/core-concepts/templates.md#introduction) in Templates for other ways of using templates.
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 

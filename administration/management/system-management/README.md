@@ -327,7 +327,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     ```
     admin@ncs(config)# devices device r0 trace pretty
     ```
-* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/connected-topics/progress-trace.md).
+* Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/advanced-development/progress-trace.md).
 
 ### Syslog <a href="#d5e259" id="d5e259"></a>
 
@@ -632,7 +632,7 @@ Some noteworthy issues are covered here.
 
 <summary>Problems Using and Developing Services</summary>
 
-If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../../development/advanced-development/developing-services/developing-nso-services.md#ncs.development.services.tshoot) section in [Developing NSO Services](../../../development/advanced-development/developing-services/developing-nso-services.md).
+If you encounter issues while loading service packages, creating service instances, or developing service models, templates, and code, you can consult the [Troubleshooting](../../../development/core-concepts/implementing-services.md#ncs.development.services.tshoot) section in [Developing NSO Services](../../../development/core-concepts/implementing-services.md).
 
 </details>
 

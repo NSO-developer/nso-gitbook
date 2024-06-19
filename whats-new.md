@@ -74,7 +74,7 @@ Documentation Updates:
 
 <!---->
 
-* Added a new section [Single Sign-on](development/advanced-development/web-ui-development.md#single-sign-on-sso) to describe the NSO package authentication mechanism.
+* Added a new section [Single Sign-on](development/advanced-development/web-ui-development/#single-sign-on-sso) to describe the NSO package authentication mechanism.
 
 </details>
 
@@ -98,7 +98,7 @@ Updates in documentation to promote using nano services over Reactive FastMAP.
 
 Documentation Updates:
 
-* Updated the section [Developing NSO Services](development/advanced-development/developing-services/developing-nso-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/connected-topics/kicker.md) section.
+* Updated the section [Developing NSO Services](development/core-concepts/implementing-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/advanced-development/kicker.md) section.
 
 </details>
 
@@ -113,7 +113,7 @@ The progress trace framework has been improved to add the concepts of spans and 
 
 Documentation Updates:
 
-* Updated the section [Progress Trace](development/connected-topics/progress-trace.md).
+* Updated the section [Progress Trace](development/advanced-development/progress-trace.md).
 
 </details>
 

@@ -1360,7 +1360,7 @@ We now have a ready-to-use schema file named `links.fxs` on disk. To run this ex
 
 ## More on leafrefs <a href="#ug.yang.leafrefs" id="ug.yang.leafrefs"></a>
 
-A `leafref` is used to model relationships in the data model, as described in [Modeling Relationships](yang-data-modeling-language.md#ug.yang.relationships). In the simplest case, the `leafref` is a single leaf that references a single key in a list:
+A `leafref` is used to model relationships in the data model, as described in [Modeling Relationships](yang.md#ug.yang.relationships). In the simplest case, the `leafref` is a single leaf that references a single key in a list:
 
 ```
 list host {

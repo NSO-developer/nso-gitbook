@@ -4,135 +4,73 @@ description: Implement network automation in your NSO deployment using services.
 
 # Services
 
-The device YANG models contained in the Network Element Drivers (NEDs) enable NSO to store device configurations in the CDB and expose a uniform API to the network for automation, such as by Python scripts. The concept of NSO services builds on top of this network API and adds the ability to store service-specific parameters with each service instance.
+Services are the cornerstone of network automation with NSO. A service is not just a reusable recipe for provisioning network configurations; it allows you to manage the full configuration life-cycle with minimal effort.
 
-This section introduces the main service building blocks and shows you how to build one yourself.
+This section examines in greater detail how services work, how to design them, and the different ways to implement them.
 
-## Why Services? <a href="#d5e536" id="d5e536"></a>
+{% hint style="success" %}
+For a quicker introduction and a simple showcase of services, see [Develop a Simple Service](../introduction-to-automation/develop-a-simple-service.md).
+{% endhint %}
 
-Network automation includes provisioning and de-provisioning configuration, even though the de-provisioning part often doesn't get as much attention. It is nevertheless significant since leftover, residual configuration can cause hard-to-diagnose operational problems. Even more importantly, without proper de-provisioning, seemingly trivial changes may prove hard to implement correctly.
+## Introduction <a href="#ch_services.intro" id="ch_services.intro"></a>
 
-Consider the following example. You create a simple script that configures a DNS server on a router, by adding the IP address of the server to the DNS server list. This should work fine for initial provisioning. However, when the IP address of the DNS server changes, the configuration on the router should be updated as well.
+In NSO, the term service has a special meaning and represents an automation construct that orchestrates create, modify, and delete of a service instance into the resulting native commands to devices in the network. In its simplest form, a service takes some input parameters and maps them to device-specific configurations. It is a recipe or a set of instructions.
 
-Can you still use the same script in this case? Most likely not, since you need to remove the old server from the configuration and add the new one. The original script would just add the new IP address after the old one, resulting in both entries on the device. In turn, the device may experience slow connectivity as the system periodically retries the old DNS IP address and eventually times out.
+Much like you can bake many cakes using a single cake recipe, you can create many service instances using the same service. But unlike cakes, having the recipe produce exactly the same output, is not very useful. That is why service instances define a set of input parameters, which the service uses to customize the produced configuration.
 
-The following figure illustrates this process, where a simple script first configures the IP address 192.0.2.1 (“.1”) as the DNS server, then later configures 192.0.2.8 (“.8”), resulting in a leftover old entry (“.1”).
+A network engineer on the CLI, or an API call from a northbound system, provides the values for input parameters when requesting a new service instance, and NSO uses the service recipe, called a 'service mapping', to configure the network.
 
-<figure><img src="../../images/service-intro-dns.png" alt="" width="563"><figcaption><p>DNS Configuration with a Simple Script</p></figcaption></figure>
+<figure><img src="../../images/services-intro.png" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure>
 
-In such a situation, the script could perhaps simply replace the existing configuration, by removing all existing DNS server entries before adding the new one. But is this a reliable practice? What if a device requires an additional DNS server that an administrator configured manually? It would be overwritten and lost.
+A similar process takes place when deleting the service instance or modifying the input parameters. The main task of a service is therefore: from a given set of input parameters, calculate the minimal set of device operations to achieve the desired service change. Here, it is very important that the service supports any change; create, delete, and update of any service parameter.
 
-In general, the safest approach is to keep track of the previous changes and only replace the parts that have changed. This, however, is a lot of work and nontrivial to implement yourself. Fortunately, NSO provides such functionality through the FASTMAP algorithm, which is used when deploying services.
+Device configuration is usually the primary goal of a service. However, there may be other supporting functions that are expected from the service, such as service-specific actions. The complete service application, implementing all the service functionality, is packaged in an NSO service package.
 
-The other major benefit of using NSO services for automation is the service interface definition using YANG, which specifies the name and format of the service parameters. Many new NSO users wonder why use a service YANG model when they could just use the Python code or templates directly. While it might be difficult to see the benefits without much prior experience, YANG allows you to write better, more maintainable code, which simplifies the solution in the long run.
+The following definitions are used throughout this section:
 
-Many, if not most, security issues and provisioning bugs stem from unexpected user input. You must always validate user input (service parameter values) and YANG compels you to think about that when writing the service model. It also makes it easy to write the validation rules by using a standardized syntax, specifically designed for this purpose.
+* **Service type**: Often referred to simply as a service, denotes a specific type of service, such as "L2 VPN", "L3 VPN", "Firewall", or "DNS".
+* **Service instance**: A specific instance of a service type, such as "L3 VPN for ACME" or "Firewall for user X".
+* **Service model**: The schema definition for a service type, defined in YANG. It specifies the names and format of input parameters for the service.
+* **Service mapping**: The instructions that implement a service by mapping the input parameters for a service instance to device configuration.
+* **Device configuration**: Network devices are configured to perform network functions. A service instance results in corresponding device configuration changes.
+* **Service application**: The code and models implementing the complete service functionality, including service mapping, actions, models for auxiliary data, and so on.
 
-Moreover, the separation of concerns into the user interface, validation, and provisioning code allows for better organization, which becomes extremely important as the project grows. It also gives NSO the ability to automatically expose the service functionality through its APIs for integration with other systems.
+## Service Mapping <a href="#d5e1405" id="d5e1405"></a>
 
-For these reasons, services are the preferred way of implementing network automation in NSO.
+Developing a service that transforms a service instance request to the relevant device configurations is done differently in NSO than in most other tools on the market. As a service developer, you create a mapping from a YANG service model to the corresponding device YANG model.
 
-## Service Package <a href="#d5e556" id="d5e556"></a>
+This is a declarative, model-to-model mapping. Irrespective of the underlying device type and its native device interface, the mapping is towards a YANG device model and not the native CLI (or any other protocol/API). As you write the service mapping, you do not have to worry about the syntax of different CLI commands or in which order these commands are sent to the device. It is all taken care of by the NSO device manager and device NEDs. Implementing a service in NSO is reduced to transforming the input data structure, described in YANG, to device data structures, also described in YANG.
 
-As you may already know, services are added to NSO with packages. Therefore, you need to create a package if you want to implement a service of your own. NSO ships with an `ncs-make-package` utility that makes creating packages effortless. Adding the `--service-skeleton python` option creates a service skeleton, that is, an empty service, which you can tailor to your needs. As the last argument, you must specify the package name, which in this case is the service name. The command then creates a new directory with that name and places all the required files in the appropriate subdirectories.
+Who writes the models?
 
-The package contains the two most important parts of the service:
+* Developing the service model is part of developing the service application and is covered later in this section.
+* Every device NED comes with a corresponding device YANG model. This model has been designed by the NED developer to capture the configuration data that is supported by the device.
 
-* the service YANG model and
-* the service provisioning code also called the mapping logic.
+A service application then has two primary artifacts: a YANG service model and a mapping definition to the device YANG, as illustrated in the following figure.
 
-Let's first look at the provisioning part. This is the code that performs the network configuration necessary for your service. The code often includes some parameters, for example, the DNS server IP address or addresses to use if your service is in charge of DNS configuration. So, we say that the code maps the service parameters into the device parameters, which is where the term mapping logic originates from. NSO, with the help of the NED, then translates the device parameters to the actual configuration. This simple tree-to-tree mapping describes how to create the service and NSO automatically infers how to update, remove, or re-deploy the service, hence the name FASTMAP.
+<figure><img src="../../images/services-mapping.png" alt="" width="375"><figcaption><p>Service Model and Mapping</p></figcaption></figure>
 
-<figure><img src="../../images/service-mapping-logic.png" alt="" width="563"><figcaption><p>Transformation of Service Parameters into Device Configurations</p></figcaption></figure>
+To reiterate:
 
-How do you create the provisioning code and where do you place it? Is it similar to a stand-alone Python script? Indeed, the code is mostly the same. The main difference is that now you don't have to create a session and a transaction yourself because NSO already provides you with one. Through this transaction, the system tracks the changes to the configuration made by your code.
+* The mapping is not defined using workflows, or sequences of device commands.
+* The mapping is not defined in the native device interface language.
 
-The package skeleton contains a directory called `python`. It holds a Python package named after your service. In the package, the `ServiceCallbacks` class (the `main.py` file) is used for provisioning code. The same file also contains the `Main` class, which is responsible for registering the `ServiceCallbacks` class as a service provisioning code with NSO.
+This approach may seem somewhat unorthodox at first, but allows NSO to streamline and greatly simplify how you implement services.
 
-Of the most interest is the `cb_create()` method of the `ServiceCallbacks` class:
+A common problem for traditional automation systems is that a set of instructions needs to be defined for every possible service instance change. Take for example a VPN service. During a service life cycle, you want to:
 
-```
-def cb_create(self, tctx, root, service, proplist)
-```
+1. Create the initial VPN.
+2. Add a new site or leg to the VPN.
+3. Remove a site or leg from the VPN.
+4. Modify the parameters of a VPN leg, such as the IP addresses used.
+5. Change the interface used for the VPN on a device.
+6. ...
+7. Delete the VPN.
 
-NSO calls this method for service provisioning. Now, let's see how to evolve a stand-alone automation script into a service. Suppose you have Python code for DNS configuration on a router, similar to the following:
+The possible run-time changes for an existing service instance are numerous. If a developer must define instructions for every possible change, such as a script or a workflow, the task is daunting, error-prone, and never-ending.
 
-```
-with ncs.maapi.single_write_trans('admin', 'python') as t:
-    root = ncs.maagic.get_root(t)
+NSO reduces this problem to a single data-mapping definition for the "create" scenario. At run-time, NSO renders the minimum resulting change for any possible change in the service instance. It achieves this with the FASTMAP algorithm.
 
-    ex1_device = root.devices.device['ex1']
-    ex1_config = ex1_device.config
-    dns_server_list = ex1_config.sys.dns.server
-    dns_server_list.create('192.0.2.1')
+Another challenge in traditional systems is that a lot of code goes into managing error scenarios. The NSO built-in transaction manager takes that burden away from the developer of the service application by providing automatic rollback of incomplete changes.
 
-    t.apply()
-```
-
-Taking into account the `cb_create()` signature and the fact that the NSO manages the transaction for a service, you won't need the transaction and `root` variable setup. The NSO service framework already takes care of setting up the `root` variable with the right transaction. There is also no need to call `apply()` because NSO does that automatically.
-
-You only have to provide the core of the code (the middle portion in the above stand-alone script) to the `cb_create()`:
-
-```
-def cb_create(self, tctx, root, service, proplist):
-    ex1_device = root.devices.device['ex1']
-    ex1_config = ex1_device.config
-    dns_server_list = ex1_config.sys.dns.server
-    dns_server_list.create('192.0.2.1')
-```
-
-You can run this code by adding the service package to NSO and provisioning a service instance. It will achieve the same effect as the stand-alone script but with all the benefits of a service, such as tracking changes.
-
-## Service Parameters <a href="#d5e597" id="d5e597"></a>
-
-In practice, all services have some variable parameters. Most often parameter values change from service instance to service instance, as the desired configuration is a little bit different for each of them. They may differ in the actual IP address that they configure or in whether the switch for some feature is on or off. Even the DNS configuration service requires a DNS server IP address, which may be the same across the whole network but could change with time if the DNS server is moved elsewhere. Therefore, it makes sense to expose the variable parts of the service as service parameters. This allows a service operator to set the parameter value without changing the service provisioning code.
-
-With NSO, service parameters are defined in the service model, written in YANG. The YANG module describing your service is part of the service package, located under the `src/yang` path, and customarily named the same as the package. In addition to the module-related statements (description, revision, imports, and so on), a typical service module includes a YANG `list`, named after the service. Having a list allows you to configure multiple service instances with slightly different parameter values. For example, in a DNS configuration service, you might have multiple service instances with different DNS servers. The reason is, that some devices, such as those in the Demilitarized Zone (DMZ), might not have access to the internal DNS servers and would need to use a different set.
-
-The service model skeleton already contains such a list statement. The following is another example, similar to the one in the skeleton:
-
-```
-list my-svc {
-  description "This is an RFS skeleton service";
-
-  key name;
-  leaf name {
-    tailf:info "Unique service id";
-    tailf:cli-allow-range;
-    type string;
-  }
-
-  uses ncs:service-data;
-  ncs:servicepoint my-svc-servicepoint;
-
-  // Devices configured by this service instance
-  leaf-list device {
-    type leafref {
-      path "/ncs:devices/ncs:device/ncs:name";
-    }
-  }
-
-  // An example generic parameter
-  leaf server-ip {
-    type inet:ipv4-address;
-  }
-}
-```
-
-Along with the description, the service specifies a key, `name`to uniquely identify each service instance. This can be any free-form text, as denoted by its type (string). The statements starting with `tailf:` are NSO-specific extensions for customizing the user interface NSO presents for this service. After that come two lines, the `uses` and `ncs:servicepoint`, which tells NSO this is a service and not just some ordinary list. At the end, there are two parameters defined, `device` and `server-ip`.
-
-NSO then allows you to add the values for these parameters when configuring a service instance, as shown in the following CLI transcript:
-
-```
-admin@ncs(config)# my-svc instance1 ?
-Possible completions:
-  check-sync           Check if device config is according to the service
-  commit-queue
-  deep-check-sync      Check if device config is according to the service
-  device
-  < ... output omitted ... >
-  server-ip
-  < ... output omitted ... >
-```
-
-Finally, your Python script can read the supplied values inside the `cb_create()` method via the provided `service` variable. This variable points to the currently-provisioning service instance, allowing you to use code such as `service.server_ip` for the value of the `server-ip` parameter.
+Another benefit of this approach is that NSO can automatically generate the northbound APIs and database schema from the YANG models, enabling a true DevOps way of working with service models. A new service model can be defined as part of a package and loaded into NSO. An existing service model can be modified and the package upgraded, and all northbound APIs and User Interfaces are automatically regenerated to reflect the new or updated models.

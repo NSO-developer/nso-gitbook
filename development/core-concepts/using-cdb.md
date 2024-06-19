@@ -425,7 +425,7 @@ public class PlainCdbSub implements ApplicationComponent  {
 ```
 {% endcode %}
 
-We will walk through the code and highlight different aspects. We start with how the `Cdb` instance is retrieved in this example. It is always possible to open a socket to NSO and create the `Cdb` instance with this socket. But with this comes the responsibility to manage that socket. In NSO, there is a resource manager that can take over this responsibility. In the code, the field that should contain the `Cdb` instance is simply annotated with a `@Resource` annotation. The resource manager will find this annotation and create the `Cdb` instance as specified. In this example below (Resource Annotation) `Scope.INSTANCE` implies that new instances of this example class should have unique `Cdb` instances (see more in [The Resource Manager](nso-vms/nso-java-vm.md#ncs.ug.javavm.resman)).
+We will walk through the code and highlight different aspects. We start with how the `Cdb` instance is retrieved in this example. It is always possible to open a socket to NSO and create the `Cdb` instance with this socket. But with this comes the responsibility to manage that socket. In NSO, there is a resource manager that can take over this responsibility. In the code, the field that should contain the `Cdb` instance is simply annotated with a `@Resource` annotation. The resource manager will find this annotation and create the `Cdb` instance as specified. In this example below (Resource Annotation) `Scope.INSTANCE` implies that new instances of this example class should have unique `Cdb` instances (see more in [The Resource Manager](nso-virtual-machines/nso-java-vm.md#ncs.ug.javavm.resman)).
 
 {% code title="Example: Resource Annotation" %}
 ```

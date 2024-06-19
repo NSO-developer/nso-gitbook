@@ -10,7 +10,7 @@ Another limitation is that the service mapping code must not produce any side ef
 
 Nano services help you overcome these limitations. They implement a service as several smaller (nano) steps or stages, by using a technique called reactive FASTMAP (RFM), and provide a framework to safely execute actions with side effects. Reactive FASTMAP can also be implemented directly, using the CDB subscribers, but nano services offer a more streamlined and robust approach for staged provisioning.
 
-The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services-staged-provisioning.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
+The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
 
 ## Basic Concepts <a href="#d5e9577" id="d5e9577"></a>
 
@@ -122,7 +122,7 @@ class NanoServiceCallbacks(ncs.application.NanoService):
 
 The `component` and `state` parameters allow the function to distinguish calls for different callbacks when registered for more than one.
 
-For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services-staged-provisioning.md#ug.nano\_services.callbacks).
+For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks).
 
 ### Link Plan Outline to Service <a href="#d5e9633" id="d5e9633"></a>
 
@@ -236,7 +236,7 @@ cli {
 }
 ```
 
-At the same time, a kicker was installed under the `kickers` container but you may need to use the **unhide debug** command to inspect it. More information on kickers in general is available in [Kicker](../connected-topics/kicker.md).
+At the same time, a kicker was installed under the `kickers` container but you may need to use the **unhide debug** command to inspect it. More information on kickers in general is available in [Kicker](../advanced-development/kicker.md).
 
 At a later point in time, the router VM becomes ready, and the `vm-up-and-running` leaf is set to a `true` value. The installed kicker notices the change and automatically calls the `reactive-re-deploy` action on the service instance. In turn, the service gets fully deployed.
 
@@ -576,7 +576,7 @@ The `create-router` action calls the Python code inside the `python/vrouter/main
 
 The `vr:requested` state also has a `delete` post-action, analogous to `create`, which stops and removes the netsim device during service de-provisioning or backtracking.
 
-Inspecting the Python code for these post actions will reveal that a semaphore is used to control access to the common netsim resource. It is needed because multiple `vrouter` instances may run the create and delete action callbacks in parallel. The Python semaphore is shared between the delete and create action processes using a Python multiprocessing manager, as the example configures the NSO Python VM to start the actions in multiprocessing mode. See [The Application Component](nso-vms/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
+Inspecting the Python code for these post actions will reveal that a semaphore is used to control access to the common netsim resource. It is needed because multiple `vrouter` instances may run the create and delete action callbacks in parallel. The Python semaphore is shared between the delete and create action processes using a Python multiprocessing manager, as the example configures the NSO Python VM to start the actions in multiprocessing mode. See [The Application Component](nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.cthread) for details.
 
 In `vr:onboarded`, the nano Python callback function from the `main.py` file adds the relevant NSO device entry for a newly created netsim device. It also configures NSO to receive notifications from this device through a NETCONF subscription. When the NSO configuration is complete, the state transitions into the reached status, denoting the onboarding has been completed successfully.
 
