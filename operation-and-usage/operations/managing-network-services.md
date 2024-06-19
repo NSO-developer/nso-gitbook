@@ -35,7 +35,7 @@ The service configuration only has references to CE devices for the end-points i
 
 The topology information has two parts:
 
-*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\\
+*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.
 
     ```
      topology connection c0
@@ -49,7 +49,7 @@ The topology information has two parts:
      link-vlan 77
     !
     ```
-*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\\
+*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.
 
     ```
     topology role ce
@@ -116,7 +116,7 @@ qos qos-class MISSION-CRITICAL
 
 Run the example as follows:
 
-1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\\
+1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.
 
     ```
     Copy$ 
@@ -124,12 +124,12 @@ Run the example as follows:
 
     \
     This will set up the environment and start the simulated network.
-2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\\
+2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).
 
     ```
     Copyncs# 
     ```
-3.  Add another VPN.\\
+3.  Add another VPN.
 
     ```
     top
@@ -1152,7 +1152,7 @@ To make the VLAN service package complete edit the package-meta-data.xml to refl
 
 ### Reactive FASTMAP and Nano Services <a href="#d5e1023" id="d5e1023"></a>
 
-FASTMAP is the NSO algorithm that renders any service change from the single definition of the `create` service. As seen above, the template or code only has to define how the service shall be created, NSO is then capable of defining _any_ change from that single definition.
+FASTMAP is the NSO algorithm that renders any service change from the single definition of the `create` service. As seen above, the template or code only has to define how the service shall be created, NSO is then capable of defining any change from that single definition.
 
 A limitation in the scenarios described so far is that the mapping definition could immediately do its work as a single atomic transaction. This is sometimes not possible. Typical examples are external allocation of resources such as IP addresses from an IPAM, spinning up VMs, and sequencing in general.
 

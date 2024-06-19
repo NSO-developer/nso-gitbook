@@ -59,7 +59,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 * Create the `ncsadmin` and `ncsoper` Linux user groups.
 * Create and add the `admin` and `oper` Linux users to their respective groups.
 * Perform a system installation of NSO that runs NSO as the `admin` user.
-* The `admin` user is granted access to run the **ip** command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
+* The `admin` user is granted access to run the `ip` command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
 * The `cmdwrapper` NSO program gets access to run the scripts executed by the `generate-token` action for generating RESTCONF authentication tokens as the current NSO user.
 * Password authentication is set up for the read-only `oper` user for use with NSO only, which is intended for WebUI access.
 * The `root` user is set up for Linux shell access only.
@@ -86,7 +86,7 @@ The initialization steps are also performed as `root` for the nodes that make up
   \
   NSO runs as the non-root `admin` user and, therefore, the `ncs` command is used to start NSO instead of the `/etc/init.d/ncs` and `/etc/profile.d` scripts. The environment variables are copied to a `.pam_environment` file so that the `root` and `admin` users can set the required environment variables when those users access the shell via SSH.
 * The start script is installed as part of the NSO system install, and it can be customized if you would like to use it to start NSO. The available NSO start script variants can be found under `/opt/ncs/current/src/ncs/package-skeletons/etc`. The scripts may provide what you need and can be used as a starting point.
-*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:\\
+*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:
 
     ```
     $ mkdir -p /etc/init.d
@@ -215,7 +215,7 @@ The Cisco Smart Licensing CLI command is present only in the Cisco Style CLI, wh
 
 ### Log Rotate <a href="#d5e7941" id="d5e7941"></a>
 
-The NSO system installations performed on the nodes in the HA cluster also install defaults for **logrotate**. Inspect `/etc/logrotate.d/ncs` and ensure that the settings are what you want. Note that the NSO error logs, i.e., the files `/var/log/ncs/ncserr.log*`, are internally rotated by NSO and must not be rotated by `logrotate`.
+The NSO system installations performed on the nodes in the HA cluster also install defaults for `logrotate`. Inspect `/etc/logrotate.d/ncs` and ensure that the settings are what you want. Note that the NSO error logs, i.e., the files `/var/log/ncs/ncserr.log*`, are internally rotated by NSO and must not be rotated by `logrotate`.
 
 ### Syslog <a href="#d5e7948" id="d5e7948"></a>
 
