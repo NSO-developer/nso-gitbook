@@ -292,7 +292,9 @@ Known limits:
 
 </details>
 
-## Methods - Commands
+## Methods
+
+### Commands
 
 <details>
 
@@ -486,7 +488,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 </details>
 
-## Methods - Commands - Subscribe <a href="#methods-commands-subscribe" id="methods-commands-subscribe"></a>
+### Commands - Subscribe <a href="#methods-commands-subscribe" id="methods-commands-subscribe"></a>
 
 <details>
 
