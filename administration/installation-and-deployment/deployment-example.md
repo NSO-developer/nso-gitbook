@@ -243,11 +243,11 @@ Thus, it is usually not good enough to control the NED trace from `/devices/glob
 
 ### Python Logs <a href="#d5e7999" id="d5e7999"></a>
 
-While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../development/core-concepts/nso-vms/nso-python-vm.md#debugging-of-python-packages) for more details.
+While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../development/core-concepts/nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages) for more details.
 
 ### Java Logs <a href="#d5e8006" id="d5e8006"></a>
 
-User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../development/core-concepts/nso-vms/nso-java-vm.md#logging) in Java VM for more details.
+User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../development/core-concepts/nso-virtual-machines/nso-java-vm.md#logging) in Java VM for more details.
 
 ### Internal NSO Log <a href="#d5e8011" id="d5e8011"></a>
 

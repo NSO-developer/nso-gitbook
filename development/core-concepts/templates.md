@@ -725,7 +725,7 @@ Adding the attribute registers this template for the given servicepoint, defined
 While the template (file) name is not referred to in this case, it must still be unique in an NSO node.
 {% endhint %}
 
-In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services-staged-provisioning.md#ug.nano\_services.callbacks) contains examples.
+In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks) contains examples.
 
 Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
 

@@ -1360,7 +1360,7 @@ We now have a ready-to-use schema file named `links.fxs` on disk. To run this ex
 
 ## More on leafrefs <a href="#ug.yang.leafrefs" id="ug.yang.leafrefs"></a>
 
-A `leafref` is used to model relationships in the data model, as described in [Modeling Relationships](yang-data-modeling-language.md#ug.yang.relationships). In the simplest case, the `leafref` is a single leaf that references a single key in a list:
+A `leafref` is used to model relationships in the data model, as described in [Modeling Relationships](yang.md#ug.yang.relationships). In the simplest case, the `leafref` is a single leaf that references a single key in a list:
 
 ```
 list host {
@@ -1509,8 +1509,7 @@ We have three different entities that define our configuration data.
 *   The module name. A system typically consists of several modules. In the future, we also expect to see standard modules in a manner similar to how we have standard SNMP modules.
 
     It is highly recommended to have the vendor name embedded in the module name, similar to how vendors have their names in proprietary MIBs today.
-*   The XML namespace. A module defines a namespace. This is an important part of the module header. For example, we have:\
-
+*   The XML namespace. A module defines a namespace. This is an important part of the module header. For example, we have:\\
 
     ```
      module acme-system {
@@ -1537,8 +1536,7 @@ We have three different entities that define our configuration data.
     What is clear though, is that a manager should base its version decisions on the information in the revision string.
 
     \
-    A capabilities reply from a NETCONF agent to the manager may look as:\
-
+    A capabilities reply from a NETCONF agent to the manager may look as:\\
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>

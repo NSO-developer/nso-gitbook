@@ -660,7 +660,7 @@ java-thread-pool {
 
 We see some of the settings that are used to control how the NSO Java VM runs. In particular, here we're interested in `/java-vm/stdout-capture/file`
 
-The NSO daemon will, when it starts, also start the NSO Java VM, and it will capture the stdout output from the NSO Java VM and send it to the file `./logs/ncs-java-vm.log`. For more details on the Java VM settings, see the [NSO Java VM](../core-concepts/nso-vms/nso-java-vm.md).
+The NSO daemon will, when it starts, also start the NSO Java VM, and it will capture the stdout output from the NSO Java VM and send it to the file `./logs/ncs-java-vm.log`. For more details on the Java VM settings, see the [NSO Java VM](../core-concepts/nso-virtual-machines/nso-java-vm.md).
 
 Thus if we `tail -f` that file, we get all the output from the Java code. That leads us to the first and most simple way of developing Java code. If we now:
 
