@@ -159,7 +159,7 @@ All methods may return one of the following JSON RPC or application-defined erro
 
 <details>
 
-<summary><strong>What are the security characteristics of the JSON-RPC API?</strong></summary>
+<summary>What are the security characteristics of the JSON-RPC API?</summary>
 
 JSON-RPC runs on top of the embedded web server (see [Web Server](../../connected-topics/web-server.md)), which accepts HTTP and/or HTTPS.
 
@@ -173,7 +173,7 @@ When used in a browser, the JSON-RPC API does not accept cross-domain requests b
 
 <details>
 
-<summary><strong>What is the proper way to use the JSON-RPC API in a CORS setup?</strong></summary>
+<summary>What is the proper way to use the JSON-RPC API in a CORS setup?</summary>
 
 The embedded server allows for custom headers to be set, in this case, CORS headers, like:
 
@@ -217,7 +217,7 @@ Without this setup, you will notice that the browser will not send the `sessioni
 
 <details>
 
-<summary><strong>What is a tag/keypath?</strong></summary>
+<summary>What is a tag/keypath?</summary>
 
 A `tagpath` is a path pointing to a specific position in a YANG module's schema.
 
@@ -258,7 +258,7 @@ Note how the prefix is prepended to the first tag in the path. This prefix is co
 
 <details>
 
-<summary>How to r<strong>estrict access to methods?</strong></summary>
+<summary>How to restrict access to methods?</summary>
 
 The AAA infrastructure can be used to restrict access to library functions using command rules:
 
@@ -280,7 +280,7 @@ You can read more about the command rules in [AAA infrastructure](../../../admin
 
 <details>
 
-<summary><strong>What is <code>session.overload</code> error?</strong></summary>
+<summary>What is <code>session.overload</code> error?</summary>
 
 A series of limits are imposed on the load that one session can put on the system. This reduces the risk that a session takes over the whole system and brings it into a DoS situation.
 
@@ -1065,7 +1065,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 <details>
 
-<summary>get_value</summary>
+<summary><mark style="color:green;">get_value</mark></summary>
 
 Gets a leaf value.
 
