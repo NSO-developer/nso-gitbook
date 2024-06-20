@@ -420,7 +420,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>suspend_cmd</code></mark></summary>
 
-Suspends output from a batch command
+Suspends output from a batch command.
 
 **Note**: the `init_cmd` method must have been called with the `emulate` param set to true for this to work
 
@@ -494,7 +494,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>get_subscriptions</code></mark></summary>
 
-Get a list of the session's subscriptions
+Get a list of the session's subscriptions.
 
 **Params**
 
@@ -560,56 +560,277 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 <details>
 
-<summary></summary>
+<summary><mark style="color:green;"><code>subscribe_changes</code></mark></summary>
 
+Starts a subscriber to configuration data in CDB. Changes done to operational data in CDB data will not be seen here. Furthermore, subscription messages will only be generated when a transaction is successfully committed.
 
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages, unless the `handle` is provided as input.
+
+**Note**: The `unsubscribe` method should be used to end the subscription.
+
+**Note**: As soon as a subscription message is generated, it will be sent as a message and turn up as result to your polling call to the `comet` method.
+
+**Params**
+
+```json
+{"comet_id": <string>,
+ "handle": <string, optional>,
+ "path": <string>,
+ "skip_local_changes": <boolean, default: false>,
+ "hide_changes": <boolean, default: false>,
+ "hide_values": <boolean, default: false>}
+```
+
+The `path` param is a keypath restricting the subscription messages to only be about changes done under that specific keypath.
+
+The `skip_local_changes` param specifies if configuration changes done by the owner of the read-write transaction should generate subscription messages.
+
+The `hide_changes` and `hide_values` params specify a lower level of information in subscription messages, in case it is enough to receive just a "ping" or a list of changed keypaths, respectively, but not the new values resulted in the changes.
+
+**Result**
+
+```json
+{"handle": <string>}
+```
+
+A handle to the subscription is returned (equal to `handle` if provided).
+
+Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
+
+```json
+{"db": <"running" | "startup" | "candidate">,
+ "user": <string>,
+ "ip": <string>,
+ "changes": <array>}
+```
+
+The `user` and `ip` properties are the username and IP address of the committing user.
+
+The `changes` param is an array of changes of the same type as returned by the `changes` method. See above.
 
 </details>
 
 <details>
 
-<summary></summary>
+<summary><mark style="color:green;"><code>subscribe_poll_leaf</code></mark></summary>
 
+Starts a polling subscriber to any type of operational and configuration data (outside of CDB as well).
 
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
-</details>
+**Note**: The `unsubscribe` method should be used to end the subscription.
 
-<details>
+**Note**: As soon as a subscription message is generated, it will be sent as a message and turn up as result to your polling call to the `comet` method.
 
-<summary></summary>
+**Params**
 
+```json
+{"th": <integer>,
+ "path": <string>,
+ "interval": <integer between 0 and 3600>,
+ "comet_id": <string>,
+ "handle": <string, optional>}
+```
 
+The `path` param is a keypath pointing to a leaf value.
 
-</details>
+The `interval` is a timeout in seconds between when to poll the value.
 
-<details>
+**Result**
 
-<summary></summary>
+```json
+{"handle": <string>}
+```
 
+A handle to the subscription is returned (equal to `handle` if provided).
 
-
-</details>
-
-<details>
-
-<summary></summary>
-
-
-
-</details>
-
-<details>
-
-<summary></summary>
-
-
+Subscription messages will end up in the `comet` method and the format of is a simple string value.
 
 </details>
 
 <details>
 
-<summary></summary>
+<summary><mark style="color:green;"><code>subscribe_upgrade</code></mark></summary>
 
+Starts a subscriber to upgrade messages.
 
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages, unless the `handle` is provided as input.
+
+**Note**: The `unsubscribe` method should be used to end the subscription.
+
+**Note**: As soon as a subscription message is generated, it will be sent as a message and turn up as result to your polling call to the `comet` method.
+
+**Params**
+
+```json
+{"comet_id": <string>,
+ "handle": <string, optional>}
+```
+
+**Result**
+
+```json
+{"handle": <string>}
+```
+
+A handle to the subscription is returned (equal to `handle` if provided).
+
+Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
+
+```json
+{"upgrade_state": <"wait_for_init" | "init" | "abort" | "commit">,
+ "timeout": <number, only if "upgrade_state" === "wait_for_init">}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>subscribe_jsonrpc_batch</code></mark></summary>
+
+Starts a subscriber to JSONRPC messages for batch requests.
+
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
+
+**Note**: The `unsubscribe` method should be used to end the subscription.
+
+**Note**: As soon as a subscription message is generated it will be sent as a message and turn up as result to your polling call to the `comet` method.
+
+**Params**
+
+```json
+{"comet_id": <string>,
+ "handle": <string, optional>}
+```
+
+**Result**
+
+```json
+{"handle": <string>}
+```
+
+A handle to the subscription is returned (equal to `handle` if provided).
+
+Subscription messages will end up in the `comet` method having exact same structure like a JSON-RPC response:
+
+```json
+{"jsonrpc":"2.0",
+ "result":"admin",
+ "id":1}
+```
+
+```json
+{"jsonrpc": "2.0",
+ "id": 1,
+ "error":
+ {"code": -32602,
+  "type": "rpc.method.unexpected_params",
+  "message": "Unexpected params",
+  "data":
+  {"param": "foo"}}}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>subscribe_progress_trace</code></mark></summary>
+
+Starts a subscriber to progress trace events.
+
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
+
+**Note**: The `unsubscribe` method should be used to end the subscription.
+
+**Note**: As soon as a subscription message is generated, it will be sent as a message and turn up as result to your polling call to the `comet` method.
+
+**Params**
+
+```json
+{"comet_id": <string>,
+ "handle": <string, optional>,
+ "verbosity": <"normal" | "verbose" | "very_verbose" | "debug", default: "normal">
+ "filter_context": <"webui" | "cli" | "netconf" | "rest" | "snmp" | "system" | string, optional>}
+```
+
+The `verbosity` param specifies the verbosity of the progress trace.
+
+The `filter_context` param can be used to only get progress events from a specific context For example, if `filter_context` is set to `cli` only progress trace events from the CLI are returned.
+
+**Result**
+
+```json
+{"handle": <string>}
+```
+
+A handle to the subscription is returned (equal to `handle` if provided).
+
+Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
+
+```json
+{"timestamp": <string>,
+ "duration": <string, optional if end of span>,
+ "span-id": <string>,
+ "parent-span-id": <string, optional if parent span exists>,
+ "trace-id": <string>,
+ "session-id": <integer>,
+ "transaction-id": <integer, optional if transaction exists>,
+ "datastore": <string, optional if transaction exists>,
+ "context": <string>,
+ "subsystem": <string, optional if in subsystem>,
+ "message": <string>,
+ "annotation": <string, optional if end of span>,
+ "attributes":  <object with key-value attributes, optional>,
+ "links":  <array with objects, each containing a trace-id and span-id
+ key, optional>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>start_subscription</code></mark></summary>
+
+Signals that a subscribe command can start to generate output.
+
+**Note**: This method must be called to actually start the activity initiated by calls to one of the methods `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade` \*\*with no `handle`.
+
+**Params**
+
+```json
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade`.
+
+**Result**
+
+```json
+{}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>unsubscribe</code></mark></summary>
+
+Stops a subscriber.
+
+**Note**: This method must be called to stop the activity started by calls to one of the methods `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade`.
+
+**Params**
+
+```json
+{"handle": <string>}
+```
+
+The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade`.
+
+**Result**
+
+```json
+{}
+```
 
 </details>
