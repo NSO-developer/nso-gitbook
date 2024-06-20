@@ -21,22 +21,25 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.&#x20;
+1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.\
+
 
     {% hint style="info" %}
-    Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.&#x20;
+    Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
     {% endhint %}
 
     \
-    Perform the following command:
+    Perform the following command:\
+
 
     ```
     $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
     ```
 
     \
-    This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.&#x20;
-2.  Start the simulator.
+    This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.
+2.  Start the simulator.\
+
 
     ```
     $ ncs-netsim start
@@ -44,6 +47,8 @@ To start the simulator:
     DEVICE c1 OK STARTED
     DEVICE c2 OK STARTED
     ```
+
+
 3.  Run the CLI toward one of the simulated devices.\
 
 
@@ -63,14 +68,14 @@ To start the simulator:
     c1# exit
     ```
 
-    \
-    This shows that the device has some initial configurations.
+This shows that the device has some initial configurations.
 
 ## Starting NSO and Reading Device Configuration <a href="#d5e80" id="d5e80"></a>
 
-The previous step started the simulated Cisco devices. It is now time to start NSO.&#x20;
+The previous step started the simulated Cisco devices. It is now time to start NSO.
 
-1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).
+1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).\
+
 
     ```
     $ ncs-setup --netsim-dir ./netsim --dest . 
@@ -78,12 +83,16 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Note the `.` at the end of the command referring to the current directory. What the command does is to create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
-2.  Start NSO.
+2.  Start NSO.\
+
 
     ```
     $ ncs
     ```
-3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.
+
+
+3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.\
+
 
     ```
     $ ncs_cli -C -u admin
@@ -99,7 +108,8 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Throughout this user guide, we will show the commands in Cisco XR style.
-4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.
+4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.\
+
 
     ```
     admin@ncs# show running-config devices device
@@ -148,7 +158,7 @@ connect-result {
 
 NSO does not need to have the connections active continuously, instead, NSO will establish a connection when needed and connections are pooled to conserve resources. At this time, NSO can read the configurations from the devices and populate the configuration database, CDB.
 
-The following command will synchronize the configurations of the devices with the CDB and respond with "true" if successful:
+The following command will synchronize the configurations of the devices with the CDB and respond with `true` if successful:
 
 ```
 admin@ncs# devices sync-from
@@ -234,7 +244,8 @@ The above command shows the router config of all devices as XML and then saves i
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
-2.  Change or add some configuration across the devices, for example:
+2.  Change or add some configuration across the devices, for example:\
+
 
     ```
      admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
@@ -244,7 +255,7 @@ The above command shows the router config of all devices as XML and then saves i
 
 ### Transaction Commit
 
-It is important to understand how NSO applies configuration changes to the network. At this point, the changes are local to NSO, no configurations have been sent to the devices yet. Since the NSO Configuration Database, CDB is in sync with the network, NSO can calculate the minimum diff to apply the changes to the network.&#x20;
+It is important to understand how NSO applies configuration changes to the network. At this point, the changes are local to NSO, no configurations have been sent to the devices yet. Since the NSO Configuration Database, CDB is in sync with the network, NSO can calculate the minimum diff to apply the changes to the network.
 
 The command below compares the ongoing changes with the running database:
 
@@ -279,7 +290,7 @@ admin@ncs% commit | details
 
 ### Transaction Rollback
 
-Changes are committed to the devices and the NSO database as one transaction. If any of the device configurations fail, all changes will be rolled back and the devices will be left in the state that they were in before the commit and the NSO CDB will not be updated.&#x20;
+Changes are committed to the devices and the NSO database as one transaction. If any of the device configurations fail, all changes will be rolled back and the devices will be left in the state that they were in before the commit and the NSO CDB will not be updated.
 
 There are numerous options to the commit command which will affect the behavior of the atomic transactions:
 
@@ -381,7 +392,7 @@ Commit complete.
 admin@ncs(config)# devices disconnect
 ```
 
-Note that the trace settings only take effect for new connections, so is important to disconnect the current connections. Make a change to for example c0:
+Note that the trace settings only take effect for new connections, so it is important to disconnect the current connections. Make a change to, for example, `c0`:
 
 ```
 admin@ncs(config)# devices device c0 config ios:interface FastEthernet
@@ -390,7 +401,7 @@ admin@ncs(config-if)# commit dry-run outformat native
 admin@ncs(config-if)# commit
 ```
 
-Note the use of the command `commit dry-run outformat native`. This will display the net result device commands that will be generated over the native interface without actually committing them to the CDB or the devices. In addition, there is the possibility to append the `reverse` flag that will display the device commands for getting back to the current running state in the network if the commit is successfully executed.&#x20;
+Note the use of the command `commit dry-run outformat native`. This will display the net result device commands that will be generated over the native interface without actually committing them to the CDB or the devices. In addition, there is the possibility to append the `reverse` flag that will display the device commands for getting back to the current running state in the network if the commit is successfully executed.
 
 Exit from the NSO CLI and return to the Unix Shell. Inspect the CLI trace:
 
@@ -404,7 +415,7 @@ Exit from the NSO CLI and return to the Unix Shell. Inspect the CLI trace:
 
 As seen above, ranges can be used to send configuration commands to several devices. Device groups can be created to allow for group actions that do not require naming conventions. A group can reference any number of devices. A device can be part of any number of groups, and groups can be hierarchical.
 
-The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`)
+The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`).
 
 ```
 admin@ncs(config)# devices device-group core device-name [ c0 c1 ]
@@ -791,7 +802,7 @@ Validation scripts can also be defined in Python, see more about that in [Plug-a
 
 ### Out-of-band Changes, Transactions, and Pre-Provisioning <a href="#d5e363" id="d5e363"></a>
 
-In reality, network engineers will still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this. The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.&#x20;
+In reality, network engineers will still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this. The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
 
 From the UNIX shell, start a CLI session towards `c0`.
 
