@@ -1217,31 +1217,31 @@ curl \
 
 <details>
 
-<summary>deref</summary>
+<summary><mark style="color:green;"><code>deref</code></mark></summary>
 
-Dereferences a leaf with a leafref type
+Dereferences a leaf with a leafref type.
 
 **Params**
 
-```
+```json5
 {"th": <integer>,
  "path": <string>,
  "result_as": <"paths" | "target" | "list-target", default: "paths">}
 ```
 
-The _path_ param is a keypath pointing to a leaf with a leafref type.
+The `path` param is a keypath pointing to a leaf with a leafref type.
 
 **Result**
 
-```
+```json
 {"paths": <array of string, a keypath to a leaf>}
 ```
 
-```
+```json
 {"target": <a keypath to a leaf>}
 ```
 
-```
+```json
 {"list-target": <a keypath to a list>}
 ```
 
@@ -1249,13 +1249,13 @@ The _path_ param is a keypath pointing to a leaf with a leafref type.
 
 <details>
 
-<summary>get_leafref_values</summary>
+<summary><mark style="color:green;"><code>get_leafref_values</code></mark></summary>
 
-Gets all possible values for a leaf with a leafref type
+Gets all possible values for a leaf with a leafref type.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "offset": <integer, default: 0>,
@@ -1265,54 +1265,55 @@ Gets all possible values for a leaf with a leafref type
  "keys": <object>}
 ```
 
-The _th_ param is as returned from a call to _new\_read\_trans_ or _new\_write\_trans_. The _path_ param is a keypath pointing to a leaf with a leafref type. _Note_: If the leafref is within an action or rpc, _th_ should be created with an _action\_path_.
+The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type. **Note**: If the leafref is within an action or RPC, `th` should be created with an `action_path`.
 
-The _offset_ param is used to skip as many values as it is set to. E.g. an _offset_ of 2 will skip the first 2 values. If not given the value defaults to '0', which means no values are skipped. Offset needs to be a non-negative integer or an "invalid params" error will be returned. An offset that is bigger than the length of the leafref list will result in an "method failed" error being returned.
+The `offset` param is used to skip as many values as it is set to. E.g. an `offset` of 2 will skip the first 2 values. If not given the value defaults to 0, which means no values are skipped. The offset needs to be a non-negative integer or an `invalid params` error will be returned. An offset that is bigger than the length of the leafref list will result in a `method failed` error being returned.
 
-_NOTE_: _offset_ used together with _limit_ (see below) can be used repeatedly to paginate the leafref values.
+**Note**: `offset` used together with `limit` (see below) can be used repeatedly to paginate the leafref values.
 
-The _limit_ param can be set to limit the number of returned values. E.g. a limit of 5 will return a list with 5 values. If not given the value defaults to '-1', which means no limit. Limit needs to be -1 or a non-negative integer or an "invalid params" error will be returned. A Limit of 0 will result in an empty list being returned
+The `limit` param can be set to limit the number of returned values. E.g. a limit of 5 will return a list with 5 values. If not given, the value defaults to -1, which means no limit. The limit needs to be -1 or a non-negative integer or an `invalid params` error will be returned. A Limit of 0 will result in an empty list being returned
 
-The _starts\_with_ param can be used to filter values by prefix.
+The `starts_with` param can be used to filter values by prefix.
 
-The _skip\_grouping_ param is by default set to false and is only needed to be set to true if if a set of sibling leafref leafs points to a list instance with multiple keys _and_ if _get\_leafref\_values_ should return an array of possible leaf values instead an array of arrays with possible key value combinations.
+The `skip_grouping` param is by default set to false and is only needed to be set to `true` if a set of sibling leafref leafs points to a list instance with multiple keys and if `get_leafref_values` should return an array of possible leaf values instead an array of arrays with possible key value combinations.
 
-The _keys_ param is an optional array of values that should be set if a more than one leafref statement is used within action/rpc input parameters _and_ if they refer to each other using \`deref()\` or \`current()\` XPath functions. For example consider this model:
+The `keys` param is an optional array of values that should be set if more than one leafref statement is used within action/RPC input parameters and if they refer to each other using \``deref()`\` or \``current()`\` XPath functions. For example, consider this model:
 
-<pre><code><strong>  rpc create-service {
-</strong><strong>    tailf:exec "./run.sh";
-</strong><strong>    input {
-</strong><strong>      leaf name {
-</strong><strong>        type leafref {
-</strong><strong>          path "/myservices/service/name";
-</strong>        }
+```json5
+  rpc create-service {
+    tailf:exec "./run.sh";
+    input {
+      leaf name {
+        type leafref {
+          path "/myservices/service/name";
+        }
       }
-<strong>      leaf if {
-</strong><strong>        type leafref {
-</strong><strong>          path "/myservices/service[name=current()/../name]/interfaces/name"
-</strong>        }
+      leaf if {
+        type leafref {
+          path "/myservices/service[name=current()/../name]/interfaces/name"
+        }
       }
     }
-<strong>    output {
-</strong><strong>      leaf result { type string; }
-</strong>    }
+    output {
+      leaf result { type string; }
+    }
   }
-</code></pre>
-
-The leaf _if_ refers to leaf _name_ in its XPath expression so to be able to successfully run _get\_leafref\_values_ on that node you need to provide a valid value for the _name_ leaf using the _keys_ parameter. The _keys_ parameter could for example look like this:
-
 ```
+
+The leaf `if` refers to leaf _name_ in its XPath expression so to be able to successfully run `get_leafref_values` on that node you need to provide a valid value for the _name_ leaf using the _keys_ parameter. The `keys` parameter could for example look like this:
+
+```json
 {"/create-service/name": "service1"}
 ```
 
 **Result**
 
-```
+```json
 {"values": <array of string>,
  "source": <string> | false}
 ```
 
-The _source_ param will point to the keypath where the values originate. If the keypath cannot be resolved due to missing/faulty items in the _keys_ parameter _source_ will be _false_.
+The `source` param will point to the keypath where the values originate. If the keypath cannot be resolved due to missing/faulty items in the `keys` parameter `source` will be `false`.
 
 </details>
 
@@ -1320,35 +1321,33 @@ The _source_ param will point to the keypath where the values originate. If the 
 
 <details>
 
-<summary>rename_list_entry</summary>
-
-
+<summary><mark style="color:green;"><code>rename_list_entry</code></mark></summary>
 
 Renames a list entry.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
 ```
 
-The _from\_path_ is a keypath pointing out the list entry to be renamed.
+The `from_path` is a keypath pointing out the list entry to be renamed.
 
 The list entry to be renamed will, under the hood, be deleted all together and then recreated with the content from the deleted list entry copied in.
 
-The _to\_keys_ param is an array with the new key values. The array must contain a full set of key values.
+The `to_keys` param is an array with the new key values. The array must contain a full set of key values.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1358,35 +1357,33 @@ The _to\_keys_ param is an array with the new key values. The array must contain
 
 <details>
 
-<summary>copy_list_entry</summary>
-
-
+<summary><mark style="color:green;"><code>copy_list_entry</code></mark></summary>
 
 Copies a list entry.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
 ```
 
-The _from\_path_ is a keypath pointing out the list entry to be copied.
+The `from_path` is a keypath pointing out the list entry to be copied.
 
-The _to\_keys_ param is an array with the new key values. The array must contain a full set of key values.
+The `to_keys` param is an array with the new key values. The array must contain a full set of key values.
 
 Copying between different ned-id versions works as long as the schema nodes being copied has not changed between the versions.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1396,36 +1393,34 @@ Copying between different ned-id versions works as long as the schema nodes bein
 
 <details>
 
-<summary>move_list_entry</summary>
-
-
+<summary><mark style="color:green;"><code>move_list_entry</code></mark></summary>
 
 Moves an ordered-by user list entry relative to its siblings.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_path": <string>,
  "mode": <"first" | "last" | "before" | "after">}
 ```
 
-The _from\_path_ is a keypath pointing out the list entry to be moved.
+The `from_path` is a keypath pointing out the list entry to be moved.
 
-The list entry to be moved can either be moved to the first or the last position, i.e. if the _mode_ param is set to _first_ or _last_ the _to\_path_ keypath param has no meaning.
+The list entry to be moved can either be moved to the first or the last position, i.e. if the `mode` param is set to `first` or `last` the `to_path` keypath param has no meaning.
 
-If the _mode_ param is set to _before_ or _after_ the _to\_path_ param must be specified, i.e. the list entry will be moved to the position before or after the list entry which the _to\_path_ keypath param points to.
+If the `mode` param is set to `before` or `after` the `to_path` param must be specified, i.e. the list entry will be moved to the position before or after the list entry which the `to_path` keypath param points to.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked"}
 ```
 
