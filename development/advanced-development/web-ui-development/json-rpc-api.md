@@ -834,3 +834,179 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 ```
 
 </details>
+
+### Data
+
+<details>
+
+<summary><mark style="color:green;"><code>create</code></mark></summary>
+
+Create a list entry, a presence container, or a leaf of type empty (unless in a union, then use `set_value`).
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>}
+```
+
+The `path` param is a keypath pointing to data to be created.
+
+**Result**
+
+```json
+{}
+```
+
+**Errors (specific)**
+
+```json
+{"type": "db.locked"}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>delete</code></mark></summary>
+
+Deletes an existing list entry, a presence container, or an optional leaf and all its children (if any).
+
+**Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>}
+```
+
+The `path` param is a keypath pointing to data to be deleted.
+
+**Result**
+
+```json
+{} |
+                {"warnings": <array of strings>}
+```
+
+**Errors (specific)**
+
+```json
+{"type": "db.locked"}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>exists</code></mark></summary>
+
+Checks if optional data exists.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>}
+```
+
+The `path` param is a keypath pointing to data to be checked for existence.
+
+**Result**
+
+```json
+{"exists": <boolean>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_case</code></mark></summary>
+
+Get the case of a choice leaf.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "choice": <string>}
+```
+
+The `path` param is a keypath pointing to data that contains the choice leaf given by the `choice` param.
+
+**Result**
+
+```json
+{"case": <string>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>show_config</code></mark></summary>
+
+Retrieves configuration and operational data from the provided transaction
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>
+ "result_as": <"string" | "json" | "json2", default: "string">
+ "with_oper": <boolean, default: false>
+ "max_size": <"integer", default: 0>}
+```
+
+The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format, string for a compact string format, `json` for JSON-compatible with RESTCONF and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kb, set to 0 to disable the limit.
+
+**Result**
+
+`result_as` string:
+
+```json
+{"config": <string>}
+```
+
+`result_as` JSON:
+
+```json
+{"data": <json>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>load</code></mark></summary>
+
+Load XML configuration into the current transaction.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "data": <string>
+ "path": <string, default: "/">
+ "format": <"json" | "xml", default: "xml">
+ "mode": <"create" | "merge" | "replace", default: "merge">}
+```
+
+The `data` param is the data to be loaded into the transaction. `mode` controls how the data is loaded into the transaction, analogous with the CLI command load. `format` informs load about which format `data` is in. If `format` is `xml`, the data must be an XML document encoded as a string. If `format` is `json`, data can either be a JSON document encoded as a string or the JSON data itself.
+
+**Result**
+
+```json
+{}
+```
+
+**Errors (specific)**
+
+```json
+{"row": <integer>, "message": <string>}
+```
+
+</details>
