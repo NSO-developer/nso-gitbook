@@ -21,57 +21,54 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
+1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.\
+
 
     {% hint style="info" %}
     Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
     {% endhint %}
 
-````
-\
-Perform the following command:
+    \
+    Perform the following command:\
 
-```
-$ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
-```
 
-\
-This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.&#x20;
-````
+    ```
+    $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
+    ```
 
-2\. Start the simulator.
+    \
+    This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.
+2.  Start the simulator.\
 
-````
-```
-$ ncs-netsim start
-DEVICE c0 OK STARTED
-DEVICE c1 OK STARTED
-DEVICE c2 OK STARTED
-```
-````
 
-3\. Run the CLI toward one of the simulated devices.
+    ```
+    $ ncs-netsim start
+    DEVICE c0 OK STARTED
+    DEVICE c1 OK STARTED
+    DEVICE c2 OK STARTED
+    ```
 
-````
-```
-$ ncs-netsim cli-i c1
-admin connected from 127.0.0.1 using console *
 
-c1> enable
-c1# show running-config
-class-map m
-match mpls experimental topmost 1
-match packet length max 255
-match packet length min 2
-match qos-group 1
-!
-...
-c1# exit
-```
+3.  Run the CLI toward one of the simulated devices.\
 
-\
+
+    ```
+    $ ncs-netsim cli-i c1
+    admin connected from 127.0.0.1 using console *
+
+    c1> enable
+    c1# show running-config
+    class-map m
+    match mpls experimental topmost 1
+    match packet length max 255
+    match packet length min 2
+    match qos-group 1
+    !
+    ...
+    c1# exit
+    ```
+
 This shows that the device has some initial configurations.
-````
 
 ## Starting NSO and Reading Device Configuration <a href="#d5e80" id="d5e80"></a>
 
