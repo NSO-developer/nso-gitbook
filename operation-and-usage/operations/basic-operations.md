@@ -74,7 +74,8 @@ This shows that the device has some initial configurations.
 
 The previous step started the simulated Cisco devices. It is now time to start NSO.
 
-1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).
+1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).\
+
 
     ```
     $ ncs-setup --netsim-dir ./netsim --dest . 
@@ -82,19 +83,23 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Note the `.` at the end of the command referring to the current directory. What the command does is to create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
-2.  Start NSO.
+2.  Start NSO.\
+
 
     ```
     $ ncs
     ```
-3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.
+
+
+3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.\
+
 
     ```
     $ ncs_cli -C -u admin
     ```
 
     \
-    NSO also supports a J-style CLI, that is started by using a -J modification to the command like this.\\
+    NSO also supports a J-style CLI, that is started by using a -J modification to the command like this.
 
     ```
     $ ncs_cli -J -u admin
@@ -102,7 +107,8 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Throughout this user guide, we will show the commands in Cisco XR style.
-4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.
+4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.\
+
 
     ```
     admin@ncs# show running-config devices device
@@ -229,14 +235,18 @@ The above command shows the router config of all devices as XML and then saves i
 
 ## Writing Device Configuration <a href="#d5e156" id="d5e156"></a>
 
-1.  To change the configuration, enter configure mode.\\
+1.  To change the configuration, enter configure mode.\
+
 
     ```
     admin@ncs# config
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
-2.  Change or add some configuration across the devices, for example:
+
+
+2.  Change or add some configuration across the devices, for example:\
+
 
     ```
      admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
@@ -383,7 +393,7 @@ Commit complete.
 admin@ncs(config)# devices disconnect
 ```
 
-Note that the trace settings only take effect for new connections, so is important to disconnect the current connections. Make a change to for example c0:
+Note that the trace settings only take effect for new connections, so is important to disconnect the current connections. Make a change to, for example, `c0`:
 
 ```
 admin@ncs(config)# devices device c0 config ios:interface FastEthernet
@@ -406,7 +416,7 @@ Exit from the NSO CLI and return to the Unix Shell. Inspect the CLI trace:
 
 As seen above, ranges can be used to send configuration commands to several devices. Device groups can be created to allow for group actions that do not require naming conventions. A group can reference any number of devices. A device can be part of any number of groups, and groups can be hierarchical.
 
-The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`)
+The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`).
 
 ```
 admin@ncs(config)# devices device-group core device-name [ c0 c1 ]
