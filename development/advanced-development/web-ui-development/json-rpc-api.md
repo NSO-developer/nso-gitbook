@@ -1010,3 +1010,205 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 ```
 
 </details>
+
+### data - attrs <a href="#methods-data-attrs" id="methods-data-attrs"></a>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_attrs</code></mark></summary>
+
+Get node attributes.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "names": <array of string>}
+```
+
+The `path` param is a keypath pointing to the node and the `names` param is a list of attribute names that you want to retrieve.
+
+**Result**
+
+```json
+{"attrs": <object of attribute name/value>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;">set_attrs</mark></summary>
+
+Set node attributes.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "attrs": <object of attribute name/value>}
+```
+
+The `path` param is a keypath pointing to the node and the `attrs` param is an object that maps attribute names to their values.
+
+**Result**
+
+```json
+{}
+```
+
+</details>
+
+### data - leafs <a href="#methods-data-leafs" id="methods-data-leafs"></a>
+
+<details>
+
+<summary>get_value</summary>
+
+Gets a leaf value.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "check_default": <boolean, default: false>}
+```
+
+The `path` param is a keypath pointing to a value.
+
+The `check_default` param adds `is_default` to the result if set to `true`. `is_default` is set to `true` if the default value handling returned the value.
+
+**Result**
+
+```json
+{"value": <string>}
+```
+
+**Example**
+
+{% code title="Example: Method get_value" %}
+```json
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+         "method": "get_value",
+         "params": {"th": 4711,
+                    "path": "/dhcp:dhcp/max-lease-time"}}' \
+    http://127.0.0.1:8008/jsonrpc
+    
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {"value": "7200"}
+}
+```
+{% endcode %}
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_values</code></mark></summary>
+
+Get leaf values.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "check_default": <boolean, default: false>,
+ "leafs": <array of string>}
+```
+
+The `path` param is a keypath pointing to a container. The `leafs` param is an array of children names residing under the parent container in the YANG module.
+
+The `check_default` param adds `is_default` to the result if set to `true`. `is_default` is set to `true` if the default value handling returned the value.
+
+**Result**
+
+```json
+{"values": <array of value/error>}
+
+value  = {"value": <string>, "access": <access>}
+error  = {"error": <string>, "access": <access>} |
+         {"exists": true, "access": <access>} |
+         {"not_found": true, "access": <access>}
+access = {"read": true, write: true}
+```
+
+**Note**: The access object has no `read` and/or `write` properties if there are no read and/or access rights.
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>set_value</code></mark></summary>
+
+Sets a leaf value.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>,
+ "value": <string | boolean | integer | array | null>,
+ "dryrun": <boolean, default: false}
+```
+
+The `path` param is the keypath to give a new value as specified with the `value` param.
+
+`value` can be an array when the _path_ is a leaf-list node.
+
+When `value` is `null`, the `set_value` method acts like `delete`.
+
+When `dryrun` is `true`, this function can be used to test if a value is valid or not.
+
+**Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
+
+**Note**: In the case type empty is in a union, the expected `value` is \``[null]`\`. Due to implementation specifics, it is also possible to use the empty string and the leaf's name as value to express type empty. If type empty is positioned before type string in a union, the implication is that you can't set the leaf (as type string) to the empty string or the leaf name. You can only set the empty part of the union using the empty string or the leaf name.
+
+**Result**
+
+```json
+{} |
+                {"warnings": <array of strings>}
+```
+
+**Errors (specific)**
+
+```json
+{"type": "data.already_exists"}
+{"type": "data.not_found"}
+{"type": "data.not_writable"}
+{"type": "db.locked"}
+```
+
+**Example**
+
+{% code title="Example: Method set_value" %}
+```json
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+         "method": "set_value",
+         "params": {"th": 4711,
+                    "path": "/dhcp:dhcp/max-lease-time",
+                    "value": "4500"}}' \
+    http://127.0.0.1:8008/jsonrpc
+    
+{"jsonrpc": "2.0",
+ "id": 1,
+ "result": {}
+}
+```
+{% endcode %}
+
+</details>
