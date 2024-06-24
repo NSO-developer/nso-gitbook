@@ -1065,7 +1065,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 <details>
 
-<summary><mark style="color:green;">get_value</mark></summary>
+<summary><mark style="color:green;"><code>get_value</code></mark></summary>
 
 Gets a leaf value.
 
@@ -1428,25 +1428,23 @@ If the `mode` param is set to `before` or `after` the `to_path` param must be sp
 
 <details>
 
-<summary>append_list_entry</summary>
-
-
+<summary><mark style="color:green;"><code>append_list_entry</code></mark></summary>
 
 Append a list entry to a leaf-list.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "value": <string>}
 ```
 
-The _path_ is a keypath pointing to a leaf-list.
+The `path` is a keypath pointing to a leaf-list.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1454,20 +1452,18 @@ The _path_ is a keypath pointing to a leaf-list.
 
 <details>
 
-<summary>count_list_keys</summary>
-
-
+<summary><mark style="color:green;"><code>count_list_keys</code></mark></summary>
 
 Counts the number of keys in a list.
 
 **Params**
 
-```
+```json
 {"th": <integer>
  "path": <string>}
 ```
 
-The _path_ parameter is a keypath pointing to a list.
+The `path` parameter is a keypath pointing to a list.
 
 **Result**
 
@@ -1479,13 +1475,13 @@ The _path_ parameter is a keypath pointing to a list.
 
 <details>
 
-<summary>get_list_keys</summary>
+<summary><mark style="color:green;"><code>get_list_keys</code></mark></summary>
 
 Enumerates keys in a list.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "chunk_size": <integer greater than zero, optional>,
@@ -1494,29 +1490,29 @@ Enumerates keys in a list.
  "empty_list_key_as_null": <boolean, optional>}
 ```
 
-The _th_ parameter is the transaction handle.
+The `th` parameter is the transaction handle.
 
-The _path_ parameter is a keypath pointing to a list. Required on first invocation - optional in following.
+The `path` parameter is a keypath pointing to a list. Required on first invocation - optional in following.
 
-The _chunk\_size_ parameter is the number of requested keys in the result. Optional - default is unlimited.
+The `chunk_size` parameter is the number of requested keys in the result. Optional - default is unlimited.
 
-The _start\_with_ parameter will be used to filter out all those keys that do not start with the provided strings. The parameter supports multiple keys e.g. if the list has two keys, then _start\_with_ can hold two items.
+The `start_with` parameter will be used to filter out all those keys that do not start with the provided strings. The parameter supports multiple keys e.g. if the list has two keys, then `start_with` can hold two items.
 
-The _lh_ (list handle) parameter is optional (on the first invocation) but must be used in following invocations.
+The `lh` (list handle) parameter is optional (on the first invocation) but must be used in the following invocations.
 
-The _empty\_list\_key\_as\_null_ parameter controls whether list keys of type empty are represented as the name of the list key (default) or as \`\[null]\`.
+The `empty_list_key_as_null` parameter controls whether list keys of type empty are represented as the name of the list key (default) or as \`\[null]\`.
 
 **Result**
 
-```
+```json
 {"keys": <array of array of string>,
  "total_count": <integer>,
  "lh": <integer, optional>}
 ```
 
-Each invocation of _get\_list\_keys_ will return at most _chunk\_size_ keys. The returned _lh_ must be used in following invocations to retrieve next chunk of keys. When no more keys are available the returned _lh_ will be set to \`-1\`.
+Each invocation of `get_list_keys` will return at most `chunk_size` keys. The returned `lh` must be used in the following invocations to retrieve the next chunk of keys. When no more keys are available the returned `lh` will be set to \`-1\`.
 
-On the first invocation _lh_ can either be omitted or set to \`-1\`.
+On the first invocation `lh` can either be omitted or set to \`-1\`.
 
 </details>
 
@@ -1524,17 +1520,16 @@ On the first invocation _lh_ can either be omitted or set to \`-1\`.
 
 <details>
 
-<summary>query</summary>
+<summary><mark style="color:green;"><code>query</code></mark></summary>
 
-Starts a new query attached to a transaction handle, retrieves the results, and stops the query immediately. This is a convenience method for calling _start\_query_, _run\_query_ and _stop\_query_ in a one-time sequence.
+Starts a new query attached to a transaction handle, retrieves the results, and stops the query immediately. This is a convenience method for calling `start_query`, `run_query` and `stop_query` in a one-time sequence.
 
-This method should not be used for paginated results, as it results in performance degradation - use _start\_query_, multiple _run\_query_and _stop\_query_instead.
+This method should not be used for paginated results, as it results in performance degradation - use `start_query`, multiple `run_query` and `stop_query` instead.
 
 **Example**
 
-Example 3. Method query
-
-```
+{% code title="Example: Method query" %}
+```json
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1544,9 +1539,7 @@ curl \
                     "xpath_expr": "/dhcp:dhcp/dhcp:foo",
                     "result_as": "keypath-value"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
+    
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -1556,18 +1549,19 @@ curl \
   "number_of_elements_per_result": 2,
   "results": ["foo", "bar"]}}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>start_query</summary>
+<summary><mark style="color:green;"><code>start_query</code></mark></summary>
 
-Starts a new query attached to a transaction handle. On success a query handle is returned to be in subsequent calls to _run\_query_.
+Starts a new query attached to a transaction handle. On success, a query handle is returned to be in subsequent calls to `run_query`.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "xpath_expr": <string, optional if path is given>,
  "path": <string, keypath, optional if xpath_expr is given>,
@@ -1581,15 +1575,15 @@ Starts a new query attached to a transaction handle. On success a query handle i
  "result_as": <"string" | "keypath-value" | "leaf_value_as_string", default: "string">}
 ```
 
-The _xpath\_expr_ param is the primary XPath expression to base the query on. Alternatively, one can give a keypath as the _path_ param, and internally the keypath will be translated into an XPath expression.
+The `xpath_expr` param is the primary XPath expression to base the query on. Alternatively, one can give a keypath as the `path` param, and internally the keypath will be translated into an XPath expression.
 
-A query is a way of evaluating an XPath expression and returning the results in chunks. The primary XPath expression must evaluate to a node-set, i.e. the result. For each node in the result a _selection_ Xpath expression is evaluated with the result node as its context node.
+A query is a way of evaluating an XPath expression and returning the results in chunks. The primary XPath expression must evaluate to a node-set, i.e. the result. For each node in the result, a `selection` Xpath expression is evaluated with the result node as its context node.
 
-_Note_: The terminology used here is as defined in http://en.wikipedia.org/wiki/XPath.
+**Note**: The terminology used here is as defined in http://en.wikipedia.org/wiki/XPath.&#x20;
 
 For example, given this YANG snippet:
 
-```
+```json
 list interface {
   key name;
   unique number;
@@ -1607,22 +1601,22 @@ list interface {
 }
 ```
 
-The _xpath\_expr_ could be \`/interface\[enabled='true']\` and _selection_ could be \`{ "name", "number" }\`.
+The `xpath_expr` could be \``/interface[enabled='true']`\` and `selection` could be \``{ "name", "number" }`\`.
 
-Note that the _selection_ expressions must be valid XPath expressions, e.g. to figure out the name of an interface and whether its number is even or not, the expressions must look like: \`{ "name", "(number mod 2) == 0" }\`.
+Note that the `selection` expressions must be valid XPath expressions, e.g. to figure out the name of an interface and whether its number is even or not, the expressions must look like: \``{ "name", "(number mod 2) == 0" }`\`.
 
-The result are then fetched using _run\_query_, which returns the result on the format specified by _result\_as_ param.
+The result are then fetched using `run_query`, which returns the result on the format specified by `result_as` param.
 
-There are two different types of result:
+There are two different types of results:
 
-* _string_ result is just an array with resulting strings of evaluating the _selection_ XPath expressions
-* \`keypath-value\` result is an array the keypaths or values of the node that the _selection_ XPath expression evaluates to.
+* `string` result is just an array with resulting strings of evaluating the `selection` XPath expressions
+* \``keypath-value`\` result is an array the keypaths or values of the node that the `selection` XPath expression evaluates to.
 
-This means that care must be taken so that the combination of _selection_ expressions and return types actually yield sensible results (for example \`1 + 2\` is a valid _selection_ XPath expression, and would result in the string _3_ when setting the result type to _string_ - but it is not a node, and thus have no keypath-value.
+This means that care must be taken so that the combination of `selection` expressions and return types actually yield sensible results (for example \``1 + 2`\` is a valid `selection` XPath expression, and would result in the string `3` when setting the result type to `string` - but it is not a node, and thus have no keypath-value.
 
-It is possible to sort the result using the built-in XPath function \`sort-by()\` but it is also also possible to sort the result using expressions specified by the _sort_ param. These expressions will be used to construct a temporary index which will live as long as the query is active. For example to start a query sorting first on the enabled leaf, and then on number one would call:
+It is possible to sort the result using the built-in XPath function \``sort-by()`\` but it is also also possible to sort the result using expressions specified by the `sort` param. These expressions will be used to construct a temporary index which will live as long as the query is active. For example, to start a query sorting first on the enabled leaf, and then on number one would call:
 
-```
+```json
 $.post("/jsonrpc", {
   jsonrpc: "2.0",
   id: 1,
@@ -1637,15 +1631,15 @@ $.post("/jsonrpc", {
     .done(...);
 ```
 
-The _context\_node_ param is a keypath pointing out the node to apply the query on; only taken into account when the _xpath\_expr_ uses relatives paths. Lack of a _context\_node_, turns relatives paths into absolute paths.
+The `context_node` param is a keypath pointing out the node to apply the query on; only taken into account when the `xpath_expr` uses relatives paths. Lack of a `context_node`, turns relatives paths into absolute paths.
 
-The _chunk\_size_ param specifies how many result entries to return at a time. If set to 0 a default number will be used.
+The `chunk_size` param specifies how many result entries to return at a time. If set to `0`, a default number will be used.
 
-The _initial\_offset_ param is the result entry to begin with (1 means to start from the beginning).
+The `initial_offset` param is the result entry to begin with (`1` means to start from the beginning).
 
 **Result**
 
-```
+```json
 {"qh": <integer>}
 ```
 
@@ -1653,9 +1647,8 @@ A new query handler handler id to be used when calling _run\_query_ etc
 
 **Example**
 
-Example 4. Method start\_query
-
-```
+{% code title="Example: Method start_query" %}
+```json
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1665,16 +1658,11 @@ curl \
                     "xpath_expr": "/dhcp:dhcp/dhcp:foo",
                     "result_as": "keypath-value"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": 47}
 ```
-
-\
-
+{% endcode %}
 
 </details>
 
