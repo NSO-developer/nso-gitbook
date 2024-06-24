@@ -2787,9 +2787,9 @@ curl \
 
 <details>
 
-<summary>login</summary>
+<summary><mark style="color:green;"><code>login</code></mark></summary>
 
-Creates a user session and sets a browser cookie
+Creates a user session and sets a browser cookie.
 
 **Params**
 
@@ -2803,9 +2803,9 @@ Creates a user session and sets a browser cookie
 
 There are two versions of the _login_ method. The method with no parameters only invokes Package Authentication, since credentials can be supplied with the whole HTTP request. The method with parameters is used when credentials may need to be supplied with the method parameters, this method invokes all authentication methods including Package Authentication.
 
-The _user_ and _passwd_ are the credentials to be used in order to create a user session. The common AAA engine in NSO is used to verify the credentials.
+The `user` and `passwd` are the credentials to be used in order to create a user session. The common AAA engine in NSO is used to verify the credentials.
 
-If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgement of the warning translates to setting _ack\_warning_ to true.
+If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgement of the warning translates to setting `ack_warning` to `true`.
 
 **Result**
 
@@ -2813,26 +2813,23 @@ If the method fails with a warning, the warning needs to be displayed to the use
 {"warning": <string, optional>}
 ```
 
-_NOTE_ The response will have a \`Set-Cookie\` HTTP header with a _sessionid_ cookie which will be your authentication token for upcoming JSON-RPC requests.
+**Note**_:_ The response will have a \`Set-Cookie\` HTTP header with a `sessionid` cookie which will be your authentication token for upcoming JSON-RPC requests.
 
-The _warning_ is a free-text string that should be displayed to the user after a successful login. This is not to be mistaken with a failed login that has a _warning_ as well. In case of a failure, the user should also acknowledge the warning, not just have it displayed for optional reading.
+The `warning` is a free-text string that should be displayed to the user after a successful login. This is not to be mistaken with a failed login that has a `warning` as well. In case of a failure, the user should also acknowledge the warning, not just have it displayed for optional reading.
 
-**Multi factor authentication**
+**Multi-factor authentication**
 
 ```
 {"challenge_id": <string>, "challenge_prompt": <string>}
 ```
 
-_NOTE_ A challenge response will have a _challenge\_id_ and _challenge\_prompt_ which needs to be responded to with an upcoming JSON-RPC challenge\_response requests.
+**Note**_:_ A challenge response will have a `challenge_id` and `challenge_prompt` which needs to be responded to with an upcoming JSON-RPC `challenge_response` requests.
 
-#### Note
-
-The challenge\_prompt may be multi line, why it is base64 encoded.
+**Note**: The `challenge_prompt` may be a multi line, why it is base64 encoded.
 
 **Example**
 
-Example 12. Method login
-
+{% code title="Example: Method login" %}
 ```
 curl \
     -X POST \
@@ -2842,19 +2839,13 @@ curl \
          "params": {"user": "joe",
                     "passwd": "SWkkasE32"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
  {"code": -32000,
   "type": "rpc.method.failed",
   "message": "Method failed"}}
-```
-
-```
-curl \
+  curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
@@ -2862,15 +2853,13 @@ curl \
          "params": {"user": "admin",
                     "passwd": "admin"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
-{"jsonrpc": "2.0",
+  {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
 ```
+{% endcode %}
 
-_NOTE_ _sessionid_ cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
+**Note**_:_ `sessionid` cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
 
 ```
 curl \
@@ -2880,26 +2869,18 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"trans": []}}
 ```
 
-\
-
-
 </details>
 
 <details>
 
-<summary>challenge_response</summary>
+<summary><mark style="color:green;"><code>challenge_response</code></mark></summary>
 
-
-
-Creates a user session and sets a browser cookie
+Creates a user session and sets a browser cookie.
 
 **Params**
 
@@ -2907,9 +2888,9 @@ Creates a user session and sets a browser cookie
 {"challenge_id": <string>, "response": <string>, "ack_warning": <boolean, default: false>}
 ```
 
-The _challenge\_id_ and _response_ is the multi factor response to be used in order to create a user session. The common AAA engine in NSO is used to verify the response.
+The `challenge_id` and `response` is the multi-factor response to be used in order to create a user session. The common AAA engine in NSO is used to verify the response.
 
-If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgement of the warning translates to setting _ack\_warning_ to true.
+If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgment of the warning translates to setting `ack_warning` to `true`.
 
 **Result**
 
@@ -2917,14 +2898,13 @@ If the method fails with a warning, the warning needs to be displayed to the use
 {"warning": <string, optional>}
 ```
 
-_NOTE_ The response will have a \`Set-Cookie\` HTTP header with a _sessionid_ cookie which will be your authentication token for upcoming JSON-RPC requests.
+**Note**_:_ The response will have a \`Set-Cookie\` HTTP header with a `sessionid` cookie which will be your authentication token for upcoming JSON-RPC requests.
 
-The _warning_ is a free-text string that should be displayed to the user after a successful challenge response. This is not to be mistaken with a failed challenge response that has a _warning_ as well. In case of a failure, the user should also acknowledge the warning, not just have it displayed for optional reading.
+The `warning` is a free-text string that should be displayed to the user after a successful challenge response. This is not to be mistaken with a failed challenge response that has a `warning` as well. In case of a failure, the user should also acknowledge the warning, not just have it displayed for optional reading.
 
 **Example**
 
-Example 13. Method challenge response
-
+{% code title="Example: Method challenge-response" %}
 ```
 curl \
     -X POST \
@@ -2934,19 +2914,13 @@ curl \
          "params": {"challenge_id": "123",
                     "response": "SWkkasE32"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
  {"code": -32000,
   "type": "rpc.method.failed",
   "message": "Method failed"}}
-```
-
-```
-curl \
+  curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
@@ -2954,15 +2928,13 @@ curl \
          "params": {"challenge_id": "123",
                     "response": "SWEddrk1"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
-{"jsonrpc": "2.0",
+  {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
 ```
+{% endcode %}
 
-_NOTE_ _sessionid_ cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
+**Note**_:_ `sessionid` cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
 
 ```
 curl \
@@ -2972,9 +2944,6 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"trans": []}}
@@ -2984,11 +2953,9 @@ curl \
 
 <details>
 
-<summary>logout</summary>
+<summary><mark style="color:green;"><code>logout</code></mark></summary>
 
-
-
-Removes a user session and invalidates the browser cookie
+Removes a user session and invalidates the browser cookie.
 
 The HTTP cookie identifies the user session so no input parameters are needed.
 
@@ -3004,8 +2971,7 @@ None.
 
 **Example**
 
-Example 14. Method logout
-
+{% code title="Example: Method logout" %}
 ```
 curl \
     --cookie "sessionid=sess4245223558720207078;" \
@@ -3014,25 +2980,16 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "logout"}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
-```
-
-```
-curl \
+ curl \
     --cookie "sessionid=sess4245223558720207078;" \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "logout"}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
@@ -3040,16 +2997,15 @@ curl \
   "type": "session.invalid_sessionid",
   "message": "Invalid sessionid"}}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>kick_user</summary>
+<summary><mark style="color:green;"><code>kick_user</code></mark></summary>
 
-
-
-Kills a user session, i.e. kicking out the user
+Kills a user session, i.e. kicking out the user.
 
 **Params**
 
@@ -3057,7 +3013,7 @@ Kills a user session, i.e. kicking out the user
 {"user": <string | number>}
 ```
 
-The _user_ param is either the username of a logged in user or session id.
+The `user` param is either the username of a logged in user or session ID.
 
 **Result**
 
@@ -3071,11 +3027,9 @@ The _user_ param is either the username of a logged in user or session id.
 
 <details>
 
-<summary>get_session_data</summary>
+<summary><mark style="color:green;"><code>get_session_data</code></mark></summary>
 
-
-
-Gets session data from the session store
+Gets session data from the session store.
 
 **Params**
 
@@ -3083,7 +3037,7 @@ Gets session data from the session store
 {"key": <string>}
 ```
 
-The _key_ param for which to get the stored data for. Read more about the session store in the _put\_session\_data_ method.
+The `key` param for which to get the stored data for. Read more about the session store in the `put_session_data` method.
 
 **Result**
 
@@ -3095,9 +3049,7 @@ The _key_ param for which to get the stored data for. Read more about the sessio
 
 <details>
 
-<summary>put_session_data</summary>
-
-
+<summary><mark style="color:green;"><code>put_session_data</code></mark></summary>
 
 Puts session data into the session store. The session store is small key-value server-side database where data can be stored under a unique key. The data may be an arbitrary object, but not a function object. The object is serialized into a JSON string and then stored on the server.
 
@@ -3108,7 +3060,7 @@ Puts session data into the session store. The session store is small key-value s
  "value": <string>}
 ```
 
-The _key_ param is the unique key for which the data in the _value_ param is to be stored.
+The key param is the unique key for which the data in the `value` param is to be stored.
 
 **Result**
 
@@ -3120,11 +3072,9 @@ The _key_ param is the unique key for which the data in the _value_ param is to 
 
 <details>
 
-<summary>erase_session_data</summary>
+<summary><mark style="color:green;"><code>erase_session_data</code></mark></summary>
 
-
-
-Erases session data previously stored with "put\_session\_data".
+Erases session data previously stored with `put_session_data`.
 
 **Params**
 
@@ -3132,7 +3082,7 @@ Erases session data previously stored with "put\_session\_data".
 {"key": <string>}
 ```
 
-The _key_ param for which all session data will be erased. Read more about the session store in the _put\_session\_data_ method.
+The `key` param for which all session data will be erased. Read more about the session store in the `put_session_data` method.
 
 **Result**
 
@@ -3146,11 +3096,9 @@ The _key_ param for which all session data will be erased. Read more about the s
 
 <details>
 
-<summary>get_trans</summary>
+<summary><mark style="color:green;"><code>get_trans</code></mark></summary>
 
-
-
-Lists all transactions
+Lists all transactions.
 
 **Params**
 
@@ -3171,8 +3119,7 @@ transaction =
 
 **Example**
 
-Example 15. Method get\_trans
-
+{% code title="Example: Method get_trans" %}
 ```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -3181,9 +3128,6 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -3191,16 +3135,15 @@ curl \
   [{"db": "running",
     "th": 2}]}}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>new_trans</summary>
+<summary><mark style="color:green;"><code>new_trans</code></mark></summary>
 
-
-
-Creates a new transaction
+Creates a new transaction.
 
 **Params**
 
@@ -3214,27 +3157,27 @@ Creates a new transaction
  "on_pending_changes": <"reuse" | "reject" | "discard", default: "reuse">}
 ```
 
-The _conf\_mode_ param specifies which transaction semantics to use when it comes to lock and commit strategies. These three modes mimics the modes available in the CLI.
+The `conf_mode` param specifies which transaction semantics to use when it comes to lock and commit strategies. These three modes mimic the modes available in the CLI.
 
-The meaning of _private_, _shared_ and _exclusive_ have slightly different meaning depending on how the system is configured; with a writable running, startup or candidate configuration.
+The meaning of `private`, `shared` and `exclusive` have slightly different meaning depending on how the system is configured; with a writable running, startup, or candidate configuration.
 
-_private_ (\*writable running enabled\*) - Edit a private copy of the running configuration, no lock is taken.
+`private` (\*writable running enabled\*) - Edit a private copy of the running configuration, no lock is taken.
 
-_private_ (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
+`private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
 
-_exclusive_ (\*candidate enabled\*) - Lock the running configuration and the candidate configuration and edit the candidate configuration.
+`exclusive` (\*candidate enabled\*) - Lock the running configuration and the candidate configuration and edit the candidate configuration.
 
-_exclusive_ (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
+`exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
 
-_shared_ (\*writable running enabled, candidate enabled\*) - Is a deprecated setting.
+`shared` (\*writable running enabled, candidate enabled\*) - Is a deprecated setting.
 
-The _tag_ param is a way to tag transactions with a keyword, so that they can be filtered out when you call the _get\_trans_ method.
+The `tag` param is a way to tag transactions with a keyword so that they can be filtered out when you call the `get_trans` method.
 
-The _action\_path_ param is a keypath pointing to an action or rpc. Use _action\_path_ when you need to read action/rpc input parameters.
+The `action_path` param is a keypath pointing to an action or rpc. Use `action_path` when you need to read action/rpc input parameters.
 
-The _th_ param is a way to create transactions within other read\_write transactions.
+The `th` param is a way to create transactions within other read\_write transactions.
 
-The _on\_pending\_changes_ param decides what to do if the candidate already has been written to, e.g. a CLI user has started a shared configuration session and changed a value in the configuration (without committing it). If this parameter is omitted the default behavior is to silently reuse the candidate. If "reject" is specified the call to the "new\_trans" method will fail if the candidate is non-empty. If "discard" is specified the candidate is silently cleared if it is non-empty.
+The `on_pending_changes` param decides what to do if the candidate already has been written to, e.g. a CLI user has started a shared configuration session and changed a value in the configuration (without committing it). If this parameter is omitted, the default behavior is to silently reuse the candidate. If `reject` is specified, the call to the `new_trans` method will fail if the candidate is non-empty. If `discard` is specified, the candidate is silently cleared if it is non-empty.
 
 **Result**
 
@@ -3242,7 +3185,7 @@ The _on\_pending\_changes_ param decides what to do if the candidate already has
 {"th": <integer>}
 ```
 
-A new transaction handler id
+A new transaction handler ID.
 
 **Errors (specific)**
 
@@ -3255,8 +3198,7 @@ The \`data.sessions\` param is an array of strings describing the current sessio
 
 **Example**
 
-Example 16. Method new\_trans
-
+{% code title="Example: Method new_trans" %}
 ```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -3267,23 +3209,19 @@ curl \
          "params": {"db": "running",
                     "mode": "read"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": 2}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>delete_trans</summary>
+<summary><mark style="color:green;"><code>delete_trans</code></mark></summary>
 
-
-
-Deletes a transaction created by _new\_trans_ or _new\_webui\_trans_
+Deletes a transaction created by `new_trans` or `new_webui_trans`_._
 
 **Params**
 
@@ -3301,11 +3239,9 @@ Deletes a transaction created by _new\_trans_ or _new\_webui\_trans_
 
 <details>
 
-<summary>set_trans_comment</summary>
+<summary><mark style="color:green;"><code>set_trans_comment</code></mark></summary>
 
-
-
-Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be seen with a call to _get\_rollbacks_.
+Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be seen with a call to `get_rollbacks`.
 
 **Params**
 
@@ -3323,11 +3259,9 @@ Adds a comment to the active read-write transaction. This comment will be stored
 
 <details>
 
-<summary>set_trans_label</summary>
+<summary><mark style="color:green;"><code>set_trans_label</code></mark></summary>
 
-
-
-Adds a label to the active read-write transaction. This label will be stored in rollback files and can be seen with a call to _get\_rollbacks_.
+Adds a label to the active read-write transaction. This label will be stored in rollback files and can be seen with a call to `get_rollbacks`.
 
 **Params**
 
@@ -3347,11 +3281,9 @@ Adds a label to the active read-write transaction. This label will be stored in 
 
 <details>
 
-<summary>is_trans_modified</summary>
+<summary><mark style="color:green;"><code>is_trans_modified</code></mark></summary>
 
-
-
-Checks if any modifications has been done to a transaction
+Checks if any modifications have been done to a transaction
 
 **Params**
 
@@ -3369,11 +3301,9 @@ Checks if any modifications has been done to a transaction
 
 <details>
 
-<summary>get_trans_changes</summary>
+<summary><mark style="color:green;"><code>get_trans_changes</code></mark></summary>
 
-
-
-Extracts modifications done to a transaction
+Extracts modifications done to a transaction.
 
 **Params**
 
@@ -3382,7 +3312,7 @@ Extracts modifications done to a transaction
  "output": <"compact" | "legacy", default: "legacy">
 ```
 
-The _output_ parameter controls the result content. _legacy_ format include old and value for all operation types even if their value is undefined. undefined values are represented by an empty string. _compact_ format excludes old and value if their value is undefined.
+The `output` parameter controls the result content. `legacy` format include old and value for all operation types even if their value is undefined. undefined values are represented by an empty string. `compact` format excludes old and value if their value is undefined.
 
 **Result**
 
@@ -3397,14 +3327,13 @@ change =
  }
 ```
 
-The _value_ param is only interesting if _op_ is set to one of _modified_ or _value\_set_.
+The `value` param is only interesting if `op` is set to one of `modified` or `value_set`.
 
-The _old_ param is only interesting if _op_ is set to _modified_.
+The `old` param is only interesting if `op` is set to `modified`.
 
 **Example**
 
-Example 17. Method get\_trans\_changes
-
+{% code title="Example: Method get_trans_changes" %}
 ```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -3414,9 +3343,6 @@ curl \
         "method": "changes",
         "params": {"th": 2}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -3425,12 +3351,13 @@ curl \
    "value": "100",
    "old": ""}]}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>validate_trans</summary>
+<summary><mark style="color:green;"><code>validate_trans</code></mark></summary>
 
 Validates a transaction.
 
@@ -3446,7 +3373,7 @@ Validates a transaction.
 {}
 ```
 
-or
+Or:
 
 ```
 {"warnings": <array of warning>}
@@ -3460,7 +3387,7 @@ warning = {"paths": <array of string>, "message": <string>}
 {"type": "trans.resolve_needed", "data": {"users": <array string>}}
 ```
 
-The _data.users_ param is an array of conflicting usernames.
+The `data.users` param is an array of conflicting usernames.
 
 ```
 {"type": "trans.validation_failed", "data": {"errors": <array of error>}}
@@ -3468,15 +3395,15 @@ The _data.users_ param is an array of conflicting usernames.
 error = {"paths": <array of string>, "message": <string>}
 ```
 
-The _data.errors_ param points to a keypath that is invalid.
+The `data.errors` param points to a keypath that is invalid.
 
 </details>
 
 <details>
 
-<summary>get_trans_conflicts</summary>
+<summary><mark style="color:green;"><code>get_trans_conflicts</code></mark></summary>
 
-Gets the conflicts registered in a transaction
+Gets the conflicts registered in a transaction.
 
 **Params**
 
@@ -3496,19 +3423,17 @@ conflict =
   "old": <string>}
 ```
 
-The _value_ param is only interesting if _op_ is set to one of _created_, _modified_ or _value\_set_.
+The `value` param is only interesting if `op` is set to one of `created`, `modified` or `value_set`.
 
-The _old_ param is only interesting if _op_ is set to _modified_.
+The `old` param is only interesting if `op` is set to `modified`.
 
 </details>
 
 <details>
 
-<summary>resolve_trans</summary>
+<summary><mark style="color:green;"><code>resolve_trans</code></mark></summary>
 
-
-
-Tells the server that the conflicts have been resolved
+Tells the server that the conflicts have been resolved.
 
 **Params**
 
@@ -3534,23 +3459,23 @@ Validates a transaction before calling `commit`. If this method succeeds (with o
 
 **Params**
 
-```json5
+```
 {"th": <integer>}
 ```
 
-```json5
+```
 {"comet_id": <string, optional>}
 ```
 
-```json5
+```
 {"handle": <string, optional>}
 ```
 
-```json5
+```
 {"details": <"normal" | "verbose" | "very_verbose" | "debug", optional>}
 ```
 
-```json5
+```
 {"flags": <flags, default: []>}
 flags = <array of string or bitmask>
 ```
@@ -3589,7 +3514,7 @@ Releases validate lock taken by `validate_commit`.
 
 **Params**
 
-```json5
+```
 {"th": <integer>}
 ```
 
@@ -3609,7 +3534,7 @@ Copies the configuration into the running datastore.
 
 **Params**
 
-```json5
+```
 {"th": <integer>,
  "timeout": <integer, default: 0>,
  "release_locks": <boolean, default: true>,
@@ -3622,7 +3547,7 @@ If `rollback-id` is set to `true`, the response will include the ID of the rollb
 
 Commit behavior can be changed via an extra `flags` param:
 
-```json5
+```
 {"flags": <flags, default: []>}
 
 flags = <array of string or bitmask>
@@ -3630,13 +3555,13 @@ flags = <array of string or bitmask>
 
 The `flags` param is a list of flags that can change the commit behavior:
 
-* `dry-run=FORMAT` - Where FORMAT is the desired output format: `xml`, `cli`, or `native`. Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead the effects that would have taken place is shown in the returned output.
+* `dry-run=FORMAT` - Where FORMAT is the desired output format: `xml`, `cli`, or `native`. Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place is shown in the returned output.
 * `dry-run-reverse` - Used with the dry-run=native flag this will display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.
 * `no-revision-drop` - NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
 * `no-overwrite` - NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used with no-out-of-sync-check.
 * `no-networking` - Do not send data to the devices; this is a way to manipulate CDB in NSO without generating any southbound traffic.
 * `no-out-of-sync-check` - Continue with the transaction even if NSO detects that a device's configuration is out of sync. It can't be used with no-overwrite.
-* `no-deploy` - Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
+* `no-deploy` - Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
 * `reconcile=OPTION` - Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree, that data is kept unless the option `discard-non-service-config` is used.
 * `use-lsa` - Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
 * `no-lsa` - Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
@@ -3680,13 +3605,13 @@ Successful commit without any arguments.
 
 Successful commit with `rollback-id=true`:
 
-```json5
+```
 {"rollback-id": {"fixed": 10001}}
 ```
 
 Successful commit with `commit-queue=async`:
 
-```json5
+```
 {"commit_queue_id": <integer>}
 ```
 
@@ -3694,19 +3619,19 @@ The `commit_queue_id` is returned if the commit entered the commit queue, either
 
 **Errors (specific)**
 
-```json5
+```
 {"type": "trans.confirmed_commit_in_progress"}
 ```
 
-```json5
+```
 {"type": "trans.confirmed_commit_is_only_valid_for_candidate"}
 ```
 
-```json5
+```
 {"type": "trans.confirmed_commit_needs_config_writable_through_candidate"}
 ```
 
-```json5
+```
 {"type": "trans.confirmed_commit_not_supported_in_private_mode"}
 ```
 
@@ -3720,7 +3645,7 @@ Aborts the active read-write transaction.
 
 **Result**
 
-```json5
+```
 {}
 ```
 
@@ -3734,7 +3659,7 @@ Confirms the currently pending confirmed commit
 
 **Result**
 
-```json5
+```
 {}
 ```
 
@@ -3750,7 +3675,7 @@ Gets the WebUI read-write transaction.
 
 **Result**
 
-```json5
+```
 {"trans": <array of trans>}
 
 trans =
@@ -3770,7 +3695,7 @@ Creates a read-write transaction that can be retrieved by `get_webui_trans`.
 
 **Params**
 
-```json5
+```
 {"db": <"startup" | "running" | "candidate", default: "running">,
  "conf_mode": <"private" | "shared" | "exclusive", default: "private">
  "on_pending_changes": <"reuse" | "reject" | "discard", default: "reuse">}
@@ -3778,11 +3703,11 @@ Creates a read-write transaction that can be retrieved by `get_webui_trans`.
 
 See `new_trans` for the semantics of the parameters and specific errors.
 
-The `on_pending_changes` param decides what to do if the candidate already has been written to, e.g. a CLI user has started a shared configuration session and changed a value in the configuration (without committing it). If this parameter is omitted the default behavior is to silently reuse the candidate. If `reject` is specified, the call to the `new_webui_trans` method will fail if the candidate is non-empty. If `discard` is specified, the candidate is silently cleared if it is non-empty.
+The `on_pending_changes` param decides what to do if the candidate already has been written to, e.g. a CLI user has started a shared configuration session and changed a value in the configuration (without committing it). If this parameter is omitted, the default behavior is to silently reuse the candidate. If `reject` is specified, the call to the `new_webui_trans` method will fail if the candidate is non-empty. If `discard` is specified, the candidate is silently cleared if it is non-empty.
 
 **Result**
 
-```json5
+```
 {"th": <integer>}
 ```
 
@@ -3800,7 +3725,7 @@ Extracts all variables from an NSO service/device template.
 
 **Params**
 
-```json5
+```
 {"th": <integer>,
  "name": <string>}
 ```
@@ -3809,7 +3734,7 @@ The `name` param is the name of the template to extract variables from.
 
 **Result**
 
-```json5
+```
 {"template_variables": <array of string>}
 ```
 
@@ -3823,7 +3748,7 @@ Lists packages in NSO.
 
 **Params**
 
-```json5
+```
 {"status": <"installable" | "installed" | "loaded" | "all", default: "all">}
 ```
 
@@ -3836,7 +3761,7 @@ The `status` param specifies which package status to list:
 
 **Result**
 
-```json5
+```
 {"packages": <array of key-value objects>}
 ```
 
