@@ -1668,23 +1668,21 @@ curl \
 
 <details>
 
-<summary>run_query</summary>
+<summary><mark style="color:green;"><code>run_query</code></mark></summary>
 
-
-
-Retrieves the result to a query (as chunks). For more details on queries please read the description of "start\_query".
+Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](json-rpc-api.md#start\_query).
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
-The _qh_ param is as returned from a call to "start\_query".
+The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {"position": <integer>,
  "total_number_of_results": <integer>,
  "number_of_results": <integer>,
@@ -1696,21 +1694,20 @@ result = <string> |
          {"keypath": <string>, "value": <string>}
 ```
 
-The _position_ param is the number of the first result entry in this chunk, i.e. for the first chunk it will be 1.
+The `position` param is the number of the first result entry in this chunk, i.e. for the first chunk it will be 1.
 
-How many result entries there are in this chunk is indicated by the _number\_of\_results_ param. It will be 0 for the last chunk.
+How many result entries there are in this chunk is indicated by the `number_of_results` param. It will be 0 for the last chunk.
 
-The _chunk\_size_ and the _result\_as_ properties are as given in the call to _start\_query_.
+The `chunk_size` and the `result_as` properties are as given in the call to `start_query`.
 
-The _total\_number\_of\_results_ param is total number of result entries retrieved so far.
+The `total_number_of_results` param is total number of result entries retrieved so far.
 
-The _result_ param is as described in the description of _start\_query_.
+The `result` param is as described in the description of `start_query`.
 
 **Example**
 
-Example 5. Method run\_query
-
-```
+{% code title="Example: Method run_query" %}
+```json
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1719,9 +1716,6 @@ curl \
          "method": "run_query",
          "params": {"qh": 22}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -1731,36 +1725,34 @@ curl \
   "number_of_elements_per_result": 2,
   "results": ["foo", "bar"]}}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>reset_query</summary>
+<summary><mark style="color:green;"><code>reset_query</code></mark></summary>
 
-
-
-Reset/rewind a running query so that it starts from the beginning again. Next call to "run\_query" will then return the first chunk of result entries.
+Reset/rewind a running query so that it starts from the beginning again. The next call to `run_query` will then return the first chunk of result entries.
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
-The _qh_ param is as returned from a call to _start\_query_.
+The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Example**
 
-Example 6. Method reset\_query
-
-```
+{% code title="Example: Method reset_query" %}
+```json
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1769,43 +1761,38 @@ curl \
          "method": "reset_query",
          "params": {"qh": 67}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": true}
 ```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>stop_query</summary>
+<summary><mark style="color:green;"><code>stop_query</code></mark></summary>
 
-
-
-Stops the running query identified by query handler. If a query is not explicitly closed using this call it will be cleaned up when the transaction the query is linked to ends.
+Stops the running query identified by query handler. If a query is not explicitly closed using this call, it will be cleaned up when the transaction the query is linked to ends.
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
-The _qh_ param is as returned from a call to "start\_query".
+The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Example**
 
-Example 7. Method stop\_query
-
-```
+{% code title="Example: Method stop_query" %}
+```json
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1814,13 +1801,11 @@ curl \
          "method": "stop_query",
          "params": {"qh": 67}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": true}
 ```
+{% endcode %}
 
 </details>
 
@@ -1828,15 +1813,13 @@ curl \
 
 <details>
 
-<summary>reset_candidate_db</summary>
+<summary><mark style="color:green;"><code>reset_candidate_db</code></mark></summary>
 
-
-
-Resets the candidate datastore
+Resets the candidate datastore.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1844,53 +1827,51 @@ Resets the candidate datastore
 
 <details>
 
-<summary>lock_db</summary>
+<summary><mark style="color:green;"><code>lock_db</code></mark></summary>
 
-Takes a database lock
+Takes a database lock.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate">}
 ```
 
-The _db_ param specifies which datastore to lock.
+The `db` param specifies which datastore to lock.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked", "data": {"sessions": <array of string>}}
 ```
 
-The \`data.sessions\` param is an array of strings describing the current sessions of the locking user, e.g. an array of "admin tcp (cli from 192.245.2.3) on since 2006-12-20 14:50:30 exclusive".
+The \``data.sessions`\` param is an array of strings describing the current sessions of the locking user, e.g., an array of "admin tcp (cli from 192.245.2.3) on since 2006-12-20 14:50:30 exclusive".
 
 </details>
 
 <details>
 
-<summary>unlock_db</summary>
+<summary><mark style="color:green;"><code>unlock_db</code></mark></summary>
 
-
-
-Releases a database lock
+Releases a database lock.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate">}
 ```
 
-The _db_ param specifies which datastore to unlock.
+The `db` param specifies which datastore to unlock.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1898,15 +1879,13 @@ The _db_ param specifies which datastore to unlock.
 
 <details>
 
-<summary>copy_running_to_startup_db</summary>
+<summary><mark style="color:green;"><code>copy_running_to_startup_db</code></mark></summary>
 
-
-
-Copies the running datastore to the startup datastore
+Copies the running datastore to the startup datastore.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1916,23 +1895,23 @@ Copies the running datastore to the startup datastore
 
 <details>
 
-<summary>comet</summary>
+<summary><mark style="color:green;"><code>comet</code></mark></summary>
 
-Listens on a comet channel, i.e. all asynchronous messages from batch commands started by calls to _start\_cmd_, _subscribe\_cdboper_, _subscribe\_changes_, _subscribe\_messages_, _subscribe\_poll\_leaf_ or _subscribe\_upgrade_ ends up on the comet channel.
+Listens on a comet channel, i.e. all asynchronous messages from batch commands started by calls to `start_cmd`, `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf`, or `subscribe_upgrade` ends up on the comet channel.
 
-You are expected to have a continuous long polling call to the _comet_ method at any given time. As soon as the browser or server closes the socket, due to browser or server connect timeout, the _comet_ method should be called again.
+You are expected to have a continuous long polling call to the `comet` method at any given time. As soon as the browser or server closes the socket, due to browser or server connect timeout, the `comet` method should be called again.
 
-As soon as the _comet_ method returns with values they should be dispatched and the _comet_ method should be called again.
+As soon as the `comet` method returns with values they should be dispatched and the `comet` method should be called again.
 
 **Params**
 
-```
+```json
 {"comet_id": <string>}
 ```
 
 **Result**
 
-```
+```json
 [{"handle": <integer>,
   "message": <a context specific json object, see example below>},
  ...]
@@ -1940,15 +1919,14 @@ As soon as the _comet_ method returns with values they should be dispatched and 
 
 **Errors (specific)**
 
-```
+```json
 {"type": "comet.duplicated_channel"}
 ```
 
 **Example**
 
-Example 8. Method comet
-
-```
+{% code title="Example: Method comet" %}
+```json
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1958,16 +1936,10 @@ curl \
          "params": {"comet_id": "main",
                     "path": "/dhcp:dhcp"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"handle": "2"}}
-```
-
-```
-curl \
+ curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
     -H 'Content-Type: application/json' \
@@ -1975,16 +1947,10 @@ curl \
          "method": "batch_init_done",
          "params": {"handle": "2"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
-```
-
-```
-curl \
+ curl \
     -m 15 \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1994,10 +1960,11 @@ curl \
          "params": {"comet_id": "main"}}' \
     http://127.0.0.1:8008/jsonrpc
 ```
+{% endcode %}
 
-hangs... and finally...
+Hangs, and finally:
 
-```
+```json
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -2012,7 +1979,7 @@ hangs... and finally...
     "ip": "127.0.0.1"}}]}
 ```
 
-In this case the admin user seems to have set \`/dhcp:dhcp/default-lease-time\` to _100_.
+In this case, the admin user seems to have set \`/dhcp:dhcp/default-lease-time\` to 100.
 
 </details>
 
