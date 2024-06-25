@@ -304,13 +304,13 @@ Get a list of the session's batch commands.
 
 **Params**
 
-```json
+```
 {}
 ```
 
 **Result**
 
-```json
+```
 {"cmds": <array of cmd>}
 
 cmd =
@@ -336,7 +336,7 @@ Starts a batch command.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "name": <string>,
  "args": <string>,
@@ -355,7 +355,7 @@ Starts a batch command.
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -371,7 +371,7 @@ Sends data to batch command started with `init_cmd`_._
 
 **Params**
 
-```json
+```
 {"handle": <string>,
  "data": <string>}
 ```
@@ -380,13 +380,13 @@ The `handle` param is as returned from a call to `init_cmd` and the `data` param
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"type": "cmd.not_initialized"}
 ```
 
@@ -402,7 +402,7 @@ Signals that a batch command can start to generate output.
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -410,7 +410,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -426,7 +426,7 @@ Suspends output from a batch command.
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -450,7 +450,7 @@ Resumes a batch command started with `init_cmd`_._
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -458,7 +458,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -474,7 +474,7 @@ Stops a batch command.
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -482,7 +482,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -498,13 +498,13 @@ Get a list of the session's subscriptions.
 
 **Params**
 
-```json
+```
 {}
 ```
 
 **Result**
 
-```json
+```
 {"subscriptions": <array of subscription>}
 
 subscription =
@@ -532,7 +532,7 @@ Starts a subscriber to operational data in CDB. Changes done to configuration da
 
 **Params**
 
-```json
+```
 {"comet_id": <string>,
  "handle": <string, optional>,
  "path": <string>}
@@ -542,7 +542,7 @@ The `path` param is a keypath restricting the subscription messages to only be a
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -552,7 +552,7 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 **Errors (specific)**
 
-```json
+```
 {"type": "db.cdb_operational_not_enabled"}
 ```
 
@@ -572,7 +572,7 @@ Starts a subscriber to configuration data in CDB. Changes done to operational da
 
 **Params**
 
-```json
+```
 {"comet_id": <string>,
  "handle": <string, optional>,
  "path": <string>,
@@ -589,7 +589,7 @@ The `hide_changes` and `hide_values` params specify a lower level of information
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -597,7 +597,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```json
+```
 {"db": <"running" | "startup" | "candidate">,
  "user": <string>,
  "ip": <string>,
@@ -624,7 +624,7 @@ Starts a polling subscriber to any type of operational and configuration data (o
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "interval": <integer between 0 and 3600>,
@@ -638,13 +638,13 @@ The `interval` is a timeout in seconds between when to poll the value.
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
 A handle to the subscription is returned (equal to `handle` if provided).
 
-Subscription messages will end up in the `comet` method and the format of is a simple string value.
+Subscription messages will end up in the `comet` method and the format is a simple string value.
 
 </details>
 
@@ -654,7 +654,7 @@ Subscription messages will end up in the `comet` method and the format of is a s
 
 Starts a subscriber to upgrade messages.
 
-**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages, unless the `handle` is provided as input.
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
 **Note**: The `unsubscribe` method should be used to end the subscription.
 
@@ -662,14 +662,14 @@ Starts a subscriber to upgrade messages.
 
 **Params**
 
-```json
+```
 {"comet_id": <string>,
  "handle": <string, optional>}
 ```
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -677,7 +677,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```json
+```
 {"upgrade_state": <"wait_for_init" | "init" | "abort" | "commit">,
  "timeout": <number, only if "upgrade_state" === "wait_for_init">}
 ```
@@ -698,14 +698,14 @@ Starts a subscriber to JSONRPC messages for batch requests.
 
 **Params**
 
-```json
+```
 {"comet_id": <string>,
  "handle": <string, optional>}
 ```
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -713,13 +713,11 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method having exact same structure like a JSON-RPC response:
 
-```json
+```
 {"jsonrpc":"2.0",
  "result":"admin",
  "id":1}
-```
 
-```json
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
@@ -746,7 +744,7 @@ Starts a subscriber to progress trace events.
 
 **Params**
 
-```json
+```
 {"comet_id": <string>,
  "handle": <string, optional>,
  "verbosity": <"normal" | "verbose" | "very_verbose" | "debug", default: "normal">
@@ -759,7 +757,7 @@ The `filter_context` param can be used to only get progress events from a specif
 
 **Result**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -767,7 +765,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```json
+```
 {"timestamp": <string>,
  "duration": <string, optional if end of span>,
  "span-id": <string>,
@@ -797,7 +795,7 @@ Signals that a subscribe command can start to generate output.
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -805,7 +803,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -821,7 +819,7 @@ Stops a subscriber.
 
 **Params**
 
-```json
+```
 {"handle": <string>}
 ```
 
@@ -845,7 +843,7 @@ Create a list entry, a presence container, or a leaf of type empty (unless in a 
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>}
 ```
@@ -854,13 +852,13 @@ The `path` param is a keypath pointing to data to be created.
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"type": "db.locked"}
 ```
 
@@ -876,7 +874,7 @@ Deletes an existing list entry, a presence container, or an optional leaf and al
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>}
 ```
@@ -885,14 +883,14 @@ The `path` param is a keypath pointing to data to be deleted.
 
 **Result**
 
-```json
+```
 {} |
                 {"warnings": <array of strings>}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"type": "db.locked"}
 ```
 
@@ -906,7 +904,7 @@ Checks if optional data exists.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>}
 ```
@@ -915,7 +913,7 @@ The `path` param is a keypath pointing to data to be checked for existence.
 
 **Result**
 
-```json
+```
 {"exists": <boolean>}
 ```
 
@@ -929,7 +927,7 @@ Get the case of a choice leaf.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "choice": <string>}
@@ -939,7 +937,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 **Result**
 
-```json
+```
 {"case": <string>}
 ```
 
@@ -949,11 +947,11 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 <summary><mark style="color:green;"><code>show_config</code></mark></summary>
 
-Retrieves configuration and operational data from the provided transaction
+Retrieves configuration and operational data from the provided transaction.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>
  "result_as": <"string" | "json" | "json2", default: "string">
@@ -967,13 +965,13 @@ The `path` param is a keypath to the configuration to be returned. `result_as` c
 
 `result_as` string:
 
-```json
+```
 {"config": <string>}
 ```
 
 `result_as` JSON:
 
-```json
+```
 {"data": <json>}
 ```
 
@@ -987,7 +985,7 @@ Load XML configuration into the current transaction.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "data": <string>
  "path": <string, default: "/">
@@ -999,13 +997,13 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"row": <integer>, "message": <string>}
 ```
 
@@ -1021,7 +1019,7 @@ Get node attributes.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "names": <array of string>}
@@ -1031,7 +1029,7 @@ The `path` param is a keypath pointing to the node and the `names` param is a li
 
 **Result**
 
-```json
+```
 {"attrs": <object of attribute name/value>}
 ```
 
@@ -1039,13 +1037,13 @@ The `path` param is a keypath pointing to the node and the `names` param is a li
 
 <details>
 
-<summary><mark style="color:green;">set_attrs</mark></summary>
+<summary><mark style="color:green;"><code>set_attrs</code></mark></summary>
 
 Set node attributes.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "attrs": <object of attribute name/value>}
@@ -1055,7 +1053,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -1071,7 +1069,7 @@ Gets a leaf value.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "check_default": <boolean, default: false>}
@@ -1083,14 +1081,14 @@ The `check_default` param adds `is_default` to the result if set to `true`. `is_
 
 **Result**
 
-```json
+```
 {"value": <string>}
 ```
 
 **Example**
 
 {% code title="Example: Method get_value" %}
-```json
+```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1119,7 +1117,7 @@ Get leaf values.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "check_default": <boolean, default: false>,
@@ -1132,7 +1130,7 @@ The `check_default` param adds `is_default` to the result if set to `true`. `is_
 
 **Result**
 
-```json
+```
 {"values": <array of value/error>}
 
 value  = {"value": <string>, "access": <access>}
@@ -1154,7 +1152,7 @@ Sets a leaf value.
 
 **Params**
 
-```json5
+```
 {"th": <integer>,
  "path": <string>,
  "value": <string | boolean | integer | array | null>,
@@ -1175,14 +1173,14 @@ When `dryrun` is `true`, this function can be used to test if a value is valid o
 
 **Result**
 
-```json5
+```
 {} |
                 {"warnings": <array of strings>}
 ```
 
 **Errors (specific)**
 
-```json5
+```
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1192,7 +1190,7 @@ When `dryrun` is `true`, this function can be used to test if a value is valid o
 **Example**
 
 {% code title="Example: Method set_value" %}
-```json5
+```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1223,7 +1221,7 @@ Dereferences a leaf with a leafref type.
 
 **Params**
 
-```json5
+```
 {"th": <integer>,
  "path": <string>,
  "result_as": <"paths" | "target" | "list-target", default: "paths">}
@@ -1233,15 +1231,15 @@ The `path` param is a keypath pointing to a leaf with a leafref type.
 
 **Result**
 
-```json
+```
 {"paths": <array of string, a keypath to a leaf>}
 ```
 
-```json
+```
 {"target": <a keypath to a leaf>}
 ```
 
-```json
+```
 {"list-target": <a keypath to a list>}
 ```
 
@@ -1255,7 +1253,7 @@ Gets all possible values for a leaf with a leafref type.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "offset": <integer, default: 0>,
@@ -1265,7 +1263,9 @@ Gets all possible values for a leaf with a leafref type.
  "keys": <object>}
 ```
 
-The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type. **Note**: If the leafref is within an action or RPC, `th` should be created with an `action_path`.
+The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type.&#x20;
+
+**Note**: If the leafref is within an action or RPC, `th` should be created with an `action_path`.
 
 The `offset` param is used to skip as many values as it is set to. E.g. an `offset` of 2 will skip the first 2 values. If not given the value defaults to 0, which means no values are skipped. The offset needs to be a non-negative integer or an `invalid params` error will be returned. An offset that is bigger than the length of the leafref list will result in a `method failed` error being returned.
 
@@ -1279,7 +1279,7 @@ The `skip_grouping` param is by default set to false and is only needed to be se
 
 The `keys` param is an optional array of values that should be set if more than one leafref statement is used within action/RPC input parameters and if they refer to each other using \``deref()`\` or \``current()`\` XPath functions. For example, consider this model:
 
-```json5
+```
   rpc create-service {
     tailf:exec "./run.sh";
     input {
@@ -1302,13 +1302,13 @@ The `keys` param is an optional array of values that should be set if more than 
 
 The leaf `if` refers to leaf _name_ in its XPath expression so to be able to successfully run `get_leafref_values` on that node you need to provide a valid value for the _name_ leaf using the _keys_ parameter. The `keys` parameter could for example look like this:
 
-```json
+```
 {"/create-service/name": "service1"}
 ```
 
 **Result**
 
-```json
+```
 {"values": <array of string>,
  "source": <string> | false}
 ```
@@ -1327,7 +1327,7 @@ Renames a list entry.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
@@ -1341,13 +1341,13 @@ The `to_keys` param is an array with the new key values. The array must contain 
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1363,7 +1363,7 @@ Copies a list entry.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
@@ -1383,7 +1383,7 @@ Copying between different ned-id versions works as long as the schema nodes bein
 
 **Errors (specific)**
 
-```json
+```
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1399,7 +1399,7 @@ Moves an ordered-by user list entry relative to its siblings.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "from_path": <string>,
  "to_path": <string>,
@@ -1414,13 +1414,13 @@ If the `mode` param is set to `before` or `after` the `to_path` param must be sp
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Errors (specific)**
 
-```json
+```
 {"type": "db.locked"}
 ```
 
@@ -1434,7 +1434,7 @@ Append a list entry to a leaf-list.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "value": <string>}
@@ -1444,7 +1444,7 @@ The `path` is a keypath pointing to a leaf-list.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -1458,7 +1458,7 @@ Counts the number of keys in a list.
 
 **Params**
 
-```json
+```
 {"th": <integer>
  "path": <string>}
 ```
@@ -1481,7 +1481,7 @@ Enumerates keys in a list.
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "path": <string>,
  "chunk_size": <integer greater than zero, optional>,
@@ -1504,7 +1504,7 @@ The `empty_list_key_as_null` parameter controls whether list keys of type empty 
 
 **Result**
 
-```json
+```
 {"keys": <array of array of string>,
  "total_count": <integer>,
  "lh": <integer, optional>}
@@ -1529,7 +1529,7 @@ This method should not be used for paginated results, as it results in performan
 **Example**
 
 {% code title="Example: Method query" %}
-```json
+```
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1561,7 +1561,7 @@ Starts a new query attached to a transaction handle. On success, a query handle 
 
 **Params**
 
-```json
+```
 {"th": <integer>,
  "xpath_expr": <string, optional if path is given>,
  "path": <string, keypath, optional if xpath_expr is given>,
@@ -1583,7 +1583,7 @@ A query is a way of evaluating an XPath expression and returning the results in 
 
 For example, given this YANG snippet:
 
-```json
+```
 list interface {
   key name;
   unique number;
@@ -1616,7 +1616,7 @@ This means that care must be taken so that the combination of `selection` expres
 
 It is possible to sort the result using the built-in XPath function \``sort-by()`\` but it is also also possible to sort the result using expressions specified by the `sort` param. These expressions will be used to construct a temporary index which will live as long as the query is active. For example, to start a query sorting first on the enabled leaf, and then on number one would call:
 
-```json
+```
 $.post("/jsonrpc", {
   jsonrpc: "2.0",
   id: 1,
@@ -1639,7 +1639,7 @@ The `initial_offset` param is the result entry to begin with (`1` means to start
 
 **Result**
 
-```json
+```
 {"qh": <integer>}
 ```
 
@@ -1648,7 +1648,7 @@ A new query handler handler id to be used when calling _run\_query_ etc
 **Example**
 
 {% code title="Example: Method start_query" %}
-```json
+```
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1658,6 +1658,7 @@ curl \
                     "xpath_expr": "/dhcp:dhcp/dhcp:foo",
                     "result_as": "keypath-value"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": 47}
@@ -1674,7 +1675,7 @@ Retrieves the result to a query (as chunks). For more details on queries, read t
 
 **Params**
 
-```json
+```
 {"qh": <integer>}
 ```
 
@@ -1682,7 +1683,7 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```json
+```
 {"position": <integer>,
  "total_number_of_results": <integer>,
  "number_of_results": <integer>,
@@ -1707,7 +1708,7 @@ The `result` param is as described in the description of `start_query`.
 **Example**
 
 {% code title="Example: Method run_query" %}
-```json
+```
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1716,6 +1717,7 @@ curl \
          "method": "run_query",
          "params": {"qh": 22}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -1737,7 +1739,7 @@ Reset/rewind a running query so that it starts from the beginning again. The nex
 
 **Params**
 
-```json
+```
 {"qh": <integer>}
 ```
 
@@ -1745,14 +1747,14 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Example**
 
 {% code title="Example: Method reset_query" %}
-```json
+```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1761,6 +1763,7 @@ curl \
          "method": "reset_query",
          "params": {"qh": 67}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": true}
@@ -1777,7 +1780,7 @@ Stops the running query identified by query handler. If a query is not explicitl
 
 **Params**
 
-```json
+```
 {"qh": <integer>}
 ```
 
@@ -1785,14 +1788,14 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```json
+```
 {}
 ```
 
 **Example**
 
 {% code title="Example: Method stop_query" %}
-```json
+```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1801,6 +1804,7 @@ curl \
          "method": "stop_query",
          "params": {"qh": 67}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": true}
@@ -1819,7 +1823,7 @@ Resets the candidate datastore.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -1833,7 +1837,7 @@ Takes a database lock.
 
 **Params**
 
-```json
+```
 {"db": <"startup" | "running" | "candidate">}
 ```
 
@@ -1847,7 +1851,7 @@ The `db` param specifies which datastore to lock.
 
 **Errors (specific)**
 
-```json
+```
 {"type": "db.locked", "data": {"sessions": <array of string>}}
 ```
 
@@ -1863,7 +1867,7 @@ Releases a database lock.
 
 **Params**
 
-```json
+```
 {"db": <"startup" | "running" | "candidate">}
 ```
 
@@ -1871,7 +1875,7 @@ The `db` param specifies which datastore to unlock.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -1885,7 +1889,7 @@ Copies the running datastore to the startup datastore.
 
 **Result**
 
-```json
+```
 {}
 ```
 
@@ -1905,13 +1909,13 @@ As soon as the `comet` method returns with values they should be dispatched and 
 
 **Params**
 
-```json
+```
 {"comet_id": <string>}
 ```
 
 **Result**
 
-```json
+```
 [{"handle": <integer>,
   "message": <a context specific json object, see example below>},
  ...]
@@ -1919,14 +1923,14 @@ As soon as the `comet` method returns with values they should be dispatched and 
 
 **Errors (specific)**
 
-```json
+```
 {"type": "comet.duplicated_channel"}
 ```
 
 **Example**
 
 {% code title="Example: Method comet" %}
-```json
+```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1936,10 +1940,12 @@ curl \
          "params": {"comet_id": "main",
                     "path": "/dhcp:dhcp"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"handle": "2"}}
- curl \
+ 
+curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
     -H 'Content-Type: application/json' \
@@ -1947,10 +1953,12 @@ curl \
          "method": "batch_init_done",
          "params": {"handle": "2"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
- curl \
+ 
+curl \
     -m 15 \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1964,7 +1972,7 @@ curl \
 
 Hangs, and finally:
 
-```json
+```
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -1985,7 +1993,7 @@ In this case, the admin user seems to have set \`/dhcp:dhcp/default-lease-time\`
 
 <details>
 
-<summary>get_system_setting</summary>
+<summary><mark style="color:green;"><code>get_system_setting</code></mark></summary>
 
 Extracts system settings such as capabilities, supported datastores, etc.
 
@@ -1995,15 +2003,15 @@ Extracts system settings such as capabilities, supported datastores, etc.
 {"operation": <"capabilities" | "customizations" | "models" | "user" | "version" | "all" | "namespaces", default: "all">}
 ```
 
-The _operation_ param specifies which system setting to get:
+The `operation` param specifies which system setting to get:
 
-* _capabilities_ - the server-side settings are returned, e.g. is rollback and confirmed commit supported
-* _customizations_ - an array of all webui customizations
-* _models_ - an array of all loaded YANG modules are returned, i.e. prefix, namespace, name
-* _user_ - the username of the currently logged in user is returned
-* _version_ - the system version
-* _all_ - all of the above is returned.
-* (DEPRECATED) _namespaces_ - an object of all loaded YANG modules are returned, i.e. prefix to namespace
+* `capabilities` - the server-side settings are returned, e.g. is rollback and confirmed commit supported.
+* `customizations` - an array of all WebUI customizations.
+* `models` - an array of all loaded YANG modules are returned, i.e. prefix, namespace, name.
+* `user` - the username of the currently logged in user is returned.
+* `version` - the system version.
+* `all` - all of the above is returned.
+* (DEPRECATED) `namespaces` - an object of all loaded YANG modules are returned, i.e. prefix to namespace.
 
 **Result**
 
@@ -2021,17 +2029,15 @@ The _operation_ param specifies which system setting to get:
  "namespaces": <object of YANG modules prefix/namespace>}
 ```
 
-The above is the result if using the _all_ operation.
+The above is the result if using the `all` operation.
 
 </details>
 
 <details>
 
-<summary>abort</summary>
+<summary><mark style="color:green;"><code>abort</code></mark></summary>
 
-
-
-Abort a JSON-RPC method by its associated id.
+Abort a JSON-RPC method by its associated ID.
 
 **Params**
 
@@ -2039,7 +2045,7 @@ Abort a JSON-RPC method by its associated id.
 {"id": <integer>}
 ```
 
-The _id_ param is the id of the JSON-RPC method to be aborted.
+The `id` param is the id of the JSON-RPC method to be aborted.
 
 **Result**
 
@@ -2051,11 +2057,9 @@ The _id_ param is the id of the JSON-RPC method to be aborted.
 
 <details>
 
-<summary>eval_XPath</summary>
+<summary><mark style="color:green;"><code>eval_XPath</code></mark></summary>
 
-
-
-Evaluates an xpath expression on the server side
+Evaluates an xpath expression on the server side.
 
 **Params**
 
@@ -2064,7 +2068,7 @@ Evaluates an xpath expression on the server side
  "xpath_expr": <string>}
 ```
 
-The _xpath\_expr_ param is the XPath expression to be evaluated.
+The `xpath_expr` param is the XPath expression to be evaluated.
 
 **Result**
 
@@ -2078,11 +2082,9 @@ The _xpath\_expr_ param is the XPath expression to be evaluated.
 
 <details>
 
-<summary>send_message</summary>
+<summary><mark style="color:green;"><code>send_message</code></mark></summary>
 
-
-
-Sends a message to another user in the CLI or Web UI
+Sends a message to another user in the CLI or Web UI.
 
 **Params**
 
@@ -2091,9 +2093,9 @@ Sends a message to another user in the CLI or Web UI
  "message": <string>}
 ```
 
-The _to_ param is the user name of the user to send the message to and the _message_ param is the actual message.
+The `to` param is the user name of the user to send the message to and the `message` param is the actual message.
 
-_NOTE_: The username "all" will broadcast the message to all users.
+**Note**: The username `all` will broadcast the message to all users.
 
 **Result**
 
@@ -2105,17 +2107,15 @@ _NOTE_: The username "all" will broadcast the message to all users.
 
 <details>
 
-<summary>subscribe_messages</summary>
-
-
+<summary><mark style="color:green;"><code>subscribe_messages</code></mark></summary>
 
 Starts a subscriber to messages.
 
-_NOTE_: the _start\_subscription_ method must be called to actually get the subscription to generate any messages, unless the _handle_ is provided as input.
+**Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
-_NOTE_: the _unsubscribe_ method should be used to end the subscription.
+**Note**: The `unsubscribe` method should be used to end the subscription.
 
-_NOTE_: As soon as a subscription message is generated it will be sent as a message and turn up as result to your polling call to the _comet_ method.
+**Note**: As soon as a subscription message is generated, it will be sent as a message and turn up as a result to your polling call to the `comet` method.
 
 **Params**
 
@@ -2130,9 +2130,9 @@ _NOTE_: As soon as a subscription message is generated it will be sent as a mess
 <string>
 ```
 
-A handle to the subscription is returned (equal to _handle_ if provided).
+A handle to the subscription is returned (equal to `handle` if provided).
 
-Subscription messages will end up in the _comet_ method and the format of these messages depend on what has happened.
+Subscription messages will end up in the `comet` method and the format of these messages depend on what has happened.
 
 When a new user has logged in:
 
@@ -2166,9 +2166,9 @@ When receiving a message:
 
 <details>
 
-<summary>get_rollbacks</summary>
+<summary><mark style="color:green;"><code>get_rollbacks</code></mark></summary>
 
-Lists all available rollback files
+Lists all available rollback files.
 
 **Result**
 
@@ -2184,21 +2184,19 @@ rollback =
   "label": <string>}
 ```
 
-The _nr_ param is a rollback number to be used in calls to _load\_rollback_ etc.
+The `nr` param is a rollback number to be used in calls to `load_rollback` etc.
 
-The _creator_ and _date_ properties identify the name of the user responsible for committing the configuration stored in the rollback file and when it happened.
+The `creator` and `date` properties identify the name of the user responsible for committing the configuration stored in the rollback file and when it happened.
 
-The _via_ param identifies the interface that was used to create the rollback file.
+The `via` param identifies the interface that was used to create the rollback file.
 
-The _label_ and _comment_ properties is as given calling the methods _set\_comment_ and _set\_label_ on the transaction.
+The `label` and `comment` properties is as given calling the methods `set_comment` and `set_label` on the transaction.
 
 </details>
 
 <details>
 
-<summary>get_rollback</summary>
-
-
+<summary><mark style="color:green;"><code>get_rollback</code></mark></summary>
 
 Gets the content of a specific rollback file. The rollback format is as defined in a curly bracket format as defined in the CLI.
 
@@ -2218,15 +2216,11 @@ Gets the content of a specific rollback file. The rollback format is as defined 
 
 <details>
 
-<summary>install_rollback</summary>
+<summary><mark style="color:green;"><code>install_rollback</code></mark></summary>
 
+Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
 
-
-Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with _new\_write\_trans_, followed by calls to the methods _load\_rollback_, _validate\_commit_ and _commit_.
-
-#### Note
-
-If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The _install\_rollback_ will still rollback as much as is allowed by the rules. See "The AAA infrastructure" chapter in this User Guide for more information about permissions and authorization.
+**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -2244,15 +2238,11 @@ If the permission to rollback is denied on some nodes, the 'warnings' array in t
 
 <details>
 
-<summary>load_rollback</summary>
-
-
+<summary><mark style="color:green;"><code>load_rollback</code></mark></summary>
 
 Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
 
-#### Note
-
-If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The _load\_rollback_ will still rollback as much as is allowed by the rules. See "The AAA infrastructure" chapter in this User Guide for more information about permissions and authorization.
+**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -2263,11 +2253,11 @@ If the permission to rollback is denied on some nodes, the 'warnings' array in t
  "selective": <boolean, default: false>}
 ```
 
-The _nr_ param is a rollback number returned by _get\_rollbacks_.
+The `nr` param is a rollback number returned by `get_rollbacks`.
 
-The _path_ param is a keypath that restrict the rollback to be applied only to a subtree.
+The `path` param is a keypath that restricts the rollback to be applied only to a subtree.
 
-The _selective_ param, false by default, can restrict the rollback process to use only the rollback specified by _nr_, rather than applying all known rollbacks files starting with the latest down to the one specified by _nr_.
+The `selective` param, false by default, can restrict the rollback process to use only the rollback specified by `nr`, rather than applying all known rollback files starting with the latest down to the one specified by `nr`.
 
 **Result**
 
@@ -2281,11 +2271,9 @@ The _selective_ param, false by default, can restrict the rollback process to us
 
 <details>
 
-<summary>get_description</summary>
+<summary><mark style="color:green;"><code>get_description</code></mark></summary>
 
-
-
-Get description. To be able to get the description in the response the fxs file need to be compiled with the flag "--include-doc". This operation can be heavy so instead of calling get\_description directly, we can confirm that there is a description before calling in "CS\_HAS\_DESCR" flag that we get from "get\_schema" response.
+Get description. To be able to get the description in the response, the `fxs` file needs to be compiled with the flag `--include-doc`. This operation can be heavy so instead of calling get\_description directly, we can confirm that there is a description before calling in `CS_HAS_DESCR` flag that we get from `get_schema` response.
 
 **Params**
 
@@ -2294,7 +2282,7 @@ Get description. To be able to get the description in the response the fxs file 
  "path": <string, optional>
 ```
 
-A _path_ is a tagpath/keypath pointing into a specific sub-tree of a YANG module.
+A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module.
 
 **Result**
 
@@ -2306,9 +2294,9 @@ A _path_ is a tagpath/keypath pointing into a specific sub-tree of a YANG module
 
 <details>
 
-<summary>get_schema</summary>
+<summary><mark style="color:green;"><code>get_schema</code></mark></summary>
 
-Exports a JSON schema for a selected part (or all) of a specific YANG module (with optional instance data inserted)
+Exports a JSON schema for a selected part (or all) of a specific YANG module (with optional instance data inserted).
 
 **Params**
 
@@ -2323,21 +2311,21 @@ Exports a JSON schema for a selected part (or all) of a specific YANG module (wi
  "cdm_namespace": <boolean, default: false>}
 ```
 
-One of the properties _namespace_ or _path_ must be specified.
+One of the properties `namespace` or `path` must be specified.
 
-A _namespace_ is as specified in a YANG module.
+A `namespace` is as specified in a YANG module.
 
-A _path_ is a tagpath/keypath pointing into a specific sub-tree of a YANG module.
+A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module.
 
-The _levels_ param limits the maximum depth of containers and lists from which a JSON schema should be produced (-1 means unlimited depth).
+The `levels` param limits the maximum depth of containers and lists from which a JSON schema should be produced (-1 means unlimited depth).
 
-The _insert\_values_ param signals that instance data for leafs should be inserted into the schema. This way the need for explicit forthcoming calls to _get\_elem_ are avoided.
+The `insert_values` param signals that instance data for leafs should be inserted into the schema. This way the need for explicit forthcoming calls to `get_elem` are avoided.
 
-The _evaluate\_when\_entries_ param signals that schema entries should be included in the schema even though their "when" or "tailf:display-when" statements evaluate to false, i.e. instead a boolean _evaluated\_when\_entry_ param is added to these schema entries.
+The `evaluate_when_entries` param signals that schema entries should be included in the schema even though their `when` or `tailf:display-when` statements evaluate to false, i.e. instead a boolean `evaluated_when_entry` param is added to these schema entries.
 
-The _stop\_on\_list_ param limits the schema generation to one level under the list when true.
+The `stop_on_list` param limits the schema generation to one level under the list when true.
 
-The _cdm\_namespace_ param signals inclusion of cdm-namespace entries where appropriate.
+The `cdm_namespace` param signals the inclusion of `cdm-namespace` entries where appropriate.
 
 **Result**
 
@@ -2484,12 +2472,11 @@ case_entry =
 
 This is a fairly complex piece of JSON but it essentially maps what is seen in a YANG module. Keep that in mind when scrutinizing the above.
 
-The _meta_ param contains meta-information about the YANG module such as namespace and prefix but it also contains type stack information for each type used in the YANG module represented in the _data_ param. Together with the _meta_ param, the _data_ param constitutes a complete YANG module in JSON format.
+The `meta` param contains meta-information about the YANG module such as namespace and prefix but it also contains type stack information for each type used in the YANG module represented in the `data` param. Together with the `meta` param, the `data` param constitutes a complete YANG module in JSON format.
 
 **Example**
 
-Example 9. Method get\_schema
-
+{% code title="Example: Method get_schema" %}
 ```
 curl \
     --cookie "sessionid=sess11635875109111642;" \
@@ -2502,9 +2489,6 @@ curl \
                     "levels": -1,
                     "insert_values": true}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -2534,19 +2518,15 @@ curl \
     "type": {"name": "string", "primitive": true}},
    ...]}}
 ```
-
-\
-
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>hide_schema</summary>
+<summary><mark style="color:green;"><code>hide_schema</code></mark></summary>
 
-
-
-Hides data which has been adorned with a "hidden" statement in YANG modules. "hidden" statements is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
+Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
 
 **Params**
 
@@ -2555,7 +2535,7 @@ Hides data which has been adorned with a "hidden" statement in YANG modules. "hi
  "group_name": <string>
 ```
 
-The _group\_name_ param is as defined by a "hidden" statement in a YANG module.
+The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
 **Result**
 
@@ -2567,11 +2547,9 @@ The _group\_name_ param is as defined by a "hidden" statement in a YANG module.
 
 <details>
 
-<summary>unhide_schema</summary>
+<summary><mark style="color:green;"><code>unhide_schema</code></mark></summary>
 
-
-
-Unhides data which has been adorned with a "hidden" statement in YANG modules. "hidden" statements is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
+Unhides data that has been adorned with a `hidden` statement in the YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
 
 **Params**
 
@@ -2581,9 +2559,9 @@ Unhides data which has been adorned with a "hidden" statement in YANG modules. "
  "passwd": <string>}
 ```
 
-The _group\_name_ param is as defined by a "hidden" statement in a YANG module.
+The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
-The _passwd_ param is a password needed to hide the data that has been adorned with a "hidden" statement. The password is as defined in the ncs.conf file.
+The `passwd` param is a password needed to hide the data that has been adorned with a `hidden` statement. The password is as defined in the `ncs.conf` file.
 
 **Result**
 
@@ -2595,7 +2573,7 @@ The _passwd_ param is a password needed to hide the data that has been adorned w
 
 <details>
 
-<summary>get_module_prefix_map</summary>
+<summary><mark style="color:green;"><code>get_module_prefix_map</code></mark></summary>
 
 Returns a map from module name to module prefix.
 
@@ -2613,8 +2591,7 @@ result = {"module-name": "module-prefix"}
 
 **Example**
 
-Example 10. Method get\_module\_prefix\_map
-
+{% code title="Example: Method get_module_prefix_map" %}
 ```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -2624,9 +2601,7 @@ curl \
          "method": "get_module_prefix_map",
          "params": {}}' \
     http://127.0.0.1:8008/jsonrpc
-```
 
-```
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {
@@ -2659,19 +2634,15 @@ curl \
     }
 }
 ```
-
-\
-
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>run_action</summary>
+<summary><mark style="color:green;"><code>run_action</code></mark></summary>
 
-
-
-Invokes an action or rpc defined in a YANG module.
+Invokes an action or RPC defined in a YANG module.
 
 **Params**
 
@@ -2685,15 +2656,15 @@ Invokes an action or rpc defined in a YANG module.
  "details": <"normal" | "verbose" | "very_verbose" | "debug", optional>}
 ```
 
-Actions are as specified in th YANG module, i.e. having a specific name and a well defined set of parameters and result. the _path_ param is a keypath pointing to an action or rpc in and the _params_ param is a JSON object with action parameters.
+Actions are as specified in the YANG module, i.e. having a specific name and a well-defined set of parameters and result. The `path` param is a keypath pointing to an action or RPC in and the `params` param is a JSON object with action parameters.
 
-The _format_ param defines if the result should be an array of key values or a pre-formatted string on bracket format as seen in the CLI. The result is also as specified by the YANG module.
+The `format` param defines if the result should be an array of key values or a pre-formatted string on bracket format as seen in the CLI. The result is also as specified by the YANG module.
 
-Both a _comet\_id_ and _handle_ need to be provided in order to receive notifications.
+Both a `comet_id` and `handle` need to be provided in order to receive notifications.
 
-The _details_ param can be given together with _comet\_id_ and _handle_ in order to get progress trace for the action. _details_ specifies the verbosity of the progress trace. After the action has been invoked, the _comet_ method can be used to get the progress trace for the action. If the _details_ param is omitted progress trace will be disabled.
+The `details` param can be given together with `comet_id` and `handle` in order to get a progress trace for the action. `details` specifies the verbosity of the progress trace. After the action has been invoked, the `comet` method can be used to get the progress trace for the action. If the `details` param is omitted progress trace will be disabled.
 
-_NOTE_ This method is often used to call an action that uploads binary data (e.g. images) and retrieving them at a later time. While retrieval is not a problem, uploading is a problem, because JSON-RPC request payloads have a size limitation (e.g. 64 kB). The limitation is needed for performance concerns because the payload is first buffered, before the JSON string is parsed and the request is evaluated. When you have scenarios that need binary uploads, please use the CGI functionality instead which has a size limitation that can be configured, and which is not limited to JSON payloads, so one can use streaming techniques.
+**Note**_:_ This method is often used to call an action that uploads binary data (e.g. images) and retrieving them at a later time. While retrieval is not a problem, uploading is a problem, because JSON-RPC request payloads have a size limitation (e.g. 64 kB). The limitation is needed for performance concerns because the payload is first buffered before the JSON string is parsed and the request is evaluated. When you have scenarios that need binary uploads, please use the CGI functionality instead which has a size limitation that can be configured, and which is not limited to JSON payloads, so one can use streaming techniques.
 
 **Result**
 
@@ -2711,8 +2682,7 @@ result = {"name": <string>, "value": <string>}
 
 **Example**
 
-Example 11. Method run\_action
-
+{% code title="Example: Method run_action" %}
 ```
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -2724,17 +2694,12 @@ curl \
                     "path": "/dhcp:dhcp/set-clock",
                     "params": {"clockSettings": "2014-02-11T14:20:53.460%2B01:00"}}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
+    
 {"jsonrpc": "2.0",
  "id": 1,
  "result": [{"name":"systemClock", "value":"0000-00-00T03:00:00+00:00"},
             {"name":"inlineContainer/bar", "value":"false"},
             {"name":"hardwareClock","value":"0000-00-00T04:00:00+00:00"}]}
-```
-
-```
 curl \
     -s \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -2748,16 +2713,12 @@ curl \
     "2014-02-11T14:20:53.460%2B01:00"},
                    "format": "bracket"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
+    
 {"jsonrpc": "2.0",
  "id": 1,
  "result": "systemClock 0000-00-00T03:00:00+00:00\ninlineContainer  {\n    \
                     bar false\n}\nhardwareClock 0000-00-00T04:00:00+00:00\n"}
-```
-
-```
+                    
 curl \
     -s \
     --cookie 'sessionid=sess12541119146799620192;' \
@@ -2771,15 +2732,14 @@ curl \
     "2014-02-11T14:20:53.460%2B01:00"},
                    "format": "json"}}' \
     http://127.0.0.1:8008/jsonrpc
-```
-
-```
+    
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"systemClock": "0000-00-00T03:00:00+00:00",
             "inlineContainer": {"bar": false},
             "hardwareClock": "0000-00-00T04:00:00+00:00"}}
 ```
+{% endcode %}
 
 </details>
 
@@ -2801,11 +2761,11 @@ Creates a user session and sets a browser cookie.
 {"user": <string>, "passwd": <string>, "ack_warning": <boolean, default: false>}
 ```
 
-There are two versions of the _login_ method. The method with no parameters only invokes Package Authentication, since credentials can be supplied with the whole HTTP request. The method with parameters is used when credentials may need to be supplied with the method parameters, this method invokes all authentication methods including Package Authentication.
+There are two versions of the `login` method. The method with no parameters only invokes Package Authentication, since credentials can be supplied with the whole HTTP request. The method with parameters is used when credentials may need to be supplied with the method parameters, this method invokes all authentication methods including Package Authentication.
 
 The `user` and `passwd` are the credentials to be used in order to create a user session. The common AAA engine in NSO is used to verify the credentials.
 
-If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgement of the warning translates to setting `ack_warning` to `true`.
+If the method fails with a warning, the warning needs to be displayed to the user, along with a checkbox to allow the user to acknowledge the warning. The acknowledgment of the warning translates to setting `ack_warning` to `true`.
 
 **Result**
 
@@ -2825,7 +2785,7 @@ The `warning` is a free-text string that should be displayed to the user after a
 
 **Note**_:_ A challenge response will have a `challenge_id` and `challenge_prompt` which needs to be responded to with an upcoming JSON-RPC `challenge_response` requests.
 
-**Note**: The `challenge_prompt` may be a multi line, why it is base64 encoded.
+**Note**: The `challenge_prompt` may be a multi-line, why it is base64 encoded.
 
 **Example**
 
@@ -2839,13 +2799,15 @@ curl \
          "params": {"user": "joe",
                     "passwd": "SWkkasE32"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
  {"code": -32000,
   "type": "rpc.method.failed",
   "message": "Method failed"}}
-  curl \
+
+curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
@@ -2853,7 +2815,8 @@ curl \
          "params": {"user": "admin",
                     "passwd": "admin"}}' \
     http://127.0.0.1:8008/jsonrpc
-  {"jsonrpc": "2.0",
+
+{"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
 ```
@@ -2869,6 +2832,7 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"trans": []}}
@@ -2914,13 +2878,15 @@ curl \
          "params": {"challenge_id": "123",
                     "response": "SWkkasE32"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
  {"code": -32000,
   "type": "rpc.method.failed",
   "message": "Method failed"}}
-  curl \
+
+curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
@@ -2928,7 +2894,8 @@ curl \
          "params": {"challenge_id": "123",
                     "response": "SWEddrk1"}}' \
     http://127.0.0.1:8008/jsonrpc
-  {"jsonrpc": "2.0",
+ 
+ {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
 ```
@@ -2944,6 +2911,7 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {"trans": []}}
@@ -2980,16 +2948,19 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "logout"}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {}}
- curl \
+
+curl \
     --cookie "sessionid=sess4245223558720207078;" \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "logout"}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "error":
@@ -3013,7 +2984,7 @@ Kills a user session, i.e. kicking out the user.
 {"user": <string | number>}
 ```
 
-The `user` param is either the username of a logged in user or session ID.
+The `user` param is either the username of a logged-in user or session ID.
 
 **Result**
 
@@ -3051,7 +3022,7 @@ The `key` param for which to get the stored data for. Read more about the sessio
 
 <summary><mark style="color:green;"><code>put_session_data</code></mark></summary>
 
-Puts session data into the session store. The session store is small key-value server-side database where data can be stored under a unique key. The data may be an arbitrary object, but not a function object. The object is serialized into a JSON string and then stored on the server.
+Puts session data into the session store. The session store is a small key-value server-side database where data can be stored under a unique key. The data may be an arbitrary object, but not a function object. The object is serialized into a JSON string and then stored on the server.
 
 **Params**
 
@@ -3128,6 +3099,7 @@ curl \
     -d '{"jsonrpc": "2.0", "id": 1,
          "method": "get_trans"}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -3173,7 +3145,7 @@ The meaning of `private`, `shared` and `exclusive` have slightly different meani
 
 The `tag` param is a way to tag transactions with a keyword so that they can be filtered out when you call the `get_trans` method.
 
-The `action_path` param is a keypath pointing to an action or rpc. Use `action_path` when you need to read action/rpc input parameters.
+The `action_path` param is a keypath pointing to an action or RPC. Use `action_path` when you need to read action/rpc input parameters.
 
 The `th` param is a way to create transactions within other read\_write transactions.
 
@@ -3209,6 +3181,7 @@ curl \
          "params": {"db": "running",
                     "mode": "read"}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result": 2}
@@ -3283,7 +3256,7 @@ Adds a label to the active read-write transaction. This label will be stored in 
 
 <summary><mark style="color:green;"><code>is_trans_modified</code></mark></summary>
 
-Checks if any modifications have been done to a transaction
+Checks if any modifications have been done to a transaction.
 
 **Params**
 
@@ -3343,6 +3316,7 @@ curl \
         "method": "changes",
         "params": {"th": 2}}' \
     http://127.0.0.1:8008/jsonrpc
+
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -3494,7 +3468,7 @@ See the `commit` method for available flags.
 
 Or:
 
-```json5
+```
 {"warnings": <array of warning>}
 
 warning = {"paths": <array of string>, "message": <string>}
