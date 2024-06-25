@@ -116,7 +116,7 @@ qos qos-class MISSION-CRITICAL
 
 Run the example as follows:
 
-1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\\
+1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.
 
     ```
     Copy$ 
@@ -124,12 +124,12 @@ Run the example as follows:
 
     \
     This will set up the environment and start the simulated network.
-2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\\
+2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).
 
     ```
     Copyncs# 
     ```
-3.  Add another VPN.\\
+3.  Add another VPN.
 
     ```
     top

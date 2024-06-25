@@ -6,11 +6,11 @@ description: Understand NSO deployment with an example setup.
 
 This section shows examples of a typical deployment for a highly available (HA) setup. A reference to an example implementation of the `tailf-hcc` layer-2 upgrade deployment scenario described here, check the NSO example set under `examples.ncs/development-guide/high-availability/hcc`. The example covers the following topics:
 
-* [ ] Installation of NSO on all nodes in an HA setup
-* [ ] Initial configuration of NSO on all nodes
-* [ ] HA failover
-* [ ] Upgrading NSO on all nodes in the HA cluster
-* [ ] Upgrading NSO packages on all nodes in the HA cluster
+* Installation of NSO on all nodes in an HA setup
+* Initial configuration of NSO on all nodes
+* HA failover
+* Upgrading NSO on all nodes in the HA cluster
+* Upgrading NSO packages on all nodes in the HA cluster
 
 The deployment examples use both the legacy rule-based and recommended HA Raft setup. See [High Availability](../management/high-availability.md) for HA details. The HA Raft deployment consists of three nodes running NSO and a node managing them, while the rule-based HA deployment uses only two nodes.
 
@@ -22,7 +22,7 @@ For the HA Raft setup, the NSO nodes `paris.fra`, `london.eng`, and `berlin.ger`
 
 For the rule-based HA setup, the NSO nodes `paris` and `london` make up one HA pair — one primary and one secondary.
 
-<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The rule-based HA Deployment Network</p></figcaption></figure>
+<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The Rule-Based HA Deployment Network</p></figcaption></figure>
 
 HA is usually not optional for a deployment. Data resides in CDB, a RAM database with a disk-based journal for persistence. Both HA variants can be set up to avoid the need for manual intervention in a failure scenario, where HA Raft does the best job of keeping the cluster up. See [High Availability](../management/high-availability.md) for details.
 
@@ -116,9 +116,11 @@ The initialization steps are also performed as `root` for the nodes that make up
 
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
-*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
+*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.\
 
-    **Note**: The SSL certificates that NSO generates are self-signed:
+
+    **Note**: The SSL certificates that NSO generates are self-signed:\
+
 
     ```
           $ openssl x509 -in /etc/ncs/ssl/cert/host.cert -text -noout
@@ -140,7 +142,8 @@ The initialization steps are also performed as `root` for the nodes that make up
     Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
 * Disable `/ncs-config/webui/cgi` unless needed.
 * The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
-*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
+*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.\
+
 
     ```
         <prompt1>\u@nso-\H> </prompt1>
@@ -264,7 +267,7 @@ All large-scale deployments employ monitoring systems. There are plenty of good 
 * At startup, check that NSO has been started using the `$NCS_DIR/bin/ncs_cmd -c "wait-start 2"` command.
 * Use the `ssh` command to verify SSH access to the NSO host and NSO CLI.
 * Check disk usage using, for example, the `df` utility.
-* For example, use **curl** or the Python requests library to verify that the RESTCONF API is accessible.
+* For example, use `curl` or the Python requests library to verify that the RESTCONF API is accessible.
 * Check that the NETCONF API is accessible using, for example, the `$NCS_DIR/bin/netconf-console` tool with a `hello` message.
 * Verify the NSO version using, for example, the `$NCS_DIR/bin/ncs --version` or RESTCONF `/restconf/data/tailf-ncs-monitoring:ncs-state/version`.
 * Check if HA is enabled using, for example, RESTCONF `/restconf/data/tailf-ncs-monitoring:ncs-state/ha`.
