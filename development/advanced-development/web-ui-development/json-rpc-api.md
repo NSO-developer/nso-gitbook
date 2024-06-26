@@ -535,10 +535,13 @@ Starts a subscriber to operational data in CDB. Changes done to configuration da
 ```
 {"comet_id": <string>,
  "handle": <string, optional>,
- "path": <string>}
+ "path": <string>,
+ "leaf_list_as_leaf": <boolean>, default: false} (DEPRECATED)
 ```
 
 The `path` param is a keypath restricting the subscription messages to only be about changes done under that specific keypath.
+
+The `leaf_list_as_leaf` parameter is deprecated and will be removed in future versions. It can be used to preserve backwards compatibility for leaf-list. If this parameter is not set (or `false`) the result for leaf-list changes will be represented as `created` or `deleted` operations. With this parameter set to `true` the result will be represented as a `value_set` operation.
 
 **Result**
 
@@ -578,7 +581,8 @@ Starts a subscriber to configuration data in CDB. Changes done to operational da
  "path": <string>,
  "skip_local_changes": <boolean, default: false>,
  "hide_changes": <boolean, default: false>,
- "hide_values": <boolean, default: false>}
+ "hide_values": <boolean, default: false>,
+ "leaf_list_as_leaf": <boolean>, default: false} (DEPRECATED)
 ```
 
 The `path` param is a keypath restricting the subscription messages to only be about changes done under that specific keypath.
@@ -586,6 +590,8 @@ The `path` param is a keypath restricting the subscription messages to only be a
 The `skip_local_changes` param specifies if configuration changes done by the owner of the read-write transaction should generate subscription messages.
 
 The `hide_changes` and `hide_values` params specify a lower level of information in subscription messages, in case it is enough to receive just a "ping" or a list of changed keypaths, respectively, but not the new values resulted in the changes.
+
+The `leaf_list_as_leaf` parameter is deprecated and will be removed in future versions. It can be used to preserve backwards compatibility for leaf-list. If this parameter is not set (or `false`) the result for leaf-list changes will be represented as `created` or `deleted` operations. With this parameter set to `true` the result will be represented as a `value_set` operation.
 
 **Result**
 
@@ -839,7 +845,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 <summary><mark style="color:green;"><code>create</code></mark></summary>
 
-Create a list entry, a presence container, or a leaf of type empty (unless in a union, then use `set_value`).
+Create a list entry, a presence container, or a leaf of type empty.
 
 **Params**
 
@@ -1169,8 +1175,6 @@ When `dryrun` is `true`, this function can be used to test if a value is valid o
 
 **Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
-**Note**: In the case type empty is in a union, the expected `value` is \``[null]`\`. Due to implementation specifics, it is also possible to use the empty string and the leaf's name as value to express type empty. If type empty is positioned before type string in a union, the implication is that you can't set the leaf (as type string) to the empty string or the leaf name. You can only set the empty part of the union using the empty string or the leaf name.
-
 **Result**
 
 ```
@@ -1486,8 +1490,7 @@ Enumerates keys in a list.
  "path": <string>,
  "chunk_size": <integer greater than zero, optional>,
  "start_with": <array of string, optional>,
- "lh": <integer, optional>,
- "empty_list_key_as_null": <boolean, optional>}
+ "lh": <integer, optional>}
 ```
 
 The `th` parameter is the transaction handle.
@@ -1499,8 +1502,6 @@ The `chunk_size` parameter is the number of requested keys in the result. Option
 The `start_with` parameter will be used to filter out all those keys that do not start with the provided strings. The parameter supports multiple keys e.g. if the list has two keys, then `start_with` can hold two items.
 
 The `lh` (list handle) parameter is optional (on the first invocation) but must be used in the following invocations.
-
-The `empty_list_key_as_null` parameter controls whether list keys of type empty are represented as the name of the list key (default) or as \`\[null]\`.
 
 **Result**
 
@@ -3281,9 +3282,12 @@ Extracts modifications done to a transaction.
 **Params**
 
 ```
-{"th": <integer>},
+{"th": <integer>,
+ "leaf_list_as_leaf": <boolean>, default: false} (DEPRECATED),
  "output": <"compact" | "legacy", default: "legacy">
 ```
+
+The `leaf_list_as_leaf` parameter is deprecated and will be removed in future versions. It can be used to preserve backwards compatibility for leaf-list. If this parameter is not set (or `false`) the result for leaf-list changes will be represented as `created` or `deleted` operations. With this parameter set to `true` the result will be represented as a `value_set` operation.
 
 The `output` parameter controls the result content. `legacy` format include old and value for all operation types even if their value is undefined. undefined values are represented by an empty string. `compact` format excludes old and value if their value is undefined.
 
