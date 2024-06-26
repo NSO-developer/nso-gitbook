@@ -274,7 +274,7 @@ The AAA infrastructure can be used to restrict access to library functions using
 
 Note how the command is prefixed with `::jsonrpc::`. This tells the AAA engine to apply the command rule to JSON-RPC API functions.
 
-You can read more about the command rules in [AAA infrastructure](broken-reference).
+You can read more about the command rules in [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md).
 
 </details>
 
@@ -870,7 +870,7 @@ The `path` param is a keypath pointing to data to be created.
 
 Deletes an existing list entry, a presence container, or an optional leaf and all its children (if any).
 
-**Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -1167,7 +1167,7 @@ When `value` is `null`, the `set_value` method acts like `delete`.
 
 When `dryrun` is `true`, this function can be used to test if a value is valid or not.
 
-**Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Note**: In the case type empty is in a union, the expected `value` is \``[null]`\`. Due to implementation specifics, it is also possible to use the empty string and the leaf's name as value to express type empty. If type empty is positioned before type string in a union, the implication is that you can't set the leaf (as type string) to the empty string or the leaf name. You can only set the empty part of the union using the empty string or the leaf name.
 
@@ -2220,7 +2220,7 @@ Gets the content of a specific rollback file. The rollback format is as defined 
 
 Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
 
-**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -2242,7 +2242,7 @@ Installs a specific rollback file into a new transaction and commits it. The con
 
 Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
 
-**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
