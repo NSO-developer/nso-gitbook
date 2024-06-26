@@ -6,7 +6,7 @@ description: NSO Web UI development information.
 
 Web UI development is thought to be in the hands of the customer's front-end developers. They know best the requirements and how to fulfill those requirements in terms of aesthetics, functionality, and toolchain (frameworks, libraries, external data sources, and services).
 
-NSO comes with a nortbound interface in the shape of a JSON-RPC API. This API is designed with Web UI applications in mind, and it complies with the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification) while using HTTP/S as the transport mechanism.
+NSO comes with a nortbound interface in the shape of a [JSON-RPC API](json-rpc-api.md). This API is designed with Web UI applications in mind, and it complies with the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification) while using HTTP/S as the transport mechanism.
 
 The JSON-RPC API contains a handful of methods with well-defined input `method` and `params`, along with the output `result`.
 
@@ -18,7 +18,7 @@ You can call these from a browser via:&#x20;
 * Or from the command line (e.g., [curl \[https://github.com/bagder/curl\]](https://github.com/bagder/curl), [httpie \[https://github.com/jkbr/httpie\]](https://github.com/jkbr/httpie))
 
 {% code title="With JQuery" %}
-```
+```jq
       // with jQuery
       $.ajax({
         type: 'post',
@@ -45,7 +45,7 @@ You can call these from a browser via:&#x20;
 {% endcode %}
 
 {% code title="With Curl" %}
-```
+```jq
       # with curl
       curl \
       -X POST \
@@ -78,7 +78,7 @@ You can read in the JSON-RPC API section about all the available methods and the
 
 In the release package, under `${NCS_DIR}/var/ncs/webui/example`, you will find the working code to run the example below.
 
-```
+```jq
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
@@ -321,7 +321,7 @@ In the example above describing a common flow, a reference is made to using a JS
 
 An example implementation of a JSON-RPC client, used in the example above:
 
-```
+```jq
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
@@ -481,7 +481,7 @@ In the example above describing a common flow, a reference is made to starting a
 
 An example implementation of a Comet client, used in the example above:
 
-```
+```jq
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
@@ -693,7 +693,7 @@ When enabled, the endpoint `/sso` is made public and handles Single Sign-on atte
 An example configuration for the cisco-nso-saml2-auth Authentication Package is presented below. Note that `/ncs-config/aaa/auth-order` does not need to be set for Single Sign-On to work!
 
 {% code title="Example: Example ncs.conf to enable SAMLv2 Single Sign-On" %}
-```
+```xml
 <aaa>
   <package-authentication>
     <enabled>true</enabled>
