@@ -18,7 +18,7 @@ You can call these from a browser via:&#x20;
 * Or from the command line (e.g., [curl \[https://github.com/bagder/curl\]](https://github.com/bagder/curl), [httpie \[https://github.com/jkbr/httpie\]](https://github.com/jkbr/httpie))
 
 {% code title="With JQuery" %}
-```jq
+```json5
       // with jQuery
       $.ajax({
         type: 'post',
@@ -45,7 +45,7 @@ You can call these from a browser via:&#x20;
 {% endcode %}
 
 {% code title="With Curl" %}
-```jq
+```json5
       # with curl
       curl \
       -X POST \
@@ -78,7 +78,7 @@ You can read in the JSON-RPC API section about all the available methods and the
 
 In the release package, under `${NCS_DIR}/var/ncs/webui/example`, you will find the working code to run the example below.
 
-```jq
+```json5
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
@@ -321,7 +321,7 @@ In the example above describing a common flow, a reference is made to using a JS
 
 An example implementation of a JSON-RPC client, used in the example above:
 
-```jq
+```json5
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
@@ -481,7 +481,7 @@ In the example above describing a common flow, a reference is made to starting a
 
 An example implementation of a Comet client, used in the example above:
 
-```jq
+```json5
       /*jshint devel:true*/
 // !!!
 // The following code is purely for example purposes.
