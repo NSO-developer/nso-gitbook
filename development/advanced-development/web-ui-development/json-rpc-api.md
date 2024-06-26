@@ -161,13 +161,13 @@ All methods may return one of the following JSON RPC or application-defined erro
 
 <summary>What are the security characteristics of the JSON-RPC API?</summary>
 
-JSON-RPC runs on top of the embedded web server (see [Web Server](broken-reference)), which accepts HTTP and/or HTTPS.
+JSON-RPC runs on top of the embedded web server (see [Web Server](../../connected-topics/web-server.md)), which accepts HTTP and/or HTTPS.
 
 The JSON-RPC session ties the client and the server via an HTTP cookie, named `sessionid` which contains a randomly server-generated number. This cookie is not only secure (when the requests come over HTTPS), meaning that HTTPS cookies do not leak over HTTP, but even more importantly this cookie is also HTTP-only, meaning that only the server and the browser (e.g. not the JavaScript code) have access to the cookie. Furthermore, this cookie is a session cookie, meaning that a browser restart would delete the cookie altogether.
 
 The JSON-RPC session lives as long as the user does not request to log out, as long as the user is active within a 30-minute (default value, which is configurable) time frame, and as long as there are no severe server crashes. When the session dies, the server will reply with the intention to delete any `sessionid` cookies stored in the browser (to prevent any leaks).
 
-When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server, or by adding a reverse proxy (see [Web Server](broken-reference)).
+When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server, or by adding a reverse proxy (see [Web Server](../../connected-topics/web-server.md)).
 
 </details>
 
@@ -274,7 +274,7 @@ The AAA infrastructure can be used to restrict access to library functions using
 
 Note how the command is prefixed with `::jsonrpc::`. This tells the AAA engine to apply the command rule to JSON-RPC API functions.
 
-You can read more about the command rules in [AAA Infrastructure](broken-reference).
+You can read more about the command rules in [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md).
 
 </details>
 
@@ -839,7 +839,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 <summary><mark style="color:green;"><code>create</code></mark></summary>
 
-Create a list entry, a presence container, or a leaf of type empty (unless in a union, then use `set_value`).
+Create a list entry, a presence container, or a leaf of type empty.
 
 **Params**
 
@@ -870,7 +870,7 @@ The `path` param is a keypath pointing to data to be created.
 
 Deletes an existing list entry, a presence container, or an optional leaf and all its children (if any).
 
-**Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -1167,9 +1167,7 @@ When `value` is `null`, the `set_value` method acts like `delete`.
 
 When `dryrun` is `true`, this function can be used to test if a value is valid or not.
 
-**Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
-
-**Note**: In the case type empty is in a union, the expected `value` is \``[null]`\`. Due to implementation specifics, it is also possible to use the empty string and the leaf's name as value to express type empty. If type empty is positioned before type string in a union, the implication is that you can't set the leaf (as type string) to the empty string or the leaf name. You can only set the empty part of the union using the empty string or the leaf name.
+**Note**: If this method is used for deletion and permission to delete is denied on a child, the 'warnings' array in the result will contain a warning ''Some elements could not be removed due to NACM rules prohibiting access.'. The delete will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Result**
 
@@ -1486,8 +1484,7 @@ Enumerates keys in a list.
  "path": <string>,
  "chunk_size": <integer greater than zero, optional>,
  "start_with": <array of string, optional>,
- "lh": <integer, optional>,
- "empty_list_key_as_null": <boolean, optional>}
+ "lh": <integer, optional>}
 ```
 
 The `th` parameter is the transaction handle.
@@ -1499,8 +1496,6 @@ The `chunk_size` parameter is the number of requested keys in the result. Option
 The `start_with` parameter will be used to filter out all those keys that do not start with the provided strings. The parameter supports multiple keys e.g. if the list has two keys, then `start_with` can hold two items.
 
 The `lh` (list handle) parameter is optional (on the first invocation) but must be used in the following invocations.
-
-The `empty_list_key_as_null` parameter controls whether list keys of type empty are represented as the name of the list key (default) or as \`\[null]\`.
 
 **Result**
 
@@ -2220,7 +2215,7 @@ Gets the content of a specific rollback file. The rollback format is as defined 
 
 Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
 
-**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -2242,7 +2237,7 @@ Installs a specific rollback file into a new transaction and commits it. The con
 
 Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
 
-**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](broken-reference) for more information about permissions and authorization.
+**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
 **Params**
 
@@ -3555,7 +3550,7 @@ The `flags` param is a list of flags that can change the commit behavior:
 
 
 
-      **Note**: Read about error recovery in [Commit Queue](broken-reference) for a more detailed explanation.
+      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 For backward compatibility, the `flags` param can also be a bit mask with the following limit values:
