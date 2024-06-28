@@ -16,11 +16,11 @@ This release includes major enhancements in the following areas:
 
 <summary><strong>Web UI Improvements</strong></summary>
 
-The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.&#x20;
+The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.
 
 Documentation Updates:
 
-* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.&#x20;
+* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.
 
 </details>
 
@@ -32,7 +32,7 @@ Devices now support `auto-configure` and `rename` actions to assist with the ini
 
 Documentation Updates:
 
-* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/operations/nso-device-manager.md#renaming-devices-in-nso).&#x20;
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/operations/nso-device-manager.md#renaming-devices-in-nso).
 
 </details>
 
@@ -44,7 +44,7 @@ Binaries for the Linux OS on the arm64 architecture are now available for downlo
 
 Documentation Updates:
 
-* Updated system requirements in the Installation ([Local Install](administration/installation-and-deployment/local-install.md), [System Install](administration/installation-and-deployment/system-install.md)) and [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) sections.&#x20;
+* Updated system requirements in the Installation ([Local Install](administration/installation-and-deployment/local-install.md), [System Install](administration/installation-and-deployment/system-install.md)) and [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) sections.
 
 </details>
 

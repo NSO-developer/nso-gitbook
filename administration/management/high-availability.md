@@ -994,7 +994,7 @@ location SanJose
 
 ### Data Model <a href="#ug.ha.hcc.data_models" id="ug.ha.hcc.data_models"></a>
 
-The HCC data model can be found in the HCC package (`tailf-hcc.yang`).&#x20;
+The HCC data model can be found in the HCC package (`tailf-hcc.yang`).
 
 ## Setup with an External Load Balancer <a href="#ug.ha.lb" id="ug.ha.lb"></a>
 

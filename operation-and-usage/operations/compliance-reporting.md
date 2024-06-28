@@ -103,7 +103,7 @@ You can also use the web UI to define compliance reports. See the section [Compl
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
-Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.&#x20;
+Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.
 
 Here is an example of such a report listing:
 

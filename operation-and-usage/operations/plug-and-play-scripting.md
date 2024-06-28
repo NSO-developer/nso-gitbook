@@ -4,7 +4,7 @@ description: Use NSO's plug-and-play scripting mechanism to add new functionalit
 
 # Plug-and-Play Scripting
 
-&#x20;A scripting mechanism can be used together with the CLI (scripting is not available for any other northbound interfaces). This section is intended for users who are familiar with UNIX shell scripting and/or programming. With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. No special tools are needed.&#x20;
+&#x20;A scripting mechanism can be used together with the CLI (scripting is not available for any other northbound interfaces). This section is intended for users who are familiar with UNIX shell scripting and/or programming. With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. No special tools are needed.
 
 There are three categories of scripts:
 
@@ -12,7 +12,7 @@ There are three categories of scripts:
 * `policy` scripts: Invoked at validation time and may control the outcome of a transaction. Policy scripts have the mandate to cause a transaction to abort.
 * `post-commit` scripts: Invoked when a transaction has been committed. Post-commit scripts can for example be used for logging, sending external events etc.
 
-The terms 'script' and 'scripting' used throughout this description refer to how functionality can be added without a requirement for integration using the NSO programming APIs. NSO will only run the scripts as UNIX executables. Thus they may be written as shell scripts, or by using another scripting language that is supported by the OS, e.g., Python, or even as compiled code. The scripts are run with the same user ID as NSO.&#x20;
+The terms 'script' and 'scripting' used throughout this description refer to how functionality can be added without a requirement for integration using the NSO programming APIs. NSO will only run the scripts as UNIX executables. Thus they may be written as shell scripts, or by using another scripting language that is supported by the OS, e.g., Python, or even as compiled code. The scripts are run with the same user ID as NSO.
 
 The examples in this section are written using shell scripts as the least common denominator, but they can be written in another suitable language, e.g., Python or C.
 
@@ -37,7 +37,7 @@ All scripts are required to provide a formal description of their interface. Whe
 
 * `--command`
 * `--policy`
-* `--post-commit`&#x20;
+* `--post-commit`
 
 The script must respond by writing its formal interface description on `stdout` and exit normally. Such a description consists of one or more sections. Which sections are required, depends on the category of the script.
 
@@ -113,7 +113,7 @@ end
 
 ### `param` Section <a href="#d5e4581" id="d5e4581"></a>
 
-Now let's look at various aspects of a parameter. This may both affect the parameter syntax for the end-user in the CLI as well as what the command script will get as arguments.&#x20;
+Now let's look at various aspects of a parameter. This may both affect the parameter syntax for the end-user in the CLI as well as what the command script will get as arguments.
 
 The following settings can be used to customize each CLI parameter:
 
@@ -345,7 +345,7 @@ end
 
 When NSO has concluded that the policy script should be invoked to perform its validation logic, the script is invoked with the option `--keypath`. If the registered node is a leaf, its value will be given with the `--value` option. For example `--keypath /devices/device/c0` or if the node is a leaf `--keypath /devices/device/c0/address --value 127.0.0.1`.
 
-Once the script has performed its validation logic it must exit with a proper status.&#x20;
+Once the script has performed its validation logic it must exit with a proper status.
 
 The following exit statuses are valid:
 

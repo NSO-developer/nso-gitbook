@@ -8,7 +8,7 @@ NSO includes a native time-based job scheduler suitable for scheduling backgroun
 
 ## Scheduling Periodic Work <a href="#d5e9339" id="d5e9339"></a>
 
-A standard Vixie Cron expression is used to represent the periodicity in which the task should run. When the task is triggered, the configured action is invoked on the configured action node instance. The action is run as the user that configured the task.&#x20;
+A standard Vixie Cron expression is used to represent the periodicity in which the task should run. When the task is triggered, the configured action is invoked on the configured action node instance. The action is run as the user that configured the task.
 
 Example: To schedule a task to run `sync-from` at 2 AM on the 1st of every month, we do:
 
@@ -96,7 +96,7 @@ The scheduler is disabled when HA is enabled and when HA mode is `NONE`. See [Mo
 
 ## Troubleshooting <a href="#d5e9438" id="d5e9438"></a>
 
-Troubleshooting information is covered below.&#x20;
+Troubleshooting information is covered below.
 
 ### History Log <a href="#d5e9440" id="d5e9440"></a>
 
