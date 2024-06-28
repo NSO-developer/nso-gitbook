@@ -22,7 +22,7 @@ The kicker mechanism first checks if the input parameters match those in the `ki
 
 * `kicker-id`: The id (name) of the invoking kicker.
 * `path`: The path of the current monitor triggering the kicker.
-* `tid`: The transaction ID to a synthetic transaction containing the changes that lead to the triggering of the kicker.&#x20;
+* `tid`: The transaction ID to a synthetic transaction containing the changes that lead to the triggering of the kicker.
 
 The "synthetic" transaction implies that this is a copy of the original transaction that led to the kicker triggering. It only contains the data tree under the monitor. The original transaction is already committed and this data might no longer reflect the "running" datastore. It's useful in that the action implementation can attach and diff-iterate over this transaction and retrieve the certain changes that lead to the kicker invocation.
 
@@ -249,7 +249,7 @@ Monitor expressions are expanded and installed in an internal data structure at 
 
 ### A Simple Data Kicker Example <a href="#ug.kicker.simple_data_example" id="ug.kicker.simple_data_example"></a>
 
-This example is part of the `examples.ncs/web-server-farm/web-site-service` example. It consists of an action and a `README_KICKER` file. For all kickers defined in this example, the same action is used. This action is defined in the `web-site-service` package.&#x20;
+This example is part of the `examples.ncs/web-server-farm/web-site-service` example. It consists of an action and a `README_KICKER` file. For all kickers defined in this example, the same action is used. This action is defined in the `web-site-service` package.
 
 The following is the YANG snippet for the action definition from the `website.yang` file:
 
@@ -615,7 +615,7 @@ admin@ncs(config)#
 
 ### Unhide Kickers <a href="#ug.kicker.debugging.unhide" id="ug.kicker.debugging.unhide"></a>
 
-The top-level container `kickers` is by default invisible due to a hidden attribute. To make `kickers` visible in the CLI, two steps are required.&#x20;
+The top-level container `kickers` is by default invisible due to a hidden attribute. To make `kickers` visible in the CLI, two steps are required.
 
 1.  First, the following XML snippet must be added to `ncs.conf`.\
 

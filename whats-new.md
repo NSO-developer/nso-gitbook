@@ -106,9 +106,9 @@ Documentation Updates:
 
 <summary><strong>Progress Trace</strong></summary>
 
-The progress trace framework has been improved to add the concepts of spans and links.&#x20;
+The progress trace framework has been improved to add the concepts of spans and links.
 
-* A span represents a unit of work or operation that occurs over a span of time.&#x20;
+* A span represents a unit of work or operation that occurs over a span of time.
 * A link is a reference to another span event and can be used to find related events.
 
 Documentation Updates:

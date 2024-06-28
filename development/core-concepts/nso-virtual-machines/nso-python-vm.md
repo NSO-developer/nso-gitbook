@@ -22,7 +22,7 @@ ncs-make-package --service-skeleton python <package-name>
 
 The `tailf-ncs-python-vm.yang` defines the `python-vm` container which, along with `ncs.conf`, is the entry point for controlling the NSO Python VM functionality. Study the content of the YANG model in the example below (The Python VM YANG Model). For a full explanation of all the configuration data, look at the YANG file and man `ncs.conf`. Here will follow a description of the most important configuration parameters.
 
-Note that some of the nodes beneath `python-vm` are by default invisible due to a hidden attribute. To make everything under `python-vm` visible in the CLI, two steps are required:&#x20;
+Note that some of the nodes beneath `python-vm` are by default invisible due to a hidden attribute. To make everything under `python-vm` visible in the CLI, two steps are required:
 
 1.  First, the following XML snippet must be added to `ncs.conf`:\
 

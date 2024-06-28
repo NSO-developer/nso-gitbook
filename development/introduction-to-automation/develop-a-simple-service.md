@@ -147,7 +147,7 @@ Finally, your Python script can read the supplied values inside the `cb_create()
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e635" id="d5e635"></a>
 
-The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.&#x20;
+The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
 
 First, change the current working directory:
 
@@ -180,7 +180,7 @@ showcase-clean-start:
 
 ### Step 2 - Create a Service Package <a href="#d5e653" id="d5e653"></a>
 
-You create a new service package with the `ncs-make-package` command. Without the `--dest` option, the package is created in the current working directory. Normally you run the command without this option, as it is shorter. For NSO to find and load this package, it has to be placed (or referenced via a symbolic link) in the `packages` subfolder of the NSO running directory.&#x20;
+You create a new service package with the `ncs-make-package` command. Without the `--dest` option, the package is created in the current working directory. Normally you run the command without this option, as it is shorter. For NSO to find and load this package, it has to be placed (or referenced via a symbolic link) in the `packages` subfolder of the NSO running directory.
 
 Change the current working directory before creating the package:
 
@@ -465,7 +465,7 @@ Likewise, you can use the same XPath in a template of a Python service. Then you
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e795" id="d5e795"></a>
 
-The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.&#x20;
+The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
 
 First, change the current working directory:
 

@@ -209,7 +209,7 @@ If authentication succeeds, the user's group membership is established as descri
 
 On operating systems supporting PAM, NSO also supports PAM authentication. Using PAM,  authentication with NSO can be very convenient since it allows us to have the same set of users and groups having access to NSO as those that have access to the UNIX/Linux host itself.
 
-If we use PAM, we do not have to have any users or any groups configured in the NSO aaa namespace at all.&#x20;
+If we use PAM, we do not have to have any users or any groups configured in the NSO aaa namespace at all.
 
 {% hint style="success" %}
 PAM is the recommended way to authenticate NSO users.
@@ -286,7 +286,7 @@ Where:
 * `$supplementary_gids` is a (possibly empty) space-separated list of additional UNIX group IDs the user is also a member of.
 * `$HOME` is the directory that should be used as HOME for this user when NSO executes commands on behalf of this user.
 
-It is further possible for the program to return a token on successful authentication, by using `"accept_token"` instead of `"accept"`:&#x20;
+It is further possible for the program to return a token on successful authentication, by using `"accept_token"` instead of `"accept"`:
 
 **`"accept_token $groups $uid $gid $supplementary_gids $HOME $token\n"`**
 
@@ -294,11 +294,11 @@ Where:
 
 * `$token` is an arbitrary string. NSO will then, for some northbound interfaces, include this token in responses.
 
-It is also possible for the program to return additional information on successful authentication, by using `"accept_info"` instead of `"accept"`:&#x20;
+It is also possible for the program to return additional information on successful authentication, by using `"accept_info"` instead of `"accept"`:
 
 **`"accept_info $groups $uid $gid $supplementary_gids $HOME $info\n"`**
 
-Where: &#x20;
+Where:
 
 * `$info` is some arbitrary text. NSO will then just append this text to the generated audit log message (CONFD\_EXT\_LOGIN).
 
@@ -306,11 +306,11 @@ Yet another possibility is for the program to return a warning that the user's p
 
 **`"accept_warning $groups $uid $gid $supplementary_gids $HOME $warning\n"`**
 
-Where:&#x20;
+Where:
 
 * `$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
 
-There is also support for token variations of `"accept_info"` and `"accept_warning"` namely `"accept_token_info"` and `"accept_token_warning"`. Both `"accept_token_info"` and `"accept_token_warning"` expect the external program to output exactly the same as described above with the addition of a token after `$HOME`:&#x20;
+There is also support for token variations of `"accept_info"` and `"accept_warning"` namely `"accept_token_info"` and `"accept_token_warning"`. Both `"accept_token_info"` and `"accept_token_warning"` expect the external program to output exactly the same as described above with the addition of a token after `$HOME`:
 
 * `"accept_token_info $groups $uid $gid $supplementary_gids $HOME $token $info\n"`
 * `"accept_token_warning $groups $uid $gid $supplementary_gids $HOME $token $warning\n"`
@@ -362,7 +362,7 @@ It is further possible for the program to return a new token on successful token
 
 `"accept_token $groups $uid $gid $supplementary_gids $HOME $USER $token\n"`
 
-Where:&#x20;
+Where:
 
 * `$token` is an arbitrary string. NSO will then, for some northbound interfaces, include this token in responses.
 
@@ -370,7 +370,7 @@ It is also possible for the program to return additional information on successf
 
 `"accept_info $groups $uid $gid $supplementary_gids $HOME $USER $info\n"`
 
-Where:&#x20;
+Where:
 
 * `$info` is some arbitrary text. NSO will then just append this text to the generated audit log message (CONFD\_EXT\_LOGIN).
 
@@ -378,7 +378,7 @@ Yet another possibility is for the program to return a warning that the user's p
 
 `"accept_warning $groups $uid $gid $supplementary_gids $HOME $USER $warning\n"`
 
-Where:&#x20;
+Where:
 
 * `$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
 
@@ -433,7 +433,7 @@ It is further possible for the program to return a token on successful authentic
 
 `"accept_token $groups $uid $gid $supplementary_gids $HOME $USER $token\n"`
 
-Where:&#x20;
+Where:
 
 * `$token` is an arbitrary string. NSO will then, for some northbound interfaces, include this token in responses.
 
@@ -441,7 +441,7 @@ It is also possible for the program to return additional information on successf
 
 `"accept_info $groups $uid $gid $supplementary_gids $HOME $USER $info\n"`
 
-Where:&#x20;
+Where:
 
 * `$info` is some arbitrary text. NSO will then just append this text to the generated audit log message (CONFD\_EXT\_LOGIN).
 
@@ -449,7 +449,7 @@ Yet another possibility is for the program to return a warning that the user's p
 
 `"accept_warning $groups $uid $gid $supplementary_gids $HOME $USER $warning\n"`
 
-Where:&#x20;
+Where:
 
 * `$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
 

@@ -12,7 +12,7 @@ The JSON-RPC API contains a handful of methods with well-defined input `method` 
 
 In addition, the API also implements a Comet model, as long polling, to allow the client to subscribe to different server events and receive event notifications about those events in near real-time.
 
-You can call these from a browser via:&#x20;
+You can call these from a browser via:
 
 * AJAX (e.g., XMLHTTPRequest, [jQuery \[https://jquery.com/\]](https://jquery.com/))
 * Or from the command line (e.g., [curl \[https://github.com/bagder/curl\]](https://github.com/bagder/curl), [httpie \[https://github.com/jkbr/httpie\]](https://github.com/jkbr/httpie))

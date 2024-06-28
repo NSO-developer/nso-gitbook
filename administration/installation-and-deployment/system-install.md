@@ -534,6 +534,6 @@ The easiest way is to Uninstall the System install using `ncs-uninstall --all` a
 
 <summary>Can we move NSO Installation from one folder to another ?</summary>
 
-No.&#x20;
+No.
 
 </details>

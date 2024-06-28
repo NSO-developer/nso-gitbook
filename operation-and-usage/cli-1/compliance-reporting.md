@@ -21,7 +21,7 @@ It is possible to create several named compliance report definitions. Each named
 
 Let us walk through a simple compliance report definition. This example is based on the `examples.ncs/service-provider/mpls-vpn` example. For the details of the included services and devices in this example, see the `README` file.
 
-First of all, the reports have a name which is key in the report list. Furthermore, the report has a `device-check` and a `service-check` container for specifying devices and services to check. The `compare-template` list allows for specifying templates to compare device configurations against.&#x20;
+First of all, the reports have a name which is key in the report list. Furthermore, the report has a `device-check` and a `service-check` container for specifying devices and services to check. The `compare-template` list allows for specifying templates to compare device configurations against.
 
 A report definition can specify all containers at the same time:
 
@@ -46,7 +46,7 @@ We will first use the `device-check` container to specify which devices to check
 * `device`: Specified list of devices.
 * `select-devices`_:_ Specified by an XPath expression.
 
-Furthermore, for a `device-check`, the behavior or the verification can be specified.&#x20;
+Furthermore, for a `device-check`, the behavior or the verification can be specified.
 
 The default behavior for device verification is the following:
 
@@ -165,7 +165,7 @@ Commit complete.
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
-Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.&#x20;
+Compliance reporting is a read-only operation. When running a compliance report, the result is stored in a file located in a sub-directory `compliance-reports` under the NSO `state` directory. NSO has operational data for managing this report storage which makes it possible to list existing reports.
 
 Here is an example of such a report listing:
 
