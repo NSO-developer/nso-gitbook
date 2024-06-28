@@ -18,7 +18,7 @@ CodeLens is a VS Code feature to facilitate performing inline contextual actions
 {% hint style="success" %}
 #### Contribute <a href="#d5e10639" id="d5e10639"></a>
 
-If you feel certain code snippets would be helpful or would like to help contribute to enhancing the extension, please get in touch: jwycoff@cisco.com.&#x20;
+If you feel certain code snippets would be helpful or would like to help contribute to enhancing the extension, please get in touch: jwycoff@cisco.com.
 {% endhint %}
 
 ## NSO Developer Studio - Developer Extension <a href="#d5e10642" id="d5e10642"></a>

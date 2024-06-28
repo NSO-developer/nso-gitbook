@@ -10,7 +10,7 @@ As a development feature, NSO supports sending log data as-is to an external com
 
 The general configuration of the external log processing is done in `ncs.conf`. Global and per-device settings controlling the external log processing for NED trace logs are stored in the CDB.
 
-To enable external log processing, set `/ncs-config/logs/external` to `true` and `/ncs-config/logs/command` to the full path of the command that will receive the log data. The same executable will be used for all log types.&#x20;
+To enable external log processing, set `/ncs-config/logs/external` to `true` and `/ncs-config/logs/command` to the full path of the command that will receive the log data. The same executable will be used for all log types.
 
 External configuration example:
 

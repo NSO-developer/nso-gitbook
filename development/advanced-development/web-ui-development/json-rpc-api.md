@@ -6,7 +6,7 @@ description: API documentation for JSON-RPC API.
 
 ## Protocol Overview
 
-The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details you need to understand the protocol but a short version is given here:&#x20;
+The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details you need to understand the protocol but a short version is given here:
 
 {% tabs %}
 {% tab title="Request Payload" %}
@@ -1261,7 +1261,7 @@ Gets all possible values for a leaf with a leafref type.
  "keys": <object>}
 ```
 
-The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type.&#x20;
+The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type.
 
 **Note**: If the leafref is within an action or RPC, `th` should be created with an `action_path`.
 
@@ -1574,7 +1574,7 @@ The `xpath_expr` param is the primary XPath expression to base the query on. Alt
 
 A query is a way of evaluating an XPath expression and returning the results in chunks. The primary XPath expression must evaluate to a node-set, i.e. the result. For each node in the result, a `selection` Xpath expression is evaluated with the result node as its context node.
 
-**Note**: The terminology used here is as defined in http://en.wikipedia.org/wiki/XPath.&#x20;
+**Note**: The terminology used here is as defined in http://en.wikipedia.org/wiki/XPath.
 
 For example, given this YANG snippet:
 
@@ -3534,18 +3534,18 @@ The `flags` param is a list of flags that can change the commit behavior:
 * `reconcile=OPTION` - Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree, that data is kept unless the option `discard-non-service-config` is used.
 * `use-lsa` - Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
 * `no-lsa` - Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
-* `commit-queue=MODE` - Where MODE is: `async`, `sync`, or `bypass`. Commit the transaction data to the commit queue.&#x20;
-  * If the `async` value is set, the operation returns successfully if the transaction data has been successfully placed in the queue.&#x20;
-  * The `sync` value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs.&#x20;
+* `commit-queue=MODE` - Where MODE is: `async`, `sync`, or `bypass`. Commit the transaction data to the commit queue.
+  * If the `async` value is set, the operation returns successfully if the transaction data has been successfully placed in the queue.
+  * The `sync` value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs.
   * The `bypass` value means that if `/devices/global-settings/commit-queue/enabled-by-default` is `true`, the data in this transaction will bypass the commit queue. The data will be written directly to the devices.
 * `commit-queue-atomic=ATOMIC` - Where `ATOMIC` is: `true` or `false`. Sets the atomic behavior of the resulting queue item. If `ATOMIC` is set to `false`, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to `true`, the atomic integrity of the queue item is preserved.
 * `commit-queue-block-others` - The resulting queue item will block subsequent queue items, that use any of the devices in this queue item, from being queued.
 * `commit-queue-lock` - Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions `unlock` and `lock` in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
 * `commit-queue-tag=TAG` - Where `TAG` is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.
 * `commit-queue-timeout=TIMEOUT` - Where `TIMEOUT` is infinity or a positive integer. Specifies a maximum number of seconds to wait for the transaction to be committed. If the timer expires, the transaction data is kept in the commit queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.
-* `commit-queue-error-option=OPTION` - Where `OPTION` is: `continue-on-error`, `rollback-on-error` or `stop-on-error`. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked, the data will be removed.&#x20;
-  * The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created.&#x20;
-  * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock is removed as part of the rollback.&#x20;
+* `commit-queue-error-option=OPTION` - Where `OPTION` is: `continue-on-error`, `rollback-on-error` or `stop-on-error`. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked, the data will be removed.
+  * The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created.
+  * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock is removed as part of the rollback.
   *   The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
 

@@ -6,11 +6,11 @@ description: Learn how NSO keeps a record of its managed devices using CDB.
 
 Cisco NSO is a network automation platform that supports a variety of uses. This can be as simple as a configuration of a standard-format hostname, which can be implemented in minutes. Or it could be an advanced MPLS VPN with custom traffic-engineered paths in a Service Provider network, which might take weeks to design and code.
 
-Regardless of complexity, any network automation solution must keep track of two things: intent and network state.&#x20;
+Regardless of complexity, any network automation solution must keep track of two things: intent and network state.
 
 The Configuration Database (CDB) built into NSO was designed for this exact purpose:
 
-* Firstly, the CDB will store the intent, which describes what you want from the network. Traditionally we call this intent a network service since this is what the network ultimately provides to its users.&#x20;
+* Firstly, the CDB will store the intent, which describes what you want from the network. Traditionally we call this intent a network service since this is what the network ultimately provides to its users.
 * Secondly, the CDB also stores a copy of the configuration of the managed devices, that is, the network state. Knowledge of the network state is essential to correctly provision new services. It also enables faster diagnosis of problems and is required for advanced functionality, such as self-healing.
 
 This section describes the main features of the CDB and explains how NSO stores data there. To help you better understand the structure of the CDB, you will also learn how to add your data to it.

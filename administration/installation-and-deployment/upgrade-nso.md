@@ -59,7 +59,7 @@ The upgrade of a single NSO instance requires the following steps:
 7. Update the packages in `/var/opt/ncs/packages/` if recompilation is needed.
 8. Start the NSO server process, instructing it to reload the packages.
 
-The following steps suppose that you are upgrading to the 6.2 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.&#x20;
+The following steps suppose that you are upgrading to the 6.2 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.
 
 As a best practice, always create a backup before trying to upgrade.
 
