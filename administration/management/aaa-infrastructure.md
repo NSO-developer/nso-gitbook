@@ -187,7 +187,7 @@ HostKeyAlgorithms=+ssh-dss
 PubkeyAcceptedKeyTypes=+ssh-dss
 ```
 
-You can find full instructions at [OpenSSH Legacy Options ](https://www.openssh.com/legacy.html)webpage.
+You can find full instructions at [OpenSSH Legacy Options](https://www.openssh.com/legacy.html)webpage.
 {% endhint %}
 
 ### Password Login <a href="#d5e5901" id="d5e5901"></a>

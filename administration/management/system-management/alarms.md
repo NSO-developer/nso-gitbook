@@ -34,7 +34,7 @@ alarm-type
         transaction-lock-time-violation
 ```
 
-# Alarm Type Descriptions
+## Alarm Type Descriptions
 
 <details>
 

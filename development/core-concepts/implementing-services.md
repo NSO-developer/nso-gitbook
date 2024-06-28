@@ -91,8 +91,6 @@ If you look closely, there is one significant difference from the `show running-
 
 Bringing the two XML documents together gives the final `dns/templates/dns-template.xml` XML template:
 
-#### **Static DNS Configuration Template Example:**
-
 {% code title="Example: Static DNS Configuration Template" %}
 ```
 <config-template xmlns="http://tail-f.com/ns/config/1.0"

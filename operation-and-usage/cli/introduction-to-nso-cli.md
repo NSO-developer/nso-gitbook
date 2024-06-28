@@ -872,7 +872,7 @@ Command history is maintained separately for each mode. When entering configure 
 
 The default keystrokes for editing the command line and moving around the command history are as follows.
 
-#### Moving the Cursor <a href="#d5e1645" id="d5e1645"></a>
+### Moving the Cursor <a href="#d5e1645" id="d5e1645"></a>
 
 * Move the cursor back by one character: Ctrl-b or Left Arrow.
 * Move the cursor back by one word: Esc-b or Alt-b.
@@ -881,7 +881,7 @@ The default keystrokes for editing the command line and moving around the comman
 * Move the cursor to the beginning of the command line: Ctrl-a or Home.
 * Move the cursor to the end of the command line: Ctrl-e or End.
 
-#### Delete Characters <a href="#d5e1672" id="d5e1672"></a>
+### Delete Characters <a href="#d5e1672" id="d5e1672"></a>
 
 * Delete the character before the cursor: Ctrl-h, Delete, or Backspace.
 * Delete the character following the cursor: Ctrl-d.
@@ -890,24 +890,24 @@ The default keystrokes for editing the command line and moving around the comman
 * Delete the word before the cursor: Ctrl-w, Esc-Backspace, or Alt-Backspace.
 * Delete the word after the cursor: Esc-d or Alt-d.
 
-#### Insert Recently Deleted Text <a href="#d5e1699" id="d5e1699"></a>
+### Insert Recently Deleted Text <a href="#d5e1699" id="d5e1699"></a>
 
 * Insert the most recently deleted text at the cursor: Ctrl-y.
 
-#### Display Previous Command Lines <a href="#d5e1706" id="d5e1706"></a>
+### Display Previous Command Lines <a href="#d5e1706" id="d5e1706"></a>
 
 * Scroll backward through the command history: Ctrl-p or Up Arrow.
 * Scroll forward through the command history: Ctrl-n or Down Arrow.
 * Search the command history in reverse order: Ctrl-r.
 * Show a list of previous commands: run the `show cli history` command.
 
-#### Capitalization <a href="#d5e1725" id="d5e1725"></a>
+### Capitalization <a href="#d5e1725" id="d5e1725"></a>
 
 * Capitalize the word at the cursor, i.e. make the first character uppercase and the rest of the word lowercase: Esc-c.
 * Change the word at the cursor to lowercase: Esc-l.
 * Change the word at the cursor to uppercase: Esc-u.
 
-#### Special <a href="#d5e1740" id="d5e1740"></a>
+### Special <a href="#d5e1740" id="d5e1740"></a>
 
 * Abort a command/Clear line: Ctrl-c.
 * Quote insert character, i.e. do not treat the next keystroke as an edit command: Ctrl-v/ESC-q.

@@ -8,7 +8,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Failed to load the AAA data, it could be that an external db is misbehaving or AAA is mounted/populated badly"
+  Failed to load the AAA data, it could be that an external db is misbehaving or AAA is mounted/populated badly
 * **Format String**  
   `"Failed to load AAA: ~s"`
 
@@ -22,7 +22,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Aborting candidate commit, request from user, reverting configuration."
+  Aborting candidate commit, request from user, reverting configuration.
 * **Format String**  
   `"Aborting candidate commit, request from user, reverting configuration."`
 
@@ -34,9 +34,9 @@
 <summary><code>ABORT_CAND_COMMIT_REBOOT</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "ConfD restarted while having a ongoing candidate commit timer, reverting configuration."
+  ConfD restarted while having a ongoing candidate commit timer, reverting configuration.
 * **Format String**  
   `"ConfD restarted while having a ongoing candidate commit timer, reverting configuration."`
 
@@ -50,7 +50,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Candidate commit session terminated, reverting configuration."
+  Candidate commit session terminated, reverting configuration.
 * **Format String**  
   `"Candidate commit session terminated, reverting configuration."`
 
@@ -64,7 +64,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Candidate commit timer expired, reverting configuration."
+  Candidate commit timer expired, reverting configuration.
 * **Format String**  
   `"Candidate commit timer expired, reverting configuration."`
 
@@ -78,7 +78,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "ConfD encountered an OS-specific error indicating that networking support is unavailable."
+  ConfD encountered an OS-specific error indicating that networking support is unavailable.
 * **Format String**  
   `"Fatal error for accept() - ~s"`
 
@@ -92,7 +92,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "ConfD failed to accept a connection due to reaching the process or system-wide file descriptor limit."
+  ConfD failed to accept a connection due to reaching the process or system-wide file descriptor limit.
 * **Format String**  
   `"Out of file descriptors for accept() - ~s limit reached"`
 
@@ -106,7 +106,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to log in to ConfD."
+  A user failed to log in to ConfD.
 * **Format String**  
   `"login failed via ~s from ~s with ~s: ~s"`
 
@@ -120,7 +120,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user logged into ConfD."
+  A user logged into ConfD.
 * **Format String**  
   `"logged in via ~s from ~s with ~s using ~s authentication"`
 
@@ -134,7 +134,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user was logged out from ConfD."
+  A user was logged out from ConfD.
 * **Format String**  
   `"logged out <~s> user"`
 
@@ -148,7 +148,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "confd.conf contained bad data."
+  confd.conf contained bad data.
 * **Format String**  
   `"Bad configuration: ~s:~s: ~s"`
 
@@ -160,9 +160,9 @@
 <summary><code>BAD_DEPENDENCY</code></summary>
 
 * **Severity**  
-  ` ERR`
+  `ERR`
 * **Description**  
-  "A dependency was not found"
+  A dependency was not found
 * **Format String**  
   `"The dependency node '~s' for node '~s' in module '~s' does not exist"`
 
@@ -176,7 +176,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Two namespaces have the same hash value. The namespace hashvalue MUST be unique.  You can pass the flag --nshash <value> to confdc when linking the .xso files to force another value for the namespace hash."
+  Two namespaces have the same hash value. The namespace hashvalue MUST be unique.  You can pass the flag --nshash <value> to confdc when linking the .xso files to force another value for the namespace hash.
 * **Format String**  
   `"~s"`
 
@@ -190,7 +190,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "ConfD failed to bind to one of the internally used listen sockets."
+  ConfD failed to bind to one of the internally used listen sockets.
 * **Format String**  
   `"~s"`
 
@@ -204,7 +204,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "ConfD is configured to start the confd_aaa_bridge and the C program died."
+  ConfD is configured to start the confd_aaa_bridge and the C program died.
 * **Format String**  
   `"confd_aaa_bridge died - ~s"`
 
@@ -218,7 +218,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "The candidate database file has a bad format. The candidate database is reset to the empty database."
+  The candidate database file has a bad format. The candidate database is reset to the empty database.
 * **Format String**  
   `"Bad format found in candidate db file ~s; resetting candidate"`
 
@@ -232,7 +232,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "The candidate database file is corrupt and cannot be read. The candidate database is reset to the empty database."
+  The candidate database file is corrupt and cannot be read. The candidate database is reset to the empty database.
 * **Format String**  
   `"Corrupt candidate db file ~s; resetting candidate"`
 
@@ -244,9 +244,9 @@
 <summary><code>CAND_COMMIT_ROLLBACK_DONE</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Candidate commit rollback done"
+  Candidate commit rollback done
 * **Format String**  
   `"Candidate commit rollback done"`
 
@@ -258,9 +258,9 @@
 <summary><code>CAND_COMMIT_ROLLBACK_FAILURE</code></summary>
 
 * **Severity**  
-  ` ERR`
+  `ERR`
 * **Description**  
-  "Failed to rollback candidate commit"
+  Failed to rollback candidate commit
 * **Format String**  
   `"Failed to rollback candidate commit due to: ~s"`
 
@@ -274,7 +274,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "CDB failed to start. Some grave error in the cdb data files prevented CDB from starting - a recovery from backup is necessary."
+  CDB failed to start. Some grave error in the cdb data files prevented CDB from starting - a recovery from backup is necessary.
 * **Format String**  
   `"CDB boot error: ~s"`
 
@@ -288,7 +288,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A CDB client failed to answer within the timeout period. The client will be disconnected."
+  A CDB client failed to answer within the timeout period. The client will be disconnected.
 * **Format String**  
   `"CDB client (~s) timed out, waiting for ~s"`
 
@@ -302,7 +302,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "CDB found it's data files but no schema file. CDB recovers by starting from an empty database."
+  CDB found it's data files but no schema file. CDB recovers by starting from an empty database.
 * **Format String**  
   `"CDB: lost config, deleting DB"`
 
@@ -316,7 +316,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "CDB found it's data schema file but not it's data file. CDB recovers by starting from an empty database."
+  CDB found it's data schema file but not it's data file. CDB recovers by starting from an empty database.
 * **Format String**  
   `"CDB: lost DB, deleting old config"`
 
@@ -328,9 +328,9 @@
 <summary><code>CDB_FATAL_ERROR</code></summary>
 
 * **Severity**  
-  ` CRIT`
+  `CRIT`
 * **Description**  
-  "CDB encounterad an unrecoverable error"
+  CDB encounterad an unrecoverable error
 * **Format String**  
   `"fatal error in CDB: ~s"`
 
@@ -344,7 +344,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "CDB is processing an initialization file."
+  CDB is processing an initialization file.
 * **Format String**  
   `"CDB load: processing file: ~s"`
 
@@ -358,7 +358,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The operational DB was deleted and re-initialized (because of upgrade or corrupt file)"
+  The operational DB was deleted and re-initialized (because of upgrade or corrupt file)
 * **Format String**  
   `"CDB: Operational DB re-initialized"`
 
@@ -372,7 +372,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Automatic CDB upgrade failed. This means that the data model has been changed in a non-supported way."
+  Automatic CDB upgrade failed. This means that the data model has been changed in a non-supported way.
 * **Format String**  
   `"CDB: Upgrade failed: ~s"`
 
@@ -384,9 +384,9 @@
 <summary><code>CGI_REQUEST</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "CGI script requested."
+  CGI script requested.
 * **Format String**  
   `"CGI: '~s' script with method ~s"`
 
@@ -400,7 +400,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "User executed a CLI command."
+  User executed a CLI command.
 * **Format String**  
   `"CLI '~s'"`
 
@@ -414,7 +414,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "CLI command aborted."
+  CLI command aborted.
 * **Format String**  
   `"CLI aborted"`
 
@@ -428,7 +428,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "CLI command finished successfully."
+  CLI command finished successfully.
 * **Format String**  
   `"CLI done"`
 
@@ -442,7 +442,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "User was denied to execute a CLI command due to permissions."
+  User was denied to execute a CLI command due to permissions.
 * **Format String**  
   `"CLI denied '~s'"`
 
@@ -456,7 +456,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Information about configuration changes committed to the running data store."
+  Information about configuration changes committed to the running data store.
 * **Format String**  
   `"commit ~s"`
 
@@ -470,7 +470,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Failed to load commit queue. ConfD recovers by starting from an empty commit queue."
+  Failed to load commit queue. ConfD recovers by starting from an empty commit queue.
 * **Format String**  
   `"Resetting commit queue due do inconsistent or corrupt data."`
 
@@ -484,7 +484,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A change to ConfD configuration has taken place, e.g., by a reload of the configuration file"
+  A change to ConfD configuration has taken place, e.g., by a reload of the configuration file
 * **Format String**  
   `"ConfD configuration change: ~s"`
 
@@ -498,7 +498,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Configuration transaction limit reached, rejected new transaction request."
+  Configuration transaction limit reached, rejected new transaction request.
 * **Format String**  
   `"Configuration transaction limit of type '~s' reached, rejected new transaction request"`
 
@@ -512,7 +512,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD is reading its configuration file."
+  ConfD is reading its configuration file.
 * **Format String**  
   `"Consulting daemon configuration file ~s"`
 
@@ -526,7 +526,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "An external database daemon closed its control socket."
+  An external database daemon closed its control socket.
 * **Format String**  
   `"Daemon ~s died"`
 
@@ -540,7 +540,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "An external database daemon did not respond to a query."
+  An external database daemon did not respond to a query.
 * **Format String**  
   `"Daemon ~s timed out"`
 
@@ -554,7 +554,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer aaa log message"
+  Developer aaa log message
 * **Format String**  
   `"~s"`
 
@@ -568,7 +568,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer C api log message"
+  Developer C api log message
 * **Format String**  
   `"~s"`
 
@@ -582,7 +582,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer CDB log message"
+  Developer CDB log message
 * **Format String**  
   `"~s"`
 
@@ -596,7 +596,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer ConfD log message"
+  Developer ConfD log message
 * **Format String**  
   `"~s"`
 
@@ -608,9 +608,9 @@
 <summary><code>DEVEL_ECONFD</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Developer econfd api log message"
+  Developer econfd api log message
 * **Format String**  
   `"~s"`
 
@@ -622,9 +622,9 @@
 <summary><code>DEVEL_SLS</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Developer smartlicensing api log message"
+  Developer smartlicensing api log message
 * **Format String**  
   `"~s"`
 
@@ -638,7 +638,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer snmp agent log message"
+  Developer snmp agent log message
 * **Format String**  
   `"~s"`
 
@@ -652,7 +652,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer snmp GW log message"
+  Developer snmp GW log message
 * **Format String**  
   `"~s"`
 
@@ -666,7 +666,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Developer webui log message"
+  Developer webui log message
 * **Format String**  
   `"~s"`
 
@@ -680,7 +680,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-     "Duplicate namespace found."
+  Duplicate namespace found.
 * **Format String**  
   `"The namespace ~s is defined in both module ~s and ~s."`
 
@@ -694,7 +694,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Duplicate prefix found."
+  Duplicate prefix found.
 * **Format String**  
   `"The prefix ~s is defined in both ~s and ~s."`
 
@@ -706,9 +706,9 @@
 <summary><code>ERRLOG_SIZE_CHANGED</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Notify change of log size for error log"
+  Notify change of log size for error log
 * **Format String**  
   `"Changing size of error log (~s) to ~s (was ~s)"`
 
@@ -722,7 +722,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "An event notification subscriber did not reply within the configured timeout period"
+  An event notification subscriber did not reply within the configured timeout period
 * **Format String**  
   `"Event notification subscriber with bitmask ~s timed out, waiting for ~s"`
 
@@ -736,7 +736,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-         "Write on an event socket blocked for too long time"
+  Write on an event socket blocked for too long time
 * **Format String**  
   `"~s"`
 
@@ -750,7 +750,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "An error occurred while evaluating a when-expression."
+  An error occurred while evaluating a when-expression.
 * **Format String**  
   `"When-expression evaluation error: circular dependency in ~s"`
 
@@ -764,7 +764,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Authentication is external and the external program returned badly formatted data."
+  Authentication is external and the external program returned badly formatted data.
 * **Format String**  
   `"External auth program (user=~s) ret bad output: ~s"`
 
@@ -778,7 +778,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "External challenge sent to a user."
+  External challenge sent to a user.
 * **Format String**  
   `"external challenge sent to ~s from ~s with ~s"`
 
@@ -792,7 +792,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "External challenge authentication failed for a user."
+  External challenge authentication failed for a user.
 * **Format String**  
   `"external challenge authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -806,7 +806,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An external challenge authenticated user logged in."
+  An external challenge authenticated user logged in.
 * **Format String**  
   `"external challenge authentication succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
 
@@ -820,7 +820,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "External authentication failed for a user."
+  External authentication failed for a user.
 * **Format String**  
   `"external authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -834,7 +834,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An externally authenticated user logged in."
+  An externally authenticated user logged in.
 * **Format String**  
   `"external authentication succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
 
@@ -848,7 +848,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "External token authentication failed for a user."
+  External token authentication failed for a user.
 * **Format String**  
   `"external token authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -862,7 +862,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An externally token authenticated user logged in."
+  An externally token authenticated user logged in.
 * **Format String**  
   `"external token authentication succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
 
@@ -876,7 +876,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "ConfD failed to bind to one of the externally visible listen sockets."
+  ConfD failed to bind to one of the externally visible listen sockets.
 * **Format String**  
   `"~s"`
 
@@ -890,7 +890,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "File error"
+  File error
 * **Format String**  
   `"~s: ~s"`
 
@@ -904,7 +904,7 @@
 * **Severity**  
   `DEBUG`
 * **Description**  
-  "System loaded a file."
+  System loaded a file.
 * **Format String**  
   `"Loaded file ~s"`
 
@@ -918,7 +918,7 @@
 * **Severity**  
   `DEBUG`
 * **Description**  
-  "System starts to load a file."
+  System starts to load a file.
 * **Format String**  
   `"Loading file ~s"`
 
@@ -932,7 +932,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "System tried to load a file in its load path and failed."
+  System tried to load a file in its load path and failed.
 * **Format String**  
   `"Failed to load file ~s: ~s"`
 
@@ -946,7 +946,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A secondary connected to a primary where the fxs files are different"
+  A secondary connected to a primary where the fxs files are different
 * **Format String**  
   `"Fxs mismatch, secondary is not allowed"`
 
@@ -960,7 +960,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user was assigned to a set of groups."
+  A user was assigned to a set of groups.
 * **Format String**  
   `"assigned to groups: ~s"`
 
@@ -974,7 +974,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user was logged in but wasn't assigned to any groups at all."
+  A user was logged in but wasn't assigned to any groups at all.
 * **Format String**  
   `"Not assigned to any groups - all access is denied"`
 
@@ -988,7 +988,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A secondary connected to a primary with an incompatible HA protocol version"
+  A secondary connected to a primary with an incompatible HA protocol version
 * **Format String**  
   `"Incompatible HA version (~s, expected ~s), secondary is not allowed"`
 
@@ -1002,7 +1002,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A secondary arrived with a node id which already exists"
+  A secondary arrived with a node id which already exists
 * **Format String**  
   `"Nodeid ~s already exists"`
 
@@ -1016,7 +1016,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "An attempted library become secondary call failed because the secondary couldn't connect to the primary"
+  An attempted library become secondary call failed because the secondary couldn't connect to the primary
 * **Format String**  
   `"Failed to connect to primary: ~s"`
 
@@ -1030,7 +1030,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A secondary node didn't produce its ticks"
+  A secondary node didn't produce its ticks
 * **Format String**  
   `"Secondary ~s killed due to no ticks"`
 
@@ -1044,7 +1044,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "A ConfD internal error - should be reported to support@tail-f.com."
+  A ConfD internal error - should be reported to support@tail-f.com.
 * **Format String**  
   `"Internal error: ~s"`
 
@@ -1058,7 +1058,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Show if JIT is enabled."
+  Show if JIT is enabled.
 * **Format String**  
   `"JIT ~s"`
 
@@ -1070,9 +1070,9 @@
 <summary><code>JSONRPC_LOG_MSG</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "JSON-RPC traffic log message"
+  JSON-RPC traffic log message
 * **Format String**  
   `"JSON-RPC traffic log: ~s"`
 
@@ -1084,9 +1084,9 @@
 <summary><code>JSONRPC_REQUEST</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "JSON-RPC method requested."
+  JSON-RPC method requested.
 * **Format String**  
   `"JSON-RPC: '~s' with JSON params ~s"`
 
@@ -1098,9 +1098,9 @@
 <summary><code>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "JSON-RPC absolute timeout."
+  JSON-RPC absolute timeout.
 * **Format String**  
   `"Stopping session due to absolute timeout: ~s"`
 
@@ -1112,9 +1112,9 @@
 <summary><code>JSONRPC_REQUEST_IDLE_TIMEOUT</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "JSON-RPC idle timeout."
+  JSON-RPC idle timeout.
 * **Format String**  
   `"Stopping session due to idle timeout: ~s"`
 
@@ -1126,9 +1126,9 @@
 <summary><code>JSONRPC_WARN_MSG</code></summary>
 
 * **Severity**  
-  ` WARNING`
+  `WARNING`
 * **Description**  
-  "JSON-RPC warning message"
+  JSON-RPC warning message
 * **Format String**  
   `"JSON-RPC warning: ~s"`
 
@@ -1140,9 +1140,9 @@
 <summary><code>KICKER_MISSING_SCHEMA</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Failed to load kicker schema"
+  Failed to load kicker schema
 * **Format String**  
   `"Failed to load kicker schema"`
 
@@ -1156,7 +1156,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "An application connecting to ConfD used a library version that can't handle the depth and number of keys used by the data model."
+  An application connecting to ConfD used a library version that can't handle the depth and number of keys used by the data model.
 * **Format String**  
   `"Got connect from library with insufficient keypath depth/keys support (~s/~s, needs ~s/~s)"`
 
@@ -1170,7 +1170,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "An application connecting to ConfD used a library version that doesn't match the ConfD version (e.g. old version of the client library)."
+  An application connecting to ConfD used a library version that doesn't match the ConfD version (e.g. old version of the client library).
 * **Format String**  
   `"Got library connect from wrong version (~s, expected ~s)"`
 
@@ -1184,7 +1184,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Access check failure occurred when an application connected to ConfD."
+  Access check failure occurred when an application connected to ConfD.
 * **Format String**  
   `"Got library connect with failed access check: ~s"`
 
@@ -1198,7 +1198,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD starts or stops to listen for incoming connections."
+  ConfD starts or stops to listen for incoming connections.
 * **Format String**  
   `"~s to listen for ~s on ~s:~s"`
 
@@ -1212,7 +1212,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Authentication for a locally configured user failed."
+  Authentication for a locally configured user failed.
 * **Format String**  
   `"local authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -1226,7 +1226,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Authentication for a locally configured user failed due to providing bad password."
+  Authentication for a locally configured user failed due to providing bad password.
 * **Format String**  
   `"local authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -1240,7 +1240,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Authentication for a locally configured user failed due to user not found."
+  Authentication for a locally configured user failed due to user not found.
 * **Format String**  
   `"local authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -1254,9 +1254,23 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A locally authenticated user logged in."
+  A locally authenticated user logged in.
 * **Format String**  
   `"local authentication succeeded via ~s from ~s with ~s, member of groups: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>LOCAL_IPC_ACCESS_DENIED</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Local IPC access denied for user.
+* **Format String**  
+  `"Local IPC access denied for user ~s connecting from ~s"`
 
 </details>
 
@@ -1266,9 +1280,9 @@
 <summary><code>LOGGING_DEST_CHANGED</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "The target logfile will change to another file"
+  The target logfile will change to another file
 * **Format String**  
   `"Changing destination of ~s log to ~s"`
 
@@ -1280,9 +1294,9 @@
 <summary><code>LOGGING_SHUTDOWN</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Logging subsystem terminating"
+  Logging subsystem terminating
 * **Format String**  
   `"Daemon logging terminating, reason: ~s"`
 
@@ -1294,9 +1308,9 @@
 <summary><code>LOGGING_STARTED</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Logging subsystem started"
+  Logging subsystem started
 * **Format String**  
   `"Daemon logging started"`
 
@@ -1308,9 +1322,9 @@
 <summary><code>LOGGING_STARTED_TO</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Write logs for a subsystem to a specific file"
+  Write logs for a subsystem to a specific file
 * **Format String**  
   `"Writing ~s log to ~s"`
 
@@ -1322,9 +1336,9 @@
 <summary><code>LOGGING_STATUS_CHANGED</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Notify a change of logging status (enabled/disabled) for a subsystem"
+  Notify a change of logging status (enabled/disabled) for a subsystem
 * **Format String**  
   `"~s ~s log"`
 
@@ -1338,7 +1352,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Authentication for a user was rejected by application callback."
+  Authentication for a user was rejected by application callback.
 * **Format String**  
   `"~s"`
 
@@ -1352,7 +1366,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A maapi user was logged out."
+  A maapi user was logged out.
 * **Format String**  
   `"Logged out from maapi ctx=~s (~s)"`
 
@@ -1366,7 +1380,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "maapi failed to write to a socket."
+  maapi failed to write to a socket.
 * **Format String**  
   `"maapi server failed to write to a socket. Op: ~s Ecode: ~s Error: ~s~s"`
 
@@ -1380,7 +1394,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "AES256CFB128 keys were not found in confd.conf"
+  AES256CFB128 keys were not found in confd.conf
 * **Format String**  
   `"AES256CFB128 keys were not found in confd.conf"`
 
@@ -1394,7 +1408,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "AESCFB128 keys were not found in confd.conf"
+  AESCFB128 keys were not found in confd.conf
 * **Format String**  
   `"AESCFB128 keys were not found in confd.conf"`
 
@@ -1408,7 +1422,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "DES3CBC keys were not found in confd.conf"
+  DES3CBC keys were not found in confd.conf
 * **Format String**  
   `"DES3CBC keys were not found in confd.conf"`
 
@@ -1422,7 +1436,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "While validating the consistency of the config - a required namespace was missing."
+  While validating the consistency of the config - a required namespace was missing.
 * **Format String**  
   `"The namespace ~s could not be found in the loadPath."`
 
@@ -1436,7 +1450,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "While validating the consistency of the config - a required namespace was missing."
+  While validating the consistency of the config - a required namespace was missing.
 * **Format String**  
   `"The namespace ~s (referenced by ~s) could not be found in the loadPath."`
 
@@ -1448,9 +1462,9 @@
 <summary><code>MMAP_SCHEMA_FAIL</code></summary>
 
 * **Severity**  
-  ` ERR`
+  `ERR`
 * **Description**  
-  "Failed to setup the shared memory schema"
+  Failed to setup the shared memory schema
 * **Format String**  
   `"Failed to setup the shared memory schema"`
 
@@ -1464,7 +1478,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Package authentication program returned badly formatted data."
+  Package authentication program returned badly formatted data.
 * **Format String**  
   `"package authentication using ~s program ret bad output: ~s"`
 
@@ -1478,7 +1492,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Package authentication failed."
+  Package authentication failed.
 * **Format String**  
   `"package authentication using ~s failed via ~s from ~s with ~s: ~s"`
 
@@ -1492,7 +1506,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A package authenticated user logged in."
+  A package authenticated user logged in.
 * **Format String**  
   `"package authentication using ~s succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
 
@@ -1506,7 +1520,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Package authentication challenge sent to a user."
+  Package authentication challenge sent to a user.
 * **Format String**  
   `"package authentication challenge sent to ~s from ~s with ~s"`
 
@@ -1520,7 +1534,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Package authentication challenge failed."
+  Package authentication challenge failed.
 * **Format String**  
   `"package authentication challenge using ~s failed via ~s from ~s with ~s: ~s"`
 
@@ -1534,7 +1548,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "NETCONF traffic log message"
+  NETCONF traffic log message
 * **Format String**  
   `"~s"`
 
@@ -1548,7 +1562,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The cleartext header indicating user and groups was badly formatted."
+  The cleartext header indicating user and groups was badly formatted.
 * **Format String**  
   `"Got bad NETCONF TCP header"`
 
@@ -1562,7 +1576,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Log message from NIF code."
+  Log message from NIF code.
 * **Format String**  
   `"~s: ~s"`
 
@@ -1576,7 +1590,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user used the --noaaa flag to confd_cli"
+  A user used the --noaaa flag to confd_cli
 * **Format String**  
   `"logged in from the CLI with aaa disabled"`
 
@@ -1590,7 +1604,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "A failure occurred in the builtin notification replay store"
+  A failure occurred in the builtin notification replay store
 * **Format String**  
   `"~s"`
 
@@ -1604,7 +1618,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "ConfD tried to populate an XML tree but no code had registered under the relevant callpoint."
+  ConfD tried to populate an XML tree but no code had registered under the relevant callpoint.
 * **Format String**  
   `"no registration found for callpoint ~s of type=~s"`
 
@@ -1618,7 +1632,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "The fxs file with the base identity is not loaded"
+  The fxs file with the base identity is not loaded
 * **Format String**  
   `"The identity ~s in namespace ~s refers to a non-existing base identity ~s in namespace ~s"`
 
@@ -1632,7 +1646,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "A nonexistent namespace was referred to. Typically this means that a .fxs was missing from the loadPath."
+  A nonexistent namespace was referred to. Typically this means that a .fxs was missing from the loadPath.
 * **Format String**  
   `"No such namespace ~s, used by ~s"`
 
@@ -1646,7 +1660,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "A nonexistent type was referred to from a ns. Typically this means that a bad version of an .fxs file was found in the loadPath."
+  A nonexistent type was referred to from a ns. Typically this means that a bad version of an .fxs file was found in the loadPath.
 * **Format String**  
   `"No such simpleType '~s' in ~s, used by ~s"`
 
@@ -1660,7 +1674,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "System tried to process a loaded namespace and failed."
+  System tried to process a loaded namespace and failed.
 * **Format String**  
   `"Failed to process namespace ~s: ~s"`
 
@@ -1674,7 +1688,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "System tried to process a loaded namespace and failed."
+  System tried to process a loaded namespace and failed.
 * **Format String**  
   `"Failed to process namespaces: ~s"`
 
@@ -1686,9 +1700,9 @@
 <summary><code>OPEN_LOGFILE</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Indicate target file for certain type of logging"
+  Indicate target file for certain type of logging
 * **Format String**  
   `"Logging subsystem, opening log file '~s' for ~s"`
 
@@ -1702,7 +1716,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to authenticate through PAM."
+  A user failed to authenticate through PAM.
 * **Format String**  
   `"PAM authentication failed via ~s from ~s with ~s: phase ~s, ~s"`
 
@@ -1716,7 +1730,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A PAM authenticated user logged in."
+  A PAM authenticated user logged in.
 * **Format String**  
   `"pam authentication succeeded via ~s from ~s with ~s"`
 
@@ -1730,7 +1744,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD has just started its start phase 0."
+  ConfD has just started its start phase 0.
 * **Format String**  
   `"ConfD phase0 started"`
 
@@ -1744,7 +1758,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD has just started its start phase 1."
+  ConfD has just started its start phase 1.
 * **Format String**  
   `"ConfD phase1 started"`
 
@@ -1758,7 +1772,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Reading of a state file failed"
+  Reading of a state file failed
 * **Format String**  
   `"Reading state file failed: ~s: ~s (~s)"`
 
@@ -1772,7 +1786,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Reload of daemon configuration has been initiated."
+  Reload of daemon configuration has been initiated.
 * **Format String**  
   `"Reloading daemon configuration."`
 
@@ -1784,9 +1798,9 @@
 <summary><code>REOPEN_LOGS</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Logging subsystem, reopening log files"
+  Logging subsystem, reopening log files
 * **Format String**  
   `"Logging subsystem, reopening log files"`
 
@@ -1800,7 +1814,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "RESTCONF request"
+  RESTCONF request
 * **Format String**  
   `"RESTCONF: request with ~s: ~s"`
 
@@ -1814,7 +1828,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "RESTCONF response"
+  RESTCONF response
 * **Format String**  
   `"RESTCONF: response with ~s: ~s duration ~s us"`
 
@@ -1828,7 +1842,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Rest authentication for a user failed."
+  Rest authentication for a user failed.
 * **Format String**  
   `"rest authentication failed from ~s"`
 
@@ -1842,7 +1856,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A rest authenticated user logged in."
+  A rest authenticated user logged in.
 * **Format String**  
   `"rest authentication succeeded from ~s , member of groups: ~s"`
 
@@ -1856,7 +1870,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "REST request"
+  REST request
 * **Format String**  
   `"REST: request with ~s: ~s"`
 
@@ -1870,7 +1884,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "REST response"
+  REST response
 * **Format String**  
   `"REST: response with ~s: ~s duration ~s ms"`
 
@@ -1884,7 +1898,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Error while creating rollback file."
+  Error while creating rollback file.
 * **Format String**  
   `"Error while creating rollback file: ~s: ~s"`
 
@@ -1898,7 +1912,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Failed to delete rollback file."
+  Failed to delete rollback file.
 * **Format String**  
   `"Failed to delete rollback file ~s: ~s"`
 
@@ -1912,7 +1926,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Failed to rename rollback file."
+  Failed to rename rollback file.
 * **Format String**  
   `"Failed to rename rollback file ~s to ~s: ~s"`
 
@@ -1926,7 +1940,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "Failed to repair rollback files."
+  Failed to repair rollback files.
 * **Format String**  
   `"Failed to repair rollback files."`
 
@@ -1940,7 +1954,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Found half created rollback0 file - removing and creating new."
+  Found half created rollback0 file - removing and creating new.
 * **Format String**  
   `"Found half created rollback0 file - removing and creating new"`
 
@@ -1954,7 +1968,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Found half created rollback0 file - repairing."
+  Found half created rollback0 file - repairing.
 * **Format String**  
   `"Found half created rollback0 file - repairing"`
 
@@ -1968,7 +1982,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A new user session was created"
+  A new user session was created
 * **Format String**  
   `"created new session via ~s from ~s with ~s"`
 
@@ -1982,7 +1996,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Session limit reached, rejected new session request."
+  Session limit reached, rejected new session request.
 * **Format String**  
   `"Session limit of type '~s' reached, rejected new session request"`
 
@@ -1996,9 +2010,9 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to create a new user sessions due to exceeding sessions limits"
+  A user failed to create a new user sessions due to exceeding sessions limits
 * **Format String**  
-  ` "could not create new session via ~s from ~s with ~s due to session limits"`
+  `"could not create new session via ~s from ~s with ~s due to session limits"`
 
 </details>
 
@@ -2010,9 +2024,9 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user session was terminated due to specified reason"
+  A user session was terminated due to specified reason
 * **Format String**  
-  ` "terminated session (reason: ~s)"`
+  `"terminated session (reason: ~s)"`
 
 </details>
 
@@ -2024,7 +2038,7 @@
 * **Severity**  
   `DEBUG`
 * **Description**  
-  "System skips a file."
+  System skips a file.
 * **Format String**  
   `"Skipping file ~s: ~s"`
 
@@ -2038,7 +2052,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An SNMP authentication failed."
+  An SNMP authentication failed.
 * **Format String**  
   `"SNMP authentication failed: ~s"`
 
@@ -2052,7 +2066,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "The SNMP Agent failed to load a MIB file"
+  The SNMP Agent failed to load a MIB file
 * **Format String**  
   `"Can't load MIB file: ~s"`
 
@@ -2066,7 +2080,7 @@
 * **Severity**  
   `DEBUG`
 * **Description**  
-  "SNMP Agent loading a MIB file"
+  SNMP Agent loading a MIB file
 * **Format String**  
   `"Loading MIB: ~s"`
 
@@ -2080,7 +2094,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An UDP package was received on the trap receiving port, but it's not an SNMP trap."
+  An UDP package was received on the trap receiving port, but it's not an SNMP trap.
 * **Format String**  
   `"SNMP gateway: Non-trap received from ~s"`
 
@@ -2094,7 +2108,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Read SNMP agent state file failed"
+  Read SNMP agent state file failed
 * **Format String**  
   `"Read state file failed: ~s: ~s"`
 
@@ -2108,7 +2122,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-     "The SNMP agent requires CDB to be enabled in order to be started."
+  The SNMP agent requires CDB to be enabled in order to be started.
 * **Format String**  
   `"Can't start SNMP. CDB is not enabled"`
 
@@ -2122,7 +2136,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An SNMP trap was to be forwarded, but couldn't be."
+  An SNMP trap was to be forwarded, but couldn't be.
 * **Format String**  
   `"SNMP gateway: Can't forward trap from ~s; ~s"`
 
@@ -2136,7 +2150,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An SNMP trap was received on the trap receiving port, but its definition is not known"
+  An SNMP trap was received on the trap receiving port, but its definition is not known
 * **Format String**  
   `"SNMP gateway: Can't forward trap with OID ~s from ~s; There is no notification with this OID in the loaded models."`
 
@@ -2150,7 +2164,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The port for listening to SNMP traps could not be opened."
+  The port for listening to SNMP traps could not be opened.
 * **Format String**  
   `"SNMP gateway: Can't open trap listening port ~s: ~s"`
 
@@ -2164,7 +2178,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An SNMP trap was to be forwarded, but the sender was not listed in confd.conf."
+  An SNMP trap was to be forwarded, but the sender was not listed in confd.conf.
 * **Format String**  
   `"SNMP gateway: Not forwarding trap from ~s; the sender is not recognized"`
 
@@ -2178,7 +2192,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An SNMP v1 trap was received on the trap receiving port, but forwarding v1 traps is not supported."
+  An SNMP v1 trap was received on the trap receiving port, but forwarding v1 traps is not supported.
 * **Format String**  
   `"SNMP gateway: V1 trap received from ~s"`
 
@@ -2192,7 +2206,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "Write SNMP agent state file failed"
+  Write SNMP agent state file failed
 * **Format String**  
   `"Write state file failed: ~s: ~s"`
 
@@ -2206,7 +2220,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "No SSH host keys available."
+  No SSH host keys available.
 * **Format String**  
   `"No SSH host keys available"`
 
@@ -2220,7 +2234,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Typically errors where the client doesn't properly send the \"subsystem\" command."
+  Typically errors where the client doesn't properly send the \"subsystem\" command.
 * **Format String**  
   `"ssh protocol subsys - ~s"`
 
@@ -2234,7 +2248,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD has started."
+  ConfD has started.
 * **Format String**  
   `"ConfD started vsn: ~s"`
 
@@ -2248,7 +2262,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD is starting."
+  ConfD is starting.
 * **Format String**  
   `"Starting ConfD vsn: ~s"`
 
@@ -2262,7 +2276,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "ConfD is stopping (due to e.g. confd --stop)."
+  ConfD is stopping (due to e.g. confd --stop).
 * **Format String**  
   `"ConfD stopping (~s)"`
 
@@ -2276,7 +2290,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "A secondary connected to a primary with a bad auth token"
+  A secondary connected to a primary with a bad auth token
 * **Format String**  
   `"Token mismatch, secondary is not allowed"`
 
@@ -2290,7 +2304,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "In-service upgrade was aborted."
+  In-service upgrade was aborted.
 * **Format String**  
   `"Upgrade aborted"`
 
@@ -2304,7 +2318,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "In-service upgrade was committed."
+  In-service upgrade was committed.
 * **Format String**  
   `"Upgrade committed"`
 
@@ -2318,7 +2332,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "In-service upgrade initialization has started."
+  In-service upgrade initialization has started.
 * **Format String**  
   `"Upgrade init started"`
 
@@ -2332,7 +2346,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "In-service upgrade initialization succeeded."
+  In-service upgrade initialization succeeded.
 * **Format String**  
   `"Upgrade init succeeded"`
 
@@ -2346,7 +2360,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "In-service upgrade has been performed (not committed yet)."
+  In-service upgrade has been performed (not committed yet).
 * **Format String**  
   `"Upgrade performed"`
 
@@ -2360,7 +2374,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "WebUI access log message"
+  WebUI access log message
 * **Format String**  
   `"WebUI access log: ~s"`
 
@@ -2374,7 +2388,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "User executed a Web UI action."
+  User executed a Web UI action.
 * **Format String**  
   `"WebUI action '~s'"`
 
@@ -2388,7 +2402,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "User executed a Web UI command."
+  User executed a Web UI command.
 * **Format String**  
   `"WebUI cmd '~s'"`
 
@@ -2402,7 +2416,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "User performed Web UI commit."
+  User performed Web UI commit.
 * **Format String**  
   `"WebUI commit ~s"`
 
@@ -2416,7 +2430,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Writing of a state file failed"
+  Writing of a state file failed
 * **Format String**  
   `"Writing state file failed: ~s: ~s (~s)"`
 
@@ -2430,7 +2444,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "An error occurred while evaluating an XPath expression."
+  An error occurred while evaluating an XPath expression.
 * **Format String**  
   `"XPath evaluation error: ~s for ~s"`
 
@@ -2444,7 +2458,7 @@
 * **Severity**  
   `WARNING`
 * **Description**  
-  "An error occurred while evaluating an XPath expression."
+  An error occurred while evaluating an XPath expression.
 * **Format String**  
   `"XPath evaluation error: '~s' resulted in ~s for ~s"`
 
@@ -2458,7 +2472,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-    "Data was committed toward a device with bad or unknown sync state"
+  Data was committed toward a device with bad or unknown sync state
 * **Format String**  
   `"Committed data towards device ~s which is out of sync"`
 
@@ -2472,7 +2486,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A check-sync action reported out-of-sync for a device"
+  A check-sync action reported out-of-sync for a device
 * **Format String**  
   `"NCS device-out-of-sync Device '~s' Info '~s'"`
 
@@ -2486,7 +2500,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The NCS Java VM failure/timeout"
+  The NCS Java VM failure/timeout
 * **Format String**  
   `"The NCS Java VM ~s"`
 
@@ -2500,7 +2514,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Starting the NCS Java VM"
+  Starting the NCS Java VM
 * **Format String**  
   `"Starting the NCS Java VM"`
 
@@ -2514,7 +2528,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Bad NCS package dependency"
+  Bad NCS package dependency
 * **Format String**  
   `"Failed to load NCS package: ~s; required package ~s of version ~s is not present (found ~s)"`
 
@@ -2528,7 +2542,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Bad NCS version for package"
+  Bad NCS version for package
 * **Format String**  
   `"Failed to load NCS package: ~s; requires NCS version ~s"`
 
@@ -2542,7 +2556,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Circular NCS package dependency"
+  Circular NCS package dependency
 * **Format String**  
   `"Failed to load NCS package: ~s; circular dependency found"`
 
@@ -2556,7 +2570,7 @@
 * **Severity**  
   `DEBUG`
 * **Description**  
-  "A package is copied from the load path to private directory"
+  A package is copied from the load path to private directory
 * **Format String**  
   `"Copying NCS package from ~s to ~s"`
 
@@ -2570,7 +2584,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Duplicate package found"
+  Duplicate package found
 * **Format String**  
   `"Failed to load duplicate NCS package ~s: (~s)"`
 
@@ -2584,7 +2598,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Syntax error in package file"
+  Syntax error in package file
 * **Format String**  
   `"Failed to load NCS package: ~s; syntax error in package file"`
 
@@ -2598,7 +2612,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "The CDB upgrade was aborted implying that CDB is untouched. However the package state is changed"
+  The CDB upgrade was aborted implying that CDB is untouched. However the package state is changed
 * **Format String**  
   `"NCS package upgrade failed with reason '~s'"`
 
@@ -2612,7 +2626,7 @@
 * **Severity**  
   `CRIT`
 * **Description**  
-  "Package upgrade has been aborted due to warnings."
+  Package upgrade has been aborted due to warnings.
 * **Format String**  
   `"NCS package upgrade has been aborted due to warnings:\n~s"`
 
@@ -2626,7 +2640,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The NCS Python VM failure/timeout"
+  The NCS Python VM failure/timeout
 * **Format String**  
   `"The NCS Python VM ~s"`
 
@@ -2640,7 +2654,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Starting the named NCS Python VM"
+  Starting the named NCS Python VM
 * **Format String**  
   `"Starting the NCS Python VM ~s"`
 
@@ -2654,7 +2668,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Starting a Python VM to run upgrade code"
+  Starting a Python VM to run upgrade code
 * **Format String**  
   `"Starting upgrade of NCS Python package ~s"`
 
@@ -2668,7 +2682,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A check-sync action reported out-of-sync for a service"
+  A check-sync action reported out-of-sync for a service
 * **Format String**  
   `"NCS service-out-of-sync Service '~s' Info '~s'"`
 
@@ -2682,7 +2696,7 @@
 * **Severity**  
   `ERR`
 * **Description**  
-  "The device failed to set the platform operational data at connect"
+  The device failed to set the platform operational data at connect
 * **Format String**  
   `"NCS Device '~s' failed to set platform data Info '~s'"`
 
@@ -2694,11 +2708,11 @@
 <summary><code>NCS_SMART_LICENSING_ENTITLEMENT_NOTIFICATION</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Smart Licensing Entitlement Notification"
+  Smart Licensing Entitlement Notification
 * **Format String**  
-  ` "Smart Licensing Entitlement Notification: ~s"`
+  `"Smart Licensing Entitlement Notification: ~s"`
 
 </details>
 
@@ -2708,11 +2722,11 @@
 <summary><code>NCS_SMART_LICENSING_EVALUATION_COUNTDOWN</code></summary>
 
 * **Severity**  
-  ` INFO`
+  `INFO`
 * **Description**  
-  "Smart Licensing evaluation time remaining"
+  Smart Licensing evaluation time remaining
 * **Format String**  
-  ` "Smart Licensing evaluation time remaining: ~s"`
+  `"Smart Licensing evaluation time remaining: ~s"`
 
 </details>
 
@@ -2724,7 +2738,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "The NCS Smart Licensing Java VM failure/timeout"
+  The NCS Smart Licensing Java VM failure/timeout
 * **Format String**  
   `"The NCS Smart Licensing Java VM ~s"`
 
@@ -2738,9 +2752,9 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Smart Licensing Global Notification"
+  Smart Licensing Global Notification
 * **Format String**  
-  ` "Smart Licensing Global Notification: ~s"`
+  `"Smart Licensing Global Notification: ~s"`
 
 </details>
 
@@ -2752,7 +2766,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Starting the NCS Smart Licensing Java VM"
+  Starting the NCS Smart Licensing Java VM
 * **Format String**  
   `"Starting the NCS Smart Licensing Java VM"`
 
@@ -2766,7 +2780,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Starting the NCS SNMP manager component"
+  Starting the NCS SNMP manager component
 * **Format String**  
   `"Starting the NCS SNMP manager component"`
 
@@ -2780,7 +2794,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "The NCS SNMP manager component has been stopped"
+  The NCS SNMP manager component has been stopped
 * **Format String**  
   `"The NCS SNMP manager component has been stopped"`
 
@@ -2794,7 +2808,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "Failed to locate snmp_init.xml in loadpath"
+  Failed to locate snmp_init.xml in loadpath
 * **Format String**  
   `"Failed to locate snmp_init.xml in loadpath ~s"`
 
@@ -2808,7 +2822,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A locally configured user provided a bad password."
+  A locally configured user provided a bad password.
 * **Format String**  
   `"Provided bad password"`
 
@@ -2822,7 +2836,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "An externally authenticated user logged in."
+  An externally authenticated user logged in.
 * **Format String**  
   `"Logged in over ~s using externalauth, member of groups: ~s~s"`
 
@@ -2836,7 +2850,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "External authentication failed for a user."
+  External authentication failed for a user.
 * **Format String**  
   `"failed to login using externalauth: ~s"`
 
@@ -2850,7 +2864,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A non existing local user tried to login."
+  A non existing local user tried to login.
 * **Format String**  
   `"no such local user"`
 
@@ -2864,7 +2878,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to login through PAM."
+  A user failed to login through PAM.
 * **Format String**  
   `"pam phase ~s failed to login through PAM: ~s"`
 
@@ -2878,7 +2892,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to login through PAM"
+  A user failed to login through PAM
 * **Format String**  
   `"failed to login through PAM: ~s"`
 
@@ -2892,7 +2906,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user logged into ConfD's builtin ssh server."
+  A user logged into ConfD's builtin ssh server.
 * **Format String**  
   `"logged in over ssh from ~s with authmeth:~s"`
 
@@ -2906,7 +2920,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user was logged out from ConfD's builtin ssh server."
+  A user was logged out from ConfD's builtin ssh server.
 * **Format String**  
   `"Logged out ssh <~s> user"`
 
@@ -2920,7 +2934,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user failed to login to ConfD's builtin SSH server."
+  A user failed to login to ConfD's builtin SSH server.
 * **Format String**  
   `"Failed to login over ssh: ~s"`
 
@@ -2934,7 +2948,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A user logged in through the WebUI."
+  A user logged in through the WebUI.
 * **Format String**  
   `"logged in through Web UI from ~s"`
 
@@ -2948,7 +2962,7 @@
 * **Severity**  
   `INFO`
 * **Description**  
-  "A Web UI user logged out."
+  A Web UI user logged out.
 * **Format String**  
   `"logged out from Web UI"`
 
