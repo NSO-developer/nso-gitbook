@@ -128,11 +128,6 @@ public class App implements ApplicationComponent {
     private ExampleHandler handl = null;
     private NotificationReceiver notifRec = null;
 
-    static {
-        LogFactory.setLogFactory(new Log4jLogFactory());
-    }
-
-
     public void run() {
         try {
             notifRec.start();
