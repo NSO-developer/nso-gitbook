@@ -5,7 +5,7 @@ description: Run and interact with practice examples provided with the NSO insta
 # Running NSO Examples
 
 {% hint style="warning" %}
-Applies to Local Install.&#x20;
+Applies to Local Install.
 {% endhint %}
 
 This section provides an overview of how to run the examples provided with the NSO installer. By working through the examples, the reader should get a good overview of the various aspects of NSO and hands-on experience from interacting with it.
@@ -16,7 +16,7 @@ This section references the examples located in `$NCS_DIR/examples.ncs`. The exa
 
 ## General Instructions <a href="#d5e1220" id="d5e1220"></a>
 
-1. Make sure that NSO is installed with a Local Install according to the instructions in [Local Install](../local-install.md).&#x20;
+1. Make sure that NSO is installed with a Local Install according to the instructions in [Local Install](../local-install.md).
 2.  Source the `ncsrc` file in the NSO installation directory to set up a local environment. For example:
 
     ```

@@ -169,7 +169,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1) in Manual Pages.&#x20;
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -549,6 +549,6 @@ The easiest way is to Uninstall the System install using `ncs-uninstall --all` a
 
 <summary>Can we move NSO Installation from one folder to another ?</summary>
 
-No.&#x20;
+No.
 
 </details>

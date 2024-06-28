@@ -4,7 +4,7 @@ description: Learn about compaction mechanism in NSO.
 
 # Compaction
 
-CDB implements write-ahead logging to provide durability in the datastores, appending a new log for each CDB transaction to the target datastore (`A.cdb` for configuration, `O.cdb` for operational, and `S.cdb` for snapshot datastore). Depending on the size and number of transactions towards the system, these files will grow in size leading to increased disk utilization, longer boot times, and longer initial data synchronization time when setting up a high-availability cluster.&#x20;
+CDB implements write-ahead logging to provide durability in the datastores, appending a new log for each CDB transaction to the target datastore (`A.cdb` for configuration, `O.cdb` for operational, and `S.cdb` for snapshot datastore). Depending on the size and number of transactions towards the system, these files will grow in size leading to increased disk utilization, longer boot times, and longer initial data synchronization time when setting up a high-availability cluster.
 
 Compaction is a mechanism used to reduce the size of the write-ahead logs to a minimum. It works by replacing an existing write-ahead log, which is composed by a number of consecutive transaction logs created in run-time, with a single transaction log representing the full current state of the datastore. From this perspective, it can be seen that a compaction acts similar to a write transaction towards a datastore. To ensure data integrity, 'write' transactions towards the datastore are not permitted during the time compaction takes place.
 
@@ -12,7 +12,7 @@ Compaction is a mechanism used to reduce the size of the write-ahead logs to a m
 
 By default, compaction is handled automatically by the CDB. After each transaction, CDB evaluates whether compaction is required for the affected data store.
 
-This is done by examining the number of added nodes as well as the file size changes since the last performed compaction. The thresholds used can be modified in the `ncs.conf` file by configuring the `/ncs-config/compaction/file-size-relative`, `/ncs-config/compaction/file-size-absolute`, and `/ncs-config/compaction/num-node-relative` settings.&#x20;
+This is done by examining the number of added nodes as well as the file size changes since the last performed compaction. The thresholds used can be modified in the `ncs.conf` file by configuring the `/ncs-config/compaction/file-size-relative`, `/ncs-config/compaction/file-size-absolute`, and `/ncs-config/compaction/num-node-relative` settings.
 
 It is also possible to automatically trigger compaction after a set number of transactions by setting the `/ncs-config/compaction/num-transaction` property.
 
