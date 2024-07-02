@@ -268,6 +268,16 @@ Additionally, you can force an existing follower node to perform a full re-sync 
 
 As leader selection during the Raft election is not deterministic, NSO provides the `ha-raft handover` action, which allows you to either trigger a new election if called with no arguments or transfer leadership to a specific node. The latter is especially useful when, for example, one of the nodes resides in a different location and more traffic between locations may incur extra costs or additional latency, so you prefer this node is not the leader under normal conditions.
 
+#### Passive follower
+
+In certain situations, it may be advantageous to have a follower node that cannot be promoted to leader role. Consider a scenario with three Raft-enabled nodes distributed across two different data centers.
+
+In this case, a node located without a peer in the same data center might experience increased latency due to the requirement for acknowledgments from at least one node in the other data center.
+
+To address this, HA Raft provides the `/ncs-config/ha-raft/passive` setting. When this setting is enabled (set to 'true'), it prevents the node from assuming the candidate or leader role. A passive follower still participates by voting in leader elections.
+
+Note that the passive parameter is local to the node, meaning other nodes in the cluster are unaware that a particular follower is passive. Consequently, it is possible to initiate a handover action targeting the passive node, but the handover will ultimately fail at a later stage, allowing the current leader to retain its position.
+
 ### Migrating From Existing Rule-based HA <a href="#d5e4714" id="d5e4714"></a>
 
 If you have an existing HA cluster using the rule-based built-in HA, you can migrate it to use HA Raft instead. This procedure is performed in four distinct high-level steps:
