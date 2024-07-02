@@ -30,14 +30,14 @@ The difference between the two modes is manifested by the way you retrieve the `
 {% code title="Retrieving and Starting an AlarmSinkCentral" %}
 ```
   Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-  Cdb cdb = new Cdb("MySinkCentral", socket);
+  Maapi maapi = new Maapi(socket);
 
-  AlarmSinkCentral sinkCentral = AlarmSinkCentral.getAlarmSink(1000, cdb);
+  AlarmSinkCentral sinkCentral = new AlarmSinkCentral(1000, maapi);
   sinkCentral.start();
 ```
 {% endcode %}
 
-The centralized alarm sink can then be retrieved using the default constructor in the `AlarmSink` class.
+The centralized alarm sink can then be retrieved using the default constructor in the `AlarmSink` class for components in the NSO Java VM.
 
 {% code title="Retrieving AlarmSink using Centralized Mode" %}
 ```
@@ -45,14 +45,26 @@ The centralized alarm sink can then be retrieved using the default constructor i
 ```
 {% endcode %}
 
-When submitting an alarm using the local mode, you need a CDB socket and a `Cdb` instance. The local mode alarm sink needs the `Cdb` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Cdb` instance as an argument.
+For applications outside the NSO Java VM, the
+`AlarmSinkCentral` needs to be supplied when constructing
+the alarm sink.
+
+{% code title="Retrieving AlarmSink outside NSO Java VM" %}
+```
+  AlarmSink sink = new AlarmSink(sinkCentral);
+```
+{% endcode %}
+
+When submitting an alarm using the local mode, you need a
+Maapi socket and a `Maapi` instance.
+The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
 
 {% code title="Retrieving AlarmSink using Local Mode" %}
 ```
   Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-  Cdb cdb = new Cdb(MyLocalModeExample.class.getName(), socket);
+  Maapi maapi = new Maapi(socket);
 
-  AlarmSink sink = AlarmSink(cdb);
+  AlarmSink sink = AlarmSink(maapi);
 ```
 {% endcode %}
 
@@ -161,7 +173,7 @@ You typically set up a central alarm source if you have a stand-alone applicatio
   socket = new Socket("127.0.0.1",Conf.NCS_PORT);
   cdb = new Cdb("MySourceCentral", socket);
 
-  source = AlarmSourceCentral.getAlarmSource(MAX_QUEUE_CAPACITY, cdb);
+  source = new AlarmSourceCentral(MAX_QUEUE_CAPACITY, cdb);
   source.start();
 ```
 {% endcode %}
@@ -212,9 +224,21 @@ public class AlarmSource {
 
 As soon as you create an alarm source object, the alarm source object will start receiving alarms. If you do not poll or take any alarms from the alarm source object, the queue will fill up until it reaches the maximum number of queued alarms as specified by the alarm source central. The alarm source central will then start to drop the oldest alarms until the alarm source starts the retrieval. This only affects the alarm source that is lagging behind. Any other alarm sources that are active at the same time will receive alarms without discontinuation.
 
-{% code title="Consuming Alarms" %}
+{% code title="Consuming alarms inside NSO Java VM" %}
 ```
-  AlarmSource source = new AlarmSource();
+  AlarmSource mySource = new AlarmSource();
+
+  Alarm lAlarm = mySource.pollAlarm();
+
+  while (lAlarm != null){
+    //handle alarm
+  }
+```
+{% endcode %}
+
+{% code title="Consuming alarms outside NSO Java VM" %}
+```
+  AlarmSource mySource = new AlarmSource(source);
 
   Alarm lAlarm = mySource.pollAlarm();
 

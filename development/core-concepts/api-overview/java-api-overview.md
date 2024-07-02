@@ -1201,16 +1201,19 @@ For situations where alarm subscription outside of the NSO Java VM is desired, s
     Cdb cdb = new Cdb("my-alarm-source-socket", socket);
 
     // Get and start alarm source - this must only be done once per JVM
-    AlarmSourceCentral source =
-        AlarmSourceCentral.getAlarmSource(10000, cdb);
+    AlarmSourceCentral source = new AlarmSourceCentral(10000, cdb);
     source.start();
 ```
 
-To retrieve alarms from the `AlarmSource` listener, an initial `startListening()` is required. Then either a blocking `takeAlarm()` or a timeout-based `pollAlarm()` can be used to retrieve the alarms. The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it.
+To retrieve alarms from the `AlarmSource` listener,
+either a blocking `takeAlarm()` or a timeout based
+`pollAlarm()` can be used.
+The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it,
+or the `AlarmSource` can be used in a try-with-resources statement.
 
+{% code title="Consuming alarms inside NSO Java VM" %}
 ```
-        AlarmSource mySource = new AlarmSource();
-        try {
+        try (AlarmSource mySource = new AlarmSource()) {
             mySource.startListening();
             // Get an alarms.
             Alarm alarm = mySource.takeAlarm();
@@ -1227,10 +1230,32 @@ To retrieve alarms from the `AlarmSource` listener, an initial `startListening()
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            mySource.stopListening();
         }
 ```
+{% endcode %}
+
+{% code title="Consuming alarms outside NSO Java VM" %}
+```
+        try (AlarmSource mySource = new AlarmSource(source)) {
+            mySource.startListening();
+            // Get an alarms.
+            Alarm alarm = mySource.takeAlarm();
+
+            while (alarm != null){
+                System.out.println(alarm);
+
+                for (Attribute attr: alarm.getCustomAttributes()){
+                    System.out.println(attr);
+                }
+
+                alarm = mySource.takeAlarm();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+```
+{% endcode %}
 
 Both the `takeAlarm()` and the `pollAlarm()` method returns a `Alarm` object from which all alarm information can be retrieved.
 
@@ -1249,13 +1274,13 @@ To directly store alarms an AlarmSink instance is created using the `AlarmSink(M
         AlarmSink sink = new AlarmSink(maapi);
 ```
 
-On the other hand, if the alarms are to be stored using the `AlarmSinkServer` then the `AlarmSink()` constructor without arguments is used.
+On the other hand, if the alarms are to be stored using the `AlarmSinkCentral` then the `AlarmSink()` constructor without arguments is used.
 
 ```
         AlarmSink sink = new AlarmSink();
 ```
 
-However, this case requires that the `AlarmSinkServer` is started prior to the instantiation of the `AlarmSink`. The NSO Java VM will take care of starting this server so any use of the ALARM API inside the Java VM can expect this server to be running. If it is desired to store alarms in an application outside of the NSO java VM, the `AlarmSinkServer` needs to be started like the following example:
+However, this case requires that the `AlarmSinkCentral` is started prior to the instantiation of the `AlarmSink`. The NSO Java VM will take care of starting this server so any use of the ALARM API inside the Java VM can expect this server to be running. If it is desired to store alarms in an application outside of the NSO java VM, the `AlarmSinkCentral` needs to be started like the following example:
 
 ```
        //
@@ -1265,8 +1290,16 @@ However, this case requires that the `AlarmSinkServer` is started prior to the i
        Maapi maapi = new Maapi(socket);
        maapi.startUserSession("system", "system");
 
-       AlarmSinkCentral sinkCentral = AlarmSinkCentral.getAlarmSink(1000, maapi);
+       AlarmSinkCentral sinkCentral = new AlarmSinkCentral(1000, maapi);
        sinkCentral.start();
+```
+
+The alarm sink can then be started with the
+`AlarmSink(AlarmSinkCentral central)` constructor,
+i.e.:
+
+```
+       AlarmSink sink = new AlarmSink(sinkCentral);
 ```
 
 To store an alarm using the `AlarmSink`, an `Alarm` instance must be created. This alarm alarm instance is then stored by a call to the `submitAlarm()` method.
