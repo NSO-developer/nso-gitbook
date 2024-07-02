@@ -227,3 +227,101 @@ Further details can be found in the NSO Python API reference under `ncs.maapi.st
 ```
 
 Further details can be found in the NSO Java API reference under `com.tailf.progress.ProgressTrace` and `com.tailf.progress.Span`.
+
+## Correlating with OpenTelemetry Traces
+
+[OpenTelemetry](https://opentelemetry.io/)
+is an observability SDK that instruments your code and libraries
+to collect telemetry data. NSO 6.3 and later by default
+generate span IDs that are compatible with W3C Trace Context and
+OpenTelemetry.
+
+To simplify correlation of telemetry data when your NSO code uses
+libraries that are instrumented with OpenTelemetry, you can propagate
+parent span information from NSO to those libraries.
+To make the most use of this data, you need to export OpenTelemetry
+and NSO spans to a common system. You can export NSO
+span data with the Observability Exporter package.
+
+To set up the trace context for OpenTelemetry:
+
+1. Create a new NSO span to obtain a span ID `span_id`.
+2. Create an OpenTelemetry span with the `span_id`.
+3. Set the OpenTelemetry span as the current span for the OpenTelemetry `Context` of the execution unit.
+
+The following listing shows the code necessary to achieve this in
+Python. It requires the _opentelemetry-api_ package.
+
+```python
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        maapi = ncs.maagic.get_maapi(root)
+        trans = maapi.attach(tctx)
+
+        with trans.start_progress_span(
+            "service create()",
+            path=service._path
+        ) as parent_span:
+            import opentelemetry.context
+            import opentelemetry.trace as otr
+            span_ctx = otr.SpanContext(
+                trace_id=int(parent_span.trace_id, 16),
+                span_id=int(parent_span.span_id, 16),
+                is_remote=False,
+                trace_flags=otr.TraceFlags(otr.TraceFlags.SAMPLED)
+            )
+            otel_span = otr.NonRecordingSpan(span_ctx)
+            otel_ctx = otr.set_span_in_context(otel_span)
+            opentelemetry.context.attach(otel_ctx)
+
+            ... # code with OpenTelemetry tracing
+```
+
+The code uses OpenTelemetry tracing from the service create
+callback, however, you can use the same approach in any Maapi
+session.
+
+For example, if your code uses Python _requests_
+package, you can easily instrument it by adding an additional
+_opentelemetry-instrumentation-requests_ package:
+
+```python
+import requests
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+
+RequestsInstrumentor().instrument()
+```
+
+If you now invoke _requests_ from service code
+as shown in the following snippet,
+it will produce OpenTelemetry spans, where top-most spans have
+parent span id set to the service span produced by NSO,
+as well as a matching trace ID.
+
+```python
+            ... # code with OpenTelemetry tracing
+            response = requests.get(url="https://www.cisco.com/")
+```
+
+```
+{
+    "name": "GET",
+    "context": {
+        "trace_id": "0xd02769f6e5ce0dea81fe3b61644b5571",
+        "span_id": "0x6de7e48e83dc1b13",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.CLIENT",
+    "parent_id": "0x749a311a41fe9ba6",
+    "start_time": "2024-06-14T09:57:30.488761Z",
+    "end_time": "2024-06-14T09:57:31.290909Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "http.method": "GET",
+        "http.url": "https://www.cisco.com/",
+        "http.status_code": 200
+    }
+}
+```
