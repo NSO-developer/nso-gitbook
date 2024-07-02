@@ -2058,9 +2058,19 @@ When a device is renamed, all components that derive their name from that device
 
 ## Auto-configuring Devices in NSO <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
 
-When multiple versions of a NED are loaded, provisioning new devices can be tedious since one has to configure the 'correct' ned-id manually. Connecting and fetching host keys from the device and doing a sync-from are additional steps that must be done separately before the device can be used from NSO.
+Provisioning new devices in NSO requires the user to be
+familiar with the concept of Network Element Drivers and the
+unique ned-id they use to distinguish their schema.
+For an end user interacting with a northbound client of NSO,
+the concept of a ned-id might feel too abstract. It could be challenging
+to know what device type and ned-id to select when configuring a
+device for the first time in NSO. After initial configuration,
+there are also additional steps required before the device can be
+operated from NSO.
 
-NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected. In the same transaction, NSO also fetches the host keys and syncs the config from the device.
+NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected.
+In the same transaction, NSO also fetches the host keys if required,
+and synchronizes the configuration from the device, making it ready to operate in a single step.
 
 ### Examples <a href="#d5e3539" id="d5e3539"></a>
 
@@ -2084,15 +2094,11 @@ admin@ncs% set devices device mydev auto-configure vendor "Acme Inc." operating-
 [edit]
 admin@ncs% commit | details
 ...
- 2024-04-16T19:53:37.655 device mydev: auto configuring...
- 2024-04-16T19:53:37.655 device mydev: find matching packages...
- 2024-04-16T19:53:37.659 device mydev: package router-nc-1.0 matches
- 2024-04-16T19:53:37.659 device mydev: picking package router-nc-1.0
- 2024-04-16T19:53:37.659 device mydev: find matching packages: ok (0.004 s)
+ 2024-04-16T19:53:37.655 device mydev: auto-configuring...
  2024-04-16T19:53:37.659 device mydev: configuring admin state... ok (0.000 s)
  2024-04-16T19:53:37.659 device mydev: fetching ssh host keys... ok (0.011 s)
  2024-04-16T19:53:37.671 device mydev: copying configuration from device... ok (0.054 s)
- 2024-04-16T19:53:37.726 device mydev: auto configuring: ok (0.070 s)
+ 2024-04-16T19:53:37.726 device mydev: auto-configuring: ok (0.070 s)
 ...
 ```
 
@@ -2106,7 +2112,7 @@ admin@ncs% set devices device d2 auto-configure vendor "Acme Inc." operating-sys
 admin@ncs% set devices device d3 auto-configure ned-id router-nc-1.0
 ```
 
-The `admin-state` for the device, if configured, will be honored. i.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and sync config from the device.
+The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device.
 
 ```
 admin@ncs% set devices device mydev2 auto-configure vendor "Acme Inc." operating-system AcmeOS
@@ -2119,16 +2125,18 @@ admin@ncs% set devices device mydev2 state admin-state southbound-locked
 [edit]
 admin@ncs% commit | details
 ...
- 2024-04-16T20:03:08.604 device mydev2: auto configuring...
- 2024-04-16T20:03:08.604 device mydev2: find matching packages...
- 2024-04-16T20:03:08.606 device mydev2: package router-nc-1.0 matches
- 2024-04-16T20:03:08.606 device mydev2: picking package router-nc-1.0
- 2024-04-16T20:03:08.606 device mydev2: find matching packages: ok (0.002 s)
+ 2024-04-16T20:03:08.604 device mydev2: auto-configuring...
  2024-04-16T20:03:08.606 device mydev2: configuring admin state... ok (0.000 s)
- 2024-04-16T20:03:08.606 device mydev2: fetching ssh host keys... southbound-locked (0.001 s)
- 2024-04-16T20:03:08.608 device mydev2: auto configuring: ok (0.003 s)
+ 2024-04-16T20:03:08.606 device mydev2: fetching ssh host keys... skipped - 'southbound-locked' configured (0.001 s)
+ 2024-04-16T20:03:08.608 device mydev2: auto-configuring: ok (0.003 s)
 ...
 ```
+
+Many NEDs require additional custom configuration to be operational.
+This applied in particular to Generic NEDs. Information about such
+additional configuration can be found in the files
+`README.md` and `README-ned-settings.md` bundled with the
+NED package.
 
 ## `oper-state` and `admin-state` <a href="#user_guide.devicemanager.state" id="user_guide.devicemanager.state"></a>
 
