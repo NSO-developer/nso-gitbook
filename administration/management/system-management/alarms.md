@@ -2,6 +2,7 @@
 
 ```
 alarm-type
+    cdb-offload-threshold-too-low
     certificate-expiration
     ha-alarm
         ha-node-down-alarm
@@ -95,6 +96,26 @@ connect to device.
   This alarm is not cleared.
 * **Alarm Message(s)**  
   * `Resource {resource} doesn't exist`
+
+</details>
+
+<details>
+
+<summary><code>cdb-offload-threshold-too-low</code></summary>
+
+* **Description**  
+  CDB Offload threshold configuration set too low so that CDB memory
+footprint reaches the threshold even though there is no offloadable data
+present in the memory.
+The severity is warning.
+* **Recommended Action**  
+  If system memory is sufficient, increase the threshold value, otherwise
+  increase the system memory capacity.
+* **Clear Condition(s)**  
+  This alarm is cleared when CDB offload can take the CDB memory
+  footprint lower than the configured threshold value.
+* **Alarm Message(s)**  
+  * `Too low /config/cdb/persistence/offload/threshold value.`
 
 </details>
 

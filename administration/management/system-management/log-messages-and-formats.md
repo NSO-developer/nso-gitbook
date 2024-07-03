@@ -269,6 +269,20 @@
 
 <details>
 
+<summary><code>CDB_BACKUP</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  CDB data backed up after migration to a new storage backend.
+* **Format String**  
+  `"CDB: ~s backed up to ~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>CDB_BOOT_ERR</code></summary>
 
 * **Severity**  
@@ -353,6 +367,34 @@
 
 <details>
 
+<summary><code>CDB_MIGRATE</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  CDB data migration to a new storage backend.
+* **Format String**  
+  `"CDB: migrate ~s to ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>CDB_OFFLOAD</code></summary>
+
+* **Severity**  
+  `DEBUG`
+* **Description**  
+  CDB data offload started.
+* **Format String**  
+  `"CDB: offload ~s from memory"`
+
+</details>
+
+
+<details>
+
 <summary><code>CDB_OP_INIT</code></summary>
 
 * **Severity**  
@@ -361,6 +403,20 @@
   The operational DB was deleted and re-initialized (because of upgrade or corrupt file)
 * **Format String**  
   `"CDB: Operational DB re-initialized"`
+
+</details>
+
+
+<details>
+
+<summary><code>CDB_STALE_BACKUP</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  CDB backup data left on disk after migration that can be removed to free up disk space.
+* **Format String**  
+  `"CDB: ~s backup file(s) occupying ~sMiB, remove to free up disk space: ~s"`
 
 </details>
 
