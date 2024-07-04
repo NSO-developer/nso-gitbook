@@ -114,12 +114,12 @@ NSO's AAA authentication is not used in the following cases:
 *   When NETCONF uses an external SSH daemon, such as OpenSSH.
 
     \
-    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs.
-* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
+    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis/#ug.netconf\_agent.transport) in Northbound APIs.
+* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis/#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
 * When accessing the CLI by invoking the `ncs_cli`, e.g. through an external SSH daemon, such as OpenSSH, or a telnet daemon.\
   \
   An important special case here is when a user has shell access to the host and runs **ncs\_cli** from the shell. This command, as well as direct access to the IPC socket, allows for authentication bypass. It is crucial to consider this case for your deployment. If non-trusted users have shell access to the host, IPC access must be restricted. See [Authenticating IPC Access](aaa-infrastructure.md#authenticating-ipc-access).
-* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/core-concepts/northbound-apis.md#the-nso-snmp-agent) in Northbound APIs.
+* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/core-concepts/northbound-apis/#the-nso-snmp-agent) in Northbound APIs.
 * When the method `Maapi.startUserSession()` is used without a preceding call of `Maapi.authenticate()`.
 
 ### Public Key Login <a href="#ug.aaa.public_key_login" id="ug.aaa.public_key_login"></a>
