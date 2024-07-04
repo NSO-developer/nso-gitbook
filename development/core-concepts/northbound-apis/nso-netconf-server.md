@@ -83,7 +83,7 @@ In addition to this, NSO does not support pre-configuration or monitoring of sub
 
 The monitoring of subscriptions via the `subscriptions` container does currently not support the attributes: `periodic/period`, `periodic/state`, `on-change/dampening-period`, `on-change/sync-on-start`, `on-change/excluded-change`.
 
-### Advertising Capabilities and YANG Modules <a href="#d5e376" id="d5e376"></a>
+## Advertising Capabilities and YANG Modules <a href="#d5e376" id="d5e376"></a>
 
 All enabled NETCONF capabilities are advertised in the hello message that the server sends to the client.
 
