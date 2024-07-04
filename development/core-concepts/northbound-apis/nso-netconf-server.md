@@ -108,7 +108,7 @@ All YANG version 1 and version 1.1 modules supported by the server are advertise
 
 If a YANG module (any version) is supported by the server, and its .yang or .yin file is found in the `fxs` file or in the loadPath, then the module is also advertised in the `schema` list defined in `ietf-netconf-monitoring`, made available for download with the RPC operation `get-schema`, and if RESTCONF is enabled, also advertised in the `schema` leaf in `ietf-yang-library`. See [Monitoring of the NETCONF Server](nso-netconf-server.md#ug.netconf\_agent.monitoring).
 
-## Advertising Device YANG Modules <a href="#d5e417" id="d5e417"></a>
+### Advertising Device YANG Modules <a href="#d5e417" id="d5e417"></a>
 
 NSO uses [YANG Schema Mount](https://www.ietf.org/rfc/rfc8528.txt) to mount the data models for the devices. There are two mount points, one for the configuration (in `/devices/device/config`), and one for operational state data (in `/devices/device/live-status`). As defined in [YANG Schema Mount](https://www.ietf.org/rfc/rfc8528.txt), a client can read the `module` list from the YANG library in each of these mount points to learn which YANG models each device supports via NSO.
 
