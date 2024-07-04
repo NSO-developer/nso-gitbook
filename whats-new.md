@@ -82,8 +82,8 @@ NETCONF and RESTCONF APIs now support the propagation of standards-based Trace C
 
 Documentation Updates:
 
-* For NETCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis.md#trace-context) in Northbound APIs.
-* For RESTCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis.md#trace-context-1) in Northbound APIs.
+* For NETCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis/#trace-context) in Northbound APIs.
+* For RESTCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis/#trace-context-1) in Northbound APIs.
 
 </details>
 
@@ -95,7 +95,7 @@ NSO now supports RFC-7952-encoded metadata, as well as setting metadata when usi
 
 Documentation Updates:
 
-* Expanded the [RESTCONF API](development/core-concepts/northbound-apis.md#the-restconf-api) in Northbound APIs with details on metadata handling.
+* Expanded the [RESTCONF API](development/core-concepts/northbound-apis/#the-restconf-api) in Northbound APIs with details on metadata handling.
 
 </details>
 
@@ -107,7 +107,7 @@ Added the `exclude` query parameter support to the GET RESTCONF method that excl
 
 Documentation Updates:
 
-* Expanded the section [Query Parameters](development/core-concepts/northbound-apis.md#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
+* Expanded the section [Query Parameters](development/core-concepts/northbound-apis/#ncs.northbound.restconf.query\_params) in Northbound APIs with details and an example of `exclude` usage.
 
 </details>
 
