@@ -49,9 +49,9 @@ NSO itself is configured through a configuration file - `ncs.conf`. In that file
 * `/ncs-config/aaa/external-validation`: NSO can authenticate users by validation of tokens using an external executable. This is very similar to what is further described later in [External Token Validation](aaa-infrastructure.md#ug.aaa.external\_validation). Where external authentication uses a username and password to authenticate a user, external validation uses a token. The validation script should use the token to authenticate a user and can, optionally, also return a new token to be returned with the result of the request. It is currently only supported for RESTCONF.
 * `/ncs-config/aaa/external-challenge`: NSO has support for multi-factor authentication by sending challenges to a user. Challenges may be sent from any of the external authentication mechanisms but are currently only supported by JSON-RPC and CLI over SSH. This is further described later in [External Multi-factor Authentication](aaa-infrastructure.md#ug.aaa.external\_challenge).
 * `/ncs-config/aaa/package-authentication`: NSO can authenticate users using package authentication. It extends the concept of external authentication by allowing multiple packages to be used for authentication instead of a single executable. This is further described in [Package Authentication](aaa-infrastructure.md#ug.aaa.packageauth).
-* `/ncs-config/aaa/single-sign-on`: With this setting enabled, NSO invokes Package Authentication on all requests to HTTP endpoints with the `/sso` prefix. This way, Package Authentication packages that require custom endpoints can expose them under the `/sso` base route. \
+* `/ncs-config/aaa/single-sign-on`: With this setting enabled, NSO invokes Package Authentication on all requests to HTTP endpoints with the `/sso` prefix. This way, Package Authentication packages that require custom endpoints can expose them under the `/sso` base route.\
   \
-  For example, a SAMLv2 Single Sign-On (SSO) package needs to process requests to an AssertionConsumerService endpoint, such as `/sso/saml/acs`, and therefore requires enabling this setting. \
+  For example, a SAMLv2 Single Sign-On (SSO) package needs to process requests to an AssertionConsumerService endpoint, such as `/sso/saml/acs`, and therefore requires enabling this setting.\
   \
   This is a valid authentication method for WEB UI and JSON-RPC interfaces and needs Package Authentication to be enabled as well.
 * `/ncs-config/aaa/single-sign-on/enable-automatic-redirect`: If only one Single Sign-On package is configured (a package with `single-sign-on-url` set in `package-meta-data.xml`) and also this setting is enabled, NSO automatically redirects all unauthenticated access attempts to the configured `single-sign-on-url`.
@@ -113,12 +113,12 @@ NSO's AAA authentication is not used in the following cases:
 
 *   When NETCONF uses an external SSH daemon, such as OpenSSH.
 
-    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs.
-* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis.md#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
+    In this case, the NETCONF session is initiated using the program `netconf-subsys`, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis/#ug.netconf\_agent.transport) in Northbound APIs.
+* When NETCONF uses TCP, as described in [NETCONF Transport Protocols](../../development/core-concepts/northbound-apis/#ug.netconf\_agent.transport) in Northbound APIs, e.g. through the command `netconf-console`.
 *   When the CLI uses an external SSH daemon, such as OpenSSH, or a telnet daemon.
 
     In this case, the CLI session is initiated through the command **ncs\_cli**. An important special case here is when a user has logged in to the host and invokes the command `ncs_cli` from the shell. In NSO deployments, it is crucial to consider this case. If non-trusted users have shell access to the host, the `NCS_IPC_ACCESS_FILE` feature as described in [Restricting Access to IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) must be used.
-* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/core-concepts/northbound-apis.md#the-nso-snmp-agent) in Northbound APIs.
+* When SNMP is used, SNMP has its own authentication mechanisms. See [NSO SNMP Agent](../../development/core-concepts/northbound-apis/#the-nso-snmp-agent) in Northbound APIs.
 * When the method `Maapi.startUserSession()` is used without a preceding call of `Maapi.authenticate()`.
 
 ### Public Key Login <a href="#ug.aaa.public_key_login" id="ug.aaa.public_key_login"></a>
@@ -207,7 +207,7 @@ If authentication succeeds, the user's group membership is established as descri
 
 ### PAM <a href="#ug.aaa.pam" id="ug.aaa.pam"></a>
 
-On operating systems supporting PAM, NSO also supports PAM authentication. Using PAM,  authentication with NSO can be very convenient since it allows us to have the same set of users and groups having access to NSO as those that have access to the UNIX/Linux host itself.
+On operating systems supporting PAM, NSO also supports PAM authentication. Using PAM, authentication with NSO can be very convenient since it allows us to have the same set of users and groups having access to NSO as those that have access to the UNIX/Linux host itself.
 
 If we use PAM, we do not have to have any users or any groups configured in the NSO aaa namespace at all.
 
@@ -226,8 +226,6 @@ To configure PAM we typically need to do the following:
       <service>common-auth</service>
     </pam>
     ```
-
-
 3.  If PAM is enabled and we want to use PAM for login, the system may have to run as `root`. This depends on how PAM is configured locally. However, the default system authentication will typically require `root`, since the PAM libraries then read `/etc/shadow`. If we don't want to run NSO as root, the solution here is to change the owner of a helper program called `$NCS_DIR/lib/ncs/lib/core/pam/priv/epam` and also set the `setuid` bit.
 
     ```
@@ -268,7 +266,7 @@ If this feature is configured, NSO will invoke the executable configured in `/nc
 
 For example, if the user `bob` attempts to log in over SSH using the password 'secret', and external authentication is enabled, NSO will invoke the configured executable and write `"[bob;secret;]\n"` on the `stdin` stream for the executable. The task of the executable is then to authenticate the user and also establish the username-to-groups mapping.
 
-For example, the executable could be a RADIUS client which utilizes some proprietary vendor attributes to retrieve the groups of the user from the RADIUS server. If authentication is successful, the program should write `accept` followed by a space-separated list of groups that the user is a member of, and additional information as described below. Again, assuming that bob's password indeed was 'secret', and that bob is a member of the `admin` and the `lamers` groups, the program should write `accept admin lamers $uid $gid $supplementary_gids $HOME\n` on its standard output and then exit.
+For example, the executable could be a RADIUS client which utilizes some proprietary vendor attributes to retrieve the groups of the user from the RADIUS server. If authentication is successful, the program should write `accept` followed by a space-separated list of groups that the user is a member of, and additional information as described below. Again, assuming that bob's password indeed was 'secret', and that bob is a member of the `admin` and the `lamers` groups, the program should write `accept admin lamers $uid $gid $supplementary_gids $HOME` on its standard output and then exit.
 
 {% hint style="info" %}
 There is a general limit of 16000 bytes of output from the `externalauth` program.
@@ -339,7 +337,7 @@ For example if the user `bob` attempts to log over RESTCONF using the token `top
 
 The task of the executable is then to validate the token, thereby authenticating the user and also establishing the username and username-to-groups mapping.
 
-For example, the executable could be a FUSION client that utilizes some proprietary vendor attributes to retrieve the username and groups of the user from the FUSION server. If token validation is successful, the program should write `accept` followed by a space-separated list of groups that the user is a member of, and additional information as described below. Again, assuming that `bob`'s token indeed was `topsecret`, and that `bob` is a member of the `admin` and the `lamers` groups, the program should write `accept admin lamers $uid $gid $supplementary_gids $HOME $USER\n` on its standard output and then exit.
+For example, the executable could be a FUSION client that utilizes some proprietary vendor attributes to retrieve the username and groups of the user from the FUSION server. If token validation is successful, the program should write `accept` followed by a space-separated list of groups that the user is a member of, and additional information as described below. Again, assuming that `bob`'s token indeed was `topsecret`, and that `bob` is a member of the `admin` and the `lamers` groups, the program should write `accept admin lamers $uid $gid $supplementary_gids $HOME $USER` on its standard output and then exit.
 
 {% hint style="info" %}
 There is a general limit of 16000 bytes of output from the `externalvalidation` program.
@@ -543,7 +541,7 @@ It is also possible for the program to return additional information on successf
 
 Where:
 
-* &#x20;`$info` is some arbitrary text. NSO will then just append this text to the generated audit log message (NCS\_PACKAGE\_AUTH\_SUCCESS).
+* `$info` is some arbitrary text. NSO will then just append this text to the generated audit log message (NCS\_PACKAGE\_AUTH\_SUCCESS).
 
 Yet another possibility is for the program to return a warning that the user's password is about to expire, by using `"accept_warning"` instead of `"accept"`:
 
@@ -551,7 +549,7 @@ Yet another possibility is for the program to return a warning that the user's p
 
 Where:
 
-* &#x20;`$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
+* `$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
 
 If authentication fails, the program should write `"reject"` or `"abort"`, possibly followed by a reason for the rejection and a trailing newline. For example `"reject 'Bad password'\n"` or just `"abort\n"`. The difference between `"reject"` and `"abort"` is that with `"reject"`, NSO will try subsequent mechanisms configured for `/ncs-config/aaa/auth-order`, and packages configured for `/ncs-config/aaa/package-authentication/packages` in `ncs.conf` (if any), while with `"abort"`, the authentication fails immediately. Thus `"abort"` can prevent subsequent mechanisms from being tried, but when external authentication is the last mechanism (as in the default order), it has the same effect as `"reject"`.
 
@@ -583,7 +581,7 @@ If IPC port access is not used, an untrusted shell user can simply invoke the fo
 bob> ncs_cli --user admin
 ```
 
-Or,  invoke the following to retrieve the entire configuration:
+Or, invoke the following to retrieve the entire configuration:
 
 ```
 bob> ncs_load > all.xml
@@ -989,12 +987,14 @@ Similar to the command access check, whenever a user through some agent tries to
 We have the following leafs in the `rule` list entry.
 
 * `name`: The name of the rule. The rules are checked in order, with the ordering given by the YANG `ordered-by user` semantics, i.e. independent of the key values.
-*   `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e. the default) matches all modules.\
+* `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e. the default) matches all modules.\\
 
+{% hint style="info" %}
+```
+Since the elements of the path to a given node may be defined in different YANG modules when augmentation is used, rules that have a value other than `*` for the `module-name` leaf may require that additional processing is done before a decision to permit or deny, or the access can be taken. Thus if an XPath that completely identifies the nodes that the rule should apply to is given for the `path` leaf (see below), it may be best to leave the `module-name` leaf unset.
+```
+{% endhint %}
 
-    {% hint style="info" %}
-    Since the elements of the path to a given node may be defined in different YANG modules when augmentation is used, rules that have a value other than `*` for the `module-name` leaf may require that additional processing is done before a decision to permit or deny, or the access can be taken. Thus if an XPath that completely identifies the nodes that the rule should apply to is given for the `path` leaf (see below), it may be best to leave the `module-name` leaf unset.
-    {% endhint %}
 * `rpc-name / notification-name / path`: This is a choice between three possible leafs that are used for matching, in addition to the `module-name`:
 * `rpc-name`: The name of an RPC operation, or `*` to match any RPC.
 * `notification-name`: the name of a notification, or `*` to match any notification.
@@ -1002,8 +1002,7 @@ We have the following leafs in the `rule` list entry.
 
     1. Tagpaths that do not contain any keys. For example `/ncs/live-device/live-status`.
     2. Instantiated key: as in `/devices/device[name="x1"]/config/interface` matches the interface configuration for managed device "x1" It's possible to have partially instantiated paths only containing some keys instantiated - i.e. combinations of tagpaths and keypaths. Assuming a deeper tree, the path `/devices/device/config/interface[name="eth0"]` matches the `eth0` interface configuration on all managed devices.
-    3. The wild card at the end as in: `/services/web-site/*` does not match the website service instances, but rather all children of the website service instances.\
-
+    3. The wild card at the end as in: `/services/web-site/*` does not match the website service instances, but rather all children of the website service instances.\\
 
     Thus, the path in a rule is matched against the path in the attempted data access. If the attempted access has a path that is equal to or longer than the rule path - we have a match.\
     \
