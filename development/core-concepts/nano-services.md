@@ -734,7 +734,7 @@ data:   }
 data: }
 ```
 
-See [Streams](northbound-apis.md#ncs.northbound.restconf.streams) in Northbound APIs for further reference.
+See [Streams](northbound-apis/#ncs.northbound.restconf.streams) in Northbound APIs for further reference.
 
 NETCONF creates subscription using `netconf-console`:
 
@@ -765,7 +765,7 @@ $ netconf-console create-subscription=service-state-changes
 </notification>
 ```
 
-See [Notification Capability](northbound-apis.md#ug.netconf\_agent.notif) in Northbound APIs for further reference.
+See [Notification Capability](northbound-apis/#ug.netconf\_agent.notif) in Northbound APIs for further reference.
 
 CLI shows received notifications using **ncs\_cli**:
 
