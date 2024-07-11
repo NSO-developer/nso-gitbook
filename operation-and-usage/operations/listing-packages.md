@@ -2,7 +2,7 @@
 description: View currently loaded packages.
 ---
 
-# Viewing Packages
+# Listing Packages
 
 NSO Packages contain data models and code for a specific function. It might be a NED for a specific device, a service application like MPLS VPN, a WebUI customization package, etc. Packages can be added, removed, and upgraded in run-time.
 
@@ -43,7 +43,7 @@ show-tag  interface
 ```
 {% endcode %}
 
-Thus the above command shows that NSO currently has only one package loaded, the NED package for Cisco IOS. The output includes the name and version of the package, the minimum required NSO version, the Java components included, package build details, and finally the operational status of the package. The operational status is of particular importance - if it is anything other than `up`, it indicates that there was a problem with the loading or the initialization of the package. In this case an item `error-info` may also be present, giving additional information about the problem. To show only the operational status for all loaded packages, this command can be used:
+Thus the above command shows that NSO currently has only one package loaded, the NED package for Cisco IOS. The output includes the name and version of the package, the minimum required NSO version, the Java components included, package build details, and finally the operational status of the package. The operational status is of particular importance - if it is anything other than `up`, it indicates that there was a problem with the loading or the initialization of the package. In this case, an item `error-info` may also be present, giving additional information about the problem. To show only the operational status for all loaded packages, this command can be used:
 
 ```cli
 admin@ncs# show packages package * oper-status
