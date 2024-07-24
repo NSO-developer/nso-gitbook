@@ -417,7 +417,3 @@ In addition, you must take special care of NED upgrades because services depend 
 When a NED contains nontrivial YANG model changes, that is called a major NED upgrade. The NED ID changes, and the first or second number in the NED version changes since NEDs follow the same versioning scheme as NSO. In this case, you cannot simply replace the package, as you would for a maintenance or patch NED release. Instead, you must load (add) the new NED package alongside the old one and perform the migration.
 
 Migration uses the `/ncs:devices/device/migrate` action to change the ned-id of a single device or a group of devices. It does not affect the actual network device, except possibly reading from it. So, the migration does not have to be performed as part of the package upgrade procedure described above but can be done later, during normal operations. The details are described in [NED Migration](../management/package-management.md#ug.package\_mgmt.ned\_migration). Once the migration is complete, you can remove the old NED by performing another package upgrade, where you deinstall the old NED package. It can be done straight after the migration or as part of the next upgrade cycle.
-
-## Patch Management <a href="#d5e7173" id="d5e7173"></a>
-
-NSO can install emergency patches during runtime. These are delivered in the form of `.beam` files. You must copy the files into the `/opt/ncs/current/lib/ncs/patches/` folder and load them with the `ncs-state patches load-modules` command.
