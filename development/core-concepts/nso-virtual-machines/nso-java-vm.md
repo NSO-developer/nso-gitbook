@@ -30,20 +30,20 @@ Many of the nodes beneath `java-vm` are by default invisible due to a hidden att
 
 1.  First, the following XML snippet must be added to `ncs.conf`:\\
 
-    ```
+    ```xml
     <hide-group>
         <name>debug</name>
     </hide-group>
     ```
 2.  Next, the `unhide` command may be used in the CLI session:
 
-    ```
+    ```cli
     admin@ncs(config)# unhide debug
     admin@ncs(config)#
     ```
 
 {% code title="Example: The Java VM YANG Model" %}
-```
+```cli
         > yanger -f tree tailf-ncs-java-vm.yang
           submodule: tailf-ncs-java-vm (belongs-to tailf-ncs)
   +--rw java-vm
@@ -122,7 +122,7 @@ For programs that are none of the above types but still need to access NSO as a 
 The NSO Java VM will start each class in a separate thread. The `init()` is called before the thread is started. The `run()` runs in a thread similar to the `run()` method in the standard Java `Runnable` interface. The `finish()` method is called when the NSO Java VM wants the application thread to stop. It is the responsibility of the programmer to stop the application thread i.e., stop the execution in the `run()` method when `finish()` is called. Note, that making the thread stop when `finish()` is called is important so that the NSO Java VM will not be hanging at a `STOP_VM` request.
 
 {% code title="Example: ApplicationComponent Interface" %}
-```
+```java
 package com.tailf.ncs;
 
 /**
@@ -163,7 +163,7 @@ An example of an application component implementation is found in [SNMP Notifica
 User Implementations typically need resources like Maapi, Maapi Transaction, Cdb, Cdb Session, etc. to fulfill their tasks. These resources can be instantiated and used directly in the user code. This implies that the user code needs to handle connection and close of additional sockets used by these resources. There is however another recommended alternative, and that is to use the Resource manager. The Resource manager is capable of injecting these resources into the user code. The principle is that the programmer will annotate the field that should refer to the resource rather than instantiate it.
 
 {% code title="Example: Resource Injection" %}
-```
+```java
 @Resource(type=ResourceType.MAAPI, scope=Scope.INSTANCE)
 public Maapi m;
 ```
@@ -174,7 +174,7 @@ This way the NSO Java VM and the Resource manager can keep control over used res
 The Resource manager can handle two types of resources: `MAAPI` and `CDB`.
 
 {% code title="Example: Resource Types" %}
-```
+```java
 package com.tailf.ncs.annotations;
 
 /**
@@ -197,7 +197,7 @@ The resource annotation has three attributes:
 * `qualifier` is an optional string to identify the resource as a unique resource. All instances that share the same context-scoped resource need to have the same qualifier. If the qualifier is not given it defaults to the value `DEFAULT` i.e., shared between all instances that have the `DEFAULT` qualifier.
 
 {% code title="Example: Resource Annotation" %}
-```
+```java
 package com.tailf.ncs.annotations;
 
 /**
@@ -218,7 +218,7 @@ public @interface Resource {
 {% endcode %}
 
 {% code title="Example: Scopes" %}
-```
+```java
 package com.tailf.ncs.annotations;
 
 /**
@@ -286,7 +286,7 @@ NSO has extensive logging functionality. Log settings are typically very differe
 
 The NSO Java VM uses Log4j for logging and will read its default log settings from a provided `log4j2.xml` file in the `ncs.jar`. Following that, NSO itself has `java-vm` log settings that are directly controllable from the NSO CLI. We can do:
 
-```
+```cli
 admin@ncs(config)# java-vm java-logging logger com.tailf.maapi level level-trace
 admin@ncs(config-logger-com.tailf.maapi)# commit
 Commit complete.
@@ -294,7 +294,7 @@ Commit complete.
 
 This will dynamically reconfigure the log level for package `com.tailf.maapi` to be at the level `trace`. Where the Java logs end up is controlled by the `log4j2.xml` file. By default, the NSO Java VM writes to stdout. If the NSO Java VM is started by NSO, as controlled by the `ncs.conf` parameter `/java-vm/auto-start`, NSO will pick up the stdout of the service manager and write it to:
 
-```
+```cli
 admin@ncs(config)# show full-configuration java-vm stdout-capture
 java-vm stdout-capture file /var/log/ncs/ncs-java-vm.log
 ```
@@ -334,7 +334,7 @@ If you have problems with the Java VM crashing during startup, a common pitfall 
 
 For complex problems, for example with the class loader, try logging the internals of the startup:
 
-```
+```cli
 admin@ncs(config)# java-vm java-logging logger com.tailf.ncs level level-all
 admin@ncs(config-logger-com.tailf.maapi)# commit
 Commit complete.
@@ -344,7 +344,7 @@ Setting this will result in a lot more detailed information in `ncs-java-vm.log`
 
 When the `auto-restart` setting is `true` (the default), it means that NSO will try to restart the Java VM when it fails (at any point in time, not just during startup). NSO will at most try three restarts within 30 seconds, i.e., if the Java VM crashes more than three times within 30 seconds NSO gives up. You can check the status of the Java VM using the `java-vm` YANG model. For example in the CLI:
 
-```
+```cli
 admin@ncs# show java-vm
 java-vm start-status started
 java-vm status running

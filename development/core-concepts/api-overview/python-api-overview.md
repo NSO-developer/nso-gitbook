@@ -22,7 +22,7 @@ The examples are directly executable with the Python interpreter after sourcing 
 
 Edit a file and execute it directly on the command line like this:
 
-```
+```bash
 $ python3 script.py
 ```
 
@@ -35,7 +35,7 @@ The simplest way to access NSO is to use the `single_transaction` helper. It cre
 This example shows its usage, connecting as user `admin` and `python` in the AAA context:
 
 {% code title="Example: Single Transaction Helper" %}
-```
+```python
 import ncs
 
 with ncs.maapi.single_write_trans('admin', 'python') as t:
@@ -57,7 +57,7 @@ A common use case is to create a MAAPI context and reuse it for several transact
 This example shows how to keep a MAAPI connection alive between transactions:
 
 {% code title="Example: Reading of Configuration Data using High-level MAAPI" %}
-```
+```python
 import ncs
 
 with ncs.maapi.Maapi() as m:
@@ -81,7 +81,7 @@ Maagic is a module provided as part of the NSO Python APIs. It reduces the compl
 
 When using Maagic, you still do the same procedure of starting a transaction.
 
-```
+```python
 with ncs.maapi.Maapi() as m:
   with ncs.maapi.Session(m, 'admin', 'python'):
     with m.start_write_trans() as t:
@@ -123,7 +123,7 @@ The syntax is to prefix the names with the namespace name followed by two unders
 
 Examples of how to use namespaces:
 
-```
+```bash
 # The examples are equal unless there is a namespace collision.
 # For the ncs namespace it would look like this:
 
@@ -134,7 +134,7 @@ root.devices.device['ce0'].address
 
 In cases where there is a name collision, the namespace prefix is required to access an entity from a module, except for the module that was first loaded. A namespace is always required for root entities when there is a collision. The module load order is found in the NCS log file: `logs/ncs.log`.
 
-```
+```bash
 # This example have three namespaces referring to a leaf, value, with the same
 # name and this load order: /ex/a:value=11, /ex/b:value=22 and /ex/c:value=33
 
@@ -239,7 +239,7 @@ str(root.devices.device['ce0'].device_type.ne_type) # Returns 'netconf'
 
 List elements are created using the create method on the `List` class:
 
-```
+```bash
 # Single value key
 ce5 = root.devices.device.create('ce5')
 
@@ -257,7 +257,7 @@ Existence is checked with the `exists` or `bool` functions `List` class:
 
 A list element is deleted with the Python `del` function:
 
-```
+```bash
 # Single value key
 del root.devices.device['ce5']
 
@@ -267,7 +267,7 @@ del root.container.list['foo', 'bar']
 
 To delete the whole list, use the Python `del` function or `delete()` on the list.
 
-```
+```bash
 # use Python's del function
 del root.devices.device
 
@@ -303,7 +303,7 @@ root.devices.device['ce0'].state.admin_state = 3 # Not a valid enum
 
 Leafrefs are read as regular leafs and the returned data type corresponds to the referred leaf.
 
-```
+```bash
 # /model/device is a leafref to /devices/device/name
 
 dev = root.model.device # May return 'ce0'
@@ -311,7 +311,7 @@ dev = root.model.device # May return 'ce0'
 
 Leafrefs are set as the leaf they refer to. The data type is validated as it is set. The reference is validated when the transaction is committed.
 
-```
+```bash
 # /model/device is a leafref to /devices/device/name
 
 root.model.device = 'ce0'
@@ -321,7 +321,7 @@ root.model.device = 'ce0'
 
 Identityrefs are read and written as string values. Writing an identityref without a prefix is possible, but doing so is error-prone and may stop working if another model is added which also has an identity with the same name. The recommendation is to always use a prefix when writing identityrefs. Reading an identityref will always return a prefixed string value.
 
-```
+```bash
 # Read
 root.devices.device['ce0'].device_type.cli.ned_id # May return 'ios-id:cisco-ios'
 
@@ -336,7 +336,7 @@ root.devices.device['ce0'].device_type.cli.ned_id = 'ios-id:cisco-ios'
 
 Instance identifiers are read as xpath formatted string values.
 
-```
+```bash
 # /model/iref is an instance-identifier
 
 root.model.iref # May return "/ncs:devices/ncs:device[ncs:name='ce0']"
@@ -344,7 +344,7 @@ root.model.iref # May return "/ncs:devices/ncs:device[ncs:name='ce0']"
 
 Instance identifiers are set as xpath formatted strings. The string is validated as it is set. The reference is validated when the transaction is committed.
 
-```
+```bash
 # /model/iref is an instance-identifier
 
 root.devices.device['ce0'].device_type.cli.ned_id = "/ncs:devices/ncs:device[ncs:name='ce0']"
@@ -358,7 +358,7 @@ A leaf-list is represented by a `LeafList` object. This object behaves very much
 From NSO version 4.5 and onwards, a Yang leaf-list is represented differently than before. Reading a leaf-list using Maagic used to result in an ordinary Python list (or None if the leaf-list was non-existent). Now, reading a leaf-list will give back a `LeafList` object whether it exists or not. The `LeafList` object may be iterated like a Python list and you may check for existence using the `exists()` method or the `bool()` operator. A Maagic leaf-list node may be assigned using a Python list, just like before, and you may convert it to a Python list using the `as_list()` method or by doing `list(my_leaf_list_node)`.
 {% endhint %}
 
-```
+```bash
 # /model/ll is a leaf-list with the type string
 
 # read a LeafList object
@@ -403,7 +403,7 @@ root.model.ll.as_list()
 
 Binary values are read and written as byte strings.
 
-```
+```bash
 # Read
 root.model.bin # May return '\x00foo\x01bar'
 
@@ -415,7 +415,7 @@ root.model.bin = b'\x00foo\x01bar'
 
 Reading a `bits` leaf will give a Bits object back (or None if the `bits` leaf is non-existent). To get some useful information out of the Bits object, you can either use the `bytearray()` method to get a Python byte array object in return or the Python `str()` operator to get a space-separated string containing the bit names.
 
-```
+```bash
 # read a bits leaf - a Bits object may be returned (None if non-existent)
 root.model.bits
 
@@ -428,7 +428,7 @@ str(root.model.bits)
 
 There are four ways of setting a `bits` leaf: One is to set it using a string with space-separated bit names, the other one is to set it using a byte array, the third by using a Python binary string, and as a last option is it may be set using a Bits object. Note that updating a Bits object does not change anything in the database - for that to happen, you need to assign it to the Maagic node.
 
-```
+```bash
 # set a bits leaf using a string of space separated bit names
 root.model.bits = 'turboMode enableEncryption'
 
@@ -473,7 +473,7 @@ root.container.empty_leaf.delete()
 Requesting an action may not require an ongoing transaction and this example shows how to use Maapi as a transactionless back-end for Maagic.
 
 {% code title="Example: Action Request without Transaction" %}
-```
+```python
 import ncs
 
 with ncs.maapi.Maapi() as m:
@@ -493,7 +493,7 @@ with ncs.maapi.Maapi() as m:
 This example shows how to request an action that requires an ongoing transaction. It is also valid to request an action that does not require an ongoing transaction.
 
 {% code title="Example: Action Request with Transaction" %}
-```
+```python
 import ncs
 
 with ncs.maapi.Maapi() as m:
@@ -514,7 +514,7 @@ with ncs.maapi.Maapi() as m:
 Providing parameters to an action with Maagic is very easy: You request an input object, with `get_input` from the Maagic action object, and set the desired (or required) parameters as defined in the model specification.
 
 {% code title="Example: Action Request with Input Parameters" %}
-```
+```python
 import ncs
 
 with ncs.maapi.Maapi() as m:
@@ -532,7 +532,7 @@ with ncs.maapi.Maapi() as m:
 If you have a leaf-list, you need to prepare the input parameters
 
 {% code title="Example: Action Request with leaf-list Input Parameters" %}
-```
+```python
 import ncs
 
 with ncs.maapi.Maapi() as m:
@@ -550,7 +550,7 @@ with ncs.maapi.Maapi() as m:
 A common use case is to script the creation of devices. With the Python APIs, this is easily done without the need to generate set commands and execute them in the CLI.
 
 {% code title="Example: Create Device, Fetch Host Keys, and Synchronize Configuration" %}
-```
+```python
 import argparse
 import ncs
 
@@ -621,7 +621,7 @@ This class is a helper to support service progress reporting using `plan-data` a
 
 The interface of the `PlanComponent` is identical to the corresponding Java class and supports the setup of plans and setting the transition states.
 
-```
+```python
 class PlanComponent(object):
     """Service plan component.
 
@@ -684,7 +684,7 @@ self_plan.set_reached('ncs:ready')
 
 The Python high-level API provides an easy way to implement an action handler for your modeled actions. The easiest way to create a handler is to use the `ncs-make-package` command. It creates some ready-to-use skeleton code.
 
-```
+```bash
 $ cd packages
 $ ncs-make-package --service-skeleton python pyaction --component-class
  action.Action \
@@ -693,7 +693,7 @@ $ ncs-make-package --service-skeleton python pyaction --component-class
 
 The generated package skeleton:
 
-```
+```bash
 $ tree pyaction
 pyaction/
 +-- README
@@ -716,7 +716,7 @@ This example action handler takes a number as input, doubles it, and returns the
 When debugging Python packages refer to [Debugging of Python Packages](../nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages).
 
 {% code title="Example: Action Server Implementation" %}
-```
+```bash
 # -*- mode: python; python-indent: 4 -*-
 
 from ncs.application import Application
@@ -774,7 +774,7 @@ The table below lists the action handler callback parameters:
 
 The Python high-level API provides an easy way to implement a service handler for your modeled services. The easiest way to create a handler is to use the `ncs-make-package` command. It creates some skeleton code.
 
-```
+```bash
 $ cd packages
 $ ncs-make-package --service-skeleton python pyservice \
  --component-class service.Service
@@ -782,7 +782,7 @@ $ ncs-make-package --service-skeleton python pyservice \
 
 The generated package skeleton:
 
-```
+```bash
 $ tree pyservice
 pyservice/
 +-- README
@@ -807,7 +807,7 @@ When debugging Python packages, refer to [Debugging of Python Packages](../nso-v
 Add some service logic to the `cb_create`:
 
 {% code title="Example: High-level Python Service Implementation" %}
-```
+```bash
 # -*- mode: python; python-indent: 4 -*-
 
 from ncs.application import Application
@@ -860,7 +860,7 @@ class Service(Application):
 
 Add a template to `packages/pyservice/templates/service.template.xml`:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device tags="nocreate">
@@ -886,7 +886,7 @@ The table below lists the service handler callback parameters:
 
 The Python high-level API provides an easy way to implement a validation point handler. The easiest way to create a handler is to use the `ncs-make-package` command. It creates ready-to-use skeleton code.
 
-```
+```bash
 $ cd packages
 $ ncs-make-package --service-skeleton python pyvalidation --component-class
  validation.ValidationApplication \
@@ -895,7 +895,7 @@ $ ncs-make-package --service-skeleton python pyvalidation --component-class
 
 The generated package skeleton:
 
-```
+```bash
 $ tree pyaction
 pyaction/
 +-- README
@@ -918,7 +918,7 @@ This example validation point handler accepts all values except `invalid`.
 When debugging Python packages refer to [Debugging of Python Packages](../nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages).
 
 {% code title="Example: Validation Implementation" %}
-```
+```bash
 # -*- mode: python; python-indent: 4 -*-
 import ncs
 from ncs.dp import ValidationError, ValidationPoint
@@ -966,7 +966,7 @@ class ValidationApplication(ncs.application.Application):
 
 Test the validation by setting the value to invalid and validating the transaction from the NSO CLI:
 
-```
+```cli
 admin@ncs% set validation validate-value invalid
 admin@ncs% validate
 Failed: 'validation validate-value': invalid value
@@ -1061,7 +1061,7 @@ print("Default authgroup admin password = %s" % decrypted_password)
 This example is a script to do a `check-sync` action request using the low-level MAAPI API.
 
 {% code title="Example: Action Request" %}
-```
+```python
 import socket
 import _ncs
 from _ncs import maapi
@@ -1112,7 +1112,7 @@ This API is a direct mapping of the NSO CDB C API. See `pydoc3 _ncs.cdb` and `ma
 Setting of operational data has historically been done using one of the CDB APIs (Python, Java, C). This example shows how to set a value and trigger subscribers for operational data using the Python low-level API. API.
 
 {% code title="Example: Setting of Operational Data using CDB API" %}
-```
+```python
 import socket
 import _ncs
 from _ncs import cdb
@@ -1148,7 +1148,7 @@ When schemas are loaded, either upon direct request or automatically by methods 
 Take for example the following program that connects to two different NSO nodes (with diverging schemas) and shows their ned-id's.
 
 {% code title="Example: Reading NED-IDs (read_nedids.py)" %}
-```
+```python
             import ncs
 
 
@@ -1169,7 +1169,7 @@ Take for example the following program that connects to two different NSO nodes 
 
 Running this program may produce output like this:
 
-```
+```bash
             $ python3 read_nedids.py
             === lsa-1 ===
             {ned:lsa-netconf}
@@ -1189,7 +1189,7 @@ The output shows identities in string format for the active NEDs on the differen
 
 The way to make the program above work as expected is to force the reloading of schemas by passing an optional argument to `single_read_trans()` like so:
 
-```
+```python
 with ncs.maapi.single_read_trans('admin', 'system', db=ncs.OPERATIONAL, port=port,
     load_schemas=ncs.maapi.LOAD_SCHEMAS_RELOAD) as t:
 ```

@@ -44,7 +44,7 @@ There is a small difference, however. Notice that in the CLI the `enable-nacm` i
 The following is the full source code that prints the value:
 
 {% code title="Reading a Value in Python" %}
-```
+```python
 import ncs
 
 with ncs.maapi.single_read_trans('admin', 'python') as t:
@@ -58,7 +58,7 @@ As you can see in this example, it is necessary to import only the `ncs` module,
 Moreover, if you start a read/write transaction instead of a read-only one, you can also assign a new value to the leaf. Of course, the same validation rules apply as using the CLI and you need to explicitly commit the transaction if you want the changes to persist. A call to the `apply()` method on the transaction object `t` performs this function. Here is an example:
 
 {% code title="Writing a Value in Python" %}
-```
+```python
 import ncs
 
 with ncs.maapi.single_write_trans('admin', 'python') as t:
@@ -74,7 +74,7 @@ You can access a YANG list node like how you access a leaf. However, working wit
 
 Let's say there is a list of customers defined in NSO, with a YANG schema such as:
 
-```
+```yang
 container customers {
   list customer {
     key "id";
@@ -92,7 +92,7 @@ Compared to dictionaries, making changes to YANG lists is quite a bit different.
 In some situations, you might want to enumerate all of the list items. Here, the list object can be used with the Python `for` syntax, which iterates through each list item in turn. Note that this differs from standard Python dictionaries, which iterate through the keys. The following example demonstrates this behavior.
 
 {% code title="Using lists with Python" %}
-```
+```python
 import ncs
 
 with ncs.maapi.single_write_trans('admin', 'python') as t:
@@ -126,17 +126,17 @@ Leveraging one of the examples included with the NSO installation allows you to 
 
 1.  Navigate to the `0-router-network` directory with the following command.
 
-    ```
+    ```bash
     $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
     ```
 2.  You can prepare and start the routers by running the `make` and `netsim` commands from this directory.
 
-    ```
+    ```bash
     $ make clean all && ncs-netsim start
     ```
 3.  With the routers running, you should also start the NSO instance that will allow you to manage them.
 
-    ```
+    ```bash
     $ ncs
     ```
 
@@ -146,29 +146,29 @@ In case the `ncs` command reports an error about an address already in use, you 
 
 Before you can use Python to configure the router, you need to know what to configure. The simplest way to find out how to configure the DNS on this type of router is by using the NSO CLI.
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
 1.  In the CLI, you can verify that the NSO is managing three routers and check their names with the following command:
 
-    ```
+    ```cli
     admin@ncs# show devices list
     ```
 2.  To make sure that the NSO configuration matches the one deployed on routers, also perform a `sync-from` action.
 
-    ```
+    ```cli
     admin@ncs# devices sync-from
     ```
 3.  Let's say you would like to configure the DNS server `192.0.2.1` on the `ex1` router. To do this by hand, first enter the configuration mode.
 
-    ```
+    ```cli
     admin@ncs# config
     ```
 4.  Then navigate to the NSO copy of the `ex1` configuration, which resides under the `devices device ex1 config` path, and use the `?` and `TAB` keys to explore the available configuration options. You are looking for the DNS configuration.\
     ...
 
-    ```
+    ```cli
     admin@ncs(config)# devices device ex1 config
     ```
 5. Once you have found it, you see the full DNS server configuration path: `devices device ex1 config sys dns server`.
@@ -179,12 +179,12 @@ As an alternative to using the CLI approach to find this path, you can also cons
 
 6.  As you won't be configuring `ex1` manually at this point, exit the configuration mode.
 
-    ```
+    ```cli
     admin@ncs(config)# abort
     ```
 7.  Instead, you will create a Python script to do it, so exit the CLI as well.
 
-    ```
+    ```cli
     admin@ncs# exit
     ```
 
@@ -194,7 +194,7 @@ You will place the script into the `ex1-dns.py` file.
 
 1.  In a text editor, create a new file and add the following text at the start.\\
 
-    ```
+    ```python
     import ncs
     with ncs.maapi.single_write_trans('admin', 'python') as t:
         root = ncs.maagic.get_root(t)
@@ -258,17 +258,17 @@ You will place the script into the `ex1-dns.py` file.
 
 1.  Save the script file as `ex1-dns.py` and run it with the `python3` command.
 
-    ```
+    ```bash
     $ python3 ex1-dns.py
     ```
 2.  You should see `Done!` printed out. Then start the NSO CLI to verify the configuration change.
 
-    ```
+    ```bash
     $ ncs_cli -C -u admin
     ```
 3.  Finally, you can check the configured DNS servers on `ex1` by using the `show running-config` command.
 
-    ```
+    ```cli
     admin@ncs# show running-config devices device ex1 config sys dns server
     ```
 

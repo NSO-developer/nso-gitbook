@@ -82,7 +82,7 @@ When using an IP address instead of a DNS name for node's `ADDRESS`, you must ad
 
 The following is a HA Raft configuration snippet for `ncs.conf` that includes certificate settings and a sample `ADDRESS`:
 
-```
+```xml
   <ha-raft>
     <!-- ... -->
     <listen>
@@ -110,7 +110,7 @@ The recipe makes the following assumptions:
 
 To use this recipe, first, prepare a working environment on a secure host by creating a new directory and copying the `gen_tls_certs.sh` script from `$NCS_DIR/examples.ncs/high-availability/raft-cluster` into it. Additionally, ensure that the `openssl` command, version 1.1 or later, is available and the system time is set correctly. Supposing that you have a cluster named `lower-west`, you might run:
 
-```
+```bash
 $ mkdir raft-ca-lower-west
 $ cd raft-ca-lower-west
 $ cp $NCS_DIR/examples.ncs/high-availability/raft-cluster/gen_tls_certs.sh .
@@ -124,7 +124,7 @@ Including cluster name in the directory name helps distinguish certificates of o
 
 The recipe relies on the `gen_tls_certs.sh` script to generate individual certificates. For clusters using FQDN node addresses, invoke the script with full hostnames of all the participating nodes. For example:
 
-```
+```bash
 $ ./gen_tls_certs.sh node1.example.org node2.example.org node3.example.org
 ```
 
@@ -134,7 +134,7 @@ Using only hostnames, e.g. `node1`, will not work.
 
 If your HA cluster is using IP addresses instead, add the `-a` option to the command and list the IPs:
 
-```
+```bash
 $ ./gen_tls_certs.sh -a 192.0.2.1 192.0.2.2 192.0.2.3
 ```
 
@@ -142,7 +142,7 @@ The script outputs the location of the relevant files and you should securely tr
 
 Once certificates are deployed, you can check their validity with the `openssl verify` command:
 
-```
+```bash
 $ openssl verify -CAfile ssl/certs/ca.crt ssl/certs/node1.example.org.crt
 ```
 
@@ -199,7 +199,7 @@ As part of the configuration, you must:
 The cluster name is simply a character string that uniquely identifies this HA cluster. The nodes in the cluster must use the same cluster name or they will refuse to establish a connection. This setting helps prevent mistakenly adding a node to the wrong cluster when multiple clusters are in operation, such as in an LSA setup.
 
 {% code title="Sample HA Raft config for a cluster node" %}
-```
+```xml
   <ha-raft>
     <enabled>true</enabled>
     <cluster-name>sherwood</cluster-name>
@@ -222,7 +222,7 @@ With all the nodes configured and running, connect to the node that you would li
 
 This action makes the current node a cluster leader and joins the other specified nodes to the newly created cluster. For example:
 
-```
+```cli
 admin@ncs# ha-raft create-cluster member [ birch.example.org cedar.example.org ]
 admin@ncs# show ha-raft
 ha-raft status role leader
@@ -251,7 +251,7 @@ In addition to the above, you may also examine the `logs/raft.log` file for deta
 
 After the initial cluster setup, you can add new nodes or remove existing nodes from the cluster with the help of the `ha-raft adjust-membership` action. For example:
 
-```
+```cli
 admin@ncs# show ha-raft status member
 ha-raft status member [ ash.example.org birch.example.org cedar.example.org ]
 admin@ncs# ha-raft adjust-membership remove-node birch.example.org
@@ -309,13 +309,13 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 1. With the new configurations at hand and verified, start the switch to HA Raft. The cluster nodes should be in their nominal, designated roles. If not, perform a failover first.
 2.  On the designated (actual) primary, called `node1`, enable read-only mode.
 
-    ```
+    ```cli
     admin@node1# high-availability read-only mode true
     ```
 3. Then take a backup of all nodes.
 4.  Once the backup successfully completes, stop the designated fail-over primary (actual secondary) NSO process, update its `ncs.conf` and the related (certificate) files for HA Raft, and then start it again. Connect to this node's CLI, here called node2, and verify HA Raft is enabled with the `show` `ha-raft` command.
 
-    ```
+    ```cli
     admin@node2# show ha-raft
     ha-raft status role stalled
     ha-raft status local-node node2.example.org
@@ -323,7 +323,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
     ```
 5.  Now repeat the same for the designated primary (`node1`). If you have set the seed nodes, you should see the fail-over primary show under `connected-node`.
 
-    ```
+    ```cli
     admin@node1# show ha-raft
     ha-raft status role stalled
     ha-raft status connected-node [ node2.example.org ]
@@ -332,7 +332,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
     ```
 6.  On the old designated primary (node1) invoke the `ha-raft create-cluster` action and create a two-node Raft cluster with the old fail-over primary (`node2`, actual secondary). The action takes a list of nodes identified by their names. If you have configured `seed-nodes`, you will get auto-completion support, otherwise you have to type in the name of the node yourself.
 
-    ```
+    ```cli
     admin@node1# ha-raft create-cluster member [ node2.example.org ]
     admin@node1# show ha-raft
     ha-raft status role leader
@@ -347,7 +347,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 7. Raft requires at least three nodes to operate effectively (as described in [NSO HA Raft](high-availability.md#ug.ha.raft)) and currently, there are only two in the cluster. If the initial cluster had only two nodes, you must provision an additional node and set it up for HA Raft. If the cluster initially had three nodes, there is the remaining secondary node, `node3`, which you must stop, update its configuration as you did with the other two nodes, and start it up again.
 8.  Finally, on the old designated primary and current HA Raft leader, use the `ha-raft adjust-membership add-node` action to add this third node to the cluster.
 
-    ```
+    ```cli
     admin@node1# ha-raft adjust-membership add-node node3.example.org
     admin@node1# show ha-raft status member
     ha-raft status member [ node1.example.org node2.example.org node3.example.org ]
@@ -599,18 +599,18 @@ There a multiple ways of handling this and two are listed here.
 
 1.  Set capability `CAP_NET_BIND_SERVICE` on the `gobgpd` file. May not be supported by all Linux distributions.
 
-    ```
+    ```bash
     $ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/gobgpd
     ```
 2.  Set the owner to `root` and the `setuid` bit of the `gobgpd` file. Works on all Linux distributions.
 
-    ```
+    ```bash
     $ sudo chown root /usr/bin/gobgpd
     $ sudo chmod u+s /usr/bin/gobgpd
     ```
 3.  The `vipctl` script, included in the HCC package, uses `sudo` to run the `ip` and `arping` commands when NSO is not running as root. If `sudo` is used, you must ensure it does not require password input. For example, if NSO runs as `admin` user, the `sudoers` file can be edited similarly to the following:
 
-    ```
+    ```bash
     $ sudo echo "admin ALL = (root) NOPASSWD: /bin/ip" << /etc/sudoers
     $ sudo echo "admin ALL = (root) NOPASSWD: /path/to/arping" << /etc/sudoers
     ```
@@ -650,7 +650,7 @@ This means that you can map each VIP onto a particular interface by defining a r
 {% hint style="info" %}
 To check which interface HCC will choose for a particular VIP address, simply run for example and look at the device `dev` in the output, for example `eth0`:
 
-```
+```bash
 admin@paris:~$ ip route get 192.168.123.22
 ```
 {% endhint %}
@@ -665,7 +665,7 @@ Global Layer-2 Configuration:
 
 #### **Example Configuration**
 
-```
+```cli
 admin@ncs(config)# hcc enabled
 admin@ncs(config)# hcc vip 192.168.123.22
 admin@ncs(config)# hcc vip 2001:db8::10
@@ -686,7 +686,7 @@ HCC operates a [`GoBGP`](https://osrg.github.io/gobgp/) subprocess as an embedde
 
 Operational data in the YANG model includes the state of the BGP daemon subprocess and the state of each BGP neighbor connection. The BGP daemon writes log messages directly to NSO where the HCC module extracts updated operational data and then repeats the BGP daemon log messages into the HCC log verbatim. You can find these log messages in the developer log (`devel.log`).
 
-```
+```cli
 admin@ncs# show hcc
 NODE    BGPD  BGPD
 ID      PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -719,7 +719,7 @@ Per-Neighbor BGP Configuration:
 
 #### **Example**
 
-```
+```cli
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
@@ -744,7 +744,7 @@ HCC listens on the underlying NSO HA notifications stream. When HCC receives a n
 
 Operational data in the YANG model includes the result of the latest DNS update operation.
 
-```
+```cli
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-20T23:16:33.472522+00:00
 hcc dns status exit-code 0
@@ -752,7 +752,7 @@ hcc dns status exit-code 0
 
 If the DNS Update is unsuccessful, an error message will be populated in operational data, for example:
 
-```
+```cli
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-20T23:36:33.372631+00:00
 hcc dns status exit-code 2
@@ -794,7 +794,7 @@ Each NSO node can be placed in a separate Location/Site/Availability-Zone. This 
 
 Here is an example configuration for a setup of two dual-stack NSO nodes, node-1 and node-2, that have an IPv4 and an IPv6 address configured. The configuration also sets up an update signing with the specified key.
 
-```
+```cli
 admin@ncs(config)#  hcc dns enabled 
 admin@ncs(config)#  hcc dns fqdn example.com 
 admin@ncs(config)#  hcc dns ttl 120 
@@ -835,7 +835,7 @@ Addresses:
 
 Configuring VIPs:
 
-```
+```cli
 admin@ncs(config)# hcc enabled
 admin@ncs(config)# hcc vip 192.168.23.122
 admin@ncs(config)# commit
@@ -845,7 +845,7 @@ Verifying VIP Availability:
 
 Once enabled, HCC on the HA group primary node will automatically assign the VIP addresses to corresponding Linux network interfaces.
 
-```
+```bash
 root@paris:/var/log/ncs# ip address list
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -865,7 +865,7 @@ root@paris:/var/log/ncs# ip address list
 
 On the secondary node, HCC will not configure these addresses.
 
-```
+```bash
 root@london:~# ip address list
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 ...
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -895,7 +895,7 @@ Addresses:
 
 Configuring BGP for Paris Node:
 
-```
+```cli
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
@@ -906,7 +906,7 @@ admin@ncs(config)# commit
 
 Configuring BGP for London Node:
 
-```
+```cli
 admin@ncs(config)# hcc bgp node london enabled
 admin@ncs(config)# hcc bgp node london as 64513
 admin@ncs(config)# hcc bgp node london router-id 192.168.30.98
@@ -919,7 +919,7 @@ Check BGP Neighbor Connectivity:
 
 Check neighbor connectivity on the `paris` primary node. Note that its connection to neighbor 192.168.31.2 (`router`) is `ESTABLISHED`.
 
-```
+```cli
 admin@ncs# show hcc
       BGPD  BGPD
 NODE ID PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -930,7 +930,7 @@ paris   2486  running  192.168.31.2  ESTABLISHED  true
 
 Check neighbor connectivity on the `london` secondary node. Note that the primary node also has an `ESTABLISHED` connection to its neighbor 192.168.30.2 (`router`). The primary and secondary nodes both maintain their BGP neighbor connections at all times when BGP is enabled, but only the primary node announces routes for the VIPs.
 
-```
+```cli
 admin@ncs# show hcc
       BGPD  BGPD
 NODE ID PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -943,7 +943,7 @@ Check Advertised BGP Routes Neighbors:
 
 Check the BGP routes received by the `router`.
 
-```
+```cli
 admin@ncs# show ip bgp
 ...
 Network          Next Hop            Metric LocPrf Weight Path
@@ -967,13 +967,13 @@ DNS Update Action:
 
 The user can explicitly update DNS from the specific NSO node by running the update action.
 
-```
+```cli
 admin@ncs# hcc dns update
 ```
 
 Check the result of invoking the DNS update utility using the operational data in `/hcc/dns`:
 
-```
+```cli
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-10T20:47:31.733661+00:00
 hcc dns status exit-code 0
@@ -982,7 +982,7 @@ hcc dns status error-message ""
 
 One way to verify DNS server updates is through the `nslookup` program. However, be mindful of the DNS caching mechanism, which may cache the old value for the amount of time controlled by the TTL setting.
 
-```
+```bash
 cisco@node-2:~$ nslookup example.com
 Server:   10.0.0.10
 Address:  10.0.0.10#53
@@ -997,7 +997,7 @@ DNS get-node-location Action:
 
 /hcc/dns/member holds the information about all members involved in HA. The `get-node-location` action provides information on the location of an NSO node.
 
-```
+```cli
 admin@ncs(config)# hcc dns get-node-location
 location SanJose
 ```
@@ -1020,7 +1020,7 @@ In the example, freely available HAProxy software is used as a load balancer to 
 
 You can start all the components in the example by running the `make build start` command. At the beginning, the first node `n1` is the active primary. Connecting to the localhost port 2024 will establish a connection to this node:
 
-```
+```bash
 $ make build start
 Setting up run directory for nso-node1
  ... make output omitted ...
@@ -1043,7 +1043,7 @@ n2  127.0.0.1
 
 Then, you can disable the high availability subsystem on `n1` to simulate a node failure.
 
-```
+```cli
 admin@n1# high-availability disable
 result NSO Built-in HA disabled
 admin@n1# exit
@@ -1052,7 +1052,7 @@ Connection to localhost closed.
 
 Disconnect and wait a few seconds for the built-in HA to perform the failover to node `n2`. The time depends on the `high-availability/settings/reconnect-interval` and is set quite aggressively in this example to make the failover in about 6 seconds. Reconnect with the SSH client and observe the connection is now made to the fail-over node which has become the active primary:
 
-```
+```bash
 $ ssh -p 2024 admin@localhost
 admin@localhost's password: admin
 
@@ -1074,7 +1074,7 @@ NSO can be configured for the HA primary to listen on additional ports for the n
 
 When the following configuration is added to `ncs.conf`, then the primary HA node will listen(2) and bind(2) port 1830 on the wildcard IPv4 and IPv6 addresses.
 
-```
+```xml
 <netconf-north-bound>
   <transport>
     <ssh>
@@ -1106,7 +1106,7 @@ The HA framework must also detect when nodes fail and instruct NSO accordingly. 
 
 NSO must be instructed through the `ncs.conf` configuration file that it should run in HA mode. The following configuration snippet enables HA mode:
 
-```
+```xml
 <ha>
   <enabled>true</enabled>
   <ip>0.0.0.0</ip>

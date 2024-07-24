@@ -70,7 +70,7 @@ The device's sync state is assumed to be unknown after such commit and the store
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:
 
-```
+```cli
 ncs% commit | details
 ```
 
@@ -78,13 +78,13 @@ This will give feedback on the steps performed in the commit.
 
 When working with templates, there is a pipe command `debug` which can be used to troubleshoot templates. To enable debugging on all templates use:
 
-```
+```cli
 ncs% commit | debug template
 ```
 
 When configuring using many templates the debug output can be overwhelming. For this reason, there is an option to only get debug information for one template, in this example, a template named `l3vpn`:
 
-```
+```cli
 ncs% commit | debug template l3vpn
 ```
 

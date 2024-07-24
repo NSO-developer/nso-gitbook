@@ -38,7 +38,7 @@ Usage ncs-netsim  [--dir <NetsimDir>]
 
 Assume that you have prepared an NSO package for a device called `router`. (See the `examples.ncs/getting-started/developing-with-ncs/0-router-network` example). Also, assume the package is in `./packages/router`. At this point, you can create the simulated network by:
 
-```
+```bash
 $ ncs-netsim create-network ./packages/router 3 device --dir ./netsim
 ```
 
@@ -55,25 +55,25 @@ There is one separate directory for every ConfD simulating the devices.
 
 The network can be started with:
 
-```
+```bash
 $ ncs-netsim start
 ```
 
 You can add more devices to the network in a similar way as it was created. E.g. if you created a network with some Juniper devices and want to add some Cisco IOS devices. Point to the NED you want to use (See `{NCS_DIR}/packages/neds/`) and run the command. Remember to start the new devices after they have been added to the network.
 
-```
+```bash
 $ ncs-netsim add-to-network ${NCS_DIR}/packages/neds/cisco-ios 2 c-device --dir ./netsim
 ```
 
 To extract the device data from the simulated network to a file in XML format:
 
-```
+```bash
 $ ncs-netsim ncs-xml-init > devices.xml
 ```
 
 This data is usually used to load the simulated network into NSO. Putting the XML file in the `./ncs-cdb` folder will load it when NSO starts. If NSO is already started it can be reloaded while running.
 
-```
+```bash
 $ ncs_load -l -m devices.xml
 ```
 
@@ -83,7 +83,7 @@ Under very special circumstances, one can choose to force running the simulation
 
 The simulated network device info can be shown with:
 
-```
+```bash
  $ ncs-netsim list
 ...
  name=device0 netconf=12022 snmp=11022 ipc=5010 cli=10022 dir=examples.ncs/getting-started/developing-
@@ -95,7 +95,7 @@ Here you can see the device name, the working directory, and the port number for
 
 You can reach the CLI of individual devices with:
 
-```
+```bash
 $ ncs-netsim cli-c device0
 ```
 
@@ -107,33 +107,33 @@ The simulated devices actually provide three different styles of CLI:
 
 Individual devices can be started and stopped with:
 
-```
+```bash
 $ ncs-netsim start device0
 $ ncs-netsim stop device0
 ```
 
 You can check the status of the simulated network. Either a short version just to see if the device is running or a more verbose with all the information.
 
-```
+```bash
 $ ncs-netsim is-alive device0
 $ ncs-netsim status device0
 ```
 
 View which packages are used in the simulated network:
 
-```
+```bash
 $ ncs-netsim packages
 ```
 
 It is also possible to reset the network back to the state of initialization:
 
-```
+```bash
 $ ncs-netsim reset
 ```
 
 When you are done, remove the network:
 
-```
+```bash
 $ ncs-netsim delete-network
 ```
 
@@ -147,13 +147,13 @@ NSO and ConfD tools and Python APIs are basically the same except for naming, th
 
 E.g. Instead of using the below command:
 
-```
+```bash
 $ CONFD_IPC_PORT=5010 ${NCS_DIR}/netsim/confd/bin/confd_load -m -l *.xml
 ```
 
 One may use:
 
-```
+```bash
 $ NCS_IPC_PORT=5010 ncs_load -m -l *.xml
 ```
 

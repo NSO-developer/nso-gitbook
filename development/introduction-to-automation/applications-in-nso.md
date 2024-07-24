@@ -32,7 +32,7 @@ NSO allows augmenting the base functionality of the system by delegating certain
 
 In a Python service skeleton, callback registration happens inside a class `Main`, found in `main.py`:
 
-```
+```python
 class Main(ncs.application.Application):
     def setup(self):
         # Service callbacks require a registration for a 'service point',
@@ -51,7 +51,7 @@ Error: no registration found for callpoint my-svc-servicepoint/service_create of
 
 This error refers to the concept of a service point. Service points are declared in the service YANG model and allow NSO to distinguish ordinary data from services. They instruct NSO to invoke FASTMAP and the service callbacks when a service instance is being provisioned. That means the service skeleton YANG file also contains a service point definition, such as the following:
 
-```
+```yang
 list my-svc {
   description "This is an RFS skeleton service";
 
@@ -102,14 +102,14 @@ The first thing to notice in the code is that, just like services use a service 
 
 Correspondingly, your code needs to register a callback to this action point, by calling the `register_action()`, as demonstrated here:
 
-```
+```python
 def setup(self):
     self.register_action('my-test-action', MyTestAction)
 ```
 
 The `MyTestAction` class, referenced in the call, is responsible for implementing the actual action logic and should inherit from the `ncs.dp.Action` base class. The base class will take care of calling the `cb_action()` class method when users initiate the action. The `cb_action()` is where you put your own code. The following code shows a trivial implementation of an action, that checks whether its input contains the string “`NSO`”:
 
-```
+```python
 class MyTestAction(Action):
     @Action.action
     def cb_action(self, uinfo, name, kp, input, output, trans):
@@ -147,13 +147,13 @@ For this scenario, you will create a new package for the action, however actions
 
 First, navigate to the `packages` subdirectory:
 
-```
+```bash
 $ cd $NSO_RUNDIR/packages
 ```
 
 Create a package skeleton with the `ncs-make-package` command and the `--action-example` option. Name the package `count-devices`, like so:
 
-```
+```bash
 $ ncs-make-package --service-skeleton python --action-example count-devices
 ```
 
@@ -165,7 +165,7 @@ This command creates a YANG module file, where you will place a custom action de
 
 Delete this line and all the lines following it, to the very end of the file. The file should now resemble the following:
 
-```
+```yang
 module count-devices {
 
   namespace "http://example.com/count-devices";
@@ -194,7 +194,7 @@ Note that in YANG version 1.0, actions used the NSO-specific `tailf:action` exte
 
 Now, go to the end of the file and add a `custom-actions` container with the `count-devices` action, using the `count-devices-action` action point. The input is an IP subnet and the output is the number of devices managed by NSO in this subnet.
 
-```
+```yang
   container custom-actions {
     action count-devices {
       tailf:actionpoint count-devices-action;
@@ -220,7 +220,7 @@ Also, add the closing bracket for the module at the end:
 
 Remember to finally save the file, which should now be similar to the following:
 
-```
+```yang
 module count-devices {
 
   yang-version 1.1;
@@ -261,7 +261,7 @@ The action code is implemented in a dedicated class, that you will put in a sepa
 
 At the start of the file, import the packages that you will need later on and define the action class with the `cb_action()` method:
 
-```
+```python
 from ipaddress import IPv4Address, IPv4Network
 import socket
 import ncs
@@ -305,7 +305,7 @@ Your custom Python code is ready; however, you still need to link it to the `cou
 
 Next, create a class called `Main` that inherits from the `ncs.application.Application` base class. Add a single class method `setup()` that takes no additional arguments.
 
-```
+```python
 import ncs
 
 class Main(ncs.application.Application):
@@ -314,7 +314,7 @@ class Main(ncs.application.Application):
 
 Inside the `setup()` method call the `register_action()` as follows:
 
-```
+```python
         self.register_action('count-devices-action', CountDevicesAction)
 ```
 
@@ -322,7 +322,7 @@ This line instructs NSO to use the `CountDevicesAction` class to handle invocati
 
 The complete `main.py` file should then be similar to the following:
 
-```
+```python
 import ncs
 from count_devices_action import CountDevicesAction
 
@@ -335,25 +335,25 @@ class Main(ncs.application.Application):
 
 With all of the code ready, you are one step away from testing the new action, but to do that, you will need to add some devices to NSO. So, first, add a couple of simulated routers to the NSO instance:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
 ```
 
-```
+```bash
 $ cp ncs-cdb/ncs_init.xml $NSO_RUNDIR/ncs-cdb/
 ```
 
-```
+```bash
 $ cp -a packages/router $NSO_RUNDIR/packages/
 ```
 
 Before the packages can be loaded, you must compile them:
 
-```
+```bash
 $ cd $NSO_RUNDIR
 ```
 
-```
+```bash
 $ make -C packages/router/src && make -C packages/count-devices/src
 make: Entering directory 'packages/router/src'
 < ... output omitted ... >
@@ -368,13 +368,13 @@ make: Leaving directory 'packages/count-devices/src'
 
 You can start the NSO now and connect to the CLI:
 
-```
+```bash
 $ ncs --with-package-reload && ncs_cli -C -u admin
 ```
 
 Finally, invoke the action:
 
-```
+```bash
 $ admin@ncs# custom-actions count-devices in-subnet 127.0.0.0/16
 result 3
 ```
@@ -405,7 +405,7 @@ Services, actions, and other features all rely on callback registration. In Pyth
 
 While the Python package skeleton names the derived class `Main`, you can choose a different name if you also update the `package-meta-data.xml` file accordingly. This file defines a component with the name of the Python class to use:
 
-```
+```xml
 <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
   < ... output omitted ... >
 

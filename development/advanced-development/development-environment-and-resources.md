@@ -77,13 +77,13 @@ Combining all of this together, consider the following example:
 
 1.  Start by creating a new directory to hold the files:
 
-    ```
+    ```bash
     $ mkdir nso-throwaway
     $ cd nso-throwaway
     ```
 2.  Create and start a few simulated devices with `ncs-netsim`, using `./netsim` as directory:
 
-    ```
+    ```bash
     $ ncs-netsim ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios-cli-3.8 3 c
     DEVICE c0 CREATED
     DEVICE c1 CREATED
@@ -92,14 +92,14 @@ Combining all of this together, consider the following example:
     ```
 3.  Next, create the running directory with the NED package for the simulated devices and one more package. Also, add configuration data to NSO on how to connect to these simulated devices.
 
-    ```
+    ```bash
         $ ncs-setup --dest ncs-run --netsim-dir ./netsim \
             --package $NCS_DIR/packages/neds/cisco-ios-cli-3.8 \
             --package $NCS_DIR/packages/neds/cisco-iosxr-cli-3.0
     ```
 4.  Now you can add custom initial data as XML files to `ncs-run/ncs-cdb/`. Usually, you would use existing files but you can also create them on-the-fly.
 
-    ```
+    ```bash
     $ cat >ncs-run/ncs-cdb/my_init.xml <<'EOF'
     <config xmlns="http://tail-f.com/ns/config/1.0">
       <session xmlns="http://tail-f.com/ns/aaa/1.1">
@@ -110,13 +110,13 @@ Combining all of this together, consider the following example:
     ```
 5.  At this point, you are ready to start NSO:
 
-    ```
+    ```bash
     $ cd ncs-run
     $ ncs
     ```
 6.  Finally, request an initial `sync-from`:
 
-    ```
+    ```bash
     $ ncs_cmd -u admin -c 'maction /devices/sync-from'
     sync-result begin
       device c0

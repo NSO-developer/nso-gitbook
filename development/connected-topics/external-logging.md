@@ -14,7 +14,7 @@ To enable external log processing, set `/ncs-config/logs/external` to `true` and
 
 External configuration example:
 
-```
+```xml
 <external>
   <enabled>true</enabled>
   <command>./path/to/log_filter</command>
@@ -23,7 +23,7 @@ External configuration example:
 
 To support the debugging of the external log command behavior, a separate log file is used. This debugging log is configured under `/ncs-config/logs/ext-log`. The example below shows the configuration for `./logs/external.log` with the highest log level set:
 
-```
+```xml
 <ext-log>
   <enabled>true</enabled>
   <filename>./logs/external.log</filename>
@@ -33,7 +33,7 @@ To support the debugging of the external log command behavior, a separate log fi
 
 By default, NED trace output is written to the file preserving backward compatibility. To write NED trace logs to file for all but the device `test`, which will use external log processing, the following configuration can be entered in the CLI:
 
-```
+```bash
 # devices global-settings trace-output file
 # devices device example trace-output external
 ```

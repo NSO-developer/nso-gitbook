@@ -114,7 +114,7 @@ NSO uses [YANG Schema Mount](https://www.ietf.org/rfc/rfc8528.txt) to mount the 
 
 For example, to get the YANG library data for the device `x0`, we can do:
 
-```
+```bash
 $ netconf-console --get -x '/devices/device[name="x0"]/config/yang-library'
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -201,7 +201,7 @@ If a data provider fails to return the data it is supposed to return, NSO can ta
 
 An inline error is always generated as a child element to the parent of the faulty element. For example, if an error occurs when retrieving the leaf element `mac-address` of an `interface` the error might be:
 
-```
+```xml
 <interface>
   <name>atm1</name>
   <rpc-error xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
@@ -219,7 +219,7 @@ An inline error is always generated as a child element to the parent of the faul
 
 If a `get_next` call fails in the processing of a list, a reply might look like this:
 
-```
+```xml
 <interface>
   <!-- successfully retrieved list entry -->
   <name>eth0</name>
@@ -243,7 +243,7 @@ The `netconf-console` program is a simple NETCONF client. It is delivered as Pyt
 
 When NSO has been started, we can use `netconf-console` to query the configuration of the NETCONF Access Control groups:
 
-```
+```bash
 $ netconf-console --get-config -x /nacm/groups
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -296,7 +296,7 @@ NSO can be configured to listen to notifications from devices and send those not
 
 It is up to the application to define which streams it supports. In NSO, this is done in `ncs.conf` (see [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages). Each stream must be listed, and whether it supports replay or not. The following example enables the built-in stream `device-notifications` with replay support, and an additional, application-specific stream `debug` without replay support:
 
-```
+```xml
 <notifications>
   <event-streams>
     <stream>
@@ -361,7 +361,7 @@ Existing subscriptions and their configuration can be found in the `/subscriptio
 
 For example, for viewing all established subscriptions, we can do:
 
-```
+```bash
 $ netconf-console --get -x /subscriptions
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -405,7 +405,7 @@ YANG-Push is defined in [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) and the
 
     An example `push-update` notification:
 
-    ```
+    ```xml
     <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0">
       <eventTime>2020-06-10T10:00:00.00Z</eventTime>
       <push-update xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-push">
@@ -426,7 +426,7 @@ YANG-Push is defined in [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) and the
     \
     An example `push-change-update` notification:
 
-    ```
+    ```xml
     <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0">
       <eventTime>2020-06-10T10:05:00.00Z</eventTime>
       <push-change-update
@@ -492,7 +492,7 @@ This capability introduces a new RPC operation that is used to invoke actions de
 
 Here is a simple example that invokes the action `sync-from` on the device `ce1`. It uses the `netconf-console` command:
 
-```
+```bash
 $ cat ./sync-from-ce1.xml
 <action xmlns="http://tail-f.com/ns/netconf/actions/1.0">
   <data>
@@ -610,7 +610,7 @@ If there is an ongoing transaction for this session already, an error must be re
 
 #### **Example**
 
-```
+```xml
   <rpc message-id="101"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <start-transaction xmlns="http://tail-f.com/ns/netconf/transactions/1.0">
@@ -652,7 +652,7 @@ If there is no ongoing transaction in this session, or if the ongoing transactio
 
 #### **Example**
 
-```
+```xml
   <rpc message-id="103"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <prepare-transaction
@@ -687,7 +687,7 @@ If there is no ongoing transaction in this session, or if the ongoing transactio
 
 #### **Example**
 
-```
+```xml
   <rpc message-id="104"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <commit-transaction
@@ -722,7 +722,7 @@ If there is no ongoing transaction in this session, an error must be returned wi
 
 #### **Example**
 
-```
+```xml
   <rpc message-id="104"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <abort-transaction
@@ -783,7 +783,7 @@ The `inactive` and `active` attributes are defined in the http://tail-f.com/ns/n
 
 This request creates an `inactive` interface:
 
-```
+```xml
   <rpc message-id="101"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <edit-config>
@@ -811,7 +811,7 @@ This request creates an `inactive` interface:
 
 This request shows the `inactive` interface:
 
-```
+```xml
   <rpc message-id="102"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <get-config>
@@ -838,7 +838,7 @@ This request shows the `inactive` interface:
 
 This request shows that inactive data is not returned unless the client asks for it:
 
-```
+```xml
   <rpc message-id="103"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <get-config>
@@ -859,7 +859,7 @@ This request activates the interface:
 
 This request creates an `inactive` interface:
 
-```
+```xml
   <rpc message-id="104"
        xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <edit-config>
@@ -940,7 +940,7 @@ Where a value may contain space characters but not end with a space.
 Here is an example of the usage of the attributes `traceparent` and `tracestate`:
 
 {% code title="Example: Attributes traceparent and tracestate in NETCONF Request" %}
-```
+```xml
 <rpc message-id="101"
      xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
      xmlns:w3ctc="urn:ietf:params:xml:ns:netconf:w3ctc:1.0"
@@ -1036,7 +1036,7 @@ The Query API consists of several RPC operations to start queries, fetch chunks 
 
 In the installed release there are two YANG files named `tailf-netconf-query.yang` and `tailf-common-query.yang` that defines these operations. An easy way to find the files is to run the following command from the top directory of the release installation:
 
-```
+```bash
 $ find . -name tailf-netconf-query.yang
 ```
 
@@ -1050,7 +1050,7 @@ The API consists of the following operations:
 
 In the following examples, the following data model is used:
 
-```
+```yang
 container x {
   list host {
     key number;
@@ -1072,7 +1072,7 @@ container x {
 
 Here is an example of a `start-query` operation:
 
-```
+```xml
 <start-query xmlns="http://tail-f.com/ns/netconf/query">
   <foreach>
     /x/host[enabled = 'true']
@@ -1100,7 +1100,7 @@ Let us discuss the various pieces of this request.
 
 The actual XPath query to run is specified by the `foreach` element. The example below will search for all `/x/host` nodes that have the `enabled` node set to `true`:
 
-```
+```xml
 <foreach>
   /x/host[enabled = 'true']
 </foreach>
@@ -1116,7 +1116,7 @@ The result-type `inline` makes it possible to return the full sub-tree of data i
 
 Finally, we can specify an optional `label` for a convenient way of labeling the returned data. In the example we have the following:
 
-```
+```xml
 <select>
   <label>Host name</label>
   <expression>name</expression>
@@ -1130,31 +1130,31 @@ Finally, we can specify an optional `label` for a convenient way of labeling the
 
 The returned result can be sorted. This is expressed as XPath expressions, which in most cases are very simple and refer to the found node-set. In this example, we sort the result by the content of the `name` node:
 
-```
+```xml
 <sort-by>name</sort-by>
 ```
 
 To limit the maximum amount of results in each chunk that `fetch-query-result` will return we can set the `limit` element. The default is to get all results in one chunk.
 
-```
+```xml
 <limit>100</limit>
 ```
 
 With the `offset` element we can specify at which node we should start to receive the result. The default is 1, i.e., the first node in the resulting node set.
 
-```
+```xml
 <offset>1</offset>
 ```
 
 Now, if we continue by putting the operation above in a file `query.xml` we can send a request, using the command `netconf-console`, like this:
 
-```
+```bash
 $ netconf-console --rpc query.xml
 ```
 
 The result would look something like this:
 
-```
+```xml
 <start-query-result>
   <query-handle>12345</query-handle>
 </start-query-result>
@@ -1162,7 +1162,7 @@ The result would look something like this:
 
 The query handle (in this example `12345`) must be used in all subsequent calls. To retrieve the result, we can now send:
 
-```
+```xml
 <fetch-query-result xmlns="http://tail-f.com/ns/netconf/query">
   <query-handle>12345</query-handle>
 </fetch-query-result>
@@ -1170,7 +1170,7 @@ The query handle (in this example `12345`) must be used in all subsequent calls.
 
 Which will result in something like the following:
 
-```
+```xml
 <query-result xmlns="http://tail-f.com/ns/netconf/query">
   <result>
     <select>
@@ -1195,7 +1195,7 @@ Which will result in something like the following:
 
 If we try to get more data with the `fetch-query-result` we might get more `result` entries in return until no more data exists and we get an empty query result back:
 
-```
+```xml
 <query-result xmlns="http://tail-f.com/ns/netconf/query">
 </query-result>
 ```
@@ -1204,7 +1204,7 @@ If we want to send the query and get the entire result with only one request, we
 
 An example request and response:
 
-```
+```xml
 <immediate-query xmlns="http://tail-f.com/ns/netconf/query">
   <foreach>
     /x/host[enabled = 'true']
@@ -1223,7 +1223,7 @@ An example request and response:
 </immediate-query>
 ```
 
-```
+```xml
 <query-result xmlns="http://tail-f.com/ns/netconf/query">
   <result>
     <select>
@@ -1248,7 +1248,7 @@ An example request and response:
 
 If we want to go back in the "stream" of received data chunks and have them repeated, we can do that with the `reset-query` operation. In the example below, we ask to get results from the 42nd result entry:
 
-```
+```xml
 <reset-query xmlns="http://tail-f.com/ns/netconf/query">
   <query-handle>12345</query-handle>
   <offset>42</offset>
@@ -1257,7 +1257,7 @@ If we want to go back in the "stream" of received data chunks and have them repe
 
 Finally, when we are done we stop the query:
 
-```
+```xml
 <stop-query xmlns="http://tail-f.com/ns/netconf/query">
   <query-handle>12345</query-handle>
 </stop-query>
@@ -1277,7 +1277,7 @@ All tags on a data node are encoded as a space-separated string in an XML attrib
 
 Annotation, tags, and inactive attributes can be present in `<edit-config>`, `<copy-config>`, `<get-config>`, and `<get>`. For example:
 
-```
+```xml
 <rpc message-id="101"
      xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <edit-config>
@@ -1301,7 +1301,7 @@ Annotation, tags, and inactive attributes can be present in `<edit-config>`, `<c
 
 NSO adds an additional namespace which is used to define elements that are included in the `<error-info>` element. This namespace also describes which `<error-app-tag/>` elements the server might generate, as part of an `<rpc-error/>`.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://tail-f.com/ns/netconf/params/1.1"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"

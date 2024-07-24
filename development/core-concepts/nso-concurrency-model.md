@@ -61,7 +61,7 @@ In general, what affects the chance of conflict is the actual data that is read 
 
 When a transaction conflict occurs, NSO logs an entry in the developer log, often found at `logs/devel.log` or a similar path. Suppose you have the following code in Python:
 
-```
+```python
 with ncs.maapi.single_write_trans('admin', 'system') as t:
     root = ncs.maagic.get_root(t)
     # Read a value that can change during this transaction
@@ -138,7 +138,7 @@ Since a given service may not always conflict and can evolve over time, NSO reve
 
 Sometimes, you know in advance that a service will conflict, either with itself or another service. You can encode this information in the service YANG model using the `conflicts-with` parameter under the `servicepoint` definition:
 
-```
+```yang
 list mysvc {
   uses ncs:service-data;
   ncs:servicepoint mysvc-servicepoint {
@@ -169,7 +169,7 @@ When a transaction fails to apply due to a read-write conflict in the work phase
 
 Why is this necessary? Suppose you have code, let's say as part of a CDB subscriber or a standalone program, similar to the following Python snippet:
 
-```
+```python
 with ncs.maapi.single_write_trans('admin', 'system') as t:
     if t.get_elem('/mysvc-use-dhcp') == True:
         # do something
@@ -195,7 +195,7 @@ Example code for each of these approaches is shown next. In addition, the `examp
 
 Suppose you have some code in Python, such as the following:
 
-```
+```python
 with ncs.maapi.single_write_trans('admin', 'python') as t:
     root = ncs.maagic.get_root(t)
     # First read some data, then write some too.
@@ -211,7 +211,7 @@ Yet, you may find such code in CDB subscribers, standalone scripts, or action im
 
 If you have an existing `ncs.maapi.Maapi` object already available, the simplest option might be to refactor the actual logic into a separate function and call it through `run_with_retry()`. For the current example, this might look like the following:
 
-```
+```python
 def do_provisioning(t):
     """Function containing the actual logic"""
     root = ncs.maagic.get_root(t)
@@ -234,7 +234,7 @@ m.run_with_retry(lambda t: do_provisioning(t, one_param, another_param))
 
 An alternative implementation with a decorator is also possible and might be easier to implement if the code relies on the `single_write_trans()` or similar function. Here, the code does not change unless it has to be refactored into a separate function. The function is then adorned with the `@ncs.maapi.retry_on_conflict()` decorator. For example:
 
-```
+```python
 from ncs.maapi import retry_on_conflict
 
 @retry_on_conflict()
@@ -252,7 +252,7 @@ do_provisioning()
 
 The major benefit of this approach is when the code is already in a function and only a decorator needs to be added. It can also be used with methods of the `Action` class and alike.
 
-```
+```python
 class MyAction(ncs.dp.Action):
     @ncs.dp.Action.action
     @retry_on_conflict()
@@ -267,7 +267,7 @@ For actions in particular, please note that the order of decorators is important
 
 Suppose you have some code in Java, such as the following:
 
-```
+```java
 public class MyProgram {
     public static void main(String[] arg) throws Exception {
         Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
@@ -290,7 +290,7 @@ To read and write some data in NSO, the code starts a new transaction with the h
 
 The `ncsRunWithRetry()` call creates and manages a new transaction, then delegates work to an object implementing the `com.tailf.maapi.MaapiRetryableOp` interface. So, you need to move the code that does the work into a new class, let's say `MyProvisioningOp`:
 
-```
+```java
 public class MyProvisioningOp implements MaapiRetryableOp {
     public boolean execute(Maapi maapi, int tid)
         throws IOException, ConfException, MaapiException
@@ -314,7 +314,7 @@ You can create the `MyProvisioningOp` as an inner or nested class if you wish so
 
 If the code requires some extra parameters when called, you can also define additional properties on the new class and use them for this purpose. With the new class ready, you instantiate and call into it with the `ncsRunWithRetry()` function. For example:
 
-```
+```java
 public class MyProgram {
     public static void main(String[] arg) throws Exception {
         Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
@@ -346,7 +346,7 @@ Likewise, the more data nodes and the different parts of the data tree the trans
 
 Also, when considering possible conflicts, you must account for all the changes in the transaction. This includes changes propagated to other parts of the data model through dependencies. For example, consider the following YANG snippet. Changing a single `provision-dns` leaf also changes every `mysvc` list item because of the `when` statement.
 
-```
+```yang
 leaf provision-dns {
   type boolean;
 }
@@ -366,7 +366,7 @@ A technique used in some existing projects, in service mapping code and elsewher
 
 Consider the following service mapping code:
 
-```
+```python
 def cb_create(self, tctx, root, service, proplist):
     device = root.devices.device[service.device]
 
@@ -385,7 +385,7 @@ Here, a service performs NTP configuration when enabled through the `do_ntp` swi
 
 An improved version of the code only calculates the NTP server value if it is actually needed:
 
-```
+```python
 def cb_create(self, tctx, root, service, proplist):
     device = root.devices.device[service.device]
 

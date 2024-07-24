@@ -66,7 +66,7 @@ To fetch and extract NSO images:
 1. On Cisco's official [Software Download](https://software.cisco.com/download/home) site, search for "Network Services Orchestrator". Select the relevant NSO version in the drop-down list, e.g., "Crosswork Network Services Orchestrator 6"**,** and click "Network Services Orchestrator Software". Locate the binary, which is delivered as a signed package (e.g., `nso-6.4.container-image-prod.linux.x86_64.signed.bin`).
 2.  Extract the image and other files from the signed package, for example:
 
-    ```
+    ```bash
     sh nso-6.4.container-image-prod.linux.x86_64.signed.bin
     ```
 
@@ -125,14 +125,14 @@ Migrate:
 2. Save the run directory from the NSO instance in an appropriate place.
 3.  Use the same `ncs.conf` and High Availability (HA) setup previously used with your System Install. We assume that the `ncs.conf` follows the best practice and uses the `NCS_DIR`, `NCS_RUN_DIR`, `NCS_CONFIG_DIR`, and `NCS_LOG_DIR` variables for all paths. The `ncs.conf` can be added to a volume and mounted to `/nso/etc` in the container.
 
-    ```
+    ```bash
     docker container create --name temp -v NSO-evol:/nso/etc hello-world
     docker cp ncs.conf temp:/nso/etc
     docker rm temp
     ```
 4.  Add the run directory as a volume, mounted to `/nso/run` in the container and copy the CDB data, packages, etc., from the previous System Install instance.
 
-    ```
+    ```bash
     cd path-to-previous-run-dir
     docker container create --name temp -v NSO-rvol:/nso/run hello-world
     docker cp . temp:/nso/run
@@ -140,12 +140,12 @@ Migrate:
     ```
 5.  Create a volume for the log directory.
 
-    ```
+    ```bash
     docker volume create --name NSO-lvol
     ```
 6.  Start the container. Example:
 
-    ```
+    ```bash
     docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
     --name cisco-nso -e EXTRA_ARGS=--with-package-reload -e ADMIN_USERNAME=admin \
     -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
@@ -183,7 +183,7 @@ An admin user can be created on startup by the run script in the container. Thre
 
 As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMIN_SSHKEY` need to be set in order to create an admin user. For example:
 
-```
+```bash
 docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
 ```
 
@@ -209,7 +209,7 @@ The backup behavior of running NSO in vs. outside the container is largely the s
 
 Let's assume we start a production image container using:
 
-```
+```bash
 docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
 ```
 
@@ -217,7 +217,7 @@ To take a backup:
 
 *   Run the `ncs-backup` command. The backup file is written to `/nso/run/backups`.
 
-    ```
+    ```bash
     docker exec -it cisco-nso ncs-backup
     INFO  Backup /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz created successfully
     ```
@@ -230,13 +230,13 @@ To restore a backup:
 
 1.  Shut down the NSO container:
 
-    ```
+    ```bash
     docker stop cisco-nso
     docker rm cisco-nso
     ```
 2.  Run the `ncs-backup --restore` command. Start a new container with the same persistent shared volumes mounted but with a different command. Instead of running the `/run-nso.sh`, which is the normal command of the NSO container, run the `restore` command.
 
-    ```
+    ```bash
     docker run -it --rm --volumes-from cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log \
     --entrypoint ncs-backup cisco-nso-prod:6.4 \
     --restore /nso/run/backups/ncs-6.4@2024-11-03T11:31:07.backup.gz
@@ -247,7 +247,7 @@ To restore a backup:
     ```
 3.  Restoring an NSO backup should move the current run directory (`/nso/run` to `/nso/run.old`) and restore the run directory from the backup to the main run directory (`/nso/run`). After this is done, start the regular NSO container again as usual.\\
 
-    ```
+    ```bash
     docker run -d --name cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log cisco-nso-prod:6.4
     ```
 
@@ -309,14 +309,14 @@ The `/nso-run.sh` script that starts NSO is executed as an `ENTRYPOINT` instruct
 
 An example using `docker run` with the `CMD` instruction:
 
-```
+```bash
 docker run --name nso -itd cisco-nso-prod:6.4 --with-package-reload \
 --ignore-initial-validation
 ```
 
 With the `EXTRA_ARGS` variable:
 
-```
+```bash
 docker run --name nso \
 -e EXTRA_ARGS='--with-package-reload --ignore-initial-validation' \
 -itd cisco-nso-prod:6.4
@@ -364,13 +364,13 @@ Follow the steps below to run the Production Image using Docker CLI:
 1. Start your container engine.
 2. Next, load the image and run it. Navigate to the directory where you extracted the base image and load it. This will restore the image and its tag:
 
-```
+```bash
 docker load -i nso-6.4.container-image-prod.linux.x86_64.tar.gz
 ```
 
 3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin\_guide.containers.ncs).
 
-```
+```bash
 docker run -itd --name cisco-nso \
 -v NSO-vol:/nso \
 -v NSO-log-vol:/log \
@@ -394,7 +394,7 @@ The following examples show how to run the image with and without named volumes.
 
 **Running without a named volume**: This is the minimal way of running the image but does not provide any persistence when the container is destroyed.
 
-```
+```bash
 docker run -itd --name cisco-nso \
 -p 8888:8888 \
 -e ADMIN_USERNAME=admin\
@@ -404,7 +404,7 @@ cisco-nso-prod
 
 **Running with a single named volume**: This way provides persistence for the NSO mount point with a `NSO-vol` volume. Logs, however, are not persistent.
 
-```
+```bash
 
 docker run -itd --name cisco-nso \
 -v NSO-vol:/nso \
@@ -417,7 +417,7 @@ cisco-nso-prod
 \
 **Running with two named volumes**: This way provides full persistence for both the NSO and the log mount points.
 
-```
+```bash
 docker run -itd --name cisco-nso \
 -v NSO-vol:/nso \
 -v NSO-log-vol:/log \
@@ -435,7 +435,7 @@ cisco-nso-prod
 * Loading the packages by mounting the default load path `/nso/run` as a volume is preferred. You can also load the packages by copying them manually into the `/nso/run/packages` directory in the container. During development, a bind mount of the package directory on the host machine makes it easy to update packages in NSO by simply changing the packages on the host.
 *   The default load path is configured in the `ncs.conf` file as `$NCS_RUN_DIR/packages`, where `$NCS_RUN_DIR` expands to `/nso/run` in the container. To find the load path, check the `ncs.conf` file in the `/etc/ncs/` directory.
 
-    ```
+    ```xml
     <load-path>
     <dir>${NCS_RUN_DIR}/packages</dir>
     <dir>${NCS_DIR}/etc/ncs</dir>
@@ -453,7 +453,7 @@ cisco-nso-prod
 
 4. Finally, log in to NSO CLI to run commands. Open an interactive shell on the running container and access the NSO CLI.
 
-```
+```bash
 docker exec -it cisco-nso bash
 #  ncs_cli -u admin
 admin@ncs>
@@ -469,27 +469,27 @@ To upgrade your NSO version:
 
 1.  Start a container with the `docker run` command. In the example below, it mounts the `/nso` directory in the container to the `NSO-vol` named volume to persist the data. Another option is using a bind mount of the directory on the host machine. At this point, the `/cdb` directory is empty.
 
-    ```
+    ```bash
     docker run -itd -—name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.3
     ```
 2.  Perform a backup, either by running the `docker exec` command (make sure that the backup is placed somewhere we have mounted) or by creating a tarball of `/data/nso` on the host machine.
 
-    ```
+    ```bash
     docker exec -it cisco-nso ncs-backup
     ```
 3.  Stop the NSO by issuing the following command, or by stopping the container itself which will run the `ncs stop` command automatically.
 
-    ```
+    ```bash
     docker exec -it cisco-nso ncs --stop 
     ```
 4.  Remove the old NSO.
 
-    ```
+    ```bash
     docker rm -f cisco-nso
     ```
 5.  Start a new container and mount the `/nso` directory in the container to the `NSO-vol` named volume. This time the `/cdb` folder is not empty, so instead of starting a fresh NSO, an upgrade will be performed.
 
-    ```
+    ```bash
     docker run -itd --name cisco-nso -v NSO-vol:/nso cisco-nso-prod:6.4
     ```
 
@@ -647,12 +647,12 @@ Follow the steps below to run the images using Docker Compose:
 
 1.  Start the Development container. This starts the services in the Compose file with the profile `dev`.
 
-    ```
+    ```bash
     docker compose --profile dev up -d
     ```
 2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Development container. The easiest way to do this is by using the `docker exec` command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
 
-    ```
+    ```bash
     docker exec -it build-nso-pkgs sh -c 'cp -r ${NCS_DIR}/examples.ncs/development-guide \
         /nano-services/netsim-sshkey/packages ${NCS_RUN_DIR}'
 
@@ -661,12 +661,12 @@ Follow the steps below to run the images using Docker Compose:
     ```
 3.  Start the netsim container. This outputs the generated `init.xml` and `ncs.conf` files to the NSO Production container. The `--wait` flag instructs to wait until the health check returns healthy.
 
-    ```
+    ```bash
     docker compose --profile example up --wait
     ```
 4.  Start the NSO Production container.
 
-    ```
+    ```bash
     docker compose --profile prod up --wait
     ```
 
@@ -730,7 +730,7 @@ To upgrade to a new minor or major version, for example, from 6.3 to 6.4, follow
 2. Run the `docker compose up --profile dev -d` command to start up the Development container with the new image.
 3.  Compile the packages using the Development container.
 
-    ```
+    ```bash
     docker exec -it build-nso-pkgs sh -c 'for f in
     ${NCS_RUN_DIR}/packages/*/src;do make -C "$f" all || exit 1; done'
     ```

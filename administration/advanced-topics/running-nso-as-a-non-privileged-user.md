@@ -8,7 +8,7 @@ A common misfeature found on UNIX operating systems is the restriction that only
 
 Both FreeBSD and Solaris have elegant configuration options to turn this feature off. On FreeBSD:
 
-```
+```bash
 # sysctl net.inet.ip.portrange.reservedhigh=0
 ```
 
@@ -16,13 +16,13 @@ The above is best added to your `/etc/sysctl.conf`.
 
 Similarly, on Solaris, we can just configure this. Assuming we want to run NSO under a non-root user `ncs`. On Solaris, we can do that easily by granting the specific right to bind privileged ports below 1024 (and only that) to the `ncs` user using:
 
-```
+```bash
 # /usr/sbin/usermod -K defaultpriv=basic,net_privaddr ncs
 ```
 
 And check that we get what we want through:
 
-```
+```bash
 # grep ncs /etc/user_attr
 ncs::::type=normal;defaultpriv=basic,net_privaddr
 ```
@@ -31,7 +31,7 @@ Linux doesn't have anything like the above. There are a couple of options on Lin
 
 These programs are run by `root`. To start NCS under e.g., `privbind`, we can do:
 
-```
+```bash
 # privbind -u ncs /opt/ncs/current/bin/ncs -c /etc/ncs.conf
 ```
 

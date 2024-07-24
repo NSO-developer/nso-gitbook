@@ -55,7 +55,7 @@ Notification Handlers are user-supplied Java classes that implement the `com.tai
 
 An example of a notification handler can be found at `$NCS_DIR/examples.ncs/snmp-notification-receiver`. This example handler receives notifications and sets an alarm text if the notification is an `IF-MIB::linkDown trap`.
 
-```
+```java
 public class ExampleHandler implements NotificationHandler {
 
     private static Logger LOGGER = LogManager.getLogger(ExampleHandler.class);
@@ -119,7 +119,7 @@ public class ExampleHandler implements NotificationHandler {
 
 The instantiation and start of the `NotificationReceiver` as well as registration of notification handlers are all expected to be done in the same application component of some NSO package. The following is an example of such an application component:
 
-```
+```java
 /**
  * This class starts the Snmp-notification-receiver.
  */
