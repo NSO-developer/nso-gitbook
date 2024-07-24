@@ -352,8 +352,6 @@ Below is an example of Syslog configuration:
     </ncs-log>
 ```
 
-#### Log Messages and Formats <a href="#ug.ncs_monitoring.messages" id="ug.ncs_monitoring.messages"></a>
-
 Log messages are described on the link below:
 
 {% content-ref url="log-messages-and-formats.md" %}
