@@ -37,19 +37,19 @@ The configuration file `ncs.conf` is read at startup and can be reloaded. Below 
 
 The `ncs.conf` file is described in the NSO [Manual Pages](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/tailf-ncs-config.yang\_config). There is a large number of configuration items in `ncs.conf`, most of them have sane default values. The `ncs.conf` file is an XML file that must adhere to the `tailf-ncs-config.yang` model. If we start the NSO daemon directly, we must provide the path to the NCS configuration file as in:
 
-```
+```bash
 # ncs -c /etc/ncs/ncs.conf
 ```
 
 However, in a System Install, the `init` script must be used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus NSO is started with the command:
 
-```
+```bash
 # /etc/init.d/ncs start
 ```
 
 It is possible to edit the `ncs.conf` file, and then tell NSO to reload the edited file without restarting the daemon as in:
 
-```
+```bash
 # ncs --reload
 ```
 
@@ -82,7 +82,7 @@ Let's look at all the settings that can be manipulated through the NSO northboun
 
 We summarize the most relevant parts below:
 
-```
+```cli
 ncs@ncs(config)#
 Possible completions:
   aaa                        AAA management, users and groups
@@ -114,7 +114,7 @@ NSO has a built-in SSH server which makes it possible to SSH directly into the N
 
 There are also configuration parameters that are more related to how NSO behaves when talking to the devices. These reside in `devices global-settings`.
 
-```
+```cli
 admin@ncs(config)# devices global-settings
 Possible completions:
   backlog-auto-run               Auto-run the backlog at successful connection
@@ -138,7 +138,7 @@ Possible completions:
 
 Users are configured at the path `aaa authentication users`.
 
-```
+```cli
 admin@ncs(config)# show full-configuration aaa authentication users user
 aaa authentication users user admin
  uid        1000
@@ -158,7 +158,7 @@ aaa authentication users user oper
 
 Access control, including group memberships, is managed using the NACM model (RFC 6536).
 
-```
+```cli
 admin@ncs(config)# show full-configuration nacm
 nacm write-default permit
 nacm groups group admin
@@ -193,7 +193,7 @@ Adding a user includes the following steps:
 
 It is likely that the new user also needs access to work with device configuration. The mapping from NSO users and corresponding device authentication is configured in `authgroups`. So, the user needs to be added there as well.
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices authgroups
 devices authgroups group default
  umap admin
@@ -209,7 +209,7 @@ devices authgroups group default
 
 If the last step is forgotten, you will see the following error:
 
-```
+```cli
 jim@ncs(config)# devices device c0 config ios:snmp-server community fee
 jim@ncs(config-config)# commit
 Aborted: Resource authgroup for jim doesn't exist
@@ -225,13 +225,13 @@ Use the command `ncs --status` to get runtime information on NSO.
 
 Checking the overall status of NSO can be done using the shell:
 
-```
+```bash
 $ ncs --status
 ```
 
 Or, in the CLI:
 
-```
+```cli
 ncs# show ncs-state
 ```
 
@@ -287,7 +287,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     \
     You can manage this log and set its logging level in `ncs.conf`.
 
-    ```
+    ```xml
         <developer-log>
           <enabled>true</enabled>
           <file>
@@ -302,7 +302,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     ```
 *   `ncs-java-vm`_._`log`_,_ `ncs-python-vm.log`: logger for code running in Java or Python VM, for example, service applications. Developers writing Java and Python code use this log (in combination with devel.log) for debugging. Both Java and Python log levels can be set from their respective VM settings in, for example, the CLI.
 
-    ```
+    ```cli
     admin@ncs(config)# python-vm logging level level-info
     admin@ncs(config)# java-vm java-logging logger com.tailf.maapi level level-info
     ```
@@ -310,7 +310,7 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 * `rollbackNNNNN`: All NSO commits generate a corresponding rollback file. The maximum number of rollback files and file numbering can be configured in `ncs.conf`.
 *   `xpath.trace`: XPATH is used in many places, for example, XML templates. This log file shows the evaluation of all XPATH expressions and can be enabled in the `ncs.conf`.
 
-    ```
+    ```xml
         <xpathTraceLog>
           <enabled>true</enabled>
           <filename>${NCS_LOG_DIR}/xpath.trace</filename>
@@ -319,12 +319,12 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
 
     To debug XPATH for a template, use the pipe target `debug` in the CLI instead.
 
-    ```
+    ```cli
     admin@ncs(config)# commit | debug template
     ```
 *   `ned-cisco-ios-xr-pe1.trace` (for example): if device trace is turned on a trace file will be created per device. The file location is not configured in `ncs.conf` but is configured when the device trace is turned on, for example in the CLI.
 
-    ```
+    ```cli
     admin@ncs(config)# devices device r0 trace pretty
     ```
 * Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/advanced-development/progress-trace.md).
@@ -337,7 +337,7 @@ NSO can syslog to a local Syslog. See `man ncs.conf` how to configure the Syslog
 
 Below is an example of Syslog configuration:
 
-```
+```xml
     <syslog-config>
       <facility>daemon</facility>
     </syslog-config>
@@ -382,7 +382,7 @@ NSO can issue a unique Trace ID per northbound request, visible in logs and trac
 
 Trace ID is enabled by default, and can be turned off by adding the following snippet to NSO.conf:
 
-```
+```xml
 <trace-id>false</trace-id>
 ```
 
@@ -469,7 +469,7 @@ The most convenient way to do backup and restore is to use the `ncs-backup` comm
 
 NSO Backup backs up the database (CDB) files, state files, config files, and rollback files from the installation directory. To take a complete backup (for disaster recovery), use:
 
-```
+```bash
 # ncs-backup
 ```
 
@@ -490,7 +490,7 @@ It is always advisable to stop NSO before performing a restore.
     ```
 2.  Restore the backup.
 
-    ```
+    ```bash
     ncs-backup --restore
     ```
 
@@ -525,7 +525,7 @@ New users can face problems when they start to use NSO. If you face an issue, re
 {% hint style="success" %}
 A useful tool in this regard is the `ncs-collect-tech-report` tool, which is the Bash script that comes with the product. It collects all log files, CDB backup, and several debug dumps as a TAR file. Note that it works only with a System Install.
 
-```
+```bash
 root@linux:/# ncs-collect-tech-report --full 
 ```
 {% endhint %}
@@ -613,7 +613,7 @@ Some noteworthy issues are covered here.
     \
     When properly installed, you will be able to import the Paramiko module without error messages.
 
-    ```
+    ```bash
     $ python
     ...
     >>> import paramiko
@@ -656,7 +656,7 @@ When contacting support, it often helps the support engineer to understand what 
 
 If you have problems executing `ncs` commands, make sure you source the `ncsrc` script in your NSO directory (your path may be different than the one in the example if you are using a local install), which sets the required environmental variables.
 
-```
+```bash
 $ source /etc/profile.d/ncs.sh
 ```
 
@@ -684,7 +684,7 @@ Both high CPU utilization and a lack of memory can negatively affect the perform
 
 NSO will give you a comprehensive status of daemon status, YANG modules, loaded packages, MIBs, active user sessions, CDB locks, and more if you run:
 
-```
+```bash
 $ ncs --status
 ```
 
@@ -698,7 +698,7 @@ NSO status information is also available as operational data under `/ncs-state`.
 
 If you are implementing a data provider (for operational or configuration data), you can verify that it works for all possible data items using:
 
-```
+```bash
 $ ncs --check-callbacks
 ```
 
@@ -710,7 +710,7 @@ $ ncs --check-callbacks
 
 If you suspect you have experienced a bug in NSO, or NSO told you so, you can give Support a debug dump to help us diagnose the problem. It contains a lot of status information (including a full `ncs --status report`) and some internal state information. This information is only readable and comprehensible to the NSO development team, so send the dump to your support contact. A debug dump is created using:
 
-```
+```bash
 $ ncs --debug-dump mydump1
 ```
 
@@ -748,20 +748,20 @@ By running the instructions below.
 
 Linux:
 
-```
+```bash
 # strace -f -o mylog1.strace -s 1024 ncs ...
 ```
 
 BSD:
 
-```
+```bash
 # ktrace -ad -f mylog1.ktrace ncs ...
 # kdump -f mylog1.ktrace > mylog1.kdump
 ```
 
 Solaris:
 
-```
+```bash
 # truss -f -o mylog1.truss ncs ...
 ```
 

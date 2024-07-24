@@ -10,7 +10,7 @@ The Erlang code is packaged into applications which are automatically started an
 
 An Erlang package skeleton can be created by making use of the `ncs-make-package` command:
 
-```
+```bash
 ncs-make-package --erlang-skeleton --erlang-application-name <appname> <package-name>
 ```
 

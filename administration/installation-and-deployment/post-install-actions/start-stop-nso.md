@@ -12,7 +12,7 @@ The command `ncs -h` shows various options when starting NSO. By default, NSO st
 
 Whenever you start (or reload) the NSO daemon, it reads its configuration from `./ncs.conf` or `${NCS_DIR}/etc/ncs/ncs.conf` or from the file specified with the `-c` option.
 
-```
+```bash
 $ ncs
 $ ncs --stop
 $ ncs -h

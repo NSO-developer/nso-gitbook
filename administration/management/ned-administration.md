@@ -110,7 +110,7 @@ Many devices enabled for NETCONF, RESTCONF, or gNMI sometimes deviate in their r
 
 A third-party YANG NED can be bundled with runtime recipes to solve these kinds of issues, if necessary. How this is implemented varies from NED to NED. In some cases, a NED has a fixed set of recipes that are always used. Alternatively, a NED can support several different recipes, which can be configured through a NED setting, referred to as a runtime profile. For example, a multi-vendor third-party YANG NED might have one runtime profile for each device type supported:
 
-```
+```cli
 admin@ncs(config)# devices device dev-1 ned-settings
 onf-tapi_rc restconf profile vendor-xyz
 ```
@@ -168,12 +168,12 @@ Follow the instructions below to install a NED package:
 
 1.  Download the latest production-grade version of the NED from software.cisco.com using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO VERSION>-<NED NAME>-<NED VERSION>.signed.bin`. The NED package `ncs-6.0-cisco-iosxr-7.43.signed.bin` will be used in the example below. It is assumed the NED package has been downloaded into the directory named `/tmp/ned-package-store`. The environment variable `NSO_RUNDIR` needs to be configured to point to the NSO runtime directory. Example:
 
-    ```
+    ```cli
     > export NSO_RUNDIR=~/nso-lab-rundir
     ```
 2.  Unpack the NED package and verify its signature.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > chmod u+x ncs-6.0-cisco-iosxr-7.43.signed.bin
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin
@@ -181,32 +181,32 @@ Follow the instructions below to install a NED package:
 
     In case the signature cannot be verified (for instance, if access to internet is down), do as below instead:
 
-    ```
+    ```cli
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin --skip-verification
     ```
 
     \
     The result of the unpacking is a `tar.gz` file with the same name as the `.bin` file.
 
-    ```
+    ```cli
     > ls *.tar.gz
     ncs-6.0-cisco-iosxr-7.43.tar.gz
     ```
 3.  Untar the `tar.gz` file. The result is a subdirectory named like `<NED NAME>-<NED MAJOR VERSION DIGIT>.<NED MINOR VERSION DIGIT>`
 
-    ```
+    ```cli
     > tar xfz ncs-6.0-cisco-iosxr-7.43.tar.gz
     > ls -d */
     cisco-iosxr-7.43
     ```
 4.  Install the NED into NSO, using the `ncs-setup` tool.
 
-    ```
+    ```cli
         > ncs-setup --package cisco-iosxr-7.43 --dest $NSO_RUNDIR
     ```
 5.  Finally, open an NSO CLI session and load the new NED package like below:
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     admin@ncs# packages reload
     reload-result {
@@ -217,7 +217,7 @@ Follow the instructions below to install a NED package:
 
 Alternatively, the `tar.gz` file can be installed directly into NSO. In this case, skip steps 3 and 4, and do as below instead:
 
-```
+```cli
 > ncs-setup --package cisco-iosxr-7.43.tar.gz --dest $NSO_RUNDIR
 ```
 
@@ -228,7 +228,7 @@ This section describes how to install a NED package on a system-installed NSO. S
 1. Download the latest production-grade version of the NED from software.cisco.com using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO_VERSION>-<NED NAME>-<NED VERSION>.signed.bin`. The NED package `ncs-6.0-cisco-iosxr-7.43.signed.bin` will be used in the example below. It is assumed that the package has been downloaded into the directory named `/tmp/ned-package-store`.
 2.  Unpack the NED package and verify its signature.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > chmod u+x ncs-6.0-cisco-iosxr-7.43.signed.bin
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin
@@ -236,29 +236,29 @@ This section describes how to install a NED package on a system-installed NSO. S
 
     In case the signature cannot be verified (for instance, if access to internet is down), do as below instead.
 
-    ```
+    ```cli
     > ./ncs-6.0-cisco-iosxr-7.43.signed.bin --skip-verification
     ```
 
     The result of the unpacking is a `tar.gz` file with the same name as the `.bin` file.
 
-    ```
+    ```cli
     > ls *.tar.gz
     ncs-6.0-cisco-iosxr-7.43.tar.gz
     ```
 3.  Perform an NSO backup before installing the new NED package.
 
-    ```
+    ```cli
     > $NCS_DIR/bin/ncs-backup
     ```
 4.  Start an NSO CLI session.
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     ```
 5.  Fetch the NED package.
 
-    ```
+    ```cli
     admin@ncs# software packages fetch package-from-file
         /tmp/ned-package-store/ncs-6.0-cisco-iosxr-7.43.tar.gz
     admin@ncs# software packages list
@@ -269,7 +269,7 @@ This section describes how to install a NED package on a system-installed NSO. S
     ```
 6.  Install the NED package (add the argument **replace-existing** if a previous version has been loaded).
 
-    ```
+    ```cli
     admin@ncs# software packages install cisco-iosxr-7.43
     admin@ncs# software packages list
       package {
@@ -279,7 +279,7 @@ This section describes how to install a NED package on a system-installed NSO. S
     ```
 7.  Finally, load the NED package.
 
-    ```
+    ```cli
     admin@ncs# packages reload
     admin@ncs# software packages list
       package {
@@ -317,25 +317,25 @@ Do the CLI NED setup as below:
 
 1.  Start an NSO CLI session.
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     ```
 2.  Enter the configuration mode.
 
-    ```
+    ```cli
     admin@ncs# configure
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
 3.  Configure a new authentication group to be used for this device.
 
-    ```
+    ```cli
     admin@ncs(config)# devices authgroup my-xrgroup default-map
     remote-name cisco remote-password cisco
     ```
 4.  Configure the new device instance.
 
-    ```
+    ```cli
     admin@ncs(config)# devices device xrdev-1 address 10.10.1.1
     admin@ncs(config)# devices device xrdev-1 port 22
     admin@ncs(config)# devices device xrdev-1 device-type cli ned-id cisco-iosxr-cli-7.43 protocol ssh
@@ -345,13 +345,13 @@ Do the CLI NED setup as below:
 5. Next, check the `README.md` and `README-ned-settings.md` bundled with the NED package for further information on additional settings to make the NED fully operational.
 6.  Finally, commit the configuration.
 
-    ```
+    ```cli
     admin@ncs(config)# commit
     ```
 
     In the case of SSH, run also:
 
-    ```
+    ```cli
     admin@ncs(config)# devices device xrdev-1 ssh fetch-host-keys
     ```
 
@@ -371,25 +371,25 @@ Do the Generic NED setup as below:
 
 1.  Start an NSO CLI session.
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     ```
 2.  Enter the configuration mode.
 
-    ```
+    ```cli
     admin@ncs# configure
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
 3.  Configure a new authentication group to be used for this device.
 
-    ```
+    ```cli
     admin@ncs(config)# devices authgroup my-tapigroup default-map remote-name admin
     remote-password admin
     ```
 4.  Configure the new device instance.
 
-    ```
+    ```cli
     admin@ncs(config)# devices device tapidev-1 address 10.10.1.2
     admin@ncs(config)# devices device tapidev-1 port 443
     admin@ncs(config)# devices device tapidev-1 device-type generic ned-id onf-tapi_rc-gen-2.0
@@ -399,7 +399,7 @@ Do the Generic NED setup as below:
 5. Next, check the `README.md` and `README-ned-settings.md` bundled with the NED package for further information on additional settings to make the NED fully operational.
 6.  Finally, commit the configuration.
 
-    ```
+    ```cli
     admin@ncs(config)# commit
     ```
 
@@ -417,12 +417,12 @@ This section gives a brief instruction on how to download the device YANG models
 2. Configure a device instance using as usual. See [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco\_generic\_ned\_setup) for more information. The device name `dev-1` will be used in this example.
 3.  Open an NCS CLI session (non-configure mode).
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     ```
 4.  The installed NED is now basically empty. It contains no YANG models except some used by the NED internally. This can be verified with the following CLI commands:
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 connect
     result true
     info (admin) Connected to dev-1 - 127.0.0.1:7888
@@ -435,14 +435,14 @@ This section gives a brief instruction on how to download the device YANG models
     ```
 5.  The built-in downloader tool consists of a couple of NSO RPCs defined in one of the NED internal YANG files.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc ?
     Possible completions:
     rpc-get-modules  rpc-list-modules  rpc-list-profiles  rpc-show-default-local-dir
     ```
 6.  Start with checking the default local directory. This directory will be used as a target for the device YANG models to be downloaded.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc rpc-show-default-local-dir show-default-local-dir
     result /nso-lab-rundir/packages/onf-tapi_rc-2.0/src/yang
     admin@ncs#
@@ -450,7 +450,7 @@ This section gives a brief instruction on how to download the device YANG models
 
     This RPC will throw an error if the NED package was installed directly using the `tar.gz` file. See [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso) for more information.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc rpc-show-default-local-dir show-default-local-dir
     Error: External error in the NED implementation for device nokia-srlinux-1: default
         local directory does not exist (/nso-lab-rundir/packages/onf-tapi_rc-2.0/src/yang)
@@ -460,7 +460,7 @@ This section gives a brief instruction on how to download the device YANG models
     \
     If this error occurs, it is necessary to unpack the NED package in some other directory and use that as a target for the download. In the example below it is `/tmp/ned-package-store/onf-tapi_rc-2.0/src/yang`.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > chmod u+x ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
     > ./ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
@@ -470,7 +470,7 @@ This section gives a brief instruction on how to download the device YANG models
     ```
 7.  Continue with listing the models supported by the connected device.
 
-    ```
+    ```cli
     admin@ncs# devices device netsim-0 rpc rpc-list-modules list-modules
     module {
         name tapi-common
@@ -504,7 +504,7 @@ This section gives a brief instruction on how to download the device YANG models
     The size of the displayed list is device-dependent and so is the level of detail in each list entry. The only mandatory field is the `name`. Furthermore, not all devices are actually capable of advertising the models supported. If the currently connected device lacks this support, it is usually emulated by the NED instead. Check the `README-rebuild.md` for more information regarding this.
 8.  Next, list the download profiles currently supported by the device.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc rpc-list-profiles list-profiles
     profile {
         name onf-tapi-from-device
@@ -524,7 +524,7 @@ This section gives a brief instruction on how to download the device YANG models
     A download profile is a preset for the built-in download tool. Its purpose is to make the download procedure as easy as possible. A profile can, for instance, define a certain source from where the device YANG models will be downloaded. Another usage can be to limit the scope of the YANG files to download. For example, one profile to download the native device models, and another for the OpenConfig models. All download profiles are defined and verified by the Cisco NSO NED team. There is usually at least one profile available, otherwise, check the `README-rebuild.md` bundled in the NED package.
 9.  Finally, try downloading the YANG models using a profile. In case a non-default local directory is used as a target, it must be explicitly specified.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile
     onf-tapi-from-device local-dir /tmp/ned-package-store/onf-tapi_rc-2.0/src/yang
     ```
@@ -532,7 +532,7 @@ This section gives a brief instruction on how to download the device YANG models
     \
     In case the default local directory is used, no further arguments are needed.
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile onf-tapi-from-device
     ```
 
@@ -561,7 +561,7 @@ This section gives a brief instruction on how to download the device YANG models
     ```
 10. Verify that the downloaded files have been stored properly in the configured target directory.
 
-    ```
+    ```cli
     > ls -l /tmp/ned-package-store/onf-tapi_rc-2.0/src/yang
     total 616
     -rw-r--r-- 1 nso-user staff 109607 Nov 11 13:15 tailf-common.yang
@@ -597,14 +597,14 @@ To rebuild the NED with the downloaded YANG file:
 
 1.  Enter the NED build directory, which is the parent directory to the target directory.
 
-    ```
+    ```cli
     > echo $NED_YANG_TARGET_DIR
     /tmp/ned-package-store/onf-tapi_rc-2.0/src/yang
     > cd $NED_YANG_TARGET_DIR/..
     ```
 2.  Run the `make clean all` command. The output from the **make** command can be massive, depending on the number of YANG files, etc. After this step, the NED is rebuilt with the device YANG models included. Lines like below indicate that the NED has applied a number of YANG recipes (patches) to solve known issues with the YANG files:
 
-    ```
+    ```cli
     > make clean all
     ======== RUNNING YANG PRE-PROCESSOR (YPP) WITH THE FOLLOWING VARIABLES:
     tools/ypp  --var NCS_VER=6.0  --var NCS_VER_NUMERIC=6000000
@@ -635,7 +635,7 @@ To rebuild the NED with the downloaded YANG file:
 
 This is the final step to make a third-party YANG NED operational. If the NED built-in YANG downloader tool was used together with no `local-dir` argument specified (i.e., the default), the only thing required is a package reload in NSO, which you can do by running the **packages reload** or the **packages add** command.
 
-```
+```cli
 > ncs_cli -C -u admin
 admin@ncs# packages reload
 
@@ -674,7 +674,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
 1. Unpack the empty NED package as described in [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso).
 2.  Unpack the NED package again in a separate location. Rename the NED directory to something unique.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > chmod u+x ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
     > ./ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
@@ -686,7 +686,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
 3. Configure a device instance using the installed NED, as described in [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco\_generic\_ned\_setup). Configure it to connect to the first variant of the device.
 4.  Follow the instructions in [Downloading with the NED Built-in Download Tool](ned-administration.md#sec.ned\_download\_tool) to download the YANG files. Configure `local-dir` to point to the location configured in [Rebuilding NED with Downloaded YANG Files](ned-administration.md#sec.rebuilding\_ned\_with\_downloaded\_yang).
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile
     onf-tapi-from-device local-dir /tmp/ned-package-store/onf-tapi_rc-2.0-variant-1/src/yang
@@ -696,7 +696,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
     \
     Example 1:
 
-    ```
+    ```cli
     > make clean all NED_ID_SUFFIX=_tapi_v2.1.3
     ```
 
@@ -706,7 +706,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
     \
     Example 2:
 
-    ```
+    ```cli
     > make clean all NED_ID_MAJOR=2 NED_ID_MINOR=1.3
     ```
 
@@ -717,7 +717,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
     \
     Example:
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > tar cfz onf-tapi_rc-2.0-variant-1.tar.gz onf-tapi_rc-2.0-variant-1
     > ncs-setup --package onf-tapi_rc-2.0-variant-1.tar.gz --dest $NSO_RUNDIR
@@ -746,7 +746,7 @@ To upgrade a Cisco-provided third-party YANG NED to a newer version:
 
 1.  Unpack a fresh copy of the `onf-tapi_rc` NED package.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > chmod u+x ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
     > ./ncs-6.0-onf-tapi_rc-2.0.3.signed.bin
@@ -757,7 +757,7 @@ To upgrade a Cisco-provided third-party YANG NED to a newer version:
     ```
 2.  Download the TAPI models v2.3.1 from the TAPI public Git repository.
 
-    ```
+    ```cli
     > ncs_cli -C -u admin
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules
             profile onf-tapi-from-git remote { git { checkout v2.3.1 } }
@@ -765,7 +765,7 @@ To upgrade a Cisco-provided third-party YANG NED to a newer version:
     ```
 3.  Rebuild the NED package with a temporary unique NED ID for this rebuild. Any unique NED ID works for this.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store/onf-tapi_rc-2.0-for-new-firmware/src/yang
     > make clean all NED_ID_MAJOR=2 NED_ID_MINOR=3.1
     ```
@@ -774,7 +774,7 @@ To upgrade a Cisco-provided third-party YANG NED to a newer version:
     This will generate the NED ID: `onf-tapi_rc-gen-2.3.1`.
 4.  Install the new `onf-tapi_rc` NED package into NSO, side by side with the old one.
 
-    ```
+    ```cli
     > cd /tmp/ned-package-store
     > tar cfz onf-tapi_rc-2.0-variant-1.tar.gz onf-tapi_rc-2.0-variant-1
     > ncs-setup --package onf-tapi_rc-2.0-variant-1.tar.gz --dest $NSO_RUNDIR
@@ -796,7 +796,7 @@ To upgrade a Cisco-provided third-party YANG NED to a newer version:
     ```
 5.  Now, execute a dry run of the NSO NED migration feature. This command generates a list of all schema differences found between the two packages, like below:
 
-    ```
+    ```cli
     admin@ncs# devices device dev-1 migrate new-ned-id onf-tapi_rc-gen-2.3.1 dry-run
 
     modified-path {
@@ -873,7 +873,7 @@ Depending on your operational policies, this may be done during normal operation
 
 Note that changing a ned-id also affects device templates if you use them. To make existing device templates compatible with the new ned-id, you can use the `copy` action. It will copy the configuration used for one ned-id to another, as long as the schema nodes used haven't changed between the versions. The following example demonstrates the `copy` action usage:
 
-```
+```cli
 admin@ncs(config)# devices template acme-ntp ned-id router-nc-1.0
 copy ned-id router-nc-1.2
 ```

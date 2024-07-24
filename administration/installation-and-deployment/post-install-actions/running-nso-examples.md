@@ -19,12 +19,12 @@ This section references the examples located in `$NCS_DIR/examples.ncs`. The exa
 1. Make sure that NSO is installed with a Local Install according to the instructions in [Local Install](../local-install.md).
 2.  Source the `ncsrc` file in the NSO installation directory to set up a local environment. For example:
 
-    ```
+    ```bash
     $ source ~/nso-6.0/ncsrc
     ```
 3.  Proceed to the example directory:
 
-    ```
+    ```bash
     $ cd $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios
     ```
 4. Follow the instructions in the `README` files that are located in the example directories.
@@ -33,33 +33,33 @@ Every example directory is a complete NSO run-time directory. The README file an
 
 1.  Create a simulated network using the `ncs-netsim --create-network` command:
 
-    ```
+    ```bash
     $ ncs-netsim create-network cisco-ios-cli-3.8 3 ios
     ```
 
     This creates 3 Cisco IOS devices called `ios0`, `ios1`, and `ios2`.
 2.  Create an NSO run-time environment using the `ncs-setup` command:
 
-    ```
+    ```bash
     $ ncs-setup --dest .
     ```
 
     This command uses the `--dest` option to create local directories for logs, database files, and the NSO configuration file to the current directory (note that `.` refers to the current directory).
 3.  Start NCS netsim:
 
-    ```
+    ```bash
     $ ncs-netsim start
     ```
 4.  Start NSO:
 
-    ```
+    ```bash
     $ ncs
     ```
 
 {% hint style="warning" %}
 It is important to make sure that you stop `ncs` and `ncs-netsim` when moving between examples using the `stop` option of the `netsim` and the `--stop` option of the `ncs`.
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/1-simulated-cisco-ios
 $ ncs-netsim start
 $ ncs
@@ -78,7 +78,7 @@ Some of the most common mistakes are:
 
 You have not sourced the `ncsrc` file:
 
-```
+```bash
 $ ncs
 -bash: ncs: command not found
 ```
@@ -91,7 +91,7 @@ $ ncs
 
 You are trying to start NSO from a directory that is not set up as a runtime directory.
 
-```
+```bash
 $ ncs
 Bad configuration: /etc/ncs/ncs.conf:0: "./state/packages-in-use: \
    Failed to create symlink: no such file or directory"
@@ -108,7 +108,7 @@ What happened above is that NSO did not find an `ncs.conf` in the local director
 
 You already have another instance of NSO running (or the same with netsim):
 
-```
+```bash
 $ ncs
 Cannot bind to internal socket 127.0.0.1:4569 : address already in use
 Daemon died status=20
@@ -129,7 +129,7 @@ To resolve the above, just stop the running instance of NSO and netsim. Remember
 
 Another problem that users run into sometimes is where the netsim device configuration is not loaded into NSO. This can happen if the order of commands is not followed. To resolve this, remove the database files in the `ncs_cdb` directory (keep any files with the `.xml` extension). In this way, NSO will reload the XML initialization files provided by **ncs-setup**.
 
-```
+```bash
 $ ncs --stop
 $ cd ncs-cdb/
 $ ls

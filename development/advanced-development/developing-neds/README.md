@@ -106,7 +106,7 @@ For a demo of the steps below, see README in the `$NCS_DIR/examples.ncs/developm
 
 List the YANG version 1.0 models the device supports using NETCONF `hello` message.
 
-```
+```bash
 $ netconf-console --port $DEVICE_NETCONF_PORT --hello | grep "module="
 <capability>http://tail-f.com/ns/aaa/1.1?module=tailf-aaa&amp;revision=2023-04-13</capability>
 <capability>http://tail-f.com/ns/common/query?module=tailf-common-query&amp;revision=2017-12-15</capability>
@@ -118,7 +118,7 @@ $ netconf-console --port $DEVICE_NETCONF_PORT --hello | grep "module="
 
 List the YANG version 1.1 models supported by the device from the device yang-library.
 
-```
+```bash
 $ netconf-console --port=$DEVICE_NETCONF_PORT --get -x /yang-library/module-set/module/name
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -154,14 +154,14 @@ $ netconf-console --port=$DEVICE_NETCONF_PORT --get -x /yang-library/module-set/
 
 The `ietf-hardware.yang` model is of interest to manage the device hardware. Use the `netconf-console` NETCONF `get-schema` operation to get the `ietf-hardware.yang` model.
 
-```
+```bash
 $ netconf-console --port=$DEVICE_NETCONF_PORT \
   --get-schema=ietf-hardware > dev-yang/ietf-hardware.yang
 ```
 
 The `ietf-hardware.yang` import a few YANG models.
 
-```
+```bash
 $ cat dev-yang/ietf-hardware.yang | grep import
 <import ietf-inet-types {
 import ietf-yang-types {
@@ -170,7 +170,7 @@ import iana-hardware {
 
 Two of the imported YANG models are shipped with NSO.
 
-```
+```bash
 $ find ${NCS_DIR} \
   \( -name "ietf-inet-types.yang" -o -name "ietf-yang-types.yang" -o -name "iana-hardware.yang" \)
 /path/to/nso/src/ncs/builtin_yang/ietf-inet-types.yang
@@ -179,14 +179,14 @@ $ find ${NCS_DIR} \
 
 Use the `netconf-console` NETCONF `get-schema` operation to get the `iana-hardware.yang` module.
 
-```
+```bash
 $ netconf-console --port=$DEVICE_NETCONF_PORT --get-schema=iana-hardware > \
   dev-yang/iana-hardware.yang
 ```
 
 The `timestamp-hardware.yang` module augments a node onto the `ietf-hardware.yang` model. This is not visible in the YANG library. Therefore, information on the augment dependency must be available, or all YANG models must be downloaded and checked for imports and augments of the `ietf-hardware.yang model` to make use of the augmented node(s).
 
-```
+```bash
 $ netconf-console --port=$DEVICE_NETCONF_PORT --get-schema=timestamp-hardware > \
   dev-yang/timestamp-hardware.yang
 ```
@@ -195,7 +195,7 @@ $ netconf-console --port=$DEVICE_NETCONF_PORT --get-schema=timestamp-hardware > 
 
 Create and build the NETCONF NED package from the device YANG models using the `ncs-make-package` script.
 
-```
+```bash
 $ ncs-make-package --netconf-ned dev-yang --dest nso-rundir/packages/devsim --build \
   --verbose --no-test --no-java --no-netsim --no-python --no-template --vendor "Tail-f" \
   --package-version "1.0" devsim
@@ -207,7 +207,7 @@ If you make any changes to, for example, the YANG models after creating the pack
 
 Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
 
-```
+```bash
 $ ncs --cd ./nso-rundir
 ```
 
@@ -217,7 +217,7 @@ In the example below, the device name is set to `hw0`, and as the device here ru
 
 The `default` authentication group, as shown above, is used.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # config
 Entering configuration mode terminal
@@ -231,7 +231,7 @@ Commit complete.
 
 Fetch the public SSH host key from the device and sync the configuration covered by the `ietf-hardware.yang` from the device.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # devices fetch-ssh-host-keys
 fetch-result {
@@ -258,7 +258,7 @@ As communication with the devices being managed by NSO requires authentication, 
 
 The example used here has a 1-1 mapping between the NSO admin user and the ConfD-enabled simulated device admin user for both username and password.
 
-```
+```cli
 admin@ncs# show running-config devices authgroups group
 devices authgroups group default
  umap admin
@@ -276,7 +276,7 @@ In the example below, the device name is set to `hw0`, and as the device here ru
 
 The `default` authentication group, as shown above, is used.
 
-```
+```bash
 # config
 Entering configuration mode terminal
 (config)# devices device hw0 address 127.0.0.1 port 12022 authgroup default
@@ -294,7 +294,7 @@ A temporary NED identity is configured to `netconf` as the NED package has not y
 
 Create a NETCONF NED Builder project called `hardware` for the device, here named `hw0`.
 
-```
+```bash
 # devtools true
 # config
 (config)# netconf-ned-builder project hardware 1.0 device hw0 local-user admin vendor Tail-f
@@ -322,7 +322,7 @@ This step is not required if the device supports the NETCONF `get-schema` operat
 
 After downloading the YANG data models and before building the NED with the NED builder, you need to register the YANG module with the NSO NED builder. For example, if you want to include a `dummy.yang` module with the NED, you first copy it to the cache directory and then, for example, create an XML file for use with the `ncs_load` command to update the NSO CDB operational datastore:
 
-```
+```bash
 $ cp dummy.yang $NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/\
   nso-rundir/state/netconf-ned-builder/cache/hardware-nc-1.0/
 $ cat dummy.xml
@@ -356,7 +356,7 @@ In some situations, you want to annotate the YANG data models that were download
 
 Say you have a YANG data model:
 
-```
+```yang
 module dummy {
   namespace "urn:dummy";
   prefix dummy;
@@ -378,7 +378,7 @@ module dummy {
 
 And create a YANG annotation module:
 
-```
+```yang
 module dummy-ann {
   namespace "urn:dummy-ann";
   prefix dummy-ann;
@@ -404,7 +404,7 @@ Using NETCONF `get-schema` with the NED Builder:
 
 If the device supports `get-schema` requests, the device can be contacted directly to download the YANG data models. The hardware system example returns the below YANG source files when the NETCONF `get-schema` operation is issued to the device from NSO. Only a subset of the list is shown.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # devtools true
 # devices fetch-ssh-host-keys
@@ -477,7 +477,7 @@ After the list of YANG modules is fetched, the retrieved list of modules can be 
 
 When you select a module with dependencies on other modules, the modules dependent on are automatically selected, such as those listed below for the `ietf-hardware` module including `iana-hardware` `ietf-inet-types` and `ietf-yang-types`. To select all available modules, use the wild card for both fields. Use the `deselect` command to exclude modules previously included from the build.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # devtools true
 # netconf-ned-builder project hardware 1.0 module ietf-hardware 2018-03-13 select
@@ -541,7 +541,7 @@ Warnings after building the NED can be found in the `build-warning` leaf under t
 
 A build error example:
 
-```
+```bash
 # netconf-ned-builder project cisco-iosxr 6.6 build-ned
 Error: Failed to compile NED bundle
 # show netconf-ned-builder project cisco-iosxr 6.6 build-status
@@ -553,7 +553,7 @@ module openconfig-telemetry 2016-02-04
 
 The full compiler output for debugging purposes can be found in the `compiler-output` leaf under the project list entry. The `compiler-output` leaf is hidden by `hide-group debug` and may be accessed in the CLI using the `unhide debug` command if the hide-group is configured in `ncs.conf`. Example `ncs.conf` config:
 
-```
+```xml
 <hide-group>
     <name>debug</name>
 </hide-group>
@@ -561,13 +561,13 @@ The full compiler output for debugging purposes can be found in the `compiler-ou
 
 For the ncs.conf configuration change to take effect, it must be either reloaded or NSO restarted. A reload using the `ncs_cmd` tool:
 
-```
+```bash
 $ ncs_cmd -c reload
 ```
 
 As the compilation will halt if an error is found in a YANG data model, it can be helpful to first check all YANG data models at once using a shell script plus the NSO yanger tool.
 
-```
+```bash
 $ ls -1
 check.sh
 yang    # directory with my YANG modules
@@ -581,7 +581,7 @@ done
 
 As an alternative to debugging the NED building issues inside an NSO CLI session, the `make-development-ned` action creates a development version of NED, which can be used to debug and fix the issue in the YANG module.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # devtools true
 (config)# netconf-ned-builder project hardware 1.0 make-development-ned in-directory /tmp
@@ -602,13 +602,13 @@ Having device vendors update their YANG models to comply with the NETCONF and YA
 
 A successfully built NED may be exported as a `tar` file using the `export-ned action`. The `tar` file name is constructed according to the naming convention below.
 
-```
+```bash
 ncs-<ncs-version>-<ned-family>-nc-<ned-version>.tar.gz
 ```
 
 The user chooses the directory the file needs to be created in. The user must have write access to the directory. I.e., configure the NSO user with the same uid (id -u) as the non-root user:
 
-```
+```bash
 $ id -u
 501
 $ ncs_cli -u admin -C
@@ -626,7 +626,7 @@ tar-file /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned
 
 When the NED package has been copied to the NSO run-time packages directory, the NED package can be loaded by NSO.
 
-```
+```bash
 # packages reload
 >>>> System upgrade is starting.
 >>>> Sessions in configure mode must exit to operational mode.
@@ -652,7 +652,7 @@ packages package hardware-nc-1.0
 
 When the NETCONF NED has been built for the `hw0` device, the `ned-id` for `hw0` needs to be updated before the NED can be used to manage the device.
 
-```
+```bash
 $ ncs_cli -u admin -C
 # show packages package hardware-nc-1.0 component hardware ned netconf ned-id
 ned netconf ned-id hardware-nc-1.0
@@ -691,7 +691,7 @@ NSO can now configure the device, state data can be read, actions can be execute
 
 Installed NED packages can be removed from NSO by deleting them from the NSO project's packages folder and then deleting the device and the NETCONF NED project through the NSO CLI. To uninstall a NED built for the device `hw0`:
 
-```
+```bash
 $ ncs_cli -C -u admin
 # devtools true
 # config
@@ -759,7 +759,7 @@ Thus, the Java NED class has the following responsibilities.
     \
     NSO will invoke the `newConnection()` when it requires a connection to a managed device. The `newConnection()` method is responsible for connecting to the device, figuring out exactly what type of device it is, and returning an array of `NedCapability` objects.\\
 
-    ```
+    ```java
         public class NedCapability {
 
             public String str;
@@ -797,7 +797,7 @@ The CLI NED is primarily designed to be used with devices that has a CLI that is
 
 Let's start with the basic data model for CLI mapping. YANG consists of three major elements: containers, lists, and leaves. For example:
 
-```
+```yang
 container interface {
 list ethernet {
     key id;
@@ -851,7 +851,7 @@ mtu 1500
 
 Note that it makes sense to add help texts to the data model since these texts will be visible in the NSO and help the user see the mapping between the J-style CLI in the NSO and the CLI on the target device. The data model above may look like the following with proper help texts.
 
-```
+```yang
 container interface {
 tailf:info "Configure interfaces";
 
@@ -892,7 +892,7 @@ The basic rendering suffice in many cases but is also not enough in many situati
 
 Sometimes you want a number of instances (a list) but do not want a submode. For example:
 
-```
+```yang
 container dns {
 leaf domain {
     type string;
@@ -930,7 +930,7 @@ Sometimes you want a submode to be created without having a list instance, for e
 
 This is done by using the `tailf:cli-add-mode` extension. For example:
 
-```
+```yang
 container aaa {
     tailf:info "AAA view";
     tailf:cli-add-mode;
@@ -942,7 +942,7 @@ container aaa {
 
 This would result in the command **aaa** for entering the container. However, sometimes the CLI requires that a certain set of elements are also set when entering the submode, but without being a list. For example, the police rules inside a policy map in the Cisco 7200.
 
-```
+```yang
 container police {
     // To cover also the syntax where cir, bc and be
     // doesn't have to be explicitly specified
@@ -1004,7 +1004,7 @@ Often a command is defined as taking multiple parameters in a typical Cisco CLI.
 
 For example:
 
-```
+```yang
 container udld-timeout {
     tailf:info "LACP unidirectional-detection timer";
     tailf:cli-sequence-commands {
@@ -1068,7 +1068,7 @@ When constructs are used to control if the numerical value should be the `milli`
 
 This command could also be written using a choice construct as:
 
-```
+```yang
 container udld-timeout {
 tailf:cli-sequence-command;
 choice  udld-timeout-choice {
@@ -1111,7 +1111,7 @@ Sometimes the `tailf:cli-incomplete-command` is used to ensure that all paramete
 
 Another example is this, where `tailf:cli-optional-in-sequence` is used:
 
-```
+```yang
 list pool {
     tailf:cli-remove-before-change;
     tailf:cli-suppress-mode;
@@ -1198,7 +1198,7 @@ The `tailf:cli-optional-in-sequence` means that the parameters should be process
 
 It is also possible to have some parameters in sequence initially in the container, and then the rest in any order. This is indicated by the `tailf:cli-break-sequence command`. For example:
 
-```
+```yang
 list address {
     key ip;
     tailf:cli-suppress-mode;
@@ -1240,7 +1240,7 @@ As well as:
 
 Sometimes a command for entering a submode has parameters that are not really key values, i.e. not part of the instance identifier, but still need to be given when entering the submode. For example
 
-```
+```yang
 list service-group {
     tailf:info "Service Group";
     tailf:cli-remove-before-change;
@@ -1279,7 +1279,7 @@ In this case, the `tcpudp` is a non-key leaf that needs to be specified as a par
 
 It is also possible to allow leaf values to be entered in between key elements. For example:
 
-```
+```yang
 list community {
     tailf:info "Define a community who can access the SNMP engine";
     key "read remote";
@@ -1336,7 +1336,7 @@ The `tailf:cli-reset-container` attribute means that all leaves in the container
 
 Some devices require that a setting be removed before it can be changed, for example, the service-group list above. This is indicated with the `tailf:cli-remove-before-change` annotation. It can be used both on lists and on leaves. A leaf example:
 
-```
+```yang
 leaf source-ip {
     tailf:cli-remove-before-change;
     tailf:cli-no-value-on-delete;
@@ -1367,7 +1367,7 @@ source-ip 2.2.2.2
 
 By default, a diff for an ordered-by-user list contains information about where a new item should be inserted. This is typically not supported by the device. Instead, the commands (diff) to send the device needs to remove all items following the new item, and then reinsert the items in the proper order. This behavior is controlled using the `tailf:cli-long-obu-diff` annotation. For example
 
-```
+```yang
 list access-list {
     tailf:info "Configure Access List";
     tailf:cli-suppress-mode;
@@ -1416,7 +1416,7 @@ access-list 90 permit host 172.16.4.224
 
 Without the annotation, the diff would be:
 
-```
+```bash
 # after permit host 10.34.97.124
 access-list 90 permit host 10.34.94.109
 ```
@@ -1425,7 +1425,7 @@ access-list 90 permit host 10.34.94.109
 
 Often in a config when a leaf is set to its default value it is not displayed by the `show running-config` command, but we still need to set it explicitly. Suppose we have the leaf `state`. By default, the value is `active`.
 
-```
+```yang
 leaf  state {
     tailf:info "Activate/Block the user(s)";
     type enumeration {
@@ -1454,7 +1454,7 @@ state active
 
 The way to achieve this is to do the following:
 
-```
+```yang
 leaf  state {
     tailf:info "Activate/Block the user(s)";
     type enumeration {
@@ -1495,7 +1495,7 @@ state block
 
 (desired config)
 
-```
+```xml
 <empty>
 ```
 
@@ -1550,7 +1550,7 @@ no mtu
 
 We can instruct the CLI diff engine to behave in this way by using the YANG annotation `tailf:cli-no-value-on-delete;`:
 
-```
+```yang
 leaf mtu {
 tailf:cli-no-value-on-delete;
 type uint16;
@@ -1608,7 +1608,7 @@ The NSO will invoke the `show()` callback multiple times, one time for each top-
 
 For a device that cannot display only parts of a config the recommended strategy is to wait for a show() invocation with a well known top tag and send the entire config at that point. If, if you know that the data model has a top tag called **interface** then you can use code like:
 
-```
+```java
 public void show(NedWorker worker, String toptag)
     throws NedException, IOException {
     session.setTracer(worker);
@@ -1758,7 +1758,7 @@ if (toptag.equals("aaa")) {
 
 Another example is the following situation. A device has a configuration for `port trunk permit vlan 1-3` and may at the same time have disallowed some VLANs using the command `no port trunk permit vlan 4-6`. Since we cannot use a **no** container in the config, we instead add a `disallow` container, and then rely on the Java code to do some processing, e.g.:
 
-```
+```yang
 container disallow {
     container port {
     tailf:info "The port of mux-vlan";
@@ -1920,7 +1920,7 @@ In a typical Cisco CLI, you do not necessarily have to exit a submode to execute
 
 Another interesting mapping problem is how to interpret the **no** command when multiple leaves are given on a command line. Consider the model:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -1960,7 +1960,7 @@ The full set of annotations can be found in the `tailf_yang_cli_extensions` Man 
 
 Used for adding a submode in a container. The default rendering engine maps a container as a command prefix and a list node as a submode. However, sometimes entering a submode does not require the user to give a specific instance. In these cases, you can use the `tailf:cli-add-mode` on a container:
 
-```
+```yang
 container system {
   tailf:info "For system events.";
   container "default" {
@@ -1989,7 +1989,7 @@ In this example, the `tailf:cli-add-mode` annotations tell the CLI engine to ren
 
 Tells the parser that the list name is allowed to be joined together with the first key, i.e. written without space in between. This is used to render, for example, the `interface FastEthernet` command where the list is `FastEthernet` and the key is the interface name. In a typical Cisco CLI they are allowed to be written both as **i**`nterface FastEthernet 1` and as `interface FastEthernet1`.
 
-```
+```yang
 list FastEthernet {
   tailf:info "FastEthernet IEEE 802.3";
   tailf:cli-allow-join-with-key {
@@ -2015,7 +2015,7 @@ In the above example, the `tailf:cli-display-joined` substatement is used to tel
 
 This tells the parser that a leaf value is allowed to be written without space between the leaf name and the value. This is typically the case when referring to an interface. For example:
 
-```
+```yang
 leaf FastEthernet {
   tailf:info "FastEthernet IEEE 802.3";
   tailf:cli-allow-join-with-value {
@@ -2038,7 +2038,7 @@ In the example above, a leaf FastEthernet is used to point to an existing interf
 
 Normally, keys come before other leaves when a list command is used, and this is required in YANG. However, this is not always the case in Cisco-style CLIs. For example the `route-map` command where the name and sequence numbers are the keys, but the leaf operation (permit or deny) is given in between the first and the second key. The `tailf:cli-prefix-key` annotation tells the parser to expect a given leaf before the keys, but the substatement `tailf:cli-before-key <N>` can be used to specify that the leaf should occur in between two keys. For example:
 
-```
+```yang
 list route-map {
   tailf:info "Route map tag";
   tailf:cli-mode-name "config-route-map";
@@ -2091,7 +2091,7 @@ A lot of things are going on in the example above, in addition to the `tailf:cli
 
 This tells the parser to render a leaf of type boolean as `no <leaf>` and `<leaf>` instead of the default `<leaf> false` and `<leaf> true`. The other alternative to this is to use a leaf of type empty and the `tailf:cli-show-no` annotation. The difference is subtle. A leaf with `tailf:cli-boolean-no` would not be displayed unless explicitly configured to either true or false, whereas a type empty leaf with `tailf:cli-show-no` would always be displayed if not set. For example:
 
-```
+```yang
 leaf keepalive {
   tailf:info "Enable keepalive";
   tailf:cli-boolean-no;
@@ -2101,7 +2101,7 @@ leaf keepalive {
 
 In the above example the `keepalive` leaf is set to true when the command `keepalive` is given, and to false when `no keepalive` is given. The well known `shutdown` command, on the other hand, is modeled as a type empty leaf with the `tailf:cli-show-no` annotation:
 
-```
+```yang
 leaf shutdown {
   // Note: default to "no shutdown" in order to be able to bring if up.
   tailf:info "Shutdown the selected interface";
@@ -2218,7 +2218,7 @@ aggregate-address 1.1.1.1 255.255.255.0 as-set summary-only
 
 Tells the parser that this particular leaf should be allowed to be entered in case insensitive format. The reason this is needed is that some devices display a command in one case, and other display the same command in a different case. Normally command parsing is case-sensitive. For example:
 
-```
+```yang
 leaf dhcp {
   tailf:info "Default Gateway obtained from DHCP";
   tailf:cli-case-insensitive;
@@ -2255,7 +2255,7 @@ aggregate-address 1.1.1.1 255.255.255.0 as-set summary-only
 
 Deleting items in the database is tricky when using the Cisco CLI syntax. The reason is that `no <command>` is open to multiple interpretations in many cases, for example when multiple leaves are set in one command, or a presence container is set in addition to a leaf. For example:
 
-```
+```yang
 container dampening {
   tailf:info "Enable event dampening";
   presence "true";
@@ -2280,7 +2280,7 @@ This data model allows both the `dampening` command and the command `dampening 1
 
 This annotation tells the CLI engine to remove a list entry or a presence container when all content of the container or list instance has been removed. For example:
 
-```
+```yang
 container access-class {
   tailf:info "Filter connections based on an IP access list";
   tailf:cli-compact-syntax;
@@ -2367,7 +2367,7 @@ If the `tailf:cli-trigger-on-all` substatement is used, then it means that the t
 
 The `tailf:cli-trigger-on-set` tells the engine that the ordering should be taken into account when this leaf is set and some other leaf is deleted. The other leaf should then be deleted before this is set. Suppose you have this data model:
 
-```
+```yang
 list b {
   key "id";
   leaf id {
@@ -2445,7 +2445,7 @@ That is, in the reverse order.
 
 This annotation is used to disambiguate parsing. This is sometimes necessary when `tailf:cli-drop-node-name` is used. For example:
 
-```
+```yang
 container authentication {
   tailf:info "Authentication";
   choice auth {
@@ -2488,7 +2488,7 @@ See the description of `tailf:cli-allow-join-with-value` and `tailf:cli-allow-jo
 
 This annotation can be used on a presence container and tells the CLI engine that the container should be displayed as a separate command, even when a leaf in the container is set. The default rendering does not do this. For example:
 
-```
+```yang
 container ntp {
   tailf:info "Configure NTP";
   // interface * / ntp broadcast
@@ -2528,7 +2528,7 @@ The creation of the broadcast container would be implied.
 
 This might be the most used annotation of them all. It can be used for multiple purposes. Primarily it tells the CLI engine that the node name should be ignored, which is typically needed when there is no corresponding leaf name in the command, typically when a command requires multiple parameters:
 
-```
+```yang
 container exec-timeout {
   tailf:info "Set the EXEC timeout";
   tailf:cli-sequence-commands;
@@ -2599,7 +2599,7 @@ In the above case, when the parser sees the beginning of the command `ip`, it ca
 
 Tells the CLI engine to add an explicit exit command in the current submode. Normally, a submode does not have exit commands for leaving a submode, instead, it is implied by the following command residing in a parent mode. However, to avoid ambiguity it is sometimes necessary. For example, in the `address-family` submode:
 
-```
+```yang
 container address-family {
   tailf:info "Enter Address Family command mode";
   container ipv6 {
@@ -2626,7 +2626,7 @@ container address-family {
 
 This tells the CLI engine to render explicit exit commands instead of the default `!` when leaving a submode. The annotation is inherited by all submodes. For example:
 
-```
+```yang
 container interface {
   tailf:info "Configure interfaces";
   tailf:cli-diff-dependency "/ios:vrf";
@@ -2709,7 +2709,7 @@ This annotation is a bit tricky. It tells the CLI engine that the container shou
 
 Suppose you want to model the command `limit [inbound <int16> <int16>] [outbound <int16> <int16>] mtu <uint16>`. In other words, the inbound and outbound settings are optional, but if you give inbound you have to specify two 16-bit integers, and you can always specify mtu.
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   container inbound {
@@ -2758,7 +2758,7 @@ The annotation `tailf:cli-sequence-commands` tells the CLI that the user has to 
 
 Another example:
 
-```
+```yang
 container htest {
   tailf:cli-add-mode;
   container param {
@@ -2788,7 +2788,7 @@ The above model results in the command `htest param a <uint16> b <uint16>` for e
 
 This annotation tells the parser to not accept any more input beyond this element. By default, the parser will allow the setting of multiple leaves in the same command, and both enter a submode and set leaf values in the submode. In most cases, it doesn't matter that the parser accepts commands that are not actually generated by the device in the output of `show running-config`. It is however needed to avoid ambiguity, or just to make the NSO CLI for the device more user-friendly.
 
-```
+```yang
 container transceiver {
   tailf:info "Select from transceiver configuration commands";
   container "type" {
@@ -2919,7 +2919,7 @@ In the example above the key to the list is the **name** leaf, but to enter the 
 
 Tells the CLI that it should not be possible to hit `cr` after the current element. This is usually the case when a command takes multiple parameters, for example, given the following data model:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -2938,7 +2938,7 @@ container foo {
 
 The valid commands are `foo [a <word> [b <word> [c <word>]]]`. If it however should be `foo a <word> b <word> [c <word>]`, i.e. the parameters `a` and `b` are mandatory, and `c` is optional, then the `tailf:cli-incomplete-command` annotation should be used as follows:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -2967,7 +2967,7 @@ In other words, the command is incomplete after entering just `foo`, and also af
 
 This annotation is similar to the `tailf:cli-incomplete-command` above, but applies to **no** commands. Sometimes you want to prevent the user from entering a generic **no** command. Suppose you have the data model:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -2997,7 +2997,7 @@ no foo a <word> b <word> c <word>
 
 If you only want the last version of this to be a valid command, then you can use `tailf:cli-incomplete-no` to enforce this. For example:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -3101,7 +3101,7 @@ In many cases, this may be the better choice. Notice how the `tailf:cli-suppress
 
 This annotation is not really needed when writing a NED. It is used to tell the CLI which prompt to use when in the submode. Without specific instructions, the CLI will invent a prompt based on the name of the submode container/list and the list instance. If a specific prompt is desired this annotation can be used. For example:
 
-```
+```yang
 container transceiver {
   tailf:info "Select from transceiver configuration commands";
   container "type" {
@@ -3159,7 +3159,7 @@ In the above example, the description command will take all tokens to the end of
 
 By default, all key values consist of a single parser token, i.e. a string without spaces, or a quoted string. If multiple tokens should be accepted for a single key element, without quotes, then the `tailf:cli-multi-word-key` annotation can be used. The sub-annotation `tailf:cli-max-words` can be used to tell the parser that at most a fixed number of words should be allowed for the key. For example:
 
-```
+```yang
 container permit {
   tailf:info "Specify community to accept";
   presence "Specify community to accept";
@@ -3190,7 +3190,7 @@ The `tailf:cli-max-words` annotation can be used to allow more things to be ente
 
 When generating delete commands towards the device, the default behavior is to simply add `no` in front of the line you are trying to remove. However, this is not always allowed. In some cases, only parts of the command are allowed. For example, suppose you have the data model:
 
-```
+```yang
 container ospf {
   tailf:info "OSPF routes Administrative distance";
   leaf external {
@@ -3236,7 +3236,7 @@ If the old configuration has the configuration `ospf external 3 inter-area 4 int
 
 This annotation is used in combination with `tailf:cli-sequence-commands`. It tells the parser that a leaf in the sequence isn't mandatory. Suppose you have the data model:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -3257,7 +3257,7 @@ container foo {
 
 If you want the command to behave as `foo a <word> [b <word>] c <word>`, it means that the leaves `a` and `c` are required and `b` is optional. If `b` is to be entered, it must be entered after `a` and before `c`. This would be achieved by adding `tailf:cli-optional-in-sequence` in `b`.
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands;
@@ -3322,7 +3322,7 @@ list rule {
 
 This annotation is used when the key element of a list isn't the first value that you give when setting a list element (for example when entering a submode). This is similar to `tailf:cli-hide-in-submode`, except it allows the leaf values to be entered in between key elements. In the example below the match leaf is entered before giving the filter ID.
 
-```
+```yang
 container radius {
   tailf:info "RADIUS server configuration command";
   // radius filter *
@@ -3352,7 +3352,7 @@ container radius {
 
 It is also possible to have a sub-annotation to `tailf:cli-prefix-key` that specifies that the leaf should occur before a certain key position. For example:
 
-```
+```yang
 list route-map {
   tailf:info "Route map tag";
   tailf:cli-mode-name "config-route-map";
@@ -3516,7 +3516,7 @@ The `timeslots` leaf is changed by writing the entire range value. The default w
 
 This annotation is a sub-annotation to `tailf:cli-sequence-commands`. The problem it addresses is what should happen when a command that takes multiple parameters is run a second time. Consider the data model:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands {
@@ -3550,7 +3550,7 @@ Now, if the command `foo a 3` is executed, it will set the value of leaf `a` to 
 
 Another similar case is when you have some leaves covered by the command sequencing, and some not. For example:
 
-```
+```yang
 container foo {
   tailf:cli-compact-syntax;
   tailf:cli-sequence-commands {
@@ -3621,7 +3621,7 @@ container ietf {
 
 Changes to lists that have the `ordered-by "user"` annotation are shown as insert, delete, and move operations. However, most devices do not support such operations on the lists. In these cases, if you want to insert an element in the middle of a list, you need to first delete all elements following the insertion point, add the new element, and then add all the elements you deleted. The `tailf:cli-show-long-obu-diffs` tells the CLI engine to do exactly this. For example:
 
-```
+```yang
 list foo {
   ordered-by user;
   tailf:cli-show-long-obu-diffs;
@@ -3767,7 +3767,7 @@ The whole situation comes from the fact that NSO and the device treat default va
 
 This tells the CLI engine to render a leaf not only when it is actually set, but also when it has its default value. For example:
 
-```
+```yang
 leaf "input" {
   tailf:cli-boolean-no;
   tailf:cli-show-with-default;
@@ -3785,7 +3785,7 @@ leaf "input" {
 
 Tells the CLI that it should not be possible to delete all lists instances, i.e. the command `no foo` is not allowed, it needs to be `no foo <instance>`. For example:
 
-```
+```yang
 list class-map {
   tailf:info "Configure QoS Class Map";
   tailf:cli-mode-name "config-cmap";
@@ -3813,7 +3813,7 @@ list class-map {
 
 By default, all lists are rendered as submodes. This can be suppressed using the `tailf:cli-suppress-mode` annotation. For example, the data model:
 
-```
+```yang
 list foo {
   key id;
   leaf id {
@@ -3849,7 +3849,7 @@ mtu 1500
 
 However, if you add `tailf:cli-suppress-mode`:
 
-```
+```yang
 list foo {
   tailf:cli-suppress-mode;
   key id;
@@ -3877,7 +3877,7 @@ foo b mtu 1500
 
 The format string is used when parsing a key value and when generating a key value for an existing configuration. The key items are numbered from 1-N and the format string should indicate how they are related by using $(X) (where X is the key number). For example:
 
-```
+```yang
 list interface {
   tailf:cli-key-format "$(1)/$(2)/$(3):$(4)";
   key "chassis slot subslot number";
@@ -3918,7 +3918,7 @@ interface 1/2/3:4
 
 When generating configuration diffs delete all contents of a container or list before deleting the node. For example:
 
-```
+```yang
 list foo {
   tailf:cli-recursive-delete;
   key "id"";
@@ -3939,7 +3939,7 @@ list foo {
 
 It will be rendered as:
 
-```
+```bash
 # show full
 foo bar
  a 1
@@ -3966,7 +3966,7 @@ no foo bar
 
 Specifies that the CLI should not auto-render `no` commands for this element. An element with this annotation will not appear in the completion list to the `no` command. For example:
 
-```
+```yang
 list foo {
   tailf:cli-recursive-delete;
   key "id"";
@@ -4025,7 +4025,7 @@ no foo bar
 
 Do not display the value if it is the same as default. Please note that this annotation works only in the case of with-defaults basic-mode capability set to `explicit` and the value is explicitly set by the user to the default value. For example:
 
-```
+```yang
 list foo {
   key "id"";
   leaf id {
@@ -4078,7 +4078,7 @@ foo bar
 
 Embed `no` in front of the element name instead of at the beginning of the line. For example:
 
-```
+```yang
 list foo {
  key "id";
  leaf id {
@@ -4119,7 +4119,7 @@ foo bar
 
 This means that the non-integer key should allow range expressions. Can be used in key leafs only. The key must support a range format. The range applies only for matching existing instances. For example:
 
-```
+```yang
 list interface {
   key name;
   leaf name {
@@ -4175,7 +4175,7 @@ interface eth5
 
 Specifies that this node is case-sensitive. If applied to a container or a list, any nodes below will also be case-sensitive. For example:
 
-```
+```yang
 list foo {
   tailf:cli-case-sensitive;
   key "id";
@@ -4222,7 +4222,7 @@ foo bar
 
 When used force the CLI to display the namespace prefix of all children. For example:
 
-```
+```yang
 list foo {
   tailf:cli-expose-ns-prefix;
   key "id"";
@@ -4261,7 +4261,7 @@ Possible completions:
 
 Enforces the CLI engine to generate `insert` comments when displaying configuration changes of `ordered-by user` lists. Should not be used together with `tailf:cli-show-long-obu-diffs`. For example:
 
-```
+```yang
   container policy {
     list policy-list {
       tailf:cli-drop-node-name;
@@ -4304,7 +4304,7 @@ Enforces the CLI engine to generate `insert` comments when displaying configurat
 
 It will be rendered as:
 
-```
+```cli
 admin@ncs(config-policy-4)# commit dry-run outformat cli
 ...
                    policy {
@@ -4333,7 +4333,7 @@ admin@ncs(config-policy-4)# commit dry-run outformat cli
 
 This tells the CLI to automatically enter multi-line mode when prompting the user for a value to this leaf. The user must type `<CR>` to enter in the multiline mode. For example:
 
-```
+```yang
 leaf message {
   tailf:cli-multi-line-prompt;
   type string;
@@ -4376,7 +4376,7 @@ ultricies nec,\n pellentesque eu, pretium quis, sem. \n"
 
 This statement specifies that the data node should be implemented as a link to another data node, called the target data node. This means that whenever the node is modified, the system modifies the target data node instead, and whenever the data node is read, the system returns the value of the target data node. Note that if the data node is a leaf, the target node MUST also be a leaf, and if the data node is a leaf-list, the target node MUST also be a leaf-list. The argument is an XPath absolute location path. If the target lies within lists, all keys must be specified. A key either has a value or is a reference to a key in the path of the source node, using the function `current()` as a starting point for an XPath location path. For example:
 
-```
+```yang
 container foo {
   list bar {
    key id;
@@ -4456,7 +4456,7 @@ Another complication with generic NEDs is how the NED class shall authenticate t
 
 We must also configure a managed device, indicating that its configuration is handled by a specific generic NED. Below we see that the NED with identity `xmlrpc` is handling this device.
 
-```
+```cli
 admin@ncs# show running-config devices device x1
     
 address   127.0.0.1
@@ -4471,27 +4471,27 @@ The example `examples.ncs/generic-ned/xmlrpc-device` in the NSO examples collect
 
 A good starting point when we wish to implement a new generic NED is the `ncs-make-package --generic-ned-skeleton ...` command, which is used to generate a skeleton package for a generic NED.
 
-```
+```bash
 $ ncs-make-package --generic-ned-skeleton abc --build
 ```
 
-```
+```bash
 $ ncs-setup --ned-package abc --dest ncs
 ```
 
-```
+```bash
 $ cd ncs
 ```
 
-```
+```bash
 $ ncs -c ncs.conf
 ```
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# show packages package abc
 packages package abc
 package-version 1.0
@@ -4523,19 +4523,19 @@ Pyang is an extensible and open-source YANG parser (written by Tail-f) available
 
 The example is self-contained, and we can, using the NED code, manipulate these XML-RPC servers in a manner similar to all other managed devices.
 
-```
+```bash
 $ cd $NCS_DIR/generic-ned/xmlrpc-device
 ```
 
-```
+```bash
 $ make all start
 ```
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# devices sync-from
 sync-result {
     device r1
@@ -4551,7 +4551,7 @@ sync-result {
 }
 ```
 
-```
+```cli
 admin@ncs# show running-config devices r1 config
     
 ios:interface eth0
@@ -4579,7 +4579,7 @@ As it was mentioned earlier the `NedEditOp` objects are relative to the YANG mod
 
 For Generic NEDs, NSO provides a feature to ensure dependency rules are being obeyed when generating a diff to commit. It controls the order of operations delivered in the `NedEditOp` array. The feature is activated by adding the following option to `package-meta-data.xml`:
 
-```
+```xml
 <option>
   <name>ordered-diff</name>
 </option>
@@ -4595,7 +4595,7 @@ The commands on the device we wish to be able to invoke from NSO must be modeled
 
 The NSO example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` contains an example where the managed device, a fictitious XML-RPC device contains a YANG snippet :
 
-```
+```yang
 container commands {
   tailf:action idle-timeout {
     tailf:actionpoint ncsinternal {
@@ -4617,7 +4617,7 @@ container commands {
 
 When that action YANG is imported into NSO it ends up under the managed device. We can invoke the action _on_ the device as :
 
-```
+```cli
 admin@ncs# devices device r1 config ios:commands idle-timeout time 55
 ```
 
@@ -4634,7 +4634,7 @@ void command(NedWorker w, String cmdName, ConfXMLParam[] params)
 
 The `command()` method gets invoked in the NED, the code must then execute the command. The input parameters in the `params` parameter correspond to the data provided in the action. The `command()` method must reply with another array of `ConfXMLParam` objects.
 
-```
+```java
 public void command(NedWorker worker, String cmdname, ConfXMLParam[] p)
     throws NedException, IOException {
     session.setTracer(worker);
@@ -4679,7 +4679,7 @@ To add a device, the following steps need to be followed. They are described in 
 
 The `ncsc --ncs-compile-mib-bundle` compiler is used to compile MIBs and MIB annotation files into NSO load files. Assuming a directory with input MIB files (and optional MIB annotation files) exist, the following command compiles all the MIBs in `device-models` and writes the output to `ncs-device-model-dir`.
 
-```
+```bash
 $ ncsc --ncs-compile-mib-bundle device-models \
     --ncs-device-dir ./ncs-device-model-dir
 ```
@@ -4698,7 +4698,7 @@ These steps are illustrated in the figure below:
 
 Finally make sure that the NSO configuration file points to the correct device model directory:
 
-```
+```xml
 <device-model-dir>./ncs-device-model-dir</device-model-dir>
 ```
 
@@ -4706,7 +4706,7 @@ Finally make sure that the NSO configuration file points to the correct device m
 
 Each managed device is configured with a name, IP address, and port (161 by default), and the SNMP version to use (v1, v2c, or v3).
 
-```
+```cli
 admin@host# show running-config devices device r3
       
 address 127.0.0.1
@@ -4717,7 +4717,7 @@ state admin-state unlocked
 
 To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
 
-```
+```cli
 admin@host# show running-config devices authgroups snmp-group my-authgroup
       
 devices authgroups snmp-group my-authgroup
@@ -4741,7 +4741,7 @@ With SNMP, there is no standardized, generic way for an SNMP manager to learn wh
 
 In NSO, this problem is solved by using MIB groups. MIB group is a named collection of MIB module names. A managed SNMP device can refer to one or more MIB groups. For example, below two MIB groups are defined:
 
-```
+```cli
 admin@ncs# show running-config devices mib-group
         
 devices mib-group basic
@@ -4756,7 +4756,7 @@ The wildcard `*` can be used only at the end of a string; it is thus used to def
 
 An SNMP device can then be configured to refer to one or more of the MIB groups:
 
-```
+```cli
 admin@ncs# show running-config devices device r3 device-type snmp
         
 devices device r3
@@ -4809,7 +4809,7 @@ NSO can manage SNMP devices within transactions, a transaction can span Cisco de
 
 The basic features of the SNMP will be illustrated below by using the `examples.ncs/snmp-ned` example. First, try to connect to all SNMP devices:
 
-```
+```cli
 admin@ncs# devices connect
         
 connect-result {
@@ -4831,7 +4831,7 @@ connect-result {
 
 When NSO executes the connect request for SNMP devices it performs a get-next request with 1.1 as var-bind. When working with the SNMP NED it is helpful to turn on the NED tracing:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
@@ -4839,11 +4839,11 @@ $ ncs_cli -C -u admin
 admin@ncs config
 ```
 
-```
+```cli
 admin@ncs(config)# devices global-settings trace pretty trace-dir .
 ```
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -4853,7 +4853,7 @@ Commit complete.
 
 This creates a trace file named `ned-devicename.trace`. The trace for the NCS `connect` action looks like:
 
-```
+```bash
 $ more ned-r1.trace
 get-next-request reqid=2
     1.1
@@ -4863,7 +4863,7 @@ get-response reqid=2
 
 When looking at SNMP trace files it is useful to have the OBJECT-DESCRIPTOR rather than the OBJECT-IDENTIFIER. To do this, pipe the trace file to the `smixlate` tool:
 
-```
+```bash
 $ more ned-r1.trace | smixlate $NCS_DIR/src/ncs/snmp/mibs/SNMPv2-MIB.mib
         
 get-next-request reqid=2
@@ -4874,7 +4874,7 @@ get-response reqid=2
 
 You can access the data in the SNMP systems directly (read-only and read-write objects):
 
-```
+```cli
 admin@ncs# show devices device live-status
       
 ncs live-device r1
@@ -4888,7 +4888,7 @@ ncs live-device r1
 
 NSO can synchronize all writable objects into CDB:
 
-```
+```cli
 admin@ncs# devices sync-from
 sync-result {
     device r1
@@ -4896,7 +4896,7 @@ sync-result {
 ...
 ```
 
-```
+```cli
 admin@ncs# show running-config devices device r1 config r:SNMPv2-MIB
     
 devices device r1
@@ -4913,14 +4913,14 @@ devices device r1
 
 All the standard features of NSO with transactions and roll-backs will work with SNMP devices. The sequence below shows how to enable authentication traps for all devices as one transaction. If any device fails, NSO will automatically roll back the others. At the end of the CLI sequence a manual rollback is shown:
 
-```
+```cli
 admin@ncs# config
 ```
 
 <pre><code><strong>admin@ncs(config)# devices device r1-3 config r:SNMPv2-MIB snmp snmpEnableAuthenTraps enabled
 </strong></code></pre>
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -4928,11 +4928,11 @@ admin@ncs(config)# commit
 Commit complete.
 ```
 
-```
+```cli
 admin@ncs(config)# top rollback configuration
 ```
 
-```
+```cli
 admin@ncs(config)# commit dry-run outformat cli
 ```
 
@@ -4971,7 +4971,7 @@ cli  devices {
      }
 ```
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -4991,7 +4991,7 @@ To expose runtime data from a NED controlled device, regardless of whether it's 
 The NSO NED for the Avaya 4k device contains a data model for some real statistics for the Avaya router and also the accompanying Java NED code. Let's start to take a look at the YANG model for the stats portion, we have:
 
 {% code title="Example: NED Stats YANG Model" %}
-```
+```yang
 module tailf-ned-avaya-4k-stats {
   namespace 'http://tail-f.com/ned/avaya-4k-stats';
   prefix avaya4k-stats;
@@ -5062,7 +5062,7 @@ module tailf-ned-avaya-4k-stats {
 
 It's a `config false;` list of counters per interface. We compile the NED stats module with the `--ncs-compile-module` flag or with the `--ncs-compile-bundle` flag. It's the same `non-config` module that contains both runtime data as well as commands and rpcs.
 
-```
+```bash
 $ ncsc --ncs-compile-module avaya4k-stats.yang \
     --ncs-device-dir <dir>
 ```
@@ -5070,7 +5070,7 @@ $ ncsc --ncs-compile-module avaya4k-stats.yang \
 The `config false;` data from a module that has been compiled with the `--ncs-compile-module` flag will end up mounted under `/devices/device/live-status` tree. Thus running the NED towards a real router we have:
 
 {% code title="Example: Displaying NED Stats in the CLI" %}
-```
+```cli
 admin@ncs# show devices device r1 live-status interfaces
         
 live-status {
@@ -5125,7 +5125,7 @@ Example 129. A device trimming default values
 
 This is the typical behavior of a Cisco IOS device. The simple YANG code snippet below illustrates the behavior. A container with a boolean leaf. Its default value is true.
 
-```
+```yang
 container aaa {
   leaf enabled {
     default true;
@@ -5136,19 +5136,19 @@ container aaa {
 
 Try setting the leaf to true in NSO and commit. Then compare the configuration:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# config
 ```
 
-```
+```cli
 admin@ncs(config)# devices device a0 config aaa enabled true
 ```
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -5156,7 +5156,7 @@ admin@ncs(config)# commit
 Commit complete.
 ```
 
-```
+```cli
 admin@ncs(config)# top devices device a0 compare-config
       
 diff
@@ -5197,19 +5197,19 @@ capas[1] = new NedCapability(
 
 Now, try the same operation again:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# config
 ```
 
-```
+```cli
 admin@ncs(config)# devices device a0 config aaa enabled true
 ```
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -5217,11 +5217,11 @@ admin@ncs(config)# commit
 Commit complete.
 ```
 
-```
+```cli
 admin@ncs(config)# top devices device a0 compare-config
 ```
 
-```
+```cli
 admin@ncs(config)#
 ```
 
@@ -5231,7 +5231,7 @@ The NSO is now in sync with the device.
 
 Some devices display default values for leafs even if they have not been explicitly set. The simple YANG code below will be used to illustrate this behavior. A list containing a key and a leaf with a default value.
 
-```
+```yang
 list interface {
   key id;
   leaf id {
@@ -5246,23 +5246,23 @@ list interface {
 
 Try creating a new list entry in NSO and commit. Then compare the configuration:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# config
 ```
 
-```
+```cli
 admin@ncs(config)# devices device a0 config interface myinterface
 ```
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
-```
+```cli
 admin@ncs(config)# top devices device a0 compare-config
     
 diff
@@ -5303,18 +5303,18 @@ capas[1] = new NedCapability(
 
 Now, try the same operation again:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
-```
+```cli
 admin@ncs# config
 ```
 
 <pre><code><strong>admin@ncs(config)# devices device a0 config interface myinterface
 </strong></code></pre>
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -5325,7 +5325,7 @@ Commit complete.
 <pre><code><strong>admin@ncs(config)# top devices device a0 compare-config
 </strong></code></pre>
 
-```
+```cli
 admin@ncs(config)#
 ```
 
@@ -5379,7 +5379,7 @@ Similar to how we import device models for NETCONF-based devices, we use the `nc
 Once we have imported such a YANG model into NSO, we can configure the managed device in NSO to be handled by the appropriate NED handler (which is user Java code, more on that later)
 
 {% code title="Example: Setting the Device Type" %}
-```
+```cli
 admin@ncs# show running config devices device r1
     
 address   127.0.0.1
@@ -5454,7 +5454,7 @@ This guide uses the MPLS VPN example in Python from the NSO example set under `$
 
 The first step is to add the latest `juniper-junos` and `juniper-junos_nc-gen` NED packages to the example's package directory. The NED tar-balls must be available and downloaded from your [https://software.cisco.com/download/home](https://software.cisco.com/download/home) account to the `17-mpls-vpn-python` example directory. Replace the `NSO_VERSION` and `NED_VERSION` variables with the versions you use:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python
 $ cp ./ncs-NSO_VERSION-juniper-junos-NED_VERSION.tar.gz packages/
 $ cd packages
@@ -5464,7 +5464,7 @@ $ cd -
 
 Build and start the example:
 
-```
+```bash
 $ make all start
 ```
 
@@ -5472,7 +5472,7 @@ $ make all start
 
 Replace the netsim device connection configuration in NSO with the configuration for connecting to the Junos device. Adjust the `USER_NAME`, `PASSWORD`, and `HOST_NAME/IP_ADDR` variables and the timeouts as required for the Junos device you are using with this example:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# config
 admin@ncs(config)# devices authgroups group juniper umap admin remote-name USER_NAME \
@@ -5488,7 +5488,7 @@ admin@ncs# exit
 
 Open a CLI terminal or use NETCONF on the Junos device to verify that the `rfc-compliant` and `yang-compliant` modes are not yet enabled. Examples:
 
-```
+```bash
 $ ssh USER_NAME@HOST_NAME/IP_ADDR
 junos> configure
 junos# show system services netconf
@@ -5497,7 +5497,7 @@ ssh;
 
 Or:
 
-```
+```bash
 $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR \
  --port=830 --get-config
  --subtree-filter=-<<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
@@ -5527,7 +5527,7 @@ $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR \
 
 The `rfc-compliant` and `yang-compliant` nodes must not be enabled yet for the legacy Junos NED to work. If enabled, delete in the Junos CLI or using NETCONF. A netconf-console example:
 
-```
+```bash
 $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --port=830
   --db=candidate
   --edit-config=- <<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm"
@@ -5548,7 +5548,7 @@ $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR \
 
 Back to the NSO CLI to upgrade the legacy `juniper-junos` NED to the latest version:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# config
 admin@ncs(config)# devices device pe2 ssh fetch-host-keys
@@ -5561,7 +5561,7 @@ admin@ncs(config)# end
 
 Turn off `autowizard` and `complete-on-space` to make it possible to paste configs:
 
-```
+```cli
 admin@ncs# autowizard false
 admin@ncs# complete-on-space false
 ```
@@ -5617,7 +5617,7 @@ qos qos-policy GOLD
 
 To verify that the traffic passes through `PE2`:
 
-```
+```cli
 admin@ncs(config)# commit dry-run outformat native
 ```
 
@@ -5658,7 +5658,7 @@ device {
 
 Looks good. Commit to the network:
 
-```
+```cli
 admin@ncs(config)# commit
 ```
 
@@ -5670,7 +5670,7 @@ Now that the service's configuration is in place using the legacy `juniper-junos
 
 To keep the NSO service meta-data information intact when bringing up the service with the new `juniper-junos_nc-gen` NED, first `un-deploy` the service instances in NSO, only keeping the configuration on the devices:
 
-```
+```cli
 admin@ncs(config)# vpn l3vpn * un-deploy no-networking
 ```
 
@@ -5678,14 +5678,14 @@ admin@ncs(config)# vpn l3vpn * un-deploy no-networking
 
 First, save the legacy Junos non-compliant mode device configuration to later diff against the compliant mode config:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device pe2 config \
                                    configuration | display xml | save legacy.xml
 ```
 
 Delete the `PE2` configuration in NSO to prepare for retrieving it from the device in a NETCONF/YANG compliant format using the new NED:
 
-```
+```cli
 admin@ncs(config)# no devices device pe2 config
 admin@ncs(config)# commit no-networking
 admin@ncs(config)# end
@@ -5696,7 +5696,7 @@ admin@ncs# exit
 
 Using the Junos CLI:
 
-```
+```bash
 $ ssh USER_NAME@HOST_NAME/IP_ADDR
 junos> configure
 junos# set system services netconf rfc-compliant
@@ -5710,7 +5710,7 @@ junos# commit
 
 Or, using the NSO `netconf-console` tool:
 
-```
+```bash
 $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --port=830 \
   --db=candidate
   --edit-config=- <<<'<configuration xmlns="http://xml.juniper.net/xnm/1.1/xnm">
@@ -5730,7 +5730,7 @@ $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --p
 
 ### **Switch the NED ID for the Junos Device to the `juniper-junos_nc-gen` NED Package**
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# config
 admin@ncs(config)# devices device pe2 device-type generic ned-id juniper-junos_nc-gen-1.0
@@ -5742,7 +5742,7 @@ admin@ncs(config)# end
 
 The `juniper-junos_nc-gen` NED is delivered without YANG modules, enabling populating it with device-specific YANG modules. The YANG modules are retrieved directly from the Junos device:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# devices device pe2 connect
 admin@ncs# devices device pe2 rpc rpc-get-modules get-modules
@@ -5753,20 +5753,20 @@ See the `juniper-junos_nc-gen` `README` for more options and details.
 
 Build the YANG modules retrieved from the Junos device with the `juniper-junos_nc-gen` NED:
 
-```
+```bash
 $ make -C packages/juniper-junos_nc-gen-1.0/src
 ```
 
 Reload the packages to load the `juniper-junos_nc-gen` NED with the added YANG modules:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# packages reload
 ```
 
 ### **Sync From the Junos Device to get the Device Configuration in NETCONF/YANG Compliant Format**
 
-```
+```cli
 admin@ncs# devices device pe2 sync-from
 ```
 
@@ -5780,7 +5780,7 @@ Checking the `packages/l3vpn/templates/l3vpn-pe.xml` service template Junos devi
 
 You can save the NETCONF/YANG compliant Junos device configuration and diff it against the non-compliant configuration from the previously stored `legacy.xml` file:
 
-```
+```cli
 admin@ncs# show running-config devices device pe2 config configuration \
                           | display xml | save new.xml
 ```
@@ -5793,7 +5793,7 @@ Examining the difference between the configuration in the `legacy.xml` and `new.
 
 To enable the template to handle a Junos device in NETCONF/YANG compliant mode, add the following to the `packages/l3vpn/templates/l3vpn-pe.xml` service template:
 
-```
+```xml
             </interfaces>
           </class-of-service>
         </configuration>
@@ -5905,7 +5905,7 @@ To enable the template to handle a Junos device in NETCONF/YANG compliant mode, 
 
 The Python file changes to handle the new `BW_SUFFIX` variable to generate a string with a suffix instead of an `int32`:
 
-```
+```bash
 # of the service. These functions can be useful e.g. for
 # allocations that should be stored and existing also when the
 # service instance is removed.
@@ -5936,7 +5936,7 @@ Code that uses the function and set the string to the service template:
 
 After making the changes to the service template and Python code, reload the updated package(s):
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# packages reload
 ```
@@ -5945,13 +5945,13 @@ admin@ncs# packages reload
 
 The service instances need to be re-deployed to own the device configuration again:
 
-```
+```cli
 admin@ncs# vpn l3vpn * re-deploy no-networking
 ```
 
 The service is now in sync with the device configuration stored in NSO CDB:
 
-```
+```cli
 admin@ncs# vpn l3vpn * check-sync
 vpn l3vpn ikea check-sync
 in-sync true
@@ -5963,7 +5963,7 @@ When re-deploying the service instances, any issues with the added service templ
 
 As there is no validation for the rate leaf string with a suffix in the Junos device model, no errors are discovered if it is provided in the wrong format until updating the Junos device. Comparing the device configuration in NSO with the configuration on the device shows such inconsistencies without having to test the configuration with the device:
 
-```
+```cli
 admin@ncs# devices device pe2 compare-config
 ```
 
@@ -5971,7 +5971,7 @@ If there are issues, correct them and redo the `re-deploy no-networking` for the
 
 When all issues have been resolved, the service configuration is in sync with the device configuration, and the NSO CDB device configuration matches to the configuration on the Junos device:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# vpn l3vpn * re-deploy
 ```

@@ -32,7 +32,7 @@ By default, the plan outline consists of a single component, the `self` componen
 
 The following YANG snippet, also part of the `examples.ncs/development-guide/nano-services/basic-vrouter` example, shows a plan outline with the two VM-provisioning states presented above:
 
-```
+```yang
 module vrouter {
   prefix vr;
 
@@ -94,7 +94,7 @@ The main reason for defining multiple nano service states is to specify what par
 
 If a state defines a nano callback, you can register a configuration template to it. The XML template file is very similar to an ordinary service template but requires additional `componenttype` and `state` attributes in the `config-template` root element. These attributes identify which component and state in the plan outline the template belongs to, for example:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="vrouter-servicepoint"
                  componenttype="vr:vrouter"
@@ -107,7 +107,7 @@ If a state defines a nano callback, you can register a configuration template to
 
 Likewise, you can implement a callback in the service code. The registration requires you to specify the component and state, as the following Python example demonstrates:
 
-```
+```python
 class NanoApp(ncs.application.Application):
     def setup(self):
         self.register_nano_service('vrouter-servicepoint',  # Service point
@@ -118,7 +118,7 @@ class NanoApp(ncs.application.Application):
 
 The selected `NanoServiceCallbacks` class then receives callbacks in the `cb_nano_create()` function:
 
-```
+```python
 class NanoServiceCallbacks(ncs.application.NanoService):
     @ncs.application.NanoService.create
     def cb_nano_create(self, tctx, root, service, plan, component, state,
@@ -184,7 +184,7 @@ The following figure visualizes the resulting service plan and its states.
 
 Along with the behavior tree, a nano service also relies on the `ncs:nano-plan-data` grouping in its service model. It is responsible for storing state and other provisioning details for each service instance. Other than that, the nano service model follows the standard YANG definition of a service:
 
-```
+```yang
 list vrouter {
   description "Trivial VM-based router nano service";
 
@@ -212,7 +212,7 @@ A nano service does not directly use its service point for configuration. Instea
 
 For example, when you create a new instance of the VM-router service, the `vm-up-and-running` leaf is not set, so only the first part of the service runs. Inspecting the service instance plan reveals the following:
 
-```
+```cli
 admin@ncs# show vrouter vr-01 plan
                                                                                      POST
                   BACK                                                               ACTION
@@ -232,7 +232,7 @@ But the process has stopped at the `vm-configured` state, denoted by the `not-re
 
 You may also verify, through the `get-modifications` action, that only the first part, the creation of the VM, was performed:
 
-```
+```cli
 admin@ncs# vrouter vr-01 get-modifications
 cli {
     local-node {
@@ -248,7 +248,7 @@ At the same time, a kicker was installed under the `kickers` container but you m
 
 At a later point in time, the router VM becomes ready, and the `vm-up-and-running` leaf is set to a `true` value. The installed kicker notices the change and automatically calls the `reactive-re-deploy` action on the service instance. In turn, the service gets fully deployed.
 
-```
+```cli
 admin@ncs# show vrouter vr-01 plan
                                                                                  POST
                   BACK                                                           ACTION
@@ -264,7 +264,7 @@ vrouter  vrouter  false  -     init           reached  2023-08-11T07:45:20  -   
 
 The `get-modifications` output confirms this fact. It contains the additional IP address configuration, performed as part of the `vm-configured` step:
 
-```
+```cli
 admin@ncs# vrouter vr-01 get-modifications
 cli {
     local-node {
@@ -345,7 +345,7 @@ While, in general, the `delete()` callback should not produce any configuration,
 
 Similar to the `create()` callback, the `ncs:nano-callback` statement instructs NSO to also process a `delete()` callback. A Python class that you have registered for the nano service must then implement the following method:
 
-```
+```python
     @NanoService.delete
     def cb_nano_delete(self, tctx, root, service, plan, component, state,
                        proplist, component_proplist):
@@ -374,7 +374,7 @@ You can use the `show side-effect-queue` command to inspect the queue. The queue
 
 In case of a failure, a post action sets the post-action-status accordingly and, if the action is synchronous, the nano service stops progressing. To retry the failed action, you can perform the action `reschedule`.
 
-```
+```bash
 $ ncs_cli -u admin
 admin@ncs> show side-effect-queue side-effect status
 ID  STATUS
@@ -639,7 +639,7 @@ As a common use case, an event with status `reached` for the `self` component `r
 
 To enable the plan-state-change notifications to be sent, you must enable them for a specific service in NSO. For example, can load the following configuration into the CDB as an XML initialization file:
 
-```
+```xml
 <services xmlns="http://tail-f.com/ns/ncs">
   <plan-notifications>
     <subscription>
@@ -670,7 +670,7 @@ For example, the `failed` event can be used to detect that a nano service instan
 
 To enable the service-commit-queue-event notifications to be sent, you can load the following example configuration into NSO, as an XML initialization file or some other way:
 
-```
+```xml
 <services xmlns="http://tail-f.com/ns/ncs">
   <commit-queue-notifications>
     <subscription>
@@ -687,7 +687,7 @@ The following examples demonstrate the usage and sample events for the notificat
 
 RESTCONF subscription request using `curl`:
 
-```
+```bash
 $ curl -isu admin:admin -X GET -H "Accept: text/event-stream"
     http://localhost:8080/restconf/streams/service-state-changes/json
 
@@ -753,7 +753,7 @@ See [Notification Capability](northbound-apis/#ug.netconf\_agent.notif) in North
 
 CLI shows received notifications using `ncs_cli`:
 
-```
+```bash
 $ ncs_cli -u admin -C <<<'show notification stream service-state-changes'
 
 notification
@@ -1066,7 +1066,7 @@ You can implement nano service callbacks as Templates as well as Python, Java, E
 
 A plan state template, if defined, replaces the need of a `create()` callback. In this case, there are no `delete()` callbacks and the status definitions must in this case be handled by the states delete pre-condition. The template must in addition to the `servicepoint` attribute, have a `componenttype` and a `state` attribute to be registered on the plan state:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="my-servicepoint"
                  componenttype="my:some-component"
@@ -1081,7 +1081,7 @@ Specific to nano services, you can use parameters, such as `$SOMEPARAM` in the t
 
 A Python `create()` callback is very similar to its ordinary service counterpart. The difference is that it has additional arguments. `plan` refers to the synthesized plan, while `component` and `state` specify the component and state for which it is invoked. The `proplist` argument is the nano service opaque (same naming as for ordinary services) and `component_proplist` contains component variables, along with their values.
 
-```
+```python
 class NanoServiceCallbacks(ncs.application.NanoService):
 
     @ncs.application.NanoService.create
@@ -1103,7 +1103,7 @@ plan.component[component].state[state].status = 'failed'
 
 The Python nano service callback needs a registration call for the specific service point, `componentType`, and state that it should be invoked for.
 
-```
+```python
 class Main(ncs.application.Application):
 
     def setup(self):
@@ -1116,7 +1116,7 @@ class Main(ncs.application.Application):
 
 For Java, annotations are used to define the callbacks for the component states. The registration of these callbacks is performed by the ncs-java-vm. The `NanoServiceContext` argument contains methods for retrieving the component and state for the invoked callback as well as methods for setting the resulting plan state status.
 
-```
+```java
 public class myRFS {
 
     @NanoServiceCallback(servicePoint="my-servicepoint",
@@ -1156,13 +1156,13 @@ In some scenarios, there is a need to be able to register a callback for a certa
 
 In Python, the component type is provided as an argument to the callback (`component`) and a generic callback is registered with an asterisk for a component, such as:
 
-```
+```python
 self.register_nano_service('my-servicepoint', '*', state, ServiceCallbacks)
 ```
 
 In Java, you can perform the registration in the method annotation, as before. To retrieve the calling component type, use the `NanoServiceContext.getComponent()` method. For example:
 
-```
+```java
     @NanoServiceCallback(servicePoint="my-servicepoint",
                          componentType="*", state="my:some-state",
                          callType=NanoServiceCBType.CREATE)
@@ -1429,21 +1429,21 @@ To run the example, do the following:
 
 Build the example:
 
-```
+```bash
 $ cd examples.ncs/getting-started/developing-with-ncs/20-nano-services
 $ make all
 ```
 
 Start the example:
 
-```
+```bash
 $ cd ncs-netsim restart
 $ ncs
 ```
 
 Run the example:
 
-```
+```bash
 $ ncs_cli -C -u admin
 admin@ncs(config)# devices sync-from
 sync-result {
@@ -1464,7 +1464,7 @@ Entering configuration mode terminal
 
 Now you create a service that sets up a VPN link between devices `ex1` and `ex2`, and is completed immediately since the `test-passed` leaf is set to `true`.
 
-```
+```cli
 admin@ncs(config)# link t2 unit 17 vlan-id 1
 admin@ncs(config-link-t2)# link t2 endpoints ex1 eth0 ex2 eth0 test-passed true
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth0)# commit
@@ -1473,7 +1473,7 @@ admin@ncs(config-endpoints-ex1/eth0/ex2/eth0)# top
 
 You can inspect the result of the commit:
 
-```
+```cli
 admin@ncs(config)# exit
 admin@ncs# link t2 get-modifications
 cli  devices {
@@ -1508,7 +1508,7 @@ cli  devices {
 
 The service sets up the link between the devices. Inspect the plan:
 
-```
+```cli
 admin@ncs# show link t2 plan component * state * status
 NAME               STATE      STATUS
 ---------------------------------------
@@ -1523,7 +1523,7 @@ All components in the plan have reached their `ready` state.
 
 Now, change the link by changing the interface on one of the devices. To do this, you must remove the old list entry in "endpoints" and create a new one.
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# no link t2 endpoints ex1 eth0 ex2 eth0
@@ -1532,7 +1532,7 @@ admin@ncs(config)# link t2 endpoints ex1 eth0 ex2 eth1
 
 Commit a dry-run to inspect what happens:
 
-```
+```cli
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit dry-run
 cli  devices {
          device ex1 {
@@ -1570,7 +1570,7 @@ cli  devices {
 
 Upon committing, the service just adds the new interface and does not remove anything at this point. The reason is that the `test-passed` leaf is not set to `true` for the new component. Commit this change and inspect the plan:
 
-```
+```cli
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# top
 admin@ncs(config)# exit
@@ -1593,7 +1593,7 @@ Notice that the new component `ex1-eth0-ex2-eth1` has not reached its `ready` st
 
 If you check what the service has configured at this point, you get the following:
 
-```
+```cli
 admin@ncs# link t2 get-modifications
 cli  devices {
           device ex1 {
@@ -1632,14 +1632,14 @@ cli  devices {
 
 Both the old and the new link exist at this point. Now, set the `test-passed` leaf to `true` to force the new component to reach its ready state.
 
-```
+```cli
 admin@ncs(config)# link t2 endpoints ex1 eth0 ex2 eth1 test-passed true
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit
 ```
 
 If you now check the service plan, you see the following:
 
-```
+```cli
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# top
 admin@ncs(config)# exit
 admin@ncs# show link t2 plan
@@ -1656,7 +1656,7 @@ ex1-eth0-ex2-eth1  vlan-link  false  -     init       reached  ...
 
 The old component has been completely backtracked and is removed because the new component is finished. You should also check the service modifications. You should see that the old link endpoint is removed:
 
-```
+```cli
 admin@ncs# link t2 get-modifications
 cli  devices {
           device ex1 {

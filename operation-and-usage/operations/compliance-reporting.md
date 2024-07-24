@@ -29,7 +29,7 @@ First of all, the reports have a name which is key in the report list. Furthermo
 
 A report definition can specify all containers at the same time:
 
-```
+```bash
 $ ncs_cli -u admin -C
 admin connected from 127.0.0.1 using console on ncs
 ncs# config
@@ -57,7 +57,7 @@ The default behavior for device verification is the following:
 * To request a `check-sync` action to verify that the device is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
 * To scan the commit log (i.e. rollback files) for changes on the devices and report these. This behavior is controlled by the `leaf historic-changes` (default `true`).
 
-```
+```cli
 ncs(config)# compliance reports report gold-check
 ncs(config-report-gold-check)# device-check
 Possible completions:
@@ -202,7 +202,7 @@ compliance report-results report 3
 
 There is also a `remove` action to remove report results (and the corresponding file):
 
-```
+```cli
 ncs# compliance report-results report 2..3 remove
 ncs# show compliance report-results
 compliance report-results report 1
@@ -225,7 +225,7 @@ The parameters that are possible to specify for a report `run` action are:
 
 We will request a report run with a `title` and formatted as `text`.
 
-```
+```cli
 ncs# compliance reports report gold-check run \
 > title "My First Report" outformat text
 ```
@@ -234,28 +234,28 @@ In the above command, the report was run without a `from` or a `to` argument. Th
 
 When a `from` argument is supplied to a compliance report run action, this implies that only historical information younger than the `from` date and time is checked.
 
-```
+```cli
 ncs# compliance reports report gold-check run \
 > title "First check" from 2015-02-04T00:00:00
 ```
 
 When a `to` argument is supplied, this implies that historical information will be gathered for all logged information up to the date and time of the `to` argument.
 
-```
+```cli
 ncs# compliance reports report gold-check run \
 > title "Second check" to 2015-02-05T00:00:00
 ```
 
 The `from` and a `to` arguments can be combined to specify a fixed historic time interval.
 
-```
+```cli
 ncs# compliance reports report gold-check run \
 > title "Third check" from 2015-02-04T00:00:00 to 2015-02-05T00:00:00
 ```
 
 When a compliance report is run, the action will respond with a flag indicating if any discrepancies were found. Also, it reports how many devices and services have been verified in total by the report.
 
-```
+```cli
 ncs# compliance reports report gold-check run \
 > title "Fourth check" outformat text
 time 2015-2-4T20:42:45.019012+00:00
@@ -267,7 +267,7 @@ location http://.../report_7_admin_1_2015-2-4T20:42:45.019012+00:00.text
 Below is an example of a compliance report result (in `text` format):
 
 {% code title="Compliance report result" %}
-```
+```bash
 $ cat ./state/compliance-reports/report_7_admin_1_2015-2-4T20\:42\:45.019012+00\:00.text
 reportcookie : g2gCbQAAAAtGaWZ0aCBjaGVja20AAAAKZ29sZC1jaGVjaw==
 
@@ -406,7 +406,7 @@ To help operators ensure there is no such extraneous configuration on the manage
 
 You can configure this mode in the report definition, when specifying the device template to check against, for example:
 
-```
+```cli
 ncs(config)# compliance reports report gold-check
 ncs(config-report-gold-check)# compare-template gold-conf mygrp strict
 ```
@@ -419,7 +419,7 @@ With compliance templates, you use regular expressions to check compliance, inst
 
 You can create a compliance template from scratch, similar to how you create a device template. To check that the router uses only internal DNS servers from the 10.0.0.0/8 range, you might create a compliance template such as:
 
-```
+```cli
 admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
@@ -459,6 +459,6 @@ Alternatively, you can use the `/compliance/create-template` action when you alr
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
-```
+```cli
 admin@ncs(config-report-gold-check)# device-check template internal-dns
 ```

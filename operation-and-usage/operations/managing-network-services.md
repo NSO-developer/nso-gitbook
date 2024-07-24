@@ -178,7 +178,7 @@ Going back to the example L3 VPN above, any part of `volvo` VPN instance can be 
 
 A simple change like changing the `as-number` on the service results in many changes in the network. NSO does this automatically.
 
-```
+```cli
 ncs(config)# vpn l3vpn volvo as-number 65102
 ncs(config-l3vpn-volvo)# commit dry-run outformat native
 native {
@@ -259,7 +259,7 @@ Next, we will show how NSO can be used to check if the service configuration in 
 
 In a new terminal window, we connect directly to the device `ce0` which is a Cisco device emulated by the tool `ncs-netsim`.
 
-```
+```bash
 $ ncs-netsim cli-c ce0
 ```
 
@@ -276,7 +276,7 @@ ce0# exit
 
 Going back to the terminal with NSO, check the status of the network configuration:
 
-```
+```cli
 ncs# devices check-sync
 sync-result {
     device ce0
@@ -305,7 +305,7 @@ The CLI sequence above performs 3 different comparisons:
 
 Notice that the service `volvo` is out of sync with the service configuration. Use the `check-sync outformat cli` to see what the problem is:
 
-```
+```cli
 ncs# vpn l3vpn volvo deep-check-sync outformat cli
 cli  devices {
          devices {
@@ -328,14 +328,14 @@ cli  devices {
 
 Assume that a network engineer considers the real device configuration to be authoritative:
 
-```
+```cli
 ncs# devices device ce0 sync-from
 result true
 ```
 
 And then restore the service:
 
-```
+```cli
 ncs# vpn l3vpn volvo re-deploy dry-run { outformat native } 
 native {
     device {
@@ -355,7 +355,7 @@ ncs# vpn l3vpn volvo re-deploy
 
 In the same way, as NSO can calculate any service configuration change, it can also automatically delete the device configurations that resulted from creating services:
 
-```
+```cli
 ncs(config)# no vpn l3vpn ford
 ncs(config)# commit dry-run
 cli  devices {
@@ -387,7 +387,7 @@ Service instances live in the NSO data store as well as a copy of the device con
 
 Show the configuration for a service
 
-```
+```cli
 ncs(config)# show full-configuration vpn l3vpn
 vpn l3vpn volvo
  as-number 65102
@@ -402,7 +402,7 @@ vpn l3vpn volvo
 
 You can ask NSO to list all devices that are touched by a service and vice versa:
 
-```
+```cli
 ncs# show vpn l3vpn device-list
 NAME   DEVICE LIST
 ----------------------------------------
@@ -433,7 +433,7 @@ pe3   [ "/l3vpn:vpn/l3vpn{volvo}" ]
 
 Note that operational mode in the CLI was used above. Every service instance has an operational attribute that is maintained by the transaction manager and shows which device configuration it created. Furthermore, every device configuration has backward pointers to the corresponding service instances:
 
-```
+```cli
 ncs(config)# show full-configuration devices device ce3 \
                     config | display service-meta-data
 devices device ce3
@@ -519,12 +519,12 @@ When committing a service using the commit queue in _async_ mode the northbound 
 
 We will now commit a VPN service using the commit queue and one device is down.
 
-```
+```bash
 $ ncs-netsim stop ce0
 DEVICE ce0 STOPPED
 ```
 
-```
+```cli
 ncs(config)# show configuration
 vpn l3vpn volvo
  as-number 65101
@@ -550,7 +550,7 @@ ncs(config)# *** ALARM connection-failure: Failed to connect to device ce0: conn
 
 This service is not provisioned fully in the network, since `ce0` was down. It will stay in the queue either until the device starts responding or when an action is taken to remove the service or remove the item. The commit queue can be inspected. As shown below we see that we are waiting for `ce0`. Inspecting the queue item shows the outstanding configuration.
 
-```
+```cli
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 10777927137
  age              1934
@@ -566,7 +566,7 @@ commit-queue queue-item 1498812003922
 
 The commit queue will constantly try to push the configuration towards the devices. The number of retry attempts and at what interval they occur can be configured.
 
-```
+```cli
 ncs# show full-configuration devices global-settings commit-queue | details
 devices global-settings commit-queue enabled-by-default false
 devices global-settings commit-queue atomic true
@@ -576,7 +576,7 @@ devices global-settings commit-queue retry-attempts unlimited
 
 If we start `ce0` and inspect the queue, we will see that the queue will finally be empty and that the `commit-queue` status for the service is empty.
 
-```
+```cli
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 10777927137
  age              3357
@@ -613,7 +613,7 @@ devices commit-queue completed queue-item 10777927137
 
 In some scenarios, it makes sense to remove the service configuration from the network but keep the representation of the service in NSO. This is called to `un-deploy` a service.
 
-```
+```cli
 ncs# vpn l3vpn volvo check-sync
 in-sync false
 ncs# vpn l3vpn volvo re-deploy
@@ -636,7 +636,7 @@ The first step is to generate a skeleton package for a service (for details, see
 
 Navigate to the simulated ios directory and create a new package for the VLAN service model:
 
-```
+```bash
 $ cd examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/packages
 ```
 
@@ -644,7 +644,7 @@ If the `packages` folder does not exist yet, such as when you have not run this 
 
 The next step is to create the template skeleton by using the `ncs-make-package` utility:
 
-```
+```bash
 $ ncs-make-package --service-skeleton template --root-container vlans --no-test  vlan
 ```
 
@@ -659,7 +659,7 @@ vlan
 
 For now, let's focus on the `src/yang/vlan.yang` file.
 
-```
+```yang
             module vlan {
               namespace "http://com/example/vlan";
               prefix vlan;
@@ -700,7 +700,7 @@ For now, let's focus on the `src/yang/vlan.yang` file.
 
 If this is your first exposure to YANG, you can see that the modeling language is very straightforward and easy to understand. See [RFC 7950](https://www.ietf.org/rfc/rfc7950.txt) for more details and examples for YANG. The concept to understand in the above-generated skeleton is that the two lines of `uses ncs:service-data` and `ncs:servicepoint "vlan"` tells NSO that this is a service. The `ncs:service-data` grouping together with the `ncs:servicepoint` YANG extension provides the common definitions for a service. The two are implemented by the `$NCS_DIR/src/ncs/yang/tailf-ncs-services.yang`. So if a user wants to create a new VLAN in the network what should be the parameters? - A very simple service model would look like below (modify the `src/yang/vlan.yang` file):
 
-```
+```yang
   augment /ncs:services {
     container vlans {
       key name;
@@ -749,13 +749,13 @@ The good thing with NSO is that already at this point you could load the service
 
 To build this service model **cd** to `$NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/packages/vlan/src` and type `make` (assuming you have the `make` build system installed).
 
-```
+```bash
 $ make
 ```
 
 Go to the root directory of the `simulated-ios` example:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios
 ```
 
@@ -769,7 +769,7 @@ $ncs_cli -C -u admin
 
 When starting NSO above we give NSO a parameter to reload all packages so that our newly added `vlan` package is included. Packages can also be reloaded without restart. At this point we have a service model for VLANs, but no mapping of VLAN to device configurations. This is fine, we can try the service model and see if it makes sense. Create a VLAN service:
 
-```
+```cli
 admin@ncs(config)# services vlan net-0 vlan-id 1234 \
 device-if c0 interface-type FastEthernet interface 1/0
 admin@ncs(config-device-if-c0)# top
@@ -831,7 +831,7 @@ Make sure you delete the `vlan` service instance as above before moving on with 
 
 Now it is time to define the mapping from service configuration to actual device configuration. The first step is to understand the actual device configuration. Hard-wire the VLAN towards a device as example. This concrete device configuration is a boilerplate for the mapping, it shows the expected result of applying the service.
 
-```
+```cli
 admin@ncs(config)# devices device c0 config ios:vlan 1234
 admin@ncs(config-vlan)# top
 admin@ncs(config)# devices device c0 config ios:interface \
@@ -852,7 +852,7 @@ admin@ncs(config)# commit
 
 The concrete configuration above has the interface and VLAN hard-wired. This is what we now will make into a template instead. It is always recommended to start like the above and create a concrete representation of the configuration the template shall create. Templates are device-configuration where parts of the config are represented as variables. These kinds of templates are represented as XML files. Show the above as XML:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device c0 \
                                  config ios:vlan | display xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
@@ -900,7 +900,7 @@ admin@ncs(config)#
 
 Now, we shall build that template. When the package was created a skeleton XML file was created in `packages/vlan/templates/vlan.xml`
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="vlan">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -928,7 +928,7 @@ We need to specify the right path to the devices. In our case, the devices are i
 
 For each of those devices, we need to add the VLAN and change the specified interface configuration. Copy the XML config from the CLI and replace it with variables:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="vlan">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -999,7 +999,7 @@ It is important to understand that every path in the template above refers to pa
 
 Request NSO to reload the packages:
 
-```
+```cli
 admin@ncs# packages reload
 reload-result {
     package cisco-ios
@@ -1015,7 +1015,7 @@ Previously we started NCS with a `reload` package option, the above shows how to
 
 We can now create services that will make things happen in the network. (Delete any dummy service from the previous step first). Create a VLAN service:
 
-```
+```cli
 admin@ncs(config)# services vlan net-0 vlan-id 1234 device-if c0 \
                                  interface-type FastEthernet interface 1/0
 admin@ncs(config-device-if-c0)# top
@@ -1057,7 +1057,7 @@ Commit complete.
 
 When working with services in templates, there is a useful debug option for commit which will show the template and XPATH evaluation.
 
-```
+```cli
 admin@ncs(config)# commit | debug
 Possible completions:
  template   Display template debug info
@@ -1067,7 +1067,7 @@ admin@ncs(config)# commit | debug template
 
 We can change the VLAN service:
 
-```
+```cli
 admin@ncs(config)# services vlan net-0 vlan-id 1222
 admin@ncs(config-vlan-net-0)# top
 admin@ncs(config)# show configuration
@@ -1099,7 +1099,7 @@ native {
 
 It is important to understand what happens above. When the VLAN ID is changed, NSO can calculate the minimal required changes to the configuration. The same situation holds true for changing elements in the configuration or even parameters of those elements. In this way, NSO does not need explicit mapping to define a VLAN change or deletion. NSO does not overwrite a new configuration on the old configuration. Adding an interface to the same service works the same:
 
-```
+```cli
 admin@ncs(config)# services vlan net-0 device-if c2 interface-type FastEthernet interface 1/0
 admin@ncs(config-device-if-c2)# top
 admin@ncs(config)# commit dry-run outformat native
@@ -1119,7 +1119,7 @@ Commit complete.
 
 To clean up the configuration on the devices, run the delete command as shown below:
 
-```
+```cli
 admin@ncs(config)# no services vlan net-0
 admin@ncs(config)# commit dry-run outformat native
 native {
@@ -1210,7 +1210,7 @@ A `plan` also defines an empty leaf `failed` which is set if and only if any _st
 
 The following is an illustration of using the plan to report the progress of a nano service:
 
-```
+```cli
 ncs# show vpn l3vpn volvo plan
 NAME                    TYPE   STATE              STATUS       WHEN
 ------------------------------------------------------------------------------------
@@ -1237,7 +1237,7 @@ A trigger is used to associate a policy with a service and a component.
 
 The following is an illustration of using an SPM to track the progress of an RFM service, in this case, the policy specifies that the self-components ready state must be reached for the policy to be true:
 
-```
+```cli
 ncs# show vpn l3vpn volvo service-progress-monitoring
                                                                JEOPARDY                       VIOLATION           SUCCESS
 NAME  POLICY         START TIME           JEOPARDY TIME        RESULT    VIOLATION TIME       RESULT     STATUS   TIME

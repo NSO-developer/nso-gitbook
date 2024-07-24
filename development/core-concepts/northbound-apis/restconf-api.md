@@ -35,7 +35,7 @@ To enable RESTCONF in NSO, RESTCONF must be enabled in the `ncs.conf` configurat
 Here is a minimal example of what is needed in the `ncs.conf`.
 
 {% code title="Example: NSO Configuration for RESTCONF" %}
-```
+```xml
 <restconf>
   <enabled>true</enabled>
 </restconf>
@@ -55,7 +55,7 @@ Here is a minimal example of what is needed in the `ncs.conf`.
 If you want to run RESTCONF with a different transport configuration than what the WebUI is using, you can specify a separate RESTCONF transport section.
 
 {% code title="Example: NSO Separate Transport Configuration for RESTCONF" %}
-```
+```xml
 <restconf>
   <enabled>true</enabled>
   <transport>
@@ -83,7 +83,7 @@ If you want to run RESTCONF with a different transport configuration than what t
 It is now possible to do a RESTCONF requests towards NSO. Any HTTP client can be used, in the following examples curl will be used. The example below will show what a typical RESTCONF request could look like.
 
 {% code title="Example: A RESTCONF Request using " %}
-```
+```bash
 # Note that the command is wrapped in several lines in order to fit.
 #
 # The switch '-i' will include any HTTP reply headers in the output
@@ -106,7 +106,7 @@ http://localhost:8080/restconf/data
 In the rest of the document, in order to simplify the presentation, the example above will be expressed as:
 
 {% code title="Example: A RESTCONF Request, Simplified" %}
-```
+```http
 GET /restconf/data
 Accept: application/yang-data+xml
 
@@ -122,7 +122,7 @@ Note the HTTP return code (200 OK) in the example, which will be displayed toget
 Send a RESTCONF query to get a representation of the top-level resource, which is accessible through the path: `/restconf`.
 
 {% code title="Example: A Top-level RESTCONF Request" %}
-```
+```http
 GET /restconf
 Accept: application/yang-data+xml
 
@@ -146,7 +146,7 @@ As can be seen from the result, the server exposes three additional resources:
 To fetch configuration, operational data, or both, from the server, a request to the `data` resource is made. To restrict the amount of returned data, the following example will prune the amount of output to only consist of the topmost nodes. This is achieved by using the `depth` query argument as shown in the example below:
 
 {% code title="Example: Get the Top-most Resources Under " %}
-```
+```http
 GET /restconf/data?depth=1
 Accept: application/yang-data+xml
 
@@ -169,7 +169,7 @@ Accept: application/yang-data+xml
 Let's assume we are interested in the `dhcp/subnet` resource in our configuration. In the following examples, assume that it is defined by a corresponding Yang module that we have named `dhcp.yang`, looking like this:
 
 {% code title="Example: The " %}
-```
+```cli
 > yanger -f tree examples.confd/restconf/basic/dhcp.yang
 module: dhcp
   +--rw dhcp
@@ -193,7 +193,7 @@ We can issue an HTTP GET request to retrieve the value content of the resource. 
 Note also how we have prefixed the `dhcp:dhcp` resource. This is how RESTCONF handles namespaces, where the prefix is the YANG module name and the namespace is as defined by the namespace statement in the YANG module.
 
 {% code title="Example: Get the " %}
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet
 
 HTTP/1.1 204 No Content
@@ -203,7 +203,7 @@ HTTP/1.1 204 No Content
 We can now create the `dhcp/subnet` resource by sending an HTTP POST request + the data that we want to store. Note the `Content-Type` HTTP header, which indicates the format of the provided body. Two formats are supported: XML or JSON. In this example, we are using XML, which is indicated by the `Content-Type` value: `application/yang-data+xml`.
 
 {% code title="Example: Create a New " %}
-```
+```http
 POST /restconf/data/dhcp:dhcp
 Content-Type: application/yang-data+xml
 
@@ -236,7 +236,7 @@ If we now want to modify a part of our `dhcp/subnet` config, we can use the HTTP
 Also, note the difference of the `PATCH` URI compared to the earlier `POST` request. With the latter, since the resource does not yet exist, we `POST` to the parent resource (`dhcp:dhcp`), while with the `PATCH` request we address the (existing) resource (`10.254.239.0%2F27`).
 
 {% code title="Example: Modify a Part of the " %}
-```
+```http
 PATCH /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
 <subnet>
@@ -252,7 +252,7 @@ HTTP/1.1 204 No Content
 We can also replace the subnet with some new configuration. To do this, we make use of the `PUT` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
 {% code title="Example: Replace a " %}
-```
+```http
 PUT /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 Content-Type: application/yang-data+xml
 
@@ -273,7 +273,7 @@ HTTP/1.1 204 No Content
 To delete the subnet, we make use of the `DELETE` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
 {% code title="Example: Delete a " %}
-```
+```http
 DELETE /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
 HTTP/1.1 204 No Content
@@ -287,7 +287,7 @@ RESTCONF makes it possible to specify where the RESTCONF API is located, as desc
 As per default, the RESTCONF API root is `/restconf`. Typically there is no need to change the default value although it is possible to change this by configuring the RESTCONF API root in the `ncs.conf` file as:
 
 {% code title="Example: NSO Configuration for RESTCONF" %}
-```
+```xml
 <restconf>
   <enabled>true</enabled>
   <root-resource>my_own_restconf_root</root-resource>
@@ -329,7 +329,7 @@ A RESTCONF capability is a set of functionality that supplements the base RESTCO
 To view currently enabled capabilities, use the `ietf-restconf-monitoring` YANG model, which is available as: `/restconf/data/ietf-restconf-monitoring:restconf-state`.
 
 {% code title="Example: NSO RESTCONF Capabilities" %}
-```
+```http
 GET /restconf/data/ietf-restconf-monitoring:restconf-state
 Host: example.com
 Accept: application/yang-data+xml
@@ -421,7 +421,7 @@ For a full definition of the `fields` value can be constructed, refer to the [RF
 Note that the `fields` query parameter cannot be used together with the `exclude` query parameter. This will result in an error.
 
 {% code title="Example: Example of How to Use the " %}
-```
+```http
 GET /restconf/data/dhcp:dhcp?fields=subnet/range(low;high)
 Accept: application/yang-data+xml
 
@@ -461,7 +461,7 @@ Selecting multiple nodes to exclude can be done the same way as for the `fields`
 When `exclude` is not used:
 
 {% code title="Example: Example of How to Use the " %}
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet
 Accept: application/yang-data+xml
 
@@ -485,7 +485,7 @@ HTTP/1.1 200 OK
 
 Using `exclude` to exclude `low` and `high` from `range`, note that these are absent in the output:
 
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet?exclude=range(low;high)
 Accept: application/yang-data+xml
 
@@ -517,7 +517,7 @@ The `insert` query parameter is used to specify how a resource should be inserte
 This parameter is only valid if the target data represents a YANG list or leaf-list that is `ordered-by user`. In the example below, we will insert a new `router` value, first, in the `ordered-by user` leaf-list of `dhcp-options/router` values. Remember that the default behavior is for new entries to be inserted last in an `ordered-by user` leaf-list.
 
 {% code title="Example: Insert " %}
-```
+```bash
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
      insert=first
@@ -535,7 +535,7 @@ Location /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options/\
 
 To verify that the `router` value really ended up first:
 
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options
 Accept: application/yang-data+xml
 
@@ -553,7 +553,7 @@ HTTP/1.1 200 OK
 The `point` query parameter is used to specify the insertion point for a data resource that is being created or moved within an `ordered-by user` list or leaf-list. In the example below, we will insert the new `router` value: `two.acme.org`, after the first value: `one.acme.org` in the `ordered-by user` leaf-list of `dhcp-options/router` values.
 
 {% code title="Example: Insert " %}
-```
+```bash
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
      insert=after&\
@@ -572,7 +572,7 @@ Location /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options/\
 
 To verify that the `router` value really ended up after our insertion point:
 
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options
 Accept: application/yang-data+xml
 
@@ -617,7 +617,7 @@ The NSO RESTCONF API honors the following HTTP response headers: `Etag` and `Las
 If rollbacks have been enabled in the configuration using the `rollback-id` query parameter, the fixed ID of the rollback file created during an operation is returned in the results. The below examples show the creation of a new resource and the removal of that resource using the rollback created in the first step.
 
 {% code title="Example: Create a New dhcp/subnet Resource" %}
-```
+```http
 POST /restconf/data/dhcp:dhcp?rollback-id=true
 Content-Type: application/yang-data+xml
 
@@ -638,7 +638,7 @@ Location: http://localhost:8008/restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
 Then using the fixed ID returned above as input to the `apply-rollback-file` action:
 
-```
+```http
 POST /restconf/data/tailf-rollback:rollback-files/apply-rollback-file
 Content-Type: application/yang-data+xml
 
@@ -672,7 +672,7 @@ For this example, we will define a notification stream, named `interface` in the
 We also enable the built-in replay store which means that NSO automatically stores all notifications on disk, ready to be replayed should a RESTCONF event notification subscriber ask for logged notifications. The replay store uses a set of wrapping log files on a disk (of a certain number and size) to store the notifications.
 
 {% code title="Example: Configure an Example Notification" %}
-```
+```xml
 <notifications>
   <eventStreams>
     <stream>
@@ -693,7 +693,7 @@ We also enable the built-in replay store which means that NSO automatically stor
 To view the currently enabled event streams, use the `ietf-restconf-monitoring` YANG model. The streams are available under the `/restconf/data/ietf-restconf-monitoring:restconf-state/streams` container.
 
 {% code title="Example: View the Example RESTCONF Stream" %}
-```
+```http
 GET /restconf/data/ietf-restconf-monitoring:restconf-state/streams
 Accept: application/yang-data+xml
 
@@ -733,7 +733,7 @@ RESTCONF clients can determine the URL for the subscription resource (to receive
 The client will send an HTTP GET request for the (location) URL returned by the server with the `Accept` type `text/event-stream` as shown in the example below. Note that this request works like a long polling request which means that the request will not return. Instead, server-side notifications will be sent to the client where each line of the notification will be prepended with `data:`.
 
 {% code title="Example: View the Example RESTCONF Stream" %}
-```
+```http
 GET /restconf/streams/interface/xml
 Accept: text/event-stream
 
@@ -768,7 +768,7 @@ data: </notification>
 Since we have enabled the replay store, we can ask the server to replay any notifications generated since the specific date we specify. After those notifications have been delivered, we will continue waiting for new notifications to be generated.
 
 {% code title="Example: View the Example RESTCONF Stream" %}
-```
+```http
 GET /restconf/streams/interface/xml?start-time=2007-07-28T15%3A23%3A36Z
 Accept: text/event-stream
 
@@ -798,7 +798,7 @@ RFC 8040, Section 3.7 describes the retrieval of YANG modules used by the server
 The example below shows how to list the available Yang modules. Since we are interested in the `dhcp` module, we only show that part of the output:
 
 {% code title="Example: List the Available Yang Modules" %}
-```
+```http
 GET /restconf/data/ietf-yang-library:modules-state
 Accept: application/yang-data+xml
 
@@ -822,7 +822,7 @@ HTTP/1.1 200 OK
 
 We can now retrieve the `dhcp` Yang module via the URL we got in the `schema` leaf of the reply. Note that the actual URL may point anywhere. The URL is configured by the `schemaServerUrl` setting in the `ncs.conf` file.
 
-```
+```http
 GET /restconf/tailf/modules/dhcp/2019-02-14
 
 HTTP/1.1 200 OK
@@ -848,7 +848,7 @@ Referring to the example above (dhcp Yang model) in the [Getting Started](restco
 To create the resources, we send an HTTP PATCH request where the `Content-Type` indicates that the body in the request consists of a `Yang-Patch` message. Our `Yang-Patch` request will initiate two edit operations where each operation will create a new subnet. In contrast, compare this with using plain RESTCONF where we would have needed two `POST` requests to achieve the same result.
 
 {% code title="Example: Create a Two New dhcp/subnet Resources" %}
-```
+```http
 PATCH /restconf/data/dhcp:dhcp
 Accept: application/yang-data+xml
 Content-Type: application/yang-patch+xml
@@ -899,7 +899,7 @@ HTTP/1.1 200 OK
 Let us modify the `max-lease-time` of one subnet and delete the `max-lease-time` value of the second subnet. Note that the delete will cause the default value of `max-lease-time` to take effect, which we will verify using a RESTCONF GET request.
 
 {% code title="Example: Modify and Delete in the Same Yang-Patch Request" %}
-```
+```http
 PATCH /restconf/data/dhcp:dhcp
 Accept: application/yang-data+xml
 Content-Type: application/yang-patch+xml
@@ -939,7 +939,7 @@ HTTP/1.1 200 OK
 To verify that our modify and delete operations took place we make use of two RESTCONF `GET` requests as shown below.
 
 {% code title="Example: Verify the Modified " %}
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/max-lease-time
 Accept: application/yang-data+xml
 
@@ -952,7 +952,7 @@ HTTP/1.1 200 OK
 {% endcode %}
 
 {% code title="Example: Verify the Default Values after Delete of the " %}
-```
+```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.244.0%2F27/max-lease-time?\
       with-defaults=report-all-tagged
 Accept: application/yang-data+xml
@@ -986,7 +986,7 @@ HTTP/1.1 200 OK
 A RESTCONF client can discover which datastores and YANG modules the server supports by reading the YANG library information from the operational state datastore. Note in the example below that, since the result consists of three top nodes, it can't be represented in XML; hence we request the returned content to be in JSON format. See also [Collections](restconf-api.md#ncs.northbound.restconf.extensions.collections).
 
 {% code title="Example: Check Which Datastores the RESTCONF Server Supports" %}
-```
+```http
 GET /restconf/ds/ietf-datastores:operational/datastore
 Accept: application/yang-data+json
 
@@ -1027,7 +1027,7 @@ This functionality is supported if the `http://tail-f.com/ns/restconf/collection
 To remedy this, an HTTP GET request can make use of the `Accept:` media type: `application/vnd.yang.collection+xml` as shown in the following example. The result will then be wrapped within a `collection` element.
 
 {% code title="Example: Use of Collections" %}
-```
+```http
 GET /restconf/ds/ietf-datastores:operational/\
     ietf-yang-library:yang-library/datastore
 Accept: application/vnd.yang.collection+xml
@@ -1084,7 +1084,7 @@ The API consists of the following replies:
 In the following examples, we'll use this data model:
 
 {% code title="Example: " %}
-```
+```yang
 container x {
   list host {
     key number;
@@ -1108,7 +1108,7 @@ container x {
 The actual format of the payload should be represented either in XML or JSON. Note how we indicate the type of content using the `Content-Type` HTTP header. For XML, it could look like this:
 
 {% code title="Example: Example of a " %}
-```
+```http
 POST /restconf/tailf/query
 Content-Type: application/yang-data+xml
 
@@ -1136,7 +1136,7 @@ Content-Type: application/yang-data+xml
 The same request in JSON format would look like:
 
 {% code title="Example: JSON Example of a " %}
-```
+```http
 POST /restconf/tailf/query
 Content-Type: application/yang-data+json
 
@@ -1169,13 +1169,13 @@ For each `/x/host` where `enabled` is true, select its `name`, and `address`, an
 
 Let us discuss the various pieces of this request. To start with, when using XML, we need to specify the namespace as shown:
 
-```
+```xml
 <start-query xmlns="http://tail-f.com/ns/tailf-rest-query">
 ```
 
 The actual XPath query to run is specified by the `foreach` element. The example below will search for all `/x/host` nodes that have the `enabled` node set to `true`:
 
-```
+```xml
 <foreach>
   /x/host[enabled = 'true']
 </foreach>
@@ -1191,7 +1191,7 @@ The result-type `inline` makes it possible to return the full sub-tree of data, 
 
 It is possible to specify an optional `label` for a convenient way of labeling the returned data:
 
-```
+```xml
 <select>
   <label>Host name</label>
   <expression>name</expression>
@@ -1205,25 +1205,25 @@ It is possible to specify an optional `label` for a convenient way of labeling t
 
 The returned result can be sorted. This is expressed as an XPath expression, which in most cases is very simple and refers to the found node-set. In this example, we sort the result by the content of the _name_ node:
 
-```
+```xml
 <sort-by>name</sort-by>
 ```
 
 With the `offset` element, we can specify at which node we should start to receive the result. The default is 1, i.e., the first node in the resulting node set.
 
-```
+```xml
 <offset>1</offset>
 ```
 
 It is possible to set a custom timeout when starting or resetting a query. Each time a function is called, the timeout timer resets. The default is 600 seconds, i.e. 10 minutes.
 
-```
+```xml
 <timeout>600</timeout>
 ```
 
 The reply to this request would look something like this:
 
-```
+```xml
 <start-query-result>
   <query-handle>12345</query-handle>
 </start-query-result>
@@ -1231,7 +1231,7 @@ The reply to this request would look something like this:
 
 The query handle (in this example '12345') must be used in all subsequent calls. To retrieve the result, we can now send:
 
-```
+```xml
 <fetch-query-result xmlns="http://tail-f.com/ns/tailf-rest-query">
   <query-handle>12345</query-handle>
 </fetch-query-result>
@@ -1239,7 +1239,7 @@ The query handle (in this example '12345') must be used in all subsequent calls.
 
 Which will result in something like the following:
 
-```
+```xml
 <query-result xmlns="http://tail-f.com/ns/tailf-rest-query">
   <result>
     <select>
@@ -1264,14 +1264,14 @@ Which will result in something like the following:
 
 If we try to get more data with the `fetch-query-result`, we might get more `result` entries in return until no more data exists and we get an empty query result back:
 
-```
+```xml
 <query-result xmlns="http://tail-f.com/ns/tailf-rest-query">
 </query-result>
 ```
 
 Finally, when we are done we stop the query:
 
-```
+```xml
 <stop-query xmlns="http://tail-f.com/ns/tailf-rest-query">
   <query-handle>12345</query-handle>
 </stop-query>
@@ -1281,7 +1281,7 @@ Finally, when we are done we stop the query:
 
 If we want to go back into the stream of received data chunks and have them repeated, we can do that with the `reset-query` request. In the example below, we ask to get results from the 42nd result entry:
 
-```
+```xml
 <reset-query xmlns="http://tail-f.com/ns/tailf-rest-query">
   <query-handle>12345</query-handle>
   <offset>42</offset>
@@ -1303,7 +1303,7 @@ To request a partial response for a set of list entries, use the `offset` and `l
 In the following example, we retrieve only two entries, skipping the first entry and then returning the next two entries:
 
 {% code title="Example: Partial Response" %}
-```
+```http
 GET /restconf/data/example-jukebox:jukebox/library/artist?offset=1&limit=2
 Accept: application/yang-data+json
 
@@ -1319,7 +1319,7 @@ By default, hidden nodes are not visible in the RESTCONF interface. To unhide hi
 
 The format of the `unhide` parameter is a comma-separated list of
 
-```
+```xml
 <groupname>[;<password>]
 ```
 
@@ -1336,7 +1336,7 @@ This example unhides the unprotected group _extra_ and the password-protected gr
 It is possible to associate metadata with the configuration data. For RESTCONF, resources such as containers, lists as well as leafs and leaf-lists can have such meta-data. For XML, this meta-data is represented as attributes attached to the XML element in question. For JSON, there does not exist a natural way to represent this info. Hence a special special notation has been introduced, based on the [RFC 7952](https://www.ietf.org/rfc/rfc7952.txt), see the example below.
 
 {% code title="Example: XML Representation of Metadata" %}
-```
+```xml
 <x xmlns="urn:x" xmlns:x="urn:x">
   <id tags=" important ethernet " annotation="hello world">42</id>
   <person annotation="This is a person">
@@ -1348,7 +1348,7 @@ It is possible to associate metadata with the configuration data. For RESTCONF, 
 {% endcode %}
 
 {% code title="Example: JSON Representation of Metadata" %}
-```
+```json
 {
   "x": {
     "id": 42,
@@ -1472,7 +1472,7 @@ The RESTCONF server can be configured to reply with particular HTTP headers in t
 We add the extra configuration parameter in `ncs.conf`.
 
 {% code title="Example: NSO RESTCONF Custom Header Configuration" %}
-```
+```xml
     <restconf>
       <enabled>true</enabled>
       <custom-headers>

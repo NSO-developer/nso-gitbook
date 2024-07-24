@@ -22,39 +22,39 @@ To migrate to System Install:
 
 1.  Stop the current (local) NSO instance, if it is running.
 
-    ```
+    ```bash
     $ ncs --stop
     ```
 2.  Take a complete backup of the Runtime Directory for potential disaster recovery.
 
-    ```
+    ```bash
     $ tar -czf $HOME/ncs-backup.tar.gz -C $HOME ncs-run
     ```
 3.  Change to Super User privileges.
 
-    ```
+    ```bash
     $ sudo -s
     ```
 4.  Start the NSO System Install.
 
-    ```
+    ```bash
     $ sh nso-VERSION.OS.ARCH.installer.bin --system-install
     ```
 5. If you have multiple versions of NSO installed, verify that the symbolic link in `/opt/ncs` points to the correct version.
 6.  Copy the CDB files containing data to the central location.
 
-    ```
+    ```bash
     # cp $HOME/ncs-run/ncs-cdb/*.cdb /var/opt/ncs/cdb
     ```
 7.  Ensure that the `/var/opt/ncs/packages` directory includes all the necessary packages, appropriate for the NSO version. However, copying the packages directly could later on interfere with the operation of the `nct` command. It is better to only use symbolic links in that folder. Instead, copy the existing packages to the `/opt/ncs/packages` directory, either as directories or as tarball files. Make sure that each package includes the NSO version in its name and is not just a symlink, for example:
 
-    ```
+    ```bash
     # cd $HOME/ncs-run/packages
     # for pkg in *; do cp -RL $pkg /opt/ncs/packages/ncs-VERSION-$pkg; done
     ```
 8.  Link to these packages in the `/var/opt/ncs/packages` directory.
 
-    ```
+    ```bash
     # cd /var/opt/ncs/packages/
     # rm -f *
     # for pkg in /opt/ncs/packages/ncs-VERSION-*; do ln -s $pkg; done
@@ -64,25 +64,25 @@ To migrate to System Install:
     The reason for prepending `ncs-VERSION` to the filename is to allow additional NSO commands, such as `nct upgrade` and `software packages` to work properly. These commands need to identify which NSO version a package was compiled for.
 9.  Edit the `/etc/ncs/ncs.conf` configuration file and make the necessary changes. If you wish to use the configuration from Local Install, disable the local authentication, unless you fully understand its security implications.
 
-    ```
+    ```xml
     <local-authentication>
       <enabled>false</enabled>
     </local-authentication>
     ```
 10. When starting NSO later on, make sure that you set the package reload option, or use `start-with-package-reload` instead of `start` with `/etc/init.d/ncs`.
 
-    ```
+    ```bash
     # export NCS_RELOAD_PACKAGES=true
     ```
 11. Review and complete the steps in NSO System Install, except running the installer, which you have done already. Once completed, you should have a running NSO instance with data from the Local Install.
 12. Remove the package reload option if it was set.
 
-    ```
+    ```bash
     # unset NCS_RELOAD_PACKAGES
     ```
 13. Update log file paths for Java and Python VM through the NSO CLI.
 
-    ```
+    ```bash
     $ ncs_cli -C -u admin
     admin@ncs# config
     Entering configuration mode terminal
@@ -109,7 +109,7 @@ To migrate to System Install:
 
 At this point, you should have a complete copy of the previous Local Install running as a System Install. Should the migration fail at some point and you want to back out of it, the Local Install was not changed and you can easily go back to using it as before.
 
-```
+```bash
 $ sudo /etc/init.d/ncs stop
 $ source $HOME/ncs-VERSION/ncsrc
 $ cd $HOME/ncs-run
@@ -118,7 +118,7 @@ $ ncs
 
 In the unlikely event of Local Install becoming corrupted, you can restore it from the backup.
 
-```
+```bash
 $ rm -rf $HOME/ncs-run
 $ tar -xzf $HOME/ncs-backup.tar.gz -C $HOME
 ```

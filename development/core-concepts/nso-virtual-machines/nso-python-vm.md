@@ -14,7 +14,7 @@ Several Python packages can be started in the same Python VM if their correspond
 
 A Python package skeleton can be created by making use of the `ncs-make-package` command:
 
-```
+```bash
 ncs-make-package --service-skeleton python <package-name>
 ```
 
@@ -27,21 +27,21 @@ Note that some of the nodes beneath `python-vm` are by default invisible due to 
 1.  First, the following XML snippet must be added to `ncs.conf`:\
 
 
-    ```
+    ```xml
     <hide-group>
        <name>debug</name>
     </hide-group>
     ```
 2.  Next, the `unhide` command may be used in the CLI session:
 
-    ```
+    ```cli
     admin@ncs(config)# unhide debug
     admin@ncs(config)#
     ```
 
 The `sanity-checks`/`self-assign-warning` controls the self-assignment warnings for Python services with off, log, and alarm (default) modes. An example of a self-assignment:
 
-```
+```python
 class ServiceCallbacks(Service):
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
@@ -50,7 +50,7 @@ class ServiceCallbacks(Service):
 
 As several service invocations may run in parallel, self-assignment will likely cause difficult-to-debug issues. An alarm or a log entry will contain a warning and a keypath to the service instance that caused the warning. Example log entry:
 
-```
+```xml
 <WARNING> ... Assigning to self is not thread safe: /mysrvc:mysrvc{2}
 ```
 
@@ -67,7 +67,7 @@ The `status`_/_`start` and `status`_/_`current` contains operational data. The `
 The `start` and `stop` actions make it possible to start and stop a particular Python VM.
 
 {% code title="Example: The Python VM YANG Model" %}
-```
+```cli
 > yanger -f tree tailf-ncs-python-vm.yang
           
 submodule: tailf-ncs-python-vm (belongs-to tailf-ncs)
@@ -117,7 +117,7 @@ submodule: tailf-ncs-python-vm (belongs-to tailf-ncs)
 The `package-meta-data.xml` file must contain a `component` of type `application` with a `python-class-name` specified as shown in the example below.
 
 {% code title="Example: package-meta-data.xml Excerpt" %}
-```
+```xml
 <component>
   <name>L3VPN Service</name>
   <application>
@@ -186,7 +186,7 @@ The behavior is controlled by three factors:
 If the `callpoint-model` is set to `multiprocessing`, more than one callpoint is registered in the `Application` and the Operating System supports killing child processes when the parent exits, NSO will enable multiprocessing mode.
 
 {% code title="Example: Component Class Skeleton" %}
-```
+```python
 import ncs
 
 class Service(ncs.application.Application):
@@ -224,7 +224,7 @@ The existing log functions are named after the standard Python log levels, thus 
 The Python class specified in the `upgrade` section of `package-meta-data.xml` will be run by NSO in a separately started Python VM. The class must be instantiable using the empty constructor and it must have a method called `upgrade` as in the example below. It should inherit `ncs.upgrade.Upgrade`.
 
 {% code title="Example: Upgrade Class Example" %}
-```
+```python
 import ncs
 import _ncs
 
@@ -308,7 +308,7 @@ Normally the logging objects provided by the Python APIs are used. They are base
 
 The default logging level is set to `info`. For debugging purposes, it is very useful to increase the logging level:
 
-```
+```bash
     $ ncs_cli -u admin
     admin@ncs> config
     admin@ncs% set python-vm logging level level-debug
@@ -317,7 +317,7 @@ The default logging level is set to `info`. For debugging purposes, it is very u
 
 This sets the global logging level and will affect all started Python VMs. It is also possible to set the logging level for a single package (or multiple packages running in the same VM), which will take precedence over the global setting:
 
-```
+```bash
     $ ncs_cli -u admin
     admin@ncs> config
     admin@ncs% set python-vm logging vm-levels pkg_name level level-debug
@@ -328,7 +328,7 @@ The debugging output is printed to separate files for each package and the log f
 
 Log file output example for package `l3vpn`:
 
-```
+```bash
     $ tail -f logs/ncs-python-vm-l3vpn.log
     2016-04-13 11:24:07 - l3vpn - DEBUG - Waiting for Json msgs
     2016-04-13 11:26:09 - l3vpn - INFO - action name: double
@@ -358,7 +358,7 @@ NSO can be configured to use a custom start command for starting a Python VM. Th
 
 Example:
 
-```
+```bash
 $ cd $NCS_DIR/bin
 $ pwd
 /usr/local/nso/bin
@@ -369,7 +369,7 @@ $ # file to start the desired Python executable.
 
 Add the following snippet to `ncs.conf`:
 
-```
+```xml
 <python-vm>
     <start-command>/usr/local/nso/bin/my-start-python-vm</start-command>
 </python-vm>

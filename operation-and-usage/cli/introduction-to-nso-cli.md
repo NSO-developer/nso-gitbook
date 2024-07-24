@@ -25,7 +25,7 @@ NSO organizes all managed devices as a list of devices. The path to a specific d
 
 Show device operational data and configuration data:
 
-```
+```cli
 admin@ncs# show devices device
 devices device ce0
  ...
@@ -55,7 +55,7 @@ It can be annoying to move between modes to display configuration data and opera
 
 Show config data in operational mode and vice versa:
 
-```
+```cli
 admin@ncs# show running-config devices device
 admin@ncs(config)# do show running-config devices device
 ```
@@ -64,7 +64,7 @@ Look at the device configuration above, no configuration relates to the actual c
 
 Perform the action to synchronize from devices:
 
-```
+```cli
 admin@ncs(config)# devices sync-from
 sync-result {
     device ce0
@@ -79,7 +79,7 @@ sync-result {
 
 Display the device configuration after the synchronization:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device ce0 config
 devices device ce0
  config
@@ -149,7 +149,7 @@ The prompt indicates which mode the CLI is in. When moving from operational mode
 
 For example:
 
-```
+```cli
 admin@ncs# configure
 Entering configuration mode terminal
 admin@ncs(config)#
@@ -170,7 +170,7 @@ A list of base commands available in `configure` mode is listed below in the [Co
 {% hint style="info" %}
 When using the `config` mode to enter/set passwords, you may face issues if you are using special characters in your password (e.g., `!`, `""`, `\`, etc.). Some characters are automatically escaped by the CLI, while others require manual escaping. Therefore, the recommendation is to always enclose your password in double quotes `" "` and avoid using quotes `"` and backslash `\` characters in your password. If you prefer including quotes and backslash in your password, remember to manually escape them, as shown in the example below:
 
-```
+```cli
 admin@ncs(config)# devices authgroups group default umap
 admin remote-name admin remote-password "admin\"admin"
 ```
@@ -198,7 +198,7 @@ To run a script non-interactively, such as a script or through a pipe, and still
 
 ### Command Line Options
 
-```
+```bash
 ncs_cli --help
 Usage: ncs_cli [options] [file]
 Options:
@@ -249,7 +249,7 @@ $> ncs_cli -J -u admin
 
 It is possible to interactively switch between these styles while inside the CLI using the builtin `switch` command:
 
-```
+```cli
 admin@ncs# switch cli
 ```
 
@@ -267,7 +267,7 @@ Once NSO is synchronized with the devices' configuration, done by using the `dev
 
 As an example, to change the speed setting on the interface GigabitEthernet0/1 across several devices:
 
-```
+```cli
 admin@ncs(config)# devices device ce0..1 config ios:interface GigabitEthernet0/1 speed auto
 admin@ncs(config-if)# top
 admin@ncs(config)# show configuration
@@ -313,7 +313,7 @@ This is operational data and the CLI is in configuration mode so the way of show
 
 The command `show configuration rollback changes` can be used to view rollback changes in more detail. It will show what will be done when the rollback file is loaded, similar to loading the rollback and using `show configuration`:
 
-```
+```cli
 admin@ncs(config)# show configuration rollback changes 10019
 devices device ce0
  config
@@ -333,7 +333,7 @@ devices device ce1
 
 The command `show configuration commit changes` can be used to see which changes were done in a given commit, i.e. the roll-forward commands performed in that commit:
 
-```
+```cli
 admin@ncs(config)# show configuration commit changes 10019
 !
 ! Created by: admin
@@ -358,7 +358,7 @@ devices device ce1
 
 The command `rollback-files apply-rollback-file` can be used to perform the rollback:
 
-```
+```cli
 admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10019
 admin@ncs(config)# show configuration
 devices device ce0
@@ -379,7 +379,7 @@ devices device ce1
 
 And now the `commit` the rollback:
 
-```
+```cli
 admin@ncs(config)# commit
 Commit complete.
 ```
@@ -394,7 +394,7 @@ This operation may fail if the commits following rollback 10019 depend on the ch
 
 It is possible to process the output from a command using an output redirect. This is done using the | character (a pipe character):
 
-```
+```cli
 admin@ncs# show running-config | ?
 Possible completions:
   annotation      Show only statements whose annotation matches a pattern
@@ -442,7 +442,7 @@ show running-config | include aaa | tab
 
 This redirect target counts the number of lines in the output. For example:
 
-```
+```cli
 admin@ncs# show running-config | count
 Count: 1783 lines
 admin@ncs# show running-config aaa | count
@@ -453,7 +453,7 @@ Count: 28 lines
 
 The `include` targets is used to only include lines matching a regular expression:
 
-```
+```cli
 admin@ncs# show running-config aaa | include aaa
 aaa authentication users user admin
 aaa authentication users user oper
@@ -463,7 +463,7 @@ aaa authentication users user public
 
 In the example above only lines containing aaa are shown. Similarly lines not containing a regular expression can be included. This is done using the `exclude` target:
 
-```
+```cli
 admin@ncs# show running-config aaa authentication | exclude password
 aaa authentication users user admin
  uid        1000
@@ -493,7 +493,7 @@ aaa authentication users user public
 
 It is possible to display the context for a match using the pipe command `include -c`. Matching lines will be prefixed by `<line no>`: and context lines with `<line no>-`. For example:
 
-```
+```cli
 admin@ncs# show running-config aaa authentication | include -c 3 homes/admin
  2- uid        1000
  3- gid        1000
@@ -507,7 +507,7 @@ admin@ncs# show running-config aaa authentication | include -c 3 homes/admin
 
 It is possible to display the context for a match using the pipe command `context-match`:
 
-```
+```cli
 admin@ncs# show running-config aaa authentication | context-match homes/admin
 aaa authentication users user admin
  ssh_keydir /var/ncs/homes/admin/.ssh
@@ -517,7 +517,7 @@ aaa authentication users user admin
 
 It is possible to display the output starting at the first match of a regular expression. This is done using the `begin` pipe command:
 
-```
+```cli
 admin@ncs# show running-config aaa authentication users | begin public
 aaa authentication users user public
  uid        1000
@@ -532,13 +532,13 @@ aaa authentication users user public
 
 The output can also be saved to a file using the `save` or `append` redirect target:
 
-```
+```cli
 admin@ncs# show running-config aaa | save /tmp/saved
 ```
 
 Or to save the configuration, except all passwords:
 
-```
+```cli
 admin@ncs# show running-config aaa | exclude password | save /tmp/saved
 ```
 
@@ -550,7 +550,7 @@ The regular expressions are a subset of the regular expressions found in egrep a
 
 For example, to only display `uid` and `gid` do the following:
 
-```
+```cli
 admin@ncs# show running-config aaa | include "(uid)|(gid)"
  uid        1000
  gid        1000
@@ -568,7 +568,7 @@ There are several options for displaying the configuration and stats data in NSO
 
 To display the configuration of a device do:
 
-```
+```cli
 admin@ncs# show running-config devices device ce0 config
 devices device ce0
  config
@@ -589,7 +589,7 @@ This can also be done for a group of devices by substituting the instance name (
 
 To display the config of all devices:
 
-```
+```cli
 admin@ncs# show running-config devices device * config
 devices device ce0
  config
@@ -614,7 +614,7 @@ devices device ce1
 
 It is possible to limit the output even further. View only the HTTP settings on each device:
 
-```
+```cli
 admin@ncs# show running-config devices device * config ios:ip http
 devices device ce0
  config
@@ -631,7 +631,7 @@ devices device ce1
 
 There is an alternative syntax for this using the `select` pipe command:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     select config ios:ip http
 devices device ce0
@@ -649,7 +649,7 @@ devices device ce1
 
 The `select` pipe command can be used multiple times for adding additional content:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     select config ios:ip http | \
     select config ios:ip domain-lookup
@@ -670,7 +670,7 @@ devices device ce1
 
 There is also a `de-select` pipe command that can be used to instruct the CLI to not display certain parts of the config. The above printout could also be achieved by first selecting the `ip` container, and then de-selecting the `source-route` leaf:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     select config ios:ip | \
     de-select config ios:ip source-route
@@ -691,7 +691,7 @@ devices device ce1
 
 A use-case for the `de-select` pipe command is to de-select the `config` container to only display the device settings without actually displaying their config:
 
-```
+```cli
 admin@ncs# show running-config devices device * | de-select config
 devices device ce0
  address   127.0.0.1
@@ -711,14 +711,14 @@ devices device ce1
 
 The above statements also work for the `save` command. To save the devices managed by NSO, but not the contents of their `config` container:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     de-select config | save /tmp/devices
 ```
 
 It is possible to use the `select` command to select which list instances to display. To display all devices that have the interface `GigabitEthernet 0/0/0/4`:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     select config cisco-ios-xr:interface GigabitEthernet 0/0/0/4
 devices device p0
@@ -740,7 +740,7 @@ devices device p1
 
 This means to display all device instances that have the interface GigabitEthernet 0/0/0/4. Only the subtree defined by the select path will be displayed. It is also possible to display the entire content of the `config` container for each instance by using an additional select statement:
 
-```
+```cli
 admin@ncs# show running-config devices device * | \
     select config cisco-ios-xr:interface GigabitEthernet 0/0/0/4 | \
     select config | match-all
@@ -772,7 +772,7 @@ The `display` command is used to format configuration and statistics data. There
 
 For instance, assuming we have a data model featuring a set of hosts, each containing a set of servers, we can display the configuration data as JSON. This is depicted in the example below.
 
-```
+```cli
 admin@ncs# show running-config hosts | display json
 {
   "data": {
@@ -808,7 +808,7 @@ Still working with the same data model as used in the example above, we might wa
 
 The following example shows how to do that and shows the resulting output:
 
-```
+```cli
 admin@ncs# show running-config hosts | display keypath
 /hosts/host{host1} enabled
 /hosts/host{host1}/numberOfServers 2
@@ -836,26 +836,26 @@ Range expressions are also supported for key elements of non-integer types as lo
 
 The following can be done in the CLI to display a subset of the devices (`ce0`, `ce1`, `ce3`):
 
-```
+```cli
 admin@ncs# show running-config devices device ce0..1,3
 ```
 
 If the devices have names with slashes, for example, Firewall/1/1, Firewall/1/2, Firewall/1/3, Firewall/2/1, Firewall/2/2, and Firewall/2/3, expressions like this are possible:
 
-```
+```cli
 admin@ncs# show running-config devices device Firewall/1-2/*
 admin@ncs# show running-config devices device Firewall/1-2/1,3
 ```
 
 In configure mode, it is possible to edit a range of instances in one command:
 
-```
+```cli
 admin@ncs(config)# devices device ce0..2 config ios:ethernet cfm ieee
 ```
 
 Or, like this:
 
-```
+```cli
 admin@ncs(config)# devices device ce0..2 config
 admin@ncs(config-config)# ios:ethernet cfm ieee
 admin@ncs(config-config)# show config
@@ -940,7 +940,7 @@ Completion is disabled inside quotes. To type an argument containing spaces eith
 
 Command completion also applies to filenames and directories:
 
-```
+```cli
 admin@ncs# <space>
 Possible completions:
   alarms                 Alarm management
@@ -1006,7 +1006,7 @@ The commands are:
 
 Example:
 
-```
+```cli
 admin@ncs(config)# annotate aaa authentication users user admin \
 "Only allow the XX department access to this user."
 admin@ncs(config)# tag add aaa authentication users user oper oper_tag
@@ -1016,7 +1016,7 @@ Commit complete.
 
 To view the placement of tags and annotations in the configuration it is recommended to use the pipe command `display curly-braces`. The annotations and tags will be displayed as comments where the tags are prefixed by `Tags:`. For example:
 
-```
+```cli
 admin@ncs(config)# do show running-config aaa authentication users user | \
     tags oper_tag | display curly-braces
 /* Tags: oper_tag */
@@ -1047,7 +1047,7 @@ Annotations and tags are part of the configuration. When adding, removing, or mo
 
 Messages appear when entering and exiting configure mode, when committing a configuration, and when typing a command or value that is not valid:
 
-```
+```cli
 admin@ncs# show c
 -----------------^
 syntax error:
@@ -1064,7 +1064,7 @@ When committing a configuration, the CLI first validates the configuration, and 
 
 If a missing identifier or a value is out of range a message will indicate where the errors are:
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# nacm rule-list any-group rule allowrule
@@ -1080,7 +1080,7 @@ Parts of the CLI behavior can be controlled from the `ncs.conf` file. See the [n
 
 There are a number of session variables in the CLI. They are only used during the session and are not persistent. Their values are inspected using `show cli` in operational mode, and set using **set** in operational mode. Their initial values are in order derived from the content of the `ncs.conf` file, and the global defaults as configured at `/aaa:session` and user-specific settings configured at `/aaa:user{<user>}/setting`.
 
-```
+```cli
 admin@ncs# show cli
 autowizard            false
 complete-on-space     true
@@ -1110,7 +1110,7 @@ When enabled, the CLI will prompt the user for the required settings when a new 
 \
 For example:
 
-```
+```cli
 admin@ncs(config)# aaa authentication users user John
 Value for 'uid' (<int>): 1006
 Value for 'gid' (<int>): 1006

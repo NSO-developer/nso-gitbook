@@ -17,7 +17,7 @@ Packages are composed of components. The following types of components are defin
 
 The file layout of a package is:
 
-```
+```xml
            <package-name>/package-meta-data.xml
                     load-dir/
                     shared-jar/
@@ -42,7 +42,7 @@ The optional `webui` directory contains the WEB UI customization files.
 The NSO example collection for developers contains a number of small self-contained examples. The collection resides at `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs` Each of these examples defines a package. Let's take a look at some of these packages. The example `3-aggregated-stats` has a package `./packages/stats`. The `package-meta-data.xml` file for that package looks like this:
 
 {% code title="An Example Package" %}
-```
+```xml
 <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
   <name>stats</name>
   <package-version>1.0</package-version>
@@ -87,7 +87,7 @@ The file structure in the package looks like this:
 
 The `package-meta-data.xml` file defines the name of the package, additional settings, and one component. Its settings are defined by the `$NCS_DIR/src/ncs/yang/tailf-ncs-packages.yang` YANG model, where the _package_ list name gets renamed to `ncs-package`. See the `tailf-ncs-packages.yang` module where all options are described in more detail. To get an overview, use the IETF RFC 8340-based YANG tree diagram.
 
-```
+```bash
 $ yanger -f tree tailf-ncs-packages.yang
 ```
 
@@ -166,11 +166,11 @@ The order of the XML entries in a `package-meta-data.xml` must be in the same or
 
 A sample package configuration is taken from the `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-vrouter`example:
 
-```
+```bash
 $ ncs_load -o -Fp -p /packages
 ```
 
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <packages xmlns="http://tail-f.com/ns/ncs">
     <package>
@@ -243,13 +243,13 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
 * `template-loading-mode` - control if the templates are interpreted in strict or relaxed mode.
 *   `supported-ned-id` - the list of ned-ids supported by this package. An example of the expected format taken from the `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-vrouter` example:
 
-    ```
+    ```xml
     <supported-ned-id xmlns:router-nc-1.1="http://tail-f.com/ns/ned-id/router-nc-1.1">
     router-nc-1.1:router-nc-1.1</supported-ned-id>
     ```
 *   `supported-ned-id-match` - the list of regular expressions for ned-ids supported by this package. Ned-ids in the system that matches at least one of the regular expressions in this list are added to the `supported-ned-id` list. The following example demonstrates how all minor versions with a major number of 1 of the `router-nc` NED can be added to a package's list of supported ned-ids:
 
-    ```
+    ```xml
     <supported-ned-id-match>router-nc-1.\d+:router-nc-1.\d+</supported-ned-id-match>
     ```
 * `required-package` - a list of names of other packages that are required for this package to work.
@@ -311,7 +311,7 @@ This defines a component with one or many Java classes that implement callbacks 
 
 If we look at the components in the `stats` package above, we have:
 
-```
+```xml
   <component>
     <name>stats</name>
     <callback>
@@ -358,7 +358,7 @@ NSO ships with a tool `ncs-make-package` that can be used to create packages. [P
 
 This use case applies if we have a set of YANG files that define a managed device. If we wish to develop an EMS solution for an existing device _and_ that device has YANG files and also speaks NETCONF, we need to create a package for that device to be able to manage it. Assuming all YANG files for the device are stored in `./acme-router-yang-files`, we can create a package for the router as:
 
-```
+```bash
   $ ncs-make-package --netconf-ned ./acme-router-yang-files acme
   $ cd acme/src; make
 ```
@@ -367,13 +367,13 @@ The above command will create a package called `acme` in `./acme`. The `acme` pa
 
 In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/developing-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
 
-```
+```bash
  $ ncs-setup --ned-package ./acme --dest ./ncs-project
 ```
 
 The above command generates a directory `./ncs-project` which is suitable for running NSO. Assume we have an existing router at the IP address `10.2.3.4` and that we can log into that router over the NETCONF interface using the username `bob`, and password `secret`. The following session shows how to set up NSO to manage this router:
 
-```
+```bash
  $ cd ./ncs-project
  $ ncs
  $ ncs_cli -u admin
@@ -387,7 +387,7 @@ The above command generates a directory `./ncs-project` which is suitable for ru
 
 We can also use the newly generated `acme` package to simulate a network of `acme` routers. During development, this is especially useful. The `ncs-netsim` tool can create a simulated network of `acme` routers as:
 
-```
+```bash
  $ ncs-netsim create-network ./acme 5 a --dir ./netsim
  $ ncs-netsim start
 DEVICE a0 OK STARTED
@@ -400,7 +400,7 @@ DEVICE a4 OK STARTED
 
 Finally, `ncs-setup` can be used to initialize an environment where NSO is used to manage all devices in an `ncs-netsim` network:
 
-```
+```bash
  $ ncs-setup --netsim-dir ./netsim --dest ncs-project
 ```
 
@@ -410,7 +410,7 @@ Similarly, if we have a device that has a set of MIB files, we can use `ncs-make
 
 Assuming we have a set of MIB files in `./mibs`, we can generate a package for a device with those mibs as:
 
-```
+```bash
  $ ncs-make-package --snmp-ned ./mibs acme
  $ cd acme/src; make
 ```

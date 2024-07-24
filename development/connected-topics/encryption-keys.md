@@ -48,7 +48,7 @@ ERROR=error message
 
 Below is a complete example of an application written in Python providing encryption keys from a plain text file. The application is included in the example `crypto/external_keys`:
 
-```
+```python
 #!/usr/bin/env python3
 
 import os
