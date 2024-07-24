@@ -88,7 +88,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 * The start script is installed as part of the NSO system install, and it can be customized if you would like to use it to start NSO. The available NSO start script variants can be found under `/opt/ncs/current/src/ncs/package-skeletons/etc`. The scripts may provide what you need and can be used as a starting point.
 *   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:\\
 
-    ```
+    ```bash
     $ mkdir -p /etc/init.d
     $ ./nso-NSO_VERSION.linux.x86_64.installer.bin --system-install
     $ cp /etc/init.d/ncs /etc/rc.d/init.d/
@@ -122,7 +122,7 @@ The initialization steps are also performed as `root` for the nodes that make up
     **Note**: The SSL certificates that NSO generates are self-signed:\
 
 
-    ```
+    ```bash
           $ openssl x509 -in /etc/ncs/ssl/cert/host.cert -text -noout
           Certificate:
           Data:
@@ -145,7 +145,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 *   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.\
 
 
-    ```
+    ```xml
         <prompt1>\u@nso-\H> </prompt1>
         <prompt2>\u@nso-\H% </prompt2>
 
@@ -205,7 +205,7 @@ There are quite a few different global settings for NSO. The two mentioned above
 
 NSO uses Cisco Smart Licensing, which is described in detail in [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md). After registering your NSO instance(s), and receiving a token, following steps 1-6 as described in the [Create a License Registration Token](../management/system-management/cisco-smart-licensing.md#d5e2927) section of Cisco Smart Licensing, enter a token from your Cisco Smart Software Manager account on each host. Use the same token for all instances and script entering the token as part of the initial NSO configuration or from the management node:
 
-```
+```cli
 admin@nso-paris# license smart register idtoken YzY2Yj...
 admin@nso-london# license smart register idtoken YzY2Yj...
 ```
@@ -256,7 +256,7 @@ User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The le
 
 The internal NSO log resides at `/var/log/ncs/ncserr.*`. The log is written in a binary format. To view the internal error log, run the following command:
 
-```
+```bash
   $ ncs --printlog /var/log/ncs/ncserr.log.1
 ```
 
@@ -276,7 +276,7 @@ All large-scale deployments employ monitoring systems. There are plenty of good 
 
 RESTCONF can be used to view the NSO alarm table and subscribe to alarm notifications. NSO alarms are not events. Whenever an NSO alarm is created, a RESTCONF notification and SNMP trap are also sent, assuming that you have a RESTCONF client registered with the alarm stream or configured a proper SNMP target. Some alarms, like the rule-based HA `ha-secondary-down` alarm, require the intervention of an operator. Thus, a monitoring tool should also fetch the NSO alarm list.
 
-```
+```bash
 $ curl -ik -H "X-Auth-Token: TsZTNwJZoYWBYhOPuOaMC6l41CyX1+oDaasYqQZqqok=" \
 https://paris:8888/restconf/data/tailf-ncs-alarms:alarms
 ```
@@ -291,7 +291,7 @@ NSO metric has different contexts all containing different counters, gauges, and
 
 You may read counters by e.g. CLI, as in this example:
 
-```
+```cli
 admin@ncs# show metric sysadmin counter session cli-total
 metric sysadmin counter session cli-total 1
 ```
@@ -300,7 +300,7 @@ metric sysadmin counter session cli-total 1
 
 You may read gauges by e.g. CLI, as in this example:
 
-```
+```cli
 admin@ncs# show metric sysadmin gauge session cli-open
 metric sysadmin gauge session cli-open 1
 ```
@@ -309,7 +309,7 @@ metric sysadmin gauge session cli-open 1
 
 You may read rate of change gauges by e.g. CLI, as in this example:
 
-```
+```cli
 admin@ncs# show metric sysadmin gauge-rate session cli-open
 NAME  RATE
 -------------
@@ -344,7 +344,7 @@ To drive this point home, when you invoke the `ncs_cli` command, a small C progr
 
 You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
 
-```
+```bash
 $ cat /etc/ncs/ipc_access
 cat: /etc/ncs/ipc_access: Permission denied
 $ sudo chown root:ncsadmin /etc/ncs/ipc_access

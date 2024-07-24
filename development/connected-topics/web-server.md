@@ -82,7 +82,7 @@ The `tailf-tls.yang` YANG module defines a structure to store TLS data in the da
 To enable the web server to fetch TLS data from the database, `ncs.conf` needs to be configured.
 
 {% code title="Configuring NSO to Read TLS Data from the Database." %}
-```
+```xml
 <webui>
   <transport>
     <ssl>
@@ -184,14 +184,14 @@ cacert-2  04:2d:93:9b:37:21:d2:22:74:ad:d9:99:ae:76:b6:6a:f2:3b:e3:4e:07:32:f2:8
 \
 When the database is populated, NSO needs to be reloaded.
 
-```
+```bash
           
 $ ncs --reload
 ```
 
 After configuring NSO, populating the database, and reloading, the TLS transport is usable.
 
-```
+```bash
           
 $ curl -kisu admin:admin https://localhost:8889
 HTTP/1.1 302 Found
@@ -205,7 +205,7 @@ The web server includes support for uploading packages to `/package-upload` usin
 By default, only uploading 1 file per request will be processed and any remaining file parts after that will result in an error and its content will be ignored. To allow multiple files in a request you can increase `/ncs-config/webui/package-upload/max-files`.
 
 {% code title="Valid Package Example" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -223,7 +223,7 @@ curl \
 {% endcode %}
 
 {% code title="Invalid Package Example" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -245,7 +245,7 @@ curl \
 
 The AAA infrastructure can be used to restrict access to library functions using command rules:
 
-```
+```xml
 <cmdrule xmlns="http://tail-f.com/yang/acm">
 <name>deny-package-upload</name>
 <context>webui</context>

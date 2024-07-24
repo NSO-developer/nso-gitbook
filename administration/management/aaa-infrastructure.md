@@ -62,7 +62,7 @@ Depending on the northbound management protocol, when a user session is created 
 
 The authentication part of the data model can be found in `tailf-aaa.yang`:
 
-```
+```yang
     container authentication {
       tailf:info "User management";
       container users {
@@ -145,7 +145,7 @@ The built-in SSH daemon supports DSA, RSA, and ED25519 keys. To generate and ena
 
 On the client machine, as user "bob", generate a private/public key pair as:
 
-```
+```bash
 # ssh-keygen -b 4096 -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/bob/.ssh/id_rsa):
@@ -166,7 +166,7 @@ Now we need to copy the public key to the target machine where the NETCONF or CL
 
 Assume we have the following user entry:
 
-```
+```xml
 <user>
   <name>bob</name>
   <uid>100</uid>
@@ -221,7 +221,7 @@ To configure PAM we typically need to do the following:
 1. Remove all users and groups from the AAA initialization XML file.
 2.  Enable PAM in `ncs.conf` by adding the following to the AAA section in `ncs.conf`. The `service` name specifies the PAM service, typically a file in the directory `/etc/pam.d`, but may alternatively, be an entry in a file `/etc/pam.conf` depending on OS and version. Thus, it is possible to have a different login procedure for NSO than for the host itself.
 
-    ```
+    ```xml
     <pam>
       <enabled>true</enabled>
       <service>common-auth</service>
@@ -229,7 +229,7 @@ To configure PAM we typically need to do the following:
     ```
 3.  If PAM is enabled and we want to use PAM for login, the system may have to run as `root`. This depends on how PAM is configured locally. However, the default system authentication will typically require `root`, since the PAM libraries then read `/etc/shadow`. If we don't want to run NSO as root, the solution here is to change the owner of a helper program called `$NCS_DIR/lib/ncs/lib/core/pam/priv/epam` and also set the `setuid` bit.
 
-    ```
+    ```bash
     # cd $NCS_DIR/lib/ncs/lib/core/pam/priv/
     # chown root:root epam
     # chmod u+s epam
@@ -237,7 +237,7 @@ To configure PAM we typically need to do the following:
 
 As an example, say that we have a user test in `/etc/passwd`, and furthermore:
 
-```
+```bash
 # grep test /etc/group
 operator:x:37:test
 admin:x:1001:test
@@ -578,7 +578,7 @@ NSO communicates with clients (client libraries, **ncs\_cli**, and similar) usin
 
 By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of **ncs\_cli** does. For example:
 
-```
+```bash
 ncs_cli --user admin
 ```
 
@@ -594,7 +594,7 @@ Once a user is authenticated, group membership must be established. A single use
 
 All groups are stored under `/nacm/groups`, and each group contains a number of usernames. The `ietf-netconf-acm.yang` model defines a group entry:
 
-```
+```yang
 list group {
   key name;
 
@@ -621,7 +621,7 @@ list group {
 
 The `tailf-acm.yang` model augments this with a `gid` leaf:
 
-```
+```yang
 augment /nacm:nacm/nacm:groups/nacm:group {
   leaf gid {
     type int32;
@@ -636,7 +636,7 @@ augment /nacm:nacm/nacm:groups/nacm:group {
 
 A valid group entry could thus look like:
 
-```
+```xml
 <group>
   <name>admin</name>
   <user-name>bob</user-name>
@@ -659,7 +659,7 @@ Once a user is authenticated and group membership is established, when the user 
 
 The authorization procedure first checks the value of `/nacm/enable-nacm`. This leaf has a default of `true`, but if it is set to `false`, all access is permitted. Otherwise, the next step is to traverse the `rule-list` list:
 
-```
+```yang
 list rule-list {
   key "name";
   ordered-by user;
@@ -697,7 +697,7 @@ If the `group` leaf-list in a `rule-list` entry matches any of the user's groups
 
 The `tailf-acm.yang` module augments the `rule-list` entry in `ietf-netconf-acm.yang` with a `cmdrule` list:
 
-```
+```yang
 augment /nacm:nacm/nacm:rule-list {
 
   list cmdrule {
@@ -800,7 +800,7 @@ For the rule processing to be written to the devel log, the `/ncs-config/logs/de
 
 If no matching rule is found in any of the `cmdrule` lists in any `rule-list` entry that matches the user's groups, this augmentation from `tailf-acm.yang` is relevant:
 
-```
+```yang
 augment /nacm:nacm {
   leaf cmd-read-default {
     type nacm:action-type;
@@ -842,7 +842,7 @@ If `access` is permitted due to one of these default leafs, the `/nacm/log-if-de
 
 The rules in the `rule` list are used to control access to rpc operations, notifications, and data nodes defined in YANG models. Access to invocation of actions (`tailf:action`) is controlled with the same method as access to data nodes, with a request for `exec` access. `ietf-netconf-acm.yang` defines a `rule` entry as:
 
-```
+```yang
 list rule {
   key "name";
   ordered-by user;
@@ -957,7 +957,7 @@ list rule {
 
 `tailf-acm` augments this with two additional leafs:
 
-```
+```yang
 augment /nacm:nacm/nacm:rule-list/nacm:rule {
 
   leaf context {
@@ -1027,7 +1027,7 @@ If examination of the NACM extensions did not result in access being denied, the
 
 If access is permitted due to one of these default leafs, this augmentation from `tailf-acm.yang` is relevant:
 
-```
+```yang
 augment /nacm:nacm {
   ...
   leaf log-if-default-permit {
@@ -1105,7 +1105,7 @@ In deployments with many devices, it can become cumbersome to handle data author
 The IETF NACM rule type is augmented with a new rule type named `device-group-rule` which contains a leafref to the device groups. See the following example.
 
 {% code title="Device Group Model Augmentation" %}
-```
+```yang
 augment "/nacm:nacm/nacm:rule-list/nacm:rule/nacm:rule-type" {
   case device-group-rule {
     leaf device-group {
@@ -1123,7 +1123,7 @@ augment "/nacm:nacm/nacm:rule-list/nacm:rule/nacm:rule-type" {
 In the example below, we configure two device groups based on different regions and add devices to them.
 
 {% code title="Device Group Configuration" %}
-```
+```xml
 <devices>
   <device-group>
     <name>us_east</name>
@@ -1141,7 +1141,7 @@ In the example below, we configure two device groups based on different regions 
 In the example below, we configure an operator for the `us_east` region:
 
 {% code title="NACM Group Configuration" %}
-```
+```xml
 <nacm>
   <groups>
     <group>
@@ -1157,7 +1157,7 @@ In the example below, we configure an operator for the `us_east` region:
 In the example below, we configure the device group rules and refer to the device group and the `us_east` group.
 
 {% code title="Device Group Authorization Rules" %}
-```
+```xml
 <nacm>
   <rule-list>
     <name>us_east</name>
@@ -1199,7 +1199,7 @@ Modifications on the device-group subtree are recommended to be controlled by a 
 
 Assume that we have two groups, `admin` and `oper`. We want `admin` to be able to see and edit the XML tree rooted at `/aaa`, but we do not want users who are members of the `oper` group to even see the `/aaa` tree. We would have the following rule list and rule entries. Note, here we use the XML data from `tailf-aaa.yang` to exemplify. The examples apply to all data, for all data models loaded into the system.
 
-```
+```xml
 <rule-list>
   <name>admin</name>
   <group>admin</group>
@@ -1226,7 +1226,7 @@ Assume that we have two groups, `admin` and `oper`. We want `admin` to be able t
 
 If we do not want the members of `oper` to be able to execute the NETCONF operation `edit-config`, we define the following rule list and rule entries:
 
-```
+```xml
 <rule-list>
   <name>oper</name>
   <group>oper</group>
@@ -1244,7 +1244,7 @@ To spell it out, the above defines four elements to match. If NSO tries to perfo
 
 The `path` leaf can be used to specify explicit paths into the XML tree using XPath syntax. For example the following:
 
-```
+```xml
 <rule-list>
   <name>admin</name>
   <group>admin</group>
@@ -1262,7 +1262,7 @@ Explicitly allows the `admin` group to change the password for precisely the `bo
 
 NSO applies variable substitution, whereby the username of the logged-in user can be used in a `path`. Thus:
 
-```
+```xml
 <rule-list>
   <name>admin</name>
   <group>admin</group>
@@ -1280,7 +1280,7 @@ The above rule allows all users that are part of the `admin` group to change the
 
 A member of `oper` is able to execute NETCONF operation `action` if that member has `exec` access on NETCONF RPC `action` operation, `read` access on all instances in the hierarchy of data nodes that identifies the specific action in the data store, and `exec` access on the specific action. For example, an action is defined as below.
 
-```
+```yang
 container test {
   action double {
     input {
@@ -1299,7 +1299,7 @@ container test {
 
 To be able to execute `double` action through NETCONF RPC, the members of `oper` need the following rule list and rule entries.
 
-```
+```xml
 <rule-list>
   <name>oper</name>
   <group>oper</group>
@@ -1328,7 +1328,7 @@ To be able to execute `double` action through NETCONF RPC, the members of `oper`
 
 Or, a simpler rule set as the following.
 
-```
+```xml
 <rule-list>
   <name>oper</name>
   <group>oper</group>
@@ -1351,7 +1351,7 @@ Or, a simpler rule set as the following.
 
 Finally, if we wish members of the `oper` group to never be able to execute the `request system reboot` command, also available as a `reboot` NETCONF rpc, we have:
 
-```
+```xml
 <rule-list>
   <name>oper</name>
   <group>oper</group>
@@ -1417,7 +1417,7 @@ Be careful with namespaces in rulepaths.
 Unless a rulepath is made explicit by specifying namespace it will apply to that specific path in all namespaces. Below we show parts of an example from [RFC 8341](https://tools.ietf.org/html/rfc8341), where the `path` element has an `xmlns` attribute and the path is namespaced. If these would not have been namespaced, the rules would not behave as expected.
 
 {% code title="Example: Excerpt from RFC 8341 Appendix A.4" %}
-```
+```xml
          <rule>
            <name>permit-acme-config</name>
            <path xmlns:acme="http://example.com/ns/netconf">

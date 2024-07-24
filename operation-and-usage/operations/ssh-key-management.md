@@ -42,7 +42,7 @@ The level of host key verification can be set globally via `/ssh/host-key-verifi
 The default is `reject-unknown`, and it is not recommended to use a different value, although it can be useful or needed in certain circumstances. E.g. `none` maybe useful in a development scenario, and temporary use of `reject-mismatch` maybe motivated until host keys have been configured for a set of existing managed devices.
 
 {% code title="Allowing SSH Connections With Unknown Host Keys" %}
-```
+```cli
 admin@ncs(config)# ssh host-key-verification reject-mismatch
 admin@ncs(config)# commit
 Commit complete.
@@ -64,7 +64,7 @@ There are several actions that can be used to retrieve the host keys from a devi
 The fingerprints of the retrieved keys will be reported as part of the result from these actions, but it is also possible to ask for the fingerprints of already retrieved keys by invoking the `/devices/device/ssh/host-key/show-fingerprint` action (`/devices/device/live-status-protocol/ssh/host-key/show-fingerprint` for live-status protocols that use SSH).
 
 {% code title="Retrieving SSH Host Keys for All Configured Devices" %}
-```
+```cli
 admin@ncs# devices fetch-ssh-host-keys
 fetch-result {
     device c0
@@ -96,7 +96,7 @@ The `/cluster/remote-node/ssh/fetch-host-keys` action can be used to retrieve th
 The fingerprints of the retrieved keys will be reported as part of the result from this action, but it is also possible to ask for the fingerprints of already retrieved keys by invoking the `/cluster/remote-node/ssh/host-key/show-fingerprint` action.
 
 {% code title="Retrieving SSH Host Keys for All Cluster Nodes" %}
-```
+```cli
 admin@ncs# cluster remote-node * ssh fetch-host-keys
 cluster remote-node ncs1 ssh fetch-host-keys
     result updated
@@ -130,7 +130,7 @@ The private key used for public key authentication can be taken either from the 
 The specific private key to use is configured via the `authgroup` indirection and the `umap` selection mechanisms as for password authentication, just a different alternative. Setting `/devices/authgroups/group/umap/public-key` (or `default-map` instead of `umap` for users that are not in `umap`) without any additional parameters will select the default of using a file called `id_dsa` in the local user's SSH directory, which must have an unencrypted key. A different file name can be set via `/devices/authgroups/group/umap/public-key/private-key/file/name`. For an encrypted key, the passphrase can be set via `/devices/authgroups/group/umap/public-key/private-key/file/passphrase`, or `/devices/authgroups/group/umap/public-key/private-key/file/use-password` can be set to indicate that the password used (if any) by the local user when authenticating to NSO should also be used as a passphrase for the key. To instead select a private key from the `/ssh/private-key` list, the name of the key is set via `/devices/authgroups/group/umap/public-key/private-key/name`.
 
 {% code title="Configuring a Private Key File for Publickey Authentication to Devices" %}
-```
+```cli
 admin@ncs(config)# devices authgroups group default umap admin
 admin@ncs(config-umap-admin)# public-key private-key file name /home/admin/.ssh/id-dsa
 admin@ncs(config-umap-admin)# public-key private-key file passphrase
@@ -145,7 +145,7 @@ Commit complete.
 This is again very similar to the case of a connection to a managed device, since the same `authgroup`/`umap` scheme is used. Setting `/cluster/authgroup/umap/public-key` (or `default-map` instead of `umap` for users that are not in `umap`) without any additional parameters will select the default of using a file called `id_dsa` in the local user's SSH directory, which must have an unencrypted key. A different file name can be set via `/cluster/authgroup/umap/public-key/private-key/file/name`. For an encrypted key, the passphrase can be set via `/cluster/authgroup/umap/public-key/private-key/file/passphrase`, or `/cluster/authgroup/umap/public-key/private-key/file/use-password` can be set to indicate that the password used (if any) by the local user when authenticating to NSO should also be used as a passphrase for the key. To instead select a private key from the `/ssh/private-key` list, the name of the key is set via `/cluster/authgroup/umap/public-key/private-key/name`.
 
 {% code title="Configuring a Private Key File for Publickey Authentication in Cluster" %}
-```
+```cli
 admin@ncs(config)# cluster authgroup default umap admin
 admin@ncs(config-umap-admin)# public-key private-key file name /home/admin/.ssh/id-dsa
 admin@ncs(config-umap-admin)# public-key private-key file passphrase

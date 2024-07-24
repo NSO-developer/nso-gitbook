@@ -304,13 +304,13 @@ Get a list of the session's batch commands.
 
 **Params**
 
-```
+```json
 {}
 ```
 
 **Result**
 
-```
+```json
 {"cmds": <array of cmd>}
 
 cmd =
@@ -336,7 +336,7 @@ Starts a batch command.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "name": <string>,
  "args": <string>,
@@ -355,7 +355,7 @@ Starts a batch command.
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -371,7 +371,7 @@ Sends data to batch command started with `init_cmd`_._
 
 **Params**
 
-```
+```json
 {"handle": <string>,
  "data": <string>}
 ```
@@ -380,13 +380,13 @@ The `handle` param is as returned from a call to `init_cmd` and the `data` param
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "cmd.not_initialized"}
 ```
 
@@ -402,7 +402,7 @@ Signals that a batch command can start to generate output.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -410,7 +410,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -426,7 +426,7 @@ Suspends output from a batch command.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -434,7 +434,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -450,7 +450,7 @@ Resumes a batch command started with `init_cmd`_._
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -458,7 +458,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -474,7 +474,7 @@ Stops a batch command.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -482,7 +482,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -498,13 +498,13 @@ Get a list of the session's subscriptions.
 
 **Params**
 
-```
+```json
 {}
 ```
 
 **Result**
 
-```
+```json
 {"subscriptions": <array of subscription>}
 
 subscription =
@@ -532,7 +532,7 @@ Starts a subscriber to operational data in CDB. Changes done to configuration da
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>,
  "path": <string>}
@@ -542,7 +542,7 @@ The `path` param is a keypath restricting the subscription messages to only be a
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -552,7 +552,7 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.cdb_operational_not_enabled"}
 ```
 
@@ -572,7 +572,7 @@ Starts a subscriber to configuration data in CDB. Changes done to operational da
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>,
  "path": <string>,
@@ -589,7 +589,7 @@ The `hide_changes` and `hide_values` params specify a lower level of information
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -597,7 +597,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```
+```json
 {"db": <"running" | "startup" | "candidate">,
  "user": <string>,
  "ip": <string>,
@@ -624,7 +624,7 @@ Starts a polling subscriber to any type of operational and configuration data (o
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "interval": <integer between 0 and 3600>,
@@ -638,7 +638,7 @@ The `interval` is a timeout in seconds between when to poll the value.
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -662,14 +662,14 @@ Starts a subscriber to upgrade messages.
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>}
 ```
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -677,7 +677,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```
+```json
 {"upgrade_state": <"wait_for_init" | "init" | "abort" | "commit">,
  "timeout": <number, only if "upgrade_state" === "wait_for_init">}
 ```
@@ -698,14 +698,14 @@ Starts a subscriber to JSONRPC messages for batch requests.
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>}
 ```
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -713,7 +713,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method having exact same structure like a JSON-RPC response:
 
-```
+```json
 {"jsonrpc":"2.0",
  "result":"admin",
  "id":1}
@@ -744,7 +744,7 @@ Starts a subscriber to progress trace events.
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>,
  "verbosity": <"normal" | "verbose" | "very_verbose" | "debug", default: "normal">
@@ -757,7 +757,7 @@ The `filter_context` param can be used to only get progress events from a specif
 
 **Result**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -765,7 +765,7 @@ A handle to the subscription is returned (equal to `handle` if provided).
 
 Subscription messages will end up in the `comet` method and the format of that message will be an object such as:
 
-```
+```json
 {"timestamp": <string>,
  "duration": <string, optional if end of span>,
  "span-id": <string>,
@@ -795,7 +795,7 @@ Signals that a subscribe command can start to generate output.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -803,7 +803,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -819,7 +819,7 @@ Stops a subscriber.
 
 **Params**
 
-```
+```json
 {"handle": <string>}
 ```
 
@@ -843,7 +843,7 @@ Create a list entry, a presence container, or a leaf of type empty (unless in a 
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>}
 ```
@@ -852,13 +852,13 @@ The `path` param is a keypath pointing to data to be created.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked"}
 ```
 
@@ -874,7 +874,7 @@ Deletes an existing list entry, a presence container, or an optional leaf and al
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>}
 ```
@@ -883,14 +883,14 @@ The `path` param is a keypath pointing to data to be deleted.
 
 **Result**
 
-```
+```json
 {} |
                 {"warnings": <array of strings>}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked"}
 ```
 
@@ -904,7 +904,7 @@ Checks if optional data exists.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>}
 ```
@@ -913,7 +913,7 @@ The `path` param is a keypath pointing to data to be checked for existence.
 
 **Result**
 
-```
+```json
 {"exists": <boolean>}
 ```
 
@@ -927,7 +927,7 @@ Get the case of a choice leaf.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "choice": <string>}
@@ -937,7 +937,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 **Result**
 
-```
+```json
 {"case": <string>}
 ```
 
@@ -951,7 +951,7 @@ Retrieves configuration and operational data from the provided transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>
  "result_as": <"string" | "json" | "json2", default: "string">
@@ -965,13 +965,13 @@ The `path` param is a keypath to the configuration to be returned. `result_as` c
 
 `result_as` string:
 
-```
+```json
 {"config": <string>}
 ```
 
 `result_as` JSON:
 
-```
+```json
 {"data": <json>}
 ```
 
@@ -985,7 +985,7 @@ Load XML configuration into the current transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "data": <string>
  "path": <string, default: "/">
@@ -997,13 +997,13 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"row": <integer>, "message": <string>}
 ```
 
@@ -1019,7 +1019,7 @@ Get node attributes.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "names": <array of string>}
@@ -1029,7 +1029,7 @@ The `path` param is a keypath pointing to the node and the `names` param is a li
 
 **Result**
 
-```
+```json
 {"attrs": <object of attribute name/value>}
 ```
 
@@ -1043,7 +1043,7 @@ Set node attributes.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "attrs": <object of attribute name/value>}
@@ -1053,7 +1053,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1069,7 +1069,7 @@ Gets a leaf value.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "check_default": <boolean, default: false>}
@@ -1081,14 +1081,14 @@ The `check_default` param adds `is_default` to the result if set to `true`. `is_
 
 **Result**
 
-```
+```json
 {"value": <string>}
 ```
 
 **Example**
 
 {% code title="Example: Method get_value" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1117,7 +1117,7 @@ Get leaf values.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "check_default": <boolean, default: false>,
@@ -1130,7 +1130,7 @@ The `check_default` param adds `is_default` to the result if set to `true`. `is_
 
 **Result**
 
-```
+```json
 {"values": <array of value/error>}
 
 value  = {"value": <string>, "access": <access>}
@@ -1152,7 +1152,7 @@ Sets a leaf value.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "value": <string | boolean | integer | array | null>,
@@ -1173,14 +1173,14 @@ When `dryrun` is `true`, this function can be used to test if a value is valid o
 
 **Result**
 
-```
+```json
 {} |
                 {"warnings": <array of strings>}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1190,7 +1190,7 @@ When `dryrun` is `true`, this function can be used to test if a value is valid o
 **Example**
 
 {% code title="Example: Method set_value" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1221,7 +1221,7 @@ Dereferences a leaf with a leafref type.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "result_as": <"paths" | "target" | "list-target", default: "paths">}
@@ -1231,15 +1231,15 @@ The `path` param is a keypath pointing to a leaf with a leafref type.
 
 **Result**
 
-```
+```json
 {"paths": <array of string, a keypath to a leaf>}
 ```
 
-```
+```json
 {"target": <a keypath to a leaf>}
 ```
 
-```
+```json
 {"list-target": <a keypath to a list>}
 ```
 
@@ -1253,7 +1253,7 @@ Gets all possible values for a leaf with a leafref type.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "offset": <integer, default: 0>,
@@ -1302,13 +1302,13 @@ The `keys` param is an optional array of values that should be set if more than 
 
 The leaf `if` refers to leaf _name_ in its XPath expression so to be able to successfully run `get_leafref_values` on that node you need to provide a valid value for the _name_ leaf using the _keys_ parameter. The `keys` parameter could for example look like this:
 
-```
+```json
 {"/create-service/name": "service1"}
 ```
 
 **Result**
 
-```
+```json
 {"values": <array of string>,
  "source": <string> | false}
 ```
@@ -1327,7 +1327,7 @@ Renames a list entry.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
@@ -1341,13 +1341,13 @@ The `to_keys` param is an array with the new key values. The array must contain 
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1363,7 +1363,7 @@ Copies a list entry.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_keys": <array of string>}
@@ -1383,7 +1383,7 @@ Copying between different ned-id versions works as long as the schema nodes bein
 
 **Errors (specific)**
 
-```
+```json
 {"type": "data.already_exists"}
 {"type": "data.not_found"}
 {"type": "data.not_writable"}
@@ -1399,7 +1399,7 @@ Moves an ordered-by user list entry relative to its siblings.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "from_path": <string>,
  "to_path": <string>,
@@ -1414,13 +1414,13 @@ If the `mode` param is set to `before` or `after` the `to_path` param must be sp
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked"}
 ```
 
@@ -1434,7 +1434,7 @@ Append a list entry to a leaf-list.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "value": <string>}
@@ -1444,7 +1444,7 @@ The `path` is a keypath pointing to a leaf-list.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1458,7 +1458,7 @@ Counts the number of keys in a list.
 
 **Params**
 
-```
+```json
 {"th": <integer>
  "path": <string>}
 ```
@@ -1467,7 +1467,7 @@ The `path` parameter is a keypath pointing to a list.
 
 **Result**
 
-```
+```json
 {"count": <integer>}
 ```
 
@@ -1481,7 +1481,7 @@ Enumerates keys in a list.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "chunk_size": <integer greater than zero, optional>,
@@ -1504,7 +1504,7 @@ The `empty_list_key_as_null` parameter controls whether list keys of type empty 
 
 **Result**
 
-```
+```json
 {"keys": <array of array of string>,
  "total_count": <integer>,
  "lh": <integer, optional>}
@@ -1529,7 +1529,7 @@ This method should not be used for paginated results, as it results in performan
 **Example**
 
 {% code title="Example: Method query" %}
-```
+```bash
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1561,7 +1561,7 @@ Starts a new query attached to a transaction handle. On success, a query handle 
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "xpath_expr": <string, optional if path is given>,
  "path": <string, keypath, optional if xpath_expr is given>,
@@ -1583,7 +1583,7 @@ A query is a way of evaluating an XPath expression and returning the results in 
 
 For example, given this YANG snippet:
 
-```
+```yang
 list interface {
   key name;
   unique number;
@@ -1639,7 +1639,7 @@ The `initial_offset` param is the result entry to begin with (`1` means to start
 
 **Result**
 
-```
+```json
 {"qh": <integer>}
 ```
 
@@ -1648,7 +1648,7 @@ A new query handler handler id to be used when calling _run\_query_ etc
 **Example**
 
 {% code title="Example: Method start_query" %}
-```
+```bash
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1675,7 +1675,7 @@ Retrieves the result to a query (as chunks). For more details on queries, read t
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
@@ -1683,7 +1683,7 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {"position": <integer>,
  "total_number_of_results": <integer>,
  "number_of_results": <integer>,
@@ -1708,7 +1708,7 @@ The `result` param is as described in the description of `start_query`.
 **Example**
 
 {% code title="Example: Method run_query" %}
-```
+```bash
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -1739,7 +1739,7 @@ Reset/rewind a running query so that it starts from the beginning again. The nex
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
@@ -1747,14 +1747,14 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Example**
 
 {% code title="Example: Method reset_query" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1780,7 +1780,7 @@ Stops the running query identified by query handler. If a query is not explicitl
 
 **Params**
 
-```
+```json
 {"qh": <integer>}
 ```
 
@@ -1788,14 +1788,14 @@ The `qh` param is as returned from a call to `start_query`.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Example**
 
 {% code title="Example: Method stop_query" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1823,7 +1823,7 @@ Resets the candidate datastore.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1837,7 +1837,7 @@ Takes a database lock.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate">}
 ```
 
@@ -1851,7 +1851,7 @@ The `db` param specifies which datastore to lock.
 
 **Errors (specific)**
 
-```
+```json
 {"type": "db.locked", "data": {"sessions": <array of string>}}
 ```
 
@@ -1867,7 +1867,7 @@ Releases a database lock.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate">}
 ```
 
@@ -1875,7 +1875,7 @@ The `db` param specifies which datastore to unlock.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1889,7 +1889,7 @@ Copies the running datastore to the startup datastore.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -1909,7 +1909,7 @@ As soon as the `comet` method returns with values they should be dispatched and 
 
 **Params**
 
-```
+```json
 {"comet_id": <string>}
 ```
 
@@ -1923,14 +1923,14 @@ As soon as the `comet` method returns with values they should be dispatched and 
 
 **Errors (specific)**
 
-```
+```json
 {"type": "comet.duplicated_channel"}
 ```
 
 **Example**
 
 {% code title="Example: Method comet" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -1972,7 +1972,7 @@ curl \
 
 Hangs, and finally:
 
-```
+```json
 {"jsonrpc": "2.0",
  "id": 1,
  "result":
@@ -1999,7 +1999,7 @@ Extracts system settings such as capabilities, supported datastores, etc.
 
 **Params**
 
-```
+```json
 {"operation": <"capabilities" | "customizations" | "models" | "user" | "version" | "all" | "namespaces", default: "all">}
 ```
 
@@ -2015,7 +2015,7 @@ The `operation` param specifies which system setting to get:
 
 **Result**
 
-```
+```json
 {"user:" <string>,
  "models:" <array of YANG modules>,
  "version:" <string>,
@@ -2041,7 +2041,7 @@ Abort a JSON-RPC method by its associated ID.
 
 **Params**
 
-```
+```json
 {"id": <integer>}
 ```
 
@@ -2049,7 +2049,7 @@ The `id` param is the id of the JSON-RPC method to be aborted.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2063,7 +2063,7 @@ Evaluates an xpath expression on the server side.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "xpath_expr": <string>}
 ```
@@ -2072,7 +2072,7 @@ The `xpath_expr` param is the XPath expression to be evaluated.
 
 **Result**
 
-```
+```json
 {"value": <string>}
 ```
 
@@ -2088,7 +2088,7 @@ Sends a message to another user in the CLI or Web UI.
 
 **Params**
 
-```
+```json
 {"to": <string>,
  "message": <string>}
 ```
@@ -2099,7 +2099,7 @@ The `to` param is the user name of the user to send the message to and the `mess
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2119,14 +2119,14 @@ Starts a subscriber to messages.
 
 **Params**
 
-```
+```json
 {"comet_id": <string>,
  "handle": <string, optional>}
 ```
 
 **Result**
 
-```
+```xml
 <string>
 ```
 
@@ -2136,7 +2136,7 @@ Subscription messages will end up in the `comet` method and the format of these 
 
 When a new user has logged in:
 
-```
+```json
 {"new_user": <integer, a session id to be used by "kick_user">
  "me": <boolean, is it myself?>
  "user": <string>,
@@ -2148,14 +2148,14 @@ When a new user has logged in:
 
 When a user logs out:
 
-```
+```json
 {"del_user": <integer, a session id>,
  "user": <string>}
 ```
 
 When receiving a message:
 
-```
+```json
 {"sender": <string>,
  "message": <string>}
 ```
@@ -2172,7 +2172,7 @@ Lists all available rollback files.
 
 **Result**
 
-```
+```json
 {"rollbacks": <array of rollback>}
 
 rollback =
@@ -2202,13 +2202,13 @@ Gets the content of a specific rollback file. The rollback format is as defined 
 
 **Params**
 
-```
+```json
 {"nr": <integer>}
 ```
 
 **Result**
 
-```
+```xml
 <string, rollback file in curly bracket format>
 ```
 
@@ -2224,13 +2224,13 @@ Installs a specific rollback file into a new transaction and commits it. The con
 
 **Params**
 
-```
+```json
 {"nr": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2246,7 +2246,7 @@ Rolls back within an existing transaction, starting with the latest rollback fil
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "nr": <integer>,
  "path": <string>,
@@ -2261,7 +2261,7 @@ The `selective` param, false by default, can restrict the rollback process to us
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2277,7 +2277,7 @@ Get description. To be able to get the description in the response, the `fxs` fi
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string, optional>
 ```
@@ -2286,7 +2286,7 @@ A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module
 
 **Result**
 
-```
+```json
 {"description": <string>}
 ```
 
@@ -2300,7 +2300,7 @@ Exports a JSON schema for a selected part (or all) of a specific YANG module (wi
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "namespace": <string, optional>,
  "path": <string, optional>,
@@ -2329,7 +2329,7 @@ The `cdm_namespace` param signals the inclusion of `cdm-namespace` entries where
 
 **Result**
 
-```
+```json
 {"meta":
  {"namespace": <string, optional>,
   "keypath": <string, optional>,
@@ -2477,7 +2477,7 @@ The `meta` param contains meta-information about the YANG module such as namespa
 **Example**
 
 {% code title="Example: Method get_schema" %}
-```
+```bash
 curl \
     --cookie "sessionid=sess11635875109111642;" \
     -X POST \
@@ -2530,7 +2530,7 @@ Hides data that has been adorned with a `hidden` statement in YANG modules. `hid
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "group_name": <string>
 ```
@@ -2539,7 +2539,7 @@ The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2553,7 +2553,7 @@ Unhides data that has been adorned with a `hidden` statement in the YANG modules
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "group_name": <string>,
  "passwd": <string>}
@@ -2565,7 +2565,7 @@ The `passwd` param is a password needed to hide the data that has been adorned w
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -2583,7 +2583,7 @@ Method takes no parameters.
 
 **Result**
 
-```
+```xml
 <key-value object>
 
 result = {"module-name": "module-prefix"}
@@ -2592,7 +2592,7 @@ result = {"module-name": "module-prefix"}
 **Example**
 
 {% code title="Example: Method get_module_prefix_map" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -2646,7 +2646,7 @@ Invokes an action or RPC defined in a YANG module.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "path": <string>,
  "params": <json, optional>
@@ -2668,7 +2668,7 @@ The `details` param can be given together with `comet_id` and `handle` in order 
 
 **Result**
 
-```
+```xml
 <string | array of result | key-value object>
 
 result = {"name": <string>, "value": <string>}
@@ -2676,14 +2676,14 @@ result = {"name": <string>, "value": <string>}
 
 **Errors (specific)**
 
-```
+```json
 {"type": "action.invalid_result", "data": {"path": <string, path to invalid result>}}
 ```
 
 **Example**
 
 {% code title="Example: Method run_action" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -2753,11 +2753,11 @@ Creates a user session and sets a browser cookie.
 
 **Params**
 
-```
+```json
 {}
 ```
 
-```
+```json
 {"user": <string>, "passwd": <string>, "ack_warning": <boolean, default: false>}
 ```
 
@@ -2769,7 +2769,7 @@ If the method fails with a warning, the warning needs to be displayed to the use
 
 **Result**
 
-```
+```json
 {"warning": <string, optional>}
 ```
 
@@ -2779,7 +2779,7 @@ The `warning` is a free-text string that should be displayed to the user after a
 
 **Multi-factor authentication**
 
-```
+```json
 {"challenge_id": <string>, "challenge_prompt": <string>}
 ```
 
@@ -2790,7 +2790,7 @@ The `warning` is a free-text string that should be displayed to the user after a
 **Example**
 
 {% code title="Example: Method login" %}
-```
+```bash
 curl \
     -X POST \
     -H 'Content-Type: application/json' \
@@ -2824,7 +2824,7 @@ curl \
 
 **Note**_:_ `sessionid` cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
 
-```
+```bash
 curl \
     --cookie "sessionid=sess4245223558720207078;" \
     -X POST \
@@ -2848,7 +2848,7 @@ Creates a user session and sets a browser cookie.
 
 **Params**
 
-```
+```json
 {"challenge_id": <string>, "response": <string>, "ack_warning": <boolean, default: false>}
 ```
 
@@ -2858,7 +2858,7 @@ If the method fails with a warning, the warning needs to be displayed to the use
 
 **Result**
 
-```
+```json
 {"warning": <string, optional>}
 ```
 
@@ -2869,7 +2869,7 @@ The `warning` is a free-text string that should be displayed to the user after a
 **Example**
 
 {% code title="Example: Method challenge-response" %}
-```
+```bash
 curl \
     -X POST \
     -H 'Content-Type: application/json' \
@@ -2903,7 +2903,7 @@ curl \
 
 **Note**_:_ `sessionid` cookie is set at this point in your User Agent (browser). In our examples, we set the cookie explicitly in the upcoming requests for clarity.
 
-```
+```bash
 curl \
     --cookie "sessionid=sess4245223558720207078;" \
     -X POST \
@@ -2933,14 +2933,14 @@ None.
 
 **Result**
 
-```
+```json
 {}
 ```
 
 **Example**
 
 {% code title="Example: Method logout" %}
-```
+```bash
 curl \
     --cookie "sessionid=sess4245223558720207078;" \
     -X POST \
@@ -2980,7 +2980,7 @@ Kills a user session, i.e. kicking out the user.
 
 **Params**
 
-```
+```json
 {"user": <string | number>}
 ```
 
@@ -2988,7 +2988,7 @@ The `user` param is either the username of a logged-in user or session ID.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3004,7 +3004,7 @@ Gets session data from the session store.
 
 **Params**
 
-```
+```json
 {"key": <string>}
 ```
 
@@ -3012,7 +3012,7 @@ The `key` param for which to get the stored data for. Read more about the sessio
 
 **Result**
 
-```
+```json
 {"value": <string>}
 ```
 
@@ -3026,7 +3026,7 @@ Puts session data into the session store. The session store is a small key-value
 
 **Params**
 
-```
+```json
 {"key": <string>,
  "value": <string>}
 ```
@@ -3035,7 +3035,7 @@ The key param is the unique key for which the data in the `value` param is to be
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3049,7 +3049,7 @@ Erases session data previously stored with `put_session_data`.
 
 **Params**
 
-```
+```json
 {"key": <string>}
 ```
 
@@ -3057,7 +3057,7 @@ The `key` param for which all session data will be erased. Read more about the s
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3077,7 +3077,7 @@ None.
 
 **Result**
 
-```
+```json
 {"trans": <array of transaction>}
 
 transaction =
@@ -3091,7 +3091,7 @@ transaction =
 **Example**
 
 {% code title="Example: Method get_trans" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -3119,7 +3119,7 @@ Creates a new transaction.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate", default: "running">,
  "mode": <"read" | "read_write", default: "read">,
  "conf_mode": <"private" | "shared" | "exclusive", default: "private">,
@@ -3153,7 +3153,7 @@ The `on_pending_changes` param decides what to do if the candidate already has b
 
 **Result**
 
-```
+```json
 {"th": <integer>}
 ```
 
@@ -3161,7 +3161,7 @@ A new transaction handler ID.
 
 **Errors (specific)**
 
-```
+```json
 {"type": "trans.confirmed_commit_in_progress"}
 {"type": "db.locked", "data": {"sessions": <array of string>}}
 ```
@@ -3171,7 +3171,7 @@ The \`data.sessions\` param is an array of strings describing the current sessio
 **Example**
 
 {% code title="Example: Method new_trans" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -3198,13 +3198,13 @@ Deletes a transaction created by `new_trans` or `new_webui_trans`_._
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3218,13 +3218,13 @@ Adds a comment to the active read-write transaction. This comment will be stored
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3238,13 +3238,13 @@ Adds a label to the active read-write transaction. This label will be stored in 
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3260,13 +3260,13 @@ Checks if any modifications have been done to a transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {"modified": <boolean>}
 ```
 
@@ -3280,7 +3280,7 @@ Extracts modifications done to a transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>},
  "output": <"compact" | "legacy", default: "legacy">
 ```
@@ -3289,7 +3289,7 @@ The `output` parameter controls the result content. `legacy` format include old 
 
 **Result**
 
-```
+```json
 {"changes": <array of change>}
 
 change =
@@ -3307,7 +3307,7 @@ The `old` param is only interesting if `op` is set to `modified`.
 **Example**
 
 {% code title="Example: Method get_trans_changes" %}
-```
+```bash
 curl \
     --cookie 'sessionid=sess12541119146799620192;' \
     -X POST \
@@ -3337,19 +3337,19 @@ Validates a transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
 Or:
 
-```
+```json
 {"warnings": <array of warning>}
 
 warning = {"paths": <array of string>, "message": <string>}
@@ -3357,13 +3357,13 @@ warning = {"paths": <array of string>, "message": <string>}
 
 **Errors (specific)**
 
-```
+```json
 {"type": "trans.resolve_needed", "data": {"users": <array string>}}
 ```
 
 The `data.users` param is an array of conflicting usernames.
 
-```
+```json
 {"type": "trans.validation_failed", "data": {"errors": <array of error>}}
 
 error = {"paths": <array of string>, "message": <string>}
@@ -3381,13 +3381,13 @@ Gets the conflicts registered in a transaction.
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {"conflicts:" <array of conflicts>}
 
 conflict =
@@ -3411,13 +3411,13 @@ Tells the server that the conflicts have been resolved.
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3433,23 +3433,23 @@ Validates a transaction before calling `commit`. If this method succeeds (with o
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
-```
+```json
 {"comet_id": <string, optional>}
 ```
 
-```
+```json
 {"handle": <string, optional>}
 ```
 
-```
+```json
 {"details": <"normal" | "verbose" | "very_verbose" | "debug", optional>}
 ```
 
-```
+```json
 {"flags": <flags, default: []>}
 flags = <array of string or bitmask>
 ```
@@ -3468,7 +3468,7 @@ See the `commit` method for available flags.
 
 Or:
 
-```
+```json
 {"warnings": <array of warning>}
 
 warning = {"paths": <array of string>, "message": <string>}
@@ -3488,7 +3488,7 @@ Releases validate lock taken by `validate_commit`.
 
 **Params**
 
-```
+```json
 {"th": <integer>}
 ```
 
@@ -3508,7 +3508,7 @@ Copies the configuration into the running datastore.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "timeout": <integer, default: 0>,
  "release_locks": <boolean, default: true>,
@@ -3521,7 +3521,7 @@ If `rollback-id` is set to `true`, the response will include the ID of the rollb
 
 Commit behavior can be changed via an extra `flags` param:
 
-```
+```json
 {"flags": <flags, default: []>}
 
 flags = <array of string or bitmask>
@@ -3579,13 +3579,13 @@ Successful commit without any arguments.
 
 Successful commit with `rollback-id=true`:
 
-```
+```json
 {"rollback-id": {"fixed": 10001}}
 ```
 
 Successful commit with `commit-queue=async`:
 
-```
+```json
 {"commit_queue_id": <integer>}
 ```
 
@@ -3593,19 +3593,19 @@ The `commit_queue_id` is returned if the commit entered the commit queue, either
 
 **Errors (specific)**
 
-```
+```json
 {"type": "trans.confirmed_commit_in_progress"}
 ```
 
-```
+```json
 {"type": "trans.confirmed_commit_is_only_valid_for_candidate"}
 ```
 
-```
+```json
 {"type": "trans.confirmed_commit_needs_config_writable_through_candidate"}
 ```
 
-```
+```json
 {"type": "trans.confirmed_commit_not_supported_in_private_mode"}
 ```
 
@@ -3619,7 +3619,7 @@ Aborts the active read-write transaction.
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3633,7 +3633,7 @@ Confirms the currently pending confirmed commit
 
 **Result**
 
-```
+```json
 {}
 ```
 
@@ -3649,7 +3649,7 @@ Gets the WebUI read-write transaction.
 
 **Result**
 
-```
+```json
 {"trans": <array of trans>}
 
 trans =
@@ -3669,7 +3669,7 @@ Creates a read-write transaction that can be retrieved by `get_webui_trans`.
 
 **Params**
 
-```
+```json
 {"db": <"startup" | "running" | "candidate", default: "running">,
  "conf_mode": <"private" | "shared" | "exclusive", default: "private">
  "on_pending_changes": <"reuse" | "reject" | "discard", default: "reuse">}
@@ -3681,7 +3681,7 @@ The `on_pending_changes` param decides what to do if the candidate already has b
 
 **Result**
 
-```
+```json
 {"th": <integer>}
 ```
 
@@ -3699,7 +3699,7 @@ Extracts all variables from an NSO service/device template.
 
 **Params**
 
-```
+```json
 {"th": <integer>,
  "name": <string>}
 ```
@@ -3708,7 +3708,7 @@ The `name` param is the name of the template to extract variables from.
 
 **Result**
 
-```
+```json
 {"template_variables": <array of string>}
 ```
 
@@ -3722,7 +3722,7 @@ Lists packages in NSO.
 
 **Params**
 
-```
+```json
 {"status": <"installable" | "installed" | "loaded" | "all", default: "all">}
 ```
 
@@ -3735,7 +3735,7 @@ The `status` param specifies which package status to list:
 
 **Result**
 
-```
+```json
 {"packages": <array of key-value objects>}
 ```
 

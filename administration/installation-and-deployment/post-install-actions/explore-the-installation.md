@@ -12,7 +12,7 @@ Before starting NSO, it is recommended to explore the installation contents.
 
 Navigate to the newly created Installation Directory, for example:
 
-```
+```bash
 cd ~/nso-6.0
 ```
 
@@ -29,7 +29,7 @@ The installation directory includes the following contents:
 
 Along with the binaries, NSO installs a full set of documentation available in the  `doc/` folder in the Installation Directory. There is also an online version of the documentation available on [DevNet](https://developer.cisco.com/docs/nso/guides).
 
-```
+```bash
 ls -l doc/
 drwxr-xr-x   5 user  staff   160B Nov 29 05:19 api/
 drwxr-xr-x  14 user  staff   448B Nov 29 05:19 html/
@@ -43,7 +43,7 @@ Run `index.html` in your browser to explore further.
 
 Local Install comes with a rich set of examples to start using NSO.
 
-```
+```bash
 $ ls -1 examples.ncs/
 README
 crypto
@@ -65,7 +65,7 @@ In order to communicate with the network, NSO uses NEDs as device drivers for di
 
 In the example below, NEDs for Cisco ASA, IOS, IOS XR, and NX-OS are shown. Also included are NEDs for other vendors including Juniper JunOS, A10, ALU, and Dell.
 
-```
+```bash
 $ ls -1 packages/neds
 a10-acos-cli-3.0
 alu-sr-cli-3.4
@@ -93,7 +93,7 @@ To install new NEDs:
 
 1.  Change to the working directory where your downloads are. The filenames indicate which version of NSO the NEDs are pre-compiled for (in this case NSO 6.0), and the version of the NED. An example output is shown below.
 
-    ```
+    ```bash
     cd ~/Downloads/
     ls -l ncs*.bin
 
@@ -104,7 +104,7 @@ To install new NEDs:
     ```
 2.  Use the `sh` command to run `signed.bin` to verify the certificate and extract the NED tar.gz and other files. Repeat for all files. An example output is shown below.
 
-    ```
+    ```bash
     sh ncs-6.0-cisco-nx-5.13.1.1.signed.bin 
      
       Unpacking...  
@@ -119,7 +119,7 @@ To install new NEDs:
     ```
 3.  You now have three tar (.`tar.gz`) files. These are compressed versions of the NEDs. List the files to verify as shown in the example below.
 
-    ```
+    ```bash
     ls -l ncs*.tar.gz
     -rw-r--r--  1 user  staff   9704896 Dec 12 21:11 ncs-6.0-cisco-asa-6.7.7.tar.gz
     -rw-r--r--  1 user  staff  51260488 Dec 13 22:58 ncs-6.0-cisco-ios-6.42.1.tar.gz
@@ -127,7 +127,7 @@ To install new NEDs:
     ```
 4.  Navigate to the `packages/neds` directory for your Local Install, for example:
 
-    ```
+    ```bash
     cd ~/nso-6.0/packages/neds
     ```
 5.  In the `/packages/neds` directory, extract the .tar files into this directory using the `tar` command with the path to where the compressed NED is located. An example is shown below.

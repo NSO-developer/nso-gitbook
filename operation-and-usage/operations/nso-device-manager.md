@@ -30,7 +30,7 @@ Throughout this section, we will use the `examples.ncs/service-provider/mpls-vpn
 The central part of the NSO YANG model, in the file `tailf-ncs-devices.yang`, has the following structure:
 
 {% code title="tailf-ncs-devices.yang" %}
-```
+```yang
 submodule tailf-ncs-devices {
   belongs-to tailf-ncs {
     prefix ncs;
@@ -91,7 +91,7 @@ The following device types are available:
 
 The NSO CLI command below lists the NED types for the devices in the example network.
 
-```
+```cli
 ncs(config)# show full-configuration devices device device-type
 devices device ce0
  device-type cli ned-id cisco-ios-cli-3.8
@@ -121,7 +121,7 @@ In the example setup, the address and authentication information are provided in
 Once NSO has started you can inspect the meta information for the managed devices through the NSO CLI. This is an example session:
 
 {% code title="Example: Show Device Configuration in NSO CLI" %}
-```
+```cli
 ncs(config)# show full-configuration devices device
 devices device ce0
  address   127.0.0.1
@@ -154,7 +154,7 @@ devices device ce1
 Alternatively, this information could be retrieved from the NSO northbound NETCONF interface by running the simple Python-based netconf-console program towards the NSO NETCONF server.
 
 {% code title="Example: Show Device Configuration in NETCONF" %}
-```
+```bash
 $ netconf-console --get-config -x "/devices/device[name='ce0']"
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -200,7 +200,7 @@ All devices in the above two examples (Show Device Configuration in NSO CLI and 
 To communicate with a managed device, a NED for that device type needs to be loaded by NSO. A NED contains the YANG model for the device and corresponding driver code to talk CLI, REST, SNMP, etc. NEDs are distributed as packages.
 
 {% code title="Example: Installed Packages" %}
-```
+```cli
 ncs# show packages
 packages package cisco-ios-cli-3.8
  package-version 3.8.0.1
@@ -262,25 +262,25 @@ Once you have access to the network information for a managed device, its IP add
 
 You start the `ncs` daemon in a terminal like:
 
-```
+```cli
 % ncs
 ```
 
 Which is the same as, NSO loads it config from a `ncs.conf` file
 
-```
+```cli
 % ncs -c ./ncs.conf
 ```
 
 During development, it is sometimes convenient to run `ncs` in the foreground as:
 
-```
+```cli
 % ncs -c ./ncs.conf --foregound --verbose
 ```
 
 Once the daemon is running, you can issue the command:
 
-```
+```cli
 % ncs --status
 vsn: 7.1
 SMP support: yes, using 8 threads
@@ -292,7 +292,7 @@ available modules: backplane,netconf,cdb,cli,snmp,webui
 
 To get more information about options to `ncs` do:
 
-```
+```cli
 % ncs --help
 ```
 
@@ -300,7 +300,7 @@ The `ncs --status` command produces a lengthy list describing for example which 
 
 The same information is also available in the NSO CLI (and thus through all available northbound interfaces, including Maapi for Java programmers)
 
-```
+```cli
 ncs# show ncs-state
 ncs-state version 7.1
 ncs-state smp number-of-threads 8
@@ -320,7 +320,7 @@ In the normal case, the configuration on the device and the copy of the configur
 In a cold start situation like in the mpls-vpn example, where NSO is empty and there are network devices to talk to, it makes sense to synchronize from the devices. You can choose to synchronize from one device at a time or from all devices at once. Here is a CLI session to illustrate this.
 
 {% code title="Example: Synchronize From Devices" %}
-```
+```cli
 ncs(config)# devices sync-from
 sync-result {
     device ce0
@@ -489,14 +489,14 @@ Synchronizing from NSO to the device is common when a device has been configured
 
 The command to do that is:
 
-```
+```cli
 ncs# devices device ce0 sync-to
 result true
 ```
 
 A `dry-run` option is available for the action `sync-to`.
 
-```
+```cli
 ncs# devices device ce0 sync-to dry-run
 data {
     ...
@@ -510,7 +510,7 @@ This makes it possible to investigate the changes before they are transmitted to
 It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch\_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from `examples.ncs/getting-started/developing-with-ncs/0-router-network`.
 
 {% code title="Example: Example of Running partial-sync-from Action via CLI" %}
-```
+```bash
 $ ncs_cli -C -u admin
 ncs# devices partial-sync-from path [ \
 /devices/device[name='ex0']/config/r:sys/interfaces/interface[name='eth0'] \
@@ -555,7 +555,7 @@ devices device ex1
 It is now possible to configure several devices through the NSO inside the same network transaction. To illustrate this, start the NSO CLI from a terminal application.
 
 {% code title="Example: Configure Devices" %}
-```
+```bash
 $ ncs_cli -C -u admin
 ncs# config
 Entering configuration mode terminal
@@ -637,7 +637,7 @@ Each managed device needs to be configured with the IP address and the port wher
 
 Connections are established on demand as they are needed. It is possible to explicitly establish connections, but that functionality is mostly there for troubleshooting connection establishment. We can, for example, do:
 
-```
+```cli
 ncs# devices connect
 connect-result {
     device ce0
@@ -654,7 +654,7 @@ connect-result {
 
 We were able to connect to all managed devices. It is also possible to explicitly attempt to test connections to individual managed devices:
 
-```
+```cli
 ncs# devices device ce0 connect
 result true
 info (admin) Connected to ce0 - 127.0.0.1:10022
@@ -664,7 +664,7 @@ Established connections are typically not closed right away when not needed, but
 
 Three configuration parameters can be used to control the connection establishment: `connect-timeout`, `read-timeout`, and `write-timeout`. In the NSO data model file `tailf-ncs-devices.yang`, these timeouts are modeled as:
 
-```
+```yang
 submodule tailf-ncs-devices {
   ...
   container devices {
@@ -717,7 +717,7 @@ submodule tailf-ncs-devices {
 
 Thus, to change these parameters (globally for all managed devices) you do:
 
-```
+```cli
 ncs(config)# devices global-settings connect-timeout 30
 ncs(config)# devices global-settings read-timeout 30
 ncs(config)# commit
@@ -725,7 +725,7 @@ ncs(config)# commit
 
 Or, to use a profile:
 
-```
+```cli
 ncs(config)# devices profiles profile slow-devices connect-timeout 60
 ncs(config-profile-slow-devices)# read-timeout 60
 ncs(config-profile-slow-devices)# write-timeout 60
@@ -740,7 +740,7 @@ ncs(config-device-ce3)# commit
 When NSO connects to a managed device, it requires authentication information for that device. The `authgroups` are modeled in the NSO data model:
 
 {% code title="Example: tailf-ncs-devices.yang - Authgroups" %}
-```
+```yang
 submodule tailf-ncs-devices {
   ...
   container devices {
@@ -884,7 +884,7 @@ Each managed device must refer to a named authgroup. The purpose of an authentic
 Southbound authentication can be done in two ways. One is to configure the stored user and credential components as shown in the example below (Configured authgroup) and the next example (authgroup default-map). The other way is to configure a callback to retrieve user and credentials on demand as shown in the example below (authgroup-callback).
 
 {% code title="Example: Configured authgroup" %}
-```
+```cli
 ncs(config)# show full-configuration devices authgroups
 devices authgroups group default
  umap admin
@@ -913,7 +913,7 @@ In the example above (Configured authgroup) in the auth group named `default`, t
 Inside an authgroup, all local users need to be enumerated. Each local user name must have credentials configured which should be used for the remote host. In centralized AAA environments, this is usually a bad strategy. You may also choose to instantiate a `default-map`. If you do that it probably only makes sense to specify the same user name/password pair should be used remotely as the pair that was used to log into NSO.
 
 {% code title="Example: authgroup default-map" %}
-```
+```cli
 ncs(config)# devices authgroups group default default-map same-user same-pass
 ncs(config-group-default)# commit
 Commit complete.
@@ -956,7 +956,7 @@ In the case of authenticating southbound using a callback, remote user and remot
 With remote passwords, you may encounter issues if you use special characters, such as quotes (`"`) and backslash (`\`) in your password. See [Configure Mode](../cli/introduction-to-nso-cli.md#d5e2199) for recommendations on how to avoid running into password issues.
 
 {% code title="Example: authgroup-callback" %}
-```
+```cli
 ncs(config)# devices authgroups group default umap oper
 ncs(config-umap-oper)# callback-node /callback action-name auth-cb
 ncs(config-group-oper)# commit
@@ -988,7 +988,7 @@ devices authgroups snmp-group default
 {% endcode %}
 
 {% code title="Example: authgroup-callback.yang" %}
-```
+```yang
 module authgroup-callback {
   namespace "http://com/example/authgroup-callback";
   prefix authgroup-callback;
@@ -1041,7 +1041,7 @@ Changes from the default configuration of the NSO session pool should only be pe
 
 NSO presents operational data that represent the current state of the session pool. To visualize this, we use the CLI to connect to NSO and force connection to all known devices:
 
-```
+```bash
 $ ncs_cli -C -u admin
 
 admin connected from 127.0.0.1 using console on ncs
@@ -1050,7 +1050,7 @@ ncs# devices connect suppress-positive-result
 
 We can now list all open sessions in the `session-pool`. But note that this is a live pool. Sessions will only remain open for a certain amount of time, the idle time.
 
-```
+```cli
 ncs# show devices session-pool
         DEVICE            MAX        IDLE
 DEVICE  TYPE    SESSIONS  SESSIONS   TIME
@@ -1070,7 +1070,7 @@ In addition to the idle time for sessions, we can also see the type of device, c
 
 We can close pooled sessions for specific devices.
 
-```
+```cli
 ncs# devices session-pool pooled-device pe0 close
 ncs# devices session-pool pooled-device pe1 close
 ncs# devices session-pool pooled-device pe2 close
@@ -1088,7 +1088,7 @@ ce5     cli     1         unlimited  30
 
 And we can close all pooled sessions in the session pool.
 
-```
+```cli
 ncs# devices session-pool close
 ncs# show devices session-pool
 % No entries found.
@@ -1157,7 +1157,7 @@ This grouping can be found in the NSO model under `/ncs:devices/global-settings/
 
 In addition under `/ncs:devices/global-settings/session-pool/default` it is possible to control the global max size of the session pool, as defined by the following yang snippet:
 
-```
+```yang
 container global-settings {
   tailf:info "Global settings for all managed devices.";
   description
@@ -1191,7 +1191,7 @@ container global-settings {
 
 Let's illustrate the possibilities with an example configuration of the session pool:
 
-```
+```cli
 ncs# configure
 ncs(config)# devices global-settings session-pool idle-time 100
 ncs(config)# devices profiles profile small session-pool max-sessions 3
@@ -1207,7 +1207,7 @@ ncs(config)# exit
 
 In the above configuration, the default idle time is set to 100 seconds for all devices. A device profile called `small` is defined which contains a max-session value of 3 sessions, this profile is set on all `ce*` devices. The devices `pe0` has a max-sessions 0 which implies that this device cannot be pooled. Let's connect all devices and see what happens in the session pool:
 
-```
+```cli
 ncs# devices connect suppress-positive-result
 ncs# show devices session-pool
         DEVICE            MAX        IDLE
@@ -1225,7 +1225,7 @@ pe2     cli     1         unlimited  100
 
 Now, we set an upper limit to the maximum number of sessions in the pool. Setting the value to 4 is too small for a real situation but serves the purpose of illustration:
 
-```
+```cli
 ncs# configure
 ncs(config)# devices global-settings session-pool pool-max-sessions 4
 ncs(config)# commit
@@ -1235,7 +1235,7 @@ ncs(config)# exit
 
 The number of open sessions in the pool will be adjusted accordingly:
 
-```
+```cli
 ncs# show devices session-pool
         DEVICE            MAX        IDLE
 DEVICE  TYPE    SESSIONS  SESSIONS   TIME
@@ -1287,7 +1287,7 @@ This grouping can be found in the NSO model under `/ncs:devices/global-settings/
 
 In addition, under `/ncs:devices/global-settings/session-limits`, it is possible to control the number of concurrent connect attempts allowed and the maximum time to wait for a device to be available to connect.
 
-```
+```yang
 container global-settings {
   tailf:info "Global settings for all managed devices.";
   description
@@ -1354,14 +1354,14 @@ To turn on southbound traffic tracing, we need to enable the feature and we must
 
 To enable tracing, do:
 
-```
+```cli
 ncs(config)# devices global-settings trace raw trace-dir .logs
 ncs(config)# commit
 ```
 
 The trace setting only affects new NED connections, so to ensure that we get any tracing data, we can do:
 
-```
+```cli
 ncs(config)# devices disconnect
 ```
 
@@ -1369,7 +1369,7 @@ The above command terminates all existing connections.
 
 At this point, if you execute a transaction towards one or several devices and then view the trace data.
 
-```
+```cli
 ncs(config)# do file show logs/ned-cisco-ios-ce0.trace
 >> 8-Oct-2014::18:23:18.512 CLI CONNECT to ce0-127.0.0.1:10022 as admin (Trace=true)
 
@@ -1388,7 +1388,7 @@ snmp-server community topsecret RW
 
 It is possible to clear all existing trace files through the command
 
-```
+```cli
 ncs(config)# devices clear-trace
 ```
 
@@ -1404,7 +1404,7 @@ The underlying mechanism for cheap `check-sync` is to compare time stamps, trans
 
 The transaction IDs are stored in CDB and can be viewed as:
 
-```
+```cli
 ncs# show devices device state last-transaction-id
 NAME  LAST TRANSACTION ID
 ----------------------------------------
@@ -1431,7 +1431,7 @@ Some of the devices do not have a transaction ID, this is the case where the NED
 
 To check for consistency, we execute:
 
-```
+```cli
 ncs# devices check-sync
 sync-result {
     device ce0
@@ -1447,7 +1447,7 @@ sync-result {
 
 Alternatively for all (or a subset) managed devices:
 
-```
+```cli
 ncs# devices device ce0..3 check-sync
 devices device ce0 check-sync
     result in-sync
@@ -1509,7 +1509,7 @@ grouping check-sync-result {
 
 In the previous section, we described how we can easily check if a managed device is in sync. If the device is not in sync, we are interested to know what the difference is. The CLI sequence below shows how to modify `ce0` out-of-band using the ncs-netsim tool. Finally, the sequence shows how to do an explicit configuration comparison.
 
-```
+```bash
 $ ncs-netsim cli-i ce0
 admin connected from 127.0.0.1 using console on ncs
 ce0> enable
@@ -1546,7 +1546,7 @@ Previously in the example (Synchronize from Devices), NSO was brought in sync wi
 
 When you decide to reset the configuration with the copy kept in NSO use the option `dry-run` in conjunction with `sync-to` and inspect what will be sent to the device:
 
-```
+```cli
 ncs# devices device ce0 sync-to dry-run
 data
       no snmp-server community foobar RW
@@ -1555,7 +1555,7 @@ ncs#
 
 As this is the desired data to send to the device a `sync-to` can now safely be performed.
 
-```
+```cli
 ncs# devices device ce0 sync-to
 result true
 ncs#
@@ -1563,7 +1563,7 @@ ncs#
 
 The device configuration should now be in sync with the copy in NSO and `compare-config` ought to yield an empty output:
 
-```
+```cli
 ncs# devices device ce0 compare-config
 ncs#
 ```
@@ -1576,7 +1576,7 @@ There exist several ways to initialize new devices. The two common ways are to i
 
 For example, another CE router has been added to our example network. You want to base the configuration of that host on the configuration of the managed device `ce0` which has a valid configuration:
 
-```
+```cli
 ncs(config)# show full-configuration devices device ce0
 devices device ce0
  address   127.0.0.1
@@ -1610,7 +1610,7 @@ devices device ce0
 If the configuration is accurate you can create a new managed device based on that configuration as:
 
 {% code title="Example: Instantiate Device from Other" %}
-```
+```cli
 ncs(config)# devices device ce9 address 127.0.0.1 port 10031
 ncs(config-device-ce9)# device-type cli ned-id cisco-ios-cli-3.8
 ncs(config-device-ce9)# authgroup default
@@ -1641,7 +1641,7 @@ This new configuration might not be entirely correct, you can modify any configu
 
 The above concludes the instantiation of a new managed device. The new device configuration is committed and NSO returned OK without the device existing in the network (netsim). Try to force a sync to the device:
 
-```
+```cli
 ncs(config)# devices device ce9 sync-to
 result false
 info Device ce9 is southbound locked
@@ -1662,7 +1662,7 @@ Another alternative to instantiating a device from the actual working configurat
 
 The template tree looks like this:
 
-```
+```yang
 submodule tailf-ncs-devices {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -1705,7 +1705,7 @@ The tree for device templates is generated from all device YANG models. All cons
 A device template is created by setting the desired data in the configuration. The created device template is stored in NSO CDB.
 
 {% code title="Example: Create ce-initialize Template" %}
-```
+```cli
 ncs(config)# devices template ce-initialize ned-id cisco-ios-cli-3.8 config
 ncs(config-config)# no ios:service pad
 ncs(config-config)# no ios:ip domain-lookup
@@ -1733,7 +1733,7 @@ The device template created in the example above (Create ce-initialize template)
 
 In the following CLI session, a new device `ce10` is created:
 
-```
+```cli
 ncs(config)# devices device ce10 address 127.0.0.1 port 10032
 ncs(config-device-ce10)# device-type cli ned-id cisco-ios-cli-3.8
 ncs(config-device-ce10)# authgroup default
@@ -1743,7 +1743,7 @@ ncs(config)# commit
 
 Initialize the newly created device `ce10` with the device template `ce-initialize`:
 
-```
+```cli
 ncs(config)# devices device ce10 apply-template template-name ce-initialize
 apply-template-result {
     device ce10
@@ -1755,7 +1755,7 @@ apply-template-result {
 
 When initializing devices, NSO does not have any knowledge about the capabilities of the device, no connect has been done. This can be overridden by the option `accept-empty-capabilities`
 
-```
+```cli
 ncs(config)# devices device ce10 \
 apply-template template-name ce-initialize accept-empty-capabilities
 apply-template-result {
@@ -1766,7 +1766,7 @@ apply-template-result {
 
 Inspect the changes made by the template `ce-initialize`:
 
-```
+```cli
 ncs(config)# show configuration
 devices device ce10
  config
@@ -1793,7 +1793,7 @@ Device templates are part of the NSO configuration. Device templates are created
 
 The `$NCS_DIR/examples.ncs/service-provider/mpls-vpn` example comes with a pre-populated template for SNMP settings.
 
-```
+```cli
 ncs(config)# show full-configuration devices template
 devices template snmp1
  ned-id cisco-ios-cli-3.8
@@ -1830,7 +1830,7 @@ A template can be applied to a device, a device group, and a range of devices. I
 
 Applying the `snmp1` template, providing a value for the `COMMUNITY` template variable:
 
-```
+```cli
 ncs(config)# devices device ce2 apply-template template-name \
       snmp1 variable { name COMMUNITY value 'FUZBAR' }
 ncs(config)# show configuration
@@ -1852,7 +1852,7 @@ Commit complete.
 
 The result of applying the template:
 
-```
+```cli
 ncs(config)# show full-configuration devices device ce2 config\
    ios:snmp-server
 devices device ce2
@@ -1873,14 +1873,14 @@ The default operation for templates is to merge the configuration. Tags can be a
 
 Example of how to set a tag:
 
-```
+```cli
 ncs(config)# tag add devices template snmp1 ned-id cisco-ios-cli-3.8 config\
  ios:snmp-server community {$COMMUNITY} replace
 ```
 
 Displaying Tags information::
 
-```
+```cli
 ncs(config)# show configuration
 devices template snmp1
  ned-id cisco-ios-cli-3.8
@@ -1897,7 +1897,7 @@ devices template snmp1
 
 By adding the CLI pipe flag `debug template` when applying a template, the CLI will output detailed information on what is happening when the template is being applied:
 
-```
+```cli
 ncs(config)# devices device ce2 apply-template template-name \
       snmp1 variable { name COMMUNITY value 'FUZBAR' } | debug template
 Operation 'merge' on existing node: /devices/device[name='ce2']
@@ -1968,7 +1968,7 @@ If a nano-service has components whose names are derived from the device name, a
 
 For example, let's say the nano-service has components with names matching device names.
 
-```
+```cli
 admin@ncs% run show vlan-state test plan | tab
                                                                            POST
               BACK                                                         ACTION
@@ -1988,7 +1988,7 @@ vlan  ex2   false  -     init         reached  2024-04-16T21:38:34  -    -
 
 If this device is renamed, the corresponding nano-service component is not renamed.
 
-```
+```cli
 admin@ncs% request devices device ex1 rename new-name newex1
 result true
 [ok][2024-04-16 21:39:21]
@@ -2013,7 +2013,7 @@ vlan  ex2   false  -     init         reached  2024-04-16T21:38:34  -    -
 
 To handle this, the component with the old name must be force-back-tracked and the service re-deployed.
 
-```
+```cli
 admin@ncs% request vlan-state test plan component vlan ex1 force-back-track
 result true
 [ok][2024-04-16 21:39:51]
@@ -2076,7 +2076,7 @@ and synchronizes the configuration from the device, making it ready to operate i
 
 NSO will auto-configure a new device in a transaction if either `/devices/device/auto-configure/vendor` or `/devices/device/auto-configure/ned-id` is set in that transaction.
 
-```
+```cli
 admin@ncs% show packages package component ned device
 packages package router-nc-1.0
  component router
@@ -2104,7 +2104,7 @@ admin@ncs% commit | details
 
 One can configure either `vendor` and `product-family`, or `vendor` and `operating-system` or just the `ned-id` explicitly.
 
-```
+```cli
 admin@ncs% set devices device d1 auto-configure vendor "Acme Inc." product-family "Acme router"
 
 admin@ncs% set devices device d2 auto-configure vendor "Acme Inc." operating-system AcmeOS
@@ -2114,7 +2114,7 @@ admin@ncs% set devices device d3 auto-configure ned-id router-nc-1.0
 
 The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device.
 
-```
+```cli
 admin@ncs% set devices device mydev2 auto-configure vendor "Acme Inc." operating-system AcmeOS
 [ok][2024-04-16 20:03:05]
 
@@ -2142,14 +2142,14 @@ NED package.
 
 NSO differentiates between `oper-state` and `admin-state` for a managed device. `oper-state` is the actual state of the device. We have chosen to implement a very simple `oper-state` model. A managed device `oper-state` is either enabled or disabled. `oper-state` can be mapped to an alarm for the device. If the device is disabled, we may have additional error information. For example, the `ce9` device created from another device and `ce10` created with a device template in the previous section is disabled, and no connection has been established with the device, so its state is completely unknown:
 
-```
+```cli
 ncs# show devices device ce9 state oper-state
 state oper-state disabled
 ```
 
 Or, a slightly more interesting CLI usage:
 
-```
+```cli
 ncs# show devices device state oper-state
       OPER
 NAME  STATE
@@ -2192,7 +2192,7 @@ ce9   disabled
 
 If you manually stop a managed device, for example `ce0`, NSO doesn't immediately indicate that. NSO may have an active SSH connection to the device, but the device may voluntarily choose to close its end of that (idle) SSH connection. Thus the fact that a socket from the device to NSO is closed by the managed device doesn't indicate anything. The only certain method NSO has to decide a managed device is non-operational - from the point of view of NSO - is NSO cannot SSH connect to it. If you manually stop managed device `ce0`, you still have:
 
-```
+```bash
 $ ncs-netsim stop ce0
 DEVICE ce0 STOPPED
 $ ncs_cli -C -u admin
@@ -2202,7 +2202,7 @@ state oper-state enabled
 
 NSO cannot draw any conclusions from the fact that a managed device closed its end of the SSH connection. It may have done so because it decided to time out an idle SSH connection. Whereas if NSO tried to initiate any operations towards the dead device, the device would be marked as `oper-state` `disabled`:
 
-```
+```cli
 ncs(config)# devices device ce0 config ios:snmp-server contact joe@acme.com
 ncs(config-config)# commit
 Aborted: Failed to connect to device ce0: connection refused: Connection refused
@@ -2212,7 +2212,7 @@ connect to device ce0: connection refused: Connection refused
 
 Now, NSO has failed to connect to it, NSO knows that `ce0` is dead:
 
-```
+```cli
 ncs# show devices device ce0 state oper-state
 state oper-state disabled
 ```
@@ -2222,7 +2222,7 @@ This concludes the `oper-state` discussion. The next state to be illustrated is 
 In `tailf-ncs.yang` we have the following configuration definition for `admin-state`:
 
 {% code title="Example: tailf-ncs-devices.yang - admin-state" %}
-```
+```yang
 submodule tailf-ncs-devices {
   ....
 
@@ -2286,7 +2286,7 @@ In the example above (tailf-ncs-devices.yang - admin-state), you can see the fou
 NSO manages a set of devices that are given to NSO through any means like CLI, inventory system integration through XML APIs, or configuration files at startup. The list of devices to manage in an overall integrated network management solution is shared between different tools and therefore it is important to keep an authoritative database of this and share it between different tools including NSO. The purpose of this part is to identify the source of the population of managed devices. The `source` attribute should indicate the source of the managed device like "inventory", "manual", or "EMS".
 
 {% code title="Example: tailf-ncs-devices.yang - source" %}
-```
+```yang
 submodule tailf-ncs-devices {
   ...
       container source {
@@ -2329,7 +2329,7 @@ The capabilities announced by a device also contain the YANG version 1 modules s
 
 The capabilities and modules detected by NSO are available in two different lists, `/devices/device/capability` and `devices/device/module`. The `capability` list contains all capabilities announced and all YANG modules in the YANG library. The `module` list contains all YANG modules announced that are also supported by the NED in NSO.
 
-```
+```cli
 ncs# show devices device ce0 capability
 capability urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=trim
 capability urn:ios
@@ -2352,7 +2352,7 @@ NSO can be used to handle all or some of the YANG configuration modules for a de
 
 When a device is added to NSO its NED ID must be set. For a NETCONF device, it is possible to configure the generic NETCONF NED id `netconf` (defined in the YANG module `tailf-ncs-ned`). If this NED ID is configured, we can then ask NSO to connect to the device and then check the `capability` list to see which modules this device implements.
 
-```
+```cli
 ncs(config)# devices device foo address 127.0.0.1 port 12033 authgroup default
 ncs(config-device-foo)# device-type netconf ned-id netconf
 ncs(config-device-foo)# state admin-state unlocked
@@ -2388,7 +2388,7 @@ capability urn:juniper-rpc
 
 We can also check which modules the loaded NEDs support. Then we can pick the most suitable NED and configure the device with this NED ID.
 
-```
+```cli
 ncs# show devices ned-ids
 ID                    NAME                          REVISION
 --------------------------------------------------------------
@@ -2429,7 +2429,7 @@ NSO divides devices into the following groups.
 
 Which category NSO chooses for a managed device depends on which NETCONF capabilities the device sends to NSO in its NETCONF hello message. You can see in the CLI what NSO has decided for a device as in:
 
-```
+```cli
 ncs# show devices device ce0 state transaction-mode
 state transaction-mode ned
 ncs# show devices device pe2 state transaction-mode
@@ -2456,7 +2456,7 @@ When the managed device defines top-level NETCONF RPCs or alternatively, define 
 
 For example, the Juniper NED comes with a set of JunOS RPCs defined in: `$NCS_DIR/packages/neds/juniper-junos/src/yang/junos-rpc.yang`
 
-```
+```yang
 module junos-rpc {
   ...
   rpc request-package-add {
@@ -2470,7 +2470,7 @@ module junos-rpc {
 
 Thus, since all RPCs and actions from the devices are accessible through the NSO data model, these actions are also accessible through all NSO northbound APIs, REST, JAVA MAAPI, etc. Hence it is possible to - from user scripts/code - invoke actions and RPCs on all managed devices. The RPCs are augmented below an RPC container:
 
-```
+```cli
 ncs(config)# devices device pe2 rpc rpc-
 Possible completions:
   rpc-get-software-information  rpc-idle-timeout  rpc-ping \
@@ -2489,7 +2489,7 @@ The NSO device manager has a concept of groups of devices. A group is nothing mo
 The definition of device groups resides at the same layer in the NSO data model as the device list, thus we have:
 
 {% code title="Example: Device Groups" %}
-```
+```yang
 submodule tailf-ncs-devices {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -2542,7 +2542,7 @@ submodule tailf-ncs-devices {
 
 The MPLS VPN example comes with a couple of pre-defined device-groups:
 
-```
+```cli
 ncs(config)# show full-configuration devices device-group
 devices device-group C
  device-name [ ce0 ce1 ce3 ce4 ce5 ce6 ce7 ce8 ]
@@ -2558,7 +2558,7 @@ devices device-group PE
 Device groups are created like below:
 
 {% code title="Example: Create Device Group" %}
-```
+```cli
 ncs(config)# devices device-group my-group device-name ce0
 ncs(config-device-group-my-group)# device-name pe
 Possible completions:
@@ -2590,13 +2590,13 @@ my-group  [ ce0 p0 pe0 pe1 pe2 pe3 ]  0               0          1       0      
 
 Once you have a group, you can sync and check-sync the entire group.
 
-```
+```cli
 ncs# devices device-group C sync-to
 ```
 
 However, what makes device groups really interesting is the ability to apply a template to a group. You can use the pre-populated templates to apply SNMP settings to device groups.
 
-```
+```cli
 ncs(config)# devices device-group C apply-template \
 template-name snmp1 variable { name COMMUNITY value 'cinderella' }
 ncs(config)# show configuration
@@ -2679,7 +2679,7 @@ In the non-atomic mode, the outbound queue item will push configuration changes 
 
 In the following sequences, the simulated device `ce0` is stopped to illustrate the commit queue. This can be achieved by the following sequence including returning to the NSO CLI config mode:
 
-```
+```bash
 $ ncs-netsim stop ce0
 DEVICE ce0 STOPPED
 $ ncs_cli -C -u admin
@@ -2690,7 +2690,7 @@ ncs# config
 
 By default, the commit queue is turned off. You can configure NSO to run a transaction, device, or device group through the commit queue in a number of different ways, either by providing a flag to the `commit` command as:
 
-```
+```cli
 ncs(config)# commit commit-queue
 Possible completions:
   async    Commit through commit queue and return immediately
@@ -2701,7 +2701,7 @@ ncs(config)# commit commit-queue async
 
 Or, by configuring NSO to always run all transactions through the commit queue as in:
 
-```
+```cli
 ncs(config)# devices global-settings commit-queue enabled-by-default
 [false,true] (false): true
 ncs(config)# commit
@@ -2709,7 +2709,7 @@ ncs(config)# commit
 
 Or, by configuring a number of devices to run through the commit queue as default:
 
-```
+```cli
 ncs(config)# devices device ce0..2 commit-queue enabled-by-default
 [false,true] (false): true
 ncs(config)# commit
@@ -2720,7 +2720,7 @@ When enabling the commit queue as default on a per device/device group basis, an
 Do some changes and commit through the commit queue:
 
 {% code title="Example: Commit through Commit Queue" %}
-```
+```cli
 ncs(config)# devices device ce0..2 config ios:snmp-server \
     trap-source GigabitEthernet 0/1
 ncs(config-config)# commit
@@ -2735,7 +2735,7 @@ connect to device ce0: connection refused: Connection refused
 
 In the example above (Commit through Commit Queue), the commit affected three devices, `ce0`, `ce1` and `ce2`. If you immediately would have launched yet another transaction, as in the second one (see example below), manipulating an interface of `ce2`, that transaction would have been queued instead of immediately launched. The idea here is to queue entire transactions that touch any device that has anything queued ahead in the queue.
 
-```
+```cli
 ncs(config)# devices device ce0 config ios:interface GigabitEthernet 0/25
 ncs(config-if)# commit
 commit-queue-id 9494530158
@@ -2756,7 +2756,7 @@ Each transaction committed through the queues becomes a queue item. A queue item
 You can view the queue in the CLI. There are three different view modes, `summary`, `normal`_,_ and `detailed`. Depending on the output, both the `summary` and the `normal` look good:
 
 {% code title="Example: Viewing Queue Items" %}
-```
+```cli
 ncs# show devices commit-queue | notab
 devices commit-queue queue-item 9494446997
  age       144
@@ -2778,7 +2778,7 @@ The `age` field indicated how many seconds a queue item has been in the queue.
 
 You can also view the queue items in detailed mode:
 
-```
+```cli
 ncs# show devices commit-queue queue-item 9494530158 details | notab
 devices commit-queue queue-item 9494530158
  age         278
@@ -2819,7 +2819,7 @@ A number of useful actions are available to manipulate the queue:
 
 A typical use scenario is where one or more devices are not operational. In the example above (Viewing Queue Items), there are two queue items, waiting for the device `ce0` to come alive. `ce0` is listed as a transient error, and this is blocking the entire queue. Whenever a queue item is blocked because another item ahead of it cannot connect to a specific managed device, an alarm is generated:
 
-```
+```cli
 ncs# show alarms alarm-list alarm ce0 commit-through-queue-blocked
 alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='ce0'] 9494530158
  is-cleared              false
@@ -2834,7 +2834,7 @@ alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='c
 
 1.  Block other affecting device `ce0` from entering the commit queue:
 
-    ```
+    ```cli
     ncs(config)# devices commit-queue add-lock device [ ce0 ] block-others
     commit-queue-id 9577950918
     ncs# show devices commit-queue | notab
@@ -2863,7 +2863,7 @@ alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='c
     Now queue item `9577950918` is blocking other items using `ce0` from entering the queue.
 2.  Prune the usage of the device `ce0` from all queue items in the commit queue:
 
-    ```
+    ```cli
     ncs(config)# devices commit-queue set-atomic-behaviour atomic false
     ncs(config)# devices commit-queue prune device [ ce0 ]
     num-affected-queue-items 2
@@ -2881,7 +2881,7 @@ alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='c
     The lock will be in the queue until it has been deleted or unlocked. Queue items affecting other devices are still allowed to enter the queue.
 3.  Fix the problem with the device `ce0`, remove the lock item and sync from the device:
 
-    ```
+    ```cli
     ncs(config)# devices commit-queue queue-item 9577950918 delete
     ncs(config)# devices device ce0 sync-from
     result true
@@ -2892,7 +2892,7 @@ alarms alarm-list alarm ce0 commit-through-queue-blocked /devices/device[name='c
 In an LSA cluster, each remote NSO has its own commit queue. When committing through the commit queue on the upper node NSO will automatically create queue items on the lower nodes where the devices in the transaction reside. The progress of the lower node queue items is monitored through a queue item on the upper node. The remote NSO is treated as a device in the queue item and the remote queue items and devices are opaque to the user of the upper node.
 
 {% code title="Example: Commit Queue in an LSA Cluster" %}
-```
+```cli
 ncs(config)# show configuration
 vpn l3vpn volvo
  as-number 65101
@@ -2942,7 +2942,7 @@ Generally, it is not recommended to interfere with the queue items of the lower 
 To be able to track the commit queue on the lower cluster nodes, NSO uses the built-in stream `ncs-events` that generates northbound notifications for internal events. This stream is required if running the commit queue in a clustered scenario. It is enabled in `ncs.conf`:
 
 {% code title="Example: Enabling the ncs-events Stream" %}
-```
+```xml
 <stream>
   <name>ncs-events</name>
   <description>NCS event according to tailf-ncs-devices.yang</description>
@@ -2959,7 +2959,7 @@ To be able to track the commit queue on the lower cluster nodes, NSO uses the bu
 
 In addition, the commit queue needs to be enabled in the cluster configuration.
 
-```
+```cli
 ncs(config)# cluster commit-queue enabled
 ncs(config)# commit
 ```
@@ -2973,7 +2973,7 @@ The goal of the commit queue is to increase the transactional throughput of NSO 
 Depending on the selected `error-option` NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/ncs:devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked the data will be removed.
 
 {% code title="Example: Viewing Completed Queue items" %}
-```
+```cli
 ncs# show devices commit-queue completed | notab
 devices commit-queue completed queue-item 9494446997
  when      2015-02-09T16:48:17.915+00:00
@@ -2993,7 +2993,7 @@ devices commit-queue completed queue-item 9494530158
 The error option can be configured under `/ncs:devices/global-settings/commit-queue/error-option`. Possible values are: `continue-on-error`, `rollback-on-error`_,_ and `stop-on-error`. The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created. The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked. The `rollback` action is as:
 
 {% code title="Example: Execute Rollback Action" %}
-```
+```cli
 ncs(config)# devices commit-queue completed queue-item 9494446997 rollback
 ```
 {% endcode %}
@@ -3098,7 +3098,7 @@ In this section, we will use the `examples.ncs/web-server-farm/basic` example.
 Let's dive into an example session with the NSO CLI. In the NSO example collection, the webserver publishes two NETCONF notification structures, indicating what they intend to send to any interested listeners. They all have the YANG module:
 
 {% code title="Example: notif.yang" %}
-```
+```yang
 module notif {
   namespace "http://router.com/notif";
   prefix notif;
@@ -3179,7 +3179,7 @@ module notif {
 
 Follow the instructions in the README file if you want to run the example: build the example, start netsim, and start NCS.
 
-```
+```cli
 admin@ncs# show devices device pe2 notifications stream | notab
 notifications stream NETCONF
  description    "default NETCONF event stream"
@@ -3197,7 +3197,7 @@ notifications stream interface
 The above shows how we can inspect - as status data - which named streams the managed device publishes. Each stream also has some associated data. The data model for that looks like this:
 
 {% code title="Example: tailf-ncs.yang Notification Streams" %}
-```
+```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -3251,7 +3251,7 @@ module tailf-ncs {
 Let's set up a subscription for the stream called `interface`. The subscriptions are NSO configuration data, thus to create a subscription we need to enter configuration mode:
 
 {% code title="Example: Configuring a Subscription" %}
-```
+```cli
 admin@ncs(config)# devices device www0..2 notifications \
       subscription mysub stream interface
 admin@ncs(config-subscription-mysub)# commit
@@ -3261,7 +3261,7 @@ admin@ncs(config-subscription-mysub)# commit
 The above example created subscriptions for the `interface` stream on all web servers, i.e. managed devices, `www0`, `www1`, and `www2`. Each subscription must have an associated stream to it, this is however not the key for an NSO notification, the key is a free-form text string. This is because we can have multiple subscriptions to the same stream. More on this later when we describe the filter that can be associated with a subscription. Once the notifications start to arrive, they are read by NSO and stored in stable storage as CDB operational data. they are stored under each managed device - and we can view them as:
 
 {% code title="Example: Viewing the Received Notifications" %}
-```
+```cli
 admin@ncs# show devices device notifications | notab
 devices device www0
  notifications subscription mysub
@@ -3308,7 +3308,7 @@ Each received notification has some associated metadata, such as the time the ev
 
 It is fairly instructive to inspect the XML that goes on the wire when we create a subscription and then also receive the first notification. We can do:
 
-```
+```cli
 ncs(config)# devices global-settings trace pretty trace-dir ./logs
 ncs(config)# commit
 
@@ -3348,7 +3348,7 @@ ncs# file show ./logs/netconf-pe2.trace
 
 Thus, once the subscription has been configured, NSO continuously receives, and stores in CDB oper persistent storage, the notifications sent from the managed device. The notifications are stored in a circular buffer, to set the size of the buffer, we can do:
 
-```
+```cli
 ncs(config)# devices device www0 notifications \
    received-notifications max-size 100
 admin@ncs(config-device-www0)# commit
@@ -3360,7 +3360,7 @@ The default value is 200. Once the size of the circular buffer is exceeded, the 
 
 A running subscription can be in either of three states. The YANG model has:
 
-```
+```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -3394,7 +3394,7 @@ module tailf-ncs {
 
 If a subscription is in the _failed_ state, an optional _failure-reason_ field indicates the reason for the failure. If a subscription fails due to, not being able to connect to the managed device or if the managed device closed its end of the SSH socket, NSO will attempt to automatically reconnect. The re-connect attempt interval is configurable.
 
-```
+```cli
 ncs# show devices device notifications subscription
              LOCAL           FAILURE  ERROR
 NAME  NAME   USER   STATUS   REASON   INFO

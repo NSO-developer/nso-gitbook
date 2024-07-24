@@ -76,7 +76,7 @@ Abort or confirm a pending confirming commit. A pending confirming commit will a
 
 Example:
 
-```
+```cli
 admin@ncs# commit abort
 ```
 
@@ -106,7 +106,7 @@ Enter configure mode ignoring any confirm dialog
 
 Example:
 
-```
+```cli
 admin@ncs# config terminal
 Entering configuration mode terminal
 ```
@@ -121,7 +121,7 @@ List files in `<directory>.`
 
 Example:
 
-```
+```cli
 admin@ncs# file list /config
 rollback10001
 rollback10002
@@ -140,7 +140,7 @@ Display contents of a `<file>`.
 
 Example:
 
-```
+```cli
 admin@ncs# file show /etc/skel/.bash_profile
 # /etc/skel/.bash_profile
 
@@ -159,7 +159,7 @@ Display help text related to `<command>.`
 
 Example:
 
-```
+```cli
 admin@ncs# help job
 Help for command: job
     Job operations
@@ -175,7 +175,7 @@ Stop a specific background job. In the default CLI the only command that creates
 
 Example:
 
-```
+```cli
 admin@ncs# monitor start /var/log/messages
 [ok][...]
 admin@ncs# show jobs
@@ -200,7 +200,7 @@ Log out a specific user session.
 
 Example:
 
-```
+```cli
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -225,7 +225,7 @@ Log out a specific user.
 
 Example:
 
-```
+```cli
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -267,7 +267,7 @@ Example:
 
 In oper's session:
 
-```
+```cli
 oper@ncs# Message from admin@ncs at 13:16:41...
 I will reboot system in 5 minutes.
 EOF
@@ -283,7 +283,7 @@ Display CLI properties.
 
 Example:
 
-```
+```cli
 admin@ncs# show cli
 autowizard            false
 complete-on-space     true
@@ -313,7 +313,7 @@ Display CLI command history. By default, the last 100 commands are listed. The s
 
 Example:
 
-```
+```cli
 admin@ncs# show history
 06-19 14:34:02 -- ping router
 06-20 14:42:35 -- show running-config
@@ -335,7 +335,7 @@ Display currently running background jobs.
 
 Example:
 
-```
+```cli
 admin@ncs# show jobs
 JOB COMMAND
 3   monitor start /var/log/messages
@@ -363,7 +363,7 @@ The `sort-by` argument can be given when the `<pathfilter>` points to a list ele
 
 To show the `aaa` settings for the `admin` user:
 
-```
+```cli
 admin@ncs# show running-config aaa authentication users user admin
 aaa authentication users user admin
  uid        1000
@@ -392,7 +392,7 @@ The `sort-by` argument can be given when the _path_ points to a list element wit
 
 Example:
 
-```
+```cli
 admin@ncs# show devices device ce0 module
 NAME                       REVISION    FEATURE  DEVIATION
 -----------------------------------------------------------
@@ -420,7 +420,7 @@ Note that this command will only be available if `devtools` has been set to `tru
 
 Example:
 
-```
+```cli
 admin@ncs# timecmd id
 user = admin(501), gid=20, groups=admin, gids=12,20,33,61,79,80,81,98,100
 Command executed in 0.00 sec
@@ -437,7 +437,7 @@ Display currently logged-on users. The current session, i.e. the session running
 
 Example:
 
-```
+```cli
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -506,7 +506,7 @@ Copy data from one configuration tree to another. Only data that makes sense at 
 
 For example to create a template from a part of a device config. First, configure the device then copy the config into the template configuration tree.
 
-```
+```cli
 admin@ncs(config)# devices template host_temp
 admin@ncs(config-template-host_temp)# exit
 admin@ncs(config)# copy cfg merge devices device ce0 config \
@@ -838,7 +838,7 @@ Note that this command will only be available if `devtools` has been set to `tru
 
 Example:
 
-```
+```cli
 admin@ncs# timecmd id
 user = admin(501), gid=20, groups=admin, gids=12,20,33,61,79,80,81,98,100
 Command executed in 0.00 sec

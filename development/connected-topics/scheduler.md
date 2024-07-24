@@ -12,7 +12,7 @@ A standard Vixie Cron expression is used to represent the periodicity in which t
 
 Example: To schedule a task to run `sync-from` at 2 AM on the 1st of every month, we do:
 
-```
+```cli
 admin(config)# scheduler task sync schedule "0 2 1 * *" \
 action-name sync-from action-node /devices
 ```
@@ -32,14 +32,14 @@ admin(config)# commit
 
 Once the task has been configured, you can view the next run times of the task:
 
-```
+```cli
 admin(config)# scheduler task sync get-next-run-times display 3
 next-run-time [ 2017-11-01 02:00:00+00:00 2017-12-01 02:00:00+00:00 2018-01-01 02:00:00+00:00 ]
 ```
 
 You could also see if the task is running or not:
 
-```
+```cli
 admin# show scheduler task sync is-running
 is-running false
 ```
@@ -73,7 +73,7 @@ The following list describes the legal special characters and how you can use th
 
 The scheduler can also be used to configure non-recurring tasks that will run at a particular time.
 
-```
+```cli
 admin(config)# scheduler task my-compliance-report time 2017-11-01T02:00:00+01:00 \
 action-name check-compliance action-node /reports
 ```
@@ -84,7 +84,7 @@ A non-recurring task will by default be removed when it has finished executing. 
 
 In a HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
 
-```
+```cli
 admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
 ha-mode secondary ha-node-id secondary-node1 \
 action-name check-compliance action-node /reports
@@ -102,7 +102,7 @@ Troubleshooting information is covered below.
 
 To find out whether a scheduled task has run successfully or not, the easiest way is to view the history log of the scheduler. It will display the latest runs of the scheduled task.
 
-```
+```cli
 admin# show scheduler task sync history | notab
 history history-entry 2017-11-01T02:00:00.55003+00:00 0
  duration  0.15
@@ -120,7 +120,7 @@ history history-entry 2017-01-01T02:00:00.550128+00:00 0
 
 Detailed information from the XPath evaluator can be enabled and made available in the xpath log. Add the following snippet to `ncs.conf`.
 
-```
+```xml
 <xpathTraceLog>
   <enabled>true</enabled>
   <filename>./xpath.trace</filename>
@@ -131,7 +131,7 @@ Detailed information from the XPath evaluator can be enabled and made available 
 
 Error information is written to the development log. The development log is meant to be used as support while developing the application. It is enabled in `ncs.conf`:
 
-```
+```xml
 <developer-log>
   <enabled>true</enabled>
   <file>
@@ -146,12 +146,12 @@ Error information is written to the development log. The development log is mean
 
 While investigating a failure with a scheduled task or performing maintenance on the system, like upgrading, it might be useful to suspend the scheduler temporarily.
 
-```
+```cli
 admin# scheduler suspend
 ```
 
 When ready the scheduler can be resumed.
 
-```
+```cli
 admin# scheduler resume
 ```

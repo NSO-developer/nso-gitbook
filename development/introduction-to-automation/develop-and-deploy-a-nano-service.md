@@ -14,7 +14,7 @@ After installing NSO with the [Local Install](../../administration/installation-
 
 The simple network element YANG model used for this example is available under `packages/ne/src/yang/ssh-authkey.yang`. The `ssh-authkey.yang` model implements a list of SSH public keys for identifying a user. The list of keys augments a list of users in the ConfD built-in `tailf-aaa.yang` module that ConfD uses to authenticate users.
 
-```
+```yang
 module ssh-authkey {
   yang-version 1.1;
   namespace "http://example.com/ssh-authkey";
@@ -76,7 +76,7 @@ What configuration input do the above steps need?
 
 A service YANG model that implements the above configuration:
 
-```
+```yang
   container pubkey-dist {
     list key-auth {
       key "ne-name local-user";
@@ -217,7 +217,7 @@ The nano `service-behavior-tree` for the service point creates a nano service co
 
 The only step that requires both a create and delete part is the `generated` state action that generates the SSH keys. If a user deletes a service instance and another network element does not currently use the generated keys, this deletes the keys too. NSO will revert the configuration automatically as part of the FASTMAP algorithm. Hence, the service list instances also need actions for generating and deleting keys.
 
-```
+```yang
   container pubkey-dist {
     list key-auth {
       key "ne-name local-user";
@@ -252,7 +252,7 @@ Next, handling the key generation, distributing keys to the network element, and
 
 The Python script application defines a Python `DistKeyApp` class specified in the `packages/distkey/package-meta-data.xml` file that NSO starts in a Python thread. This Python class inherits `ncs.application.Application` and implements the `setup()` and `teardown()` methods. The `setup()` method registers the nano service `create()` callbacks and the action handlers for generating and deleting the key files. Using the nano service state to separate the two nano service `create()` callbacks for the distribution and NSO configuration of keys, only one Python class, the `DistKeyServiceCallbacks` class, is needed to implement them.
 
-```
+```python
 class DistKeyApp(ncs.application.Application):
     def setup(self):
         # Nano service callbacks require a registration for a service point,
@@ -278,7 +278,7 @@ class DistKeyApp(ncs.application.Application):
 
 The action for generating keys calls the OpenSSH `ssh-keygen` command to generate the private and public key files. Calling `ssh-keygen` is kept out of the service `create()` callback to avoid the key generation running multiple times, for example, for service changes, re-deploy, or dry-run commits. Also, NSO encrypts the passphrase used when generating the keys for added security, see the YANG model, so the Python code decrypts it before using it with the `ssh-keygen` command.
 
-```
+```python
 class GenerateActionHandler(Action):
     @Action.action
     def cb_action(self, uinfo, name, keypath, ainput, aoutput, trans):
@@ -305,7 +305,7 @@ class GenerateActionHandler(Action):
 
 The `DeleteActionHandler` action deletes the key files if no more network elements use the user's keys:
 
-```
+```python
 class DeleteActionHandler(Action):
     @Action.action
     def cb_action(self, uinfo, name, keypath, ainput, aoutput, trans):
@@ -335,7 +335,7 @@ class DeleteActionHandler(Action):
 
 The Python class for the nano service `create()` callbacks handles both the distribution and NSO configuration of the keys. The `dk:distributed` state `create()` callback code adds the public key data to the network element's list of authorized keys. For the `create()` call for the `dk:configured` state, a template is used to configure NSO to use public key authentication with the network element. The template can be called directly from the nano service, but in this case, it needs to be called from the Python code to input the current working directory to the template:
 
-```
+```python
 class DistKeyServiceCallbacks(NanoService):
     @NanoService.create
     def cb_nano_create(self, tctx, root, service, plan, component, state,
@@ -360,7 +360,7 @@ class DistKeyServiceCallbacks(NanoService):
 
 The template to configure NSO to use public key authentication with the network element is available under `packages/distkey/templates/distkey-configured.xml`:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs" tags="merge">
     <authgroups>

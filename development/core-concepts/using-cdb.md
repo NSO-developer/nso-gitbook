@@ -41,7 +41,7 @@ A good way to learn the model is to start the NSO CLI and use tab completion to 
 Another way to learn and explore the NSO model is to use the Yanger tool to render a tree output from the NSO model: `yanger -f tree --tree-depth=3 tailf-ncs.yang`. This will show a tree for the complete model. Below is a truncated example:
 
 {% code title="Example: Using yanger" %}
-```
+```bash
 $ yanger -f tree --tree-depth=3 tailf-ncs.yang
 module: tailf-ncs
    +--rw ssh
@@ -88,7 +88,7 @@ As CDB stores hierarchical data as specified by a YANG model, data is addressed 
 YANG elements that are lists of other YANG elements can be traversed using two different path notations. Consider the following YANG model fragment:
 
 {% code title="Example: L3 VPN YANG Extract" %}
-```
+```yang
 module l3vpn {
 
   namespace "http://com/example/l3vpn";
@@ -179,7 +179,7 @@ It is important to note that CDB is locked for writing during a read session usi
 When NSO starts for the first time, the CDB database is empty. The location of the database files used by CDB is given in `ncs.conf`. At first startup, when CDB is empty, i.e., no database files are found in the directory specified by `<db-dir>` (`./ncs-cdb` as given by the example below (CDB Init)), CDB will try to initialize the database from all XML documents found in the same directory.
 
 {% code title="Example: CDB Init" %}
-```
+```xml
 <!-- Where the database (and init XML) files are kept -->
 <cdb>
     <db-dir>./ncs-cdb</db-dir>
@@ -192,7 +192,7 @@ This feature can be used to reset the configuration to factory settings.
 Given the YANG model in the example above (L3 VPN YANG Extract), the initial data for `topology` can be found in `topology.xml` as seen in the example below (Initial Data for Topology).
 
 {% code title="Example: Initial Data for Topology" %}
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <topology xmlns="http://com/example/l3vpn">
     <role>
@@ -235,7 +235,7 @@ Another example of using these features is when initializing the AAA database. T
 All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   ...
 </config>
@@ -279,7 +279,7 @@ We will take a first look at the `examples.ncs/getting-started/developing-with-n
 The `cdb` package includes the YANG shown in the example below (1-cdb Simple Config Data).
 
 {% code title="Example: 1-cdb Simple Config Data" %}
-```
+```yang
 module test {
   namespace "http://example.com/test";
   prefix t;
@@ -332,7 +332,7 @@ Let us now populate the database and look at the Plain CDB Subscriber and how it
 Being an application component in the `cdb` package implies that this component is realized by a Java class that implements the `com.tailf.ncs.ApplicationComponent` Java interface. This interface inherits the Java standard `Runnable` interface which requires the `run()` method to be implemented. In addition to this method, there is a `init()` and a `finish()` method that has to be implemented. When the NSO Java-VM starts this class will be started in a separate thread with an initial call to `init()` before the thread starts. When the package is requested to stop execution a call to `finish()` is performed and this method is expected to end thread execution.
 
 {% code title="Example: Plain CDB Subscriber Java Code" %}
-```
+```java
 public class PlainCdbSub implements ApplicationComponent  {
     private static final Logger LOGGER
             = LogManager.getLogger(PlainCdbSub.class);
@@ -438,7 +438,7 @@ We will walk through the code and highlight different aspects. We start with how
 The `init()` method (shown in the example below, (Plain Subscriber Init) is called before this application component thread is started. For this subscriber, this is the place to set up the subscription. First, an `CdbSubscription` instance is created and in this instance, the subscription points are registered (one in this case). When all subscription points are registered a call to `CdbSubscriber.subscribeDone()` will indicate that the registration is finished and the subscriber is ready to start.
 
 {% code title="Example: Plain Subscriber Init" %}
-```
+```java
     public void init() {
         try {
             LOGGER.info(" init cdb subscriber ");
@@ -458,7 +458,7 @@ The `init()` method (shown in the example below, (Plain Subscriber Init) is call
 The `run()` method comes from the standard Java API Runnable interface and is executed when the application component thread is started. For this subscriber (see example below (Plain CDB Subscriber)) a loop over the `CdbSubscription.read()` method drives the subscription. This call will block until data has changed for some of the subscription points that were registered, and the IDs for these subscription points will then be returned. In our example, since we only have one subscription point, we know that this is the one stored as `subId`. This subscriber chooses to find the changes by calling the `CdbSubscription.diffIterate()` method. Important is to acknowledge the subscription by calling `CdbSubscription.sync()` or else this subscription will block the ongoing transaction.
 
 {% code title="Example: Plain CDB Subscriber" %}
-```
+```java
     public void run() {
         try {
             while (!requestStop) {
@@ -492,7 +492,7 @@ The `run()` method comes from the standard Java API Runnable interface and is ex
 The call to the `CdbSubscription.diffIterate()` requires an object instance implementing an `iterate()` method. To do this, the `CdbDiffIterate` interface is implemented by a suitable class. In our example, this is done by a private inner class called `Iter` (Example below (Plain Subscriber Iterator Implementation)). The `iterate()` method is called for all changes and the path, type of change, and data are provided as arguments. In the end, the `iterate()` should return a flag that controls how further iteration should prolong, or if it should stop. Our example `iterate()` method just logs the changes.
 
 {% code title="Example: Plain Subscriber Iterator Implementation" %}
-```
+```java
     private class Iter implements CdbDiffIterate  {
         public DiffIterateResultFlag iterate(ConfObject[] kp,
                                              DiffIterateOperFlag op,
@@ -516,7 +516,7 @@ The call to the `CdbSubscription.diffIterate()` requires an object instance impl
 The `finish()` method (Example below (Plain Subscriber `finish`)) is called when the NSO Java-VM wants the application component thread to stop execution. An orderly stop of the thread is expected. Here the subscription will stop if the subscription socket and underlying `Cdb` instance are closed. This will be done by the `ResourceManager` when we tell it that the resources retrieved for this Java object instance could be unregistered and closed. This is done by a call to the `ResourceManager.unregisterResources()` method.
 
 {% code title="Example: Plain Subscriber finish" %}
-```
+```java
     public void finish() {
         requestStop = true;
         LOGGER.warn(" PlainSub in finish () =>");
@@ -536,7 +536,7 @@ The `finish()` method (Example below (Plain Subscriber `finish`)) is called when
 We will now compile and start the `1-cdb` example, populate some config data, and look at the result. The example below (Plain Subscriber Startup) shows how to do this.
 
 {% code title="Example: Plain Subscriber Startup" %}
-```
+```bash
 $ make clean all
 $ ncs-netsim start
 DEVICE ex0 OK STARTED
@@ -550,7 +550,7 @@ $ ncs
 By far, the easiest way to populate the database with some actual data is to run the CLI (see the example below (Populate Data using CLI)).
 
 {% code title="Example: Populate Data using CLI" %}
-```
+```bash
 $ ncs_cli -u admin
 admin connected from 127.0.0.1 using console on ncs
 admin@ncs# config exclusive
@@ -609,7 +609,7 @@ The code for this subscriber is left out but can be found in the file `ConfigCdb
 The example below (Run CdbCfgSubscriber Example) shows how to build and run the example.
 
 {% code title="Example: Run CdbCfgSubscriber Example" %}
-```
+```bash
 $ make clean all
 $ ncs-netsim start
 DEVICE ex0 OK STARTED
@@ -681,7 +681,7 @@ If we look at the file `logs/ConfigCdbSub.out`, we will find log records from th
 We will look once again at the YANG model for the CDB package in the `examples.ncs/getting-started/developing-with-ncs/1-cdb` example. Inside the `test.yang` YANG model, there is a `test` container. As a child in this container, there is a list `stats-item` (see the example below (1-cdb Simple Operational Data).
 
 {% code title="Example: 1-cdb Simple Operational Data" %}
-```
+```yang
     list stats-item {
       config false;
       tailf:cdb-oper;
@@ -706,7 +706,7 @@ Note the list `stats-item` has the substatement `config false;` and below it, we
 An example of Java code that creates operational data using the Navu API is shown in the example below (Creating Operational Data using Navu API)).
 
 {% code title="Example: Creating Operational Data using Navu API" %}
-```
+```java
     public static void createEntry(String key)
             throws  IOException, ConfException {
 
@@ -744,7 +744,7 @@ An example of Java code that creates operational data using the Navu API is show
 An example of Java code that deletes operational data using the CDB API is shown in the example below (Deleting Operational Data using CDB API).
 
 {% code title="Example: Deleting Operational Data using CDB API" %}
-```
+```java
     public static void deleteEntry(String key)
             throws IOException, ConfException {
         Socket s = new Socket("127.0.0.1", Conf.NCS_PORT);
@@ -765,7 +765,7 @@ An example of Java code that deletes operational data using the CDB API is shown
 In the `1-cdb` example in the CDB package, there is also an application component with an operational data subscriber that subscribes to data from the path `"/t:test/stats-item"` (see the example below (CDB Operational Subscriber Java code)).
 
 {% code title="Example: CDB Operational Subscriber Java code" %}
-```
+```java
 public class OperCdbSub implements ApplicationComponent, CdbDiffIterate {
     private static final Logger LOGGER = LogManager.getLogger(OperCdbSub.class);
 
@@ -861,7 +861,7 @@ Notice that the `CdbOperSubscriber` is very similar to the `CdbConfigSubscriber`
 In the `1-cdb` examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
 
 {% code title="Example: Populating Operational Data" %}
-```
+```bash
 $ make clean all
 $ ncs
 $ ./setoper eth0
@@ -919,7 +919,7 @@ Every time NSO starts, CDB will check the current contents of the `.fxs` files w
 The CDB upgrade can be followed by checking the `devel.log`. The development log is meant to be used as support while the application is developed. It is enabled in `ncs.conf` as shown in the example below (Enabling Developer Logging).
 
 {% code title="Example: Enabling Developer Logging" %}
-```
+```xml
     <developer-log>
       <enabled>true</enabled>
       <file>
@@ -978,7 +978,7 @@ When using XML files for the initialization of CDB, the complete contents of the
 To clarify this, let's make up the following example. Some `ServerManager` package was developed and delivered. It was realized that the data model had a serious shortcoming in that there was no way to specify the protocol to use, TCP or UDP. To fix this, in a new version of the package, another leaf was added to the `/servers/server` list, and the new YANG module can be seen in the example below (New YANG module for the ServerManager Package).
 
 {% code title="Example: New YANG Module for the ServerManager Package" %}
-```
+```yang
 module servers {
   namespace "http://example.com/ns/servers";
   prefix servers;
@@ -1049,7 +1049,7 @@ diff ../servers1.5.yang ../servers1.4.yang
 Since it was considered important that the user explicitly specified the protocol, the new leaf was made mandatory. The XML init file must include this leaf, and the result can be seen in the example below (Protocol Upgrade Init File) like this:
 
 {% code title="Example: Protocol Upgrade Init File" %}
-```
+```xml
 <servers:servers xmlns:servers="http://example.com/ns/servers">
   <servers:server>
     <servers:name>www</servers:name>
@@ -1084,7 +1084,7 @@ We can then just use this new init file for the upgrade, and the existing server
 Here is what the configuration looks like after the upgrade if the `smtp` server has been deleted before the upgrade:
 
 {% code title="Example: Configuration After Upgrade" %}
-```
+```xml
     <servers xmlns="http://example.com/ns/servers">
       <server>
         <name>dns</name>
@@ -1133,7 +1133,7 @@ An `upgrade` component is a Java class with a standard `main()` method that beco
 As with any package component type, the `upgrade` component has to be defined in the `package-meta-data.xml` file for the package (see the example below (Upgrade Package Components)).
 
 {% code title="Example: Upgrade Package Components" %}
-```
+```xml
 <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
     ....
   <component>
@@ -1169,7 +1169,7 @@ The `14-upgrade-service` is a `service` package. But the upgrade components here
 The complete YANG model for the version 2 of the VLAN service looks as follows:
 
 {% code title="Example: VLAN Service v2 YANG Model" %}
-```
+```yang
 module vlan-service {
   namespace "http://example.com/vlan-service";
   prefix vl;
@@ -1249,7 +1249,7 @@ module vlan-service {
 If we `diff` the changes between the two YANG models for the service, we see that in version 2, a new mandatory leaf has been added (see the example below (YANG Service diff)).
 
 {% code title="Example: YANG Service diff" %}
-```
+```bash
 $ diff vlan/src/yang/vlan-service.yang \
                      vlan_v2/src/yang/vlan-service.yang
 16a18,22
@@ -1270,7 +1270,7 @@ $ diff vlan/src/yang/vlan-service.yang \
 We need to create a Java class with a `main()` method that connects to CDB and MAAPI. This main will be executed as a separate program and all private and shared jars defined by the package will be in the classpath. To upgrade the VLAN service, the following Java code is needed:
 
 {% code title="Example: VLAN Service Upgrade Component Java Class" %}
-```
+```java
 public class UpgradeService {
 
     public UpgradeService() {
@@ -1393,7 +1393,7 @@ More complicated service package upgrade scenarios occur when a YANG model conta
 In the 14-upgrade-service example, this more complicated scenario is illustrated with the tunnel package. The tunnel package YANG model maps the vlan\_v2 package one-to-one but is a complete rename of the model containers and all leafs:
 
 {% code title="Example: Tunnel Service YANG Model" %}
-```
+```yang
 module tunnel-service {
   namespace "http://example.com/tunnel-service";
   prefix tl;
@@ -1469,7 +1469,7 @@ module tunnel-service {
 To upgrade from the `vlan_v2` to the `tunnel` package, a new upgrade component for the `tunnel` package has to be implemented:
 
 {% code title="Example: Tunnel Service Upgrade Java Class" %}
-```
+```java
 public class UpgradeService {
 
     public UpgradeService() {

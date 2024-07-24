@@ -16,7 +16,7 @@ For example, to port the `example.ncs/development-guide/nano-services/basic-vrou
 
 1.  Make the following changes to the `basic-vrouter/ncs.conf` file:
 
-    ```
+    ```xml
     <enabled>false</enabled>
     <ip>0.0.0.0</ip>
     <port>8888</port>

@@ -10,7 +10,7 @@ To demonstrate the simplicity a pure model-to-model service mapping affords, let
 
 The first thing you need is the relevant device configuration (or configurations if multiple devices are involved). Suppose you must configure `192.0.2.1` as a DNS server on the target device. Using the NSO CLI, you first enter the device configuration, then add the DNS server. For a Cisco IOS-based device:
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# devices device c1 config
@@ -21,7 +21,7 @@ admin@ncs(config)#
 
 Note here that the configuration is not yet committed and you can use the `commit dry-run outformat xml` command to produce the configuration in the XML format. This format is an excellent starting point for creating an XML template.
 
-```
+```cli
 admin@ncs(config)# commit dry-run outformat xml
 
 result-xml {
@@ -44,7 +44,7 @@ The interesting portion is the part between `<devices>` and `</devices>` tags.
 
 Another way to get the XML output is to list the existing device configuration in NSO by piping it through the `display xml` filter:
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config ip name-server | display xml
 
 <config xmlns="http://tail-f.com/ns/config/1.0">
@@ -63,7 +63,7 @@ admin@ncs# show running-config devices device c1 config ip name-server | display
 
 If there is a lot of data, it is easy to save the output to a file using the `save` pipe in the CLI, instead of copying and pasting it by hand:
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config ip name-server | display xml\
  | save dns-template.xml
 ```
@@ -72,13 +72,13 @@ The last command saves the configuration for a device in the `dns-template.xml` 
 
 You create an empty, skeleton service with the `ncs-make-package` command, such as:
 
-```
+```bash
 ncs-make-package --build --no-test --service-skeleton template dns
 ```
 
 The command generates the minimal files necessary for a service package, here named `dns`. One of the files is `dns/templates/dns-template.xml`, which is where the configuration in the XML format goes.
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -94,7 +94,7 @@ Bringing the two XML documents together gives the final `dns/templates/dns-templ
 #### **Static DNS Configuration Template Example:**
 
 {% code title="Example: Static DNS Configuration Template" %}
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -113,14 +113,14 @@ Bringing the two XML documents together gives the final `dns/templates/dns-templ
 
 The service is now ready to use in NSO. Start the `examples.ncs/implement-a-service/dns-v1` example to set up a live NSO system with such a service and inspect how it works. Try configuring two different instances of the `dns` service.
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/implement-a-service/dns-v1
 $ make demo
 ```
 
 The problem with this service is that it always does the same thing because it always generates exactly the same configuration. It would be much better if the service could configure different devices. The updated version, v1.1, uses a slightly modified template:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -138,7 +138,7 @@ The problem with this service is that it always does the same thing because it a
 
 The changed part is `<name>{/name}</name>`, which now uses the `{/name}` code instead of a hard-coded `c1` value. The curly braces indicate that NSO should evaluate the enclosed expression and use the resulting value in its place. The `/name` expression is an XPath expression, referencing the service YANG model. In the model, `name` is the name you give each service instance. In this case, the instance name doubles for identifying the target device.
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# dns c2
@@ -165,7 +165,7 @@ In the output, the instance name used was `c2` and that is why the service perfo
 
 The template actually allows a decent amount of programmability through XPath and special XML processing instructions. For example:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -203,7 +203,7 @@ This task requires some basic YANG knowledge. Review the section [Data Modeling 
 
 The service model is located in the `src/yang/servicename.yang` file in the package. It typically resembles the following structure:
 
-```
+```yang
   list servicename {
     key name;
 
@@ -230,7 +230,7 @@ The `name` leaf serves as the key of the list and is primarily used to distingui
 
 The remaining statements describe the functionality and input parameters that are specific to this service. This is where you add the new leaf for the target device parameter of the DNS service:
 
-```
+```yang
   list dns {
     key name;
 
@@ -249,7 +249,7 @@ The remaining statements describe the functionality and input parameters that ar
 
 Use the `examples.ncs/implement-a-service/dns-v2` example to explore how this model works and try to discover what deficiencies it may have.
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/implement-a-service/dns-v2
 $ make demo
 ```
@@ -258,7 +258,7 @@ In its current form, the model allows you to specify any value for `target-devic
 
 You can guard against invalid input with the help of additional YANG statements. For example:
 
-```
+```yang
     leaf target-device {
       mandatory true;
       type string {
@@ -272,7 +272,7 @@ Now this parameter is mandatory for every service instance and must be one of th
 
 What if you wanted to make the DNS server address configurable too? You can add another leaf to the service model:
 
-```
+```yang
     leaf dns-server-ip {
       type inet:ipv4-address {
         pattern "192\\.0\\.2\\..*";
@@ -298,7 +298,7 @@ The code inside the curly brackets actually contains an XPath 1.0 expression wit
 
 The final, improved version of the DNS service template that takes into account the new model, is:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -326,7 +326,7 @@ The following figure captures the relationship between the YANG model and the XM
 
 The complete service is available in the `examples.ncs/implement-a-service/dns-v2.1` example. Feel free to investigate on your own how it differs from the initial, no-validation service.
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/implement-a-service/dns-v2.1
 $ make demo
 ```
@@ -343,7 +343,7 @@ Experienced NSO developers naturally combine the two approaches, without much th
 
 For the following example, suppose you want the service to configure IP addressing on an ethernet interface. You know what configuration is required to do this manually for a particular ethernet interface. For a Cisco IOS-based device you would use the commands, such as:
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# devices device c1 config
@@ -363,7 +363,7 @@ Start by generating the configuration in the XML format, making use of the `disp
 
 The transformation to a template also requires you to change the root tag, which produces the resulting XML template:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="iface-servicepoint">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -405,7 +405,7 @@ Generally, you can make up any name for a parameter but it is best to follow the
 
 The corresponding template then becomes:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="iface-servicepoint">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -437,7 +437,7 @@ Having completed the template, you can add all the parameters, three in this cas
 
 The partially completed model is now:
 
-```
+```yang
   list iface {
     key name;
 
@@ -460,7 +460,7 @@ Missing are the data type and other validation statements. At this point, you co
 
 You can use a `leafref` type leaf to refer to a device by its name in the NSO. This type uses dynamic lookup at the specified path to enumerate the available values. For the `device` leaf, it lists every value for a device name that NSO knows about. If there are two devices managed by NSO, named `rtr-sjc-01` and `rtr-sto-01`, either “`rtr-sjc-01`” or “`rtr-sto-01`” are valid values for such a leaf. This is a common way to refer to devices in NSO services.
 
-```
+```yang
     leaf device {
       mandatory true;
       type leafref {
@@ -471,7 +471,7 @@ You can use a `leafref` type leaf to refer to a device by its name in the NSO. T
 
 In a similar fashion, restrict the valid values of the other two parameters.
 
-```
+```yang
     leaf interface {
       mandatory true;
       type string {
@@ -488,7 +488,7 @@ In a similar fashion, restrict the valid values of the other two parameters.
 
 You would typically create the service package skeleton with the `ncs-make-package` command and update the model in the `.yang` file. The model in the skeleton might have some additional example leafs that you do not need and should remove to finalize the model. That gives you the final, full-service model:
 
-```
+```yang
   list iface {
     key name;
 
@@ -570,7 +570,7 @@ Since the service is based on the previous interface addressing service, you can
 
 The service YANG model needs an additional `cidr-netmask` leaf to hold the user-provided netmask value:
 
-```
+```yang
   list iface {
     key name;
 
@@ -615,7 +615,7 @@ The previous XML template also requires only minor tweaks. A small but important
 
 The reason for it being this way is that the code will supply the value for the additional variable, here called `NETMASK`. This is the other change that is necessary in the template: referencing the `NETMASK` variable for the netmask value:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -650,7 +650,7 @@ The following two procedures create an equivalent service that acts identically 
 
 The usual way to start working on a new service is to first create a service skeleton with the `ncs-make-package` command. To use Python code for service logic and XML templates for applying configuration, select the `python-and-template` option. For example:
 
-```
+```bash
 ncs-make-package --no-test --service-skeleton python-and-template iface
 ```
 
@@ -668,7 +668,7 @@ The create code usually performs the following tasks:
 
 Reading instance parameters is straightforward with the help of the `service` function parameter, using the Maagic API. For example:
 
-```
+```python
     def cb_create(self, tctx, root, service, proplist):
         cidr_mask = service.cidr_netmask
 ```
@@ -698,7 +698,7 @@ The first argument to the `template.apply()` call is the file name of the XML te
 
 The complete create code for the service is:
 
-```
+```python
     def cb_create(self, tctx, root, service, proplist):
         cidr_mask = service.cidr_netmask
 
@@ -716,7 +716,7 @@ You can test it out in the `examples.ncs/implement-a-service/iface-v2-py` exampl
 
 The usual way to start working on a new service is to first create a service skeleton with the `ncs-make-package` command. To use Java code for service logic and XML templates for applying the configuration, select the `java-and-template` option. For example:
 
-```
+```bash
 ncs-make-package --no-test --service-skeleton java-and-template iface
 ```
 
@@ -734,7 +734,7 @@ The create code usually performs the following tasks:
 
 Reading instance parameters is done with the help of the `service` function parameter, using [NAVU API](api-overview/java-api-overview.md#ug.java\_api\_overview.navu). For example:
 
-```
+```java
     public Properties create(ServiceContext context,
                              NavuNode service,
                              NavuNode ncsRoot,
@@ -773,7 +773,7 @@ Finally, you must also return the `opaque` object and handle various exceptions 
 
 The complete create code for the service is then:
 
-```
+```java
     public Properties create(ServiceContext context,
                              NavuNode service,
                              NavuNode ncsRoot,
@@ -829,7 +829,7 @@ Automatic, implicit loops in templates are harder to understand since the syntax
 
 Because it is a leaf-list, the following template applies to all the selected devices, using an implicit loop:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="servicename">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -845,7 +845,7 @@ Because it is a leaf-list, the following template applies to all the selected de
 
 It performs the same as the one, which loops through the devices explicitly:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="servicename">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -875,7 +875,7 @@ When NSO applies configuration elements in the template, it checks the XML names
 
 Consider the following example:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -908,7 +908,7 @@ Due to the `xmlns="urn:ios"` attribute, the first part of the template (the `int
 
 In case you need to further limit what configuration applies where and namespace-based filtering is too broad, you can also use the `if-ned-id` XML processing instruction. Each NED package in NSO defines a unique NED-ID, which distinguishes between different device types (and possibly firmware versions). Based on the configured ned-id of the device, you can apply different parts of the XML template. For example:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -950,7 +950,7 @@ For the first part, you must create a data model. If the shared data is specific
 
 In this case, define a new top-level container in the service's YANG file as:
 
-```
+```yang
   container dns-options {
     list dns-option {
       key name;
@@ -968,7 +968,7 @@ In this case, define a new top-level container in the service's YANG file as:
 
 Note that the container is defined outside the service list because this data is not specific to individual service instances:
 
-```
+```yang
   container dns-options {
     // ...
   }
@@ -987,7 +987,7 @@ The `dns-options` container includes a list of `dns-option` items. Each item def
 
 Once the shared data model is compiled and loaded into NSO, you can define the available DNS server sets:
 
-```
+```cli
 admin@ncs(config)# dns-options dns-option lon servers 192.0.2.3
 admin@ncs(config-dns-option-lon)# top
 admin@ncs(config)# dns-options dns-option sto servers 192.0.2.3
@@ -998,7 +998,7 @@ admin@ncs(config-dns-option-sjc)# commit
 
 You must also update the service instance model to allow clients to pick one of these DNS servers:
 
-```
+```yang
   list dns {
     key name;
 
@@ -1034,7 +1034,7 @@ Using a `leafref` allows NSO to validate inputs for this leaf by comparing them 
 
 At the same time, you must also update the mapping to take advantage of this service input parameter. The service XML template is very similar to the previous one. The main difference is the way in which the DNS addresses are read from the CDB, using the special `deref()` XPath function:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="dns">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -1054,7 +1054,7 @@ The `deref()` function “jumps” to the item selected by the leafref. Here, le
 
 The following code, which performs the same thing but in a more verbose way, further illustrates how the DNS server value is obtained:
 
-```
+```xml
         <ip xmlns="urn:ios">
           <?set dns_option = {/dns-servers}?>   <!-- Set $dns_option to e.g. 'lon' -->
           <?set-root-node {/}?>                 <!-- Make '/' point to datastore root,
@@ -1077,7 +1077,7 @@ The action consists of the YANG model for action inputs and outputs, as well as 
 
 Typically, such actions are defined per service instance, so you model them under the service list:
 
-```
+```yang
   list iface {
     key name;
 
@@ -1112,7 +1112,7 @@ Note that using the `action` statement requires you to also use the `yang-versio
 
 NSO Python API contains a special-purpose base class, `ncs.dp.Action`, for implementing actions. In the `main.py` file, add a new class that inherits from it, and implements an action callback:
 
-```
+```python
 class IfaceActions(Action):
     @Action.action
     def cb_action(self, uinfo, name, kp, input, output, trans):
@@ -1132,7 +1132,7 @@ The newly defined `service` variable allows you to access all of the service dat
 
 The action class implementation then resembles the following:
 
-```
+```python
 class IfaceActions(Action):
     @Action.action
     def cb_action(self, uinfo, name, kp, input, output, trans):
@@ -1149,7 +1149,7 @@ class IfaceActions(Action):
 
 Finally, do not forget to register this class on the action point in the `Main` application.
 
-```
+```python
 class Main(ncs.application.Application):
     def setup(self):
         ...
@@ -1162,7 +1162,7 @@ You can test the action in the `examples.ncs/implement-a-service/iface-v4-py` ex
 
 Using the Java programming language, all callbacks, including service and action callback code, are defined using annotations on a callback class. The class NSO looks for is specified in the `package-meta-data.xml` file. This class should contain an `@ActionCallback()` annotated method that ties it back to the action point in the YANG model:
 
-```
+```java
     @ActionCallback(callPoint="iface-test-enabled",
                     callType=ActionCBType.ACTION)
     public ConfXMLParam[] test_enabled(DpActionTrans trans, ConfTag name,
@@ -1186,7 +1186,7 @@ The newly defined `service` variable allows you to access all of the service dat
 
 The complete implementation requires you to supply your own Maapi read transaction and resembles the following:
 
-```
+```java
     @ActionCallback(callPoint="iface-test-enabled",
                     callType=ActionCBType.ACTION)
     public ConfXMLParam[] test_enabled(DpActionTrans trans, ConfTag name,
@@ -1233,7 +1233,7 @@ What kind of data a service exposes depends heavily on what the service does. Pe
 
 Taking `iface` service as a base, consider how you can extend the instance model with another operational leaf to hold the interface status data as of the last check.
 
-```
+```yang
   list iface {
     key name;
 
@@ -1286,7 +1286,7 @@ The `typedef` statements should come before data statements, such as containers 
 
 Once defined, you can use the new type as you would any other YANG type. For example:
 
-```
+```yang
     leaf last-test-status {
       config false;
       type iface-status-type;
@@ -1303,7 +1303,7 @@ Once defined, you can use the new type as you would any other YANG type. For exa
 
 Users can then view operational data with the help of the `show` command. The data is also available through other NB interfaces, such as NETCONF and RESTCONF.
 
-```
+```cli
 admin@ncs# show iface test-instance1 last-test-status
 iface test-instance1 last-test-status up
 ```
@@ -1329,7 +1329,7 @@ with contextlib.closing(socket.socket()) as s:
 
 The alternative, transaction-based approach uses high-level MAAPI and Maagic objects:
 
-```
+```python
 with ncs.maapi.single_write_trans('admin', 'python', db=ncs.OPERATIONAL) as t:
     root = ncs.maagic.get_root(t)
     root.iface['test-instance1'].last_test_status = 'up'
@@ -1338,7 +1338,7 @@ with ncs.maapi.single_write_trans('admin', 'python', db=ncs.OPERATIONAL) as t:
 
 When used as part of the action, the action code might be as follows:
 
-```
+```python
     def cb_action(self, uinfo, name, kp, input, output, trans):
         with ncs.maapi.single_write_trans('admin', 'python',
                                           db=ncs.OPERATIONAL) as t:
@@ -1356,7 +1356,7 @@ Note that you have to start a new transaction in the action code, even though `t
 
 Another thing to keep in mind with operational data is that NSO by default does not persist it to storage, only keeps it in RAM. One way for the data to survive NSO restarts is to use the `tailf:persistent` statement, such as:
 
-```
+```yang
     leaf last-test-status {
       config false;
       type iface-status-type;
@@ -1368,7 +1368,7 @@ Another thing to keep in mind with operational data is that NSO by default does 
 
 You can also register a function with the service application class to populate the data on package load, if you are not using `tailf:persistent`.
 
-```
+```python
 class ServiceApp(Application):
     def setup(self):
         ...
@@ -1440,7 +1440,7 @@ Note the use of the `context.startOperationalTrans()` function to start a new tr
 
 Another thing to keep in mind with operational data is that NSO by default does not persist it to storage, only keeps it in RAM. One way for the data to survive NSO restarts is to model the data with the `tailf:persistent` statement, such as:
 
-```
+```yang
     leaf last-check-status {
       config false;
       type iface-status-type;
@@ -1522,12 +1522,12 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     Additionally, reloading packages can also supply you with some valuable information. For example, it can tell you that the package requires a higher version of NSO which is specified in the `package-meta-data.xml` file, or about any Python-related syntax errors.
 
-    ```
+    ```cli
     admin@ncs# packages reload
     Error: Failed to load NCS package: demo; requires NCS version 6.3
     ```
 
-    ```
+    ```cli
     admin@ncs# packages reload
     reload-result {
         package demo
@@ -1539,7 +1539,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     Last but not least, package reloading also provides some information on the validity of your XML configuration templates based on the NED namespace you are using for a specific part of the configuration, or just general syntactic errors in your template.
 
-    ```
+    ```cli
     admin@ncs# packages reload
     reload-result {
         package demo1
@@ -1562,7 +1562,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](templates.md#ncs.development.templates.debug). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](templates.md#ch\_templates.multined) when applying different bits of configuration to different versions of devices.
 
-    ```
+    ```cli
     admin@ncs# devtools true
     admin@ncs# config
     Entering configuration mode terminal
@@ -1575,7 +1575,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     Another useful option is to append a custom trace ID to your service commits. The trace ID can be used to follow the request in logs from its creation all the way to the configuration changes that get pushed to the device. In case no trace ID is specified, NSO will generate a random one, but custom trace IDs are useful for focused troubleshooting sessions.
 
-    ```
+    ```cli
     admin@ncs(config)# commit trace-id myTrace1
     Commit complete.
     ```
@@ -1584,7 +1584,7 @@ You can use these general steps to give you a high-level idea of how to approach
     Trace ID can also be provided as a commit parameter in your service code, or as a RESTCONF query parameter. See `examples.ncs/development-guide/commit-parameters` for an example.
 6.  Measuring the time it takes for specific commands to complete can also give you some hints about what is going on. You can do this by using the `timecmd`, which requires the dev tools to be enabled.
 
-    ```
+    ```cli
     admin@ncs# devtools true
     admin@ncs(config)# timecmd commit
     Commit complete.
@@ -1595,7 +1595,7 @@ You can use these general steps to give you a high-level idea of how to approach
     Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../advanced-development/progress-trace.md).
 7.  Double-check your service points in the model, templates, and in code. Since configuration templates don't get applied if the servicepoint attribute doesn't match the one defined in the service model or are not applied from the callbacks registered to specific service points, make sure they match and that they are not missing. Otherwise, you might notice errors such as the following ones.
 
-    ```
+    ```cli
     admin@ncs# packages reload
     reload-result {
         package demo
@@ -1604,7 +1604,7 @@ You can use these general steps to give you a high-level idea of how to approach
     }
     ```
 
-    ```
+    ```cli
     admin@ncs(config-demo-s1)# commit dry-run
     Aborted: no registration found for callpoint demo/service_create of type=external
     ```
@@ -1627,7 +1627,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 9.  Trace the southbound communication. If the service instance creation results in a different configuration than would be expected from the NSO point of view, especially with custom NED packages, you can try enabling the southbound tracing (either per device or globally).
 
-    ```
+    ```cli
     admin@ncs(config)# devices global-settings trace pretty
     admin@ncs(config)# devices global-settings trace-dir ./my-trace
     admin@ncs(config)# commit

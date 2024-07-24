@@ -59,7 +59,7 @@ When submitting an alarm using the local mode, you need a CDB socket and a `Cdb`
 The `sink.submitAlarm(...)` method provided by the `AlarmSink` instance can be used in both centralized and local mode to submit an alarm.
 
 {% code title="Alarm Submit" %}
-```
+```java
   package com.tailf.ncs.alarmman.producer;
     ...
     /**
@@ -176,7 +176,7 @@ The alarm source promotes two ways of receiving alarms:
   Wait for the alarm with a timeout. If you do not receive an alarm within the stated time frame, the call will return.
 
 {% code title="AlarmSource Receiving Methods" %}
-```
+```java
 package com.tailf.ncs.alarmman.consumer;
 ...
 public class AlarmSource {
@@ -231,7 +231,7 @@ The NSO alarm manager is extendable. NSO itself has a number of built-in alarms.
 We have in the module `my-alarms.yang` the following alarm type extension:
 
 {% code title="Extending Alarm Type" %}
-```
+```yang
   module my-alarms {
     namespace "http://examples.com/ma";
     prefix ma;
@@ -259,7 +259,7 @@ We have in the module `my-alarms.yang` the following alarm type extension:
 The `identity` statement in the YANG language is used for this type of constructs. To complete our alarm type extension we also need to populate configuration data related to the new alarm type. A good way to do that is to provide XML data in a CDB initialization file and place this file in the `ncs-cdb` directory:
 
 {% code title="my-alarms.xml" %}
-```
+```xml
     <alarms xmlns="http://tail-f.com/ns/ncs-alarms">
       <alarm-model>
         <alarm-type>
@@ -280,7 +280,7 @@ Another possibility of extension is to add fields to the existing NSO alarms. Th
 Below is an example showing how to extend the alarm and the alarm status.
 
 {% code title="Extending alarm model" %}
-```
+```yang
 module my-alarms {
   namespace "http://examples.com/ma";
   prefix ma;

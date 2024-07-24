@@ -8,7 +8,7 @@ Progress tracing in NSO provides developers with useful information for debuggin
 
 When a transaction or action is applied, NSO emits progress events. These events can be displayed and recorded in a number of different ways. The easiest way is to pipe an action to details in the CLI.
 
-```
+```cli
 admin@ncs% commit | details
 Possible completions:
   debug  verbose  very-verbose
@@ -52,7 +52,7 @@ applying transaction for running datastore usid=41 tid=1761 trace-id=d7f06482-41
 
 Some actions (usually those involving device communication) also produce progress data.
 
-```
+```cli
 admin@ncs% request devices device ce0 sync-from dry-run | details very-verbose
 running action /devices/device\[name='ce0'\]/sync-from usid=41 tid=1800 trace-id=fff4d4b0-5688-42f9-b5f7-53b7c3f70d35
  2021-05-25T17:31:31.222 device ce0: sync-from...
@@ -79,14 +79,14 @@ The top-level container `progress` is by default invisible due to a hidden attri
 1.  First, the following XML snippet must be added to `ncs.conf` :\
 
 
-    ```
+    ```xml
     <hide-group>
        <name>debug</name>
     </hide-group>
     ```
 2.  Then, the `unhide` command is used in the CLI session:
 
-    ```
+    ```cli
     admin@ncs% unhide debug
     ```
 
@@ -94,7 +94,7 @@ The top-level container `progress` is by default invisible due to a hidden attri
 
 Progress data can be outputted to a given file. This is useful when the data is to be analyzed in some third-party software like a spreadsheet application.
 
-```
+```cli
 admin@ncs% set progress trace test destination file event.csv format csv
 ```
 
@@ -106,19 +106,19 @@ The location of the file is the directory of `/ncs-config/logs/progress-trace/di
 
 When the data is to be retrieved through a northbound interface, it is more useful to output the progress events as operational data.
 
-```
+```cli
 admin@ncs% set progress trace test destination oper-data
 ```
 
 This will log non-persistent operational data to the `/progress:progress/trace/event` list. As this list might grow rapidly there is a maximum size of it (defaults to 1000 entries). When the maximum size is reached, the oldest list entry is purged.
 
-```
+```cli
 admin@ncs% set progress trace test max-size 2000
 ```
 
 Using the `/progress:progress/trace/purge` action the event list can be purged.
 
-```
+```cli
 admin# request progress trace test purge
 ```
 
@@ -138,7 +138,7 @@ Additional debug tracing can be turned on for various parts. These are conscious
 
 By default, all transaction and action events with the given verbosity level will be logged. To get a more selective choice of events, filters can be used.
 
-```
+```cli
 admin@ncs% show progress trace filter
 Possible completions:
   all-devices  - Only log events for devices.
@@ -152,7 +152,7 @@ Possible completions:
 
 The context filter can be used to only log events that originate through a specific northbound interface. The context is either one of `netconf`, `cli`, `webui`, `snmp`, `rest`, `system` or it can be any other context string defined through the use of MAAPI.
 
-```
+```cli
 admin@ncs% set progress trace test filter context netconf
 ```
 
@@ -162,7 +162,7 @@ API methods to report progress events exist for Python, Java, Erlang, and C.
 
 ### Python `ncs.maapi` Example <a href="#d5e12711" id="d5e12711"></a>
 
-```
+```python
 class ServiceCallbacks(Service):
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
@@ -190,7 +190,7 @@ Further details can be found in the NSO Python API reference under `ncs.maapi.st
 
 ### Java `com.tailf.progress.ProgressTrace` Example <a href="#d5e12719" id="d5e12719"></a>
 
-```
+```java
     @ServiceCallback(servicePoint="...",
         callType=ServiceCBType.CREATE)
     public Properties create(ServiceContext context,

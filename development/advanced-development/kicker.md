@@ -46,7 +46,7 @@ The resulting evaluation of the monitor defines a node set. Each node in this no
 
 The following example shows the strengths of using xpath to define the kickers. Say that we have a situation described by the following YANG model snippet:
 
-```
+```yang
 module example {
   namespace "http://tail-f.com/ns/test/example";
   prefix example;
@@ -128,7 +128,7 @@ module example {
 
 Then, we can define a kicker for monitoring a specific element in the list and call the correlated `local_me` action:
 
-```
+```cli
 admin@ncs(config)# kickers data-kicker e1 \
 > monitor /sys/ifc[name='port-0'] \
 >kick-node /sys/ifc[name='port-0']\
@@ -147,7 +147,7 @@ kickers data-kicker e1
 
 On the other hand, we can define a kicker for monitoring all elements of the list and call the correlated `local_me` action for each element:
 
-```
+```cli
 admin@ncs(config)# kickers data-kicker e2 \
 > monitor /sys/ifc \
 >kick-node . \
@@ -177,7 +177,7 @@ The two boolean results together with the leaf `trigger-type` control if the kic
 * `enter-and-leave`: false -> true (i.e. positive flank) or true -> false (negative flank).
 * `enter`: false -> true.
 
-```
+```cli
 admin(config)# kickers data-kicker k1 monitor /sys/ifc \
 > trigger-expr "hw/mtu > 800" \
 > trigger-type enter \
@@ -199,7 +199,7 @@ kickers data-kicker k1
 
 Start by changing the MTU to 800:
 
-```
+```cli
 admin(config)# sys ifc port-0 hw mtu 800
 admin(config-ifc-port-0)# commit | debug kicker
  2017-02-15T16:35:36.039 kicker: k1 at /kicker_example:sys/kicker_example:ifc[kicker_example:name='port-0'] changed;
@@ -209,7 +209,7 @@ Commit complete.
 
 Since the `trigger-expression` evaluates to false, the kicker is not triggered. Let's try again:
 
-```
+```cli
 admin(config)# sys ifc port-0 hw mtu 801
 admin(config-ifc-port-0)# commit | debug kicker
  2017-02-15T16:35:36.039 kicker: k1 at /kicker_example:sys/kicker_example:ifc[kicker_example:name='port-0'] changed;
@@ -219,7 +219,7 @@ Commit complete.
 
 The `trigger-expression` can in some cases be used to refine the `monitor` of kicker, to avoid unnecessary evaluations. Let's change something below the `monitor` that doesn't touch the nodes in the `trigger-expression`:
 
-```
+```cli
 admin(config)# sys ifc port-0 speed ten
 admin(config-ifc-port-0)# commit | debug kicker
 Commit complete.
@@ -231,7 +231,7 @@ Notice there was no evaluation done.
 
 A data kicker may be provided with a list of variables (named values). Each variable binding consists of a name and a XPath expression. The XPath expressions are evaluated on-demand, i.e. when used in either of `monitor` or `trigger-expression` nodes.
 
-```
+```cli
 admin@ncs(config)# set kickers data-kicker k3 monitor $PATH/c
                          kick-node /x/y[id='n1']
                          action-name kick-me
@@ -253,7 +253,7 @@ This example is part of the `examples.ncs/web-server-farm/web-site-service` exam
 
 The following is the YANG snippet for the action definition from the `website.yang` file:
 
-```
+```yang
 module web-site {
   namespace "http://examples.com/web-site";
   prefix wse;
@@ -281,7 +281,7 @@ module web-site {
 
 The implementation of the action can be found in the `WebSiteServiceRFS.java` class file. Since it takes the `kicker:action-input-params` as input, the `Tid` for the synthetic transaction is available. This transaction is attached and diff-iterated. The result of the diff-iteration is printed in the `ncs-java-vm.log`:
 
-```
+```java
 class WebSiteServiceRFS {
 
     ....
@@ -336,7 +336,7 @@ class WebSiteServiceRFS {
 
 We are now ready to start the `web-site-service` example and define our data kicker. Do the following:
 
-```
+```bash
 $ make all
 $ ncs-netsim start
 $ ncs
@@ -363,14 +363,14 @@ sync-result {
 
 The kickers are defined under the hide-group `debug`. To be able to show and declare kickers, we need first to unhide this hide group:
 
-```
+```cli
 admin@ncs# config
 admin@ncs(config)# unhide debug
 ```
 
 We now define a data-kicker for the `profile` list under the service augmented container `/services/properties/wsp:web-site`:
 
-```
+```cli
 admin@ncs(config)# kickers data-kicker a1 \
 > monitor /services/properties/wsp:web-site/profile \
 > kick-node /services/wse:actions action-name diffcheck
@@ -387,7 +387,7 @@ kickers data-kicker a1
 
 We now commit a change in the profile list and we use the `debug kicker` pipe option to be able to follow the kicker invocation:
 
-```
+```cli
 admin@ncs(config)# services properties web-site profile lean lb lb0
 admin@ncs(config-profile-lean)# commit | debug kicker
  2017-02-15T16:35:36.039 kicker: a1 at /ncs:services/ncs:properties/wsp:web-site/wsp:profile[wsp:name='lean'] changed; invoking diffcheck
@@ -399,7 +399,7 @@ admin@ncs(config)# exit
 
 We can also check the result of the action by looking into the `ncs-java-vm.log`:
 
-```
+```cli
 admin@ncs# file show logs/ncs-java-vm.log
 ```
 
@@ -434,7 +434,7 @@ For a notification kicker, the following principles hold:
 
 The notification kicker is defined using a mandatory `selector-expr` which is an XPATH 1.0 expression. When the notification is received a synthetic transaction is started and the notification is written as if it would be stored under the path `/devices/device/notification/received-notifications/data`. Storing the notification in CDB is optional. The `selector-expr` is evaluated with the notification node as the current context and `/` as the root context. For example, if the device model defines a notification like this:
 
-```
+```yang
 module device {
   ...
   notification mynotif {
@@ -465,7 +465,7 @@ In addition to this usage of the predefined variable bindings, it is possible to
 
 In addition to the four variable bindings mentioned above, a notification kicker may also be provided with a list of variables (named values). Each variable binding consists of a name and an XPath expression. The XPath expression is evaluated when the selector-expr is run.
 
-```
+```cli
             admin@ncs(config)# set kickers notification-kicker k4
             selector-expr "$NOTIFICATION_NAME=linkUp and address[ip=$IP]"
             kick-node /x/y[id='n1']
@@ -500,7 +500,7 @@ In this example, we use the same action and setup as in the data kicker example 
 
 The `web-site-service` example has devices that have notifications generated on the stream "interface". We start with defining the notification kicker for a certain `SUBSCRIPTION_NAME = 'mysub'`. This subscription does not exist for the moment and the kicker will therefore not be triggered:
 
-```
+```cli
 admin@ncs# config
 
 admin@ncs(config)# kickers notification-kicker n1 \
@@ -521,7 +521,7 @@ kickers notification-kicker n1
 
 Now we define the `mysub` subscription on a device `www0` and refer to the notification stream `interface`. As soon as this definition is committed, the kicker will start triggering:
 
-```
+```cli
 admin@ncs(config)# devices device www0 notifications subscription mysub \
 > local-user admin stream interface
 admin@ncs(config-subscription-mysub)# commit
@@ -532,7 +532,7 @@ admin@ncs(config)# exit
 
 If we now inspect the `ncs-java-vm.log`, we will see a number of notifications that are received. We also see that the transaction that is diff-iterated contains the notification as data under the path `/devices/device/notifications/received-notifications/notification/data`. This is an operational data list. However, this transaction is synthetic and will not be committed. If the notification will be stored CDB is optional and not depending on the notification kicker functionality:
 
-```
+```cli
 admin@ncs# file show logs/ncs-java-vm.log
 
 -------------------
@@ -585,7 +585,7 @@ newValue = null
 
 We end by removing the kicker and the subscription:
 
-```
+```cli
 admin@ncs# config
 admin@ncs(config)# no kickers notification-kicker
 admin@ncs(config)# no devices device www0 notifications subscription
@@ -604,7 +604,7 @@ To find out why a Kicker kicked when it shouldn't or more commonly and annoying,
 
 Evaluation of potential Kicker invocations are reported in the CLI together with XPath evaluation results:
 
-```
+```cli
 admin@ncs(config)# set sys ifc port-0 hw mtu 8000
 admin@ncs(config)# commit | debug kicker
  2017-02-15T16:35:36.039 kicker: k1 at /kicker_example:sys/kicker_example:ifc[kicker_example:name='port-0'] changed;
@@ -620,7 +620,7 @@ The top-level container `kickers` is by default invisible due to a hidden attrib
 1.  First, the following XML snippet must be added to `ncs.conf`.\
 
 
-    ```
+    ```xml
     <hide-group>
         <name>debug</name>
     </hide-group>
@@ -628,7 +628,7 @@ The top-level container `kickers` is by default invisible due to a hidden attrib
 2.  Next, the `unhide` command can be used in the CLI session.\
 
 
-    ```
+    ```cli
     admin@ncs(config)# unhide debug
     admin@ncs(config)#
     ```
@@ -637,7 +637,7 @@ The top-level container `kickers` is by default invisible due to a hidden attrib
 
 Detailed information from the XPath evaluator can be enabled and made available in the xpath log. Add the following snippet to `ncs.conf`.
 
-```
+```xml
 <xpathTraceLog>
   <enabled>true</enabled>
   <filename>./xpath.trace</filename>
@@ -649,7 +649,7 @@ Detailed information from the XPath evaluator can be enabled and made available 
 Error information is written in the development log. The development log is meant to be used as support while developing the application. It is enabled in `ncs.conf`:
 
 {% code title="Enabling the Developer Log" %}
-```
+```xml
 <developer-log>
   <enabled>true</enabled>
   <file>

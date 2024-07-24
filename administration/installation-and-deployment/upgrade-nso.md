@@ -63,19 +63,19 @@ The following steps assume that you are upgrading to the 6.3 release. They perta
 
 As a best practice, always create a backup before trying to upgrade.
 
-```
+```bash
 # ncs-backup
 ```
 
 For the upgrade itself, you must first download to the host and install the new NSO release.
 
-```
+```bash
 # sh nso-6.3.linux.x86_64.installer.bin --system-install
 ```
 
 Then, stop the currently running server with the help of the `init.d` script or an equivalent command relevant to your system.
 
-```
+```bash
 # /etc/init.d/ncs stop
 Stopping ncs: .
 ```
@@ -84,7 +84,7 @@ Compact the CDB files write log using, for example, the `ncs --cdb-compact $NCS_
 
 Next, you update the symbolic link for the currently selected version to point to the newly installed one, 6.3 in this case.
 
-```
+```bash
 # cd /opt/ncs
 # rm -f current
 # ln -s ncs-6.3 current
@@ -96,7 +96,7 @@ Now, ensure that the `/var/opt/ncs/packages/` directory has appropriate packages
 
 As a best practice, the available packages are kept in `/opt/ncs/packages/` and `/var/opt/ncs/packages/` only contains symbolic links. In this case, to identify the release for which they were compiled, the package file names all start with the corresponding NSO version. Then, you only need to rearrange the symbolic links in the `/var/opt/ncs/packages/` directory.
 
-```
+```bash
 # cd /var/opt/ncs/packages/
 # rm -f *
 # for pkg in /opt/ncs/packages/ncs-6.3-*; do ln -s $pkg; done
@@ -108,7 +108,7 @@ Please note that the above package naming scheme is neither required nor enforce
 
 Finally, you start the new version of the NSO server with the package reload flag set.
 
-```
+```bash
 # /etc/init.d/ncs start-with-package-reload
 Starting ncs: ...
 ```
@@ -133,13 +133,13 @@ The same steps can also be used to restore data on a new, similar host if the OS
 
 1.  First, stop the NSO process if it is running.
 
-    ```
+    ```bash
     # /etc/init.d/ncs stop
     Stopping ncs: .
     ```
 2.  Verify and, if necessary, revert the symbolic link in `/opt/ncs/` to point to the initial NSO release.
 
-    ```
+    ```bash
     # cd /opt/ncs
     # ls -l current
     # ln -s ncs-VERSION current
@@ -149,17 +149,17 @@ The same steps can also be used to restore data on a new, similar host if the OS
     In the exceptional case where the initial version installation was removed or damaged, you will need to re-install it first and redo the step above.
 3.  Verify if the correct (initial) version of NSO is being used.
 
-    ```
+    ```bash
     # ncs --version
     ```
 4.  Next, restore the backup.
 
-    ```
+    ```bash
     # ncs-backup --restore
     ```
 5.  Finally, start the NSO server and verify the restore was successful.
 
-    ```
+    ```bash
     # /etc/init.d/ncs start
     Starting ncs: .
     ```
@@ -198,7 +198,7 @@ In the case of a major upgrade, you must recompile the packages for the new vers
 
 The following is a transcript of a sample upgrade procedure, showing the commands for each step described above, in a 2-node HA setup, with nodes in their initial designated state. The procedure ensures that this is also the case in the end.
 
-```
+```xml
 <switch to designated primary CLI>
 admin@ncs# show high-availability status mode
 high-availability status mode primary
@@ -244,7 +244,7 @@ Scripting is a recommended way to upgrade the NSO version of an HA cluster. The 
 For the below example script, we configured our `primary` and `secondary` nodes with their nominal roles that they assume at startup and when HA is enabled. Automatic failover is also enabled so that the `secondary` will assume the `primary` role if the `primary` node goes down.
 
 {% code title="Configuration on Both Nodes" %}
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <high-availability xmlns="http://tail-f.com/ns/ncs">
     <ha-node>
@@ -350,7 +350,7 @@ Package upgrades are frequent and routine in development but require the same ca
 
 In a single-node environment, the procedure is straightforward. Create a backup with the `ncs-backup` command and ensure the new package is compiled for the current NSO version and available under the `/opt/ncs/packages` directory. Then either manually rearrange the symbolic links in the `/var/opt/ncs/packages` directory or use the `software packages install` command in the NSO CLI. Finally, invoke the `packages reload` command. For example:
 
-```
+```bash
 # ncs-backup
 INFO  Backup /var/opt/ncs/backups/ncs-6.3@2024-04-21T10:34:42.backup.gz created
 successfully
@@ -390,7 +390,7 @@ If the parameter `and-reload` is also supplied with the `wait-commit-queue-empty
 Using the `wait-commit-queue-empty` parameter is the recommended approach, as it minimizes the risk of the upgrade failing due to commit queue items still relying on the old schema.
 
 {% code title="Package Upgrade Procedure" %}
-```
+```cli
 primary@node1# software packages list
 package {
   name dummy-1.0.tar.gz
