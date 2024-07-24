@@ -63,7 +63,7 @@ The Operational store in CDB does not have any locks. NSO's transaction engine c
 
 When a session tries to modify a data store that is locked in some way, it will fail. For example, the CLI might print:
 
-```
+```cli
 admin@ncs(config)# commit
 Aborted: the configuration database is locked
 ```

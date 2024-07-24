@@ -98,7 +98,7 @@ To unpack the installer:
 
 1.  In the terminal, list the binaries in the directory where you downloaded the installer, for example:
 
-    ```
+    ```bash
     cd ~/Downloads
     ls -l nso*.bin
     -rw-r--r--@ 1 user  staff   199M Dec 15 11:45 nso-6.0.darwin.x86_64.installer.bin
@@ -106,7 +106,7 @@ To unpack the installer:
     ```
 2.  Use the `sh` command to run the `signed.bin` to verify the certificate and extract the installer binary and other files. An example output is shown below.
 
-    ```
+    ```bash
     sh nso-6.0.darwin.x86_64.signed.bin
     # Output
     Unpacking...
@@ -121,7 +121,7 @@ To unpack the installer:
     ```
 3.  List the files to check if extraction was successful.
 
-    ```
+    ```bash
     ls -l
     # Output
     -rw-r--r--  1 user  staff   1.8K Nov 29 06:05 README.signature
@@ -165,17 +165,17 @@ Following is a list of a few of the installed manual pages:
 
 For example, to view the manual page describing the NSO configuration file you should type:
 
-```
+```bash
 $ man ncs.conf
 ```
 
 Apart from the manual pages, extensive information about command line options can be obtained by running `ncs` and `ncsc` with the `--help` (abbreviated `-h`) flag.
 
-```
+```bash
 $ ncs --help
 ```
 
-```
+```bash
 $ ncsc --help
 ```
 
@@ -185,7 +185,7 @@ Run the `sh nso-VERSION.darwin.x86_64.installer.bin --help` command to view addi
 
 Notice the two options for `--local-install` or `--system-install`. An example output is shown below.
 
-```
+```bash
 sh nso-6.0.darwin.x86_64.installer.bin --help
 
 # Output
@@ -231,14 +231,14 @@ To run the installer:
 1. Navigate to your Install Directory.
 2.  Run the following command to install NSO in your Install Directory. The `--local-install` parameter is optional.
 
-    ```
+    ```bash
     $ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install
     ```
 
     \
     An example output is shown below.
 
-    ```
+    ```bash
     sh nso-6.0.darwin.x86_64.installer.bin --local-install ~/nso-6.0
 
     # Output
@@ -266,7 +266,7 @@ To set the environment variables:
 
     For `csh/tcsh` users, there is a `ncsrc.tcsh` file with `csh/tcsh` syntax. The example below assumes that you are using `bash`, other versions of `/bin/sh` may require that you use `.` instead of `source`.
 
-    ```
+    ```bash
     $ source $HOME/ncs-VERSION/ncsrc
     ```
 2.  Most users add source `~/nso-x.x/ncsrc` (where `x.x` is the NSO version) to their `~/.bash_profile`, but you can simply do it manually when you want it. Once it has been sourced, you have access to all the NSO executable commands, which start with `ncs`.
@@ -292,12 +292,12 @@ To create a Runtime Directory:
 
 1.  Create a Runtime Directory for NSO by running the following command. In this case, we assume that the directory is `$HOME/ncs-run`.
 
-    ```
+    ```bash
       $ ncs-setup --dest $HOME/ncs-run
     ```
 2.  Start the NSO daemon `ncs`.
 
-    ```
+    ```bash
     $ cd $HOME/ncs-run
     $ ncs
     ```
@@ -308,7 +308,7 @@ To create a Runtime Directory:
 
 A common misunderstanding is that there exists a dependency between the Runtime Directory and the Installation Directory. This is not true. For example, say that you have two NSO installations `.../ncs-2.3.1` and `.../ncs-2.3.2`. The following sequence runs `ncs-2.3.1` but uses an example and configuration from `ncs-2.3.2`.
 
-```
+```bash
   $ cd .../ncs-2.3.1
   $ . ncsrc
   $ cd .../ncs-2.3.2/examples.ncs/datacenter-qinq
@@ -317,7 +317,7 @@ A common misunderstanding is that there exists a dependency between the Runtime 
 
 Since the Runtime Directory is self-contained, this is also the way to move between examples. And since the Runtime Directory is self-contained including the database files, you can compress a complete directory and distribute it. Unpacking that directory and starting NSO from there gives an exact copy of all instance data.
 
-```
+```bash
   $ cd $NCS_DIR/examples.ncs/data-center-qinq
   $ ncs
   $ ncs --stop
@@ -336,7 +336,7 @@ To generate a license registration token:
 
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
-    ```
+    ```cli
       admin@ncs# license smart register idtoken YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQt
       OGEzMTM3OTg5MG
       Registration process in progress.
@@ -347,7 +347,7 @@ To generate a license registration token:
     Upon successful registration, NSO automatically requests a license entitlement for its own instance and for the number of devices it orchestrates and their NED types. If development mode has been enabled, only development entitlement for the NSO instance itself is requested.
 2.  Inspect the requested entitlements using the command `show license all` (or by inspecting the NSO daemon log). An example output is shown below.
 
-    ```
+    ```cli
     admin@ncs# show license all
     ...
     <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
@@ -441,7 +441,7 @@ Licensing activities are also logged in the NSO daemon log as described in [Moni
 
 To check the registration status, use the command `show license status` An example output is shown below.
 
-```
+```cli
 admin@ncs# show license status
 Smart Licensing is ENABLED
 

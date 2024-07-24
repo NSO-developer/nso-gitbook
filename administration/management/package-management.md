@@ -16,7 +16,7 @@ In a System Install of NSO, packages are always installed (normally through symb
 
 Loading of new or updated packages (as well as removal of packages that should no longer be used) can be requested via the `reload` action - from the NSO CLI:
 
-```
+```cli
 admin@ncs# packages reload
 reload-result {
     package cisco-ios
@@ -34,7 +34,7 @@ By default, the `reload` action will (when needed) wait up to 10 seconds for the
 
 If there are still open transactions at the end of this period, the upgrade will be canceled and the reload operation will fail. The `max-wait-time` and `timeout-action` parameters to the action can modify this behavior. For example, to wait for up to 30 seconds, and forcibly terminate any transactions that still remain open after this period, we can invoke the action as:
 
-```
+```cli
 admin@ncs# packages reload max-wait-time 30 timeout-action kill
 ```
 
@@ -65,7 +65,7 @@ Always use one of these methods when upgrading to a new version of NSO in an exi
 
 If it is known in advance that there were no data model changes, i.e. none of the `.fxs` or `.ccl` files changed, and none of the shared JARs changed in a Java package, and the declaration of the components in the `package-meta-data.xml` is unchanged, then it is possible to do a lightweight package upgrade, called package redeploy. Package redeploy only loads the specified package, unlike packages reload which loads all of the packages found in the load-path.
 
-```
+```cli
 admin@ncs# packages package mserv redeploy
 result true
 ```
@@ -74,7 +74,7 @@ Redeploying a package allows you to reload updated or load new templates, reload
 
 The `package redeploy` will return `true` if the package's resulting status after the redeploy is `up`. Consequently, if the result of the action is `false`, then it is advised to check the operational status of the package in the package list.
 
-```
+```cli
 admin@ncs# show packages package mserv oper-status
 oper-status file-load-error
 oper-status error-info "template3.xml:2 Unknown servicepoint: templ42-servicepoint"
@@ -92,7 +92,7 @@ In addition, the system imposes some additional constraints, so it is not always
 
 Adding a NED package with a modified shared data model is therefore not allowed and all shared data models are verified to be identical before a NED package can be added. If they are not, the `/packages/add` action will fail and you will have to use the `/packages/reload` command.
 
-```
+```cli
 admin@ncs# packages add
 add-result {
     package router-nc-1.1
@@ -125,7 +125,7 @@ Depending on your operational policies, this may be done during normal operation
 Note that changing a NED ID also affects device templates if you use them. To make existing device templates compatible with the new NED ID, you can use the `copy` action. It will copy the configuration used for one ned-id to another, as long as the schema nodes used haven't changed between the versions. The following example demonstrates the `copy` action usage:
 
 {% code overflow="wrap" %}
-```
+```cli
 admin@ncs(config)# devices template acme-ntp ned-id router-nc-1.0 copy ned-id router-nc-1.2
 ```
 {% endcode %}
@@ -152,7 +152,7 @@ In a System Install of NSO, management of pre-built packages is supported throug
 The `/software/repository` list allows for the configuration of one or more remote repositories, facilitating the distribution of packages. You must set up a local server for this purpose - the basic requirements are described in detail in the YANG submodule. Authenticated access to the repositories via HTTP or HTTPS is supported.
 
 {% code title="Configuring a Remote Repository" %}
-```
+```cli
 admin@ncs(config)# software repository my-repo
 Value for 'url' (<string>): https://nso-pkgs.repos.example.com
 admin@ncs(config-repository-my-repo)# user johnd
@@ -182,7 +182,7 @@ NSO Packages contain data models and code for a specific function. It might be N
 
 (We assume you have the example up and running from the previous section). Currently installed packages can be viewed with the following command:
 
-```
+```cli
 admin@ncs# show packages
 packages package cisco-ios
  package-version 3.0
@@ -206,7 +206,7 @@ So the above command shows that NSO currently has one package, the NED for Cisco
 
 NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. So in this specific example:
 
-```
+```bash
 $ pwd
 .../examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios
 $ ls packages/
@@ -229,13 +229,13 @@ Assume you would like to add support for Nexus devices to the example. Nexus dev
 
 We can keep NSO running all the time, but we will stop the network simulator to add the Nexus devices to the simulator.
 
-```
+```bash
 $ ncs-netsim stop
 ```
 
 Add the nexus package to the NSO runtime directory by creating a symbolic link:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/packages
 $ ln -s $NCS_DIR/packages/neds/cisco-nx
 $ ls -l
@@ -244,7 +244,7 @@ $ ls -l
 
 The package is now in place, but until we tell NSO to look for package changes nothing happens:
 
-```
+```cli
   admin@ncs# show packages packages package
   cisco-ios ...  admin@ncs# packages reload
 
@@ -267,7 +267,7 @@ So after the `packages reload` operation NSO also knows about Nexus devices. The
 
 ### Simulating the New Device <a href="#d5e7826" id="d5e7826"></a>
 
-```
+```bash
 $ ncs-netsim add-to-network cisco-nx 2 n
 $ ncs-netsim list
 ncs-netsim list for  /Users/stefan/work/ncs-3.2.1/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/netsim
@@ -304,7 +304,7 @@ nexus:vlan 1
 
 We can now add these Nexus devices to NSO according to the below sequence:
 
-```
+```cli
 admin@ncs(config)# devices device n0 device-type cli ned-id cisco-nx
 admin@ncs(config-device-n0)# port 10025
 admin@ncs(config-device-n0)# address 127.0.0.1

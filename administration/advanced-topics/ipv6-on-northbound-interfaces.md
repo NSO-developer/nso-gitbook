@@ -8,7 +8,7 @@ NSO supports access to all northbound interfaces via IPv6, and in the most simpl
 
 In most IPv6 deployments, it will however be necessary to support IPv6 and IPv4 access simultaneously. This requires that both IPv4 and IPv6 addresses are configured, typically `0.0.0.0` plus `::`. To support this, there is in addition to the `ip` and `port` leafs also a list `extra-listen` for each agent and transport, where additional IP addresses and port pairs can be configured. Thus, to configure the CLI to accept SSH connections to port 2024 on any local IPv6 address, in addition to the default (port 2024 on any local IPv4 address), we can add an `<extra-listen>` section under `/ncs-config/cli/ssh` in `ncs.conf`:
 
-```
+```xml
   <cli>
     <enabled>true</enabled>
 
@@ -31,7 +31,7 @@ In most IPv6 deployments, it will however be necessary to support IPv6 and IPv4 
 
 To configure the SNMP agent to accept requests to port 161 on any local IPv6 address, we could similarly use the CLI and give the command:
 
-```
+```cli
 admin@ncs(config)# snmp agent extra-listen :: 161
 ```
 

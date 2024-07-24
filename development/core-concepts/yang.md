@@ -40,7 +40,7 @@ YANG defines four types of nodes for data modeling. In each of the following sub
 
 A leaf node contains simple data like an integer or a string. It has exactly one value of a particular type and no child nodes.
 
-```
+```yang
 leaf host-name {
     type string;
     description "Hostname for this system";
@@ -49,13 +49,13 @@ leaf host-name {
 
 With XML value representation for example:
 
-```
+```xml
 <host-name>my.example.com</host-name>
 ```
 
 An interesting variant of leaf nodes is typeless leafs.
 
-```
+```yang
 leaf enabled {
     type empty;
     description "Enable the interface";
@@ -64,7 +64,7 @@ leaf enabled {
 
 With XML value representation for example:
 
-```
+```xml
 <enabled/>
 ```
 
@@ -81,7 +81,7 @@ leaf-list domain-search {
 
 With XML value representation for example:
 
-```
+```xml
 <domain-search>high.example.com</domain-search>
 <domain-search>low.example.com</domain-search>
 <domain-search>everywhere.example.com</domain-search>
@@ -91,7 +91,7 @@ With XML value representation for example:
 
 A `container` node is used to group related nodes in a subtree. It has only child nodes and no value and may contain any number of child nodes of any type (including leafs, lists, containers, and leaf-lists).
 
-```
+```yang
 container system {
     container login {
         leaf message {
@@ -105,7 +105,7 @@ container system {
 
 With XML value representation for example:
 
-```
+```xml
 <system>
   <login>
     <message>Good morning, Dave</message>
@@ -117,7 +117,7 @@ With XML value representation for example:
 
 A `list` defines a sequence of list entries. Each entry is like a structure or a record instance and is uniquely identified by the values of its key leafs. A list can define multiple keys and may contain any number of child nodes of any type (including leafs, lists, containers, etc.).
 
-```
+```yang
 list user {
     key "name";
     leaf name {
@@ -134,7 +134,7 @@ list user {
 
 With XML value representation for example:
 
-```
+```xml
 <user>
   <name>glocks</name>
   <full-name>Goldie Locks</full-name>
@@ -212,7 +212,7 @@ YANG can model state data, as well as configuration data, based on the `config` 
 
 In this example, two leafs are defined for each interface, a configured speed, and an observed speed. The observed speed is not a configuration, so it can be returned with NETCONF `get` operations, but not with `get-config` operations. The observed speed is not configuration data, and cannot be manipulated using `edit-config`.
 
-```
+```yang
 list interface {
     key "name";
     config true;
@@ -281,13 +281,13 @@ leaf completed {
 
 With XML value representation for example:
 
-```
+```xml
 <completed>20</completed>
 ```
 
 User-defined typedefs are useful when we want to name and reuse a type several times. It is also possible to restrict leafs inline in the data model as in:
 
-```
+```yang
 leaf completed {
     type uint16 {
         range "0 .. 100";
@@ -321,7 +321,7 @@ container peer {
 
 With XML value representation for example:
 
-```
+```xml
 <peer>
   <destination>
     <address>192.0.2.1</address>
@@ -332,7 +332,7 @@ With XML value representation for example:
 
 The grouping can be refined as it is used, allowing certain statements to be overridden. In this example, the description is refined:
 
-```
+```yang
 container connection {
     container source {
         uses target {
@@ -365,7 +365,7 @@ When the nodes from one case are created, all nodes from all other cases are imp
 
 The choice and case nodes appear only in the schema tree, not in the data tree or XML encoding. The additional levels of hierarchy are not needed beyond the conceptual schema.
 
-```
+```yang
 container food {
    choice snack {
        mandatory true;
@@ -392,7 +392,7 @@ container food {
 
 With XML value representation for example:
 
-```
+```xml
 <food>
   <chocolate>first-available</chocolate>
 </food>
@@ -404,7 +404,7 @@ YANG allows a module to insert additional nodes into data models, including both
 
 The `augment` statement defines the location in the data model hierarchy where new nodes are inserted, and the `when` statement defines the conditions when the new nodes are valid.
 
-```
+```yang
 augment /system/login/user {
     when "class != 'wheel'";
     leaf uid {
@@ -419,7 +419,7 @@ This example defines a `uid` node that only is valid when the user's `class` is 
 
 If a module augments another model, the XML representation of the data will reflect the prefix of the augmenting model. For example, if the above augmentation were in a module with the prefix `other`, the XML would look like:
 
-```
+```xml
 <user>
   <name>alicew</name>
   <full-name>Alice N. Wonderland</full-name>
@@ -447,7 +447,7 @@ rpc activate-software-image {
 }
 ```
 
-```
+```xml
 <rpc message-id="101"
      xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <activate-software-image xmlns="http://acme.example.com/system">
@@ -481,7 +481,7 @@ notification link-failure {
 }
 ```
 
-```
+```xml
 <notification xmlns="urn:ietf:params:netconf:capability:notification:1.0">
   <eventTime>2007-09-01T10:00:00Z</eventTime>
   <link-failure xmlns="http://acme.example.com/system">
@@ -495,7 +495,7 @@ notification link-failure {
 
 Assume we have a small trivial YANG file `test.yang`:
 
-```
+```yang
 module test {
   namespace "http://tail-f.com/test";
   prefix "t";
@@ -517,7 +517,7 @@ There is an Emacs mode suitable for YANG file editing in the system distribution
 
 We can use `ncsc` compiler to compile the YANG module.
 
-```
+```bash
 $ ncsc -c test.yang
 ```
 
@@ -534,7 +534,7 @@ Whenever we wish to use any of those predefined modules we need to not only impo
 
 So, if we extend our test module so that it looks like:
 
-```
+```yang
 module test {
     namespace "http://tail-f.com/test";
     prefix "t";
@@ -561,7 +561,7 @@ Normally when importing other YANG modules we must indicate through the `--yangp
 
 We compile the above as:
 
-```
+```bash
 $ ncsc -c test.yang
 $ ncsc --get-info test.fxs
 fxs file
@@ -582,7 +582,7 @@ We see that the generated `.fxs` file has a dependency on the standard `urn:ietf
 
 Failing to do so gives:
 
-```
+```bash
 $ ncs -c ncs.conf --foreground --verbose
 The namespace urn:ietf:params:xml:ns:yang:inet-types (referenced by http://tail-f.com/test) could not be found in the loadPath.
 Daemon died status=21
@@ -590,7 +590,7 @@ Daemon died status=21
 
 The remedy is to modify `ncs.conf` so that it contains the proper load path or to provide the directory containing the `fxs` file, alternatively, we can provide the path on the command line. The directory `${NCS_DIR}/etc/ncs` contains pre-compiled versions of the standard YANG modules.
 
-```
+```bash
 $ ncs -c ncs.conf --addloadpath ${NCS_DIR}/etc/ncs --foreground --verbose
 ```
 
@@ -604,7 +604,7 @@ A `must` statement is an XPath expression that must evaluate to true or a non-em
 
 An example is:
 
-```
+```yang
  container interface {
     leaf ifType {
         type enumeration {
@@ -632,7 +632,7 @@ Another useful built-in constraint checker is the `unique` statement.
 
 With the YANG code:
 
-```
+```yang
 list server {
       key "name";
       unique "ip port";
@@ -650,7 +650,7 @@ list server {
 
 We specify that the combination of IP and port must be unique. Thus the configuration is not valid:
 
-```
+```xml
 <server>
   <name>smtp</name>
   <ip>192.0.2.1</ip>
@@ -672,7 +672,7 @@ If other constraints are necessary, validation callback functions can be program
 
 The `when` statement is used to make its parent statement conditional. If the XPath expression specified as the argument to this statement evaluates to false, the parent node cannot be given configured. Furthermore, if the parent node exists, and some other node is changed so that the XPath expression becomes false, the parent node is automatically deleted. For example:
 
-```
+```yang
 leaf a {
     type boolean;
 }
@@ -696,7 +696,7 @@ All these extensions are handled as normal YANG extensions. (YANG is designed to
 
 Continuing with our previous example, by adding a callpoint and a validation point, we get:
 
-```
+```yang
 module test {
    namespace "http://tail-f.com/test";
    prefix "t";
@@ -741,7 +741,7 @@ Sometimes it is convenient to specify all Tail-f extension statements in-line in
 
 A YANG annotation file is a normal YANG module that imports the module to annotate. Then the `tailf:annotate` statement is used to annotate nodes in the original module. For example, the module test above can be annotated like this:
 
-```
+```yang
 module test {
    namespace "http://tail-f.com/test";
    prefix "t";
@@ -765,7 +765,7 @@ module test {
 }
 ```
 
-```
+```yang
 module test-ann {
    namespace "http://tail-f.com/test-ann";
    prefix "ta";
@@ -813,7 +813,7 @@ The Web UI uses this information likewise to help the end-user.
 
 The `mtu` definition below has been annotated to enrich the end-user experience:
 
-```
+```yang
 leaf mtu {
     type uint16 {
         range "1 .. 1500";
@@ -877,7 +877,7 @@ typedef mtuType {
 
 Say, for example, that we want to model the interface list on a Linux-based device. Running the `ip link list` command reveals the type of information we have to model
 
-```
+```bash
 $ /sbin/ip link list
 1: eth0: <BROADCAST,MULTICAST,UP>; mtu 1500 qdisc pfifo_fast qlen 1000
     link/ether 00:12:3f:7d:b0:32 brd ff:ff:ff:ff:ff:ff
@@ -889,7 +889,7 @@ $ /sbin/ip link list
 
 And, this is how we want to represent the above in XML:
 
-```
+```xml
 <?xml version="1.0"?>
 <config xmlns="http://example.com/ns/link">
   <links>
@@ -923,7 +923,7 @@ An interface or a `link` has data associated with it. It also has a name, an obv
 
 The structure of a YANG model is always a header, followed by type definitions, followed by the actual structure of the data. A YANG model for the interface list starts with a header:
 
-```
+```yang
 module links {
     namespace "http://example.com/ns/links";
     prefix link;
@@ -938,7 +938,7 @@ A number of datatype definitions may follow the YANG module header. Looking at t
 
 One way to model a sequence of boolean flags is as a sequence of statements:
 
-```
+```yang
 leaf UP {
     type boolean;
     default false;
@@ -951,7 +951,7 @@ leaf NOARP {
 
 A better way is to model this as:
 
-```
+```yang
 leaf UP {
     type empty;
 }
@@ -1025,7 +1025,7 @@ There are a large number of queue disciplines and we only list a few here. The e
 
 Now that we have a number of usable datatypes, we continue with the actual data structure describing a list of interface entries:
 
-```
+```yang
 container links {
     list link {
         key name;
@@ -1077,7 +1077,7 @@ Firstly, assume we want to put/store the queue disciplines from the previous sec
 
 We then specify a separate container, containing all the queue disciplines which each refers to a specific `link` entry. This is written as:
 
-```
+```yang
 container queueDisciplines {
     list queueDiscipline {
         key linkName;
@@ -1105,7 +1105,7 @@ Secondly, assume we want to express a restriction or specialization on Ethernet 
 
 We then specify a separate container, containing all the specializations which each refers to a specific `link`:
 
-```
+```yang
 container linkLimitations {
     list LinkLimitation {
         key linkName;
@@ -1127,7 +1127,7 @@ The `linkName` leaf is both an instance key to the `linkLimitation` list, and at
 
 Thirdly, assume we want to express that one of the `link` entries should be the default link. In that case, we enforce an association between a non-dynamic `defaultLink` and a certain `link` entry:
 
-```
+```yang
 leaf defaultLink {
     type leafref {
         path "/config/links/link/name";
@@ -1139,7 +1139,7 @@ leaf defaultLink {
 
 Key leafs are always unique. Sometimes we may wish to impose further restrictions on objects. For example, we can ensure that all `link` entries have a unique MAC address. This is achieved through the use of the `unique` statement:
 
-```
+```yang
 container servers {
     list server {
         key name;
@@ -1171,7 +1171,7 @@ In this example, we have two `unique` statements. These two groups ensure that e
 
 A leaf can have a static or dynamic default value. Static default values are defined with the `default` statement in the data model. For example:
 
-```
+```yang
 leaf mtu {
     type int32;
     default 1500;
@@ -1180,7 +1180,7 @@ leaf mtu {
 
 and:
 
-```
+```yang
 leaf UP {
     type boolean;
     default true;
@@ -1189,7 +1189,7 @@ leaf UP {
 
 A dynamic default value means that the default value for the leaf is the value of some other leaf in the data model. This can be used to make the default values configurable by the user. Dynamic default values are defined using the `tailf:default-ref` statement. For example, suppose we want to make the MTU default value configurable:
 
-```
+```yang
 container links {
     leaf mtu {
         type uint32;
@@ -1209,7 +1209,7 @@ container links {
 
 Now suppose we have the following data:
 
-```
+```xml
 <links>
   <mtu>1000</mtu>
   <link>
@@ -1236,7 +1236,7 @@ Another example where default values are used is when a new instance is created.
 
 Here is the final interface YANG model with all constructs described above:
 
-```
+```yang
 module links {
     namespace "http://example.com/ns/link";
     prefix link;
@@ -1352,7 +1352,7 @@ module links {
 
 If the above YANG file is saved on disk, as `links.yang`, we can compile and link it using the `confdc` compiler:
 
-```
+```bash
 $ confdc -c links.yang
 ```
 
@@ -1362,7 +1362,7 @@ We now have a ready-to-use schema file named `links.fxs` on disk. To run this ex
 
 A `leafref` is used to model relationships in the data model, as described in [Modeling Relationships](yang.md#ug.yang.relationships). In the simplest case, the `leafref` is a single leaf that references a single key in a list:
 
-```
+```yang
 list host {
     key "name";
     leaf name {
@@ -1380,7 +1380,7 @@ leaf host-ref {
 
 But sometimes a list has more than one key, or we need to refer to a list entry within another list. Consider this example:
 
-```
+```yang
 list host {
     key "name";
     leaf name {
@@ -1402,7 +1402,7 @@ list host {
 
 If we want to refer to a specific server on a host, we must provide three values; the host name, the server IP, and the server port. Using leafrefs, we can accomplish this by using three connected leafs:
 
-```
+```yang
 leaf server-host {
     type leafref {
         path "/host/name";
@@ -1427,7 +1427,7 @@ The path specification for `server-port` means the port number of the server wit
 
 This syntax quickly gets awkward and error-prone. NSO supports a shorthand syntax, by introducing an XPath function `deref()` (see [XPATH FUNCTIONS](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages ). Technically, this function follows a `leafref` value and returns all nodes that the `leafref` refers to (typically just one). The example above can be written like this:
 
-```
+```yang
 leaf server-host {
     type leafref {
         path "/host/name";
@@ -1453,7 +1453,7 @@ There are several reasons for supporting multiple configuration namespaces. Mult
 
 As an example, `datatypes.yang` is a YANG module that defines a reusable data type.
 
-```
+```yang
 module datatypes {
   namespace "http://example.com/ns/dt";
   prefix dt;
@@ -1473,13 +1473,13 @@ module datatypes {
 
 We compile and link `datatypes.yang` into a final schema file representing the `http://example.com/ns/dt` namespace:
 
-```
+```bash
 $ confdc -c datatypes.yang
 ```
 
 To reuse our user defined `countersType`, we must import the `datatypes` module.
 
-```
+```yang
 module test {
     namespace "http://tail-f.com/test";
     prefix "t";
@@ -1496,7 +1496,7 @@ module test {
 
 When compiling this new module that refers to another module, we must indicate to `confdc` where to search for the imported module:
 
-```
+```bash
 $ confdc -c test.yang --yangpath /path/to/dt
 ```
 
@@ -1512,7 +1512,7 @@ We have three different entities that define our configuration data.
 *   The XML namespace. A module defines a namespace. This is an important part of the module header. For example, we have:\
 
 
-    ```
+    ```yang
      module acme-system {
          namespace "http://acme.example.com/system";
          .....
@@ -1522,7 +1522,7 @@ We have three different entities that define our configuration data.
     The namespace string must uniquely define the namespace. It is very important that once we have settled on a namespace we never change it. The namespace string should remain the same between revisions of a product. Do not embed revision information in the namespace string since that breaks manager-side NETCONF scripts.
 *   The `revision` statement as in:
 
-    ```
+    ```yang
      module acme-system {
          namespace "http://acme.example.com/system";
          prefix "acme";
@@ -1540,7 +1540,7 @@ We have three different entities that define our configuration data.
     A capabilities reply from a NETCONF agent to the manager may look as:\
 
 
-    ```
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <capabilities>
@@ -1583,7 +1583,7 @@ When converting a string to an enumeration value, the order of types in the unio
 
 Consider the example below:
 
-```
+```yang
 leaf example {
   type union {
     type string; // NOTE: widest type first
@@ -1599,7 +1599,7 @@ Converting the string `42` to a typed value using the YANG model above, will alw
 
 Instead, consider the example below where the string (being a wider type) is placed last:
 
-```
+```yang
 leaf example {
   type union {
     type enumeration {
@@ -1615,7 +1615,7 @@ Converting the string `42` to the corresponding union value will result in a `in
 
 Using the C and Python APIs to convert a string to a given value is further limited by the lack of restriction matching on the types. Consider the following example:
 
-```
+```yang
 leaf example {
   type union {
     type string {

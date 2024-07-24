@@ -105,7 +105,7 @@ The application is a slight variation on the `examples.ncs/getting-started/devel
 
 The upper layer of the YANG service data for this example looks like the following:
 
-```
+```yang
 module cfs-vlan {
   ...
   list cfs-vlan {
@@ -147,7 +147,7 @@ module cfs-vlan {
 
 Instantiating one CFS we have:
 
-```
+```cli
 admin@upper-nso% show cfs-vlan
 cfs-vlan v1 {
     a-router ex0;
@@ -160,7 +160,7 @@ cfs-vlan v1 {
 
 The provisioning code for this CFS has to make a decision on where to instantiate what. In this example the "what" is trivial, it's the accompanying RFS, whereas the "where" is more involved. The two underlying RFS nodes, each manage 3 netsim routers, thus given the input, the CFS code must be able to determine which RFS node to choose. In this example, we have chosen to have an explicit map, thus on the `upper-nso` we also have:
 
-```
+```cli
 admin@upper-nso% show dispatch-map
 dispatch-map ex0 {
     rfs-node lower-nso-1;
@@ -184,7 +184,7 @@ dispatch-map ex5 {
 
 So, we have a template CFS code that does the dispatching to the right RFS node.
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="cfs-vlan">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -220,7 +220,7 @@ The result of the template-based service is to instantiate the RFS, at the RFS n
 
 First, let's have a look at what happened in the upper-nso. Look at the modifications but ignore the fact that this is an LSA service:
 
-```
+```cli
 admin@upper-nso% request cfs-vlan v1 get-modifications no-lsa
 cli {
     local-node {
@@ -256,7 +256,7 @@ Just the dispatched data is shown. As `ex0` and `ex5` reside on different nodes,
 
 Now let's see what happened in the `lower-nso`. Look at the modifications and take into account that these are LSA nodes (this is the default):
 
-```
+```cli
 admin@upper-nso% request cfs-vlan v1 get-modifications
 cli {
   local-node {
@@ -310,7 +310,7 @@ Both the dispatched data and the modification of the remote service are shown. A
 
 The communication between the NSO nodes is of course NETCONF.
 
-```
+```cli
 admin@upper-nso% set cfs-vlan v1 a-router ex0 z-router ex5 iface eth3 unit 3 vid 78
 [ok][2016-10-20 16:52:45]
 
@@ -346,7 +346,7 @@ native {
 
 The YANG model at the lower layer, also known as the RFS layer, is similar to the CFS, but slightly different:
 
-```
+```yang
 module rfs-vlan {
 
   ...
@@ -434,7 +434,7 @@ The above is possible provided that the LSA application is structured in certain
 * The lower LSA nodes only expose services that manipulate the configuration of a single device. We call these devices RFSs, or dRFS for short.
 *   All services are located in a way that makes it easy to extract them, for example in /drfs:dRFS/device
 
-    ```
+    ```yang
     container dRFS {
       list device {
         key name;
@@ -457,7 +457,7 @@ The other package is called `device-actions`. It provides three actions: `extrac
 
 In the upper LSA node, there is one package for coordinating the movement, called `move-device`. It provides an action for moving a device from one lower LSA node to another. For example when invoked to move device `ex0` from `lower-1` to `lower-2` using the action
 
-```
+```cli
 request move-device move src-nso lower-1 dest-nso lower-2 device-name ex0
 ```
 
@@ -468,7 +468,7 @@ it goes through the following steps:
 
     *   Read the configuration from `lower-1` using the action
 
-        ```
+        ```cli
         request device-action extract-device name ex0
         ```
     * Read the configuration from some central store, in our case the file system in the directory. `db_store`.
@@ -502,14 +502,14 @@ it goes through the following steps:
     ```
 *   Install the configuration on the `lower-2` node. This can be done by running the action:
 
-    ```
+    ```cli
     request device-action install-device name ex0 config <cfg>
     ```
 
     This will load the configuration and commit using the flags `no-deploy` and `no-networking`.
 *   Delete the device from `lower-1` by running the action
 
-    ```
+    ```cli
     request device-action delete-device name ex0
     ```
 *   Update mapping table
@@ -537,7 +537,7 @@ In the NSO example collection, one of the most popular real examples is the `exa
 
 The service model in this example roughly looks like this:
 
-```
+```yang
    list l3vpn {
       description "Layer3 VPN";
 
@@ -594,7 +594,7 @@ In this example, the topology information is stored in a separate container `sha
 
 The example, `examples.ncs/service-provider/mpls-vpn-layered-service-architecture` does exactly this, the upper layer data model in `upper-nso/packages/l3vpn/src/yang/l3vpn.yang` now looks as:
 
-```
+```yang
    list l3vpn {
       description "Layer3 VPN";
 
@@ -638,7 +638,7 @@ The task for the upper layer FastMap code is then to instantiate a copy of itsel
 * Look in its dispatch table, which lower-layer NSO nodes are used to host these routers.
 *   Instantiate a copy of itself on those lower layer NSO nodes. One extremely efficient way to do that is to use the `Maapi.copy_tree()` method. The code in the example contains code that looks like this:
 
-    ```
+    ```java
             public Properties create(
                 ....
                 NavuContainer lowerLayerNSO = ....
@@ -663,7 +663,7 @@ In addition to conceptual changes of splitting into upper- and lower-layer parts
 
 To illustrate the different YANG files and namespaces used, the following text describes the process of splitting up an example monolithic service. Let's assume that the original service resides in a file, `myserv.yang`, and looks like the following:
 
-```
+```yang
 module myserv {
 
   namespace "http://example.com/myserv";
@@ -690,7 +690,7 @@ module myserv {
 
 In an LSA setting, we want to keep this module as close to the original as possible. We clearly want to keep the namespace, the prefix, and the structure of the YANG identical to the original. This is to not disturb any provisioning systems north of the original NSO. Thus with only minor modifications, we want to run this module at the CFS node, but with non-applicable leafrefs removed, thus at the CFS node we would get:
 
-```
+```yang
 module myserv {
 
   namespace "http://example.com/myserv";
@@ -716,7 +716,7 @@ module myserv {
 
 Now, we want to run almost the same YANG module at the RFS node, however, the namespace must be changed. For the sake of the CFS node, we're going to NED compile the RFS and NSO doesn't like the same namespace to occur twice, thus for the RFS node, we would get a YANG module `myserv-rfs.yang` that looks like the following:
 
-```
+```yang
 module myserv-rfs {
 
   namespace "http://example.com/myserv-rfs";
@@ -745,7 +745,7 @@ This file can, and should, keep the leafref as is.
 
 The final and last file we get is the compiled NED, which should be loaded in the CFS node. The NED is directly compiled from the RFS model, as an LSA NED.
 
-```
+```bash
 $ ncs-make-package --lsa-netconf-ned /path/to-rfs-yang  myserv-rfs-ned
 ```
 
@@ -775,7 +775,7 @@ Configure and set up the lower RFS nodes as you would a standalone node, by maki
 
 The only LSA-specific requirement is that these nodes enable NETCONF communication northbound, as this is how the upper CFS node will interact with them. To enable NETCONF northbound, ensure that a configuration similar to the following is present in the `ncs.conf` of every RFS node:
 
-```
+```xml
   <netconf-north-bound>
     <enabled>true</enabled>
     <transport>
@@ -800,7 +800,7 @@ The part that is specific to LSA is the actual `ned-id` used. This has to be `ne
 
 So the configuration for the RFS device in the CFS node would look similar to:
 
-```
+```cli
 admin@upper-nso% show devices device | display-level 4
 device lower-nso-1 {
     lsa-remote-node lower-nso-1;
@@ -820,7 +820,7 @@ Notice the use of the `lsa-remote-node` instead of the `address` (and `port`) as
 
 The value of `lsa-remote-node` references a `cluster remote-node`, such as the following:
 
-```
+```cli
 admin@upper-nso% show cluster remote-node
 remote-node lower-nso-1 {
     address   127.0.2.1;
@@ -832,14 +832,14 @@ In addition to `devices device`, the `authgroup` value is again required here an
 
 Having added device and cluster configuration for all RFS nodes, you should update the SSH host keys for both, the `/devices/device` and `/cluster/remote-node` paths. For example:
 
-```
+```cli
 admin@upper-nso% request devices device lower-nso-* ssh fetch-host-keys
 admin@upper-nso% request cluster remote-node lower-nso-* ssh fetch-host-keys
 ```
 
 Moreover, the RFS NSO nodes have an extra configuration that may not be visible to the CFS node, resulting in out-of-sync behavior. You are strongly encouraged to set the `out-of-sync-commit-behaviour` value to `accept`, with a command such as:
 
-```
+```cli
 admin@upper-nso% set devices device lower-nso-* out-of-sync-commit-behaviour accept
 ```
 
@@ -857,7 +857,7 @@ These packages are found in the `$NCS_DIR/packages/lsa` directory. Each package 
 
 Second, installing the cisco-nso LSA NED package will make the corresponding `ned-id` available, such as `cisco-nso-nc-5.7` (`ned-id` matches the package name). Use this `ned-id` for the RFS nodes instead of `lsa-netconf`. For example:
 
-```
+```cli
 admin@upper-nso% show devices device | display-level 4
 device lower-nso-1 {
     lsa-remote-node lower-nso-1;
@@ -885,7 +885,7 @@ The process resembles the way you create and compile device YANG models in norma
 
 Usually, you would also provide the `--no-netsim`, `--no-java`, and `--no-python` switches to the invocation, as the package is used with the NETCONF protocol and doesn't need any additional code. The `--no-netsim` option is required because netsim is not supported for these types of packages. For example:
 
-```
+```bash
 ncs-make-package --no-netsim --no-java --no-python    \
     --lsa-netconf-ned ./path/to/rfs/src/yang          \
     myrfs-service-ned
@@ -895,7 +895,7 @@ In this case, there is no explicit `--lsa-lower-nso` option specified and `ncs-m
 
 To compile it for the multi-version deployment, which uses a different `ned-id`, you must select the target NSO version with the `--lsa-lower-nso cisco-nso-nc-X.Y` option, for example:
 
-```
+```bash
 ncs-make-package --no-netsim --no-java --no-python    \
     --lsa-netconf-ned ./path/to/rfs/src/yang          \
     --lsa-lower-nso cisco-nso-nc-5.7
@@ -916,7 +916,7 @@ You can see all the required setup steps for a single version deployment perform
 
 First, build the example for manual setup.
 
-```
+```bash
 $ make clean manual
 $ make start-manual
 $ make cli-upper-nso
@@ -924,7 +924,7 @@ $ make cli-upper-nso
 
 Then configure the nodes in the cluster. This is needed so that the upper CFS node can receive notifications from the lower RFS node and prepare the upper CFS node to be used with the commit queue.
 
-```
+```cli
 > configure
 
 % set cluster device-notifications enabled
@@ -941,13 +941,13 @@ To be able to handle the lower NSO node as an LSA node, the correct version of t
 
 Create a link to the `cisco-nso` package in the packages directory of the upper CFS node:
 
-```
+```bash
 $ ln -sf ${NCS_DIR}/packages/lsa/cisco-nso-nc-5.4 upper-nso/packages
 ```
 
 Reload the packages:
 
-```
+```cli
 % exit
 > request packages reload
 
@@ -963,7 +963,7 @@ reload-result {
 
 Now when the `cisco-nso-nc` package is in place, configure the two lower NSO nodes and `sync-from` them:
 
-```
+```cli
 > configure
 Entering configuration mode private
 
@@ -1010,7 +1010,7 @@ sync-result {
 
 Now, for example, the configured devices of the lower nodes can be viewed:
 
-```
+```cli
 % show devices device config devices device | display xpath | display-level 5
 
 /devices/device[name='lower-nso-1']/config/ncs:devices/device[name='ex0']
@@ -1023,7 +1023,7 @@ Now, for example, the configured devices of the lower nodes can be viewed:
 
 Or, alarms inspected:
 
-```
+```cli
 % run show devices device lower-nso-1 live-status alarms summary
 
 live-status alarms summary indeterminates 0
@@ -1035,7 +1035,7 @@ live-status alarms summary warnings 0
 
 Now, create a netconf package on the upper CFS node which can be used towards the `rfs-vlan` service on the lower RFS node, in the shell terminal window, do the following:
 
-```
+```bash
 $ ncs-make-package --no-netsim --no-java --no-python                \
     --lsa-netconf-ned package-store/rfs-vlan/src/yang               \
     --lsa-lower-nso cisco-nso-nc-5.4                                \
@@ -1069,13 +1069,13 @@ rfs-vlan-nc-5.4
 
 Install the `cfs-vlan` service on the upper CFS node. In the shell terminal window, do the following:
 
-```
+```bash
 $ ln -sf ../../package-store/cfs-vlan     upper-nso/packages
 ```
 
 Reload the packages once more to get the `cfs-vlan` package. In the CLI terminal window, do the following:
 
-```
+```cli
 % exit
 
 > request packages reload
@@ -1105,7 +1105,7 @@ Now, when all packages are in place a `cfs-vlan` service can be configured. The 
 
 In the CLI terminal window, verify the service:
 
-```
+```cli
 % set cfs-vlan v1 a-router ex0 z-router ex5 iface eth3 unit 3 vid 77
 
 % commit dry-run

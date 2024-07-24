@@ -100,7 +100,7 @@ To unpack the installer:
 
 1.  In the terminal, list the binaries in the directory where you downloaded the installer, for example:
 
-    ```
+    ```bash
     cd ~/Downloads
     ls -l nso*.bin
     -rw-r--r--@ 1 user  staff   199M Dec 15 11:45 nso-6.0.linux.x86_64.installer.bin
@@ -108,7 +108,7 @@ To unpack the installer:
     ```
 2.  Use the `sh` command to run the `signed.bin` to verify the certificate and extract the installer binary and other files. An example output is shown below.
 
-    ```
+    ```bash
     sh nso-6.0.linux.x86_64.signed.bin
     # Output
     Unpacking...
@@ -123,7 +123,7 @@ To unpack the installer:
     ```
 3.  List the files to check if extraction was successful.
 
-    ```
+    ```bash
     ls -l
     # Output
     -rw-r--r--  1 user  staff   1.8K Nov 29 06:05 README.signature
@@ -167,17 +167,17 @@ Following is a list of a few of the installed manual pages:
 
 For example, to view the manual page describing the NSO configuration file you should type:
 
-```
+```bash
 $ man ncs.conf
 ```
 
 Apart from the manual pages, extensive information about command line options can be obtained by running `ncs` and `ncsc` with the `--help` (abbreviated `-h`) flag.
 
-```
+```bash
 $ ncs --help
 ```
 
-```
+```bash
 $ ncsc --help
 ```
 
@@ -187,7 +187,7 @@ Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view addit
 
 Notice the two options for `--local-install` or `--system-install`.
 
-```
+```bash
 sh nso-6.0.linux.x86_64.installer.bin --help
 ```
 
@@ -200,13 +200,13 @@ To run the installer:
 1. Navigate to your Install Directory.
 2.  Run the installer with the `--system-install` option to perform System Install. This option creates an Install of NSO that is suitable for deployment.
 
-    ```
+    ```bash
     $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install
     ```
 
     For example:
 
-    ```
+    ```bash
     $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
     ```
 
@@ -239,7 +239,7 @@ By default, the Linux kernel allows overcommit of memory. However, memory overco
 
 To achieve this with immediate effect, give the command:
 
-```
+```bash
 # echo 2 > /proc/sys/vm/overcommit_memory
 ```
 
@@ -250,7 +250,7 @@ Setting the `overcommit_ratio` parameter to `100` will include any swap if prese
 If the system's physical RAM (MemTotal) is less than or equal to the swap space (SwapTotal), using the swap cannot be avoided and the `overcommit_ratio` should be set to `100`.
 
 {% code title="Example 1: Physical RAM (MemTotal) > Swap Space (SwapTotal)" %}
-```
+```bash
 # cat /proc/meminfo | grep "MemTotal\|SwapTotal"
 MemTotal:    8039352 kB
 SwapTotal:   1048572 kB
@@ -265,13 +265,13 @@ Calculate the overcommit ratio:
 
 To set both overcommit parameters with immediate effect:
 
-```
+```bash
 # echo 2 > /proc/sys/vm/overcommit_memory
 # echo 86.9 > /proc/sys/vm/overcommit_ratio
 ```
 
 {% code title="Example 2: Physical RAM (MemTotal) == Swap Space (SwapTotal)" %}
-```
+```bash
 # cat /proc/meminfo | grep "MemTotal\|SwapTotal"
 MemTotal:    16000000 kB
 SwapTotal:   16000000 kB
@@ -280,7 +280,7 @@ SwapTotal:   16000000 kB
 
 To set both overcommit parameters with immediate effect:
 
-```
+```bash
 # echo 2 > /proc/sys/vm/overcommit_memory
 # echo 100 > /proc/sys/vm/overcommit_ratio
 ```
@@ -301,17 +301,17 @@ To set up user access:
 
 1.  To create the `ncsadmin` group, use the OS shell command:
 
-    ```
+    ```bash
     # groupadd ncsadmin
     ```
 2.  To create the `ncsoper` group, use the OS shell command:
 
-    ```
+    ```bash
     # groupadd ncsoper
     ```
 3.  To add an existing user to one of these groups, use the OS shell command:
 
-    ```
+    ```bash
     # usermod -a -G 'groupname' 'username'
     ```
 
@@ -321,23 +321,23 @@ To set environment variables:
 
 1.  Change to Super User privileges.
 
-    ```
+    ```bash
     $ sudo -s
     ```
 2.  The installation program creates a shell script file in each NSO installation which sets the environment variables needed to run NSO. With the `--system-install` option, by default, these settings are set on the shell. To explicitly set the variables, source `ncs.sh` or `ncs.csh` depending on your shell type.
 
-    ```
+    ```bash
     # source /etc/profile.d/ncs.sh
     ```
 3.  Start NSO.
 
-    ```
+    ```bash
     # /etc/init.d/ncs start
     ```
 
     Once you log on with the user that belongs to `ncsadmin` or `ncsoper`, you can directly access the CLI as shown below:
 
-    ```
+    ```bash
     $ ncs_cli -C
     ```
 
@@ -353,7 +353,7 @@ To generate a license registration token:
 
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
-    ```
+    ```cli
     admin@ncs# license smart register idtoken
     YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQtOGEzMTM3OTg5MG
 
@@ -365,7 +365,7 @@ To generate a license registration token:
     Upon successful registration, NSO automatically requests a license entitlement for its own instance and for the number of devices it orchestrates and their NED types. If development mode has been enabled, only development entitlement for the NSO instance itself is requested.
 2.  Inspect the requested entitlements using the command `show license all` (or by inspecting the NSO daemon log). An example output is shown below.
 
-    ```
+    ```cli
     admin@ncs# show license all
     ...
     <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
@@ -459,7 +459,7 @@ type = "notifyRegisterSuccess"
 
 To check the registration status, use the command `show license status`.
 
-```
+```cli
 admin@ncs# show license status
 
 Smart Licensing is ENABLED

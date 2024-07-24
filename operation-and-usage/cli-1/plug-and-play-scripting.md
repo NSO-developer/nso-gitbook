@@ -59,7 +59,7 @@ Yet another parameter may be useful when debugging the reload of scripts:
 
 An example session reloading scripts:
 
-```
+```cli
 admin@ncs# script reload all
 $NCS_DIR/examples.ncs/getting-started/using-ncs/7-scripting/scripts:
 ok
@@ -274,7 +274,7 @@ ncs-maapi --set "/nacm/groups/group{${group}}/user-name" "${gusers} ${user}"
 
 Calling `$NCS_DIR/examples.ncs/getting-started/using-ncs/7-scripting/scripts/command/echo.sh` with the argument `--command` argument produces a `command` section and a couple of `param` sections:
 
-```
+```bash
 $ ./echo.sh --command
 begin command
   modes: oper
@@ -442,7 +442,7 @@ fi
 
 Trying to change that parameter would result in an aborted transaction
 
-```
+```cli
 admin@ncs(config)# devices global-settings trace-dir ./testing
 admin@ncs(config)# commit
 Aborted: /devices/global-settings/trace-dir: must retain it original
@@ -509,7 +509,7 @@ fi
 
 If the `admin` then loads this script:
 
-```
+```cli
 admin@ncs# script reload debug
 $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/scripts:
 ok

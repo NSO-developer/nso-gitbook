@@ -64,7 +64,7 @@ The easiest way to add your data fields to the CDB is by creating a service pack
 
 Use the following command to create a new package:
 
-```
+```bash
 $ ncs-make-package --service-skeleton python --build \
     --dest $NSO_RUNDIR/packages/my-data-entries my-data-entries
 mkdir -p ../load-dir
@@ -80,7 +80,7 @@ The command line switches instruct the command to compile the YANG file and plac
 
 Now start the NSO process if it is not running already and connect to the CLI:
 
-```
+```bash
 $ cd $NSO_RUNDIR ; ncs ; ncs_cli -Cu admin
 
 admin connected from 127.0.0.1 using console on nso
@@ -89,7 +89,7 @@ admin@ncs#
 
 Next, instruct NSO to load the newly created package:
 
-```
+```cli
 admin@ncs# packages reload
 
 >>> System upgrade is starting.
@@ -104,7 +104,7 @@ reload-result {
 
 Once the package loading process is completed, you can verify the data model from your package was incorporated into NSO. Use the `show` command, which now supports an additional parameter:
 
-```
+```cli
 admin@ncs# show my-data-entries
 % No entries found.
 admin@ncs#
@@ -116,7 +116,7 @@ This command tells you that NSO knows about the extended data model but there is
 
 More interestingly, you are now able to add custom entries to the configuration. First, enter the CLI configuration mode:
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)#
@@ -124,14 +124,14 @@ admin@ncs(config)#
 
 Then add an arbitrary entry under my-data-entries:
 
-```
+```cli
 admin@ncs(config)# my-data-entries "entry number 1"
 admin@ncs(config-my-data-entries-entry number 1)#
 ```
 
 What is more, you can also set a dummy IP address:
 
-```
+```cli
 admin@ncs(config-my-data-entries-entry number 1)# dummy 0.0.0.0
 admin@ncs(config-my-data-entries-entry number 1)#
 ```
@@ -144,14 +144,14 @@ If you assumed from the YANG file, you are correct. YANG files provide the schem
 
 Exit the configuration mode and discard the changes by typing `abort`:
 
-```
+```cli
 admin@ncs(config-my-data-entries-entry number 1)# abort
 admin@ncs#
 ```
 
 Open the YANG file in an editor or list its contents from the CLI with the following command:
 
-```
+```cli
 admin@ncs# file show packages/my-data-entries/src/yang/my-data-entries.yang
 module my-data-entries {
 < ... output omitted ... >
@@ -166,7 +166,7 @@ module my-data-entries {
 
 At the start of the output, you can see the module `my-data-entries`, which contains your data model. By default, the `ncs-make-package` gives it the same name as the package. You can check that this module is indeed loaded:
 
-```
+```cli
 admin@ncs# show ncs-state loaded-data-models data-model my-data-entries
 
                                                                               EXPORTED  EXPORTED
@@ -192,7 +192,7 @@ You can then combine these elements into a complex, tree-like structure, which i
 
 A `leaf` contains simple data such as an integer or a string. It has one value of a particular type and no child nodes. For example:
 
-```
+```yang
 leaf host-name {
     type string;
     description "Hostname for this system";
@@ -201,7 +201,7 @@ leaf host-name {
 
 This code describes the structure that can hold a value of a hostname (of some device). A `leaf` node is used because the hostname only has a single value, that is, the device has one (canonical) hostname. In the NSO CLI, you set a value of a `leaf` simply as:
 
-```
+```cli
 admin@ncs(config)# host-name "server-NY-01"
 ```
 
@@ -216,13 +216,13 @@ leaf-list domains {
 
 This code describes a data structure that can hold many values, such as a number of domain names. In the CLI, you can assign multiple values to a `leaf-list` with the help of square bracket syntax:
 
-```
+```cli
 admin@ncs(config)# domains [ cisco.com tail-f.com ]
 ```
 
 `leaf` and `leaf-list` describe nodes that hold simple values. As a model keeps expanding, having all data nodes on the same (top) level can quickly become unwieldy. A container node is used to group related nodes into a subtree. It has only child nodes and no value. A container may contain any number of child nodes of any type (including leafs, lists, containers, and leaf-lists). For example:
 
-```
+```yang
 container server-admin {
     description "Administrator contact for this system";
     leaf name {
@@ -233,13 +233,13 @@ container server-admin {
 
 This code defines the concept of a server administrator. In the CLI, you first select the container before you access the child nodes:
 
-```
+```cli
 admin@ncs(config)# server-admin name "Ingrid"
 ```
 
 Similarly, a `list` defines a collection of container-like list entries that share the same structure. Each entry is like a record or a row in a table. It is uniquely identified by the value of its key leaf (or leaves). A list definition may contain any number of child nodes of any type (leafs, containers, other lists, and so on). For example:
 
-```
+```yang
 list user-info {
     description "Information about team members";
     key "name";
@@ -254,13 +254,13 @@ list user-info {
 
 This code defines a list of users (of which there can be many), where each user is uniquely identified by their name. In the CLI, lists take an additional parameter, the key value, to select a single entry:
 
-```
+```cli
 admin@ncs(config)# user-info "Ingrid"
 ```
 
 To set a value of a particular list entry, first specify the entry, then the child node, like so:
 
-```
+```cli
 admin@ncs(config)# user-info "Ingrid" expertise "Linux"
 ```
 
@@ -280,7 +280,7 @@ Ensure that:
 
 You can add custom data models to NSO by using packages. So, you will build a package to hold the YANG module that represents your model. Use the following command to create a package (if you are building on top of the previous showcase, the package may already exist and will be updated):
 
-```
+```bash
 $ ncs-make-package --service-skeleton python \
     --dest $NSO_RUNDIR/packages/my-data-entries my-data-entries
 $
@@ -288,13 +288,13 @@ $
 
 Change the working directory to the directory of your package:
 
-```
+```bash
 $ cd $NSO_RUNDIR/packages/my-data-entries
 ```
 
 You will place the YANG model into the `src/yang/my-test-model.yang` file. In a text editor, create a new file and add the following text at the start:
 
-```
+```yang
 module my-test-model {
     namespace "http://example.tail-f.com/my-test-model";
     prefix "t";
@@ -306,7 +306,7 @@ The first line defines a new module and gives it a name. In addition, there are 
 
 Add a statement for each of the four fundamental YANG node types (leaf, leaf-list, container, list) to the `my-test-model.yang` model.
 
-```
+```yang
     leaf host-name {
         type string;
         description "Hostname for this system";
@@ -345,7 +345,7 @@ Remember to finally save the file as `my-test-model.yang` in the `src/yang/` dir
 
 Having completed the model, you must compile it into an appropriate (`.fxs`) format. From the text editor first, return to the shell and then run the `make` command in the `src/` subdirectory of your package:
 
-```
+```bash
 $ make -C src/
 make: Entering directory 'nso-run/packages/my-data-entries/src'
 /nso/bin/ncsc  `ls my-test-model-ann.yang  > /dev/null 2>&1 && echo "-a my-test-model-ann.yang"` \
@@ -358,7 +358,7 @@ The compiler will report if there are errors in your YANG file, and you must fix
 
 Next, start the NSO process and connect to the CLI:
 
-```
+```bash
 $ cd $NSO_RUNDIR && ncs && ncs_cli -C -u admin
 
 admin connected from 127.0.0.1 using console on nso
@@ -367,7 +367,7 @@ admin@ncs#
 
 Finally, instruct NSO to reload the packages:
 
-```
+```cli
 admin@ncs# packages reload
 
 >>> System upgrade is starting.
@@ -409,7 +409,7 @@ The content of the init file does not need to be a complete instance document bu
 It is a good practice to wrap the data inside a `config` element, as it gives you the option to have multiple top-level data elements in a single file while it remains a valid XML document. Otherwise, you would have to use separate files for each of them. The following example uses the `config` element to fit all the elements into a single file.
 
 {% code title="A Sample CDB init File my-test-data.xml" %}
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <host-name xmlns="http://example.tail-f.com/my-test-model">server-NY-01</host-name>
 
@@ -423,7 +423,7 @@ It is a good practice to wrap the data inside a `config` element, as it gives yo
 There are many ways to generate the XML data. A common approach is to dump existing data with the `ncs_load` utility or the `display xml` filter in the CLI. All of the data in the CDB can be represented (or exported, if you will) in XML. This is no coincidence. XML was the main format for encoding data with NETCONF when YANG was created and you can trace the origin of some YANG features back to XML.
 
 {% code title="Creating init XML File with the 'ncs_load' Command" %}
-```
+```bash
 $ ncs_load -F p -p /domains > cdb-init.xml
 $ cat cdb-init.xml
 <config xmlns="http://tail-f.com/ns/config/1.0">

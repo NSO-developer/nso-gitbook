@@ -125,7 +125,7 @@ To add a service point:
 
 1.  Update your YANG model as required. The extension automatically detects the list elements and displays a CodeLens called **Add Service Point**. An example is shown below.
 
-    ```
+    ```yang
       container users {
         list user {
           key "name";

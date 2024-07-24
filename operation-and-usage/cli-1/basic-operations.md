@@ -32,7 +32,7 @@ To start the simulator:
     Perform the following command:\
 
 
-    ```
+    ```bash
     $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
     ```
 
@@ -41,7 +41,7 @@ To start the simulator:
 2.  Start the simulator.\
 
 
-    ```
+    ```bash
     $ ncs-netsim start
     DEVICE c0 OK STARTED
     DEVICE c1 OK STARTED
@@ -52,7 +52,7 @@ To start the simulator:
 3.  Run the CLI toward one of the simulated devices.\
 
 
-    ```
+    ```bash
     $ ncs-netsim cli-i c1
     admin connected from 127.0.0.1 using console *
 
@@ -77,7 +77,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).\
 
 
-    ```
+    ```bash
     $ ncs-setup --netsim-dir ./netsim --dest . 
     ```
 
@@ -86,7 +86,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 2.  Start NSO.\
 
 
-    ```
+    ```bash
     $ ncs
     ```
 
@@ -94,7 +94,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.\
 
 
-    ```
+    ```bash
     $ ncs_cli -C -u admin
     ```
 
@@ -102,7 +102,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
     NSO also supports a J-style CLI, that is started by using a -J modification to the command like this.\
 
 
-    ```
+    ```bash
     $ ncs_cli -J -u admin
     ```
 
@@ -111,7 +111,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.\
 
 
-    ```
+    ```cli
     admin@ncs# show running-config devices device
     devices device c0
      address   127.0.0.1
@@ -137,7 +137,7 @@ The `address` and `port` fields tells NSO where to connect to the device. For no
 
 So now NSO can try to connect to the devices:
 
-```
+```cli
 admin@ncs# devices connect
 connect-result {
     device c0
@@ -160,7 +160,7 @@ NSO does not need to have the connections active continuously, instead, NSO will
 
 The following command will synchronize the configurations of the devices with the CDB and respond with `true` if successful:
 
-```
+```cli
 admin@ncs# devices sync-from
 sync-result {
     device c0
@@ -185,7 +185,7 @@ The above incorrect (or not necessary) sequence stems from the assumption that t
 
 View the configuration of the `c0` device using the command:
 
-```
+```cli
 admin@ncs# show running-config devices device c0 config
 devices device c0
  config
@@ -198,7 +198,7 @@ devices device c0
 
 Or, show a particular piece of configuration from several devices:
 
-```
+```cli
 admin@ncs# show running-config devices device c0..2 config ios:router
 devices device c0
  config
@@ -221,13 +221,13 @@ devices device c1
 
 Or, show a particular piece of configuration from all devices:
 
-```
+```cli
 admin@ncs# show running-config devices device config ios:router
 ```
 
 The CLI can pipe commands, try TAB after `|` to see various pipe targets:
 
-```
+```cli
 admin@ncs# show running-config devices device config ios:router \
                      | display xml | save router.xml
 ```
@@ -239,7 +239,7 @@ The above command shows the router config of all devices as XML and then saves i
 1.  To change the configuration, enter configure mode.\
 
 
-    ```
+    ```cli
     admin@ncs# config
     Entering configuration mode terminal
     admin@ncs(config)#
@@ -247,7 +247,7 @@ The above command shows the router config of all devices as XML and then saves i
 2.  Change or add some configuration across the devices, for example:\
 
 
-    ```
+    ```cli
      admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
                            neighbor 10.10.10.0 remote-as 64502
     admin@ncs(config-router)#
@@ -259,7 +259,7 @@ It is important to understand how NSO applies configuration changes to the netwo
 
 The command below compares the ongoing changes with the running database:
 
-```
+```cli
 admin@ncs(config-router)# top
 admin@ncs(config)# show configuration
 devices device c0
@@ -271,7 +271,7 @@ devices device c0
 
 It is possible to dry-run the changes to see the native Cisco CLI output (in this case almost the same as above):
 
-```
+```cli
 admin@ncs(config)# commit dry-run outformat native
 native {
     device {
@@ -284,7 +284,7 @@ native {
 
 The changes can be committed to the devices and the NSO CDB simultaneously with a single commit. In the commit command below, we pipe to details to understand the actions being taken.
 
-```
+```cli
 admin@ncs% commit | details
 ```
 
@@ -294,7 +294,7 @@ Changes are committed to the devices and the NSO database as one transaction. If
 
 There are numerous options to the commit command which will affect the behavior of the atomic transactions:
 
-```
+```cli
 admin@ncs(config)# commit TAB
 Possible completions:
   and-quit               Exit configuration mode
@@ -314,7 +314,7 @@ Possible completions:
 
 As seen by the details output, NSO stores a roll-back file for every commit so that the whole transaction can be rolled back manually. The following is an example of a rollback file:
 
-```
+```cli
 admin@ncs(config)# do file show logs/rollback1000
 Possible completions:
      rollback10001  rollback10002  rollback10003  \
@@ -343,13 +343,13 @@ ncs:devices {
 
 (Viewing files as an operational command, prefixing a command in configuration mode with `do` executes in operational mode.) To perform a manual rollback, first load the rollback file:
 
-```
+```cli
 admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10005
 ```
 
 `apply-rollback-file` by default restores to that saved configuration, adding `selective` as a parameter allows you to just roll back the delta in that specific rollback file. Show the differences:
 
-```
+```cli
 admin@ncs(config)# show configuration
 devices device c0
  config
@@ -376,7 +376,7 @@ devices device c2
 
 Commit the rollback:
 
-```
+```cli
 admin@ncs(config)# commit
 Commit complete.
 ```
@@ -385,7 +385,7 @@ Commit complete.
 
 A trace log can be created to see what is going on between NSO and the device CLI enable trace. Use the following command to enable trace:
 
-```
+```cli
 admin@ncs(config)# devices global-settings trace raw trace-dir logs
 admin@ncs(config)# commit
 Commit complete.
@@ -394,7 +394,7 @@ admin@ncs(config)# devices disconnect
 
 Note that the trace settings only take effect for new connections, so it is important to disconnect the current connections. Make a change to, for example, `c0`:
 
-```
+```cli
 admin@ncs(config)# devices device c0 config ios:interface FastEthernet
                                 1/2 ip address  192.168.1.1 255.255.255.0
 admin@ncs(config-if)# commit dry-run outformat native
@@ -417,7 +417,7 @@ As seen above, ranges can be used to send configuration commands to several devi
 
 The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`).
 
-```
+```cli
 admin@ncs(config)# devices device-group core device-name [ c0 c1 ]
 admin@ncs(config-device-group-core)# commit
 
@@ -446,7 +446,7 @@ Device groups can contain different devices as well as devices from different ve
 
 You can, for example, at this point use the group to check if all `core` are in sync:
 
-```
+```cli
 admin@ncs# devices device-group core check-sync
 sync-result {
     device c0
@@ -462,7 +462,7 @@ sync-result {
 
 Assume that we would like to manage permit lists across devices. This can be achieved by defining templates and applying them to device groups. The following CLI sequence defines a tiny template, called `community-list` :
 
-```
+```cli
 admin@ncs(config)# devices template community-list
                                 ned-id cisco-ios-cli-3.0
                                 config ios:ip
@@ -487,7 +487,7 @@ devices template community-list
 
 This can now be applied to a device group:
 
-```
+```cli
 admin@ncs(config)# devices device-group core apply-template \
                                  template-name community-list
 admin@ncs(config)# show configuration
@@ -531,7 +531,7 @@ template community-list {
 
 The above indicates how NSO manages different models for different device types. When NSO connects to the devices, the NED checks the device type and revision and returns that to NSO. This can be inspected (note, in operational mode):
 
-```
+```cli
 admin@ncs# show devices device module
 NAME  NAME                       REVISION    FEATURES  DEVIATIONS
 -------------------------------------------------------------------
@@ -547,7 +547,7 @@ So here we see that `c0` uses a `tailf-ned-cisco-ios` module which tells NSO whi
 
 The model introduces namespace prefixes for every configuration item. This also resolves issues around different vendors using the same configuration command for different configuration elements. Note that every item is prefixed with `ios`:
 
-```
+```cli
 admin@ncs# show running-config devices device c0 config ios:ip community-list
 devices device c0
  config
@@ -573,7 +573,7 @@ Assume that `c0` has the following configuration:
 
 If we apply the template the default result would be:
 
-```
+```cli
 admin@ncs# show running-config devices device c0 config ios:ip community-list
 devices device c0
  config
@@ -587,7 +587,7 @@ devices device c0
 
 We could change the template in the following way to get a result where the permit list would be replaced rather than merged. When working with tags in templates, it is often helpful to view the template as a tree rather than a command view. The CLI has a display option for showing a curly-braces tree view that corresponds to the data-model structure rather than the command set. This makes it easier to see where to add tags.
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices template
 devices template community-list
  config
@@ -639,7 +639,7 @@ template community-list {
 
 Different tags can be added across the template tree. If we now apply the template to the device `c0` which already have community lists, the following happens:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device c0 \
                                  config ios:ip community-list
 devices device c0
@@ -674,7 +674,7 @@ Note that a template can have different tags along the tree nodes.
 
 A problem with the above template is that every value is hard-coded. What if you wanted a template where the `community-list` name and `permit-list` value are variables passed to the template when applied? Any part of a template can be a variable, (or actually an XPATH expression). We can modify the template to use variables in the following way:
 
-```
+```cli
 admin@ncs(config)# no devices template community-list config ios:ip \
                                 community-list standard test1
 admin@ncs(config)# devices template community-list config ios:ip \
@@ -698,7 +698,7 @@ devices template community-list
 
 The template now requires two parameters when applied (tab completion will prompt for the variable):
 
-```
+```cli
 admin@ncs(config)# devices device-group all apply-template
 template-name community-list variable { name LIST-NAME value 'test2' }
 variable { name AS value '60000:30' }
@@ -725,7 +725,7 @@ A policy is composed of:
 
 An example is shown below:
 
-```
+```cli
 admin@ncs(config)# policy rule class-map
 Possible completions:
   error-message     Error message to print on expression failure
@@ -752,7 +752,7 @@ policy rule class-map
 
 Now, if we try to delete a `class-map` `a`, we will get a policy violation:
 
-```
+```cli
 admin@ncs(config)# no devices device c2 config ios:class-map match-all a
 admin@ncs(config)# validate
 Validation completed with warnings:
@@ -773,7 +773,7 @@ The `{name}` variable refers to the node set from the iterator. This node-set wi
 
 To understand the syntax for the expressions a pipe target in the CLI can be used:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device c2 config \
                                  ios:class-map | display xpath
 /ncs:devices/ncs:device[ncs:name='c2']/ncs:config/ \
@@ -806,7 +806,7 @@ In reality, network engineers will still modify configurations using other tools
 
 From the UNIX shell, start a CLI session towards `c0`.
 
-```
+```bash
 $ ncs-netsim cli-i c0
 
 c0> enable
@@ -824,13 +824,13 @@ $
 
 Start the NSO CLI again:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
 NSO detects if its configuration copy in CDB differs from the configuration in the device. Various strategies are used depending on device support: transaction IDs, time stamps, and configuration hash-sums. For example, an NSO user can request a `check-sync` operation:
 
-```
+```cli
 admin@ncs# devices check-sync
 sync-result {
     device c0
@@ -862,7 +862,7 @@ sync-result {
 
 NSO can also compare the configurations with the CDB and show the difference:
 
-```
+```cli
 admin@ncs# devices device c0 compare-config
 diff
  devices {
@@ -888,7 +888,7 @@ diff
 
 At this point, we can choose if we want to use the configuration stored in the CDB as the valid configuration or the configuration on the device:
 
-```
+```cli
 admin@ncs# devices sync-
 Possible completions:
   sync-from   Synchronize the config by pulling from the devices
@@ -901,7 +901,7 @@ In the above example, we chose to overwrite the device configuration from NSO.
 
 NSO will also detect out-of-sync when committing changes. In the following scenario, a local `c0` CLI user adds an interface. Later the NSO user tries to add an interface:
 
-```
+```bash
 $ ncs-netsim cli-i c0
 
 c0> enable
@@ -928,7 +928,7 @@ At this point, we have two diffs:
 1. The device and NSO CDB (`devices device compare-config`).
 2. The ongoing transaction and CDB (`show configuration`).
 
-```
+```cli
 admin@ncs(config)# devices device c0 compare-config
 diff
  devices {
@@ -962,13 +962,13 @@ devices device c0
 
 To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. There is also an option to over-ride the out-of-sync check:
 
-```
+```cli
 admin@ncs(config)# commit no-out-of-sync-check
 ```
 
 Or:
 
-```
+```cli
 admin@ncs(config)# devices global-settings out-of-sync-commit-behaviour
 Possible completions:
   accept  reject
@@ -978,14 +978,14 @@ As noted before, all changes are applied as complete transactions of all configu
 
 Stop `c0`:
 
-```
+```bash
 $ ncs-netsim stop c0
 DEVICE c0 STOPPED
 ```
 
 Go back to the NSO CLI and perform a configuration change over `c0` and `c1`:
 
-```
+```cli
 admin@ncs(config)# devices device c0 config ios:ip community-list \
                                  standard test3 permit 50000:30
 admin@ncs(config-config)# devices device c1 config ios:ip \
@@ -1020,7 +1020,7 @@ First of all, if the above was not a multi-device transaction, meaning that the 
 
 Second, NSO has a commit flag `commit-queue async` or `commit-queue sync`. The commit queue should primarily be used for throughput reasons when doing configuration changes in large networks. Atomic transactions come with a cost, the critical section of the database is locked when committing the transaction on the network. So, in cases where there are northbound systems of NSO that generate many simultaneous large configuration changes these might get queued. The commit queue will send the device commands after the lock has been released, so the database lock is much shorter. If any device fails, an alarm will be raised.
 
-```
+```cli
 admin@ncs(config)# commit commit-queue async
 commit-queue-id 2236633674
 Commit complete.
@@ -1066,7 +1066,7 @@ admin@ncs# show devices commit-queue
 
 Devices can also be pre-provisioned, this means that the configuration can be prepared in NSO and pushed to the device when it is available. To illustrate this, we can start by adding a new device to NSO that is not available in the network simulator:
 
-```
+```cli
 admin@ncs(config)# devices device c3 address 127.0.0.1 port 10030 \
                                 authgroup default device-type cli
                                 ned-id cisco-ios
@@ -1076,7 +1076,7 @@ admin@ncs(config-device-c3)# commit
 
 Above, we added a new device to NSO with an IP address local host, and port 10030. This device does not exist in the network simulator. We can tell NSO not to send any commands southbound by setting the `admin-state` to `southbound-locked` (actually the default). This means that all configuration changes will succeed, and the result will be stored in CDB. At any point in time when the device is available in the network, the state can be changed and the complete configuration pushed to the new device. The CLI sequence below also illustrates a powerful copy configuration command that can copy any configuration from one device to another. The from and to paths are separated by the keyword `to`.
 
-```
+```cli
 admin@ncs(config)# copy cfg merge devices device c0 config \
                                 ios:ip community-list to \
                                 devices device c3 config ios:ip community-list
@@ -1106,7 +1106,7 @@ As shown above, `check-sync` operations will tell the user that the device is so
 
 Different users or management tools can of course run parallel sessions to NSO. All ongoing sessions have a logical copy of CDB. An important case needs to be understood if there is a conflict when multiple users attempt to modify the same device configuration at the same time with different changes. First, let's look at the CLI sequence below, user `admin` to the left, user `joe` to the right.
 
-```
+```cli
 admin@ncs(config)# devices device c0 config ios:snmp-server community fozbar
 
       joe@ncs(config)# devices device c0 config ios:snmp-server community fezbar
@@ -1129,7 +1129,7 @@ There is no conflict in the above sequence, `community` is a list so both `joe` 
 
 On the other hand, if two users modify an ordered-by user list in such a way that one user rearranges the list, along with other non-conflicting modifications, and one user deletes the entire list, the following happens:
 
-```
+```cli
 admin@ncs(config)# no devices device c0 config access-list 10
 
       joe@ncs(config)# move devices device c0 config access-list 10 permit 168.215.202.0 0.0.0.255 first
@@ -1155,7 +1155,7 @@ admin@ncs% commit
 
 In this case, `joe` commits a change to `access-list` after `admin` and a conflict message is displayed. Since the conflict is non-resolvable, the transaction has to be reverted. To reapply the changes made by `joe` to `logging` in a new transaction, the following commands are entered:
 
-```
+```cli
       joe@ncs(config)# revert no-confirm
       joe@ncs(config)# reapply-commands best-effort
       move devices device c0 config access-list 10 permit 168.215.202.0 0.0.0.255 first

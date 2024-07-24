@@ -174,7 +174,7 @@ Similarly, you might use post-modification to reset the configuration to some de
 The main difference from create callback is that pre- and post-modification are called on update and delete, as well as service create. Since the service data node may no longer exist in case of delete, the API for these callbacks does not supply the `service` object. Instead, the callback receives the operation and key path to the service instance. See the following API signatures for details.
 
 {% code title="Example: Service Callback Signatures in Python" %}
-```
+```python
     @Service.pre_modification
     def cb_pre_modification(self, tctx, op, kp, root, proplist): ...
 
@@ -196,7 +196,7 @@ The Python callbacks use the following function arguments:
 * `proplist`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
 
 {% code title="Example: Service Callback Signatures in Java" %}
-```
+```java
     @ServiceCallback(servicePoint = "...",
                      callType = ServiceCBType.PRE_MODIFICATION)
     public Properties preModification(ServiceContext context,
@@ -249,7 +249,7 @@ If you wish to use the opaque properties, it is crucial that your code returns t
 Compared to pre- and post-modification callbacks, which also persist data outside of FASTMAP, NSO deletes the opaque data when the service instance is deleted, unlike with the pre- and post-modification data.
 
 {% code title="Example: Using proplist in Python" %}
-```
+```python
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
         intf = None
@@ -267,7 +267,7 @@ Compared to pre- and post-modification callbacks, which also persist data outsid
 {% endcode %}
 
 {% code title="Example: Using opaque in Java" %}
-```
+```java
     public Properties create(ServiceContext context,
                              NavuNode service,
                              NavuNode ncsRoot,
@@ -297,7 +297,7 @@ NSO by default enables concurrent scheduling and execution of services to maximi
 To prevent NSO from scheduling a service instance together with an instance of another service, declare a static conflict in the service model, using the `ncs:conflicts-with` extension. The following example shows a service with two declared static conflicts, one with itself and one with another service, named `other-service`.
 
 {% code title="Example: Service with Declared Static Conflicts" %}
-```
+```yang
         list example-service {
           key name;
           leaf name {
@@ -328,14 +328,14 @@ Furthermore, containers and list items created using the `sharedCreate()` and `s
 
 To see reference counting in action, start the `examples.ncs/implement-a-service/iface-v3` example with `make demo` and configure a service instance.
 
-```
+```cli
 admin@ncs(config)# iface instance1 device c1 interface 0/1 ip-address 10.1.2.3 cidr-netmask 28
 admin@ncs(config)# commit
 ```
 
 Then configure another service instance with the same parameters and use the `display service-meta-data` pipe to show the reference counts and backpointers:
 
-```
+```cli
 admin@ncs(config)# iface instance2 device c1 interface 0/1 ip-address 10.1.2.3 cidr-netmask 28
 admin@ncs(config)# commit dry-run
 cli {
@@ -397,7 +397,7 @@ Overall, creating stacked services is very similar to the non-stacked approach. 
 Then you create a higher-level service, say a CFS, that configures another service, or a few, instead of a device. You can even use a template-only service to do that, such as:
 
 {% code title="Example: Template for Configuring Another Service (Stacking)" %}
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="top-level-service">
   <iface xmlns="http://com/example/iface">
@@ -498,7 +498,7 @@ A prerequisite (or possibly the product in an iterative approach) is an NSO serv
 
 In the simplest case, there is only one variant and that is the one that the service needs to produce. Let's take the `examples.ncs/implement-a-service/iface-v2-py` example and consider what happens when a device already has an existing interface configuration.
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1
 devices device c1
@@ -512,7 +512,7 @@ devices device c1
 
 Configuring a new service instance does not produce any new device configuration (notice that device c1 has no changes).
 
-```
+```cli
 admin@ncs(config)# commit dry-run
 cli {
     local-node {
@@ -528,7 +528,7 @@ cli {
 
 However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config interface\
  GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -551,7 +551,7 @@ A prerequisite for service discovery to work is that it is possible to construct
 You can import the list of services in a number of ways. If you are reading it in from a spreadsheet, a Python script using NSO API directly ([Basic Automation with Python](../../introduction-to-automation/basic-automation-with-python.md)) and a module to read Excel files is likely a good choice.
 
 {% code title="Example: Sample Service Excel import Script" %}
-```
+```python
 import ncs
 from openpyxl import load_workbook
 
@@ -579,7 +579,7 @@ main()
 
 Or, you might generate an XML data file to import using the `ncs_load` command; use `display xml` filter to help you create a template:
 
-```
+```cli
 admin@ncs# show running-config iface | display xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <iface xmlns="http://com/example/iface">
@@ -614,7 +614,7 @@ The last step is updating the metadata, telling NSO that a given service control
 
 Let's examine the effects of this action on the following data:
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -632,7 +632,7 @@ devices device c1
 
 Having run the action, NSO has updated the `refcount` to remove the reference to the original device configuration:
 
-```
+```cli
 admin@ncs# iface instance1 re-deploy reconcile
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
@@ -652,7 +652,7 @@ What is more, the reconcile algorithm works even if multiple service instances s
 
 Before reconciliation, the device configuration would show a refcount of three.
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -670,7 +670,7 @@ devices device c1
 
 Invoking `re-deploy reconcile` on either one or both of the instances makes the services sole owners of the configuration.
 
-```
+```cli
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -715,7 +715,7 @@ We will tackle this scenario to show how you might perform service discovery in 
 
 There are configurations for two service instances in the network already: for interfaces 0/1 and 0/2 on the `c1` device. So, configure the two corresponding `iface` instances.
 
-```
+```cli
 admin@ncs(config)# commit dry-run
 cli {
     local-node {
@@ -740,7 +740,7 @@ You can also use the `commit no-deploy` variant to add service parameters when a
 
 Then use the `re-deploy reconcile { discard-non-service-config } dry-run` command to observe the difference between the service-produced configuration and the one present in the network.
 
-```
+```cli
 admin@ncs# iface instance1 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {
@@ -749,13 +749,13 @@ cli {
 
 For `instance1`, the config is the same, so you can safely reconcile it already.
 
-```
+```cli
 admin@ncs# iface instance1 re-deploy reconcile
 ```
 
 But interface 0/2 (`instance2`), which you suspect was initially provisioned with the newer version of the service, produces the following:
 
-```
+```cli
 admin@ncs# iface instance2 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {
@@ -802,7 +802,7 @@ iface instance2
 
 With the updated configuration, you can now safely reconcile the `service2` service instance:
 
-```
+```cli
 admin@ncs# iface instance2 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {

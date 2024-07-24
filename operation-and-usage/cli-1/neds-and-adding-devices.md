@@ -8,7 +8,7 @@ Network Element Drivers, NEDs, provides the connectivity between NSO and the dev
 
 To see the list of installed packages (you will not see the F5 BigIP):
 
-```
+```cli
 admin@ncs# show packages
 packages package cisco-ios
  package-version 3.0
@@ -61,7 +61,7 @@ There are four categories of NEDs depending on the device interface:
 
 Every device needs an auth group that tells NSO how to authenticate to the device:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices authgroups
 devices authgroups group default
  umap admin
@@ -86,7 +86,7 @@ devices authgroups snmp-group default
 
 The CLI snippet above shows that there is a mapping from the NSO users `admin` and `oper` to the remote user and password to be used on the devices. There are two options, either a mapping from the local user to the remote user or to pass the credentials. Below is a CLI example to create a new `authgroup foobar` and map NSO user `jim`:
 
-```
+```cli
 admin@ncs(config)# devices authgroups group foobar umap joe same-pass same-user
 admin@ncs(config-umap-joe)# commit
 ```
@@ -107,7 +107,7 @@ All devices have a `admin-state` with default value `southbound-locked`. This me
 
 (See also `examples.ncs/getting-started/using-ncs/2-real-device-cisco-ios`). Straightforward, adding a new device on a specific address, standard SSH port:
 
-```
+```cli
 admin@ncs(config)# devices device c7 address 1.2.3.4 port 22 \
                                 device-type cli ned-id cisco-ios-cli-3.0
 admin@ncs(config-device-c7)# authgroup
@@ -136,7 +136,7 @@ netconf {
 
 Then you can create a NSO netconf device as:
 
-```
+```cli
 admin@ncs(config)# devices device junos1 address junos1.lab port 22 \
                                  authgroup foobar device-type netconf
 admin@ncs(config-device-junos1)# state admin-state unlocked
@@ -147,7 +147,7 @@ admin@ncs(config-device-junos1)# commit
 
 (See also `examples.ncs/snmp-ned/basic/README` .) First of all, let's explain SNMP NEDs a bit. By default all read-only objects are mapped to operational data in NSO and read-write objects are mapped to configuration data. This means that a sync-from operation will load read-write objects into NSO. How can you reach read-only objects? Note the following is true for all NED types that have modeled operational data. The device configuration exists at `devices device config` and has a copy in CDB. NSO can speak live to the device to fetch for example counters by using the path `devices device live-status`:
 
-```
+```cli
 admin@ncs# show devices device r1 live-status SNMPv2-MIB
 live-status SNMPv2-MIB system sysDescr "Tail-f ConfD agent - r1"
 live-status SNMPv2-MIB system sysObjectID 1.3.6.1.4.1.24961
@@ -174,7 +174,7 @@ Before trying NSO use net-snmp command line tools or your favorite SNMP Browser 
 
 Adding an SNMP device assuming that NED is in place:
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device r1
 devices device r1
  address 127.0.0.1
@@ -196,7 +196,7 @@ devices device r2
 
 MIB Groups are important. A MIB group is just a named collection of SNMP MIB Modules. If you do not specify any MIB group for a device, NSO will try with all known MIBs. It is possible to create MIB groups with wild cards such as `CISCO*`.
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices mib-group
 devices mib-group basic
  mib-module [ BASIC-CONFIG-MIB ]
@@ -212,7 +212,7 @@ Generic devices are typically configured like a CLI device. Make sure you set th
 
 Below is an example of setting up NSO with F5 BigIP:
 
-```
+```cli
 admin@ncs(config)# devices device bigip01 address 192.168.1.162 \
                                  port 22 device-type generic ned-id f5-bigip
 admin@ncs(config-device-bigip01)# state admin-state southbound-locked
@@ -227,7 +227,7 @@ admin@ncs(config-device-bigip01)# commit
 
 Assume you have a Cisco device that you would like NSO to configure over CLI but read statistics over SNMP. This can be achieved by adding settings for `live-device-protocol`:
 
-```
+```cli
 admin@ncs(config)# devices device c0 live-status-protocol snmp \
                                 device-type snmp version v1 \
                                 snmp-authgroup default mib-group [ snmp ]
@@ -260,7 +260,7 @@ Devices have an `admin-state` with following values:
 
 The admin-state value southbound-locked is the default. This means if you create a new device without explicitly setting this value configuration changes will not propagate to the network. To see default values, use the pipe target `details`
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices device c0 | details
 ```
 
@@ -268,7 +268,7 @@ admin@ncs(config)# show full-configuration devices device c0 | details
 
 To analyze NED problems, turn on the tracing for a device and look at the trace file contents.
 
-```
+```cli
 admin@ncs(config)# show full-configuration devices global-settings
 devices global-settings trace-dir ./logs
 
@@ -281,7 +281,7 @@ admin@ncs(config)# devices device c0 connect
 
 NSO pools SSH connections and trace settings are only affecting new connections so therefore any open connection must be closed before the trace setting will take effect. Now you can inspect the raw communication between NSO and the device:
 
-```
+```bash
 $ less logs/ned-c0.trace
 
 admin connected from 127.0.0.1 using ssh on HOST-17
@@ -327,7 +327,7 @@ If NSO fails to talk to the device the typical root causes are:
 
 Some devices are slow to respond, latency on connections, etc. Fine-tune the connect, read, and write timeouts for the device:
 
-```
+```cli
 admin@ncs(config)# devices device c0
 Possible completions:
   ...
@@ -341,7 +341,7 @@ Possible completions:
 \
 These settings can be set in profiles shared by devices.
 
-```
+```cli
 admin@ncs(config)# devices profiles profile good-profile
 Possible completions:
   connect-timeout   Timeout in seconds for new connections

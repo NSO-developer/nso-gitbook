@@ -51,13 +51,13 @@ The package skeleton contains a directory called `python`. It holds a Python pac
 
 Of the most interest is the `cb_create()` method of the `ServiceCallbacks` class:
 
-```
+```python
 def cb_create(self, tctx, root, service, proplist)
 ```
 
 NSO calls this method for service provisioning. Now, let's see how to evolve a stand-alone automation script into a service. Suppose you have Python code for DNS configuration on a router, similar to the following:
 
-```
+```python
 with ncs.maapi.single_write_trans('admin', 'python') as t:
     root = ncs.maagic.get_root(t)
 
@@ -73,7 +73,7 @@ Taking into account the `cb_create()` signature and the fact that the NSO manage
 
 You only have to provide the core of the code (the middle portion in the above stand-alone script) to the `cb_create()`:
 
-```
+```python
 def cb_create(self, tctx, root, service, proplist):
     ex1_device = root.devices.device['ex1']
     ex1_config = ex1_device.config
@@ -91,7 +91,7 @@ With NSO, service parameters are defined in the service model, written in YANG. 
 
 The service model skeleton already contains such a list statement. The following is another example, similar to the one in the skeleton:
 
-```
+```yang
 list my-svc {
   description "This is an RFS skeleton service";
 
@@ -123,7 +123,7 @@ Along with the description, the service specifies a key, `name`to uniquely ident
 
 NSO then allows you to add the values for these parameters when configuring a service instance, as shown in the following CLI transcript:
 
-```
+```cli
 admin@ncs(config)# my-svc instance1 ?
 Possible completions:
   check-sync           Check if device config is according to the service
@@ -151,13 +151,13 @@ The `getting-started/developing-with-ncs` set of examples contains three simulat
 
 First, change the current working directory:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
 ```
 
 From this directory, you can start a fresh set of routers by running the following `make` command:
 
-```
+```bash
 $ make showcase-clean-start
 < ... output omitted ... >
 DEVICE ex0 OK STARTED
@@ -184,13 +184,13 @@ You create a new service package with the `ncs-make-package` command. Without th
 
 Change the current working directory before creating the package:
 
-```
+```bash
 $ cd $NSO_RUNDIR/packages
 ```
 
 You need to provide two parameters to `ncs-make-package`. The first is the `--service-skeleton python` option, which selects the Python programming language for scaffolding code. The second parameter is the name of the service. As you are creating a service for DNS configuration, `dns-config` is a fitting name for it. Run the final, full command:
 
-```
+```bash
 $ ncs-make-package --service-skeleton python dns-config
 ```
 
@@ -221,13 +221,13 @@ While you can always hard-code the desired parameters, such as the DNS server IP
 
 Open the `dns-config.yang`, located inside `dns-config/src/yang/`, in a text or code editor and find the following line:
 
-```
+```yang
     leaf dummy {
 ```
 
 Replace the word `dummy` with the word `dns-server`, save the file, and return to the shell. Run the `make` command in the `dns-config/src` folder to compile the updated YANG file.
 
-```
+```bash
 $ make -C dns-config/src
 make: Entering directory 'dns-config/src'
 mkdir -p ../load-dir
@@ -241,7 +241,7 @@ make: Leaving directory 'dns-config/src'
 
 In a text or code editor open the `main.py` file, located inside `dns-config/python/dns_config/`. Find the following snippet:
 
-```
+```python
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
         self.log.info('Service create(service=', service._path, ')')
@@ -266,7 +266,7 @@ Here, you are using the `dns_ip` variable that contains the operator-provided IP
 
 In the end, the `cb_create()` method should look like the following:
 
-```
+```python
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
         self.log.info('Service create(service=', service._path, ')')
@@ -283,19 +283,19 @@ Save the file and let's see the service in action!
 
 Start the NSO from the running directory:
 
-```
+```bash
 $ cd $NSO_RUNDIR; ncs
 ```
 
 Then, start the NSO CLI:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
 If you have started a fresh NSO instance, the packages are loaded automatically. Still, there's no harm in requesting a `package reload` anyway:
 
-```
+```cli
 admin@ncs# packages reload
 reload-result {
     package dns-config
@@ -309,7 +309,7 @@ reload-result {
 
 As you will be making changes on the simulated routers, make sure NSO has their current configuration with the `devices sync-from` command.
 
-```
+```cli
 admin@ncs# devices sync-from
 sync-result {
     device ex0
@@ -327,19 +327,19 @@ sync-result {
 
 Now you can test out your service package by configuring a service instance. First, enter the configuration mode.
 
-```
+```cli
 admin@ncs# config
 ```
 
 Configure a test instance and specify the DNS server IP address:
 
-```
+```cli
 admin@ncs(config)# dns-config test dns-server 192.0.2.1
 ```
 
 The easiest way to see configuration changes from the service code is to use the `commit dry-run` command.
 
-```
+```cli
 admin@ncs(config-dns-config-test)# commit dry-run
 cli {
     local-node {
@@ -364,19 +364,19 @@ cli {
 
 The output tells you the new DNS server is being added in addition to an existing one already there. Commit the changes:
 
-```
+```cli
 admin@ncs(config-dns-config-test)# commit
 ```
 
 Finally, change the IP address of the DNS server:
 
-```
+```cli
 admin@ncs(config-dns-config-test)# dns-server 192.0.2.8
 ```
 
 With the help of `commit dry-run` observe how the old IP address gets replaced with the new one, without any special code needed for provisioning.
 
-```
+```cli
 admin@ncs(config-dns-config-test)# commit dry-run
 cli {
     local-node {
@@ -413,7 +413,7 @@ XML templates are snippets of configuration, similar to the CDB init files, but 
 
 While you are free to write an XML template by hand, it has to follow the target data model. Fortunately, the NSO CLI can help you and do most of the hard work for you. First, you'll need a sample instance with the desired configuration. As you are configuring the DNS server on a router and the ex1 device already has one configured, you can just reuse that one. Otherwise, you might configure one by hand, using the CLI. You do that by displaying the existing configuration in the XML format and saving it to a file, by piping it through the `display xml` and `save` filters, as shown here:
 
-```
+```cli
 admin@ncs# show running-config devices device ex1 config sys dns | display xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
@@ -469,13 +469,13 @@ The `getting-started/developing-with-ncs` set of examples contains three simulat
 
 First, change the current working directory:
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
 ```
 
 From this directory, you can start a fresh set of routers by running the following `make` command:
 
-```
+```bash
 $ make showcase-clean-start
 < ... output omitted ... >
 DEVICE ex0 OK STARTED
@@ -500,13 +500,13 @@ showcase-clean-start:
 
 The DNS configuration service that you are implementing will have three parts: the YANG model, the service code, and the XML template. You will put all of these in a package named `dns-config`. First, navigate to the `packages` subdirectory:
 
-```
+```bash
 $ cd $NSO_RUNDIR/packages
 ```
 
 Then, run the following command to set up the service package:
 
-```
+```bash
 $ ncs-make-package --build --service-skeleton python dns-config
 bin/ncsc  `ls dns-config-ann.yang  > /dev/null 2>&1 && echo "-a dns-config-ann.yang"` \
               -c -o ../load-dir/dns-config.fxs yang/dns-config.yang
@@ -516,7 +516,7 @@ In case you are building on top of the previous showcase, the package folder may
 
 You can leave the YANG model as is for this scenario but you need to add some Python code that will apply an XML template during provisioning. In a text or code editor open the `main.py` file, located inside `dns-config/python/dns_config/`, and find the definition of the `cb_create()` function:
 
-```
+```python
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
         ...
@@ -540,7 +540,7 @@ Here, the first argument to `apply()` defines the template to use. In particular
 
 This is all the Python code that is required. The final, complete `cb_create` method is as follows:
 
-```
+```python
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
         template_vars = ncs.template.Variables()
@@ -553,7 +553,7 @@ This is all the Python code that is required. The final, complete `cb_create` me
 
 The most straightforward way to create an XML template is by using the NSO CLI. Return to the running directory and start the NSO:
 
-```
+```bash
 $ cd $NSO_RUNDIR && ncs --with-package-reload
 ```
 
@@ -561,13 +561,13 @@ The `--with-package-reload` option will make sure that NSO loads any added packa
 
 Next, start the NSO CLI:
 
-```
+```bash
 $ ncs_cli -C -u admin
 ```
 
 As you are starting with a new NSO instance, first invoke the `sync-from` action.
 
-```
+```cli
 admin@ncs# devices sync-from
 sync-result {
     device ex0
@@ -585,7 +585,7 @@ sync-result {
 
 Next, make sure that the ex1 router already has an existing entry for a DNS server in its configuration.
 
-```
+```cli
 admin@ncs# show running-config devices device ex1 config sys dns
 devices device ex1
  config
@@ -597,14 +597,14 @@ devices device ex1
 
 Pipe the command through the `display xml` and `save` CLI filters to save this configuration in an XML format. According to the Python code, you need to create a template file `dns-config-tpl.xml`. Use `packages/dns-config/templates/dns-config-tpl.xml` for the full file path.
 
-```
+```cli
 admin@ncs# show running-config devices device ex1 config sys dns \
 | display xml | save packages/dns-config/templates/dns-config-tpl.xml
 ```
 
 At this point, you have created a complete template that will provision the 10.2.3.4 as the DNS server on the ex1 device. The only problem is, that the IP address is not the one you have specified in the Python code. To correct that, open the `dns-config-tpl.xml` file in a text editor and replace the line that reads `<address>10.2.3.4</address>` with the following:
 
-```
+```xml
 <address>{$DNS_IP}</address>
 ```
 
@@ -620,13 +620,13 @@ leaf-list device {
 
 One way to use the `device` service parameter is to read its value in the Python code and then set up the template parameters accordingly. However, there is a simpler way with XPath. In the template, replace the line that reads `<name>ex1</name>` with the following:
 
-```
+```xml
 <name>{/device}</name>
 ```
 
 The XPath expression inside the curly braces instructs NSO to get the value for the device name from the service instance's data, namely the node called `device`. In other words, when configuring a new service instance, you have to add the device parameter, which selects the router for provisioning. The final XML template is then:
 
-```
+```xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -649,7 +649,7 @@ The XPath expression inside the curly braces instructs NSO to get the value for 
 
 Remember to save the template file and return to the NSO CLI. Because you have updated the service code, you have to redeploy it for NSO to pick up the changes:
 
-```
+```cli
 admin@ncs# packages package dns-config redeploy
 result true]
 ```
@@ -658,19 +658,19 @@ Alternatively, you could call the `packages reload` command, which does a full r
 
 Next, enter the configuration mode:
 
-```
+```cli
 admin@ncs# config
 ```
 
 As you are using the device node in the service model for target router selection, configure a service instance for the `ex2` router in the following way:
 
-```
+```cli
 admin@ncs(config)# dns-config dns-for-ex2 device ex2
 ```
 
 Finally, using the `commit dry-run` command, observe the `ex2` router being configured with an additional DNS server.
 
-```
+```cli
 admin@ncs(config-dns-config-dns-for-ex2)# commit dry-run
 ```
 

@@ -22,7 +22,7 @@ Configuration element structure is very much like the one you would find in a NE
 
 A typical template for configuring an NSO-managed device is:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device tags="nocreate">
@@ -39,7 +39,7 @@ The first line defines the root node. It contains elements that follow the same 
 
 You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then generate the XML structure with the help of NSO output filters. You can use `commit dry-run outformat xml or show ... | display xml` commands, or even the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
 
-```
+```cli
 admin@ncs(config)# devices device rtr01 config ...
 admin@ncs(config-device-rtr01)# commit dry-run outformat xml
 result-xml {
@@ -80,7 +80,7 @@ The NSO CLI features a **templatize** command that allows you to analyze a given
 
 Suppose you have an existing interface configuration on a device:
 
-```
+```cli
 admin@ncs# show running-config devices device c0 config interface GigabitEthernet
 devices device c0
  config
@@ -99,7 +99,7 @@ devices device c0
 
 Using the `templatize` command, you can search for patterns in this part of the configuration, which produces the following:
 
-```
+```cli
 admin@ncs# templatize devices device c0 config interface GigabitEthernet
 Found potential templates at:
   devices device c0 \ config \ interface GigabitEthernet {$GigabitEthernet-name}
@@ -135,7 +135,7 @@ Variables in template:
 
 In this case, NSO finds a single pattern (the only one) and creates the corresponding template. In general, NSO might produce a number of templates. As an example, try running the command within the `examples.ncs/implement-a-service/dns-v3` environment.
 
-```
+```bash
 $ cd $NCS_DIR/examples.ncs/implement-a-service/dns-v3
 $ make demo
 admin@ncs#  templatize devices device c*
@@ -145,7 +145,7 @@ The algorithm works by searching the data at the specified path. For any list it
 
 However, `templatize` requires you to reference existing configurations in NSO. If such configuration is not readily available to you and you want to avoid manually creating sample configuration in NSO first, you can use the sample-xml-skeleton functionality of the **yanger** utility to generate sample XML data directly:
 
-```
+```bash
 $ cd $NCS_DIR/packages/neds/cisco-ios-cli-3.8/
 $ yanger -f sample-xml-skeleton \
     --sample-xml-skeleton-doctype=config \
@@ -178,7 +178,7 @@ In case the target data model contains submodules, or references other non-built
 
 Some XML elements, notably those that represent leafs or leaf-lists, specify element text content as values that you wish to configure, such as:
 
-```
+```xml
       <name>rtr01</name>
 ```
 
@@ -188,7 +188,7 @@ Along with hard-coded, static content (`rtr01`), the value may also contain curl
 
 The simplest form of an XPath expression is a plain XPath variable:
 
-```
+```xml
       <name>{$CE}</name>
 ```
 
@@ -227,7 +227,7 @@ Finally, what nodes are reachable in the XPath expression, and how, depends on t
 
 The `if`, and the accompanying `elif`, `else`, processing instructions make it possible to apply parts of the template, based on a condition. For example:
 
-```
+```xml
 <policy-map xmlns="urn:ios" tags="merge">
   <name>{$POLICY_NAME}</name>
   <class>
@@ -274,7 +274,7 @@ The evaluation of the XPath statements used in the `if` and `elif` processing in
 
 The `foreach` and `for` processing instructions allow you to avoid needless repetition: they iterate over a set of values and apply statements in a sub-tree several times. For example:
 
-```
+```xml
 <ip xmlns="urn:ios">
   <route>
   <?foreach {/tunnel}?>
@@ -296,7 +296,7 @@ For each iteration, the initial context is set to one node, that is, the node be
 
 Similarly, `for` is a processing instruction that uses a variable to control the iteration, in line with traditional programming languages. For example, the following template disables the first four (0-3) interfaces on a Cisco router:
 
-```
+```xml
 <interface xmlns="urn:ios">
   <?for i=0; {$i < 4}; i={$i + 1}?>
     <FastEthernet>
@@ -323,14 +323,14 @@ NSO supports the following `tags` values, colloquially referred to as “tags”
 
 *   `merge`: Merge with a node if it exists, otherwise create the node. This is the default operation if no operation is explicitly set.
 
-    ```
+    ```xml
     <config tags="merge">
       <interface xmlns="urn:ios">
       ...
     ```
 *   `replace`: Replace a node if it exists, otherwise create the node.
 
-    ```
+    ```xml
         <GigabitEthernet tags="replace">
           <name>{link/interface-number}</name>
           <description tags="merge">Link to PE</description>
@@ -338,7 +338,7 @@ NSO supports the following `tags` values, colloquially referred to as “tags”
     ```
 *   `create`: Creates a node. The node must not already exist. An error is raised if the node exists.
 
-    ```
+    ```xml
         <GigabitEthernet tags="create">
           <name>{link/interface-number}</name>
           <description tags="merge">Link to PE</description>
@@ -346,7 +346,7 @@ NSO supports the following `tags` values, colloquially referred to as “tags”
     ```
 *   `nocreate`: Merge with a node if it exists. If it does not exist, it will _not_ be created.
 
-    ```
+    ```xml
         <GigabitEthernet tags="nocreate">
           <name>{link/interface-number}</name>
           <description tags="merge">Link to PE</description>
@@ -354,7 +354,7 @@ NSO supports the following `tags` values, colloquially referred to as “tags”
     ```
 *   `delete`: Delete the node.
 
-    ```
+    ```xml
         <GigabitEthernet tags="delete">
           <name>{link/interface-number}</name>
           <description tags="merge">Link to PE</description>
@@ -373,7 +373,7 @@ For ordered-by-user lists and leaf lists, where item order is significant, you c
 
 For example, if you have a list of rules, such as ACLs, you may need to ensure a particular order:
 
-```
+```xml
 <rule insert="first">
   <name>{$FIRSTRULE}</name>
 </rule>
@@ -392,7 +392,7 @@ However, it is not uncommon that there are multiple services managing the same o
 
 Following the ACL rules example, suppose that initially the list contains only the "deny-all" rule:
 
-```
+```xml
 <rule>
   <name>deny-all</name>
   <ip>0.0.0.0</ip>
@@ -403,7 +403,7 @@ Following the ACL rules example, suppose that initially the list contains only t
 
 There are services that prepend permit rules to the beginning of the list using the `insert="first"` operation. If there are two services creating one entry each, say 10.0.0.0/8 and 192.168.0.0/24 respectively, then the resulting configuration looks like this:
 
-```
+```xml
 <rule>
   <name>service-2</name>
   <ip>192.168.0.0</ip>
@@ -434,7 +434,7 @@ If both the `insert` and `guard` attributes are specified on a list entry in a t
 
 So, in the ACL example, the template can specify the guard as follows:
 
-```
+```xml
 <rule insert="first" guard="deny-all">
   <name>{$NAME}</name>
   <ip>{$IP}</ip>
@@ -505,7 +505,7 @@ When using macros, be mindful of the following:
     In the preceding example, a macro is defined as:\
 
 
-    ```
+    ```xml
       <?macro GbEth name='{/name}' ip mask='255.255.255.0'?>
     ```
 
@@ -551,7 +551,7 @@ To illustrate, consider the following example.
 
 Suppose you are using the template to configure interfaces on a device. Target device YANG model defines the list of interfaces as:
 
-```
+```yang
   list interface {
     key "name";
     leaf name {
@@ -582,7 +582,7 @@ You also use a service model that allows configuring multiple links:
 
 The context-changing mechanism allows you to configure the device interface with the specified address using the template:
 
-```
+```xml
   <interface>
     <name>{/links/link[0]/intf-name}</name>
     <address>{intf-addr}</address>
@@ -593,7 +593,7 @@ The `/links/link[0]/intf-name` evaluates to a node and the evaluation context no
 
 The true power and usefulness of context changing becomes evident when used together with XPath expressions that produce node sets with multiple nodes. You can create a template that configures multiple interfaces with their corresponding addresses (note the use of `link` instead of `link[0]`):
 
-```
+```xml
   <interface>
     <name>{/links/link/intf-name}</name>
     <address>{intf-addr}</address>
@@ -604,7 +604,7 @@ The first expression returns a node set possibly including multiple leafs. NSO t
 
 However, in some situations, you may not desire to change the context. You can avoid it by making the XPath expression return a value instead of a node/node-set. The simplest way is to use the XPath `string()` function, for example:
 
-```
+```xml
   <interface>
     <name>{string(/links-list/intf-name)}</name>
   </interface>
@@ -625,7 +625,7 @@ However, strict validation against the currently loaded schema may become a prob
 In order to allow templates to be reusable while at the same time keeping as many errors as possible detectable at load time, NSO has a concept of `supported-ned-ids`. This is a set of NED IDs the package developer declares in the `package-meta-data.xml` file, indicating all NEDs the XML templates contained in this package are designed to support. This gives NSO a hint on how to interpret the template.
 
 {% code title="Example: Package Declaring supported-ned-id" %}
-```
+```xml
 <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
   <name>mypackage</name>
   <!-- ... -->
@@ -663,7 +663,7 @@ After the service is deployed, the auxiliary leafs remain in the database which 
 
 One example of a task that is hard to solve in the template by native XPath functions is converting a network prefix into a network mask or vice versa. Below is a snippet of a data model that is part of a service input data and contains a list of interfaces along with IP addresses to be configured on those interfaces. If the input IP address contains a prefix, but the target device accepts an IP address with a network mask instead, then you can use an auxiliary operational leaf to pass the mask (calculated from the prefix) to the template.
 
-```
+```yang
 list interface {
   key name;
   leaf name {
@@ -686,7 +686,7 @@ list interface {
 
 The code that calls the template needs to populate the mask. For example, using the Python Maagic API in a service:
 
-```
+```python
     def cb_create(self, tctx, root, service, proplist):
         interface_list = service.interface
         for intf in interface_list:
@@ -701,7 +701,7 @@ The code that calls the template needs to populate the mask. For example, using 
 
 The corresponding `iface-template` might then be as simple as:
 
-```
+```xml
       <interface>
         <name>{/interface/name}</name>
         <ip-address>{substring-before(address, '/')}</ip-address>
@@ -713,7 +713,7 @@ The corresponding `iface-template` might then be as simple as:
 
 The archetypical use case for XML templates is service provisioning and NSO allows you to directly invoke a template for a service, without writing boilerplate code in Python or Java. You can take advantage of this feature by configuring the `servicepoint` attribute on the root `config-template` element. For example:
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="some-service">
   <!-- ... -->
@@ -745,7 +745,7 @@ NSO supports only a single registration for each servicepoint and callback type.
 The `$OPERATION` variable is set internally by NSO in pre- and post-modification templates to contain the service operation, i.e., create, update, or delete, that triggered the callback. The `$OPERATION` variable can be used together with template conditional statements (see [Conditional Statements](templates.md#ch\_templates.conditionals)) to apply different parts of the template depending on the triggering operation. Note that the service data is not available in the pre- or post-modification callbacks when `$OPERATION = 'delete'` since the service has been deleted already in the transaction context where the template is applied.
 
 {% code title="Example: Post-modification Template" %}
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="some-service"
                  cbtype="post-modification">
@@ -772,11 +772,11 @@ The `$OPERATION` variable is set internally by NSO in pre- and post-modification
 
 You can request additional information when applying templates in order to understand what is going on. When applying or committing a template in the CLI, the `debug` pipe command enables debug information:
 
-```
+```cli
 admin@ncs(config)# commit dry-run | debug template
 ```
 
-```
+```cli
 admin@ncs(config)# commit dry-run | debug xpath
 ```
 
@@ -784,7 +784,7 @@ The `debug xpath` option outputs _all_ XPath evaluations for the transaction, an
 
 The `debug template` option outputs XPath expression results from the template, under which context expressions are evaluated, what operation is used, and how it affects the configuration, for all templates that are invoked. You can narrow it down to only show debugging information for a template of interest:
 
-```
+```cli
 admin@ncs(config)# commit dry-run | debug template l3vpn
 ```
 
@@ -797,7 +797,7 @@ For XPath evaluation, you can also inspect the XPath trace log if it is enabled 
 
 Another option to help you get the XPath selections right is to use the NSO CLI `show` command with the `xpath` display flag to find out the correct path to an instance node. This shows the name of the key elements and also the namespace changes.
 
-```
+```cli
 admin@ncs# show running-config devices device c0 config ios:interface | display xpath
 /devices/device[name='c0']/config/ios:interface/FastEthernet[name='1/0']
 /devices/device[name='c0']/config/ios:interface/FastEthernet[name='1/1']
@@ -808,7 +808,7 @@ admin@ncs# show running-config devices device c0 config ios:interface | display 
 
 When using more complex expressions, the **ncs\_cmd** utility can be used to experiment with and debug expressions. **ncs\_cmd** is used in a command shell. The command does not print the result as XPath selections but is still of great use when debugging XPath expressions. The following example selects FastEthernet interface names on the device `c0`:
 
-```
+```bash
 $ ncs_cmd -c "x /devices/device[name='c0']/config/ios:interface/FastEthernet/name"
 /devices/device{c0}/config/interface/FastEthernet{1/0}/name [1/0]
 /devices/device{c0}/config/interface/FastEthernet{1/1}/name [1/1]
@@ -821,7 +821,7 @@ $ ncs_cmd -c "x /devices/device[name='c0']/config/ios:interface/FastEthernet/nam
 
 The following text walks through the output of the `debug template` command for a dns-v3 example service, found in `examples.ncs/implement-a-service/dns-v3`. To try it out for yourself, start the example with `make demo` and configure a service instance:
 
-```
+```cli
 admin@ncs# config
 admin@ncs(config)# load merge example.cfg
 admin@ncs(config)# commit dry-run | debug template
@@ -869,7 +869,7 @@ The templating engine found the `foreach` in the `dns-template.xml` file at line
 
 NSO found two nodes in the leaf-list for this expression, which you can verify in the CLI:
 
-```
+```cli
 admin@ncs(config)# show full-configuration dns instance1 target-device | display xpath
 /dns[name='instance1']/target-device [ c1 c2 ]
 ```

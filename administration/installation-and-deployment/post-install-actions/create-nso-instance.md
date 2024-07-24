@@ -24,7 +24,7 @@ To create an NSO instance:
     \
     Use the name of the NED folder in `${NCS_DIR}/packages/neds` for the latest NED version that you have installed for the target platform. Use the tab key to complete the path, after you start typing (alternatively, copy and paste). Verify that the NED versions below match what is currently on the sandbox to avoid a syntax error. See the example below.
 
-    ```
+    ```bash
     ncs-setup --package ~/nso-6.0/packages/neds/cisco-ios-cli-6.44 \
     --package ~/nso-6.0/packages/neds/cisco-nx-cli-5.15 \
     --package ~/nso-6.0/packages/neds/cisco-iosxr-cli-7.20 \
@@ -33,7 +33,7 @@ To create an NSO instance:
     ```
 2.  Check the `nso-instance` directory. Notice that several new files and folders are created.
 
-    ```
+    ```bash
     $ ls nso-instance/
     logs  ncs-cdb  ncs.conf  packages  README.ncs  scripts  state
     $ ls -l nso-instance/packages/
@@ -60,7 +60,7 @@ To create an NSO instance:
 3. Start the NSO instance by navigating to the `nso-instance` directory and typing the `ncs` command. You must be situated in the `nso-instance` directory each time you want to start or stop NSO. If you have multiple instances, you need to navigate to each one and use the `ncs` command to start or stop each one.
 4.  Verify that NSO is running by using the `ncs --status | grep status` command.
 
-    ```
+    ```bash
     $ ncs --status | grep status
     status: started
     db=running id=31 priority=1 path=/ncs:devices/device/live-status-protocol/device-type

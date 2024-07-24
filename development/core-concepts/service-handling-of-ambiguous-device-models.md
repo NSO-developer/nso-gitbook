@@ -18,7 +18,7 @@ The processing instruction `else` can be used in conjunction with `if-ned-id` an
 
 For the nodes in the XML namespace where no ambiguities occur, this process instruction is not necessary.
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device foreach="{apache-device}">
@@ -54,7 +54,7 @@ In Java, the service code must handle the ambiguities by code where the devices'
 
 The `ServiceContext` class has a new convenience method, `getNEDIdByDeviceName` which helps retrieve the `ned-id` from the device name string.
 
-```
+```java
     @ServiceCallback(servicePoint="websiteservice",
                      callType=ServiceCBType.CREATE)
     public Properties create(ServiceContext context,
@@ -103,7 +103,7 @@ The `ServiceContext` class has a new convenience method, `getNEDIdByDeviceName` 
 
 In the Python API, there is also a need to handle ambiguities by checking the `ned-id` before setting the diverging paths. Use `get_ned_id()` from `ncs.application` to resolve NED IDs.
 
-```
+```python
 import ncs
 
 def _get_device(service, name):

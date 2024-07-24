@@ -69,7 +69,7 @@ Smart Account user management is available in the **Administration** section of 
     <figure><img src="../../../images/device_register1f.png" alt=""><figcaption></figcaption></figure>
 7.  Go to the NSO CLI and provide the token to the `license smart register idtoken` command:
 
-    ```
+    ```cli
     admin@ncs# license smart register idtoken YzY2YjFlOTYtOWYzZi00MDg1...
     Registration process in progress.
     Use the 'show license status' command to check the progress and result.
@@ -80,7 +80,7 @@ Smart Account user management is available in the **Administration** section of 
 * If `ncs.conf` contains configuration for any of java-executable, java-options, override-url/url, or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/` any corresponding configuration done via the CLI is ignored.
 *   The smart licensing component of NSO runs its own Java virtual machine. Usually, the default Java options are sufficient:
 
-    ```
+    ```yang
               leaf java-options {
               tailf:info "Smart licensing Java VM start options";
               type string;

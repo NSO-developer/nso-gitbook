@@ -62,7 +62,7 @@ The `startTrans(int db,int mode)` method of the Maapi class returns an integer t
 An example of a typical transactional method is the `getElem()` method:
 
 {% code title="Example: Maapi.getElem()" %}
-```
+```java
     public ConfValue getElem(int tid,
                              String fmt,
                              Object... arguments)
@@ -220,7 +220,7 @@ The first thing to do is to register in CDB which paths should be subscribed to.
 
 Every point is defined through a path - similar to the paths we use for read operations, with the difference that instead of fully instantiated paths to list instances we can choose to use tag paths i.e. leave out key value parts to be able to subscribe on all instances. We can subscribe either to specific leaves, or entire sub trees. Assume a YANG data model on the form of:
 
-```
+```yang
    container servers {
      list server {
        key name;
@@ -325,7 +325,7 @@ A transaction has a number of phases, the external data provider gets called in 
 
 *   `init()`: In this phase, the transaction callback class `init()` methods get invoked. We use annotation on the method to indicate that it's the `init()` method as in:\\
 
-    ```
+    ```java
         public  class MyTransCb {
 
             @TransCallback(callType=TransCBType.INIT)
@@ -370,7 +370,7 @@ We have the following data callbacks:
 
     We define the `getElem` callback inside a class as:\\
 
-    ```
+    ```java
     public static class DataCb {
 
         @DataCallback(callPoint="foo", callType=DataCBType.GET_ELEM)
@@ -380,7 +380,7 @@ We have the following data callbacks:
     ```
 *   `existsOptional()`: This callback is called for all type less and optional elements, i.e. `presence` containers and leafs of type `empty`. If we have presence containers or leafs of type `empty`, we cannot use the `getElem()` callback to read the value of such a node, since it does not have a type. An example of a data model could be:\\
 
-    ```
+    ```yang
       container bs {
         presence "";
         tailf:callpoint bcp;
@@ -429,7 +429,7 @@ Two classes are implemented, one for the transaction callbacks and another for t
 The data model we wish to incorporate into NSO is a trivial list of work items. It looks like:
 
 {% code title="Example: work.yang" %}
-```
+```yang
         module work {
   namespace "http://example.com/work";
   prefix w;
@@ -476,7 +476,7 @@ To compile the `work.yang` data model and then also to generate Java code for th
 The Data callback class looks as follows:
 
 {% code title="Example: DataCb Class" %}
-```
+```java
     @DataCallback(callPoint=work.callpoint_workPoint,
                   callType=DataCBType.ITERATOR)
     public Iterator<Object> iterator(DpTrans trans,
@@ -585,7 +585,7 @@ The three write callbacks, `setElem()`, `create()` and `remove()` all return the
 The transaction callback class looks like this:
 
 {% code title="Example: TransCb Class" %}
-```
+```java
     @TransCallback(callType=TransCBType.INIT)
     public void init(DpTrans trans) throws DpCallbackException {
         return;
@@ -718,7 +718,7 @@ tailf:action self-test {
 
 The `packages/l3vpn/src/java/src/com/example/l3vpnRFS.java` already contains an action implementation but it has been suppressed since no `actionpoint` with the corresponding name has been defined in the YANG model, before now.
 
-```
+```java
 /**
  * Init method for selftest action
  */
@@ -847,7 +847,7 @@ If data has to be written, the Navu transaction has to be started differently de
 When navigating using NAVU we always start by creating a `NavuContainer` and passing in the `NavuContext` instance, this is a base container from which navigation can be started. Furthermore, we need to create a root `NavuContainer` which is the top of the YANG module in which to navigate down. This is done by using the `NavuContainer.container(int hash)` method. Here the argument is the hash value for the module namespace.
 
 {% code title="Example: NSO Module" %}
-```
+```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -877,7 +877,7 @@ NAVU maps the YANG node types; `container`, `list`, `leaf`, and `leaf-list` into
 Consider the YANG excerpt below.
 
 {% code title="Example: NSO List Element" %}
-```
+```yang
 submodule tailf-ncs-devices {
   ...
   container devices {
@@ -988,7 +988,7 @@ An alternative method is to use the `xPathSelect()` where an XPath query could b
 `NavuContainer` and `NavuList` are structural nodes with NAVU. i.e. they have no values. Values are always kept by `NavuLeaf`. A `NavuLeaf` represents the YANG node types `leaf`. A `NavuLeaf` can be both read and set. `NavuLeafList` represents the YANG node type `leaf-list` and has some features in common with both `NavuLeaf` (which it inherits from) and `NavuList`.
 
 {% code title="Example: NSO Leaf" %}
-```
+```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
@@ -1048,7 +1048,7 @@ In addition to the YANG standard node types, NAVU also supports the Tailf propri
 Consider the excerpt below. It represents a module on a managed device. When connected and synchronized to the NSO, the module will appear in the `/devices/device/config` container.
 
 {% code title="Example: YANG Action" %}
-```
+```yang
 module interfaces {
   namespace "http://router.com/interfaces";
   prefix i;
@@ -1495,7 +1495,7 @@ Each element in the array is associated with the node in the data model.
 
 The array corresponding to the `/servers/server{www}` which is a representation of the instance XML document:
 
-```
+```xml
     <servers>
       <server>
         <name>www</name>
@@ -1522,7 +1522,7 @@ A namespace class is a subclass of `ConfNamespace` and comes in one of two shape
 
 The compiled namespace classes are generated from compiled .fxs files through `ncsc`,(`ncsc --emit-java`).
 
-```
+```bash
 ncsc --java-disable-prefix --java-package \
        com.example.app.namespaces \
        --emit-java \

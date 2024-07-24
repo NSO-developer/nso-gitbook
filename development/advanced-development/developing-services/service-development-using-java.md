@@ -38,21 +38,21 @@ We will start by setting up a run-time environment that includes simulated Cisco
 
 1. Create a new directory that will contain the files for this example, such as:
 
-```
+```bash
 $ mkdir ~/vlan-service
 $ cd ~/vlan-service
 ```
 
 2. Now, let's create a simulated environment with 3 IOS devices and an NSO that is ready to run with this simulated network:
 
-```
+```bash
 $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
 $ ncs-setup --netsim-dir ./netsim/ --dest ./
 ```
 
 3. Start the simulator and NSO:
 
-```
+```bash
 $ ncs-netsim start
 DEVICE c0 OK STARTED
 DEVICE c1 OK STARTED
@@ -62,7 +62,7 @@ $ ncs
 
 4. Use the Cisco CLI towards one of the devices:
 
-```
+```bash
 $ ncs-netsim cli-i c0
 admin connected from 127.0.0.1 using console on ncs
 c0> enable
@@ -83,7 +83,7 @@ bgp next-hop Loopback 1
 
 5. Use the NSO CLI to get the configuration:
 
-```
+```bash
 $ ncs_cli -C -u admin
 
 admin connected from 127.0.0.1 using console on ncs
@@ -122,7 +122,7 @@ devices device c0
 
 6. Finally, set VLAN information manually on a device to prepare for the mapping later.
 
-```
+```cli
 admin@ncs(config)# devices device c0 config ios:vlan 1234 
 admin@ncs(config)# devices device c0 config ios:interface
                    FastEthernet 1/0 switchport mode trunk 
@@ -148,7 +148,7 @@ admin@ncs(config)# commit
 
 1. In the run-time directory, you created:
 
-```
+```bash
 $ ls -F1
 README.ncs
 README.netsim
@@ -163,7 +163,7 @@ state/
 
 Note the `packages` directory, `cd` to it:
 
-```
+```bash
 $ cd packages
 $ ls -l
 total 8
@@ -174,7 +174,7 @@ Currently, there is only one package, the Cisco IOS NED.
 
 2. We will now create a new package that will contain the VLAN service.
 
-```
+```bash
 $ ncs-make-package --service-skeleton java vlan
 $ ls
 cisco-ios vlan
@@ -190,7 +190,7 @@ During the rest of this section, we will work with the `vlan/src/yang/vlan.yang`
 
 So, if a user wants to create a new VLAN in the network what should the parameters be? Edit the `vlan/src/yang/vlan.yang` according to below:
 
-```
+```yang
   augment /ncs:services {
     list vlan {
       key name;
@@ -241,14 +241,14 @@ The two lines tell NSO that this is a service. The first line expands to a YANG 
 
 To build this service model, `cd` to `packages/vlan/src` and type `make` (assumes that you have the prerequisite `make` build system installed).
 
-```
+```bash
 $ cd packages/vlan/src/
 $ make
 ```
 
 We can now test the service model by requesting NSO to reload all packages:
 
-```
+```bash
 $ ncs_cli -C -U admin
 admin@ncs# packages reload
 >>> System upgrade is starting.
@@ -262,7 +262,7 @@ You can also stop and start NSO, but then you have to pass the option `--with-pa
 
 Now, create a VLAN service, (nothing will happen since we have not defined any mapping).
 
-```
+```cli
 admin@ncs(config)# services vlan net-0 vlan-id 1234 device-if c0 interface 1/0
 admin@ncs(config-device-if-c0)# top
 admin@ncs(config)# commit
@@ -274,7 +274,7 @@ Now, let us move on and connect that to some device configuration using Java map
 
 The default configuration of the Java VM is:
 
-```
+```cli
 admin@ncs(config)# show full-configuration java-vm | details
 java-vm stdout-capture enabled
 java-vm stdout-capture file ./logs/ncs-java-vm.log
@@ -289,7 +289,7 @@ java-vm jmx jmx-port 9901
 
 By default, NCS will start the Java VM by invoking the command `$NCS_DIR/bin/ncs-start-java-vm`. That script will invoke
 
-```
+```bash
 $ java com.tailf.ncs.NcsJVMLauncher
 ```
 
@@ -297,7 +297,7 @@ The class `NcsJVMLauncher` contains the `main()` method. The started Java VM wil
 
 The verbosity of Java error messages can be controlled by:
 
-```
+```cli
 admin@ncs(config)# java-vm exception-error-message verbosity
 Possible completions:
   standard  trace  verbose
@@ -317,7 +317,7 @@ The corresponding generated Java skeleton, (one print 'Hello World!' statement a
 
 Modify the generated code to include the print "Hello World!" statement in the same way. Re-build the package:
 
-```
+```bash
 $ cd packages/vlan/src/
 $ make
 ```
@@ -330,14 +330,14 @@ Whenever a package has changed, we need to tell NSO to reload the package. There
 
 When that is done we can create a service (or modify an existing one) and the callback will be triggered:
 
-```
+```cli
 admin@ncs(config)# vlan net-0 vlan-id 888
 admin@ncs(config-vlan-net-0)# commit
 ```
 
 Now, have a look at the `logs/ncs-java-vm.log`:
 
-```
+```bash
 $ tail ncs-java-vm.log
 ...
 <INFO> 03-Mar-2014::16:55:23.705 NcsMain JVM-Launcher: \
@@ -353,7 +353,7 @@ Hello World!
 
 Tailing the `ncs-java-vm.log` is one way of developing. You can also start and stop the Java VM explicitly and see the trace in the shell. To do this, tell NSO not to start the VM by adding the following snippet to `ncs.conf`:
 
-```
+```xml
 <java-vm>
     <auto-start>false</auto-start>
 </java-vm>
@@ -361,7 +361,7 @@ Tailing the `ncs-java-vm.log` is one way of developing. You can also start and s
 
 Then, after restarting NSO or reloading the configuration, from the shell prompt:
 
-```
+```bash
 $ ncs-start-java-vm
 .....
 .. all stdout from JVM
@@ -373,7 +373,7 @@ So modifying or creating a VLAN service will now have the "Hello World!" string 
 
 To use a GUI-based IDE Eclipse, first generate an environment for Eclipse:
 
-```
+```bash
 $ ncs-setup --eclipse-setup
 ```
 
@@ -392,14 +392,14 @@ A caveat worth mentioning here is that there exist a few timeouts between NSO an
 
 First, we have the three timeouts in `ncs.conf` that matter. Set the three values of `/ncs-config/japi/new-session-timeout`, `/ncs-config/japi/query-timeout`, and `/ncs-config/japi/connect-timeout` to a large value (see man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) for a detailed description on what those values are). If these timeouts are triggered, NSO will close all sockets to the Java VM.
 
-```
+```bash
 $ cp $NCS_DIR/etc/ncs/ncs.conf .
 ```
 {% endhint %}
 
 Edit the file and enter the following XML entry just after the Webui entry:
 
-```
+```xml
 <japi>
     <new-session-timeout>PT1000S</new-session-timeout>
     <query-timeout>PT1000S</query-timeout>
@@ -409,13 +409,13 @@ Edit the file and enter the following XML entry just after the Webui entry:
 
 Now, restart `ncs`, and from now on start it as:
 
-```
+```bash
 $ ncs -c ./ncs.conf
 ```
 
 You can verify that the Java VM is not running by checking the package status:
 
-```
+```cli
 admin@ncs# show packages package vlan
 packages package vlan
  package-version 1.0
@@ -439,7 +439,7 @@ Change the VLAN service and see the console output in Eclipse:
 
 Another option is to have Eclipse connect to the running VM. Start the VM manually with the `-d` option.
 
-```
+```bash
 $ ncs-start-java-vm -d
 Listening for transport dt_socket at address: 9000
 NCS JVM STARTING
@@ -470,7 +470,7 @@ So the problem at hand is that we have service parameters and a resulting device
 
 The NAVU API lets the Java programmer navigate the service model and the device models as a DOM tree. Have a look at the `create` signature:
 
-```
+```java
  @ServiceCallback(servicePoint="vlan-servicepoint",
         callType=ServiceCBType.CREATE)
     public Properties create(ServiceContext context,
@@ -536,7 +536,7 @@ The next step is to iterate over the devices and interfaces. The NAVU `elements(
 
 In order to write the mapping code, make sure you have an understanding of the device model. One good way of doing that is to create a corresponding configuration on one device and then display that with the pipe target `display xpath`. Below is a CLI output that shows the model paths for `FastEthernet 1/0`:
 
-```
+```cli
 admin@ncs% show devices device c0 config ios:interface
            FastEthernet 1/0 | display xpath 
 
@@ -549,7 +549,7 @@ admin@ncs% show devices device c0 config ios:interface
 
 Another useful tool is to render a tree view of the model:
 
-```
+```bash
 $ pyang -f jstree tailf-ned-cisco-ios.yang -o ios.html
 ```
 
@@ -632,7 +632,7 @@ Create a template as described before.
 
 This results in a feature template like below:
 
-```
+```xml
 <!-- Feature Parameters -->
 <!-- $DEVICE -->
 <!-- $VLAN_ID -->
@@ -852,7 +852,7 @@ However, when creating a new l3vpn service instance in NSO it would be ideal if 
 
 Resulting YANG Service Model:
 
-```
+```yang
 container vpn {
 
   list l3vpn {
@@ -913,7 +913,7 @@ The snipped above contains the l3vpn service model. The structure of the model i
 
 To be able to derive the CE to PE connections we use a very simple topology model. Notice that this YANG snippet does not contain any service point, which means that this is not a service model but rather just a YANG schema letting us store information in CDB.
 
-```
+```yang
 container topology {
   list connection {
     key name;
@@ -1047,7 +1047,7 @@ The configuration templates are XML templates based on the structure of device Y
 
 The commands in NSO give the following output. To make the example simpler, only the BGP part of the configuration is used:
 
-```
+```cli
 admin@ncs# devices device ce1 sync-from
 admin@ncs# show running-config devices device ce1 config \
         ios:router bgp | display xml
@@ -1078,7 +1078,7 @@ admin@ncs# show running-config devices device ce1 config \
 
 The final configuration template with the replaced parameters marked in bold is shown below. If the parameter starts with a `$`-sign, it's taken from the Java parameter dictionary; otherwise, it is a direct xpath reference to the value from the service instance.
 
-```
+```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device tags="nocreate">

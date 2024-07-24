@@ -31,7 +31,7 @@ The YANG models describing all configuration capabilities of the SNMP agent resi
 
 An example session configuring the SNMP agent through the CLI may look like:
 
-```
+```cli
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# snmp agent udp-port 3457
@@ -226,7 +226,7 @@ The MIB defines separate notifications for every severity level to support SNMP 
 Alarm Managers should subscribe to the notifications and read the alarm table to synchronize the alarm list. To do this you need an access view that matches the alarm MIB and creates a SNMP target. Default SNMP settings in NSO let you read the alarm MIB with v2c and community public. A target is set up in the following way, (assuming the SNMP Alarm Manager has IP address 192.168.1.1 and wants community string public in the v2c notifications):
 
 {% code title="Example: Subscribing to SNMP Alarms" %}
-```
+```bash
 $ ncs_cli -u admin -C
 admin@ncs# config
 Entering configuration mode terminal
