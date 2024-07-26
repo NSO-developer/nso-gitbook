@@ -720,7 +720,7 @@ admin@ncs(config)# ... repeated for each neighbor if more than one ...
 admin@ncs(config)# commit
 ```
 
-### Layer-3 DNS Update <a href="#ug.ha.hcc.deployment" id="ug.ha.hcc.deployment"></a>
+### Layer-3 DNS Update
 
 The purpose of the HCC layer-3 DNS Update functionality is to notify a DNS server of the IP address change of the active primary NSO server, allowing the DNS server to update the DNS record for the given domain name.
 
@@ -753,7 +753,7 @@ hcc dns status error-message "; Communication with 10.0.0.10#53 failed: timed ou
 The DNS Server must be installed and configured separately, and details are provided to HCC as configuration data. The DNS Server must be configured to update the reverse DNS record.
 {% endhint %}
 
-#### Configuration <a href="#ug.ha.hcc.deployment" id="ug.ha.hcc.deployment"></a>
+#### Configuration
 
 The layer-3 DNS Update functionality needs DNS-related information like DNS server IP address, port, zone, etc, and information about NSO nodes involved in HA - node, ip, and location.
 
@@ -780,7 +780,7 @@ Each NSO node can be placed in a separate Location/Site/Availability-Zone. This 
 | `ip-address` | inet:ip-address | IP where NSO listens for incoming requests to any northbound interfaces.                                                            |
 | `location`   | string          | Name of the Location/Site/Availability-Zone where node is placed.                                                                   |
 
-#### Example <a href="#ug.ha.hcc.deployment" id="ug.ha.hcc.deployment"></a>
+#### Example
 
 Here is an example configuration for a setup of two dual-stack NSO nodes, node-1 and node-2, that have an IPv4 and an IPv6 address configured. The configuration also sets up an update signing with the specified key.
 
@@ -799,7 +799,7 @@ admin@ncs(config)#  hcc dns member node-2 location NewYork
 admin@ncs(config)# commit
 ```
 
-### Usage <a href="#ug.ha.hcc.deployment" id="ug.ha.hcc.deployment"></a>
+### Usage
 
 This section describes basic deployment scenarios for HCC. Layer-2 mode is demonstrated first and then the layer-3 BGP functionality is configured in addition:
 

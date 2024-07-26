@@ -572,7 +572,7 @@ When this is enabled, `/ncs-config/aaa/package-authentication/package-challenge/
 The fields `challengeid` and response are base64 encoded when passed to the script.
 {% endhint %}
 
-## Authenticating IPC Access <a href="#authenticating-ipc-access" id="authenticating-ipc-access"></a>
+## Authenticating IPC Access
 
 NSO communicates with clients (client libraries, **ncs\_cli**, and similar) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 

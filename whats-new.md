@@ -56,7 +56,7 @@ A number of additional packages are now bundled with the NSO installer binary. T
 
 Documentation Updates:
 
-* Expanded the [Installation](administration/installation-and-deployment/#d5e46-1) section with information on additional bundled packages.
+* Expanded the [Installation](administration/installation-and-deployment/README.md) section with information on additional bundled packages.
 
 </details>
 

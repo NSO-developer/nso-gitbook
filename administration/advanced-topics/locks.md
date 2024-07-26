@@ -6,7 +6,7 @@ description: Learn about different transaction locks in NSO and their interactio
 
 This section explains the different locks that exist in NSO and how they interact. It is important to understand the architecture of NSO with its management backplane, and the transaction state machine as described in [Package Development](../../development/advanced-development/developing-packages.md) to be able to understand how the different locks fit into the picture.
 
-## Global Locks <a href="#d5e4197" id="d5e4197"></a>
+## Global Locks
 
 The NSO management backplane keeps a lock on the datastore running. This lock is usually referred to as the global lock and it provides a mechanism to grant exclusive access to the datastore.
 

@@ -115,7 +115,7 @@ In a high-availability setup, you can perform this same operation on all the nod
 
 In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
 
-### Actions <a href="#d5e4197" id="d5e4197"></a>
+### Actions
 
 Actions are provided to list local packages, to fetch packages from the file system, and to install or deinstall packages:
 

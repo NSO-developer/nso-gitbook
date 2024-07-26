@@ -9,11 +9,11 @@ description: Learn about different ways to install and deploy NSO.
 * By installation
 * By using Cisco-provided container images
 
-### By Installation <a href="#d5e46" id="d5e46"></a>
+### By Installation
 
 Choose this way if you want to install NSO on a system. Before proceeding with the installation, decide on the install type.
 
-#### Install Types <a href="#d5e46" id="d5e46"></a>
+#### Install Types
 
 The installation of NSO comes in two variants:
 
