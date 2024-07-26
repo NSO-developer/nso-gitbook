@@ -360,7 +360,7 @@ Log messages are described on the link below:
 [log-messages-and-formats.md](log-messages-and-formats.md)
 {% endcontent-ref %}
 
-### NSO Alarms <a href="#nso-alarms" id="nso-alarms"></a>
+### NSO Alarms
 
 NSO generates alarms for serious problems that must be remedied. Alarms are available over all the northbound interfaces and exist at the path `/alarms`. NSO alarms are managed as any other alarms by the general NSO Alarm Manager, see the specific section on the alarm manager in order to understand the general alarm mechanisms.
 
@@ -500,7 +500,7 @@ It is always advisable to stop NSO before performing a restore.
     /etc/init.d/ncs start
     ```
 
-## Rollbacks <a href="#ug.sys_mgmt.tshoot" id="ug.sys_mgmt.tshoot"></a>
+## Rollbacks
 
 NSO supports creating rollback files during the commit of a transaction that allows for rolling back the introduced changes. Rollbacks do not come without a cost and should be disabled if the functionality is not going to be used. Enabling rollbacks impacts both the time it takes to commit a change and requires sufficient storage on disk.
 

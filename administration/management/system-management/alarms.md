@@ -1,4 +1,4 @@
-# Alarm Type Hierarchy
+# Alarm Types
 
 ```
 alarm-type

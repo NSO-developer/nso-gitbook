@@ -95,7 +95,7 @@ Finally, if the two-layer approach proves to be insufficient due to requirements
 
 ## LSA Examples
 
-### Greenfield LSA Application <a href="#greenfield-lsa-application" id="greenfield-lsa-application"></a>
+### Greenfield LSA Application
 
 This section describes a small LSA application, which exists as a running example in the `examples.ncs/getting-started/developing-with-ncs/22-layered-service-architecture` directory.
 
@@ -755,7 +755,7 @@ Thus, we end up with three distinct packages from the original one:
 2. The modified original, slated for the RFS node, with the namespace and the prefix changed.
 3. The NED, compiled from the RFS node code, slated for the CFS node.
 
-## Deploying LSA <a href="#deploying-lsa" id="deploying-lsa"></a>
+## Deploying LSA
 
 The purpose of the upper CFS node is to manage all CFS services and to push the resulting service mappings to the RFS services. The lower RFS nodes are configured as devices in the device tree of the upper CFS node and the RFS services are created under the `/devices/device/config` accordingly. This is almost identical to the relation between a normal NSO node and the normal devices. However, there are differences when it comes to commit parameters and the commit queue, as well as some other LSA-specific features.
 
