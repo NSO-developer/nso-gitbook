@@ -330,7 +330,7 @@ Device ce3
 ```
 {% endcode %}
 
-## Device Configuration Checks <a href="#device-configuration-checks" id="device-configuration-checks"></a>
+## Device Configuration Checks
 
 Services are the preferred way to manage device configuration in NSO as they provide numerous benefits (see [Why services?](../../development/core-concepts/services.md#d5e536) in Development). However, on your journey to full automation, perhaps you only use NSO to configure a subset of all the services (configuration) on the devices. In this case, you can still perform generic configuration validation on other parts with the help of device configuration checks.
 

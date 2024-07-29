@@ -412,7 +412,7 @@ A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS
 
 <figure><img src="../../images/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Running the CFS and Nano Service enabled `perf-stack` Example <a href="#d5e8628" id="d5e8628"></a>
+### Running the CFS and Nano Service enabled `perf-stack` Example
 
 The `perf-stack` example showcases how a CFS on top of a simple resource-facing nano service can be implemented with the `perf-trans` example by modifying the existing t3 RFS and adding a CFS. Instead of multiple RESTCONF transactions, the example uses a single CLI CFS service commit that updates the desired number of service instances. The commit configures multiple service instances in a single transaction where the nano service runs each service instance in a separate process to allow multiple cores to be used concurrently.
 

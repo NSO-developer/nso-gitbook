@@ -467,7 +467,7 @@ You may also obtain some useful information by using the `debug service` commit 
 
     \
     Likewise, do not use MAAPI `load_config` variants from the service code. Use the `sharedSetValues()` function to load XML data from a file or a string.
-*   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#d5e7962)) or using service stacking with a helper service.
+*   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#ch_templates.order_ops)) or using service stacking with a helper service.
 
     In general, however, you should reconsider your design and try to avoid such scenarios.
 *   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.

@@ -1555,7 +1555,7 @@ curl \
 
 <details>
 
-<summary><mark style="color:green;"><code>start_query</code></mark></summary>
+<summary><mark style="color:green;"><code>start_query</code></mark><a id="start_query"></a></summary>
 
 Starts a new query attached to a transaction handle. On success, a query handle is returned to be in subsequent calls to `run_query`.
 
@@ -1671,7 +1671,7 @@ curl \
 
 <summary><mark style="color:green;"><code>run_query</code></mark></summary>
 
-Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](json-rpc-api.md#start\_query).
+Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](#start_query).
 
 **Params**
 

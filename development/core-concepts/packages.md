@@ -365,7 +365,7 @@ This use case applies if we have a set of YANG files that define a managed devic
 
 The above command will create a package called `acme` in `./acme`. The `acme` package can be used for two things; managing real `acme` routers, and as input to the `ncs-netsim` tool to simulate a network of `acme` routers.
 
-In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/developing-packages.md#ug.package\_dev.loading)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
+In the first case, managing real acme routers, all we need to do is to put the newly generated package in the load-path of NSO, start NSO with package reload (see [Loading Packages](../advanced-development/developing-packages.md#loading-packages)), and then add one or more acme routers as managed devices to NSO. The `ncs-setup` tool can be used to do this:
 
 ```bash
  $ ncs-setup --ned-package ./acme --dest ./ncs-project

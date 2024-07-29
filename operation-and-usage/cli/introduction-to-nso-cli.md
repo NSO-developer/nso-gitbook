@@ -1199,7 +1199,7 @@ Terminal type. This setting is used for controlling how line editing is performe
 
 </details>
 
-## Customizing the CLI <a href="#d5e1937" id="d5e1937"></a>
+## Customizing the CLI
 
 ### Adding New Commands <a href="#d5e2650" id="d5e2650"></a>
 

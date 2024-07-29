@@ -1280,7 +1280,7 @@ Finally, when we are done we stop the query:
 </stop-query>
 ```
 
-### Reset a Query <a href="#d5e2222" id="d5e2222"></a>
+### Reset a Query
 
 If we want to go back into the stream of received data chunks and have them repeated, we can do that with the `reset-query` request. In the example below, we ask to get results from the 42nd result entry:
 
@@ -1334,7 +1334,7 @@ unhide=extra,debug;secret
 
 This example unhides the unprotected group _extra_ and the password-protected group `debug` with the password `secret;`.
 
-## Trace Context <a href="#trace-context" id="trace-context"></a>
+## Trace Context
 
 This functionality is supported if the `urn:ietf:params:xml:ns:yang:traceparent:1.0` and `urn:ietf:params:xml:ns:yang:tracestate:1.0` capability is presented. See also [How to View the Capabilities of the RESTCONF Server](restconf-api.md#ncs.northbound.restconf.capabilities).
 

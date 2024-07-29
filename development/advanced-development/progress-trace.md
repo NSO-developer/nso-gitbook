@@ -101,7 +101,7 @@ The file can be formatted as a comma-separated values file defined by RFC 4180 o
 
 The location of the file is the directory of `/ncs-config/logs/progress-trace/dir` in `ncs.conf`.
 
-### Log as Operational Data <a href="#d5e9507" id="d5e9507"></a>
+### Log as Operational Data
 
 When the data is to be retrieved through a northbound interface, it is more useful to output the progress events as operational data.
 
@@ -155,7 +155,7 @@ The context filter can be used to only log events that originate through a speci
 admin@ncs% set progress trace test filter context netconf
 ```
 
-## Report Progress Events from User Code <a href="#report-progress-events-from-user-code" id="report-progress-events-from-user-code"></a>
+## Report Progress Events from User Code
 
 API methods to report progress events exist for Python, Java, Erlang, and C.
 
