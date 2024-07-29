@@ -549,7 +549,7 @@ This is all the Python code that is required. The final, complete `cb_create` me
         template.apply('dns-config-tpl', template_vars)
 ```
 
-### Step 3 - Create a Template <a href="#d5e845" id="d5e845"></a>
+### Step 3 - Create a Template
 
 The most straightforward way to create an XML template is by using the NSO CLI. Return to the running directory and start the NSO:
 

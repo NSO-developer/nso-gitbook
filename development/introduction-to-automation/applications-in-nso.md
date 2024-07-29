@@ -381,7 +381,7 @@ result 3
 
 You can use the `show devices list` command to verify that the result is correct. You can alter the address of any device and see how it affects the result. You can even use a hostname, such as `localhost`.
 
-## Overview of Extension Points <a href="#overview-of-extension-points" id="overview-of-extension-points"></a>
+## Overview of Extension Points
 
 NSO supports a number of extension points for custom callbacks:
 
@@ -428,7 +428,7 @@ Regardless of the programming language you use, the high-level approach to autom
 
 As you have seen, everything in NSO is ultimately tied to the YANG model, making YANG knowledge such a valuable skill for any NSO developer.
 
-## Application Updates <a href="#application-updates" id="application-updates"></a>
+## Application Updates
 
 As your NSO application evolves, you will create newer versions of your application package, which will replace the existing one. If the application becomes sufficiently complex, you might even split it across multiple packages.
 

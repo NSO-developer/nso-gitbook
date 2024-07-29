@@ -753,7 +753,7 @@ This capability is formally defined in the YANG module `tailf-netconf-inactive`.
 
 None.
 
-### Capability Identifier <a href="#d5e845" id="d5e845"></a>
+### Capability Identifier
 
 The inactive capability is identified by the following capability string:
 
@@ -915,7 +915,7 @@ This module adds a parameter `with-rollback-id` to the following RPCs:
 
 If `with-rollback-id` is given, rollbacks are enabled, and the operation results in a rollback file being created the response will contain a rollback reference.
 
-## Trace Context <a href="#trace-context" id="trace-context"></a>
+## Trace Context
 
 NETCONF supports the IETF standard draft [I-D.draft-ietf-netconf-trace-ctx-extension-00](https://www.ietf.org/archive/id/draft-ietf-netconf-trace-ctx-extension-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context standardizes the format of `trace-id`, `parent-id`, and key-value pairs sent between distributed entities. The `parent-id` will become the `parent-span-id` for the next generated `span-id` in NSO.
 

@@ -42,7 +42,7 @@ The Production Image is a production-ready NSO image for system-wide deployment 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
 {% hint style="info" %}
-Consult the [Installation](./#d5e46-1) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
+Consult the [Installation](README.md) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
 {% endhint %}
 
 {% hint style="info" %}
@@ -349,7 +349,7 @@ services:
 
 This section provides examples to exhibit the use of NSO images.
 
-### Running the Production Image using Docker CLI <a href="#d5e8628" id="d5e8628"></a>
+### Running the Production Image using Docker CLI
 
 This example shows how to run the standalone NSO Production Image using the Docker CLI.
 

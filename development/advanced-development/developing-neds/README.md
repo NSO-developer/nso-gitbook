@@ -4,7 +4,7 @@ description: Develop your own NEDs to integrate unsupported devices in your netw
 
 # Developing NEDs
 
-## Creating a NED <a href="#creating-a-ned" id="creating-a-ned"></a>
+## Creating a NED
 
 A Network Element Driver (NED) represents a key NSO component that allows NSO to communicate southbound with network devices. The device YANG models contained in the Network Element Drivers (NEDs) enable NSO to store device configurations in the CDB and expose a uniform API to the network for automation. The YANG models can cover only a tiny subset of the device or all of the device. Typically, the YANG models contained in a NED represent the subset of the device's configuration data, state data, Remote Procedure Calls, and notifications to be managed using NSO.
 
@@ -787,7 +787,7 @@ Thus, the Java NED class has the following responsibilities.
     * path-modes-only: support Cisco CLI mode path.
     * cmd-path-modes-only-existing: same as `path-mode-only` but NSO only supplies the path mode of existing nodes.
 
-### Writing a Data Model for a CLI NED <a href="#d5e9507" id="d5e9507"></a>
+### Writing a Data Model for a CLI NED
 
 The idea is to write a YANG data model and feed that into the NSO CLI engine such that the resulting CLI mimics that of the device to manage. This is fairly straightforward once you have understood how the different constructs in YANG are mapped into CLI commands. The data model usually needs to be annotated with a specific Tail-f CLI extension to tailor exactly how the CLI is rendered.
 
@@ -5415,7 +5415,7 @@ The above three callbacks are used by the NSO Java VM to connect the NED Java cl
 
 The underlying NedMux will start a number of threads, and invoke the registered class with other data callbacks as transactions execute.
 
-## Migrating to the `juniper-junos_nc-gen` NED <a href="#migrating-to-the-juniper-junos_nc-gen-ned" id="migrating-to-the-juniper-junos_nc-gen-ned"></a>
+## Migrating to the `juniper-junos_nc-gen` NED
 
 NSO has supported Junos devices from early on. The legacy Junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.
 

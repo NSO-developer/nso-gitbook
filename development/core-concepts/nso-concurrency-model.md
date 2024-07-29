@@ -364,7 +364,7 @@ list mysvc {
 
 Ultimately, what matters is the read-write overlap with other transactions. Thus, you should avoid needless reads in your code: if there are no reads of the changed values, there can't be any conflicts.
 
-### Avoiding Needless Reads <a href="#d5e8628" id="d5e8628"></a>
+### Avoiding Needless Reads
 
 A technique used in some existing projects, in service mapping code and elsewhere, is to first prepare all the provisioning parameters by reading a number of things from the CDB. But some of these parameters, or even most, may not really be needed for that particular invocation.
 
@@ -431,6 +431,6 @@ NSO knows how to discern between access to specific list items based on the key 
 
 In the end, it depends on the situation whether list enumeration can affect throughput or not. In the example, the NTP servers could be configured manually, by the operator, so they would rarely change, making it a non-issue. But your use case might differ.
 
-### Python Assigning to Self <a href="#d5e8655" id="d5e8655"></a>
+### Python Assigning to Self
 
 As several service invocations may run in parallel, Python self-assignment in service handling code can cause difficult-to-debug issues. Therefore, NSO checks for such patterns and issues an alarm (default) or a log entry containing a warning and a keypath to the service instance that caused the warning. See [NSO Python VM](nso-virtual-machines/nso-python-vm.md) for details.

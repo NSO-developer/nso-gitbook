@@ -4,7 +4,7 @@ description: CLI command reference.
 
 # CLI Commands
 
-## Commands <a href="#d5e1937" id="d5e1937"></a>
+## Commands
 
 To get a full XML listing of the commands available in a running NSO instance, use the `ncs` option `--cli-c-dump <file>`. The generated file is only intended for documentation purposes and cannot be used as input to the `ncsc` compiler. The command `show parser dump` can be used to get a command listing.
 

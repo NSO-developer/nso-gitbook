@@ -1914,7 +1914,7 @@ Operation 'merge' on non-existing node:
 /devices/device[name='ce2']/config/ios:snmp-server/community[name='FUZBAR']/RO
 ```
 
-## Renaming Devices in NSO <a href="#renaming-devices-in-nso" id="renaming-devices-in-nso"></a>
+## Renaming Devices in NSO
 
 The usual way to rename an instance in a list is to delete it and create a new instance. Aside from having to explicitly create all its children, an obvious problem with this method is the dependencies - if there is a leafref that refers to this instance, this method of deleting and recreating will fail unless the leafref is also explicitly reset to the value of the new instance.
 

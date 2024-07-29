@@ -279,9 +279,9 @@ NSO has extensive logging functionality. Log settings are typically very differe
 
 NSO logs in `/logs` in your running directory, (depends on your settings in `ncs.conf`). You might want the log files to be stored somewhere else. See man `ncs.conf` for details on how to configure the various logs. Below is a list of the most useful log files:
 
-* `ncs.log` : NCS daemon log. See [Log Messages and Formats](./#ug.ncs\_monitoring.messages). Can be configured to Syslog.
+* `ncs.log` : NCS daemon log. See [Log Messages and Formats](log-messages-and-formats.md). Can be configured to Syslog.
 * `ncserr.log.1`_,_ `ncserr.log.idx`_,_ `ncserr.log.siz`: if the NSO daemon has a problem. this contains debug information relevant to support. The content can be displayed with `ncs --printlog ncserr.log`.
-* `audit.log`: central audit log covering all northbound interfaces. See [Log Messages and Formats](./#ug.ncs\_monitoring.messages). Can be configured to Syslog.
+* `audit.log`: central audit log covering all northbound interfaces. See [Log Messages and Formats](log-messages-and-formats.md). Can be configured to Syslog.
 * `localhost:8080.access`: all HTTP requests to the daemon. This is an access log for the embedded Web server. This file adheres to the Common Log Format, as defined by Apache and others. This log is not enabled by default and is not rotated, i.e. use logrotate(8). Can be configured to Syslog.
 *   `devel.log`: developer-log is a debug log for troubleshooting user-written code. This log is enabled by default and is not rotated, i.e. use logrotate(8). This log shall be used in combination with the `java-vm` or `python-vm` logs. The user code logs in the VM logs and the corresponding library logs in `devel.log`. Disable this log in production systems. Can be configured to Syslog.\
     \

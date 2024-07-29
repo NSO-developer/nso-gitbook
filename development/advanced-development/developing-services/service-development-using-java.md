@@ -590,7 +590,7 @@ The above `create` method is all that is needed for create, read, update, and de
 
 ## Simple VLAN Service with Templates <a href="#d5e8653" id="d5e8653"></a>
 
-### Overview <a href="#d5e8655" id="d5e8655"></a>
+### Overview
 
 The mapping strategy using only Java is illustrated in the following figure.
 
