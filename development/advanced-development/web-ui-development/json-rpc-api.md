@@ -2656,13 +2656,21 @@ Invokes an action or RPC defined in a YANG module.
  "details": <"normal" | "verbose" | "very_verbose" | "debug", optional>}
 ```
 
-Actions are as specified in the YANG module, i.e. having a specific name and a well-defined set of parameters and result. The `path` param is a keypath pointing to an action or RPC in and the `params` param is a JSON object with action parameters.
+Actions are as specified in the YANG module, i.e. having a specific name and a well-defined set of parameters and result. The `path` param is a keypath pointing to an action or RPC and the `params` param is a JSON object with action parameters.
 
-The `format` param defines if the result should be an array of key values or a pre-formatted string on bracket format as seen in the CLI. The result is also as specified by the YANG module.
+The `format` param defines if the result should be an array of key values or a pre-formatted string in bracket format as seen in the CLI. The result is also as specified by the YANG module.
 
 Both a `comet_id` and `handle` need to be provided in order to receive notifications.
 
 The `details` param can be given together with `comet_id` and `handle` in order to get a progress trace for the action. `details` specifies the verbosity of the progress trace. After the action has been invoked, the `comet` method can be used to get the progress trace for the action. If the `details` param is omitted progress trace will be disabled.
+
+The `debug` param can be used the same way as the `details` param to get debug trace events for the action.
+These are the same trace events that can be displayed in the CLI with the "debug" pipe command when invoking the action.
+The `debug` param is an array with all debug flags for which debug events should be displayed.
+Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error.
+The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
+
+The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
 **Note**_:_ This method is often used to call an action that uploads binary data (e.g. images) and retrieving them at a later time. While retrieval is not a problem, uploading is a problem, because JSON-RPC request payloads have a size limitation (e.g. 64 kB). The limitation is needed for performance concerns because the payload is first buffered before the JSON string is parsed and the request is evaluated. When you have scenarios that need binary uploads, please use the CGI functionality instead which has a size limitation that can be configured, and which is not limited to JSON payloads, so one can use streaming techniques.
 
@@ -3450,11 +3458,32 @@ Validates a transaction before calling `commit`. If this method succeeds (with o
 ```
 
 ```json
+{"debug": <array of string, optional>}
+```
+
+```json
+{"debug_service_name": <string, optional>}
+```
+
+```json
+{"debug_template_name": <string, optional>}
+```
+
+```json
 {"flags": <flags, default: []>}
 flags = <array of string or bitmask>
 ```
 
 The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the `validate_commit` operation. The same `comet_id` can also be used to get the progress trace for any coming commit operations. In order to get progress tracing for commit operations, these three parameters have to be provided with the `validate_commit` operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
+
+The `debug` param can be used the same way as the `details` param to get debug trace events for the validate_commit and corresponding commit operation.
+These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation.
+The `debug` param is an array with all debug flags for which debug events should be displayed.
+Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error.
+The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
+The field "event-type" in the comet response specifies if the event is of type "progress" or "debug".
+
+The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
 See the `commit` method for available flags.
 
