@@ -35,7 +35,7 @@ A typical template for configuring an NSO-managed device is:
 </config-template>
 ```
 
-The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the ` devices device`` `` `_`name`_` `` ``config ` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
+The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the `devices device <name> config` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
 
 You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then generate the XML structure with the help of NSO output filters. You can use `commit dry-run outformat xml or show ... | display xml` commands, or even the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
 
@@ -501,25 +501,19 @@ When using macros, be mindful of the following:
 * Each macro is defined between the `<?macro?>` and `<?endmacro?>` processing instructions, immediately following the `<config-template>` tag in the template.
 *   A macro definition takes a name and an optional list of parameters. Each parameter may define a default value.
 
-    \
-    In the preceding example, a macro is defined as:\\
-
+    In the preceding example, a macro is defined as:
     ```xml
       <?macro GbEth name='{/name}' ip mask='255.255.255.0'?>
     ```
 
-    \
     Here, `GbEth` is the name of the macro. This macro takes three parameters, `name`, `ip`, and `mask`. The parameters `name` and `mask` have default values, and `ip` does not.
 
-    \
     The default value for `mask` is a fixed string, while the one for `name` by default gets its value through an XPath expression.
 *   A macro can be expanded in another location in the template using the `<?expand?>` processing instruction. As shown in the example (line 29), the `<?expand?>` instruction takes the name of the macro to expand, and an optional list of parameters and their values.
 
-    \
     The parameters in the macro definition are replaced with the values given during expansion. If a parameter is not given any value during expansion, the default value is used. If there is no default value in the definition, not supplying a value causes an error.
 *   Macro definitions cannot be nested - that is, a macro definition cannot contain another macro definition. But a macro definition can have `<?expand?>` instructions to expand another macro within this macro (line 17 in the example).
 
-    \
     The macro expansion and the parameter replacement work on just strings - there is no schema validation or XPath evaluation at this stage. A macro expansion just inserts the macro definition at the expansion site.
 * Macros can be defined in multiple files, and macros defined in the same package are visible to all templates in that package. This means that a template file could have just the definitions of macros, and another file in the same package could use those macros.
 

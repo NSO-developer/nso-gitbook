@@ -842,9 +842,9 @@ module dhcp {
 
 The NSO RESTCONF API also supports the YANG Patch Media Type, as defined in [RFC 8072](https://www.ietf.org/rfc/rfc8072.txt).
 
-A _YANG_ `Patch` is an ordered list of edits that are applied to the target datastore by the RESTCONF server. A YANG Patch request is sent as an HTTP PATCH request containing a body describing the edit operations to be performed. The format of the body is defined in the [RFC 8072](https://www.ietf.org/rfc/rfc8072.txt).
+A YANG `Patch` is an ordered list of edits that are applied to the target datastore by the RESTCONF server. A YANG Patch request is sent as an HTTP PATCH request containing a body describing the edit operations to be performed. The format of the body is defined in the [RFC 8072](https://www.ietf.org/rfc/rfc8072.txt).
 
-Referring to the example above (dhcp Yang model) in the [Getting Started](restconf-api.md#ncs.northbound.restconf.getting\_started) section; we will show how to use YANG Patch to achieve the same result but with fewer amount of requests.
+Referring to the example above (DHCP Yang model) in the [Getting Started](restconf-api.md#ncs.northbound.restconf.getting\_started) section; we will show how to use YANG Patch to achieve the same result but with fewer amount of requests.
 
 ### Create Two New Resources with the YANG Patch <a href="#d5e2039" id="d5e2039"></a>
 
@@ -1641,7 +1641,6 @@ Using the `example-jukebox.yang` from the [RESTCONF RFC 8040](https://tools.ietf
 
 {% code title="Example: Comprehensive Swagger Generation Example" %}
 ```
-
 yanger -p . -t expand -f swagger example-jukebox.yang \
        --swagger-host 127.0.0.1:8080 \
        --swagger-basepath /restconf \

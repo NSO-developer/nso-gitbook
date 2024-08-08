@@ -522,13 +522,13 @@ $ netconf-console --rpc sync-from-ce1.xml
 
 ### Capability Identifier <a href="#d5e717" id="d5e717"></a>
 
-The action capability is identified by the following capability string:
+The actions capability is identified by the following capability string:
 
 ```
   http://tail-f.com/ns/netconf/actions/1.0
 ```
 
-## `transactions` Capability <a href="#ug.netconf_agent.transactions" id="ug.netconf_agent.transactions"></a>
+## Transactions Capability <a href="#ug.netconf_agent.transactions" id="ug.netconf_agent.transactions"></a>
 
 This capability introduces four new RPC operations that are used to control a two-phase commit transaction on the NETCONF server. The normal `<edit-config>` operation is used to write data in the transaction, but the modifications are not applied until an explicit `<commit-transaction>` is sent.
 
@@ -571,7 +571,7 @@ None.
 
 ### Capability Identifier <a href="#d5e734" id="d5e734"></a>
 
-The `transactions` capability is identified by the following capability string:
+The transactions capability is identified by the following capability string:
 
 ```
   http://tail-f.com/ns/netconf/transactions/1.0
@@ -779,7 +779,7 @@ If the parameter is present in `<start-transaction>`, it must also be present in
 
 The `inactive` and `active` attributes are defined in the http://tail-f.com/ns/netconf/inactive/1.0 namespace. The `inactive` attribute's value is the string `inactive`, and the `active` attribute's value is the string `active`.
 
-### **Example**
+#### **Example**
 
 This request creates an `inactive` interface:
 

@@ -76,13 +76,14 @@ The pipe details in the CLI are useful during development cycles of for example 
 
 The top-level container `progress` is by default invisible due to a hidden attribute. To make `progress` visible in the CLI, two steps are required:
 
-1.  First, the following XML snippet must be added to `ncs.conf` :\\
+1.  First, the following XML snippet must be added to `ncs.conf`:
 
     ```xml
     <hide-group>
        <name>debug</name>
     </hide-group>
     ```
+
 2.  Then, the `unhide` command is used in the CLI session:
 
     ```cli
