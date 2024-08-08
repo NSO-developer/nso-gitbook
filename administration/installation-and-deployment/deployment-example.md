@@ -86,7 +86,7 @@ The initialization steps are also performed as `root` for the nodes that make up
   \
   NSO runs as the non-root `admin` user and, therefore, the `ncs` command is used to start NSO instead of the `/etc/init.d/ncs` and `/etc/profile.d` scripts. The environment variables are copied to a `.pam_environment` file so that the `root` and `admin` users can set the required environment variables when those users access the shell via SSH.
 * The start script is installed as part of the NSO system install, and it can be customized if you would like to use it to start NSO. The available NSO start script variants can be found under `/opt/ncs/current/src/ncs/package-skeletons/etc`. The scripts may provide what you need and can be used as a starting point.
-*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:\\
+*   If you are running NSO as the root user and using `systemd`, the `init.d` script can converted for use with `systemd`. Example:
 
     ```bash
     $ mkdir -p /etc/init.d
@@ -116,11 +116,9 @@ The initialization steps are also performed as `root` for the nodes that make up
 
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
-*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.\
+*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
 
-
-    **Note**: The SSL certificates that NSO generates are self-signed:\
-
+    **Note**: The SSL certificates that NSO generates are self-signed:
 
     ```bash
           $ openssl x509 -in /etc/ncs/ssl/cert/host.cert -text -noout
@@ -138,12 +136,10 @@ The initialization steps are also performed as `root` for the nodes that make up
           .......
     ```
 
-    \
     Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
 * Disable `/ncs-config/webui/cgi` unless needed.
 * The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
-*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.\
-
+*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
 
     ```xml
         <prompt1>\u@nso-\H> </prompt1>
@@ -267,7 +263,7 @@ All large-scale deployments employ monitoring systems. There are plenty of good 
 * At startup, check that NSO has been started using the `$NCS_DIR/bin/ncs_cmd -c "wait-start 2"` command.
 * Use the `ssh` command to verify SSH access to the NSO host and NSO CLI.
 * Check disk usage using, for example, the `df` utility.
-* For example, use `curl` or the Python requests library to verify that the RESTCONF API is accessible.
+* For example, use **curl** or the Python requests library to verify that the RESTCONF API is accessible.
 * Check that the NETCONF API is accessible using, for example, the `$NCS_DIR/bin/netconf-console` tool with a `hello` message.
 * Verify the NSO version using, for example, the `$NCS_DIR/bin/ncs --version` or RESTCONF `/restconf/data/tailf-ncs-monitoring:ncs-state/version`.
 * Check if HA is enabled using, for example, RESTCONF `/restconf/data/tailf-ncs-monitoring:ncs-state/ha`.

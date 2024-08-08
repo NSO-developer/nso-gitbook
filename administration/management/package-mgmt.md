@@ -105,7 +105,7 @@ add-result {
 }
 ```
 
-The command returns `true` if the package's resulting status after deployment is `up`. Likewise, if the result for a package is `false`, then the package was added but its code has not started successfully and you should check the operational status of the package with the `show packages package`` `_`PKG`_` ``oper-status` command for additional information. You may then use the `/packages/package/redeploy` action to retry deploying the package's code, once you have corrected the error.
+The command returns `true` if the package's resulting status after deployment is `up`. Likewise, if the result for a package is `false`, then the package was added but its code has not started successfully and you should check the operational status of the package with the `show packages package <PKG> oper-status` command for additional information. You may then use the `/packages/package/redeploy` action to retry deploying the package's code, once you have corrected the error.
 
 {% hint style="info" %}
 In a high-availability setup, you can perform this same operation on all the nodes in the cluster with a single `packages ha sync and-add` command.
@@ -120,9 +120,9 @@ In a System Install of NSO, management of pre-built packages is supported throug
 Actions are provided to list local packages, to fetch packages from the file system, and to install or deinstall packages:
 
 * `software packages list [...]`: List local packages, categorized into loaded, installed, and installable. The listing can be restricted to only one of the categories - otherwise, each package listed will include the category for the package.
-* `software packages fetch package-from-file`` `_`file`_: Fetch a package by copying it from the file system, making it installable.
-* `software packages install package`` `_`package-name`_` ``[...]`: Install a package, making it available for loading via the `packages reload` action, or via a system restart with package reload. The action ensures that only one version of the package is installed - if any version of the package is installed already, the `replace-existing` option can be used to deinstall it before proceeding with the installation.
-* `software packages deinstall package`` `_`package-name`_: Deinstall a package, i.e. remove it from the set of packages available for loading.
+* `software packages fetch package-from-file <file>`: Fetch a package by copying it from the file system, making it installable.
+* `software packages install package <package-name> [...]`: Install a package, making it available for loading via the `packages reload` action, or via a system restart with package reload. The action ensures that only one version of the package is installed - if any version of the package is installed already, the `replace-existing` option can be used to deinstall it before proceeding with the installation.
+* `software packages deinstall package <package-name>`: Deinstall a package, i.e. remove it from the set of packages available for loading.
 
 There is also an `upload` action that can be used via NETCONF or REST to upload a package from the local host to the NSO host, making it installable there. It is not feasible to use in the CLI or Web UI, since the actual package file contents is a parameter for the action. It is also not suitable for very large (more than a few megabytes) packages, since the processing of action parameters is not designed to deal with very large values, and there is a significant memory overhead in the processing of such values.
 

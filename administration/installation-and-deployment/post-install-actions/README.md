@@ -6,7 +6,7 @@ description: Perform actions and activities possible after installing NSO.
 
 The following actions are possible after installing NSO.
 
-#### After Local Install
+## After Local Install
 
 {% content-ref url="explore-the-installation.md" %}
 [explore-the-installation.md](explore-the-installation.md)
@@ -36,7 +36,7 @@ The following actions are possible after installing NSO.
 [uninstall-local-install.md](uninstall-local-install.md)
 {% endcontent-ref %}
 
-#### After System Install
+## After System Install
 
 {% content-ref url="modify-examples-for-system-install.md" %}
 [modify-examples-for-system-install.md](modify-examples-for-system-install.md)
