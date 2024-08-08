@@ -35,7 +35,7 @@ The service configuration only has references to CE devices for the end-points i
 
 The topology information has two parts:
 
-*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\\
+*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.
 
     ```
      topology connection c0
@@ -49,7 +49,7 @@ The topology information has two parts:
      link-vlan 77
     !
     ```
-*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\\
+*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.
 
     ```
     topology role ce

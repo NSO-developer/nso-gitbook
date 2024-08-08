@@ -244,8 +244,6 @@ The above command shows the router config of all devices as XML and then saves i
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
-
-
 2.  Change or add some configuration across the devices, for example:\
 
 
@@ -394,7 +392,7 @@ Commit complete.
 admin@ncs(config)# devices disconnect
 ```
 
-Note that the trace settings only take effect for new connections, so is important to disconnect the current connections. Make a change to for example c0:
+Note that the trace settings only take effect for new connections, so is important to disconnect the current connections. Make a change to for example `c0`:
 
 ```cli
 admin@ncs(config)# devices device c0 config ios:interface FastEthernet
@@ -417,7 +415,7 @@ Exit from the NSO CLI and return to the Unix Shell. Inspect the CLI trace:
 
 As seen above, ranges can be used to send configuration commands to several devices. Device groups can be created to allow for group actions that do not require naming conventions. A group can reference any number of devices. A device can be part of any number of groups, and groups can be hierarchical.
 
-The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`)
+The command sequence below creates a group of core devices and a group with all devices. Note that you can use tab completion when adding the device names to the group. Also, note that it requires configuration mode. (If you are still in the Unix Shell from the steps above, do `$ncs_cli -C -u admin`).
 
 ```cli
 admin@ncs(config)# devices device-group core device-name [ c0 c1 ]
