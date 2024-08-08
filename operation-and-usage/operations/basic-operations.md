@@ -46,9 +46,8 @@ To start the simulator:
     DEVICE c0 OK STARTED
     DEVICE c1 OK STARTED
     DEVICE c2 OK STARTED
+
     ```
-
-
 3.  Run the CLI toward one of the simulated devices.\
 
 
@@ -68,7 +67,8 @@ To start the simulator:
     c1# exit
     ```
 
-This shows that the device has some initial configurations.
+    \
+    This shows that the device has some initial configurations.
 
 ## Starting NSO and Reading Device Configuration <a href="#d5e80" id="d5e80"></a>
 
@@ -83,8 +83,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Note the `.` at the end of the command referring to the current directory. What the command does is to create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
-2.  Start NSO.\
-
+2.  Start NSO.
 
     ```bash
     $ ncs
