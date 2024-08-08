@@ -31,34 +31,25 @@ Some of the more important flags are:
   * The `xml` format displays all changes in the whole data model. The changes will be displayed in NETCONF XML edit-config format, i.e., the edit-config that would be applied locally (at NCS) to get a config that is equal to that of the managed device.
   * The `cli` format displays all changes in the whole data model. The changes will be displayed in CLI curly bracket format.
   * The `native` format displays only changes under `/devices/device/config`. The changes will be displayed in native device format. The `native` format can be used with the `reverse` option to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data, the `reverse` device commands returned are invalid.
-*   `no-networking`: Validate the configuration changes, and update the CDB but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked, then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.\
-
+*   `no-networking`: Validate the configuration changes, and update the CDB but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked, then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.
 
     {% hint style="danger" %}
     If the commit implies changes, it will make the device out-of-sync.
 
     The `sync-to` command can then be used to push the change to the network.
     {% endhint %}
-
-
-*   `no-out-of-sync-check`: Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action `sync-from` first. Verify the result by using the action `compare-config`.\
-
+*   `no-out-of-sync-check`: Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action `sync-from` first. Verify the result by using the action `compare-config`.
 
     {% hint style="danger" %}
     The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared.
     {% endhint %}
-
-
 *   `no-overwrite`: NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. This is a fine-granular sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted.\
     \
-    This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.\
-
+    This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.
 
     {% hint style="danger" %}
     The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared.
     {% endhint %}
-
-
 * `no-revision-drop`: Fail if one or more devices have obsolete device models.\
   When NSO connects to a managed device the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device.
 * `no-deploy`: Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
