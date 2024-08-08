@@ -617,16 +617,15 @@ admin@ncs(config)#
 
 The top-level container `kickers` is by default invisible due to a hidden attribute. To make `kickers` visible in the CLI, two steps are required.
 
-1.  First, the following XML snippet must be added to `ncs.conf`.\
-
+1.  First, the following XML snippet must be added to `ncs.conf`.
 
     ```xml
     <hide-group>
         <name>debug</name>
     </hide-group>
     ```
-2.  Next, the `unhide` command can be used in the CLI session.\
 
+2.  Next, the `unhide` command can be used in the CLI session.
 
     ```cli
     admin@ncs(config)# unhide debug

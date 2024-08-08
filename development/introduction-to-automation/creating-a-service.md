@@ -407,7 +407,7 @@ The DNS configuration example intentionally performs very little configuration, 
 
 Second, generating the configuration from the parameters can become more complex when it touches multiple subsystems or spans across multiple devices. An example would be a service that adds a new VLAN, configures an IP address and a DHCP server, and adds the new route to a routing protocol. Or perhaps the service has to be duplicated on two separate devices for redundancy.
 
-An established approach to the second challenge is to use a templating system for configuration generation. Templates separate the process of constructing parameter values from how they are used, adding a degree of flexibility and decoupling. NSO uses XML-based configuration _(_config_)_ templates, which you can invoke from provisioning code or link directly to services. In the latter case, you don't even have to write any Python code.
+An established approach to the second challenge is to use a templating system for configuration generation. Templates separate the process of constructing parameter values from how they are used, adding a degree of flexibility and decoupling. NSO uses XML-based configuration _(config)_ templates, which you can invoke from provisioning code or link directly to services. In the latter case, you don't even have to write any Python code.
 
 XML templates are snippets of configuration, similar to the CDB init files, but more powerful. Let's see how you could implement the DNS configuration service using a template instead of navigating the data model with Python.
 

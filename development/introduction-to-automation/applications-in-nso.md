@@ -442,7 +442,7 @@ However, if the schema does not change, you can request that only the applicatio
 
 ***
 
-**Next steps**
+**Next Steps**
 
 {% content-ref url="../core-concepts/implementing-services.md" %}
 [implementing-services.md](../core-concepts/implementing-services.md)

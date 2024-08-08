@@ -507,7 +507,7 @@ HTTP/1.1 200 OK
 </subnet>
 ```
 
-### The `filter`, `start-time`, and `stop-time` Query Parameters.
+### The `filter`, `start-time`, and `stop-time` Query Parameters
 
 These query parameters are only allowed on an event stream resource and are further described in [Streams](restconf-api.md#ncs.northbound.restconf.streams).
 
@@ -1206,7 +1206,7 @@ It is possible to specify an optional `label` for a convenient way of labeling t
 </select>
 ```
 
-The returned result can be sorted. This is expressed as an XPath expression, which in most cases is very simple and refers to the found node-set. In this example, we sort the result by the content of the _name_ node:
+The returned result can be sorted. This is expressed as an XPath expression, which in most cases is very simple and refers to the found node-set. In this example, we sort the result by the content of the `name` node:
 
 ```xml
 <sort-by>name</sort-by>
@@ -1580,7 +1580,7 @@ yanger -t expand -f swagger example.yang -o example.json
 
 It is only supported to generate Swagger from one YANG module at a time. It is possible however to augment this module by supplying additional modules. The following command generates a Swagger document from `base.yang` which is augmented by `base-ext-1.yang` and `base-ext-2.yang`:
 
-<pre><code><strong>yanger -t expand -f swagger base.yang base-ext-1.yang base-ext-2.yang -o base.json      
+<pre><code><strong>yanger -t expand -f swagger base.yang base-ext-1.yang base-ext-2.yang -o base.json
 </strong></code></pre>
 
 Only supplying augmenting modules is not supported.

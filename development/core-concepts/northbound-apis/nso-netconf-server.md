@@ -46,12 +46,12 @@ When integrating NSO into larger OSS/NMS environments, the NETCONF API is a good
 
 The NETCONF server in NSO supports the following capabilities in both NETCONF 1.0 ([RFC 4741](https://www.ietf.org/rfc/rfc4741.txt)) and NETCONF 1.1 ([RFC 6241](https://www.ietf.org/rfc/rfc6241.txt)).
 
-<table data-full-width="true"><thead><tr><th width="234">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:writable-running</code></td><td>This capability is always advertised.</td></tr><tr><td><code>:candidate</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:confirmed-commit</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:rollback-on-error</code></td><td>This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td><code>:validate</code></td><td>NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td><code>:startup</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:url</code></td><td><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol). There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
+<table data-full-width="false"><thead><tr><th width="234">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:writable-running</code></td><td>This capability is always advertised.</td></tr><tr><td><code>:candidate</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:confirmed-commit</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:rollback-on-error</code></td><td>This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td><code>:validate</code></td><td>NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td><code>:startup</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:url</code></td><td><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol). There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
 </code></pre><p>Note that user name and password must be given for <code>sftp</code> URLs. NSO does not support <code>validate</code> from a URL.</p></td></tr><tr><td><code>:xpath</code></td><td>The NETCONF server supports XPath according to the W3C XPath 1.0 specification (<a href="https://www.w3.org/TR/xpath">https://www.w3.org/TR/xpath</a>).</td></tr></tbody></table>
 
 The following list of optional standard capabilities is also supported:
 
-<table data-full-width="true"><thead><tr><th width="237">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:notification</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="nso-netconf-server.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td><code>:with-defaults</code></td><td><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td><code>:yang-library:1.0</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td><code>:yang-library:1.1</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
+<table><thead><tr><th width="237">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:notification</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="nso-netconf-server.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td><code>:with-defaults</code></td><td><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td><code>:yang-library:1.0</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td><code>:yang-library:1.1</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
 
 ## Protocol YANG Modules <a href="#d5e255" id="d5e255"></a>
 
@@ -482,7 +482,7 @@ YANG-Push filters differ from the filters of Subscribed Notifications and they a
 * `on-change` subscriptions do not work for changes that are made through the CDB-API.
 * `on-change` subscriptions do not work on internal callpoints such as `ncs-state`, `ncs-high-availability`, and `live-status`.
 
-## `actions` Capability <a href="#ug.netconf_agent.actions_ncs" id="ug.netconf_agent.actions_ncs"></a>
+## Actions Capability <a href="#ug.netconf_agent.actions_ncs" id="ug.netconf_agent.actions_ncs"></a>
 
 {% hint style="info" %}
 This capability is deprecated since actions are now supported in standard YANG 1.1. It is recommended to use standard YANG 1.1 for actions.
@@ -522,13 +522,13 @@ $ netconf-console --rpc sync-from-ce1.xml
 
 ### Capability Identifier <a href="#d5e717" id="d5e717"></a>
 
-The action capability is identified by the following capability string:
+The actions capability is identified by the following capability string:
 
 ```
   http://tail-f.com/ns/netconf/actions/1.0
 ```
 
-## `transactions` Capability <a href="#ug.netconf_agent.transactions" id="ug.netconf_agent.transactions"></a>
+## Transactions Capability <a href="#ug.netconf_agent.transactions" id="ug.netconf_agent.transactions"></a>
 
 This capability introduces four new RPC operations that are used to control a two-phase commit transaction on the NETCONF server. The normal `<edit-config>` operation is used to write data in the transaction, but the modifications are not applied until an explicit `<commit-transaction>` is sent.
 
@@ -565,13 +565,13 @@ A typical sequence of operations looks like this:
                |                           |
 ```
 
-### **Dependencies** <a href="#d5e731" id="d5e731"></a>
+### Dependencies <a href="#d5e731" id="d5e731"></a>
 
 None.
 
 ### Capability Identifier <a href="#d5e734" id="d5e734"></a>
 
-The `transactions` capability is identified by the following capability string:
+The transactions capability is identified by the following capability string:
 
 ```
   http://tail-f.com/ns/netconf/transactions/1.0
@@ -741,7 +741,7 @@ The `<edit-config>` operation is modified so that if it is received during an on
 
 Note that it doesn't matter if the `<test-option>` is 'set' or 'test-then-set' in the `<edit-config>`, since nothing is actually set when the `<edit-config>` is received.
 
-## `inactive` Capability <a href="#ug.netconf_agent.inactive" id="ug.netconf_agent.inactive"></a>
+## Inactive Capability <a href="#ug.netconf_agent.inactive" id="ug.netconf_agent.inactive"></a>
 
 This capability is used by the NETCONF server to indicate that it supports marking nodes as being inactive. A node that is marked as inactive exists in the data store but is not used by the server. Any node can be marked as inactive.
 
@@ -896,7 +896,7 @@ None.
 
 ### Capability Identifier <a href="#d5e885" id="d5e885"></a>
 
-The `transactions` capability is identified by the following capability string:
+The transactions capability is identified by the following capability string:
 
 ```
   http://tail-f.com/ns/netconf/with-rollback-id

@@ -708,7 +708,7 @@ An example configuration for the cisco-nso-saml2-auth Authentication Package is 
 ```
 {% endcode %}
 
-A client attempting single sign-on authentication should request the `/sso` endpoint and then follow the continued authentication operation from there. For example, for `cisco-nso-saml2-auth`,  the client is redirected to an Identity Provider (IdP), which subsequently handles the authentication, and then redirects the client back to the `/sso` endpoint to validate the authentication and set up the session.
+A client attempting single sign-on authentication should request the `/sso` endpoint and then follow the continued authentication operation from there. For example, for `cisco-nso-saml2-auth`, the client is redirected to an Identity Provider (IdP), which subsequently handles the authentication, and then redirects the client back to the `/sso` endpoint to validate the authentication and set up the session.
 
 ## Web Server
 

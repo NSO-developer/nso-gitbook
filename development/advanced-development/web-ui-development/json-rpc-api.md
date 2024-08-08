@@ -274,7 +274,7 @@ The AAA infrastructure can be used to restrict access to library functions using
 
 Note how the command is prefixed with `::jsonrpc::`. This tells the AAA engine to apply the command rule to JSON-RPC API functions.
 
-You can read more about the command rules in [AAA infrastructure](../../../administration/management/aaa-infrastructure.md).
+You can read more about the command rules in [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md).
 
 </details>
 

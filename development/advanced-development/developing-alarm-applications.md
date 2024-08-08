@@ -4,7 +4,7 @@ description: Manipulate NSO alarm table using the dedicated Alarm APIs.
 
 # Developing Alarm Applications
 
-This section focuses on how to manipulate the NSO alarm table using the dedicated Alarm APIs. Make sure that the concepts in the [Alarm Manager ](../../operation-and-usage/operations/alarm-manager.md)introduction are well understood before reading this section.
+This section focuses on how to manipulate the NSO alarm table using the dedicated Alarm APIs. Make sure that the concepts in the [Alarm Manager](../../operation-and-usage/operations/alarm-manager.md) introduction are well understood before reading this section.
 
 The Alarm API provides a simplified way of managing your alarms for the most common alarm management use cases. The API is divided into a producer and a consumer part.
 

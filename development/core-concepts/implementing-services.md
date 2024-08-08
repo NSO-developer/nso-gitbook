@@ -1635,7 +1635,7 @@ You can use these general steps to give you a high-level idea of how to approach
 
 ***
 
-**Next steps**
+**Next Steps**
 
 {% content-ref url="../advanced-development/developing-services/services-deep-dive.md" %}
 [services-deep-dive.md](../advanced-development/developing-services/services-deep-dive.md)
