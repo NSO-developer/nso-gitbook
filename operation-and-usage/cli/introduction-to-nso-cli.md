@@ -961,7 +961,7 @@ admin@ncs# devices check-s<space>ync
 
 ## Comments, Annotations, and Tags <a href="#d5e1780" id="d5e1780"></a>
 
-All characters following a **`!`** up to the next newline are ignored. This makes it possible to have comments in a file containing CLI commands, and still be able to paste the file into the command-line interface. For example:
+All characters following a **`!`**, up to the next new line, are ignored. This makes it possible to have comments in a file containing CLI commands, and still be able to paste the file into the command-line interface. For example:
 
 ```
 ! Command file created by Joe Smith

@@ -1,5 +1,5 @@
 ---
-description: CLI commands reference.
+description: CLI command reference.
 ---
 
 # CLI Commands

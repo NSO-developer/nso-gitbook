@@ -1152,7 +1152,7 @@ To make the VLAN service package complete edit the package-meta-data.xml to refl
 
 ### Reactive FASTMAP and Nano Services <a href="#d5e1023" id="d5e1023"></a>
 
-FASTMAP is the NSO algorithm that renders any service change from the single definition of the `create` service. As seen above, the template or code only has to define how the service shall be created, NSO is then capable of defining any change from that single definition.
+FASTMAP is the NSO algorithm that renders any service change from the single definition of the `create` service. As seen above, the template or code only has to define how the service shall be created, NSO is then capable of defining _any_ change from that single definition.
 
 A limitation in the scenarios described so far is that the mapping definition could immediately do its work as a single atomic transaction. This is sometimes not possible. Typical examples are external allocation of resources such as IP addresses from an IPAM, spinning up VMs, and sequencing in general.
 

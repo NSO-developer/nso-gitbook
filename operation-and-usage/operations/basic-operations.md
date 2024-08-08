@@ -722,7 +722,7 @@ A policy is composed of:
 1. Policy name.
 2. Iterator: loop over a path in the model, for example, all devices, all services of a specific type.
 3. Expression: a boolean expression that must be true for every node returned from the iterator, for example, SNMP must be turned on.
-4. Warning or error: a message displayed to the user. If it is of type warning the user can still commit the change, if of type error the change cannot be made.
+4. Warning or error: a message displayed to the user. If it is of the type warning, the user can still commit the change, if of type error the change cannot be made.
 
 An example is shown below:
 
@@ -770,7 +770,7 @@ Validation completed with warnings:
   Device c2 must have a class-map a
 ```
 
-The `{name}` variable refers to the node set from the iterator. This node-set will be the list of devices in NSO and the devices have an attribute called `name`.
+The `{name}` variable refers to the node set from the iterator. This node-set will be the list of devices in NSO and the devices have an attribute called 'name'.
 
 To understand the syntax for the expressions a pipe target in the CLI can be used:
 
