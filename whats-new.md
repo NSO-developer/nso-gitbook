@@ -86,7 +86,7 @@ The device, service, and template checks now run in parallel across the CPU core
 
 Documentation Updates:
 
-* Added a new section called [Additional Configuration Checks](operation-and-usage/cli-1/compliance-reporting.md#additional-configuration-checks).
+* Added a new section called [Additional Configuration Checks](operation-and-usage/operations/compliance-reporting.md#additional-configuration-checks).
 
 </details>
 

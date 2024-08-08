@@ -112,7 +112,7 @@ All changes in NSO happen inside a transaction. Network devices participate in t
 
 So, in many cases, the NSO system is not really resource-constrained but merely experiencing lock contention. Therefore, making locks as short as possible is the best way to improve performance. In the example trace from the section [Understanding Your Use Case](scaling-and-performance-optimization.md#ncs.development.scaling.tracing), most of the time is spent in the prepare phase, where configuration changes are propagated to the network devices. Change propagation requires a management session with each participating device, as well as updating and validating the new configuration on the device side. Understandably, all of these tasks take time.
 
-NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
+NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
 
 ## Improving Subscribers <a href="#ncs.development.scaling.kicker" id="ncs.development.scaling.kicker"></a>
 
@@ -375,7 +375,7 @@ Writing to a commit queue instead of the device moves the device configuration p
 
 <figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
 
-For commit queue documentation, see [Commit Queue](../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
+For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
 
 ### Enabling Commit Queues for the perf-trans Example <a href="#d5e8585" id="d5e8585"></a>
 

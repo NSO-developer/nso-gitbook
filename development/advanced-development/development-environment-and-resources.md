@@ -69,7 +69,7 @@ In its simplest form, the `ncs-setup` invocation requires only a destination dir
 
 Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory and NSO will load it at the first start, as described in [Initialization Files](../introduction-to-automation/cdb-and-yang.md#d5e268).
 
-NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/cli-1/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
+NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
 
 Most of the time, you must also invoke a sync with the device so that it performs correctly with NSO. If you wish to push some initial configuration to the device, you may add the configuration in the form of initial XML data and perform a `sync-to`. Alternatively, you can simply do a `sync-from`. You can use the `ncs_cmd` command for this purpose.
 

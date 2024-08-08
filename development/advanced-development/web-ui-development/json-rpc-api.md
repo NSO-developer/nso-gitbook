@@ -3557,9 +3557,7 @@ The `flags` param is a list of flags that can change the commit behavior:
   * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock is removed as part of the rollback.
   *   The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
-
-
-      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 For backward compatibility, the `flags` param can also be a bit mask with the following limit values:

@@ -6,7 +6,7 @@ description: Understand different types of northbound APIs and their working mec
 
 This section describes the various northbound programmatic APIs in NSO NETCONF, REST, and SNMP. These APIs are used by external systems that need to communicate with NSO, such as portals, OSS, or BSS systems.
 
-NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../../operation-and-usage/cli-1/) and [Web User Interface](../../../operation-and-usage/webui.md) respectively.
+NSO has two northbound interfaces intended for human usage, the CLI and the WebUI. These interfaces are described in [NSO CLI](../../../operation-and-usage/operations/) and [Web User Interface](../../../operation-and-usage/webui.md) respectively.
 
 There are also programmatic Java, Python, and Erlang APIs intended to be used by applications integrated with NSO itself. See [Running Application Code](../../introduction-to-automation/applications-in-nso.md#ncs.development.applications.running) for more information about these APIs.
 

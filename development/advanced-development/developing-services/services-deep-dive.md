@@ -84,7 +84,7 @@ List of customer services (defined under `/services/customer-service`) that this
 
 <summary><code>commit-queue</code> container</summary>
 
-Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/cli-1/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
+Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
 
 </details>
 
@@ -155,7 +155,7 @@ Then the first, partial validation takes place. It ensures the service input par
 
 Next, NSO runs transaction hooks and performs the necessary transforms, which alter the data before it is saved, for example encrypting passwords. This is also where the Service Manager invokes FASTMAP and service mapping callbacks, recording the resulting changes. NSO takes service write locks in this stage, too.
 
-After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/cli-1/basic-operations.md#d5e319) in Operation and Usage).
+After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/operations/basic-operations.md#d5e319) in Operation and Usage).
 
 <figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
 
