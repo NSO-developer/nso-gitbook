@@ -6,11 +6,11 @@ description: Understand NSO deployment with an example setup.
 
 This section shows examples of a typical deployment for a highly available (HA) setup. A reference to an example implementation of the `tailf-hcc` layer-2 upgrade deployment scenario described here, check the NSO example set under `examples.ncs/development-guide/high-availability/hcc`. The example covers the following topics:
 
-* [ ] Installation of NSO on all nodes in an HA setup
-* [ ] Initial configuration of NSO on all nodes
-* [ ] HA failover
-* [ ] Upgrading NSO on all nodes in the HA cluster
-* [ ] Upgrading NSO packages on all nodes in the HA cluster
+* Installation of NSO on all nodes in an HA setup
+* Initial configuration of NSO on all nodes
+* HA failover
+* Upgrading NSO on all nodes in the HA cluster
+* Upgrading NSO packages on all nodes in the HA cluster
 
 The deployment examples use both the legacy rule-based and recommended HA Raft setup. See [High Availability](../management/high-availability.md) for HA details. The HA Raft deployment consists of three nodes running NSO and a node managing them, while the rule-based HA deployment uses only two nodes.
 
@@ -22,7 +22,7 @@ For the HA Raft setup, the NSO nodes `paris.fra`, `london.eng`, and `berlin.ger`
 
 For the rule-based HA setup, the NSO nodes `paris` and `london` make up one HA pair — one primary and one secondary.
 
-<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The rule-based HA Deployment Network</p></figcaption></figure>
+<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The Rule-Based HA Deployment Network</p></figcaption></figure>
 
 HA is usually not optional for a deployment. Data resides in CDB, a RAM database with a disk-based journal for persistence. Both HA variants can be set up to avoid the need for manual intervention in a failure scenario, where HA Raft does the best job of keeping the cluster up. See [High Availability](../management/high-availability.md) for details.
 
@@ -59,7 +59,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 * Create the `ncsadmin` and `ncsoper` Linux user groups.
 * Create and add the `admin` and `oper` Linux users to their respective groups.
 * Perform a system installation of NSO that runs NSO as the `admin` user.
-* The `admin` user is granted access to run the `ip` command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
+* The `admin` user is granted access to run the **ip** command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
 * The `cmdwrapper` NSO program gets access to run the scripts executed by the `generate-token` action for generating RESTCONF authentication tokens as the current NSO user.
 * Password authentication is set up for the read-only `oper` user for use with NSO only, which is intended for WebUI access.
 * The `root` user is set up for Linux shell access only.
@@ -136,7 +136,6 @@ The initialization steps are also performed as `root` for the nodes that make up
           .......
     ```
 
-    \
     Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
 * Disable `/ncs-config/webui/cgi` unless needed.
 * The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
@@ -215,7 +214,7 @@ The Cisco Smart Licensing CLI command is present only in the Cisco Style CLI, wh
 
 ### Log Rotate <a href="#d5e7941" id="d5e7941"></a>
 
-The NSO system installations performed on the nodes in the HA cluster also install defaults for `logrotate`. Inspect `/etc/logrotate.d/ncs` and ensure that the settings are what you want. Note that the NSO error logs, i.e., the files `/var/log/ncs/ncserr.log*`, are internally rotated by NSO and must not be rotated by `logrotate`.
+The NSO system installations performed on the nodes in the HA cluster also install defaults for **logrotate**. Inspect `/etc/logrotate.d/ncs` and ensure that the settings are what you want. Note that the NSO error logs, i.e., the files `/var/log/ncs/ncserr.log*`, are internally rotated by NSO and must not be rotated by `logrotate`.
 
 ### Syslog <a href="#d5e7948" id="d5e7948"></a>
 
