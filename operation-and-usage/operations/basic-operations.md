@@ -21,63 +21,62 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
+1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.\
+
 
     {% hint style="info" %}
     Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
     {% endhint %}
 
-````
-\
-Perform the following command:\
+    \
+    Perform the following command:\
 
 
-```bash
-$ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
-```
+    ```bash
+    $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
+    ```
 
-\
-This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.
-````
+    \
+    This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.
+2.  Start the simulator.\
 
-2\. Start the simulator.
 
-````
-```bash
-$ ncs-netsim start
-DEVICE c0 OK STARTED
-DEVICE c1 OK STARTED
-DEVICE c2 OK STARTED
-```
-````
+    ```bash
+    $ ncs-netsim start
+    DEVICE c0 OK STARTED
+    DEVICE c1 OK STARTED
+    DEVICE c2 OK STARTED
+    ```
 
-3\. Run the CLI toward one of the simulated devices.
 
-````
-```bash
-$ ncs-netsim cli-i c1
-admin connected from 127.0.0.1 using console *
+3.  Run the CLI toward one of the simulated devices.\
 
-c1> enable
-c1# show running-config
-class-map m
-match mpls experimental topmost 1
-match packet length max 255
-match packet length min 2
-match qos-group 1
-!
-...
-c1# exit
-```
-````
 
-This shows that the device has some initial configurations.
+    ```bash
+    $ ncs-netsim cli-i c1
+    admin connected from 127.0.0.1 using console *
+
+    c1> enable
+    c1# show running-config
+    class-map m
+    match mpls experimental topmost 1
+    match packet length max 255
+    match packet length min 2
+    match qos-group 1
+    !
+    ...
+    c1# exit
+    ```
+
+    \
+    This shows that the device has some initial configurations.
 
 ## Starting NSO and Reading Device Configuration <a href="#d5e80" id="d5e80"></a>
 
 The previous step started the simulated Cisco devices. It is now time to start NSO.
 
-1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).
+1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios` directory. (Again ignore the details for the time being).\
+
 
     ```bash
     $ ncs-setup --netsim-dir ./netsim --dest . 
@@ -85,12 +84,16 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Note the `.` at the end of the command referring to the current directory. What the command does is create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
-2.  Start NSO.
+2.  Start NSO.\
+
 
     ```bash
     $ ncs
     ```
-3.  Start the NSO CLI as the user `admin` with a Cisco XR-style CLI.
+
+
+3.  Start the NSO CLI as the user `admin` with a Cisco XR-style CLI.\
+
 
     ```bash
     $ ncs_cli -C -u admin
@@ -105,7 +108,8 @@ The previous step started the simulated Cisco devices. It is now time to start N
 
     \
     Throughout this user guide, we will show the commands in Cisco XR style.
-4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.
+4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.\
+
 
     ```cli
     admin@ncs# show running-config devices device
@@ -232,14 +236,18 @@ The above command shows the router config of all devices as XML and then saves i
 
 ## Writing Device Configuration <a href="#d5e156" id="d5e156"></a>
 
-1.  To change the configuration, enter configure mode.
+1.  To change the configuration, enter configure mode.\
+
 
     ```cli
     admin@ncs# config
     Entering configuration mode terminal
     admin@ncs(config)#
     ```
-2.  Change or add some configuration across the devices, for example:
+
+
+2.  Change or add some configuration across the devices, for example:\
+
 
     ```cli
      admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
