@@ -21,8 +21,7 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.\
-
+1.  Go to `examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios`. First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
 
     {% hint style="info" %}
     Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
@@ -47,8 +46,6 @@ To start the simulator:
     DEVICE c1 OK STARTED
     DEVICE c2 OK STARTED
     ```
-
-
 3.  Run the CLI toward one of the simulated devices.\
 
 
@@ -68,7 +65,8 @@ To start the simulator:
     c1# exit
     ```
 
-This shows that the device has some initial configurations.
+    \
+    This shows that the device has some initial configurations.
 
 ## Starting NSO and Reading Device Configuration <a href="#d5e80" id="d5e80"></a>
 
@@ -89,9 +87,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
     ```bash
     $ ncs
     ```
-
-
-3.  Start the NSO CLI as the user `admin` with a Cisco XR style CLI.\
+3.  Start the NSO CLI as the user `admin` with a Cisco XR-style CLI.\
 
 
     ```bash
@@ -111,7 +107,7 @@ The previous step started the simulated Cisco devices. It is now time to start N
 4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.\
 
 
-    ```cli
+    ```bash
     admin@ncs# show running-config devices device
     devices device c0
      address   127.0.0.1
