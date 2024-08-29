@@ -27,7 +27,7 @@ Running NSO in a container offers several benefits that you would generally expe
 Cisco provides the following two NSO images based on Red Hat UBI.
 
 * [Production Image](containerized-nso.md#production-image)
-* Build Image
+* [Build Image](containerized-nso.md#build-image)
 
 <table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
 
