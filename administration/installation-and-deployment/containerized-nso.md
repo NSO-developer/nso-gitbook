@@ -20,16 +20,16 @@ Running NSO in a container offers several benefits that you would generally expe
 
 * Run a container image of a specific version of NSO and your packages which can then be distributed as one unit.
 * Deploy and distribute the same version across your production environment.
-* Use the Development Image containing the necessary environment for compiling NSO packages.
+* Use the Build Image containing the necessary environment for compiling NSO packages.
 
 ## Overview of NSO Images <a href="#d5e8294" id="d5e8294"></a>
 
 Cisco provides the following two NSO images based on Red Hat UBI.
 
 * [Production Image](containerized-nso.md#production-image)
-* [Development Image](containerized-nso.md#development-image)
+* [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Development Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -51,13 +51,13 @@ See [Developing and Deploying a Nano Service](../../development/introduction-to-
 The `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-sshkey/README` provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
-### Development Image
+### Build Image
 
-The Development Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.
+The Build Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.
 
-The image is available as a signed package (e.g., `nso-VERSION.container-image-dev.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Development Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).
+The image is available as a signed package (e.g., `nso-VERSION.container-image-build.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Build Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).
 
-The container provides the necessary environment to build custom packages. The Development Image adds a few Linux packages that are useful for development, such as Ant, JDK, net-tools, pip, etc. Additional Linux packages can be added using, for example, the `dnf` command. The `dnf list installed` command lists all the installed packages.
+The container provides the necessary environment to build custom packages. The Build Image adds a few Linux packages that are useful for development, such as Ant, JDK, net-tools, pip, etc. Additional Linux packages can be added using, for example, the `dnf` command. The `dnf list installed` command lists all the installed packages.
 
 ## Downloading and Extracting the Images <a href="#sec.fetch-images" id="sec.fetch-images"></a>
 
@@ -75,10 +75,10 @@ To fetch and extract NSO images:
 
 The signed archive file name has the following pattern:
 
-`nso-VERSION.container-image-PROD_DEV.linux.ARCH.signed.bin`, where:
+`nso-VERSION.container-image-PROD_BUILD.linux.ARCH.signed.bin`, where:
 
 * `VERSION` denotes the image's NSO version.
-* `PROD_DEV` denotes the type of the container (i.e., `prod` for Production, and `dev` for Development).
+* `PROD_BUILd` denotes the type of the container (i.e., `prod` for Production, and `build` for Build).
 * `ARCH` is the CPU architecture.
 {% endhint %}
 
@@ -187,7 +187,7 @@ As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMI
 docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
 ```
 
-This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
+This can be useful when starting up a container in CI for testing or elopment purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
 
 {% hint style="info" %}
 When using a permanent volume for CDB, etc., and restarting the NSO container multiple times with a different `ADMIN_USERNAME` or `ADMIN_PASSWORD`, note that the start script uses the `ADMIN_USERNAME` and `ADMIN_PASSWORD` environment variables to generate an XML file to the CDB directory which NSO reads at startup. When restarting NSO, if the persisted CDB configuration file already exists in the CDB directory, NSO will only load the persisted configuration and no XML files at startup, and the generated `add_admin_user.xml` in the CDB directory needs to be loaded by the application, using, for example, the `ncs_load` command.
@@ -355,7 +355,7 @@ This example shows how to run the standalone NSO Production Image using the Dock
 
 The instructions and CLI examples used in this example are Docker-specific. If you are using a non-Docker container runtime, you will need to: fetch the NSO image from the Cisco software download site, then load and run the image with packages and networking, and finally log in to NSO CLI to run commands.
 
-If you intend to run multiple images (i.e., both Production and Development), Docker Compose is a tool that simplifies defining and running multi-container Docker applications. See the example ([Running the NSO Images using Docker Compose](containerized-nso.md#sec.example-docker-compose)) below for detailed instructions.
+If you intend to run multiple images (i.e., both Production and Build), Docker Compose is a tool that simplifies defining and running multi-container Docker applications. See the example ([Running the NSO Images using Docker Compose](containerized-nso.md#sec.example-docker-compose)) below for detailed instructions.
 
 **Steps**
 
@@ -497,7 +497,7 @@ At this point, you only have one container that is running the desired version 6
 
 ### Running the NSO Images using Docker Compose <a href="#sec.example-docker-compose" id="sec.example-docker-compose"></a>
 
-This example covers the necessary information to manifest the use of NSO images to compile packages and run NSO. Using Docker Compose is not a requirement, but a simple tool for defining and running a multi-container setup where you want to run both the Production and Development images in an efficient manner.
+This example covers the necessary information to manifest the use of NSO images to compile packages and run NSO. Using Docker Compose is not a requirement, but a simple tool for defining and running a multi-container setup where you want to run both the Production and Build images in an efficient manner.
 
 #### **Packages**
 
@@ -511,7 +511,7 @@ The packages used in this example are taken from the `examples.ncs/development-g
 A basic Docker Compose file is shown in the example below. It describes the containers running on a machine:
 
 * The Production container runs NSO.
-* The Development container builds the NSO packages.
+* The Build container builds the NSO packages.
 * A third `example` container runs the netsim device.
 
 Note that the packages use a shared volume in this simple example setup. In a more complex production environment, you may want to consider a dedicated redundant volume for your packages.
@@ -557,11 +557,11 @@ Note that the packages use a shared volume in this simple example setup. In a mo
                       timeout: 10s
 
                   BUILD-NSO-PKGS:
-                    image: cisco-nso-dev:6.4
+                    image: cisco-nso-build:6.4
                     container_name: build-nso-pkgs
                     network_mode: none
                     profiles:
-                      - dev
+                      - build
                     volumes:
                       - type: bind
                         source: /path/to/packages/NSO-1
@@ -626,9 +626,9 @@ Note that the packages use a shared volume in this simple example setup. In a mo
 
 A description of noteworthy Compose file items is given below.
 
-* **`profiles`**: Profiles can be used to group containers in a Compose file, and they work perfectly for the Production, Development, and netsim containers. By adding multiple containers on the same machine (as a developer normally would), you can easily start the Production, Development, and netsim containers using their respective profiles (`prod`, `dev`, and `example`).
+* **`profiles`**: Profiles can be used to group containers in a Compose file, and they work perfectly for the Production, Build, and netsim containers. By adding multiple containers on the same machine (as a developer normally would), you can easily start the Production, Build, and netsim containers using their respective profiles (`prod`, `build`, and `example`).
 * **The command used in the netsim example**: Creates a directory called `/netsim` where the netsims will be set up, then starts the netsims, followed by generating two `init.xml` files and editing the `ncs.conf` file for the Production container. Finally, it keeps the container running. If you want this to be more elegant, you need a netsim container image with a script in it that is well-documented.
-*   **`volumes`**: The Production and Development images are configured intentionally to have the same bind mount with `/path/to/packages/NSO-1` as the source and `/nso/run/packages` as the target. The Production Image mounts both the `/log` and `/nso` directories in the container. The `/log` directory is simply a bind mount, while the `/nso` directory is an actual volume.
+*   **`volumes`**: The Production and Build images are configured intentionally to have the same bind mount with `/path/to/packages/NSO-1` as the source and `/nso/run/packages` as the target. The Production Image mounts both the `/log` and `/nso` directories in the container. The `/log` directory is simply a bind mount, while the `/nso` directory is an actual volume.
 
     \
     Named volumes are recommended over bind mounts as described by the Docker Volumes documentation. The NSO `/run` directory should therefore be mounted as a named volume. However, you can make the `/run` directory a bind mount as well.
@@ -645,12 +645,12 @@ A description of noteworthy Compose file items is given below.
 
 Follow the steps below to run the images using Docker Compose:
 
-1.  Start the Development container. This starts the services in the Compose file with the profile `dev`.
+1.  Start the Build container. This starts the services in the Compose file with the profile `build`.
 
     ```bash
-    docker compose --profile dev up -d
+    docker compose --profile build up -d
     ```
-2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Development container. The easiest way to do this is by using the `docker exec` command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
+2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Build container. The easiest way to do this is by using the `docker exec` command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
 
     ```bash
     docker exec -it build-nso-pkgs sh -c 'cp -r ${NCS_DIR}/examples.ncs/development-guide \
@@ -682,14 +682,14 @@ Follow the steps below to run the images using Docker Compose:
     NC='\033[0m' # No Color
 
     printf "${GREEN}##### Reset the container setup\n${NC}";
-    docker compose --profile dev down
+    docker compose --profile build down
     docker compose --profile example down -v
     docker compose --profile prod down -v
     rm -rf ./packages/NSO-1/* ./log/NSO-1/*
 
-    printf "${GREEN}##### Start the dev container used for building the NSO NED
+    printf "${GREEN}##### Start the build container used for building the NSO NED
         and service packages\n${NC}"
-    docker compose --profile dev up -d
+    docker compose --profile build up -d
 
     printf "${GREEN}##### Get the packages\n${NC}"
     printf "${PURPLE}##### NOTE: Normally you populate the package directory from the host.
@@ -727,8 +727,8 @@ This example describes how to upgrade NSO when using Docker Compose.
 To upgrade to a new minor or major version, for example, from 6.3 to 6.4, follow the steps below:
 
 1. Change the image version in the Compose file to the new version, i.e., 6.4.
-2. Run the `docker compose up --profile dev -d` command to start up the Development container with the new image.
-3.  Compile the packages using the Development container.
+2. Run the `docker compose up --profile build -d` command to start up the Build container with the new image.
+3.  Compile the packages using the Build container.
 
     ```bash
     docker exec -it build-nso-pkgs sh -c 'for f in
