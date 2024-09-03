@@ -78,7 +78,7 @@ The signed archive file name has the following pattern:
 `nso-VERSION.container-image-PROD_BUILD.linux.ARCH.signed.bin`, where:
 
 * `VERSION` denotes the image's NSO version.
-* `PROD_BUILd` denotes the type of the container (i.e., `prod` for Production, and `build` for Build).
+* `PROD_BUILD` denotes the type of the container (i.e., `prod` for Production, and `build` for Build).
 * `ARCH` is the CPU architecture.
 {% endhint %}
 
