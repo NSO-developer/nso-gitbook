@@ -409,13 +409,13 @@ Second, generating the configuration from the parameters can become more complex
 
 An established approach to the second challenge is to use a templating system for configuration generation. Templates separate the process of constructing parameter values from how they are used, adding a degree of flexibility and decoupling. NSO uses XML-based configuration _(config)_ templates, which you can invoke from provisioning code or link directly to services. In the latter case, you don't even have to write any Python code.
 
-XML templates are snippets of configuration, similar to the CDB init files, but more powerful. Let's see how you could implement the DNS configuration service using a template instead of navigating the data model with Python.
+XML templates are snippets of configuration, similar to the CDB init files, but more powerful. Let's see how you could implement the DNS configuration service using a template instead of navigating the YANG model with Python.
 
-While you are free to write an XML template by hand, it has to follow the target data model. Fortunately, the NSO CLI can help you and do most of the hard work for you. First, you'll need a sample instance with the desired configuration. As you are configuring the DNS server on a router and the ex1 device already has one configured, you can just reuse that one. Otherwise, you might configure one by hand, using the CLI. You do that by displaying the existing configuration in the XML format and saving it to a file, by piping it through the `display xml` and `save` filters, as shown here:
+While it is possible to write an XML template from scratch, it has to follow the target YANG model. Fortunately, the NSO CLI can help with generating most parts of the template from changes to the currenly open transaction. First, you'll need a sample instance with the desired configuration. As you are configuring the DNS server on a router and the ex1 device already has one configured, you can reuse that one. Otherwise, you might configure one by hand, using the CLI. You do that by displaying the existing configuration in the format of an XML template and saving it to a file, by piping it through the `display xml-template` and `save` filters, as shown here:
 
 ```cli
-admin@ncs# show running-config devices device ex1 config sys dns | display xml
-<config xmlns="http://tail-f.com/ns/config/1.0">
+admin@ncs# show running-config devices device ex1 config sys dns | display xml-template
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>ex1</name>
@@ -430,9 +430,9 @@ admin@ncs# show running-config devices device ex1 config sys dns | display xml
       </config>
     </device>
   </devices>
-</config>
+</config-template>
 admin@ncs# show running-config devices device ex1 config sys dns | \
-    display xml | save template.xml
+    display xml-template | save template.xml
 ```
 
 The file structure of a package usually contains a `templates` folder and that is where the template belongs. When loading packages, NSO will scan this folder and process any `.xml` files it finds as templates.
@@ -595,11 +595,11 @@ devices device ex1
 !
 ```
 
-Pipe the command through the `display xml` and `save` CLI filters to save this configuration in an XML format. According to the Python code, you need to create a template file `dns-config-tpl.xml`. Use `packages/dns-config/templates/dns-config-tpl.xml` for the full file path.
+Pipe the command through the `display xml-template` and `save` CLI filters to save this configuration as an XML template. According to the Python code, you need to create a template file `dns-config-tpl.xml`. Use `packages/dns-config/templates/dns-config-tpl.xml` for the full file path.
 
 ```cli
 admin@ncs# show running-config devices device ex1 config sys dns \
-| display xml | save packages/dns-config/templates/dns-config-tpl.xml
+| display xml-template | save packages/dns-config/templates/dns-config-tpl.xml
 ```
 
 At this point, you have created a complete template that will provision the 10.2.3.4 as the DNS server on the ex1 device. The only problem is, that the IP address is not the one you have specified in the Python code. To correct that, open the `dns-config-tpl.xml` file in a text editor and replace the line that reads `<address>10.2.3.4</address>` with the following:
@@ -627,7 +627,7 @@ One way to use the `device` service parameter is to read its value in the Python
 The XPath expression inside the curly braces instructs NSO to get the value for the device name from the service instance's data, namely the node called `device`. In other words, when configuring a new service instance, you have to add the device parameter, which selects the router for provisioning. The final XML template is then:
 
 ```xml
-<config xmlns="http://tail-f.com/ns/config/1.0">
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>{/device}</name>
@@ -642,7 +642,7 @@ The XPath expression inside the curly braces instructs NSO to get the value for 
       </config>
     </device>
   </devices>
-</config>
+</config-template>
 ```
 
 ### Step 4 - Test the Service <a href="#d5e884" id="d5e884"></a>

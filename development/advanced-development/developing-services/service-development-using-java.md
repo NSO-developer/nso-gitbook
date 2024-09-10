@@ -1038,17 +1038,17 @@ The configuration templates are XML templates based on the structure of device Y
 1. Configure the device with the appropriate configuration.
 2. Add the device to NSO
 3. Sync the configuration to NSO.
-4. Display the device configuration in XML format.
-5. Save the XML output to a configuration template file and replace configured values with parameters
+4. Display the device configuration in an XML template format.
+5. Save the XML template output to a configuration template file and replace configured values with parameters
 
 The commands in NSO give the following output. To make the example simpler, only the BGP part of the configuration is used:
 
 ```cli
 admin@ncs# devices device ce1 sync-from
 admin@ncs# show running-config devices device ce1 config \
-        ios:router bgp | display xml
+        ios:router bgp | display xml-template
 
-<config xmlns="http://tail-f.com/ns/config/1.0">
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
   <device>
     <name>ce1</name>
@@ -1069,7 +1069,7 @@ admin@ncs# show running-config devices device ce1 config \
       </config>
   </device>
   </devices>
-</config>
+</config-template>
 ```
 
 The final configuration template with the replaced parameters marked in bold is shown below. If the parameter starts with a `$`-sign, it's taken from the Java parameter dictionary; otherwise, it is a direct xpath reference to the value from the service instance.

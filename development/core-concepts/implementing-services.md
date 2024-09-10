@@ -19,35 +19,12 @@ admin@ncs(config-config)# top
 admin@ncs(config)#
 ```
 
-Note here that the configuration is not yet committed and you can use the `commit dry-run outformat xml` command to produce the configuration in the XML format. This format is an excellent starting point for creating an XML template.
+Note here that the configuration is not yet committed. You can use the `show configuration` command and pipe it through the `display xml-template` filter to produce the configuration in the format of an XML template.
 
 ```cli
-admin@ncs(config)# commit dry-run outformat xml
+admin@ncs(config)# show configuration | display xml-template
 
-result-xml {
-    local-node {
-        data <devices xmlns="http://tail-f.com/ns/ncs">
-               <device>
-                 <name>c1</name>
-                 <config>
-                   <ip xmlns="urn:ios">
-                     <name-server>192.0.2.1</name-server>
-                   </ip>
-                 </config>
-               </device>
-             </devices>
-    }
-}
-```
-
-The interesting portion is the part between `<devices>` and `</devices>` tags.
-
-Another way to get the XML output is to list the existing device configuration in NSO by piping it through the `display xml` filter:
-
-```cli
-admin@ncs# show running-config devices device c1 config ip name-server | display xml
-
-<config xmlns="http://tail-f.com/ns/config/1.0">
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>c1</name>
@@ -58,17 +35,38 @@ admin@ncs# show running-config devices device c1 config ip name-server | display
       </config>
     </device>
   </devices>
-</config>
+</config-template>
+```
+
+The interesting portion is the part between `<devices>` and `</devices>` tags.
+
+Another way to get the XML template output is to list the existing device configuration in NSO by piping it through the `display xml-template` filter:
+
+```cli
+admin@ncs# show running-config devices device c1 config ip name-server | display xml-template
+
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>c1</name>
+      <config>
+        <ip xmlns="urn:ios">
+          <name-server>192.0.2.1</name-server>
+        </ip>
+      </config>
+    </device>
+  </devices>
+</config-template>
 ```
 
 If there is a lot of data, it is easy to save the output to a file using the `save` pipe in the CLI, instead of copying and pasting it by hand:
 
 ```cli
-admin@ncs# show running-config devices device c1 config ip name-server | display xml\
+admin@ncs# show running-config devices device c1 config ip name-server | display xml-template\
  | save dns-template.xml
 ```
 
-The last command saves the configuration for a device in the `dns-template.xml` file using XML format. To use it in a service, you need a service package.
+The last command saves the configuration for a device in the `dns-template.xml` file using XML template format. To use it in a service, you need a service package.
 
 You create an empty, skeleton service with the `ncs-make-package` command, such as:
 
@@ -76,7 +74,7 @@ You create an empty, skeleton service with the `ncs-make-package` command, such 
 ncs-make-package --build --no-test --service-skeleton template dns
 ```
 
-The command generates the minimal files necessary for a service package, here named `dns`. One of the files is `dns/templates/dns-template.xml`, which is where the configuration in the XML format goes.
+The command generates the minimal files necessary for a service package, here named `dns`. One of the files is `dns/templates/dns-template.xml`, which is where the configuration in the format of an XML template goes.
 
 ```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
@@ -87,7 +85,7 @@ The command generates the minimal files necessary for a service package, here na
 </config-template>
 ```
 
-If you look closely, there is one significant difference from the `show running-config` output: the template uses the `config-template` XML root tag, instead of `config`. This tag also has the `servicepoint` attribute. Other than that, you can use the XML formatted configuration from the CLI as-is.
+If you look closely, there is one difference from the `show running-config` output: the `config-template` XML root tag in the template file has the `servicepoint` attribute. Other than that, you can use the XML template formatted configuration from the CLI as-is.
 
 Bringing the two XML documents together gives the final `dns/templates/dns-template.xml` XML template:
 
@@ -359,9 +357,9 @@ To transform this configuration into a reusable service, complete the following 
 * Add parameter validation.
 * Consolidate and clean up the YANG model as necessary.
 
-Start by generating the configuration in the XML format, making use of the `display xml` filter. Note that the XML output will not necessarily be a one-to-one mapping of the CLI commands; the XML reflects the device YANG model which can be more complex but the commands on the CLI can hide some of this complexity.
+Start by generating the configuration in the format of an XML template, making use of the `display xml-template` filter. Note that the XML template will not necessarily be a one-to-one mapping of the CLI commands; the XML reflects the device YANG model which can be more complex but the commands on the CLI can hide some of this complexity.
 
-The transformation to a template also requires you to change the root tag, which produces the resulting XML template:
+The transformation to a template also requires you to add the `servicepoint` attribute to the `config-template` XML root tag, which produces the resulting XML template:
 
 ```xml
 <config-template xmlns="http://tail-f.com/ns/config/1.0"

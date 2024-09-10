@@ -274,9 +274,9 @@ In certain situations, it may be advantageous to have a follower node that canno
 
 In this case, a node located without a peer in the same data center might experience increased latency due to the requirement for acknowledgments from at least one node in the other data center.
 
-To address this, HA Raft provides the `/ncs-config/ha-raft/passive` setting. When this setting is enabled (set to 'true'), it prevents the node from assuming the candidate or leader role. A passive follower still participates by voting in leader elections.
+To address this, HA Raft provides the `/ncs-config/ha-raft/passive` setting. When this setting is enabled (set to `true`), it prevents the node from assuming the candidate or leader role. A passive follower still participates by voting in leader elections.
 
-Note that the passive parameter is local to the node, meaning other nodes in the cluster are unaware that a particular follower is passive. Consequently, it is possible to initiate a handover action targeting the passive node, but the handover will ultimately fail at a later stage, allowing the current leader to retain its position.
+Note that the `passive` parameter is local to the node, meaning other nodes in the cluster are unaware that a particular follower is passive. Consequently, it is possible to initiate a handover action targeting the passive node, but the handover will ultimately fail at a later stage, allowing the current leader to retain its position.
 
 ### Migrating From Existing Rule-based HA <a href="#d5e4714" id="d5e4714"></a>
 

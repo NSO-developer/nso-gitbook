@@ -50,7 +50,7 @@ Primary requirements to do a Local Install include:
 Additional requirements to, for example, build and run NSO examples/services, include:
 
 * Java JDK 17 or higher.
-* Ant 1.9.3 or higher.
+* Ant 1.9.8 or higher.
 * Python 3.7 or higher.
 * Python Setuptools is required to build the Python API.
 * Often installed using the Python package installer pip:

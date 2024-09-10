@@ -37,26 +37,12 @@ A typical template for configuring an NSO-managed device is:
 
 The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the `devices device <name> config` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
 
-You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then generate the XML structure with the help of NSO output filters. You can use `commit dry-run outformat xml or show ... | display xml` commands, or even the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
+You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then, generate the XML structure with the help of NSO output filters, using the `show ... | display xml-template` and similar commands. You can also reuse the existing configuration, such as the one loaded with the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
 
 ```cli
 admin@ncs(config)# devices device rtr01 config ...
-admin@ncs(config-device-rtr01)# commit dry-run outformat xml
-result-xml {
-    local-node {
-        data <devices xmlns="http://tail-f.com/ns/ncs">
-               <device>
-                 <name>rtr01</name>
-                 <config>
-                   <!-- ... -->
-                 </config>
-               </device>
-             </devices>
-    }
-}
-admin@ncs(config-device-rtr01)# commit
-admin@ncs# show running-config devices device rtr01 config ... | display xml
-<config xmlns="http://tail-f.com/ns/config/1.0">
+admin@ncs(config-device-rtr01)# show configuration | display xml-template
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
       <name>rtr01</name>
@@ -65,7 +51,19 @@ admin@ncs# show running-config devices device rtr01 config ... | display xml
       </config>
     </device>
   </devices>
-</config>
+</config-template>
+admin@ncs(config-device-rtr01)# commit
+admin@ncs# show running-config devices device rtr01 config ... | display xml-template
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>rtr01</name>
+      <config>
+        <!-- ... -->
+      </config>
+    </device>
+  </devices>
+</config-template>
 ```
 
 Having the basic structure in place, you can then fine-tune the template by adding different processing instructions and tags, as well as replacing static values with variable references using the XPath syntax.

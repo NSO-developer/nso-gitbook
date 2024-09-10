@@ -187,7 +187,7 @@ As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMI
 docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
 ```
 
-This can be useful when starting up a container in CI for testing or elopment purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
+This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
 
 {% hint style="info" %}
 When using a permanent volume for CDB, etc., and restarting the NSO container multiple times with a different `ADMIN_USERNAME` or `ADMIN_PASSWORD`, note that the start script uses the `ADMIN_USERNAME` and `ADMIN_PASSWORD` environment variables to generate an XML file to the CDB directory which NSO reads at startup. When restarting NSO, if the persisted CDB configuration file already exists in the CDB directory, NSO will only load the persisted configuration and no XML files at startup, and the generated `add_admin_user.xml` in the CDB directory needs to be loaded by the application, using, for example, the `ncs_load` command.
