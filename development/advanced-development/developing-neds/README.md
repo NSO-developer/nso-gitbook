@@ -4458,7 +4458,7 @@ We must also configure a managed device, indicating that its configuration is ha
 
 ```cli
 admin@ncs# show running-config devices device x1
-    
+
 address   127.0.0.1
 port      12023
 authgroup default
@@ -4553,7 +4553,7 @@ sync-result {
 
 ```cli
 admin@ncs# show running-config devices r1 config
-    
+
 ios:interface eth0
   macaddr      84:2b:2b:9e:af:0a
   ipv4-address 192.168.1.129
@@ -4708,7 +4708,7 @@ Each managed device is configured with a name, IP address, and port (161 by defa
 
 ```cli
 admin@host# show running-config devices device r3
-      
+
 address 127.0.0.1
 port    2503
 device-type snmp version v3 snmp-authgroup my-authgroup
@@ -4719,7 +4719,7 @@ To minimize the necessary configuration, the authentication group concept (see [
 
 ```cli
 admin@host# show running-config devices authgroups snmp-group my-authgroup
-      
+
 devices authgroups snmp-group my-authgroup
  default-map community-name public
  umap admin
@@ -4743,7 +4743,7 @@ In NSO, this problem is solved by using MIB groups. MIB group is a named collect
 
 ```cli
 admin@ncs# show running-config devices mib-group
-        
+
 devices mib-group basic
  mib-module [ BASIC-CONFIG-MIB BASIC-TC ]
 !
@@ -4758,7 +4758,7 @@ An SNMP device can then be configured to refer to one or more of the MIB groups:
 
 ```cli
 admin@ncs# show running-config devices device r3 device-type snmp
-        
+
 devices device r3
  device-type snmp version v3
  device-type snmp snmp-authgroup default
@@ -4811,7 +4811,7 @@ The basic features of the SNMP will be illustrated below by using the `examples.
 
 ```cli
 admin@ncs# devices connect
-        
+
 connect-result {
     device r1
     result true
@@ -4865,7 +4865,7 @@ When looking at SNMP trace files it is useful to have the OBJECT-DESCRIPTOR rath
 
 ```bash
 $ more ned-r1.trace | smixlate $NCS_DIR/src/ncs/snmp/mibs/SNMPv2-MIB.mib
-        
+
 get-next-request reqid=2
     1.1
 get-response reqid=2
@@ -4876,7 +4876,7 @@ You can access the data in the SNMP systems directly (read-only and read-write o
 
 ```cli
 admin@ncs# show devices device live-status
-      
+
 ncs live-device r1
  live-status SNMPv2-MIB system sysDescr "Tail-f ConfD agent - 1"
  live-status SNMPv2-MIB system sysObjectID 1.3.6.1.4.1.24961
@@ -4898,7 +4898,7 @@ sync-result {
 
 ```cli
 admin@ncs# show running-config devices device r1 config r:SNMPv2-MIB
-    
+
 devices device r1
   config
     system
@@ -5072,7 +5072,7 @@ The `config false;` data from a module that has been compiled with the `--ncs-co
 {% code title="Example: Displaying NED Stats in the CLI" %}
 ```cli
 admin@ncs# show devices device r1 live-status interfaces
-        
+
 live-status {
     interface gigabitEthernet1/1 {
         in-packets-per-second   234;
@@ -5158,7 +5158,7 @@ Commit complete.
 
 ```cli
 admin@ncs(config)# top devices device a0 compare-config
-      
+
 diff
  devices {
      device a0 {
@@ -5181,18 +5181,18 @@ capas[0] = new NedCapability(
          "",
          "urn:ios",
          "tailf-ned-cisco-ios",
-         "",
+         Collections.emptyList(),
          "2015-01-01",
-         "");
+         Collections.emptyList());
 capas[1] = new NedCapability(
         "urn:ietf:params:netconf:capability:" +
         "with-defaults:1.0?basic-mode=trim",    // Set mode to trim
         "urn:ietf:params:netconf:capability:" +
         "with-defaults:1.0",
         "",
+        Collections.emptyList(),
         "",
-        "",
-        "");
+        Collections.emptyList());
 ```
 
 Now, try the same operation again:
@@ -5264,7 +5264,7 @@ admin@ncs(config)# commit
 
 ```cli
 admin@ncs(config)# top devices device a0 compare-config
-    
+
 diff
  devices {
      device a0 {
@@ -5287,18 +5287,18 @@ capas[0] = new NedCapability(
        "",
        "urn:abc",
        "tailf-ned-abc",
-       "",
+       Collections.emptyList(),
        "2015-01-01",
-       "");
+       Collections.emptyList());
 capas[1] = new NedCapability(
       "urn:ietf:params:netconf:capability:" +
       "with-defaults:1.0?basic-mode=report-all",  // Set mode to report-all
       "urn:ietf:params:netconf:capability:" +
       "with-defaults:1.0",
       "",
+      Collections.emptyList(),
       "",
-      "",
-      "");
+      Collections.emptyList());
 ```
 
 Now, try the same operation again:
@@ -5381,7 +5381,7 @@ Once we have imported such a YANG model into NSO, we can configure the managed d
 {% code title="Example: Setting the Device Type" %}
 ```cli
 admin@ncs# show running config devices device r1
-    
+
 address   127.0.0.1
 port      2025
 authgroup default
