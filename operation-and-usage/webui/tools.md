@@ -13,7 +13,6 @@ The following tools are available:
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
 * [**Package upgrade**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
 * [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
-* [**Dashboard**](tools.md#d5e6549): Provides a current overview of your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
 * [**Compliance reports**](tools.md#sec.webui\_compliance): Used to run compliance checks on your NSO network.
@@ -51,16 +50,6 @@ The **Reload** button on the **Packages** pane is the equivalent of the **packag
 The **High Availability** view is used to visualize your HA setup (rule-based or Raft).
 
 Actions can be performed on the cluster using the **Configuration editor** -> **Actions** tab. Possible actions are further described in the High Availability documentation under [Actions](../../administration/management/high-availability.md#d5e5031)).
-
-## Dashboard <a href="#d5e6549" id="d5e6549"></a>
-
-The **Dashboard** view displays useful information about:
-
-* Connected devices
-* Alarms
-* User sessions
-* Service instances
-* Service progress monitoring
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
