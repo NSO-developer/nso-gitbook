@@ -6,14 +6,13 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view offers individual utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
 
-<figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
 
 The following tools are available:
 
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
 * [**Package upgrade**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
 * [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
-* [**Dashboard**](tools.md#d5e6549): Provides a current overview of your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
 * [**Compliance reports**](tools.md#sec.webui\_compliance): Used to run compliance checks on your NSO network.
@@ -51,16 +50,6 @@ The **Reload** button on the **Packages** pane is the equivalent of the **packag
 The **High Availability** view is used to visualize your HA setup (rule-based or Raft).
 
 Actions can be performed on the cluster using the **Configuration editor** -> **Actions** tab. Possible actions are further described in the High Availability documentation under [Actions](../../administration/management/high-availability.md#d5e5031)).
-
-## Dashboard <a href="#d5e6549" id="d5e6549"></a>
-
-The **Dashboard** view displays useful information about:
-
-* Connected devices
-* Alarms
-* User sessions
-* Service instances
-* Service progress monitoring
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
@@ -122,40 +111,32 @@ The recommended and preferred way of running the compliance reports is through t
 The following main tabs are available in this view:
 
 * **Compliance reports**, to create, run, manage, and view existing compliance reports.
-* **Report results**, to view report results and compliance report status.
+* **Report results**, to view compliance report results and status.
 
 ### **Create a Compliance Report**
 
-1. In the **Compliance reporting** view, click **Add list item** <img src="../../images/add-action.png" alt="" data-size="line">.
-2. In the **New report** pop-up, enter the report name and confirm.
+1. In the **Compliance reporting** view -> **Compliance reports** tab, click **New report**.
+2. In the **Create new report** pop-up, enter the report name and click **Create**.
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../operations/lifecycle-operations.md) documentation.
-   *   **General** tab: to configure the report name. Configuration options include:
-
-       \- **Report name**: Displays the report name and allows editing of the report name.
-   *   **Devices** tab: to configure device compliance checks. Configuration options include:
-
-       \- **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-
-       \- **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-
-       \- **Device choice**: Include **All devices** or only **Some devices**. If **Some devices** is selected, specify the devices using an XPath expression, device groups, or devices.
-
-       \- **Compliance templates**: If a compliance template should be used to check for compliance. See the section called Device Configuration Checks.
-   *   **Services** tab: to configure service compliance checks. Configuration options include:
-
-       \- **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-
-       \- **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-
-       \- **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using an XPath expression or service instances.
+   * **General** tab: to configure the report name. Configuration options include:
+     * **Report name**: Displays the report name and allows editing of the report name.
+   * **Devices** tab: to configure device compliance checks. Configuration options include:
+     * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
+     * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
+     * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
+     * **Compliance templates**: If a compliance template should be used to check for compliance. See [Device Configuration Checks](../operations/). You have the option to add a compliance template using the **Add template** option, or convert an existing device template into a compliance template by using the **Create from device template** option, which can then be added using the **Add template** option. To enforce devices to comply exactly to the template's configuration, use **Strict** mode, see Additional Configuration Checks for more information.
+   * **Services** tab: to configure service compliance checks. Configuration options include:
+     * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
+     * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
+     * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
 4. Click **Save** when the report setup is complete.
 
 ### **Run a Compliance Report**
 
-1. In the **Compliance reports** tab, click the **Run** button on the desired report.
-2. Specify the following:
+1. In the **Compliance reports** tab, choose the desired report and click **Run report**.
+2. Specify the following in the **Run report** pop-up:
    * **Report title**
    * **Historical time interval**. The report runs with the maximum possible interval if you do not specify an interval.
 3. Click **Run report**.
 
-The report's results, available from the **Report results** tab, show if the report was compliant or has violations. Click **Show details** to fetch additional details.
+The report's results, available from the **Report results** tab, show if the report was compliant or has violations. Click the report name to fetch detailed results about the report. If there are violations, you can use the **View details** option to extract a diff of configuration.

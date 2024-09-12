@@ -6,7 +6,7 @@ description: Traverse and edit NSO configuration using the YANG model.
 
 The **Configuration editor** view is where you view and manage aspects of your NSO deployment using the underlying YANG model, for example, to configure devices, services, packages, etc.
 
-<figure><img src="../../images/config-editor.png" alt=""><figcaption><p>Configuration Editor View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/config-editor.png" alt=""><figcaption><p>Configuration Editor View</p></figcaption></figure>
 
 The Configuration Editor's home page shows all the currently loaded YANG modules in NSO, i.e., the database schema. In this view, you can also browse and manage the configuration defined by the YANG modules.
 

@@ -8,7 +8,7 @@ The NSO Web UI provides an intuitive northbound interface to your NSO deployment
 
 The main components of the Web UI are shown in the figure below.
 
-<figure><img src="../../images/nsowebui.png" alt=""><figcaption><p>NSO Web UI Overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/nsowebui.png" alt=""><figcaption><p>NSO Web UI Overview</p></figcaption></figure>
 
 The UI works by auto-rendering the underlying device and service models. This gives the benefit that the Web UI is immediately updated when new devices or services are added to the system. For example, say you have added support for a new device vendor. Then, without any programming requirements, the NSO Web UI provides the capability to configure those devices.
 
@@ -39,7 +39,6 @@ Log out by clicking your username on the top-right corner and choosing **Logout*
 Access the help options by clicking the help options icon in the UI banner. The following options are available:
 
 * **Online documentation**: Access the Web UI's online help.
-* **Config editor help**: Access help on using the configuration editor.
 * **Manage hidden groups**: Administer hidden groups, e.g. for debugging. Read more about hide groups in [NSO CLI](../cli/introduction-to-nso-cli.md).
 * **NSO version**: Information about the version of NSO you are running.
 
