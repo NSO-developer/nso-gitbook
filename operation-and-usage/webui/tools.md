@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view offers individual utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
 
-<figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tools.view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
 
 The following tools are available:
 
@@ -118,25 +118,17 @@ The following main tabs are available in this view:
 1. In the **Compliance reporting** view, click **Add list item** <img src="../../images/add-action.png" alt="" data-size="line">.
 2. In the **New report** pop-up, enter the report name and confirm.
 3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../operations/lifecycle-operations.md) documentation.
-   *   **General** tab: to configure the report name. Configuration options include:
-
-       \- **Report name**: Displays the report name and allows editing of the report name.
-   *   **Devices** tab: to configure device compliance checks. Configuration options include:
-
-       \- **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-
-       \- **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-
-       \- **Device choice**: Include **All devices** or only **Some devices**. If **Some devices** is selected, specify the devices using an XPath expression, device groups, or devices.
-
-       \- **Compliance templates**: If a compliance template should be used to check for compliance. See the section called Device Configuration Checks.
-   *   **Services** tab: to configure service compliance checks. Configuration options include:
-
-       \- **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-
-       \- **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-
-       \- **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using an XPath expression or service instances.
+   * **General** tab: to configure the report name. Configuration options include:
+     * **Report name**: Displays the report name and allows editing of the report name.
+   * **Devices** tab: to configure device compliance checks. Configuration options include:
+     * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
+     * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
+     * **Device choice**: Include **All devices** or only **Some devices**. If **Some devices** is selected, specify the devices using an XPath expression, device groups, or devices.
+     * **Compliance templates**: If a compliance template should be used to check for compliance. See the section called Device Configuration Checks.
+   * **Services** tab: to configure service compliance checks. Configuration options include:
+     * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
+     * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
+     * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using an XPath expression or service instances.
 4. Click **Save** when the report setup is complete.
 
 ### **Run a Compliance Report**
