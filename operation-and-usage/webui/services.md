@@ -6,7 +6,7 @@ description: Create and manage service deployment.
 
 The **Service manager** view is where you create, deploy, and manage services in your NSO deployment. Available services are displayed in this view by default.
 
-<figure><img src="../../.gitbook/assets/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
+<figure><img src="../../images/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
 
 {% hint style="info" %}
 **Columns in the Services List**
