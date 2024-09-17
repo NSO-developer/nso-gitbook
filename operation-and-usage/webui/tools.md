@@ -4,7 +4,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 # Tools
 
-The **Tools** view offers individual utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
+The **Tools** view includes utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
 
 <figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
 
@@ -53,7 +53,7 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
-The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by device.
+The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by the device.
 
 You can run actions on an alarm by selecting it and using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button.
 
