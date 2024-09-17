@@ -1402,12 +1402,12 @@ The meta-data for an object is represented by another object constructed either 
 
 Note that the meta-data node types, e.g., tags and annotations, are prefixed by the module name of the YANG module where the meta-data object is defined. This representation conforms to [RFC 7952 Section 5.2](https://www.rfc-editor.org/rfc/rfc7952.html#section-5.2). The YANG module name prefixes for meta-data node types are listed below:
 
-| Meta-data type    | Prefix                   |
-| ----------------- | ------------------------ |
-| `origin`          | `ietf-origin`            |
-| `inactive/active` | `tailf-netconf-inactive` |
-| `default`         | `tailf-netconf-defaults` |
-| `All other`       | `tailf_netconf`          |
+| Meta-data type    | Prefix                       |
+| ----------------- | ---------------------------- |
+| `origin`          | `ietf-origin`                |
+| `inactive/active` | `tailf-netconf-inactive`     |
+| `default`         | `ietf-netconf-with-defaults` |
+| `All other`       | `tailf_netconf`              |
 
 Compare this to the encoding in NSO versions prior to 6.3, where we represented meta-data for an object by another object constructed of the object name prefixed with either one or two "@" signs. The meta-data object "@x" referred to the sibling object "x" and the "@@x" object referred to the parent object. No module name prefixes were included for the meta-data data object types. This did not conform to [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) for legacy reasons. See the example below.
 
@@ -1635,6 +1635,19 @@ Swagger output specific options:
   --swagger-path-filter             Filter out paths matching a path filter.
                                     Example: --swagger-path-filter
                                     "/data/example-jukebox/jukebox"
+  --swagger-only-actions            Only emit Swagger output for Yang actions
+                                    [default: false]
+  --swagger-only-nso-services       Only emit Swagger output for NSO Services
+                                    [default: false]
+  --swagger-hide-nso-services-data  Hide imported NSO services data
+                                    [default: false]
+  --swagger-only-list-keys          Only emit Swagger output for the keys in
+                                    lists [default: false]
+  --swagger-max-depth               Only emit Swagger output until Max-Depth
+                                    is reached [default: -1]
+  --swagger-unhide                  Unhide specified groups,
+                                    example: --swagger-unhide "foo,bar"
+  --swagger-unhide-all              Unhide all hidden groups [default: false]
 ```
 
 Using the `example-jukebox.yang` from the [RESTCONF RFC 8040](https://tools.ietf.org/html/rfc8040), the following example generates a comprehensive Swagger definition using a variety of Swagger-related options:
@@ -1662,3 +1675,11 @@ yanger -p . -t expand -f swagger example-jukebox.yang \
        --swagger-methods "post, get, patch, put, delete, head, options"
 ```
 {% endcode %}
+
+For a large YANG model the generated Swagger JSON output also becomes very large;
+so in order to restrict the amount of JSON output, a number of switches can be used,
+for example: `--swagger-only-actions` or `--swagger-max-depth`, etc.
+
+Note that, per default, any hidden YANG elements will not show up in the JSON output.
+This behavior can be modified by using the switches: `--swagger-unhide-all` and
+`--swagger-unhide`.

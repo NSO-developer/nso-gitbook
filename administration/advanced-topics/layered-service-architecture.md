@@ -636,7 +636,7 @@ The task for the upper layer FastMap code is then to instantiate a copy of itsel
 
 * Determine which routers, (CE, PE, or P) will be touched by its execution.
 * Look in its dispatch table, which lower-layer NSO nodes are used to host these routers.
-*   Instantiate a copy of itself on those lower layer NSO nodes. One extremely efficient way to do that is to use the `Maapi.copy_tree()` method. The code in the example contains code that looks like this:
+*   Instantiate a copy of itself on those lower layer NSO nodes. One extremely efficient way to do that is to use the `Maapi.copyTree()` method. The code in the example contains code that looks like this:
 
     ```java
             public Properties create(
@@ -652,7 +652,7 @@ The task for the upper layer FastMap code is then to instantiate a copy of itsel
                 ConfPath dst = dstVpn.getConfPath();
                 ConfPath src = service.getConfPath();
 
-                maapi.copy_tree(tHandle, true, src, dst);
+                maapi.copyTree(tHandle, true, src, dst);
     ```
 
 Finally, we must make a minor modification to the lower layer (RFS) provisioning code too. Originally, the FastMap code wrote all config for all routers participating in the VPN, now with the LSA partitioning, each lower layer NSO node is only responsible for the portion of the VPN that involves devices that reside in its /devices tree, thus the provisioning code must be changed to ignore devices that do not reside in the /devices tree.
