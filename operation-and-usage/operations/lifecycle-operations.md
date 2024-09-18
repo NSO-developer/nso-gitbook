@@ -231,6 +231,8 @@ The `verbose` option can be used to show additional parse information reported b
 
 This action will behave differently depending on if it is invoked with a transaction or not. When invoked with a transaction (such as via the CLI), it will load the configuration into it and leave it to the user to commit or revert the resulting changes. If invoked without a transaction (for example, when invoked via RESTCONF), the action will automatically create one and commit the resulting changes.
 
+Since NSO 6.4 the `load-native-config` will create list entries with sharedCreate() and set leafs with sharedSet() if invoked inside a service for refcounters and backpointers to be created or updated.
+
 </details>
 
 <details>

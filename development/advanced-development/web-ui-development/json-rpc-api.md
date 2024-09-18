@@ -70,6 +70,47 @@ With a possible response like (first result for `add`, the second result for `su
   "result": 19}]
 ```
 
+### Trace Context
+
+JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by trace-id, span-id and tracestate. Trace Context standardizes the format of trace-id, span-id and key-value pairs to be sent between distributed entities. The terms span-id and parent-span-id in NSO correspond to the naming of parent-id used in the Trace Context standard.
+
+Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format
+
+```
+traceparent = <version>-<trace-id>-<parent-id>-<flags>
+```
+
+where `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
+
+An example of header `traceparent` in use is:
+
+```
+traceparent: 00-100456789abcde10123456789abcde10-001006789abcdef0-01
+```
+
+Header `tracestate` is a vendor-specific list of key-value pairs. An example of header `tracestate` in use is:
+
+```
+tracestate: key1=value1,key2=value2
+```
+
+where a value may contain space characters but not end with a space.
+
+NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the
+request generates an error response.
+
+NSO will consider the headers of Trace Context in JSON-RPC requests if the element `<trace-id>true</trace-id>` is set in the logs section of the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
+
+The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
+
+The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed.  Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
+
+{% hint style="info" %}
+You can either let methods `validate_commit`, `apply`, or `run_action` automatically generate a Trace Context, or you can add a Trace Context header for one of the involved JSON-RPC methods sharing the same transaction.
+
+If two methods, using the same transaction, are provided with different Trace Context, the latter Trace Context will be used - a procedure not recommended.
+{% endhint %}
+
 ### Common Concepts <a href="#ug.jsonrpc.commonconcepts" id="ug.jsonrpc.commonconcepts"></a>
 
 The URL for the JSON-RPC API is `` `/jsonrpc` ``. For logging and debugging purposes, you can add anything as a subpath to the URL, for example turning the URL into `` `/jsonrpc/<method>` `` which will allow you to see the exact method in different browsers' **Developer Tools** - **Network** tab - **Name** column, rather than just an opaque `jsonrpc`.
@@ -3767,5 +3808,41 @@ The `status` param specifies which package status to list:
 ```json
 {"packages": <array of key-value objects>}
 ```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_service_points</code></mark></summary>
+
+List all service points. To be able to get the description part of the response the fxs files needs to be compiled with the flag "--include-doc".
+
+**Result**
+
+```json
+{"description": <string of tailf:info or description of the list/presence container>,
+ "keys": <if the path is to a list, an array of strings of the lists keys>,
+ "path": <a keypath to the service point>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>apply</code></mark></summary>
+
+Performs validate, prepare and commit/abort in one go.
+
+**Params**
+
+```json
+{"th": <integer>, "flags": <flags>}
+```
+
+See the `commit` method for available flags.
+
+**Result**
+
+See result for method `commit`.
 
 </details>
