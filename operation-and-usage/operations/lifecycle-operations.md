@@ -125,7 +125,7 @@ This action will behave differently depending on whether it is invoked with a tr
 
 Check if the NSO copy of the device configuration is in sync with the actual device configuration, using device-specific mechanisms. This operation is usually cheap as it only compares a signature of the configuration from the device rather than comparing the entire configuration.
 
-Depending on the device the signature is implemented as a transaction-id, timestamp, hash-sum or not at all. The capability must be supported by the corresponding NED. The output might say unsupported, and then the only way to perform this would be to do a full `compare-config` command.
+Depending on the device the signature is implemented as a transaction-id, timestamp, hash-sum, or not at all. The capability must be supported by the corresponding NED. The output might say unsupported, and then the only way to perform this would be to do a full `compare-config` command.
 
 As some NEDs implement the signature as a hash-sum of the entire configuration, this operation might for some devices be just as expensive as performing a full `compare-config` command.
 
