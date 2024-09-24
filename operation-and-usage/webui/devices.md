@@ -138,3 +138,66 @@ The available group actions are the same as in the section called [Apply an Acti
 {% hint style="info" %}
 The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a device group.
 {% endhint %}
+
+## Authgroups
+
+The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. This view is further partitioned into the following two tabs:
+
+* The **Group** tab
+* The **SNMP Group** tab
+
+### Groups
+
+The Groups tab is used to view, search, and manage device authentication groups.&#x20;
+
+#### Add an Authgroup
+
+To add a new device authgroup:
+
+1. ...
+2. ...
+3. ...
+
+#### View Authgroup Details
+
+To view details of a device authgroup:
+
+1. ...
+2. ...
+3. ...
+
+#### Delete an Authgroup
+
+To delete an authgroup:
+
+1. ...
+2. ...
+3. ...
+
+### SNMP Groups
+
+The SNMP Group tab is used to view, search, and manage the SNMP groups.&#x20;
+
+#### Add an SNMP Group
+
+To add a new SNMP group:
+
+1. ...
+2. ...
+3. ...
+
+#### View SNMP Group Details
+
+To view details of an SNMP group:
+
+1. ...
+2. ...
+3. ...
+
+#### Delete an SNMP Group
+
+To delete an SNMP group:
+
+1. ...
+2. ...
+3. ...
