@@ -148,7 +148,9 @@ The **Authgroups** view displays the existing device and SNMP authentication gro
 
 ### Groups
 
-The Groups tab is used to view, search, and manage device authentication groups.&#x20;
+The Groups tab is used to view, search, and manage device authentication groups.
+
+<figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View</p></figcaption></figure>
 
 #### Add an Authgroup
 
@@ -176,7 +178,9 @@ To delete an authgroup:
 
 ### SNMP Groups
 
-The SNMP Group tab is used to view, search, and manage the SNMP groups.&#x20;
+The SNMP Group tab is used to view, search, and manage the SNMP groups.
+
+<figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>SNMP Groups View</p></figcaption></figure>
 
 #### Add an SNMP Group
 
