@@ -141,7 +141,9 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. This view is further partitioned into the following two tabs:
+The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. To read more about how Authgroups work, see [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+
+This view is further partitioned into the following two tabs:
 
 * The **Group** tab
 * The **SNMP Group** tab
@@ -152,15 +154,22 @@ The Groups tab is used to view, search, and manage device authentication groups.
 
 <figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View</p></figcaption></figure>
 
-#### Add an Authgroup
+#### Create an Authgroup
 
-To add a new device authgroup:
+To create a new device authgroup:
 
-1. ...
-2. ...
-3. ...
+1. Click the **Add authgroup** button.
+2. Enter the authgroup name and click **Continue**.
+3. In the group details page, add users to the newly created group:
+   1. Click the **Add user** button.
+   2. At this point, you have the option to add the user using remote mapping or a callback.
+      1. **Remote Mapping**: If remote mapping is desired, specify the local user that is to be mapped to remote authentication credentials. Next, configure the following options:&#x20;
+         * **remote-user**
+         * **remote-auth**
+         * **remote-secondary-auth** (optional)
+      2. **Callback**:  If a callback is desired, click the **Use callback** option.
 
-#### View Authgroup Details
+#### View/Edit Authgroup Details
 
 To view details of a device authgroup:
 
@@ -182,7 +191,7 @@ The SNMP Group tab is used to view, search, and manage the SNMP groups.
 
 <figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>SNMP Groups View</p></figcaption></figure>
 
-#### Add an SNMP Group
+#### Create an SNMP Group
 
 To add a new SNMP group:
 
