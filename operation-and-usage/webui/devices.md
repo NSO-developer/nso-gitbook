@@ -166,8 +166,8 @@ To create a new device authgroup:
     If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
     {% endhint %}
 
-    1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to remote mapping or callback:
-       * Remote Mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
+    1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback':
+       * Remote mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
          * **remote-user**: Choose between **same-user** or **remote-name** options.
          * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
          * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
