@@ -159,18 +159,23 @@ The Groups tab is used to view, search, and manage device authentication groups.
 To create a new device authgroup:
 
 1. Click the **Add authgroup** button.
-2. Enter the authgroup name and click **Continue**.
-3. In the group details page, add users to the newly created group. If a default map is desired for unknown/unmapped users, click the **Set default-map** option.
-   1. Click the **Add user** button. At this point, you have the option to add the user with the authentication type set to remote mapping or callback.
-      * **Remote Mapping**: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:&#x20;
-        * **remote-user**: Choose between **same-user** or **remote-name** options.
-        * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
-        * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-      * **Callback**:  If callback type authentication is desired to retrieve login credentials, click the **Use callback** option and configure the following settings:
-        * **callback-node**
-        * **action-name**
-4. Click **Add**. This will add the newly-created user to the group.
-5. Click **Create** **authgroup** to finish creating the group.
+2. Enter the **Authgroup name** and click **Continue**.
+3.  In the group details page, add users to the newly created group:
+
+    {% hint style="info" %}
+    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
+    {% endhint %}
+
+    1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to remote mapping or callback:
+       * **Remote Mapping**: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
+         * **remote-user**: Choose between **same-user** or **remote-name** options.
+         * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
+         * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
+       * **Callback**:  If a callback type authentication is desired to retrieve login credentials, click the **Use callback** option and configure the following settings:
+         * **callback-node**
+         * **action-name**
+    2. Click **Add**. This will add the newly-created user to the group and display it in the list.
+4. Click **Create** **authgroup** to finish creating the group.
 
 #### View/Edit Authgroup Details
 
