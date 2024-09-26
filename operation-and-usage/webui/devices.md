@@ -171,7 +171,7 @@ To create a new device authgroup:
          * **remote-user**: Choose between **same-user** or **remote-name** options.
          * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
          * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-       * Callback:  If a callback type authentication is desired to retrieve login credentials, click the **Use callback** option and configure the following settings:
+       * Callback:  If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
          * **callback-node**
          * **action-name**
     2. Click **Add**. This will add the newly-created user to the group and display it in the list.
