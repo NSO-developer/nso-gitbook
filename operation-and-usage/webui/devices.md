@@ -152,7 +152,7 @@ This view is further partitioned into the following two tabs:
 
 The Groups tab is used to view, search, and manage device authentication groups.
 
-<figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View</p></figcaption></figure>
+<figure><img src="../../images/device-authgroups.png" alt="" width="563"><figcaption><p>Authgroups View</p></figcaption></figure>
 
 #### Create an Authgroup
 
