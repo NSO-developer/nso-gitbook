@@ -141,7 +141,7 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. To read more about how Authgroups work, see [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. Concepts and settings involved in the setup of authentication groups are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
 
 This view is further partitioned into the following two tabs:
 
@@ -152,7 +152,7 @@ This view is further partitioned into the following two tabs:
 
 The Groups tab is used to view, search, and manage device authentication groups.
 
-<figure><img src="../../images/device-authgroups.png" alt="" width="563"><figcaption><p>Authgroups View</p></figcaption></figure>
+<figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View</p></figcaption></figure>
 
 #### Create an Authgroup
 
@@ -160,14 +160,17 @@ To create a new device authgroup:
 
 1. Click the **Add authgroup** button.
 2. Enter the authgroup name and click **Continue**.
-3. In the group details page, add users to the newly created group:
-   1. Click the **Add user** button.
-   2. At this point, you have the option to add the user using remote mapping or a callback.
-      1. **Remote Mapping**: If remote mapping is desired, specify the local user that is to be mapped to remote authentication credentials. Next, configure the following options:&#x20;
-         * **remote-user**
-         * **remote-auth**
-         * **remote-secondary-auth** (optional)
-      2. **Callback**:  If a callback is desired, click the **Use callback** option.
+3. In the group details page, add users to the newly created group. If a default map is desired for unknown/unmapped users, click the **Set default-map** option.
+   1. Click the **Add user** button. At this point, you have the option to add the user with the authentication type set to remote mapping or callback.
+      * **Remote Mapping**: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:&#x20;
+        * **remote-user**: Choose between **same-user** or **remote-name** options.
+        * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
+        * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
+      * **Callback**:  If callback type authentication is desired to retrieve login credentials, click the **Use callback** option and configure the following settings:
+        * **callback-node**
+        * **action-name**
+4. Click **Add**. This will add the newly-created user to the group.
+5. Click **Create** **authgroup** to finish creating the group.
 
 #### View/Edit Authgroup Details
 
