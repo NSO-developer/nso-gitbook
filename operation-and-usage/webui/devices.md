@@ -97,7 +97,7 @@ The other two tabs, i.e., **Config** and **Operdata** can be respectively used t
 
 The **Device groups** view lists all the available groups and devices belonging to them. You can add new device groups in this view as well as carry out actions on devices belonging to a group.
 
-<figure><img src="../../images/device-groups.png" alt=""><figcaption><p>Device Groups View</p></figcaption></figure>
+<figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>Device Groups View</p></figcaption></figure>
 
 ### **Create a Device Group**
 
