@@ -174,7 +174,7 @@ To create a new device authgroup:
        * Callback:  If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
          * **callback-node**
          * **action-name**
-    2. Click **Add**. This adds the newly-created user to the group and displays it in the list.
+    2. Click **Add**. This adds the newly created user to the group and displays it in the list.
 4. Click **Create** **authgroup** to finish creating the group.
 
 #### Create an Authgroup
@@ -183,7 +183,9 @@ To create a new device authgroup:
 
 1. Click the **Add authgroup** button.
 2. Enter the **Authgroup name** and click **Continue**.
-3. In the group details page, add users to the newly created group using the **Add user** button, which brings up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. Decide on the authentication type and follow the steps below:
+3. In the group details page, add users to the newly created group using the **Add user** button. This brings up the **Add user** overlay window where you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. \
+   \
+   Decide on the authentication type and follow the steps below:
 
 {% tabs %}
 {% tab title="4. Add a user with remote mapping" %}
@@ -193,7 +195,7 @@ If remote mapping authentication is desired:
    * **remote-user**: Choose between **same-user** or **remote-name** options.
    * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
    * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-2. Click **Add**. This adds the newly-created user to the group and displays it in the list.
+2. Click **Add**. This adds the newly created user to the group and displays it in the list.
 {% endtab %}
 
 {% tab title="4. Add a user with callback" %}
@@ -203,7 +205,7 @@ If a callback type authentication is desired:
 2. Set the **Use callback** flag and configure the following settings:
    * **callback-node**
    * **action-name**
-3. Click **Add**. This adds the newly-created user to the group and displays it in the list.
+3. Click **Add**. This adds the newly created user to the group and displays it in the list.
 {% endtab %}
 {% endtabs %}
 
