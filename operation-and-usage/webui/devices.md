@@ -183,10 +183,10 @@ To create a new device authgroup:
 
 1. Click the **Add authgroup** button.
 2. Enter the **Authgroup name** and click **Continue**.
-3. In the group details page, add users to the newly created group using the **Add user** button. This brings up the **Add user** overlay window where you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. Decide on the desired authentication type and follow the applicable steps below:
+3. In the group details page, add users to the newly created group using the **Add user** button. This brings up the **Add user** overlay window where you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. Decide on the authentication type and follow the steps below:
 
 {% tabs %}
-{% tab title="Add a user with remote mapping" %}
+{% tab title="4. Add a user with remote mapping" %}
 If remote mapping authentication is desired:
 
 1. Specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
@@ -196,7 +196,7 @@ If remote mapping authentication is desired:
 2. Click **Add**. This will add the newly-created user to the group and display it in the list.
 {% endtab %}
 
-{% tab title="Add a user with callback" %}
+{% tab title="4. Add a user with callback" %}
 If a callback type authentication is desired to retrieve login credentials:
 
 1. Specify the **local-user**.
@@ -208,10 +208,10 @@ If a callback type authentication is desired to retrieve login credentials:
 {% endtabs %}
 
 {% hint style="info" %}
-If a default map is desired for unknown/unmapped users, use the **Set default-map** option.&#x20;
+If a default map is needed for unknown/unmapped users, use the **Set default-map** option in the group details page.&#x20;
 {% endhint %}
 
-4. Click **Create** **authgroup** to finish creating the group.
+5. Click **Create** **authgroup** to finish creating the group.
 
 #### View/Edit Authgroup Details
 
