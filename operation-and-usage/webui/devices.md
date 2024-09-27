@@ -141,7 +141,7 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. Concepts and settings involved in the setup of authentication groups are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
 
 This view is further partitioned into the following two tabs:
 
@@ -183,7 +183,7 @@ To create a new device authgroup:
 
 1. Click the **Add authgroup** button.
 2. Enter the **Authgroup name** and click **Continue**.
-3. In the group details page, add users to the newly created group using the **Add user** button. This brings up the **Add user** overlay window where you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. Decide on the authentication type and follow the steps below:
+3. In the group details page, add users to the newly created group using the **Add user** button, which brings up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. Decide on the authentication type and follow the steps below:
 
 {% tabs %}
 {% tab title="4. Add a user with remote mapping" %}
@@ -197,9 +197,9 @@ If remote mapping authentication is desired:
 {% endtab %}
 
 {% tab title="4. Add a user with callback" %}
-If a callback type authentication is desired to retrieve login credentials:
+If a callback type authentication is desired:
 
-1. Specify the **local-user**.
+1. Specify the **local-user** whose login credentials are to be retrieved.
 2. Set the **Use callback** flag and configure the following settings:
    * **callback-node**
    * **action-name**
