@@ -152,7 +152,7 @@ This view is further partitioned into the following two tabs:
 
 The **Group** tab is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
 
-<figure><img src="../../.gitbook/assets/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure>
+<figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure>
 
 #### Create an Authgroup
 
@@ -201,7 +201,7 @@ Proceed with caution as the changes are applied immediately and deleted groups c
 
 The **SNMP Group** tab is used to view, search, and manage device authentication groups for SNMP-managed devices.
 
-<figure><img src="../../.gitbook/assets/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure>
+<figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure>
 
 #### Create an SNMP Group
 
