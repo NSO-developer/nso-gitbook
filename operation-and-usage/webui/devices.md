@@ -216,7 +216,7 @@ To add a new authgroup:
     {% endhint %}
 
     1. Click the **Add user** button to bring up the **Add user** overlay window.&#x20;
-    2. Specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
+    2. Specify the **local-user** and configure the following settings:
        * **community** (optional): Choose between **community-name** or **community-binary-name**.
        * **remote-user**: Choose between **same-user** or **remote-name** options.
        * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
