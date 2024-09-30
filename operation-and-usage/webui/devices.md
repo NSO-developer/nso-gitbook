@@ -150,7 +150,7 @@ This view is further partitioned into the following two tabs:
 
 ### Groups
 
-The Groups tab is used to view, search, and manage device authentication groups.
+The **Group** tab is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
 
 <figure><img src="../../.gitbook/assets/device-authgroups.png" alt=""><figcaption><p>Authgroups View</p></figcaption></figure>
 
@@ -177,86 +177,68 @@ To create a new device authgroup:
     2. Click **Add**. This adds the newly created user to the group and displays it in the list.
 4. Click **Create** **authgroup** to finish creating the group.
 
-#### Create an Authgroup
-
-To create a new device authgroup:
-
-1. Click the **Add authgroup** button.
-2. Enter the **Authgroup name** and click **Continue**.
-3. In the group details page, add users to the newly created group using the **Add user** button. This brings up the **Add user** overlay window where you have the option to add the user with the authentication type set to 'remote mapping' or 'callback'. \
-   \
-   Decide on the authentication type and follow the steps below:
-
-{% tabs %}
-{% tab title="4. Add a user with remote mapping" %}
-If remote mapping authentication is desired:
-
-1. Specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
-   * **remote-user**: Choose between **same-user** or **remote-name** options.
-   * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
-   * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-2. Click **Add**. This adds the newly created user to the group and displays it in the list.
-{% endtab %}
-
-{% tab title="4. Add a user with callback" %}
-If a callback type authentication is desired:
-
-1. Specify the **local-user** whose login credentials are to be retrieved.
-2. Set the **Use callback** flag and configure the following settings:
-   * **callback-node**
-   * **action-name**
-3. Click **Add**. This adds the newly created user to the group and displays it in the list.
-{% endtab %}
-{% endtabs %}
-
-{% hint style="info" %}
-If a default map is needed for unknown/unmapped users, use the **Set default-map** option in the group details page.&#x20;
-{% endhint %}
-
-5. Click **Create** **authgroup** to finish creating the group.
-
 #### View/Edit Authgroup Details
 
 To view details of a device authgroup:
 
-1. ...
-2. ...
-3. ...
+1. Click the group name to access the group details page.
+2. Make the desired changes, such as adding/removing a user from the group, editing existing user settings, or configuring general group settings.
+3. Click the **Save authgroup** button to save and apply the changes.
 
 #### Delete an Authgroup
 
 To delete an authgroup:
 
-1. ...
-2. ...
-3. ...
+{% hint style="warning" %}
+Proceed with caution as the changes are applied immediately and deleted groups cannot be recovered.
+{% endhint %}
+
+1. In the **Authgroups** > **Group** tab, Select the desired group using the checkbox.
+2. Click **Delete**.
+3. Confirm the intent by pressing **Delete** in the pop-up.
 
 ### SNMP Groups
 
-The SNMP Group tab is used to view, search, and manage the SNMP groups.
+The **SNMP Group** tab is used to view, search, and manage device authentication groups for SNMP-managed devices.
 
 <figure><img src="../../.gitbook/assets/device-snmpgroups.png" alt=""><figcaption><p>SNMP Groups View</p></figcaption></figure>
 
 #### Create an SNMP Group
 
-To add a new SNMP group:
+To add a new SNMP authgroup:
 
-1. ...
-2. ...
-3. ...
+1. Click the **Add SNMP group** button.
+2. Enter the **Authgroup name** and click **Continue**.
+3.  In the group details page, add users to the newly created group:
 
-#### View SNMP Group Details
+    {% hint style="info" %}
+    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
+    {% endhint %}
+
+    1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback':
+       * Remote mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
+         * **community** (optional): Choose between **community-name** or **community-binary-name**.
+         * **remote-user**: Choose between **same-user** or **remote-name** options.
+         * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
+    2. Click **Add**. This adds the newly created user to the group and displays it in the list.
+4. Click **Create** **authgroup** to finish creating the group.
+
+#### View/Edit SNMP Group Details
 
 To view details of an SNMP group:
 
-1. ...
-2. ...
-3. ...
+1. Click the group name to access the group details page.
+2. Make the desired changes, such as adding/removing a user from the group, editing existing user settings, or configuring general group settings.
+3. Click the **Save authgroup** button to save and apply the changes.
 
 #### Delete an SNMP Group
 
 To delete an SNMP group:
 
-1. ...
-2. ...
-3. ...
+{% hint style="warning" %}
+Proceed with caution as the changes are applied immediately and deleted groups cannot be recovered.
+{% endhint %}
+
+1. In the **Authgroups** > **SNMP** **Group** tab, Select the desired group using the checkbox.
+2. Click **Delete**.
+3. Confirm the intent by pressing **Delete** in the pop-up.
