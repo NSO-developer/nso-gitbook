@@ -74,6 +74,8 @@ In addition to the protocol capabilities listed above, NSO also implements a set
 
 In addition to this, NSO does not support pre-configuration or monitoring of subtree filters, and thus advertises a deviation module that deviates `/filters/stream-filter/filter-spec/stream-subtree-filter` and `/subscriptions/subscription/target/stream/stream-filter/within-subscription/filter-spec/stream-subtree-filter` as "not-supported".
 
+NSO does not generate `subscription-modified` notifications when the parameters of a subscription change, and there is currently no mechanism to suspend notifications so `subscription-suspended` and `subscription-resumed` notifications are never generated.
+
 There is basic support for monitoring subscriptions via the `/subscriptions` container. Currently, it is possible to view dynamic subscriptions' attributes: `subscription-id`, `stream`, `encoding`, `receiver`, `stop-time`, and `stream-xpath-filter`. Unsupported attributes are: `stream-subtree-filter`, `receiver/sent-event-records`, `receiver/excluded-event-records`, and `receiver/state`.
 
 * `ietf-yang-push`: This module from [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) extends operations, data nodes, and operational state defined in `ietf-subscribed-notifications;` and also introduces continuous and customizable notification subscriptions for updates from running and operational datastores. It defines the same features as `ietf-subscribed-notifications` and also the following feature:
