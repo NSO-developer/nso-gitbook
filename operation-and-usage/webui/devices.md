@@ -171,11 +171,12 @@ To create a new authgroup:
          * **remote-user**: Choose between **same-user** or **remote-name** options.
          * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
          * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-       * Callback:  If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
+       * Callback: If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
          * **callback-node**
          * **action-name**
     2. Click **Add**. This adds the newly created user to the group and displays it in the list.
-4. Click **Create** **authgroup** to save and finish creating the group.
+
+4\. Click **Create** **authgroup** to save and finish creating the group.
 
 #### View/Edit Authgroup Details
 
@@ -215,13 +216,14 @@ To add a new authgroup:
     If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
     {% endhint %}
 
-    1. Click the **Add user** button to bring up the **Add user** overlay window.&#x20;
+    1. Click the **Add user** button to bring up the **Add user** overlay window.
     2. Specify the **local-user** and configure the following settings:
        * **community** (optional): Choose between **community-name** or **community-binary-name**.
        * **remote-user**: Choose between **same-user** or **remote-name** options.
        * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
     3. Click **Add**. This adds the newly created user to the group and displays it in the list.
-4. Click **Create** **authgroup** to save and finish creating the group.
+
+4\. Click **Create** **authgroup** to save and finish creating the group.
 
 #### View/Edit SNMP Group Details
 
