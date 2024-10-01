@@ -156,7 +156,7 @@ The **Group** tab is used to view, search, and manage device authentication grou
 
 #### Create an Authgroup
 
-To create a new authgroup:
+To create a new group:
 
 1. Click the **Add authgroup** button.
 2. Enter the **Authgroup name** and click **Continue**.
@@ -175,12 +175,11 @@ To create a new authgroup:
          * **callback-node**
          * **action-name**
     2. Click **Add**. This adds the newly created user to the group and displays it in the list.
-
-4\. Click **Create** **authgroup** to save and finish creating the group.
+4. Click **Create** **authgroup** to save and finish creating the group.
 
 #### View/Edit Authgroup Details
 
-To view details of an authgroup:
+To view/edit details of a group:
 
 1. Click the group name to access the group details page.
 2. Make the desired changes, such as adding/removing a user from the group, editing existing user settings, or configuring general group settings.
@@ -188,13 +187,13 @@ To view details of an authgroup:
 
 #### Delete an Authgroup
 
-To delete an authgroup:
+To delete a group:
 
 {% hint style="warning" %}
-Proceed with caution as the changes are applied immediately and deleted groups cannot be recovered.
+Proceed with caution as the changes are applied immediately and the deleted groups cannot be recovered.
 {% endhint %}
 
-1. In the **Authgroups** > **Group** tab, Select the desired group using the checkbox.
+1. Select the desired group using the checkbox.
 2. Click **Delete**.
 3. Confirm the intent by pressing **Delete** in the pop-up.
 
@@ -206,10 +205,10 @@ The **SNMP Group** tab is used to view, search, and manage device authentication
 
 #### Create an SNMP Group
 
-To add a new authgroup:
+To add a new group:
 
 1. Click the **Add SNMP group** button.
-2. Enter the **Authgroup name** and click **Continue**.
+2. Enter the **SNMP group name** and click **Continue**.
 3.  In the group details page, add users to the newly created group:
 
     {% hint style="info" %}
@@ -222,12 +221,11 @@ To add a new authgroup:
        * **remote-user**: Choose between **same-user** or **remote-name** options.
        * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
     3. Click **Add**. This adds the newly created user to the group and displays it in the list.
-
-4\. Click **Create** **authgroup** to save and finish creating the group.
+4. Click **Create** **authgroup** to save and finish creating the group.
 
 #### View/Edit SNMP Group Details
 
-To view details of a group:
+To view/edit details of a group:
 
 1. Click the group name to access the group details page.
 2. Make the desired changes, such as adding/removing a user from the group, editing existing user settings, or configuring general group settings.
@@ -238,9 +236,9 @@ To view details of a group:
 To delete a group:
 
 {% hint style="warning" %}
-Proceed with caution as the changes are applied immediately and deleted groups cannot be recovered.
+Proceed with caution as the changes are applied immediately and the deleted groups cannot be recovered.
 {% endhint %}
 
-1. In the **Authgroups** > **SNMP** **Group** tab, Select the desired group using the checkbox.
+1. Select the desired group using the checkbox.
 2. Click **Delete**.
 3. Confirm the intent by pressing **Delete** in the pop-up.
