@@ -143,7 +143,7 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
 
-This view is further partitioned into the following two tabs:
+This view is further partitioned into the following two tabs for different device types:
 
 * The **Group** tab
 * The **SNMP Group** tab
