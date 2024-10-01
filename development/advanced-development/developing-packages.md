@@ -768,9 +768,9 @@ The Eclipse debugger works now as usual, and we can at will, start and stop the 
 First, we have three timeouts in `ncs.conf` that matter. Copy the system `ncs.conf` and set the three values of the following to a large value. See man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/ncs-conf) for a detailed description of what those values are.
 
 ```
-/ncs-config/japi/new-session-timeout
-/ncs-config/japi/query-timeout
-/ncs-config/japi/connect-timeout
+/ncs-config/api/new-session-timeout
+/ncs-config/api/query-timeout
+/ncs-config/api/connect-timeout
 ```
 
 If these timeouts are triggered, NSO will close all sockets to the Java VM and all bets are off.
@@ -782,11 +782,11 @@ $ cp $NCS_DIR/etc/ncs/ncs.conf .
 Edit the file and enter the following XML entry just after the Web UI entry.
 
 ```xml
-  <japi>
+  <api>
     <new-session-timeout>PT1000S</new-session-timeout>
     <query-timeout>PT1000S</query-timeout>
     <connect-timeout>PT1000S</connect-timeout>
-  </japi>
+  </api>
 ```
 
 Now, restart NCS.

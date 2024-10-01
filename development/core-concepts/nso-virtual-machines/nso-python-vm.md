@@ -300,6 +300,20 @@ class Upgrade(ncs.upgrade.Upgrade):
 ```
 {% endcode %}
 
+## The NSO client timeouts
+
+The section `/ncs-config/api` in **ncs.conf** contains a number of very important timeouts. See **$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang**
+and [ncs.conf(5)](https://developer.cisco.com/docs/nso/guides/ncs-man-pages-volume-5/#ncs-conf) for details.
+
+* `new-session-timeout` controls how long NSO will wait for the NSO Python VM to respond to a new session.
+* `query-timeout` controls how long NSO will wait for the NSO Python VM to respond to a request to get data.
+* `connect-timeout` controls how long NSO will wait for the NSO Python VM to initialize a Dp connection after the initial socket connect.
+* `action-timeout` controls how long NSO will wait for the NSO Python VM to respond to an action request callback.
+
+For `new-session-timeout`, `query-timeout` and `connect-timeout`, whenever any of these timeouts trigger, NSO will close the sockets from NSO to the NSO Python VM. The NSO Python VM will detect the closed socket and exit.
+
+For `action-timeout`, whenever this timeout triggers, NSO will only close the sockets from NSO Python VM to the clients without exiting the Python VM.
+
 ## Debugging of Python Packages
 
 Python code packages are not running with an attached console and the standard out from the Python VMs are collected and put into the common log file `ncs-python-vm.log`. Possible Python compilation errors will also end up in this file.

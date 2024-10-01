@@ -386,7 +386,7 @@ All we need to do is choose the `main()` routine in the `NcsJVMLauncher` class. 
 
 A caveat worth mentioning here is that there exist a few timeouts between NSO and the Java code that will trigger when we are in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable these timeouts.
 
-First, we have the three timeouts in `ncs.conf` that matter. Set the three values of `/ncs-config/japi/new-session-timeout`, `/ncs-config/japi/query-timeout`, and `/ncs-config/japi/connect-timeout` to a large value (see man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) for a detailed description on what those values are). If these timeouts are triggered, NSO will close all sockets to the Java VM.
+First, we have the three timeouts in `ncs.conf` that matter. Set the three values of `/ncs-config/api/new-session-timeout`, `/ncs-config/api/query-timeout`, and `/ncs-config/api/connect-timeout` to a large value (see man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) for a detailed description on what those values are). If these timeouts are triggered, NSO will close all sockets to the Java VM.
 
 ```bash
 $ cp $NCS_DIR/etc/ncs/ncs.conf .
@@ -396,11 +396,11 @@ $ cp $NCS_DIR/etc/ncs/ncs.conf .
 Edit the file and enter the following XML entry just after the Webui entry:
 
 ```xml
-<japi>
+<api>
     <new-session-timeout>PT1000S</new-session-timeout>
     <query-timeout>PT1000S</query-timeout>
     <connect-timeout>PT1000S</connect-timeout>
-</japi>
+</api>
 ```
 
 Now, restart `ncs`, and from now on start it as:
