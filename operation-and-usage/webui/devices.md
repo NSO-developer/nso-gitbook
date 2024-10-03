@@ -221,7 +221,7 @@ To add a new group:
        * **remote-user**: Choose between **same-user** or **remote-name** options.
        * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
     3. Click **Add**. This adds the newly created user to the group and displays it in the list.
-4. Click **Create** **authgroup** to save and finish creating the group.
+4. Click **Create** **SNMP** **group** to save and finish creating the group.
 
 #### View/Edit SNMP Group Details
 
@@ -229,7 +229,7 @@ To view/edit details of a group:
 
 1. Click the group name to access the group details page.
 2. Make the desired changes, such as adding/removing a user from the group, editing existing user settings, or configuring general group settings.
-3. Click the **Save authgroup** button to save and apply the changes.
+3. Click the **Save SNMP group** button to save and apply the changes.
 
 #### Delete an SNMP Group
 
