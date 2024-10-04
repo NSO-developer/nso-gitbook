@@ -129,11 +129,20 @@ The following main tabs are available in this view:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
      * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-4. Click **Save** when the report setup is complete.
+4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
+
+{% hint style="info" %}
+In the **Compliance reports** tab, you can apply the following actions directly on the report by selecting it using the checkbox and using the more options <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> button.
+
+* **Copy as new report**: Copy an existing report as a new report.
+* **Run**: Run the report.
+* **Delete**: Delete the report.
+* **Edit name**: Edit the report name.
+{% endhint %}
 
 ### **Run a Compliance Report**
 
-1. In the **Compliance reports** tab, choose the desired report and click **Run report**.
+1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
 2. Specify the following in the **Run report** pop-up:
    * **Report title**
    * **Historical time interval**. The report runs with the maximum possible interval if you do not specify an interval.
