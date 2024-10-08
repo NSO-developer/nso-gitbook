@@ -2,7 +2,7 @@
 description: View currently loaded packages.
 ---
 
-# Viewing Packages
+# Listing Packages
 
 NSO Packages contain data models and code for a specific function. It might be a NED for a specific device, a service application like MPLS VPN, a WebUI customization package, etc. Packages can be added, removed, and upgraded in run-time.
 
