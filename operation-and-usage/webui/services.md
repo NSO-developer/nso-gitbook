@@ -4,9 +4,9 @@ description: Create and manage service deployment.
 
 # Services
 
-The **Service manager** view is where you create, deploy, and manage services in your NSO deployment. Available services are displayed in this view by default.
+The **Services** view is used to view, create, and manage services in your NSO deployment. Available services are displayed in this view by default.
 
-<figure><img src="../../images/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
+<figure><img src="../../images/service-view.png" alt=""><figcaption><p>Services View</p></figcaption></figure>
 
 ## Search <a href="#d5e6128" id="d5e6128"></a>
 
@@ -20,12 +20,25 @@ To filter the service list:
 
 ## Create a Service <a href="#d5e6142" id="d5e6142"></a>
 
+To create and deploy a service:
+
 1. In the **Select service type** drop-down list, select a service point.
 2. Click the **Add service** button. You will be redirected to the Configuration Editor.
 3. Click the plus <img src="../../images/add-action.png" alt="" data-size="line"> button.
 4. In the **Add new list item** pop-up, enter the name of the service.
 5. Confirm the intent.
-6. Review and commit the service to NSO in the **Commit manager**.
+6. Review and commit the service to NSO in the **Commit manager**. Committing the service deploys it to NSO and displays it in the **Services** view.
+
+## View Service Details
+
+To view details of a service:
+
+1. In the **Select service type** drop-down list, select a service point.
+2. Click the desired service. This opens up the service details view.
+3. Browse service details using the following tabs:
+   * **Details**
+   * **Plan**&#x20;
+   * **Log**
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
@@ -75,25 +88,34 @@ See [Lifecycle Operations](../operations/lifecycle-operations.md) for the detail
 
 Service configuration is viewed and carried out in the Configuration Editor.
 
-{% hint style="info" %}
+{% hint style="warning" %}
 The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/core-concepts/services.md) and [Developing Services](../../development/advanced-development/developing-services/) documentation for more information.
 {% endhint %}
 
-To start configuring a service:
+To rename a service:
 
-1. Click the service name in the list.
-2. In the **Configuration editor**, access the **Edit config** tab to make changes to the service.
-3. Commit the changes in the **Commit manager**.
+1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
+2. Select the service in the list using the checkbox.
+3. Click the pencil icon.
+4. Rename the service in the pop-up.
+5. Commit the change in the **Commit manager**.
+
+To edit service configuration:
+
+1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
+2. Click the service name in the list.
+3. Make the changes.
+4. Commit the changes in the **Commit manager**.
 
 {% hint style="info" %}
-The other two tabs, i.e., **Config** and **Operdata** can be respectively used to:
-
-* View the service configuration, and,
-* View the service's operational data.
+The other two tabs, i.e., **Config** and **Operdata** can be respectively used to view the service configuration and operational data.
 {% endhint %}
 
 ## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
-1. In the services list, click the service that you want to delete. You can select multiple services.
-2. Click the remove <img src="../../images/remove-action.png" alt="" data-size="line"> button.
-3. Review and commit the change in the **Commit manager**.
+To delete a service instance:
+
+1. In the **Select service type** drop-down list, select a service point.
+2. Select, using the checkbox, the service to be deleted. You can select multiple services at once.
+3. Click **Delete**.
+4. Review and commit the change in the **Commit manager**.
