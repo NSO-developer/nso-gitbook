@@ -549,6 +549,34 @@
 
 <details>
 
+<summary><code>CONFIG_DEPRECATED</code></summary>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  confd.conf contains a deprecated value
+* **Format String**  
+  `"Config value is deprecated: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>CONFIG_OBSOLETE</code></summary>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  confd.conf contains an obsolete value
+* **Format String**  
+  `"Config value is obsolete: ~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>CONFIG_TRANSACTION_LIMIT</code></summary>
 
 * **Severity**  
@@ -571,6 +599,20 @@
   ConfD is reading its configuration file.
 * **Format String**  
   `"Consulting daemon configuration file ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>CRYPTO_KEYS_FAILED_LOADING</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Crypto keys failed to load because the old active generation is missing in the new configuration.
+* **Format String**  
+  `"Cannot reload crypto keys since the old active generation is missing in the new list of keys."`
 
 </details>
 
