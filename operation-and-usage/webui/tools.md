@@ -132,7 +132,7 @@ The following main tabs are available in this view:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions directly on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions directly on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options (1).png" alt="" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.

@@ -8,22 +8,9 @@ The **Service manager** view is where you create, deploy, and manage services in
 
 <figure><img src="../../images/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
 
-{% hint style="info" %}
-**Columns in the Services List**
+## Search <a href="#d5e6128" id="d5e6128"></a>
 
-* **name**: The name of the service.
-* **plan**: Shows the service plan.
-* **devices**: Shows the number of devices associated with the service. Use the refresh <img src="../../images/refresh.png" alt="" data-size="line"> button to reload the devices list.
-* **check-sync**, **re-deploy**, and **re-deploy dry-run** denote the actions that you can perform on a service.
-{% endhint %}
-
-{% hint style="success" %}
-Hide and display the columns of your choice by using the column selection <img src="../../images/col-select.png" alt="" data-size="line"> icon.
-{% endhint %}
-
-## Search Filter <a href="#d5e6128" id="d5e6128"></a>
-
-If you have several services configured, you can use the **Search filter** to filter down results to the services(s) of your choice. The search filter matches the entered characters to the service name and shows the results accordingly. Results are shown only for the service point that you have selected.
+If you have several services configured, you can use the **Search** to filter down results to the services(s) of your choice. The search filter matches the entered characters to the service name and shows the results accordingly. Results are shown only for the service point that you have selected.
 
 To filter the service list:
 
@@ -33,11 +20,12 @@ To filter the service list:
 
 ## Create a Service <a href="#d5e6142" id="d5e6142"></a>
 
-1. In the **Select service point** drop-down list, select a service point.
-2. Click the add <img src="../../images/add-action.png" alt="" data-size="line"> button.
-3. In the **Create service** pop-up, enter the name of the service.
-4. Confirm the intent.
-5. Review and commit the service to NSO in the **Commit manager**.
+1. In the **Select service type** drop-down list, select a service point.
+2. Click the **Add service** button. You will be redirected to the Configuration Editor.
+3. Click the plus <img src="../../images/add-action.png" alt="" data-size="line"> button.
+4. In the **Add new list item** pop-up, enter the name of the service.
+5. Confirm the intent.
+6. Review and commit the service to NSO in the **Commit manager**.
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
@@ -47,46 +35,29 @@ Start by selecting a service point to populate all services under it, and then f
 
 {% tabs %}
 {% tab title="From the Service Manager View" %}
-You can apply an action on a single service or multiple services at once.
-
 To apply an action on a service:
 
-* On the desired service in the list, click the action button (i.e., **check-sync**, **re-deploy**, or **re-deploy dry-run**).
+1. On the desired service in the list, click the more options <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> button.
+2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.&#x20;
 
-To apply an action on multiple services:
-
-1. Select the desired services from the list.
-2. Using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button, select the desired service action.
-3. Confirm the intent.
+{% hint style="info" %}
+The **Check sync** action can be run on multiple services at once by selecting multiple services using the checkbox and then running the action using the **Choose actions** button.
+{% endhint %}
 
 **Actions Possible in the Service Manager View**
 
-Available actions include **check-sync**, **re-deploy**, and **re-deploy dry-run**.
-
-See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
-
-{% hint style="info" %}
-**Action Result**
-
-The result of running a basic action is displayed using one of the following colors:
-
-* A red button color means that the action was unsuccessful.
-* A green button color means that the action was successful.
-
-Expand the button further to get more information about the result.
-{% endhint %}
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of service actions (**Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**).
 {% endtab %}
 
 {% tab title="From the Configuration Editor -> Actions Tab" %}
-Additional actions are applied per individual service. Use this option if you want to run an action with additional parameters.
+Additional actions are applied to an individual service. Use this option if you want to run an action with additional parameters.
 
-1. Click the service name in the list.
-2. Access the **Actions** tab in the **Configuration editor**.
-3. Click the desired action in the list.
-4.  At this point, you can configure different parameters.
+1. Access the **Actions** tab in the **Configuration editor**.
+2. Click the desired action in the list.
+3.  At this point, you can configure different parameters.
 
     (Use the **Reset action parameters** option to reset all parameters to default value).
-5. Run the action.
+4. Run the action.
 
 {% hint style="info" %}
 Fetch the action information by clicking the info <img src="../../images/actions-info.png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
@@ -94,7 +65,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, **purge**.
+Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, and **purge**.
 
 See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
