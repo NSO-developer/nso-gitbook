@@ -10,7 +10,7 @@ The **Service manager** view is where you create, deploy, and manage services in
 
 ## Search <a href="#d5e6128" id="d5e6128"></a>
 
-If you have several services configured, you can use the **Search** to filter down results to the services(s) of your choice. The search filter matches the entered characters to the service name and shows the results accordingly. Results are shown only for the service point that you have selected.
+If you have several services configured, you can use the **Search** to filter down results to the service of your choice. The search filter matches the entered characters to the service name and shows the results accordingly. Results are shown only for the service point that you have selected.
 
 To filter the service list:
 
