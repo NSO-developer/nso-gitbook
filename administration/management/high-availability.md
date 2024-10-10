@@ -481,7 +481,7 @@ Failover may occur when a secondary node loses the connection to the primary nod
 * `/high-availability/ha-node{id}/failover-primary`
 * `/high-availability/settings/enable-failover`
 
-For automatic failover to function, `/high-availability/settings/enable-failover` must be se to `true`. It is then possible to enable at most one node with a nominal role secondary as failover-primary, by setting the parameter `/high-availability/ha-node{id}/failover-primary`. A node with a nominal role primary is also implicitly a failover-primary - it will act as failover-primary if its currently assigned role is secondary.
+For automatic failover to function, `/high-availability/settings/enable-failover` must be se to `true`. It is then possible to enable at most one node with a nominal role secondary as failover-primary, by setting the parameter `/high-availability/ha-node{id}/failover-primary`. The failover works in both directions; if a nominal primary is currently connected to the failover-primary as a secondary and loses the connection, then it will attempt to take over as a primary.
 
 Before failover happens, a failover-primary-enabled secondary node may attempt to reconnect to the previous primary before assuming the primary role. This behavior is configured by the parameters denoting how many reconnect attempts will be made, and with which interval, respectively.
 
@@ -517,6 +517,10 @@ To restore the HA cluster one may need to manually invoke the `/high-availabilit
 
 {% hint style="info" %}
 In the case where the failover-primary takes over as primary, it will enable read-only mode, if no secondary connects it will remain read-only. This is done to guarantee consistency.
+{% endhint %}
+
+{% hint style="info" %}
+In a three-node cluster, when the nominal primary takes over as actual primary, it first enables read-only mode and stays in read-only mode until a secondary connects. This is done to guarantee consistency.
 {% endhint %}
 
 The read-write mode can manually be enabled from the `/high-availability/read-only` action with the parameter mode passed with value false.
