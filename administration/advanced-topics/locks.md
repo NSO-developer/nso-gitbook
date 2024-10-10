@@ -12,7 +12,7 @@ The NSO management backplane keeps a lock on the datastore running. This lock is
 
 The global is the only lock that can explicitly be taken through a northbound agent, for example by the NETCONF `<lock>` operation, or by calling `Maapi.lock()`.
 
-A global lock can be taken for the whole datastore, or it can be a partial lock (for a subset of the data model). Partial locks are exposed through NETCONF and Maapi.
+A global lock can be taken for the whole datastore, or it can be a partial lock (for a subset of the data model). Partial locks are exposed through NETCONF and MAAPI and are only supported for operations toward the running datastore.
 
 An agent can request a global lock to ensure that it has exclusive write access. When a global lock is held by an agent, it is not possible for anyone else to write to the datastore that the lock guards - this is enforced by the transaction engine. A global lock on running is granted to an agent if there are no other holders of it (including partial locks) and if all data providers approve the lock request. Each data provider (CDB and/or external data providers) will have its `lock()` callback invoked to get a chance to refuse or accept the lock. The output of `ncs --status` includes locking status. For each user session locks (if any) per datastore is listed.
 
