@@ -37,7 +37,7 @@ Start by selecting a service point to populate all services under it, and then f
 {% tab title="From the Service Manager View" %}
 To apply an action on a service:
 
-1. On the desired service in the list, click the more options <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> button.
+1. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
 2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.&#x20;
 
 {% hint style="info" %}
