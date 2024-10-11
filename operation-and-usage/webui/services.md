@@ -4,7 +4,7 @@ description: Create and manage service deployment.
 
 # Services
 
-The **Services** view is used to view, create, and manage services in your NSO deployment. Available services are displayed in this view by default.
+The **Services** view is used to view, create, and manage services in your NSO deployment. The default **Services** view displays the existing services.
 
 <figure><img src="../../images/service-view.png" alt=""><figcaption><p>Services View</p></figcaption></figure>
 
@@ -14,7 +14,7 @@ If you have several services configured, you can use the **Search** to filter do
 
 To filter the service list:
 
-1. Select the desired service point from the list to populate all the services under it.
+1. In the **Select service type** drop-down, select the service point to populate all the services under it.
 2. Enter a partial or full name of the service you are searching for.
 3. Press **Enter**.
 
@@ -22,7 +22,7 @@ To filter the service list:
 
 To create and deploy a service:
 
-1. In the **Select service type** drop-down list, select a service point.
+1. In the **Select service type** drop-down, select the service point.
 2. Click the **Add service** button. You will be redirected to the Configuration Editor.
 3. Click the plus <img src="../../images/add-action.png" alt="" data-size="line"> button.
 4. In the **Add new list item** pop-up, enter the name of the service.
@@ -33,7 +33,7 @@ To create and deploy a service:
 
 To view details of a service:
 
-1. In the **Select service type** drop-down list, select a service point.
+1. In the **Select service type** drop-down, select the service point.
 2. Click the desired service. This opens up the service details view.
 3. Browse service details using the following tabs:
    * **Details**
@@ -108,14 +108,14 @@ To edit service configuration:
 4. Commit the changes in the **Commit manager**.
 
 {% hint style="info" %}
-The other two tabs, i.e., **Config** and **Operdata** can be respectively used to view the service configuration and operational data.
+The other two tabs, i.e., **Config** and **Operdata** can be used respectively to view the service configuration and operational data.
 {% endhint %}
 
 ## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
 To delete a service instance:
 
-1. In the **Select service type** drop-down list, select a service point.
+1. In the **Select service type** drop-down list, select the service point.
 2. Select, using the checkbox, the service to be deleted. You can select multiple services at once.
 3. Click **Delete**.
 4. Review and commit the change in the **Commit manager**.

@@ -4,7 +4,7 @@ description: Operate NSO using the Web UI.
 
 # Web UI
 
-The NSO Web UI provides an intuitive northbound interface to your NSO deployment. The UI consists of individual views, each with a different purpose, such as device management, service management, commit handling, etc.
+The NSO Web UI provides an intuitive northbound interface to your NSO deployment. The UI consists of individual views, each with a different purpose to perform operations such as device management, service management, commit handling, etc.
 
 The main components of the Web UI are shown in the figure below.
 
