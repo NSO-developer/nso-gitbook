@@ -53,7 +53,7 @@ See [Lifecycle Operations](../operations/lifecycle-operations.md) for the detail
 {% endtab %}
 
 {% tab title="From the Configuration Editor -> Actions Tab" %}
-Additional actions are applied per individual device. Use this option if you want to run an action with additional parameters.
+Additional actions are applied to an individual device. Use this option if you want to run an action with additional parameters.
 
 1. Click the device name in the list.
 2. Access the **Actions** tab in the **Configuration editor**.

@@ -22,7 +22,7 @@ All modern web browsers are supported and no plug-ins are needed. The interface 
 
 ## Accessing the Web UI <a href="#d5e5679" id="d5e5679"></a>
 
-By default, the Web UI is accessible on port 8080 of the NSO server for an NSO Local Install and port 8888 for a System Install. The port can be changed in the `ncs.conf` file. A user must authenticate before accessing the (web) UI.
+By default, the Web UI is accessible on port 8080 of the NSO server for an NSO Local Install and port 8888 for a System Install. The port can be changed in the `ncs.conf` file. Users are required to authenticate before accessing the Web UI.
 
 ## Basic Operations <a href="#d5e5683" id="d5e5683"></a>
 
