@@ -44,14 +44,13 @@ To view details of a service:
 
 You can apply actions on a service from the **Service manager** view or the **Configuration editor**.
 
-Start by selecting a service point to populate all services under it, and then follow the instructions below.
-
 {% tabs %}
 {% tab title="From the Service Manager View" %}
 To apply an action on a service:
 
-1. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
-2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
+1. Select the service point to populate all services under it.
+2. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+3. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
 
 {% hint style="info" %}
 The **Check sync** action can be run on multiple services at once by selecting them using the checkbox and then running the action using the **Choose actions** button.
