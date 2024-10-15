@@ -43,9 +43,7 @@ Some of the more important flags are:
     {% hint style="danger" %}
     The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared.
     {% endhint %}
-*   `no-overwrite`: NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. This is a fine-granular sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted.\
-    \
-    This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.
+*   `no-overwrite`: NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. This is a fine-granular sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted. This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.
 
     {% hint style="danger" %}
     The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared.
