@@ -20,7 +20,7 @@ You can search for a device by its name, IP address, or other parameters. Narrow
 
 To add a new device to NSO:
 
-1. Click **Add device**.
+1. Click the **Add device** button.
 2. In the **Add device** pop-up, specify the device name.
 3. Click **Add**.
 4. Configure the specifics of the device in the **Configuration editor**.
@@ -34,7 +34,7 @@ Actions can be applied on a device from the **Device management** view or the **
 {% tab title="From the Device Management View" %}
 An action can be applied to a single or multiple devices at once.
 
-1. Select the device(s) from the list.
+1. Select the device(s) from the list using the checkbox.
 2. Using the **Choose actions** button, select the desired action. The result of the action is returned immediately.
 
 {% hint style="info" %}
