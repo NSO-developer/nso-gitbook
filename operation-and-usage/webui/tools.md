@@ -124,7 +124,7 @@ The following main tabs are available in this view:
      * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
      * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
      * **Device choice**: Include **All devices** or only **Some devices**. If **Some devices** is selected, specify the devices using an XPath expression, device groups, or devices.
-     * **Compliance templates**: If a compliance template should be used to check for compliance. See the section called Device Configuration Checks.
+     * **Compliance templates**: If a compliance template should be used to check for compliance. See the section called [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks).
    * **Services** tab: to configure service compliance checks. Configuration options include:
      * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
      * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
