@@ -286,12 +286,17 @@ class WebSiteServiceRFS {
 
     ....
 
+    private final NcsMain main;
+
+    public WebSiteServiceRFS(NcsMain main) {
+        this.main = main;
+    }
+
     @ActionCallback(callPoint="diffcheck", callType=ActionCBType.ACTION)
     public ConfXMLParam[] diffcheck(DpActionTrans trans, ConfTag name,
                                    ConfObject[] kp, ConfXMLParam[] params)
     throws DpCallbackException {
-        try {
-
+        try (Maapi maapi3 = new Maapi(main.getAddress())) {
             System.out.println("-------------------");
             System.out.println(params[0]);
             System.out.println(params[1]);
@@ -300,8 +305,6 @@ class WebSiteServiceRFS {
             ConfUInt32 val = (ConfUInt32) params[2].getValue();
             int tid = (int)val.longValue();
 
-            Socket s3 = new Socket("127.0.0.1", Conf.NCS_PORT);
-            Maapi maapi3 = new Maapi(s3);
             maapi3.attach(tid, -1);
 
             maapi3.diffIterate(tid, new MaapiDiffIterate() {
@@ -322,11 +325,8 @@ class WebSiteServiceRFS {
 
 
             maapi3.detach(tid);
-            s3.close();
 
-
-        return new ConfXMLParam[]{};
-
+            return new ConfXMLParam[]{};
         } catch (Exception e) {
             throw new DpCallbackException("diffcheck failed", e);
         }

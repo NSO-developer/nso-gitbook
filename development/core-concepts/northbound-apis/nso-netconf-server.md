@@ -978,7 +978,7 @@ To control the commit behavior of NSO the following input parameters are availab
 * `no-revision-drop`\
   NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
 * `no-overwrite`\
-  NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data.
+  NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data.
 * `no-networking`\
   Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.
 * `no-out-of-sync-check`\

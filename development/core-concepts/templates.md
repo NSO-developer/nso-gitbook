@@ -8,7 +8,7 @@ NSO comes with a flexible and powerful built-in templating engine, which is base
 
 You will most often find this type of configuration templates used in services, which is why they are sometimes also called service templates. However, we mostly refer to them simply as XML templates, since they are defined in XML files.
 
-NSO loads templates as part of a package, looking for XML files in the `templates` subdirectory. You then apply an XML template through API or by connecting it with a service through a service point, allowing NSO to use it whenever a service instance needs updating.
+NSO loads templates as part of a package, looking for XML files in the `templates` directory and its subdirectories. You then apply an XML template through API or by connecting it with a service through a service point, allowing NSO to use it whenever a service instance needs updating.
 
 {% hint style="info" %}
 XML templates are distinct from so-called “device templates”, which are dynamically created and applied as needed by the operator, for example in the CLI. There are also other types of templates in NSO, unrelated to XML templates described here.
@@ -70,7 +70,7 @@ Having the basic structure in place, you can then fine-tune the template by addi
 
 Note that a single template can configure multiple devices of different type, services, or any other configurable data in NSO; basically the same as you can do in a CLI commit. But a single, gigantic template can become a burden to maintain. That is why many developers prefer to split up bigger configurations into multiple feature templates, either by functionality or by device type.
 
-Finally, the name of the file, without the `.xml` extension is the name of the template. The name allows you to reference the template from the code later on. Since all the template names reside in the same namespace, it is a good practice to use a common naming scheme, preferably _`<package name>`_`-`_`<feature>`_`.xml` to ensure template names are unique.
+Finally, every XML template has a name. The name of the template is the file path relative to the `templates` directory of the package, without the `.xml` extension. The name allows you to reference the template from the code later on. In case multiple packages define a template with the same path, you disambiguate between them by prepending _`<package name>`_`:` to the name. (Note that any colon or backslash characters in the package name or the file path must be backslash escaped.)
 
 ## Other Ways to Generate the XML Template Structure <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
 

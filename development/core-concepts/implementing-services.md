@@ -692,7 +692,7 @@ Finally, the create code applies a template, with only minimal changes to the sk
 
 If required, your service code can call `vars.add()` multiple times, to add as many variables as the template expects.
 
-The first argument to the `template.apply()` call is the file name of the XML template, without the .xml suffix. It allows you to apply multiple, different templates for a single service instance. Separating the configuration into multiple templates based on functionality, called feature templates, is a great practice with bigger, complex configurations.
+The first argument to the `template.apply()` call is the name of the XML template. Template name is the file path relative to the `templates` subdirectory, without the .xml suffix. It allows you to apply multiple, different templates for a single service instance. Separating the configuration into multiple templates based on functionality, called feature templates, is a great practice with bigger, complex configurations.
 
 The complete create code for the service is:
 
@@ -765,7 +765,7 @@ The create code applies a template, with only minimal changes to the skeleton-ge
 
 If required, your service code can call `myVars.putQuoted()` multiple times, to add as many variables as the template expects.
 
-The second argument to the `Template` constructor is the file name of the XML template, without the .xml suffix. It allows you to instantiate and apply multiple, different templates for a single service instance. Separating the configuration into multiple templates based on functionality, called feature templates, is a great practice with bigger, complex configurations.
+The second argument to the `Template` constructor is the name of the XML template. Template name is the file path relative to the `templates` subdirectory, without the .xml suffix. It allows you to instantiate and apply multiple, different templates for a single service instance. Separating the configuration into multiple templates based on functionality, called feature templates, is a great practice with bigger, complex configurations.
 
 Finally, you must also return the `opaque` object and handle various exceptions for the function. If exceptions are propagated out of the create code, you should transform them into NSO specific ones first, so the UI can present the user with a meaningful error message.
 
