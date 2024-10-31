@@ -219,7 +219,7 @@ To add a new group:
     2. Specify the **local-user** and configure the following settings:
        * **community** (optional): Choose between **community-name** or **community-binary-name**.
        * **remote-user**: Choose between **same-user** or **remote-name** options.
-       * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options.
+       * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.&#x20;
     3. Click **Add**. This adds the newly created user to the group and displays it in the list.
 4. Click **Create** **SNMP** **group** to save and finish creating the group.
 
