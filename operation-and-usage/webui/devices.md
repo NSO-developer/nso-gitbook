@@ -6,6 +6,16 @@ description: Manage devices and device groups in your NSO deployment.
 
 The **Devices** view provides options to manage devices and device groups in the NSO network.
 
+{% hint style="info" %}
+**Dirty state**
+
+Anytime a device configuration is changed in the **Devices** view, the UI reflects the change with a so-called color-coded "dirty state", with the following meanings:
+
+* <mark style="color:blue;">Blue</mark> color: An addition was made.
+* <mark style="color:red;">Red</mark> color: A deletion was made.
+* <mark style="color:green;">Green</mark> color: A modification was made to an already-committed list element.
+{% endhint %}
+
 ## Device Management <a href="#d5e5752" id="d5e5752"></a>
 
 The **Device management** view lists the devices in the network and provides options to manage them.
@@ -110,8 +120,8 @@ Device groups allow for the grouping and collective management of devices.
    * **Details**: Displays basic details of the group, i.e., its name and parent/subgroup information. To link a sub-group, use the **Connect sub device group** option.
    * **Devices in this group**: Displays currently added devices in the group and provides the option to remove them from the group.
    * **Add devices**: Displays all available NSO devices and provides the option to add them to the group.
-4. In the **Add devices** pane, select the device(s) that you want to add to the new group and click **Add devices to group**. The added devices become visible under the **Devices in this group** pane.
-5. Finally, click **Save**.
+4. In the **Add devices** pane, select the device(s) that you want to add to the new group and click **Add to device group**. The added devices become visible under the **Devices in this group** pane.
+5. Finally, click **Create device group**.
 
 ### **Remove Device(s) from a Device Group**
 
