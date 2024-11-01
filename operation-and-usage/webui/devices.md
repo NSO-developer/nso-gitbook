@@ -1,10 +1,10 @@
 ---
-description: Manage devices and device groups in your NSO deployment.
+description: Manage devices, device groups, and authgroups in your NSO deployment.
 ---
 
 # Devices
 
-The **Devices** view provides options to manage devices and device groups in the NSO network.
+The **Devices** view provides options to manage devices, device groups, and authgroups in the NSO network.
 
 ## Device Management <a href="#d5e5752" id="d5e5752"></a>
 
