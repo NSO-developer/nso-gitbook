@@ -44,6 +44,14 @@ Access the help options by clicking the help options icon in the UI banner. The 
 
 In the Web UI, supplementary help text, whenever applicable, is available on the configuration fields and can be accessed by clicking the info icons.
 
+## Dirty State&#x20;
+
+Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state", with the following meanings:
+
+* <mark style="color:blue;">Blue</mark> color: An addition was made.
+* <mark style="color:red;">Red</mark> color: A deletion was made.
+* <mark style="color:green;">Green</mark> color: A modification was made to an already-committed list element.
+
 ## Commit Manager <a href="#d5e5718" id="d5e5718"></a>
 
 The Commit Manager is accessible at all times from the UI banner. Working with the Commit Manager is further described in [Tools](tools.md).
