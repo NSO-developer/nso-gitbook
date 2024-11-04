@@ -81,7 +81,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **purge**, and **get-modifications.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
+Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
 {% endtab %}
 {% endtabs %}
 

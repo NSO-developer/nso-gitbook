@@ -43,7 +43,7 @@ In the **Device management** view, you can also apply actions on a device using 
 
 **Actions Possible in the Device Management View**
 
-Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**, and. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
 The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
@@ -67,7 +67,11 @@ To fetch information about an action in the **Configuration editor** -> **Action
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-If you access the device in the **Configuration editor**, the following additional actions are available: **migrate**, **copy-capabilities**, **find-capabilities**, **add-capability**, **instantiate-from-other-device**, **check-yang-modules**, **sync-from**, **disconnect**, **rename**, **sync-to**, **ping**, **check-sync**, **delete-config**, **scp-to**, **scp-from**, **clear-trace**, **apply-template**, **fetch-host-keys**, **load-native-config**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+If you access the device in the **Configuration editor**, the following additional actions are available:&#x20;
+
+**migrate**, **instantiate-from-other-device**, **check-yang-modules**, **scp-to**, **copy-capabilities**, **compare-config**, **connect**, **scp-from**, **find-capabilities**, **sync-from**, **disconnect**, **rename**, **add-capability**, **sync-to**, **ping**, **load-native-config**, **apply-template**, **check-sync**, **delete-config**, **clear-trace**, and **fetch-host-keys**,&#x20;
+
+See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
