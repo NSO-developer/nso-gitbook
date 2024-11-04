@@ -42,7 +42,7 @@ To view details of a service:
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
-You can apply actions on a service from the **Service manager** view or the **Configuration editor**.
+You can apply actions on a service from the **Services** view or the **Configuration editor**.
 
 {% tabs %}
 {% tab title="From the Services View" %}
