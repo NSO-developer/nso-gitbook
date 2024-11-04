@@ -67,9 +67,7 @@ To fetch information about an action in the **Configuration editor** -> **Action
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-If you access the device in the **Configuration editor**, the following additional actions are available: **migrate**, **copy-capabilities**, **find-capabilities**, **add-capability**, **instantiate-from-other-device**, **check-yang-modules**, **disconnect**, **delete-config**, **scp-to scp-from**, **load-native-config**.
-
-See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+If you access the device in the **Configuration editor**, the following additional actions are available: **migrate**, **copy-capabilities**, **find-capabilities**, **add-capability**, **instantiate-from-other-device**, **check-yang-modules**, **sync-from**, **disconnect**, **rename**, **sync-to**, **ping**, **check-sync**, **delete-config**, **scp-to**, **scp-from**, **clear-trace**, **apply-template**, **fetch-host-keys**, **load-native-config**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 
