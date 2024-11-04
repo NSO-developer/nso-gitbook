@@ -35,6 +35,8 @@ The **Reload** button on the **Packages** pane is the equivalent of the **packag
 
 ### **Install a Package**
 
+To install a new package:
+
 1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar`) from your local disk.
 2. Click **Upload**. The package becomes visible under the **Available** pane.\
    (The **Progress Trace** shows the real-time progress of the upload).
@@ -42,6 +44,8 @@ The **Reload** button on the **Packages** pane is the equivalent of the **packag
 4. On the **Loaded** pane, click **Reload** and confirm the intent.
 
 ### **Uninstall a Package**
+
+To uninstall an existing package:
 
 * To uninstall a package, simply click **Deinstall** next to the package in the **Loaded packages** list.
 
@@ -70,6 +74,8 @@ Any network-wide configuration change can be picked up as a rollback file. The r
 {% endhint %}
 
 ### **Review a Configuration Change**
+
+To review a configuration change:
 
 1. Access the Commit Manager by clicking its icon <img src="../../images/commit-manager.png" alt="" data-size="line"> in the banner.
 2. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
@@ -102,18 +108,24 @@ In the **Commit manager** view, the following tabs are shown.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
-The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historical events, or both.
+The **Compliance reporting** view is used to create and run compliance reports to check the current situation, check historical events, or both. The conceptual aspects of the compliance reporting feature are discussed in greater depth in the [Compliance Reports](../operations/compliance-reporting.md) section.
 
 {% hint style="success" %}
-The recommended and preferred way of running the compliance reports is through the Web UI.
+Web UI is the recommended way of running the compliance reports.
 {% endhint %}
 
-The following main tabs are available in this view:
+The following tabs are available in this view:
 
-* **Compliance reports**, to create, run, manage, and view existing compliance reports.
-* **Report results**, to view compliance report results and status.
+* **Compliance reports**
+* **Report results**
 
-### **Create a Compliance Report**
+### Compliance Reports
+
+The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
+
+#### **Create a Compliance Report**
+
+To create a new compliance report:
 
 1. In the **Compliance reporting** view -> **Compliance reports** tab, click **New report**.
 2. In the **Create new report** pop-up, enter the report name and click **Create**.
@@ -124,7 +136,7 @@ The following main tabs are available in this view:
      * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
      * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
      * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
-     * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** option, or convert an existing device template into a compliance template by using the **Create from device template** option (which can then be added using the **Add template** option). To enforce devices to comply exactly to the template's configuration, use **Strict** mode, see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
+     * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** option or convert an existing device template into a compliance template by using the **Create from device template** option (which can then be added using the **Add template** option). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
    * **Services** tab: to configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
@@ -132,7 +144,7 @@ The following main tabs are available in this view:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions directly on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
@@ -140,12 +152,20 @@ In the **Compliance reports** tab, you can apply the following actions directly 
 * **Edit name**: Edit the report name.
 {% endhint %}
 
-### **Run a Compliance Report**
+#### **Run a Compliance Report**
+
+To run a compliance report:
 
 1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
 2. Specify the following in the **Run report** pop-up:
    * **Report title**
-   * **Historical time interval**. The report runs with the maximum possible interval if you do not specify an interval.
+   * **Historical time interval**. Select the time range. The report runs with the maximum possible interval if you do not specify an interval.
 3. Click **Run report**.
 
-The report's results, available from the **Report results** tab, show if the report was compliant or has violations. Click the report name to fetch detailed results about the report. If there are violations, you can use the **View details** option to extract a diff of configuration.
+### Report Results
+
+The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
+
+#### View Compliance Report Results
+
+The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is available readily in the **Report results** tab.  To fetch detailed information on the report, click the report name.
