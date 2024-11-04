@@ -45,7 +45,7 @@ To view details of a service:
 You can apply actions on a service from the **Service manager** view or the **Configuration editor**.
 
 {% tabs %}
-{% tab title="From the Service Manager View" %}
+{% tab title="From the Services View" %}
 To apply an action on a service:
 
 1. Select the service point to populate all services under it.
