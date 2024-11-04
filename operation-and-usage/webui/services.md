@@ -37,7 +37,7 @@ To view details of a service:
 2. Click the desired service. This opens up the service details view.
 3. Browse service details using the following tabs:
    * **Details**
-   * **Plan**&#x20;
+   * **Plan**
    * **Log**
 
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
@@ -56,9 +56,13 @@ To apply an action on a service:
 The **Check sync** action can be run on multiple services at once by selecting them using the checkbox and then running the action using the **Choose actions** button.
 {% endhint %}
 
-**Actions Possible in the Service Manager View**
+**Actions Possible in the Services View**
 
-See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of service actions (**Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**).
+Available actions include **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, and **get modifications**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+
+{% hint style="info" %}
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible on the service row.
+{% endhint %}
 {% endtab %}
 
 {% tab title="From the Configuration Editor -> Actions Tab" %}
@@ -77,9 +81,9 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch, set-rank**, **get-modifications**, and **purge**.
+Access the service in the **Configuration editor** to run the following actions: **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, and **get-modifications.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
 
-See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
+The **set-rank** and **purge** are GUI-specific operations.
 {% endtab %}
 {% endtabs %}
 

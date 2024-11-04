@@ -43,13 +43,11 @@ In the **Device management** view, you can also apply actions on a device using 
 
 **Actions Possible in the Device Management View**
 
-Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, **Apply template**, **Modify in Config editor**, and **Delete**.
+Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** actions are accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
 {% endhint %}
-
-See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 
 {% tab title="From the Configuration Editor -> Actions Tab" %}
