@@ -168,4 +168,14 @@ The **Reports results** tab is used to view the status and results of the compli
 
 #### View Compliance Report Results
 
-The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is available readily in the **Report results** tab.  To fetch detailed information on the report, click the report name.
+The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is available readily in the **Report results** tab. &#x20;
+
+To fetch detailed information on the report, click the report name. The following information panes are then available:&#x20;
+
+* **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and devices/services analyzed.
+* **Results overview**: Shows a summary of the results with information on compliant and non-compliant devices and services.
+* **Devices**/**Services**/**Errors**: Displays compliance information individually for included devices and services.
+
+{% hint style="info" %}
+Use the **Export to file** button to export the report results to a downloadable file (PDF).
+{% endhint %}

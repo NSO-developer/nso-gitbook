@@ -703,7 +703,7 @@ The configuration changes are stored in rollback files where the most recent cha
 
 Only the deltas are stored in the rollback files. When rolling back the configuration to rollback N, all changes stored in rollback10001-rollbackN are applied.
 
-There are two ways to address which rollback file to use, either `fixed-number <number>` to address an absolute rollback number or **id \<number>** to address a relative number. For e.g., the latest commit has relative rollback id 0, the second-latest has id 1, and so on.
+There are two ways to address which rollback file to use, either `fixed-number <number>` to address an absolute rollback number or `id <number>` to address a relative number. For e.g., the latest commit has relative rollback id 0, the second-latest has id 1, and so on.
 
 The optional path argument allows subtrees to be rolled back while the rest of the configuration tree remains unchanged.
 
