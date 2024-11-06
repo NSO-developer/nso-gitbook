@@ -99,7 +99,7 @@ compliance reports report gold-check
 !
 ```
 
-You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui\_compliance) for details.
+You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui\_compliance) for more information.
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
