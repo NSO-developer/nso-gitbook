@@ -131,7 +131,7 @@ To create a new compliance report:
 
 1. In the **Compliance reporting** view -> **Compliance reports** tab, click **New report**.
 2. In the **Create new report** pop-up, enter the report name and click **Create**.
-3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Lifecycle Operations](../operations/lifecycle-operations.md) documentation.
+3. Next, set up the compliance report using the following tabs. For a more detailed description of Compliance Reporting concepts and related configuration options, see [Compliance Reporting](../operations/compliance-reporting.md).
    * **General** tab: to configure the report name. Configuration options include:
      * **Report name**: Displays the report name and allows editing of the report name.
    * **Devices** tab: to configure device compliance checks. Configuration options include:
