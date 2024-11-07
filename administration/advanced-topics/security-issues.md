@@ -35,4 +35,4 @@ NSO multiplexes different kinds of connections on the same socket (IP and port c
 
 By default, all of the above are considered trusted. MAAPI clients and `ncs_cli` should supposedly authenticate the user before connecting to NSO whereas CDB clients and external database API clients are considered trusted and do not have to authenticate.
 
-Thus, since the `ncs-ipc-address` socket allows full unauthenticated access to the system, it is important to ensure that the socket is not accessible from untrusted networks. However, it is also possible to restrict access to this socket by means of an access check, see [Restricting Access to the IPC Port](ipc-ports.md#ug.ncs\_advanced.ipc.restricting).
+Thus, since the `ncs-ipc-address` socket allows full unauthenticated access to the system, it is important to ensure that the socket is not accessible from untrusted networks. However, it is also possible to restrict access to this socket by means of an access check, see [Restricting Access to the IPC Port](ipc-connection.md#ug.ncs\_advanced.ipc.restricting).

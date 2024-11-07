@@ -35,7 +35,7 @@
 * [Advanced Topics](administration/advanced-topics/README.md)
   * [Locks](administration/advanced-topics/locks.md)
   * [Compaction](administration/advanced-topics/compaction.md)
-  * [IPC Ports](administration/advanced-topics/ipc-ports.md)
+  * [IPC Connection](administration/advanced-topics/ipc-connection.md)
   * [Service Manager Restart](administration/advanced-topics/restart-strategies-for-service-manager.md)
   * [Security Issues](administration/advanced-topics/security-issues.md)
   * [Run NSO as Non-Privileged User](administration/advanced-topics/running-nso-as-a-non-privileged-user.md)

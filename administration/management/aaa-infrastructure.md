@@ -586,7 +586,7 @@ connects to NSO as the user `admin`. The same is possible for the group. This un
 
 The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 
-In general, authenticating access to the IPC socket is a security best practice and should always be used. NSO implements it as an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting) on how to enable it.
+In general, authenticating access to the IPC socket is a security best practice and should always be used. NSO implements it as an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Port](../advanced-topics/ipc-connection.md#ug.ncs\_advanced.ipc.restricting) on how to enable it.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 

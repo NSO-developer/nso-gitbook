@@ -420,7 +420,7 @@ While the Python package skeleton names the derived class `Main`, you can choose
 
 When starting the package, NSO reads the class name from `package-meta-data.xml`, starts the Python interpreter, and instantiates a class instance. The base `Application` class takes care of establishing communication with the NSO process and calling the `setup` and `teardown` methods. The two methods are a good place to do application-specific initialization and cleanup, along with any callback registrations you require.
 
-The communication between the application process and NSO happens through a dedicated control socket, as described in the section called [IPC Ports](../../administration/advanced-topics/ipc-ports.md) in Administration. This setup prevents a faulty application from bringing down the whole system along with it and enables NSO to support different application environments.
+The communication between the application process and NSO happens through a dedicated control socket, as described in the section called [IPC Ports](../../administration/advanced-topics/ipc-connection.md) in Administration. This setup prevents a faulty application from bringing down the whole system along with it and enables NSO to support different application environments.
 
 In fact, NSO can manage applications written in Java or Erlang in addition to those in Python. If you replace the `python-class-name` element of a component with `java-class-name` in the `package-meta-data.xml` file, NSO will instead try to run the specified Java class in the managed Java VM. If you wanted to, you could implement all of the same services and actions in Java, too. For example, see [Service Actions](../core-concepts/implementing-services.md#ch\_services.actions) to compare Python and Java code.
 
@@ -450,7 +450,7 @@ class MyTestAction(Action):
 There are some important points worth noting for action timeout:
 
 * An action callback that times out in one user instance will not affect the result of an action callback in another user instance. This is because NSO executes actions using multiple worker sockets, and an action timeout will only terminate the worker socket executing that specific action.
-* Implementing your own abort action callback in `cb_abort` allows you to handle actions that are timing out. If `cb_abort` is not defined, NSO cannot trigger the abort action during a timeout, preventing it from unlocking the action for a user session.  Consequently, you must wait for the action callback to finish before attempting it again.
+* Implementing your own abort action callback in `cb_abort` allows you to handle actions that are timing out. If `cb_abort` is not defined, NSO cannot trigger the abort action during a timeout, preventing it from unlocking the action for a user session. Consequently, you must wait for the action callback to finish before attempting it again.
 
 For NSO operational data queries, NSO uses `query-timeout` to ensure the data provider return operational data within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.
 
