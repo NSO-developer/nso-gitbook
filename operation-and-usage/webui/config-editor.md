@@ -12,7 +12,7 @@ The Configuration Editor's home page shows all the currently loaded YANG modules
 
 ## Editing Configuration Data <a href="#d5e6351" id="d5e6351"></a>
 
-All NSO configuration is performed in this view. You can edit the configuration data defined YANG model directly in this view or get directed by the Web UI to this view.
+All NSO configuration is performed in this view. You can edit the configuration data defined by the YANG model directly in this view or in some cases, get directed by the Web UI to this view.
 
 ## Configuration Navigator <a href="#d5e6354" id="d5e6354"></a>
 

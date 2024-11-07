@@ -23,11 +23,12 @@ To filter the service list:
 To create and deploy a service:
 
 1. In the **Select service type** drop-down, select the service point.
-2. Click the **Add service** button. You will be redirected to the Configuration Editor.
+2. Click the **Add service** button. You will be redirected to the **Configuration editor** view.
 3. Click the plus <img src="../../images/add-action.png" alt="" data-size="line"> button.
-4. In the **Add new list item** pop-up, enter the name of the service.
+4. In the **Add new list item** pop-up, enter the required information, which in this case is the name of the service.
 5. Confirm the intent.
-6. Review and commit the service to NSO in the **Commit manager**. Committing the service deploys it to NSO and displays it in the **Services** view.
+6. Configure additional service data in the **Configuration editor** view.
+7. Review and commit the service to NSO in the **Commit manager**. Committing the service deploys it to NSO and displays it in the **Services** view.
 
 ## Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
 
@@ -56,28 +57,18 @@ To edit service configuration:
 The other two tabs, i.e., **Config** and **Operdata** can be used respectively to view the service configuration and operational data.
 {% endhint %}
 
-## View Service Details
-
-To view details of a service:
-
-1. In the **Select service type** drop-down, select the service point.
-2. Click the desired service. This opens up the service details view.
-3. Browse service details using the following tabs:
-   * **Details**
-   * **Plan**
-   * **Log**
-
 ## Apply an Action on a Service <a href="#d5e6164" id="d5e6164"></a>
 
 You can apply actions on a service from the **Services** view or the **Configuration editor**.
+
+Start by selecting the service point to populate all services under it and then follow the instructions below:
 
 {% tabs %}
 {% tab title="From the Services View" %}
 To apply an action on a service:
 
-1. Select the service point to populate all services under it.
-2. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
-3. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
+1. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
 
 {% hint style="info" %}
 The **Check sync** action can be run on multiple services at once by selecting them using the checkbox and then running the action using the **Choose actions** button.
@@ -95,12 +86,13 @@ The **Modify in Config Editor** and **Delete** are GUI-specific operations acces
 {% tab title="From the Configuration Editor -> Actions Tab" %}
 Additional actions are applied to an individual service. Use this option if you want to run an action with additional parameters.
 
-1. Access the **Actions** tab in the **Configuration editor**.
-2. Click the desired action in the list.
-3.  At this point, you can configure different parameters.
+1. Access the service in the Configuration Editor. This you can do by selecting the **Modify in Config Editor** option in the **Services** view.
+2. Access the **Actions** tab in the **Configuration editor** view**.**
+3. Click the desired action in the list.
+4.  At this point, you can configure different parameters.
 
     (Use the **Reset action parameters** option to reset all parameters to default value).
-4. Run the action.
+5. Run the action.
 
 {% hint style="info" %}
 Fetch the action information by clicking the info <img src="../../images/actions-info.png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
@@ -111,6 +103,17 @@ Fetch the action information by clicking the info <img src="../../images/actions
 Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
 {% endtab %}
 {% endtabs %}
+
+## View Service Details
+
+To view details of a service:
+
+1. In the **Select service type** drop-down, select the service point.
+2. Click the desired service. This opens up the service details view.
+3. Browse service details using the following tabs:
+   * **Details**
+   * **Plan**
+   * **Log**
 
 ## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
