@@ -574,7 +574,7 @@ The fields `challengeid` and response are base64 encoded when passed to the scri
 
 ## Authenticating IPC Access
 
-NSO communicates with clients (client libraries, **ncs\_cli**, and similar) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
+NSO communicates with clients (Python and Java client libraries, **ncs\_cli**, **netconf-subsys**, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 
 By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of **ncs\_cli** does. For example:
 
@@ -586,7 +586,43 @@ connects to NSO as the user `admin`. The same is possible for the group. This un
 
 The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 
-In general, authenticating access to the IPC socket is a security best practice and should always be used. NSO implements it as an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Port](../advanced-topics/ipc-connection.md#ug.ncs\_advanced.ipc.restricting) on how to enable it.
+In general, authenticating access to the IPC socket is a security best practice and should always be used.
+When NSO is configured to use Unix domain sockets for IPC, it authenticates the client based on the UID of the other end of the socket connection.
+Alternatively, the system can be instructed to use TCP sockets. In this case, the system should be configured to use an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Socket](../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket) on how to enable it.
+
+### UID-based Authentication for Unix Sockets
+
+NSO will use Unix domain sockets for IPC communications when `ncs-local-ipc/enabled` configuration in `ncs.conf` is set to true.
+The main benefit of this communication method is that it is generally more secure than TCP sockets.
+It also provides additional information on the communicating peer, such as the user ID of the calling process.
+NSO can then use this information to authenticate the peer.
+
+As part of the initial handshake, NSO reads the effective UID (euid) of the process initiating the Unix socket connection.
+The system then finds an `/aaa/authentication/users/user` entry with the corresponding `uid` value.
+Access is permitted or denied based on the `local_ipc_access` value.
+If access is permitted, the user connects as the user, found in the `/aaa/authentication/users/user` list.
+The following is an example of such a user list entry:
+
+```
+aaa authentication users user admin
+ uid              500
+ gid              500
+ password         $6$...
+ ssh_keydir       /var/ncs/homes/admin/.ssh
+ homedir          /var/ncs/homes/admin
+ local_ipc_access true
+!
+```
+
+NSO will skip this access check in case the euid of the connecting process is 0 (root user) or same as the user NSO is running as.
+(In both these cases, the connecting user could access NSO data directly, bypassing the access check.)
+
+If using Unix socket IPC, clients and client libraries must now specify the path that identifies the socket.
+The path must match the one set under `ncs-local-ipc/path` in `ncs.conf`.
+Clients may expose a client-specific way to set it, such as the **-S** option of the **ncs\_cli** command.
+Alternatively, you can use the `NCS_IPC_PATH` environment variable to specify the socket path independently of the used client.
+
+See `$NCS_DIR/examples.ncs/security/ipc` for a working example.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 

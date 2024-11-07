@@ -176,7 +176,7 @@ The NETCONF server natively supports the mandatory SSH transport, i.e., SSH is s
 
 ### Using OpenSSH <a href="#d5e432" id="d5e432"></a>
 
-NSO is delivered with a program **netconf-subsys** which is an OpenSSH subsystem program. It is invoked by the OpenSSH daemon after successful authentication. It functions as a relay between the ssh daemon and NSO; it reads data from the ssh daemon from standard input and writes the data to NSO over a loopback socket, and vice versa. This program is delivered as source code in `$NCS_DIR/src/ncs/netconf/netconf-subsys.c`. It can be modified to fit the needs of the application. For example, it could be modified to read the group names for a user from an external LDAP server.
+NSO is delivered with a program **netconf-subsys** which is an OpenSSH subsystem program. It is invoked by the OpenSSH daemon after successful authentication. It functions as a relay between the ssh daemon and NSO; it reads data from the ssh daemon from standard input and writes the data to NSO over a socket connection, and vice versa. This program is delivered as source code in `$NCS_DIR/src/ncs/netconf/netconf-subsys.c`. It can be modified to fit the needs of the application. For example, it could be modified to read the group names for a user from an external LDAP server.
 
 When using OpenSSH, the users are authenticated by OpenSSH, i.e., the user names are not stored in NSO. To use OpenSSH, compile the `netconf-subsys` program, and put the executable in e.g. `/usr/local/bin`. Then add the following line to the ssh daemon's config file, `sshd_config`:
 
@@ -187,7 +187,7 @@ Subsystem     netconf   /usr/local/bin/netconf-subsys
 The connection from `netconf-subsys` to NSO can be arranged in one of two different ways:
 
 1. Make sure NSO is configured to listen to TCP traffic on localhost, port 2023, and disable SSH in `ncs.conf` (see [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages ). (Re)start `sshd` and NSO. Or:
-2. Compile `netconf-subsys` to use a connection to the IPC port instead of the NETCONF TCP transport (see the `netconf-subsys.c` source for details), and disable both TCP and SSH in `ncs.conf`. (Re)start `sshd` and NSO. This method may be preferable since it makes it possible to use the IPC Access Check (see [Restricting Access to the IPC Port](../../../administration/advanced-topics/ipc-connection.md#ug.ncs\_advanced.ipc.restricting)) to restrict the unauthenticated access to NSO that is needed by `netconf-subsys`.
+2. Compile `netconf-subsys` to use a connection to the IPC socket instead of the NETCONF TCP transport (see the `netconf-subsys.c` source for details), and disable both TCP and SSH in `ncs.conf`. (Re)start `sshd` and NSO. This method may be preferable since it makes it possible to use the IPC Access Check (see [Restricting Access to the IPC Socket](../../../administration/advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket)) to restrict the unauthenticated access to NSO that is needed by `netconf-subsys`.
 
 By default, the `netconf-subsys` program sends the names of the UNIX groups the authenticated user belongs to. To test this, make sure that NSO is configured to give access to the group(s) the user belongs to. The easiest for test is to give access to all groups.
 

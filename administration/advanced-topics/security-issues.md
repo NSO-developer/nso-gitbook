@@ -23,16 +23,14 @@ NSO requires some privileges to perform certain tasks. The following tasks may, 
 
 NSO can be instructed to terminate NETCONF over cleartext TCP. This is useful for debugging since the NETCONF traffic can then be easily captured and analyzed. It is also useful if we want to provide some local proprietary transport mechanism that is not SSH. Clear text TCP termination is not authenticated, the clear text client simply tells NSO which user the session should run as. The idea is that authentication is already done by some external entity, such as an SSH server. If clear text TCP is enabled, NSO must bind to localhost (127.0.0.1) for these connections.
 
-Client libraries connect to NSO. For example, the CDB API is TCP based and a CDB client connects to NSO. We instruct NSO which address to use for these connections through the `ncs.conf` parameters `/ncs-config/ncs-ipc-address/ip` (default address 127.0.0.1) and `/ncs-config/ncs-ipc-address/port` (default port 4565).
+Client libraries connect to NSO. For example, the CDB API is socket based and a CDB client connects to NSO. We instruct NSO which address to use for these connections through the `ncs.conf` parameters `/ncs-config/ncs-ipc-address/ip` (default address 127.0.0.1) and `/ncs-config/ncs-ipc-address/port` (default port 4565), or which Unix socket path to use with `/ncs-config/ncs-local-ipc/path` (default `/tmp/nso/nso-ipc`).
 
-NSO multiplexes different kinds of connections on the same socket (IP and port combination). The following programs connect on the socket:
+NSO multiplexes different kinds of connections on the same IPC socket. The following programs connect on the socket:
 
-* Remote commands, such as e.g., `ncs --reload`.
-* CDB clients.
-* External database API clients.
-* MAAPI, The Management Agent API clients.
-* The `ncs_cli` program.
+* Remote commands, such as `ncs --reload`
+* CDB clients
+* External database API clients
+* MAAPI, the Management Agent API clients
+* The `ncs_cli` program
 
-By default, all of the above are considered trusted. MAAPI clients and `ncs_cli` should supposedly authenticate the user before connecting to NSO whereas CDB clients and external database API clients are considered trusted and do not have to authenticate.
-
-Thus, since the `ncs-ipc-address` socket allows full unauthenticated access to the system, it is important to ensure that the socket is not accessible from untrusted networks. However, it is also possible to restrict access to this socket by means of an access check, see [Restricting Access to the IPC Port](ipc-connection.md#ug.ncs\_advanced.ipc.restricting).
+Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](ipc-connection.md#restricting-access-to-the-ipc-socket).

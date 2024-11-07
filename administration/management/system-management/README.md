@@ -72,7 +72,7 @@ If you decide to allow remote access to the web server, also make sure you use T
 Using `/ncs-config/webui/match-host-name = true` requires you to use the configured hostname when accessing the server. Web browsers do this automatically but you may need to set the `Host` header when performing requests programmatically using an IP address instead of the hostname.
 {% endhint %}
 
-To additionally secure IPC access, refer to [Restricting Access to the IPC port](../advanced-topics/ipc-ports.md#ug.ncs\_advanced.ipc.restricting).
+To additionally secure IPC access, refer to [Restricting Access to the IPC Socket](../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).
 
 For more details on individual interfaces and their use, see [Northbound APIs](https://developer.cisco.com/docs/nso-guides-6.1/#!northbound-apis-introduction).
 
