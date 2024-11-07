@@ -122,8 +122,9 @@ To delete a service instance:
 1. In the **Select service type** drop-down list, select the service point.
 2. Select, using the checkbox, the service to be deleted. You can select multiple services at once.
 3. Click **Delete**.
-4. Review and commit the change in the **Commit manager**.
+4. Confirm the intent in the pop-up.
+5. Review and commit the change in the **Commit manager**.
 
 {% hint style="info" %}
-You may also perform service instance deletion by accessing [service details](services.md#view-service-details) and clicking **Choose action** > **Delete**, but note that in this case, the service instance is deleted instantly without an opportunity to review it in the Commit Manager.
+To skip the Commit Manager review, use the **Commit changes directly** option in the **Delete service instance** pop-up.
 {% endhint %}
