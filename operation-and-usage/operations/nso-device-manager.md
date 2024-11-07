@@ -846,6 +846,28 @@ submodule tailf-ncs-devices {
             }
           }
         }
+
+        grouping mfa-grouping {
+          container mfa {
+            presence "MFA";
+            description
+              "Settings for handling multi-factor authentication towards
+               the device";
+            leaf executable {
+              description "Path to the external executable handling MFA";
+              type string;
+              mandatory true;
+            }
+            leaf opaque {
+              description
+                "Opaque data for the external MFA executable.
+                 This string will be base64 encoded and passed to the MFA
+                 executable along with other parameters";
+              type string;
+            }
+          }
+        }
+
         leaf name {
           type string;
           description
@@ -859,6 +881,7 @@ submodule tailf-ncs-devices {
              NCS user is not found in the umap list.";
           tailf:info "Remote authentication parameters for users not in umap";
           uses remote-user-remote-auth;
+          uses mfa-grouping;
         }
 
         list umap {
@@ -874,6 +897,7 @@ submodule tailf-ncs-devices {
               "The local NCS user name.";
           }
           uses remote-user-remote-auth;
+          uses mfa-grouping;
         }
       }
 ```
@@ -950,6 +974,57 @@ Authenticating southbound using stored configuration has two main components to 
 1. Regular password.
 2. Public key. This means that a private key, either from a file in the user's SSH key directory, or one that is configured in the /ssh/private-key list in the NSO configuration, is used for authentication. Refer to [Publickey Authentication](ssh-key-management.md#d5e4113) for the details on how the private key is selected.
 3. Finally, an interesting option is to use the 'same-pass' option. Since NSO runs its own SSH server and its own SSL server, NSO can pick up the password of a user in clear text. Hence, if the 'same-pass' option is chosen for an authgroup, NSO will reuse the same password when attempting to connect southbound to a managed device.
+
+### Connecting Using SSH Keyboard-Interactive (Multi-Factor) Authentication
+
+NSO can connect to a device that is using multi-factor authentication. For this, the `authgroup` must be configured with an executable for handling the keyboard-interactive part, and optionally some opaque data that is passed to the executable. ie., the `/devices/authgroups/group/umap/mfa/executable` and `/devices/authgroups/group/umap/mfa/opaque` (or under `default-map` for users that are not in `umap`) must be configured.
+
+The prompts from the SSH server (including the password prompt and any additional challenge prompts) are passed to the `stdin` of the executable along with some other relevant data. The executable must write a single line to its `stdout` as the reply to the prompt. This is the reply that NSO sends to the SSH server.
+
+{% code title="Example: Configuring Authgroup For Keyboard-interactive Authentication" %}
+```
+admin@ncs(config)# devices authgroups group mfa umap admin
+admin@ncs(config-umap-admin)# remote-name admin remote-password
+(<AES encrypted string>): *********
+admin@ncs(config-umap-admin)# mfa executable ./handle_mfa.py opaque foobar
+admin@ncs(config-umap-admin)# commit
+Commit complete.
+```
+{% endcode %}
+
+For example, with the above configured for the authgroup, if the user _admin_ is trying to login to the device _dev0_ with password _admin_, this is the line that is sent to the `stdin` of the `handle_mfa.py` script:
+
+```
+[ZGV2MA==;YWRtaW4=;YWRtaW4=;Zm9vYmFy;;;YWRtaW5AbG9jYWxob3N0J3MgcGFzc3dvcmQ6IA==;]
+```
+
+The input to the script is the device, username, password, opaque data, as well as the name, instruction, and prompt from the SSH server.
+All these fields are base64 encoded, and separated by a semi-colon (';'). So, the above line in effect encodes the following:
+
+```
+[dev0;admin;admin;foobar;;;admin@localhost's password:;]
+```
+
+A small Python program can be used to implement the keyboard-interactive authentication towards a device, such as:
+
+```python
+#!/usr/bin/env python3
+import base64
+line = input()
+(device, user, passwd, opaque, name, instr, prompt, _) = map(
+        lambda x: base64.b64decode(x).decode('utf-8'),
+        line.strip('[]').split(';'))
+if prompt == "admin@localhost's password: ":
+    print(passwd)
+elif prompt == "Enter SMS passcode:":
+    print("secretSMScode")
+else:
+    print("2")
+```
+
+This script will then be invoked with the above fields for every prompt from the server, and the corresponding output from the script will be sent as the reply to the server.
+
+### Using a Callback to Provide Device Credentials
 
 In the case of authenticating southbound using a callback, remote user and remote credentials are obtained by an action invocation. The action is defined by the `callback-node` and `action-name` as in the example below (authgroup-callback) and supported credentials are remote password and optionally a secondary password for the provided local user, authgroup, and device.
 
