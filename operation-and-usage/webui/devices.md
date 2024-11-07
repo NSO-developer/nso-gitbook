@@ -190,7 +190,7 @@ To view/edit details of a group:
 To delete a group:
 
 {% hint style="warning" %}
-Proceed with caution as the changes are applied immediately and the deleted groups cannot be recovered.
+Proceed with caution as the changes are applied immediately.
 {% endhint %}
 
 1. Select the desired group using the checkbox.
@@ -236,7 +236,7 @@ To view/edit details of a group:
 To delete a group:
 
 {% hint style="warning" %}
-Proceed with caution as the changes are applied immediately and the deleted groups cannot be recovered.
+Proceed with caution as the changes are applied immediately.
 {% endhint %}
 
 1. Select the desired group using the checkbox.

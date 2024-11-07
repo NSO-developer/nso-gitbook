@@ -54,4 +54,4 @@ Anytime a configuration is changed in the Web UI (such as a device or service co
 
 ## Commit Manager <a href="#d5e5718" id="d5e5718"></a>
 
-The Commit Manager is accessible at all times from the UI banner. Working with the Commit Manager is further described in [Tools](tools.md).
+The Commit Manager is accessible at all times from the UI banner. A number (corresponding to the number of changes in a transaction) is displayed next to the Commit Manager icon when changes are available for review. Working with the Commit Manager is further described in [Tools](tools.md).

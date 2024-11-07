@@ -29,6 +29,33 @@ To create and deploy a service:
 5. Confirm the intent.
 6. Review and commit the service to NSO in the **Commit manager**. Committing the service deploys it to NSO and displays it in the **Services** view.
 
+## Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
+
+Service configuration is viewed and carried out in the Configuration Editor.
+
+{% hint style="warning" %}
+The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/core-concepts/services.md) and [Developing Services](../../development/advanced-development/developing-services/) documentation for more information.
+{% endhint %}
+
+To rename a service:
+
+1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
+2. Select the service in the list using the checkbox.
+3. Click the pencil icon.
+4. Rename the service in the pop-up.
+5. Commit the change in the **Commit manager**.
+
+To edit service configuration:
+
+1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
+2. Click the service name in the list.
+3. Make the changes.
+4. Commit the changes in the **Commit manager**.
+
+{% hint style="info" %}
+The other two tabs, i.e., **Config** and **Operdata** can be used respectively to view the service configuration and operational data.
+{% endhint %}
+
 ## View Service Details
 
 To view details of a service:
@@ -84,33 +111,6 @@ Fetch the action information by clicking the info <img src="../../images/actions
 Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
 {% endtab %}
 {% endtabs %}
-
-## Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
-
-Service configuration is viewed and carried out in the Configuration Editor.
-
-{% hint style="warning" %}
-The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/core-concepts/services.md) and [Developing Services](../../development/advanced-development/developing-services/) documentation for more information.
-{% endhint %}
-
-To rename a service:
-
-1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
-2. Select the service in the list using the checkbox.
-3. Click the pencil icon.
-4. Rename the service in the pop-up.
-5. Commit the change in the **Commit manager**.
-
-To edit service configuration:
-
-1. Navigate to the service using the Configuration Editor and access the **Edit config** tab.
-2. Click the service name in the list.
-3. Make the changes.
-4. Commit the changes in the **Commit manager**.
-
-{% hint style="info" %}
-The other two tabs, i.e., **Config** and **Operdata** can be used respectively to view the service configuration and operational data.
-{% endhint %}
 
 ## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
