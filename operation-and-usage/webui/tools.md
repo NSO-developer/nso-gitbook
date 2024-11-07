@@ -123,7 +123,7 @@ The following tabs are available in this view:
 
 The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
 
-<figure><img src="../../.gitbook/assets/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
+<figure><img src="../../images/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
 
 #### **Create a Compliance Report**
 
@@ -168,7 +168,7 @@ To run a compliance report:
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
 
-<figure><img src="../../.gitbook/assets/compliance-reports-results.png" alt=""><figcaption><p>Report Results View</p></figcaption></figure>
+<figure><img src="../../images/compliance-reports-results.png" alt=""><figcaption><p>Report Results View</p></figcaption></figure>
 
 #### View Compliance Report Results
 
