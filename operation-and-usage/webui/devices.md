@@ -53,7 +53,7 @@ The **Modify in Config Editor** and **Delete** are GUI-specific operations acces
 {% tab title="From the Configuration Editor -> Actions Tab" %}
 Additional actions are applied to an individual device. Use this option if you want to run an action with additional parameters.
 
-1. Click the device name in the list.
+1. Click the device name in the list. You will be redirected to the **Configuration editor** view.
 2. Access the **Actions** tab in the **Configuration editor**.
 3. Click the desired action in the list.
 4.  At this point, you can configure different parameters.

@@ -32,7 +32,7 @@ To create and deploy a service:
 
 ## Edit Service Configuration <a href="#d5e6291" id="d5e6291"></a>
 
-Service configuration is viewed and carried out in the Configuration Editor.
+Service configuration is viewed and carried out in the Configuration Editor. In the **Services** view, you can use the **Modify in Config Editor** option on the desired service to access its config in the Configuration Editor.
 
 {% hint style="warning" %}
 The **Configuration editor** view shows a host of options when configuring a service. You are expected to be well-versed with these options (and service concepts in general) before you delve into service configuration. Refer to the [Services](../../development/core-concepts/services.md) and [Developing Services](../../development/advanced-development/developing-services/) documentation for more information.
