@@ -16,50 +16,30 @@ This release includes major enhancements in the following areas:
 
 <summary>IPC Authentication</summary>
 
-NSO 6.4 introduces a more secure way for local Inter-Process Communication
-(IPC) between NSO system components based on Unix domain sockets.
-The main benefit of the new mechanism is the ability for the main server
-process to authenticate the clients. The authentication is based on the
-UID of the other end of the socket connection. In other words, it is now
-much easier to limit IPC access to specific host OS users.
+NSO 6.4 introduces a more secure way for local Inter-Process Communication (IPC) between NSO system components based on Unix domain sockets. The main benefit of the new mechanism is the ability for the main server process to authenticate the clients. The authentication is based on the UID of the other end of the socket connection. In other words, it is now much easier to limit IPC access to specific host OS users.
 
 Documentation Updates:
 
 * Added a new section [UID-based Authentication for Unix Sockets](administration/management/aaa-infrastructure.md#uid-based-authentication-for-unix-sockets).
-
-* Added a new example in _examples.ncs/security/ipc_ to showcase this
-  functionality.
+* Added a new example in _examples.ncs/security/ipc_ to showcase this functionality.
 
 </details>
-
 
 <details>
 
 <summary>Improved Out-of-band Changes Handling</summary>
 
-The `commit no-overwrite` functionality has been extended to include
-verifying device values that are required to compute the end result
-(the values from the transaction read-set) have not changed. This
-means `commit no-overwrite` now provides much stronger guarantees about
-corectness in face of device changes that were not made through NSO.
-In many cases, it translates into making provisioning pre-checks
-unnecessary and simplifying operations (operator no longer needs to
-issue a `check-sync` or `sync-from` operation beforehand).
+The `commit no-overwrite` functionality has been extended to include verifying device values that are required to compute the end result (the values from the transaction read-set) have not changed. This means `commit no-overwrite` now provides much stronger guarantees about corectness in face of device changes that were not made through NSO. In many cases, it translates into making provisioning pre-checks unnecessary and simplifying operations (operator no longer needs to issue a `check-sync` or `sync-from` operation beforehand).
 
 </details>
-
 
 <details>
 
 <summary>Package Template Structure</summary>
 
-NSO now supports structuring the package `templates` directory with
-subdirectories. The XML templates contained in the subdirectories can
-be referenced by prepending the subdirectory path and, optionally,
-by the package name and a colon.
+NSO now supports structuring the package `templates` directory with subdirectories. The XML templates contained in the subdirectories can be referenced by prepending the subdirectory path and, optionally, by the package name and a colon.
 
-This allows for unique identification of templates, which can now have
-duplicated names across NSO packages.
+This allows for unique identification of templates, which can now have duplicated names across NSO packages.
 
 Documentation Updates:
 
@@ -67,12 +47,26 @@ Documentation Updates:
 
 </details>
 
-
 <details>
 
 <summary>Restructured Documentation</summary>
 
-NSO product documentation has undergone a major restructuring with the
-goal of improving the overall experience.
+NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
+
+</details>
+
+<details>
+
+<summary>Web UI Updates</summary>
+
+The NSO Web UI has received a number of functionality updates and a continued re-design of the UI for a streamlined user experience. You can now manage the device and SNMP Authgroups directly in the Web UI as well as carry out service management using the new service manager. Improvements have also been made to the Compliance Reporting area which now offers an improved results view.
+
+Documentation Updates:
+
+* Added a new [Authgroups](operation-and-usage/webui/devices.md#authgroups) section.
+* Re-wrote the [Services](operation-and-usage/webui/services.md) section.
+* Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui\_compliance) sections to add new details.
+
+
 
 </details>
