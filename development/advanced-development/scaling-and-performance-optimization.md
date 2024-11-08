@@ -579,19 +579,23 @@ make stop
 
 ## Scaling RAM and Disk <a href="#ncs.development.scaling.memory" id="ncs.development.scaling.memory"></a>
 
-NSO contains an internal database called CDB, which stores both configuration and operational state data. Understanding the resource consumption of NSO at a steady state is mostly about understanding CDB, as it typically stands for the vast majority of resource usage.
+NSO contains an internal database called CDB, which stores both configuration and operational state data. Understanding the resource consumption of NSO at a steady state requires understanding CDB, as it usually accounts for the vast majority of memory and disk usage.
 
 ### CDB <a href="#d5e8731" id="d5e8731"></a>
 
-Optimized for fast access, CDB is an in-memory database that holds all data in RAM. It also keeps the data on disk for persistence. The in-memory data structure is optimized for navigating tree data but is still a compact and efficient memory structure. The on-disk format uses a log structure, making it fast to write and very compact.
+Since version 6.4, NSO supports different CDB persistence modes. With the traditional `in-memory-v1` mode, NSO is optimized for fast random access, making CDB an in-memory database that holds all data in RAM. NSO also keeps the data on disk for durability across system restarts, using a log structure, which is compact and fast to write.
 
-The in-memory structure usually consumes 2 - 3x more than the size of the on-disk format. The on-disk log will grow as more changes are performed in the system. A periodic compaction process compacts the write log and reduces its size. Upon startup of NSO, the on-disk version of CDB will be read, and the in-memory structure will be recreated based on the log. A recently compacted CDB will thus start up faster.
+The in-memory data structure is optimized for navigating tree data and usually consumes 2 - 3x more than the size of the (compacted) on-disk format. The on-disk log will grow as more changes are performed in the system. A periodic compaction process compacts the write log and reduces its size. Upon startup of NSO, the on-disk version of CDB will be read, and the in-memory structure will be recreated based on the log. A recently compacted CDB will thus start up faster. (By default, NSO automatically determines when to compact the CDB; see [Compaction](../../administration/advanced-topics/cdb-persistence.md#compaction) for fine tuning.)
 
-By default, NSO automatically determines when to compact CDB. It is visible in the `devel.log` when CDB compaction takes place. Compaction may require significant time, during which write transactions cannot be performed. In certain use cases, it may be preferable to disable automatic compaction by CDB and instead trigger compaction manually according to the specific needs. See [Compaction](../../administration/advanced-topics/compaction.md) for more details.
+The newer `on-demand-v1` persistence mode uses RAM as a cache and will try to keep memory usage below the configured amount. If there is a "cache miss," NSO needs to read the data from disk. This persistence mode uses a much more optimized on-disk format than a straight log, but disk access is still much slower than RAM. Reads of non-cached data will be slower than in the `in-memory-v1` mode.
+
+While `in-memory-v1` mode needs to fit all the data in RAM and cannot function with less, the `on-demand-v1` mode can function with less but performance for "cold" reads will be worse. If `on-demand-v1` mode is given sufficient RAM to fit all the data, performance in steady state will be very similar to that of `in-memory-v1`. The main difference will be when the data is being loaded from disk: at system startup in case of `in-memory-v1`, making startup time linear with database size; or when data is first accessed in case of `on-demand-v1`, making startup mostly independent of data size but introducing a disk-read delay on first access (with sufficient RAM, subsequent reads are served directly from memory). See [CDB Persistence](../../administration/advanced-topics/cdb-persistence.md) for further comparison of the modes.
+
+For the best performance, CDB therefore needs sufficient RAM to fit all the data, regardless of persistence mode. In addition to that, NSO also needs RAM to run all the code. However, the latter is relatively static in most setups, compared to the memory needed to hold the data.
 
 ### Services and Devices in CDB <a href="#d5e8738" id="d5e8738"></a>
 
-CDB is a YANG-modeled database. By writing a YANG model, it is possible to store any kind of data in NSO and access it via one of the northbound interfaces of NSO. From this perspective, a service or a device's configuration is like most other YANG-modeled data. The number of service instances in NSO in the steady state affects how much space the data consumes in RAM and on disk.
+CDB is a YANG-modeled database. By writing a YANG model, it is possible to store any kind of data in NSO and access it via one of the northbound interfaces of NSO. From this perspective, a service or a device's configuration is like most other YANG-modeled data. The number of service instances and managed devices in NSO in the steady state affect how much space the data consumes on disk. In case of the `in-memory-v1` persistence mode, they also directly affect memory consumption, as all data is kept in memory for fast access.
 
 But keep in mind that services tend to be modified from time to time, and with a higher total number of service instances, changes to those services are more likely. A higher number of service instances means more transactions to deploy changes, which means an increased need for optimizing transactional throughput, available CPU processing, RAM, and disk. See [Designing for Maximal Transaction Throughput](scaling-and-performance-optimization.md#ncs.development.scaling.throughput) for details.
 
@@ -599,7 +603,7 @@ But keep in mind that services tend to be modified from time to time, and with a
 
 In addition to storing instance data, CDB also stores the schema (the YANG models), on disk and reads it into memory on startup. Having a large schema (many or large YANG models) loaded means both disk and RAM will be used, even when starting up an "empty" NSO, i.e., no instance data is stored in CDB.
 
-In particular, device YANG models can be of considerable size. For example, the YANG models in recent versions of Cisco IOS XR have over 750,000 lines. Loading one such NED will consume about 1GB GB of RAM and slightly less disk space. In a mixed vendor network, you would load NEDs for all or some of these device types. With CDM, you can have multiple XR NEDs loaded to support communicating with different versions of XR and similarly for other devices, further consuming resources.
+In particular, device YANG models can be of considerable size. For example, the YANG models in recent versions of Cisco IOS XR have over 750,000 lines. Loading one such NED will consume about 1GB of RAM and slightly less disk space. In a mixed vendor network, you would load NEDs for all or some of these device types. With CDM, you can have multiple XR NEDs loaded to support communicating with different versions of XR and similarly for other devices, further consuming resources.
 
 In comparison, most CLI NEDs only model a subset of a device and, are as a result, much smaller, most often under 100,000 lines of YANG.
 
@@ -609,11 +613,11 @@ Note that the schema is memory mapped into shared memory, so even though multipl
 
 ### The Size of CDB <a href="#d5e8750" id="d5e8750"></a>
 
-Accurately predicting the size of CDB means accurately modeling its internal data structure. Since the result will depend on the YANG models and what actual values are stored in the database, the easiest way to understand of how the size grows is to start NSO with the schema and data in question and then measure the resource usage.
+Accurately predicting the size of CDB means accurately modeling its internal data structure. Since the result will depend on the YANG models and what actual values are stored in the database, the easiest way to understand how the size grows, is to start NSO with the schema and data in question and then measure the resource usage.
 
 Performing accurate measurements can be a tedious process or sometimes impossible. When impossible, an estimate can be reached by extrapolating from known data, which is usually much more manageable and accurate enough.
 
-We can look at the disk and RAM used for the running datastore, which stores configuration. On a freshly started NSO, it doesn't occupy much space at all:
+We can look at the disk and RAM used for the running datastore, which stores configuration. On a freshly started NSO with `in-memory-v1` mode, it doesn't occupy much space at all:
 
 ```bash
 # show ncs-state internal cdb datastore running | select ram-size | select disk-size
@@ -718,7 +722,7 @@ When services write configuration, a reverse diff set is generated and saved as 
 
 ### Implications of a Large CDB <a href="#d5e8858" id="d5e8858"></a>
 
-As shown above, CDB scales linearly. Modern servers commonly support multiple terabytes of RAM, making it possible to support 50,000 - 100,000 such large router devices in NSO, well beyond the size of any currently existing network. However, beyond consuming RAM and disk space, the size of the CDB also affects the startup time of NSO and certain other operations like upgrades. In the previous example, 100 devices were used, which resulted in a CDB size of 461 MB on disk. Starting that on a standard laptop takes about 100 seconds. With 50,000 devices, CDB on-disk would be over 230 GB, which would take around 6 hours to load on the same laptop, if it had enough RAM. The typical server is considerably faster than the average laptop here, but loading a large CDB will take considerable time.
+As shown above, CDB scales linearly. Modern servers commonly support multiple terabytes of RAM, making it possible to support 50,000 - 100,000 such large router devices in NSO, well beyond the size of any currently existing network. However, beyond consuming RAM and disk space, the size of the CDB may also affect the startup time of NSO and certain other operations like upgrades. In the previous example, 100 devices were used, which resulted in a CDB size of 461 MB on disk. Starting that on a standard laptop takes about 100 seconds. With 50,000 devices, CDB on-disk would be over 230 GB, which would take around 6 hours to load on the same laptop, if it had enough RAM. The typical server is considerably faster than the average laptop here, but loading a large CDB may take considerable time, unless `on-demand-v1` persistence mode is used.
 
 This also affects the sync/resync time in high availability setups, where the database size increases the data transfer needed.
 
@@ -765,11 +769,13 @@ Contemporary laptops typically work well for NSO service development.
 
 For production systems it is recommended to have at least 8 CPU cores and with as high clock frequency as possible. This ensures all NSO processes can run without contending for the same CPU cores. More CPU cores enable more transactions to run in parallel on the same processor. For higher-scale systems, an LSA setup should be investigated together with a technical expert. See [Designing for Maximal Transaction Throughput](scaling-and-performance-optimization.md#ncs.development.scaling.throughput).
 
-NSO is not very disk intensive since CDB is loaded into RAM. On startup, CDB is read from disk into memory. Therefore, for fast startups of NSO, rapid backups, and other similar administrative operations, it is recommended to use a fast disk, for example, an NVMe SSD.
+With `in-memory-v1` CDB persistence mode, NSO is not very disk intensive since CDB is loaded into RAM. On startup, CDB is read from disk into memory. Therefore, for fast startups of NSO, rapid backups, and other similar administrative operations, it is recommended to use a fast disk, for example, an NVMe SSD.
+
+Disk storage plays an important role in `on-demand-v1` persistence mode, where it more directly affects query times (for "cold" queries). Recommended are the fastest disks, with as low latency as possible, such as local NVMe SSDs.
 
 Network management protocols typically consume little network bandwidth. It is often less than 10 Mbps but can burst many times that. While 10 Gbps is recommended, 1 Gbps network connectivity will usually suffice. If you use High Availability (HA), the continuous HA updates are typically relatively small and do not consume a lot of bandwidth. A low latency, preferably below 1 ms and well within 10 ms, will significantly impact performance more than increasing bandwidth beyond 1 Gbps. 10 Gbps or more can make a difference for the initial synchronization in case the nodes are not in sync and avoid congestion when doing backups over the network or similar.
 
-The in-memory portion of CDB needs to fit in RAM, and NSO needs working memory to process queries. This is a hard requirement. NSO can only function with enough memory. Less than the required amount of RAM does not lead to performance degradation - it prevents NSO from working. For example, if CDB consumes 50 GB, ensure you have at least 64 GB of RAM. There needs to be some headroom for RAM to allow temporary usage during, for example, heavy queries.
+The in-memory portion of CDB needs to fit in RAM, and NSO needs working memory to process queries. This is a hard requirement. NSO can only function with enough memory. In case of `in-memory-v1` CDB persistence mode, less than the required amount of RAM does not lead to performance degradation - it prevents NSO from working. For example, if CDB consumes 50 GB, ensure you have at least 64 GB of RAM. There needs to be some headroom for RAM to allow temporary usage during, for example, heavy queries.
 
 Swapping is a way to use disk space as RAM, and while it can make it possible to start an NSO instance that otherwise would not fit in RAM, it would lead to terrible performance. See [Disable Memory Overcommit](../../administration/installation-and-deployment/system-install.md#disable-memory-overcommit).
 

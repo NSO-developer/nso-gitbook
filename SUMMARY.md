@@ -34,7 +34,7 @@
   * [NED Administration](administration/management/ned-administration.md)
 * [Advanced Topics](administration/advanced-topics/README.md)
   * [Locks](administration/advanced-topics/locks.md)
-  * [Compaction](administration/advanced-topics/compaction.md)
+  * [CDB Persistence](administration/advanced-topics/cdb-persistence.md)
   * [IPC Connection](administration/advanced-topics/ipc-connection.md)
   * [Service Manager Restart](administration/advanced-topics/restart-strategies-for-service-manager.md)
   * [Security Issues](administration/advanced-topics/security-issues.md)
