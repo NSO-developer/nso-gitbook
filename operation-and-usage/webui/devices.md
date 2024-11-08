@@ -118,7 +118,7 @@ Device groups allow for the grouping and collective management of devices.
 1. Click the desired device group to access the group's detail page.
 2. In the **Devices in this group** pane, select the device(s) to be removed from the group.
 3. Click **Remove from device group**. The devices are removed immediately (without a Commit Manager review).
-4. Click **Save**.
+4. Click **Save device group**.
 
 ### **Apply an Action on a Device Group**
 
