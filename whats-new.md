@@ -21,7 +21,7 @@ NSO 6.4 introduces a more secure way for local Inter-Process Communication (IPC)
 Documentation Updates:
 
 * Added a new section [UID-based Authentication for Unix Sockets](administration/management/aaa-infrastructure.md#uid-based-authentication-for-unix-sockets).
-* Added a new example in _examples.ncs/security/ipc_ to showcase this functionality.
+* Added a new example in `examples.ncs/security/ipc` to showcase this functionality.
 
 </details>
 
