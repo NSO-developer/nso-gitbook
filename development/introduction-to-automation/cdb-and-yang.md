@@ -28,11 +28,9 @@ There are a number of other features that make the CDB an excellent choice for a
 * Built-in support for schema and associated data upgrade.
 * Close integration with NSO for low-maintenance operation.
 
-To speed up operations, CDB keeps a copy of configuration data in RAM, in addition to persisting it to disk using journal files. However, this means the amount of RAM needed is proportional to the number of managed devices and services. When NSO is used to manage a large network the amount of needed RAM can be quite large. The CDB also stores transient operational data, such as alarms and traffic statistics. By default, this operational data is only kept in RAM and is reset during restarts, however, the CDB can be instructed to persist it if required.
+To speed up operations, CDB keeps a configurable amount of configuration data in RAM, in addition to persisting it to disk (see [CDB Persistence](../../administration/advanced-topics/cdb-persistence.md) for details). The CDB also stores transient operational data, such as alarms and traffic statistics. By default, this operational data is only kept in RAM and is reset during restarts, however, the CDB can be instructed to persist it if required.
 
-{% hint style="warning" %}
-For reliable storage of the configuration on disk, the CDB requires that the file system correctly implements the standard primitives for file synchronization and truncation. For this reason (as well as for performance), NFS or other network file systems are unsuitable for use with the CDB - they may be acceptable for development, but using them in production is unsupported and strongly discouraged.
-
+{% hint style="note" %}
 The automatic schema update feature is useful not only when performing an actual upgrade of NSO itself, it also simplifies the development process. It allows individual developers to add and delete items in the configuration independently.
 
 Additionally, the schema for data in the CDB is defined with a standard modeling language called YANG. YANG (RFC 7950, [https://tools.ietf.org/html/rfc7950](https://tools.ietf.org/html/rfc7950)) describes constraints on the data and allows the CDB to store values more efficiently.
