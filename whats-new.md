@@ -29,7 +29,7 @@ Documentation Updates:
 
 <summary>Improved Out-of-band Changes Handling</summary>
 
-The `commit no-overwrite` functionality has been extended to include verifying device values that are required to compute the end result (the values from the transaction read-set) have not changed. This means `commit no-overwrite` now provides much stronger guarantees about corectness in face of device changes that were not made through NSO. In many cases, it translates into making provisioning pre-checks unnecessary and simplifying operations (operator no longer needs to issue a `check-sync` or `sync-from` operation beforehand).
+The `commit no-overwrite` functionality has been extended to include verifying device values that are required to compute the end result (the values from the transaction read-set) have not changed. This means `commit no-overwrite` now provides much stronger guarantees about correctness in the face of device changes that were not made through NSO. In many cases, it translates into making provisioning pre-checks unnecessary and simplifying operations (operator no longer needs to issue a `check-sync` or `sync-from` operation beforehand).
 
 </details>
 
@@ -49,24 +49,30 @@ Documentation Updates:
 
 <details>
 
-<summary>Restructured Documentation</summary>
+<summary>Web UI Updates</summary>
 
-NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
+The Web UI functionality has been extended to include new feature updates in device/SNMP Authgroups, service manager, and compliance reporting. The UI’s look-and-feel has also been enhanced further for a continued streamlined experience.
+
+Documentation Updates:
+
+* Added a new section [Authgroups](operation-and-usage/webui/devices.md#authgroups) in Devices.
+* Improved and aligned the [Services](operation-and-usage/webui/services.md) section in accordance with the new Service Manager.
+* Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui\_compliance) sections to add new details.
 
 </details>
 
 <details>
 
-<summary>Web UI Updates</summary>
+<summary>Kubernetes Best Practices Guidelines</summary>
 
-The NSO Web UI has received a number of functionality updates and a continued re-design of the UI for a streamlined user experience. You can now manage the device and SNMP Authgroups directly in the Web UI as well as carry out service management using the new service manager. Improvements have also been made to the Compliance Reporting area which now offers an improved results view.
+A new [document](https://developer.cisco.com/docs/nso/) covering best practices for Kubernetes has been included in the documentation set.
 
-Documentation Updates:
+</details>
 
-* Added a new [Authgroups](operation-and-usage/webui/devices.md#authgroups) section.
-* Re-wrote the [Services](operation-and-usage/webui/services.md) section.
-* Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui\_compliance) sections to add new details.
+<details>
 
+<summary>Restructured Documentation</summary>
 
+NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
 
 </details>
