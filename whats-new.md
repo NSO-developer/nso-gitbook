@@ -14,6 +14,14 @@ This release includes major enhancements in the following areas:
 
 <details>
 
+<summary>Restructured Documentation</summary>
+
+NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
+
+</details>
+
+<details>
+
 <summary>IPC Authentication</summary>
 
 NSO 6.4 introduces a more secure way for local Inter-Process Communication (IPC) between NSO system components based on Unix domain sockets. The main benefit of the new mechanism is the ability for the main server process to authenticate the clients. The authentication is based on the UID of the other end of the socket connection. In other words, it is now much easier to limit IPC access to specific host OS users.
@@ -65,14 +73,6 @@ Documentation Updates:
 
 <summary>Kubernetes Best Practices Guidelines</summary>
 
-A new [document](https://developer.cisco.com/docs/nso/) covering best practices for Kubernetes has been included in the documentation set.
-
-</details>
-
-<details>
-
-<summary>Restructured Documentation</summary>
-
-NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
+A new [document](https://developer.cisco.com/docs/nso/) covering best practices for Kubernetes has been added to the documentation set.
 
 </details>
