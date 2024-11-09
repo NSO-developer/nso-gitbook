@@ -1,5 +1,6 @@
 ---
 description: Get started with the Cisco Crosswork NSO documentation.
+icon: power-off
 cover: >-
   https://images.unsplash.com/photo-1498084393753-b411b2d26b34?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxMHx8bmV0d29ya3xlbnwwfHx8fDE2ODYxODA5NTF8MA&ixlib=rb-4.0.3&q=85
 coverY: 0
@@ -49,4 +50,4 @@ For users working in a production-wide NSO deployment.
 
 ### Development
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development. </td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development.</td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
