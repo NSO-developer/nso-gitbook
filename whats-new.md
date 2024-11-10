@@ -1,5 +1,6 @@
 ---
 description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
 # What's New

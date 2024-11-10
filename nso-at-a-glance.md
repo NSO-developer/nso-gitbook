@@ -1,5 +1,6 @@
 ---
 description: A brief product overview of NSO, its architecture, and core concepts.
+icon: sunglasses
 ---
 
 # NSO at a Glance
