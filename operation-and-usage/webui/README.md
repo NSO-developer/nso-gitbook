@@ -1,5 +1,6 @@
 ---
 description: Operate NSO using the Web UI.
+icon: window
 ---
 
 # Web UI

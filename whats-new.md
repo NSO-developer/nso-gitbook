@@ -1,5 +1,6 @@
 ---
 description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
 # What's New
@@ -56,7 +57,7 @@ A number of additional packages are now bundled with the NSO installer binary. T
 
 Documentation Updates:
 
-* Expanded the [Installation](administration/installation-and-deployment/README.md) section with information on additional bundled packages.
+* Expanded the [Installation](administration/installation-and-deployment/) section with information on additional bundled packages.
 
 </details>
 

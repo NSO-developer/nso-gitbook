@@ -1,5 +1,6 @@
 ---
 description: Administrate and manage NSO.
+icon: chevrons-right
 layout:
   title:
     visible: true
