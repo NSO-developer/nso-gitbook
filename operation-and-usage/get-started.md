@@ -1,5 +1,6 @@
 ---
 description: Operate and use NSO.
+icon: chevrons-right
 layout:
   title:
     visible: true

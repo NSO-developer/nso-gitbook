@@ -1,2 +1,6 @@
+---
+icon: rectangle-terminal
+---
+
 # CLI
 

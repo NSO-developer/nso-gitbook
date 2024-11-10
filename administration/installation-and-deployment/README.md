@@ -1,5 +1,6 @@
 ---
 description: Learn about different ways to install and deploy NSO.
+icon: download
 ---
 
 # Installation and Deployment
