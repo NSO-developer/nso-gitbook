@@ -1,5 +1,6 @@
 ---
 description: Develop services and more in NSO.
+icon: chevrons-right
 layout:
   title:
     visible: true
