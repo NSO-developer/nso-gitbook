@@ -1,6 +1,6 @@
 ---
-description: Latest features and enhancements added in this release.
 icon: sparkles
+description: Latest features and enhancements added in this release.
 ---
 
 # What's New
@@ -15,7 +15,7 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary>Restructured Documentation</summary>
+<summary><strong>Restructured Documentation</strong></summary>
 
 NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
 
@@ -23,7 +23,7 @@ NSO product documentation has undergone a major restructuring with the goal of i
 
 <details>
 
-<summary>IPC Authentication</summary>
+<summary><strong>IPC Authentication</strong></summary>
 
 NSO 6.4 introduces a more secure way for local Inter-Process Communication (IPC) between NSO system components based on Unix domain sockets. The main benefit of the new mechanism is the ability for the main server process to authenticate the clients. The authentication is based on the UID of the other end of the socket connection. In other words, it is now much easier to limit IPC access to specific host OS users.
 
@@ -36,7 +36,7 @@ Documentation Updates:
 
 <details>
 
-<summary>Improved Out-of-band Changes Handling</summary>
+<summary><strong>Improved Out-of-band Changes Handling</strong></summary>
 
 The `commit no-overwrite` functionality has been extended to include verifying device values that are required to compute the end result (the values from the transaction read-set) have not changed. This means `commit no-overwrite` now provides much stronger guarantees about correctness in the face of device changes that were not made through NSO. In many cases, it translates into making provisioning pre-checks unnecessary and simplifying operations (operator no longer needs to issue a `check-sync` or `sync-from` operation beforehand).
 
@@ -44,7 +44,7 @@ The `commit no-overwrite` functionality has been extended to include verifying d
 
 <details>
 
-<summary>Package Template Structure</summary>
+<summary><strong>Package Template Structure</strong></summary>
 
 NSO now supports structuring the package `templates` directory with subdirectories. The XML templates contained in the subdirectories can be referenced by prepending the subdirectory path and, optionally, by the package name and a colon.
 
@@ -58,7 +58,7 @@ Documentation Updates:
 
 <details>
 
-<summary>Web UI Updates</summary>
+<summary><strong>Web UI Updates</strong></summary>
 
 The Web UI functionality has been extended to include new feature updates in device/SNMP Authgroups, service manager, and compliance reporting. The UI’s look-and-feel has also been enhanced further for a continued streamlined experience.
 
@@ -72,7 +72,7 @@ Documentation Updates:
 
 <details>
 
-<summary>Kubernetes Best Practices Guidelines</summary>
+<summary><strong>Kubernetes Best Practices Guidelines</strong></summary>
 
 A new [document](https://developer.cisco.com/docs/nso/) covering best practices for Kubernetes has been added to the documentation set.
 
