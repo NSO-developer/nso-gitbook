@@ -87,7 +87,7 @@ The **Modify in Config Editor** and **Delete** are GUI-specific operations acces
 Additional actions are applied to an individual service. Use this option if you want to run an action with additional parameters.
 
 1. Access the service in the Configuration Editor. This you can do by selecting the **Modify in Config Editor** option in the **Services** view.
-2. Access the **Actions** tab in the **Configuration editor** view**.**
+2. Access the **Actions** tab in the **Configuration editor** view.
 3. Click the desired action in the list.
 4.  At this point, you can configure different parameters.
 
@@ -100,7 +100,7 @@ Fetch the action information by clicking the info <img src="../../images/actions
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.&#x20;
+Access the service in the **Configuration editor** to run the following actions: **check-sync**, **reactive-re-deploy**, **un-deploy**, **deep-check-sync**, **touch**, **set-rank**, **re-deploy**, **get-modifications**, and **purge.** See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
 {% endtabs %}
 

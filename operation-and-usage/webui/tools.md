@@ -37,7 +37,7 @@ The **Reload** button on the **Packages** pane is the equivalent of the **packag
 
 To install a new package:
 
-1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar`) from your local disk.
+1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar` or `.tar.gz`) from your local disk.
 2. Click **Upload**. The package becomes visible under the **Available** pane.\
    (The **Progress Trace** shows the real-time progress of the upload).
 3. Click **Install**.
@@ -53,7 +53,7 @@ To uninstall an existing package:
 
 The **High Availability** view is used to visualize your HA setup (rule-based or Raft).
 
-Actions can be performed on the cluster using the **Configuration editor** -> **Actions** tab. Possible actions are further described in the High Availability documentation under [Actions](../../administration/management/high-availability.md#d5e5031)).
+Actions can be performed on the cluster using the **Configuration editor** -> **Actions** tab. Possible actions are further described in the High Availability documentation under [Actions](../../administration/management/high-availability.md#d5e5031).
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
