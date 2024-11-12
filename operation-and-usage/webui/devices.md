@@ -35,7 +35,7 @@ Actions can be applied on a device from the **Device management** view or the **
 An action can be applied to a single or multiple devices at once.
 
 1. Select the device(s) from the list.
-2. Using the **Choose actions** button, select the desired action. The result of the action is returned immediately.
+2. Using the **Choose actions** button, select the desired action. The result of the action is returned momentarily.
 
 {% hint style="info" %}
 In the **Device management** view, you can also apply actions on a device using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
