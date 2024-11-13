@@ -15,6 +15,29 @@ This release includes major enhancements in the following areas:
 
 <details>
 
+<summary><strong>New CDB On-Demand Mode</strong></summary>
+
+NSO can now use a new CDB backend that uses RAM in a more traditional,
+cache-like manner instead of being a pure in-memory database. This mode
+better supports use cases with huge amounts of data in CDB, where CDB
+size exceeds available system memory, or instances where performance gains
+with in-memory mode are small enough to not justify longer initial startup
+time.
+
+The additional benefit of this new persistence mode is greatly simplified
+operation, including an improved compaction process that runs entirely in
+the background without impacting ongoing requests.
+
+Documentation Updates:
+
+* Added a new section [CDB Persistence](administration/advanced-topics/cdb-persistence.md).
+
+* Added a new example in _examples.ncs/misc/cdb-on-demand_ to showcase this functionality.
+
+</details>
+
+<details>
+
 <summary><strong>Restructured Documentation</strong></summary>
 
 NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
@@ -67,6 +90,14 @@ Documentation Updates:
 * Added a new section [Authgroups](operation-and-usage/webui/devices.md#authgroups) in Devices.
 * Improved and aligned the [Services](operation-and-usage/webui/services.md) section in accordance with the new Service Manager.
 * Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui\_compliance) sections to add new details.
+
+</details>
+
+<details>
+
+<summary><strong>Java API Improvement and Cleanup</strong></summary>
+
+The NSO Java API has seen significant changes, such as introduction of SocketAddress-based methods, deprecating a number of older functions, and removal of previously deprecated functionality. For a full list, consult the release CHANGES file ([online version](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.3\&to=6.4\&component=java-api)).
 
 </details>
 
