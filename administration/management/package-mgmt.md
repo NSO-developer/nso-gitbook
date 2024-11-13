@@ -56,11 +56,8 @@ In some specific situations, upgrading a package with newly added custom validat
 
 In some cases, we may want NSO to do the same operation as the `reload` action at NSO startup, i.e. copy all packages from the load path before loading, even though the private directory copy already exists. This can be achieved in the following ways:
 
-*   Setting the shell environment variable `$NCS_RELOAD_PACKAGES` to `true`. This will make NSO do the copy from the load path on every startup, as long as the environment variable is set. In a System Install, NSO must be started via the `init` script, and this method must be used, but with a temporary setting of the environment variable:
+*   Setting the shell environment variable `$NCS_RELOAD_PACKAGES` to `true`. This will make NSO do the copy from the load path on every startup, as long as the environment variable is set. In a System Install, NSO is typically started as a `systemd` system service, and `NCS_RELOAD_PACKAGES=true` can be set in `/etc/ncs/ncs.systemd.conf` temporarily to reload the packages.
 
-    ```bash
-    # NCS_RELOAD_PACKAGES=true /etc/init.d/ncs start
-    ```
 * Giving the option `--with-package-reload` to the `ncs` command when starting NSO. This will make NSO do the copy from the load path on this particular startup, without affecting the behavior on subsequent startups.
 * If warnings are encountered when reloading packages at startup using one of the options above, the recommended way forward is to fix the root cause as indicated by the warnings as mentioned before. If the intention is to proceed with the upgrade without fixing the underlying cause for the warnings, it is possible to force the upgrade using `NCS_RELOAD_PACKAGES`=`force` environment variable or `--with-package-reload-force` option.
 
