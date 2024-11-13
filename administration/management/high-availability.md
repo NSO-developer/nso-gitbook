@@ -477,7 +477,7 @@ The procedure differentiates between the current leader node versus followers. T
 2. Before embarking on the upgrade procedure, it's imperative to backup each node. This ensures that you have a safety net in case of any unforeseen issues. For example, you can use the `$NCS_DIR/bin/ncs-backup` command.
 3. Delete the `$NCS_RUN_DIR/cdb/compact.lock` file and compact the CDB write log on all nodes using, for example, the `$NCS_DIR/bin/ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
 4. On all nodes, delete the `$NCS_RUN_DIR/state/raft/` directory with a command such as `rm -rf $NCS_RUN_DIR/state/raft/`.
-5. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `/etc/init.d/ncs stop` command on each node.
+5. Stop NSO on all the follower nodes, for example, invoking the `$NCS_DIR/bin/ncs --stop` or `systemctl stop ncs` command on each node.
 6. Stop NSO on the leader node only after you have stopped all the follower nodes in the previous step. Alternatively NSO can be stopped on the nodes before deleting the HA Raft state and compacting the CDB write log without needing to delete the `compact.lock` file.
 7. Upgrade the NSO packages on the leader to support the new NSO version.
 8. Install the new NSO version on all nodes.
@@ -772,9 +772,9 @@ paris   827   running  192.168.31.2  ESTABLISHED  true
 ```
 
 {% hint style="info" %}
-GoBGP must be installed separately. The `gobgp` and `gobgpd` binaries must be found in paths specified by the `$PATH` environment variable. For system install, NSO reads `$PATH` in the init script /etc/init.d/ncs. Since tailf-hcc 6.0.2, the path to gobgp/gobgpd is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`. The leaf has been removed from the tailf-hcc/src/yang/tailf-hcc.yang module.
+GoBGP must be installed separately. The `gobgp` and `gobgpd` binaries must be found in paths specified by the `$PATH` environment variable. For system install, NSO reads `$PATH` in the `systemd` service file `/etc/systemd/system/ncs.service`. Since tailf-hcc 6.0.2, the path to `gobgp`/`gobgpd` is no longer possible to specify from the configuration data leaf `/hcc/bgp/node/gobgp-bin-dir`. The leaf has been removed from the `tailf-hcc/src/yang/tailf-hcc.yang` module.
 
-Upgrades: If BGP is enabled and the gobgp or gobgpd binaries are not found, the tailf-hcc package will fail to load. The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true /etc/init.d/ncs restart`.
+Upgrades: If BGP is enabled and the `gobgp` or `gobgpd` binaries are not found, the tailf-hcc package will fail to load. The user must then install GoBGP and invoke the `packages reload` action or restart NSO with `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and `systemctl restart ncs`.
 {% endhint %}
 
 #### **Configuration**

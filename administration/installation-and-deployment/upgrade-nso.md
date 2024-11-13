@@ -73,10 +73,10 @@ For the upgrade itself, you must first download to the host and install the new 
 # sh nso-6.3.linux.x86_64.installer.bin --system-install
 ```
 
-Then, stop the currently running server with the help of the `init.d` script or an equivalent command relevant to your system.
+Then, stop the currently running server with the help of `systemd` or an equivalent command relevant to your system.
 
 ```bash
-# /etc/init.d/ncs stop
+# systemctl stop ncs
 Stopping ncs: .
 ```
 
@@ -107,11 +107,14 @@ Please note that the above package naming scheme is neither required nor enforce
 {% endhint %}
 
 Finally, you start the new version of the NSO server with the package reload flag set.
+Set `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and start NSO:
 
 ```bash
-# /etc/init.d/ncs start-with-package-reload
+# systemctl start ncs
 Starting ncs: ...
 ```
+
+Set the `NCS_RELOAD_PACKAGES` variable in `/etc/ncs/ncs.systemd.conf` back to its previous value or the system would keep performing a packages reload at subsequent starts.
 
 NSO will perform the necessary data upgrade automatically. However, this process may fail if you have changed or removed any packages. In that case, ensure that the correct versions of all packages are present in `/var/opt/ncs/packages/` and retry the preceding command.
 
@@ -134,7 +137,7 @@ The same steps can also be used to restore data on a new, similar host if the OS
 1.  First, stop the NSO process if it is running.
 
     ```bash
-    # /etc/init.d/ncs stop
+    # systemctl stop ncs
     Stopping ncs: .
     ```
 2.  Verify and, if necessary, revert the symbolic link in `/opt/ncs/` to point to the initial NSO release.
@@ -160,7 +163,7 @@ The same steps can also be used to restore data on a new, similar host if the OS
 5.  Finally, start the NSO server and verify the restore was successful.
 
     ```bash
-    # /etc/init.d/ncs start
+    # systemctl start ncs
     Starting ncs: .
     ```
 
@@ -223,7 +226,9 @@ admin@ncs# high-availability be-primary
 
 <switch to designated primary shell>
 # <upgrade node>
-# /etc/init.d/ncs restart-with-package-reload
+# <set NCS_RELOAD_PACKAGES=true in `/etc/ncs/ncs.systemd.conf`>
+# systemctl restart ncs
+# <restore `/etc/ncs/ncs.systemd.conf`>
 
 <switch to designated secondary CLI>
 admin@ncs# high-availability disable
@@ -233,7 +238,9 @@ admin@ncs# high-availability enable
 
 <switch to designated secondary shell>
 # <upgrade node>
-# /etc/init.d/ncs restart-with-package-reload
+# <set NCS_RELOAD_PACKAGES=true in `/etc/ncs/ncs.systemd.conf`>
+# systemctl restart ncs
+# <restore `/etc/ncs/ncs.systemd.conf`>
 
 <switch to designated secondary CLI>
 admin@ncs# high-availability enable
@@ -318,13 +325,20 @@ on_primary_cli 'request high-availability disable'
 on_secondary_cli 'request high-availability be-primary'
 upgrade_nso $primary
 upgrade_packages $primary
-on_primary '/etc/init.d/ncs restart-with-package-reload'
+on_primary `mv /etc/ncs/ncs.systemd.conf /etc/ncs/ncs.systemd.conf.bak'
+on_primary 'echo "NCS_RELOAD_PACKAGES=true" > /etc/ncs/ncs.systemd.conf`
+on_primary 'systemctl restart ncs'
+on_primary `mv /etc/ncs/ncs.systemd.conf.bak /etc/ncs/ncs.systemd.conf'
+
 
 on_secondary_cli 'request high-availability disable'
 on_primary_cli 'request high-availability enable'
 upgrade_nso $secondary
 upgrade_packages $secondary
-on_secondary '/etc/init.d/ncs restart-with-package-reload'
+on_secondary `mv /etc/ncs/ncs.systemd.conf /etc/ncs/ncs.systemd.conf.bak'
+on_secondary 'echo "NCS_RELOAD_PACKAGES=true" > /etc/ncs/ncs.systemd.conf`
+on_secondary 'systemctl restart ncs'
+on_secondary `mv /etc/ncs/ncs.systemd.conf.bak /etc/ncs/ncs.systemd.conf'
 
 on_secondary_cli 'request high-availability enable'
 ```
