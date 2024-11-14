@@ -15,32 +15,24 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary><strong>New CDB On-Demand Mode</strong></summary>
+<summary><strong>Restructured Documentation</strong></summary>
 
-NSO can now use a new CDB backend that uses RAM in a more traditional,
-cache-like manner instead of being a pure in-memory database. This mode
-better supports use cases with huge amounts of data in CDB, where CDB
-size exceeds available system memory, or instances where performance gains
-with in-memory mode are small enough to not justify longer initial startup
-time.
-
-The additional benefit of this new persistence mode is greatly simplified
-operation, including an improved compaction process that runs entirely in
-the background without impacting ongoing requests.
-
-Documentation Updates:
-
-* Added a new section [CDB Persistence](administration/advanced-topics/cdb-persistence.md).
-
-* Added a new example in _examples.ncs/misc/cdb-on-demand_ to showcase this functionality.
+NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
 
 </details>
 
 <details>
 
-<summary><strong>Restructured Documentation</strong></summary>
+<summary><strong>New CDB On-Demand Mode</strong></summary>
 
-NSO product documentation has undergone a major restructuring with the goal of improving the overall experience.
+NSO can now use a new CDB backend that uses RAM in a more traditional, cache-like manner instead of being a pure in-memory database. This mode better supports use cases with huge amounts of data in CDB, where CDB size exceeds available system memory, or instances where performance gains with in-memory mode are small enough to not justify longer initial startup time.
+
+The additional benefit of this new persistence mode is greatly simplified operation, including an improved compaction process that runs entirely in the background without impacting ongoing requests.
+
+Documentation Updates:
+
+* Added a new section [CDB Persistence](administration/advanced-topics/cdb-persistence.md).
+* Added a new example in `examples.ncs/misc/cdb-on-demand` to showcase this functionality.
 
 </details>
 

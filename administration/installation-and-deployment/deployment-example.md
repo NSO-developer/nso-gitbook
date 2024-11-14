@@ -59,7 +59,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 * Create the `ncsadmin` and `ncsoper` Linux user groups.
 * Create and add the `admin` and `oper` Linux users to their respective groups.
 * Perform a system installation of NSO that runs NSO as the `admin` user.
-* The `admin` user is granted access to run the **ip** command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
+* The `admin` user is granted access to run the `ip` command from the `vipctl` script as `root` using the `sudo` command as required by the `tailf-hcc` package.
 * The `cmdwrapper` NSO program gets access to run the scripts executed by the `generate-token` action for generating RESTCONF authentication tokens as the current NSO user.
 * Password authentication is set up for the read-only `oper` user for use with NSO only, which is intended for WebUI access.
 * The `root` user is set up for Linux shell access only.
@@ -83,13 +83,13 @@ The initialization steps are also performed as `root` for the nodes that make up
   \
   The host keys, like those used for client authentication, are generated each time the HA cluster nodes are initialized. The host keys are distributed to the manager and nodes in the HA cluster before the NSO built-in SSH and OpenSSH servers are started on the nodes.
 * As NSO runs in containers, the environment variables are set to point to the system install directories in the Docker Compose `.env` file.
-* NSO runs as the non-root `admin` user and, therefore, the NSO system installation is done using the `./nso-${VERSION}.linux.${ARCH}.installer.bin --system-install --run-as-user admin --ignore-init-scripts` options. By default, the NSO installation start script will create a `systemd` system service to run NSO as the `admin` user (default is the `root` user) when NSO is started using the `systemctl start ncs` command. \
-\
-However, this example uses the `--ignore-init-scripts` option to skip installing `systemd` scripts as it runs in a container that does not support `systemd`.\
-\
-The environment variables are copied to a `.pam_environment` file so the `root` and `admin` users can set the required environment variables when those users access the shell via SSH.\
-\
-The `/etc/systemd/system/ncs.service` `systemd` service script is installed as part of the NSO system install, if not using the `--ignore-init-scripts` option, and it can be customized if you would like to use it to start NSO. The script may provide what you need and can be a starting point.
+* NSO runs as the non-root `admin` user and, therefore, the NSO system installation is done using the `./nso-${VERSION}.linux.${ARCH}.installer.bin --system-install --run-as-user admin --ignore-init-scripts` options. By default, the NSO installation start script will create a `systemd` system service to run NSO as the `admin` user (default is the `root` user) when NSO is started using the `systemctl start ncs` command.\
+  \
+  However, this example uses the `--ignore-init-scripts` option to skip installing `systemd` scripts as it runs in a container that does not support `systemd`.\
+  \
+  The environment variables are copied to a `.pam_environment` file so the `root` and `admin` users can set the required environment variables when those users access the shell via SSH.\
+  \
+  The `/etc/systemd/system/ncs.service` `systemd` service script is installed as part of the NSO system install, if not using the `--ignore-init-scripts` option, and it can be customized if you would like to use it to start NSO. The script may provide what you need and can be a starting point.
 * The OpenSSH `sshd` and `rsyslog` daemons are started.
 * The packages from the package store are added to the `${NCS_RUN_DIR}/packages` directory before finishing the initialization part in the `root` context.
 * The NSO smart licensing token is set.
