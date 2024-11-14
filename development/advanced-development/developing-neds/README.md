@@ -5415,29 +5415,29 @@ The above three callbacks are used by the NSO Java VM to connect the NED Java cl
 
 The underlying NedMux will start a number of threads, and invoke the registered class with other data callbacks as transactions execute.
 
-## Migrating to the `juniper-junos_nc-gen` NED
+## Migrating to the `juniper-junos_nc` NED
 
 NSO has supported Junos devices from early on. The legacy Junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.
 
-Juniper nowadays provides YANG modules for Junos devices. Junos YANG modules can be downloaded from the device and used directly in NSO with the new `juniper-junos_nc-gen` NED.
+Juniper nowadays provides YANG modules for Junos devices. Junos YANG modules can be downloaded from the device and used directly in NSO with the new `juniper-junos_nc` NED.
 
-By downloading the YANG modules using `juniper-junos_nc-gen` NED tools and rebuilding the NED, the NED can provide full coverage immediately when the device is updated instead of waiting for a new legacy NED release.
+By downloading the YANG modules using `juniper-junos_nc` NED tools and rebuilding the NED, the NED can provide full coverage immediately when the device is updated instead of waiting for a new legacy NED release.
 
 This guide describes how to replace the legacy `juniper-junos` NED and migrate NSO applications to the `juniper-junos_nc-gen` NED using the NSO MPLS VPN example from the NSO examples collection as a reference.
 
 Prepare the example:
 
-1. Add the `juniper-junos` and `juniper-junos_nc-gen` NED packages to the example.
+1. Add the `juniper-junos` and `juniper-junos_nc` NED packages to the example.
 2. Configure the connection to the Junos device.
 3. Add the MPLS VPN service configuration to the simulated network, including the Junos device using the legacy `juniper-junos` NED.
 
-Adapting the service to the `juniper-junos_nc-gen` NED:
+Adapting the service to the `juniper-junos_nc` NED:
 
 1. Un-deploy MPLS VPN service instances with `no-networking`.
 2. Delete Junos device config with `no-networking`.
 3. Set the Junos device to NETCONF/YANG compliant mode.
-4. Switch the ned-id for the Junos device to the `juniper-junos_nc-gen` NED package.
-5. Download the compliant YANG models, build, and reload the `juniper-junos_nc-gen` NED package.
+4. Switch the ned-id for the Junos device to the `juniper-junos_nc` NED package.
+5. Download the compliant YANG models, build, and reload the `juniper-junos_nc` NED package.
 6. Sync from the Junos device to get the compliant Junos device config.
 7. Update the MPLS VPN service to handle the difference between the non-compliant and compliant configurations belonging to the service.
 8. Re-deploy the MPLS VPN service instances with `no-networking` to make the MPLS VPN service instances own the device configuration again.
@@ -5448,11 +5448,11 @@ If applying the steps for this example on a production system, you should first 
 
 ### Prepare the Example <a href="#d5e10954" id="d5e10954"></a>
 
-This guide uses the MPLS VPN example in Python from the NSO example set under `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python` to demonstrate porting an existing application to use the `juniper-junos_nc-gen` NED. The simulated Junos device is replaced with a Junos vMX 21.1R1.11 container, but other NETCONF/YANG-compliant Junos versions also work.
+This guide uses the MPLS VPN example in Python from the NSO example set under `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python` to demonstrate porting an existing application to use the `juniper-junos_nc` NED. The simulated Junos device is replaced with a Junos vMX 21.1R1.11 container, but other NETCONF/YANG-compliant Junos versions also work.
 
-### **Add the `juniper-junos` and `juniper-junos_nc-gen` NED Packages**
+### **Add the `juniper-junos` and `juniper-junos_nc` NED Packages**
 
-The first step is to add the latest `juniper-junos` and `juniper-junos_nc-gen` NED packages to the example's package directory. The NED tar-balls must be available and downloaded from your [https://software.cisco.com/download/home](https://software.cisco.com/download/home) account to the `17-mpls-vpn-python` example directory. Replace the `NSO_VERSION` and `NED_VERSION` variables with the versions you use:
+The first step is to add the latest `juniper-junos` and `juniper-junos_nc` NED packages to the example's package directory. The NED tar-balls must be available and downloaded from your [https://software.cisco.com/download/home](https://software.cisco.com/download/home) account to the `17-mpls-vpn-python` example directory. Replace the `NSO_VERSION` and `NED_VERSION` variables with the versions you use:
 
 ```bash
 $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/17-mpls-vpn-python
@@ -5662,13 +5662,13 @@ Looks good. Commit to the network:
 admin@ncs(config)# commit
 ```
 
-### Adapting the Service to the `juniper-junos_nc-gen` NED <a href="#d5e11047" id="d5e11047"></a>
+### Adapting the Service to the `juniper-junos_nc` NED <a href="#d5e11047" id="d5e11047"></a>
 
-Now that the service's configuration is in place using the legacy `juniper-junos` NED to configure the `PE2` Junos device, proceed and switch to using the `juniper-junos_nc-gen` NED with `PE2` instead. The service template and Python code will need a few adaptations.
+Now that the service's configuration is in place using the legacy `juniper-junos` NED to configure the `PE2` Junos device, proceed and switch to using the `juniper-junos_nc` NED with `PE2` instead. The service template and Python code will need a few adaptations.
 
 ### **Un-deploy MPLS VPN Services Instances with `no-networking`**
 
-To keep the NSO service meta-data information intact when bringing up the service with the new `juniper-junos_nc-gen` NED, first `un-deploy` the service instances in NSO, only keeping the configuration on the devices:
+To keep the NSO service meta-data information intact when bringing up the service with the new `juniper-junos_nc` NED, first `un-deploy` the service instances in NSO, only keeping the configuration on the devices:
 
 ```cli
 admin@ncs(config)# vpn l3vpn * un-deploy no-networking
@@ -5728,7 +5728,7 @@ $ netconf-console -s plain -u USER_NAME -p PASSWORD --host=HOST_NAME/IP_ADDR --p
                   --commit
 ```
 
-### **Switch the NED ID for the Junos Device to the `juniper-junos_nc-gen` NED Package**
+### **Switch the NED ID for the Junos Device to the `juniper-junos_nc` NED Package**
 
 ```bash
 $ ncs_cli -u admin -C
@@ -5738,9 +5738,9 @@ admin@ncs(config)# commit
 admin@ncs(config)# end
 ```
 
-### **Download the Compliant YANG models, Build, and Load the `juniper-junos_nc-gen` NED Package**
+### **Download the Compliant YANG models, Build, and Load the `juniper-junos_nc` NED Package**
 
-The `juniper-junos_nc-gen` NED is delivered without YANG modules, enabling populating it with device-specific YANG modules. The YANG modules are retrieved directly from the Junos device:
+The `juniper-junos_nc` NED is delivered without YANG modules, enabling populating it with device-specific YANG modules. The YANG modules are retrieved directly from the Junos device:
 
 ```bash
 $ ncs_cli -u admin -C
@@ -5749,15 +5749,15 @@ admin@ncs# devices device pe2 rpc rpc-get-modules get-modules
 admin@ncs# exit
 ```
 
-See the `juniper-junos_nc-gen` `README` for more options and details.
+See the `juniper-junos_nc` `README` for more options and details.
 
-Build the YANG modules retrieved from the Junos device with the `juniper-junos_nc-gen` NED:
+Build the YANG modules retrieved from the Junos device with the `juniper-junos_nc` NED:
 
 ```bash
 $ make -C packages/juniper-junos_nc-gen-1.0/src
 ```
 
-Reload the packages to load the `juniper-junos_nc-gen` NED with the added YANG modules:
+Reload the packages to load the `juniper-junos_nc` NED with the added YANG modules:
 
 ```bash
 $ ncs_cli -u admin -C
@@ -5976,4 +5976,4 @@ $ ncs_cli -u admin -C
 admin@ncs# vpn l3vpn * re-deploy
 ```
 
-The NSO service instances are now in sync with the configuration on the Junos device using the `juniper-junos_nc-gen` NED.
+The NSO service instances are now in sync with the configuration on the Junos device using the `juniper-junos_nc` NED.
