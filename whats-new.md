@@ -101,7 +101,7 @@ The NSO installer has been updated to, by default, provision a `systemd` system 
 
 Documentation Updates:
 
-* Added `systemd`information to the [System Install](administration/installation-and-deployment/system-install.md#default-directories-and-scripts) section.
+* Added `systemd` information to the [System Install](administration/installation-and-deployment/system-install.md#default-directories-and-scripts) section.
 
 </details>
 
