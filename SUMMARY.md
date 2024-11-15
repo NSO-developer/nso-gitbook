@@ -2,6 +2,7 @@
 
 * [Start](README.md)
 * [What's New](whats-new.md)
+* [Errata](errata.md)
 * [NSO at a Glance](nso-at-a-glance.md)
 
 ## Administration
