@@ -69,7 +69,7 @@ To migrate to System Install:
       <enabled>false</enabled>
     </local-authentication>
     ```
-10. When starting NSO at boot using systemd, make sure that you set the package reload option from the `/etc/ncs/ncs.systemd.conf` environment file to true. Or, for example, set `NCS_RELOAD_PACKAGES=true` before starting NSO if using the `ncs` command.
+10. When starting NSO at boot using `systemd`, make sure that you set the package reload option from the `/etc/ncs/ncs.systemd.conf` environment file to `true`. Or, for example, set `NCS_RELOAD_PACKAGES=true` before starting NSO if using the `ncs` command.
 
     ```bash
     # systemctl daemon-reload
