@@ -122,6 +122,6 @@
 
 ## Resources
 
-* [Manual Pages](https://developer.cisco.com/docs/nso/guides/ncs-man-pages-volume-1/)
+* [Manual Pages](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/)
 * [NSO API Reference](https://developer.cisco.com/docs/nso/#!api-reference)
 * [NSO Docs Home](https://developer.cisco.com/docs/nso/)
