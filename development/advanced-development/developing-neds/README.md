@@ -88,7 +88,7 @@ The NSO example under `$NCS_DIR/examples.ncs/development-guide/ned-development/n
 
 The `netconf-console` NETCONF client tool is a Python script that can be used for testing, debugging, and simple client duties. For example, making the device YANG models available to NSO using the NETCONF IETF RFC 6022 `get-schema` operation to download YANG modules and the RFC 6241`get` operation, where the device implements the RFC 7895 YANG module library to provide information about all the YANG modules used by the NETCONF server. Type `netconf-console -h` for documentation.
 
-Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-1/#man.1.ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
+Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#man.1.ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
 
 The `demo.sh` script in the `netconf-ned` example uses the `netconf-console` and `ncs-make-package` combination to create, build, and install the NETCONF NED. When you know beforehand which models you need from the device, you often begin with this approach when encountering a new NETCONF device.
 
@@ -205,7 +205,7 @@ If you make any changes to, for example, the YANG models after creating the pack
 
 #### **Configure the Device Connection**
 
-Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
+Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
 
 ```bash
 $ ncs --cd ./nso-rundir
@@ -4799,7 +4799,7 @@ bscActFlow        ned-modification-dependent
 
 This tells NSO that before modifying the `bscActFlow` column set the `bscActAdminState` to locked and restore the previous value after committing the set operation.
 
-All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.mib\_annotations) in manual pages for details.
+All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.mib\_annotations) in manual pages for details.
 
 Make sure that the MIB annotation file is put into the directory where all the MIB files are which is given as input to the `ncsc --ncs-compile-mib-bundle` command
 
