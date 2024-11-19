@@ -74,7 +74,7 @@ Using `/ncs-config/webui/match-host-name = true` requires you to use the configu
 
 To additionally secure IPC access, refer to [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).
 
-For more details on individual interfaces and their use, see [Northbound APIs](https://developer.cisco.com/docs/nso-guides-6.1/#!northbound-apis-introduction).
+For more details on individual interfaces and their use, see [Northbound APIs](../../../development/core-concepts/northbound-apis/).
 
 ### Dynamic Configuration <a href="#d5e81" id="d5e81"></a>
 
