@@ -464,7 +464,7 @@ For periodic subscriptions, updates are triggered periodically according to spec
 
 For on-change subscriptions, updates are triggered whenever a change is detected on the subscribed information. In the case of rapidly changing data, instead of receiving frequent notifications for every change, a receiver may specify a `dampening-period` to receive update notifications in a lower frequency. A receiver may request for synchronization at the start of a subscription by using `sync-on-start` option. A receiver may filter out specific types of changes by providing a list of `excluded-change` parameters.
 
-To provide updates for `on-change` subscriptions on `operational` datastore, data provider applications are required to implement push-on-change callbacks. For more details, see the [PUSH ON-CHANGE CALLBACKS](https://developer.cisco.com/docs/nso-guides-6.3/#!ncs-man-pages-volume-3/fn.confd\_push\_on\_change) in the Manual Pages section of [confd\_lib\_dp(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd\_lib\_dp) in Manual Pages.
+To provide updates for `on-change` subscriptions on `operational` datastore, data provider applications are required to implement push-on-change callbacks. For more details, see the [PUSH ON-CHANGE CALLBACKS](https://developer.cisco.com/docs/nso-guides-6.3/#!ncs-man-pages-volume-3/fn.confd\_push\_on\_change) in the Manual Pages section of [confd\_lib\_dp(3)](https://developer.cisco.com/docs/nso-guides-6.3/#!ncs-man-pages-volume-3/man.3.confd\_lib\_dp) in Manual Pages.
 
 ### YANG-Push Operations <a href="#d5e665" id="d5e665"></a>
 
