@@ -1029,7 +1029,7 @@ It is important to keep in mind that while in some cases XPath converts the lite
 
 ## XPath Functions <a href="#d5e2911" id="d5e2911"></a>
 
-This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages for a full list.
+This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages for a full list.
 
 <details>
 
@@ -1066,7 +1066,7 @@ This section lists a few useful functions, available in XPath expressions. The l
 * [current()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.1.1)
 * [deref()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.3.1)
 * [last()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-last)
-* [sort-by()](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [sort-by()](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
 
 </details>
 
@@ -1074,10 +1074,10 @@ This section lists a few useful functions, available in XPath expressions. The l
 
 <summary>Other</summary>
 
-* [compare()](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [compare()](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
 * [count()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-count)
-* [max()](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
-* [min()](https://developer.cisco.com/docs/nso-guides-6.2/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [max()](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [min()](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
 * [not()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
 * [sum()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum)
 

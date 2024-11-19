@@ -198,7 +198,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!manual-pages/man.1.ncs-installer) manual page included with NSO and also available from the online documentation on [DevNet](https://developer.cisco.com/docs/nso/guides/#!ncs-man-pages-volume-1/ncs-installer).
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.3/#!manual-pages/man.1.ncs-installer) manual page included with NSO and also available from the online documentation on [DevNet](https://developer.cisco.com/docs/nso/guides/#!ncs-man-pages-volume-1/ncs-installer).
 
 Notice the two options for `--local-install` or `--system-install`.
 
@@ -240,7 +240,7 @@ For the `--system-install` option, you can also choose a user-defined (non-defau
 
 If you choose a non-default Installation Directory by using `--install-dir`, you need to specify `--install-dir` for subsequent installs and also for backup and restore.
 
-For more information on `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!manual-pages/man.1.ncs-installer) man page.
+For more information on `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.3/#!manual-pages/man.1.ncs-installer) man page.
 
 For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
 
