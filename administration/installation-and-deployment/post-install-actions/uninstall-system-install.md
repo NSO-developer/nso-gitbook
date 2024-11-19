@@ -8,7 +8,7 @@ description: Remove System Install.
 Applies to System Install.
 {% endhint %}
 
-NSO can be uninstalled using the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!manual-pages/man.1.ncs-installer) option only if NSO is installed with `--system-install` option. Either part of the static files or the full installation can be removed using `ncs-uninstall` option. Ensure to stop NSO before uninstalling.
+NSO can be uninstalled using the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) option only if NSO is installed with `--system-install` option. Either part of the static files or the full installation can be removed using `ncs-uninstall` option. Ensure to stop NSO before uninstalling.
 
 ```bash
 # ncs-uninstall --all

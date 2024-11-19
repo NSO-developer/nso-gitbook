@@ -169,7 +169,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1) in Manual Pages.
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -198,7 +198,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!manual-pages/man.1.ncs-installer) manual page included with NSO and also available from the online documentation on [DevNet](https://developer.cisco.com/docs/nso/guides/#!ncs-man-pages-volume-1/ncs-installer).
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) manual page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`.
 
@@ -240,7 +240,7 @@ For the `--system-install` option, you can also choose a user-defined (non-defau
 
 If you choose a non-default Installation Directory by using `--install-dir`, you need to specify `--install-dir` for subsequent installs and also for backup and restore.
 
-For more information on `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-guides-6.1/#!manual-pages/man.1.ncs-installer) man page.
+For more information on `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) man page.
 
 For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
 
@@ -458,7 +458,7 @@ When configuring NSO in High Availability (HA) mode, the license registration to
 
 <summary>Licensing Log</summary>
 
-Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management/README.md#d5e7876). For example, a successful token registration results in the following log entry:
+Licensing activities are also logged in the NSO daemon log as described in [Monitoring NSO](../management/system-management/#d5e7876). For example, a successful token registration results in the following log entry:
 
 ```
 <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
