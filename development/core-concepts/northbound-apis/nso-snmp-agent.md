@@ -123,7 +123,7 @@ Note, that this only relates to initialization the first time NSO is started. On
 
 ## Alarm MIB <a href="#d5e2482" id="d5e2482"></a>
 
-The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines a table of alarms and SNMP alarm notifications corresponding to alarm state changes. Based on the alarm model in NSO (see [NSO Alarms](https://developer.cisco.com/docs/nso-guides-6.1/#!northbound-apis-nso-alarms)), the notifications as well as the alarm table contain the parameters that are required for alarm standards compliance (X.733 and 3GPP). The MIB files are located in `$NCS_DIR/src/ncs/snmp/mibs`.
+The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines a table of alarms and SNMP alarm notifications corresponding to alarm state changes. Based on the alarm model in NSO (see [NSO Alarms](https://developer.cisco.com/docs/nso-guides-6.2/#!northbound-apis-nso-alarms)), the notifications as well as the alarm table contain the parameters that are required for alarm standards compliance (X.733 and 3GPP). The MIB files are located in `$NCS_DIR/src/ncs/snmp/mibs`.
 
 * **TAILF-TOP-MIB.mib**\
   The tail-f enterprise OID.

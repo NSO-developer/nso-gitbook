@@ -1074,7 +1074,7 @@ Aborted: 'nacm rule-list any-group rule allowrule action' is not configured
 
 ## `ncs.conf` Settings <a href="#d5e1837" id="d5e1837"></a>
 
-Parts of the CLI behavior can be controlled from the `ncs.conf` file. See the [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages manual page for a comprehensive description of all the options.
+Parts of the CLI behavior can be controlled from the `ncs.conf` file. See the [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages manual page for a comprehensive description of all the options.
 
 ## CLI Environment <a href="#d5e1842" id="d5e1842"></a>
 
