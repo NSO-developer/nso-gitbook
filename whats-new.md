@@ -95,8 +95,20 @@ The NSO Java API has seen significant changes, such as introduction of SocketAdd
 
 <details>
 
+<summary><strong>NSO Installer systemd Script Creation for System Install</strong></summary>
+
+The NSO installer has been updated to, by default, provision a `systemd` system service when performing the initial NSO installation with the `--system-install` option.
+
+Documentation Updates:
+
+* Added `systemd` information to the [System Install](administration/installation-and-deployment/system-install.md#default-directories-and-scripts) section.
+
+</details>
+
+<details>
+
 <summary><strong>Kubernetes Best Practices Guidelines</strong></summary>
 
-A new [document](https://developer.cisco.com/docs/nso/) covering best practices for Kubernetes has been added to the documentation set.
+A new [document](https://developer.cisco.com/docs/nso/deploying-cisco-nso-on-kubernetes/) covering best practices for Kubernetes has been added to the documentation set.
 
 </details>

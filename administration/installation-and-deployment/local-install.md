@@ -163,7 +163,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual pages**
 
-The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs) in Manual Pages.
+The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-man-pages-volume-1) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -192,7 +192,7 @@ $ ncsc --help
 
 **Installer help**
 
-Run the `sh nso-VERSION.darwin.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) manual page included with NSO.
+Run the `sh nso-VERSION.darwin.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) Manual Page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`. An example output is shown below.
 

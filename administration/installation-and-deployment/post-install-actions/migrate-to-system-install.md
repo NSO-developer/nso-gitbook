@@ -69,10 +69,11 @@ To migrate to System Install:
       <enabled>false</enabled>
     </local-authentication>
     ```
-10. When starting NSO later on, make sure that you set the package reload option, or use `start-with-package-reload` instead of `start` with `/etc/init.d/ncs`.
+10. When starting NSO at boot using `systemd`, make sure that you set the package reload option from the `/etc/ncs/ncs.systemd.conf` environment file to `true`. Or, for example, set `NCS_RELOAD_PACKAGES=true` before starting NSO if using the `ncs` command.
 
     ```bash
-    # export NCS_RELOAD_PACKAGES=true
+    # systemctl daemon-reload
+    # systemctl start ncs
     ```
 11. Review and complete the steps in NSO System Install, except running the installer, which you have done already. Once completed, you should have a running NSO instance with data from the Local Install.
 12. Remove the package reload option if it was set.
@@ -110,7 +111,7 @@ To migrate to System Install:
 At this point, you should have a complete copy of the previous Local Install running as a System Install. Should the migration fail at some point and you want to back out of it, the Local Install was not changed and you can easily go back to using it as before.
 
 ```bash
-$ sudo /etc/init.d/ncs stop
+$ sudo systemctl stop ncs
 $ source $HOME/ncs-VERSION/ncsrc
 $ cd $HOME/ncs-run
 $ ncs

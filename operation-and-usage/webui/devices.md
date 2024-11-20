@@ -67,9 +67,9 @@ To fetch information about an action in the **Configuration editor** -> **Action
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
-If you access the device in the **Configuration editor**, the following additional actions are available:&#x20;
+If you access the device in the **Configuration editor**, the following additional actions are available:
 
-**migrate**, **instantiate-from-other-device**, **check-yang-modules**, **scp-to**, **copy-capabilities**, **compare-config**, **connect**, **scp-from**, **find-capabilities**, **sync-from**, **disconnect**, **rename**, **add-capability**, **sync-to**, **ping**, **load-native-config**, **apply-template**, **check-sync**, **delete-config**, **clear-trace**, and **fetch-host-keys**,&#x20;
+**migrate**, **instantiate-from-other-device**, **check-yang-modules**, **scp-to**, **copy-capabilities**, **compare-config**, **connect**, **scp-from**, **find-capabilities**, **sync-from**, **disconnect**, **rename**, **add-capability**, **sync-to**, **ping**, **load-native-config**, **apply-template**, **check-sync**, **delete-config**, **clear-trace**, and **fetch-host-keys**,
 
 See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 {% endtab %}
@@ -175,7 +175,8 @@ To create a new group:
          * **callback-node**
          * **action-name**
     2. Click **Add**. This adds the newly created user to the group and displays it in the list.
-4. Click **Create** **authgroup** to save and finish creating the group.
+
+4\. Click **Create** **authgroup** to save and finish creating the group.
 
 #### View/Edit Authgroup Details
 
@@ -219,9 +220,10 @@ To add a new group:
     2. Specify the **local-user** and configure the following settings:
        * **community** (optional): Choose between **community-name** or **community-binary-name**.
        * **remote-user**: Choose between **same-user** or **remote-name** options.
-       * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.&#x20;
+       * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.
     3. Click **Add**. This adds the newly created user to the group and displays it in the list.
-4. Click **Create** **SNMP** **group** to save and finish creating the group.
+
+4\. Click **Create** **SNMP** **group** to save and finish creating the group.
 
 #### View/Edit SNMP Group Details
 

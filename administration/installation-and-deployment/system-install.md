@@ -169,7 +169,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The manual pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/) in Manual Pages.
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The Manual Pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1 ](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer)in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -198,7 +198,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) manual page included with NSO.
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) Manual Page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`.
 
@@ -227,20 +227,27 @@ To run the installer:
 
 <details>
 
-<summary>Default Directories</summary>
+<summary>Default Directories and Scripts</summary>
 
 The System Install by default creates the following directories:
 
 * The Installation Directory is created in `/opt/ncs`, where the distribution is available.
 * The Configuration Directory is created in `/etc/ncs`, where the `ncs.conf` file, SSH keys, and WebUI certificates are created.
 * The Running Directory is created in `/var/opt/ncs`, where runtime state files, CDB database, and packages are created.
-* The Log Directory is created in `/var/log/ncs`, where the log files are populated. Also, init scripts are created in `/etc/init.d/ncs` and system-wide environment variables are created in `/etc/profile.d/ncs.sh`.
+* The Log Directory is created in `/var/log/ncs`, where the log files are populated.
+* System-wide environment variables are created in `/etc/profile.d/ncs.sh`.
+* The installer creates a `systemd` system service script in `/etc/systemd/system/ncs.service` and enables the NSO service to start at boot, but the service is _not_ started immediately. See the steps below for starting NSO after installation and before rebooting.
+* To allow package reload when starting NSO, an environment file called `/etc/ncs/ncs.systemd.conf` is created. This file is owned by the user that starts NSO.
 
 For the `--system-install` option, you can also choose a user-defined (non-default) Installation Directory, Configuration Directory, Running Directory, and Log Directory with `--install-dir`, `--config-dir`, `--run-dir` and `--log-dir` parameters, and specify that NSO should run as a different user than root with the `--run-as-user` parameter.
 
 If you choose a non-default Installation Directory by using `--install-dir`, you need to specify `--install-dir` for subsequent installs and also for backup and restore.
 
-For more information on `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) man page.
+Use the `--ignore-init-scripts` option to disable provisioning the `systemd` system service.
+
+If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interactive mode, the user will be prompted to continue using the old SysV service behavior or prepare a `systemd` service. In non-interactive mode, a `systemd` service will be prepared where a `/etc/systemd/system/ncs.service.prepare` file is created. The service is not enabled to start at boot. To enable it, rename it to `/etc/systemd/system/ncs.service` and remove the old `/etc/init.d/ncs` SysV service.
+
+For more information on the `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) man page.
 
 For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
 
@@ -347,8 +354,11 @@ To set environment variables:
 3.  Start NSO.
 
     ```bash
-    # /etc/init.d/ncs start
+    # systemctl daemon-reload
+    # systemctl start ncs
     ```
+
+    NSO starts at boot going forward.
 
     Once you log on with the user that belongs to `ncsadmin` or `ncsoper`, you can directly access the CLI as shown below:
 

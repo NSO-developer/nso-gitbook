@@ -5423,7 +5423,7 @@ Juniper nowadays provides YANG modules for Junos devices. Junos YANG modules can
 
 By downloading the YANG modules using `juniper-junos_nc` NED tools and rebuilding the NED, the NED can provide full coverage immediately when the device is updated instead of waiting for a new legacy NED release.
 
-This guide describes how to replace the legacy `juniper-junos` NED and migrate NSO applications to the `juniper-junos_nc-gen` NED using the NSO MPLS VPN example from the NSO examples collection as a reference.
+This guide describes how to replace the legacy `juniper-junos` NED and migrate NSO applications to the `juniper-junos_nc` NED using the NSO MPLS VPN example from the NSO examples collection as a reference.
 
 Prepare the example:
 
