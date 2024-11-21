@@ -14,7 +14,7 @@ These features aim to lower the barrier of upgrading NEDs and significantly redu
 
 ## The `migrate` Action <a href="#ug.ned.migration.migration" id="ug.ned.migration.migration"></a>
 
-By using the `/ncs:devices/device/migrate` action, you can change the NED major/minor version of a device. The action migrates all configuration and service meta-data. The action can also be executed in parallel on a device group or on all devices matching a NED identity. The procedure for migrating devices is further described in [NED Migration](../../../administration/management/package-management.md#ug.package\_mgmt.ned\_migration).
+By using the `/ncs:devices/device/migrate` action, you can change the NED major/minor version of a device. The action migrates all configuration and service meta-data. The action can also be executed in parallel on a device group or on all devices matching a NED identity. The procedure for migrating devices is further described in [NED Migration](../../../administration/management/ned-administration.md#sec.ned\_migration).
 
 Additionally, the example `examples.ncs/getting-started/developing-with-ncs/26-ned-migration` in the NSO examples collection illustrates how to migrate devices between different NED versions using the `migrate` action.
 
