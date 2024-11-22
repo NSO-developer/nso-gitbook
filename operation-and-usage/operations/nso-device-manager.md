@@ -1775,7 +1775,7 @@ container devices {
     }
 ```
 
-The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`
+The tree for device templates is generated from all device YANG models. All constraints are removed and the data type of all leafs is changed to `string`.
 
 A device template is created by setting the desired data in the configuration. The created device template is stored in NSO CDB.
 
