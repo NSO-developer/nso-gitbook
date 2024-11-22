@@ -27,7 +27,7 @@
   * [System Management](administration/management/system-management/README.md)
     * [Cisco Smart Licensing](administration/management/system-management/cisco-smart-licensing.md)
     * [Log Messages and Formats](administration/management/system-management/log-messages-and-formats.md)
-    * [Alarms](administration/management/system-management/alarms.md)
+    * [Alarm Types](administration/management/system-management/alarms.md)
   * [Package Management](administration/management/nso-packages.md)
   * [High Availability](administration/management/high-availability.md)
   * [AAA Infrastructure](administration/management/aaa-infrastructure.md)
