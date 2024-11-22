@@ -3,6 +3,7 @@ description: Description of the RESTCONF API.
 ---
 
 # RESTCONF API
+Small change
 
 RESTCONF is an HTTP-based protocol as defined in [RFC 8040](https://www.ietf.org/rfc/rfc8040.txt). RESTCONF standardizes a mechanism to allow Web applications to access the configuration data, state data, data-model-specific Remote Procedure Call (RPC) operations, and event notifications within a networking device.
 
