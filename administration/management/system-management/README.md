@@ -41,7 +41,7 @@ The `ncs.conf` file is described in the [NSO Manual Pages](https://developer.cis
 # ncs -c /etc/ncs/ncs.conf
 ```
 
-However, in a System Install, the `init` script must be used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus NSO is started with the command:
+However, in a System Install, the `init` script is typically used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus NSO is started with the command:
 
 ```bash
 # /etc/init.d/ncs start

@@ -213,7 +213,7 @@ sh nso-6.0.linux.x86_64.installer.bin --help
 To run the installer:
 
 1. Navigate to your Install Directory.
-2.  Run the installer with the `--system-install` option to perform System Install. This option creates an Install of NSO that is suitable for deployment.
+2.  Run the installer with the `--system-install` option to perform System Install. This option creates an Install of NSO that is suitable for production deployment.
 
     ```bash
     $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install
@@ -307,6 +307,10 @@ Refer to the Linux [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html) 
 If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
 
 </details>
+
+{% hint style="info" %}
+Some older NSO releases expect the `/etc/init.d/` folder to exist in the host operating system. If the folder does not exist, the installer may fail to successfully install NSO. A workaround that allows the installer to proceed is to create the folder manually, but the NSO process will not automatically start at boot.
+{% endhint %}
 
 ### Step 5 - Set Up User Access <a href="#si.setup.user.access" id="si.setup.user.access"></a>
 
