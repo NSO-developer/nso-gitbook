@@ -593,6 +593,285 @@ HTTP/1.1 200 OK
 
 There are additional NSO query parameters available for the RESTCONF API. These additional query parameters are described in the table below (Additional Query Parameters).
 
+<table data-full-width="true">
+  <thead>
+    <tr>
+      <th width="200">Name</th>
+      <th width="161">Methods</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dry-run</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code>, and <code>native</code>. The value used specifies in what format we want the returned diff to be.
+      </td>
+    </tr>
+    <tr>
+      <td><code>dry-run-reverse</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data, the reverse device commands returned are invalid.
+      </td>
+    </tr>
+    <tr>
+      <td><code>no-networking</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td>
+    </tr>
+    <tr>
+      <td><code>no-out-of-sync-check</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.
+      </td>
+    </tr>
+    <tr>
+      <td><code>no-overwrite</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.
+      </td>
+    </tr>
+    <tr>
+      <td><code>no-revision-drop</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
+      </td>
+    </tr>
+    <tr>
+      <td><code>no-deploy</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.
+      </td>
+    </tr>
+    <tr>
+      <td><code>reconcile</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.
+      </td>
+    </tr>
+    <tr>
+      <td><code>use-lsa</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code>, and <code>no-revision-drop</code>.
+      </td>
+    </tr>
+    <tr>
+      <td><code>no-lsa</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td>
+    </tr>
+    <tr>
+      <td><code>commit-queue</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set, the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code>, the data in this transaction will bypass the commit queue. The data will be written directly to the devices.
+      </td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-atomic</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.
+      </td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-block-others</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-lock</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
+      </td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-tag</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-timeout</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.
+      </td>
+    </tr>
+    <tr>
+      <td><code>commit-queue-error-option</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.
+      </td>
+    </tr>
+    <tr>
+      <td><code>trace-id</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br>
+        <strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="restconf-api.md#trace-context">Trace Context</a>.
+      </td>
+    </tr>
+    <tr>
+      <td><code>limit</code></td>
+      <td><code>GET</code></td>
+      <td>
+        Used by the client to specify a limited set of list entries to retrieve. The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.
+      </td>
+    </tr>
+    <tr>
+      <td><code>offset</code></td>
+      <td><code>GET</code></td>
+      <td>
+        Used by the client to specify the number of list elements to skip before returning the requested set of list entries. The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.
+      </td>
+    </tr>
+    <tr>
+      <td><code>rollback-comment</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.
+      </td>
+    </tr>
+    <tr>
+      <td><code>rollback-label</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assumes that Rollback File handling is enabled.
+      </td>
+    </tr>
+    <tr>
+      <td><code>rollback-id</code></td>
+      <td>
+        <code>POST</code><br>
+        <code>PUT</code><br>
+        <code>PATCH</code><br>
+        <code>DELETE</code>
+      </td>
+      <td>
+        Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.
+      </td>
+    </tr>
+    <tr>
+      <td><code>with-service-meta-data</code></td>
+      <td><code>GET</code></td>
+      <td>
+        Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
 <table data-full-width="true"><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the data that should be modified has not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="restconf-api.md#trace-context">Trace Context</a>.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
 
 ## Edit Collision Prevention
