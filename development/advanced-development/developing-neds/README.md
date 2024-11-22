@@ -67,12 +67,6 @@ The following state diagram depicts the different states the NED code goes throu
 
 <figure><img src="../../../images/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
 
-Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#man.1.ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
-
-Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
-
-All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.mib\_annotations) in manual pages for details.
-
 ## Statistics <a href="#ncs.development.ned.stats" id="ncs.development.ned.stats"></a>
 
 NED devices have runtime data and statistics. The first part of being able to collect non-configuration data from a NED device is to model the statistics data we wish to gather. In normal YANG files, it is common to have the runtime data nested inside the configuration data. In gathering runtime data for NED devices we have chosen to separate configuration data and runtime data. In the case of the archetypical CLI device, the `show running-config ...` and friends are used to display the running configuration of the device whereas other different `show ...` commands are used to display runtime data, for example `show interfaces`, `show routes`. Different commands for different types of routers/switches and in particular, different tabular output format for different device types.
