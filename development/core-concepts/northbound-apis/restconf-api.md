@@ -6,7 +6,7 @@ description: Description of the RESTCONF API.
 
 Small change
 
-Small change 2
+Small change 2 - 3
 
 <table data-full-width="true">
   <thead>
