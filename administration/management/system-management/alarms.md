@@ -1,4 +1,4 @@
-# Alarms
+# Alarm Types
 
 ```
 alarm-type
