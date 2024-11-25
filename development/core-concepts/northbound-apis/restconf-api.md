@@ -2,6 +2,148 @@
 description: Description of the RESTCONF API.
 ---
 
+<table data-full-width="true">
+    <thead>
+        <tr>
+            <th width="200">Name</th>
+            <th width="161">Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>label</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Sets a user defined label that is visible in rollback files, compliance reports, notifications and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.</td>
+        </tr>
+        <tr>
+            <td><code>commit</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.</td>
+        </tr>
+        <tr>
+            <td><code>dry-run</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code>, and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td>
+        </tr>
+        <tr>
+            <td><code>dry-run-reverse</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td>
+        </tr>
+        <tr>
+            <td><code>no-networking</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td>
+        </tr>
+        <tr>
+            <td><code>no-out-of-sync-check</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td>
+        </tr>
+        <tr>
+            <td><code>no-overwrite</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td>
+        </tr>
+        <tr>
+            <td><code>no-revision-drop</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td>
+        </tr>
+        <tr>
+            <td><code>no-deploy</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td>
+        </tr>
+        <tr>
+            <td><code>reconcile</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td>
+        </tr>
+        <tr>
+            <td><code>use-lsa</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td>
+        </tr>
+        <tr>
+            <td><code>no-lsa</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td>
+        </tr>
+        <tr>
+            <td><code>commit-queue</code></td>
+            <td>
+                <code>POST</code><br>
+                <code>PUT</code><br>
+                <code>PATCH</code><br>
+                <code>DELETE</code>
+            </td>
+            <td>Commit the transaction data to the commit queue. Possible values are: <code></code></td>
+        </tr>
+    </tbody>
+</table>
+
 # RESTCONF API
 
 RESTCONF is an HTTP-based protocol as defined in [RFC 8040](https://www.ietf.org/rfc/rfc8040.txt). RESTCONF standardizes a mechanism to allow Web applications to access the configuration data, state data, data-model-specific Remote Procedure Call (RPC) operations, and event notifications within a networking device.
