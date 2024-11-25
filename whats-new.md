@@ -9,7 +9,7 @@ icon: sparkles
 Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/).
 {% endhint %}
 
-## Release Highlights <a href="#d5e42" id="d5e42"></a>
+## Release Highlights
 
 This release includes major enhancements in the following areas:
 

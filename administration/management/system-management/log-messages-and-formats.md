@@ -122,7 +122,7 @@
 * **Description**  
   A user logged into ConfD.
 * **Format String**  
-  `"logged in via ~s from ~s with ~s using ~s authentication"`
+  `"logged in to ~s via ~s from ~s with ~s using ~s authentication"`
 
 </details>
 
