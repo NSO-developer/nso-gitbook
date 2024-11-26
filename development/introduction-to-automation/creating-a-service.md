@@ -18,11 +18,7 @@ Can you still use the same script in this case? Most likely not, since you need 
 
 The following figure illustrates this process, where a simple script first configures the IP address 192.0.2.1 (“.1”) as the DNS server, then later configures 192.0.2.8 (“.8”), resulting in a leftover old entry (“.1”).
 
-
-
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
-
-<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="DNS Configuration with a Simple Script" class="gitbook-drawing">
 
 <figure><img src="../../images/service-intro-dns.png" alt="" width="563"><figcaption><p>DNS Configuration with a Simple Script</p></figcaption></figure>
 
