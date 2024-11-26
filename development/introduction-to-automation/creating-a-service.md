@@ -20,6 +20,8 @@ The following figure illustrates this process, where a simple script first confi
 
 
 
+<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+
 <img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 <figure><img src="../../images/service-intro-dns.png" alt="" width="563"><figcaption><p>DNS Configuration with a Simple Script</p></figcaption></figure>
