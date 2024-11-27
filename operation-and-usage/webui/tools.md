@@ -15,7 +15,7 @@ The following tools are available:
 * [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
-* [**Compliance reports**](tools.md#sec.webui\_compliance): Used to run compliance checks on your NSO network.
+* [**Compliance reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
@@ -104,7 +104,7 @@ In the **Commit manager** view, the following tabs are shown.
 * **warnings** tab, to list the warnings encountered while doing changes.
 * **config** tab, to list the configuration changes associated with the change.
 * **native config** tab, to list the device configuration data in the native config.
-* **commit queue** tab, to manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for more information.
+* **commit queue** tab, to manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for more information.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -146,7 +146,7 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.

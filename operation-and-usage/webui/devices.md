@@ -38,7 +38,7 @@ An action can be applied to a single or multiple devices at once.
 2. Using the **Choose actions** button, select the desired action. The result of the action is returned momentarily.
 
 {% hint style="info" %}
-In the **Device management** view, you can also apply actions on a device using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Device management** view, you can also apply actions on a device using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Management View**
@@ -46,7 +46,7 @@ In the **Device management** view, you can also apply actions on a device using 
 Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**, and. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button on the device row.
 {% endhint %}
 {% endtab %}
 
@@ -128,7 +128,7 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
@@ -136,12 +136,12 @@ In the **Device groups** view, you can also apply actions on a device group usin
 The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../operations/lifecycle-operations.md).
 
 {% hint style="info" %}
-The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a device group.
+The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button on a device group.
 {% endhint %}
 
 ## Authgroups
 
-The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user_guide.devicemanager.authgroups).
 
 This view is further partitioned into the following two tabs for different device types:
 
@@ -160,21 +160,25 @@ To create a new group:
 
 1. Click the **Add authgroup** button.
 2. Enter the **Authgroup name** and click **Continue**.
-3.  In the group details page, add users to the newly created group:
+3. In the group details page, add users to the newly created group:
 
-    {% hint style="info" %}
-    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
-    {% endhint %}
+{% hint style="info" %}
+```
+If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
+```
+{% endhint %}
 
-    1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback':
-       * Remote mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
-         * **remote-user**: Choose between **same-user** or **remote-name** options.
-         * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
-         * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-       * Callback: If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
-         * **callback-node**
-         * **action-name**
-    2. Click **Add**. This adds the newly created user to the group and displays it in the list.
+```
+1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback':
+   * Remote mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
+     * **remote-user**: Choose between **same-user** or **remote-name** options.
+     * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
+     * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
+   * Callback: If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
+     * **callback-node**
+     * **action-name**
+2. Click **Add**. This adds the newly created user to the group and displays it in the list.
+```
 
 4\. Click **Create** **authgroup** to save and finish creating the group.
 
@@ -210,18 +214,22 @@ To add a new group:
 
 1. Click the **Add SNMP group** button.
 2. Enter the **SNMP group name** and click **Continue**.
-3.  In the group details page, add users to the newly created group:
+3. In the group details page, add users to the newly created group:
 
-    {% hint style="info" %}
-    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
-    {% endhint %}
+{% hint style="info" %}
+```
+If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
+```
+{% endhint %}
 
-    1. Click the **Add user** button to bring up the **Add user** overlay window.
-    2. Specify the **local-user** and configure the following settings:
-       * **community** (optional): Choose between **community-name** or **community-binary-name**.
-       * **remote-user**: Choose between **same-user** or **remote-name** options.
-       * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.
-    3. Click **Add**. This adds the newly created user to the group and displays it in the list.
+```
+1. Click the **Add user** button to bring up the **Add user** overlay window.
+2. Specify the **local-user** and configure the following settings:
+   * **community** (optional): Choose between **community-name** or **community-binary-name**.
+   * **remote-user**: Choose between **same-user** or **remote-name** options.
+   * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.
+3. Click **Add**. This adds the newly created user to the group and displays it in the list.
+```
 
 4\. Click **Create** **SNMP** **group** to save and finish creating the group.
 
