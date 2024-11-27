@@ -507,7 +507,7 @@ This makes it possible to investigate the changes before they are transmitted to
 
 ### Partial `sync-from` <a href="#d5e2872" id="d5e2872"></a>
 
-It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch\_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from `examples.ncs/getting-started/developing-with-ncs/0-router-network`.
+It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from `examples.ncs/getting-started/developing-with-ncs/0-router-network`.
 
 {% code title="Example: Example of Running partial-sync-from Action via CLI" %}
 ```bash
@@ -660,7 +660,7 @@ result true
 info (admin) Connected to ce0 - 127.0.0.1:10022
 ```
 
-Established connections are typically not closed right away when not needed, but rather pooled according to the rules described in [Device Session Pooling](nso-device-manager.md#user\_guide.devicemanager.pooling). This applies to NETCONF sessions as well as sessions established by CLI or generic NEDs via a connection-oriented protocol. In addition to session pooling, underlying SSH connections for NETCONF devices are also reused. Note that a single NETCONF session occupies one SSH channel inside an SSH connection, so multiple NETCONF sessions can co-exist in a single connection. When an SSH connection has been idle (no SSH channels open) for 2 minutes, the SSH connection is closed. If a new connection is needed later, a connection is established on demand.
+Established connections are typically not closed right away when not needed, but rather pooled according to the rules described in [Device Session Pooling](nso-device-manager.md#user_guide.devicemanager.pooling). This applies to NETCONF sessions as well as sessions established by CLI or generic NEDs via a connection-oriented protocol. In addition to session pooling, underlying SSH connections for NETCONF devices are also reused. Note that a single NETCONF session occupies one SSH channel inside an SSH connection, so multiple NETCONF sessions can co-exist in a single connection. When an SSH connection has been idle (no SSH channels open) for 2 minutes, the SSH connection is closed. If a new connection is needed later, a connection is established on demand.
 
 Three configuration parameters can be used to control the connection establishment: `connect-timeout`, `read-timeout`, and `write-timeout`. In the NSO data model file `tailf-ncs-devices.yang`, these timeouts are modeled as:
 
@@ -977,7 +977,7 @@ Authenticating southbound using stored configuration has two main components to 
 
 ### Connecting Using SSH Keyboard-Interactive (Multi-Factor) Authentication
 
-NSO can connect to a device that is using multi-factor authentication. For this, the `authgroup` must be configured with an executable for handling the keyboard-interactive part, and optionally some opaque data that is passed to the executable. ie., the `/devices/authgroups/group/umap/mfa/executable` and `/devices/authgroups/group/umap/mfa/opaque` (or under `default-map` for users that are not in `umap`) must be configured.
+NSO can connect to a device that is using multi-factor authentication. For this, the `authgroup` must be configured with an executable for handling the keyboard-interactive part, and optionally some opaque data that is passed to the executable. i.e., the `/devices/authgroups/group/umap/mfa/executable` and `/devices/authgroups/group/umap/mfa/opaque` (or under `default-map` for users that are not in `umap`) must be configured.
 
 The prompts from the SSH server (including the password prompt and any additional challenge prompts) are passed to the `stdin` of the executable along with some other relevant data. The executable must write a single line to its `stdout` as the reply to the prompt. This is the reply that NSO sends to the SSH server.
 
@@ -992,14 +992,13 @@ Commit complete.
 ```
 {% endcode %}
 
-For example, with the above configured for the authgroup, if the user _admin_ is trying to login to the device _dev0_ with password _admin_, this is the line that is sent to the `stdin` of the `handle_mfa.py` script:
+For example, with the above configured for the authgroup, if the user `admin` is trying to log in to the device `dev0` with password `admin`, this is the line that is sent to the `stdin` of the `handle_mfa.py` script:
 
 ```
 [ZGV2MA==;YWRtaW4=;YWRtaW4=;Zm9vYmFy;;;YWRtaW5AbG9jYWxob3N0J3MgcGFzc3dvcmQ6IA==;]
 ```
 
-The input to the script is the device, username, password, opaque data, as well as the name, instruction, and prompt from the SSH server.
-All these fields are base64 encoded, and separated by a semi-colon (';'). So, the above line in effect encodes the following:
+The input to the script is the device, username, password, opaque data, as well as the name, instruction, and prompt from the SSH server. All these fields are base64 encoded, and separated by a semi-colon (`;`). So, the above line in effect encodes the following:
 
 ```
 [dev0;admin;admin;foobar;;;admin@localhost's password:;]
@@ -1094,7 +1093,7 @@ module authgroup-callback {
 ```
 {% endcode %}
 
-In the example above (`authgroup-callback`), the configuration for the `umap` entry of the `oper` user is changed to use a callback to retrieve southbound authentication credentials. Thus, NSO is going to invoke the action `auth-cb` defined in the callback-node `callback`. The callback node is of type `instance-identifier` and refers to the container called `callback` defined in the example, (`authgroup-callback.yang`), which includes an action defined by action-name `auth-cb` and uses groupings `authgroup-callback-input-params` and `authgroup-callback-output-params` for input and output parameters respectively. In the example, (authgroup-callback), `authgroup-callback` module was loaded in NSO within an example package. Package development and action callbacks are not described here but more can be read in [Package Development](../../development/advanced-development/developing-packages.md), the section called [DP API](../../development/core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.dp) and [Python API Overview](../../development/core-concepts/api-overview/python-api-overview.md).
+In the example above (`authgroup-callback`), the configuration for the `umap` entry of the `oper` user is changed to use a callback to retrieve southbound authentication credentials. Thus, NSO is going to invoke the action `auth-cb` defined in the callback-node `callback`. The callback node is of type `instance-identifier` and refers to the container called `callback` defined in the example, (`authgroup-callback.yang`), which includes an action defined by action-name `auth-cb` and uses groupings `authgroup-callback-input-params` and `authgroup-callback-output-params` for input and output parameters respectively. In the example, (authgroup-callback), `authgroup-callback` module was loaded in NSO within an example package. Package development and action callbacks are not described here but more can be read in [Package Development](../../development/advanced-development/developing-packages.md), the section called [DP API](../../development/core-concepts/api-overview/java-api-overview.md#ug.java_api_overview.dp) and [Python API Overview](../../development/core-concepts/api-overview/python-api-overview.md).
 
 ### Caveats <a href="#d5e3032" id="d5e3032"></a>
 
@@ -1804,7 +1803,7 @@ ncs(config)# commit
 ```
 {% endcode %}
 
-The device template created in the example above (Create ce-initialize template) can now be used to initialize single devices or device groups, see [Device Groups](nso-device-manager.md#user\_guide.devicemanager.device\_groups).
+The device template created in the example above (Create ce-initialize template) can now be used to initialize single devices or device groups, see [Device Groups](nso-device-manager.md#user_guide.devicemanager.device_groups).
 
 In the following CLI session, a new device `ce10` is created:
 
@@ -1901,7 +1900,7 @@ The variable `$DEVICE` is used internally by NSO and can not be used in a templa
 
 Templates can be created like any configuration data and use the CLI tab completion to navigate. Variables can be used instead of hard-coded values. In the template above the community string is a variable. The template can cover several device types/NEDs, by making use of the namespace information. This will make sure that only devices modeled with this particular namespace will be affected by this part of the template. Hence, it is possible for one template to handle a multitude of devices from various manufacturers.
 
-A template can be applied to a device, a device group, and a range of devices. It can be used as shown in [By Template](nso-device-manager.md#user\_guide.devicemanager.initialize-with-template) to create the day-zero config for a newly created device.
+A template can be applied to a device, a device group, and a range of devices. It can be used as shown in [By Template](nso-device-manager.md#user_guide.devicemanager.initialize-with-template) to create the day-zero config for a newly created device.
 
 Applying the `snmp1` template, providing a value for the `COMMUNITY` template variable:
 
@@ -2133,19 +2132,9 @@ When a device is renamed, all components that derive their name from that device
 
 ## Auto-configuring Devices in NSO <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
 
-Provisioning new devices in NSO requires the user to be
-familiar with the concept of Network Element Drivers and the
-unique ned-id they use to distinguish their schema.
-For an end user interacting with a northbound client of NSO,
-the concept of a ned-id might feel too abstract. It could be challenging
-to know what device type and ned-id to select when configuring a
-device for the first time in NSO. After initial configuration,
-there are also additional steps required before the device can be
-operated from NSO.
+Provisioning new devices in NSO requires the user to be familiar with the concept of Network Element Drivers and the unique ned-id they use to distinguish their schema. For an end user interacting with a northbound client of NSO, the concept of a ned-id might feel too abstract. It could be challenging to know what device type and ned-id to select when configuring a device for the first time in NSO. After initial configuration, there are also additional steps required before the device can be operated from NSO.
 
-NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected.
-In the same transaction, NSO also fetches the host keys if required,
-and synchronizes the configuration from the device, making it ready to operate in a single step.
+NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected. In the same transaction, NSO also fetches the host keys if required, and synchronizes the configuration from the device, making it ready to operate in a single step.
 
 ### Examples <a href="#d5e3539" id="d5e3539"></a>
 
@@ -2207,11 +2196,7 @@ admin@ncs% commit | details
 ...
 ```
 
-Many NEDs require additional custom configuration to be operational.
-This applied in particular to Generic NEDs. Information about such
-additional configuration can be found in the files
-`README.md` and `README-ned-settings.md` bundled with the
-NED package.
+Many NEDs require additional custom configuration to be operational. This applied in particular to Generic NEDs. Information about such additional configuration can be found in the files `README.md` and `README-ned-settings.md` bundled with the NED package.
 
 ## `oper-state` and `admin-state` <a href="#user_guide.devicemanager.state" id="user_guide.devicemanager.state"></a>
 
