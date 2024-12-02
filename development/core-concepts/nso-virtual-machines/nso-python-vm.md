@@ -269,7 +269,7 @@ class Upgrade(ncs.upgrade.Upgrade):
         with an error message.
 
         Anything written to stdout/stderr will end up in the general log file
-        for spurious output from Python VMs. If not configured the file will
+        for various output from Python VMs. If not configured the file will
         be named ncs-python-vm.log.
         """
 
@@ -292,7 +292,7 @@ class Upgrade(ncs.upgrade.Upgrade):
         # Error return example:
         #
         # This indicates a failure and the string written to stdout below will
-        # written to the general log file for spurious output from Python VMs.
+        # written to the general log file for various output from Python VMs.
         #
         # print('Error: not implemented yet')
         # return False
