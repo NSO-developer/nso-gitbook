@@ -26,7 +26,8 @@ Some of the more important flags are:
 
 * `and-quit`: Exit to (CLI operational mode) after commit.
 * `check`: Validate the pending configuration changes. Equivalent to `validate` command (See [NSO CLI](../cli/introduction-to-nso-cli.md) ).
-* `comment | label`: Add a commit comment/label visible in compliance reports, rollback files, etc.
+* `label`: The `label` option sets a user defined label that is visible in rollback files, compliance reports, notifications and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.
+* `comment`: The `comment` option sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.
 * `dry-run`: Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. The output format can be set with the `outformat` option. Possible output formats are: `xml`, `cli`, and `native`.
   * The `xml` format displays all changes in the whole data model. The changes will be displayed in NETCONF XML edit-config format, i.e., the edit-config that would be applied locally (at NCS) to get a config that is equal to that of the managed device.
   * The `cli` format displays all changes in the whole data model. The changes will be displayed in CLI curly bracket format.
@@ -59,7 +60,6 @@ Some of the more important flags are:
   * If the `async` mode is set, the operation returns successfully if the transaction data has been successfully placed in the queue.&#x20;
   * The `sync` mode will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. If the timeout occurs the transaction data stays in the queue and the operation returns successfully. The timeout value can be specified with the `timeout` or `infinity` option. By default, the timeout value is determined by what is configured in `/devices/global-settings/commit-queue/sync`.&#x20;
   * The `bypass` mode means that if `/devices/global-settings/commit-queue/enabled-by-default` is `true`, the data in this transaction will bypass the commit queue. The data will be written directly to the devices. The operation will still fail if the commit queue contains one or more entries affecting the same device(s) as the transaction to be committed. In addition, the `commit-queue` flag has a number of other useful options that affect the resulting queue item:
-  * The `tag` option sets a user-defined opaque tag that is present in all notifications and events sent referencing the queue item.&#x20;
   * The `block-others` option will cause the resulting queue item to block subsequent queue items which use any of the devices in this queue item, from being queued.&#x20;
   * The `lock` option will place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions `unlock` and `lock` in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.&#x20;
   * The `atomic` option sets the atomic behavior of the resulting queue item. If this is set to `false`, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to `true`, the atomic integrity of the queue item is preserved.&#x20;
@@ -70,7 +70,6 @@ Some of the more important flags are:
       * The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
       Read about error recovery in [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
-* `trace-id`: Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:
 

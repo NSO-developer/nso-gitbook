@@ -38,7 +38,7 @@ For the `<delete-config>` operation specified in RFC 4741 / RFC 6241, only `<url
 For the `<partial-lock>` operation, RFC 5717, section 2.4.1 says that if a node in the scope of the lock is deleted by the session owning the lock, it is removed from the scope of the lock. In NSO this is not true; the deleted node is kept in the scope of the lock.
 {% endhint %}
 
-NSO NETCONF northbound API can be used by arbitrary NETCONF clients. A simple Python-based NETCONF client called `netconf-console` is shipped as source code in the distribution. See [Using netconf-console](nso-netconf-server.md#ug.netconf\_agent.netconf\_console) for details. Other NETCONF clients will work too, as long as they adhere to the NETCONF protocol. If you need a Java client, the open-source client [JNC](https://github.com/tail-f-systems/JNC) can be used.
+NSO NETCONF northbound API can be used by arbitrary NETCONF clients. A simple Python-based NETCONF client called `netconf-console` is shipped as source code in the distribution. See [Using netconf-console](nso-netconf-server.md#ug.netconf_agent.netconf_console) for details. Other NETCONF clients will work too, as long as they adhere to the NETCONF protocol. If you need a Java client, the open-source client [JNC](https://github.com/tail-f-systems/JNC) can be used.
 
 When integrating NSO into larger OSS/NMS environments, the NETCONF API is a good choice of integration point.
 
@@ -108,7 +108,7 @@ All YANG version 1 modules supported by the server are advertised in the hello m
 
 All YANG version 1 and version 1.1 modules supported by the server are advertised in the YANG library.
 
-If a YANG module (any version) is supported by the server, and its .yang or .yin file is found in the `fxs` file or in the loadPath, then the module is also advertised in the `schema` list defined in `ietf-netconf-monitoring`, made available for download with the RPC operation `get-schema`, and if RESTCONF is enabled, also advertised in the `schema` leaf in `ietf-yang-library`. See [Monitoring of the NETCONF Server](nso-netconf-server.md#ug.netconf\_agent.monitoring).
+If a YANG module (any version) is supported by the server, and its .yang or .yin file is found in the `fxs` file or in the loadPath, then the module is also advertised in the `schema` list defined in `ietf-netconf-monitoring`, made available for download with the RPC operation `get-schema`, and if RESTCONF is enabled, also advertised in the `schema` leaf in `ietf-yang-library`. See [Monitoring of the NETCONF Server](nso-netconf-server.md#ug.netconf_agent.monitoring).
 
 ### Advertising Device YANG Modules <a href="#d5e417" id="d5e417"></a>
 
@@ -464,7 +464,7 @@ For periodic subscriptions, updates are triggered periodically according to spec
 
 For on-change subscriptions, updates are triggered whenever a change is detected on the subscribed information. In the case of rapidly changing data, instead of receiving frequent notifications for every change, a receiver may specify a `dampening-period` to receive update notifications in a lower frequency. A receiver may request for synchronization at the start of a subscription by using `sync-on-start` option. A receiver may filter out specific types of changes by providing a list of `excluded-change` parameters.
 
-To provide updates for `on-change` subscriptions on `operational` datastore, data provider applications are required to implement push-on-change callbacks. For more details, see the [PUSH ON-CHANGE CALLBACKS](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-3/#fn.confd\_push\_on\_change) in the Manual Pages section of [confd\_lib\_dp(3)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-3/#man.3.confd\_lib\_dp) in Manual Pages.
+To provide updates for `on-change` subscriptions on `operational` datastore, data provider applications are required to implement push-on-change callbacks. For more details, see the [PUSH ON-CHANGE CALLBACKS](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-3/#fn.confd_push_on_change) in the Manual Pages section of [confd\_lib\_dp(3)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-3/#man.3.confd_lib_dp) in Manual Pages.
 
 ### YANG-Push Operations <a href="#d5e665" id="d5e665"></a>
 
@@ -474,7 +474,7 @@ In addition to RPCs defined in subscribed notifications, YANG-Push defines `resy
 
 ### Monitoring the YANG-Push Subscriptions <a href="#d5e675" id="d5e675"></a>
 
-YANG-Push subscriptions can be monitored in a similar way to Subscribed Notifications through /subscriptions container. For more information, see [Monitoring Subscriptions](nso-netconf-server.md#ug.netconf\_agent.subscribed\_notif.monitoring).
+YANG-Push subscriptions can be monitored in a similar way to Subscribed Notifications through /subscriptions container. For more information, see [Monitoring Subscriptions](nso-netconf-server.md#ug.netconf_agent.subscribed_notif.monitoring).
 
 YANG-Push filters differ from the filters of Subscribed Notifications and they are specified as `datastore-xpath-filter` and `datastore-subtree-filter`. The leaf `datastore-subtree-filter` is deviated as "not-supported", and hence can not be monitored. Also, YANG-Push specific update trigger parameters `periodic/period`, `periodic/anchor-time`, `on-change/dampening-period`, `on-change/sync-on-start` and `on-change/excluded-change` are not supported for monitoring.
 
@@ -975,6 +975,10 @@ The YANG module `tailf-netconf-ncs` augments some NETCONF operations with additi
 
 To control the commit behavior of NSO the following input parameters are available:
 
+* `label`\
+  Sets a user-defined label that is visible in rollback files, compliance reports, notifications, and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.
+* `comment`\
+  Sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.
 * `no-revision-drop`\
   NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
 * `no-overwrite`\
@@ -1008,11 +1012,12 @@ To control the commit behavior of NSO the following input parameters are availab
 * `commit-queue/lock`\
   Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions **unlock** and **lock** in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
 * `commit-queue/tag`\
-  The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.
+  The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.\
+  **Note**: `commit-queue/tag` is deprecated from NSO version 6.5. The `label` commit parameter can be used instead.
 * `commit-queue/error-option`\
   The error option to use. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked the data will be removed. Possible values are: `continue-on-error`, `rollback-on-error`, and `stop-on-error`. The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created. The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.\
   \
-  Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+  Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id`\
   Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing.\
   **Note**: `trace-id` within NETCONF extensions is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [Trace Context](nso-netconf-server.md#trace-context).
