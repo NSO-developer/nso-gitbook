@@ -148,6 +148,88 @@ $ openssl verify -CAfile ssl/certs/ca.crt ssl/certs/node1.example.org.crt
 
 This command takes into account the current time and can be used during troubleshooting. It can also display information contained in the certificate if you use the `openssl x509 -text -in ssl/certs/`_`node1.example.org`_`.crt -noout` variant. The latter form allows you to inspect the incorporated hostname/IP address and certificate validity dates.
 
+### Actions <a href="#ch_ha.raft_actions" id="ch_ha.raft_actions"></a>
+
+NSO HA Raft can be controlled through several actions. All actions are found
+under `/ha-raft/`. In the best-case scenario, you will only need the
+`create-cluster` action to initialize the cluster and the `read-only` and
+`create-cluster` actions when upgrading the NSO version. The available actions
+are listed below:
+
+<table data-header-hidden>
+    <thead>
+        <tr>
+            <th width="240">Action</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>create-cluster</code>
+            </td>
+            <td>Initialise an HA Raft cluster. This action should only be
+                invoked once to form a new cluster when no HA Raft log
+                exists.<br>
+                The members of the HA Raft cluster consist of the NCS
+                node where the <code>/ha-raft/create-cluster</code>action is
+                invoked, which will become the leader of the cluster;
+                and the members specified by the <code>member</code>
+                parameter.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>adjust-membership</code>
+            </td>
+            <td>Add or remove an HA node from the HA Raft cluster.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>disconnect</code>
+            </td>
+            <td>Disconnect an HA node from all remaining nodes. In the event
+                of revoking a TLS certificate, invoke this action to
+                disconnect the already established connections to the node
+                with the revoked certificate. A disconnected node with a
+                valid TLS certificate may re-establish the connection.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>reset</code>
+            </td>
+            <td>Reset the (disabled) local node to make the leader perform a
+                full sync to this local node if an HA Raft cluster exists. If
+                reset is performed on the leader node, the node will step down
+                from leadership and it will be synced by the next leader
+                node.<br>
+                An HA Raft member will change role to <code>disabled</code> if
+                <code>ncs.conf</code> has incompatible changes to the
+                <code>ncs.conf</code> on the leader; a member will also change
+                role to <code>disabled</code> if there are non-recoverable
+                failures upon opening a snapshot.<br>
+                See the <code>/ha-raft/status/disable-reason</code> leaf for
+                the reason.<br>
+                Set force to <code>true</code> to override reset when
+                <code>/ha-raft/status/role</code> is not set to
+                <code>disabled</code>.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>handover</code>
+            </td>
+            <td>Handover leadership to another member of the HA Raft cluster
+                or step down from leadership and start a new election.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>read-only</code>
+            </td>
+            <td>Toggle read-only mode. If the mode is <code>true</code> no
+                configuration changes can occur.</td>
+        </tr>
+    </tbody>
+</table>
+
 ### Network and `ncs.conf` Prerequisites <a href="#ch_ha.raft_ports" id="ch_ha.raft_ports"></a>
 
 In addition to the network connectivity required for the normal operation of a standalone NSO node, nodes in the HA Raft cluster must be able to initiate TCP connections from a random ephemeral client port to the following ports on other nodes:
