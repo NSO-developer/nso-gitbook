@@ -96,14 +96,13 @@ tracestate: key1=value1,key2=value2
 
 where a value may contain space characters but not end with a space.
 
-NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the
-request generates an error response.
+NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the request generates an error response.
 
 NSO will consider the headers of Trace Context in JSON-RPC requests if the element `<trace-id>true</trace-id>` is set in the logs section of the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
 
 The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
 
-The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed.  Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
+The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed. Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
 
 {% hint style="info" %}
 You can either let methods `validate_commit`, `apply`, or `run_action` automatically generate a Trace Context, or you can add a Trace Context header for one of the involved JSON-RPC methods sharing the same transaction.
@@ -1596,7 +1595,7 @@ curl \
 
 <details>
 
-<summary><mark style="color:green;"><code>start_query</code></mark><a id="start_query"></a></summary>
+<summary><mark style="color:green;"><code>start_query</code></mark></summary>
 
 Starts a new query attached to a transaction handle. On success, a query handle is returned to be in subsequent calls to `run_query`.
 
@@ -1712,7 +1711,7 @@ curl \
 
 <summary><mark style="color:green;"><code>run_query</code></mark></summary>
 
-Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](#start_query).
+Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](json-rpc-api.md#start_query).
 
 **Params**
 
@@ -2705,11 +2704,7 @@ Both a `comet_id` and `handle` need to be provided in order to receive notificat
 
 The `details` param can be given together with `comet_id` and `handle` in order to get a progress trace for the action. `details` specifies the verbosity of the progress trace. After the action has been invoked, the `comet` method can be used to get the progress trace for the action. If the `details` param is omitted progress trace will be disabled.
 
-The `debug` param can be used the same way as the `details` param to get debug trace events for the action.
-These are the same trace events that can be displayed in the CLI with the "debug" pipe command when invoking the action.
-The `debug` param is an array with all debug flags for which debug events should be displayed.
-Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error.
-The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
+The `debug` param can be used the same way as the `details` param to get debug trace events for the action. These are the same trace events that can be displayed in the CLI with the "debug" pipe command when invoking the action. The `debug` param is an array with all debug flags for which debug events should be displayed. Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error. The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
 
 The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
@@ -3517,12 +3512,7 @@ flags = <array of string or bitmask>
 
 The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the `validate_commit` operation. The same `comet_id` can also be used to get the progress trace for any coming commit operations. In order to get progress tracing for commit operations, these three parameters have to be provided with the `validate_commit` operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
 
-The `debug` param can be used the same way as the `details` param to get debug trace events for the validate_commit and corresponding commit operation.
-These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation.
-The `debug` param is an array with all debug flags for which debug events should be displayed.
-Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error.
-The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
-The field "event-type" in the comet response specifies if the event is of type "progress" or "debug".
+The `debug` param can be used the same way as the `details` param to get debug trace events for the validate\_commit and corresponding commit operation. These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation. The `debug` param is an array with all debug flags for which debug events should be displayed. Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error. The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
 
 The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
@@ -3623,9 +3613,7 @@ The `flags` param is a list of flags that can change the commit behavior:
   * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock is removed as part of the rollback.
   *   The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
-
-
-      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 For backward compatibility, the `flags` param can also be a bit mask with the following limit values:
