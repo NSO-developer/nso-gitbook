@@ -41,10 +41,10 @@ The `ncs.conf` file is described in the [NSO Manual Pages](https://developer.cis
 # ncs -c /etc/ncs/ncs.conf
 ```
 
-However, in a System Install, the `init` script is typically used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus NSO is started with the command:
+However, in a System Install, `systemd` is typically used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus, NSO is started with the command:
 
 ```bash
-# /etc/init.d/ncs start
+# systemctl nso start
 ```
 
 It is possible to edit the `ncs.conf` file, and then tell NSO to reload the edited file without restarting the daemon as in:
@@ -484,7 +484,7 @@ It is always advisable to stop NSO before performing a restore.
 1.  First stop NSO if NSO is not stopped yet.
 
     ```
-    /etc/init.d/ncs stop
+    systemctl stop nso
     ```
 2.  Restore the backup.
 
@@ -497,7 +497,7 @@ It is always advisable to stop NSO before performing a restore.
 3.  Start NSO.
 
     ```
-    /etc/init.d/ncs start
+    systemctl start nso
     ```
 
 ## Rollbacks
