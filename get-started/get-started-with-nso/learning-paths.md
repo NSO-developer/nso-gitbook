@@ -21,13 +21,13 @@ The focus of the material we are collecting here is on the NSO skills, but as yo
 
 {% stepper %}
 {% step %}
-### The First Day <a href="#the-first-day" id="the-first-day"></a>
+**The First Day**
 
 We recommend that you start by going through the [NSO at a Glance](https://cisco-tailf.gitbook.io/nso-docs/nso-at-a-glance), [Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment), [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation), and [Learning Labs](https://developer.cisco.com/learning/tracks/get_started_with_nso/) while following along on your own NSO instance. Refer to the [NSO documentation](../../docs-and-guides/documentation-guides/) for any other things needed.
 {% endstep %}
 
 {% step %}
-### Next Steps <a href="#next-steps" id="next-steps"></a>
+**Next Steps**
 
 After the first day, look at the additional interactive learning labs, sandboxes, and the extensive collection of examples available with the NSO distribution.
 
@@ -35,7 +35,7 @@ Also, consider [formal training from Cisco](https://learninglocator.cloudapps.ci
 {% endstep %}
 
 {% step %}
-### Continue to Learn <a href="#continuing-to-learn" id="continuing-to-learn"></a>
+**Continue to Learn**
 
 Learning never stops. Once you feel confident with the basics, join our community and read our blogs to follow the development of the community. One good resource for examples and inspiration is the [NSO GitHub](https://github.com/NSO-developer/) and [NSO GitLab](https://gitlab.com/NSO-developer/) pages.
 {% endstep %}
