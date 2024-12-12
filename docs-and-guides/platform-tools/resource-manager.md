@@ -109,13 +109,13 @@ When an allocation raises an exception in case the pool is exhausted, or if the 
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the `NSO ID Allocator`. The `NSO Resource ID Allocator` is an extension of the generic resource allocation mechanism called the `NSO Manager`. It can allocate integers which can serve for instance as VLAN identifiers.
+This section explores deployment information and procedures for the NSO ID Allocator. The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers.
 
 ### Overview
 
-The `ID Allocator` can host any number of ID pools. Each pool contains a certain number of IDs that can be allocated. They are specified by a range, and potentially broken into several ranges by a list of excluded ranges.
+The ID Allocator can host any number of ID pools. Each pool contains a certain number of IDs that can be allocated. They are specified by a range, and potentially broken into several ranges by a list of excluded ranges.
 
-The `ID allocator` YANG models are divided into a configuration data-specific model (`idallocator.yang`), and an operational data-specific model (`id-allocator-oper.yang`). Users of this package will request allocations in the configuration tree. The operational tree serves as an internal data structure of the package.
+The ID allocator YANG models are divided into a configuration data-specific model (`idallocator.yang`), and an operational data-specific model (`id-allocator-oper.yang`). Users of this package will request allocations in the configuration tree. The operational tree serves as an internal data structure of the package.
 
 An ID request can allocate either the lowest possible ID in a pool or a specified (by the user) value, such as 5 or 1000.
 
@@ -210,4 +210,79 @@ admin@ncs# set resource-pools id-pool methodRoundRobin allocation a username \
 {% hint style="info" %}
 Note that the request method is set on a per-request basis. Two different requests may request IDs from the same pool using different request methods.
 {% endhint %}
+
+#### Create a Synchronous Allocation API Request for an ID
+
+Synchronous allocation can be requested through various Java APIs provided in `resource-manager/src/java/src/com/tailf/pkg/idallocator/IDAllocator.java` and the Python API provided in `resource-manager/python/resource_manager/id_allocator.py`.
+
+*   Request:Java:void idRequest(ServiceContext context, NavuNode service, RedeployType
+
+    redeployType, String poolName, String username, String id, boolean sync\_pool, long requestedId,
+
+    boolean sync\_alloc).
+*   Request:Python:id\_request(service, svc\_xpath, username, pool\_name, allocation\_name, sync\_pool,
+
+    requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None).
+*   Non-blocking call to check Response Ready:Java:boolean responseReady(NavuContext context,
+
+    String poolName, String id).
+*   Read Response:Java:ConfUInt32 idRead(NavuContext context, String poolName, String
+
+    id)Python:id\_read(username, root, pool\_name, allocation\_name).
+*   Note: The synchronous pool feature is not compatible with synchronous ID allocation. If you need
+
+    to use a synchronous flow, you can utilize the requested-id feature to allocate the same ID from both pools.
+
+### Security
+
+The NSO ID Allocator requires a username to be configured by the service application when creating an allocation request. This username will be used to redeploy the service application once a resource has been allocated. Default NACM rules deny all standard users access to the `/ralloc:resource-pools` list. These default settings are provided in the (`initial_data/aaa_init.xml`) file of the resource-manager package.
+
+It is up to the administrator to add a rule that allows the user to perform the service re-deploy.
+
+How the administrator should write these rules is detailed in the [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure).
+
+### Alarms
+
+There are two alarms associated with the ID Allocator:
+
+* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation.
+* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or less left in the pool.
+
+### CDB Upgrade from Package version Below 4.0.0
+
+Since the Resource Manager's version 4.0.0, the operational data model is not compatible with the previous version. In version 4.0.0 Yang model, there is a new element called `allocationId` added for `/Id-allocator/pool/ allocation` to support sync ID allocation. The system will run the upgrade script automatically (when the Resource Manager of the new version is loaded) if there is a Yang model change in the new version. Users can also run the script manually for Resource Manager from 3.5.6 (or any version below 4.0.0) to version 4.0.0 or above; the script will add the missing `allocationId` element in the CDB operational data path `/id-allocator/pool/allocation`. The upgrade Python script is located in the Resource Manager package: `python/resource_manager/rm_upgrade_nso.py`.
+
+{% hint style="warning" %}
+After running the script manually to update CDB, the user must request `package reload` or `restart ncs` to reload new CBD data into the ID Pool java object in memory. For example, in the NSO CLI console: `admin@ncs> request packages reload force`.
+{% endhint %}
+
+### `id-allocator-tool` Action
+
+A set of debug and data tools (contained in `rm-action/id-allocator-tool` action) is available to help admin or support to operate on RM data. Two parameters in the `id-allocator-tool` action can be provided: `operation`, `pool`. All the process info and results will be logged in `ncs-java-vm.log`, and the action itself just returns the result. Here is a list of the valid operation values for the `id-allocator-tool` action:
+
+* `check_missing_report`: Scan the current resource pool and ID pool in the system, and identify and report the missing element for each id-allocator entry without fixing.
+* `fix_missing_allocation_id`: Add the missing allocation ID for each ID allocator entry.
+* `fix_missing_owner`: Add the missing owner info for each ID allocator entry.
+* `fix_missing_allocation`: Create the missing allocation entry in the ID allocator for each ID pool allocation response/id.
+* `fix_response_id`: Scan the ID pool and check if the allocation contains an invalid allocation request ID, and release the allocation from the ID pool if found. It happens for sync allocation when the device configuration fails after a successful ID allocation and then causes a service transaction fail. This leaves the ID pool containing successfully allocated ID while the allocation request response doesn't exist
+* `persistAll`: Manually sync from ID pool in memory to ID allocator in CDB.
+* `printIdPool`: Print the current ID pool data in the `ncs-java-vm.log` for debug purposes.
+
+#### Action Usage Example
+
+Note that when a pool parameter is provided, the operation will be on this specific ID pool, and if no pool is provided, the operation will be running on all ID pools in the system.
+
+```
+admin@ncs> unhide debug
+admin@ncs> request rm-action id-allocator-tool operation fix_missing_allocation
+admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
+```
+
+## NSO IP Address Allocator Deployment
+
+This section contains deployment information and procedures for the Tail-f NSO Allocator application.
+
+### Overview
+
+...
 
