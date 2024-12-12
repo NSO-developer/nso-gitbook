@@ -1,6 +1,6 @@
 ---
-description: Homepage of the Cisco Crosswork NSO documentation.
 icon: house
+description: Homepage of the Cisco Crosswork NSO documentation.
 cover: .gitbook/assets/marc-olivier-jodoin-NqOInJ-ttqM-unsplash.jpg
 coverY: 0
 layout:
@@ -21,7 +21,7 @@ layout:
 
 # Docs Home - Cisco Crosswork NSO
 
-Welcome to **NSO Docs Home**, your starting point for the Cisco Crosswork Network Services Orchestrator (NSO) documentation.&#x20;
+Welcome to NSO **Docs Home**, your starting point for the Cisco Crosswork Network Services Orchestrator (NSO) documentation.&#x20;
 
 ## Overview
 
