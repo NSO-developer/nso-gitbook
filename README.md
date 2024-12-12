@@ -21,21 +21,17 @@ layout:
 
 # Docs Home - Cisco Crosswork NSO
 
-Welcome to NSO **Docs Home**, your starting point for the Cisco Crosswork Network Services Orchestrator (NSO) documentation.&#x20;
+Welcome to **NSO Docs Home**, your starting point for the Cisco Crosswork Network Services Orchestrator (NSO) documentation.&#x20;
 
 ## Overview
 
 Use this site to access the broad set of NSO documentation resources, and:
 
-:heavy\_check\_mark: Familiarize yourself with Cisco Crosswork NSO.
-
-:heavy\_check\_mark: Get started with NSO by learning and evaluating the product.
-
-:heavy\_check\_mark: Receive guidance on best practices for your NSO deployment.
-
-:heavy\_check\_mark: Read and ask questions in the official NSO documentation.
-
-:heavy\_check\_mark: Access supplemental material via resources, community forums, and associated channels.
+* [x] Familiarize yourself with Cisco Crosswork NSO.
+* [x] Get started with NSO by learning and evaluating the product.
+* [x] Receive guidance on best practices for your NSO deployment.
+* [x] Read and ask questions in the official NSO documentation.
+* [x] Access supplemental material via resources, community forums, and associated channels.
 
 ***
 
