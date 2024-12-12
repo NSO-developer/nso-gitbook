@@ -113,7 +113,7 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the NSO ID Allocator. The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers.
+This section explores deployment information and procedures for the NSO ID Allocator (`id-allocator`). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers.
 
 ### Overview
 
@@ -254,7 +254,7 @@ There are two alarms associated with the ID Allocator:
 
 ### CDB Upgrade from Package version Below 4.0.0
 
-Since the Resource Manager's version 4.0.0, the operational data model is not compatible with the previous version. In version 4.0.0 Yang model, there is a new element called `allocationId` added for `/Id-allocator/pool/ allocation` to support sync ID allocation. The system will run the upgrade script automatically (when the Resource Manager of the new version is loaded) if there is a Yang model change in the new version. Users can also run the script manually for Resource Manager from 3.5.6 (or any version below 4.0.0) to version 4.0.0 or above; the script will add the missing `allocationId` element in the CDB operational data path `/id-allocator/pool/allocation`. The upgrade Python script is located in the Resource Manager package: `python/resource_manager/rm_upgrade_nso.py`.
+Since the Resource Manager's version 4.0.0, the operational data model is not compatible with the previous version. In version 4.0.0 Yang model, there is a new element called `allocationId` added for `/Id-allocator/pool/allocation` to support sync ID allocation. The system will run the upgrade script automatically (when the Resource Manager of the new version is loaded) if there is a Yang model change in the new version. Users can also run the script manually for Resource Manager from 3.5.6 (or any version below 4.0.0) to version 4.0.0 or above; the script will add the missing `allocationId` element in the CDB operational data path `/id-allocator/pool/allocation`. The upgrade Python script is located in the Resource Manager package: `python/resource_manager/rm_upgrade_nso.py`.
 
 {% hint style="warning" %}
 After running the script manually to update CDB, the user must request `package reload` or `restart ncs` to reload new CBD data into the ID Pool java object in memory. For example, in the NSO CLI console: `admin@ncs> request packages reload force`.
@@ -284,7 +284,7 @@ admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiS
 
 ## NSO IP Address Allocator Deployment
 
-This section contains deployment information and procedures for the Tail-f NSO Allocator application.
+This section contains deployment information and procedures for the Tail-f NSO IP Adress Allocator (`ipaddress-allocator`) application.
 
 ### Overview
 
