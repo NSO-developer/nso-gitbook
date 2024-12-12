@@ -24,8 +24,7 @@ The `tailf-ncs-python-vm.yang` defines the `python-vm` container which, along wi
 
 Note that some of the nodes beneath `python-vm` are by default invisible due to a hidden attribute. To make everything under `python-vm` visible in the CLI, two steps are required:
 
-1.  First, the following XML snippet must be added to `ncs.conf`:\
-
+1.  First, the following XML snippet must be added to `ncs.conf`:\\
 
     ```xml
     <hide-group>
@@ -270,7 +269,7 @@ class Upgrade(ncs.upgrade.Upgrade):
         with an error message.
 
         Anything written to stdout/stderr will end up in the general log file
-        for spurious output from Python VMs. If not configured the file will
+        for various output from Python VMs. If not configured the file will
         be named ncs-python-vm.log.
         """
 
@@ -293,7 +292,7 @@ class Upgrade(ncs.upgrade.Upgrade):
         # Error return example:
         #
         # This indicates a failure and the string written to stdout below will
-        # written to the general log file for spurious output from Python VMs.
+        # written to the general log file for various output from Python VMs.
         #
         # print('Error: not implemented yet')
         # return False
