@@ -1150,7 +1150,7 @@ Since an LSA deployment consists of multiple NSO nodes (or HA pairs of nodes), e
 
 In general, staying with the Single-Version Deployment is the simplest option and does not require any further LSA-specific upgrade action (except perhaps recompiling the packages). However, the main downside is that, at least for a major upgrade, you must upgrade all the nodes at the same time (otherwise, you no longer have a Single-Version Deployment).
 
-If that is not feasible, the solution is to run a Multi-Version Deployment. Along with all of the requirements, the section [Multi-Version Deployment](layered-service-architecture.md#ncs\_lsa.lsa\_setup.multi\_version) describes a major difference from the Single Version variant: the upper CFS node uses a version-specific `cisco-nso-nc-X.Y` NED ID to refer to lower RFS nodes. That means, if you switch to a Multi-Version Deployment, or perform a major upgrade of the lower-layer RFS node, the `ned-id` should change accordingly. However, do not change it directly but follow the correct NED upgrade procedure described in the section called [NED Migration](../management/ned-administration#sec.ned_migration). Briefly, the procedure consists of these steps:
+If that is not feasible, the solution is to run a Multi-Version Deployment. Along with all of the requirements, the section [Multi-Version Deployment](layered-service-architecture.md#ncs_lsa.lsa_setup.multi_version) describes a major difference from the Single Version variant: the upper CFS node uses a version-specific `cisco-nso-nc-X.Y` NED ID to refer to lower RFS nodes. That means, if you switch to a Multi-Version Deployment, or perform a major upgrade of the lower-layer RFS node, the `ned-id` should change accordingly. However, do not change it directly but follow the correct NED upgrade procedure described in the section called [NED Migration](../management/ned-administration/#sec.ned_migration). Briefly, the procedure consists of these steps:
 
 1. Keep the currently configured ned-id for an RFS device and the corresponding packages. If upgrading the CFS node, you will need to recompile the packages for the new NSO version.
 2. Compile and load the packages that are device-compiled with the new `ned-id`, alongside the old packages.
@@ -1171,3 +1171,34 @@ Later on, you may decide to upgrade the RFS node to NSO 5.6. Again, you prepare 
 Likewise, you can return to the Single Version Deployment, by upgrading the RFS node to the NSO 5.7, reusing the old, or preparing anew, the `rfs-vlan-ned` package and migrating to the `lsa-netconf ned-id`.
 
 All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed ned-id, so for those no migration is necessary.
+
+### User Authorization Passthrough
+
+In LSA, northbound users are authenticated on the CFS, and the request is re-authenticated on the RFS using either a system user or user/pass passthrough.
+
+For token based authentication using external auth/package auth, this becomes a problem as user and password are not expected to be locally provisioned and hence cannot be used for authentication towards the RFS, which leaves the option of a system user.
+
+Using a system user has two major limitations:
+
+* Auditing on the RFS becomes hard, as system sessions are not logged in the `audit.log`.
+* Device-level RBAC becomes challenging as the devices reside in the RFS and the user information is lost.
+
+To handle this scenario one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
+
+On the CFS node set the passthrough empty leaf in the configured authgroup of the RFS nodes (or the default-map) to allow the local user and groups to be passed through to the RFS node. Only users for which the passthrough leaf in the user umap (or default-map), in the lower layer node's authgroup, has been set will be passed through.
+
+{% code overflow="wrap" %}
+```
+admin@cfs% set devices authgroups group default default-map remote-name lsa_passthrough_user remote-password ahVaesai8Ahn0AiW passthrough
+admin@cfs% commit
+```
+{% endcode %}
+
+On the RFS node configure the mapping of permitted users in the _/cluster/global-settings/passthrough/permit_ list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the as-user leaf-list, and the as-group specifies valid groups. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
+
+{% code overflow="wrap" %}
+```
+admin@rfs1% set cluster global-settings passthrough permit lsa_passthrough_user as-user [ alice bob carol ] as-group [ oper dev ]
+admin@rfs1% commit
+```
+{% endcode %}
