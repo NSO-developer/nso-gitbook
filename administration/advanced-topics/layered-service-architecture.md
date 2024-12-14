@@ -1154,7 +1154,7 @@ If that is not feasible, the solution is to run a Multi-Version Deployment. Alon
 
 1. Keep the currently configured ned-id for an RFS device and the corresponding packages. If upgrading the CFS node, you will need to recompile the packages for the new NSO version.
 2. Compile and load the packages that are device-compiled with the new `ned-id`, alongside the old packages.
-3. Use the **migrate** action on a device to switch over to the new `ned-id`.
+3. Use the `migrate` action on a device to switch over to the new `ned-id`.
 
 The procedure requires you to have two versions of the device-compiled RFS service packages loaded in the upper CFS node when calling the `migrate` action: one version compiled by referencing the old (current) NED ID and the other one by referencing the new (target) NED ID.
 
@@ -1170,7 +1170,7 @@ Later on, you may decide to upgrade the RFS node to NSO 5.6. Again, you prepare 
 
 Likewise, you can return to the Single Version Deployment, by upgrading the RFS node to the NSO 5.7, reusing the old, or preparing anew, the `rfs-vlan-ned` package and migrating to the `lsa-netconf ned-id`.
 
-All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed ned-id, so for those no migration is necessary.
+All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed `ned-id`, so for those no migration is necessary.
 
 ### User Authorization Passthrough
 
