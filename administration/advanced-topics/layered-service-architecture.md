@@ -1176,16 +1176,16 @@ All these `ned-id` changes stem from the fact that the upper-layer CFS node trea
 
 In LSA, northbound users are authenticated on the CFS, and the request is re-authenticated on the RFS using either a system user or user/pass passthrough.
 
-For token based authentication using external auth/package auth, this becomes a problem as user and password are not expected to be locally provisioned and hence cannot be used for authentication towards the RFS, which leaves the option of a system user.
+For token-based authentication using external auth/package auth, this becomes a problem as the user and password are not expected to be locally provisioned and hence cannot be used for authentication towards the RFS, which leaves the option of a system user.
 
 Using a system user has two major limitations:
 
 * Auditing on the RFS becomes hard, as system sessions are not logged in the `audit.log`.
 * Device-level RBAC becomes challenging as the devices reside in the RFS and the user information is lost.
 
-To handle this scenario one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
+To handle this scenario, one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
 
-On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g. alice) on the CFS node connects to a RFS node, she will authenticate using the credentials specified in the /devices/device/authgroup authgroup (e.g. `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user lsa\_passthrough\_user change into alice on the RFS node.&#x20;
+On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g., alice) on the CFS node connects to an RFS node, she will authenticate using the credentials specified in the `/devices/device/authgroup` authgroup (e.g., `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user `lsa_passthrough_user` changes into alice on the RFS node.&#x20;
 
 {% code overflow="wrap" %}
 ```
@@ -1196,7 +1196,7 @@ admin@cfs% commit
 ```
 {% endcode %}
 
-On the RFS node configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
+On the RFS node, configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
 
 {% code overflow="wrap" %}
 ```
