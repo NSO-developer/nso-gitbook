@@ -1196,7 +1196,7 @@ admin@cfs% commit
 ```
 {% endcode %}
 
-On the RFS node, configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
+On the RFS node, configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements `as-user` list.
 
 {% code overflow="wrap" %}
 ```
