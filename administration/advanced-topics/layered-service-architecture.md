@@ -1185,16 +1185,18 @@ Using a system user has two major limitations:
 
 To handle this scenario one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
 
-On the CFS node set the passthrough empty leaf in the configured authgroup of the RFS nodes (or the default-map) to allow the local user and groups to be passed through to the RFS node. Only users for which the passthrough leaf in the user umap (or default-map), in the lower layer node's authgroup, has been set will be passed through.
+On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g. alice) on the CFS node connects to a RFS node, she will authenticate using the credentials specified in the /devices/device/authgroup authgroup (e.g. `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user lsa\_passthrough\_user change into alice on the RFS node.&#x20;
 
 {% code overflow="wrap" %}
 ```
-admin@cfs% set devices authgroups group default default-map remote-name lsa_passthrough_user remote-password ahVaesai8Ahn0AiW passthrough
+admin@cfs% set devices authgroups group rfs-east default-map remote-name lsa_passthrough_user remote-password ahVaesai8Ahn0AiW passthrough
+admin@cfs% set devices device rfs1 authgroup rfs-east
+admin@cfs% set devices device rfs2 authgroup rfs-east
 admin@cfs% commit
 ```
 {% endcode %}
 
-On the RFS node configure the mapping of permitted users in the _/cluster/global-settings/passthrough/permit_ list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the as-user leaf-list, and the as-group specifies valid groups. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
+On the RFS node configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements as-user list.
 
 {% code overflow="wrap" %}
 ```
