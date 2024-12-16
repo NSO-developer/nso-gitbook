@@ -4,7 +4,10 @@ description: Manage resource allocation in NSO.
 
 # Resource Manager
 
-The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`and the two applications utilizing the API. The applications are the [`id-allocator`](resource-manager.md#nso-id-allocator-deployment) and the [`ipaddress-allocator`](resource-manager.md#nso-ip-address-allocator-deployment), explained in separate sections.&#x20;
+The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](resource-manager.md#nso-id-allocator-deployment) and [`ipaddress-allocator`](resource-manager.md#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
+
+* [NSO ID Allocator Deployment](resource-manager.md#nso-id-allocator-deployment)
+* [NSO IP Address Allocator Deployment](resource-manager.md#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
 This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
@@ -14,11 +17,9 @@ This version of NSO Resource Manager is 4.2.8 and was released together with NSO
 
 NSO is often used to provision services in the networking layer. It is not unusual that these services require network-level information that is not (or cannot be) part of the instance data provided by the northbound system, so it needs to be fetched from, and eventually released back to a separate system. A common example of this is IP addresses used for layer-3 VPN services. The orchestrator tool is not aware of the blocks of IP addresses assigned to the network but relies on lower layers to fulfill this need.
 
-Some customers have software systems to manage these types of temporary assets. E.g., for IP-addresses they are usually known as IP Address Management (IPAM) systems. There is a whole industry of solutions for such systems, ranging from simple open-source solutions to entire suites integrated with DNS management. See [IP address management](https://en.wikipedia.org/wiki/IP_address_management) for more on this.
+Some customers have software systems to manage these types of temporary assets. E.g., for IP-addresses, they are usually known as IP Address Management (IPAM) systems. There is a whole industry of solutions for such systems, ranging from simple open-source solutions to entire suites integrated with DNS management. See [IP address management](https://en.wikipedia.org/wiki/IP_address_management) for more on this.
 
-There are customers that either don't have an IPAM system for services that are planned for NSO and are not planning to get one for this single purpose. They usually don't want the operational overhead of another system and/or don't see the need of a separate investment.
-
-These customers are looking for NSO to provide basic resource allocation and lifecycle management for the assets required for services managed by NSO. They appreciate the fact that NSO is not an appropriate platform to provide more advanced features from the IPAM world like capacity planning nor to integrate with DNS and DHCP platforms. This means that the NSO Resource Manager does not compete with full-blown systems, but rather is a complementary feature.
+There are customers that either don't have an IPAM system for services that are planned for NSO or are not planning to get one for this single purpose. They usually don't want the operational overhead of another system and/or don't see the need for a separate investment. These customers are looking for NSO to provide basic resource allocation and lifecycle management for the assets required for services managed by NSO. They appreciate the fact that NSO is not an appropriate platform to provide more advanced features from the IPAM world like capacity planning nor to integrate with DNS and DHCP platforms. This means that the NSO Resource Manager does not compete with full-blown systems but is rather a complementary feature.
 
 ## Overview <a href="#d5e25" id="d5e25"></a>
 
@@ -36,7 +37,7 @@ The resource allocation packages should subscribe to several points in this `res
 
 The installation of this package is done as with any other package, as described in the [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/administration/management/package-mgmt) section of the Administration Guide.
 
-## Resource Allocator Data Model <a href="#d5e48" id="d5e48"></a>
+## Data Model for Resource Allocator <a href="#d5e48" id="d5e48"></a>
 
 The API of the resource allocator is defined in this YANG data model:
 
@@ -294,20 +295,17 @@ The file `resource-manager/src/java/src/com/tailf/pkg/ipaddressallocator/ IPAddr
 
 The `IPAddressAllocator` class subscribes to five points in the DB:
 
-| `/ralloc:resource-pools/ip-address-pool`           | To be notified when new pools are created/deleted. It needs to create/delete instances of the IPAddressPool class. Each instance of the IPAddressPool handles one pool.                                                                                                                                                                                                                          |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `/ralloc:resource-pools/ip-address-pool/subnet`    | <p>To be notified when subnets are added/removed from an existing address pool. When a new subnet is added, it needs to invoke the <code>addToAvailable</code> method of the right <code>IPAddressPool</code> instance.</p><p>When a pool is removed, it needs to reset all existing allocations from the pool, create new allocations, and re-deploy the services that had the allocations.</p> |
-| `/ralloc:resource-pols/ip-address-pool/exclude`    | To detect when new exclusions are added and when old exclusions are removed.                                                                                                                                                                                                                                                                                                                     |
-| `/ralloc:resource-pols/ip-address-pool/range`      | To be notified when ranges are added to or removed from an address pool.                                                                                                                                                                                                                                                                                                                         |
-| `/ralloc:resource-pols/ip-address-pool/allocation` | To detect when new allocation requests are added and when old allocations are released. When a new request is added, the right size of the subnet is allocated from the `IPAddressPool` instance and the result is written to the response/subnet leaf, and finally, the service is redeployed.                                                                                                  |
+* `/ralloc:resource-pools/ip-address-pool`: To be notified when new pools are created/deleted. It needs to create/delete instances of the IPAddressPool class. Each instance of the IPAddressPool handles one pool.
+* `/ralloc:resource-pools/ip-address-pool/subnet`: To be notified when subnets are added/removed from an existing address pool. When a new subnet is added, it needs to invoke the `addToAvailable` method of the right `IPAddressPool` instance. When a pool is removed, it needs to reset all existing allocations from the pool, create new allocations, and re-deploy the services that had the allocations.
+* `/ralloc:resource-pols/ip-address-pool/exclude`: To detect when new exclusions are added and when old exclusions are removed.
+* `/ralloc:resource-pols/ip-address-pool/range`: To be notified when ranges are added to or removed from an address pool.
+* `/ralloc:resource-pols/ip-address-pool/allocation`: To detect when new allocation requests are added and when old allocations are released. When a new request is added, the right size of the subnet is allocated from the `IPAddressPool` instance and the result is written to the response/subnet leaf, and finally, the service is redeployed.
 
 ### Examples
 
 This section presents some simple use cases of the NSO IP Address Allocator. It uses the C-style CLI.
 
-<details>
-
-<summary>Create an IP Pool</summary>
+#### Create an IP Pool
 
 Creating an IP pool requires the user to specify a list of subnets (identified by a network address and a CIDR mask), a list of IP ranges (identified by its first and last IP address), or a combination of the two to be handled by the pool.&#x20;
 
@@ -318,11 +316,7 @@ admin@ncs# resource-pools ip-address-pool pool1 subnet 10.0.0.0 24
 admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.255
 ```
 
-</details>
-
-<details>
-
-<summary>Create an Allocation Request for a Subnet</summary>
+#### Create an Allocation Request for a Subnet
 
 Since we have already populated one of our pools, we can now start creating allocation requests. In the CLI interaction below, we request to allocate a subnet with a CIDR mask of 30 in the pool `pool1`.
 
@@ -331,11 +325,7 @@ admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
 myuser request subnet-size 30
 ```
 
-</details>
-
-<details>
-
-<summary>Create an Allocation Request for a Subnet Shared by Multiple Services</summary>
+#### Create an Allocation Request for a Subnet Shared by Multiple Services
 
 Allocations can be shared by multiple services by requesting the same subnet and using the same allocation ID. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate a subnet shared by two services.&#x20;
 
@@ -349,11 +339,7 @@ admin@ncs# commit
 
 The allocation resource gets freed once all allocating services in the `allocating-service` leaf-list deletes the allocation request.
 
-</details>
-
-<details>
-
-<summary>Create a Static Allocation Request for a Subnet</summary>
+#### Create a Static Allocation Request for a Subnet
 
 If you need a specific IP or range of IPs for an allocation, now you can use the optional `subnet-start-ip` leaf, together with the `subnet-size`. The allocator will go through the available subnets in the requested pool and will look for a subnet containing the `subnet-start-ip` and which can also fit the `subnet-size`.
 
@@ -369,5 +355,50 @@ The `subnet-start-ip` has to be the first IP address out of a subnet with size `
 
 If the `subnet-start-ip`/`subnet-size` pair does not give a subnet range starting with `subnet-start-ip`, the allocation will fail.
 
-</details>
+#### Create a Synchronous Allocation Request for a Subnet
 
+Synchronous allocation can be requested through various Java APIs provided in `resource-manager/ src/java/src/com/tailf/pkg/ipaddressallocator/IPAddressAllocator.java` and Python API provided in `resource-manager/python/resource_manager/ ipadress_allocator.py`.
+
+*   Request:Java:void subnetRequest(ServiceContext context, NavuNode service, RedeployType
+
+    redeployType, String poolName, String username, String startIp, int cidrmask, String id, boolean
+
+    invertCidr, boolean sync\_alloc).
+*   Request:Python:def net\_request(service, svc\_xpath, username, pool\_name, allocation\_name,
+
+    cidrmask, invert\_cidr=False, redeploy\_type="default", sync\_alloc=False, root=None).
+*   Non-blocking call to check Response Ready:Java:boolean responseReady(NavuContext context,
+
+    String poolName, String id).
+*   Read Response:Java:ConfIPPrefix subnetRead(NavuContext context, String poolName, String
+
+    id)Python:def net\_read(username, root, pool\_name, allocation\_name).
+
+#### Read the Response to an Allocation Request
+
+The response to an allocation request comes in the form of operational data written to the path `/ resource-pools/ip-address-pool/allocation/response`. The response container contains a choice with two cases, `ok` and `error`. If the allocation failed, the `error` case will be set and an error message can be found in the leaf `error`. If the allocation succeeded, the `ok` case will be set and the allocated subnet will be written to the leaf subnet and the subnet from which the allocation was made will be written to the leaf `from`. The following CLI interaction shows how to view the status of the current allocation requests.
+
+```
+admin@ncs# show resouce-pools
+```
+
+The table below (Subnet Allocation) shows that a subnet with a CIDR of 30 has been allocated from the subnet 10.0.0.0/24 in `pool1`.
+
+| NAME    | ID   | ERROR | SUBNET        | FROM          |
+| ------- | ---- | ----- | ------------- | ------------- |
+| `pool1` | `a1` | -     | `10.0.0.0/30` | `10.0.0.0/24` |
+
+#### Automatic Redeployment of Service
+
+An allocation request may contain references to services that are to be redeployed whenever the status of the allocation changes. The following status changes trigger redeployment.
+
+* Allocation response goes from no case to some case (`ok` or `error`).
+* Allocation response goes from one case to the other.
+* Allocation response case stays the same but the leaves within the case change. Typically because a reallocation was triggered by configuration changes in the IP pool.
+
+The service references are set in the `allocating-service` leaf-list, for example:
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
+/services/vl:loop[name='myservice'] username myuser request subnet-size 30
+```
