@@ -288,5 +288,86 @@ This section contains deployment information and procedures for the Tail-f NSO I
 
 ### Overview
 
-...
+The NSO IP Address Allocator application contains an IP address allocator that use the Resource Manager API to provide IP address allocation. It uses a RAM-based allocation algorithm that stores its state in CDB as oper data.
+
+The file `resource-manager/src/java/src/com/tailf/pkg/ipaddressallocator/ IPAddressAllocator.java` contains the part that deals with the resource manager APIs whereas the RAM-based IP address allocator resides under `resource-manager/src/java/src/com/tailf/ pkg/ipam`.
+
+The `IPAddressAllocator` class subscribes to five points in the DB:
+
+| `/ralloc:resource-pools/ip-address-pool`           | To be notified when new pools are created/deleted. It needs to create/delete instances of the IPAddressPool class. Each instance of the IPAddressPool handles one pool.                                                                                                                                                                                                                          |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/ralloc:resource-pools/ip-address-pool/subnet`    | <p>To be notified when subnets are added/removed from an existing address pool. When a new subnet is added, it needs to invoke the <code>addToAvailable</code> method of the right <code>IPAddressPool</code> instance.</p><p>When a pool is removed, it needs to reset all existing allocations from the pool, create new allocations, and re-deploy the services that had the allocations.</p> |
+| `/ralloc:resource-pols/ip-address-pool/exclude`    | To detect when new exclusions are added and when old exclusions are removed.                                                                                                                                                                                                                                                                                                                     |
+| `/ralloc:resource-pols/ip-address-pool/range`      | To be notified when ranges are added to or removed from an address pool.                                                                                                                                                                                                                                                                                                                         |
+| `/ralloc:resource-pols/ip-address-pool/allocation` | To detect when new allocation requests are added and when old allocations are released. When a new request is added, the right size of the subnet is allocated from the `IPAddressPool` instance and the result is written to the response/subnet leaf, and finally, the service is redeployed.                                                                                                  |
+
+### Examples
+
+This section presents some simple use cases of the NSO IP Address Allocator. It uses the C-style CLI.
+
+<details>
+
+<summary>Create an IP Pool</summary>
+
+Creating an IP pool requires the user to specify a list of subnets (identified by a network address and a CIDR mask), a list of IP ranges (identified by its first and last IP address), or a combination of the two to be handled by the pool.&#x20;
+
+The following CLI interaction shows an allocation where a pool `pool1` is created, and the subnet 10.0.0.0/24 and the range 192.168.0.0 - 192.168.255.255 is added to it.
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 subnet 10.0.0.0 24
+admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.255
+```
+
+</details>
+
+<details>
+
+<summary>Create an Allocation Request for a Subnet</summary>
+
+Since we have already populated one of our pools, we can now start creating allocation requests. In the CLI interaction below, we request to allocate a subnet with a CIDR mask of 30 in the pool `pool1`.
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
+myuser request subnet-size 30
+```
+
+</details>
+
+<details>
+
+<summary>Create an Allocation Request for a Subnet Shared by Multiple Services</summary>
+
+Allocations can be shared by multiple services by requesting the same subnet and using the same allocation ID. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate a subnet shared by two services.&#x20;
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
+/services/vl:loop[name='myservice1'] user myuser request subnet-size 30
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
+/services/vl:loop[name='myservice2'] user myuser request subnet-size 30
+admin@ncs# commit
+```
+
+The allocation resource gets freed once all allocating services in the `allocating-service` leaf-list deletes the allocation request.
+
+</details>
+
+<details>
+
+<summary>Create a Static Allocation Request for a Subnet</summary>
+
+If you need a specific IP or range of IPs for an allocation, now you can use the optional `subnet-start-ip` leaf, together with the `subnet-size`. The allocator will go through the available subnets in the requested pool and will look for a subnet containing the `subnet-start-ip` and which can also fit the `subnet-size`.
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation a2 username \
+myuser request subnet-start-ip 10.0.0.36 subnet-size 32
+```
+
+The `subnet-start-ip` has to be the first IP address out of a subnet with size `subnet-size`:
+
+* Valid: `subnet-start-ip 10.0.0.36 subnet-size 30`, IP range 10.0.0.36 to 10.0.0.39.
+* Invalid: `subnet-start-ip 10.0.0.36 subnet-size 29`, IP range 10.0.0.32 to 10.0.0.39.
+
+If the `subnet-start-ip`/`subnet-size` pair does not give a subnet range starting with `subnet-start-ip`, the allocation will fail.
+
+</details>
 
