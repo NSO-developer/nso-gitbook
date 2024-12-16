@@ -1409,27 +1409,7 @@ Note that the meta-data node types, e.g., tags and annotations, are prefixed by 
 | `default`         | `ietf-netconf-with-defaults` |
 | `All other`       | `tailf_netconf`              |
 
-Compare this to the encoding in NSO versions prior to 6.3, where we represented meta-data for an object by another object constructed of the object name prefixed with either one or two "@" signs. The meta-data object "@x" referred to the sibling object "x" and the "@@x" object referred to the parent object. No module name prefixes were included for the meta-data data object types. This did not conform to [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) for legacy reasons. See the example below.
-
-{% code title="Example: Legacy JSON Representation of Meta-data" %}
-```json
-{
-  "x": {
-    "foo": 42,
-    "@foo": {"tags": ["tags","for","foo"], "annotation": "annotation for foo"},
-    "y": {
-      "@@y": {"annotation": "Annotation for parent y"},
-      "y": 1,
-      "@y": {"annotation": "Annotation for sibling y"}
-    }
-  }
-}
-```
-{% endcode %}
-
-To continue using the old meta-data format, set `legacy-attribute-format` to `true` in `ncs.conf`. The default is `false`, which uses the [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) format. The `legacy-attribute-format` setting is deprecated and will be removed in a future release.
-
-It is also possible to set meta-data objects in JSON format, which was previously only possible with XML. Note that the new attribute format must be used and `legacy-attribute-format` set to `false`. Except for setting the `default` and `insert` meta-data types, which are not supported using JSON.
+It is also possible to set meta-data objects in JSON format, except for setting the `default` and `insert` meta-data types, which are not supported using JSON.
 
 ## Authentication Cache <a href="#d5e2282" id="d5e2282"></a>
 
