@@ -442,6 +442,225 @@ This section covers the NSO Resource Manager data models.
 module resource-allocator {
     namespace "http://tail-f.com/pkg/resource-allocator";
     prefix "ralloc";
+
+    import tailf-common {
+        prefix tailf;
+    }
+    import ietf-inet-types {
+        prefix inet;
+    }
+
+    organization "Tail-f Systems";
+    description
+        "This is an API for resource allocators.
+         An allocation request is signaled by creating an entry in the
+         allocation list. The response is signaled by writing a value in 
+         the response leaves. The responder is responsible for re-deploying 
+         the allocating owners after writing the result in the response leaf.
+
+         We expect a specific allocator package to do the following:
+         1. Subscribe to changes in the allocation list and look for
+            create operations.
+         2. Perform the allocation and respond by writing the result
+            into the response leaf, and then invoke the re-deploy 
+            action of the services pointed to by the owners leaf-list.
+
+         Most allocator packages will want to annotate this model with
+         additional pool definition data.";
+
+    revision 2022-03-11 {
+        description "Support multi-service and synchronous allocation request.";
+    }
+
+    revision 2020-07-29 {
+        description
+            "1.1 Enhancements:
+             - Add 'redeploy-type' option for service redeploy action.
+               If not provided, 'default' is assumed, where the 
+               redeploy type is chosen based on NSO version.";
+    }
+
+    revision 2015-10-20 {
+        description "Initial revision.";
+    }
+
+    grouping resource-pool-grouping {
+        leaf name {
+            type string;
+            description "The name of the pool";
+            tailf:info "Unique name for the pool";
+        }
+        
+        leaf sync-dryrun {
+            tailf:hidden debug;
+            config false;
+            type empty;
+        }
+        
+        list allocation {
+            key id;
+            tailf:info "Contains all the details of a resource request made from user";
+
+            leaf id {
+                type string;
+                description "Allocation id";
+                tailf:info "Allocation id.";
+            }
+            
+            leaf username {
+                type string;
+                description "Authenticated user for invoking the service";
+                mandatory true;
+            }
+            
+            leaf-list allocating-service {
+                type instance-identifier {
+                    require-instance false;
+                }
+                description "Points to the services that own the resource.";
+                tailf:info "Instance identifiers of services that own resource";
+            }
+            
+            leaf sync-alloc {
+                tailf:hidden debug;
+                tailf:info "Process allocation in synchronous flow";
+                type empty;
+            }
+            
+            leaf redeploy-type {
+                type enumeration {
+                    enum "default";
+                    enum "touch";
+                    enum "reactive-re-deploy";
+                    enum "re-deploy";
+                    enum "no-redeploy";
+                }
+                default "default";
+                description "Service redeploy type: default, touch, reactive-re-deploy, re-deploy.";
+            }
+            
+            container request {
+                description "When creating a request for a resource the implementing package augments here.";
+            }
+            
+            container response {
+                config false;
+                tailf:cdb-oper {
+                    tailf:persistent true;
+                }
+                
+                choice response-choice {
+                    case error {
+                        leaf error {
+                            type string;
+                            description "Text describing why the allocation request failed";
+                        }
+                    }
+                    case ok {}
+                }
+                description "The response to the allocation request.";
+            }
+        }
+    }
+
+    container resource-pools {}
+
+    container rm-action {
+        tailf:action sync-alloc {
+            tailf:hidden debug;
+            tailf:actionpoint sync-alloc-action;
+
+            input {
+                leaf pool {
+                    type string;
+                }
+                leaf allocid {
+                    type string;
+                }
+                leaf user {
+                    type string;
+                }
+                leaf cidrmask {
+                    type uint8 {
+                        range "1..128";
+                    }
+                }
+                leaf invertcidr {
+                    type boolean;
+                }
+                leaf owner {
+                    type string;
+                }
+                leaf subnetstartip {
+                    type string;
+                }
+                leaf dryrun {
+                    type boolean;
+                    default false;
+                }
+            }
+
+            output {
+                leaf allocated {
+                    type string;
+                    mandatory true;
+                }
+                leaf subnet {
+                    type string;
+                }
+            }
+        }
+
+        tailf:action sync-alloc-id {
+            tailf:actionpoint sync-alloc-id-action;
+
+            input {
+                leaf pool {
+                    type string;
+                }
+                leaf allocid {
+                    type string;
+                }
+                leaf user {
+                    type string;
+                }
+                leaf owner {
+                    type string;
+                }
+                leaf requestedId {
+                    type int32;
+                }
+                leaf method {
+                    type string;
+                    default "firstfree";
+                }
+                leaf sync {
+                    type boolean;
+                    default false;
+                }
+                leaf dryrun {
+                    type boolean;
+                    default false;
+                }
+            }
+
+            output {
+                leaf allocatedId {
+                    type string;
+                    mandatory true;
+                }
+            }
+        }
+    }
+}
+```
+{% endcode %}
+
+{% code title="Example: Resource Allocator YANG Model" %}
+```
+module resource-allocator {
+    namespace "http://tail-f.com/pkg/resource-allocator";
+    prefix "ralloc";
     
     import tailf-common {
         prefix tailf;
