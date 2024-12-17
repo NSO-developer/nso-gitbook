@@ -251,7 +251,7 @@ How the administrator should write these rules is detailed in the [AAA Infrastru
 There are two alarms associated with the ID Allocator:
 
 * **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation.
-* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or less left in the pool.
+* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool.
 
 ### CDB Upgrade from Package version Below 4.0.0
 
@@ -271,7 +271,7 @@ A set of debug and data tools (contained in `rm-action/id-allocator-tool` action
 * `fix_missing_allocation`: Create the missing allocation entry in the ID allocator for each ID pool allocation response/id.
 * `fix_response_id`: Scan the ID pool and check if the allocation contains an invalid allocation request ID, and release the allocation from the ID pool if found. It happens for sync allocation when the device configuration fails after a successful ID allocation and then causes a service transaction fail. This leaves the ID pool containing successfully allocated ID while the allocation request response doesn't exist
 * `persistAll`: Manually sync from ID pool in memory to ID allocator in CDB.
-* `printIdPool`: Print the current ID pool data in the `ncs-java-vm.log` for debug purposes.
+* `printIdPool`: Print the current ID pool data in `ncs-java-vm.log` for debugging purposes.
 
 #### Action Usage Example
 
@@ -348,7 +348,7 @@ admin@ncs# resource-pools ip-address-pool pool1 allocation a2 username \
 myuser request subnet-start-ip 10.0.0.36 subnet-size 32
 ```
 
-The `subnet-start-ip` has to be the first IP address out of a subnet with size `subnet-size`:
+The `subnet-start-ip` has to be the first IP address out of a subnet with the size `subnet-size`:
 
 * Valid: `subnet-start-ip 10.0.0.36 subnet-size 30`, IP range 10.0.0.36 to 10.0.0.39.
 * Invalid: `subnet-start-ip 10.0.0.36 subnet-size 29`, IP range 10.0.0.32 to 10.0.0.39.
@@ -401,4 +401,32 @@ The service references are set in the `allocating-service` leaf-list, for exampl
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
 /services/vl:loop[name='myservice'] username myuser request subnet-size 30
+```
+
+### Security
+
+The NSO IP Address Allocator requires a username to be configured by the service applications when creating an allocation request. This username will be used to redeploy the service applications once a resource has been allocated. The default NACM rules deny all standard users access to the `/ ralloc:resource-pools` list. These default settings are provided in the (`initial_data/ aaa_init.xml`) file of the Resource Manager package.
+
+### Alarms
+
+There are two alarms associated with the IP Address Allocator:
+
+* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IPs that can be allocated.
+* **Low Threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there are only 10% or fewer separate IPs left in the pool.
+
+### `ip-allocator-tool` Action
+
+A set of debug and data tools contained in the `rm-action/ip-allocator-tool` action is available to help the admin or support personnel to operate on the RM data. Two parameters in the `ip-allocator-tool` action can be provided: `operation`, `pool`. All the process info and the results will be logged in `ncs-java-vm.log`, and the action itself just returns the result. Here is a list of the valid operation values for the `ip-allocator-tool` action.
+
+* `fix_response_ip`: Scan the IP pool to check if the allocation contains an invalid allocation request ID, and release the allocation from the IP pool, if found. It happens for sync allocation when the device configuration fails after a successful IP allocation and then causes a service transaction to fail. This leaves the IP pool to contain successfully allocated IP while the allocation request response doesn't exist.
+* `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
+
+#### Action Usage Example
+
+Note that when a pool parameter is provided, the operation will be on this specific IP pool.
+
+```
+admin@ncs> unhide debug
+admin@ncs> request rm-action ip-allocator-tool operation fix_response_ip pool multiService
+admin@ncs> request rm-action ip-allocator-tool operation printIpPool pool multiService
 ```
