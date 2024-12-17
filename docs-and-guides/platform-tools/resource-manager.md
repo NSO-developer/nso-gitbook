@@ -483,178 +483,167 @@ revision 2020-07-29 {
     redeploy type is chosen based on NSO version.
     ";
 }
-
 revision 2015-10-20 {
-    description
-    "Initial revision.";
+description
+"Initial revision.";
 }
-
 grouping resource-pool-grouping {
-    leaf name {
-        type string;
-        description
-            "The name of the pool";
-        tailf:info "Unique name for the pool";
+leaf name {
+type string;
+description
+"The name of the pool";
+tailf:info "Unique name for the pool";
 }
-    leaf sync-dryrun {
-        tailf:hidden debug;
-        config false;
-        type empty;
+leaf sync-dryrun {
+tailf:hidden debug;
+config false;
+type empty;
 }
-
 list allocation {
-    key id;
-    tailf:info "contains all the details of a resource request made from user";
-    
+key id;
+tailf:info "contains all the details of a resource request made from user";
 leaf id {
-    type string;
-    description "allocation id";
-    tailf:info "allocation id.";
+type string;
+description "allocation id";
+tailf:info "allocation id.";
 }
-
 leaf username {
-    description
-    "Authenticated user for invoking the service";
-    type string;
-    mandatory true;
+description
+"Authenticated user for invoking the service";
+type string;
+mandatory true;
 }
-
 leaf-list allocating-service {
-    type instance-identifier {
-    require-instance false;
+type instance-identifier {
+require-instance false;
 }
-    description
-    "Points to the services that own the resource.";
-    tailf:info "Instance identifiers of services that own resource";
+description
+"Points to the services that own the resource.";
+tailf:info "Instance identifiers of services that own resource";
 }
-
 leaf sync-alloc {
-    tailf:hidden debug;
-    tailf:info "process allocation in synchronous flow";
-    type empty;
+tailf:hidden debug;
+tailf:info "process allocation in synchronous flow";
+type empty;
 }
-
 leaf redeploy-type {
-    description "Service redeploy type:
-    default, touch, reactive-re-deploy, re-deploy.";
-    type enumeration {
-    enum "default";
-    enum "touch";
-    enum "reactive-re-deploy";
-    enum "re-deploy";
-    enum "no-redeploy";
+description "Service redeploy type:
+default, touch, reactive-re-deploy, re-deploy.";
+type enumeration {
+enum "default";
+enum "touch";
+enum "reactive-re-deploy";
+enum "re-deploy";
+enum "no-redeploy";
 }
 default "default";
 }
-
 container request {
-    description
-    "When creating a request for a resource the
-    implementing package augments here.";
+description
+"When creating a request for a resource the
+implementing package augments here.";
 }
-
 container response {
-    config false;
-    tailf:cdb-oper {
-    tailf:persistent true;
+config false;
+tailf:cdb-oper {
+tailf:persistent true;
 }
-
 choice response-choice {
-    case error {
-    leaf error {
-    type string;
-    description
-        "Text describing why the allocation request failed";
+case error {
+leaf error {
+type string;
+description
+"Text describing why the allocation request failed";
 }
 }
-    case ok {
+case ok {
 }
 }
-    description
-        "The response to the allocation request.";
+description
+"The response to the allocation request.";
 }
 }
 }
 container resource-pools {
 }
 container rm-action {
-    tailf:action sync-alloc {
-        tailf:hidden debug;
-        tailf:actionpoint sync-alloc-action;
-        input {
-            leaf pool {
-                type string;
+tailf:action sync-alloc {
+tailf:hidden debug;
+tailf:actionpoint sync-alloc-action;
+input {
+leaf pool {
+type string;
 }
-            leaf allocid {
-                type string;
+leaf allocid {
+type string;
 }
-            leaf user {
-                type string;
+leaf user {
+type string;
 }
-            leaf cidrmask {
-                type uint8{
-                range "1..128";
-}
-}
-            leaf invertcidr {
-                type boolean;
-}
-            leaf owner {
-                type string;
-}
-            leaf subnetstartip {
-                type string;
-}
-            leaf dryrun {
-                type boolean;
-                default false;
+leaf cidrmask {
+type uint8{
+range "1..128";
 }
 }
-        output {
-            leaf allocated {
-                type string;
-                mandatory true;
+leaf invertcidr {
+type boolean;
 }
-            leaf subnet {
-                type string;
+leaf owner {
+type string;
 }
+leaf subnetstartip {
+type string;
 }
-}
-    tailf:action sync-alloc-id {
-        tailf:actionpoint sync-alloc-id-action;
-        input {
-            leaf pool {
-            type string;
-}
-        leaf allocid {
-            type string;
-}
-        leaf user {
-            type string;
-}
-        leaf owner {
-            type string;
-}
-        leaf requestedId {
-            type int32;
-}
-        leaf method{
-            type string;
-            default "firstfree";
-}
-        leaf sync {
-            type boolean;
-            default false;
-}
-        leaf dryrun {
-            type boolean;
-            default false;
+leaf dryrun {
+type boolean;
+default false;
 }
 }
-        output {
-            leaf allocatedId {
-            type string;
-            mandatory true;
+output {
+leaf allocated {
+type string;
+mandatory true;
+}
+leaf subnet {
+type string;
+}
+}
+}
+tailf:action sync-alloc-id {
+tailf:actionpoint sync-alloc-id-action;
+input {
+leaf pool {
+type string;
+}
+leaf allocid {
+type string;
+}
+leaf user {
+type string;
+}
+leaf owner {
+type string;
+}
+leaf requestedId {
+type int32;
+}
+leaf method{
+type string;
+default "firstfree";
+}
+leaf sync {
+type boolean;
+default false;
+}
+leaf dryrun {
+type boolean;
+default false;
+}
+}
+output {
+leaf allocatedId {
+type string;
+mandatory true;
                 }
             }
         }
@@ -664,3 +653,190 @@ container rm-action {
 {% endcode %}
 
 ### ID Allocator Model
+
+{% code title="Example: ID Allocator YANG Model" %}
+```
+module id-allocator {
+namespace "http://tail-f.com/pkg/id-allocator";
+prefix idalloc;
+import tailf-common {
+prefix tailf;
+}
+import resource-allocator {
+prefix ralloc;
+}
+include id-allocator-alarms {
+revision-date "2017-02-09";
+}
+organization "Tail-f Systems";
+description
+"This module contains a description of an id allocator for defining pools
+of id:s. This can for instance be used when allocating VLAN ids.
+This module contains configuration schema of the id allocator. For the
+operational schema, please see the id-allocator-oper module.";
+revision 2023-11-16 {
+description
+"Add action id-allocator-tool.";
+}
+revision 2022-03-11 {
+description
+"support multi-service and synchronous allocation request.";
+}
+revision 2017-08-14 {
+description
+"2.2
+Enhancements:
+Removed 'disable', add 'enable' for alarms.
+This means that if you want alarms you need to enable this explicitly
+now.
+";
+}
+revision 2017-02-09 {
+description
+"2.1
+Enhancements:
+Added support for alarms
+";
+}
+revision 2015-12-28 {
+description "2nd revision. Added support for allocation methods.";
+}
+revision 2015-10-20 {
+description "Initial revision.";
+}
+grouping range-grouping {
+leaf start {
+type uint32;
+mandatory true;
+}
+leaf end {
+type uint32;
+mandatory true;
+must ". >= ../start" {
+error-message "range end must be greater or equal to range start";
+tailf:dependency "../start";
+}
+}
+}
+// This is the interface
+augment "/ralloc:resource-pools" {
+list id-pool {
+key "name";
+container range {
+description "The range the resource-pool should contain";
+uses range-grouping;
+}
+list exclude {
+tailf:info "list of id resource not available for allocation ";
+key "start end";
+leaf stop-allocation {
+type boolean;
+default "false";
+}
+uses range-grouping;
+tailf:cli-suppress-mode;
+}
+uses ralloc:resource-pool-grouping {
+augment "allocation/response/response-choice/ok" {
+leaf id {
+type uint32;
+description "id from pool";
+tailf:info "id from pool.";
+}
+}
+}
+container alarms {
+leaf enabled {
+type empty;
+description "Set this leaf to enable alarms";
+}
+leaf low-threshold-alarm {
+type uint8 {
+range "0 .. 100";
+}
+default 10;
+description "Change the value for when the low threshold alarm is
+raised. The value describes the percentage IDs left in
+the pool. The default is to raise the alarm when there
+are ten (10) percent IDs left in the pool.";
+}
+}
+description "The state of the id-pool.";
+tailf:info "Id pool";
+}
+}
+//augmenting the request/responses form resource-manager
+augment "/ralloc:resource-pools/id-pool/allocation/request" {
+leaf sync {
+type boolean;
+default "false";
+description "Synchronize allocation with all other allocation
+with same allocation id in other pools";
+tailf:info "Synchronize allocation id with other pools";
+}
+leaf id {
+type uint32;
+description "The specific id to sync with";
+tailf:info "Request a specific id";
+}
+container method {
+choice method {
+default firstfree;
+case firstfree {
+leaf firstfree {
+type empty;
+description "The default method to allocating a new id
+is using the first free method. Using this
+allocation method might mean that an id is reused
+quickly which might not be what one wants nor is
+supported in lower layers.";
+tailf:info "Default method used to request a new id.";
+}
+}
+case roundrobin {
+leaf roundrobin {
+type empty;
+description "Pick the next available id using a round
+robin approach. Earlier used id:s will not be
+reused until the range is exhausted and allocation
+restarts from the start of the range again.
+Note that sync will override round robin.";
+tailf:info "Round robin method used to request a new id.";
+}
+}
+}
+}
+}
+augment "/ralloc:rm-action" {
+tailf:action id-allocator-tool {
+tailf:hidden debug;
+tailf:actionpoint id-allocator-tool-action;
+input {
+leaf pool {
+type leafref {
+path "/ralloc:resource-pools/idalloc:id-pool/name";
+}
+}
+leaf operation{
+type enumeration {
+enum printIdPool;
+enum check_missing_report;
+enum fix_missing_allocation_id;
+enum fix_missing_owner;
+enum fix_missing_allocation;
+enum fix_response_id;
+enum persistAll;
+}
+mandatory true;
+}
+}
+output {
+leaf result {
+type string;
+}
+}
+}
+}
+}
+```
+{% endcode %}
