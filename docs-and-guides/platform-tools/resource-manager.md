@@ -289,7 +289,7 @@ There are two alarms associated with the ID Allocator:
 * **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation.
 * **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool.
 
-### CDB Upgrade from Package version Below 4.0.0
+### CDB Upgrade from Package version below 4.0.0
 
 Since the Resource Manager's version 4.0.0, the operational data model is not compatible with the previous version. In version 4.0.0 Yang model, there is a new element called `allocationId` added for `/Id-allocator/pool/allocation` to support sync ID allocation. The system will run the upgrade script automatically (when the Resource Manager of the new version is loaded) if there is a Yang model change in the new version. Users can also run the script manually for Resource Manager from 3.5.6 (or any version below 4.0.0) to version 4.0.0 or above; the script will add the missing `allocationId` element in the CDB operational data path `/id-allocator/pool/allocation`. The upgrade Python script is located in the Resource Manager package: `python/resource_manager/rm_upgrade_nso.py`.
 
