@@ -226,7 +226,7 @@ admin@ncs# commit
 
 <details>
 
-<summary>Request an ID using the Round Robin Method</summary>
+<summary>Request an ID using the Round-Robin Method</summary>
 
 The default behavior for requesting a new ID is to request the first free ID in increasing order.
 
