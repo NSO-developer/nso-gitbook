@@ -157,27 +157,16 @@ admin@ncs# commit
 At this point, we have a pool with a range of 100 to 1000 and one allocation (100). This is shown in the table below (Pool Range 100-1000).
 
 ```
-| NAME  | START | END | START | END | START | END |  ID  |
-|-------|-------|-----|-------|-----|-------|-----|------|
-| pool1 |   -   |  -  |       |     |  101  | 999 | 100  |
-|       |   -   |  -  |       |     |       |     | 1000 |
-| pool2 |   -   |  -  |       |     |  101  | 999 | 1000 |
+| NAME  | START | END | START | END | START | END  |  ID  |
+|-------|-------|-----|-------|-----|-------|------|------|
+| pool1 |   -   |  -  |       |     |  101  | 1000 | 100  |
 ```
 
 </details>
 
-When a pool has been created, it is possible to create allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a value in the pool defined above.
+<details>
 
-```
-admin@ncs# resource-pools id-pool pool1 allocation a1 user myuser
-admin@ncs# commit
-```
-
-At this point, we have a pool with a range of 100 to 1000 and one allocation (100). This is shown in the table below (Pool Range 100-1000).
-
-<table><thead><tr><th width="108">NAME</th><th width="85">START</th><th width="78">END</th><th width="98">START</th><th width="97">END</th><th width="104">START</th><th width="88">END</th><th>ID</th></tr></thead><tbody><tr><td><code>pool1</code></td><td>-</td><td>-</td><td></td><td></td><td><code>101</code></td><td><code>1000</code></td><td><code>100</code></td></tr></tbody></table>
-
-#### Create an Allocation Request Shared by Multiple Services
+<summary>Create an Allocation Request Shared by Multiple Services</summary>
 
 Allocations can be shared by multiple services by requesting the same allocation ID from all the services. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate an ID shared by two services.
 
@@ -191,7 +180,11 @@ admin@ncs# commit
 
 The allocation resource gets freed once all allocating services in the `allocating-service` leaf-list delete the allocation request.
 
-#### Create a Synchronized Allocation Request
+</details>
+
+<details>
+
+<summary>Create a Synchronized Allocation Request</summary>
 
 Allocations can be synchronized between pools by setting `request sync` to `true` when creating each allocation request. The allocation ID, which is `b` in this CLI interaction, determines which allocations will be synchronized across pools.
 
@@ -204,9 +197,19 @@ admin@ncs# commit
 
 As can be seen in the table below (Synchronized Pools), the allocations `b` (in `pool1` and in `pool2`) are synchronized across pools `pool1` and `pool2` and receive the ID value of 1000 in both pools.
 
-<table><thead><tr><th width="112">NAME</th><th width="88">START</th><th width="79">END</th><th width="85">START</th><th width="77">END</th><th width="95">START</th><th width="78">END</th><th>ID</th></tr></thead><tbody><tr><td><code>pool1</code></td><td>-</td><td>-</td><td></td><td></td><td><code>101</code></td><td><code>999</code></td><td><code>100</code></td></tr><tr><td></td><td>-</td><td>-</td><td></td><td></td><td></td><td></td><td><code>1000</code></td></tr><tr><td><code>pool2</code></td><td>-</td><td>-</td><td></td><td></td><td><code>101</code></td><td><code>999</code></td><td><code>1000</code></td></tr></tbody></table>
+```
+| NAME  | START | END | START | END | START | END |  ID  |
+|-------|-------|-----|-------|-----|-------|-----|------|
+| pool1 |   -   |  -  |       |     |  101  | 999 | 100  |
+|       |   -   |  -  |       |     |       |     | 1000 |
+| pool2 |   -   |  -  |       |     |  101  | 999 | 1000 |
+```
 
-#### Update Request ID
+</details>
+
+<details>
+
+<summary>Update Request ID</summary>
 
 The element allocation/request/ID can be created and changed, then the previously allocated ID will be released and a new ID will be allocated depending on the new value of allocation/request/ID. In the case of a delete request/ID, the previously allocated ID will be retained.
 
@@ -219,7 +222,11 @@ admin@ncs# set resource-pools id-pool testPool allocation testAlloc request id 1
 admin@ncs# commit
 ```
 
-#### Request an ID using the Round Robin Method
+</details>
+
+<details>
+
+<summary>Request an ID using the Round Robin Method</summary>
 
 The default behavior for requesting a new ID is to request the first free ID in increasing order.
 
@@ -237,11 +244,13 @@ admin@ncs# set resource-pools id-pool methodRoundRobin allocation a username \
            admin request method roundrobin
 ```
 
-{% hint style="info" %}
 Note that the request method is set on a per-request basis. Two different requests may request IDs from the same pool using different request methods.
-{% endhint %}
 
-#### Create a Synchronous Allocation API Request for an ID
+</details>
+
+<details>
+
+<summary>Create a Synchronous Allocation API Request for an ID</summary>
 
 Synchronous allocation can be requested through various Java APIs provided in `resource-manager/src/java/src/com/tailf/pkg/idallocator/IDAllocator.java` and the Python API provided in `resource-manager/python/resource_manager/id_allocator.py`.
 
@@ -262,6 +271,8 @@ Synchronous allocation can be requested through various Java APIs provided in `r
 *   Note: The synchronous pool feature is not compatible with synchronous ID allocation. If you need
 
     to use a synchronous flow, you can utilize the requested-id feature to allocate the same ID from both pools.
+
+</details>
 
 ### Security
 
