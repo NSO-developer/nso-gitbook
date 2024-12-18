@@ -130,7 +130,9 @@ Allocation requests can be synchronized between pools. This synchronization is b
 
 This section presents some simple use cases of the NSO presented using Cisco-style CLI.
 
-#### Create an ID Pool
+<details>
+
+<summary>Create an ID Pool</summary>
 
 The CLI interaction below depicts how it is possible to create a new ID pool and assign it a range of values from 100 to 1000.
 
@@ -139,7 +141,30 @@ admin@ncs# resource-pools id-pool pool1 range start 100 end 1000
 admin@ncs# commit
 ```
 
-#### Create an Allocation Request
+</details>
+
+<details>
+
+<summary>Create an Allocation Request</summary>
+
+When a pool has been created, it is possible to create allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a value in the pool defined above.
+
+```
+admin@ncs# resource-pools id-pool pool1 allocation a1 user myuser
+admin@ncs# commit
+```
+
+At this point, we have a pool with a range of 100 to 1000 and one allocation (100). This is shown in the table below (Pool Range 100-1000).
+
+```
+| NAME  | START | END | START | END | START | END |  ID  |
+|-------|-------|-----|-------|-----|-------|-----|------|
+| pool1 |   -   |  -  |       |     |  101  | 999 | 100  |
+|       |   -   |  -  |       |     |       |     | 1000 |
+| pool2 |   -   |  -  |       |     |  101  | 999 | 1000 |
+```
+
+</details>
 
 When a pool has been created, it is possible to create allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a value in the pool defined above.
 
