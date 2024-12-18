@@ -25,8 +25,9 @@ Welcome to **NSO Docs Home**, your starting point for the Cisco Crosswork Networ
 
 ## Overview
 
-Use this site to access the broad set of NSO documentation resources, and:
+Use this site to:&#x20;
 
+* Access the broad set of NSO documentation resources.
 * Get started with NSO by learning and evaluating the product.&#x20;
 * Read the official NSO documentation.
 * Receive guidance on best practices for your NSO deployment.
