@@ -291,7 +291,7 @@ This section contains deployment information and procedures for the Tail-f NSO I
 
 The NSO IP Address Allocator application contains an IP address allocator that use the Resource Manager API to provide IP address allocation. It uses a RAM-based allocation algorithm that stores its state in CDB as oper data.
 
-The file `resource-manager/src/java/src/com/tailf/pkg/ipaddressallocator/ IPAddressAllocator.java` contains the part that deals with the resource manager APIs whereas the RAM-based IP address allocator resides under `resource-manager/src/java/src/com/tailf/ pkg/ipam`.
+The file `resource-manager/src/java/src/com/tailf/pkg/ipaddressallocator/IPAddressAllocator.java` contains the part that deals with the resource manager APIs whereas the RAM-based IP address allocator resides under `resource-manager/src/java/src/com/tailf/ pkg/ipam`.
 
 The `IPAddressAllocator` class subscribes to five points in the DB:
 
@@ -414,7 +414,7 @@ There are two alarms associated with the IP Address Allocator:
 * **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IPs that can be allocated.
 * **Low Threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there are only 10% or fewer separate IPs left in the pool.
 
-### `ip-allocator-tool` Action
+### The `ip-allocator-tool` Action
 
 A set of debug and data tools contained in the `rm-action/ip-allocator-tool` action is available to help the admin or support personnel to operate on the RM data. Two parameters in the `ip-allocator-tool` action can be provided: `operation`, `pool`. All the process info and the results will be logged in `ncs-java-vm.log`, and the action itself just returns the result. Here is a list of the valid operation values for the `ip-allocator-tool` action.
 
@@ -842,3 +842,237 @@ type string;
 {% endcode %}
 
 ### IP Address Allocator Model
+
+{% code title="Example: IP Address Allocator YANG Model" %}
+```
+module ipaddress-allocator {
+namespace "http://tail-f.com/pkg/ipaddress-allocator";
+prefix ipalloc;
+import tailf-common {
+prefix tailf;
+}
+import ietf-inet-types {
+prefix inet;
+}
+import resource-allocator {
+prefix ralloc;
+}
+include ipaddress-allocator-alarms {
+revision-date "2017-02-09";
+}
+organization "Tail-f Systems";
+description
+"This module contains a description of an IP address allocator for defining
+pools of IPs and allocating addresses from these.
+This module contains configuration schema of the ip allocator. For the
+operational schema, please see the ip-allocator-oper module.";
+revision 2022-03-11 {
+description
+"support multi-service and synchronous allocation request.";
+}
+revision 2018-02-27 {
+description
+"Introduce the 'invert' field in the request container that enables
+one to allocate the same size network regardless of the network
+type (IPv4/IPv6) in a pool by using the inverted cidr.";
+}
+revision 2017-08-14 {
+description
+"2.2
+Enhancements:
+Removed 'disable', add 'enable' for alarms.
+This means that if you want alarms you need to enable this explicitly
+now.
+";
+}
+revision 2017-02-09 {
+description
+"1.2
+Enhancements:
+Added support for alarms
+";
+}
+revision 2016-01-29 {
+description
+"1.1
+Enhancements:
+Added support for defining pools using IP address ranges.
+";
+}
+revision 2015-10-20 {
+description "Initial revision.";
+}
+// This is the interface
+augment "/ralloc:resource-pools" {
+list ip-address-pool {
+tailf:info "IP Address pools";
+key name;
+uses ralloc:resource-pool-grouping {
+augment "allocation/request" {
+leaf subnet-size {
+tailf:info "Size of the subnet to be allocated.";
+type uint8 {
+range "1..128";
+}
+mandatory true;
+}
+leaf subnet-start-ip {
+description
+"Optional parameter used to request for a particular IP for
+the allocation (instead of the first available subnet matching
+the subnet-size). The subnet-start-ip has to be the first IP
+in the range defined by subnet-size, otherwise the allocation will
+fail. Ex: subnet-start-ip 10.0.0.36 subnet-size 30 gives the
+equivalent range 10.0.0.36-10.0.0.39, and it's a valid value.
+subnet-start-ip 10.0.0.36 subnet-size 29 gives the range
+10.0.0.32-10.0.0.39 and it's NOT a valid option.";
+type inet:ip-address;
+}
+leaf invert-subnet-size {
+description
+"By default subnet-size is considered equal to the cidr, but by
+setting this leaf the subnet-size will be the \"inverted\" cidr.
+I.e: If one sets subnet-size to 8 with this leaf unset 2^24
+addresses will be allocated for a IPv4 pool and in a IPv6 pool
+2^120 addresses will be allocated. By setting this leaf only
+2^8 addresses will be allocated in either a IPv4 or a IPv6
+pool.";
+type empty;
+}
+}
+augment "allocation/response/response-choice/ok" {
+leaf subnet {
+type inet:ip-prefix;
+}
+leaf from {
+type inet:ip-prefix;
+}
+}
+}
+leaf auto-redeploy {
+tailf:info "Automatically re-deploy services when an IP address is "
++"re-allocated";
+type boolean;
+default "true";
+}
+list subnet {
+key "address cidrmask";
+tailf:cli-suppress-mode;
+description
+"List of subnets belonging to this pool. Subnets may not overlap.";
+must "(contains(address, '.') and cidrmask <= 32) or
+(contains(address, ':') and cidrmask <= 128)" {
+error-message "cidrmask is too long";
+}
+tailf:validate ipa_validate {
+tailf:dependency ".";
+}
+leaf address {
+type inet:ip-address;
+}
+leaf cidrmask {
+type uint8 {
+range "1..128";
+}
+}
+}
+list exclude {
+key "address cidrmask";
+tailf:cli-suppress-mode;
+description "List of subnets to exclude from this pool. May only "
++"contains elements that are subsets of elements in the list of "
++"subnets.";
+tailf:info "List of subnets to exclude from this pool. May only "
++"contains elements that are subsets of elements in the list of "
++"subnets.";
+must "(contains(address, '.') and cidrmask <= 32) or
+(contains(address, ':') and cidrmask <= 128)" {
+error-message "cidrmask is too long";
+}
+tailf:validate ipa_validate {
+tailf:dependency ".";
+}
+leaf address {
+type inet:ip-address;
+}
+leaf cidrmask {
+type uint8 {
+range "1..128";
+}
+}
+}
+list range {
+key "from to";
+tailf:cli-suppress-mode;
+description
+"List of IP ranges belonging to this pool, inclusive. If your "
++"pool of IP addresses does not conform to a convenient set of "
++"subnets it may be easier to describe it as a range. "
++"Note that the exclude list does not apply to ranges, but of "
++"course a range may not overlap a subnet entry.";
+tailf:validate ipa_validate {
+tailf:dependency ".";
+}
+leaf from {
+type inet:ip-address-no-zone;
+}
+leaf to {
+type inet:ip-address-no-zone;
+}
+must "(contains(from, '.') and contains(to, '.')) or
+(contains(from, ':') and contains(to, ':'))" {
+error-message
+"IP addresses defining a range must agree on IP version.";
+}
+}
+container alarms {
+leaf enabled {
+type empty;
+description "Set this leaf to enable alarms";
+}
+leaf low-threshold-alarm {
+type uint8 {
+range "0 .. 100";
+}
+default 10;
+description "Change the value for when the low threshold alarm is
+raised. The value describes the percentage IPs left in
+the pool. The default is to raise the alarm when there
+are ten (10) percent IPs left in the pool.";
+}
+}
+}
+}
+augment "/ralloc:rm-action" {
+tailf:action ip-allocator-tool {
+tailf:hidden debug;
+tailf:actionpoint ip-allocator-tool-action;
+input {
+leaf pool {
+type leafref {
+path "/ralloc:resource-pools/ipalloc:ip-address-pool/name";
+}
+}
+leaf operation{
+type enumeration {
+enum printIpPool;
+enum fix_response_ip;
+}
+mandatory true;
+}
+}
+output {
+leaf result {
+type string;
+}
+}
+}
+}
+}
+```
+{% endcode %}
+
+## Further Reading
+
+* The [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/administration/management/package-mgmt) section in the NSO Administration Guide.&#x20;
+* The [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure) section in the NSO Administration Guide.
