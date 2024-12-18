@@ -261,7 +261,7 @@ Since the Resource Manager's version 4.0.0, the operational data model is not co
 After running the script manually to update CDB, the user must request `package reload` or `restart ncs` to reload new CBD data into the ID Pool java object in memory. For example, in the NSO CLI console: `admin@ncs> request packages reload force`.
 {% endhint %}
 
-### `id-allocator-tool` Action
+### The `id-allocator-tool` Action
 
 A set of debug and data tools (contained in `rm-action/id-allocator-tool` action) is available to help admin or support to operate on RM data. Two parameters in the `id-allocator-tool` action can be provided: `operation`, `pool`. All the process info and results will be logged in `ncs-java-vm.log`, and the action itself just returns the result. Here is a list of the valid operation values for the `id-allocator-tool` action:
 
@@ -437,213 +437,414 @@ This section covers the NSO Resource Manager data models.
 
 ### Resource Allocator Model
 
-{% code title="Example: Resource Allocator YANG Model" %}
 ```
-module resource-allocator {
+module resource - allocator {
     namespace "http://tail-f.com/pkg/resource-allocator";
     prefix "ralloc";
-    
-    import tailf-common {
+
+    import tailf - common {
         prefix tailf;
-}
-    import ietf-inet-types {
+    }
+    import ietf - inet - types {
         prefix inet;
-}
+    }
     organization "Tail-f Systems";
     description
         "This is an API for resource allocators.
-        An allocation request is signaled by creating an entry in the
-        allocation list.
-        The response is signaled by writing a value in the response
-        leave(s). The responder is responsible for re-deploying the
-        allocating owners after writing the result in the response
-        leaf.
-        
-        We expect a specific allocator package to do the following:
-        1. Subscribe to changes in the allocation list and look for
-        create operations.
-        2. Perform the allocation and respond by writing the result
-        into the response leaf, and then invoke the re-deploy
-        action of the services pointed to by the owners leaf-list.
-        
+    An allocation request is signaled by creating an entry in the
+    allocation list.
+    The response is signaled by writing a value in the response
+    leave(s).The responder is responsible
+    for re - deploying the
+    allocating owners after writing the result in the response
+    leaf.
+
+    We expect a specific allocator package to do the following:
+        1. Subscribe to changes in the allocation list and look
+    for
+    create operations.
+    2. Perform the allocation and respond by writing the result
+    into the response leaf, and then invoke the re - deploy
+    action of the services pointed to by the owners leaf - list.
+
     Most allocator packages will want to annotate this model with
-    additional pool definition data.";
-
-revision 2022-03-11 {
-    description
-        "support multi-service and synchronous allocation request.";
-}
-
-revision 2020-07-29 {
-    description
-        "1.1
-    Enhancements:
-    - Add 'redeploy-type' option for service redeploy action.
-    If not provided, the 'default' is assumed, where the
-    redeploy type is chosen based on NSO version.
+    additional pool definition data.
     ";
+
+    revision 2022 - 03 - 11 {
+        description
+            "support multi-service and synchronous allocation request.";
+    }
+
+    revision 2020 - 07 - 29 {
+        description
+            "1.1
+        Enhancements:
+            -Add 'redeploy-type'
+        option
+        for service redeploy action.
+        If not provided, the 'default'
+        is assumed, where the
+        redeploy type is chosen based on NSO version.
+        ";
+    }
+    revision 2015 - 10 - 20 {
+        description
+            "Initial revision.";
+    }
+    grouping resource - pool - grouping {
+        leaf name {
+            type string;
+            description
+                "The name of the pool";
+            tailf: info "Unique name for the pool";
+        }
+        leaf sync - dryrun {
+            tailf: hidden debug;
+            config false;
+            type empty;
+        }
+        list allocation {
+            key id;
+            tailf: info "contains all the details of a resource request made from user";
+            leaf id {
+                type string;
+                description "allocation id";
+                tailf: info "allocation id.";
+            }
+            leaf username {
+                description
+                    "Authenticated user for invoking the service";
+                type string;
+                mandatory true;
+            }
+            leaf - list allocating - service {
+                type instance - identifier {
+                    require - instance false;
+                }
+                description
+                    "Points to the services that own the resource.";
+                tailf: info "Instance identifiers of services that own resource";
+            }
+            leaf sync - alloc {
+                tailf: hidden debug;
+                tailf: info "process allocation in synchronous flow";
+                type empty;
+            }
+            leaf redeploy - type {
+                description "Service redeploy type:
+                default, touch, reactive - re - deploy, re - deploy.
+                ";
+                type enumeration {
+                    enum "default";
+                    enum "touch";
+                    enum "reactive-re-deploy";
+                    enum "re-deploy";
+                    enum "no-redeploy";
+                }
+                default "default";
+            }
+            container request {
+                description
+                    "When creating a request for a resource the
+                implementing package augments here.
+                ";
+            }
+            container response {
+                config false;
+                tailf: cdb - oper {
+                    tailf: persistent true;
+                }
+                choice response - choice {
+                    case error {
+                        leaf error {
+                            type string;
+                            description
+                                "Text describing why the allocation request failed";
+                        }
+                    }
+                    case ok {}
+                }
+                description
+                    "The response to the allocation request.";
+            }
+        }
+    }
+    container resource - pools {}
+    container rm - action {
+        tailf: action sync - alloc {
+            tailf: hidden debug;
+            tailf: actionpoint sync - alloc - action;
+            input {
+                leaf pool {
+                    type string;
+                }
+                leaf allocid {
+                    type string;
+                }
+                leaf user {
+                    type string;
+                }
+                leaf cidrmask {
+                    type uint8 {
+                        range "1..128";
+                    }
+                }
+                leaf invertcidr {
+                    type boolean;
+                }
+                leaf owner {
+                    type string;
+                }
+                leaf subnetstartip {
+                    type string;
+                }
+                leaf dryrun {
+                    type boolean;
+                    default false;
+                }
+            }
+            output {
+                leaf allocated {
+                    type string;
+                    mandatory true;
+                }
+                leaf subnet {
+                    type string;
+                }
+            }
+        }
+        tailf: action sync - alloc - id {
+            tailf: actionpoint sync - alloc - id - action;
+            input {
+                leaf pool {
+                    type string;
+                }
+                leaf allocid {
+                    type string;
+                }
+                leaf user {
+                    type string;
+                }
+                leaf owner {
+                    type string;
+                }
+                leaf requestedId {
+                    type int32;
+                }
+                leaf method {
+                    type string;
+                    default "firstfree";
+                }
+                leaf sync {
+                    type boolean;
+                    default false;
+                }
+                leaf dryrun {
+                    type boolean;
+                    default false;
+                }
+            }
+            output {
+                leaf allocatedId {
+                    type string;
+                    mandatory true;
+                }
+            }
+        }
+    }
 }
-revision 2015-10-20 {
-description
-"Initial revision.";
-}
-grouping resource-pool-grouping {
-leaf name {
-type string;
-description
-"The name of the pool";
-tailf:info "Unique name for the pool";
-}
-leaf sync-dryrun {
-tailf:hidden debug;
-config false;
-type empty;
-}
-list allocation {
-key id;
-tailf:info "contains all the details of a resource request made from user";
-leaf id {
-type string;
-description "allocation id";
-tailf:info "allocation id.";
-}
-leaf username {
-description
-"Authenticated user for invoking the service";
-type string;
-mandatory true;
-}
-leaf-list allocating-service {
-type instance-identifier {
-require-instance false;
-}
-description
-"Points to the services that own the resource.";
-tailf:info "Instance identifiers of services that own resource";
-}
-leaf sync-alloc {
-tailf:hidden debug;
-tailf:info "process allocation in synchronous flow";
-type empty;
-}
-leaf redeploy-type {
-description "Service redeploy type:
-default, touch, reactive-re-deploy, re-deploy.";
-type enumeration {
-enum "default";
-enum "touch";
-enum "reactive-re-deploy";
-enum "re-deploy";
-enum "no-redeploy";
-}
-default "default";
-}
-container request {
-description
-"When creating a request for a resource the
-implementing package augments here.";
-}
-container response {
-config false;
-tailf:cdb-oper {
-tailf:persistent true;
-}
-choice response-choice {
-case error {
-leaf error {
-type string;
-description
-"Text describing why the allocation request failed";
-}
-}
-case ok {
-}
-}
-description
-"The response to the allocation request.";
-}
-}
-}
-container resource-pools {
-}
-container rm-action {
-tailf:action sync-alloc {
-tailf:hidden debug;
-tailf:actionpoint sync-alloc-action;
-input {
-leaf pool {
-type string;
-}
-leaf allocid {
-type string;
-}
-leaf user {
-type string;
-}
-leaf cidrmask {
-type uint8{
-range "1..128";
-}
-}
-leaf invertcidr {
-type boolean;
-}
-leaf owner {
-type string;
-}
-leaf subnetstartip {
-type string;
-}
-leaf dryrun {
-type boolean;
-default false;
-}
-}
-output {
-leaf allocated {
-type string;
-mandatory true;
-}
-leaf subnet {
-type string;
-}
-}
-}
-tailf:action sync-alloc-id {
-tailf:actionpoint sync-alloc-id-action;
-input {
-leaf pool {
-type string;
-}
-leaf allocid {
-type string;
-}
-leaf user {
-type string;
-}
-leaf owner {
-type string;
-}
-leaf requestedId {
-type int32;
-}
-leaf method{
-type string;
-default "firstfree";
-}
-leaf sync {
-type boolean;
-default false;
-}
-leaf dryrun {
-type boolean;
-default false;
-}
-}
-output {
-leaf allocatedId {
-type string;
-mandatory true;
+```
+
+### ID Allocator Model
+
+{% code title="Example: ID Allocator YANG Model" %}
+```
+module id - allocator {
+    namespace "http://tail-f.com/pkg/id-allocator";
+    prefix idalloc;
+    import tailf - common {
+        prefix tailf;
+    }
+    import resource - allocator {
+        prefix ralloc;
+    }
+    include id - allocator - alarms {
+        revision - date "2017-02-09";
+    }
+    organization "Tail-f Systems";
+    description
+        "This module contains a description of an id allocator for defining pools of id: s.This can
+    for instance be used when allocating VLAN ids.
+    This module contains configuration schema of the id allocator.For the
+    operational schema, please see the id - allocator - oper module.
+    ";
+    revision 2023 - 11 - 16 {
+        description
+            "Add action id-allocator-tool.";
+    }
+    revision 2022 - 03 - 11 {
+        description
+            "support multi-service and synchronous allocation request.";
+    }
+    revision 2017 - 08 - 14 {
+        description
+            "2.2
+        Enhancements:
+            Removed 'disable', add 'enable'
+        for alarms.
+        This means that
+        if you want alarms you need to enable this explicitly
+        now.
+        ";
+    }
+    revision 2017 - 02 - 09 {
+        description
+            "2.1
+        Enhancements:
+            Added support
+        for alarms
+            ";
+    }
+    revision 2015 - 12 - 28 {
+        description "2nd revision. Added support for allocation methods.";
+    }
+    revision 2015 - 10 - 20 {
+        description "Initial revision.";
+    }
+    grouping range - grouping {
+        leaf start {
+            type uint32;
+            mandatory true;
+        }
+        leaf end {
+            type uint32;
+            mandatory true;
+            must ". >= ../start" {
+                error - message "range end must be greater or equal to range start";
+                tailf: dependency "../start";
+            }
+        }
+    }
+    // This is the interface
+    augment "/ralloc:resource-pools" {
+        list id - pool {
+            key "name";
+            container range {
+                description "The range the resource-pool should contain";
+                uses range - grouping;
+            }
+            list exclude {
+                tailf: info "list of id resource not available for allocation ";
+                key "start end";
+                leaf stop - allocation {
+                    type boolean;
+                    default "false";
+                }
+                uses range - grouping;
+                tailf: cli - suppress - mode;
+            }
+            uses ralloc: resource - pool - grouping {
+                augment "allocation/response/response-choice/ok" {
+                    leaf id {
+                        type uint32;
+                        description "id from pool";
+                        tailf: info "id from pool.";
+                    }
+                }
+            }
+            container alarms {
+                leaf enabled {
+                    type empty;
+                    description "Set this leaf to enable alarms";
+                }
+                leaf low - threshold - alarm {
+                    type uint8 {
+                        range "0 .. 100";
+                    }
+                    default 10;
+                    description "Change the value for when the low threshold alarm is
+                    raised.The value describes the percentage IDs left in
+                        the pool.The
+                    default is to raise the alarm when there
+                    are ten(10) percent IDs left in the pool.
+                    ";
+                }
+            }
+            description "The state of the id-pool.";
+            tailf: info "Id pool";
+        }
+    }
+    //augmenting the request/responses form resource-manager
+    augment "/ralloc:resource-pools/id-pool/allocation/request" {
+        leaf sync {
+            type boolean;
+            default "false";
+            description "Synchronize allocation with all other allocation
+            with same allocation id in other pools ";
+            tailf: info "Synchronize allocation id with other pools";
+        }
+        leaf id {
+            type uint32;
+            description "The specific id to sync with";
+            tailf: info "Request a specific id";
+        }
+        container method {
+            choice method {
+                default firstfree;
+                case firstfree {
+                    leaf firstfree {
+                        type empty;
+                        description "The default method to allocating a new id
+                        is using the first free method.Using this
+                        allocation method might mean that an id is reused
+                        quickly which might not be what one wants nor is
+                        supported in lower layers.
+                        ";
+                        tailf: info "Default method used to request a new id.";
+                    }
+                }
+                case roundrobin {
+                    leaf roundrobin {
+                        type empty;
+                        description "Pick the next available id using a round
+                        robin approach.Earlier used id: s will not be
+                        reused until the range is exhausted and allocation
+                        restarts from the start of the range again.
+                        Note that sync will override round robin.
+                        ";
+                        tailf: info "Round robin method used to request a new id.";
+                    }
+                }
+            }
+        }
+    }
+    augment "/ralloc:rm-action" {
+        tailf: action id - allocator - tool {
+            tailf: hidden debug;
+            tailf: actionpoint id - allocator - tool - action;
+            input {
+                leaf pool {
+                    type leafref {
+                        path "/ralloc:resource-pools/idalloc:id-pool/name";
+                    }
+                }
+                leaf operation {
+                    type enumeration {
+                        enum printIdPool;
+                        enum check_missing_report;
+                        enum fix_missing_allocation_id;
+                        enum fix_missing_owner;
+                        enum fix_missing_allocation;
+                        enum fix_response_id;
+                        enum persistAll;
+                    }
+                    mandatory true;
+                }
+            }
+            output {
+                leaf result {
+                    type string;
                 }
             }
         }
@@ -652,421 +853,242 @@ mandatory true;
 ```
 {% endcode %}
 
-### ID Allocator Model
-
-{% code title="Example: ID Allocator YANG Model" %}
-```
-module id-allocator {
-namespace "http://tail-f.com/pkg/id-allocator";
-prefix idalloc;
-import tailf-common {
-prefix tailf;
-}
-import resource-allocator {
-prefix ralloc;
-}
-include id-allocator-alarms {
-revision-date "2017-02-09";
-}
-organization "Tail-f Systems";
-description
-"This module contains a description of an id allocator for defining pools
-of id:s. This can for instance be used when allocating VLAN ids.
-This module contains configuration schema of the id allocator. For the
-operational schema, please see the id-allocator-oper module.";
-revision 2023-11-16 {
-description
-"Add action id-allocator-tool.";
-}
-revision 2022-03-11 {
-description
-"support multi-service and synchronous allocation request.";
-}
-revision 2017-08-14 {
-description
-"2.2
-Enhancements:
-Removed 'disable', add 'enable' for alarms.
-This means that if you want alarms you need to enable this explicitly
-now.
-";
-}
-revision 2017-02-09 {
-description
-"2.1
-Enhancements:
-Added support for alarms
-";
-}
-revision 2015-12-28 {
-description "2nd revision. Added support for allocation methods.";
-}
-revision 2015-10-20 {
-description "Initial revision.";
-}
-grouping range-grouping {
-leaf start {
-type uint32;
-mandatory true;
-}
-leaf end {
-type uint32;
-mandatory true;
-must ". >= ../start" {
-error-message "range end must be greater or equal to range start";
-tailf:dependency "../start";
-}
-}
-}
-// This is the interface
-augment "/ralloc:resource-pools" {
-list id-pool {
-key "name";
-container range {
-description "The range the resource-pool should contain";
-uses range-grouping;
-}
-list exclude {
-tailf:info "list of id resource not available for allocation ";
-key "start end";
-leaf stop-allocation {
-type boolean;
-default "false";
-}
-uses range-grouping;
-tailf:cli-suppress-mode;
-}
-uses ralloc:resource-pool-grouping {
-augment "allocation/response/response-choice/ok" {
-leaf id {
-type uint32;
-description "id from pool";
-tailf:info "id from pool.";
-}
-}
-}
-container alarms {
-leaf enabled {
-type empty;
-description "Set this leaf to enable alarms";
-}
-leaf low-threshold-alarm {
-type uint8 {
-range "0 .. 100";
-}
-default 10;
-description "Change the value for when the low threshold alarm is
-raised. The value describes the percentage IDs left in
-the pool. The default is to raise the alarm when there
-are ten (10) percent IDs left in the pool.";
-}
-}
-description "The state of the id-pool.";
-tailf:info "Id pool";
-}
-}
-//augmenting the request/responses form resource-manager
-augment "/ralloc:resource-pools/id-pool/allocation/request" {
-leaf sync {
-type boolean;
-default "false";
-description "Synchronize allocation with all other allocation
-with same allocation id in other pools";
-tailf:info "Synchronize allocation id with other pools";
-}
-leaf id {
-type uint32;
-description "The specific id to sync with";
-tailf:info "Request a specific id";
-}
-container method {
-choice method {
-default firstfree;
-case firstfree {
-leaf firstfree {
-type empty;
-description "The default method to allocating a new id
-is using the first free method. Using this
-allocation method might mean that an id is reused
-quickly which might not be what one wants nor is
-supported in lower layers.";
-tailf:info "Default method used to request a new id.";
-}
-}
-case roundrobin {
-leaf roundrobin {
-type empty;
-description "Pick the next available id using a round
-robin approach. Earlier used id:s will not be
-reused until the range is exhausted and allocation
-restarts from the start of the range again.
-Note that sync will override round robin.";
-tailf:info "Round robin method used to request a new id.";
-}
-}
-}
-}
-}
-augment "/ralloc:rm-action" {
-tailf:action id-allocator-tool {
-tailf:hidden debug;
-tailf:actionpoint id-allocator-tool-action;
-input {
-leaf pool {
-type leafref {
-path "/ralloc:resource-pools/idalloc:id-pool/name";
-}
-}
-leaf operation{
-type enumeration {
-enum printIdPool;
-enum check_missing_report;
-enum fix_missing_allocation_id;
-enum fix_missing_owner;
-enum fix_missing_allocation;
-enum fix_response_id;
-enum persistAll;
-}
-mandatory true;
-}
-}
-output {
-leaf result {
-type string;
-}
-}
-}
-}
-}
-```
-{% endcode %}
-
 ### IP Address Allocator Model
 
 {% code title="Example: IP Address Allocator YANG Model" %}
 ```
-module ipaddress-allocator {
-namespace "http://tail-f.com/pkg/ipaddress-allocator";
-prefix ipalloc;
-import tailf-common {
-prefix tailf;
-}
-import ietf-inet-types {
-prefix inet;
-}
-import resource-allocator {
-prefix ralloc;
-}
-include ipaddress-allocator-alarms {
-revision-date "2017-02-09";
-}
-organization "Tail-f Systems";
-description
-"This module contains a description of an IP address allocator for defining
-pools of IPs and allocating addresses from these.
-This module contains configuration schema of the ip allocator. For the
-operational schema, please see the ip-allocator-oper module.";
-revision 2022-03-11 {
-description
-"support multi-service and synchronous allocation request.";
-}
-revision 2018-02-27 {
-description
-"Introduce the 'invert' field in the request container that enables
-one to allocate the same size network regardless of the network
-type (IPv4/IPv6) in a pool by using the inverted cidr.";
-}
-revision 2017-08-14 {
-description
-"2.2
-Enhancements:
-Removed 'disable', add 'enable' for alarms.
-This means that if you want alarms you need to enable this explicitly
-now.
-";
-}
-revision 2017-02-09 {
-description
-"1.2
-Enhancements:
-Added support for alarms
-";
-}
-revision 2016-01-29 {
-description
-"1.1
-Enhancements:
-Added support for defining pools using IP address ranges.
-";
-}
-revision 2015-10-20 {
-description "Initial revision.";
-}
-// This is the interface
-augment "/ralloc:resource-pools" {
-list ip-address-pool {
-tailf:info "IP Address pools";
-key name;
-uses ralloc:resource-pool-grouping {
-augment "allocation/request" {
-leaf subnet-size {
-tailf:info "Size of the subnet to be allocated.";
-type uint8 {
-range "1..128";
-}
-mandatory true;
-}
-leaf subnet-start-ip {
-description
-"Optional parameter used to request for a particular IP for
-the allocation (instead of the first available subnet matching
-the subnet-size). The subnet-start-ip has to be the first IP
-in the range defined by subnet-size, otherwise the allocation will
-fail. Ex: subnet-start-ip 10.0.0.36 subnet-size 30 gives the
-equivalent range 10.0.0.36-10.0.0.39, and it's a valid value.
-subnet-start-ip 10.0.0.36 subnet-size 29 gives the range
-10.0.0.32-10.0.0.39 and it's NOT a valid option.";
-type inet:ip-address;
-}
-leaf invert-subnet-size {
-description
-"By default subnet-size is considered equal to the cidr, but by
-setting this leaf the subnet-size will be the \"inverted\" cidr.
-I.e: If one sets subnet-size to 8 with this leaf unset 2^24
-addresses will be allocated for a IPv4 pool and in a IPv6 pool
-2^120 addresses will be allocated. By setting this leaf only
-2^8 addresses will be allocated in either a IPv4 or a IPv6
-pool.";
-type empty;
-}
-}
-augment "allocation/response/response-choice/ok" {
-leaf subnet {
-type inet:ip-prefix;
-}
-leaf from {
-type inet:ip-prefix;
-}
-}
-}
-leaf auto-redeploy {
-tailf:info "Automatically re-deploy services when an IP address is "
-+"re-allocated";
-type boolean;
-default "true";
-}
-list subnet {
-key "address cidrmask";
-tailf:cli-suppress-mode;
-description
-"List of subnets belonging to this pool. Subnets may not overlap.";
-must "(contains(address, '.') and cidrmask <= 32) or
-(contains(address, ':') and cidrmask <= 128)" {
-error-message "cidrmask is too long";
-}
-tailf:validate ipa_validate {
-tailf:dependency ".";
-}
-leaf address {
-type inet:ip-address;
-}
-leaf cidrmask {
-type uint8 {
-range "1..128";
-}
-}
-}
-list exclude {
-key "address cidrmask";
-tailf:cli-suppress-mode;
-description "List of subnets to exclude from this pool. May only "
-+"contains elements that are subsets of elements in the list of "
-+"subnets.";
-tailf:info "List of subnets to exclude from this pool. May only "
-+"contains elements that are subsets of elements in the list of "
-+"subnets.";
-must "(contains(address, '.') and cidrmask <= 32) or
-(contains(address, ':') and cidrmask <= 128)" {
-error-message "cidrmask is too long";
-}
-tailf:validate ipa_validate {
-tailf:dependency ".";
-}
-leaf address {
-type inet:ip-address;
-}
-leaf cidrmask {
-type uint8 {
-range "1..128";
-}
-}
-}
-list range {
-key "from to";
-tailf:cli-suppress-mode;
-description
-"List of IP ranges belonging to this pool, inclusive. If your "
-+"pool of IP addresses does not conform to a convenient set of "
-+"subnets it may be easier to describe it as a range. "
-+"Note that the exclude list does not apply to ranges, but of "
-+"course a range may not overlap a subnet entry.";
-tailf:validate ipa_validate {
-tailf:dependency ".";
-}
-leaf from {
-type inet:ip-address-no-zone;
-}
-leaf to {
-type inet:ip-address-no-zone;
-}
-must "(contains(from, '.') and contains(to, '.')) or
-(contains(from, ':') and contains(to, ':'))" {
-error-message
-"IP addresses defining a range must agree on IP version.";
-}
+module ipaddress - allocator {
+    namespace "http://tail-f.com/pkg/ipaddress-allocator";
+    prefix ipalloc;
+    import tailf - common {
+        prefix tailf;
+    }
+    import ietf - inet - types {
+        prefix inet;
+    }
+    import resource - allocator {
+        prefix ralloc;
+    }
+    include ipaddress - allocator - alarms {
+        revision - date "2017-02-09";
+    }
+    organization "Tail-f Systems";
+    description
+        "This module contains a description of an IP address allocator for defining
+    pools of IPs and allocating addresses from these.
+    This module contains configuration schema of the ip allocator.For the
+    operational schema, please see the ip - allocator - oper module.
+    ";
+    revision 2022 - 03 - 11 {
+        description
+            "support multi-service and synchronous allocation request.";
+    }
+    revision 2018 - 02 - 27 {
+        description
+            "Introduce the 'invert' field in the request container that enables
+        one to allocate the same size network regardless of the network
+        type(IPv4 / IPv6) in a pool by using the inverted cidr.
+        ";
+    }
+    revision 2017 - 08 - 14 {
+        description
+            "2.2
+        Enhancements:
+            Removed 'disable', add 'enable'
+        for alarms.
+        This means that
+        if you want alarms you need to enable this explicitly
+        now.
+        ";
+    }
+    revision 2017 - 02 - 09 {
+        description
+            "1.2
+        Enhancements:
+            Added support
+        for alarms
+            ";
+    }
+    revision 2016 - 01 - 29 {
+        description
+            "1.1
+        Enhancements:
+            Added support
+        for defining pools using IP address ranges.
+        ";
+    }
+    revision 2015 - 10 - 20 {
+        description "Initial revision.";
+    }
+    // This is the interface
+    augment "/ralloc:resource-pools" {
+        list ip - address - pool {
+            tailf: info "IP Address pools";
+            key name;
+            uses ralloc: resource - pool - grouping {
+                augment "allocation/request" {
+                    leaf subnet - size {
+                        tailf: info "Size of the subnet to be allocated.";
+                        type uint8 {
+                            range "1..128";
+                        }
+                        mandatory true;
+                    }
+                    leaf subnet - start - ip {
+                        description
+                            "Optional parameter used to request for a particular IP for
+                        the allocation(instead of the first available subnet matching the subnet - size).The subnet - start - ip has to be the first IP in the range defined by subnet - size, otherwise the allocation will
+                        fail.Ex: subnet - start - ip 10.0 .0 .36 subnet - size 30 gives the
+                        equivalent range 10.0 .0 .36 - 10.0 .0 .39, and it 's a valid value.
+                        subnet - start - ip 10.0 .0 .36 subnet - size 29 gives the range
+                        10.0 .0 .32 - 10.0 .0 .39 and it 's NOT a valid option.";
+                        type inet: ip - address;
+                    }
+                    leaf invert - subnet - size {
+                        description
+                            "By default subnet-size is considered equal to the cidr, but by
+                        setting this leaf the subnet - size will be the\ "inverted\" cidr.
+                        I.e: If one sets subnet - size to 8 with this leaf unset 2 ^ 24
+                        addresses will be allocated
+                        for a IPv4 pool and in a IPv6 pool
+                        2 ^ 120 addresses will be allocated.By setting this leaf only
+                        2 ^ 8 addresses will be allocated in either a IPv4 or a IPv6
+                        pool.
+                        ";
+                        type empty;
+                    }
+                }
+                augment "allocation/response/response-choice/ok" {
+                    leaf subnet {
+                        type inet: ip - prefix;
+                    }
+                    leaf from {
+                        type inet: ip - prefix;
+                    }
+                }
+            }
+            leaf auto - redeploy {
+                tailf: info "Automatically re-deploy services when an IP address is " +
+                    "re-allocated";
+                type boolean;
+                default "true";
+            }
+            list subnet {
+                key "address cidrmask";
+                tailf: cli - suppress - mode;
+                description
+                    "List of subnets belonging to this pool. Subnets may not overlap.";
+                must "(contains(address, '.') and cidrmask <= 32) or
+                    (contains(address, ':') and cidrmask <= 128)
+                " {
+                error - message "cidrmask is too long";
+            }
+            tailf: validate ipa_validate {
+                tailf: dependency ".";
+            }
+            leaf address {
+                type inet: ip - address;
+            }
+            leaf cidrmask {
+                type uint8 {
+                    range "1..128";
+                }
+            }
+        }
+        list exclude {
+            key "address cidrmask";
+            tailf: cli - suppress - mode;
+            description "List of subnets to exclude from this pool. May only " +
+                "contains elements that are subsets of elements in the list of " +
+                "subnets.";
+            tailf: info "List of subnets to exclude from this pool. May only " +
+                "contains elements that are subsets of elements in the list of " +
+                "subnets.";
+            must "(contains(address, '.') and cidrmask <= 32) or
+                (contains(address, ':') and cidrmask <= 128)
+            " {
+            error - message "cidrmask is too long";
+        }
+        tailf: validate ipa_validate {
+            tailf: dependency ".";
+        }
+        leaf address {
+            type inet: ip - address;
+        }
+        leaf cidrmask {
+            type uint8 {
+                range "1..128";
+            }
+        }
+    }
+    list range {
+        key "from to";
+        tailf: cli - suppress - mode;
+        description
+            "List of IP ranges belonging to this pool, inclusive. If your " +
+            "pool of IP addresses does not conform to a convenient set of " +
+            "subnets it may be easier to describe it as a range. " +
+            "Note that the exclude list does not apply to ranges, but of " +
+            "course a range may not overlap a subnet entry.";
+        tailf: validate ipa_validate {
+            tailf: dependency ".";
+        }
+        leaf from {
+            type inet: ip - address - no - zone;
+        }
+        leaf to {
+            type inet: ip - address - no - zone;
+        }
+        must "(contains(from, '.') and contains(to, '.')) or
+            (contains(from, ':') and contains(to, ':'))
+        " {
+        error - message "IP addresses defining a range must agree on IP version.";
+    }
 }
 container alarms {
-leaf enabled {
-type empty;
-description "Set this leaf to enable alarms";
-}
-leaf low-threshold-alarm {
-type uint8 {
-range "0 .. 100";
-}
-default 10;
-description "Change the value for when the low threshold alarm is
-raised. The value describes the percentage IPs left in
-the pool. The default is to raise the alarm when there
-are ten (10) percent IPs left in the pool.";
-}
+    leaf enabled {
+        type empty;
+        description "Set this leaf to enable alarms";
+    }
+    leaf low - threshold - alarm {
+        type uint8 {
+            range "0 .. 100";
+        }
+        default 10;
+        description "Change the value for when the low threshold alarm is
+        raised.The value describes the percentage IPs left in
+            the pool.The
+        default is to raise the alarm when there
+        are ten(10) percent IPs left in the pool.
+        ";
+    }
 }
 }
 }
 augment "/ralloc:rm-action" {
-tailf:action ip-allocator-tool {
-tailf:hidden debug;
-tailf:actionpoint ip-allocator-tool-action;
-input {
-leaf pool {
-type leafref {
-path "/ralloc:resource-pools/ipalloc:ip-address-pool/name";
-}
-}
-leaf operation{
-type enumeration {
-enum printIpPool;
-enum fix_response_ip;
-}
-mandatory true;
-}
-}
-output {
-leaf result {
-type string;
-}
-}
-}
+    tailf: action ip - allocator - tool {
+        tailf: hidden debug;
+        tailf: actionpoint ip - allocator - tool - action;
+        input {
+            leaf pool {
+                type leafref {
+                    path "/ralloc:resource-pools/ipalloc:ip-address-pool/name";
+                }
+            }
+            leaf operation {
+                type enumeration {
+                    enum printIpPool;
+                    enum fix_response_ip;
+                }
+                mandatory true;
+            }
+        }
+        output {
+            leaf result {
+                type string;
+            }
+        }
+    }
 }
 }
 ```
