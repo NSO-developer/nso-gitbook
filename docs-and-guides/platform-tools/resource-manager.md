@@ -341,7 +341,9 @@ The `IPAddressAllocator` class subscribes to five points in the DB:
 
 This section presents some simple use cases of the NSO IP Address Allocator. It uses the C-style CLI.
 
-#### Create an IP Pool
+<details>
+
+<summary>Create an IP Pool</summary>
 
 Creating an IP pool requires the user to specify a list of subnets (identified by a network address and a CIDR mask), a list of IP ranges (identified by its first and last IP address), or a combination of the two to be handled by the pool.&#x20;
 
@@ -352,7 +354,11 @@ admin@ncs# resource-pools ip-address-pool pool1 subnet 10.0.0.0 24
 admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.255
 ```
 
-#### Create an Allocation Request for a Subnet
+</details>
+
+<details>
+
+<summary>Create an Allocation Request for a Subnet</summary>
 
 Since we have already populated one of our pools, we can now start creating allocation requests. In the CLI interaction below, we request to allocate a subnet with a CIDR mask of 30 in the pool `pool1`.
 
@@ -361,7 +367,11 @@ admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
 myuser request subnet-size 30
 ```
 
-#### Create an Allocation Request for a Subnet Shared by Multiple Services
+</details>
+
+<details>
+
+<summary>Create an Allocation Request for a Subnet Shared by Multiple Services</summary>
 
 Allocations can be shared by multiple services by requesting the same subnet and using the same allocation ID. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate a subnet shared by two services.&#x20;
 
@@ -375,7 +385,11 @@ admin@ncs# commit
 
 The allocation resource gets freed once all allocating services in the `allocating-service` leaf-list deletes the allocation request.
 
-#### Create a Static Allocation Request for a Subnet
+</details>
+
+<details>
+
+<summary>Create a Static Allocation Request for a Subnet</summary>
 
 If you need a specific IP or range of IPs for an allocation, now you can use the optional `subnet-start-ip` leaf, together with the `subnet-size`. The allocator will go through the available subnets in the requested pool and will look for a subnet containing the `subnet-start-ip` and which can also fit the `subnet-size`.
 
@@ -391,7 +405,11 @@ The `subnet-start-ip` has to be the first IP address out of a subnet with the si
 
 If the `subnet-start-ip`/`subnet-size` pair does not give a subnet range starting with `subnet-start-ip`, the allocation will fail.
 
-#### Create a Synchronous Allocation Request for a Subnet
+</details>
+
+<details>
+
+<summary>Create a Synchronous Allocation Request for a Subnet</summary>
 
 Synchronous allocation can be requested through various Java APIs provided in `resource-manager/ src/java/src/com/tailf/pkg/ipaddressallocator/IPAddressAllocator.java` and Python API provided in `resource-manager/python/resource_manager/ ipadress_allocator.py`.
 
@@ -410,7 +428,11 @@ Synchronous allocation can be requested through various Java APIs provided in `r
 
     id)Python:def net\_read(username, root, pool\_name, allocation\_name).
 
-#### Read the Response to an Allocation Request
+</details>
+
+<details>
+
+<summary>Read the Response to an Allocation Request</summary>
 
 The response to an allocation request comes in the form of operational data written to the path `/ resource-pools/ip-address-pool/allocation/response`. The response container contains a choice with two cases, `ok` and `error`. If the allocation failed, the `error` case will be set and an error message can be found in the leaf `error`. If the allocation succeeded, the `ok` case will be set and the allocated subnet will be written to the leaf subnet and the subnet from which the allocation was made will be written to the leaf `from`. The following CLI interaction shows how to view the status of the current allocation requests.
 
@@ -420,11 +442,17 @@ admin@ncs# show resouce-pools
 
 The table below (Subnet Allocation) shows that a subnet with a CIDR of 30 has been allocated from the subnet 10.0.0.0/24 in `pool1`.
 
+```
 | NAME    | ID   | ERROR | SUBNET        | FROM          |
 | ------- | ---- | ----- | ------------- | ------------- |
 | `pool1` | `a1` | -     | `10.0.0.0/30` | `10.0.0.0/24` |
+```
 
-#### Automatic Redeployment of Service
+</details>
+
+<details>
+
+<summary>Automatic Redeployment of Service</summary>
 
 An allocation request may contain references to services that are to be redeployed whenever the status of the allocation changes. The following status changes trigger redeployment.
 
@@ -438,6 +466,8 @@ The service references are set in the `allocating-service` leaf-list, for exampl
 admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
 /services/vl:loop[name='myservice'] username myuser request subnet-size 30
 ```
+
+</details>
 
 ### Security
 
@@ -471,7 +501,9 @@ admin@ncs> request rm-action ip-allocator-tool operation printIpPool pool multiS
 
 This section covers the NSO Resource Manager data models.
 
-### Resource Allocator Model
+<details>
+
+<summary>Resource Allocator Model</summary>
 
 ```
 module resource - allocator {
@@ -497,11 +529,10 @@ module resource - allocator {
 
     We expect a specific allocator package to do the following:
         1. Subscribe to changes in the allocation list and look
-    for
-    create operations.
-    2. Perform the allocation and respond by writing the result
-    into the response leaf, and then invoke the re - deploy
-    action of the services pointed to by the owners leaf - list.
+    for create operations.
+        2. Perform the allocation and respond by writing the result
+        into the response leaf, and then invoke the re - deploy
+        action of the services pointed to by the owners leaf - list.
 
     Most allocator packages will want to annotate this model with
     additional pool definition data.
@@ -692,9 +723,12 @@ module resource - allocator {
 }
 ```
 
-### ID Allocator Model
+</details>
 
-{% code title="Example: ID Allocator YANG Model" %}
+<details>
+
+<summary>ID Allocator Model</summary>
+
 ```
 module id - allocator {
     namespace "http://tail-f.com/pkg/id-allocator";
@@ -711,9 +745,9 @@ module id - allocator {
     organization "Tail-f Systems";
     description
         "This module contains a description of an id allocator for defining pools of id: s.This can
-    for instance be used when allocating VLAN ids.
-    This module contains configuration schema of the id allocator.For the
-    operational schema, please see the id - allocator - oper module.
+        for instance be used when allocating VLAN ids.
+        This module contains configuration schema of the id allocator.For the
+        operational schema, please see the id - allocator - oper module.
     ";
     revision 2023 - 11 - 16 {
         description
@@ -887,11 +921,13 @@ module id - allocator {
     }
 }
 ```
-{% endcode %}
 
-### IP Address Allocator Model
+</details>
 
-{% code title="Example: IP Address Allocator YANG Model" %}
+<details>
+
+<summary>IP Address Allocator Model</summary>
+
 ```
 module ipaddress - allocator {
     namespace "http://tail-f.com/pkg/ipaddress-allocator";
@@ -911,10 +947,10 @@ module ipaddress - allocator {
     organization "Tail-f Systems";
     description
         "This module contains a description of an IP address allocator for defining
-    pools of IPs and allocating addresses from these.
-    This module contains configuration schema of the ip allocator.For the
-    operational schema, please see the ip - allocator - oper module.
-    ";
+        pools of IPs and allocating addresses from these.
+        This module contains configuration schema of the ip allocator.For the
+        operational schema, please see the ip - allocator - oper module.
+        ";
     revision 2022 - 03 - 11 {
         description
             "support multi-service and synchronous allocation request.";
@@ -922,9 +958,9 @@ module ipaddress - allocator {
     revision 2018 - 02 - 27 {
         description
             "Introduce the 'invert' field in the request container that enables
-        one to allocate the same size network regardless of the network
-        type(IPv4 / IPv6) in a pool by using the inverted cidr.
-        ";
+            one to allocate the same size network regardless of the network
+            type(IPv4 / IPv6) in a pool by using the inverted cidr.
+            ";
     }
     revision 2017 - 08 - 14 {
         description
@@ -1128,7 +1164,8 @@ augment "/ralloc:rm-action" {
 }
 }
 ```
-{% endcode %}
+
+</details>
 
 ## Further Reading
 
