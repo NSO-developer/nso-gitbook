@@ -23,6 +23,14 @@ Before you install NSO onto your system, you need to decide whether to do a "Sys
 
 ***
 
+## **Download Your NSO Free Trial Installer and Cisco NEDs** <a href="#download-your-nso-free-trial-installer-and-cisco-neds" id="download-your-nso-free-trial-installer-and-cisco-neds"></a>
+
+This evaluation copy has been provided under the terms of the Cisco NSO Evaluation License. There are two versions of the NSO installer for macOS and Linux systems, respectively:
+
+{% embed url="https://software.cisco.com/download/home/286331591/type/286283941/release/6.4" %}
+NSO for Linux and MacOS (Darwin), including NED examples
+{% endembed %}
+
 ## Requirements <a href="#requirements" id="requirements"></a>
 
 For development purposes, choose between the following:
@@ -31,12 +39,6 @@ For development purposes, choose between the following:
 * macOS Darwin for x86\_64 or arm64.
 
 A detailed list of NSO installation requirements can be found in the [NSO Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment) guide.
-
-## Download Your NSO Free Trial Installer and Cisco NEDs <a href="#download-your-nso-free-trial-installer-and-cisco-neds" id="download-your-nso-free-trial-installer-and-cisco-neds"></a>
-
-This **evaluation** copy has been provided under the terms of the Cisco NSO Evaluation License. There are two versions of the NSO installer for macOS and Linux systems, respectively:
-
-* [NSO for Linux and MacOS (Darwin), including NED examples](https://software.cisco.com/download/home/286331591/type/286283941/release)
 
 ## Installation <a href="#installation" id="installation"></a>
 
