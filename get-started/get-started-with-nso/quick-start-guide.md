@@ -14,7 +14,7 @@ This quick start guide uses a Local Install of NSO for those just getting starte
 
 <summary>Local vs. System Install</summary>
 
-Before you install NSO onto your system, you need to decide whether to do a "System" or "Local" installation. Here's a simple breakdown of the two.
+Before you install NSO onto your system, you need to decide whether to do a System or a Local installation. Here's a simple breakdown of the two:
 
 * Use **System Install** when installing NSO for a centralized, "always-on" production-grade purpose. System installs configure NSO as a system daemon that starts and ends with the underlying operating system. Linux PAM is used instead of NSO local authentication using the admin and oper default users, and the file structure is distributed.
 * Use **Local Install** for development, lab, and evaluation purposes. It unpacks all the application components, including docs and examples. The developer can use local installs to run multiple unrelated instances of NSO for different labs and demos on a single workstation.
@@ -27,9 +27,7 @@ Before you install NSO onto your system, you need to decide whether to do a "Sys
 
 This evaluation copy has been provided under the terms of the Cisco NSO Evaluation License. There are two versions of the NSO installer for macOS and Linux systems, respectively:
 
-{% embed url="https://software.cisco.com/download/home/286331591/type/286283941/release/6.4" %}
-NSO for Linux and MacOS (Darwin), including NED examples
-{% endembed %}
+* [x] [NSO for Linux and MacOS (Darwin), including NED examples](https://software.cisco.com/download/home/286331591/type/286283941/release/6.4)
 
 ## Requirements <a href="#requirements" id="requirements"></a>
 
