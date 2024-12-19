@@ -67,7 +67,7 @@ Start by selecting the service point to populate all services under it and then 
 {% tab title="From the Services View" %}
 To apply an action on a service:
 
-1. On the desired service in the list, click the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
+1. On the desired service in the list, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
 2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
 
 {% hint style="info" %}

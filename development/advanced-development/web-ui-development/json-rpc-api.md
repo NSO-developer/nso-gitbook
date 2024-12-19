@@ -3622,6 +3622,11 @@ The `flags` param is a list of flags that can change the commit behavior:
 * `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.\
   **Note**: `trace-id` is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [TraceContext](json-rpc-api.md#trace-context).
 
+For backward compatibility, the `flags` param can also be a bit mask with the following limit values:
+
+* \``1 << 0`\` - Do not release locks, overridden by the `release_locks` if set.
+* \``1 << 2`\` - Do not drop revision.
+
 If a call to `confirm_commit` is not done within `timeout` seconds an automatic rollback is performed. This method can also be used to "extend" a confirmed commit that is already in progress, i.e. set a new timeout or add changes.
 
 A call to `abort_commit` can be made to abort the confirmed commit.

@@ -70,6 +70,7 @@ Some of the more important flags are:
       * The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
       Read about error recovery in [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
+* `trace-id`: Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:
 

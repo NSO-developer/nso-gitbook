@@ -1571,76 +1571,6 @@
 
 <details>
 
-<summary><code>NCS_PACKAGE_AUTH_BAD_RET</code></summary>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  Package authentication program returned badly formatted data.
-* **Format String**  
-  `"package authentication using ~s program ret bad output: ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_AUTH_FAIL</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication failed.
-* **Format String**  
-  `"package authentication using ~s failed via ~s from ~s with ~s: ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_AUTH_SUCCESS</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  A package authenticated user logged in.
-* **Format String**  
-  `"package authentication using ~s succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_CHAL_2FA</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication challenge sent to a user.
-* **Format String**  
-  `"package authentication challenge sent to ~s from ~s with ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_CHAL_FAIL</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication challenge failed.
-* **Format String**  
-  `"package authentication challenge using ~s failed via ~s from ~s with ~s: ~s"`
-
-</details>
-
-
-<details>
-
 <summary><code>NETCONF</code></summary>
 
 * **Severity**  
@@ -2621,6 +2551,48 @@
 
 <details>
 
+<summary><code>NCS_PACKAGE_AUTH_BAD_RET</code></summary>
+
+* **Severity**  
+  `ERR`
+* **Description**  
+  Package authentication program returned badly formatted data.
+* **Format String**  
+  `"package authentication using ~s program ret bad output: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_AUTH_FAIL</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication failed.
+* **Format String**  
+  `"package authentication using ~s failed via ~s from ~s with ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_AUTH_SUCCESS</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  A package authenticated user logged in.
+* **Format String**  
+  `"package authentication using ~s succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>NCS_PACKAGE_BAD_DEPENDENCY</code></summary>
 
 * **Severity**  
@@ -2643,6 +2615,34 @@
   Bad NCS version for package
 * **Format String**  
   `"Failed to load NCS package: ~s; requires NCS version ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_CHAL_2FA</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication challenge sent to a user.
+* **Format String**  
+  `"package authentication challenge sent to ~s from ~s with ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_CHAL_FAIL</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication challenge failed.
+* **Format String**  
+  `"package authentication challenge using ~s failed via ~s from ~s with ~s: ~s"`
 
 </details>
 
