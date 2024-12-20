@@ -6,8 +6,8 @@ description: Manage resource allocation in NSO.
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](resource-manager.md#nso-id-allocator-deployment) and[`ipaddress-allocator`](resource-manager.md#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
 
-* [NSO ID Allocator Deployment](resource-manager.md#nso-id-allocator-deployment) :arrow\_lower\_right:
-* [NSO IP Address Allocator Deployment](resource-manager.md#nso-ip-address-allocator-deployment) :arrow\_lower\_right:
+* [NSO ID Allocator Deployment](resource-manager.md#nso-id-allocator-deployment)&#x20;
+* [NSO IP Address Allocator Deployment](resource-manager.md#nso-ip-address-allocator-deployment)&#x20;
 
 {% hint style="info" %}
 This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
@@ -280,7 +280,7 @@ The NSO ID Allocator requires a username to be configured by the service applica
 
 It is up to the administrator to add a rule that allows the user to perform the service re-deploy.
 
-How the administrator should write these rules is detailed in the [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure).
+The administrator's instructions on how to write these rules are detailed in the [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure).
 
 ### Alarms
 
