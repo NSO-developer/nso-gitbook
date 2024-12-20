@@ -4,10 +4,10 @@ description: Manage resource allocation in NSO.
 
 # Resource Manager
 
-The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](resource-manager.md#nso-id-allocator-deployment) and[`ipaddress-allocator`](resource-manager.md#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
+The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
 
-* [NSO ID Allocator Deployment](resource-manager.md#nso-id-allocator-deployment)&#x20;
-* [NSO IP Address Allocator Deployment](resource-manager.md#nso-ip-address-allocator-deployment)&#x20;
+* [NSO ID Allocator Deployment](./#nso-id-allocator-deployment)&#x20;
+* [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)&#x20;
 
 {% hint style="info" %}
 This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
