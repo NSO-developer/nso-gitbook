@@ -130,7 +130,7 @@ This example shows how to use the Jaeger software ([https://www.jaegertracing.io
     Clicking on one of the traces will bring you to the trace view, such as the following one.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimal Metrics Example with InfluxDB <a href="#minimal-metrics-example-with-influxdb" id="minimal-metrics-example-with-influxdb"></a>
 
