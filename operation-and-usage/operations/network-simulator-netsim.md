@@ -36,7 +36,7 @@ Usage ncs-netsim  [--dir <NetsimDir>]
             [-w | --window] [cli | cli-c | cli-i] devname
 ```
 
-Assume that you have prepared an NSO package for a device called `router`. (See the `examples.ncs/getting-started/developing-with-ncs/0-router-network` example). Also, assume the package is in `./packages/router`. At this point, you can create the simulated network by:
+Assume that you have prepared an NSO package for a device called `router`. (See the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example). Also, assume the package is in `./packages/router`. At this point, you can create the simulated network by:
 
 ```bash
 $ ncs-netsim create-network ./packages/router 3 device --dir ./netsim
@@ -86,8 +86,7 @@ The simulated network device info can be shown with:
 ```bash
  $ ncs-netsim list
 ...
- name=device0 netconf=12022 snmp=11022 ipc=5010 cli=10022 dir=examples.ncs/getting-started/developing-
-with-ncs/0-router-network/netsim/device/device0
+ name=device0 netconf=12022 snmp=11022 ipc=5010 cli=10022 dir=examples.ncs/device-management/router-network/netsim/device/device0
 ...
 ```
 
@@ -159,4 +158,4 @@ $ NCS_IPC_PORT=5010 ncs_load -m -l *.xml
 
 ### Learn More <a href="#ug.netsim.learnmore" id="ug.netsim.learnmore"></a>
 
-The README file in `examples.ncs/getting-started/developing-with-ncs/0-router-network` gives a good introduction on how to use `ncs-netsim`.
+The README file in [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example gives a good introduction on how to use `ncs-netsim`.

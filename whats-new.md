@@ -32,7 +32,7 @@ The additional benefit of this new persistence mode is greatly simplified operat
 Documentation Updates:
 
 * Added a new section [CDB Persistence](administration/advanced-topics/cdb-persistence.md).
-* Added a new example in `examples.ncs/misc/cdb-on-demand` to showcase this functionality.
+* Added a new example in [examples.ncs/scaling-performance/cdb-on-demand](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/cdb-on-demand) to showcase this functionality.
 
 </details>
 
@@ -45,7 +45,7 @@ NSO 6.4 introduces a more secure way for local Inter-Process Communication (IPC)
 Documentation Updates:
 
 * Added a new section [UID-based Authentication for Unix Sockets](administration/management/aaa-infrastructure.md#uid-based-authentication-for-unix-sockets).
-* Added a new example in `examples.ncs/security/ipc` to showcase this functionality.
+* Added a new example in [examples.ncs/aaa/ipc](https://github.com/NSO-developer/nso-examples/tree/6.4/aaa/ipc) to showcase this functionality.
 
 </details>
 
@@ -110,5 +110,13 @@ Documentation Updates:
 <summary><strong>Kubernetes Best Practices Guidelines</strong></summary>
 
 A new [document](https://developer.cisco.com/docs/nso/deploying-cisco-nso-on-kubernetes/) covering best practices for Kubernetes has been added to the documentation set.
+
+</details>
+
+<details>
+
+<summary><strong>Restructured Example Collection Linked from the Documentation</strong></summary>
+
+The example collection was restructured, and references to examples are now linked to a copy of the collection stored in the https://github.com/NSO-developer/nso-examples repository.
 
 </details>

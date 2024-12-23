@@ -135,11 +135,11 @@ packages package cisco-ios
  package-version 3.0
  description     "NED package for Cisco IOS"
  ncs-min-version [ 3.0.2 ]
- directory       ./state/packages-in-use/1/cisco-ios
+ directory       ./state/packages-in-use/1/cisco-ios-cli-3.0
  component upgrade-ned-id
   upgrade java-class-name com.tailf.packages.ned.ios.UpgradeNedId
  component cisco-ios
-  ned cli ned-id  cisco-ios
+  ned cli ned-id  cisco-ios-cli-3.0
   ned cli java-class-name com.tailf.packages.ned.ios.IOSNedCli
   ned device vendor Cisco
 NAME      VALUE
@@ -151,14 +151,15 @@ show-tag  interface
 
 So the above command shows that NSO currently has one package, the NED for Cisco IOS.
 
-NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. So in this specific example:
+NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/blob/6.4/device-management/simulated-cisco-ios) example to demonstrate:
 
 ```bash
 $ pwd
-.../examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios
+examples.ncs/device-management/simulated-cisco-ios
+$ NONINTERACTIVE=1 ./demo.sh
 $ ls packages/
-cisco-ios
-$ ls packages/cisco-ios
+cisco-ios-cli-3.0
+$ ls packages/cisco-ios-cli-3.0
 doc
 load-dir
 netsim
@@ -168,7 +169,7 @@ shared-jar
 src
 ```
 
-As seen above a package is a defined file structure with data models, code, and documentation. NSO comes with a couple of ready-made packages: `$NCS_DIR/packages/`. Also, there is a library of packages available from Tail-f, especially for supporting specific devices.
+As seen above a package is a defined file structure with data models, code, and documentation. NSO comes with a few ready-made example packages: `$NCS_DIR/packages/`. Also, there is a library of packages available from Tail-f, especially for supporting specific devices.
 
 ### Adding and Upgrading a Package <a href="#d5e7809" id="d5e7809"></a>
 
@@ -183,10 +184,11 @@ $ ncs-netsim stop
 Add the nexus package to the NSO runtime directory by creating a symbolic link:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/packages
-$ ln -s $NCS_DIR/packages/neds/cisco-nx
+$ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/packages
+$ ln -s $NCS_DIR/packages/neds/cisco-nx-cli-3.0 cisco-nx-cli-3.0
 $ ls -l
-... cisco-nx -> .../packages/neds/cisco-nx
+...
+cisco-nx-cli-3.0 -> $NCS_DIR/packages/neds/cisco-nx-cli-3.0
 ```
 
 The package is now in place, but until we tell NSO to look for package changes nothing happens:
@@ -215,9 +217,9 @@ So after the `packages reload` operation NSO also knows about Nexus devices. The
 ### Simulating the New Device <a href="#d5e7826" id="d5e7826"></a>
 
 ```bash
-$ ncs-netsim add-to-network cisco-nx 2 n
+$ ncs-netsim add-to-network cisco-nx-cli-3.0 2 n
 $ ncs-netsim list
-ncs-netsim list for  /Users/stefan/work/ncs-3.2.1/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios/netsim
+ncs-netsim list for examples.ncs/device-management/simulated-cisco-ios/netsim
 
 name=c0 ...
 name=c1 ...
@@ -252,7 +254,7 @@ nexus:vlan 1
 We can now add these Nexus devices to NSO according to the below sequence:
 
 ```cli
-admin@ncs(config)# devices device n0 device-type cli ned-id cisco-nx
+admin@ncs(config)# devices device n0 device-type cli ned-id cisco-nx-cli-3.0
 admin@ncs(config-device-n0)# port 10025
 admin@ncs(config-device-n0)# address 127.0.0.1
 admin@ncs(config-device-n0)# authgroup default

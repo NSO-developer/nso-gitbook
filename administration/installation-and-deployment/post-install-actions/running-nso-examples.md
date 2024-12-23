@@ -11,7 +11,7 @@ Applies to Local Install.
 This section provides an overview of how to run the examples provided with the NSO installer. By working through the examples, the reader should get a good overview of the various aspects of NSO and hands-on experience from interacting with it.
 
 {% hint style="info" %}
-This section references the examples located in `$NCS_DIR/examples.ncs`. The examples all have `README` files that include instructions related to the example.
+This section references the examples located in [$NCS_DIR/examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.4). The examples all have `README` files that include instructions related to the example.
 {% endhint %}
 
 ## General Instructions <a href="#d5e1220" id="d5e1220"></a>
@@ -25,7 +25,7 @@ This section references the examples located in `$NCS_DIR/examples.ncs`. The exa
 3.  Proceed to the example directory:
 
     ```bash
-    $ cd $NCS_DIR/examples.ncs/getting-started/using-ncs/1-simulated-cisco-ios
+    $ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
     ```
 4. Follow the instructions in the `README` files that are located in the example directories.
 
@@ -60,7 +60,7 @@ Every example directory is a complete NSO run-time directory. The README file an
 It is important to make sure that you stop `ncs` and `ncs-netsim` when moving between examples using the `stop` option of the `netsim` and the `--stop` option of the `ncs`.
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/getting-started/1-simulated-cisco-ios
+$ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
 $ ncs-netsim start
 $ ncs
 $ ncs-netsim stop

@@ -120,14 +120,14 @@ Now let's see how you can use this knowledge for network automation.
 
 ### Step 1 - Start the Routers <a href="#d5e407" id="d5e407"></a>
 
-Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can configure.
+Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management) set of examples contains three simulated routers that you can configure.
 
 <figure><img src="../../images/ex-routers.png" alt="" width="563"><figcaption><p>The Lab Topology</p></figcaption></figure>
 
-1.  Navigate to the `0-router-network` directory with the following command.
+1.  Navigate to the [router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) directory with the following command.
 
     ```bash
-    $ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
+    $ cd $NCS_DIR/examples.ncs/device-management/router-network
     ```
 2.  You can prepare and start the routers by running the `make` and `netsim` commands from this directory.
 

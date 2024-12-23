@@ -41,22 +41,23 @@ Run `index.html` in your browser to explore further.
 
 ### Examples <a href="#d5e560" id="d5e560"></a>
 
-Local Install comes with a rich set of examples to start using NSO.
+Local Install comes with a rich set of [examples](https://github.com/NSO-developer/nso-examples/tree/6.4) to start using NSO.
 
 ```bash
 $ ls -1 examples.ncs/
-README
-crypto
-datacenter
-development-guide
-generic-ned
+README.md
+aaa
+common
+device-management
 getting-started
+high-availability
+layered-services-architecture
 misc
-service-provider
-snmp-ned
-snmp-notification-receiver
-web-server-farm
-web-ui
+nano-services
+northbound-interfaces
+scaling-performance
+sdk-api
+service-management
 ```
 
 ### Network Element Drivers (NEDs) <a href="#d5e564" id="d5e564"></a>
@@ -80,7 +81,7 @@ juniper-junos-nc-3.0
 ```
 
 {% hint style="info" %}
-The example NEDs included in the installer are intended for evaluation, demonstration, and use with the `examples.ncs`. These are not the latest versions available and often do not have all the features available in production NEDs.
+The example NEDs included in the installer are intended for evaluation, demonstration, and use with the [examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.4) examples. These are not the latest versions available and often do not have all the features available in production NEDs.
 {% endhint %}
 
 #### **Install New NEDs**

@@ -317,22 +317,22 @@ To create a Runtime Directory:
 
 <summary>Runtime vs. Installation Directory</summary>
 
-A common misunderstanding is that there exists a dependency between the Runtime Directory and the Installation Directory. This is not true. For example, say that you have two NSO installations `.../ncs-2.3.1` and `.../ncs-2.3.2`. The following sequence runs `ncs-2.3.1` but uses an example and configuration from `ncs-2.3.2`.
+A common misunderstanding is that there exists a dependency between the Runtime Directory and the Installation Directory. This is not true. For example, say that you have two NSO local installations `path/to/nso-6.4` and `path/to/nso-6.4.1`. The following sequence runs `nso-6.4` but uses an example and configuration from `nso-6.4.1`.
 
 ```bash
-  $ cd .../ncs-2.3.1
+  $ cd path/to/nso-6.4
   $ . ncsrc
-  $ cd .../ncs-2.3.2/examples.ncs/datacenter-qinq
+  $ cd path/to/nso-6.4.1/examples.ncs/service-management/datacenter-qinq
   $ ncs
 ```
 
 Since the Runtime Directory is self-contained, this is also the way to move between examples. And since the Runtime Directory is self-contained including the database files, you can compress a complete directory and distribute it. Unpacking that directory and starting NSO from there gives an exact copy of all instance data.
 
 ```bash
-  $ cd $NCS_DIR/examples.ncs/data-center-qinq
+  $ cd path/to/nso-6.4.1/examples.ncs/service-management/datacenter-qinq
   $ ncs
   $ ncs --stop
-  $ cd $NCS_DIR/examples.ncs/getting-started/1-simulated-cisco-ios
+  $ cd path/to/nso-6.4.1/examples.ncs/device-management/simulated-cisco-ios
   $ ncs
   $ ncs --stop
 ```
