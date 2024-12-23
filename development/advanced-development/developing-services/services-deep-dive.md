@@ -112,7 +112,7 @@ Location of the plan data if the service plan is used. See [Nano Services for St
 
 </details>
 
-While not part of `ncs:service-data` as such, you may consider the `service-commit-queue-event` notification part of the core service interface. The notification provides information about the state of the service when the service uses the commit queue. As an example, an event-driven application uses this notification to find out when a service instance has been deployed to the devices. See the `showcase_rc.py` script in `examples.ncs/development-guide/concurrency-model/perf-stack/` for sample Python code, leveraging the notification. See `tailf-ncs-services.yang` for the full definition of the notification.
+While not part of `ncs:service-data` as such, you may consider the `service-commit-queue-event` notification part of the core service interface. The notification provides information about the state of the service when the service uses the commit queue. As an example, an event-driven application uses this notification to find out when a service instance has been deployed to the devices. See the `showcase_rc.py` script in [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) for sample Python code, leveraging the notification. See `tailf-ncs-services.yang` for the full definition of the notification.
 
 NSO Service Manager is responsible for providing the functionality of the common service interface, requiring no additional user code. This interface is the same for classic and nano services, whereas nano services further extend the model.
 
@@ -232,7 +232,7 @@ The Java callbacks use the following function arguments:
 * `service`: A NavuNode for the service instance.
 * `opaque`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
 
-See `examples.ncs/development-guide/services/post-modification-py` and `examples.ncs/development-guide/services/post-modification-java` examples for a sample implementation of the post-modification callback.
+See [examples.ncs/service-management/iface-postmod-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-py) and [examples.ncs/service-management/iface-postmod-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-java) examples for a sample implementation of the post-modification callback.
 
 Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch\_templates.servicepoint) for details.
 
@@ -288,7 +288,7 @@ Compared to pre- and post-modification callbacks, which also persist data outsid
 ```
 {% endcode %}
 
-The `examples.ncs/development-guide/services/post-modification-py` and `examples.ncs/development-guide/services/post-modification-java` examples showcase the use of opaque properties.
+The [examples.ncs/service-management/iface-postmod-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-py) and [examples.ncs/service-management/iface-postmod-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-java) examples showcase the use of opaque properties.
 
 ## Defining Static Service Conflicts <a href="#ch_svcref.conflicts" id="ch_svcref.conflicts"></a>
 
@@ -326,7 +326,7 @@ Furthermore, containers and list items created using the `sharedCreate()` and `s
 
 `backpointer` points back to the service instance that created the entity in the first place. This makes it possible to look at part of the configuration, say under `/devices` tree, and answer the question: which parts of the device configuration were created by which service?
 
-To see reference counting in action, start the `examples.ncs/implement-a-service/iface-v3` example with `make demo` and configure a service instance.
+To see reference counting in action, start the [examples.ncs/service-management/implement-a-service/iface-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v3) example with `make demo` and configure a service instance.
 
 ```cli
 admin@ncs(config)# iface instance1 device c1 interface 0/1 ip-address 10.1.2.3 cidr-netmask 28
@@ -411,7 +411,7 @@ Then you create a higher-level service, say a CFS, that configures another servi
 ```
 {% endcode %}
 
-The preceding example references an existing `iface` service, such as the one in the `examples.ncs/implement-a-service/iface-v3` example. The output shows hard-coded values but you can change those as you would for any other service.
+The preceding example references an existing `iface` service, such as the one in the [examples.ncs/service-management/implement-a-service/iface-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v3) example. The output shows hard-coded values but you can change those as you would for any other service.
 
 In practice, you might find it beneficial to modularize your data model and potentially reuse parts in both, the lower- and higher-level service. This avoids duplication while still allowing you to directly expose some of the lower-level service functionality through the higher-level model.
 
@@ -451,7 +451,7 @@ You may also obtain some useful information by using the `debug service` commit 
     However, the service may also delete data implicitly, through `when` and `choice` statements in the YANG data model. If a `when` statement evaluates to false, the configuration tree below that node is deleted. Likewise, if a `case` is set in a `choice` statement, the previously set `case` is deleted. This has the same limitations as an explicit delete.
 
     \
-    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch\_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See `examples.ncs/development-guide/services/shared-delete` for an example.
+    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch\_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See [examples.ncs/service-management/shared-delete](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/shared-delete) for an example.
 
     \
     Alternatively, you might consider pre- and post-modification callbacks for some specific cases.
@@ -496,7 +496,7 @@ Some of the steps in the process can be automated, while others are mostly manua
 
 A prerequisite (or possibly the product in an iterative approach) is an NSO service that supports all the different variants of the configuration for the service that are used in the network. This usually means there will be a few additional parameters in the service model that allow selecting the variant of device configuration produced, as well as some covering other non-standard configurations (if such configuration is present).
 
-In the simplest case, there is only one variant and that is the one that the service needs to produce. Let's take the `examples.ncs/implement-a-service/iface-v2-py` example and consider what happens when a device already has an existing interface configuration.
+In the simplest case, there is only one variant and that is the one that the service needs to produce. Let's take the [examples.ncs/service-management/implement-a-service/iface-v2-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v2-py) example and consider what happens when a device already has an existing interface configuration.
 
 ```cli
 admin@ncs# show running-config devices device c1 config\
@@ -812,7 +812,7 @@ admin@ncs# iface instance2 re-deploy reconcile
 
 Nevertheless, keep in mind that the discard-non-service-config reconcile operation only considers parts of the device configuration under nodes that are created with the service mapping. Even if all data there is covered in the mapping, there could still be other parts that belong to the service but reside in an entirely different section of the device configuration (say DNS configuration under `ip name-server`, which is outside the `interface GigabitEthernet` part) or even a different device. That kind of configuration the `discard-non-service-config` option cannot find on its own and you must add manually.
 
-You can find the complete `iface` service as part of the `examples.ncs/development-guide/services/discovery` example.
+You can find the complete `iface` service as part of the [examples.ncs/service-management/discovery)(https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/discovery) example.
 
 Since there were only two service instances to reconcile, the process is now complete. In practice, you are likely to encounter multiple variants and many more service instances, requiring you to make additional iterations. But you can follow the iterative process shown here.
 
@@ -832,7 +832,7 @@ It is important to note that `partial-sync-from` and `partial-sync-to` clear the
 
 Pulling the configuration from the network needs to be initiated outside the service code. At the same time, the list of configuration subtrees required by a certain service should be maintained by the service developer. Hence it is a good practice for such a service to implement a wrapper action that invokes the generic `/devices/partial-sync-from` action with the correct list of paths. The user or application that manages the service would only need to invoke the wrapper action without needing to know which parts of the configuration the service is interested in.
 
-The snippet in the example below (Example of running partial-sync-from action via Java API) gives an example of running partial-sync-from action via Java, using `router` device from `examples.ncs/getting-started/developing-with-ncs/0-router-network`.
+The snippet in the example below shows running the `partial-sync-from` action via Java, using the `router` device from the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example.
 
 {% code title="Example of Running partial-sync-from Action via Java API" %}
 ```

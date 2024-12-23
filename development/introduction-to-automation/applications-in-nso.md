@@ -336,10 +336,11 @@ class Main(ncs.application.Application):
 With all of the code ready, you are one step away from testing the new action, but to do that, you will need to add some devices to NSO. So, first, add a couple of simulated routers to the NSO instance:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
+$ cd $NCS_DIR/examples.ncs/device-management/router-network
 ```
 
 ```bash
+$ make all
 $ cp ncs-cdb/ncs_init.xml $NSO_RUNDIR/ncs-cdb/
 ```
 
@@ -464,7 +465,7 @@ As your NSO application evolves, you will create newer versions of your applicat
 
 When you replace a package, NSO must redeploy the application code and potentially replace the package-provided part of the YANG schema. For the latter, NSO can perform the data migration for you, as long as the schema is backward compatible. This process is documented in [Automatic Schema Upgrades and Downgrades](../core-concepts/using-cdb.md#ug.cdb.upgrade) and is automatic when you request a reload of the package with `packages reload` or a similar command.
 
-If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and `examples.ncs/getting-started/developing-with-ncs/14-upgrade-service` example (Java) for details.
+If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example (Java) for details.
 
 Note that changing the schema in any way requires you to recompile the `.fxs` files in the package, which is typically done by running `make` in the package's `src` folder.
 

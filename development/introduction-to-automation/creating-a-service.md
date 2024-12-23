@@ -147,12 +147,12 @@ Finally, your Python script can read the supplied values inside the `cb_create()
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e635" id="d5e635"></a>
 
-The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
+The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management) set of examples uses simulated routers that you can use for this scenario. The [router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) directory holds the data necessary for starting the routers and connecting them to your NSO instance.
 
 First, change the current working directory:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
+$ cd $NCS_DIR/examples.ncs/device-management/router-network
 ```
 
 From this directory, you can start a fresh set of routers by running the following `make` command:
@@ -163,7 +163,7 @@ $ make showcase-clean-start
 DEVICE ex0 OK STARTED
 DEVICE ex1 OK STARTED
 DEVICE ex2 OK STARTED
-make: Leaving directory 'examples.ncs/getting-started/developing-with-ncs/0-router-network'
+make: Leaving directory 'examples.ncs/device-management/router-network'
 ```
 
 The routers are now running. The required NED package and a CDB initialization file `ncs-cdb/ncs_init.xml`were also added to your NSO instance. The latter contains connection details for the routers and will be automatically loaded on the first NSO start.
@@ -465,12 +465,12 @@ Likewise, you can use the same XPath in a template of a Python service. Then you
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e795" id="d5e795"></a>
 
-The `getting-started/developing-with-ncs` set of examples contains three simulated routers that you can use for this scenario. The `0-router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
+The [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example uses three simulated routers that you can use for this scenario. The `router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
 
 First, change the current working directory:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network
+$ cd $NCS_DIR/examples.ncs/device-management/router-network
 ```
 
 From this directory, you can start a fresh set of routers by running the following `make` command:
@@ -481,7 +481,7 @@ $ make showcase-clean-start
 DEVICE ex0 OK STARTED
 DEVICE ex1 OK STARTED
 DEVICE ex2 OK STARTED
-make: Leaving directory 'examples.ncs/getting-started/developing-with-ncs/0-router-network'
+make: Leaving directory 'examples.ncs/device-management/router-network'
 ```
 
 The routers are now running. The required NED package and a CDB initialization file, `ncs-cdb/ncs_init.xml`, were also added to your NSO instance. The latter contains connection details for the routers and will be automatically loaded on the first NSO start.

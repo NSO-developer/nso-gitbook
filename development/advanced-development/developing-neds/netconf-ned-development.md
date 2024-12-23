@@ -17,7 +17,7 @@ Creating a NETCONF NED that uses the built-in NSO NETCONF client can be a pleasa
 
 Before NSO can manage a NETCONF-capable device, a corresponding NETCONF NED needs to be loaded. While no code needs to be written for such NED, it must contain YANG data models for this kind of device. While in some cases, the YANG models may be provided by the device's vendor, devices that implement RFC 6022 YANG Module for NETCONF Monitoring can provide their YANG models using the functionality described in this RFC.
 
-The NSO example under `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` implements two shell scripts that use different tools to build a NETCONF NED from a simulated hardware chassis system controller device.
+The NSO example under [examples.ncs/device-management/netconf-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/netconf-ned) implements two shell scripts that use different tools to build a NETCONF NED from a simulated hardware chassis system controller device.
 
 ### **The `netconf-console` and `ncs-make-package` Tools**
 
@@ -35,7 +35,7 @@ The `demo_nb.sh` script in the `netconf-ned` example uses the NSO CLI NETCONF NE
 
 ## Using the **`netconf-console`** and **`ncs-make-package`** Combination <a href="#d5e9098" id="d5e9098"></a>
 
-For a demo of the steps below, see README in the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` example and run the demo.sh script.
+For a demo of the steps below, see the README in the [examples.ncs/device-management/netconf-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/netconf-ned) example and run the demo.sh script.
 
 ### **Make the Device YANG Data Models Available to NSO**
 
@@ -181,11 +181,11 @@ fetch-result {
 result true
 ```
 
-NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/demo.sh` example script for a demo.
+NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the [examples.ncs/device-management/netconf-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/netconf-ned) `demo.sh` example script for a demo.
 
 ## Using the NETCONF NED Builder Tool <a href="#d5e9185" id="d5e9185"></a>
 
-For a demo of the steps below, see README in the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned` example and run the demo\_nb.sh script.
+For a demo of the steps below, see README in the [examples.ncs/device-management/netconf-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/netconf-ned) example and run the `demo_nb.sh` script.
 
 ### **Configure the Device Connection**
 
@@ -237,9 +237,9 @@ Create a NETCONF NED Builder project called `hardware` for the device, here name
 (config)# end
 # show netconf-ned-builder project hardware
 netconf-ned-builder project hardware 1.0
- download-cache-path /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/
+ download-cache-path /path/to/nso/examples.ncs/device-management/netconf-ned/nso-rundir/
                      state/netconf-ned-builder/cache/hardware-nc-1.0
- ned-directory-path  /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/
+ ned-directory-path  /path/to/nso/examples.ncs/device-management/netconf-ned/nso-rundir/
                      state/netconf-ned-builder/hardware-nc-1.0
 ```
 
@@ -258,7 +258,7 @@ This step is not required if the device supports the NETCONF `get-schema` operat
 After downloading the YANG data models and before building the NED with the NED builder, you need to register the YANG module with the NSO NED builder. For example, if you want to include a `dummy.yang` module with the NED, you first copy it to the cache directory and then, for example, create an XML file for use with the `ncs_load` command to update the NSO CDB operational datastore:
 
 ```bash
-$ cp dummy.yang $NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/\
+$ cp dummy.yang $NCS_DIR/examples.ncs/device-management/netconf-ned/\
   nso-rundir/state/netconf-ned-builder/cache/hardware-nc-1.0/
 $ cat dummy.xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
@@ -425,9 +425,11 @@ ietf-hardware       2018-03-13  selected,downloaded
 ietf-inet-types     2013-07-15  selected,pending
 ietf-yang-types     2013-07-15  selected,pending
 timestamp-hardware  2023-11-10  selected,pending
+```
 
-Waiting for NSO to download the selected YANG models (see demo-nb.sh for details)
+Waiting for NSO to download the selected YANG models (see the `demo_nb.sh` script for details)
 
+```bash
 NAME                REVISION    STATUS
 -----------------------------------------------------
 iana-hardware       2018-03-13  selected,downloaded
@@ -555,8 +557,8 @@ $ ncs_cli -u admin -C
 Commit complete.
 (config-user-admin)# end
 # netconf-ned-builder project hardware 1.0 export-ned to-directory \
-  /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/nso-rundir/packages
-tar-file /path/to/nso/examples.ncs/development-guide/ned-development/netconf-ned/
+  /path/to/nso/examples.ncs/device-management/netconf-ned/nso-rundir/packages
+tar-file /path/to/nso/examples.ncs/device-management/netconf-ned/
          nso-rundir/packages/ncs-6.2-hardware-nc-1.0.tar.gz
 ```
 
@@ -621,7 +623,7 @@ devices device hw0
 ...
 ```
 
-NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the `$NCS_DIR/examples.ncs/development-guide/ned-development/netconf-ned/demo-nb.sh` example script for a demo.
+NSO can now configure the device, state data can be read, actions can be executed, and notifications can be received. See the [examples.ncs/device-management/netconf-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/netconf-ned) `demo_nb.sh` example script for a demo.
 
 ### **Remove a NED from NSO**
 

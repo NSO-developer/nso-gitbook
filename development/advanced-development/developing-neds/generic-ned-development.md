@@ -35,7 +35,7 @@ state admin-state unlocked
 ...
 ```
 
-The example `examples.ncs/generic-ned/xmlrpc-device` in the NSO examples collection implements a generic NED that speaks XML-RPC to 3 HTTP servers. The HTTP servers run the Apache XML-RPC server code and the NED code manipulates the 3 HTTP servers using a number of predefined XML RPC calls.
+The [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device) example in the NSO examples collection implements a generic NED that speaks XML-RPC to 3 HTTP servers. The HTTP servers run the Apache XML-RPC server code and the NED code manipulates the 3 HTTP servers using a number of predefined XML RPC calls.
 
 A good starting point when we wish to implement a new generic NED is the `ncs-make-package --generic-ned-skeleton ...` command, which is used to generate a skeleton package for a generic NED.
 
@@ -83,7 +83,7 @@ Often a useful technique with generic NEDs can be to write a pyang plugin to gen
 
 Pyang is an extensible and open-source YANG parser (written by Tail-f) available at `http://www.yang-central.org`. pyang is also part of the NSO release. A number of plugins are shipped in the NSO release, for example `$NCS_DIR/lib/pyang/pyang/plugins/tree.py` is a good plugin to start with if we wish to write our own plugin.
 
-`$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` is a good example to start with if we wish to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
+The [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device) example is a good example to start with if we wish to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
 
 * Defined a fictitious YANG model for the device.
 * Implemented an XML-RPC server exporting a set of RPCs to manipulate that fictitious data model. The XML-RPC server runs the Apache `org.apache.xmlrpc.server.XmlRpcServer` Java package.
@@ -92,7 +92,7 @@ Pyang is an extensible and open-source YANG parser (written by Tail-f) available
 The example is self-contained, and we can, using the NED code, manipulate these XML-RPC servers in a manner similar to all other managed devices.
 
 ```bash
-$ cd $NCS_DIR/generic-ned/xmlrpc-device
+$ cd $NCS_DIR/device-management/xmlrpc-device
 ```
 
 ```bash
@@ -161,7 +161,7 @@ A device we wish to manage using a NED usually has not just configuration data t
 
 The commands on the device we wish to be able to invoke from NSO must be modeled as actions. We model this as actions and compile it using a special `ncsc` command to compile NED data models that do not directly relate to configuration data on the device.
 
-The NSO example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` contains an example where the managed device, a fictitious XML-RPC device contains a YANG snippet :
+The [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device) example managed device, a fictitious XML-RPC device, contains a YANG snippet:
 
 ```yang
 container commands {

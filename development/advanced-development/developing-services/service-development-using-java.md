@@ -698,7 +698,7 @@ The steps to build the solution described in this section are:
 
 ## Layer 3 MPLS VPN Service <a href="#d5e8748" id="d5e8748"></a>
 
-This service shows a more elaborate service mapping. It is based on the `examples.ncs/service-provider/mpls-vpn` example.
+This service shows a more elaborate service mapping. It is based on the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example.
 
 MPLS VPNs are a type of Virtual Private Network (VPN) that achieves segmentation of network traffic using Multiprotocol Label Switching (MPLS), often found in Service Provider (SP) networks. The Layer 3 variant uses BGP to connect and distribute routes between sites of the VPN.
 
@@ -751,7 +751,7 @@ The information needed to sort out what PE router a CE router is connected to as
 
 ### Creating a Multi-Vendor Service <a href="#d5e8807" id="d5e8807"></a>
 
-This section describes the creation of an MPLS L3VPN service in a multi-vendor environment by applying the concepts described above. The example discussed can be found in `examples.ncs/service-provider/mpls-vpn`. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
+This section describes the creation of an MPLS L3VPN service in a multi-vendor environment by applying the concepts described above. The example discussed can be found in [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java). The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
 
 The goal of the NSO service is to set up an MPLS Layer3 VPN on a number of CE router endpoints using BGP as the CE-PE routing protocol. Connectivity between the CE and PE routers is done through a Layer2 Ethernet access network, which is out of the scope of this service. In a real-world scenario, the access network could for example be handled by another service.
 

@@ -34,9 +34,9 @@ Compared to traditional fail-over HA solutions, Raft relies on the consensus of 
 
 Raft achieves robustness by requiring at least three nodes in the HA cluster. Three is the recommended cluster size, allowing the cluster to operate in the face of a single node failure. In case you need to tolerate two nodes failing simultaneously, you can add two additional nodes, for a 5-node cluster. However, permanently having more than five nodes in a single cluster is currently not recommended since Raft requires the majority of the currently configured nodes in the cluster to reach consensus. Without the consensus, the cluster cannot function.
 
-You can start a sample HA Raft cluster using the `examples.ncs/high-availability/raft-cluster` example to test it out. The scripts in the example show various aspects of cluster setup and operation, which are further described in the rest of this section.
+You can start a sample HA Raft cluster using the [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/raft-cluster) example to test it out. The scripts in the example show various aspects of cluster setup and operation, which are further described in the rest of this section.
 
-Optionally, examples using separate containers for each HA Raft cluster member with NSO system installations are available and referenced in the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
+Optionally, examples using separate containers for each HA Raft cluster member with NSO system installations are available and referenced in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/blob/6.4/high-availability/hcc) example in the NSO example set.
 
 ### Overview of Raft Operation <a href="#d5e4526" id="d5e4526"></a>
 
@@ -72,9 +72,9 @@ In most cases, this means the `ADDRESS` must appear in the node certificate's Su
 
 Create and use a self-signed CA to secure the NSO HA Raft cluster. A self-signed CA is the only secure option. The CA should only be used to sign the certificates of the member nodes in one NSO HA Raft cluster. It is critical for security that the CA is not used to sign any other certificates. Any certificate signed by the CA can be used to gain complete control of the NSO HA Raft cluster.
 
-See the `examples.ncs/high-availability/raft-cluster` example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.
+See the [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/raft-cluster) example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.
 
-Examples using separate containers for each HA Raft cluster member with NSO system installations that use a variant of the `gen_tls_certs.sh` script are available and referenced in the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
+Examples using separate containers for each HA Raft cluster member with NSO system installations that use a variant of the `gen_tls_certs.sh` script are available and referenced in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) example in the NSO example set.
 
 {% hint style="info" %}
 When using an IP address instead of a DNS name for node's `ADDRESS`, you must add the IP address to the certificate's dNSName SAN field (adding it to iPAddress field only is insufficient). This is a known limitation in the current version.
@@ -108,7 +108,7 @@ The recipe makes the following assumptions:
 * The CA is used solely for a single NSO HA Raft cluster, with certificates valid for 10 years, and provides no CRL. If a single key or host is compromised, a new CA and all key/certificate pairs must be recreated and reprovisioned in the cluster.
 * Keys and signatures based on ecdsa-with-sha384/P-384 are sufficiently secure for the vast majority of environments. However, if your organization has specific requirements, be sure to follow those.
 
-To use this recipe, first, prepare a working environment on a secure host by creating a new directory and copying the `gen_tls_certs.sh` script from `$NCS_DIR/examples.ncs/high-availability/raft-cluster` into it. Additionally, ensure that the `openssl` command, version 1.1 or later, is available and the system time is set correctly. Supposing that you have a cluster named `lower-west`, you might run:
+To use this recipe, first, prepare a working environment on a secure host by creating a new directory and copying the `gen_tls_certs.sh` script from [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/raft-cluster) into it. Additionally, ensure that the `openssl` command, version 1.1 or later, is available and the system time is set correctly. Supposing that you have a cluster named `lower-west`, you might run:
 
 ```bash
 $ mkdir raft-ca-lower-west
@@ -469,7 +469,7 @@ For the full procedure, first, ensure all cluster nodes are up and operational, 
 
 Note that while the upgrade is in progress, writes to the CDB are not allowed and will be rejected.
 
-For a `packages ha sync and-reload` example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
+For a `packages ha sync and-reload` example see the `raft-upgrade-l2` NSO system installation-based example referenced by the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) example in the NSO example set.
 
 For more details, troubleshooting, and general upgrade recommendations, see [NSO Packages](package-mgmt.md) and [Upgrade](../installation-and-deployment/upgrade-nso.md).
 
@@ -497,7 +497,7 @@ The procedure differentiates between the current leader node versus followers. T
 
 For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../installation-and-deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
 
-For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the `examples.ncs/development-guide/high-availability/hcc` example in the NSO example set.
+For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) example in the NSO example set.
 
 If the upgrade fails before or during the upgrade of the original leader, start up the original followers to restore service and then restore the original leader, using backup as necessary.
 
@@ -542,7 +542,7 @@ In an NSO System Install setup, not only does the shared token need to match bet
 
 The token configured on the secondary node is overwritten with the encrypted token of type `aes-256-cfb-128-encrypted-string` from the primary node when the secondary node connects to the primary. If there is a mismatch between the encrypted-string configuration on the nodes, NSO will not decrypt the HA token to match the token presented. As a result, the primary node denies the secondary node access the next time the HA connection needs to reestablish with a "Token mismatch, secondary is not allowed" error.
 
-See the `upgrade-l2` example, referenced from `examples.ncs/development-guide/high-availability/hcc`, for an example setup and the [Deployment Example](../installation-and-deployment/deployment-example.md) for a description of the example.
+See the `upgrade-l2` example, referenced from [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc), for an example setup and the [Deployment Example](../installation-and-deployment/deployment-example.md) for a description of the example.
 
 Also, note that the `ncs.crypto_keys` file is highly sensitive. The file contains the encryption keys for all CDB data that is encrypted on disk. Besides the HA token, this often includes passwords for various entities, such as login credentials to managed devices.
 
@@ -719,7 +719,7 @@ HCC 5.x or later automatically associates VIP addresses with Linux network inter
 
 Since version 5.0, HCC relies on the NSO built-in HA for cluster management and only performs address or route management in reaction to cluster changes. Therefore, no special measures are necessary if using HCC when performing an NSO version upgrade or a package upgrade. Instead, you should follow the standard best practice HA upgrade procedure from [NSO HA Version Upgrade](../installation-and-deployment/upgrade-nso.md#ch\_upgrade.ha).
 
-A reference to upgrade examples can be found in the NSO example set under `examples.ncs/development-guide/high-availability/hcc/README`.
+A reference to upgrade examples can be found in the README under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc).
 
 ### Layer-2 <a href="#ug.ha.hcc.layer2" id="ug.ha.hcc.layer2"></a>
 
@@ -881,17 +881,17 @@ Each NSO node can be placed in a separate Location/Site/Availability-Zone. This 
 Here is an example configuration for a setup of two dual-stack NSO nodes, node-1 and node-2, that have an IPv4 and an IPv6 address configured. The configuration also sets up an update signing with the specified key.
 
 ```cli
-admin@ncs(config)#  hcc dns enabled 
-admin@ncs(config)#  hcc dns fqdn example.com 
-admin@ncs(config)#  hcc dns ttl 120 
-admin@ncs(config)#  hcc dns key-file /home/cisco/DNS-testing/good.key 
-admin@ncs(config)#  hcc dns server 10.0.0.10 
-admin@ncs(config)#  hcc dns port 53 
-admin@ncs(config)#  hcc dns zone zone1.nso 
-admin@ncs(config)#  hcc dns member node-1 ip-address [ 10.0.0.20 ::10 ] 
-admin@ncs(config)#  hcc dns member node-1 location SanJose 
-admin@ncs(config)#  hcc dns member node-2 ip-address [ 10.0.0.30 ::20 ] 
-admin@ncs(config)#  hcc dns member node-2 location NewYork 
+admin@ncs(config)#  hcc dns enabled
+admin@ncs(config)#  hcc dns fqdn example.com
+admin@ncs(config)#  hcc dns ttl 120
+admin@ncs(config)#  hcc dns key-file /home/cisco/DNS-testing/good.key
+admin@ncs(config)#  hcc dns server 10.0.0.10
+admin@ncs(config)#  hcc dns port 53
+admin@ncs(config)#  hcc dns zone zone1.nso
+admin@ncs(config)#  hcc dns member node-1 ip-address [ 10.0.0.20 ::10 ]
+admin@ncs(config)#  hcc dns member node-1 location SanJose
+admin@ncs(config)#  hcc dns member node-2 ip-address [ 10.0.0.30 ::20 ]
+admin@ncs(config)#  hcc dns member node-2 location NewYork
 admin@ncs(config)# commit
 ```
 
@@ -903,7 +903,7 @@ This section describes basic deployment scenarios for HCC. Layer-2 mode is demon
 * [Enabling Layer-3 BGP](high-availability.md#enabling-layer-3-bgp)
 * [Enabling Layer-3 DNS](high-availability.md#enabling-layer-3-dns)
 
-A reference to container-based examples for the layer-2 and layer-3 deployment scenarios described here can be found in the NSO example set under `examples.ncs/development-guide/high-availability/hcc`.
+A reference to container-based examples for the layer-2 and layer-3 deployment scenarios described here can be found in the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc).
 
 Both scenarios consist of two test nodes: `london` and `paris` with a single IPv4 VIP address. For the layer-2 scenario, the nodes are on the same network. The layer-3 scenario also involves a BGP-enabled `router` node as the `london` and `paris` nodes are on two different networks.
 
@@ -969,7 +969,7 @@ root@london:~# ip address list
 
 Layer-2 Example Implementation:
 
-A reference to a container-based example of the layer-2 scenario can be found in the NSO example set. See the `examples.ncs/development-guide/high-availability/hcc/README`
+A reference to a container-based example of the layer-2 scenario can be found in the NSO example set. See the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) `README`.
 
 #### **Enabling Layer-3 BGP**
 
@@ -1041,7 +1041,7 @@ The VIP subnet is routed to the `paris` host, which is the primary node.
 
 Layer-3 BGP Example Implementation:
 
-A reference to a container-based example of the combined layer-2 and layer-3 BGP scenario can be found in the NSO example set. See the `examples.ncs/development-guide/high-availability/hcc/README`
+A reference to a container-based example of the combined layer-2 and layer-3 BGP scenario can be found in the NSO example set. See the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) `README`.
 
 #### **Enabling Layer-3 DNS**
 
@@ -1098,7 +1098,7 @@ As an alternative to the HCC package, NSO built-in HA, either rule-based or HA R
 
 <figure><img src="../../images/ha-load-balancer.png" alt="" width="563"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure>
 
-The load balancer uses HTTP health checks to determine which node is currently the active primary. The example, found in the `examples.ncs/development-guide/high-availability/load-balancer` directory uses HTTP status codes on the health check endpoint to easily distinguish whether the node is currently primary or not.
+The load balancer uses HTTP health checks to determine which node is currently the active primary. The example, found in the [examples.ncs/high-availability/load-balancer](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/load-balancer) directory uses HTTP status codes on the health check endpoint to easily distinguish whether the node is currently primary or not.
 
 In the example, freely available HAProxy software is used as a load balancer to demonstrate the functionality. It is configured to steer connections on localhost to either of the TCP port 2024 (SSH CLI) and TCP port 8080 (web UI and RESTCONF) to the active node in a 2-node HA cluster. The HAProxy software is required if you wish to run this example yourself.
 
