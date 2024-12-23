@@ -10,7 +10,7 @@ Another limitation is that the service mapping code must not produce any side ef
 
 Nano services help you overcome these limitations. They implement a service as several smaller (nano) steps or stages, by using a technique called reactive FASTMAP (RFM), and provide a framework to safely execute actions with side effects. Reactive FASTMAP can also be implemented directly, using the CDB subscribers, but nano services offer a more streamlined and robust approach for staged provisioning.
 
-The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
+The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services) folder.
 
 ## Basic Concepts <a href="#d5e9577" id="d5e9577"></a>
 
@@ -30,7 +30,7 @@ For these reasons, service states are central to the design of a nano service. A
 
 By default, the plan outline consists of a single component, the `self` component, with the two states `init` and `ready`. It can be used to track the progress of the service as a whole. You can add any number of additional components and states to form the nano service.
 
-The following YANG snippet, also part of the `examples.ncs/development-guide/nano-services/basic-vrouter` example, shows a plan outline with the two VM-provisioning states presented above:
+The following YANG snippet, also part of the [examples.ncs/nano-services/basic-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/basic-vrouter) example, shows a plan outline with the two VM-provisioning states presented above:
 
 ```yang
 module vrouter {
@@ -504,7 +504,7 @@ This is extremely useful, since you can access these values, as well as the ones
 
 ## Netsim Router Provisioning Example <a href="#d5e9876" id="d5e9876"></a>
 
-The `examples.ncs/development-guide/nano-services/netsim-vrouter` folder contains a complete implementation of a service that provisions a netsim device instance, onboards it to NSO, and pushes a sample interface configuration to the device. Netsim device creation is neither instantaneous nor side-effect-free and thus requires the use of a nano service. It more closely resembles a real-world use case for nano services.
+The [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) folder contains a complete implementation of a service that provisions a netsim device instance, onboards it to NSO, and pushes a sample interface configuration to the device. Netsim device creation is neither instantaneous nor side-effect-free and thus requires the use of a nano service. It more closely resembles a real-world use case for nano services.
 
 To see how the service is used through a prearranged scenario, execute the `make demo` command from the example folder. The scenario provisions and de-provisions multiple netsim devices to show different states and behaviors, characteristic of nano services.
 
@@ -635,7 +635,7 @@ The built-in service-state-changes NETCONF/RESTCONF stream is used by NSO to gen
 
 When a service's plan component changes state, the `plan-state-change` notification is generated with the new state of the plan. It includes the status, which indicates one of not-reached, reached, or failed. The notification is sent when the state is `created`, `modified`, or `deleted`, depending on the configuration. For reference on the structure and all the fields present in the notification, please see the YANG model in the `tailf-ncs-plan.yang` file.
 
-As a common use case, an event with status `reached` for the `self` component `ready` state signifies that all nano service components have reached their `ready` state and provisioning is complete. A simple example of this scenario is included in the `examples.ncs/development-guide/nano-services/netsim-vrouter/demo.py` Python script, using RESTCONF.
+As a common use case, an event with status `reached` for the `self` component `ready` state signifies that all nano service components have reached their `ready` state and provisioning is complete. A simple example of this scenario is included in the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) `demo_rc.py` Python script, using RESTCONF.
 
 To enable the plan-state-change notifications to be sent, you must enable them for a specific service in NSO. For example, can load the following configuration into the CDB as an XML initialization file:
 
@@ -666,7 +666,7 @@ This configuration enables notifications for the self component's ready state wh
 
 When a service is committed through the commit queue, this notification acts as a reference regarding the state of the service. Notifications are sent when the service commit queue item is waiting to run, executing, waiting to be unlocked, completed, failed, or deleted. More details on the `service-commit-queue-event` notification content can be found in the YANG model inside `tailf-ncs-services.yang` .
 
-For example, the `failed` event can be used to detect that a nano service instance deployment failed because a configuration change committed through the commit queue has failed. Measures to resolve the issue can then be taken and the nano service instance can be re-deployed. A simple example of this scenario is included in the `examples.ncs/development-guide/nano-services/netsim-vrouter/demo.py` Python script where the service is committed through the commit queue, using RESTCONF. By design, the configuration commit to a device fails, resulting in a `commit-queue-notification` with the `failed` event status for the commit queue item.
+For example, the `failed` event can be used to detect that a nano service instance deployment failed because a configuration change committed through the commit queue has failed. Measures to resolve the issue can then be taken and the nano service instance can be re-deployed. A simple example of this scenario is included in the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) `demo_rc.py` Python script where the service is committed through the commit queue, using RESTCONF. By design, the configuration commit to a device fails, resulting in a `commit-queue-notification` with the `failed` event status for the commit queue item.
 
 To enable the service-commit-queue-event notifications to be sent, you can load the following example configuration into NSO, as an XML initialization file or some other way:
 
@@ -780,14 +780,13 @@ notification
 
 ### The `trace-id` in the Notification <a href="#d5e10037" id="d5e10037"></a>
 
-You have likely noticed the trace-id field at the end of the example notifications above. The trace ID is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the `examples.ncs/development-guide/nano-services/netsim-vrouter` example, are emitted after applying a RESTCONF plain patch:
+You have likely noticed the trace-id field at the end of the example notifications above. The trace ID is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) example, are emitted after applying a RESTCONF plain patch:
 
 ```
 $ curl -isu admin:admin -X PATCH
   -H "Content-type: application/yang-data+json"
   'http://localhost:8080/restconf/data?commit-queue=sync&trace-id=vr7-1'
   -d '{ "vrouter:vrouter": [ { "name": "vr7" } ] }'
-          
 ```
 
 Note that the trace ID is specified as part of the URL. If missing, NSO will generate and assign one on its own.
@@ -1301,11 +1300,11 @@ After such an event, manual intervention is required. If not using the `rollback
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
-You can find another nano service example under `examples.ncs/getting-started/developing-with-ncs/20-nano-services`. The example illustrates a situation with a simple VPN link that should be set up between two devices. The link is considered established only after it is tested and a `test-passed` leaf is set to `true`. If the VPN link changes, the new endpoints must be set up before removing the old endpoints, to avoid disturbing customer traffic during the operation.
+You can find another nano service example under [examples.ncs/nano-services/link-migration](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/link-migration). The example illustrates a situation with a simple VPN link that should be set up between two devices. The link is considered established only after it is tested and a `test-passed` leaf is set to `true`. If the VPN link changes, the new endpoints must be set up before removing the old endpoints, to avoid disturbing customer traffic during the operation.
 
 The package named `link` contains the nano service definition. The service has a list containing at most one element, which constitutes the VPN link and is keyed on a-device a-interface b-device b-interface. The list element corresponds to a component type `link:vlan-link` in the nano service plan.
 
-{% code title="Example: 20-nano-services Link Example Plan" %}
+{% code title="Example: Link Migration Example Plan" %}
 ```
   identity vlan-link {
     base ncs:plan-component-type;
@@ -1393,7 +1392,7 @@ The `delete` pre-condition for the same state is as follows:
 
 This pre-condition implies that before you start deleting (back-tracking) an old component, the new component must have reached the `ncs:ready` state, that is, after being successfully tested. The first part of the pre-condition checks the status of the `vlan-link` components. Since there can be at most one link configured in the service instance, the only non-backtracking component, other than self, is the new link component. However, that condition on its own prevents the component to be deleted when deleting the service. So, the second part, after the `or` statement, checks if all components are back-tracking, which signifies service deletion. This approach illustrates a "create-before-break" scenario where the new link is created first, and only when it is set up, the old one is removed.
 
-{% code title="Example: 20-nano-services Link Example Behavior Tree" %}
+{% code title="Example: Link Migration Example Behavior Tree" %}
 ```
   ncs:service-behavior-tree link-servicepoint {
     description
@@ -1430,7 +1429,7 @@ To run the example, do the following:
 Build the example:
 
 ```bash
-$ cd examples.ncs/getting-started/developing-with-ncs/20-nano-services
+$ cd examples.ncs/nano-services/link-migration
 $ make all
 ```
 

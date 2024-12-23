@@ -39,7 +39,7 @@ The optional `webui` directory contains the WEB UI customization files.
 
 ## An Example Package <a href="#d5e4949" id="d5e4949"></a>
 
-The NSO example collection for developers contains a number of small self-contained examples. The collection resides at `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs` Each of these examples defines a package. Let's take a look at some of these packages. The example `3-aggregated-stats` has a package `./packages/stats`. The `package-meta-data.xml` file for that package looks like this:
+The NSO example collection for contains a number of small self-contained examples. The collection resides at `$NCS_DIR/examples.ncs` Each of these examples defines a package. Let's take a look at some of these packages. The example [examples.ncs/device-management/aggregated-stats](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/aggregated-stats) has a package `./packages/stats`. The `package-meta-data.xml` file for that package looks like this:
 
 {% code title="An Example Package" %}
 ```xml
@@ -164,7 +164,7 @@ submodule: tailf-ncs-packages (belongs-to tailf-ncs)
 The order of the XML entries in a `package-meta-data.xml` must be in the same order as the model shown above.
 {% endhint %}
 
-A sample package configuration is taken from the `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-vrouter`example:
+A sample package configuration is taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) example:
 
 ```bash
 $ ncs_load -o -Fp -p /packages
@@ -241,7 +241,7 @@ Below is a brief list of the configurables in the `tailf-ncs-packages.yang` YANG
 * `directory` - the path to the directory of the package.
 * `templates` - the templates defined by the package.
 * `template-loading-mode` - control if the templates are interpreted in strict or relaxed mode.
-*   `supported-ned-id` - the list of ned-ids supported by this package. An example of the expected format taken from the `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-vrouter` example:
+*   `supported-ned-id` - the list of ned-ids supported by this package. An example of the expected format taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/netsim-vrouter) example:
 
     ```xml
     <supported-ned-id xmlns:router-nc-1.1="http://tail-f.com/ns/ned-id/router-nc-1.1">
@@ -296,12 +296,12 @@ A Network Element Driver component is used southbound of NSO to communicate with
 
 There are four different types of NEDs:
 
-* **NETCONF**: used for NETCONF-enabled devices such as Juniper routers, ConfD-powered devices, or any device that speaks proper NETCONF and also has YANG models. Plenty of packages in the NSO example collection have NETCONF NED components, for example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/0-router-network/packages/router`.
+* **NETCONF**: used for NETCONF-enabled devices such as Juniper routers, ConfD-powered devices, or any device that speaks proper NETCONF and also has YANG models. Plenty of packages in the NSO example collection have NETCONF NED components, for example, [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) under `packages/router`.
 *   **SNMP**: Used for SNMP devices.
 
-    The example `$NCS_DIR/examples.ncs/snmp-ned/basic` has a package that has an SNMP NED component.
+    The example [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-ned) has a package that has an SNMP NED component.
 * **CLI**: used for CLI devices. The package `$NCS_DIR/packages/neds/cisco-ios` is an example of a package that has a CLI NED component.
-* **Generic**: used for generic NED devices. The example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device` has a package called `xml-rpc` which defines a NED component of type generic\_.\_
+* **Generic**: used for generic NED devices. The example [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device) has a package called `xml-rpc` which defines a NED component of type generic\_.\_
 
 A CLI NED and a generic NED component must also come with additional user-written Java code, whereas a NETCONF NED and an SNMP NED have no Java code.
 
@@ -326,29 +326,29 @@ The `Stats` class here implements a read-only data provider. See [DP API](api-ov
 
 The `callback` type of component is used for a wide range of callback-type Java applications, where one of the most important are the Service Callbacks. The following list of Java callback annotations applies to callback components.
 
-* `ServiceCallback` to implement service-to-device mappings. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/4-rfs-service` See [Developing NSO Services](../advanced-development/developing-services/) for a thorough introduction to services.
-* `ActionCallback` to implement user-defined `tailf:actions` or YANG RPCs. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/2-actions`.
-* `DataCallback` to implement the data getters and setters for a data provider. See the example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/3-aggregated-stats`.
-* `TransCallback` to implement the transaction portions of a data provider callback. See the example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/3-aggregated-stats`.
-* `DBCallback` to implement an external database. See the example: `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/6-extern-db`.
-* `SnmpInformResponseCallback` to implement an SNMP listener - See the example `$NCS_DIR/examples.ncs/snmp-notification-receiver`.
+* `ServiceCallback` to implement service-to-device mappings. See the example: [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service) See [Developing NSO Services](../advanced-development/developing-services/) for a thorough introduction to services.
+* `ActionCallback` to implement user-defined `tailf:actions` or YANG RPC and actions. See the examples: [examples.ncs/sdk-api/actions-python](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/actions-py) and [examples.ncs/sdk-api/actions-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/actions-java).
+* `DataCallback` to implement the data getters and setters for a data provider. See the example [examples.ncs/device-management/aggregated-stats](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/aggregated-stats).
+* `TransCallback` to implement the transaction portions of a data provider callback. See the example [examples.ncs/device-management/aggregated-stats](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/aggregated-stats).
+* `DBCallback` to implement an external database. See the example: [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-db).
+* `SnmpInformResponseCallback` to implement an SNMP listener - See the example [examples.ncs/device-management/snmp-notification-receiver](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-notification-receiver).
 * `TransValidateCallback`_,_ `ValidateCallback` to implement a user-defined validation hook that gets invoked on every commit.
 * `AuthCallback` to implement a user hook that gets called whenever a user is authenticated by the system.
 * `AuthorizationCallback` to implement an authorization hook that allows/disallows users to do operations and/or access data. Note, that this callback should normally be avoided since, by nature, invoking a callback for any operation and/or data element is a performance impairment.
 
-A package that has a `callback` component usually has some YANG code and then also some Java code that relates to that YANG code. By convention, the YANG and the Java code reside in a src directory in the component. When the source of the package is built, any resulting `fxs` files (compiled YANG files) must reside in the `load-dir` of package and any resulting Java compilation results must reside in the `shared-jar` and `private-jar` directories. Study the `3-aggregated-stats` example to see how this is achieved.
+A package that has a `callback` component usually has some YANG code and then also some Java code that relates to that YANG code. By convention, the YANG and the Java code reside in a src directory in the component. When the source of the package is built, any resulting `fxs` files (compiled YANG files) must reside in the `load-dir` of package and any resulting Java compilation results must reside in the `shared-jar` and `private-jar` directories. Study the [examples.ncs/device-management/aggregated-stats](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/aggregated-stats) example to see how this is achieved.
 
 #### Application
 
 Used to cover Java applications that do not fit into the callback type. Typically this is functionality that should be running in separate threads and work autonomously.
 
-The example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/1-cdb` contains three components that are of type `application`. These components must also contain a `java-class-name` element. For application components, that Java class must implement the `ApplicationComponent` Java interface.
+The example [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) contains three components that are of type `application`. These components must also contain a `java-class-name` element. For application components, that Java class must implement the `ApplicationComponent` Java interface.
 
 #### Upgrade
 
 Used to migrate data for packages where the yang model has changed and the automatic CDB upgrade is not sufficient. The upgrade component consists of a Java class with a main method that is expected to run one time only.
 
-The example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/14-upgrade-service` illustrates user CDB upgrades using `upgrade` components.
+The example [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) illustrates user CDB upgrades using `upgrade` components.
 
 ## Creating Packages <a href="#ug.packages.creating" id="ug.packages.creating"></a>
 
@@ -417,10 +417,10 @@ Assuming we have a set of MIB files in `./mibs`, we can generate a package for a
 
 ### Creating a CLI NED Package or a Generic NED Package <a href="#d5e5199" id="d5e5199"></a>
 
-For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is `$NCS_DIR/packages/neds/cisco-ios` and a good starting point for a Generic NED is the example `$NCS_DIR/examples.ncs/generic-ned/xmlrpc-device`
+For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is `$NCS_DIR/packages/neds/cisco-ios` and a good starting point for a Generic NED is the example [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device).
 
 ### Creating a Service Package or a Data Provider Package <a href="#d5e5204" id="d5e5204"></a>
 
 The `ncs-make-package` can be used to generate empty skeleton packages for a data provider and a simple service. The flags `--service-skeleton` and `--data-provider-skeleton`.
 
-Alternatively, one of the examples can be modified to provide a good starting point. For example `$NCS_DIR/examples.ncs/getting-started/developing-with-ncs/4-rfs-service`
+Alternatively, one of the examples can be modified to provide a good starting point. For example [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service).

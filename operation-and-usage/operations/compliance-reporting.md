@@ -23,7 +23,7 @@ Reports can be generated using either the CLI or Web UI. The suggested and favor
 
 It is possible to create several named compliance report definitions. Each named report defines the devices, services, and/or templates that should be part of the network configuration verification.
 
-Let us walk through a simple compliance report definition. This example is based on the `examples.ncs/service-provider/mpls-vpn` example. For the details of the included services and devices in this example, see the `README` file.
+Let us walk through a simple compliance report definition. This example is based on the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example. For the details of the included services and devices in this example, see the `README` file.
 
 Each report definition has a name and can specify device and service checks. Device checks are further classified into sync and configuration checks. Device sync checks verify the in-sync status of the devices included in the report, while device configuration checks verify individual device configuration against a compliance template (see [Device Configuration Checks](compliance-reporting.md#device-configuration-checks)).
 
