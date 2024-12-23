@@ -292,7 +292,7 @@ The code in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer
 
 The DP API makes it possible to create callbacks which are called when certain events occur in NSO. As the name of the API indicates, it is possible to write data provider callbacks that provide data to NSO that is stored externally. However, this is only one of several callback types provided by this API. There exist callback interfaces for the following types:
 
-* Service Callbacks - invoked for service callpoints in the YANG model. Implements service to device information mappings. See for example [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service)
+* Service Callbacks - invoked for service callpoints in the YANG model. Implements service to device information mappings. See, for example, [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service).
 * Action Callbacks - invoked for a certain action in the YANG model which is defined with a callpoint directive.
 * Authentication Callbacks - invoked for external authentication functions.
 * Authorization Callbacks - invoked for external authorization of operations and data. Note, avoid this callback if possible since performance will otherwise be affected.
