@@ -21,7 +21,7 @@ To understand the main idea behind the NSO device manager it is necessary to und
 
 The NEDs will publish YANG data models even for non-NETCONF devices. In the case of SNMP the YANG models are generated from the MIBs. For JunOS devices the JunOS NED generates a YANG from the JunOS XML Schema. For Schema-less devices like CLI devices, the NED developer writes YANG models corresponding to the CLI structure. The result of this is the device manager and NSO CDB has YANG data models for all devices independent of the underlying protocol.
 
-Throughout this section, we will use the `examples.ncs/service-provider/mpls-vpn` example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
+Throughout this section, we will use the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
 
 <figure><img src="../../images/network.jpg" alt=""><figcaption><p>NSO Example Network</p></figcaption></figure>
 
@@ -243,12 +243,12 @@ packages package juniper-junos-nc-3.0
 
 The CLI command in the above example (Installed Packages) shows all the loaded packages. NSO loads packages at startup and can reload packages at run-time. By default, the packages reside in the `packages` directory in the NSO run-time directory.
 
-<pre><code>$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn
+<pre><code>$ ls -l $NCS_DIR/examples.ncs/service-management/mpls-vpn-java
 total 160
 ...
 drwxr-xr-x   8 stefan  staff    272 Oct  1 16:57 packages
 ...
-<strong>$ ls -l $NCS_DIR/examples.ncs/service-provider/mpls-vpn/packages
+<strong>$ ls -l $NCS_DIR/examples.ncs/service-management/mpls-vpn-java/packages
 </strong>total 24
 cisco-ios
 cisco-iosxr
@@ -317,7 +317,7 @@ NSO provides the ability to synchronize the configuration to or from the device.
 
 In the normal case, the configuration on the device and the copy of the configuration inside NSO should be identical.
 
-In a cold start situation like in the mpls-vpn example, where NSO is empty and there are network devices to talk to, it makes sense to synchronize from the devices. You can choose to synchronize from one device at a time or from all devices at once. Here is a CLI session to illustrate this.
+In a cold start situation like in the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example, where NSO is empty and there are network devices to talk to, it makes sense to synchronize from the devices. You can choose to synchronize from one device at a time or from all devices at once. Here is a CLI session to illustrate this.
 
 {% code title="Example: Synchronize From Devices" %}
 ```cli
@@ -507,7 +507,7 @@ This makes it possible to investigate the changes before they are transmitted to
 
 ### Partial `sync-from` <a href="#d5e2872" id="d5e2872"></a>
 
-It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from `examples.ncs/getting-started/developing-with-ncs/0-router-network`.
+It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example.
 
 {% code title="Example: Example of Running partial-sync-from Action via CLI" %}
 ```bash
@@ -1865,7 +1865,7 @@ This section shows how device templates can be used to create and change device 
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 
-The `$NCS_DIR/examples.ncs/service-provider/mpls-vpn` example comes with a pre-populated template for SNMP settings.
+The [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example comes with a pre-populated template for SNMP settings.
 
 ```cli
 ncs(config)# show full-configuration devices template
@@ -2540,7 +2540,7 @@ ncs(config)# devices device pe2 rpc \
 rpc-get-software-information get-software-information brief
 ```
 
-In the simulated environment of the mpls-vpn example, these RPCs might not have been implemented.
+In the simulated environment of the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example, these RPCs might not have been implemented.
 
 ## Device Groups <a href="#user_guide.devicemanager.device_groups" id="user_guide.devicemanager.device_groups"></a>
 
@@ -3153,7 +3153,7 @@ Notifications must be defined at the top level of a YANG module. NSO does curren
 
 ### An Example Session <a href="#d5e4020" id="d5e4020"></a>
 
-In this section, we will use the `examples.ncs/web-server-farm/basic` example.
+In this section, we will use the [examples.ncs/device-management/web-server-basic](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/web-server-basic) example.
 
 Let's dive into an example session with the NSO CLI. In the NSO example collection, the webserver publishes two NETCONF notification structures, indicating what they intend to send to any interested listeners. They all have the YANG module:
 

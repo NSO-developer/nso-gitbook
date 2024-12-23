@@ -189,7 +189,7 @@ The same functionality is available in Java as well, as the `Maapi.ncsRunWithRet
 
 As an alternative option, available only in Python, you can use the `retry_on_conflict()` function decorator.
 
-Example code for each of these approaches is shown next. In addition, the `examples.ncs/development-guide/concurrency-model/retry` example showcases this functionality as part of a concrete service.
+Example code for each of these approaches is shown next. In addition, the [examples.ncs/scaling-performance/conflict-retry](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/conflict-retry) example showcases this functionality as part of a concrete service.
 
 ## Example Retrying Code in Python <a href="#d5e8569" id="d5e8569"></a>
 

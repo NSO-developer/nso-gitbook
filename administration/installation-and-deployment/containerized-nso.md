@@ -48,7 +48,7 @@ Consult the [Installation](README.md) documentation for information on installin
 {% hint style="info" %}
 See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
-The `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-sshkey/README` provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
+The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
 ### Build Image
@@ -501,7 +501,7 @@ This example covers the necessary information to manifest the use of NSO images 
 
 #### **Packages**
 
-The packages used in this example are taken from the `examples.ncs/development-guide/nano-services/netsim-sshkey` example:
+The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](getting-started/netsim-sshkey) example:
 
 * `distkey`: A simple Python + template service package that automates the setup of SSH public key authentication between netsim (ConfD) devices and NSO using a nano service.
 * `ne`: A NETCONF NED package representing a netsim network element that implements a configuration subscriber Python application that adds or removes the configured public key, which the netsim (ConfD) network element checks when authenticating public key authentication clients.
@@ -653,8 +653,8 @@ Follow the steps below to run the images using Docker Compose:
 2.  Copy the packages from the `netsim-sshkey` example and compile them in the NSO Build container. The easiest way to do this is by using the `docker exec` command, which gives more control over what to build and the order of it. You can also do this with a script to make it easier and less verbose. Normally you populate the package directory from the host. Here, we use the packages from an example.
 
     ```bash
-    docker exec -it build-nso-pkgs sh -c 'cp -r ${NCS_DIR}/examples.ncs/development-guide \
-        /nano-services/netsim-sshkey/packages ${NCS_RUN_DIR}'
+    docker exec -it build-nso-pkgs sh -c 'cp -r ${NCS_DIR}/examples.ncs/getting-started \
+        /netsim-sshkey/packages ${NCS_RUN_DIR}'
 
     docker exec -it build-nso-pkgs sh -c 'for f in ${NCS_RUN_DIR}/packages/*/src; \
         do make -C "$f" all || exit 1; done'
@@ -695,7 +695,7 @@ Follow the steps below to run the images using Docker Compose:
     printf "${PURPLE}##### NOTE: Normally you populate the package directory from the host.
     Here, we use packages from an NSO example\n${NC}"
     docker exec -it build-nso-pkgs sh -c 'cp -r
-     ${NCS_DIR}/examples.ncs/development-guide/nano-services/netsim-sshkey/packages ${NCS_RUN_DIR}'
+     ${NCS_DIR}/examples.ncs/getting-started/netsim-sshkey/packages ${NCS_RUN_DIR}'
 
     printf "${GREEN}##### Build the packages\n${NC}"
     docker exec -it build-nso-pkgs sh -c 'for f in ${NCS_RUN_DIR}/packages/*/src;
@@ -713,9 +713,9 @@ Follow the steps below to run the images using Docker Compose:
         read -n 1 -s -r
     fi
     docker exec -it nso1 sh -c 'sed -i.orig -e "s/make/#make/"
-     ${NCS_DIR}/examples.ncs/development-guide/nano-services/netsim-sshkey/showcase.sh'
+     ${NCS_DIR}/examples.ncs/getting-started/netsim-sshkey/showcase.sh'
     docker exec -it nso1 sh -c 'cd ${NCS_RUN_DIR};
-     ${NCS_DIR}/examples.ncs/development-guide/nano-services/netsim-sshkey/showcase.sh 1'
+     ${NCS_DIR}/examples.ncs/getting-started/netsim-sshkey/showcase.sh 1'
     ```
 
 ### Upgrading NSO using Docker Compose <a href="#d5e8861" id="d5e8861"></a>

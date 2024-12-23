@@ -131,10 +131,10 @@ Variables in template:
 </config>
 ```
 
-In this case, NSO finds a single pattern (the only one) and creates the corresponding template. In general, NSO might produce a number of templates. As an example, try running the command within the `examples.ncs/implement-a-service/dns-v3` environment.
+In this case, NSO finds a single pattern (the only one) and creates the corresponding template. In general, NSO might produce a number of templates. As an example, try running the command within the [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3) environment.
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/implement-a-service/dns-v3
+$ cd $NCS_DIR/examples.ncs/service-management/implement-a-service/dns-v3
 $ make demo
 admin@ncs#  templatize devices device c*
 ```
@@ -810,7 +810,7 @@ $ ncs_cmd -c "x /devices/device[name='c0']/config/ios:interface/FastEthernet/nam
 
 ### Example Debug Template Output <a href="#d5e2727" id="d5e2727"></a>
 
-The following text walks through the output of the `debug template` command for a dns-v3 example service, found in `examples.ncs/implement-a-service/dns-v3`. To try it out for yourself, start the example with `make demo` and configure a service instance:
+The following text walks through the output of the `debug template` command for a dns-v3 example service, found in [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3). To try it out for yourself, start the example with `make demo` and configure a service instance:
 
 ```cli
 admin@ncs# config

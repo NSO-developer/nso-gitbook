@@ -194,7 +194,7 @@ For progress trace documentation, see [Progress Trace](progress-trace.md).
 
 ### Running the `perf-trans` Example Using a Single Transaction <a href="#d5e8501" id="d5e8501"></a>
 
-The `perf-trans` example from the NSO example set explores the opportunities to improve the wall-clock time performance and utilization, as well as opportunities to avoid common pitfalls.
+The [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example from the NSO example set explores the opportunities to improve the wall-clock time performance and utilization, as well as opportunities to avoid common pitfalls.
 
 The example uses simulated CPU loads for service creation and validation work. Device work is simulated with `sleep()` as it will not run on the same processor in a production system.
 
@@ -202,18 +202,18 @@ The example shows how NSO can benefit from running many transactions concurrentl
 
 The provided code sets up an NSO instance that exports tracing data to a `.csv` file, provisions one or more service instances, which each map to a device, and shows different (average) transaction times and a graph to visualize the sequences plus concurrency.
 
-Play with the `perf-trans` example by tweaking the `measure.py` script parameters:
+Play with the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example by tweaking the `measure.py` script parameters:
 
 ```code
 plain patch
 ```
 
-See the README in the `perf-trans` example for details.
+See the README in the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example for details.
 
-To run the `perf-trans` example from the NSO example set and recreate the variant shown in the progress trace above:
+To run the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example from the NSO example set and recreate the variant shown in the progress trace above:
 
 ```bash
-cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-trans
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-trans
 make NDEVS=2 python
 python3 measure.py --ntrans 1 --nwork 2 --ndtrans 2 --cqparam bypass --ddelay 1
 python3 ../common/simple_progress_trace_viewer.py $(ls logs/*.csv)
@@ -278,12 +278,12 @@ If a service creates a significant amount of configuration data for devices, it 
 
 #### **Running the `perf-setvals` Example Using a Single Call to MAAPI `shared_set_values()`**
 
-The `perf-setvals` example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python `create()` and `set()` calls, Python `shared_set_values()`, or Java `sharedSetValues()` to write the configuration in XML format.
+The [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python `create()` and `set()` calls, Python `shared_set_values()`, or Java `sharedSetValues()` to write the configuration in XML format.
 
-To run the `perf-setvals` example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
+To run the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
 
 ```bash
-cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-setvals
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-setvals
 ./measure.sh -r 3000 -t py_create -n true
 ```
 
@@ -291,7 +291,7 @@ The commit uses the `no-networking` parameter to skip pushing the configuration 
 
 <figure><img src="../../images/service-create-progress.png" alt=""><figcaption></figcaption></figure>
 
-Next, run the `perf-setvals` example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
+Next, run the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
 
 ```
 ./measure.sh -r 3000 -t py_setvals_xml -n true
@@ -319,10 +319,10 @@ Writing to devices and other network elements that are slow to configure will st
 
 ### Running the `perf-trans` Example Using One Transaction per Device <a href="#d5e8559" id="d5e8559"></a>
 
-Dividing the service creation and validation work into two separate transactions, one per device, allows the work to be spread across two CPU cores in a multi-core processor. To run the `perf-trans` example with the work divided into one transaction per device:
+Dividing the service creation and validation work into two separate transactions, one per device, allows the work to be spread across two CPU cores in a multi-core processor. To run the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example with the work divided into one transaction per device:
 
 ```bash
-cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-trans
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-trans
 make stop clean NDEVS=2 python
 python3 measure.py --ntrans 2 --nwork 1 --ndtrans 1 --cqparam bypass --ddelay 1
 python3 ../common/simple_progress_trace_viewer.py $(ls logs/*.csv)
@@ -357,9 +357,9 @@ Writing to a commit queue instead of the device moves the device configuration p
 
 For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
 
-### Enabling Commit Queues for the perf-trans Example <a href="#d5e8585" id="d5e8585"></a>
+### Enabling Commit Queues for the `perf-trans` Example <a href="#d5e8585" id="d5e8585"></a>
 
-Enabling commit queues allows the two transactions to spread the create, validation, and configuration push to devices work across CPU cores in a multi-core processor. Only the CDB write and commit queue write now remain inside the critical section, and the transaction lock is released as soon as the device configuration changes have been written to the commit queues instead of waiting for the config push to the devices to complete. To run the `perf-trans` example with the work divided into one transaction per device and commit queues enabled:
+Enabling commit queues allows the two transactions to spread the create, validation, and configuration push to devices work across CPU cores in a multi-core processor. Only the CDB write and commit queue write now remain inside the critical section, and the transaction lock is released as soon as the device configuration changes have been written to the commit queues instead of waiting for the config push to the devices to complete. To run the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example with the work divided into one transaction per device and commit queues enabled:
 
 ```bash
 make stop clean NDEVS=2 python
@@ -390,11 +390,11 @@ Stop NSO and the netsim devices:
 make stop
 ```
 
-Running the `perf-setvals` example with two devices and commit queues enabled will produce a similar result.
+Running the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example with two devices and commit queues enabled will produce a similar result.
 
 ### Simplify the Per-Device Concurrent Transaction Creation Using a Nano Service <a href="#ncs.development.scaling.throughput.nano" id="ncs.development.scaling.throughput.nano"></a>
 
-The `perf-trans` example service uses one transaction per service instance where each service instance configures one device. This enables transactions to run concurrently on separate CPU cores in a multi-core processor. The example sends RESTCONF `patch` requests concurrently to start transactions that run concurrently with the NSO transaction manager. However, dividing the work into multiple processes may not be practical for some applications using the NSO northbound interfaces, e.g., CLI or RESTCONF. Also, it makes a future migration to LSA more complex.
+The [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example service uses one transaction per service instance where each service instance configures one device. This enables transactions to run concurrently on separate CPU cores in a multi-core processor. The example sends RESTCONF `patch` requests concurrently to start transactions that run concurrently with the NSO transaction manager. However, dividing the work into multiple processes may not be practical for some applications using the NSO northbound interfaces, e.g., CLI or RESTCONF. Also, it makes a future migration to LSA more complex.
 
 To simplify the NSO manager application, a resource-facing nano service (RFS) can start a process per service instance. The NSO manager application or user can then use a single transaction, e.g., CLI or RESTCONF, to configure multiple service instances where the NSO nano service divides the service instances into transactions running concurrently in separate processes.
 
@@ -414,14 +414,14 @@ A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS
 
 ### Running the CFS and Nano Service enabled `perf-stack` Example
 
-The `perf-stack` example showcases how a CFS on top of a simple resource-facing nano service can be implemented with the `perf-trans` example by modifying the existing t3 RFS and adding a CFS. Instead of multiple RESTCONF transactions, the example uses a single CLI CFS service commit that updates the desired number of service instances. The commit configures multiple service instances in a single transaction where the nano service runs each service instance in a separate process to allow multiple cores to be used concurrently.
+The [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) example showcases how a CFS on top of a simple resource-facing nano service can be implemented with the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example by modifying the existing t3 RFS and adding a CFS. Instead of multiple RESTCONF transactions, the example uses a single CLI CFS service commit that updates the desired number of service instances. The commit configures multiple service instances in a single transaction where the nano service runs each service instance in a separate process to allow multiple cores to be used concurrently.
 
 <figure><img src="../../images/cfs-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Run as below to start two transactions with a 1-second CPU time workload per transaction in both the service and validation callbacks, each transaction pushing the device configuration to one device, each using a synchronous commit queue, where each device simulates taking 1 second to make the configuration changes to the device:
 
 ```bash
-cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-stack
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-stack
 ./showcase.sh -d 2 -t 2 -w 1 -r 1 -q 'True' -y 1
 ```
 
@@ -442,7 +442,7 @@ commit  trans=2   RFS   nwork=1   nwork=1  cq=True     device ddelay=1
               wall-clock 1s        1s                            1s=3s
 ```
 
-The two transactions run concurrently, deploying the service in \~3 seconds (plus some overhead) of wall-clock time. Like the `perf-trans` example, you can play around with the `perf-stack` example by tweaking the parameters.
+The two transactions run concurrently, deploying the service in \~3 seconds (plus some overhead) of wall-clock time. Like the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-trans) example, you can play around with the [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) example by tweaking the parameters.
 
 ```
 -d  NDEVS
@@ -471,7 +471,7 @@ The two transactions run concurrently, deploying the service in \~3 seconds (plu
     Default: 1 second
 ```
 
-See the `README` in the `perf-stack` example for details. For even more details, see the steps in the `showcase` script.
+See the `README` in the [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) example for details. For even more details, see the steps in the `showcase` script.
 
 Stop NSO and the netsim devices:
 
@@ -481,7 +481,7 @@ make stop
 
 ### Migrating to and Scale Up Using an LSA Setup <a href="#d5e8658" id="d5e8658"></a>
 
-If the processor where NSO runs becomes a severe bottleneck, the CFS can migrate to a layered service architecture (LSA) setup. The `perf-stack` example implements stacked services, a CFS abstracting the RFS. It allows for easy migration to an LSA setup to scale with the number of devices or network elements participating in the service deployment. While adding complexity, LSA allows exposing a single CFS instance for all processors instead of one per processor.
+If the processor where NSO runs becomes a severe bottleneck, the CFS can migrate to a layered service architecture (LSA) setup. The [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) example implements stacked services, a CFS abstracting the RFS. It allows for easy migration to an LSA setup to scale with the number of devices or network elements participating in the service deployment. While adding complexity, LSA allows exposing a single CFS instance for all processors instead of one per processor.
 
 {% hint style="info" %}
 Before considering taking on the complexity of a multi-NSO node LSA setup, make sure you have done the following:
@@ -500,7 +500,7 @@ Migrating to an LSA setup should only be considered after checking all boxes for
 
 ### Running the LSA-enabled `perf-lsa` Example <a href="#d5e8680" id="d5e8680"></a>
 
-The `perf-lsa` example builds on the `perf-stack` example and showcases an LSA setup using two RFS NSO instances, `lower-nso-1` and `lower-nso-2`, with a CFS NSO instance, `upper-nso`.
+The [examples.ncs/scaling-performance/perf-lsa](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-lsa) example builds on the [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-stack) example and showcases an LSA setup using two RFS NSO instances, `lower-nso-1` and `lower-nso-2`, with a CFS NSO instance, `upper-nso`.
 
 <figure><img src="../../images/lsa-transaction.png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -509,7 +509,7 @@ You can imagine adding more RFS NSO instances, `lower-nso-3`, `lower-nso-4`, etc
 As an example, a variant that starts four RFS transactions with a 1-second CPU time workload per transaction in both the service and validation callbacks, each RFS transaction pushing the device configuration to 1 device using synchronous commit queues, where each device simulates taking 1 second to make the configuration changes to the device:
 
 ```bash
-cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-lsa
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-lsa
 ./showcase.sh -d 2 -t 2 -w 1 -r 1 -q 'True' -y 1
 ```
 
@@ -538,7 +538,7 @@ commit ntrans=2  RFS 1 nwork=1   nwork=1  cq=True     device ddelay=1
 
 The four transactions run concurrently, two per RFS node, performing the work and configuring the four devices in \~3 seconds (plus some overhead) of wall-clock time.
 
-You can play with the `perf-lsa` example by tweaking the parameters.
+You can play with the [examples.ncs/scaling-performance/perf-lsa](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-lsa) example by tweaking the parameters.
 
 ```
 -d  LDEVS
@@ -569,7 +569,7 @@ You can play with the `perf-lsa` example by tweaking the parameters.
     Default: 1 second
 ```
 
-See the `README` in the `perf-lsa` example for details. For even more details, see the steps in the `showcase` script.
+See the `README` in the [examples.ncs/scaling-performance/perf-lsa](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-lsa) example for details. For even more details, see the steps in the `showcase` script.
 
 Stop NSO and the netsim devices:
 

@@ -249,7 +249,7 @@ Monitor expressions are expanded and installed in an internal data structure at 
 
 ### A Simple Data Kicker Example <a href="#ug.kicker.simple_data_example" id="ug.kicker.simple_data_example"></a>
 
-This example is part of the `examples.ncs/web-server-farm/web-site-service` example. It consists of an action and a `README_KICKER` file. For all kickers defined in this example, the same action is used. This action is defined in the `web-site-service` package.
+This example is part of the [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/website-service) example. It consists of an action and a `README_KICKER` file. For all kickers defined in this example, the same action is used. This action is defined in the `website-service` package.
 
 The following is the YANG snippet for the action definition from the `website.yang` file:
 
@@ -334,7 +334,7 @@ class WebSiteServiceRFS {
 }
 ```
 
-We are now ready to start the `web-site-service` example and define our data kicker. Do the following:
+We are now ready to start the [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/website-service) example and define our data kicker. Do the following:
 
 ```bash
 $ make all
@@ -498,7 +498,7 @@ When using both, serializer and priority, only kickers with the same serializer 
 
 In this example, we use the same action and setup as in the data kicker example above. The procedure for starting is also the same.
 
-The `web-site-service` example has devices that have notifications generated on the stream "interface". We start with defining the notification kicker for a certain `SUBSCRIPTION_NAME = 'mysub'`. This subscription does not exist for the moment and the kicker will therefore not be triggered:
+The [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/website-service) example has devices that have notifications generated on the stream "interface". We start with defining the notification kicker for a certain `SUBSCRIPTION_NAME = 'mysub'`. This subscription does not exist for the moment and the kicker will therefore not be triggered:
 
 ```cli
 admin@ncs# config

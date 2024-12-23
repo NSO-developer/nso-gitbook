@@ -622,7 +622,7 @@ The path must match the one set under `ncs-local-ipc/path` in `ncs.conf`.
 Clients may expose a client-specific way to set it, such as the **-S** option of the **ncs\_cli** command.
 Alternatively, you can use the `NCS_IPC_PATH` environment variable to specify the socket path independently of the used client.
 
-See `$NCS_DIR/examples.ncs/security/ipc` for a working example.
+See [examples.ncs/aaa/ipc](https://github.com/NSO-developer/nso-examples/tree/6.4/aaa/ipc) for a working example.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 
