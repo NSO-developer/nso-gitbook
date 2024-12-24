@@ -117,6 +117,6 @@ A new [document](https://developer.cisco.com/docs/nso/deploying-cisco-nso-on-kub
 
 <summary><strong>Restructured Example Collection Linked from the Documentation</strong></summary>
 
-The example collection was restructured, and references to examples are now linked to a copy of the collection stored in the https://github.com/NSO-developer/nso-examples repository.
+The example collection was restructured, and references to examples are now linked to a copy of the collection stored in the [https://github.com/NSO-developer/nso-examples](https://github.com/NSO-developer/nso-examples) repository.
 
 </details>
