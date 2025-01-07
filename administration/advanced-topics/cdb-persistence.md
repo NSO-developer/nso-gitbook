@@ -45,8 +45,8 @@ Discounting the migration time, you can easily switch between the two modes with
 ## Configuring Persistence Mode
 
 The CDB persistence is configured under `/ncs-config/cdb/persistence` in the `ncs.conf` file.
-The `format` leaf selects the desired persistence mode, either `on-demand-v1` or `in-memory-v1`, and the system automatically migrates the data on the next start if needed.
-But please note that the system is not available for the duration of the migration.
+The `format` leaf selects the desired persistence mode, either `on-demand-v1` or `in-memory-v1` (default `in-memory-v1`), and the system automatically migrates the data on the next start if needed.
+Note that the system will not be available for the migration duration.
 
 With the `on-demand-v1` mode, additional offloading configuration under `offload` container becomes relevant (`in-memory-v1` keeps all data in RAM and does not perform any offloading).
 The `offload/interval` specifies how often the system checks its memory consumption and starts the offload process if required.
