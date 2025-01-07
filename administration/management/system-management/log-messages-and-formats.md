@@ -122,7 +122,7 @@
 * **Description**  
   A user logged into ConfD.
 * **Format String**  
-  `"logged in via ~s from ~s with ~s using ~s authentication"`
+  `"logged in to ~s via ~s from ~s with ~s using ~s authentication"`
 
 </details>
 
@@ -451,6 +451,20 @@
 
 <details>
 
+<summary><code>CHANGE_USER</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  A NETCONF request to change user for authorization was succesfully done.
+* **Format String**  
+  `"changed user to ~s, groups ~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>CLI_CMD</code></summary>
 
 * **Severity**  
@@ -549,6 +563,34 @@
 
 <details>
 
+<summary><code>CONFIG_DEPRECATED</code></summary>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  confd.conf contains a deprecated value
+* **Format String**  
+  `"Config value is deprecated: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>CONFIG_OBSOLETE</code></summary>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  confd.conf contains an obsolete value
+* **Format String**  
+  `"Config value is obsolete: ~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>CONFIG_TRANSACTION_LIMIT</code></summary>
 
 * **Severity**  
@@ -571,6 +613,20 @@
   ConfD is reading its configuration file.
 * **Format String**  
   `"Consulting daemon configuration file ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>CRYPTO_KEYS_FAILED_LOADING</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Crypto keys failed to load because the old active generation is missing in the new configuration.
+* **Format String**  
+  `"Cannot reload crypto keys since the old active generation is missing in the new list of keys."`
 
 </details>
 
@@ -1523,76 +1579,6 @@
   Failed to setup the shared memory schema
 * **Format String**  
   `"Failed to setup the shared memory schema"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_AUTH_BAD_RET</code></summary>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  Package authentication program returned badly formatted data.
-* **Format String**  
-  `"package authentication using ~s program ret bad output: ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_AUTH_FAIL</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication failed.
-* **Format String**  
-  `"package authentication using ~s failed via ~s from ~s with ~s: ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_AUTH_SUCCESS</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  A package authenticated user logged in.
-* **Format String**  
-  `"package authentication using ~s succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_CHAL_2FA</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication challenge sent to a user.
-* **Format String**  
-  `"package authentication challenge sent to ~s from ~s with ~s"`
-
-</details>
-
-
-<details>
-
-<summary><code>NCS_PACKAGE_CHAL_FAIL</code></summary>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Package authentication challenge failed.
-* **Format String**  
-  `"package authentication challenge using ~s failed via ~s from ~s with ~s: ~s"`
 
 </details>
 
@@ -2579,6 +2565,48 @@
 
 <details>
 
+<summary><code>NCS_PACKAGE_AUTH_BAD_RET</code></summary>
+
+* **Severity**  
+  `ERR`
+* **Description**  
+  Package authentication program returned badly formatted data.
+* **Format String**  
+  `"package authentication using ~s program ret bad output: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_AUTH_FAIL</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication failed.
+* **Format String**  
+  `"package authentication using ~s failed via ~s from ~s with ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_AUTH_SUCCESS</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  A package authenticated user logged in.
+* **Format String**  
+  `"package authentication using ~s succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
+
+</details>
+
+
+<details>
+
 <summary><code>NCS_PACKAGE_BAD_DEPENDENCY</code></summary>
 
 * **Severity**  
@@ -2601,6 +2629,34 @@
   Bad NCS version for package
 * **Format String**  
   `"Failed to load NCS package: ~s; requires NCS version ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_CHAL_2FA</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication challenge sent to a user.
+* **Format String**  
+  `"package authentication challenge sent to ~s from ~s with ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_PACKAGE_CHAL_FAIL</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Package authentication challenge failed.
+* **Format String**  
+  `"package authentication challenge using ~s failed via ~s from ~s with ~s: ~s"`
 
 </details>
 
