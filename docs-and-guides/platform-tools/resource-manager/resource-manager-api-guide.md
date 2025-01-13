@@ -125,3 +125,164 @@ class AllocateCallbacksAsync(Service):
 
 ```
 {% endcode %}
+
+The payloads below demonstrate the Northbound service allocation request using the Resource Manager synchronous and asynchronous flows. The API pulls one IP address from the IPv4 resource pool and sets the returned IP address on the interface IOS1 device. The payloads demonstrate both synchronous and asynchronous flows.
+
+{% code title="Synchronous Flow" %}
+```bash
+admin@ncs% load merge alloc-sync.xml
+[ok]
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data devices {
+            device ios1 {
+                config {
+                    ip {
+                        prefix-list {
+                            + prefixes sample {
+                                + permit 11.1.0.0/32;
+                            + }
+                            + prefixes sample1 {
+                                + permit 11.1.0.1/32;
+                            + }
+                            + prefixes sample3 {
+                                + permit 11.1.0.2/32;
+                            + }
+                            + prefixes sample4 {
+                                + permit 11.1.0.3/32;
+                            + }
+                        }
+                    }
+                }
+            }
+        }
+        +allocating-service sync-test-1 {
+            + device ios1;
+            + pool IPv4;
+            + subnet-size 32;
+            + ipv4 sample;
+        +}
+        +allocating-service sync-test-2 {
+            + device ios1;
+            + pool IPv4;
+            + subnet-size 32;
+            + ipv4 sample1;
+        +}
+        +allocating-service sync-test-3 {
+            + device ios1;
+            + pool IPv4;
+            + subnet-size 32;
+            + ipv4 sample3;
+        +}
+        +allocating-service sync-test-4 {
+            + device ios1;
+            + pool IPv4;
+            + subnet-size 32;
+            + ipv4 sample4;
+        +}
+    }
+}
+
+```
+{% endcode %}
+
+{% code title="Asynchronous Flow" %}
+```bash
+admin@ncs% load merge alloc-async.xml
+[ok]
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data resource-pools {
+            + ip-address-pool IPv4 {
+                + allocation sample {
+                    + username admin;
+                    + allocating-service /allocating-service-
+                      async[name='async-test'];
+                    + redeploy-type default;
+                    + request {
+                        + subnet-size 32;
+                    + }
+                + }
+            + }
+        }
+        + allocating-service-async async-test {
+            + device ios1;
+            + pool IPv4;
+            + subnet-size 32;
+            + ipv4 sample;
+        + }
+    }
+}
+
+```
+{% endcode %}
+
+IPv4 and IPv6 have separate IP pool types; there is no mixed IP pool. You can specify a `prefixlen` parameter for IP pools to allocate a net of a given size. The default value is the maximum prefix length of 32 and 128 for IPv4 and IPv6, respectively.
+
+The following APIs are used in IPv4 and IPv6 allocations.
+
+## IP Allocations
+
+Resource Manager exposes the API calls to request IPv4 and IPv6 subnet allocations from the resource pool. These requests can be synchronous or asynchronous. This topic discusses the APIs for these flows.
+
+The NSO Resource Manager interface and the resource allocator provide a generic resource allocation mechanism that works well with services. Each pool has an allocation list where services are expected to create instances to signal that they request an allocation. The request parameters are stored in the request container, and the allocation response is written in the response container.
+
+The APIs exposed by RM are implemented in Python as well as Java, so the NB user can configure the service to be a Java package or a Python package and call the allocator API as per the implementation. The NB user can also use NSO CLI to make an allocation request to the IP allocator RM package.
+
+### Using Java APIs for IP Allocations
+
+This section covers the Java APIs exposed by the RM package to the NB user to make IP subnet allocation requests.
+
+#### Creating Asynchronous IP Subnet Allocation Requests
+
+The asynchronous subnet allocation requests can be created for a requesting service with:
+
+* The redeploy type set to default type or set to redeployType.
+*   The CIDR mask length can be set to invert the subnet mask length for Boolean
+
+    operations with IP addresses or set to not be able to invert the subnet mask length.
+*   Pass the starting IP address of the subnet to the requesting service redeploy type
+
+    (default/redeployType).
+
+The following are the Java APIs for asynchronous IP allocation requests.
+
+<details>
+
+<summary>Default Asynchronous Request</summary>
+
+The requesting service redeploy type is default, and CIDR mask length cannot be inverted for the subnet allocation request. Make sure the `NavuNode` service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
+
+```
+void
+com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRequest(NavuNode service,
+        String poolName,
+        String username,
+        int cidrmask,
+        String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type       | Description                                           |
+|-------------|------------|-----------------------------------------------------------------|
+| service     | NavuNode   | NavuNode referencing the requesting service node.               |
+| poolName    | String     | Name of the resource pool to request the subnet IP address from.|
+| Username    | String     | Name of the user to use when redeploying the requesting service.|
+| cidrmask    | Int        | CIDR mask length of the requested subnet.                       |
+| id          | String     | Unique allocation ID.                                           |
+```
+
+**Example**
+
+```
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
+id);
+```
+
+</details>
