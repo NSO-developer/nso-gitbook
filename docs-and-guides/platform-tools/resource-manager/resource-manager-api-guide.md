@@ -286,3 +286,133 @@ id);
 ```
 
 </details>
+
+<details>
+
+<summary>Asynchronous Request with Invert CIDR Flag</summary>
+
+The requesting service redeploy type is default and CIDR mask length can be inverted for the subnet allocation request. Make sure the `NavuNode` service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
+
+```
+void
+com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+subnetRequest(NavuNode service,
+    String poolName,
+    String username,
+    int cidrmask,
+    String id,
+    boolean invertCidr)
+```
+
+**API Parameters**
+
+```
+| Parameter        | Type        | Description                                                                |
+|------------------|------------|--------------------------------------------------------------------|
+| Service          | NavuNode   | NavuNode referencing the requesting service node.                  |
+| poolName         | String     | Name of the resource pool to request the subnet IP address from.   |
+| Username         | String     | Name of the user to use when redeploying the requesting service.   |
+| cidrmask         | Int        | CIDR mask length of requested subnet.                              |
+| id               | String     | Unique allocation ID.                                              |
+| invertCidr       | Boolean    | If boolean value is true, the subnet mask length is inverted.      |
+
+```
+
+**Common Example for the Usage of `subnetRequest` from Service**
+
+The below code example shows that `subnetRequest` method can be called from the service by different types parameter values getting from the service object.
+
+```
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
+id, invertCidr.booleanValue());
+```
+
+```java
+@ServiceCallback(servicePoint = "ipaddress-allocator-test-servicepoint",
+    callType = ServiceCBType.CREATE)
+public Properties create(ServiceContext context,
+                         NavuNode service,
+                         NavuNode ncsRoot,
+                         Properties opaque)
+        throws DpCallbackException {
+    LOGGER.info("IPAddressAllocatorTest Servicepoint is triggered");
+    try {
+        String servicePath = service.getKeyPath();
+
+        CdbSession sess = cdb.startSession(CdbDBType.CDB_OPERATIONAL);
+        try {
+            String dPath = servicePath + "/deploys";
+            int deploys = 1;
+
+            if (sess.exists(dPath)) {
+                deploys = (int) ((ConfUInt32) sess.getElem(dPath)).longValue();
+            }
+
+            if (sess.exists(servicePath)) { // Will not exist the first time
+                sess.setElem(new ConfUInt32(deploys + 1), dPath);
+            }
+
+            NavuLeaf size = service.leaf("subnet-size");
+            if (!size.exists()) {
+                return opaque;
+            }
+
+            int subnetSize = (int) ((ConfUInt8) service.leaf("subnet-size").value()).longValue();
+            String redeployOption = null;
+
+            if (sess.exists(servicePath + "/redeploy-option")) {
+                redeployOption = ConfValue.getStringByValue(
+                        servicePath + "/redeploy-option",
+                        service.leaf("redeploy-option").value()
+                );
+            }
+
+            System.out.println("IPAddressAllocatorTest redeployOption: " + redeployOption);
+
+            if (redeployOption == null) {
+                IPAddressAllocator.subnetRequest(service, "mypool", "admin", subnetSize, "test");
+            } else {
+                RedeployType redeployType = RedeployType.from(redeployOption);
+                System.out.println("IPAddressAllocatorTest redeployType: " + redeployType);
+
+                IPAddressAllocator.subnetRequest(
+                        service, redeployType, "mypool", "admin", subnetSize, "test", false
+                );
+            }
+
+            boolean error = false;
+            boolean allocated = sess.exists(servicePath + "/allocated");
+            boolean ready = IPAddressAllocator.responseReady(service.context(), cdb, "mypool", "test");
+
+            if (ready) {
+                try {
+                    IPAddressAllocator.fromRead(cdb, "mypool", "test");
+                } catch (ResourceErrorException e) {
+                    LOGGER.info("The allocation has failed");
+                    error = true;
+                }
+            }
+
+            if (ready && !error) {
+                if (!allocated) {
+                    sess.create(servicePath + "/allocated");
+                }
+            } else {
+                if (allocated) {
+                    sess.delete(servicePath + "/allocated");
+                }
+            }
+        } finally {
+            sess.endSession();
+        }
+    } catch (Exception e) {
+        throw new DpCallbackException("Cannot create service", e);
+    }
+    return opaque;
+}
+```
+
+
+
+</details>
