@@ -16,10 +16,10 @@ On this page, you'll find a brief introduction to NSO to help you learn the basi
 
 ## What is NSO?
 
-Cisco Crosswork Network Services Orchestrator (NSO) enabled by Tail-f is an industry-leading orchestration platform for hybrid networks. As a Linux application, it allows fine-grained control of physical and virtual network devices and can powerfully orchestrate the configuration life cycle of networks they live in. It provides comprehensive lifecycle service automation to enable you to design and deliver high-quality services faster and easily.
+Cisco Crosswork Network Services Orchestrator (NSO) enabled by Tail-f is an industry-leading orchestration platform for hybrid networks. As a Linux application, it allows fine-grained control of physical and virtual network devices and can powerfully orchestrate the configuration life cycle of networks they live in. It provides comprehensive lifecycle service automation to enable you to design and deliver high-quality services faster and easier.
 
 {% hint style="info" %}
-The terms 'ncs' and 'tail-f' are used extensively in file names, command-line command names, YANG models, application programming interfaces (API), etc. Throughout this documentation, we use NSO to mean the product.
+The terms 'ncs' and 'tail-f' are used extensively in file names, command-line command names, YANG models, application programming interfaces (API), etc. Throughout this documentation, we use NSO to refer to the product.
 {% endhint %}
 
 ## Key Features
@@ -128,7 +128,7 @@ To learn how to use NSO and also to simplify development using NSO, NSO comes wi
 
 ### HA and Clustering
 
-NSO supports a 1:M high-availability mode. One NSO system can be primary and can have any number of secondaries. Any configuration write has to go through the primary node. The configuration changes are replicated to the read-only secondaries. The replication can be done in asynchronous or synchronous mode. In the synchronous, the transaction returns when the secondaries are in sync.
+NSO supports a 1:N high-availability mode. One NSO system can be primary and can have any number of secondaries. Any configuration write has to go through the primary node. The configuration changes are replicated to the read-only secondaries. The replication can be done in asynchronous or synchronous mode. In the synchronous mode, the transaction returns when the secondaries are in sync.
 
 For large networks, the network devices can be clustered across NSO systems. Say you have 100,000 devices split into two continents. You may choose to have 50,000 devices in one NSO and 50,000 in another. There are several options on how to configure clusters to see the whole network. The most common is a top NSO where services are provisioned, and the top NSO sees the whole network.
 
@@ -150,15 +150,15 @@ YANG was originally paired with [NETCONF](https://tools.ietf.org/html/rfc6241), 
 
 ### Configuration Database (CDB) <a href="#the-configuration-database-cdb" id="the-configuration-database-cdb"></a>
 
-At the core of NSO is the Configuration Database (CDB). This is a tree-structured database that is controlled by a YANG schema. This means that all of the information stored inside of NSO is validated against the schema.
+At the core of NSO is the Configuration Database (CDB). This is a tree-structured database that is defined by a YANG schema. This means that all of the information stored inside of NSO is validated against the schema.
 
-Every transaction towards CDB exhibits [ACID](https://en.wikipedia.org/wiki/ACID) properties, which among other things means either the transaction as a whole ends up on all participating devices and in the CDB master copy, or otherwise, the whole transaction is aborted and all changes are automatically rolled back.
+Every transaction towards CDB exhibits [ACID](https://en.wikipedia.org/wiki/ACID) properties, which among other things means either the transaction as a whole ends up on all participating devices and in the CDB primary copy, or otherwise, the whole transaction is aborted and all changes are automatically rolled back.
 
 The CDB always contains NSO's view of the complete network configuration. To handle out-of-band changes operations are available to check if a device is in sync, write NSO's view to the device, or read the device configuration into NSO.
 
 ### Service Algorithm - FastMap <a href="#the-service-algorithm---fastmap" id="the-service-algorithm---fastmap"></a>
 
-As a Service Developer, you need to express the mapping from a YANG service model to the corresponding device YANG model. This is a declarative mapping in the sense that no sequencing is defined. Observe that irrespective of the underlying device type and corresponding native device interface, the mapping is towards a YANG device model, not the native CLI for example. This means that as you write the service mapping, you do not have to worry about the syntax of different devices' CLI commands or in which order these commands are sent to the devices. This is all taken care of by the NSO device manager.
+As a Service Developer, you need to express the mapping from a YANG service model to the corresponding device YANG models. This is a declarative mapping in the sense that no sequencing is defined. Observe that irrespective of the underlying device type and corresponding native device interface, the mapping is towards a YANG device model, not the native CLI for example. This means that as you write the service mapping, you do not have to worry about the syntax of different devices' CLI commands or in which order these commands are sent to the devices. This is all taken care of by the NSO device manager.
 
 NSO reduces this problem to a single data-mapping definition for the "create" scenario. At run-time\
 NSO will render the minimum change for any possible change like all the ones mentioned below. This is managed by the FASTMAP algorithm.
@@ -171,12 +171,11 @@ FASTMAP is based on generating changes from an initial 'create'. When the servic
 
 ### Accessing the Network (NEDs) <a href="#accessing-the-network-neds" id="accessing-the-network-neds"></a>
 
-The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the master copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration master copies, the device manager will partition this "network configuration change" into the corresponding changes for the actually managed devices. The device manager passes on the required changes to the NEDs, Network Element Drivers. A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound. The NEDs fall into the following categories:
+The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the primary copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this "network configuration change" into the corresponding changes for the actually managed devices. The device manager passes on the required changes to the NEDs, Network Element Drivers. A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound. The NEDs fall into the following categories:
 
 * NETCONF capable device. The Device Manager will produce NETCONF edit-configuration\
   RPC operations for each participating device.
 * SNMP device. The Device Manager translates the changes made to the configuration into the\
   corresponding SNMP SET PDUs
-* A device with Cisco CLI. The device has a CLI with the same structure as Cisco IOS or XR routers. The Device Manager and a CLI NED are used to produce the correct sequence of CLI commands which\
-  reflects the changes made to the configuration.
+* A device with Cisco CLI. The device has a CLI with the same structure as Cisco IOS or XR routers. The Device Manager and a CLI NED are used to produce the correct sequence of CLI commands which reflects the changes made to the configuration.
 * For other devices that do not fit into any of the above-mentioned categories, a corresponding Generic NED is invoked. Generic NEDs are used for proprietary protocols like REST and for CLI flavors that are not resembling IOS or XR. The Device Manager will inform the Generic NED about the made changes and the NED will translate these to the appropriate operations toward the device.
