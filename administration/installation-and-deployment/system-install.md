@@ -361,6 +361,7 @@ To set environment variables:
     # systemctl daemon-reload
     # systemctl start ncs
     ```
+
     NSO starts at boot going forward.
 
     Once you log on with the user that belongs to `ncsadmin` or `ncsoper`, you can directly access the CLI as shown below:
@@ -382,6 +383,7 @@ To generate a license registration token:
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
     ```cli
+    $ ncs_cli -Cu admin
     admin@ncs# license smart register idtoken
     YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQtOGEzMTM3OTg5MG
 
