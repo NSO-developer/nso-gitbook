@@ -4,22 +4,9 @@ description: Description of the APIs exposed by the Resource Manager package.
 
 # Resource Manager API Guide
 
-{% hint style="info" %}
-**About this Guide**
-
-This NSO Resource Manager (RM) API Guide describes the APIs exposed by the Resource Manager package that you can use to allocate IPs from the IP resource pool and to allocate the IDs from ID resource pools.
-
-**Intended Audience**
-
-This guide is intended for Cisco advanced services developers, network engineers, and system engineers to install the RM package inside NSO and then utilize the APIs exposed by the RM package to allocate and manage IP subnets and IDs as required by other CFPs installed alongside this RM package inside NSO.
-
-**Additional Documentation**
-
-This documentation requires the reader to have a good understanding of NSO and its usage as described in the following NSO documentation:
-
-* [NSO Installation](https://cisco-tailf.gitbook.io/nso-docs/administration/get-started)
-* [NSO Operation and Usage Guide](https://cisco-tailf.gitbook.io/nso-docs/operation-and-usage/get-started)
-{% endhint %}
+| About this Guide                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p></p><p>This NSO Resource Manager (RM) API Guide describes the APIs exposed by the Resource Manager package that you can use to allocate IPs from the IP resource pool and to allocate the IDs from ID resource pools.<br></p><p><strong>Intended Audience</strong></p><p>This guide is intended for Cisco advanced services developers, network engineers, and system engineers to install the RM package inside NSO and then utilize the APIs exposed by the RM package to allocate and manage IP subnets and IDs as required by other CFPs installed alongside this RM package inside NSO.<br></p><p><strong>Additional Documentation</strong></p><p>This documentation requires the reader to have a good understanding of NSO and its usage as described in the following NSO documentation:</p><ul><li><a href="https://cisco-tailf.gitbook.io/nso-docs/administration/get-started">NSO Installation</a></li><li><a href="https://cisco-tailf.gitbook.io/nso-docs/operation-and-usage/get-started">NSO Operation and Usage Guide</a></li></ul> |
 
 ## Resource Manager IP/ID Allocation APIs
 
@@ -45,8 +32,6 @@ The following is an example for a Northbound service callback passed with requir
 
 {% code title="Northbound Service Callback Example - Sync" %}
 ```python
-# NORTHBOUND SERVICE CALLBACK EXAMPLE - SYNC
-# ------------------------------------------
 class AllocateCallbacks(Service):
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
@@ -104,8 +89,6 @@ class AllocateCallbacks(Service):
 
 {% code title="Northbound Service Callback Example - Async" %}
 ```python
-# NORTHBOUND SERVICE CALLBACK EXAMPLE - ASYNC
-# -----------------------------------------------
 class AllocateCallbacksAsync(Service):
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
