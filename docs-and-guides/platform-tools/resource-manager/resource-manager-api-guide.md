@@ -39,7 +39,11 @@ During a resource request, the resource is allocated and stored in the create ca
 
 The following is an example for a Northbound service callback passed with required API parameters for both synchronous and asynchronous IPv4 allocations. The example uses `pool-example` package as a reference. The request describes the details it uses, such as the pool, device. Each allocation has an allocation ID. In the following example, the allocating service pulls one IPv4 address from the IPv4 resource pool. The requesting service then uses this allocated IP address to set the interface address on the device southbound to NSO.
 
-{% code title="NORTHBOUND SERVICE CALLBACK EXAMPLE - SYNC" %}
+<details>
+
+<summary>Northbound Service Callback Example: Sync</summary>
+
+{% code title="Northbound Service Callback Example - Sync" %}
 ```python
 # NORTHBOUND SERVICE CALLBACK EXAMPLE - SYNC
 # ------------------------------------------
@@ -90,7 +94,15 @@ class AllocateCallbacks(Service):
 ```
 {% endcode %}
 
-{% code title="NORTHBOUND SERVICE CALLBACK EXAMPLE - ASYNC" %}
+
+
+</details>
+
+<details>
+
+<summary>Northbound Service Callback Example: Async</summary>
+
+{% code title="Northbound Service Callback Example - Async" %}
 ```python
 # NORTHBOUND SERVICE CALLBACK EXAMPLE - ASYNC
 # -----------------------------------------------
@@ -126,7 +138,15 @@ class AllocateCallbacksAsync(Service):
 ```
 {% endcode %}
 
+
+
+</details>
+
 The payloads below demonstrate the Northbound service allocation request using the Resource Manager synchronous and asynchronous flows. The API pulls one IP address from the IPv4 resource pool and sets the returned IP address on the interface IOS1 device. The payloads demonstrate both synchronous and asynchronous flows.
+
+<details>
+
+<summary>Synchronous Flow</summary>
 
 {% code title="Synchronous Flow" %}
 ```bash
@@ -187,6 +207,12 @@ cli {
 ```
 {% endcode %}
 
+</details>
+
+<details>
+
+<summary>Asynchronous Flow</summary>
+
 {% code title="Asynchronous Flow" %}
 ```bash
 admin@ncs% load merge alloc-async.xml
@@ -218,6 +244,8 @@ cli {
 
 ```
 {% endcode %}
+
+</details>
 
 IPv4 and IPv6 have separate IP pool types; there is no mixed IP pool. You can specify a `prefixlen` parameter for IP pools to allocate a net of a given size. The default value is the maximum prefix length of 32 and 128 for IPv4 and IPv6, respectively.
 
@@ -255,7 +283,7 @@ The following are the Java APIs for asynchronous IP allocation requests.
 
 The requesting service redeploy type is `default`, and CIDR mask length cannot be inverted for the subnet allocation request. Make sure the `NavuNode` service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         String poolName,
@@ -278,7 +306,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
 id);
@@ -292,7 +320,7 @@ id);
 
 The requesting service redeploy type is `default`, and the CIDR mask length can be inverted for the subnet allocation request. Make sure the `NavuNode` service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         String poolName,
@@ -319,7 +347,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 The code example below shows that the ⁣`subnetRequest` method can be called from the service by different types parameter values getting from the service object.
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
 id, invertCidr.booleanValue());
@@ -418,7 +446,7 @@ public Properties create(ServiceContext context,
 
 The requesting service redeploy type is `redeployType` and CIDR mask length can be inverted for the subnet allocation request. Make sure the `NavuNode` service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         RedeployType redeployType,
@@ -446,7 +474,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, redeployType, poolName,
 userName, cidrMask, id, invertCidr.booleanValue());
@@ -460,7 +488,7 @@ userName, cidrMask, id, invertCidr.booleanValue());
 
 Pass a `startIP` value to the default type of the requesting service redeploy. The subnet IP address begins with the provided IP address. Make sure that the `NavuNode` service is the same node you get in service create. This ensures that the back pointers are updated correctly and that the RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         String poolName,
@@ -487,7 +515,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, poolName, userName, startIp,
 cidrMask, id, invertCidr.booleanValue());
@@ -501,7 +529,7 @@ cidrMask, id, invertCidr.booleanValue());
 
 Pass a `startIP` value to the `redeployType` of the requesting service redeploy. The subnet IP address begins with the provided IP address. Make sure that the NavuNode service is the same node you get in service create. This ensures that the back pointers are updated correctly and that the RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         RedeployType redeployType,
@@ -529,7 +557,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, redeployType, poolName,
 userName, startIp, cidrMask, id, invertCidr.booleanValue());
@@ -543,7 +571,7 @@ userName, startIp, cidrMask, id, invertCidr.booleanValue());
 
 Create an asynchronous IP subnet allocation request with requesting service redeploy type as default and CIDR mask length cannot be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback. This method takes any `NavuNode`, should you need it.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(ServiceContext context,
         NavuNode service,
@@ -567,7 +595,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(context, service, poolName, userName,
 cidrMask, id);
@@ -581,7 +609,7 @@ cidrMask, id);
 
 Create an asynchronous IP subnet allocation request with requesting service redeploy type as `redeployType` and CIDR mask length can be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback. This method takes any `NavuNode`, should you need it.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(ServiceContext context,
         NavuNode service,
@@ -609,7 +637,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(context, service, redeployType,
 poolName, userName, cidrMask, id, invertCidr.booleanValue());
@@ -623,7 +651,7 @@ poolName, userName, cidrMask, id, invertCidr.booleanValue());
 
 Pass a `startIP` value to the requesting service redeploy type, default. The subnet IP address begins with the provided IP address. CIDR mask length cannot be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(ServiceContext context,
         NavuNode service,
@@ -652,7 +680,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(context, service, poolName, userName,
 startIp, cidrMask, id, invertCidr.booleanValue());
@@ -666,7 +694,7 @@ startIp, cidrMask, id, invertCidr.booleanValue());
 
 Pass a `startIP` value to the requesting service redeploy type, `redeployType`. The subnet IP address begins with the provided IP address. CIDR mask length can be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(ServiceContext context,
         NavuNode service,
@@ -696,7 +724,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(context, service, redeployType,
 poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
@@ -730,7 +758,7 @@ The following are the Java APIs for synchronous or asynchronous IP allocation re
 
 The requesting service redeploy type is default and CIDR mask length can be inverted for the subnet allocation request. Set sync\_alloc to true to make a synchronous allocation request with commit dry-run support. Make sure the NavuNode service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
 
-```
+```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
     subnetRequest(NavuNode service,
         String poolName,
@@ -757,7 +785,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 
 **Example**
 
-```
+```java
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
 id, invertCidr.booleanValue(), testSync.booleanValue());
