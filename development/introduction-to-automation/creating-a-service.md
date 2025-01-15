@@ -139,6 +139,10 @@ Finally, your Python script can read the supplied values inside the `cb_create()
 
 ## Showcase - A Simple DNS Configuration Service <a href="#d5e620" id="d5e620"></a>
 
+{% hint style="info" %}
+See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/develop-service) for an example implementation.
+{% endhint %}
+
 ### Prerequisites
 
 * No previous NSO or netsim processes are running. Use the `ncs --stop` and `ncs-netsim stop` commands to stop them if necessary.
@@ -147,36 +151,30 @@ Finally, your Python script can read the supplied values inside the `cb_create()
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e635" id="d5e635"></a>
 
-The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management) set of examples uses simulated routers that you can use for this scenario. The [router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) directory holds the data necessary for starting the routers and connecting them to your NSO instance.
+The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
 
-First, change the current working directory:
+First, copy the package and files to your `NSO_RUNDIR`:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/device-management/router-network
+$ cp -r $NCS_DIR/examples.ncs/getting-started/develop-service/init/router.in $NSO_RUNDIR/packages/router
+$ cp $NCS_DIR/examples.ncs/getting-started/develop-service/init/ncs_init.xml.in $NSO_RUNDIR/ncs-cdb/ncs_init.xml
+$ cp $NCS_DIR/examples.ncs/getting-started/develop-service/init/Makefile.in $NSO_RUNDIR/Makefile
 ```
 
-From this directory, you can start a fresh set of routers by running the following `make` command:
+From the `NSO_RUNDIR` directory, you can start a fresh set of routers by running the following `make` command:
 
 ```bash
+$ cd $NSO_RUNDIR
 $ make showcase-clean-start
 < ... output omitted ... >
 DEVICE ex0 OK STARTED
 DEVICE ex1 OK STARTED
 DEVICE ex2 OK STARTED
-make: Leaving directory 'examples.ncs/device-management/router-network'
 ```
 
 The routers are now running. The required NED package and a CDB initialization file `ncs-cdb/ncs_init.xml`were also added to your NSO instance. The latter contains connection details for the routers and will be automatically loaded on the first NSO start.
 
-In case you're not using a fresh working directory, you may need to use the `ncs_load` command to load the file manually. Older versions of the system may also be missing the above `make` target, which you can add to the `Makefile` yourself:
-
-```
-showcase-clean-start:
-        $(MAKE) clean all
-        cp ncs-cdb/ncs_init.xml ${NSO_RUNDIR}/ncs-cdb/
-        cp -a ../packages/router ${NSO_RUNDIR}/packages/
-        ncs-netsim start
-```
+In case you're not using a fresh working directory, you may need to use the `ncs_load` command to load the file manually.
 
 ### Step 2 - Create a Service Package <a href="#d5e653" id="d5e653"></a>
 
@@ -457,6 +455,10 @@ Likewise, you can use the same XPath in a template of a Python service. Then you
 
 ## Showcase - DNS Configuration Service with Templates <a href="#d5e780" id="d5e780"></a>
 
+{% hint style="info" %}
+See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/develop-service) for an example implementation.
+{% endhint %}
+
 ### Prerequisites
 
 * No previous NSO or netsim processes are running. Use the `ncs --stop` and `ncs-netsim stop` commands to stop them if necessary.
@@ -465,36 +467,30 @@ Likewise, you can use the same XPath in a template of a Python service. Then you
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e795" id="d5e795"></a>
 
-The [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example uses three simulated routers that you can use for this scenario. The `router-network` directory holds the data necessary for starting the routers and connecting them to your NSO instance.
+The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
 
-First, change the current working directory:
+First, copy the package and files to your `NSO_RUNDIR`:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/device-management/router-network
+$ cp -r $NCS_DIR/examples.ncs/getting-started/develop-service/init/router.in $NSO_RUNDIR/packages/router
+$ cp $NCS_DIR/examples.ncs/getting-started/develop-service/init/ncs_init.xml.in $NSO_RUNDIR/ncs-cdb/ncs_init.xml
+$ cp $NCS_DIR/examples.ncs/getting-started/develop-service/init/Makefile.in $NSO_RUNDIR/Makefile
 ```
 
-From this directory, you can start a fresh set of routers by running the following `make` command:
+From the `NSO_RUNDIR` directory, you can start a fresh set of routers by running the following `make` command:
 
 ```bash
+$ cd $NSO_RUNDIR
 $ make showcase-clean-start
 < ... output omitted ... >
 DEVICE ex0 OK STARTED
 DEVICE ex1 OK STARTED
 DEVICE ex2 OK STARTED
-make: Leaving directory 'examples.ncs/device-management/router-network'
 ```
 
 The routers are now running. The required NED package and a CDB initialization file, `ncs-cdb/ncs_init.xml`, were also added to your NSO instance. The latter contains connection details for the routers and will be automatically loaded on the first NSO start.
 
-In case you're not using a fresh working directory, you may need to use the `ncs_load` command to load the file manually. Older versions of the system may also be missing the above `make` target, which you can add to the `Makefile` yourself:
-
-```
-showcase-clean-start:
-        $(MAKE) clean all
-        cp ncs-cdb/ncs_init.xml ${NSO_RUNDIR}/ncs-cdb/
-        cp -a ../packages/router ${NSO_RUNDIR}/packages/
-        ncs-netsim start
-```
+In case you're not using a fresh working directory, you may need to use the `ncs_load` command to load the file manually.
 
 ### Step 2 - Create a Service <a href="#d5e813" id="d5e813"></a>
 
