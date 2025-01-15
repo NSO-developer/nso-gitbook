@@ -114,6 +114,10 @@ Now let's see how you can use this knowledge for network automation.
 
 ## Showcase - Configuring DNS with Python <a href="#d5e399" id="d5e399"></a>
 
+{% hint style="info" %}
+See [examples.ncs/getting-started/basic-automation](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/basic-automation) for an example implementation.
+{% endhint %}
+
 ### **Prerequisites**
 
 * No previous NSO or netsim processes are running. Use the `ncs --stop and ncs-netsim stop` commands to stop them if necessary.
