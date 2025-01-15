@@ -1,6 +1,5 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
-hidden: true
 ---
 
 # Resource Manager API Guide
@@ -314,7 +313,6 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 | cidrmask         | Int        | CIDR mask length of requested subnet.                              |
 | id               | String     | Unique allocation ID.                                              |
 | invertCidr       | Boolean    | If boolean value is true, the subnet mask length is inverted.      |
-
 ```
 
 **Common Example for the Usage of `subnetRequest` from Service**
@@ -444,7 +442,6 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 | cidrmask     | Int         | CIDR mask length of the requested subnet.                         |
 | id           | String      | Unique allocation ID.                                             |
 | invertCidr   | Boolean     | If boolean value is true, the subnet mask length is inverted.     |
-
 ```
 
 **Example**
@@ -616,6 +613,93 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
 IPAddressAllocator.subnetRequest(context, service, redeployType,
 poolName, userName, cidrMask, id, invertCidr.booleanValue());
+```
+
+</details>
+
+<details>
+
+<summary>Asynchronous Request with Context and Specific Start IP</summary>
+
+Pass a `startIP` value to the requesting service redeploy type, default. The subnet IP address begins with the provided IP address. CIDR mask length cannot be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback.
+
+```
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRequest(ServiceContext context,
+        NavuNode service,
+        String poolName,
+        String username,
+        String startIp,
+        int cidrmask,
+        String id,
+        boolean invertCidr)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type           | Description                                                                 |
+|-------------|----------------|-------------------------------------------------------------------------------|
+| Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
+| service     | NavuNode       | NavuNode referencing the requesting service node.                             |
+| poolName    | String         | Name of the resource pool to request the subnet IP address from.              |
+| username    | String         | Name of the user to use when redeploying the requesting service.              |
+| startIP     | String         | Starting IP address for the requested subnet.                                 |
+| cidrmask    | Int            | CIDR mask length of the requested subnet.                                     |
+| id          | String         | Unique allocation ID.                                                         |
+| invertCidr  | Boolean        | If boolean value is true, the subnet mask length is inverted.                 |
+```
+
+**Example**
+
+```
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+IPAddressAllocator.subnetRequest(context, service, poolName, userName,
+startIp, cidrMask, id, invertCidr.booleanValue());
+```
+
+</details>
+
+<details>
+
+<summary>Asynchronous Request with Specific Start IP, Context, Invert CIDR and Re-deploy Type</summary>
+
+Pass a `startIP` value to the requesting service redeploy type, `redeployType`. The subnet IP address begins with the provided IP address. CIDR mask length can be inverted for the subnet allocation request. Make sure to use the service context you get in the service create callback.
+
+```
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRequest(ServiceContext context,
+        NavuNode service,
+        RedeployType redeployType,
+        String poolName,
+        String username,
+        String startIp,
+        int cidrmask,
+        String id,
+        boolean invertCidr)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type           | Description                                                                 |
+|-------------|----------------|-------------------------------------------------------------------------------|
+| Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
+| service     | NavuNode       | NavuNode referencing the requesting service node.                             |
+| poolName    | String         | Name of the resource pool to request the subnet IP address from.              |
+| username    | String         | Name of the user to use when redeploying the requesting service.              |
+| startIP     | String         | Starting IP address for the requested subnet.                                 |
+| cidrmask    | Int            | CIDR mask length of the requested subnet.                                     |
+| id          | String         | Unique allocation ID.                                                         |
+| invertCidr  | Boolean        | If boolean value is true, the subnet mask length is inverted.                 |
+```
+
+**Example**
+
+```
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+IPAddressAllocator.subnetRequest(context, service, redeployType,
+poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
 ```
 
 </details>
