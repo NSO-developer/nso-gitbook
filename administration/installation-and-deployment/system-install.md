@@ -383,6 +383,7 @@ To generate a license registration token:
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
     ```cli
+    $ ncs_cli -Cu admin
     admin@ncs# license smart register idtoken
     YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQtOGEzMTM3OTg5MG
 
