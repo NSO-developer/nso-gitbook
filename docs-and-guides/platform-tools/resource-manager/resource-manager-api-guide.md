@@ -703,3 +703,64 @@ poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
 ```
 
 </details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Allocation Not Successful**
+
+* The API throws the following exception error if the requested resource pool does not exist: `ResourceErrorException`
+* The API throws the following exception error if the requested resource pool is exhausted: `AddressPoolException`
+* The API throws the following exception error if the requested netmask is invalid: `InvalidNetmaskException`
+{% endhint %}
+
+#### Creating Synchronous or Asynchronous IP Subnet Allocation Requests
+
+The `sync_alloc` parameter in the API determines if the allocation request is for a synchronous or asynchronous mode. Set the `sync_alloc` parameter to true for synchronous flow.
+
+The subnet allocation requests can be created for a requesting service with:
+
+* The redeploy type set to default type or `redeployType` type.
+* The CIDR mask length can be set to invert the subnet mask length for Boolean operations with IP addresses or set to not be able to invert the subnet mask length.
+* Pass the starting IP address of the subnet to the requesting service redeploy type (`default`/`redeploytype`).
+
+The following are the Java APIs for synchronous or asynchronous IP allocation requests.
+
+<details>
+
+<summary>Default Java API for IP Subnet Allocation Request</summary>
+
+The requesting service redeploy type is default and CIDR mask length can be inverted for the subnet allocation request. Set sync\_alloc to true to make a synchronous allocation request with commit dry-run support. Make sure the NavuNode service is the same node you get in service create. This ensures the back pointers are updated correctly and RFM works as intended.
+
+```
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRequest(NavuNode service,
+        String poolName,
+        String username,
+        int cidrmask,
+        String id,
+        boolean invertCidr,
+        boolean sync_alloc)
+```
+
+**API Parameters**
+
+```
+| Parameter    | Type     | Description                                                                   |
+|--------------|----------|-------------------------------------------------------------------|
+| service      | NavuNode | NavuNode referencing the requesting service node.                 |
+| poolName     | String   | Name of the resource pool to request the subnet IP address from.  |
+| username     | String   | Name of the user to use when redeploying the requesting service.  |
+| cidrmask     | Int      | CIDR mask length of the requested subnet.                         |
+| id           | String   | Unique allocation ID.                                             |
+| invertCidr   | Boolean  | Set value to true to invert the subnet mask length.               |
+| sync_alloc   | Boolean  | Set value to true to make a synchronous allocation request.       |
+```
+
+**Example**
+
+```
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+IPAddressAllocator.subnetRequest(service, poolName, userName, cidrMask,
+id, invertCidr.booleanValue(), testSync.booleanValue());
+```
+
+</details>
