@@ -150,85 +150,9 @@ This command takes into account the current time and can be used during troubles
 
 ### Actions <a href="#ch_ha.raft_actions" id="ch_ha.raft_actions"></a>
 
-NSO HA Raft can be controlled through several actions. All actions are found
-under `/ha-raft/`. In the best-case scenario, you will only need the
-`create-cluster` action to initialize the cluster and the `read-only` and
-`create-cluster` actions when upgrading the NSO version. The available actions
-are listed below:
+NSO HA Raft can be controlled through several actions. All actions are found under `/ha-raft/`. In the best-case scenario, you will only need the `create-cluster` action to initialize the cluster and the `read-only` and `create-cluster` actions when upgrading the NSO version. The available actions are listed below:
 
-<table data-header-hidden>
-    <thead>
-        <tr>
-            <th width="240">Action</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <code>create-cluster</code>
-            </td>
-            <td>Initialise an HA Raft cluster. This action should only be
-                invoked once to form a new cluster when no HA Raft log
-                exists.<br>
-                The members of the HA Raft cluster consist of the NCS
-                node where the <code>/ha-raft/create-cluster</code>action is
-                invoked, which will become the leader of the cluster;
-                and the members specified by the <code>member</code>
-                parameter.</td>
-        </tr>
-        <tr>
-            <td>
-                <code>adjust-membership</code>
-            </td>
-            <td>Add or remove an HA node from the HA Raft cluster.</td>
-        </tr>
-        <tr>
-            <td>
-                <code>disconnect</code>
-            </td>
-            <td>Disconnect an HA node from all remaining nodes. In the event
-                of revoking a TLS certificate, invoke this action to
-                disconnect the already established connections to the node
-                with the revoked certificate. A disconnected node with a
-                valid TLS certificate may re-establish the connection.</td>
-        </tr>
-        <tr>
-            <td>
-                <code>reset</code>
-            </td>
-            <td>Reset the (disabled) local node to make the leader perform a
-                full sync to this local node if an HA Raft cluster exists. If
-                reset is performed on the leader node, the node will step down
-                from leadership and it will be synced by the next leader
-                node.<br>
-                An HA Raft member will change role to <code>disabled</code> if
-                <code>ncs.conf</code> has incompatible changes to the
-                <code>ncs.conf</code> on the leader; a member will also change
-                role to <code>disabled</code> if there are non-recoverable
-                failures upon opening a snapshot.<br>
-                See the <code>/ha-raft/status/disable-reason</code> leaf for
-                the reason.<br>
-                Set force to <code>true</code> to override reset when
-                <code>/ha-raft/status/role</code> is not set to
-                <code>disabled</code>.</td>
-        </tr>
-        <tr>
-            <td>
-                <code>handover</code>
-            </td>
-            <td>Handover leadership to another member of the HA Raft cluster
-                or step down from leadership and start a new election.</td>
-        </tr>
-        <tr>
-            <td>
-                <code>read-only</code>
-            </td>
-            <td>Toggle read-only mode. If the mode is <code>true</code> no
-                configuration changes can occur.</td>
-        </tr>
-    </tbody>
-</table>
+<table data-header-hidden><thead><tr><th width="240">Action</th><th>Description</th></tr></thead><tbody><tr><td><code>create-cluster</code></td><td>Initialise an HA Raft cluster. This action should only be invoked once to form a new cluster when no HA Raft log exists.<br>The members of the HA Raft cluster consist of the NCS node where the <code>/ha-raft/create-cluster</code>action is invoked, which will become the leader of the cluster; and the members specified by the <code>member</code> parameter.</td></tr><tr><td><code>adjust-membership</code></td><td>Add or remove an HA node from the HA Raft cluster.</td></tr><tr><td><code>disconnect</code></td><td>Disconnect an HA node from all remaining nodes. In the event of revoking a TLS certificate, invoke this action to disconnect the already established connections to the node with the revoked certificate. A disconnected node with a valid TLS certificate may re-establish the connection.</td></tr><tr><td><code>reset</code></td><td>Reset the (disabled) local node to make the leader perform a full sync to this local node if an HA Raft cluster exists. If reset is performed on the leader node, the node will step down from leadership and it will be synced by the next leader node.<br>An HA Raft member will change role to <code>disabled</code> if <code>ncs.conf</code> has incompatible changes to the <code>ncs.conf</code> on the leader; a member will also change role to <code>disabled</code> if there are non-recoverable failures upon opening a snapshot.<br>See the <code>/ha-raft/status/disable-reason</code> leaf for the reason.<br>Set force to <code>true</code> to override reset when <code>/ha-raft/status/role</code> is not set to <code>disabled</code>.</td></tr><tr><td><code>handover</code></td><td>Handover leadership to another member of the HA Raft cluster or step down from leadership and start a new election.</td></tr><tr><td><code>read-only</code></td><td>Toggle read-only mode. If the mode is <code>true</code> no configuration changes can occur.</td></tr></tbody></table>
 
 ### Network and `ncs.conf` Prerequisites <a href="#ch_ha.raft_ports" id="ch_ha.raft_ports"></a>
 
@@ -251,7 +175,7 @@ If a node is a cluster member but has been configured with a new, incompatible `
 
 Raft has a notion of cluster configuration, in particular, how many and which members the cluster has. You define member nodes when you first initialize the cluster with the `create-cluster` command or use the `adjust-membership` command. The member nodes allow the cluster to know how many nodes are needed for consensus and similar.
 
-However, not all cluster members may be reachable or alive all the time. Raft implementation in NSO uses TCP connections between nodes to transport data. The TCP connections are authenticated and encrypted using TLS by default (see [Security Considerations](high-availability.md#ch\_ha.raft\_security)). A working connection between nodes is essential for the cluster to function but a number of factors, such as firewall rules or expired/invalid certificates, can prevent the connection from establishing.
+However, not all cluster members may be reachable or alive all the time. Raft implementation in NSO uses TCP connections between nodes to transport data. The TCP connections are authenticated and encrypted using TLS by default (see [Security Considerations](high-availability.md#ch_ha.raft_security)). A working connection between nodes is essential for the cluster to function but a number of factors, such as firewall rules or expired/invalid certificates, can prevent the connection from establishing.
 
 Therefore, NSO distinguishes between configured member nodes and nodes to which it has established a working transport connection. The latter are called connected nodes. In a normal, fully working, and properly configured cluster, the connected nodes will be the same as member nodes (except for the current node).
 
@@ -272,7 +196,7 @@ First, you must update the `ncs.conf` configuration file for each node. All HA R
 As part of the configuration, you must:
 
 * Enable HA Raft functionality through the `enabled` leaf.
-* Set `node-address` and the corresponding TLS parameters (see [Node Names and Certificates](high-availability.md#ch\_ha.raft\_names)).
+* Set `node-address` and the corresponding TLS parameters (see [Node Names and Certificates](high-availability.md#ch_ha.raft_names)).
 * Identify the cluster this node belongs to with `cluster-name`.
 * Reload or restart the NSO process (if already running).
 * Repeat the preceding steps for every participating node.
@@ -323,7 +247,7 @@ In case you get an error, such as the `Error: NSO can't reach member node 'ncsd@
 * The problematic node has the correct `ncs.conf` configuration, especially `cluster-name` and `node-address`. The latter should match the `ADDRESS` and should contain at least one dot.
 * Nodes use compatible configuration. For example, make sure the `ncs.crypto_keys` file (if used) or the `encrypted-strings` configuration in `ncs.conf` is identical across nodes.
 * HA Raft is enabled, using the **show ha-raft** command on the unreachable node.
-* The firewall configuration on the OS and on the network level permits traffic on the required ports (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch\_ha.raft\_ports)).
+* The firewall configuration on the OS and on the network level permits traffic on the required ports (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports)).
 * The node uses a certificate that the CA can validate. For example, copy the certificates to the same location and run `openssl verify -CAfile CA_CERT NODE_CERT` to verify this.
 * Verify the `epmd -names` command on each node shows the ncsd process. If not, stop NSO, run `epmd -kill`, and then start NSO again.
 
@@ -380,9 +304,9 @@ First, you should ensure the cluster meets migration prerequisites. The cluster 
 
 In case these prerequisites are not met, follow the standard upgrade procedures to upgrade the existing cluster to supported versions first.
 
-Additionally, ensure that all used packages are compatible with HA Raft, as NSO uses some new or updated notifications about HA state changes. Also, verify the network supports the new cluster communications (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch\_ha.raft\_ports)).
+Additionally, ensure that all used packages are compatible with HA Raft, as NSO uses some new or updated notifications about HA state changes. Also, verify the network supports the new cluster communications (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports)).
 
-Secondly, prepare all the `ncs.conf` and related files for each node, such as certificates and keys. Create a copy of all the `ncs.conf` files and disable or remove the existing `>ha<` section in the copies. Then add the required configuration items to the copies, as described in [Initial Cluster Setup](high-availability.md#ch\_ha.raft\_setup) and [Node Names and Certificates](high-availability.md#ch\_ha.raft\_names). Do not update the `ncs.conf` files used by the nodes yet.
+Secondly, prepare all the `ncs.conf` and related files for each node, such as certificates and keys. Create a copy of all the `ncs.conf` files and disable or remove the existing `>ha<` section in the copies. Then add the required configuration items to the copies, as described in [Initial Cluster Setup](high-availability.md#ch_ha.raft_setup) and [Node Names and Certificates](high-availability.md#ch_ha.raft_names). Do not update the `ncs.conf` files used by the nodes yet.
 
 It is recommended but not necessary that you set the seed nodes in `ncs.conf` to the designated primary and fail-over primary. Do this for all `ncs.conf` files for all nodes.
 
@@ -425,7 +349,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
     > ... output omitted ... <
     ```
 
-    In case of errors running the action, refer to [Initial Cluster Setup](high-availability.md#ch\_ha.raft\_setup) for possible causes and troubleshooting steps.
+    In case of errors running the action, refer to [Initial Cluster Setup](high-availability.md#ch_ha.raft_setup) for possible causes and troubleshooting steps.
 7. Raft requires at least three nodes to operate effectively (as described in [NSO HA Raft](high-availability.md#ug.ha.raft)) and currently, there are only two in the cluster. If the initial cluster had only two nodes, you must provision an additional node and set it up for HA Raft. If the cluster initially had three nodes, there is the remaining secondary node, `node3`, which you must stop, update its configuration as you did with the other two nodes, and start it up again.
 8.  Finally, on the old designated primary and current HA Raft leader, use the `ha-raft adjust-membership add-node` action to add this third node to the cluster.
 
@@ -445,7 +369,7 @@ Please ensure the CA key is kept in a safe place since it can be used to generat
 
 Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/docs/22/man/epmd.html)) service. Once resolved, the NSO nodes communicate directly.
 
-The ports `epmd` and the NSO nodes listen to can be found in [Network and `ncs.conf` Prerequisites](high-availability.md#ch\_ha.raft\_ports). `epmd` binds the wildcard IPv4 address `0.0.0.0` and the IPv6 address `::`.
+The ports `epmd` and the NSO nodes listen to can be found in [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports). `epmd` binds the wildcard IPv4 address `0.0.0.0` and the IPv6 address `::`.
 
 In case `epmd` is exposed to a DoS attack, the HA Raft members may be unable to resolve addresses and communication could be disrupted. Please ensure traffic on these ports are only accepted between the HA Raft members by using firewall rules or other means.
 
@@ -495,7 +419,7 @@ The procedure differentiates between the current leader node versus followers. T
 10. Re-initialize the HA cluster using the `ha-raft create-cluster` action on the node to become the leader.
 11. Finally, verify the cluster's state through the `show ha-raft status` command. Ensure that all data has been correctly synchronized across all cluster nodes and that the leader is no longer read-only. The latter happens automatically after re-initializing the HA cluster.
 
-For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../installation-and-deployment/upgrade-nso.md#ug.admin\_guide.manual\_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
+For a standard System Install, the single-node procedure is described in [Single Instance Upgrade](../installation-and-deployment/upgrade-nso.md#ug.admin_guide.manual_upgrade), but in general depends on the NSO deployment type. For example, it will be different for containerized environments. For specifics, please refer to the documentation for the deployment type.
 
 For an example see the `raft-upgrade-l2` NSO system installation-based example referenced by the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) example in the NSO example set.
 
@@ -697,8 +621,8 @@ There a multiple ways of handling this and two are listed here.
 3.  The `vipctl` script, included in the HCC package, uses `sudo` to run the `ip` and `arping` commands when NSO is not running as root. If `sudo` is used, you must ensure it does not require password input. For example, if NSO runs as `admin` user, the `sudoers` file can be edited similarly to the following:
 
     ```bash
-    $ sudo echo "admin ALL = (root) NOPASSWD: /bin/ip" << /etc/sudoers
-    $ sudo echo "admin ALL = (root) NOPASSWD: /path/to/arping" << /etc/sudoers
+    $ sudo echo "admin ALL = (root) NOPASSWD: /bin/ip" >> /etc/sudoers
+    $ sudo echo "admin ALL = (root) NOPASSWD: /path/to/arping" >> /etc/sudoers
     ```
 
 ### Tail-f HCC Compared with HCC Version 4.x and Older <a href="#ug.ha.hcc.compared" id="ug.ha.hcc.compared"></a>
@@ -717,7 +641,7 @@ HCC 5.x or later automatically associates VIP addresses with Linux network inter
 
 ### Upgrading <a href="#ug.ha.hcc.upgrade" id="ug.ha.hcc.upgrade"></a>
 
-Since version 5.0, HCC relies on the NSO built-in HA for cluster management and only performs address or route management in reaction to cluster changes. Therefore, no special measures are necessary if using HCC when performing an NSO version upgrade or a package upgrade. Instead, you should follow the standard best practice HA upgrade procedure from [NSO HA Version Upgrade](../installation-and-deployment/upgrade-nso.md#ch\_upgrade.ha).
+Since version 5.0, HCC relies on the NSO built-in HA for cluster management and only performs address or route management in reaction to cluster changes. Therefore, no special measures are necessary if using HCC when performing an NSO version upgrade or a package upgrade. Instead, you should follow the standard best practice HA upgrade procedure from [NSO HA Version Upgrade](../installation-and-deployment/upgrade-nso.md#ch_upgrade.ha).
 
 A reference to upgrade examples can be found in the README under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc).
 
