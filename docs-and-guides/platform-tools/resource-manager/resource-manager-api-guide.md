@@ -280,7 +280,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type       | Description                                           |
+| Parameter   | Type       | Description                                                     |
 |-------------|------------|-----------------------------------------------------------------|
 | service     | NavuNode   | NavuNode referencing the requesting service node.               |
 | poolName    | String     | Name of the resource pool to request the subnet IP address from.|
@@ -319,7 +319,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter        | Type        | Description                                                                |
+| Parameter        | Type       | Description                                                        |
 |------------------|------------|--------------------------------------------------------------------|
 | Service          | NavuNode   | NavuNode referencing the requesting service node.                  |
 | poolName         | String     | Name of the resource pool to request the subnet IP address from.   |
@@ -449,7 +449,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter    | Type        | Description                                                                |
+| Parameter    | Type        | Description                                                       |
 |--------------|-------------|-------------------------------------------------------------------|
 | service      | NavuNode    | NavuNode referencing the requesting service node.                 |
 | poolName     | String      | Name of the resource pool to request the subnet IP address from.  |
@@ -490,7 +490,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter     | Type        | Description                                                                 |
+| Parameter     | Type        | Description                                                        |
 |---------------|-------------|--------------------------------------------------------------------|
 | service       | NavuNode    | NavuNode referencing the requesting service node.                  |
 | poolName      | String      | Name of the resource pool to request the subnet IP address from.   |
@@ -533,7 +533,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type       | Description                                                                 |
+| Parameter   | Type       | Description                                                       |
 |-------------|------------|-------------------------------------------------------------------|
 | service     | NavuNode   | NavuNode referencing the requesting service node.                 |
 | poolName    | String     | Name of the resource pool to request the subnet IP address from.  |
@@ -574,7 +574,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type       | Description                                                                 |
+| Parameter   | Type       | Description                                                      |
 |-------------|------------|------------------------------------------------------------------|
 | service     | NavuNode   | NavuNode referencing the requesting service node.                |
 | poolName    | String     | Name of the resource pool to request the subnet IP address from. |
@@ -615,7 +615,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type           | Description                                                                 |
+| Parameter   | Type           | Description                                                                   |
 |-------------|----------------|-------------------------------------------------------------------------------|
 | Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
 | service     | NavuNode       | NavuNode referencing the requesting service node.                             |
@@ -658,7 +658,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type           | Description                                                                 |
+| Parameter   | Type           | Description                                                                   |
 |-------------|----------------|-------------------------------------------------------------------------------|
 | Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
 | service     | NavuNode       | NavuNode referencing the requesting service node.                             |
@@ -703,7 +703,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type           | Description                                                                 |
+| Parameter   | Type           | Description                                                                   |
 |-------------|----------------|-------------------------------------------------------------------------------|
 | Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
 | service     | NavuNode       | NavuNode referencing the requesting service node.                             |
@@ -766,7 +766,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter    | Type     | Description                                                                   |
+| Parameter    | Type     | Description                                                       |
 |--------------|----------|-------------------------------------------------------------------|
 | service      | NavuNode | NavuNode referencing the requesting service node.                 |
 | poolName     | String   | Name of the resource pool to request the subnet IP address from.  |
@@ -809,7 +809,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter   | Type     | Description                                                               |
+| Parameter   | Type     | Description                                                        |
 |-------------|----------|--------------------------------------------------------------------|
 | service     | NavuNode | NavuNode referencing the requesting service node.                  |
 | poolName    | String   | Name of the resource pool to request the subnet IP address from.   |
@@ -853,7 +853,7 @@ void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 **API Parameters**
 
 ```
-| Parameter     | Type       | Description                                                     |
+| Parameter     | Type       | Description                                                      |
 |---------------|------------|------------------------------------------------------------------|
 | service       | NavuNode   | NavuNode referencing the requesting service node.                |
 | poolName      | String     | Name of the resource pool to request the subnet IP address from. |
