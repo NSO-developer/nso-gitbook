@@ -1039,7 +1039,8 @@ Since the elements of the path to a given node may be defined in different YANG 
 
     1. Tagpaths that do not contain any keys. For example `/ncs/live-device/live-status`.
     2. Instantiated key: as in `/devices/device[name="x1"]/config/interface` matches the interface configuration for managed device "x1" It's possible to have partially instantiated paths only containing some keys instantiated - i.e. combinations of tagpaths and keypaths. Assuming a deeper tree, the path `/devices/device/config/interface[name="eth0"]` matches the `eth0` interface configuration on all managed devices.
-    3. The wild card at the end as in: `/services/web-site/*` does not match the website service instances, but rather all children of the website service instances.\\
+    3. The wild card at the end as in: `/services/web-site/*` does not match the website service instances, but rather all children of the website service instances.
+    4. The leading/trailing whitespace as in: `"  /devices/device/config "` are ignored.\\
 
     Thus, the path in a rule is matched against the path in the attempted data access. If the attempted access has a path that is equal to or longer than the rule path - we have a match.\
     \
