@@ -747,10 +747,6 @@ poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
 * The API throws the following exception error if the requested netmask is invalid: `InvalidNetmaskException`
 {% endhint %}
 
-| Common Exceptions Raised by Java APIs for Allocation Not Successful                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <ul><li>The API throws the following exception error if the requested resource pool does not exist: <code>ResourceErrorException</code></li><li>The API throws the following exception error if the requested resource pool is exhausted: <code>AddressPoolException</code></li><li>The API throws the following exception error if the requested netmask is invalid: <code>InvalidNetmaskException</code></li></ul> |
-
 #### Creating Synchronous or Asynchronous IP Subnet Allocation Requests
 
 The `sync_alloc` parameter in the API determines if the allocation request is for a synchronous or asynchronous mode. Set the `sync_alloc` parameter to true for synchronous flow.
@@ -1124,9 +1120,16 @@ testSync.booleanValue());
 
 </details>
 
-> **Common Exceptions Raised by Java APIs for Allocation not Successful**
->
-> * The API throws the following exception error if the requested resource pool does not exist: `ResourceErrorException`
-> * The API throws the following exception error if the requested resource pool is exhausted: `AddressPoolException`
-> * The API throws the following exception error if the requested netmask is invalid: `InvalidNetmaskException`
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Allocation Not Successful**
 
+* The API throws the following exception error if the requested resource pool does not exist: `ResourceErrorException`
+* The API throws the following exception error if the requested resource pool is exhausted: `AddressPoolException`
+* The API throws the following exception error if the requested netmask is invalid: `InvalidNetmaskException`
+{% endhint %}
+
+#### Verifying Responses for IP Allocations – Java APIs
+
+Once the requesting service requests allocation through an API call, you can verify if the corresponding response is ready. The responses return the properties based on the request.
+
+The following APIs help you to check if the response for the allocation request is ready.
