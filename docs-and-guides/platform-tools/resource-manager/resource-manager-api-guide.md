@@ -1020,7 +1020,42 @@ Pass a `startIP` value to the requesting service redeploy type, default. The sub
 
 ```java
 void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
-    
+    subnetRequest(ServiceContext context,
+    NavuNode service,
+    String poolName,
+    String username,
+    String startIp,
+    int cidrmask,
+    String id,
+    boolean invertCidr,
+    boolean sync_alloc)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type           | Description                                                                   |
+|-------------|----------------|-------------------------------------------------------------------------------|
+| Context     | ServiceContext | ServiceContext referencing the requesting context the service was invoked in. |
+| service     | NavuNode       | NavuNode referencing the requesting service node.                             |
+| poolName    | String         | Name of the resource pool to request the subnet IP address from.              |
+| username    | String         | Name of the user to use when redeploying the requesting service.              |
+| startIP     | String         | Starting IP address of the IP subnet allocation request.                      |
+| cidrmask    | Int            | CIDR mask length of the requested subnet.                                     |
+| id          | String         | Unique allocation ID.                                                         |
+| invertCidr  | Boolean        | Set value to true to invert the subnet mask length.                           |
+| sync_alloc  | Boolean        | Set value to true to make a synchronous allocation request.                   |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+IPAddressAllocator.subnetRequest(context, service, poolName, userName,
+startIp, cidrMask, id, invertCidr.booleanValue(),
+testSync.booleanValue());
 ```
 
 </details>
+
