@@ -1011,3 +1011,16 @@ testSync.booleanValue());
 ```
 
 </details>
+
+<details>
+
+<summary>Java API for IP Subnet Allocation Request with Service Context and Start IP Address</summary>
+
+Pass a `startIP` value to the requesting service redeploy type, default. The subnet IP address begins with the provided IP address. CIDR mask length can be inverted for the subnet allocation request. Set sync to `true` to make a synchronous allocation request with commit dry-run support. Make sure to use the service context you get in the service create callback.
+
+```java
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    
+```
+
+</details>
