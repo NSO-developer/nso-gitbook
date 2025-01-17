@@ -48,6 +48,10 @@ However, the CDB can't use the YANG files directly. The bundled compiler, `ncsc`
 
 ## Showcase: Extending the CDB with Packages <a href="#d5e87" id="d5e87"></a>
 
+{% hint style="info" %}
+See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/cdb-yang) for an example implementation.
+{% endhint %}
+
 ### Prerequisites
 
 Ensure that:
@@ -265,6 +269,10 @@ admin@ncs(config)# user-info "Ingrid" expertise "Linux"
 Combining just these four fundamental YANG node types, you can build a very complex model that describes your data. As an example, the model for the configuration of a Cisco IOS-based network device, with its myriad features, is created with YANG. However, it makes sense to start with some simple models, to learn what kind of data they can represent and how to alter that data with the CLI.
 
 ## Showcase: Building and Testing a Model <a href="#d5e195" id="d5e195"></a>
+
+{% hint style="info" %}
+See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/cdb-yang) for an example implementation.
+{% endhint %}
 
 ### Prerequisites
 
