@@ -6,7 +6,7 @@ description: Description of the APIs exposed by the Resource Manager package.
 
 ***
 
-#### **About this Guide**
+**About this Guide**
 
 This NSO Resource Manager (RM) API Guide describes the APIs exposed by the Resource Manager package that you can use to allocate IPs from the IP resource pool and to allocate the IDs from ID resource pools.
 
