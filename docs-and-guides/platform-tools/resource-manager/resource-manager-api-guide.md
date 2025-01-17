@@ -10,6 +10,23 @@ description: Description of the APIs exposed by the Resource Manager package.
 
 ***
 
+#### **About this Guide**
+
+This NSO Resource Manager (RM) API Guide describes the APIs exposed by the Resource Manager package that you can use to allocate IPs from the IP resource pool and to allocate the IDs from ID resource pools.
+
+**Intended Audience**
+
+This guide is intended for Cisco advanced services developers, network engineers, and system engineers to install the RM package inside NSO and then utilize the APIs exposed by the RM package to allocate and manage IP subnets and IDs as required by other CFPs installed alongside this RM package inside NSO.
+
+**Additional Documentation**
+
+This documentation requires the reader to have a good understanding of NSO and its usage as described in the following NSO documentation:
+
+* [NSO Installation](https://cisco-tailf.gitbook.io/nso-docs/administration/get-started)
+* [NSO Operation and Usage Guide](https://cisco-tailf.gitbook.io/nso-docs/operation-and-usage/get-started)
+
+***
+
 ## Resource Manager IP/ID Allocation APIs
 
 The APIs exposed by the Resource Manager package are used to allocate IP subnets and IDs from the IP and ID resource pools respectively by the applications requesting the resources. The APIs help to allocate, update, or deallocate the resources. You can make API calls to the resource pools as long as the pool is not exhausted of the resources. If the pool is exhausted of resources or if the referenced pool does not exist in the database when there is a request, the allocation raises an exception.&#x20;
@@ -1106,3 +1123,10 @@ testSync.booleanValue());
 ```
 
 </details>
+
+> **Common Exceptions Raised by Java APIs for Allocation not Successful**
+>
+> * The API throws the following exception error if the requested resource pool does not exist: `ResourceErrorException`
+> * The API throws the following exception error if the requested resource pool is exhausted: `AddressPoolException`
+> * The API throws the following exception error if the requested netmask is invalid: `InvalidNetmaskException`
+
