@@ -9,7 +9,7 @@ Services are the cornerstone of network automation with NSO. A service is not ju
 This section examines in greater detail how services work, how to design them, and the different ways to implement them.
 
 {% hint style="success" %}
-For a quicker introduction and a simple showcase of services, see [Develop a Simple Service](../introduction-to-automation/creating-a-service.md).
+For a quicker introduction and a simple showcase of services, see [Develop a Simple Service](../introduction-to-automation/develop-a-simple-service.md).
 {% endhint %}
 
 In NSO, the term service has a special meaning and represents an automation construct that orchestrates create, modify, and delete of a service instance into the resulting native commands to devices in the network. In its simplest form, a service takes some input parameters and maps them to device-specific configurations. It is a recipe or a set of instructions.
