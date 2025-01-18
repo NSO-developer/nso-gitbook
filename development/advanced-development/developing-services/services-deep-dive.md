@@ -9,7 +9,7 @@ description: Deep dive into service implementation.
 
 This section discusses the implementation details of services in NSO. The reader should already be familiar with the concepts described in the introductory sections and [Implementing Services](../../core-concepts/implementing-services.md).
 
-For an introduction to services, see [Develop a Simple Service](../../introduction-to-automation/creating-a-service.md) instead.
+For an introduction to services, see [Develop a Simple Service](../../introduction-to-automation/develop-a-simple-service.md) instead.
 {% endhint %}
 
 ## Common Service Model <a href="#ch_svcref.model" id="ch_svcref.model"></a>
@@ -84,7 +84,7 @@ List of customer services (defined under `/services/customer-service`) that this
 
 <summary><code>commit-queue</code> container</summary>
 
-Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
+Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for details.
 
 </details>
 
@@ -193,7 +193,7 @@ The Python callbacks use the following function arguments:
 * `kp`: A HKeypathRef object with a key path of the affected service instance, such as `/svc:my-service{instance1}`.
 * `root`: A Maagic node for the root of the data model.
 * `service`: A Maagic node for the service instance.
-* `proplist`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
+* `proplist`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque).
 
 {% code title="Example: Service Callback Signatures in Java" %}
 ```java
@@ -230,11 +230,11 @@ The Java callbacks use the following function arguments:
 * `path`: A ConfPath object with a key path of the affected service instance, such as `/svc:my-service{instance1}`.
 * `ncsRoot`: A NavuNode for the root of the `ncs` data model.
 * `service`: A NavuNode for the service instance.
-* `opaque`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
+* `opaque`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque).
 
 See [examples.ncs/service-management/iface-postmod-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-py) and [examples.ncs/service-management/iface-postmod-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/iface-postmod-java) examples for a sample implementation of the post-modification callback.
 
-Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch\_templates.servicepoint) for details.
+Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch_templates.servicepoint) for details.
 
 ### Persistent Opaque Data <a href="#ch_svcref.opaque" id="ch_svcref.opaque"></a>
 
@@ -417,7 +417,7 @@ In practice, you might find it beneficial to modularize your data model and pote
 
 The most important principle to keep in mind is that the data created by any service is owned by that service, regardless of how the mapping is done (through code or templates). If the user deletes a service instance, FASTMAP will automatically delete whatever the service created, including any other services. Likewise, if the operator directly manipulates service data that is created by another service, the higher-level service becomes out of sync. The **check-sync** service action checks this for services as well as devices.
 
-In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount)).
+In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)).
 
 ## Caveats and Best Practices <a href="#ch_svcref.caveats" id="ch_svcref.caveats"></a>
 
@@ -427,11 +427,11 @@ You may also obtain some useful information by using the `debug service` commit 
 
 * **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features.\
   \
-  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch_services.oper)) populated in a pre-modification callback.
 *   **Never overwrite service inputs**: Service input parameters capture client intent and a service should never change its own configuration. Such behavior not only muddles the intent but is also temporary when done in the create callback, as the changes are reverted on the next invocation.
 
     \
-    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch_services.oper)) populated in a pre-modification callback.
 * **No service ordering in a transaction**: NSO is a transactional system and as such does not have the concept of order inside a single transaction. That means NSO does not guarantee any specific order in which the service mapping code executes if the same transaction touches multiple service instances. Likewise, your code should not make any assumptions about running before or after other service code.
 * **Return value of create callback**: The create callback is not the exclusive user of the opaque object; the object can be chained in several different callbacks, such as pre- and post-modification. Therefore, returning `None/null` from create callback is not a good practice. Instead, always return the opaque object even if the create callback does not use it.
 *   **Avoid delete in service create**: Unlike creation, deleting configuration does not support reference counting, as there is no data left to reference count. This means the deleted elements are tied to the service instance that deleted them.
@@ -451,11 +451,11 @@ You may also obtain some useful information by using the `debug service` commit 
     However, the service may also delete data implicitly, through `when` and `choice` statements in the YANG data model. If a `when` statement evaluates to false, the configuration tree below that node is deleted. Likewise, if a `case` is set in a `choice` statement, the previously set `case` is deleted. This has the same limitations as an explicit delete.
 
     \
-    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch\_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See [examples.ncs/service-management/shared-delete](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/shared-delete) for an example.
+    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See [examples.ncs/service-management/shared-delete](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/shared-delete) for an example.
 
     \
     Alternatively, you might consider pre- and post-modification callbacks for some specific cases.
-*   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount) for details.
+*   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount) for details.
 
     \
     In general, you should prefer `sharedCreate()`, `sharedSet()`, and `sharedSetValues()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\\
@@ -470,7 +470,7 @@ You may also obtain some useful information by using the `debug service` commit 
 *   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#ch_templates.order_ops)) or using service stacking with a helper service.
 
     In general, however, you should reconsider your design and try to avoid such scenarios.
-*   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.
+*   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.
 
     \
     A workaround, if the service key absolutely must change, is to first perform a no-networking undeploy of the affected service instances, then upgrade the model, and finally no-networking re-deploy the previously un-deployed services.
@@ -526,7 +526,7 @@ cli {
 }
 ```
 
-However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
+However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
 
 ```cli
 admin@ncs# show running-config devices device c1 config interface\
@@ -812,7 +812,7 @@ admin@ncs# iface instance2 re-deploy reconcile
 
 Nevertheless, keep in mind that the discard-non-service-config reconcile operation only considers parts of the device configuration under nodes that are created with the service mapping. Even if all data there is covered in the mapping, there could still be other parts that belong to the service but reside in an entirely different section of the device configuration (say DNS configuration under `ip name-server`, which is outside the `interface GigabitEthernet` part) or even a different device. That kind of configuration the `discard-non-service-config` option cannot find on its own and you must add manually.
 
-You can find the complete `iface` service as part of the [examples.ncs/service-management/discovery)(https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/discovery) example.
+You can find the complete `iface` service as part of the \[examples.ncs/service-management/discovery)(https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/discovery) example.
 
 Since there were only two service instances to reconcile, the process is now complete. In practice, you are likely to encounter multiple variants and many more service instances, requiring you to make additional iterations. But you can follow the iterative process shown here.
 

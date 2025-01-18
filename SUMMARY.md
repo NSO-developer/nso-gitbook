@@ -74,7 +74,7 @@
 * [Introduction to Automation](development/introduction-to-automation/README.md)
   * [CDB and YANG](development/introduction-to-automation/cdb-and-yang.md)
   * [Basic Automation with Python](development/introduction-to-automation/basic-automation-with-python.md)
-  * [Develop a Simple Service](development/introduction-to-automation/creating-a-service.md)
+  * [Develop a Simple Service](development/introduction-to-automation/develop-a-simple-service.md)
   * [Applications in NSO](development/introduction-to-automation/applications-in-nso.md)
   * [Develop and Deploy a Nano Service](development/introduction-to-automation/develop-and-deploy-a-nano-service.md)
 * [Core Concepts](development/core-concepts/README.md)

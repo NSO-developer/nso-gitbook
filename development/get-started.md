@@ -1,6 +1,6 @@
 ---
-description: Develop services and more in NSO.
 icon: chevrons-right
+description: Develop services and more in NSO.
 layout:
   title:
     visible: true
@@ -18,7 +18,7 @@ layout:
 
 ## Introduction to Automation
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>CDB and YANG</strong></td><td>Learn about NSO's configuration DB &#x26; YANG.</td><td><a href="introduction-to-automation/cdb-and-yang.md">cdb-and-yang.md</a></td></tr><tr><td><strong>Basic Python Automation</strong></td><td>Learn basics of NSO automation with Python.</td><td><a href="introduction-to-automation/basic-automation-with-python.md">basic-automation-with-python.md</a></td></tr><tr><td><strong>Develop a Simple Service</strong></td><td>Take first steps to develop a simple NSO service.</td><td><a href="introduction-to-automation/creating-a-service.md">creating-a-service.md</a></td></tr><tr><td><strong>Applications in NSO</strong></td><td>Automate NSO with applications.</td><td><a href="introduction-to-automation/applications-in-nso.md">applications-in-nso.md</a></td></tr><tr><td><strong>Develop a Nano Service</strong></td><td>Get started with Nano services using an example.</td><td><a href="introduction-to-automation/develop-and-deploy-a-nano-service.md">develop-and-deploy-a-nano-service.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>CDB and YANG</strong></td><td>Learn about NSO's configuration DB &#x26; YANG.</td><td><a href="introduction-to-automation/cdb-and-yang.md">cdb-and-yang.md</a></td></tr><tr><td><strong>Basic Python Automation</strong></td><td>Learn basics of NSO automation with Python.</td><td><a href="introduction-to-automation/basic-automation-with-python.md">basic-automation-with-python.md</a></td></tr><tr><td><strong>Develop a Simple Service</strong></td><td>Take first steps to develop a simple NSO service.</td><td><a href="introduction-to-automation/develop-a-simple-service.md">develop-a-simple-service.md</a></td></tr><tr><td><strong>Applications in NSO</strong></td><td>Automate NSO with applications.</td><td><a href="introduction-to-automation/applications-in-nso.md">applications-in-nso.md</a></td></tr><tr><td><strong>Develop a Nano Service</strong></td><td>Get started with Nano services using an example.</td><td><a href="introduction-to-automation/develop-and-deploy-a-nano-service.md">develop-and-deploy-a-nano-service.md</a></td></tr></tbody></table>
 
 ## Core Concepts
 
