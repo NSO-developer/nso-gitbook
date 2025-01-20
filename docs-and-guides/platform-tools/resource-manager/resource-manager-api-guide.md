@@ -132,7 +132,6 @@ class AllocateCallbacksAsync(Service):
             vars.add("DEVICE_NAME", str(service.device))
             vars.add("IP", str(net))
             template.apply('device', vars
-
 ```
 {% endcode %}
 
@@ -201,7 +200,6 @@ cli {
         +}
     }
 }
-
 ```
 {% endcode %}
 
@@ -239,7 +237,6 @@ cli {
         + }
     }
 }
-
 ```
 {% endcode %}
 
@@ -1338,5 +1335,66 @@ returns allocated IP subnet
 **Response**
 
 Returns the allocated subnet for the IP.
+
+</details>
+
+### Using Java APIs for Non-service IP Allocations
+
+This non-service IP address allocation API is created from Resource Manager 4.2.8.
+
+<details>
+
+<summary><code>subnetRequest()</code></summary>
+
+This API is used to request subnet from the IP address pool.
+
+```java
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRequest(Maapi maapi,
+        int th,
+        RedeployType redeployType,
+        String poolName,
+        String username,
+        String startIp
+        int cidrmask,
+        String id,
+        Boolean invertCidr,
+        Boolean sync_alloc
+        )
+```
+
+**API Parameters**
+
+```
+| Parameter     | Type     | Description                                                         |
+|---------------|----------|---------------------------------------------------------------------|
+| maapi         | Maapi    | Maapi Object.                                                       |
+| th            | int      | Transaction handle.                                                 |
+| poolName      | String   | Name of the resource pool to request the subnet IP address from.    |
+| Username      | String   | Name of the user to use when redeploying the requesting service.    |
+| cidrmask      | Int      | CIDR mask length of the requested subnet.                           |
+| invertCidr    | Boolean  | If boolean value is true, the subnet mask length is inverted.       |
+| id            | String   | Unique allocation ID.                                               |
+| sync_alloc    | Boolean  | Set value to true to make a synchronous allocation request.         | 
+                             By default, it is false (asynchronous).                             |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+    Maapi maapi = service.context().getMaapi();
+    int th = service.context().getMaapiHandle();
+        ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+        IPAddressAllocator.subnetRequest(maapi, th, RedeployType.DEFAULT, poolName, "admin", null,
+    32, allocationName, false, false);
+        if (IPAddressAllocator.responseReady(maapi, th, poolName, allocationName)) {
+            LOGGER.debug("responseReady for ipaddress is true.");
+            ConfIPPrefix subnet = IPAddressAllocator.subnetRead(maapi, th, poolName, allocationName);
+            LOGGER.debug(String.format("subnetRead maapi.Got the value for subnet : %s ",
+    subnet.getAddress()));
+```
+
+
 
 </details>
