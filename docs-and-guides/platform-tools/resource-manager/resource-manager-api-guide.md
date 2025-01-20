@@ -1395,6 +1395,101 @@ NavuContainer loop = (NavuContainer) service;
     subnet.getAddress()));
 ```
 
+</details>
 
+<details>
+
+<summary><code>subnetRead()</code></summary>
+
+This API is used to read the allocated subnet from the IP address pool.
+
+```java
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRead(Maapi maapi,
+        int th,
+        String poolName,
+        String allocationName
+        )
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type   | Description                                                      |
+|-----------------|--------|------------------------------------------------------------------|
+| maapi           | Maapi  | Maapi Object.                                                    |
+| th              | int    | Transaction handle.                                              |
+| poolName        | String | Name of the resource pool to request the subnet IP address from. |
+| allocationName  | String | Allocation name used to read allocated ID.                       |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+    Maapi maapi = service.context().getMaapi();
+    int th = service.context().getMaapiHandle();
+        ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+        IPAddressAllocator.subnetRequest(maapi, th, RedeployType.DEFAULT, poolName, "admin", null,
+    32, allocationName, false, false);
+        if (IPAddressAllocator.responseReady(maapi, th, poolName, allocationName)) {
+            LOGGER.debug("responseReady for ipaddress is true.");
+            ConfIPPrefix subnet = IPAddressAllocator.subnetRead(maapi, th, poolName, allocationName);
+            LOGGER.debug(String.format("subnetRead maapi.Got the value for subnet : %s ",
+subnet.getAddress()));
+```
 
 </details>
+
+<details>
+
+<summary><code>responseReady()</code></summary>
+
+This API is used to check if the response is ready in case of an async subnet request.
+
+```java
+void com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    responseReady(Maapi maapi,
+        int th,
+        String poolName,
+        String allocationName,
+    )
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type   | Description                                                   |
+|-----------------|--------|-------------------------------------------------------------------|
+| maapi           | Maapi  | Maapi Object.                                                     |
+| th              | int    | Transaction handle.                                               |
+| poolName        | String | Name of the resource pool to request the subnet IP address from.  |
+| allocationName  | String | Allocation Name.                                                  |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+    Maapi maapi = service.context().getMaapi();
+    int th = service.context().getMaapiHandle();
+        ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+        IPAddressAllocator.subnetRequest(maapi, th, RedeployType.DEFAULT, poolName, "admin", null,
+    32, allocationName, false, false);
+        if (IPAddressAllocator.responseReady(maapi, th, poolName, allocationName)) {
+            LOGGER.debug("responseReady for ipaddress is true.");
+            ConfIPPrefix subnet = IPAddressAllocator.subnetRead(maapi, th, poolName, allocationName);
+            LOGGER.debug(String.format("subnetRead maapi.Got the value for subnet : %s ",
+    subnet.getAddress()));
+```
+
+</details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Errors**
+
+* `ResourceErrorException`: If the allocation has failed, the request does not exist, or the pool does not exist.
+* `ResourceWaitException`: If the allocation is not ready.
+{% endhint %}
+
+### Using Python APIs for IP Allocations
