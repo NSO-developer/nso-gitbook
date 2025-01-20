@@ -38,7 +38,7 @@ An action can be applied to a single or multiple devices at once.
 2. Using the **Choose actions** button, select the desired action. The result of the action is returned momentarily.
 
 {% hint style="info" %}
-In the **Device management** view, you can also apply actions on a device using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
+In the **Device management** view, you can also apply actions on a device using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Management View**
@@ -46,7 +46,7 @@ In the **Device management** view, you can also apply actions on a device using 
 Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**, and. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button on the device row.
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the device row.
 {% endhint %}
 {% endtab %}
 
@@ -128,7 +128,7 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
@@ -136,7 +136,7 @@ In the **Device groups** view, you can also apply actions on a device group usin
 The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../operations/lifecycle-operations.md).
 
 {% hint style="info" %}
-The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options (2).png" alt="" data-size="line"> button on a device group.
+The **Modify in Config editor** option is accessible by clicking the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a device group.
 {% endhint %}
 
 ## Authgroups
