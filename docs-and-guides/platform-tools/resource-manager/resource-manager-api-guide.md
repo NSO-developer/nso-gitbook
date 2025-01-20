@@ -1243,7 +1243,7 @@ com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
 ```
 | Parameter   | Type     | Description                                           |
 |-------------|----------|-------------------------------------------------------|
-| cdb         | Database | A database resource                                   |
+| cdb         | Database | A database resource.                                  |
 | poolName    | String   | Name of the resource pool the request was created in. |
 | id          | String   | Unique allocation ID for the allocation request.      |
 ```
@@ -1298,5 +1298,45 @@ returns allocated IP subnet
 **Response**
 
 Returns the subnet from which the IP allocation was made.
+
+</details>
+
+<details>
+
+<summary>New Subnet Read Java API to Read Allocation</summary>
+
+The following is the recommended API to read the allocated IP.
+
+```java
+ConfIPPrefix com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRead(NavuContext context,
+        String poolName,
+        String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type     | Description                                           |
+|-------------|----------|-------------------------------------------------------|
+| cdb         | Database | A database resource.                                  |
+| poolName    | String   | Name of the resource pool the request was created in. |
+| id          | String   | Unique allocation ID for the allocation request.      |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+allocatedIP = IPAddressAllocator.subnetRead(service.context(), poolName,
+id);
+
+returns allocated IP subnet
+```
+
+**Response**
+
+Returns the allocated subnet for the IP.
 
 </details>
