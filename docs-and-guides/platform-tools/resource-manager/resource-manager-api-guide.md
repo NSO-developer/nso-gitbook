@@ -1133,3 +1133,170 @@ testSync.booleanValue());
 Once the requesting service requests allocation through an API call, you can verify if the corresponding response is ready. The responses return the properties based on the request.
 
 The following APIs help you to check if the response for the allocation request is ready.
+
+<details>
+
+<summary>Java API to Check Allocation Request Using CDB Context</summary>
+
+```java
+boolean com.tailf.pkg.ipaddressallocator.IPAddressAllocator. 
+    responseReady(NavuContext context,
+        Cdb cdb,
+        String poolName,
+        String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type         | Description                                           |
+|-------------|--------------|-------------------------------------------------------|
+| Context     | NavuContext  | A NavuContext for the transaction.                    |
+| Cdb         | database     | A database resource.                                  |
+| poolName    | String       | Name of the resource pool the request was created in. |
+| id          | String       | Unique allocation ID for the allocation request.      |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+ready = IPAddressAllocator.responseReady(service.context(),cdb, poolName,
+id);
+
+returns True or False
+```
+
+**Response**
+
+Returns `true` if a response for the allocation is ready.
+
+</details>
+
+<details>
+
+<summary>Java API to Check Allocation Request Without Using CDB Context</summary>
+
+The following API is recommended to verify responses for IP allocations.
+
+```java
+boolean com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    responseReady(NavuContext context,
+        String poolName,
+        String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type         | Description                                           |
+|-------------|--------------|-------------------------------------------------------|
+| Context     | NavuContext  | A NavuContext for the transaction.                    |
+| poolName    | String       | Name of the resource pool the request was created in. |
+| id          | String       | Unique allocation ID for the allocation request.      |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+ready = IPAddressAllocator.responseReady(service.context(), poolName,
+id);
+
+returns True or False
+```
+
+**Response**
+
+Returns `true` if a response for the allocation is ready.
+
+</details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Errors**
+
+* `ResourceErrorException`: If the allocation has failed, the request does not exist, or the pool does not exist.
+* `ConfException`: When there are format errors in the API request call.
+* `IOException`: When the I/O operations fail or are interrupted.
+{% endhint %}
+
+#### Reading IP Allocation Responses for Java APIs
+
+The following API reads the allocated IP subnet from the resource pool once the allocation request response is ready.
+
+<details>
+
+<summary>Subnet Read Java API to Read Allocation Using CDB Context</summary>
+
+```java
+ConfIPPrefix
+com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    subnetRead(Cdb cdb,
+        String poolName,
+        String id)
+```
+
+**API Parameter**
+
+```
+| Parameter   | Type     | Description                                           |
+|-------------|----------|-------------------------------------------------------|
+| cdb         | Database | A database resource                                   |
+| poolName    | String   | Name of the resource pool the request was created in. |
+| id          | String   | Unique allocation ID for the allocation request.      |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+allocatedIP = IPAddressAllocator.subnetRead(cdb, poolName, id);
+
+returns allocated IP subnet
+```
+
+**Response**
+
+The API returns the allocated subnet IP.
+
+</details>
+
+<details>
+
+<summary>From Read Java API to Read Allocation Using CDB Context</summary>
+
+```java
+ConfIPPrefix com.tailf.pkg.ipaddressallocator.IPAddressAllocator.
+    fromRead(Cdb cdb,
+        String poolName,
+        String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type     | Description                                           |
+|-------------|----------|-------------------------------------------------------|
+| cdb         | Database | A database resource.                                  |
+| poolName    | String   | Name of the resource pool the request was created in. |
+| id          | String   | Unique allocation ID for the allocation request.      |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.ipaddressallocator.IPAddressAllocator;
+
+allocatedIP = IPAddressAllocator.fromRead(cdb, poolName, id);
+
+returns allocated IP subnet
+```
+
+**Response**
+
+Returns the subnet from which the IP allocation was made.
+
+</details>
