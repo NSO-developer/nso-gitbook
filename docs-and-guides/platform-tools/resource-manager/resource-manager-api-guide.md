@@ -1511,7 +1511,7 @@ Use the API definition `net_request` found in the module `resource_manager.ipadd
 The `net_request` function is designed to create an allocation request for a network. It takes several arguments, including the requesting service, username, pool name, allocation name, CIDR mask (size of the network), and optional parameters such as `invert_cidr`, `redeploy_type`, `sync_alloc`, and `root`. After calling this function, you need to call `net_read` to read the allocated IP from the subnet.
 
 ```python
-API def net_request (service,
+def net_request (service,
     svc_xpath,
     username,
     pool_name,
@@ -1588,7 +1588,7 @@ The following API is used to create a static allocation request for an IP addres
 The `net_request_static` function extends the functionality of `net_request` to allow for static allocation of network resources, specifically addressing individual IP addresses within a subnet. In addition to the parameters used in `net_request`, it also accepts `subnet_start_ip`, which specifies the starting IP address of the requested subnet. This function provides a way to allocate specific IP addresses within a network pool, useful for scenarios where certain IP addresses need to be reserved or managed independently. The function maintains similar error handling and package requirements as `net_request`, ensuring consistency in network resource management.
 
 ```python
-API def net_request_static(service,
+def net_request_static(service,
     svc_xpath,
     username,
     pool_name,
@@ -1604,7 +1604,7 @@ API def net_request_static(service,
 **API Parameters**
 
 ```
-| Parameter        | Type     | Description                                                                                     |
+| Parameter        | Type     | Description                                                                                             |
 |------------------|----------|---------------------------------------------------------------------------------------------------------|
 | service          |          | The requesting service node.                                                                            |
 | svc_xpath        | String   | XPath to the requesting service.                                                                        |
@@ -1656,5 +1656,51 @@ ip_allocator.net_request_static(
     root=root
 )
 ```
+
+</details>
+
+<details>
+
+<summary>Reading the Allocated IP Subnet Once the Allocation is Ready</summary>
+
+Use the API definition `net_read` found in the module `resource_manager.ipaddress_allocator` to read the allocated subnet IP. The `net_read` function retrieves the allocated network from the specified pool and allocation name. It takes the username, root node for the current transaction, pool name, and allocation name as parameters. The function interacts with the `rm_alloc` module to read the allocated network, returning it if available or None if not ready. It's important to note that the function should be used to ensure that the response subnet is received in the current transaction, avoiding aborts or failures during the commit.
+
+```python
+def net_read(username,
+    root,
+    pool_name,
+    allocation_name)
+```
+
+**API Parameters**
+
+```
+| Parameter        | Type    | Description                                                          |
+|------------------|---------|----------------------------------------------------------------------|
+| username         | String  | Name of the user to use when redeploying the requesting service.     |
+| root             |         | A maagic root for the current transaction.                            |
+| pool_name        | String  | Name of the resource pool to make the allocation request from.       |
+| allocation_name  | String  | Unique allocation name.                                              |
+```
+
+**Example**
+
+```python
+# After requesting allocation, we check if IP is allocated.
+net = ip_allocator.net_read(
+    tctx.username,
+    root,
+    pool_name,
+    allocation_name
+)
+
+if not net:
+    self.log.info("Alloc not ready")
+    return
+
+print("net = %s" % (net))
+```
+
+
 
 </details>
