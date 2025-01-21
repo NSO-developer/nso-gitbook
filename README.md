@@ -21,7 +21,11 @@ layout:
 
 # Docs Home - Cisco Crosswork NSO
 
+***
+
 Welcome to **NSO Docs Home**, your starting point for the Cisco Crosswork Network Services Orchestrator (NSO) documentation.&#x20;
+
+***
 
 ## Overview
 
