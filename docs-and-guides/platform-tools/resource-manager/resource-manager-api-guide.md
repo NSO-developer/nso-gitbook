@@ -1782,3 +1782,50 @@ ip_allocator.net_request_tr(
 ```
 
 </details>
+
+## ID Allocations
+
+RM package exposes APIs to manage ID allocation from the ID resource pool. The APIs are available to request ID, check if the allocation is ready and also to read the allocation once ready.
+
+### Using JAVA APIs for ID Allocations – Asynchronous Old APIs
+
+The following are the asynchronous old Java APIs for ID allocation from the RM resource pool.
+
+<details>
+
+<summary>Default Java API for ID Allocation Request</summary>
+
+The following API is used to create or update an ID allocation request with service redeploy type as default.
+
+```java
+idRequest(NavuNode service,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId)
+```
+
+**API Parameters**
+
+```
+| Parameter    | Type      | Description                                                               |
+|--------------|-----------|---------------------------------------------------------------------------|
+| Service      | NavuNode  | NavuNode referencing the requesting service node.                         |
+| poolName     | String    | Name of the resource pool to request the allocation ID from.              |
+| Username     | String    | Name of the user to use when redeploying the requesting service.          |
+| id           | String    | Unique allocation ID.                                                     |
+| sync_pool    | Boolean   | Sync allocations with the ID value across pools.                          |
+| Requested ID | Int       | Request the specific ID to be allocated.                                  |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+IdAllocator.idRequest(service, poolName, userName, id,
+test_with_sync.booleanValue(), requestId);
+```
+
+</details>
+
