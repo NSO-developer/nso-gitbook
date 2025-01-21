@@ -1585,7 +1585,7 @@ ip_allocator.net_request(
 
 The following API is used to create a static allocation request for an IP address from a resource pool. Use the API definition `net_request_static` found in the module `resource_manager.ipaddress_allocator`.
 
-The `net_request_static` function extends the functionality of `net_request` to allow for static allocation of network resources, specifically addressing individual IP addresses within a subnet. In addition to the parameters used in `net_request`, it also accepts `subnet_start_ip`, which specifies the starting IP address of the requested subnet. This function provides a way to allocate specific IP addresses within a network pool, useful for scenarios where certain IP addresses need to be reserved or managed independently. The function maintains similar error handling and package requirements as `net_request`, ensuring consistency in network resource management.
+The `net_request_static` function extends the functionality of `net_request` to allow for the static allocation of network resources, specifically addressing individual IP addresses within a subnet. In addition to the parameters used in `net_request`, it also accepts `subnet_start_ip`, which specifies the starting IP address of the requested subnet. This function provides a way to allocate specific IP addresses within a network pool, useful for scenarios where certain IP addresses need to be reserved or managed independently. The function maintains similar error handling and package requirements as `net_request`, ensuring consistency in network resource management.
 
 ```python
 def net_request_static(service,
@@ -1678,7 +1678,7 @@ def net_read(username,
 | Parameter        | Type    | Description                                                          |
 |------------------|---------|----------------------------------------------------------------------|
 | username         | String  | Name of the user to use when redeploying the requesting service.     |
-| root             |         | A maagic root for the current transaction.                            |
+| root             |         | A maagic root for the current transaction.                           |
 | pool_name        | String  | Name of the resource pool to make the allocation request from.       |
 | allocation_name  | String  | Unique allocation name.                                              |
 ```
@@ -1701,6 +1701,84 @@ if not net:
 print("net = %s" % (net))
 ```
 
+</details>
 
+### Using Python APIs for Non-Service IP Allocations
+
+#### Creating Python APIs for IP Allocations
+
+The RM package exposes Python APIs to manage non-service allocation for IP subnet from the resource pool. Below is the list of Python APIs exposed by the RM package.
+
+<details>
+
+<summary>Non-Service Python API for IP Subnet Allocation Request</summary>
+
+The following API is used to create an allocation request for an IP address from a resource pool. Use the API definition `net_request_tr` found in the module `resource_manager.ipaddress_allocator`.
+
+The `net_request_tr` function is designed to create a non-service allocation request for a network. It takes several arguments, including the requesting tr ( transaction backend) , username, pool name, allocation name, CIDR mask (size of the network), and optional parameters such as `invert_cidr`, `redeploy_type`, `sync_alloc`, and `root`. After calling this function, you need to call `net_read` to read the allocated IP from the subnet.
+
+```python
+def net_request_tr (tr,
+    username,
+    pool_name,
+    allocation_name,
+    cidrmask,
+    invert_cidr=False,
+    redeploy_type="default",
+    sync_alloc=False,
+    root=None)
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type     | Description                                                                                         |
+|-----------------|----------|-----------------------------------------------------------------------------------------------------|
+| tr              |          | The transaction backend.                                                                            |
+| username        | String   | Name of the user to use when redeploying the requesting service.                                    |
+| pool_name       | Int      | Name of the resource pool to make the allocation request from.                                      |
+| allocation_name | String   | Unique allocation name.                                                                             |
+| cidrmask        |          | Size of the network.                                                                                |
+| invert_cidr     | Boolean  |                                                                                                     |
+| sync_alloc      | Boolean  | Set value to true to make a synchronous allocation request. By default, it is false (asynchronous). |
+```
+
+**Example**
+
+```python
+import resource_manager.ipaddress_allocator as ip_allocator
+
+pool_name = "The Pool"
+allocation_name = "Unique allocation name"
+sync_alloc_name = "Unique synchronous allocation name"
+
+# This will try to asynchronously allocate the network of size 24 from the pool named 'The Pool'
+# using allocation name: 'Unique allocation name'
+ip_allocator.net_request_tr(
+    maagic.get_trans(root),
+    tctx.username,
+    pool_name,
+    alloc_name,
+    service.cidr_length,
+    False,
+    "default",
+    False,
+    None
+)
+
+# This will try to synchronously allocate the network of size 24 from the pool named 'The Pool'
+# using allocation name: 'Unique synchronous allocation name'
+ip_allocator.net_request_tr(
+    maagic.get_trans(root),
+    tctx.username,
+    pool_name,
+    alloc_name,
+    service.cidr_length,
+    False,
+    "default",
+    True,
+    None
+)
+```
 
 </details>
