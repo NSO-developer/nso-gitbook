@@ -1493,3 +1493,168 @@ NavuContainer loop = (NavuContainer) service;
 {% endhint %}
 
 ### Using Python APIs for IP Allocations
+
+#### Creating Python APIs for IP Allocations
+
+The RM package exposes Python APIs to manage allocation for IP subnet from the resource pool.
+
+Below is the list of Python APIs exposed by the RM package.
+
+<details>
+
+<summary>Default Python API for IP Subnet Allocation Request</summary>
+
+The following API is used to create an allocation request for an IP address from a resource pool.
+
+Use the API definition `net_request` found in the module `resource_manager.ipaddress_allocator`.
+
+The `net_request` function is designed to create an allocation request for a network. It takes several arguments, including the requesting service, username, pool name, allocation name, CIDR mask (size of the network), and optional parameters such as `invert_cidr`, `redeploy_type`, `sync_alloc`, and `root`. After calling this function, you need to call `net_read` to read the allocated IP from the subnet.
+
+```python
+API def net_request (service,
+    svc_xpath,
+    username,
+    pool_name,
+    allocation_name,
+    cidrmask,
+    invert_cidr=False,
+    redeploy_type="default",
+    sync_alloc=False,
+    root=None)
+```
+
+**API Parameters**
+
+```
+| Parameter        | Type     | Description                                                                                              |
+|------------------|----------|----------------------------------------------------------------------------------------------------------|
+| service          |          | The requesting service node.                                                                             |
+| svc_xpath        | String   | XPath to the requesting service.                                                                         |
+| username         | String   | Name of the user to use when redeploying the requesting service.                                         |
+| pool_name        | Int      | Name of the resource pool to make the allocation request from.                                           |
+| allocation_name  | String   | Unique allocation name.                                                                                  |
+| cidrmask         |          | Size of the network.                                                                                     |
+| invert_cidr      | Boolean  |                                                                                                          |
+| redeploy_type    |          | Service redeploy action. Available options: default, touch, re-deploy, reactive-re-deploy, no-redeploy.  |
+| sync_alloc       | Boolean  | Allocation type, whether synchronous or asynchronous. By default, it is asynchronous.                    |
+| Root             |          | Root node. If sync is set to true, you must provide a root node.                                         |
+```
+
+**Example**
+
+```python
+import resource_manager.ipaddress_allocator as ip_allocator
+
+# Define pool and allocation names
+pool_name = "The Pool"
+allocation_name = "Unique allocation name"
+sync_alloc_name = "Unique synchronous allocation name"
+
+# Asynchronous network allocation
+# This will try to allocate a network of size 24 from the pool named 'The Pool'
+# using the allocation name: 'Unique allocation name'
+ip_allocator.net_request(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    allocation_name,
+    24
+)
+
+# Synchronous network allocation
+# This will try to allocate a network of size 24 from the pool named 'The Pool'
+# using the allocation name: 'Unique synchronous allocation name'
+ip_allocator.net_request(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    sync_alloc_name,
+    24,
+    sync=True,
+    root=root
+)
+```
+
+</details>
+
+<details>
+
+<summary>Python API for IP Subnet Allocation Request with Start IP Address</summary>
+
+The following API is used to create a static allocation request for an IP address from a resource pool. Use the API definition `net_request_static` found in the module `resource_manager.ipaddress_allocator`.
+
+The `net_request_static` function extends the functionality of `net_request` to allow for static allocation of network resources, specifically addressing individual IP addresses within a subnet. In addition to the parameters used in `net_request`, it also accepts `subnet_start_ip`, which specifies the starting IP address of the requested subnet. This function provides a way to allocate specific IP addresses within a network pool, useful for scenarios where certain IP addresses need to be reserved or managed independently. The function maintains similar error handling and package requirements as `net_request`, ensuring consistency in network resource management.
+
+```python
+API def net_request_static(service,
+    svc_xpath,
+    username,
+    pool_name,
+    allocation_name,
+    subnet_start_ip,
+    cidrmask,
+    invert_cidr=False,
+    redeploy_type="default",
+    sync_alloc=False,
+    root=None)
+```
+
+**API Parameters**
+
+```
+| Parameter        | Type     | Description                                                                                     |
+|------------------|----------|---------------------------------------------------------------------------------------------------------|
+| service          |          | The requesting service node.                                                                            |
+| svc_xpath        | String   | XPath to the requesting service.                                                                        |
+| username         | String   | Name of the user to use when redeploying the requesting service.                                        |
+| pool_name        | Int      | Name of the resource pool to make the allocation request from.                                          |
+| allocation_name  | String   | Unique allocation name.                                                                                 |
+| cidrmask         |          | Size of the network.                                                                                    |
+| invert_cidr      | Boolean  | Whether to invert the CIDR.                                                                             |
+| redeploy_type    |          | Service Redeploy action. Available options: default, touch, re-deploy, reactive-re-deploy, no-redeploy. |
+| sync_alloc       | Boolean  | Allocation type, whether synchronous or asynchronous. By default, it is asynchronous.                   |
+| root             |          | Root node. If `sync` is set to true, you must provide a root node.                                      |
+```
+
+**Example**
+
+```python
+import resource_manager.ipaddress_allocator as ip_allocator
+
+# Define pool and allocation names
+pool_name = "The Pool"
+allocation_name = "Unique allocation name"
+sync_alloc_name = "Unique synchronous allocation name"
+
+# Asynchronous static IP allocation
+# This will try to allocate the address 10.0.0.8 with a CIDR mask of 32
+# from the pool named 'The Pool', using the allocation name: 'Unique allocation name'
+ip_allocator.net_request_static(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    allocation_name,
+    "10.0.0.8",
+    32
+)
+
+# Synchronous static IP allocation
+# This will try to allocate the address 10.0.0.9 with a CIDR mask of 32
+# from the pool named 'The Pool', using the allocation name: 'Unique synchronous allocation name'
+ip_allocator.net_request_static(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    sync_alloc_name,
+    "10.0.0.9",
+    32,
+    sync=True,
+    root=root
+)
+```
+
+</details>
