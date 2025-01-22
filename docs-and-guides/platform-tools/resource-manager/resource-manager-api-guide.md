@@ -1,5 +1,6 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
+hidden: true
 ---
 
 # Resource Manager API Guide
@@ -2087,3 +2088,75 @@ try {
 ```
 
 </details>
+
+<details>
+
+<summary><code>responseReady()</code></summary>
+
+The following API is used to check whether the response is ready after the ID request in case of an asynchronous allocation request.
+
+```java
+responseReady(Maapi maapi,
+    int th,
+    String poolName,
+    String allocationName,
+    )
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type     | Description                                                    |
+|-----------------|----------|----------------------------------------------------------------|
+| maapi           | Maapi    | Maapi object.                                                  |
+| th              | int      | Transaction handle.                                            |
+| poolName        | String   | Name of the resource pool to request the allocation ID from.   |
+| allocationName  | String   | Allocation Name.                                               |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+Maapi maapi = service.context().getMaapi();
+int th = service.context().getMaapiHandle();
+ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+String poolName = loop.leaf("pool").value().toString();
+String username = "admin";
+String allocationName = loop.leaf("allocation-name").value().toString();
+ConfBool sync = (ConfBool) loop.leaf("sync").value();
+LOGGER.debug("doMaapiCreate() , service Name = " + allocationName);
+
+long requestedId = loop.leaf("requestedId").exists()
+    ? ((ConfUInt32) loop.leaf("requestedId").value()).longValue()
+    : -1L;
+
+/* Create resource allocation request. */
+LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , requestedId %d",
+    poolName, allocationName, requestedId));
+
+IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(),
+    requestedId, false);
+
+try {
+    if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
+        LOGGER.debug(String.format("responseReady maapi True. allocationName %s.", allocationName));
+        ConfUInt32 id = IdAllocator.idRead(maapi, th, poolName, allocationName);
+        LOGGER.debug(String.format("idRead maapi: We got the id: %s.", id.longValue()));
+    }
+```
+
+</details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Errors**
+
+* The API may throw the below exception if no pool resource exists for the requested allocation: `ResourceErrorException`.
+* The API may throw the below exception if the ID request conflicts with another allocation or does not match the previous allocation in case of multiple owner requests: `AllocationException`.&#x20;
+{% endhint %}
+
+### Verifying Responses for ID Allocations – Java APIs
+
+RM package exposes `responseReady` Java API to verify if the ID allocation request is ready or not.
+
+The following APIs are used to verify if the response is ready for an ID allocation request.
