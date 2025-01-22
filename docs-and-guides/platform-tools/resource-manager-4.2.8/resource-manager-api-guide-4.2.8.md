@@ -2,7 +2,7 @@
 description: Description of the APIs exposed by the Resource Manager package.
 ---
 
-# Resource Manager API Guide
+# Resource Manager API Guide (4.2.8)
 
 ***
 
@@ -2277,3 +2277,37 @@ returns allocated ID
 
 </details>
 
+<details>
+
+<summary>Java API to Read ID Allocation Once Ready Without Using CDB Context</summary>
+
+```java
+ConfUInt32 idRead
+    (NavuContext context, 
+    String poolName, 
+    String id)
+```
+
+**API Parameters**
+
+```
+| Parameter  | Type        | Description                                                  |
+|------------|-------------|--------------------------------------------------------------|
+| context    | NavuContext | A Navu context for the current transaction.                  |
+| poolName   | String      | Name of the resource pool to request the allocation ID from. |
+| ID         | String      | Unique allocation ID.                                        |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+allocatedID = IdAllocator.idRead(service.context(), poolName, id);
+
+returns allocated ID
+```
+
+</details>
+
+### Using JAVA APIs for ID Allocations – Synchronous/Asynchronous New APIs
