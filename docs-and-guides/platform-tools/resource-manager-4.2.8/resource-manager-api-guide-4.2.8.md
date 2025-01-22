@@ -2311,3 +2311,50 @@ returns allocated ID
 </details>
 
 ### Using JAVA APIs for ID Allocations – Synchronous/Asynchronous New APIs
+
+The following are the synchronous/asynchronous new Java APIs exposed by the RM package for ID allocation from the resource pool.
+
+<details>
+
+<summary>Java API for ID Allocation Request Using Service Context</summary>
+
+The following API is used to verify the response for a synchronous or asynchronous ID allocation request.
+
+```java
+idRequest(ServiceContext context,
+    NavuNode service,
+    RedeployType redeployType,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,boolean
+    sync_alloc)
+```
+
+**API Parameter**
+
+```
+| Parameter    | Type          | Description                                                                  |
+|--------------|---------------|------------------------------------------------------------------------------|
+| context      | ServiceContext| A context referencing the requesting context the service was invoked in.     |
+| service      | NavuNode      | Navu node referencing the requesting service node.                           |
+| redeployType |               | Service redeploy action.                                                     |
+| poolName     | String        | Name of the resource pool to request the allocation ID from.                 |
+| username     | String        |                                                                              |
+| id           | String        | Unique allocation ID.                                                        |
+| sync_pool    | Boolean       | Sync allocations with the ID value across pools.                             |
+| requestedId  | Int           | A specific ID to be requested.                                               |
+| sync_alloc   | Boolean       | If the boolean value is true, the allocation is synchronous.                 |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(context, service, redeployType, poolName, userName,
+id, test_with_sync.booleanValue(), requestId, syncAlloc.booleanValue());
+```
+
+</details>
