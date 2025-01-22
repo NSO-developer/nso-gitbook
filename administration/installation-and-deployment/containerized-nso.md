@@ -42,7 +42,7 @@ The Production Image is a production-ready NSO image for system-wide deployment 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
 {% hint style="info" %}
-Consult the [Installation](README.md) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
+Consult the [Installation](./) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
 {% endhint %}
 
 {% hint style="info" %}
@@ -368,7 +368,7 @@ Follow the steps below to run the Production Image using Docker CLI:
 docker load -i nso-6.4.container-image-prod.linux.x86_64.tar.gz
 ```
 
-3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin\_guide.containers.ncs).
+3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin_guide.containers.ncs).
 
 ```bash
 docker run -itd --name cisco-nso \
@@ -501,7 +501,7 @@ This example covers the necessary information to manifest the use of NSO images 
 
 #### **Packages**
 
-The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](getting-started/netsim-sshkey) example:
+The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey) example:
 
 * `distkey`: A simple Python + template service package that automates the setup of SSH public key authentication between netsim (ConfD) devices and NSO using a nano service.
 * `ne`: A NETCONF NED package representing a netsim network element that implements a configuration subscriber Python application that adds or removes the configured public key, which the netsim (ConfD) network element checks when authenticating public key authentication clients.
