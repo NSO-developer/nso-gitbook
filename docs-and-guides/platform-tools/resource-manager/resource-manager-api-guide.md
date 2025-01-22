@@ -1,6 +1,5 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
-hidden: true
 ---
 
 # Resource Manager API Guide
