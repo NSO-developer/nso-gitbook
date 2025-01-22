@@ -1,6 +1,5 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
-hidden: true
 ---
 
 # Resource Manager API Guide
@@ -2160,3 +2159,38 @@ try {
 RM package exposes `responseReady` Java API to verify if the ID allocation request is ready or not.
 
 The following APIs are used to verify if the response is ready for an ID allocation request.
+
+<details>
+
+<summary>Java API to Check ID Allocation Ready using CDB Context</summary>
+
+```java
+boolean responseReady
+    (NavuContext context, 
+    Cdb cdb,
+    String poolName, 
+    String id)
+```
+
+**API Parameters**
+
+```
+| Parameter | Type        | Description                                                 |
+|-----------|-------------|-------------------------------------------------------------|
+| context   | NavuContext | A NavuContext for the current transition.                   |
+| poolName  | Str         | Name of the resource pool to request the allocation ID from.|
+| cdb       | database    | The resource database.                                      |
+| id        | String      | Unique allocation ID.                                       |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+ready = IdAllocator.responseReady(service.context(), cdb, poolName, id);
+returns True or False
+```
+
+</details>
+
