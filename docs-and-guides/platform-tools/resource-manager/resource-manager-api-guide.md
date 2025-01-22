@@ -1,6 +1,5 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
-hidden: true
 ---
 
 # Resource Manager API Guide
@@ -1908,5 +1907,13 @@ import com.tailf.pkg.idallocator.IdAllocator;
 IdAllocator.idRequest(context, service, poolName, userName, id,
 test_with_sync.booleanValue(), requestId);
 ```
+
+</details>
+
+<details>
+
+<summary>Java API for ID Allocation Request with Service Context and Redeploy Type</summary>
+
+Use the following API to create or update an ID allocation request with the requesting service redeploy type as `redeployType`.
 
 </details>
