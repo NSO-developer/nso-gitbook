@@ -1928,6 +1928,162 @@ idRequest(ServiceContext
     long requestedId)
 ```
 
+**API Parameter**
 
+```
+| Parameter    | Type          | Description                                                                                                     |
+|--------------|---------------|-----------------------------------------------------------------------------------------------------------------|
+| context      | ServiceContext| Context referencing the requesting context that the service was invoked in.                                     |
+| service      | NavuNode      | NavuNode referencing the requesting service node.                                                               |
+| redeployType |               | Service redeploy action. The available options are: default, touch, re-deploy, reactive-re-deploy, no-redeploy. |
+| poolName     | String        | Name of the resource pool to request the allocation ID from.                                                    |
+| username     | String        | Name of the user to use when redeploying the requesting service.                                                |
+| id           | String        | Unique allocation ID.                                                                                           |
+| sync_pool    | Boolean       | Sync allocations with the ID value across pools.                                                                |
+| requestedId  | Int           | Request the specific ID to be allocated.                                                                        |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(context, service, redeployType, poolName, userName,
+id, test_with_sync.booleanValue(), requestId);
+```
+
+</details>
+
+### Using JAVA APIs for Non-Service ID Allocations
+
+The following API is used to create or update an ID allocation request with non-service.
+
+<details>
+
+<summary><code>idRequest()</code></summary>
+
+This i`dRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
+
+```java
+idRequest(Maapi maapi,
+    int th,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,
+    boolean sync_alloc)
+```
+
+**API Parameter**
+
+```
+| Parameter   | Type   | Description                                                               |
+|-------------|--------|---------------------------------------------------------------------------|
+| maapi       | Maapi  | Maapi object.                                                             |
+| th          | int    | Transaction handle.                                                       |
+| poolName    | String | Name of the resource pool to request the allocation ID from.              |
+| Username    | String | Name of the user to use when redeploying the requesting service.          |
+| id          | String | Unique allocation ID.                                                     |
+| sync_pool   | Boolean| Sync allocations with the ID value across pools.                          |
+| requestedId | Int    | Request the specific ID to be allocated.                                  |
+| sync_alloc  | Boolean| If the boolean value is true, the allocation is synchronous.              |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+Maapi maapi = service.context().getMaapi();
+int th = service.context().getMaapiHandle();
+ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+String poolName = loop.leaf("pool").value().toString();
+String username = "admin";
+String allocationName = loop.leaf("allocation-name").value().toString();
+ConfBool sync = (ConfBool) loop.leaf("sync").value();
+
+LOGGER.debug("doMaapiCreate() , service Name = " + allocationName);
+
+long requestedId = loop.leaf("requestedId").exists()
+    ? ((ConfUInt32) loop.leaf("requestedId").value()).longValue()
+    : -1L;
+
+/* Create resource allocation request. */
+LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , requestedId %d",
+    poolName, allocationName, requestedId));
+
+IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(),
+    requestedId, false);
+
+try {
+    if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
+        LOGGER.debug(String.format("responseReady maapi True. allocationName %s.",
+            allocationName));
+        ConfUInt32 id = IdAllocator.idRead(maapi, th, poolName, allocationName);
+        LOGGER.debug(String.format("idRead maapi: We got the id: %s.", id.longValue()));
+    }
+```
+
+</details>
+
+<details>
+
+<summary><code>idRead()</code></summary>
+
+The following API is used to read the allocated ID.
+
+```java
+idRead(Maapi maapi,
+    int th,
+    String poolName,
+    String allocationName,
+)
+```
+
+**API Parameters**
+
+```
+| Parameter     | Type   | Description                                                   |
+|---------------|--------|---------------------------------------------------------------|
+| maapi         | Maapi  | Maapi object.                                                 |
+| th            | int    | Transaction handle.                                           |
+| poolName      | String | Name of the resource pool to request the allocation ID from.  |
+| allocationName| String | Allocation name.                                              |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+Maapi maapi = service.context().getMaapi();
+int th = service.context().getMaapiHandle();
+ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+String poolName = loop.leaf("pool").value().toString();
+String username = "admin";
+String allocationName = loop.leaf("allocation-name").value().toString();
+ConfBool sync = (ConfBool) loop.leaf("sync").value();
+
+LOGGER.debug("doMaapiCreate() , service Name = " + allocationName);
+
+long requestedId = loop.leaf("requestedId").exists() ?
+    ((ConfUInt32) loop.leaf("requestedId").value()).longValue() : -1L;
+
+/* Create resource allocation request. */
+LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , requestedId %d", 
+    poolName, allocationName, requestedId));
+
+IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(), 
+    requestedId, false);
+
+try {
+    if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
+        LOGGER.debug(String.format("responseReady maapi True. allocationName %s.", 
+            allocationName));
+        
+        ConfUInt32 id = IdAllocator.idRead(maapi, th, poolName, allocationName);
+        LOGGER.debug(String.format("idRead maapi: We got the id: %s.", id.longValue()));
+    }
+}
+```
 
 </details>
