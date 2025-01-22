@@ -1,5 +1,6 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
+hidden: true
 ---
 
 # Resource Manager API Guide
@@ -1829,3 +1830,83 @@ test_with_sync.booleanValue(), requestId);
 
 </details>
 
+<details>
+
+<summary>Java API for ID Allocation Request with Redeploy Type</summary>
+
+The following API is used to create or update an IP allocation request with requesting service redeploy type as `redeployType`.
+
+```java
+idRequest(NavuNode service, RedeployType redeployType,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId)
+```
+
+**API Parameters**
+
+```
+| Parameter      | Type      | Description                                                                  |
+|----------------|-----------|------------------------------------------------------------------------------|
+| Service        | NavuNode  | NavuNode referencing the requesting service node.                            |
+| redeployType   |           | The available options are: Default, Redeploytype, Touch, Reactive-re-deploy. |
+| poolName       | String    | Name of the resource pool to request the allocation ID from.                 |
+| Username       | String    | Name of the user to use when redeploying the requesting service.             |
+| ID             | String    | Unique allocation ID.                                                        |
+| sync_pool      | Boolean   | Sync allocations with the ID value across pools.                             |
+| Requested ID   | Int       | Request the specific ID to be allocated.                                     |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(service, redeployType, poolName, userName, id,
+test_with_sync.booleanValue(), requestId);
+```
+
+</details>
+
+<details>
+
+<summary>Java API for ID Allocation Request with Service Context</summary>
+
+The following API is used to create or update an ID allocation request with requesting service redeploy type as `default`.
+
+```java
+idRequest(ServiceContext context,
+    NavuNode service,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId)
+```
+
+**API Parameters**
+
+```
+| Parameter    | Type          | Description                                                                  |
+|--------------|---------------|------------------------------------------------------------------------------|
+| context      | ServiceContext| Context referencing the requesting context that the service was invoked in.  |
+| service      | NavuNode      | NavuNode referencing the requesting service node.                            |
+| poolName     | String        | Name of the resource pool to request the allocation ID from.                 |
+| Username     | String        | Name of the user to use when redeploying the requesting service.             |
+| ID           | String        | Unique allocation ID.                                                        |
+| sync_pool    | Boolean       | Sync allocations with the ID value across pools.                             |
+| Requested ID | Int           | Request the specific ID to be allocated.                                     |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(context, service, poolName, userName, id,
+test_with_sync.booleanValue(), requestId);
+```
+
+</details>
