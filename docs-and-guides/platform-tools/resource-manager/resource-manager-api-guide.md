@@ -2162,7 +2162,7 @@ The following APIs are used to verify if the response is ready for an ID allocat
 
 <details>
 
-<summary>Java API to Check ID Allocation Ready using CDB Context</summary>
+<summary>Java API to Check ID Allocation Ready Using CDB Context</summary>
 
 ```java
 boolean responseReady
@@ -2190,6 +2190,89 @@ import com.tailf.pkg.idallocator.IdAllocator;
 
 ready = IdAllocator.responseReady(service.context(), cdb, poolName, id);
 returns True or False
+```
+
+</details>
+
+<details>
+
+<summary>Java API to Check ID Allocation Ready Without Using CDB Context</summary>
+
+```java
+boolean responseReady
+    (NavuContext context, 
+    String poolName, 
+    String id)
+```
+
+**API Parameters**
+
+```
+| Parameter   | Type         | Description                                                 |
+|-------------|--------------|-------------------------------------------------------------|
+| NavuContext |              | A NavuContext For the current transition.                   |
+| poolName    | Str          | Name of the resource pool to request the allocation ID from.|
+| ID          |              | Unique allocation ID.                                       |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+ready = IdAllocator.responseReady(service.context(), poolName, id);
+returns True or False
+```
+
+**Response**
+
+The API returns a `true` value if a response for the allocation is ready.
+
+</details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Errors**
+
+* The API may throw the below exception if no pool resource exists for the requested allocation: `ResourceException`.
+* The API may throw the below exception when there are format errors in the API request call: `ConfException`.
+* The API may throw the below exception when the I/O operations fail or are interrupted: `IOException`.
+{% endhint %}
+
+### Reading ID Allocation Responses for Java APIs
+
+The following API reads information about specific allocation requests made by the API call. The response returns the allocated ID from the ID pool.
+
+<details>
+
+<summary>Java API to Read ID Allocation Once Ready Using CDB Context</summary>
+
+The following API is used to verify the response for an asynchronous ID allocation request.
+
+```java
+ConfUInt32 idRead
+    (Cdb cdb,
+    String poolName, 
+    String id)
+```
+
+**API Parameters**
+
+```
+| Parameter | Type   | Description                                                  |
+|-----------|--------|--------------------------------------------------------------|
+| cdb       | Cdb    | A database resource.                                         |
+| poolName  | Str    | Name of the resource pool to request the allocation ID from. |
+| ID        | String | Unique allocation ID.                                        |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+allocatedID = IdAllocator.idRead(cdb, poolName, id);
+
+returns allocated ID
 ```
 
 </details>
