@@ -1,6 +1,5 @@
 ---
 description: Description of the APIs exposed by the Resource Manager package.
-hidden: true
 ---
 
 # Resource Manager API Guide
@@ -1916,5 +1915,19 @@ test_with_sync.booleanValue(), requestId);
 <summary>Java API for ID Allocation Request with Service Context and Redeploy Type</summary>
 
 Use the following API to create or update an ID allocation request with the requesting service redeploy type as `redeployType`.
+
+```java
+idRequest(ServiceContext
+    context,
+    NavuNode service,
+    RedeployType redeployType,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId)
+```
+
+
 
 </details>
