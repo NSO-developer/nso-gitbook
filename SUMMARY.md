@@ -6,6 +6,7 @@
 
 * [Get Started with NSO](get-started/get-started-with-nso/README.md)
   * [NSO at a Glance](https://cisco-tailf.gitbook.io/nso-docs/nso-at-a-glance)
+  * [NSO at a Glance](get-started/get-started-with-nso/nso-at-a-glance.md)
   * [Common Use Cases](get-started/get-started-with-nso/common-use-cases.md)
   * [FAQs](get-started/get-started-with-nso/faqs.md)
   * [Learning Paths](get-started/get-started-with-nso/learning-paths.md)
