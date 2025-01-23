@@ -1,6 +1,6 @@
 ---
 icon: house
-description: Welcome to the Cisco Crosswork NSO documentation site.
+description: Welcome to the Cisco Crosswork NSO documentation.
 cover: .gitbook/assets/marc-olivier-jodoin-NqOInJ-ttqM-unsplash.jpg
 coverY: 0
 layout:
