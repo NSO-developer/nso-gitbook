@@ -2,11 +2,11 @@
 
 * [Overview](README.md)
 
-## Overview
+## NSO Basics
 
-* [NSO at a Glance](overview-1/nso-at-a-glance.md)
-* [Common Use Cases](overview-1/common-use-cases.md)
-* [FAQs](overview-1/faqs.md)
+* [NSO at a Glance](nso-basics/nso-at-a-glance.md)
+* [Common Use Cases](nso-basics/common-use-cases.md)
+* [FAQs](nso-basics/faqs.md)
 
 ## Learn NSO
 

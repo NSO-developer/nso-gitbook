@@ -21,8 +21,10 @@ layout:
 
 # Overview
 
-## Start Exploring
+## Start Exploring NSO Documentation
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Get Started with NSO</strong></td><td>Learn and get started with the product.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Documentation Guides</strong></td><td>Official NSO documentation guides.</td><td></td><td><a href="docs-and-guides/documentation-guides/">documentation-guides</a></td></tr><tr><td><strong>API Reference &#x26; Interfaces</strong></td><td>NSO APIs and interfaces documentation.</td><td></td><td><a href="docs-and-guides/api-reference-and-interfaces/">api-reference-and-interfaces</a></td></tr><tr><td><strong>Platform Tools</strong></td><td>Add-on NSO packages and tools for NSO.</td><td></td><td><a href="resources/platform-tools/">platform-tools</a></td></tr><tr><td><strong>Best Practice Guidelines</strong></td><td>Recommendations and tips for your NSO deployment.</td><td></td><td><a href="resources/best-practice-guidelines/">best-practice-guidelines</a></td></tr><tr><td><strong>NSO Resources</strong></td><td>Additional NSO resources for continued learning.</td><td></td><td><a href="resources/nso-resources/">nso-resources</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>NSO Basics</strong></td><td>Learn the fundamentals of Cisco NSO.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Learning Paths</strong></td><td>Explore various paths to learning NSO.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Quick Start</strong></td><td>Get up and running with NSO quickly.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
 
-***
+## More on this Site
+
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Documentation</strong> <strong>Guides</strong></td><td>Official NSO documentation guides.</td></tr><tr><td><strong>NSO</strong> <strong>Resources</strong></td><td>Platform tools, best practices, blogs, and more.</td></tr><tr><td><strong>Developer Reference</strong></td><td>NSO APIs and interfaces docs for developers.</td></tr></tbody></table>
