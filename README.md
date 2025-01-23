@@ -25,9 +25,8 @@ layout:
 
 Ready to start your NSO journey? Explore this site to:
 
-* Access the complete range of NSO documentation.
+* Access the complete range of NSO documentation including official guides.
 * Get started with NSO by learning and evaluating the product.&#x20;
-* Read the official NSO documentation guides.
 * Receive guidance on best practices for your NSO deployment.
 * Access supplemental material via resources, community forums, and associated channels.
 
