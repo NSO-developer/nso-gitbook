@@ -1,5 +1,6 @@
 ---
 description: Frequently Asked Questions on NSO.
+icon: q
 ---
 
 # FAQs

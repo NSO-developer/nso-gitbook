@@ -1,19 +1,21 @@
 # Table of contents
 
-* [Docs Home - Cisco Crosswork NSO](README.md)
+## Overview
 
-## Get Started
+* [NSO at a Glance](README.md)
+* [Common Use Cases](overview/common-use-cases.md)
+* [FAQs](overview/faqs.md)
 
-* [Get Started with NSO](get-started/get-started-with-nso/README.md)
-  * [NSO at a Glance](https://cisco-tailf.gitbook.io/nso-docs/nso-at-a-glance)
-  * [NSO at a Glance](get-started/get-started-with-nso/nso-at-a-glance.md)
-  * [Common Use Cases](get-started/get-started-with-nso/common-use-cases.md)
-  * [FAQs](get-started/get-started-with-nso/faqs.md)
-  * [Learning Paths](get-started/get-started-with-nso/learning-paths.md)
-  * [Quick Start Guide](get-started/get-started-with-nso/quick-start-guide.md)
-  * [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment)
-  * [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation)
-  * [Get NSO for Evaluation](https://software.cisco.com/download/home/286331591/type/286283941/release)
+## Learn NSO
+
+* [Learning Paths](learn-nso/learning-paths.md)
+* [Get NSO for Evaluation](https://software.cisco.com/download/home/286331591/type/286283941/release)
+
+## Quick Start
+
+* [Quick Start Guide](quick-start/quick-start-guide.md)
+* [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment)
+* [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation)
 
 ## Docs & Guides
 
@@ -30,18 +32,18 @@
   * [SNMP Agent](https://cisco-tailf.gitbook.io/nso-docs/development/core-concepts/northbound-apis/nso-snmp-agent)
   * [NSO Python, Java and Erlang Extensibility SDK](https://developer.cisco.com/docs/nso/api/)
   * [XPath](docs-and-guides/api-reference-and-interfaces/xpath.md)
-* [Platform Tools](docs-and-guides/platform-tools/README.md)
-  * [Observability Exporter](docs-and-guides/platform-tools/observability-exporter.md)
-  * [Phased Provsioning](docs-and-guides/platform-tools/phased-provsioning.md)
-  * [Resource Manager (4.2.8)](docs-and-guides/platform-tools/resource-manager-4.2.8/README.md)
-    * [Resource Manager API Guide (4.2.8)](docs-and-guides/platform-tools/resource-manager-4.2.8/resource-manager-api-guide-4.2.8.md)
-* [Best Practice Guidelines](docs-and-guides/best-practice-guidelines/README.md)
-  * [Network Automation Delivery Model](https://developer.cisco.com/docs/network-automation-delivery-model/#network-automation-delivery-model)
-  * [Performance & Scaling](https://cisco-tailf.gitbook.io/nso-docs/development/advanced-development/scaling-and-performance-optimization)
-  * [NSO on Kubernetes](docs-and-guides/best-practice-guidelines/nso-on-kubernetes.md)
 
 ## Resources
 
+* [Platform Tools](resources/platform-tools/README.md)
+  * [Observability Exporter](resources/platform-tools/observability-exporter.md)
+  * [Phased Provsioning](resources/platform-tools/phased-provsioning.md)
+  * [Resource Manager (4.2.8)](resources/platform-tools/resource-manager-4.2.8/README.md)
+    * [Resource Manager API Guide (4.2.8)](resources/platform-tools/resource-manager-4.2.8/resource-manager-api-guide-4.2.8.md)
+* [Best Practice Guidelines](resources/best-practice-guidelines/README.md)
+  * [Network Automation Delivery Model](https://developer.cisco.com/docs/network-automation-delivery-model/#network-automation-delivery-model)
+  * [Performance & Scaling](https://cisco-tailf.gitbook.io/nso-docs/development/advanced-development/scaling-and-performance-optimization)
+  * [NSO on Kubernetes](resources/best-practice-guidelines/nso-on-kubernetes.md)
 * [NSO Resources](resources/nso-resources/README.md)
   * [Blogs](https://community.cisco.com/t5/nso-developer-hub-blogs/bg-p/5672j-blogs-dev-nso)
   * [Community Forum](https://community.cisco.com/t5/nso-developer-hub/ct-p/5672j-dev-nso)
@@ -63,3 +65,4 @@
   * [Security Dev Center](https://developer.cisco.com/site/security/)
   * [CX Dev Center](https://developer.cisco.com/cx/)
   * [Sandbox](https://developer.cisco.com/site/sandbox/)
+* [Docs Home - Cisco Crosswork NSO](resources/docs-home-cisco-crosswork-nso.md)

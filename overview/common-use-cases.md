@@ -1,5 +1,6 @@
 ---
 description: Common use cases for NSO.
+icon: hive
 layout:
   title:
     visible: true

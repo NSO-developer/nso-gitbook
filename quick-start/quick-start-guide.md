@@ -1,5 +1,6 @@
 ---
 description: Quick start instructions to get started with NSO.
+icon: book-sparkles
 ---
 
 # Quick Start Guide
