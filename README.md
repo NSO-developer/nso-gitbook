@@ -19,7 +19,15 @@ layout:
     visible: true
 ---
 
-# Overview
+# Welcome
+
+This site will help you to:
+
+* [x] Access the complete range of NSO documentation.
+* [x] Get started with NSO by learning and evaluating the product.&#x20;
+* [x] Read the official NSO documentation guides.
+* [x] Receive guidance on best practices for your NSO deployment.
+* [x] Access supplemental material via resources, community forums, and associated channels.
 
 ## Start Exploring NSO Documentation
 
