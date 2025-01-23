@@ -1,10 +1,12 @@
 # Table of contents
 
+* [Overview](README.md)
+
 ## Overview
 
-* [NSO at a Glance](README.md)
-* [Common Use Cases](overview/common-use-cases.md)
-* [FAQs](overview/faqs.md)
+* [NSO at a Glance](overview-1/nso-at-a-glance.md)
+* [Common Use Cases](overview-1/common-use-cases.md)
+* [FAQs](overview-1/faqs.md)
 
 ## Learn NSO
 
@@ -65,4 +67,3 @@
   * [Security Dev Center](https://developer.cisco.com/site/security/)
   * [CX Dev Center](https://developer.cisco.com/cx/)
   * [Sandbox](https://developer.cisco.com/site/sandbox/)
-* [Docs Home - Cisco Crosswork NSO](resources/docs-home-cisco-crosswork-nso.md)
