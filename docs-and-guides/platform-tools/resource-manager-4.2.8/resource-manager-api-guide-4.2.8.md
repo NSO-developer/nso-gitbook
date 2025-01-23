@@ -2358,3 +2358,140 @@ id, test_with_sync.booleanValue(), requestId, syncAlloc.booleanValue());
 ```
 
 </details>
+
+<details>
+
+<summary>Default Java API for ID Allocation Request</summary>
+
+The following API is used to verify the response for a synchronous or asynchronous ID allocation request.
+
+```java
+idRequest(NavuNode service,
+    RedeployType redeployType,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,
+    boolean sync_alloc)
+```
+
+**API Parameters**
+
+```
+| Parameter     | Type       | Description                                                                                       |
+|---------------|------------|---------------------------------------------------------------------------------------------------|
+| service       | NavuNode   | Navu node referencing the requesting service node.                                                |
+| redeployType  |            | Service redeploy action. Options are: default, touch, re-deploy, reactive-re-deploy, no-redeploy. |
+| poolName      | String     | Name of the resource pool to request the allocation ID from.                                      |
+| username      | String     |                                                                                                   |
+| id            | String     | Unique allocation ID.                                                                             |
+| sync_pool     | Boolean    | Sync allocations with the ID value across pools.                                                  |
+| requestedId   | Int        | A specific ID to be requested.                                                                    |
+| sync_alloc    | Boolean    | Synchronous allocation.                                                                           | 
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(service, redeployType, poolName, userName, id,
+test_with_sync.booleanValue(), requestId, syncAlloc.booleanValue());
+```
+
+</details>
+
+{% hint style="info" %}
+**Common Exceptions Raised by Java APIs for Errors**
+
+* The API may throw the below exception if no pool resource exists for the requested allocation: `ResourceErrorException`.
+* The API may throw the below exception if the ID request conflicts with another allocation or does not match the previous allocation in case of multiple owner requests: `AllocationException`.
+{% endhint %}
+
+### Using Python APIs for ID Allocations
+
+The RM package also exposed Python APIs to request ID allocation from a resource pool. The below APIs are Python APIs exposed by RM for ID allocation.
+
+<details>
+
+<summary>Python API for Default ID Allocation Request</summary>
+
+Use the module `resource_manager.id_allocator`.
+
+The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), and root (optional).
+
+```python
+id_request(service, 
+    svc_xpath, 
+    username,
+    pool_name, 
+    allocation_name,
+    sync_pool,
+    requested_id=-1,
+    redeploy_type="default",
+    sync_alloc=False, 
+    root=None):
+```
+
+**API Parameters**
+
+```
+| Parameter      | Type     | Description                                                                                            |
+|----------------|----------|--------------------------------------------------------------------------------------------------------|
+| service        |          | The requesting service node.                                                                           |
+| svc_xpath      | Str      | XPath to the requesting service.                                                                       |
+| username       | Str      | Name of the user to use when redeploying the requesting service.                                       |
+| pool_name      | Str      | Name of the resource pool to make the allocation request from.                                         |
+| allocation_name| Str      | Unique allocation name.                                                                                |
+| sync_pool      | Boolean  | Sync allocations with this name across the pool.                                                       |
+| requested_id   | Int      | A specific ID to be requested.                                                                         |
+| redeploy_type  |          | Service redeploy action. Available options: default, touch, re-deploy, reactive-re-deploy, no-redeploy.|
+| sync_alloc     | Boolean  | Allocation type, whether synchronous or asynchronous. By default, it is asynchronous.                  |
+| root           |          | Root node. If sync is set to true, you must provide a root node.                                       |
+```
+
+Example
+
+```python
+import resource_manager.id_allocator as id_allocator
+
+pool_name = "The Pool"
+allocation_name = "Unique allocation name"
+
+# This will try to allocate the value 20 from the pool named 'The Pool'
+# using allocation name: 'Unique allocation name'
+# It will allocate the id asynchronously from the pool ‘The Pool’
+id_allocator.id_request(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    allocation_name,
+    False,
+    "firstfree",
+    20
+)
+
+# The below will allocate the id synchronously from the pool ‘The Pool’
+id_allocator.id_request(
+    service,
+    "/services/vl:loop-python[name='%s']" % (service.name),
+    tctx.username,
+    pool_name,
+    allocation_name,
+    True,
+    "firstfree",
+    20
+)
+
+vlan_id = id_allocator.id_read(tctx.username, root, 'vlan-pool', service.name)
+if vlan_id is None:
+    self.log.info(f"Allocation not ready...")
+    return propList
+
+self.log.info(f"Allocation is ready: {vlan_id}")
+service.vlan_id = vlan_id
+```
+
+</details>
