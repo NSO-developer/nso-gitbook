@@ -27,4 +27,4 @@ layout:
 
 ## More on this Site
 
-<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Documentation</strong> <strong>Guides</strong></td><td>Official NSO documentation guides.</td></tr><tr><td><strong>NSO</strong> <strong>Resources</strong></td><td>Platform tools, best practices, blogs, and more.</td></tr><tr><td><strong>Developer Reference</strong></td><td>NSO APIs and interfaces docs for developers.</td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Documentation</strong> <strong>Guides</strong></td><td>Official NSO documentation guides.</td></tr><tr><td><strong>Developer Reference</strong></td><td>NSO APIs and interfaces docs for developers.</td></tr><tr><td><strong>NSO</strong> <strong>Resources</strong></td><td>Platform tools, best practices, blogs, and more.</td></tr></tbody></table>
