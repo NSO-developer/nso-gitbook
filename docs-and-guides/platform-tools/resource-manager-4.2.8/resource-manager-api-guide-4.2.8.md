@@ -2599,13 +2599,13 @@ def cb_create(self, tctx, root, service, proplist):
 
 ## Troubleshoot & Debug
 
-**Set Java Debug**
+**Set the Java Debug**
 
 ```bash
 admin@ncs% set java-vm java-logging logger com.tailf.pkg level level-debug
 ```
 
-**Check Log File**
+**Check the Log File**
 
 RM processing logs are in the file `ncs-java-vm.log`. Here is the example RM API entry point msg called from the services:
 
@@ -2626,12 +2626,16 @@ IdAllocator Did-139-Worker-94:
   sync_alloc = true
 ```
 
-**Use RM Action Tool**
+**Use the RM Action Tool**
 
-{% code title="Examples" overflow="wrap" %}
+{% code title="Example" %}
 ```bash
 admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
+```
+{% endcode %}
 
+{% code title="Example" %}
+```bash
 admin@ncs> request rm-action ip-allocator-tool operation fix_response_ip pool multiService
 ```
 {% endcode %}
