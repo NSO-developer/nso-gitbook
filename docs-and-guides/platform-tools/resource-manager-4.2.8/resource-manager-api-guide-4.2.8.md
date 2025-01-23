@@ -2495,3 +2495,143 @@ service.vlan_id = vlan_id
 ```
 
 </details>
+
+<details>
+
+<summary>Python API to Read Allocated ID Once the Allocation is Ready</summary>
+
+Use the API definition `id_read` found in the module `resource_manager.id_allocator` to read the allocated ID.
+
+The `id_read` function is designed to return the allocated ID or none if the ID is not yet available. It first tries to look up the ID in the current transaction using the provided `root` , `pool_name` and `allocation_name`. If the ID is available in the current transaction, it returns the ID. If there is an error, it raises a `LookupError`. If the ID is not available in the current transaction, it calls `id_read_async` to asynchronously retrieve the ID.
+
+```python
+id_read(username, root, pool_name, allocation_name)
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type  | Description                                                                 |
+|-----------------|-------|-----------------------------------------------------------------------------|
+| username        | Str   | Name of the user to use when redeploying the requesting service.            |
+| Root            |       | A maagic root for the current transaction.                                  |
+| pool_name       | Str   | Name of the resource pool to make the allocation request from.              |
+| allocation_name | Str   | Unique allocation name.                                                     |
+```
+
+**Example**
+
+```python
+# After requesting allocation, we check if the allocated ID is available
+id = id_allocator.id_read(tctx.username, root, pool_name, allocation_name)
+    if not id:
+        self.log.info("Alloc not ready")
+        return
+    print ("id = %d" % (id))
+```
+
+</details>
+
+### Using Python APIs for Non-Service ID Allocation
+
+The RM package also exposes Python APIs to request ID allocation from a resource pool by passing the maapi object and transaction handle instead of the service.  The below APIs are Python APIs for non-service ID allocation.
+
+Use the `module resource_manager.id_allocator`.
+
+<details>
+
+<summary><code>id_request_tr</code></summary>
+
+The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), and root (optional).
+
+```python
+id_request_tr(tr, username, 
+    pool_name,
+    allocation_name,
+    sync_pool,
+    requested_id=-1,
+    redeploy_type="default",
+    sync_alloc=False, 
+    root=None):
+```
+
+**API Parameters**
+
+```
+| Parameter       | Type        | Description                                                                                         |
+|-----------------|-------------|-----------------------------------------------------------------------------------------------------|
+| tr              | Transaction | Transaction backend object.                                                                         |
+| username        | Str         | Name of the user to use when redeploying the requesting service.                                    |
+| pool_name       | Str         | Name of the resource pool to make the allocation request from.                                      |
+| allocation_name | Str         | Unique allocation name.                                                                             |
+| sync_pool       | Boolean     | Sync allocations with this name across the pool.                                                    |
+| requested_id    | Int         | A specific ID to be requested.                                                                      |
+| sync_alloc      | Boolean     | Set value to true to make a synchronous allocation request. By default, it is false (asynchronous). |
+```
+
+**Example**
+
+```python
+@Service.create
+def cb_create(self, tctx, root, service, proplist):
+    self.log.info('LoopTrService create(service=', service._path, ')')
+    pool_name = service.pool
+    alloc_name = service.allocation_name if service.allocation_name else service.name
+    id_allocator.id_request_tr(
+        maagic.get_trans(root),
+        tctx.username,
+        pool_name,
+        alloc_name,
+        False,
+        -1,
+        "default",
+        False,
+        root
+    )
+    id = id_allocator.id_read(tctx.username, root, pool_name, alloc_name)
+    if not id:
+        self.log.info("Alloc1 not ready")
+        return
+    self.log.info('LoopTrService id = %s' % (id))
+```
+
+</details>
+
+## Troubleshoot & Debug
+
+**Set Java Debug**
+
+```bash
+admin@ncs% set java-vm java-logging logger com.tailf.pkg level level-debug
+```
+
+**Check Log File**
+
+RM processing logs are in the file `ncs-java-vm.log`. Here is the example RM API entry point msg called from the services:
+
+```log
+IPAddressAllocator Did-140-Worker-95:
+- subnetRequest()
+  poolName = multiService
+  cidrmask = 32
+  id = multiTest
+  sync_alloc = false
+
+IdAllocator Did-139-Worker-94:
+- idRequest
+  id = multiTest
+  poolName = multiService
+  requestedId = -1
+  sync_pool = false
+  sync_alloc = true
+```
+
+**Use RM Action Tool**
+
+{% code title="Examples" overflow="wrap" %}
+```bash
+admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
+
+admin@ncs> request rm-action ip-allocator-tool operation fix_response_ip pool multiService
+```
+{% endcode %}
