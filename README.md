@@ -1,7 +1,12 @@
 ---
 icon: power-off
 description: Get started with the Cisco Crosswork NSO documentation guides.
+cover: .gitbook/assets/nso docs image time lapse.png
+coverY: 0
 layout:
+  cover:
+    visible: true
+    size: full
   title:
     visible: true
   description:
