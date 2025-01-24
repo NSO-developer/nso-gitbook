@@ -109,7 +109,7 @@ Documentation Updates:
 
 <summary><strong>Kubernetes Best Practices Guidelines</strong></summary>
 
-A new [document](https://developer.cisco.com/docs/nso/deploying-cisco-nso-on-kubernetes/) covering best practices for Kubernetes has been added to the documentation set.
+A new [document](https://cisco-tailf.gitbook.io/nso-docs/resources/best-practice-guidelines/nso-on-kubernetes) covering best practices for Kubernetes has been added to the documentation set.
 
 </details>
 
