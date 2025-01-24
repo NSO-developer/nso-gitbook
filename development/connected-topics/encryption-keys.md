@@ -40,7 +40,7 @@ The external command should return the encryption keys on standard output using 
 
 The following table shows the mapping from the name to the path in the configuration.
 
-<table><thead><tr><th width="227">Name</th><th>Configuration path</th></tr></thead><tbody><tr><td><code>DES3CBC_KEY1</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key1</code></td></tr><tr><td><code>DES3CBC_KEY2</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key2</code></td></tr><tr><td><code>DES3CBC_KEY3</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key3</code></td></tr><tr><td><code>AESCFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/key</code></td></tr><tr><td><code>AESCFB128_IV</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/initVector</code></td></tr></tbody></table>
+<table><thead><tr><th width="227">Name</th><th>Configuration path</th></tr></thead><tbody><tr><td><code>DES3CBC_KEY1</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key1</code></td></tr><tr><td><code>DES3CBC_KEY2</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key2</code></td></tr><tr><td><code>DES3CBC_KEY3</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key3</code></td></tr><tr><td><code>AESCFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/key</code></td></tr><tr><td><code>AES256CFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AES256CFB128/key</code></td></tr></tbody></table>
 
 To signal an error, including `ERROR=message` is preferred. A non-zero exit code or unsupported line content will also trigger an error. Any form of error will be logged to the development log and no encryption keys will be available in the system.
 
