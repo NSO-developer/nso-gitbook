@@ -1,14 +1,30 @@
 ---
-description: Manage and work with NSO encryption keys.
+description: Manage and work with NSO encrypted strings.
 ---
 
-# Encryption Keys
+# Encrypted Strings
 
-By using the `tailf:des3-cbc-encrypted-string`, `tailf:aes-cfb-128-encrypted-string` or the `tailf:aes-256-cfb-128-encrypted-string` built-in types, it is possible to store encrypted values in NSO. The keys used to encrypt these values are configured in `ncs.conf` and default stored in `ncs.crypto_keys`.
+By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypted-string`, `tailf:aes-cfb-128-encrypted-string`, or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO that can be decrypted. See the [tailf\_yang\_extensions(5)](../../man/section5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
+
+## Decrypting the Encrypted Strings
+
+Encrypted string values can only be decrypted using `decrypt()`, which only works when NSO is running with the correct [cryptographic keys](../../administration/advanced-topics/cryptographic-keys.md). Python example:
+
+```python
+import ncs
+import _ncs
+# Install the crypto keys used to decrypt the string
+with ncs.maapi.Maapi() as maapi:
+    maapi.install_crypto_keys(maapi.msock)
+# Decrypt the string
+my_decrypted_str = _ncs.decrypt(my_encrypted_str)
+```
 
 ## Reading Encryption Keys using an External Command <a href="#d5e10497" id="d5e10497"></a>
 
-NSO supports reading encryption keys using an external command instead of storing them in `ncs.conf` to allow for use with external key management systems. To use this feature, set `/ncs-config/encrypted-strings/external-keys/command` to an executable command that will output the keys following the rules described in the following sections. The command will be executed on startup and when NSO reloads the configuration.
+NSO supports reading encryption keys using an external command instead of storing them in `ncs.conf` to allow for use with external key management systems. For `ncs.conf` details, see the [ncs.conf(5) man page](../../man/section5.md#ncs.conf) under `/ncs-config/encrypted-strings`.
+
+To use this feature, set `/ncs-config/encrypted-strings/external-keys/command` to an executable command that will output the keys following the rules described in the following sections. The command will be executed on startup and when NSO reloads the configuration.
 
 If the external command fails during startup, the startup will abort. If the command fails during a reload, the error will be logged and the previously loaded keys will be kept in the system.
 
@@ -24,20 +40,18 @@ The external command should return the encryption keys on standard output using 
 
 The following table shows the mapping from the name to the path in the configuration.
 
-<table><thead><tr><th width="227">Name</th><th>Configuration path</th></tr></thead><tbody><tr><td><code>DES3CBC_KEY1</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key1</code></td></tr><tr><td><code>DES3CBC_KEY2</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key2</code></td></tr><tr><td><code>DES3CBC_KEY3</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key3</code></td></tr><tr><td><code>DES3CBC_IV</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/initVector</code></td></tr><tr><td><code>AESCFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/key</code></td></tr><tr><td><code>AESCFB128_IV</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/initVector</code></td></tr><tr><td><code>AES256CFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AES256CFB128/key</code></td></tr></tbody></table>
+<table><thead><tr><th width="227">Name</th><th>Configuration path</th></tr></thead><tbody><tr><td><code>DES3CBC_KEY1</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key1</code></td></tr><tr><td><code>DES3CBC_KEY2</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key2</code></td></tr><tr><td><code>DES3CBC_KEY3</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key3</code></td></tr><tr><td><code>AESCFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/key</code></td></tr><tr><td><code>AESCFB128_IV</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/initVector</code></td></tr></tbody></table>
 
 To signal an error, including `ERROR=message` is preferred. A non-zero exit code or unsupported line content will also trigger an error. Any form of error will be logged to the development log and no encryption keys will be available in the system.
 
-Example output providing all supported encryption key configuration settings:
+Example output providing all supported encryption key configuration settings (do not reuse):
 
 ```
-DES3CBC_KEY1=12785c357764a327
-DES3CBC_KEY2=30661368c90bc26d
-DES3CBC_KEY3=10604b6b63e09310
-DES3CBC_IV=f04ab44ed14c3d76
-AESCFB128_KEY=2b57c219e47582481b733c1adb84fc26
-AESCFB128_IV=549a40ed57629bf6ea64b568f221b515
-AES256CFB128_KEY=3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608c
+DES3CBC_KEY1=12785c357764a32g
+DES3CBC_KEY2=30661368c90bc26g
+DES3CBC_KEY3=10604b6b63e0931g
+AESCFB128_KEY=2b57c219e47582481b733c1adb84fc2g
+AES256CFB128_KEY=3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608g
 ```
 
 Example error output:
