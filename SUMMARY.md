@@ -37,6 +37,7 @@
   * [Locks](administration/advanced-topics/locks.md)
   * [CDB Persistence](administration/advanced-topics/cdb-persistence.md)
   * [IPC Connection](administration/advanced-topics/ipc-connection.md)
+  * [Cryptographic Keys](administration/advanced-topics/cryptographic-keys.md)
   * [Service Manager Restart](administration/advanced-topics/restart-strategies-for-service-manager.md)
   * [Security Issues](administration/advanced-topics/security-issues.md)
   * [Run NSO as Non-Privileged User](administration/advanced-topics/running-nso-as-a-non-privileged-user.md)
@@ -122,7 +123,7 @@
   * [Web Server](development/connected-topics/web-server.md)
   * [Scheduler](development/connected-topics/scheduler.md)
   * [External Logging](development/connected-topics/external-logging.md)
-  * [Encryption Keys](development/connected-topics/encryption-keys.md)
+  * [Encrypted Strings](development/connected-topics/encryption-keys.md)
 
 ## Resources
 
