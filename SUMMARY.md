@@ -16,8 +16,8 @@
 ## Quick Start
 
 * [Quick Start Guide](quick-start/quick-start-guide.md)
-* [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment)
-* [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation)
+* [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment)
+* [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/guides/development/introduction-to-automation)
 
 ## Guides and References
 
