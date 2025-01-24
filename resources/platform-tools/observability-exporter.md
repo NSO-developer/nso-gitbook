@@ -22,7 +22,7 @@ However, to understand what took a specific subsystem a long time to respond, yo
 
 As these are different types of data, different software solutions exist to process, store, and examine them.
 
-For tracing, the package exports progress trace data using the standard OTLP format. Each trace carries a `trace-id` that uniquely identifies it and can be supplied as part of the request (see the [Progress Trace](https://cisco-tailf.gitbook.io/nso-docs/development/advanced-development/progress-trace) section in the NSO Development Guide for details), allowing you to find the relevant data in a busy system. Tools such as Jaeger or Grafana (with Grafana Tempo) can then ingest the OTLP data and present it in a graphical way for further analysis.
+For tracing, the package exports progress trace data using the standard OTLP format. Each trace carries a `trace-id` that uniquely identifies it and can be supplied as part of the request (see the [Progress Trace](https://cisco-tailf.gitbook.io/nso-docs/guides/development/advanced-development/progress-trace) section in the NSO Development Guide for details), allowing you to find the relevant data in a busy system. Tools such as Jaeger or Grafana (with Grafana Tempo) can then ingest the OTLP data and present it in a graphical way for further analysis.
 
 The Observability Exporter package also performs additional processing of the tracing data and exports the calculated metrics to an InfluxDB time-series database. Using Grafana or a similar tool, you can extract and accumulate the relevant values to produce customized dashboards, for example, showing the average transaction length for each type of service in NSO.
 

@@ -18,8 +18,8 @@ This guide is intended for Cisco advanced services developers, network engineers
 
 This documentation requires the reader to have a good understanding of NSO and its usage as described in the following NSO documentation:
 
-* [NSO Installation](https://cisco-tailf.gitbook.io/nso-docs/administration/get-started)
-* [NSO Operation and Usage Guide](https://cisco-tailf.gitbook.io/nso-docs/operation-and-usage/get-started)
+* [NSO Installation](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment)
+* [NSO Operation and Usage Guide](https://cisco-tailf.gitbook.io/nso-docs/guides/operation-and-usage/get-started)
 
 ***
 
@@ -94,8 +94,6 @@ class AllocateCallbacks(Service):
 ```
 {% endcode %}
 
-
-
 </details>
 
 <details>
@@ -134,8 +132,6 @@ class AllocateCallbacksAsync(Service):
             template.apply('device', vars
 ```
 {% endcode %}
-
-
 
 </details>
 

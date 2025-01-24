@@ -2,7 +2,7 @@
 description: Manage resource allocation in NSO.
 ---
 
-# Resource Manager
+# Resource Manager (4.2.8)
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
 
@@ -35,7 +35,7 @@ The resource allocation packages should subscribe to several points in this `res
 
 ## Installation <a href="#d5e45" id="d5e45"></a>
 
-The installation of this package is done as with any other package, as described in the [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/administration/management/package-mgmt) section of the Administration Guide.
+The installation of this package is done as with any other package, as described in the [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/package-mgmt) section of the Administration Guide.
 
 ## Data Model for Resource Allocator <a href="#d5e48" id="d5e48"></a>
 
@@ -280,7 +280,7 @@ The NSO ID Allocator requires a username to be configured by the service applica
 
 It is up to the administrator to add a rule that allows the user to perform the service re-deploy.
 
-The administrator's instructions on how to write these rules are detailed in the [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure).
+The administrator's instructions on how to write these rules are detailed in the [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/aaa-infrastructure).
 
 ### Alarms
 
@@ -1169,5 +1169,5 @@ augment "/ralloc:rm-action" {
 
 ## Further Reading
 
-* The [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/administration/management/package-mgmt) section in the NSO Administration Guide.&#x20;
-* The [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/administration/management/aaa-infrastructure) section in the NSO Administration Guide.
+* The [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/package-mgmt) section in the NSO Administration Guide.&#x20;
+* The [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/aaa-infrastructure) section in the NSO Administration Guide.
