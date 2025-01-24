@@ -123,7 +123,7 @@ The example collection was restructured, and references to examples are now link
 
 <details>
 
-<summary>Rotating Cryptographic Keys</summary>
+<summary><strong>Rotating Cryptographic Keys</strong></summary>
 
 The action `/key-rotation/apply-new-keys` has been added and, when executed, supports re-encrypting all encrypted values in the system.
 
