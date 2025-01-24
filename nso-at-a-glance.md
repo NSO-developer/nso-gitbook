@@ -152,7 +152,7 @@ YANG was originally paired with [NETCONF](https://tools.ietf.org/html/rfc6241), 
 
 At the core of NSO is the Configuration Database (CDB). This is a tree-structured database that is defined by a YANG schema. This means that all of the information stored inside of NSO is validated against the schema.
 
-Every transaction towards CDB exhibits [ACID](https://en.wikipedia.org/wiki/ACID) properties, which among other things means either the transaction as a whole ends up on all participating devices and in the CDB primary copy, or otherwise, the whole transaction is aborted and all changes are automatically rolled back.
+Every transaction towards CDB exhibits [ACID](https://en.wikipedia.org/wiki/ACID) properties, which among other things means either the transaction as a whole ends up on all participating devices (as well as in the NSO CDB), or otherwise, the whole transaction is aborted and all changes are automatically rolled back.
 
 The CDB always contains NSO's view of the complete network configuration. To handle out-of-band changes operations are available to check if a device is in sync, write NSO's view to the device, or read the device configuration into NSO.
 
@@ -171,7 +171,7 @@ FASTMAP is based on generating changes from an initial 'create'. When the servic
 
 ### Accessing the Network (NEDs) <a href="#accessing-the-network-neds" id="accessing-the-network-neds"></a>
 
-The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the primary copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this "network configuration change" into the corresponding changes for the actually managed devices. The device manager passes on the required changes to the NEDs, Network Element Drivers. A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound. The NEDs fall into the following categories:
+The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO serves as a "source of truth" and keeps a copy of the configuration for each managed device in the CDB. Whenever a change is done to the device configuration copies in the CDB, the device manager will partition this "network configuration change" into the corresponding changes for the actually managed devices. The device manager passes on the required changes to the NEDs, Network Element Drivers. A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound. The NEDs fall into the following categories:
 
 * NETCONF capable device. The Device Manager will produce NETCONF edit-configuration\
   RPC operations for each participating device.
