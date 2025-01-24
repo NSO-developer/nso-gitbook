@@ -162,6 +162,7 @@ The data in CDB that is subject to re-encryption when executing the `/key-rotati
 * Service metadata (original attribute, reverse and forward diff set).
 * NED secrets.
 * Rollback files.
+* History log.
 
 Under the hood, the`/key-rotation/apply-new-keys` action, when executed, performs the following steps:
 
@@ -184,5 +185,5 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 6. Execute`/key-rotation/apply-new-keys` action to change the active generation, for example, from `-1` to `new-key-generation 0` as shown in the CLI example above.
 
 {% hint style="info" %}
-In a high-availability setting, keys must be identical on all nodes before attempting key rotation. Otherwise, the action will abort.
+In a high-availability setting, keys must be identical on all nodes before attempting key rotation. Otherwise, the action will abort. The node executing the action will initiate the key reload for all nodes.
 {% endhint %}
