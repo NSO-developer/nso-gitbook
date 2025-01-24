@@ -24,7 +24,7 @@ The focus of the material we are collecting here is on the NSO skills, but as yo
 {% step %}
 **The First Day**
 
-We recommend that you start by going through the [NSO at a Glance](https://cisco-tailf.gitbook.io/nso-docs/nso-at-a-glance), [Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment), [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation), and [Learning Labs](https://developer.cisco.com/learning/tracks/get_started_with_nso/) while following along on your own NSO instance. Refer to the [NSO documentation](../guides-and-reference/documentation-guides/) for any other things needed.
+We recommend that you start by going through the [NSO at a Glance](https://cisco-tailf.gitbook.io/nso-docs/nso-at-a-glance), [Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/administration/installation-and-deployment), [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/development/introduction-to-automation), and [Learning Labs](https://developer.cisco.com/learning/tracks/get_started_with_nso/) while following along on your own NSO instance. Refer to the [NSO documentation](../guides-and-references/documentation-guides/) for any other things needed.
 {% endstep %}
 
 {% step %}
