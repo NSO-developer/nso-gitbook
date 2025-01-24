@@ -81,7 +81,7 @@ Documentation Updates:
 
 * Added a new section [Authgroups](operation-and-usage/webui/devices.md#authgroups) in Devices.
 * Improved and aligned the [Services](operation-and-usage/webui/services.md) section in accordance with the new Service Manager.
-* Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui\_compliance) sections to add new details.
+* Expanded the [Web UI](operation-and-usage/webui/) and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui_compliance) sections to add new details.
 
 </details>
 
@@ -120,3 +120,17 @@ A new [document](https://developer.cisco.com/docs/nso/deploying-cisco-nso-on-kub
 The example collection was restructured, and references to examples are now linked to a copy of the collection stored in the [https://github.com/NSO-developer/nso-examples](https://github.com/NSO-developer/nso-examples) repository.
 
 </details>
+
+<details>
+
+<summary>Rotating Cryptographic Keys</summary>
+
+The action `/key-rotation/apply-new-keys` has been added and, when executed, supports re-encrypting all encrypted values in the system.
+
+Documentation Updates:
+
+* Added a new [Cryptographic Keys](administration/advanced-topics/cryptographic-keys.md) section.
+* Improved and aligned the [Encrypted Strings](development/connected-topics/encryption-keys.md) section in accordance with the new key rotation functionality.
+
+</details>
+
