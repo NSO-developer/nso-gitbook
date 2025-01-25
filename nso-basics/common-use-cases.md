@@ -20,7 +20,7 @@ layout:
 
 Simplify the deployment of a new device (e.g., a router). Construct and deliver the initial (day 1) config for the device, reducing the manual effort required and reducing the risk of errors.
 
-NSO has configuration templates for the different device types and roles, and it takes the device-specific parameters for that device and applies them to the appropriate template. The engineer can choose to preview the config before it is sent to the device if desired. NSO then sends the configuration to the device and has the ability to save the config, reboot the device, etc. NSO can manage multiple devices in one operation and retry any failures.
+NSO has configuration templates for the different device types and roles, and it takes the device-specific parameters for that device and applies them to the appropriate template. The engineer can choose to preview the configuration before it is sent to the device if desired. NSO then sends the configuration to the device and has the ability to save the config, reboot the device, etc. NSO can manage multiple devices in one operation and retry any failures.
 
 ## **NSO for NFV Orchestration**
 
