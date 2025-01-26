@@ -1,6 +1,9 @@
 ---
-description: Implementation details for NSO interfaces and APIs.
 icon: paper-plane
+description: Implementation details for NSO interfaces and APIs.
+cover: >-
+  https://images.unsplash.com/photo-1498084393753-b411b2d26b34?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxMHx8bmV0d29ya3xlbnwwfHx8fDE2ODYxODA5NTF8MA&ixlib=rb-4.0.3&q=85
+coverY: 0
 ---
 
 # Overview
