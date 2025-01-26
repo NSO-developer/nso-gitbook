@@ -1,13 +1,13 @@
 ---
-description: Sample NSO RESTCONF APIs.
 icon: display-code
+description: Sample NSO RESTCONF APIs.
 ---
 
 # Sample RESTCONF API Docs
 
 ## NSO Read-only Interactive Docs
 
-These sample requests are Read-Only by design to work with the Always-on DevNet Sandbox.
+These sample requests are Read-Only by design to work with the Always-on [DevNet Sandbox](https://developer.cisco.com/docs/nso/single-device-config/).
 
 For Read/Write requests see the [Postman Collection](https://github.com/NSO-developer/cisco-nso-postman).
 
@@ -15,9 +15,8 @@ For Read/Write requests see the [Postman Collection](https://github.com/NSO-deve
 Newer NSO releases (starting with 5.3) also include a `| display restconf` option to more easily get API paths: `show running-config devices | display restconf`.
 {% endhint %}
 
-{% hint style="info" %}
-Version: 4.0 | Contact: [nso-oas-feedback@cisco.com](mailto:nso-oas-feedback@cisco.com) | [Download OpenAPI Document](https://pubhub.devnetcloud.com/media/nso/docs/10a25535-dfdf-3984-9ecc-efb87c8c69fa/nso_read_only_interactive_docs_4_0.json)
-{% endhint %}
+| Version: 4.0 \| Contact: [nso-oas-feedback@cisco.com](mailto:nso-oas-feedback@cisco.com) \| [Download OpenAPI Document](https://pubhub.devnetcloud.com/media/nso/docs/10a25535-dfdf-3984-9ecc-efb87c8c69fa/nso_read_only_interactive_docs_4_0.json)     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 {% swagger src="https://pubhub.devnetcloud.com/media/nso/docs/10a25535-dfdf-3984-9ecc-efb87c8c69fa/nso_read_only_interactive_docs_4_0.json" path="/tailf-ncs:devices/device=dist-rtr01" method="get" %}
 [https://pubhub.devnetcloud.com/media/nso/docs/10a25535-dfdf-3984-9ecc-efb87c8c69fa/nso_read_only_interactive_docs_4_0.json](https://pubhub.devnetcloud.com/media/nso/docs/10a25535-dfdf-3984-9ecc-efb87c8c69fa/nso_read_only_interactive_docs_4_0.json)
