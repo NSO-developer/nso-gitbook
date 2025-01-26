@@ -1,6 +1,6 @@
 ---
-description: Implementation details for NETCONF.
 icon: diagram-project
+description: Implementation details for NETCONF.
 ---
 
 # NETCONF Interface
@@ -11,4 +11,4 @@ The NSO NETCONF documentation covers implementation details and extension to or 
 
 {% embed url="https://datatracker.ietf.org/doc/html/rfc7950" %}
 
-{% embed url="https://cisco-tailf.gitbook.io/nso-docs/development/core-concepts/northbound-apis/nso-netconf-server" %}
+{% embed url="https://cisco-tailf.gitbook.io/nso-docs/guides/development/core-concepts/northbound-apis/nso-netconf-server" %}
