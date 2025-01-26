@@ -1,6 +1,6 @@
 ---
-description: Implementation details for RESTCONF.
 icon: code
+description: Implementation details for RESTCONF.
 ---
 
 # RESTCONF API
@@ -15,4 +15,4 @@ The NSO RESTCONF documentation covers implementation details and extension to or
 
 {% embed url="https://datatracker.ietf.org/doc/html/rfc7951" %}
 
-{% embed url="https://cisco-tailf.gitbook.io/nso-docs/development/core-concepts/northbound-apis/restconf-api" %}
+{% embed url="https://cisco-tailf.gitbook.io/nso-docs/guides/development/core-concepts/northbound-apis/restconf-api" %}
