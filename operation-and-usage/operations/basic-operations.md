@@ -21,13 +21,13 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1.  Go to [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios). First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
+1. Go to [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios). First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
 
-    {% hint style="info" %}
-    Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
-    {% endhint %}
+{% hint style="info" %}
+Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
+{% endhint %}
 
-    Perform the following command:
+Perform the following command:
 
 ```bash
 $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
@@ -35,7 +35,7 @@ $ ncs-netsim create-network $NCS_DIR/packages/neds/cisco-ios 3 c
 
 This creates three simulated devices all running Cisco IOS and they will be named `c0`, `c1`, `c2`.
 
-2\. Start the simulator.
+2. Start the simulator.
 
 ```bash
 $ ncs-netsim start
@@ -44,7 +44,7 @@ DEVICE c1 OK STARTED
 DEVICE c2 OK STARTED
 ```
 
-3\. Run the CLI toward one of the simulated devices.
+3. Run the CLI toward one of the simulated devices.
 
 ```bash
 $ ncs-netsim cli-i c1
@@ -68,53 +68,57 @@ This shows that the device has some initial configurations.
 
 The previous step started the simulated Cisco devices. It is now time to start NSO.
 
-1.  The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios) directory. (Again ignore the details for the time being).\\
+1. The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios) directory. (Again ignore the details for the time being).
 
-    ```bash
-    $ ncs-setup --netsim-dir ./netsim --dest .
-    ```
+```bash
+$ ncs-setup --netsim-dir ./netsim --dest .
+```
 
-    \
-    Note the `.` at the end of the command referring to the current directory. What the command does is to create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
-2.  Start NSO.
+{% hint style="info" %}
+Note the `.` at the end of the command referring to the current directory. What the command does is to create directories needed for NSO in the current directory and populate NSO with devices that are running in netsim. We call this the "run-time" directory.
+{% endhint %}
 
-    ```bash
-    $ ncs
-    ```
-3.  Start the NSO CLI as the user `admin` with a Cisco XR-style CLI.\\
+2. Start NSO.
 
-    ```bash
-    $ ncs_cli -C -u admin
-    ```
+```bash
+$ ncs
+```
 
-    \
-    NSO also supports a J-style CLI, that is started by using a -J modification to the command like this.\\
+3. Start the NSO CLI as the user `admin` with a Cisco XR-style CLI.\\
 
-    ```bash
-    $ ncs_cli -J -u admin
-    ```
+```bash
+$ ncs_cli -C -u admin
+```
 
-    \
-    Throughout this user guide, we will show the commands in Cisco XR style.
-4.  At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.
+\
+NSO also supports a J-style CLI, that is started by using a -J modification to the command like this.\\
 
-    ```bash
-    admin@ncs# show running-config devices device
-    devices device c0
-     address   127.0.0.1
-     port      10022
-    ...
-     authgroup default
-     device-type cli ned-id cisco-ios
-     state admin-state unlocked
-     config
-      no ios:service pad
-      no ios:ip domain-lookup
-      no ios:ip http secure-server
-      ios:ip source-route
-     !
-    !  ...
-    ```
+```bash
+$ ncs_cli -J -u admin
+```
+
+\
+Throughout this user guide, we will show the commands in Cisco XR style.
+
+4. At this point, NSO only knows the address, port, and authentication information of the devices. This management information was loaded to NSO by the setup utility. It also tells NSO how to communicate with the devices by using NETCONF, SNMP, Cisco IOS CLI, etc. However, at this point, the actual configuration of the individual devices is unknown.
+
+```bash
+admin@ncs# show running-config devices device
+devices device c0
+ address   127.0.0.1
+ port      10022
+...
+ authgroup default
+ device-type cli ned-id cisco-ios
+ state admin-state unlocked
+ config
+  no ios:service pad
+  no ios:ip domain-lookup
+  no ios:ip http secure-server
+  ios:ip source-route
+ !
+!  ...
+```
 
 Let us analyze the above CLI command. First of all, when you start the NSO CLI it starts in operational mode, so to show configuration data, you have to explicitly run `show running-config`.
 
@@ -223,20 +227,21 @@ The above command shows the router config of all devices as XML and then saves i
 
 ## Writing Device Configuration <a href="#d5e156" id="d5e156"></a>
 
-1.  To change the configuration, enter configure mode.
+1. To change the configuration, enter configure mode.
 
-    ```bash
-    admin@ncs# config
-    Entering configuration mode terminal
-    admin@ncs(config)#
-    ```
-2.  Change or add some configuration across the devices, for example:
+```bash
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)#
+```
 
-    ```bash
-     admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
-                           neighbor 10.10.10.0 remote-as 64502
-    admin@ncs(config-router)#
-    ```
+2. Change or add some configuration across the devices, for example:
+
+```bash
+admin@ncs(config)# devices device c0..2 config ios:router bgp 64512
+                       neighbor 10.10.10.0 remote-as 64502
+admin@ncs(config-router)#
+```
 
 ### Transaction Commit
 
@@ -269,7 +274,7 @@ native {
 
 The changes can be committed to the devices and the NSO CDB simultaneously with a single commit. In the commit command below, we pipe to details to understand the actions being taken.
 
-```cli
+```bash
 admin@ncs% commit | details
 ```
 
