@@ -19,22 +19,6 @@
 * [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment)
 * [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/guides/development/introduction-to-automation)
 
-## Guides and References
-
-* [Documentation Guides](guides-and-references/documentation-guides/README.md)
-  * [Administration](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/get-started)
-  * [Operation & Usage](https://cisco-tailf.gitbook.io/nso-docs/guides/operation-and-usage/get-started)
-  * [Development](https://cisco-tailf.gitbook.io/nso-docs/guides/development/get-started)
-* [API Reference & Interfaces](guides-and-references/api-reference-and-interfaces/README.md)
-  * [RESTCONF API](guides-and-references/api-reference-and-interfaces/restconf-api.md)
-  * [Sample RESTCONF API Docs](guides-and-references/api-reference-and-interfaces/sample-restconf-api-docs.md)
-  * [NETCONF Interface](guides-and-references/api-reference-and-interfaces/netconf-interface.md)
-  * [CLI](https://cisco-tailf.gitbook.io/nso-docs/guides/operation-and-usage/cli)
-  * [JSON RPC API](https://cisco-tailf.gitbook.io/nso-docs/guides/development/advanced-development/web-ui-development/json-rpc-api)
-  * [SNMP Agent](https://cisco-tailf.gitbook.io/nso-docs/guides/development/core-concepts/northbound-apis/nso-snmp-agent)
-  * [NSO Python, Java and Erlang Extensibility SDK](https://developer.cisco.com/docs/nso/api/)
-  * [XPath](guides-and-references/api-reference-and-interfaces/xpath.md)
-
 ## Resources
 
 * [Platform Tools](resources/platform-tools/README.md)
