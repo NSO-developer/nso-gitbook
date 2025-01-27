@@ -46,7 +46,7 @@ DEVICE c2 OK STARTED
 
 3\. Run the CLI toward one of the simulated devices.
 
-````bash
+```bash
 $ ncs-netsim cli-i c1
 admin connected from 127.0.0.1 using console *
 
@@ -61,7 +61,6 @@ match qos-group 1
 ...
 c1# exit
 ```
-````
 
 This shows that the device has some initial configurations.
 
