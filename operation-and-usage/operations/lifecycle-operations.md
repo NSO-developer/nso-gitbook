@@ -55,7 +55,7 @@ Some of the more important flags are:
 * `reconcile`: Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed before the service. If manually configured data exists below in the configuration tree that data is kept unless the option `discard-non-service-config` is used.&#x20;
 * `use-lsa`: Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite`, and `no-revision-drop`.&#x20;
 * `no-lsa`: Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.&#x20;
-* `commit-queue`: Commit through the commit queue (see [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue)). While the configuration change is committed to CDB immediately, it is not committed to the actual device but rather queued for eventual commit to increase transaction throughput. This enables the use of the commit queue feature for individual \`commit\` commands without enabling it by default.\
+* `commit-queue`: Commit through the commit queue (see [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue)). While the configuration change is committed to CDB immediately, it is not committed to the actual device but rather queued for eventual commit to increase transaction throughput. This enables the use of the commit queue feature for individual \`commit\` commands without enabling it by default.\
   \
   Possible operation modes are: `async`, `sync`, and `bypass`.&#x20;
   * If the `async` mode is set, the operation returns successfully if the transaction data has been successfully placed in the queue.&#x20;
@@ -73,7 +73,7 @@ Some of the more important flags are:
       * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback.
       * The `stop-on-error` means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the `rollback` action under `/devices/commit-queue/completed` be invoked.
 
-      Read about error recovery in [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue) for a more detailed explanation.
+      Read about error recovery in [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
 * `trace-id`: Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:
