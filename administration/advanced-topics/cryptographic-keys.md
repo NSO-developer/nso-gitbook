@@ -50,7 +50,7 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
     </ncs-config>
     ```
 
-    Example system installation`ncs.crypto_keys` file  (do not reuse):
+    Example system installation`ncs.crypto_keys` file (do not reuse):
 
     ```
     DES3CBC_KEY1=2a83724b14e2b35g
@@ -68,8 +68,8 @@ To provide keys that can be rotated in `ncs.conf`, each generation of cryptograp
 
 ```xml
 <ncs-config xmlns="http://tail-f.com/yang/tailf-ncs-config">
-  <encryptedStrings>
-    <keyRotation>
+  <encrypted-strings>
+    <key-rotation>
       <generation>0</generation>
       <DES3CBC>
         <key1>0123456789abcdeg</key1>
@@ -82,8 +82,8 @@ To provide keys that can be rotated in `ncs.conf`, each generation of cryptograp
       <AES256CFB128>
         <key>3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608g</key>
       </AES256CFB128>
-    </keyRotation>
-    <keyRotation>
+    </key-rotation>
+    <key-rotation>
       <generation>1</generation>
       <DES3CBC>
         <key1>0123456789abcdeh</key1>
@@ -96,8 +96,8 @@ To provide keys that can be rotated in `ncs.conf`, each generation of cryptograp
       <AES256CFB128>
         <key>3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608h</key>
       </AES256CFB128>
-    </keyRotation>
-  </encryptedStrings>
+    </key-rotation>
+  </encrypted-strings>
 </ncs-config>
 ```
 
