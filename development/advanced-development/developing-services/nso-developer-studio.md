@@ -1,5 +1,6 @@
 ---
 description: Develop NSO services using Visual Studio (VS) Code extensions.
+hidden: true
 ---
 
 # NSO Developer Studio
@@ -180,11 +181,7 @@ To register an action point:
         }
     ```
 
-
-
     Note that it is mandatory to specify `tailf:actionpoint <actionpointname>` under `tailf:action <actionname>`. This is a known limitation.
-
-
 
     The action point CodeLens at this time only works for the `tailf:action` statement, and not for the YANG `rpc` or YANG 1.1 `action` statements.
 2. Click the **Add Action Point** CodeLens. This brings up the **Register Action Point** dialog.
@@ -249,8 +246,6 @@ To use an XML code completion snippet:
 2. Type in one of the following pre-defined texts to display snippet options:
    * For processing instructions: `<?` followed by a character, for example `<?i` to view snippets for an `if` statement. All supported processing instructions are available as snippets.
    *   For variables: `$` followed by a character(s) matching the variable name, for example, `$VA` to view the variable snippet. Variables defined in the XML template via the `<?set` processing instruction or defined in Python code are displayed.
-
-
 
        Note: Auto-completion can also be triggered by pressing the **Ctrl+Space** keys.
 3. Select an option from the pop-up to insert the relevant XML processing instruction or variable. Items that require further configuration are highlighted. Press the **Tab** key to cycle through the items.
