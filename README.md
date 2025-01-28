@@ -8,7 +8,7 @@ coverY: 0
 
 # Overview
 
-This section covers the documentation for essential Cisco resources for your deployment, such as the Platform Tools and best practices recommendations.&#x20;
+Explore additional documentation resources to supplement your NSO deployment.
 
 ## NSO Resources
 
