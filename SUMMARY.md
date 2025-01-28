@@ -13,16 +13,16 @@
 ## Best Practices
 
 * [NSO on Kubernetes](best-practices/nso-on-kubernetes.md)
-* [Network Automation Delivery Model](https://developer.cisco.com/docs/network-automation-delivery-model/network-automation-delivery-model/)
-* [Scaling and Performance Optimization](https://cisco-tailf.gitbook.io/nso-docs/development/advanced-development/scaling-and-performance-optimization)
+* [Network Automation Delivery Model](best-practices/network-automation-delivery-model.md)
+* [Scaling and Performance Optimization](best-practices/scaling-and-performance-optimization.md)
 
 ## NSO Resources
 
 * [NSO on GitHub](nso-resources/nso-on-github.md)
 * [Postman Collections](nso-resources/postman-collections.md)
 * [Developer Support](nso-resources/developer-support.md)
-* [Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer)
-* [NED Capabilities Explorer](https://developer.cisco.com/docs/nso/ned-capabilities-explorer/)
+* [NSO Changelog Explorer](nso-resources/nso-changelog-explorer.md)
+* [NED Capabilities Explorer](nso-resources/ned-capabilities-explorer.md)
 * [Communities](nso-resources/communities/README.md)
   * [Blogs](https://community.cisco.com/t5/nso-developer-hub-blogs/bg-p/5672j-blogs-dev-nso)
   * [Community Forum](https://community.cisco.com/t5/nso-developer-hub/ct-p/5672j-dev-nso)
