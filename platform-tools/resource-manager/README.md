@@ -1,13 +1,14 @@
 ---
 description: Manage resource allocation in NSO.
+icon: scanner-touchscreen
 ---
 
 # Resource Manager (4.2.8)
 
-The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API.  The applications are explained separately in the following sections below:
+The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API. The applications are explained separately in the following sections below:
 
-* [NSO ID Allocator Deployment](./#nso-id-allocator-deployment)&#x20;
-* [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)&#x20;
+* [NSO ID Allocator Deployment](./#nso-id-allocator-deployment)
+* [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
 This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
@@ -345,7 +346,7 @@ This section presents some simple use cases of the NSO IP Address Allocator. It 
 
 <summary>Create an IP Pool</summary>
 
-Creating an IP pool requires the user to specify a list of subnets (identified by a network address and a CIDR mask), a list of IP ranges (identified by its first and last IP address), or a combination of the two to be handled by the pool.&#x20;
+Creating an IP pool requires the user to specify a list of subnets (identified by a network address and a CIDR mask), a list of IP ranges (identified by its first and last IP address), or a combination of the two to be handled by the pool.
 
 The following CLI interaction shows an allocation where a pool `pool1` is created, and the subnet 10.0.0.0/24 and the range 192.168.0.0 - 192.168.255.255 is added to it.
 
@@ -373,7 +374,7 @@ myuser request subnet-size 30
 
 <summary>Create an Allocation Request for a Subnet Shared by Multiple Services</summary>
 
-Allocations can be shared by multiple services by requesting the same subnet and using the same allocation ID. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate a subnet shared by two services.&#x20;
+Allocations can be shared by multiple services by requesting the same subnet and using the same allocation ID. All instance services in the `allocating-service` leaf-list will be redeployed when the resource has been allocated. The CLI interaction below shows how to allocate a subnet shared by two services.
 
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation a1 allocating-service \
@@ -1169,5 +1170,5 @@ augment "/ralloc:rm-action" {
 
 ## Further Reading
 
-* The [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/package-mgmt) section in the NSO Administration Guide.&#x20;
+* The [NSO Packages](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/package-mgmt) section in the NSO Administration Guide.
 * The [AAA Infrastructure](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/aaa-infrastructure) section in the NSO Administration Guide.
