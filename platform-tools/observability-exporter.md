@@ -98,14 +98,10 @@ This example shows how to use the Jaeger software ([https://www.jaegertracing.io
 1. First, make sure that you have a running NSO instance and that you have successfully added the Observability Exporter package. To verify, run the `show packages package observability-exporter` command from the NSO CLI.
 2.  Download and run a recent Jaeger all-in-one binary from the Jaeger website, using the `--collector.otlp.enabled` switch:
 
-
-
     ```bash
     $ jaeger-all-in-one --collector.otlp.enabled
     ```
 3.  Keep Jaeger running, and from another terminal, enter the NSO CLI to enable OTLP data export:
-
-
 
     ```markup
     admin@ncs# unhide debug
@@ -117,21 +113,17 @@ This example shows how to use the Jaeger software ([https://www.jaegertracing.io
     \
     Jaeger should now be receiving the transaction traces. However, if you have no running transactions in the system, there will be no data. So, make sure that you have some traces by performing a trivial configuration change:
 
-
-
     ```markup
     admin@ncs(config)# session idle-timeout 100001
     admin@ncs(config)# commit
     ```
-4.  Now you can connect to the Jaeger UI at [http://localhost:16686](http://localhost:16686/) to explore the data. In the **Search** pane, select "NSO" service and click **Find Traces**.\
-
+4.  Now you can connect to the Jaeger UI at [http://localhost:16686](http://localhost:16686/) to explore the data. In the **Search** pane, select "NSO" service and click **Find Traces**.
 
     <figure><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/jaeger_trace_search.png#developer.cisco.com" alt=""><figcaption></figcaption></figure>
 
-    Clicking on one of the traces will bring you to the trace view, such as the following one.\
+    Clicking on one of the traces will bring you to the trace view, such as the following one.
 
-
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image%20(1)%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimal Metrics Example with InfluxDB <a href="#minimal-metrics-example-with-influxdb" id="minimal-metrics-example-with-influxdb"></a>
 
@@ -140,8 +132,6 @@ This example shows you how to store and do basic processing and visualization of
 1. First, ensure you have a running NSO instance and have successfully added the Observability Exporter package. To verify, run the `show packages package observability-exporter` command from the NSO CLI.
 2. Next, set up an InfluxDB instance. Download and install the InfluxDB 2 binaries and the corresponding influx CLI appropriate for your NSO system. See [Influxdata docs](https://docs.influxdata.com/influxdb/v2/install/) for details, e.g. `brew install influxdb influxdb-cli` on a macOS system.
 3.  Make sure that you have started the instance, then complete the initial configuration of InfluxDB. During the configuration, create an organization named `my-org` and a bucket named `nso`. Do not forget to perform the Influx CLI setup. To verify that everything works in the end, run:
-
-
 
     ```bash
     $ influx bucket list --org my-org
@@ -155,8 +145,6 @@ This example shows you how to store and do basic processing and visualization of
     In the output, find the ID of the NSO bucket that you have created. For example, here it is `5d744e55fb178310` but yours will be different.
 4.  Create a username/password pair for `v1` API access:
 
-
-
     ```bash
     $ influx v1 auth create --org my-org --username nso --password nso123nso --write-bucket BUCKET_ID
     ```
@@ -165,9 +153,7 @@ This example shows you how to store and do basic processing and visualization of
     Use the `BUCKET_ID` that you have found in the output of the previous command.
 5.  Now connect to the NSO CLI and configure the InfluxDB exporter to use this instance:
 
-
-
-    ```markup
+    ```bash
     admin@ncs# unhide debug
     admin@ncs# config
     admin@ncs(config)# progress export influxdb
@@ -180,17 +166,14 @@ This example shows you how to store and do basic processing and visualization of
     \
     The username and password should match those created with the previous command, while the database name (using the default of `nso` here) should match the bucket name. Make sure that you have some data for export by performing a trivial configuration change:
 
-
-
-    ```markup
+    ```bash
     admin@ncs(config)# session idle-timeout 100002
     admin@ncs(config)# commit
     ```
 6.  Open the InfluxDB UI at [http://localhost:8086](http://localhost:8086/) and log in, then select the **Data Explorer** from the left-hand menu. Using the query builder, you can explore and visualize the data.
 
     \
-    For example, select the `nso` bucket, `span` measurement, and `duration` as a field filter. Keeping other settings at their default values, it will graph the average (mean) times that various parts of the transaction take. If you wish, you can further configure another filter for `name`, to only show the values for the selected part.\
-
+    For example, select the `nso` bucket, `span` measurement, and `duration` as a field filter. Keeping other settings at their default values, it will graph the average (mean) times that various parts of the transaction take. If you wish, you can further configure another filter for `name`, to only show the values for the selected part.
 
     ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/influx_graph.png#developer.cisco.com)
 
@@ -231,16 +214,12 @@ This example shows integrating the Observability Exporter with Grafana to monito
     ```
 6.  Set up the NSO example Dashboard. This step requires the JQ command-line tool to be installed first on the system.
 
-
-
     ```bash
     $ brew install jq
     ```
 
     \
     Download the sample NSO dashboard JSON file [dashboard-nso-local.json](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/dashboard-nso-local.json) and run the below command. Replace the `"value"` field's value with the actual Jaeger UI URL where `"name"` is `INPUT_JAEGER_BASE_URL` under `"inputs"`.
-
-
 
     ```bash
     $ curl -i "http://admin:admin@127.0.0.1:3000/api/dashboards/import" \
@@ -250,8 +229,6 @@ This example shows integrating the Observability Exporter with Grafana to monito
     ```
 7.  (Optional) Set the NSO dashboard as a default dashboard in Grafana.
 
-
-
     ```bash
     $ curl -i 'http://admin:admin@127.0.0.1:3000/api/org/preferences' \
            -m 5 -X PUT --noproxy '*' \
@@ -259,8 +236,7 @@ This example shows integrating the Observability Exporter with Grafana to monito
            -H 'Content-Type: application/json;charset=UTF-8' \
            --data-binary "{\"homeDashboardId\":`curl -m 5 --noproxy '*' 'http://admin:admin@127.0.0.1:3000/api/dashboards/uid/nso' 2>/dev/null | jq .dashboard.id`}"
     ```
-8.  Connect to the NSO CLI and configure the InfluxDB exporter:\
-
+8.  Connect to the NSO CLI and configure the InfluxDB exporter:
 
     ```markup
     admin@ncs# unhide debug
@@ -275,19 +251,16 @@ This example shows integrating the Observability Exporter with Grafana to monito
 9.  To perform a few trivial configuration changes, open the Grafana UI at [http://localhost:3000/](http://localhost:3000/) and log in with username `admin` and password `admin`. Setting the NSO dashboard as a default dashboard will show different charts and graphs showing NSO metrics.
 
     \
-    Below are the panels showing metrics related to the transactions, such as transaction throughput, longest transactions, transaction locks held, and queue length.\
-
+    Below are the panels showing metrics related to the transactions, such as transaction throughput, longest transactions, transaction locks held, and queue length.
 
     ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_transactions.png#developer.cisco.com)
 
-    Below are the panels showing metrics related to the services, such as mean/max duration for `create service`, mean duration for `run service`, and the service's longest spans.\
-
+    Below are the panels showing metrics related to the services, such as mean/max duration for `create service`, mean duration for `run service`, and the service's longest spans.
 
     ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_services.png#developer.cisco.com)
 
     \
-    Below are the panels showing metrics related to the devices, such as device locks held, longest device connection, longest device sync-from, and concurrent device operations.\
-
+    Below are the panels showing metrics related to the devices, such as device locks held, longest device connection, longest device sync-from, and concurrent device operations.
 
     ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_devices.png#developer.cisco.com)
 
