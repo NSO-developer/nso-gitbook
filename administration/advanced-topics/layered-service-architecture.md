@@ -1205,7 +1205,7 @@ admin@rfs1% commit
 ```
 {% endcode %}
 
-To allow the passthrough user to change into any user set the as-any-user leaf or to any group set the as-any-group leaf. Please use with care as setting these leafs will allow the lsa_passthrough_user to elevate privileges by changing to user admin group admin.
+To allow the passthrough user to change into any user, set the `as-any-user` leaf, or for any group, set the `as-any-group` leaf. Use this with care as setting these leafs will allow the `lsa_passthrough_user` to elevate privileges by changing to `user admin` / `group admin`.
 
 {% code overflow="wrap" %}
 ```
