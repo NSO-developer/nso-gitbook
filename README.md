@@ -8,8 +8,6 @@ coverY: 0
 
 # Overview
 
-Explore additional documentation resources to supplement your NSO deployment.
-
 ## NSO Resources
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Platform Tools</strong></td><td>Add-on packages and tools for your NSO deployment.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Best Practices</strong></td><td>Best practice guidelines for your NSO deployment.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>NSO Resources</strong></td><td>Miscellaneous resources for continued learning.</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
