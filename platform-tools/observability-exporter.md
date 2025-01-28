@@ -1,4 +1,5 @@
 ---
+icon: magnifying-glass-chart
 description: Export observability data to InfluxDB.
 ---
 
