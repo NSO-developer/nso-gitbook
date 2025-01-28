@@ -1,4 +1,5 @@
 ---
+icon: diagram-successor
 description: Schedule provisioning tasks in NSO.
 ---
 
