@@ -27,6 +27,7 @@
   * [Blogs](https://community.cisco.com/t5/nso-developer-hub-blogs/bg-p/5672j-blogs-dev-nso)
   * [Community Forum](https://community.cisco.com/t5/nso-developer-hub/ct-p/5672j-dev-nso)
   * [DevDays Hub](https://video.cisco.com/category/videos/nso-developer-days-event-hub)
+* [Support & Downloads](nso-resources/support-and-downloads.md)
 
 ***
 
