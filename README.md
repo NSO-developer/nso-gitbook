@@ -1,13 +1,7 @@
 ---
 icon: power-off
 description: Get started with the Cisco Crosswork NSO documentation guides.
-cover: >-
-  https://images.unsplash.com/photo-1498084393753-b411b2d26b34?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxMHx8bmV0d29ya3xlbnwwfHx8fDE2ODYxODA5NTF8MA&ixlib=rb-4.0.3&q=85
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: full
   title:
     visible: true
   description:
