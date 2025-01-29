@@ -6,11 +6,11 @@ description: >-
 
 # Cryptographic Keys
 
-By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypted-string`, `tailf:aes-cfb-128-encrypted-string`, or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO that can be decrypted. See the [tailf\_yang\_extensions(5)](../../man/section5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
+By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypted-string`, `tailf:aes-cfb-128-encrypted-string`, or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO. See the [tailf\_yang\_extensions(5)](../../man/section5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
 
 ## Providing Keys
 
-NSO supports defining one or more sets of cryptographic keys directly in `ncs.conf` and in an external file read by an external command. Three methods can be used to configure the keys in `ncs.conf`:
+NSO supports defining one or more sets of cryptographic keys directly in `ncs.conf` and in an external key file read by an external command. Three methods can be used to configure the keys in `ncs.conf`:
 
 * External keys under `/ncs-config/encrypted-strings/external-keys`.
 * Key rotation under `/ncs-config/encrypted-strings/key-rotation`.
