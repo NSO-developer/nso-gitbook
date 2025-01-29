@@ -8,7 +8,7 @@ By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypt
 
 ## Decrypting the Encrypted Strings
 
-Encrypted string values can only be decrypted using `decrypt()`, which only works when NSO is running with the correct [cryptographic keys](../../administration/advanced-topics/cryptographic-keys.md). Python example:
+Encrypted string values can only be decrypted using `decrypt()`, when NSO is running with the correct [cryptographic keys](../../administration/advanced-topics/cryptographic-keys.md). Python example:
 
 ```python
 import ncs
@@ -32,7 +32,7 @@ The process of providing encryption keys to NSO can be described by the followin
 
 1. Read the configuration from the environment.
 2. Read encryption keys.
-3. Write encryption keys or the error on standard output.
+3. Write encryption keys (or error on standard output).
 
 The value of `/ncs-config/encrypted-strings/external-keys/command-argument` is available in the command as the environment variable `NCS_EXTERNAL_KEYS_ARGUMENT`. The value of this configuration is only used by the configured command.
 
