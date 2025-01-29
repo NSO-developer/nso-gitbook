@@ -28,17 +28,3 @@
   * [Community Forum](https://community.cisco.com/t5/nso-developer-hub/ct-p/5672j-dev-nso)
   * [DevDays Hub](https://video.cisco.com/category/videos/nso-developer-days-event-hub)
 * [Support & Downloads](nso-resources/support-and-downloads.md)
-
-***
-
-* [Cisco DevNet Resources](cisco-devnet-resources/README.md)
-  * [Cisco DevNet](https://developer.cisco.com/)
-  * [DevNet on GitHub](https://github.com/CiscoDevNet)
-  * [IoT Dev Center](https://developer.cisco.com/iot/)
-  * [Networking Dev Center](https://developer.cisco.com/site/networking/)
-  * [Data Center Dev Center](https://developer.cisco.com/site/data-center/)
-  * [Collaboration Dev Center](https://developer.cisco.com/site/collaboration/)
-  * [Security Dev Center](https://developer.cisco.com/site/security/)
-  * [CX Dev Center](https://developer.cisco.com/cx/)
-  * [Sandbox](https://developer.cisco.com/site/sandbox/)
-  * [Support & Downloads](https://www.cisco.com/c/en/us/support/index.html)
