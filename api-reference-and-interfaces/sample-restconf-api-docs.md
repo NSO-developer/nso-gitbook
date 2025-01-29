@@ -1,6 +1,7 @@
 ---
 icon: display-code
 description: Sample NSO RESTCONF APIs.
+hidden: true
 ---
 
 # Sample RESTCONF API Docs

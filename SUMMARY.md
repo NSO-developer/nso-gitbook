@@ -5,6 +5,7 @@
 ## API Reference & Interfaces
 
 * [RESTCONF API](api-reference-and-interfaces/restconf-api.md)
+* [Sample RESTCONF API Docs](https://developer.cisco.com/docs/nso/cisco-nso-restconf-swagger-api-docs-overview/)
 * [Sample RESTCONF API Docs](api-reference-and-interfaces/sample-restconf-api-docs.md)
 * [NETCONF Interface](api-reference-and-interfaces/netconf-interface.md)
 * [CLI](https://cisco-tailf.gitbook.io/nso-docs/guides/operation-and-usage/cli)
