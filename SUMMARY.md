@@ -103,7 +103,6 @@
   * [Developing Services](development/advanced-development/developing-services/README.md)
     * [Services Deep Dive](development/advanced-development/developing-services/services-deep-dive.md)
     * [Service Development Using Java](development/advanced-development/developing-services/service-development-using-java.md)
-    * [NSO Developer Studio](development/advanced-development/developing-services/nso-developer-studio.md)
     * [NSO Developer Studio](https://cisco-tailf.gitbook.io/nso-docs/resources/platform-tools/nso-developer-studio)
   * [Developing Packages](development/advanced-development/developing-packages.md)
   * [Developing NEDs](development/advanced-development/developing-neds/README.md)
