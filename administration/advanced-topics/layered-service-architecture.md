@@ -1204,3 +1204,12 @@ admin@rfs1% set cluster global-settings passthrough permit lsa_passthrough_user 
 admin@rfs1% commit
 ```
 {% endcode %}
+
+To allow the passthrough user to change into any user, set the `as-any-user` leaf, or for any group, set the `as-any-group` leaf. Use this with care as setting these leafs will allow the `lsa_passthrough_user` to elevate privileges by changing to `user admin` / `group admin`.
+
+{% code overflow="wrap" %}
+```
+admin@rfs1% set cluster global-settings passthrough permit lsa_passthrough_user as-any-user as-any-group
+admin@rfs1% commit
+```
+{% endcode %}
