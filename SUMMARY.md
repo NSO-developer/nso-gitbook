@@ -22,6 +22,7 @@
 * [Postman Collections](nso-resources/postman-collections.md)
 * [Developer Support](nso-resources/developer-support.md)
 * [NSO Changelog Explorer](nso-resources/nso-changelog-explorer.md)
+* [NED Changelog Explorer](nso-resources/ned-changelog-explorer.md)
 * [NED Capabilities Explorer](nso-resources/ned-capabilities-explorer.md)
 * [Communities](nso-resources/communities/README.md)
   * [Blogs](https://community.cisco.com/t5/nso-developer-hub-blogs/bg-p/5672j-blogs-dev-nso)
