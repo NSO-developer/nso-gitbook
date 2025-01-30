@@ -18,3 +18,9 @@
 * [Quick Start Guide](quick-start/quick-start-guide.md)
 * [Detailed Installation & Deployment Instructions](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment)
 * [Introduction to Automation](https://cisco-tailf.gitbook.io/nso-docs/guides/development/introduction-to-automation)
+
+## Quick Links
+
+* [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/)
+* [NED Changelog Explorer](https://developer.cisco.com/docs/nso/ned-changelog-explorer/)
+* [NED Capabilities Explorer](https://developer.cisco.com/docs/nso/ned-capabilities-explorer/)
