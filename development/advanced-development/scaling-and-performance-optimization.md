@@ -112,7 +112,7 @@ All changes in NSO happen inside a transaction. Network devices participate in t
 
 So, in many cases, the NSO system is not really resource-constrained but merely experiencing lock contention. Therefore, making locks as short as possible is the best way to improve performance. In the example trace from the section [Understanding Your Use Case](scaling-and-performance-optimization.md#ncs.development.scaling.tracing), most of the time is spent in the prepare phase, where configuration changes are propagated to the network devices. Change propagation requires a management session with each participating device, as well as updating and validating the new configuration on the device side. Understandably, all of these tasks take time.
 
-NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
+NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
 
 ## Improving Subscribers <a href="#ncs.development.scaling.kicker" id="ncs.development.scaling.kicker"></a>
 
@@ -156,7 +156,7 @@ If NSO is frequently brought out of sync, it can be tempting to invoke `sync-fro
 
 But other alternatives are often better:
 
-* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch\_svcref.partialsync).
+* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch_svcref.partialsync).
 * Using the `devices sync-from` command does not hold the transaction lock and run across devices concurrently, which reduces the total amount of time spent time synchronizing. This is particularly useful for periodic synchronization to lower the risk of being out-of-sync when committing configuration changes.
 * Using the `no-overwrite` commit flag, you can be more lax about being in sync and focus on not overwriting the modified configuration.
 * If the configuration is 100% automated and controlled by NSO alone, using `out-of-sync-behaviour accept`, you can completely ignore if the device is in sync or not.
@@ -274,16 +274,16 @@ An overly complex service or validation implementation using templates, code, an
 
 When data processing performance is of interest, the best practice rule of thumb is to ensure that `must` and `when` statement XPath expressions in YANG models and service templates are only used as necessary and kept as simple as possible.
 
-If a service creates a significant amount of configuration data for devices, it is often significantly faster using a single MAAPI `shared_set_values()` call instead of using multiple `create()` and `set()` calls or a service template.
+Suppose a service creates a significant amount of configuration data for devices. In that case, it is often significantly faster to use a single MAAPI `load_config_cmds()` or `shared_set_values()` function instead of using multiple `create()` and `set()` calls or configuration template `apply()` calls.
 
-#### **Running the `perf-setvals` Example Using a Single Call to MAAPI `shared_set_values()`**
+#### **Running the `perf-bulkcreate` Example Using a Single Call to MAAPI `shared_set_values()`**
 
-The [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python `create()` and `set()` calls, Python `shared_set_values()`, or Java `sharedSetValues()` to write the configuration in XML format.
+The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python with a configuration template, `create()` and `set()` calls, Python `shared_set_values()` and `load_config_cmds()`, or Java `sharedSetValues()` and `loadConfigCmds()` to write the configuration in XML format.
 
-To run the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
+To run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
 
 ```bash
-cd $NCS_DIR/examples.ncs/scaling-performance/perf-setvals
+cd $NCS_DIR/examples.ncs/scaling-performance/perf-bulkcreate
 ./measure.sh -r 3000 -t py_create -n true
 ```
 
@@ -291,7 +291,7 @@ The commit uses the `no-networking` parameter to skip pushing the configuration 
 
 <figure><img src="../../images/service-create-progress.png" alt=""><figcaption></figcaption></figure>
 
-Next, run the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
+Next, run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
 
 ```
 ./measure.sh -r 3000 -t py_setvals_xml -n true
@@ -355,7 +355,7 @@ Writing to a commit queue instead of the device moves the device configuration p
 
 <figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
 
-For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
+For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue).
 
 ### Enabling Commit Queues for the `perf-trans` Example <a href="#d5e8585" id="d5e8585"></a>
 
@@ -390,7 +390,7 @@ Stop NSO and the netsim devices:
 make stop
 ```
 
-Running the [examples.ncs/scaling-performance/perf-setvals](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-setvals) example with two devices and commit queues enabled will produce a similar result.
+Running the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example with two devices and commit queues enabled will produce a similar result.
 
 ### Simplify the Per-Device Concurrent Transaction Creation Using a Nano Service <a href="#ncs.development.scaling.throughput.nano" id="ncs.development.scaling.throughput.nano"></a>
 
