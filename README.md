@@ -1,8 +1,8 @@
 ---
 icon: house
 description: Get started with the Cisco Crosswork NSO documentation.
-cover: .gitbook/assets/Australia - Social Graphic 1200x628.png
-coverY: -77.85066666666667
+cover: .gitbook/assets/gb-cover.png
+coverY: 0
 layout:
   cover:
     visible: true
