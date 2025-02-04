@@ -1,8 +1,8 @@
 ---
 icon: paper-plane
 description: Developer reference for NSO interfaces and APIs.
-cover: .gitbook/assets/Australia - Social Graphic 1200x628.png
-coverY: -41
+cover: .gitbook/assets/gb-cover.png
+coverY: 0
 layout:
   cover:
     visible: true
