@@ -1,9 +1,22 @@
 ---
 icon: paper-plane
 description: Supplementary documentation and resources for your NSO deployment.
-cover: >-
-  https://images.unsplash.com/photo-1498084393753-b411b2d26b34?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxMHx8bmV0d29ya3xlbnwwfHx8fDE2ODYxODA5NTF8MA&ixlib=rb-4.0.3&q=85
-coverY: 0
+cover: .gitbook/assets/Australia - Social Graphic 1200x628.png
+coverY: -17
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Overview
