@@ -1,7 +1,7 @@
 ---
 icon: paper-plane
 description: Developer reference for NSO interfaces and APIs.
-cover: .gitbook/assets/gb-cover.png
+cover: .gitbook/assets/gb-cover-final.png
 coverY: 0
 layout:
   cover:
