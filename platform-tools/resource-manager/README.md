@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (4.2.8)
+# Resource Manager (4.2.10)
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API. The applications are explained separately in the following sections below:
 
@@ -11,7 +11,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
+This version of NSO Resource Manager is 4.2.10 and was released together with NSO version 6.4.2.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
@@ -487,6 +487,9 @@ A set of debug and data tools contained in the `rm-action/ip-allocator-tool` act
 
 * `fix_response_ip`: Scan the IP pool to check if the allocation contains an invalid allocation request ID, and release the allocation from the IP pool, if found. It happens for sync allocation when the device configuration fails after a successful IP allocation and then causes a service transaction to fail. This leaves the IP pool to contain successfully allocated IP while the allocation request response doesn't exist.
 * `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
+* `fix_missing_owner`: Add the missing owner info for each ID allocator entry.
+* `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each Ip pool allocation response/ip.
+* `persistAll`: Manually sync from ID pool in memory to IP allocator in CDB.
 
 #### Action Usage Example
 
@@ -496,6 +499,8 @@ Note that when a pool parameter is provided, the operation will be on this speci
 admin@ncs> unhide debug
 admin@ncs> request rm-action ip-allocator-tool operation fix_response_ip pool multiService
 admin@ncs> request rm-action ip-allocator-tool operation printIpPool pool multiService
+admin@ncs> request rm-action ip-allocator-tool operation fix_missing_allocation pool multiService
+admin@ncs> request rm-action ip-allocator-tool operation persistAll pool multiService
 ```
 
 ## NSO Resource Manager Data Models
@@ -1152,6 +1157,8 @@ augment "/ralloc:rm-action" {
                 type enumeration {
                     enum printIpPool;
                     enum fix_response_ip;
+                    enum fix_missing_allocation;
+                    enum persistAll;
                 }
                 mandatory true;
             }
