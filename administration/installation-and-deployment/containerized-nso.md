@@ -224,7 +224,7 @@ To take a backup:
 
 **Restore a Backup**
 
-To restore a backup NSO must be stopped. As you likely only have access to the `ncs-backup` tool, the volume containing CDB and other run-time data from inside of the NSO container, this poses a slight challenge. Additionally shutting down NSO will terminate the NSO container.
+To restore a backup, NSO must be stopped. As you likely only have access to the `ncs-backup` tool, the volume containing CDB and other run-time data from inside of the NSO container, this poses a slight challenge. Additionally, shutting down NSO will terminate the NSO container.
 
 To restore a backup:
 
