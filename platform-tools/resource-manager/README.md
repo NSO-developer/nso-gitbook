@@ -489,7 +489,7 @@ A set of debug and data tools contained in the `rm-action/ip-allocator-tool` act
 * `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
 * `fix_missing_owner`: Add the missing owner info for each ID allocator entry.
 * `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each Ip pool allocation response/ip.
-* `persistAll`: Manually sync from ID pool in memory to IP allocator in CDB.
+* `persistAll`: Manually sync from IP pool in memory to IP allocator in CDB.
 
 #### Action Usage Example
 
