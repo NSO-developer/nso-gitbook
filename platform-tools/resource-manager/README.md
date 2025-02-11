@@ -11,7 +11,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-This version of NSO Resource Manager is 4.2.10 and was released together with NSO version 6.4.2.
+This version of NSO Resource Manager is 4.2.10.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
