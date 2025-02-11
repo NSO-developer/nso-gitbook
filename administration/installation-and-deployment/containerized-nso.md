@@ -37,7 +37,7 @@ The Red Hat UBI is an OCI-compliant image that is freely distributable and indep
 
 ### Production Image
 
-The Production Image is a production-ready NSO image for system-wide deployment and use. It is based on an NSO [System Install](system-install.md) and is available from the [Cisco Software Download](https://software.cisco.com/download/home) site.
+The Production Image is a production-ready NSO image for system-wide deployment and use. It is based on NSO [System Install](system-install.md) and is available from the [Cisco Software Download](https://software.cisco.com/download/home) site.
 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
