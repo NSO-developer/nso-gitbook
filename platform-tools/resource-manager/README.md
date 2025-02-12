@@ -101,7 +101,11 @@ The easiest way to replicate the state is to write it into CDB-oper and let CDB 
 
 We only want the allocator to allocate addresses on the primary node. Since the allocations are written into CDB they will be visible on both primary and secondary nodes, and the CDB subscriber will be notified on both nodes. In this case, we only want the allocator on the primary node to perform the allocation.
 
+If HA mode is not set to primary and sync is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
+
 We therefore read the HA mode leaf from CDB to determine which HA mode the current subscriber is running in; if HA mode is not enabled, or if HA mode is enabled and the current node is primary we proceed with the allocation.
+
+
 
 ## Synchronous Allocation <a href="#d5e60" id="d5e60"></a>
 
