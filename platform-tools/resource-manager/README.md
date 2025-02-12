@@ -489,7 +489,7 @@ A set of debug and data tools contained in the `rm-action/ip-allocator-tool` act
 
 * `fix_response_ip`: Scan the IP pool to check if the allocation contains an invalid allocation request ID, and release the allocation from the IP pool, if found. It happens for sync allocation when the device configuration fails after a successful IP allocation and then causes a service transaction to fail. This leaves the IP pool to contain successfully allocated IP while the allocation request response doesn't exist.
 * `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
-* `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each Ip pool allocation response/ip.
+* `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each IP pool allocation response/IP.
 * `persistAll`: Manually sync from IP pool in memory to IP allocator in CDB.
 
 #### Action Usage Example
