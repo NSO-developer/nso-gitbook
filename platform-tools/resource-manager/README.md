@@ -109,7 +109,7 @@ This synchronized allocation API request uses a reactive fastmap, so the user ca
 
 When an allocation raises an exception in case the pool is exhausted, or if the referenced pool does not exist in the CDB, `commit` will get aborted. Synchronous allocation doesn't require service `re-deploy` to read allocation. The same transaction can read allocation, `commit dry-run` or `get-modification` should show up the allocation details as output.
 
-If HA mode is not set to primary and synchronization RM api is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
+If the HA mode is not set to primary and the synchronization RM API is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
 
 {% hint style="info" %}
 Synchronous allocation is only supported through the Java and Python APIs provided by the Resource Manager.
