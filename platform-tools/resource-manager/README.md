@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (4.2.8)
+# Resource Manager (4.2.10)
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API. The applications are explained separately in the following sections below:
 
@@ -11,7 +11,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-This version of NSO Resource Manager is 4.2.8 and was released together with NSO version 6.4.
+This version of NSO Resource Manager is 4.2.10.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
@@ -108,6 +108,8 @@ We therefore read the HA mode leaf from CDB to determine which HA mode the curre
 This synchronized allocation API request uses a reactive fastmap, so the user can allocate resources and still keep a synchronous interface. It allocates resources in the create callback, at that moment everything we modify in the database is part of the service intent and fast map. We need to guarantee that we have used a stable resource and communicate to other services, which resources we have used. So, during the create callback, we store what we have allocated. Other services that are evaluated within the same transaction which runs subsequent to ours will see allocations, when our service is redeployed, it will not have to create the allocations again.
 
 When an allocation raises an exception in case the pool is exhausted, or if the referenced pool does not exist in the CDB, `commit` will get aborted. Synchronous allocation doesn't require service `re-deploy` to read allocation. The same transaction can read allocation, `commit dry-run` or `get-modification` should show up the allocation details as output.
+
+If the HA mode is not set to primary and the synchronization RM API is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
 
 {% hint style="info" %}
 Synchronous allocation is only supported through the Java and Python APIs provided by the Resource Manager.
@@ -487,6 +489,8 @@ A set of debug and data tools contained in the `rm-action/ip-allocator-tool` act
 
 * `fix_response_ip`: Scan the IP pool to check if the allocation contains an invalid allocation request ID, and release the allocation from the IP pool, if found. It happens for sync allocation when the device configuration fails after a successful IP allocation and then causes a service transaction to fail. This leaves the IP pool to contain successfully allocated IP while the allocation request response doesn't exist.
 * `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
+* `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each IP pool allocation response/IP.
+* `persistAll`: Manually sync from IP pool in memory to IP allocator in CDB.
 
 #### Action Usage Example
 
@@ -496,6 +500,8 @@ Note that when a pool parameter is provided, the operation will be on this speci
 admin@ncs> unhide debug
 admin@ncs> request rm-action ip-allocator-tool operation fix_response_ip pool multiService
 admin@ncs> request rm-action ip-allocator-tool operation printIpPool pool multiService
+admin@ncs> request rm-action ip-allocator-tool operation fix_missing_allocation pool multiService
+admin@ncs> request rm-action ip-allocator-tool operation persistAll pool multiService
 ```
 
 ## NSO Resource Manager Data Models
@@ -1152,6 +1158,8 @@ augment "/ralloc:rm-action" {
                 type enumeration {
                     enum printIpPool;
                     enum fix_response_ip;
+                    enum fix_missing_allocation;
+                    enum persistAll;
                 }
                 mandatory true;
             }

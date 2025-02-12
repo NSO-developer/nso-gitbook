@@ -2,7 +2,7 @@
 description: Description of the APIs exposed by the Resource Manager package.
 ---
 
-# Resource Manager API Guide (4.2.8)
+# Resource Manager API Guide (4.2.10)
 
 ***
 
@@ -1336,7 +1336,7 @@ Returns the allocated subnet for the IP.
 
 ### Using Java APIs for Non-service IP Allocations
 
-This non-service IP address allocation API is created from Resource Manager 4.2.8.
+This non-service IP address allocation API is created from Resource Manager 4.2.10.
 
 <details>
 
