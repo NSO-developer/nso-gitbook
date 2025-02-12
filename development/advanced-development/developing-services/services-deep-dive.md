@@ -84,7 +84,7 @@ List of customer services (defined under `/services/customer-service`) that this
 
 <summary><code>commit-queue</code> container</summary>
 
-Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for details.
+Contains commit queue items related to this service. See [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for details.
 
 </details>
 
@@ -193,7 +193,7 @@ The Python callbacks use the following function arguments:
 * `kp`: A HKeypathRef object with a key path of the affected service instance, such as `/svc:my-service{instance1}`.
 * `root`: A Maagic node for the root of the data model.
 * `service`: A Maagic node for the service instance.
-* `proplist`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
+* `proplist`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque).
 
 {% code title="Example: Service Callback Signatures in Java" %}
 ```java
@@ -230,11 +230,11 @@ The Java callbacks use the following function arguments:
 * `path`: A ConfPath object with a key path of the affected service instance, such as `/svc:my-service{instance1}`.
 * `ncsRoot`: A NavuNode for the root of the `ncs` data model.
 * `service`: A NavuNode for the service instance.
-* `opaque`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque).
+* `opaque`: Opaque service properties, see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque).
 
 See `examples.ncs/development-guide/services/post-modification-py` and `examples.ncs/development-guide/services/post-modification-java` examples for a sample implementation of the post-modification callback.
 
-Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch\_templates.servicepoint) for details.
+Additionally, you may implement these callbacks with templates. Refer to [Service Callpoints and Templates](../../core-concepts/templates.md#ch_templates.servicepoint) for details.
 
 ### Persistent Opaque Data <a href="#ch_svcref.opaque" id="ch_svcref.opaque"></a>
 
@@ -417,7 +417,542 @@ In practice, you might find it beneficial to modularize your data model and pote
 
 The most important principle to keep in mind is that the data created by any service is owned by that service, regardless of how the mapping is done (through code or templates). If the user deletes a service instance, FASTMAP will automatically delete whatever the service created, including any other services. Likewise, if the operator directly manipulates service data that is created by another service, the higher-level service becomes out of sync. The **check-sync** service action checks this for services as well as devices.
 
-In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount)).
+In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)).
+
+## Service Design
+
+Designing services in NSO offers a great deal of flexibility with multiple approaches available to suit different needs. But what’s the best way to go about it? At its core, a service abstracts a network service or functionality, bridging user-friendly inputs with network configurations. This definition leaves the implementation open-ended, providing countless possibilities for designing and building services. However, there are certain techniques and best practices that can help enhance performance and simplify ongoing maintenance, making your services more efficient and easier to manage.
+
+Regardless of the type of service chosen—whether Java, Python, or plain template services—there are certain design patterns that can be followed to improve their long-term effectiveness. Rather than diving into API-level specifics, we’ll focus on higher-level design principles, with an emphasis on leveraging the stacked service approach for maximum efficiency and scalability.
+
+### Service Performance
+
+When designing a service, the first step is to identify the functionality of the network service and the corresponding device configurations it encompasses. The service should then be designed to generate those configurations. These configurations can either be static—hard-coded into the service if they remain consistent across all instances—or dynamic, represented as variables that adapt based on the service’s input parameters.
+
+The flexibility in service design is virtually limitless, as both Java and Python can be used to define services, allowing for the generation of static or dynamic configurations based on minimal input. Ultimately, the goal is to have the service efficiently represent as much of the required device configuration as possible, while minimizing the number of input parameters.
+
+When striving to achieve the goal of producing comprehensive device configurations, it's common to end up with a service that generates an extensive set of configurations. At first glance, this might seem ideal; however, it can introduce significant performance challenges.
+
+### Service Bottlenecks
+
+As the volume of a service's device configurations increases, its performance often declines. Both creating and modifying the service take longer, regardless of whether the change involves a single line of configuration or the entire set. In fact, the execution time of the service remains consistent for all modifications and increases proportionally with the size of the configurations it generates.
+
+The underlying reason for this behavior is tied to FASTMAP. Without delving too deeply into its mechanics, FASTMAP essentially runs the service logic anew with every deploy or re-deploy (modification), regenerating all the device configurations from scratch. This process not only re-executes user-defined logic—whether in Java, Python, or templates—but also tasks NSO with generating the reverse diffset for the service. As the size of the reverse diffset grows, so does the computational load, leading to slower performance.
+
+From this, it's clear that writing efficient service logic is crucial. Optimizing the time complexity of operations within the service callbacks will naturally improve performance, just as with any other software. However, there's a less obvious yet equally important factor to consider: minimizing the service diffset. A smaller diffset results in better performance overall.
+
+At first glance, this might seem to contradict the initial goal of representing as much configuration as possible with minimal input parameters. This apparent conflict is where the concept of stacked services comes into play, offering a way to balance these priorities effectively.
+
+We want a service to generate as much configuration as possible, but it doesn’t need to handle everything on its own. While a single service becomes slower as it takes on more, distributing the workload across multiple services introduces a new dimension of optimization.
+
+For example, consider a simple service that configures interface descriptions. While not a real network service, it serves as a useful illustration of the impact of heavy operations and large diffsets. Let's explore how this approach can help optimize performance.
+
+```yang
+list python-service {
+  key name;
+  leaf name {
+    type string;
+  }
+
+  uses ncs:service-data;
+  ncs:servicepoint python-service-servicepoint;
+
+  list device {
+    key name;
+    leaf name {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+    leaf number-of-interfaces {
+      type uint32;
+    }
+  }
+}
+```
+
+Each service instance will take, as input, a list of devices to configure and the number of interfaces to be configured for each device.
+
+{% code overflow="wrap" %}
+```python
+@Service.create
+def cb_create(self, tctx, root, service, proplist):
+    self.log.info('Service create(service=', service._path, ')')
+
+    for d in service.device:
+        for i in range(d.number_of_interfaces):
+            root.ncs__devices.device[d.name].config.ios__interface.GigabitEthernet.create(i).description = 'Managed by NSO'
+```
+{% endcode %}
+
+The callback will then iterate through each provided device, creating interfaces and assigning descriptions in a loop.
+
+When evaluating the service's performance, there are two key aspects to consider: the callback execution time and the time NSO takes to calculate the diffset. To analyze these, we can use NSO’s progress trace to gather statistics. Let’s start with an example involving three devices and 10 interfaces:
+
+```bash
+admin@ncs(config)# python-service test
+admin@ncs(config-python-service-test)# device CE-1 number-of-interfaces 10
+admin@ncs(config-device-CE-1)# exit
+admin@ncs(config-python-service-test)# device CE-2 number-of-interfaces 10
+admin@ncs(config-device-CE-2)# exit
+admin@ncs(config-python-service-test)# device PE-1 number-of-interfaces 10
+admin@ncs(config-device-PE-1)# 
+```
+
+The two key events we need to focus on are the create event for the service, which provides the execution time of the create callback, and the "saving reverse diff-set and applying changes" event, which shows how long NSO took to calculate the reverse diff-set.
+
+{% code overflow="wrap" %}
+```
+2-Jan-2025::09:48:18.110 trace-id=8a94e614b426430ffcd34e0639b5cf40 span-id=c4a9037077c54402 parent-span-id=ff9ca4dccad15b30 usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] create: ok (0.222 s)
+2-Jan-2025::09:48:18.198 trace-id=8a94e614b426430ffcd34e0639b5cf40 span-id=2cdb960fde6f386e parent-span-id=ff9ca4dccad15b30 usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] saving reverse diff-set and applying changes: ok (0.088 s)
+```
+{% endcode %}
+
+Let’s capture the same data for 100 and 1000 interfaces to compare the results.
+
+{% code title="100:" overflow="wrap" %}
+```
+2-Jan-2025::09:49:00.909 trace-id=87b153d7edd0120f4810cd13fa207abd span-id=37188aea51359bd4 parent-span-id=f55947230241d550 usid=59 tid=214 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] create: ok (2.316 s)
+2-Jan-2025::09:49:02.299 trace-id=87b153d7edd0120f4810cd13fa207abd span-id=6a9962e63805673e parent-span-id=f55947230241d550 usid=59 tid=214 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] saving reverse diff-set and applying changes: ok (1.389 s)
+```
+{% endcode %}
+
+{% code title="1000:" overflow="wrap" %}
+```
+2-Jan-2025::09:50:19.314 trace-id=4b144bc1f493a1c6f1f09df45be7a567 span-id=7e7a805a711ae483 parent-span-id=867f790fef787fca usid=59 tid=293 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] create: ok (28.082 s)
+2-Jan-2025::09:50:34.261 trace-id=4b144bc1f493a1c6f1f09df45be7a567 span-id=28a617b1279e8c56 parent-span-id=867f790fef787fca usid=59 tid=293 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] saving reverse diff-set and applying changes: ok (14.946 s)
+```
+{% endcode %}
+
+We can observe that the time scales proportionally with the workload in the create callback as well as the size of the diffset. To demonstrate that the time remains consistent regardless of the size of the modification, we add one more interface to the 1000 interfaces already configured.
+
+```bash
+admin@ncs(config)# commit dry-run 
+cli {
+    local-node {
+        data  devices {
+                  device CE-1 {
+                      config {
+                          interface {
+             +                GigabitEthernet 1000 {
+             +                    description "Managed by NSO";
+             +                }
+                          }
+                      }
+                  }
+              }
+              python-service test {
+                  device CE-1 {
+             -        number-of-interfaces 1000;
+             +        number-of-interfaces 1001;
+                  }
+              }
+    }
+}
+```
+
+From the progress trace, we can see that adding one interface took about the same amount of time as adding 1000 interfaces.
+
+{% code overflow="wrap" %}
+```
+2-Jan-2025::09:57:40.581 trace-id=ab51722b3be82a83bc59d7b40bfdedd3 span-id=e9039240e794e819 parent-span-id=df585fdf73c00df3 usid=75 tid=425 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] create: ok (24.900 s)
+2-Jan-2025::09:58:44.309 trace-id=ab51722b3be82a83bc59d7b40bfdedd3 span-id=1e841bcb07685884 parent-span-id=df585fdf73c00df3 usid=75 tid=425 datastore=running context=cli subsystem=service-manager service=/python-service[name='test'] saving reverse diff-set and applying changes: ok (15.727 s)
+```
+{% endcode %}
+
+Fastmap offers significant benefits to our solution, but this performance trade-off is an unavoidable cost. As a result, our service will remain consistently slow for all modifications as long as it handles large-scale device configurations. To address this, our focus must shift to reducing the size of the device configuration.
+
+### Service Stacking
+
+The solution lies in distributing the configurations across multiple services while assigning the main service the role of managing these individual services. By analyzing the current service's functionality, we can easily identify how to break it down—by device. Instead of having a single service provisioning multiple devices, we will transition to a setup where one main service provisions multiple sub-services, with each sub-service responsible for provisioning a single device. The resulting structure will look as follows.
+
+We'll begin by renaming our `python-service` to `upper-python-service`. This distinction is purely for clarity and to differentiate the two service types. In practice, the naming itself is not critical, as long as it aligns with the desired naming conventions for the northbound API, which represents the customer-facing service. The `upper-python-service` will still function as the main service that users interact with to configure interfaces on multiple devices, just as in the previous example.
+
+```python
+list upper-python-service {
+
+  key name;
+  leaf name {
+    type string;
+  }
+
+  uses ncs:service-data;
+  ncs:servicepoint upper-python-service-servicepoint;
+
+  list device {
+    key name;
+    leaf name {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+    leaf number-of-interfaces {
+      type uint32;
+    }
+  }
+}
+```
+
+The `upper-python-service` however, will not provision any devices directly. Instead, it will delegate that responsibility to another layer of services by creating and managing those subordinate services.
+
+```python
+list lower-python-service {
+
+  key "device name";
+  leaf name {
+    type string;
+  }
+
+  leaf device {
+    type leafref {
+      path "/ncs:devices/ncs:device/ncs:name";
+    }  
+  }
+
+  uses ncs:service-data;
+  ncs:servicepoint lower-python-service-servicepoint;
+
+  leaf number-of-interfaces {
+    type uint32;
+  }
+}
+```
+
+The `lower-python-service` will be created by the `upper-python-service` and will ultimately handle provisioning the device. This service is designed to take only a single device as input, which corresponds to the device it will provision. The behavior and interaction between the two services can be observed in the Python callbacks that define their logic.
+
+```python
+class UpperServiceCallbacks(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        self.log.info('Service create(service=', service._path, ')')
+
+        for d in service.device:
+            root.stacked_python_service__lower_python_service.create(d.name, service.name).number_of_interfaces = d.number_of_interfaces
+
+class LowerServiceCallbacks(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        self.log.info('Service create(service=', service._path, ')')
+
+        for i in range(service.number_of_interfaces):
+            root.ncs__devices.device[service.device].config.ios__interface.GigabitEthernet.create(i).description = 'Managed by NSO'
+```
+
+The upper service creates a lower service for each device, and each lower service is responsible for provisioning its assigned device and populating its interfaces. This approach distributes the workload, reducing the load on individual services. The upper service loops over the total number of devices and generates a diffset consisting of the input parameters for each lower service. Each lower service then loops over the interfaces for its specific device and creates a diffset covering all interfaces for that device.
+
+All of this happens within a single NSO transaction, ensuring that, from the user’s perspective, the behavior remains identical to the previous design.
+
+At this point, you might wonder: if this still occurs in a single transaction and the total number of loops and combined diffset size remain unchanged, how does this improve performance? That’s a valid observation. When creating a large dataset all at once, this approach doesn’t provide a performance gain—in fact, the addition of an extra service layer might introduce a minimal and negligible amount of overhead.
+
+However, the real benefit becomes apparent in update scenarios, as we’ll illustrate below.
+
+We begin by creating the service to configure 1000 interfaces for each device.
+
+```bash
+admin@ncs(config)# upper-python-service test device CE-1 number-of-interfaces 1000
+admin@ncs(config-device-CE-1)# top
+admin@ncs(config)# upper-python-service test device CE-2 number-of-interfaces 1000
+admin@ncs(config-device-CE-2)# top
+admin@ncs(config)# upper-python-service test device PE-1 number-of-interfaces 1000
+admin@ncs(config-device-PE-1)# commit 
+```
+
+The execution time of the `upper-python-service` turned out to be relatively low, as expected. This is because it only involves a loop with three iterations, where data is passed from the input of the `upper-python-service` to each corresponding `lower-python-service`.
+
+Similarly, calculating the diffset is also efficient. The reverse diffset for the `upper-python-service` only includes the configuration for the `lower-python-services`, which consists of just a few lines. This minimal complexity keeps both execution time and diffset calculation fast and lightweight.
+
+{% code overflow="wrap" %}
+```
+2-Jan-2025::10:14:27.682 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=58c41383d602d7e4 parent-span-id=49f214d3c1e906fb usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/upper-python-service[name='test'] create: ok (0.012 s)
+2-Jan-2025::10:14:27.706 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=3dcdb68f79b38f78 parent-span-id=49f214d3c1e906fb usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/upper-python-service[name='test'] saving reverse diff-set and applying changes: ok (0.023 s)
+```
+{% endcode %}
+
+In the same transaction, we also observe the execution of the three `lower-python-services`.
+
+{% code overflow="wrap" %}
+```
+2-Jan-2025::10:14:35.205 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=1aa5131f96e2b4fe parent-span-id=9da61057b7e18fae usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='CE-1'] create: ok (7.492 s)
+2-Jan-2025::10:14:37.743 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=3dce5f82d6f5558f parent-span-id=9da61057b7e18fae usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='CE-1'] saving reverse diff-set and applying changes: ok (2.538 s)
+...
+2-Jan-2025::10:14:46.126 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=78201c416ffa5ca5 parent-span-id=056757c9dd26bb8e usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='CE-2'] create: ok (8.381 s)
+2-Jan-2025::10:14:48.455 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=5b4fd53af68d3233 parent-span-id=056757c9dd26bb8e usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='CE-2'] saving reverse diff-set and applying changes: ok (2.328 s)
+...
+2-Jan-2025::10:14:56.294 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=374cecf183a5065a parent-span-id=e513c0823e29256c usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='PE-1'] create: ok (7.837 s)
+2-Jan-2025::10:14:58.645 trace-id=2dc929ca780db076154a16d0edc50d05 span-id=b0d42c480167757d parent-span-id=e513c0823e29256c usid=59 tid=132 datastore=running context=cli subsystem=service-manager service=/lower-python-service[name='test'][device='PE-1'] saving reverse diff-set and applying changes: ok (2.351 s)
+```
+{% endcode %}
+
+Each service callback took approximately 8 seconds to execute, and calculating the diffset took around 2.5 seconds per service. This results in a total callback execution time of about 24 seconds and a total diffset calculation time of around 8 seconds, which is less than the time required in the previous service design.
+
+So, what’s the advantage of stacking services like this? The real benefit becomes evident during updates. Let’s add an interface to device `CE-1`, just as we did with the previous design, to illustrate this.
+
+```bash
+admin@ncs(config)# upper-python-service test device CE-1 number-of-interfaces 1001
+admin@ncs(config-device-CE-1)# commit dry-run 
+cli {
+    local-node {
+        data  upper-python-service test {
+                  device CE-1 {
+             -        number-of-interfaces 1000;
+             +        number-of-interfaces 1001;
+                  }
+              }
+              lower-python-service test CE-1 {
+             -    number-of-interfaces 1000;
+             +    number-of-interfaces 1001;
+              }
+              devices {
+                  device CE-1 {
+                      config {
+                          interface {
+             +                GigabitEthernet 1000 {
+             +                    description "Managed by NSO";
+             +                }
+                          }
+                      }
+                  }
+              }
+    }
+}
+```
+
+Observing the progress trace generated for this scenario would give a clearer understanding. From the trace, we see that the `upper-python-service` was invoked and executed just as quickly as it did during the initial deployment. The same applies to the callback execution and diffset calculation time for the `lower-python-service` handling `CE-1`.
+
+But what about `CE-2` and `PE-1`? Interestingly, there are no traces of these services in the log. That’s because they were never executed. The modification was passed only to the relevant `lower-python-service` for `CE-1`, while the other two services remained untouched.
+
+And that is the power of stacked services.
+
+### Resource-Facing Layer
+
+Does this mean the more we stack, the better? Should every single line of configuration be split into its own service? The answer is no. In most real-world cases, the primary performance bottleneck is the diffset calculation rather than the callback execution time. Service callbacks typically aren't computationally intensive, nor should they be.
+
+Stacked services are generally used to address issues with diffset calculation, and this strategy is only effective if we can reduce the diffset size of the "hottest" service. However, increasing the number of services managed by the upper service also increases the total configuration it must generate on each re-deploy. This trade-off needs careful consideration to strike the right balance.
+
+#### Modeling the Layer
+
+When restructuring a service into a stacked service model, the first target should always be devices. If a service configures multiple devices, it’s a good practice to split it up by adding another layer of services, ensuring that no more than one device is provisioned by any service at the lowest layer. This approach reduces the service's complexity, making it easier to maintain.
+
+Focusing on a single device per service also provides significant advantages in various scenarios, such as restoring consistency when a device goes out of sync, handling NED migrations, hardware upgrades, or even migrating a device between NSO instances.
+
+The lower service we created uses the device name as its key. The primary reason for this is to ensure a clear separation of service instances based on the devices they are deployed on. One key benefit of this approach is the ability to easily identify all services deployed on a specific device by simply filtering for that device. For example, after adding a few more services, you could list all services associated with a particular device using a `show` command similar to the following.
+
+```bash
+admin@ncs(config)# show full-configuration lower-python-service CE-1 
+lower-python-service CE-1 another-instance
+ number-of-interfaces 1
+!
+lower-python-service CE-1 test
+ number-of-interfaces 1001
+!
+lower-python-service CE-1 yet-another-instance
+ number-of-interfaces 1
+!
+```
+
+While the complete distribution of the service looks like this:
+
+```bash
+admin@ncs(config)# show full-configuration lower-python-service 
+lower-python-service CE-1 another-instance
+ number-of-interfaces 1
+!
+lower-python-service CE-1 test
+ number-of-interfaces 1001
+!
+lower-python-service CE-1 yet-another-instance
+ number-of-interfaces 1
+!
+lower-python-service CE-2 test
+ number-of-interfaces 1000
+!
+lower-python-service PE-1 test
+ number-of-interfaces 1000
+!
+```
+
+This approach provides an excellent way to maintain an overview of services deployed on each device. However, introducing new service types presents a challenge: you wouldn’t be able to see all service types with a single show command. For instance, `show lower-python-service ...` will only display instances of the `lower-python-service`. But what happens when the device also has L2VPNs, L3VPNs, or other service types, as it would in a real network?
+
+#### Organizing the Schema
+
+To address this, we can nest the services within another list. By organizing all services under a common structure, we enable the ability to view and manage multiple service types for a device in a unified manner, providing a comprehensive overview with a single command.
+
+To illustrate this approach, we need to introduce another service type. Moving beyond the dummy example, let’s use a more realistic scenario: the [mpls-vpn-simple](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-simple) example. We'll refactor this service to adopt the stacked service approach while maintaining the existing customer-facing interface.
+
+After the refactor, the service will shift from provisioning multiple devices directly through a single instance to creating a separate service instance for each device, VPN, and endpoint, what we call resource-facing services. These resource-facing services will be structured so that all device-specific services are grouped under a node for each device.
+
+This is accomplished by introducing a list of devices, modeled within a separate package. We’ll create this new package and call it `resource-facing-services`, with the following model definition:
+
+```yang
+  container resource-facing-services {
+    list device {
+      description "All services on a device";
+
+      key name;
+      leaf name {
+        type leafref {
+          path "/ncs:devices/ncs:device/ncs:name";
+        }
+      }
+    }
+  }
+```
+
+This model allows us to organize services by device, providing a unified structure for managing and querying all services deployed on each device.
+
+Each element in this list will represent a device and all the services deployed on it. The model itself is empty, which is intentional, as each resource-facing service (RFS) will be added to this list through augmentation from its respective package. The YANG model for the RFS version of our L3VPN service is designed specifically to integrate seamlessly into this structure.
+
+```yang
+  augment "/rfs:resource-facing-services/rfs:device" {
+    list l3vpn-rfs {
+      key "name endpoint-id";
+
+      leaf name {
+        tailf:info "Unique service id";
+        tailf:cli-allow-range;
+        type string;
+      }
+
+      leaf endpoint-id {
+        tailf:info "Endpoint identifier";
+        type string;
+      }
+      uses ncs:service-data;
+      ncs:servicepoint l3vpn-rfs-servicepoint;
+
+      leaf role {
+        type enumeration {
+          enum "ce";
+          enum "pe";
+        }
+      }
+
+      container remote {
+        leaf device {
+          type leafref {
+            path "/rfs:resource-facing-services/rfs:device/rfs:name";
+          }
+        }
+        leaf ip-address {
+          type inet:ipv4-address;
+        }
+      }
+
+      leaf as-number {
+        description "AS used within all VRF of the VPN";
+        tailf:info "MPLS VPN AS number.";
+        mandatory true;
+        type uint32;
+      }
+
+      container local {
+        when "../role = 'ce'";
+        uses endpoint-grouping;
+      }
+      container link {
+        uses endpoint-grouping;
+      }
+    }
+  }
+```
+
+We deploy an L3VPN to our network with two CE endpoints by creating the following `l3vpn` customer-facing service.
+
+```bash
+admin@ncs(config)# show full-configuration vpn 
+vpn l3vpn volvo
+ endpoint c1
+  as-number 65001
+  ce device CE-1
+  ce local interface-name GigabitEthernet
+  ce local interface-number 0/9
+  ce local ip-address 192.168.0.1
+  ce link interface-name GigabitEthernet
+  ce link interface-number 0/2
+  ce link ip-address 10.1.1.1
+  pe device PE-1
+  pe link interface-name GigabitEthernet
+  pe link interface-number 0/0/0/1
+  pe link ip-address 10.1.1.2
+ !
+ endpoint c2
+  as-number 65001
+  ce device CE-2
+  ce local interface-name GigabitEthernet
+  ce local interface-number 0/3
+  ce local ip-address 192.168.1.1
+  ce link interface-name GigabitEthernet
+  ce link interface-number 0/1
+  ce link ip-address 10.2.1.1
+  pe device PE-1
+  pe link interface-name GigabitEthernet
+  pe link interface-number 0/0/0/2
+  pe link ip-address 10.2.1.2
+ !
+!
+```
+
+After deploying our service, we can quickly gain an overview of the services deployed on a device without needing to analyze or reverse-engineer its configurations. For example, we can see that the device `PE-1` is acting as a PE for two different endpoints within a VPN.
+
+```bash
+admin@ncs(config)# show full-configuration resource-facing-services device PE-1 
+resource-facing-services device PE-1
+ l3vpn-rfs volvo c1
+  role      pe
+  as-number 65001
+  link interface-name GigabitEthernet
+  link interface-number 0/0/0/1
+  link ip-address  10.1.1.2
+  link remote ip-address 10.1.1.1
+ !
+ l3vpn-rfs volvo c2
+  role      pe
+  as-number 65001
+  link interface-name GigabitEthernet
+  link interface-number 0/0/0/2
+  link ip-address  10.2.1.2
+  link remote ip-address 10.2.1.1
+ !
+!
+```
+
+`CE-1` serves as a CE for that VPN.
+
+```bash
+admin@ncs(config)# show full-configuration resource-facing-services device CE-1
+resource-facing-services device CE-1
+ l3vpn-rfs volvo c1
+  role      ce
+  as-number 65001
+  local interface-name GigabitEthernet
+  local interface-number 0/9
+  local ip-address 192.168.0.1
+  link interface-name GigabitEthernet
+  link interface-number 0/2
+  link ip-address  10.1.1.1
+  link remote ip-address 10.1.1.2
+ !
+!
+```
+
+And `CE-2` serves as another CE for that VPN.
+
+```bash
+admin@ncs(config)# show full-configuration resource-facing-services device CE-2
+resource-facing-services device CE-2
+ l3vpn-rfs volvo c2
+  role      ce
+  as-number 65001
+  local interface-name GigabitEthernet
+  local interface-number 0/3
+  local ip-address 192.168.1.1
+  link interface-name GigabitEthernet
+  link interface-number 0/1
+  link ip-address  10.2.1.1
+  link remote ip-address 10.2.1.2
+ !
+!
+```
 
 ## Caveats and Best Practices <a href="#ch_svcref.caveats" id="ch_svcref.caveats"></a>
 
@@ -427,11 +962,11 @@ You may also obtain some useful information by using the `debug service` commit 
 
 * **Service callbacks must be deterministic**: NSO invokes service callbacks in a number of situations, such as for dry-run, check sync, and actual provisioning. If a service does not create the same configuration from the same inputs, NSO sees it as being out of sync, resulting in a lot of configuration churn and making it incompatible with many NSO features.\
   \
-  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+  If you need to introduce some randomness or rely on some other nondeterministic source of data, make sure to cache the values across callback invocations, such as by using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch_services.oper)) populated in a pre-modification callback.
 *   **Never overwrite service inputs**: Service input parameters capture client intent and a service should never change its own configuration. Such behavior not only muddles the intent but is also temporary when done in the create callback, as the changes are reverted on the next invocation.
 
     \
-    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch\_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch\_services.oper)) populated in a pre-modification callback.
+    If you need to keep some additional data that cannot be easily computed each time, consider using opaque properties (see [Persistent Opaque Data](services-deep-dive.md#ch_svcref.opaque)) or persistent operational data (see [Operational Data](../../core-concepts/implementing-services.md#ch_services.oper)) populated in a pre-modification callback.
 * **No service ordering in a transaction**: NSO is a transactional system and as such does not have the concept of order inside a single transaction. That means NSO does not guarantee any specific order in which the service mapping code executes if the same transaction touches multiple service instances. Likewise, your code should not make any assumptions about running before or after other service code.
 * **Return value of create callback**: The create callback is not the exclusive user of the opaque object; the object can be chained in several different callbacks, such as pre- and post-modification. Therefore, returning `None/null` from create callback is not a good practice. Instead, always return the opaque object even if the create callback does not use it.
 *   **Avoid delete in service create**: Unlike creation, deleting configuration does not support reference counting, as there is no data left to reference count. This means the deleted elements are tied to the service instance that deleted them.
@@ -451,11 +986,11 @@ You may also obtain some useful information by using the `debug service` commit 
     However, the service may also delete data implicitly, through `when` and `choice` statements in the YANG data model. If a `when` statement evaluates to false, the configuration tree below that node is deleted. Likewise, if a `case` is set in a `choice` statement, the previously set `case` is deleted. This has the same limitations as an explicit delete.
 
     \
-    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch\_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See `examples.ncs/development-guide/services/shared-delete` for an example.
+    To avoid these issues, create a separate service, that only handles deletion, and use it in the main service through the stacked service design (see [Stacked Services](services-deep-dive.md#ch_svcref.stacking)). This approach allows you to reference count the deletion operation and contains the effect of restoring deleted data through a small, rarely-changing helper service. See `examples.ncs/development-guide/services/shared-delete` for an example.
 
     \
     Alternatively, you might consider pre- and post-modification callbacks for some specific cases.
-*   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount) for details.
+*   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount) for details.
 
     \
     In general, you should prefer `sharedCreate()`, `sharedSet()`, and `sharedSetValues()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\\
@@ -470,7 +1005,7 @@ You may also obtain some useful information by using the `debug service` commit 
 *   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#d5e7962)) or using service stacking with a helper service.
 
     In general, however, you should reconsider your design and try to avoid such scenarios.
-*   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.
+*   **Automatic upgrade of keys for existing services is unsupported**: Service backpointers, described in [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount), rely on the keys that the service model defines to identify individual service instances. If you update the model by adding, removing, or changing the type of leafs used in the service list key, while there are deployed service instances, the backpointers will not be automatically updated. Therefore, it is best to not change the service list key.
 
     \
     A workaround, if the service key absolutely must change, is to first perform a no-networking undeploy of the affected service instances, then upgrade the model, and finally no-networking re-deploy the previously un-deployed services.
@@ -526,7 +1061,7 @@ cli {
 }
 ```
 
-However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch\_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
+However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
 
 ```cli
 admin@ncs# show running-config devices device c1 config interface\
