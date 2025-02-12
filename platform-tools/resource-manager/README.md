@@ -101,8 +101,6 @@ The easiest way to replicate the state is to write it into CDB-oper and let CDB 
 
 We only want the allocator to allocate addresses on the primary node. Since the allocations are written into CDB they will be visible on both primary and secondary nodes, and the CDB subscriber will be notified on both nodes. In this case, we only want the allocator on the primary node to perform the allocation.
 
-If HA mode is not set to primary and sync is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
-
 We therefore read the HA mode leaf from CDB to determine which HA mode the current subscriber is running in; if HA mode is not enabled, or if HA mode is enabled and the current node is primary we proceed with the allocation.
 
 
@@ -112,6 +110,8 @@ We therefore read the HA mode leaf from CDB to determine which HA mode the curre
 This synchronized allocation API request uses a reactive fastmap, so the user can allocate resources and still keep a synchronous interface. It allocates resources in the create callback, at that moment everything we modify in the database is part of the service intent and fast map. We need to guarantee that we have used a stable resource and communicate to other services, which resources we have used. So, during the create callback, we store what we have allocated. Other services that are evaluated within the same transaction which runs subsequent to ours will see allocations, when our service is redeployed, it will not have to create the allocations again.
 
 When an allocation raises an exception in case the pool is exhausted, or if the referenced pool does not exist in the CDB, `commit` will get aborted. Synchronous allocation doesn't require service `re-deploy` to read allocation. The same transaction can read allocation, `commit dry-run` or `get-modification` should show up the allocation details as output.
+
+If HA mode is not set to primary and sync is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
 
 {% hint style="info" %}
 Synchronous allocation is only supported through the Java and Python APIs provided by the Resource Manager.
