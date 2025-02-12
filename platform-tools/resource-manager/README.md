@@ -109,7 +109,7 @@ This synchronized allocation API request uses a reactive fastmap, so the user ca
 
 When an allocation raises an exception in case the pool is exhausted, or if the referenced pool does not exist in the CDB, `commit` will get aborted. Synchronous allocation doesn't require service `re-deploy` to read allocation. The same transaction can read allocation, `commit dry-run` or `get-modification` should show up the allocation details as output.
 
-If HA mode is not set to primary and sync is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
+If HA mode is not set to primary and synchronization RM api is enabled, the restriction will be enforced, preventing IP or ID allocation and resulting in an exception being thrown to the user.
 
 {% hint style="info" %}
 Synchronous allocation is only supported through the Java and Python APIs provided by the Resource Manager.
@@ -489,7 +489,6 @@ A set of debug and data tools contained in the `rm-action/ip-allocator-tool` act
 
 * `fix_response_ip`: Scan the IP pool to check if the allocation contains an invalid allocation request ID, and release the allocation from the IP pool, if found. It happens for sync allocation when the device configuration fails after a successful IP allocation and then causes a service transaction to fail. This leaves the IP pool to contain successfully allocated IP while the allocation request response doesn't exist.
 * `printIpPool`: Print the current IP pool data in the `ncs-java-vm.log` for debugging purposes.
-* `fix_missing_owner`: Add the missing owner info for each ID allocator entry.
 * `fix_missing_allocation`: Create the missing allocation entry in the IP allocator for each Ip pool allocation response/ip.
 * `persistAll`: Manually sync from IP pool in memory to IP allocator in CDB.
 
