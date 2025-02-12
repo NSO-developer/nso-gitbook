@@ -103,8 +103,6 @@ We only want the allocator to allocate addresses on the primary node. Since the 
 
 We therefore read the HA mode leaf from CDB to determine which HA mode the current subscriber is running in; if HA mode is not enabled, or if HA mode is enabled and the current node is primary we proceed with the allocation.
 
-
-
 ## Synchronous Allocation <a href="#d5e60" id="d5e60"></a>
 
 This synchronized allocation API request uses a reactive fastmap, so the user can allocate resources and still keep a synchronous interface. It allocates resources in the create callback, at that moment everything we modify in the database is part of the service intent and fast map. We need to guarantee that we have used a stable resource and communicate to other services, which resources we have used. So, during the create callback, we store what we have allocated. Other services that are evaluated within the same transaction which runs subsequent to ours will see allocations, when our service is redeployed, it will not have to create the allocations again.
