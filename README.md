@@ -1,8 +1,8 @@
 ---
 icon: power-off
 description: Get started with the Cisco Crosswork NSO documentation guides.
-cover: .gitbook/assets/gb-cover-logo.png
-coverY: -65.64266666666666
+cover: .gitbook/assets/gb-cover-final.png
+coverY: 0
 layout:
   cover:
     visible: true
