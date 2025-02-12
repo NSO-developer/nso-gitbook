@@ -458,7 +458,7 @@ You may also obtain some useful information by using the `debug service` commit 
 *   **Prefer `shared*()` functions**: Non-shared create and set operations in the Java and Python low-level API do not add reference counts or backpointer information to changed elements. In case there is overlap with another service, unwanted removal can occur. See [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount) for details.
 
     \
-    In general, you should prefer `sharedCreate()`, `sharedSet()`, and `sharedSetValues()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\\
+    In general, you should prefer `sharedCreate()`, `sharedSet()`, `sharedSetValues()`, and `loadConfigCmds()`. If non-shared variants are used in a shared context, `service debug` displays a warning, such as:\\
 
     ```
     *** WARNING ***: set in service create code is unsafe if data is
@@ -466,7 +466,7 @@ You may also obtain some useful information by using the `debug service` commit 
     ```
 
     \
-    Likewise, do not use MAAPI `load_config` variants from the service code. Use the `sharedSetValues()` function to load XML data from a file or a string.
+    Likewise, do not use other MAAPI `load_config` variants from the service code. Use the `loadConfigCmds()` or `sharedSetValues()` function to load XML data from a file or a string. See [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.4/scaling-performance/perf-bulkcreate) for an example.
 *   **Reordering ordered-by-user lists**: If the service code rearranges an ordered-by-user list with items that were created by another service, that other service becomes out of sync. In some cases, you might be able to avoid out-of-sync scenarios by leveraging special XML template syntax (see [Operations on ordered lists and leaf-lists](../../core-concepts/templates.md#ch_templates.order_ops)) or using service stacking with a helper service.
 
     In general, however, you should reconsider your design and try to avoid such scenarios.
