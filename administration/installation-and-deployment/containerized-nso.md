@@ -53,7 +53,7 @@ The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.co
 
 ### Build Image
 
-The Build Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.
+The Build Image is a separate standalone NSO image with the necessary environment and software for building packages. It is provided specifically to address the developer needs of building packages.
 
 The image is available as a signed package (e.g., `nso-VERSION.container-image-build.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Build Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).
 
