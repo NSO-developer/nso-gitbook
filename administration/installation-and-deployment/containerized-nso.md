@@ -37,7 +37,7 @@ The Red Hat UBI is an OCI-compliant image that is freely distributable and indep
 
 ### Production Image
 
-The Production Image is a production-ready NSO image for system-wide deployment and use. It is a pre-built Red Hat UBI-based NSO image created on [System Install](system-install.md) and available from the [Cisco Software Download](https://software.cisco.com/download/home) site.
+The Production Image is a production-ready NSO image for system-wide deployment and use. It is based on NSO [System Install](system-install.md) and is available from the [Cisco Software Download](https://software.cisco.com/download/home) site.
 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
@@ -53,7 +53,7 @@ The `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-sshkey/README`
 
 ### Build Image
 
-The Build Image is a separate standalone NSO image with the necessary environment and software for building packages. It is also a pre-built Red Hat UBI-based image provided specifically to address the developer needs of building packages.
+The Build Image is a separate standalone NSO image with the necessary environment and software for building packages. It is provided specifically to address the developer needs of building packages.
 
 The image is available as a signed package (e.g., `nso-VERSION.container-image-build.linux.ARCH.signed.bin`) from the Cisco [Software Download](https://software.cisco.com/download/home) site. You can run the Build Image in different ways, and a simple tool for defining and running multi-container Docker applications is [Docker Compose](https://docs.docker.com/compose/) (see examples below).
 
@@ -87,7 +87,7 @@ The signed archive file name has the following pattern:
 To run the images, make sure that your system meets the following requirements:
 
 * A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
-* A container platform, such as Docker. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may, however, use another container runtime of your choice. Note, however, that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
+* A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
 
 {% hint style="info" %}
 Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.
@@ -99,7 +99,7 @@ This section covers the necessary administrative information about the NSO Produ
 
 ### Migrate to Containerized NSO Setup <a href="#sec.migrate-to-containerizednso" id="sec.migrate-to-containerizednso"></a>
 
-If you have NSO installed for production use using System Install, you can migrate to the Containerized NSO setup by following the instructions in this section. Migrating your Network Services Orchestrator (NSO) to a containerized setup can provide numerous benefits, including improved scalability, easier version management, and enhanced isolation of services.
+If you have NSO installed as a System Install, you can migrate to the Containerized NSO setup by following the instructions in this section. Migrating your Network Services Orchestrator (NSO) to a containerized setup can provide numerous benefits, including improved scalability, easier version management, and enhanced isolation of services.
 
 The migration process is designed to ensure a smooth transition from a System-Installed NSO to a container-based deployment. Detailed steps guide you through preparing your existing environment, exporting the necessary configurations and state data, and importing them into your new containerized NSO instance. During the migration, consider the container runtime you plan to use, as this impacts the migration process.
 
@@ -187,10 +187,10 @@ As `ADMIN_USERNAME` already has a default value, only `ADMIN_PASSWORD`, or `ADMI
 docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.2
 ```
 
-This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where there is a permanent CDB that already contains the required user accounts.
+This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where CDB already contains the required user accounts.
 
 {% hint style="info" %}
-When using a permanent volume for CDB, etc., and restarting the NSO container multiple times with a different `ADMIN_USERNAME` or `ADMIN_PASSWORD`, note that the start script uses the `ADMIN_USERNAME` and `ADMIN_PASSWORD` environment variables to generate an XML file to the CDB directory which NSO reads at startup. When restarting NSO, if the persisted CDB configuration file already exists in the CDB directory, NSO will only load the persisted configuration and no XML files at startup, and the generated `add_admin_user.xml` in the CDB directory needs to be loaded by the application, using, for example, the `ncs_load` command.
+When using a permanent volume for CDB, and restarting the NSO container multiple times with a different `ADMIN_USERNAME` or `ADMIN_PASSWORD`, the start script uses these environment variables to generate an XML file named `add_admin_user.xml`. The generated XML file is added to the CDB directory to be read at startup. But if the persisted CDB configuration file already exists in the CDB directory, NSO will not load any XML files at startup, instead the generated `add_admin_user.xml` in the CDB directory needs to be loaded manually.
 {% endhint %}
 
 {% hint style="info" %}
@@ -224,7 +224,7 @@ To take a backup:
 
 **Restore a Backup**
 
-To restore a backup, NSO must not be running. As you likely only have access to the `ncs-backup` tool, the volume containing CDB, and other run-time data from inside of the NSO container, this poses a slight challenge. Additionally, shutting down NSO will terminate the NSO container.
+To restore a backup, NSO must be stopped. As you likely only have access to the `ncs-backup` tool, the volume containing CDB and other run-time data from inside of the NSO container, this poses a slight challenge. Additionally, shutting down NSO will terminate the NSO container.
 
 To restore a backup:
 
@@ -257,7 +257,7 @@ The NSO image `/run-nso.sh` script looks for an SSH host key named `ssh_host_ed2
 
 If an SSH host key exists, which is for a typical production setup stored in a persistent shared volume, it remains the same after restarts or upgrades of NSO. If no SSH host key exists, the script generates a private and public key.
 
-In a high-availability (HA) setup, the host key is typically shared by all NSO nodes in the HA group and stored in a persistent shared volume. I.e., each NSO node does not generate its host key to avoid fetching the public host key after each failover from the new primary to access the primary's NSO CLI and NETCONF interfaces.
+In a high-availability (HA) setup, the host key is typically shared by all NSO nodes in the HA group and stored in a persistent shared volume. This is done to avoid fetching the public host key from the new primary after each failover.
 
 ### HTTPS TLS Certificate <a href="#d5e8574" id="d5e8574"></a>
 
@@ -726,8 +726,8 @@ This example describes how to upgrade NSO when using Docker Compose.
 
 To upgrade to a new minor or major version, for example, from 6.1 to 6.2, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.2.
-2. Run the `docker compose up --profile build -d` command to start up the Build container with the new image.
+1. Change the image version in the Compose file to the new version, here 6.2.
+2. Run the `docker compose up --profile build -d` command to start the Build container with the new image.
 3.  Compile the packages using the Build container.
 
     ```bash
@@ -738,9 +738,9 @@ To upgrade to a new minor or major version, for example, from 6.1 to 6.2, follow
 
 #### **Upgrade to a New Maintenance Version**
 
-To upgrade to a new maintenance release version, for example, to 6.2.1, follow the steps below:
+To upgrade to a new maintenance release version, for example, 6.2.1, follow the steps below:
 
-1. Change the image version in the Compose file to the new version, i.e., 6.2.1.
+1. Change the image version in the Compose file to the new version, here 6.4.1.
 2.  Run the `docker compose up --profile prod --wait` command.
 
     Upgrading in this way does not require a recompile. Docker detects changes and upgrades the image in the container to the new version.
