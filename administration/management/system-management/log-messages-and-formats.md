@@ -122,7 +122,7 @@
 * **Description**  
   A user logged into ConfD.
 * **Format String**  
-  `"logged in to ~s via ~s from ~s with ~s using ~s authentication"`
+  `"logged in via ~s from ~s with ~s using ~s authentication"`
 
 </details>
 
@@ -1467,6 +1467,20 @@
   The cleartext header indicating user and groups was badly formatted.
 * **Format String**  
   `"Got bad NETCONF TCP header"`
+
+</details>
+
+
+<details>
+
+<summary><code>NIF_LOG</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Log message from NIF code.
+* **Format String**  
+  `"~s: ~s"`
 
 </details>
 
