@@ -36,7 +36,7 @@ For device checks, you can select the devices to be checked in four different wa
 
 Consider the following example report definition named `gold-check`:
 
-```cli
+```bash
 ncs(config)# compliance reports report gold-check
 ncs(config-report-gold-check)# device-check all-devices
 ```
@@ -48,7 +48,7 @@ For such a check, the behavior of the verification can be specified:
 * To request a check-sync action to verify that the device is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
 * To scan the commit log (i.e. rollback files) for changes on the devices and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
 
-```
+```bash
 ncs(config-report-gold-check)# device-check ?
 Possible completions:
   all-devices            Report on all devices
@@ -73,7 +73,7 @@ For service checks, the verification behavior can be specified as well:
 * To request a check-sync action to verify that the service is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
 * To scan the commit log (i.e. rollback files) for changes on the services and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
 
-```
+```bash
 ncs(config-report-gold-check)# service-check ?
 Possible completions:
   all-services          Report on all services
@@ -88,7 +88,7 @@ Possible completions:
 
 In the example report, you might choose the default behavior and check all instances of the `l3vpn` service:
 
-```
+```bash
 ncs(config-report-gold-check)# service-check service-type /l3vpn:vpn/l3vpn:l3vpn
 ncs(config-report-gold-check)# commit
 Commit complete.
@@ -99,7 +99,7 @@ compliance reports report gold-check
 !
 ```
 
-You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui\_compliance) for more information.
+You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui_compliance) for more information.
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
@@ -107,7 +107,7 @@ Compliance reporting is a read-only operation. When running a compliance report,
 
 Here is an example of such a report listing:
 
-```cli
+```bash
 ncs# show compliance report-results
 compliance report-results report 1
  name              gold-check
@@ -134,7 +134,7 @@ compliance report-results report 3
 
 There is also a `remove` action to remove report results (and the corresponding file):
 
-```cli
+```bash
 ncs# compliance report-results report 2..3 remove
 ncs# show compliance report-results
 compliance report-results report 1
@@ -157,7 +157,7 @@ The parameters that are possible to specify for a report `run` action are:
 
 We will request a report run with a `title` and formatted as `text`.
 
-```cli
+```bash
 ncs# compliance reports report gold-check run \
 > title "My First Report" outformat text
 ```
@@ -166,28 +166,28 @@ In the above command, the report was run without a `from` or a `to` argument. Th
 
 When a `from` argument is supplied to a compliance report run action, this implies that only historical information younger than the `from` date and time is checked.
 
-```cli
+```bash
 ncs# compliance reports report gold-check run \
 > title "First check" from 2015-02-04T00:00:00
 ```
 
 When a `to` argument is supplied, this implies that historical information will be gathered for all logged information up to the date and time of the `to` argument.
 
-```cli
+```bash
 ncs# compliance reports report gold-check run \
 > title "Second check" to 2015-02-05T00:00:00
 ```
 
 The `from` and a `to` arguments can be combined to specify a fixed historic time interval.
 
-```cli
+```bash
 ncs# compliance reports report gold-check run \
 > title "Third check" from 2015-02-04T00:00:00 to 2015-02-05T00:00:00
 ```
 
 When a compliance report is run, the action will respond with a flag indicating if any discrepancies were found. Also, it reports how many devices and services have been verified in total by the report.
 
-```cli
+```bash
 ncs# compliance reports report gold-check run \
 > title "Fourth check" outformat text
 time 2015-2-4T20:42:45.019012+00:00
@@ -340,7 +340,7 @@ These templates are similar to but separate from, device templates. With complia
 
 You can create a compliance template from scratch. For example, to check that the router uses only internal DNS servers from the 10.0.0.0/8 range, you might create a compliance template such as:
 
-```cli
+```bash
 admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
@@ -349,7 +349,7 @@ Here, the value of the `/sys/dns/server` must start with `10.`, followed by any 
 
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration devices device ex0 config sys dns server
 devices device ex0
  config
@@ -379,7 +379,7 @@ check-result {
 
 Alternatively, you can use the `/compliance/create-template` action when you already have existing device templates that you would like to use as a starting point for a compliance template. For example:
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration devices template use-internal-dns
 devices template use-internal-dns
  ned-id router-nc-1.0
@@ -407,7 +407,7 @@ admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns ser
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
-```cli
+```bash
 admin@ncs(config-report-gold-check)# device-check template internal-dns
 ```
 
@@ -423,7 +423,48 @@ To help operators ensure there is no such extraneous configuration on the manage
 
 You can configure this mode in the report definition, when specifying the device template to check against, for example:
 
-```cli
+```bash
 ncs(config)# compliance reports report gold-check
 ncs(config-report-gold-check)# device-check template internal-dns strict
 ```
+
+## Device Live-Status Checks
+
+In addition to configuration, compliance templates can also check for operational data. This can be used, for example, to check device interface statuses and device software versions.
+
+This feature is opt-in and requires the NEDs to be re-compiled with the `--ncs-with-operational-compliance` [ncsc(1)](../../man/section1.md#ncsc) flag. Instructions on how to re-compile a NED is included in each NED package.
+
+```bash
+admin@ncs(config)# compliance template interface-up
+admin@ncs(config-template-interface-up)# ned-id router-nc-1.0 live-status sys interfaces interface eth0
+admin@ncs(config-interface-eth0)# status link up
+admin@ncs(config-interface-eth0)# commit
+Commit complete.
+```
+
+When running a check against a device, the result will show a violation if the status of the interface link is not up.
+
+```bash
+admin@ncs(config-template-interface-up)# check device [ ex0 ]
+check-result {
+    device ex0
+    result violations
+    diff  live-status {
+     sys {
+         interfaces {
+             interface eth0 {
+                 status {
+-                    link up;
++                    link down;
+                 }
+             }
+         }
+     }
+ }
+
+}
+```
+
+{% hint style="info" %}
+Running checks on live-status data is slower than configuration data since it requires connecting to devices to read the data. In comparison, configuration data is checked against data in CDB.
+{% endhint %}
