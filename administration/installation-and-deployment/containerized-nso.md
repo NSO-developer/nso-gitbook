@@ -738,7 +738,7 @@ To upgrade to a new minor or major version, for example, from 6.2 to 6.3, follow
 
 #### **Upgrade to a New Maintenance Version**
 
-To upgrade to a new maintenance release version, for example, 6.4.1, follow the steps below:
+To upgrade to a new maintenance release version, for example, 6.3.1, follow the steps below:
 
 1. Change the image version in the Compose file to the new version, here 6.3.1.
 2.  Run the `docker compose up --profile prod --wait` command.
