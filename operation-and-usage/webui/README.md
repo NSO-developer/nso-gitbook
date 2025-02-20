@@ -1,6 +1,6 @@
 ---
-description: Operate NSO using the Web UI.
 icon: window
+description: Operate NSO using the Web UI.
 ---
 
 # Web UI
@@ -19,7 +19,7 @@ It's important to realize that the bulk of concepts and configuration options in
 
 ## Browser Requirements <a href="#d5e5676" id="d5e5676"></a>
 
-All modern web browsers are supported and no plug-ins are needed. The interface itself is a JavaScript Client.
+All modern web browsers are supported, and no plug-ins are needed. The interface itself is a JavaScript client.
 
 ## Accessing the Web UI <a href="#d5e5679" id="d5e5679"></a>
 
@@ -40,14 +40,14 @@ Log out by clicking your username on the top-right corner and choosing **Logout*
 Access the help options by clicking the help options icon in the UI banner. The following options are available:
 
 * **Online documentation**: Access the Web UI's online help.
-* **Manage hidden groups**: Administer hidden groups, e.g. for debugging. Read more about hide groups in [NSO CLI](../cli/introduction-to-nso-cli.md).
+* **Manage hidden groups**: Administer hidden groups, e.g., for debugging. Read more about hide groups in [NSO CLI](../cli/introduction-to-nso-cli.md).
 * **NSO version**: Information about the version of NSO you are running.
 
 In the Web UI, supplementary help text, whenever applicable, is available on the configuration fields and can be accessed by clicking the info icons.
 
 ## Dirty State&#x20;
 
-Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state", with the following meanings:
+Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state" with the following meanings:
 
 * <mark style="color:blue;">Blue</mark> color: An addition was made.
 * <mark style="color:red;">Red</mark> color: A deletion was made.
@@ -55,4 +55,4 @@ Anytime a configuration is changed in the Web UI (such as a device or service co
 
 ## Commit Manager <a href="#d5e5718" id="d5e5718"></a>
 
-The Commit Manager is accessible at all times from the UI banner. A number (corresponding to the number of changes in a transaction) is displayed next to the Commit Manager icon when changes are available for review. For certain action, it is possible to skip the Commit Manager and apply the changes directly. Working with the Commit Manager is described further in [Tools](tools.md).
+The Commit Manager is accessible at all times from the UI banner. A number, corresponding to the number of changes in a transaction, is displayed next to the Commit Manager icon when changes are available for review. For certain action, it is possible to skip the Commit Manager and apply the changes directly. Working with the Commit Manager is described further in [Tools](tools.md).

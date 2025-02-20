@@ -91,23 +91,23 @@ In the **Commit manager** view, you can fetch additional information about the l
 
 #### **Load/Save Configuration Data**
 
-Start a transaction to load or save configuration data using the **Load/Save** option which you can then review for commit. The following tabs are available:
+Start a transaction to load or save configuration data using the **Load/Save** option, which you can then review for commit. The following tabs are available:
 
-* **Rollback**, to load data that reverts an earlier change.
-* **Files**, to load data from a local file on your disk.
-* **Paste**, to load data by pasting it in.
-* **Save**, to save loaded data to a file on your local disk.
+* **Rollback**: To load data that reverts an earlier change.
+* **Files**: To load data from a local file on your disk.
+* **Paste**: To load data by pasting it in.
+* **Save**: To save loaded data to a file on your local disk.
 
 #### **Commit Manager Tabs**
 
 In the **Commit manager** view, the following tabs are shown.
 
-* **changes** tab, to list the changes and actions done in the system, e.g., deleting a device or changing its properties.
-* **errors** tab, to list the errors encountered while doing changes. You can review the errors, make changes, and revalidate the error using the **Re-validate** option.
-* **warnings** tab, to list the warnings encountered while doing changes.
-* **config** tab, to list the configuration changes associated with the change.
-* **native config** tab, to list the device configuration data in the native config.
-* **commit queue** tab, to manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for more information.
+* **changes** tab: To list the changes and actions done in the system, e.g., deleting a device or changing its properties.
+* **errors** tab: To list the errors encountered while making changes. You can review the errors, make changes, and revalidate the error using the **Re-validate** option.
+* **warnings** tab: To list the warnings encountered while making changes.
+* **config** tab: To list the configuration changes associated with the change.
+* **native config** tab: To list the device configuration data in the native config.
+* **commit queue** tab: To manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for more information.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -140,12 +140,12 @@ To create a new compliance report:
    * **Devices** tab: to configure device compliance checks. Configuration options include:
      * **Device choice**: Include **All devices** or only **Some devices** to include in compliance checks. If **Some devices** is selected, specify the devices using a device group, an XPath expression, or individual devices.
      * **Current out of sync**: Check the device's current status and report if the device is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-     * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
+     * **Historic changes**: Include or exclude previous changes to devices using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
      * **Compliance templates**: If a compliance template should be used to check for compliance (see [Device Configuration Checks](../operations/compliance-reporting.md#device-configuration-checks)). You have the option to add a compliance template using the **Add template** option or convert an existing device template into a compliance template by using the **Create from device template** option (which can then be added using the **Add template** option). To enforce devices to comply exactly with the template's configuration, use **Strict** mode; see [Additional Configuration Checks](../operations/compliance-reporting.md#additional-configuration-checks) for more information.
    * **Services** tab: to configure service compliance checks. Configuration options include:
      * **Service choice**: Include **All services** or only **Some services**. If **Some services** is selected, specify the services using service type, an XPath expression, or individual service instances.
      * **Current out of sync**: Check the service's current status and report if the service is in sync or out of sync. Possible values are **true** (yes, request a check-sync) and **false** (no, do not request a check-sync).
-     * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include), and **false** (no, exclude).
+     * **Historic changes**: Include or exclude previous changes to services using the commit log. Possible values are **true** (yes, include) and **false** (no, exclude).
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
@@ -153,7 +153,7 @@ In the **Compliance reports** tab, you can apply the following actions on the re
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
-* **Delete**: Delete the report.
+* **Delete**: Delete the report.&#x20;
 * **Edit name**: Edit the report name.
 {% endhint %}
 
@@ -175,7 +175,7 @@ The **Reports results** tab is used to view the status and results of the compli
 
 #### View Compliance Report Results
 
-The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is available readily in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
+The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
 
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
 * **Results overview**: Shows a summary of the results with information on the number of compliant and non-compliant devices/services.
