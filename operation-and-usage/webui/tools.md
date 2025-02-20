@@ -57,7 +57,7 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
-The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by the device.
+The **Alarm manager** view displays all ongoing alarms in the system. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**.
 
 You can run actions on an alarm by selecting it and using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button.
 
