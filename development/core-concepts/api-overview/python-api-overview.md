@@ -52,6 +52,10 @@ with ncs.maapi.single_read_trans('admin', 'python') as t:
 The example code here shows how to start a transaction but does not properly handle the case of concurrency conflicts when writing data. See [Handling Conflicts](../nso-concurrency-model.md#ncs.development.concurrency.handling) for details.
 {% endhint %}
 
+{% hint style="warning" %}
+When only reading data, always start a `read` transaction to read directly from the CDB datastore and data providers. `write` transactions cache repeated reads done by the same transaction.
+{% endhint %}
+
 A common use case is to create a MAAPI context and reuse it for several transactions. This reduces the latency and increases the transaction throughput, especially for backend applications. For scripting the lifetime is shorter and there is no need to keep the MAAPI contexts alive.
 
 This example shows how to keep a MAAPI connection alive between transactions:
