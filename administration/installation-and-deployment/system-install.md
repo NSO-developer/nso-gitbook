@@ -27,7 +27,7 @@ Primary requirements to do a System Install include:
 
 * Linux for `x86_64` architecture is required for production. Linux or macOS Darwin for `x86_64` or macOS Darwin for `arm64` is required for development purposes.
 * GNU libc 2.24 or higher.
-* Java JRE 17 or higher. Used by Cisco Smart Licensing.
+* Java JRE 8 (version 1.8) or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
   * `tar` command. Unpack the installer.
   * `gzip` command. Unpack the installer.
@@ -47,7 +47,7 @@ Primary requirements to do a System Install include:
 
 Additional requirements to, for example, build and run NSO production deployment examples, include:
 
-* Java JDK 17 or higher.
+* Java JDK 8 or higher.
 * Ant 1.9.3 or higher.
 * Python 3.7 or higher.
 * Python Setuptools is required to build the Python API.
