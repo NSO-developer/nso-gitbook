@@ -59,7 +59,13 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 The **Alarm manager** view displays all ongoing alarms in the system for your managed objects. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. To sort the alarms list, use one of the specified criteria, e.g., severity level, handling state, etc. To read more about different alarm types, see [Alarm Types](../../administration/management/system-management/alarms.md). 
 
-The Web UI provides options to compress and purge alarms. The **Compress alarms** action minimizes the disk space used by alarms by deleting their histories while keeping the alarm entries intact. The **Purge alarms** action completely removes the alarm entries according to the specified criteria. To utilize these features, click the respective button and follow the on-screen instructions.
+### Compress and Purge Alarms
+The Web UI provides options to compress and purge alarms. 
+
+* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the recent one (i.e., the latest state change is retained), while keeping the alarm entries intact.
+* The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
+
+To utilize these features, click the respective button and follow the on-screen instructions.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
