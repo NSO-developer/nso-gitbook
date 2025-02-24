@@ -112,7 +112,7 @@ All changes in NSO happen inside a transaction. Network devices participate in t
 
 So, in many cases, the NSO system is not really resource-constrained but merely experiencing lock contention. Therefore, making locks as short as possible is the best way to improve performance. In the example trace from the section [Understanding Your Use Case](scaling-and-performance-optimization.md#ncs.development.scaling.tracing), most of the time is spent in the prepare phase, where configuration changes are propagated to the network devices. Change propagation requires a management session with each participating device, as well as updating and validating the new configuration on the device side. Understandably, all of these tasks take time.
 
-NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
+NSO allows you to influence this behavior. Take a look at [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) on how to avoid long device locks with commit queues and the trade-offs they bring. Usually, enabling the commit queue feature is the first and the most effective step to significantly improving transaction times.
 
 ## Improving Subscribers <a href="#ncs.development.scaling.kicker" id="ncs.development.scaling.kicker"></a>
 
@@ -156,7 +156,7 @@ If NSO is frequently brought out of sync, it can be tempting to invoke `sync-fro
 
 But other alternatives are often better:
 
-* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch\_svcref.partialsync).
+* You can synchronize the configuration from the device when it reports a change rather than when the service is modified by listening for configuration change events from the device, e.g., via RESTCONF or NETCONF notifications, SNMP traps, or Syslog, and invoking `sync-from` or `partial-sync-from` when another party (not NSO) has modified the device. See also the section called [Partial Sync](developing-services/services-deep-dive.md#ch_svcref.partialsync).
 * Using the `devices sync-from` command does not hold the transaction lock and run across devices concurrently, which reduces the total amount of time spent time synchronizing. This is particularly useful for periodic synchronization to lower the risk of being out-of-sync when committing configuration changes.
 * Using the `no-overwrite` commit flag, you can be more lax about being in sync and focus on not overwriting the modified configuration.
 * If the configuration is 100% automated and controlled by NSO alone, using `out-of-sync-behaviour accept`, you can completely ignore if the device is in sync or not.
@@ -375,7 +375,7 @@ Writing to a commit queue instead of the device moves the device configuration p
 
 <figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
 
-For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue).
+For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue).
 
 ### Enabling Commit Queues for the perf-trans Example <a href="#d5e8585" id="d5e8585"></a>
 
@@ -426,11 +426,13 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
-### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
+### Simplify Using a CFS and Minimize Diff-set Calculation Time <a href="#d5e8621" id="d5e8621"></a>
 
 A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS instance per device can simplify the service that is exposed to the NSO northbound interfaces so that a single NSO northbound interface transaction spawns multiple transactions, for example, one transaction per RFS instance when using the `converge-on-re-deploy` YANG extension with the nano service behavior tree.
 
 <figure><img src="../../images/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Furthermore, the time spent calculating the diff-set, as seen with the `saving reverse diff-set and applying changes` event in the[ perf-setvals example](scaling-and-performance-optimization.md#running-the-perf-setvals-example-using-a-single-call-to-maapi-shared_set_values), can be [optimized using a stacked service design](developing-services/services-deep-dive.md#stacked-service-design).
 
 ### Running the CFS and Nano Service enabled `perf-stack` Example <a href="#d5e8628" id="d5e8628"></a>
 
