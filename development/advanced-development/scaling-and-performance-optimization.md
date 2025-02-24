@@ -406,11 +406,13 @@ The nano service can be straightforward, for example, using a single `t3:configu
 
 See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
-### Simplify Using a CFS <a href="#d5e8621" id="d5e8621"></a>
+### Simplify Using a CFS and Minimize Diff-set Calculation Time <a href="#d5e8621" id="d5e8621"></a>
 
 A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS instance per device can simplify the service that is exposed to the NSO northbound interfaces so that a single NSO northbound interface transaction spawns multiple transactions, for example, one transaction per RFS instance when using the `converge-on-re-deploy` YANG extension with the nano service behavior tree.
 
 <figure><img src="../../images/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
+
+Furthermore, the time spent calculating the diff-set, as seen with the `saving reverse diff-set and applying changes` event in the[ perf-bulkcreate example](scaling-and-performance-optimization.md#running-the-perf-bulkcreate-example-using-a-single-call-to-maapi-shared_set_values), can be [optimized using a stacked service design](developing-services/services-deep-dive.md#stacked-service-design).
 
 ### Running the CFS and Nano Service enabled `perf-stack` Example
 
