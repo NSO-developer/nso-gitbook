@@ -59,6 +59,8 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
 
+<figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure>
+
 An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../../operation-and-usage/operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
 
 ### Viewing Options
