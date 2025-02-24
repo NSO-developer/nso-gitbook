@@ -457,9 +457,9 @@ admin@ncs#
 
 Set a parameter. If a new identifier is created and `autowizard` is enabled, then the CLI will prompt the user for all mandatory sub-elements of that identifier.
 
-This command is auto-generated from the YANG file\_.\_
+This command is auto-generated from the YANG file.
 
-If no `<value>` is provided, then the CLI will prompt the user for the value. No echo of the entered value will occur if `<path>` is an encrypted value, i.e. of the type MD5DigestString, DESDigestString, DES3CBCEncryptedString, AESCFB128EncryptedString, or AES256CFB128EncryptedString as documented in the `tailf-common.yang` data model.
+If no `<value>` is provided, then the CLI will prompt the user for the value. No echo of the entered value will occur if `<path>` is an encrypted value, i.e. of the type `ianach:crypt-hash` or one of `md5-digest-string`, `aes-cfb-128-encrypted-string`, or `aes-256-cfb-128-encrypted-string` as documented in the `tailf-common.yang` data model.
 
 </details>
 
