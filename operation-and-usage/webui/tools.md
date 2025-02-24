@@ -57,15 +57,35 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
-The **Alarm manager** view displays all ongoing alarms in the system for your managed objects. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. To sort the alarms list, use one of the specified criteria, e.g., severity level, handling state, etc. To read more about different alarm types, see [Alarm Types](../../administration/management/system-management/alarms.md).
+The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
+
+An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../../operation-and-usage/operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
+
+### Viewing Options
+
+You can search and sort the view to display alarm results according to your need.
+
+* To search for an alarm against an object, search for the object name (e.g., device name).
+* To sort the alarms list, use one of the specified criteria from **Alarm type** , **Severity**, **Is cleared**, or **Handling state**.
+* To access the alarm details for a specific alarm, click its severity level on the alarm row. This allows for accessing the individual alarm details, status changes, and alarm handling information.
 
 ### Compress and Purge Alarms
 The Web UI provides options to compress and purge alarms.
 
-* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the most-recent one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
+* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
 * The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
 
 To utilize these features, click the respective button and follow the on-screen instructions.
+
+### Alarm Handling
+
+Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting its state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
+
+To set an alarm handling state:
+
+1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm.
+2. Enter a description (optional).
+3. Click **Set state**. This records the state change under the **Alarm handling** tab in alarm details.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
