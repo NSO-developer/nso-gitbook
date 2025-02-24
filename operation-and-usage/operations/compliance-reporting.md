@@ -415,19 +415,6 @@ admin@ncs(config-report-gold-check)# device-check template internal-dns
 By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
 {% endhint %}
 
-## Additional Configuration Checks
-
-In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
-
-To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
-
-You can configure this mode in the report definition, when specifying the device template to check against, for example:
-
-```bash
-ncs(config)# compliance reports report gold-check
-ncs(config-report-gold-check)# device-check template internal-dns strict
-```
-
 ## Device Live-Status Checks
 
 In addition to configuration, compliance templates can also check for operational data. This can be used, for example, to check device interface statuses and device software versions.
@@ -468,3 +455,188 @@ check-result {
 {% hint style="info" %}
 Running checks on live-status data is slower than configuration data since it requires connecting to devices to read the data. In comparison, configuration data is checked against data in CDB.
 {% endhint %}
+
+## Additional Template Functionality
+
+In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
+
+### `strict` Checks
+
+To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
+
+You can configure this mode in the report definition, when specifying the device template to check against, for example:
+
+```bash
+ncs(config)# compliance template interfaces check device ios0 strict
+```
+
+Consider the following template and device configuration:
+
+```bash
+compliance template interfaces
+ ned-id cisco-ios-cli-3.8
+  config
+   interface GigabitEthernet 0/0
+    ip address 192.168.1.1
+    ip address 255.255.255.0
+   !
+  !
+ !
+!
+devices device ios0
+ config
+  interface GigabitEthernet0/0
+   duplex full
+   ip address 192.168.1.1 255.255.255.0
+   no shutdown
+  exit
+ !
+!
+```
+
+The device will be compliant with a regular template check. When using `strict`, all unexpected configuration will be shown in the diff.
+
+```bash
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
++        FastEthernet 0/0 {
++        }
++        FastEthernet 1/0 {
++        }
+         GigabitEthernet 0/0 {
++            duplex full;
+         }
+     }
+ }
+
+}
+```
+
+### `strict` Sub-Tree Tag
+
+In the previous example, the `strict` check shows interfaces that are not mentioned explicitly in the template. This is because `strict` is applied to the entire tree, including everything under `interface`. In order to only have `strict` on certain parts of the tree, a tag can be used.
+
+```bash
+ncs(config)# tag add compliance template interfaces ned-id cisco-ios-cli-3.8 config interface GigabitEthernet 0/0 strict
+```
+
+After adding the `strict` tag to interface `GigabitEthernet`, running the check will result in a `strict` check against everything below `GigabitEthernet`.
+
+```bash
+admin@ncs(config)# compliance template interfaces check device ios0                                       check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
+         GigabitEthernet 0/0 {
++            duplex full;
+         }
+     }
+ }
+
+}
+```
+
+### `allow-empty` Tag
+
+A compliance template can be used on many different devices. The configuration on the devices, however, is not always identical. The following template checks that interfaces are set to be reachable.&#x20;
+
+```bash
+compliance template no-unreachables
+ ned-id cisco-ios-cli-3.8
+  config
+   interface FastEthernet *
+    ip unreachables false
+   !
+   interface GigabitEthernet *
+    ip unreachables false
+   !
+  !
+ !
+!
+devices device ios0
+ config
+  interface GigabitEthernet0/0
+   duplex full
+   ip address 192.168.1.1 255.255.255.0
+   no ip unreachables
+   no shutdown
+  exit
+ !
+!
+```
+
+The device in this example only has a `GigabitEthernet` interface which will result in a violation.
+
+```bash
+ncs(config)# compliance template no-unreachables check device ios0
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
+-        FastEthernet .* {
+-        }
+     }
+ }
+
+}
+```
+
+In this case, we are only interested in interfaces that are actually configured on the device. This is where the `allow-empty` tag comes in. By setting this tag on each interface, the check will only be run if there are interfaces configured of that type.
+
+```bash
+ncs(config)# tag add compliance template no-unreachables ned-id cisco-ios-cli-3.8 config interface FastEthernet .* allow-empty
+ncs(config)# tag add compliance template no-unreachables ned-id cisco-ios-cli-3.8 config interface GigabitEthernet .* allow-empty
+```
+
+With this tag, the device will no longer have any violations.
+
+```bash
+ncs(config)# compliance template no-unreachables check device ios0                                  check-result {
+    device ios0
+    result no-violation
+}
+```
+
+It will still result in violations if the configuration is incorrect, but not if it's empty.
+
+### `absent` Tag
+
+In order to ensure that configuration does not exist on a device, the `absent` tag can be used.
+
+```bash
+devices device ios0
+ config
+  no service password-encryption
+  service finger
+ !
+!
+compliance template no-finger
+ ned-id cisco-ios-cli-3.8
+  config
+   ! Tags: absent
+   service finger
+  !
+ !
+!
+```
+
+This template will result in a violation if `service finger` is configured on the device.
+
+```bash
+ncs(config)# compliance template no-finger check device ios0
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     service {
++        finger;
+     }
+ }
+
+}
+```
