@@ -203,7 +203,7 @@ The **Reports results** tab is used to view the status and results of the compli
 The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
 
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
-* **Results overview**: Shows a summary of the results with information on the number of compliant and non-compliant devices/services.
+* **Results overview**: Shows a summary of the results with visuals on the number of compliant/non-compliant devices and in-sync/out-of-sync services.
 * **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
 
 {% hint style="info" %}
