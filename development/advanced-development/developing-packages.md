@@ -765,7 +765,7 @@ This will generate two files, `.classpath` and `.project`. If we add this direct
 
 The Eclipse debugger works now as usual, and we can at will, start and stop the Java code. One caveat here that is worth mentioning is that there are a few timeouts between NSO and the Java code that will trigger when we sit in the debugger. While developing with the Eclipse debugger and breakpoints, we typically want to disable all these timeouts.
 
-First, we have three timeouts in `ncs.conf` that matter. Copy the system `ncs.conf` and set the three values of the following to a large value. See man page [ncs.conf(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf) for a detailed description of what those values are.
+First, we have three timeouts in `ncs.conf` that matter. Copy the system `ncs.conf` and set the three values of the following to a large value. See man page [ncs.conf(5)](../../man/section5.md#ncs.conf) for a detailed description of what those values are.
 
 ```
 /ncs-config/api/new-session-timeout

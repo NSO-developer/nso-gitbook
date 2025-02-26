@@ -37,7 +37,7 @@ A typical template for configuring an NSO-managed device is:
 
 The first line defines the root node. It contains elements that follow the same structure as that used by the CDB, in particular, the `devices device <name> config` path in the CLI. In the printout, two elements, `device` and `config`, also have a `tags` attribute.
 
-You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then, generate the XML structure with the help of NSO output filters, using the `show ... | display xml-template` and similar commands. You can also reuse the existing configuration, such as the one loaded with the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch\_services.just\_template).
+You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then, generate the XML structure with the help of NSO output filters, using the `show ... | display xml-template` and similar commands. You can also reuse the existing configuration, such as the one loaded with the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch_services.just_template).
 
 ```cli
 admin@ncs(config)# devices device rtr01 config ...
@@ -199,7 +199,7 @@ You set the values for variables in the code where you apply the template. NSO a
 * `$DEVICE`: The name of the current device. Cannot be overridden.
 * `$TEMPLATE_NAME`: The name of the current template. Cannot be overridden.
 * `$SCHEMA_OPAQUE`: Defined if the template is registered for a servicepoint (the top node in the template has `servicepoint` attribute) and the corresponding `ncs:servicepoint` statement in the YANG model has `tailf:opaque` substatement. Set to the value of the `tailf:opaque` statement.
-* `$OPERATION`: Defined if the template is registered for a servicepoint with the `cbtype` attribute set to `pre-/post-modification` (see [Service Callpoints and Templates](templates.md#ch\_templates.servicepoint)). Contains the requested service operation; create, update, or delete.
+* `$OPERATION`: Defined if the template is registered for a servicepoint with the `cbtype` attribute set to `pre-/post-modification` (see [Service Callpoints and Templates](templates.md#ch_templates.servicepoint)). Contains the requested service operation; create, update, or delete.
 
 The `{...}` expression can also be any other valid XPath 1.0 expression. To address a reachable node, you might for example use:
 
@@ -219,7 +219,7 @@ However, there are some special cases. If the result of the expression is a node
 
 Similarly, if the result is an empty node set, nothing is set (the set operation is ignored).
 
-Finally, what nodes are reachable in the XPath expression, and how, depends on the root node and context used in the template. See [XPath Context in Templates](templates.md#ch\_templates.contexts).
+Finally, what nodes are reachable in the XPath expression, and how, depends on the root node and context used in the template. See [XPath Context in Templates](templates.md#ch_templates.contexts).
 
 ## Conditional Statements <a href="#ch_templates.conditionals" id="ch_templates.conditionals"></a>
 
@@ -311,7 +311,7 @@ In this example, three semicolon-separated clauses follow the `for` keyword:
 * The second clause is the progress condition. The loop will execute as long as this condition evaluates to true, using the same rules as the `if` processing instruction. The format of this clause is an XPath expression surrounded by `{}`. This clause is mandatory.
 * The third clause is executed after each iteration. It has the same format as the first clause (variable assignment) and is optional.
 
-The `foreach` and `for` expressions make the loop explicit, which is why they are the first choice for most programmers. Alternatively, under certain circumstances, the template invokes an implicit loop, as described in [XPath Context in Templates](templates.md#ch\_templates.contexts).
+The `foreach` and `for` expressions make the loop explicit, which is why they are the first choice for most programmers. Alternatively, under certain circumstances, the template invokes an implicit loop, as described in [XPath Context in Templates](templates.md#ch_templates.contexts).
 
 ## Template Operations <a href="#ch_templates.operations" id="ch_templates.operations"></a>
 
@@ -500,6 +500,7 @@ When using macros, be mindful of the following:
 *   A macro definition takes a name and an optional list of parameters. Each parameter may define a default value.
 
     In the preceding example, a macro is defined as:
+
     ```xml
       <?macro GbEth name='{/name}' ip mask='255.255.255.0'?>
     ```
@@ -591,7 +592,7 @@ The true power and usefulness of context changing becomes evident when used toge
   </interface>
 ```
 
-The first expression returns a node set possibly including multiple leafs. NSO then configures multiple list items (interfaces), based on their name. The context change mechanism triggers as well, making `{intf-addr}` refer to the corresponding leaf in the same link definition. Alternatively, you can achieve the same outcome with a loop (see [Loop Statements](templates.md#ch\_templates.loops)).
+The first expression returns a node set possibly including multiple leafs. NSO then configures multiple list items (interfaces), based on their name. The context change mechanism triggers as well, making `{intf-addr}` refer to the corresponding leaf in the same link definition. Alternatively, you can achieve the same outcome with a loop (see [Loop Statements](templates.md#ch_templates.loops)).
 
 However, in some situations, you may not desire to change the context. You can avoid it by making the XPath expression return a value instead of a node/node-set. The simplest way is to use the XPath `string()` function, for example:
 
@@ -603,13 +604,13 @@ However, in some situations, you may not desire to change the context. You can a
 
 ## Namespaces and Multi-NED Support <a href="#ch_templates.multined" id="ch_templates.multined"></a>
 
-When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
+When a device makes itself known to NSO, it presents a list of capabilities (see [Capabilities, Modules, and Revision Management](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.capas)), which includes what YANG modules that particular device supports. Since each YANG module defines a unique XML namespace, this information can be used in a template.
 
-Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](implementing-services.md#ch\_services.devs\_types)).
+Hence, a template may include configuration for many diverse devices. The templating system streamlines this by applying only those pieces of the template that have a namespace matching the one advertised by the device (see [Supporting Different Device Types](implementing-services.md#ch_services.devs_types)).
 
 Additionally, the system performs validation of the template against the specified namespace when loading the template as part of the package load sequence, allowing you to detect a lot of the errors at load time instead of at run time.
 
-In case the namespace matching is insufficient, such as when you want to check for a particular version of a NED, you can use special processing instructions `if-ned-id` or `if-ned-id-match`. See [Processing Instructions Reference](templates.md#ch\_templates.xml\_instructions) for details and [Supporting Different Device Types](implementing-services.md#ch\_services.devs\_types) for an example.
+In case the namespace matching is insufficient, such as when you want to check for a particular version of a NED, you can use special processing instructions `if-ned-id` or `if-ned-id-match`. See [Processing Instructions Reference](templates.md#ch_templates.xml_instructions) for details and [Supporting Different Device Types](implementing-services.md#ch_services.devs_types) for an example.
 
 However, strict validation against the currently loaded schema may become a problem for developing generic, reusable templates that should run in different environments with different sets of NEDs and NED versions loaded. For example, an NSO instance having fewer NED versions than the template is designed for may result in some elements not being recognized, while having more NED versions may introduce ambiguities.
 
@@ -642,7 +643,7 @@ If the package does not declare any `supported-ned-ids`, then the templates are 
 
 ## Passing Deep Structures from API <a href="#d5e2638" id="d5e2638"></a>
 
-When applying the template via API, you typically pass parameters to a template through variables, as described in [Templates and Code](implementing-services.md#templates-and-code) and [Values in a Template](templates.md#ch\_templates.values). One limitation of this mechanism is that a variable can only hold one string value. Yet, sometimes there is a need to pass not just a single value, but a list, map, or even more complex data structures from API to the template.
+When applying the template via API, you typically pass parameters to a template through variables, as described in [Templates and Code](implementing-services.md#templates-and-code) and [Values in a Template](templates.md#ch_templates.values). One limitation of this mechanism is that a variable can only hold one string value. Yet, sometimes there is a need to pass not just a single value, but a list, map, or even more complex data structures from API to the template.
 
 One way to achieve this is to use smaller templates, such as invoking the template repeatedly, one by one for each list item (or perhaps pair-by-pair in the case of a map). However, there are certain disadvantages to this approach. One of them is the performance: every invocation of the template from the API requires a context switch between the user application process and the NSO core process, which can be costly. Another disadvantage is that the logic is split between Java or Python code and the template, which makes it harder to understand and implement.
 
@@ -717,9 +718,9 @@ Adding the attribute registers this template for the given servicepoint, defined
 While the template (file) name is not referred to in this case, it must still be unique in an NSO node.
 {% endhint %}
 
-In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks) contains examples.
+In a similar manner, you can register templates for each state of a nano service, using `componenttype` and `state` attributes. The section [Nano Service Callbacks](nano-services.md#ug.nano_services.callbacks) contains examples.
 
-Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
+Services also have pre- and post-modification callbacks, further described in [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch_svcref.cbs), which you can also implement with templates. Simply put, pre- and post-modification templates are applied before and after applying the main service template.
 
 These pre- and post-modification templates can only be used in classic (non-nano) services when the create callback is implemented as a template. That is, they cannot be used together with create callbacks implemented in Java or Python. If you want to mix the two approaches for the same service, consider using nano services.
 
@@ -733,7 +734,7 @@ To define a template as pre- or post-modification, appropriately configure the `
 NSO supports only a single registration for each servicepoint and callback type. Therefore, you cannot register multiple templates for the same `servicepoint/cbtype` combination.
 {% endhint %}
 
-The `$OPERATION` variable is set internally by NSO in pre- and post-modification templates to contain the service operation, i.e., create, update, or delete, that triggered the callback. The `$OPERATION` variable can be used together with template conditional statements (see [Conditional Statements](templates.md#ch\_templates.conditionals)) to apply different parts of the template depending on the triggering operation. Note that the service data is not available in the pre- or post-modification callbacks when `$OPERATION = 'delete'` since the service has been deleted already in the transaction context where the template is applied.
+The `$OPERATION` variable is set internally by NSO in pre- and post-modification templates to contain the service operation, i.e., create, update, or delete, that triggered the callback. The `$OPERATION` variable can be used together with template conditional statements (see [Conditional Statements](templates.md#ch_templates.conditionals)) to apply different parts of the template depending on the triggering operation. Note that the service data is not available in the pre- or post-modification callbacks when `$OPERATION = 'delete'` since the service has been deleted already in the transaction context where the template is applied.
 
 {% code title="Example: Post-modification Template" %}
 ```xml
@@ -1019,7 +1020,7 @@ NSO template engine supports a number of XML processing instructions to allow mo
 </code></pre></td><td>Define a new macro with the specified name and optional parameters. Macro definitions must come at the top of the template, right after the <code>config-template</code> tag. For a detailed description see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr><tr><td><pre><code>    &#x3C;?expand name params...?>
 </code></pre></td><td>Insert and expand the named macro, using the specified values for parameters. For a detailed description, see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr></tbody></table>
 
-The variable value in both `set` and `for` processing instructions are evaluated in the same way as the values within XML tags in a template (see [Values in a Template](templates.md#ch\_templates.values)). So, it can be a mix of literal values and XPath expressions surrounded by `{...}`.
+The variable value in both `set` and `for` processing instructions are evaluated in the same way as the values within XML tags in a template (see [Values in a Template](templates.md#ch_templates.values)). So, it can be a mix of literal values and XPath expressions surrounded by `{...}`.
 
 The variable value is always stored as a string, so any XPath expression will be converted to literal using the XPath `string()` function. Namely, if the expression results in an integer or a boolean, then the resulting value would be a string representation of the integer or boolean. If the expression results in a node set, then the value of the variable is a concatenated string of values of nodes in this node set.
 
@@ -1027,7 +1028,7 @@ It is important to keep in mind that while in some cases XPath converts the lite
 
 ## XPath Functions <a href="#d5e2911" id="d5e2911"></a>
 
-This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages for a full list.
+This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](../../man/section5.md#xpath-functions) in Manual Pages for a full list.
 
 <details>
 
@@ -1064,7 +1065,7 @@ This section lists a few useful functions, available in XPath expressions. The l
 * [current()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.1.1)
 * [deref()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.3.1)
 * [last()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-last)
-* [sort-by()](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [sort-by()](../../man/section5.md#tailf_yang_extensions) in Manual Pages
 
 </details>
 
@@ -1072,10 +1073,10 @@ This section lists a few useful functions, available in XPath expressions. The l
 
 <summary>Other</summary>
 
-* [compare()](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [compare()](../../man/section5.md#tailf_yang_extensions) in Manual Pages
 * [count()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-count)
-* [max()](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
-* [min()](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.tailf\_yang\_extensions.xpath\_functions) in Manual Pages
+* [max()](../../man/section5.md#tailf_yang_extensions) in Manual Pages
+* [min()](../../man/section5.md#tailf_yang_extensions) in Manual Pages
 * [not()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
 * [sum()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum)
 

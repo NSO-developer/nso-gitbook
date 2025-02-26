@@ -25,7 +25,7 @@ NSO is configured in the following two ways:
 
 ### `ncs.conf` File
 
-The configuration file `ncs.conf` is read at startup and can be reloaded. Below is an example of the most common settings. It is included here as an example and should be self-explanatory. See [ncs.conf](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf) in Manual Pages for more information. Important configuration settings are:
+The configuration file `ncs.conf` is read at startup and can be reloaded. Below is an example of the most common settings. It is included here as an example and should be self-explanatory. See [ncs.conf](../../../man/section5.md#ncs.conf) in Manual Pages for more information. Important configuration settings are:
 
 * `load-path`: where NSO should look for compiled YANG files, such as data models for NEDs or Services.
 * `db-dir`: the directory on disk that CDB uses for its storage and any temporary files being used. It is also the directory where CDB searches for initialization files. This should be a local disk and not NFS mounted for performance reasons.
@@ -35,7 +35,7 @@ The configuration file `ncs.conf` is read at startup and can be reloaded. Below 
 * Enabling north-bound interfaces like REST, and WebUI.
 * Enabling of High-Availability mode.
 
-The `ncs.conf` file is described in the [NSO Manual Pages](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf). There is a large number of configuration items in `ncs.conf`, most of them have sane default values. The `ncs.conf` file is an XML file that must adhere to the `tailf-ncs-config.yang` model. If we start the NSO daemon directly, we must provide the path to the NCS configuration file as in:
+The `ncs.conf` file is described in the [NSO Manual Pages](../../../man/section5.md#ncs.conf). There is a large number of configuration items in `ncs.conf`, most of them have sane default values. The `ncs.conf` file is an XML file that must adhere to the `tailf-ncs-config.yang` model. If we start the NSO daemon directly, we must provide the path to the NCS configuration file as in:
 
 ```bash
 # ncs -c /etc/ncs/ncs.conf
@@ -270,7 +270,7 @@ packages package cisco-asa
 NSO runs the following processes:
 
 * **The daemon**: `ncs.smp`: this is the NCS process running in the Erlang VM.
-* **Java VM**: `com.tailf.ncs.NcsJVMLauncher`: service applications implemented in Java run in this VM. There are several options on how to start the Java VM, it can be monitored and started/restarted by NSO or by an external monitor. See the [ncs.conf(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf) Manual Page and the `java-vm` settings in the CLI.
+* **Java VM**: `com.tailf.ncs.NcsJVMLauncher`: service applications implemented in Java run in this VM. There are several options on how to start the Java VM, it can be monitored and started/restarted by NSO or by an external monitor. See the [ncs.conf(5)](../../../man/section5.md#ncs.conf) Manual Page and the `java-vm` settings in the CLI.
 * **Python VMs**: NSO packages can be implemented in Python. The individual packages can be configured to run a VM each or share a Python VM. Use the `show python-vm status current` to see current threads and `show python-vm status start` to see which threads were started at startup time.
 
 ### Logging <a href="#ug.ncs_sys_mgmt.logging" id="ug.ncs_sys_mgmt.logging"></a>
@@ -328,8 +328,8 @@ NSO logs in `/logs` in your running directory, (depends on your settings in `ncs
     admin@ncs(config)# devices device r0 trace pretty
     ```
 * Progress trace log: When a transaction or action is applied, NSO emits specific progress events. These events can be displayed and recorded in a number of different ways, either in CLI with the pipe target `details` on a commit, or by writing it to a log file. You can read more about it in the [Progress Trace](../../../development/advanced-development/progress-trace.md).
-* Transaction error log: log for collecting information on failed transactions that lead to either a CDB boot error or a runtime transaction failure. The default is `false` (disabled). More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf) under Configuration Parameters (see `logs/transaction-error-log`).
-* Upgrade log: log containing information about CDB upgrade. The log is enabled by default and not rotated (i.e., use logrotate). With the NSO example set, the following examples populate the log in the `logs/upgrade.log` file: [examples.ncs/device-management/ned-yang-revision](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/ned-yang-revision), [examples.ncs/high-availability/upgrade-basic](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-basic), [examples.ncs/high-availability/upgrade-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster), and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service). More information about the log is available in the [Manual Pages](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs-conf) under Configuration Parameters (see `logs/upgrade-log)`.
+* Transaction error log: log for collecting information on failed transactions that lead to either a CDB boot error or a runtime transaction failure. The default is `false` (disabled). More information about the log is available in the Manual Pages under [Configuration Parameters](../../../man/section5.md#configuration-parameters) (see `logs/transaction-error-log`).
+* Upgrade log: log containing information about CDB upgrade. The log is enabled by default and not rotated (i.e., use logrotate). With the NSO example set, the following examples populate the log in the `logs/upgrade.log` file: [examples.ncs/device-management/ned-yang-revision](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/ned-yang-revision), [examples.ncs/high-availability/upgrade-basic](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-basic), [examples.ncs/high-availability/upgrade-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster), and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service). More information about the log is available in the Manual Pages under [Configuration Parameters](../../../man/section5.md#configuration-parameters) (see `logs/upgrade-log)`.
 
 ### Syslog <a href="#d5e259" id="d5e259"></a>
 
@@ -409,7 +409,7 @@ If the `S.cdb` file has become inconsistent or has been removed, all commit queu
 When NSO starts and fails to initialize, the following exit codes can occur:
 
 * Exit codes 1 and 19 mean that an internal error has occurred. A text message should be in the logs, or if the error occurred at startup before logging had been activated, on standard error (standard output if NSO was started with `--foreground --verbose`). Generally, the message will only be meaningful to the NSO developers, and an internal error should always be reported to support.
-* Exit codes 2 and 3 are only used for the NCS control commands (see the section COMMUNICATING WITH NCS in the [ncs(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs) in Manual Pages manual page) and mean that the command failed due to timeout. Code 2 is used when the initial connect to NSO didn't succeed within 5 seconds (or the `TryTime` if given), while code 3 means that the NSO daemon did not complete the command within the time given by the `--timeout` option.
+* Exit codes 2 and 3 are only used for the NCS control commands (see the section COMMUNICATING WITH NCS in the [ncs(1)](../../../man/section1.md#ncs) in Manual Pages manual page) and mean that the command failed due to timeout. Code 2 is used when the initial connect to NSO didn't succeed within 5 seconds (or the `TryTime` if given), while code 3 means that the NSO daemon did not complete the command within the time given by the `--timeout` option.
 * Exit code 10 means that one of the init files in the CDB directory was faulty in some way — further information in the log.
 * Exit code 11 means that the CDB configuration was changed in an unsupported way. This will only happen when an existing database is detected, which was created with another configuration than the current in `ncs.conf`.
 * Exit code 13 means that the schema change caused an upgrade, but for some reason, the upgrade failed. Details are in the log. The way to recover from this situation is either to correct the problem or to re-install the old schema (`fxs`) files.
@@ -426,7 +426,7 @@ If the AAA database is broken, NSO will start but with no authorization rules lo
 
 ### NSO Failure After Startup <a href="#d5e2702" id="d5e2702"></a>
 
-NSO attempts to handle all runtime problems without terminating, e.g., by restarting specific components. However, there are some cases where this is not possible, described below. When NSO is started the default way, i.e. as a daemon, the exit codes will of course not be available, but see the `--foreground` option in the [ncs(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs) Manual Page.
+NSO attempts to handle all runtime problems without terminating, e.g., by restarting specific components. However, there are some cases where this is not possible, described below. When NSO is started the default way, i.e. as a daemon, the exit codes will of course not be available, but see the `--foreground` option in the [ncs(1)](../../../man/section1.md#ncs) Manual Page.
 
 * **Out of memory**: If NSO is unable to allocate memory, it will exit by calling abort(3). This will generate an exit code, as for reception of the SIGABRT signal - e.g. if NSO is started from a shell script, it will see 134, as the exit code (128 + the signal number).
 *   **Out of file descriptors for accept(2)**: If NSO fails to accept a TCP connection due to lack of file descriptors, it will log this and then exit with code 25. To avoid this problem, make sure that the process and system-wide file descriptor limits are set high enough, and if needed configure session limits in `ncs.conf`. The out-of-file descriptors issue may also manifest itself in that applications are no longer able to open new file descriptors.\
@@ -469,7 +469,7 @@ NSO Backup backs up the database (CDB) files, state files, config files, and rol
 
 The backup will be stored in the "run directory", by default `/var/opt/ncs`, as `/var/opt/ncs/backups/ncs-VERSION@DATETIME.backup`.
 
-For more information on backup, refer to the [ncs-backup(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-backup) in Manual Pages.
+For more information on backup, refer to the [ncs-backup(1)](../../../man/section1.md#ncs-backup) in Manual Pages.
 
 ### Restore a Backup <a href="#d5e7896" id="d5e7896"></a>
 
@@ -537,19 +537,13 @@ Some noteworthy issues are covered here.
     gzip: stdin: invalid compressed data--format violated
     ```
 
-<!---->
-
-* **Impact**\
+- **Impact**\
   The resulting installation is incomplete.
-
-<!---->
 
 * **Cause**\
   This happens if the installation program has been damaged, most likely because it has been downloaded in ASCII mode.
 
-<!---->
-
-* **Resolution**\
+- **Resolution**\
   Remove the installation directory. Download a new copy of NSO from our servers. Make sure you use binary transfer mode every step of the way.
 
 </details>
@@ -566,19 +560,13 @@ Some noteworthy issues are covered here.
     .../lib/ncs/priv/util/syst_drv.so)
     ```
 
-<!---->
-
-* **Impact**\
+- **Impact**\
   NSO terminates immediately with a message similar to the one above.
-
-<!---->
 
 * **Cause**\
   This happens if you are running on a very old Linux version. The GNU libc (GLIBC) version is older than 2.3.4, which was released in 2004.
 
-<!---->
-
-* **Resolution**\
+- **Resolution**\
   Use a newer Linux system, or upgrade the GLIBC installation.
 
 </details>
@@ -590,19 +578,13 @@ Some noteworthy issues are covered here.
 * **Error**\
   You must install the Python SSH implementation Paramiko in order to use SSH.
 
-<!---->
-
-* **Impact**\
+- **Impact**\
   Sending NETCONF commands and queries with `netconf-console` fails, while it works using `netconf-console-tcp`.
-
-<!---->
 
 * **Cause**\
   The `netconf-console` command is implemented using the Python programming language. It depends on the Python SSHv2 implementation Paramiko. Since you are seeing this message, your operating system doesn't have the Python module Paramiko installed.
 
-<!---->
-
-*   **Resolution**\
+-   **Resolution**\
     Install Paramiko using the instructions from [https://www.paramiko.org](https://www.paramiko.org/).\
     \
     When properly installed, you will be able to import the Paramiko module without error messages.
@@ -616,8 +598,6 @@ Some noteworthy issues are covered here.
 
     \
     Exit the Python interpreter with Ctrl+D.
-
-<!---->
 
 * **Workaround**\
   A workaround is to use `netconf-console-tcp`. It uses TCP instead of SSH and doesn't require Paramiko. Note that TCP traffic is not encrypted.
@@ -660,7 +640,7 @@ $ source /etc/profile.d/ncs.sh
 
 <summary>Log Files</summary>
 
-To find out what NSO is/was doing, browsing NSO log files is often helpful. In the examples, they are called `devel.log`, `ncs.log`, `audit.log`. If you are working with your own system, make sure that the log files are enabled in `ncs.conf`. They are already enabled in all the examples. You can read more about how to enable and inspect various logs in the [Logging](./#ug.ncs\_sys\_mgmt.logging) section.
+To find out what NSO is/was doing, browsing NSO log files is often helpful. In the examples, they are called `devel.log`, `ncs.log`, `audit.log`. If you are working with your own system, make sure that the log files are enabled in `ncs.conf`. They are already enabled in all the examples. You can read more about how to enable and inspect various logs in the [Logging](./#ug.ncs_sys_mgmt.logging) section.
 
 </details>
 
@@ -726,7 +706,7 @@ Another thing you can do in case you suspect that you have experienced a bug in 
 
 <summary>System Dump</summary>
 
-If NSO aborts due to failure to allocate memory (see [Disaster Management](./#ug.ncs\_sys\_mgmt.disaster)), and you believe that this is due to a memory leak in NSO, creating one or more debug dumps as described above (before NSO aborts) will produce the most useful information for Support. If this is not possible, NSO will produce a system dump by default before aborting, unless `DISABLE_NCS_DUMP` is set.
+If NSO aborts due to failure to allocate memory (see [Disaster Management](./#ug.ncs_sys_mgmt.disaster)), and you believe that this is due to a memory leak in NSO, creating one or more debug dumps as described above (before NSO aborts) will produce the most useful information for Support. If this is not possible, NSO will produce a system dump by default before aborting, unless `DISABLE_NCS_DUMP` is set.
 
 The default system dump file name is `ncs_crash.dump` and it could be changed by setting the environment variable `$NCS_DUMP` before starting NSO. The dumped information is only comprehensible to the NSO development team, so send the dump to your support contact.
 
