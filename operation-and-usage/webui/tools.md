@@ -69,9 +69,13 @@ You can search and sort the view to display alarm results according to your need
 
 * To search for an alarm against an object, search for the object name (e.g., device name).
 * To sort the alarms list, use one of the specified criteria from **Alarm type** , **Severity**, **Is cleared**, or **Handling state**.
-* To access the alarm details for a specific alarm, click its severity level on the alarm row. This allows for accessing the individual alarm details, status changes, and alarm handling information.
+
+**Alarm Details**
+
+Individual alarm details are accessible by clicking the severity level icon on an alarm. This brings up the alarm's details, its status (severity) changes, and historical handling information.
 
 ### Compress and Purge Alarms
+
 The Web UI provides options to compress and purge alarms.
 
 * The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
@@ -81,13 +85,14 @@ To utilize these features, click the respective button and follow the on-screen 
 
 ### Alarm Handling
 
-Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting its state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
+Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting a state on it, for example, **Acknowledged**. Historical handling state changes are accessible in alarm details.
 
 To set an alarm handling state:
 
-1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm.
-2. Enter a description (optional).
-3. Click **Set state**. This records the state change under the **Alarm handling** tab in alarm details.
+1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
+2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
+3. Enter a description (optional).
+4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
