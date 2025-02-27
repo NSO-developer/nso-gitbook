@@ -428,7 +428,7 @@ It is a good practice to wrap the data inside a `config` element, as it gives yo
 
 There are many ways to generate the XML data. A common approach is to dump existing data with the `ncs_load` utility or the `display xml` filter in the CLI. All of the data in the CDB can be represented (or exported, if you will) in XML. This is no coincidence. XML was the main format for encoding data with NETCONF when YANG was created and you can trace the origin of some YANG features back to XML.
 
-{% code title="Creating init XML File with the " %}
+{% code title="Creating init XML File with the ncs_load Command " %}
 ```bash
 $ ncs_load -F p -p /domains > cdb-init.xml
 $ cat cdb-init.xml
