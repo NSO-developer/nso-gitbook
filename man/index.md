@@ -2,18 +2,31 @@
 
 ## Section 1: User Commands and Programs
 
+  * [`ncs`](section1.md#ncs) command to start and control the NCS daemon
+
   * [`ncs-backup`](section1.md#ncs-backup) Command to backup and restore NCS data
+
+  * [`ncsc`](section1.md#ncsc) NCS YANG compiler
+
+  * [`ncs_cli`](section1.md#ncs_cli) Frontend to the NSO CLI engine
+
+  * [`ncs_cmd`](section1.md#ncs_cmd) Command line utility that interfaces to common NSO library
+functions
 
   * [`ncs-collect-tech-report`](section1.md#ncs-collect-tech-report) Command to collect diagnostics from an NCS
 installation.
 
   * [`ncs-installer`](section1.md#ncs-installer) NCS installation script
 
+  * [`ncs_load`](section1.md#ncs_load) Command line utility to load and save NSO configurations
+
   * [`ncs-maapi`](section1.md#ncs-maapi) command to access an ongoing transaction
 
   * [`ncs-make-package`](section1.md#ncs-make-package) Command to create an NCS package
 
   * [`ncs-netsim`](section1.md#ncs-netsim) Command to create and manipulate a simulated network
+
+  * [`ncs-project`](section1.md#ncs-project) Command to invoke NCS project commands
 
   * [`ncs-project-create`](section1.md#ncs-project-create) Command to create an NCS project
 
@@ -25,22 +38,9 @@ installation.
 
   * [`ncs-project-update`](section1.md#ncs-project-update) Command to update and maintain an NCS project
 
-  * [`ncs-project`](section1.md#ncs-project) Command to invoke NCS project commands
-
   * [`ncs-setup`](section1.md#ncs-setup) Command to create an initial NCS setup
 
   * [`ncs-uninstall`](section1.md#ncs-uninstall) Command to remove NCS installation
-
-  * [`ncs`](section1.md#ncs) command to start and control the NCS daemon
-
-  * [`ncs_cli`](section1.md#ncs_cli) Frontend to the NSO CLI engine
-
-  * [`ncs_cmd`](section1.md#ncs_cmd) Command line utility that interfaces to common NSO library
-functions
-
-  * [`ncs_load`](section1.md#ncs_load) Command line utility to load and save NSO configurations
-
-  * [`ncsc`](section1.md#ncsc) NCS YANG compiler
 
 
 ## Section 3: C Library Functions

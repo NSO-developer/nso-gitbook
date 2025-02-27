@@ -660,11 +660,13 @@ A call to `cdb_connect()` is typically followed by a call to either
 `cdb_start_session()` for a reading session or a call to
 `cdb_subscribe()` for a subscription socket.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -680,11 +682,13 @@ names to be used for different connections from the same application
 process, we can use `cdb_connect_name()` with the wanted name instead of
 `cdb_connect()`.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -712,9 +716,11 @@ one `cdb_subscribe2()` call followed by a `cdb_subscribe_done()` call.
 A call to `cdb_mandatory_subscriber()` is only allowed before the first
 call of `cdb_subscribe2()`.
 
-> **Note**  
->  
-> Only applicable for two-phase subscribers.
+<div class="note">
+
+Only applicable for two-phase subscribers.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -802,10 +808,13 @@ parameter should be one of:
 > further details about working with operational data in CDB, see the
 > `OPERATIONAL DATA` section below.
 >
-> > [!NOTE]
-> > Subscriptions on operational data will not be triggered from a
-> > session created with this function - to trigger operational data
-> > subscriptions, we need to use `cdb_start_session2()`, see below.
+> <div class="note">
+>
+> Subscriptions on operational data will not be triggered from a session
+> created with this function - to trigger operational data
+> subscriptions, we need to use `cdb_start_session2()`, see below.
+>
+> </div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_LOCKED,
 CONFD_ERR_NOEXISTS
@@ -1046,12 +1055,14 @@ function passed to `cdb_diff_iterate()`), or with a data socket that has
 an active session. The timeout is given in seconds from the point in
 time when the function is called.
 
-> **Note**  
->  
-> The timeout for subscription delivery is common for all the
-> subscribers receiving notifications at a given priority. Thus calling
-> the function during subscription delivery changes the timeout for all
-> the subscribers that are currently processing notifications.
+<div class="note">
+
+The timeout for subscription delivery is common for all the subscribers
+receiving notifications at a given priority. Thus calling the function
+during subscription delivery changes the timeout for all the subscribers
+that are currently processing notifications.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_PROTOUSAGE,
 CONFD_ERR_BADSTATE
@@ -1267,14 +1278,16 @@ several differences from the subscriptions for configuration data:
 - A special synchronization reply must be used when the notifications
   have been read (see `cdb_sync_subscription_socket()` below).
 
-> **Note**  
->  
-> Operational and configuration subscriptions can be done on the same
-> socket, but in that case the notifications may be arbitrarily
-> interleaved, including operational notifications arriving between
-> different configuration notifications for the same transaction. If
-> this is a problem, use separate sockets for operational and
-> configuration subscriptions.
+<div class="note">
+
+Operational and configuration subscriptions can be done on the same
+socket, but in that case the notifications may be arbitrarily
+interleaved, including operational notifications arriving between
+different configuration notifications for the same transaction. If this
+is a problem, use separate sockets for operational and configuration
+subscriptions.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADPATH,
 CONFD_ERR_NOEXISTS
@@ -1342,18 +1355,22 @@ because one of the subscribers that received `CDB_SUB_PREPARE` called
 `cdb_sub_abort_trans()`, but it could also be caused for other reasons,
 for example another data provider (than CDB) can abort the transaction.
 
-> **Note**  
->  
-> Two phase subscriptions are not supported for NCS.
+<div class="note">
 
-> **Note**  
->  
-> Operational and configuration subscriptions can be done on the same
-> socket, but in that case the notifications may be arbitrarily
-> interleaved, including operational notifications arriving between
-> different configuration notifications for the same transaction. If
-> this is a problem, use separate sockets for operational and
-> configuration subscriptions.
+Two phase subscriptions are not supported for NCS.
+
+</div>
+
+<div class="note">
+
+Operational and configuration subscriptions can be done on the same
+socket, but in that case the notifications may be arbitrarily
+interleaved, including operational notifications arriving between
+different configuration notifications for the same transaction. If this
+is a problem, use separate sockets for operational and configuration
+subscriptions.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADPATH,
 CONFD_ERR_NOEXISTS
@@ -1792,13 +1809,15 @@ possible to iterate over a list, and for each list instance fetch the
 changes using `cdb_get_modifications_iter()`, and then return
 `ITER_CONTINUE` to process next instance.
 
-> **Note**  
->  
-> Note: The `CDB_GET_MODS_REVERSE` flag is ignored by
-> `cdb_get_modifications_iter()`. It will instead return a "forward" or
-> "reverse" list of modifications for a `CDB_SUB_ABORT` notification
-> according to whether the `ITER_WANT_REVERSE` flag was included in the
-> `flags` parameter of the `cdb_diff_iterate()` call.
+<div class="note">
+
+Note: The `CDB_GET_MODS_REVERSE` flag is ignored by
+`cdb_get_modifications_iter()`. It will instead return a "forward" or
+"reverse" list of modifications for a `CDB_SUB_ABORT` notification
+according to whether the `ITER_WANT_REVERSE` flag was included in the
+`flags` parameter of the `cdb_diff_iterate()` call.
+
+</div>
 
     int cdb_get_modifications_cli(
     int sock, int subid, int flags, char **str);
@@ -1935,10 +1954,12 @@ not possible to call this function from the `iter()` function passed to
 session, use `maapi_get_user_session()` (see
 [confd_lib_maapi(3)](section3.md#confd_lib_maapi)).
 
-> **Note**  
->  
-> Note: When the ConfD High Availability functionality is used, the user
-> session information is not available on secondary nodes.
+<div class="note">
+
+Note: When the ConfD High Availability functionality is used, the user
+session information is not available on secondary nodes.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE,
 CONFD_ERR_NOEXISTS
@@ -1954,16 +1975,20 @@ configuration data has been received on that socket, before
 not possible to call this function from the `iter()` function passed to
 `cdb_diff_iterate()`.
 
-> **Note**  
->  
-> A CDB client is not expected to access the ConfD transaction store
-> directly - this function should only be used for logging or debugging
-> purposes.
+<div class="note">
 
-> **Note**  
->  
-> When the ConfD High Availability functionality is used, the
-> transaction information is not available on secondary nodes.
+A CDB client is not expected to access the ConfD transaction store
+directly - this function should only be used for logging or debugging
+purposes.
+
+</div>
+
+<div class="note">
+
+When the ConfD High Availability functionality is used, the transaction
+information is not available on secondary nodes.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE,
 CONFD_ERR_NOEXISTS
@@ -2472,17 +2497,19 @@ the `confd_value_t` value element is given as follows:
 - As a special case, the "instance integer" can be used to select a list
   entry by using C_CDBBEGIN instead of C_XMLBEGIN (and no key values).
 
-> **Note**  
->  
-> When we use C_PTR, we need to take special care to free any allocated
-> memory. When we use C_NOEXISTS and the value is stored in the array,
-> we can just use `confd_free_value()` regardless of the type, since the
-> `confd_value_t` has the type information. But with C_PTR, only the
-> actual value is stored in the pointed-to variable, just as for
-> `cdb_get_buf()`, `cdb_get_binary()`, etc, and we need to free the
-> memory specifically allocated for the types listed in the description
-> of `cdb_get()` above. See the corresponding `cdb_get_xxx()` functions
-> for the details of how to do this.
+<div class="note">
+
+When we use C_PTR, we need to take special care to free any allocated
+memory. When we use C_NOEXISTS and the value is stored in the array, we
+can just use `confd_free_value()` regardless of the type, since the
+`confd_value_t` has the type information. But with C_PTR, only the
+actual value is stored in the pointed-to variable, just as for
+`cdb_get_buf()`, `cdb_get_binary()`, etc, and we need to free the memory
+specifically allocated for the types listed in the description of
+`cdb_get()` above. See the corresponding `cdb_get_xxx()` functions for
+the details of how to do this.
+
+</div>
 
 All elements have the same position in the array after the call, in
 order to simplify extraction of the values - this means that optional
@@ -2672,11 +2699,13 @@ sockets, or to alternate the use of one socket via `cdb_end_session()`.
 The write functions can never be used in a session for configuration
 data.
 
-> **Note**  
->  
-> In order to trigger subscriptions on operational data, we must obtain
-> a subscription lock via the use of `cdb_start_session2()` instead of
-> `cdb_start_session()`, see above.
+<div class="note">
+
+In order to trigger subscriptions on operational data, we must obtain a
+subscription lock via the use of `cdb_start_session2()` instead of
+`cdb_start_session()`, see above.
+
+</div>
 
 In YANG it is possible to define a list of operational data without any
 keys. For this type of list, we use a single "pseudo" key which is
@@ -3286,13 +3315,15 @@ flags are available:
 >   be invoked with the case value given as NULL instead of the default
 >   case.
 >
-> > [!NOTE]
-> > A daemon that has the `CONFD_DAEMON_FLAG_NO_DEFAULTS` flag set
-> > *must* reply to `get_elem()` and the other callbacks that request
-> > leaf values with a value of type C_DEFAULT, rather than the actual
-> > default value, when the default value for a leaf is in effect. It
-> > *must* also reply to `get_case()` with C_DEFAULT when the default
-> > case is in effect.
+> <div class="note">
+>
+> A daemon that has the `CONFD_DAEMON_FLAG_NO_DEFAULTS` flag set *must*
+> reply to `get_elem()` and the other callbacks that request leaf values
+> with a value of type C_DEFAULT, rather than the actual default value,
+> when the default value for a leaf is in effect. It *must* also reply
+> to `get_case()` with C_DEFAULT when the default case is in effect.
+>
+> </div>
 
 `CONFD_DAEMON_FLAG_PREFER_BULK_GET`  
 > This flag requests that the `get_object()` callback rather than
@@ -3356,23 +3387,27 @@ daemon and ConfD.
 
 Returns CONFD_OK when successful or CONFD_ERR on connection error.
 
-> **Note**  
->  
-> All the callbacks that are invoked via these sockets are subject to
-> timeouts configured in `confd.conf`, see
-> [confd.conf(5)](section5.md#ncs.conf). The callbacks invoked via the
-> control socket must generate a reply back to ConfD within the time
-> configured for /confdConfig/capi/newSessionTimeout, the callbacks
-> invoked via a worker socket within the time configured for
-> /confdConfig/capi/queryTimeout. If either timeout is exceeded, the
-> daemon will be considered dead, and ConfD will disconnect it by
-> closing the control and worker sockets.
+<div class="note">
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+All the callbacks that are invoked via these sockets are subject to
+timeouts configured in `confd.conf`, see
+[confd.conf(5)](section5.md#ncs.conf). The callbacks invoked via the control
+socket must generate a reply back to ConfD within the time configured
+for /confdConfig/capi/newSessionTimeout, the callbacks invoked via a
+worker socket within the time configured for
+/confdConfig/capi/queryTimeout. If either timeout is exceeded, the
+daemon will be considered dead, and ConfD will disconnect it by closing
+the control and worker sockets.
+
+</div>
+
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_PROTOUSAGE
 
@@ -4140,28 +4175,31 @@ non-zero, those callbacks must act as if data with the
 > latter case the application must at a later stage call
 > `confd_data_reply_next_key()` or `confd_data_reply_next_key_attrs()`.
 >
-> > [!NOTE]
-> > For a list that does not specify a non-default sort order by means
-> > of an `ordered-by user` or `tailf:sort-order` statement, ConfD
-> > assumes that list entries are ordered strictly by increasing key (or
-> > secondary index) values. I.e., CDB's sort order. Thus, for correct
-> > operation, we must observe this order when returning list entries in
-> > a sequence of `get_next()` calls.
-> >
-> > A special case is the `union` type key. Entries are ordered by
-> > increasing key for their type while types are sorted in the order of
-> > appearance in 'enum confd_vtype', see
-> > [confd_types(3)](section3.md#confd_types). There are exceptions to this
-> > rule, namely these five types, which are always sorted at the end:
-> > `C_BUF`, `C_DURATION`, `C_INT32`, `C_UINT8`, and `C_UINT16`. Among
-> > these, `C_BUF` always comes first, and after that comes
-> > `C_DURATION`. Then follows the three integer types, `C_INT32`,
-> > `C_UINT8` and `C_UINT16`, which are sorted together in natural
-> > number order regardless of type.
-> >
-> > If CDB's sort order cannot be provided to ConfD for configuration
-> > data, /confdConfig/sortTransactions should be set to 'false'. See
-> > [confd.conf(5)](section5.md#ncs.conf).
+> <div class="note">
+>
+> For a list that does not specify a non-default sort order by means of
+> an `ordered-by user` or `tailf:sort-order` statement, ConfD assumes
+> that list entries are ordered strictly by increasing key (or secondary
+> index) values. I.e., CDB's sort order. Thus, for correct operation, we
+> must observe this order when returning list entries in a sequence of
+> `get_next()` calls.
+>
+> A special case is the `union` type key. Entries are ordered by
+> increasing key for their type while types are sorted in the order of
+> appearance in 'enum confd_vtype', see
+> [confd_types(3)](section3.md#confd_types). There are exceptions to this
+> rule, namely these five types, which are always sorted at the end:
+> `C_BUF`, `C_DURATION`, `C_INT32`, `C_UINT8`, and `C_UINT16`. Among
+> these, `C_BUF` always comes first, and after that comes `C_DURATION`.
+> Then follows the three integer types, `C_INT32`, `C_UINT8` and
+> `C_UINT16`, which are sorted together in natural number order
+> regardless of type.
+>
+> If CDB's sort order cannot be provided to ConfD for configuration
+> data, /confdConfig/sortTransactions should be set to 'false'. See
+> [confd.conf(5)](section5.md#ncs.conf).
+>
+> </div>
 
 `set_elem()`  
 > This callback writes the value of a leaf. Note that an optional leaf
@@ -4173,9 +4211,12 @@ non-zero, those callbacks must act as if data with the
 > The callback must return CONFD_OK on success, CONFD_ERR on error or
 > CONFD_DELAYED_RESPONSE.
 >
-> > [!NOTE]
-> > Type `empty` leafs part of a `union` are set using this function.
-> > Type `empty` leafs outside of `union` use `create()` and `exists()`.
+> <div class="note">
+>
+> Type `empty` leafs part of a `union` are set using this function. Type
+> `empty` leafs outside of `union` use `create()` and `exists()`.
+>
+> </div>
 
 `create()`  
 > This callback creates a new list entry, a `presence` container, a leaf
@@ -4328,13 +4369,16 @@ non-zero, those callbacks must act as if data with the
 > `CONFD_FIND_NEXT`, and the (complete) set of keys from the previous
 > reply.
 >
-> > [!NOTE]
-> > In the case of list traversal by means of a secondary index, the
-> > secondary index values must be unique for entry-by-entry traversal
-> > with `find_next()`/`find_next_object()` to be possible. Thus we can
-> > not pass `-1` for the `next` parameter to
-> > `confd_data_reply_next_key()` or `confd_data_reply_next_key_attrs()`
-> > in this case if the secondary index values are not unique.
+> <div class="note">
+>
+> In the case of list traversal by means of a secondary index, the
+> secondary index values must be unique for entry-by-entry traversal
+> with `find_next()`/`find_next_object()` to be possible. Thus we can
+> not pass `-1` for the `next` parameter to
+> `confd_data_reply_next_key()` or `confd_data_reply_next_key_attrs()`
+> in this case if the secondary index values are not unique.
+>
+> </div>
 >
 > To signal that no entry matching the request exists, i.e. we have
 > reached the end of the list while evaluating the request, we reply
@@ -4347,28 +4391,31 @@ non-zero, those callbacks must act as if data with the
 > element is requested, and then this value is kept as the list is being
 > traversed. If a new traversal is started, a new unique value is set.
 >
-> > [!NOTE]
-> > For a list that does not specify a non-default sort order by means
-> > of an `ordered-by user` or `tailf:sort-order` statement, ConfD
-> > assumes that list entries are ordered strictly by increasing key (or
-> > secondary index) values. I.e., CDB's sort order. Thus, for correct
-> > operation, we must observe this order when returning list entries in
-> > a sequence of `get_next()` calls.
-> >
-> > A special case is the union type key. Entries are ordered by
-> > increasing key for their type while types are sorted in the order of
-> > appearance in 'enum confd_vtype', see
-> > [confd_types(3)](section3.md#confd_types). There are exceptions to this
-> > rule, namely these five types, which are always sorted at the end:
-> > `C_BUF`, `C_DURATION`, `C_INT32`, `C_UINT8`, and `C_UINT16`. Among
-> > these, `C_BUF` always comes first, and after that comes
-> > `C_DURATION`. Then follows the three integer types, `C_INT32`,
-> > `C_UINT8` and `C_UINT16`, which are sorted together in natural
-> > number order regardless of type.
-> >
-> > If CDB's sort order cannot be provided to ConfD for configuration
-> > data, /confdConfig/sortTransactions should be set to 'false'. See
-> > [confd.conf(5)](section5.md#ncs.conf).
+> <div class="note">
+>
+> For a list that does not specify a non-default sort order by means of
+> an `ordered-by user` or `tailf:sort-order` statement, ConfD assumes
+> that list entries are ordered strictly by increasing key (or secondary
+> index) values. I.e., CDB's sort order. Thus, for correct operation, we
+> must observe this order when returning list entries in a sequence of
+> `get_next()` calls.
+>
+> A special case is the union type key. Entries are ordered by
+> increasing key for their type while types are sorted in the order of
+> appearance in 'enum confd_vtype', see
+> [confd_types(3)](section3.md#confd_types). There are exceptions to this
+> rule, namely these five types, which are always sorted at the end:
+> `C_BUF`, `C_DURATION`, `C_INT32`, `C_UINT8`, and `C_UINT16`. Among
+> these, `C_BUF` always comes first, and after that comes `C_DURATION`.
+> Then follows the three integer types, `C_INT32`, `C_UINT8` and
+> `C_UINT16`, which are sorted together in natural number order
+> regardless of type.
+>
+> If CDB's sort order cannot be provided to ConfD for configuration
+> data, /confdConfig/sortTransactions should be set to 'false'. See
+> [confd.conf(5)](section5.md#ncs.conf).
+>
+> </div>
 >
 > If we have registered `find_next()` (or `find_next_object()`), it is
 > not strictly necessary to also register `get_next()` (or
@@ -4658,12 +4705,15 @@ non-zero, those callbacks must act as if data with the
 > should reply by calling `confd_data_reply_not_found()`, otherwise it
 > should call `confd_data_reply_attrs()`, even if no attributes are set.
 >
-> > [!NOTE]
-> > It is very important to observe this distinction, i.e. to use
-> > `confd_data_reply_not_found()` when the node doesn't exist, since
-> > ConfD may use `get_attrs()` as an existence check when attributes
-> > are enabled. (This avoids doing one callback request for existence
-> > check and another to collect the attributes.)
+> <div class="note">
+>
+> It is very important to observe this distinction, i.e. to use
+> `confd_data_reply_not_found()` when the node doesn't exist, since
+> ConfD may use `get_attrs()` as an existence check when attributes are
+> enabled. (This avoids doing one callback request for existence check
+> and another to collect the attributes.)
+>
+> </div>
 >
 > Must return CONFD_OK on success, CONFD_ERR on error, or
 > CONFD_DELAYED_RESPONSE.
@@ -4807,22 +4857,26 @@ would just reply with `confd_data_reply_not_found()` for all requests
 for specific data, and `confd_data_reply_next_key()` with NULL for the
 key values for all `get_next()` etc requests.
 
-> **Note**  
->  
-> For a given callpoint name, there can only be either one non-range
-> registration or a number of range registrations that all pertain to
-> the same list. If a range registration is done after a non-range
-> registration or vice versa, or if a range registration is done with a
-> different list path than earlier range registrations, the latest
-> registration completely replaces the earlier one(s). If we want to
-> register for the same ranges in different lists, we must thus have a
-> unique callpoint for each list.
+<div class="note">
 
-> **Note**  
->  
-> Range registrations can not be used for lists that have the
-> `tailf:secondary-index` extension, since there is no way for ConfD to
-> traverse the registrations in secondary-index order.
+For a given callpoint name, there can only be either one non-range
+registration or a number of range registrations that all pertain to the
+same list. If a range registration is done after a non-range
+registration or vice versa, or if a range registration is done with a
+different list path than earlier range registrations, the latest
+registration completely replaces the earlier one(s). If we want to
+register for the same ranges in different lists, we must thus have a
+unique callpoint for each list.
+
+</div>
+
+<div class="note">
+
+Range registrations can not be used for lists that have the
+`tailf:secondary-index` extension, since there is no way for ConfD to
+traverse the registrations in secondary-index order.
+
+</div>
 
     int confd_register_usess_cb(
     struct confd_daemon_ctx *dx, const struct confd_usess_cbs *ucb);
@@ -4854,23 +4908,27 @@ a worker thread would often mean that we allocated a thread that was
 never used. The `u_opaque` element in the `struct confd_user_info` can
 be used to manage such allocations.
 
-> **Note**  
->  
-> These callbacks will only be invoked if the daemon has also registered
-> other callbacks. Furthermore, as an optimization, ConfD will delay the
-> invocation of the `start()` callback until some other callback is
-> invoked. This means that if no other callbacks for the daemon are
-> invoked for the duration of a user session, neither `start()` nor
-> `stop()` will be invoked for that user session. If we want timely
-> notification of start and stop for all user sessions, we can subscribe
-> to `CONFD_NOTIF_AUDIT` events, see
-> [confd_lib_events(3)](section3.md#confd_lib_events).
+<div class="note">
 
-> **Note**  
->  
-> When we call `confd_register_done()` (see below), the `start()`
-> callback (if registered) will be invoked for each user session that
-> already exists.
+These callbacks will only be invoked if the daemon has also registered
+other callbacks. Furthermore, as an optimization, ConfD will delay the
+invocation of the `start()` callback until some other callback is
+invoked. This means that if no other callbacks for the daemon are
+invoked for the duration of a user session, neither `start()` nor
+`stop()` will be invoked for that user session. If we want timely
+notification of start and stop for all user sessions, we can subscribe
+to `CONFD_NOTIF_AUDIT` events, see
+[confd_lib_events(3)](section3.md#confd_lib_events).
+
+</div>
+
+<div class="note">
+
+When we call `confd_register_done()` (see below), the `start()` callback
+(if registered) will be invoked for each user session that already
+exists.
+
+</div>
 
     int confd_register_done(
     struct confd_daemon_ctx *dx);
@@ -5248,13 +5306,15 @@ that we want the next request for this list traversal to use the
 `find_next()` (or `find_next_object()`) callback instead of `get_next()`
 (or `get_next_object()`).
 
-> **Note**  
->  
-> In the case of list traversal by means of a secondary index, the
-> secondary index values must be unique for entry-by-entry traversal
-> with `find_next()`/`find_next_object()` to be possible. Thus we can
-> not pass `-1` for the `next` parameter in this case if the secondary
-> index values are not unique.
+<div class="note">
+
+In the case of list traversal by means of a secondary index, the
+secondary index values must be unique for entry-by-entry traversal with
+`find_next()`/`find_next_object()` to be possible. Thus we can not pass
+`-1` for the `next` parameter in this case if the secondary index values
+are not unique.
+
+</div>
 
 *Errors*: CONFD_ERR_PROTOUSAGE, CONFD_ERR_MALLOC, CONFD_ERR_OS,
 CONFD_ERR_BADTYPE
@@ -5436,23 +5496,27 @@ latter is preferable, since we can then combine the final list entries
 with the end-of-list indication in the reply to a single callback
 invocation.
 
-> **Note**  
->  
-> When `next` values other than `-1` are used, these must remain valid
-> even after the end of the list has been reached, since ConfD may still
-> need to issue a new callback request based on an "intermediate" `next`
-> value as described above. They can be discarded (e.g. allocated memory
-> released) when a new `get_next_object()` or `find_next_object()`
-> callback request for the same list in the same transaction has been
-> received, or at the end of the transaction.
+<div class="note">
 
-> **Note**  
->  
-> In the case of list traversal by means of a secondary index, the
-> secondary index values must be unique for entry-by-entry traversal
-> with `find_next_object()`/`find_next()` to be possible. Thus we can
-> not use `-1` for the `next` element in this case if the secondary
-> index values are not unique.
+When `next` values other than `-1` are used, these must remain valid
+even after the end of the list has been reached, since ConfD may still
+need to issue a new callback request based on an "intermediate" `next`
+value as described above. They can be discarded (e.g. allocated memory
+released) when a new `get_next_object()` or `find_next_object()`
+callback request for the same list in the same transaction has been
+received, or at the end of the transaction.
+
+</div>
+
+<div class="note">
+
+In the case of list traversal by means of a secondary index, the
+secondary index values must be unique for entry-by-entry traversal with
+`find_next_object()`/`find_next()` to be possible. Thus we can not use
+`-1` for the `next` element in this case if the secondary index values
+are not unique.
+
+</div>
 
 *Errors*: CONFD_ERR_PROTOUSAGE, CONFD_ERR_MALLOC, CONFD_ERR_OS,
 CONFD_ERR_BADTYPE
@@ -5507,23 +5571,27 @@ The latter is preferable, since we can then combine the final list
 entries with the end-of-list indication in the reply to a single
 callback invocation.
 
-> **Note**  
->  
-> When `next` values other than `-1` are used, these must remain valid
-> even after the end of the list has been reached, since ConfD may still
-> need to issue a new callback request based on an "intermediate" `next`
-> value as described above. They can be discarded (e.g. allocated memory
-> released) when a new `get_next_object()` or `find_next_object()`
-> callback request for the same list in the same transaction has been
-> received, or at the end of the transaction.
+<div class="note">
 
-> **Note**  
->  
-> In the case of list traversal by means of a secondary index, the
-> secondary index values must be unique for entry-by-entry traversal
-> with `find_next_object()`/`find_next()` to be possible. Thus we can
-> not use `-1` for the `next` element in this case if the secondary
-> index values are not unique.
+When `next` values other than `-1` are used, these must remain valid
+even after the end of the list has been reached, since ConfD may still
+need to issue a new callback request based on an "intermediate" `next`
+value as described above. They can be discarded (e.g. allocated memory
+released) when a new `get_next_object()` or `find_next_object()`
+callback request for the same list in the same transaction has been
+received, or at the end of the transaction.
+
+</div>
+
+<div class="note">
+
+In the case of list traversal by means of a secondary index, the
+secondary index values must be unique for entry-by-entry traversal with
+`find_next_object()`/`find_next()` to be possible. Thus we can not use
+`-1` for the `next` element in this case if the secondary index values
+are not unique.
+
+</div>
 
 *Errors*: CONFD_ERR_PROTOUSAGE, CONFD_ERR_MALLOC, CONFD_ERR_OS,
 CONFD_ERR_BADTYPE
@@ -5731,13 +5799,15 @@ This function will copy those keys from ConfD (which reads confd.conf)
 into memory in the library. The parameter `dtx` is a daemon context
 which is connected through a call to `confd_connect()`.
 
-> **Note**  
->  
-> The function must be called before `confd_register_done()` is called.
-> If this is impractical, or if the application doesn't otherwise use a
-> daemon context, the equivalent function `maapi_install_crypto_keys()`
-> may be more convenient to use, see
-> [confd_lib_maapi(3)](section3.md#confd_lib_maapi).
+<div class="note">
+
+The function must be called before `confd_register_done()` is called. If
+this is impractical, or if the application doesn't otherwise use a
+daemon context, the equivalent function `maapi_install_crypto_keys()`
+may be more convenient to use, see
+[confd_lib_maapi(3)](section3.md#confd_lib_maapi).
+
+</div>
 
 ### Ncs Service Callbacks
 
@@ -5818,10 +5888,12 @@ All the callbacks receive a property list via the `proplist` and
 and `num_props` == 0), but it can be used to store and later modify
 persistent data outside the service model that might be needed.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
     int ncs_service_reply_proplist(
     struct confd_trans_ctx *tctx, const struct ncs_name_value *proplist, int num_props);
@@ -5932,10 +6004,12 @@ struct confd_valpoint_cb {
 
 </div>
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
 See the user guide chapter "Semantic validation" for code examples. The
 `validate()` callback can return CONFD_OK if all is well, or CONFD_ERROR
@@ -6078,10 +6152,12 @@ for sending data to ConfD, there is no need for the application to poll
 the socket. Note that the control socket must be connected before
 registration even if the callbacks are not registered.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
 The `get_log_times()` callback is called by ConfD to find out a) the
 creation time of the current log and b) the event time of the last
@@ -6166,10 +6242,12 @@ the notification as described for the Tagged Value Array format in the
 [XML STRUCTURES](section3.md#confd_types.xml_structures) section of the
 [confd_types(3)](section3.md#confd_types) manual page.
 
-> **Note**  
->  
-> The order of the tags in the array must be the same order as in the
-> YANG model.
+<div class="note">
+
+The order of the tags in the array must be the same order as in the YANG
+model.
+
+</div>
 
 For example, with this definition at the top level of the YANG module
 "test":
@@ -6232,10 +6310,12 @@ of the notification, in the same form as for the
 [confd_lib_cdb(3)](section3.md#confd_lib_cdb) functions. Giving "/" for the
 path is equivalent to calling `confd_notification_send()`.
 
-> **Note**  
->  
-> The path must be fully instantiated, i.e. all list nodes in the path
-> must have all their keys specified.
+<div class="note">
+
+The path must be fully instantiated, i.e. all list nodes in the path
+must have all their keys specified.
+
+</div>
 
 For example, with this definition at the top level of the YANG module
 "test":
@@ -6294,14 +6374,16 @@ could be sent with the following code:
 
 </div>
 
-> **Note**  
->  
-> While it is possible to use separate threads to send live and replay
-> notifications for a given stream, or to send different streams on a
-> given worker socket, this is not recommended. This is because it
-> involves rather complex synchronization problems that can only be
-> fully solved by the application, in particular in the case where a
-> replay switches over to the live feed.
+<div class="note">
+
+While it is possible to use separate threads to send live and replay
+notifications for a given stream, or to send different streams on a
+given worker socket, this is not recommended. This is because it
+involves rather complex synchronization problems that can only be fully
+solved by the application, in particular in the case where a replay
+switches over to the live feed.
+
+</div>
 
     int confd_notification_replay_complete(
     struct confd_notification_ctx *nctx);
@@ -6397,10 +6479,12 @@ context. If `notify_name` is NULL or the empty string (""), the
 notification is sent to all management targets. If `ctx_name` is NULL or
 the empty string (""), the default context ("") is used.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
     int confd_notification_send_snmp(
     struct confd_notification_ctx *nctx, const char *notification, struct confd_snmp_varbind *varbinds, 
@@ -6450,10 +6534,12 @@ callback, one for each target. The `ref` argument (passed from the
 `confd_notification_send_snmp_inform()` call) allows for tracking the
 result of multiple notifications with delivery overlap.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
     int confd_notification_send_snmp_inform(
     struct confd_notification_ctx *nctx, const char *notification, struct confd_snmp_varbind *varbinds, 
@@ -6521,10 +6607,12 @@ The `sub_id` element is the subscription id for the notifications. The
 the section "Receiving and Forwarding Traps" in the chapter "The SNMP
 gateway" in the Users Guide.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
     int confd_notification_flush(
     struct confd_notification_ctx *nctx);
@@ -6549,18 +6637,22 @@ specified by the subscription callback and sends it via a socket to
 ConfD. Push notifications that are received by ConfD are then published
 to the NETCONF subscribers.
 
-> [!WARNING]
-> *Experimental*. The PUSH ON-CHANGE CALLBACKS are not subject to
-> libconfd protocol version policy. Non-backwards compatible changes or
-> removal may occur in any future release.
+<div class="warning">
 
-> **Note**  
->  
-> ConfD implements a YANG-Push server and the push on-change callbacks
-> provide a complementary mechanism for ConfD to publish updates from
-> the data managed by data providers. Thus, it is recommended to be
-> familiar with YANG-Push (RFC 8641) and YANG Patch (RFC 8072)
-> standards.
+*Experimental*. The PUSH ON-CHANGE CALLBACKS are not subject to libconfd
+protocol version policy. Non-backwards compatible changes or removal may
+occur in any future release.
+
+</div>
+
+<div class="note">
+
+ConfD implements a YANG-Push server and the push on-change callbacks
+provide a complementary mechanism for ConfD to publish updates from the
+data managed by data providers. Thus, it is recommended to be familiar
+with YANG-Push (RFC 8641) and YANG Patch (RFC 8072) standards.
+
+</div>
 
     int confd_register_push_on_change(
     struct confd_daemon_ctx *dx, const struct confd_push_on_change_cbs *pcbs);
@@ -6595,10 +6687,12 @@ for sending data to ConfD, there is no need for the application to poll
 the socket. Note that the control socket must be connected before
 registration.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
 The `subscribe_on_change()` callback is called by ConfD to initiate a
 subscription on specified data with specified trigger options passed by
@@ -6650,13 +6744,16 @@ The `usid` is the user id corresponding to the user of the NETCONF
 session. The user id can be used to optionally identify and obtain the
 user session, which can be used to authorize the push notifications.
 
-> [!WARNING]
-> ConfD will always check access rights on the data that is pushed from
-> the applications, unless the configuration parameter
-> `enableExternalAccessCheck` is set to *true*. If
-> `enableExternalAccessCheck` is true and the application sets the
-> `CONFD_PATCH_FLAG_AAA_CHECKED` flag, then ConfD will not perform
-> access right checks on the received data.
+<div class="warning">
+
+ConfD will always check access rights on the data that is pushed from
+the applications, unless the configuration parameter
+`enableExternalAccessCheck` is set to *true*. If
+`enableExternalAccessCheck` is true and the application sets the
+`CONFD_PATCH_FLAG_AAA_CHECKED` flag, then ConfD will not perform access
+right checks on the received data.
+
+</div>
 
 The optional `xpath_filter` element is the string representation of the
 XPath filter provided for the subscription to identify a portion of data
@@ -6783,11 +6880,14 @@ corresponding to the below macros and their conditions.
 
 </div>
 
-> [!WARNING]
-> Currently ConfD can not apply an XPath or Subtree filter on the data
-> provided in push notifications. If the `CONFD_PATCH_FLAG_FILTER` flag
-> is set, ConfD can only filter out the edits with operations that are
-> specified in excluded changes.
+<div class="warning">
+
+Currently ConfD can not apply an XPath or Subtree filter on the data
+provided in push notifications. If the `CONFD_PATCH_FLAG_FILTER` flag is
+set, ConfD can only filter out the edits with operations that are
+specified in excluded changes.
+
+</div>
 
 The `struct confd_data_edit` structure is defined as:
 
@@ -6877,10 +6977,12 @@ according to the specification of the Tagged Value Array format in the
 [XML STRUCTURES](section3.md#confd_types.xml_structures) section of the
 [confd_types(3)](section3.md#confd_types) manual page.
 
-> **Note**  
->  
-> The order of the tags in the array must be the same order as in the
-> YANG model.
+<div class="note">
+
+The order of the tags in the array must be the same order as in the YANG
+model.
+
+</div>
 
 The conditional `ndata` must be set to an integer value if `data` is
 set, according to the number of `struct confd_tag_value_t` instances
@@ -7085,10 +7187,12 @@ If the `tailf:opaque` substatement has been used with the
 made available to the callbacks via the `actionpoint_opaque` element in
 the `confd_action_ctx` structure.
 
-> **Note**  
->  
-> We must call the `confd_register_done()` function when we are done
-> with all registrations for a daemon, see above.
+<div class="note">
+
+We must call the `confd_register_done()` function when we are done with
+all registrations for a daemon, see above.
+
+</div>
 
 The `action()` callback receives all the parameters pertaining to the
 action: The `name` argument is a pointer to the action name as defined
@@ -7165,12 +7269,14 @@ callbacks for a range of key values. The `lower`, `upper`, `numkeys`,
 `fmt`, and remaining parameters are the same as for
 `confd_register_range_data_cb()`, see above.
 
-> **Note**  
->  
-> This function can not be used for registration of the `command()` or
-> `completion()` callbacks - only actions specified in the data model
-> are invoked via a keypath that can be used for selection of the
-> corresponding callbacks.
+<div class="note">
+
+This function can not be used for registration of the `command()` or
+`completion()` callbacks - only actions specified in the data model are
+invoked via a keypath that can be used for selection of the
+corresponding callbacks.
+
+</div>
 
     void confd_action_set_fd(
     struct confd_user_info *uinfo, int sock);
@@ -7197,9 +7303,11 @@ it must invoke this function in response to the `action()` callback. The
 `values` argument points to an array of length `nvalues`, populated with
 the output parameters in the same way as the `params` array above.
 
-> **Note**  
->  
-> This function must only be called for an `action()` callback.
+<div class="note">
+
+This function must only be called for an `action()` callback.
+
+</div>
 
     int confd_action_reply_command(
     struct confd_user_info *uinfo, char **values, int nvalues);
@@ -7209,9 +7317,11 @@ function in response to the `command()` callback. The `values` argument
 points to an array of length `nvalues`, populated with pointers to
 NUL-terminated strings.
 
-> **Note**  
->  
-> This function must only be called for a `command()` callback.
+<div class="note">
+
+This function must only be called for a `command()` callback.
+
+</div>
 
     int confd_action_reply_rewrite(
     struct confd_user_info *uinfo, char **values, int nvalues, char **unhides, 
@@ -7225,9 +7335,11 @@ to NUL-terminated strings representing the tokens of the new path. The
 with pointers to NUL-terminated strings representing hide groups to
 temporarily unhide during evaluation of the show command.
 
-> **Note**  
->  
-> This function must only be called for a `command()` callback.
+<div class="note">
+
+This function must only be called for a `command()` callback.
+
+</div>
 
     int confd_action_reply_rewrite2(
     struct confd_user_info *uinfo, char **values, int nvalues, char **unhides, 
@@ -7244,9 +7356,11 @@ argument points to an array of length `nselects`, populated with
 pointers to confd_rewrite_select structs representing additional select
 targets.
 
-> **Note**  
->  
-> This function must only be called for a `command()` callback.
+<div class="note">
+
+This function must only be called for a `command()` callback.
+
+</div>
 
     int confd_action_reply_completion(
     struct confd_user_info *uinfo, struct confd_completion_value *values, 
@@ -7290,9 +7404,11 @@ set to CONFD_COMPLETION_DEFAULT. CONFD_COMPLETION_DEFAULT cannot be
 combined with the other completion types, implying the `values` array
 always must have length `1` which is indicated by `nvalues` setting.
 
-> **Note**  
->  
-> This function must only be called for a `completion()` callback.
+<div class="note">
+
+This function must only be called for a `completion()` callback.
+
+</div>
 
     int confd_action_reply_range_enum(
     struct confd_user_info *uinfo, char **values, int keysize, int nkeys);
@@ -7307,9 +7423,11 @@ the array gives entry1-key1, entry1-key2, ..., entry2-key1, entry2-key2,
 ... and so on. See the `cli/range_create` example in the bundled
 examples collection for details.
 
-> **Note**  
->  
-> This function must only be called for a `completion()` callback.
+<div class="note">
+
+This function must only be called for a `completion()` callback.
+
+</div>
 
     void confd_action_seterr(
     struct confd_user_info *uinfo, const char *fmt);
@@ -7377,18 +7495,22 @@ is both enabled via /confdConfig/aaa/authenticationCallback/enabled in
 `confd.conf` (see [confd.conf(5)](section5.md#ncs.conf)) and registered as
 described here.
 
-> **Note**  
->  
-> If the callback is enabled in `confd.conf` but not registered, or
-> invocation keeps failing for some reason, *all* authentication
-> attempts will fail.
+<div class="note">
 
-> **Note**  
->  
-> This callback can not be used to actually *perform* the
-> authentication. If we want to implement the authentication outside of
-> ConfD, we need to use PAM or "External" authentication, see the AAA
-> chapter in the Admin Guide.
+If the callback is enabled in `confd.conf` but not registered, or
+invocation keeps failing for some reason, *all* authentication attempts
+will fail.
+
+</div>
+
+<div class="note">
+
+This callback can not be used to actually *perform* the authentication.
+If we want to implement the authentication outside of ConfD, we need to
+use PAM or "External" authentication, see the AAA chapter in the Admin
+Guide.
+
+</div>
 
     int confd_register_auth_cb(
     struct confd_daemon_ctx *dx, const struct confd_auth_cb *acb);
@@ -7498,11 +7620,13 @@ The callbacks will only be invoked if they are both enabled via
 /confdConfig/aaa/authorization/callback/enabled in `confd.conf` (see
 [confd.conf(5)](section5.md#ncs.conf)) and registered as described here.
 
-> **Note**  
->  
-> If the callbacks are enabled in `confd.conf` but no registration has
-> been done, or if invocation keeps failing for some reason, *all*
-> access checks will be rejected.
+<div class="note">
+
+If the callbacks are enabled in `confd.conf` but no registration has
+been done, or if invocation keeps failing for some reason, *all* access
+checks will be rejected.
+
+</div>
 
     int confd_register_authorization_cb(
     struct confd_daemon_ctx *dx, const struct confd_authorization_cbs *acb);
@@ -7583,14 +7707,17 @@ struct confd_authorization_ctx {
 > `CONFD_ACCESS_OP_EXECUTE`  
 > > Execute access. This is used when a command is about to be executed.
 >
-> > [!NOTE]
-> > This callback may be invoked with `actx->uinfo == NULL`, meaning
-> > that no user session has been established for the user yet. This
-> > will occur e.g. when the CLI checks whether a user attempting to log
-> > in is allowed to (implicitly) execute the command "request system
-> > logout user" (J-CLI) or "logout" (C/I-CLI) when the maximum number
-> > of sessions has already been reached (if allowed, the CLI will ask
-> > whether the user wants to terminate one of the existing sessions).
+> <div class="note">
+>
+> This callback may be invoked with `actx->uinfo == NULL`, meaning that
+> no user session has been established for the user yet. This will occur
+> e.g. when the CLI checks whether a user attempting to log in is
+> allowed to (implicitly) execute the command "request system logout
+> user" (J-CLI) or "logout" (C/I-CLI) when the maximum number of
+> sessions has already been reached (if allowed, the CLI will ask
+> whether the user wants to terminate one of the existing sessions).
+>
+> </div>
 
 `chk_data_access()`  
 > This callback is invoked for data authorization, i.e. it corresponds
@@ -8060,11 +8187,13 @@ examples collection illustrates subscription and processing for all
 these events, and can also be used standalone in a development
 environment to monitor NSO events.
 
-> **Note**  
->  
-> Any event may allocate memory dynamically inside the
-> `struct confd_notification`, thus we must always call
-> `confd_free_notification()` after receiving and processing an event.
+<div class="note">
+
+Any event may allocate memory dynamically inside the
+`struct confd_notification`, thus we must always call
+`confd_free_notification()` after receiving and processing an event.
+
+</div>
 
 ### Events
 
@@ -8393,11 +8522,12 @@ some specific `confd_errno` values:
 > The user session id given by `usid` does not identify an existing user
 > session.
 
-> **Note**  
->  
-> If these calls fail (i.e. do not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If these calls fail (i.e. do not return CONFD_OK), the socket descriptor
+must be closed and a new socket created before the call is re-attempted.
+
+</div>
 
     int confd_read_notification(
     int sock, struct confd_notification *n);
@@ -8516,11 +8646,13 @@ cluster. There can only be one HA socket towards NSO, a new call to
 `confd_ha_connect()` makes NSO close the previous connection and reset
 the token to the new value. Returns CONFD_OK or CONFD_ERR.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
     int confd_ha_beprimary(
     int sock, confd_value_t *mynodeid);
@@ -9236,13 +9368,14 @@ this case `maapi_xpath2kpath_th()` must be used to translate the string
 into a `confd_hkeypath_t`, which can then be used with
 `CONFD_SET_OBJECTREF()` to create the `confd_value_t` value.
 
-> **Note**  
->  
-> When the resulting value is of one of the C_BUF, C_BINARY, C_LIST,
-> C_OBJECTREF, C_OID, C_QNAME, C_HEXSTR, or C_BITBIG `confd_value_t`
-> types, the library has allocated memory to hold the value. It is up to
-> the user of this function to free the memory using
-> `confd_free_value()`.
+<div class="note">
+
+When the resulting value is of one of the C_BUF, C_BINARY, C_LIST,
+C_OBJECTREF, C_OID, C_QNAME, C_HEXSTR, or C_BITBIG `confd_value_t`
+types, the library has allocated memory to hold the value. It is up to
+the user of this function to free the memory using `confd_free_value()`.
+
+</div>
 
     char *confd_val2str_ptr(
     struct confd_type *type, const confd_value_t *val);
@@ -9340,13 +9473,15 @@ possible internal pointers inside the struct. Typically we use
 If the held value is of fixed size, e.g. integers, xmltags etc, the
 `confd_free_value()` function does nothing.
 
-> **Note**  
->  
-> Memory for values received as parameters to callback functions is
-> always managed by the library - the application must *not* call
-> `confd_free_value()` for those (on the other hand values of the types
-> listed above that are received as parameters to a callback function
-> must be copied if they are to persist beyond the callback invocation).
+<div class="note">
+
+Memory for values received as parameters to callback functions is always
+managed by the library - the application must *not* call
+`confd_free_value()` for those (on the other hand values of the types
+listed above that are received as parameters to a callback function must
+be copied if they are to persist beyond the callback invocation).
+
+</div>
 
     confd_value_t *confd_value_dup_to(
     const confd_value_t *v, confd_value_t *newv);
@@ -9416,11 +9551,13 @@ This function decrypts `len` bytes of data from `ciphertext` and writes
 the clear text to the `output` pointer. The `output` pointer must point
 to an area that is at least `len` bytes long.
 
-> **Note**  
->  
-> One of the functions `confd_install_crypto_keys()` and
-> `maapi_install_crypto_keys()` must have been called before
-> `confd_decrypt()` can be used.
+<div class="note">
+
+One of the functions `confd_install_crypto_keys()` and
+`maapi_install_crypto_keys()` must have been called before
+`confd_decrypt()` can be used.
+
+</div>
 
 ### User-Defined Types
 
@@ -9466,11 +9603,13 @@ Connects a stream socket to NSO. The `id` and the `flags` take different
 values depending on the usage scenario. This is indicated for each
 individual function that makes use of a stream socket.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 ### Marshalling
 
@@ -9767,13 +9906,14 @@ A call of `confd_trans_seterr_extended_info()` to populate the
 
 </div>
 
-> **Note**  
->  
-> The toplevel elements in the `confd_tag_value_t` array *must* have the
-> `ns` element of the `struct xml_tag` set. The
-> `CONFD_SET_TAG_XMLBEGIN()` macro will set this element, but for
-> toplevel leaf elements the `CONFD_SET_TAG_NS()` macro needs to be
-> used, as shown above.
+<div class="note">
+
+The toplevel elements in the `confd_tag_value_t` array *must* have the
+`ns` element of the `struct xml_tag` set. The `CONFD_SET_TAG_XMLBEGIN()`
+macro will set this element, but for toplevel leaf elements the
+`CONFD_SET_TAG_NS()` macro needs to be used, as shown above.
+
+</div>
 
 The \<error-info\> section resulting from the above would look like
 this:
@@ -11058,11 +11198,13 @@ closed.
 
 The application has to connect to NCS before it can interact with NCS.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -11548,12 +11690,14 @@ the candidate is committed to running. To set only the "Label", give
 If both `label` and `comment` are NULL, the function does exactly the
 same as `maapi_candidate_confirmed_commit_persistent()`.
 
-> **Note**  
->  
-> To ensure that the "Label" and/or "Comment" are stored in the rollback
-> file in all cases when doing a confirmed commit, they must be given
-> both with the confirmed commit (using this function) and with the
-> confirming commit (using `maapi_candidate_commit_info()`).
+<div class="note">
+
+To ensure that the "Label" and/or "Comment" are stored in the rollback
+file in all cases when doing a confirmed commit, they must be given both
+with the confirmed commit (using this function) and with the confirming
+commit (using `maapi_candidate_commit_info()`).
+
+</div>
 
 If `confd_errno` is CONFD_ERR_NOEXISTS it means that there is an ongoing
 persistent confirmed commit, but `persist_id` didn't give the right
@@ -11586,13 +11730,15 @@ only the "Label", give `comment` as NULL, and to set only the "Comment",
 give `label` as NULL. If both `label` and `comment` are NULL, the
 function does exactly the same as `maapi_candidate_commit_persistent()`.
 
-> **Note**  
->  
-> To ensure that the "Label" and/or "Comment" are stored in the rollback
-> file in all cases when doing a confirmed commit, they must be given
-> both with the confirmed commit (using
-> `maapi_candidate_confirmed_commit_info()`) and with the confirming
-> commit (using this function).
+<div class="note">
+
+To ensure that the "Label" and/or "Comment" are stored in the rollback
+file in all cases when doing a confirmed commit, they must be given both
+with the confirmed commit (using
+`maapi_candidate_confirmed_commit_info()`) and with the confirming
+commit (using this function).
+
+</div>
 
 If `confd_errno` is CONFD_ERR_NOEXISTS it means that there is an ongoing
 persistent confirmed commit, but `persist_id` didn't give the right
@@ -11888,14 +12034,16 @@ eventually commits or aborts.
 A call to `maapi_apply_trans()` must also eventually be followed by a
 call to `maapi_finish_trans()` which will terminate the transaction.
 
-> **Note**  
->  
-> For a readonly transaction, i.e. one started with `readwrite` ==
-> `CONFD_READ`, or for a read-write transaction where we haven't
-> actually done any writes, we do not need to call any of the
-> validate/prepare/commit/abort or apply functions, since there is
-> nothing for them to do. Calling `maapi_finish_trans()` to terminate
-> the transaction is sufficient.
+<div class="note">
+
+For a readonly transaction, i.e. one started with `readwrite` ==
+`CONFD_READ`, or for a read-write transaction where we haven't actually
+done any writes, we do not need to call any of the
+validate/prepare/commit/abort or apply functions, since there is nothing
+for them to do. Calling `maapi_finish_trans()` to terminate the
+transaction is sufficient.
+
+</div>
 
 The parameter `keepopen` can optionally be set to `1`, then the changes
 to the transaction are not discarded if validation fails. This feature
@@ -12296,10 +12444,12 @@ before any call to `maapi_get_next()`, `maapi_get_objects()` or
 `maapi_find_next()`. In this case, `secondary_index` must point to a
 NUL-terminated string that is valid throughout the iteration.
 
-> **Note**  
->  
-> ConfD will not sort the uncommitted rows. In this particular case,
-> setting the `secondary_index` element will not work.
+<div class="note">
+
+ConfD will not sort the uncommitted rows. In this particular case,
+setting the `secondary_index` element will not work.
+
+</div>
 
 The list can be filtered by setting the `xpath_expr` field of the
 `struct maapi_cursor` to an XPath expression - this must be done after
@@ -12590,19 +12740,21 @@ the `confd_value_t` value element is given as follows:
 
 - Keys to select list entries can be given with their values.
 
-> **Note**  
->  
-> When we use C_PTR, we need to take special care to free any allocated
-> memory. When we use C_NOEXISTS and the value is stored in the array,
-> we can just use `confd_free_value()` regardless of the type, since the
-> `confd_value_t` has the type information. But with C_PTR, only the
-> actual value is stored in the pointed-to variable, just as for
-> `maapi_get_buf_elem()`, `maapi_get_binary_elem()`, etc, and we need to
-> free the memory specifically allocated for the types listed in the
-> description of `maapi_get_elem()` above. The details of how to do this
-> are not given for the `maapi_get_xxx_elem()` functions here, but it is
-> the same as for the corresponding `cdb_get_xxx()` functions, see
-> [confd_lib_cdb(3)](section3.md#confd_lib_cdb).
+<div class="note">
+
+When we use C_PTR, we need to take special care to free any allocated
+memory. When we use C_NOEXISTS and the value is stored in the array, we
+can just use `confd_free_value()` regardless of the type, since the
+`confd_value_t` has the type information. But with C_PTR, only the
+actual value is stored in the pointed-to variable, just as for
+`maapi_get_buf_elem()`, `maapi_get_binary_elem()`, etc, and we need to
+free the memory specifically allocated for the types listed in the
+description of `maapi_get_elem()` above. The details of how to do this
+are not given for the `maapi_get_xxx_elem()` functions here, but it is
+the same as for the corresponding `cdb_get_xxx()` functions, see
+[confd_lib_cdb(3)](section3.md#confd_lib_cdb).
+
+</div>
 
 All elements have the same position in the array after the call, in
 order to simplify extraction of the values - this means that optional
@@ -12613,11 +12765,13 @@ only indication of a non-existing value is that the destination variable
 has not been modified - it's up to the application to set it to some
 "impossible" value before the call when optional leafs are read.
 
-> **Note**  
->  
-> Selection of a list entry by its "instance integer", which can be done
-> with `cdb_get_values()` by using C_CDBBEGIN, can *not* be done with
-> `maapi_get_values()`
+<div class="note">
+
+Selection of a list entry by its "instance integer", which can be done
+with `cdb_get_values()` by using C_CDBBEGIN, can *not* be done with
+`maapi_get_values()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_BADPATH, CONFD_ERR_BADTYPE, CONFD_ERR_NOEXISTS,
@@ -13013,11 +13167,13 @@ struct ncs_name_value {
 
 The `flags` parameter is currently unused and should be given as 0.
 
-> **Note**  
->  
-> If this function is called under FASTMAP it will have the same
-> behavior as the corresponding FASTMAP function
-> `maapi_shared_ncs_apply_template()`.
+<div class="note">
+
+If this function is called under FASTMAP it will have the same behavior
+as the corresponding FASTMAP function
+`maapi_shared_ncs_apply_template()`.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_ACCESS_DENIED, CONFD_ERR_NOT_WRITABLE, CONFD_ERR_BADPATH,
@@ -13138,29 +13294,30 @@ entry. The `from` path must be pre-formatted, e.g. using
 `confd_format_keypath()`, whereas the destination path is formatted by
 this function.
 
-> **Note**  
->  
-> The data models for the source and destination trees must match - i.e.
-> they must either be identical, or the data model for the source tree
-> must be a proper subset of the data model for the destination tree.
-> This is always fulfilled when copying from one entry to another in a
-> list, or if both source and destination tree have been defined via
-> YANG `uses` statements referencing the same `grouping` definition. If
-> a data model mismatch is detected, e.g. an existing data node in the
-> source tree does not exist in the destination data model, or an
-> existing leaf in the source tree has a value that is incompatible with
-> the type of the leaf in the destination data model,
-> `maapi_copy_tree()` will return CONFD_ERR with `confd_errno` set to
-> CONFD_ERR_BADPATH.
->
-> To provide further explanation, a tree is a proper subset of another
-> tree if it has less information than the other. For example, a tree
-> with the leaves a,b,c is a proper subset of a tree with the leaves
-> a,b,c,d,e. It is important to note that it is less information and not
-> different information. Therefore, a tree with different default values
-> than another tree is not a proper subset, or, a tree with an
-> non-presence container can not be a proper subset of a tree with a
-> presence container.
+<div class="note">
+
+The data models for the source and destination trees must match - i.e.
+they must either be identical, or the data model for the source tree
+must be a proper subset of the data model for the destination tree. This
+is always fulfilled when copying from one entry to another in a list, or
+if both source and destination tree have been defined via YANG `uses`
+statements referencing the same `grouping` definition. If a data model
+mismatch is detected, e.g. an existing data node in the source tree does
+not exist in the destination data model, or an existing leaf in the
+source tree has a value that is incompatible with the type of the leaf
+in the destination data model, `maapi_copy_tree()` will return CONFD_ERR
+with `confd_errno` set to CONFD_ERR_BADPATH.
+
+To provide further explanation, a tree is a proper subset of another
+tree if it has less information than the other. For example, a tree with
+the leaves a,b,c is a proper subset of a tree with the leaves a,b,c,d,e.
+It is important to note that it is less information and not different
+information. Therefore, a tree with different default values than
+another tree is not a proper subset, or, a tree with an non-presence
+container can not be a proper subset of a tree with a presence
+container.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_ACCESS_DENIED, CONFD_ERR_NOT_WRITABLE, CONFD_ERR_BADPATH
@@ -14317,11 +14474,13 @@ as a string, and the socket is a maapi socket obtained using
 `maapi_connect()`. On success, the function returns the number of
 connections that were closed.
 
-> **Note**  
->  
-> ConfD will close all its sockets with remote address `address`,
-> *except* HA connections. For HA use `confd_ha_secondary_dead()` or an
-> HA state transition.
+<div class="note">
+
+ConfD will close all its sockets with remote address `address`, *except*
+HA connections. For HA use `confd_ha_secondary_dead()` or an HA state
+transition.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_UNAVAILABLE
@@ -14492,15 +14651,17 @@ the function `maapi_save_config_result()`.
 The stream socket must be connected within 10 seconds after the id is
 received.
 
-> **Note**  
->  
-> The `maapi_save_config()` function can not be used with an attached
-> transaction in a data callback (see
-> [confd_lib_dp(3)](section3.md#confd_lib_dp)), since it requires active
-> participation by the transaction manager, which is blocked waiting for
-> the callback to return. However it is possible to use it with a
-> transaction started via `maapi_start_trans_in_trans()` with the
-> attached transaction as backend.
+<div class="note">
+
+The `maapi_save_config()` function can not be used with an attached
+transaction in a data callback (see
+[confd_lib_dp(3)](section3.md#confd_lib_dp)), since it requires active
+participation by the transaction manager, which is blocked waiting for
+the callback to return. However it is possible to use it with a
+transaction started via `maapi_start_trans_in_trans()` with the attached
+transaction as backend.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BAD_TYPE
 
@@ -14531,11 +14692,13 @@ meanings as for `maapi_save_config()`. If the name of the file ends in
 .gz (or .Z) then the file is assumed to be gzipped, and will be
 uncompressed as it is loaded.
 
-> **Note**  
->  
-> If you use a relative pathname for `filename`, it is taken as relative
-> to the working directory of the ConfD daemon, i.e. the directory where
-> the daemon was started.
+<div class="note">
+
+If you use a relative pathname for `filename`, it is taken as relative
+to the working directory of the ConfD daemon, i.e. the directory where
+the daemon was started.
+
+</div>
 
 By default the complete configuration (as allowed by the user of the
 current transaction) is deleted before the file is loaded. To merge the
@@ -14588,17 +14751,18 @@ The other `flags` parameters are the same as for `maapi_save_config()`,
 however the flags `MAAPI_CONFIG_WITH_SERVICE_META`,
 `MAAPI_CONFIG_NO_PARENTS`, and `MAAPI_CONFIG_CDB_ONLY` are ignored.
 
-> **Note**  
->  
-> The `maapi_load_config()` function can not be used with an attached
-> transaction in a data callback (see
-> [confd_lib_dp(3)](section3.md#confd_lib_dp)), since it requires active
-> participation by the transaction manager, which is blocked waiting for
-> the callback to return. However it is possible to use it with a
-> transaction started via `maapi_start_trans_in_trans()` with the
-> attached transaction as backend, writing the changes to the attached
-> transaction by invoking `maapi_apply_trans()` for the
-> "trans-in-trans".
+<div class="note">
+
+The `maapi_load_config()` function can not be used with an attached
+transaction in a data callback (see
+[confd_lib_dp(3)](section3.md#confd_lib_dp)), since it requires active
+participation by the transaction manager, which is blocked waiting for
+the callback to return. However it is possible to use it with a
+transaction started via `maapi_start_trans_in_trans()` with the attached
+transaction as backend, writing the changes to the attached transaction
+by invoking `maapi_apply_trans()` for the "trans-in-trans".
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_BADPATH, CONFD_ERR_BAD_CONFIG, CONFD_ERR_ACCESS_DENIED,
@@ -14614,11 +14778,13 @@ The `th` and `flags` parameters are the same as for
 
 An optional `chroot` path can be given.
 
-> **Note**  
->  
-> The same restriction as for `maapi_load_config()` regarding an
-> attached transaction in a data callback applies also to
-> `maapi_load_config_cmds()`
+<div class="note">
+
+The same restriction as for `maapi_load_config()` regarding an attached
+transaction in a data callback applies also to
+`maapi_load_config_cmds()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_BADPATH, CONFD_ERR_BAD_CONFIG, CONFD_ERR_ACCESS_DENIED,
@@ -14667,11 +14833,13 @@ configuration load was successful we use the function
 The stream socket must be connected within 10 seconds after the id is
 received.
 
-> **Note**  
->  
-> The same restriction as for `maapi_load_config()` regarding an
-> attached transaction in a data callback applies also to
-> `maapi_load_config_stream()`
+<div class="note">
+
+The same restriction as for `maapi_load_config()` regarding an attached
+transaction in a data callback applies also to
+`maapi_load_config_stream()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_PROTOUSAGE, CONFD_ERR_EXTERNAL
@@ -14800,14 +14968,15 @@ function.
 
 </div>
 
-> **Note**  
->  
-> A call to `maapi_get_stream_progress()` does not return until the
-> number of bytes read has increased from the previous call (or if there
-> is an error). This means that the above code does not imply
-> busy-looping, but also that if the code was to call
-> `maapi_get_stream_progress()` when `n_read` == `n_written`, the result
-> would be a deadlock.
+<div class="note">
+
+A call to `maapi_get_stream_progress()` does not return until the number
+of bytes read has increased from the previous call (or if there is an
+error). This means that the above code does not imply busy-looping, but
+also that if the code was to call `maapi_get_stream_progress()` when
+`n_read` == `n_written`, the result would be a deadlock.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
 
@@ -15195,11 +15364,13 @@ CONFD_ERR_STALE_INSTANCE, CONFD_ERR_BADTYPE, CONFD_ERR_EXTERNAL
 Calling this function at any point before the call of
 `maapi_commit_upgrade()` will abort the upgrade.
 
-> **Note**  
->  
-> `maapi_abort_upgrade()` should *not* be called if any of the three
-> previous functions fail - in that case, ConfD will do an internal
-> abort of the upgrade.
+<div class="note">
+
+`maapi_abort_upgrade()` should *not* be called if any of the three
+previous functions fail - in that case, ConfD will do an internal abort
+of the upgrade.
+
+</div>
 
 ### Confd Daemon Control
 
@@ -15329,12 +15500,14 @@ together if more than one:
 
 </div>
 
-> **Note**  
->  
-> It is not possible to rebind sockets for northbound listeners during
-> the transition from start phase 1 to start phase 2. If this is
-> attempted, the call will fail (and do nothing) with `confd_errno` set
-> to CONFD_ERR_BADSTATE.
+<div class="note">
+
+It is not possible to rebind sockets for northbound listeners during the
+transition from start phase 1 to start phase 2. If this is attempted,
+the call will fail (and do nothing) with `confd_errno` set to
+CONFD_ERR_BADSTATE.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE
 
@@ -16640,17 +16813,18 @@ description below.
 The choice of `confd_vtype` to use for the value representation can be
 whatever suits the actual data values best, with one exception:
 
-> **Note**  
->  
-> The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
-> key in a YANG list. The "normal" C_LIST usage is only for
-> representation of leaf-lists, and a leaf-list can of course not be a
-> key. Thus the ConfD code is not prepared to handle this kind of
-> "value" for a key. It is a strong recommendation to *never* use C_LIST
-> for a user-defined type, since even if the type is not initially used
-> for key leafs, subsequent development may see a need for this, at
-> which point it may be cumbersome to change to a different
-> representation.
+<div class="note">
+
+The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
+key in a YANG list. The "normal" C_LIST usage is only for representation
+of leaf-lists, and a leaf-list can of course not be a key. Thus the
+ConfD code is not prepared to handle this kind of "value" for a key. It
+is a strong recommendation to *never* use C_LIST for a user-defined
+type, since even if the type is not initially used for key leafs,
+subsequent development may see a need for this, at which point it may be
+cumbersome to change to a different representation.
+
+</div>
 
 The example uses C_INT32, C_IPV4PREFIX, and C_IPV6PREFIX for the value
 representation of the respective types, but in many cases the opaque
@@ -16767,12 +16941,14 @@ auxiliary (static) data needed by the functions (on invocation they can
 reference it as self-\>opaque). The `parent` and `defval` elements are
 not used in this context, and should be NULL.
 
-> **Note**  
->  
-> The `str_to_val()` function *must* allocate space (using e.g.
-> malloc(3)) for the actual data value for those confd_value_t types
-> that are listed as having allocated data above, i.e. C_BUF, C_QNAME,
-> C_LIST, C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
+<div class="note">
+
+The `str_to_val()` function *must* allocate space (using e.g. malloc(3))
+for the actual data value for those confd_value_t types that are listed
+as having allocated data above, i.e. C_BUF, C_QNAME, C_LIST,
+C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
+
+</div>
 
 We make the implementation available to ConfD by creating one or more
 shared objects (.so files) containing the above callback functions. Each
@@ -16806,26 +16982,29 @@ These structures are then used by ConfD to locate the implementation of
 a given type, by searching for a `typepoint` string that matches the
 `tailf:typepoint` argument in the YANG data model.
 
-> **Note**  
->  
-> Since our callbacks are executed directly by the ConfD daemon, it is
-> critically important that they do not have a negative impact on the
-> daemon. No other processing can be done by ConfD while the callbacks
-> are executed, and e.g. a NULL pointer dereference in one of the
-> callbacks will cause ConfD to crash. Thus they should be simple,
-> purely algorithmic functions, never referencing any external
-> resources.
+<div class="note">
 
-> **Note**  
->  
-> When user-defined types are present, the ConfD daemon also needs to
-> load the libconfd.so shared library, otherwise used only by
-> applications. This means that either this library must be in one of
-> the system directories that are searched by the OS runtime loader
-> (typically /lib and /usr/lib), or its location must be given by
-> setting the LD_LIBRARY_PATH environment variable before starting
-> ConfD, or the default location \$CONFD_DIR/lib is used, where
-> \$CONFD_DIR is the installation directory of ConfD.
+Since our callbacks are executed directly by the ConfD daemon, it is
+critically important that they do not have a negative impact on the
+daemon. No other processing can be done by ConfD while the callbacks are
+executed, and e.g. a NULL pointer dereference in one of the callbacks
+will cause ConfD to crash. Thus they should be simple, purely
+algorithmic functions, never referencing any external resources.
+
+</div>
+
+<div class="note">
+
+When user-defined types are present, the ConfD daemon also needs to load
+the libconfd.so shared library, otherwise used only by applications.
+This means that either this library must be in one of the system
+directories that are searched by the OS runtime loader (typically /lib
+and /usr/lib), or its location must be given by setting the
+LD_LIBRARY_PATH environment variable before starting ConfD, or the
+default location \$CONFD_DIR/lib is used, where \$CONFD_DIR is the
+installation directory of ConfD.
+
+</div>
 
 The above is enough for ConfD to use the types that we have defined, but
 the libconfd library can also do local string\<-\>value translation if
@@ -17688,9 +17867,12 @@ types. They are defined in the
 > An SNMP OBJECT IDENTIFIER (OID). This is a sequence of integers which
 > identifies an object instance for example "1.3.6.1.4.1.24961.1".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in integer elements
-> > for `object-identifier` and `object-identifier-128`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in integer elements
+> for `object-identifier` and `object-identifier-128`.
+>
+> </div>
 >
 > - `value.type` = C_OID
 >
@@ -17742,9 +17924,12 @@ types. They are defined in the
 > sequence octets, each octet represented by two hexadecimal digits.
 > Octets are separated by colons.
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `phys-address`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `phys-address`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -17782,9 +17967,12 @@ types. They are defined in the
 > A hexadecimal string with octets represented as hex digits separated
 > by colons.
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `hex-string`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `hex-string`.
+>
+> </div>
 >
 > - `value.type` = C_HEXSTR
 >
@@ -18072,9 +18260,12 @@ ConfD.
 `tailf:octet-list`  
 > A list of dot-separated octets for example "192.168.255.1.0".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `octet-list`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `octet-list`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -18088,9 +18279,12 @@ ConfD.
 > A list of colon-separated hexa-decimal octets for example
 > "4F:4C:41:71".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in octets of binary
-> > data for `hex-list`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in octets of binary
+> data for `hex-list`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -18142,8 +18336,11 @@ ConfD.
 > encrypting passwords for various UNIX systems, e.g.
 > <http://www.freebsd.org/cgi/cvsweb.cgi/~checkout~/src/lib/libcrypt/crypt.c?rev=1.5&content-type=text/plain>
 >
-> > [!NOTE]
-> > The `pattern` restriction can not be used with this type.
+> <div class="note">
+>
+> The `pattern` restriction can not be used with this type.
+>
+> </div>
 >
 > - `value.type` = C_BUF
 >
@@ -18234,10 +18431,13 @@ ConfD.
 > - SMIv2 type = `OCTET STRING`
 
 `tailf:des3-cbc-encrypted-string`  
-> > [!NOTE]
-> > This type has been deprecated and will be removed in a future
-> > release. Please use a stronger algorithm such as
-> > tailf:aes-256-cfb-128-encrypted-string.
+> <div class="note">
+>
+> This type has been deprecated and will be removed in a future release.
+> Please use a stronger algorithm such as
+> tailf:aes-256-cfb-128-encrypted-string.
+>
+> </div>
 >
 > The des3-cbc-encrypted-string type automatically encrypts a value
 > adhering to this type using DES in CBC mode followed by a base64
@@ -18284,8 +18484,11 @@ ConfD.
 > string. For details, see the description of the encryptedStrings
 > configurable in the [confd.conf(5)](section5.md#ncs.conf) manual page.
 >
-> > [!NOTE]
-> > The `pattern` restriction can not be used with this type.
+> <div class="note">
+>
+> The `pattern` restriction can not be used with this type.
+>
+> </div>
 >
 > - `value.type` = C_BUF
 >
@@ -18300,8 +18503,11 @@ ConfD.
 > des3-cbc-encrypted-string but AES/128bits in CFB mode is used to
 > encrypt the string. The prefix for encrypted values is "\$8\$".
 >
-> > [!NOTE]
-> > The `pattern` restriction can not be used with this type.
+> <div class="note">
+>
+> The `pattern` restriction can not be used with this type.
+>
+> </div>
 >
 > - `value.type` = C_BUF
 >
