@@ -138,7 +138,7 @@ The section provides guidance on identifying transaction conflicts and what affe
 
 ## Fine-tuning the Concurrency Parameters <a href="#d5e8421" id="d5e8421"></a>
 
-Depending on the specifics of the server running NSO, additional performance improvement might be possible by fine-tuning the `transaction-limits` set of configuration parameters in `ncs.conf`. Please see the ncs.conf(1) manpage for details.
+Depending on the specifics of the server running NSO, additional performance improvement might be possible by fine-tuning the `transaction-limits` set of configuration parameters in `ncs.conf`. Please see the [ncs.conf](../../man/section5.md#ncs.conf) manpage for details.
 
 ## Enabling Even More Parallelism <a href="#d5e8426" id="d5e8426"></a>
 

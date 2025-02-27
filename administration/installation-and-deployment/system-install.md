@@ -159,7 +159,7 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 * Phased Provisioning
 * Resource Manager
 
-For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://developer.cisco.com/docs/nso).
+For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
 
 **NED Packages**
 
@@ -169,7 +169,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The Manual Pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1 ](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer)in Manual Pages.
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The Manual Pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../man/index.md) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -198,7 +198,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) Manual Page included with NSO.
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../man/section1.md#ncs-installer) Manual Page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`.
 
@@ -247,7 +247,7 @@ Use the `--ignore-init-scripts` option to disable provisioning the `systemd` sys
 
 If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interactive mode, the user will be prompted to continue using the old SysV service behavior or prepare a `systemd` service. In non-interactive mode, a `systemd` service will be prepared where a `/etc/systemd/system/ncs.service.prepare` file is created. The service is not enabled to start at boot. To enable it, rename it to `/etc/systemd/system/ncs.service` and remove the old `/etc/init.d/ncs` SysV service.
 
-For more information on the `ncs-installer`, see the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) man page.
+For more information on the `ncs-installer`, see the [ncs-installer(1)](../../man/section1.md#ncs-installer) man page.
 
 For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
 

@@ -301,7 +301,7 @@ class Upgrade(ncs.upgrade.Upgrade):
 
 ## The NSO client timeouts
 
-The section `/ncs-config/api` in **ncs.conf** contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](https://developer.cisco.com/docs/nso/guides/ncs-man-pages-volume-5/#ncs-conf) for details.
+The section `/ncs-config/api` in **ncs.conf** contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](../../../man/section5.md#ncs.conf) for details.
 
 * `new-session-timeout` controls how long NSO will wait for the NSO Python VM to respond to a new session.
 * `query-timeout` controls how long NSO will wait for the NSO Python VM to respond to a request to get data.
