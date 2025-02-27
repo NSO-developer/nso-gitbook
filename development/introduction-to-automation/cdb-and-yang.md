@@ -30,7 +30,7 @@ There are a number of other features that make the CDB an excellent choice for a
 
 To speed up operations, CDB keeps a configurable amount of configuration data in RAM, in addition to persisting it to disk (see [CDB Persistence](../../administration/advanced-topics/cdb-persistence.md) for details). The CDB also stores transient operational data, such as alarms and traffic statistics. By default, this operational data is only kept in RAM and is reset during restarts, however, the CDB can be instructed to persist it if required.
 
-{% hint style="note" %}
+{% hint style="info" %}
 The automatic schema update feature is useful not only when performing an actual upgrade of NSO itself, it also simplifies the development process. It allows individual developers to add and delete items in the configuration independently.
 
 Additionally, the schema for data in the CDB is defined with a standard modeling language called YANG. YANG (RFC 7950, [https://tools.ietf.org/html/rfc7950](https://tools.ietf.org/html/rfc7950)) describes constraints on the data and allows the CDB to store values more efficiently.
@@ -408,7 +408,7 @@ In such cases, you can bootstrap the CDB data with XML files. There are various 
 
 In particular, some of the provided examples use the CDB init files mechanism to save you from typing out all of the initial configuration commands by hand. They do so by creating a file with the configuration encoded in the XML format.
 
-When starting empty, the CDB will try to initialize the database from all XML files found in the directories specified by the `init-path` and `db-dir` settings in `ncs.conf` (please see [ncs.conf(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.ncs.conf) in Manual Pages for exact details). The loading process scans the files with the `.xml` suffix and adds all the data in a single transaction. In other words, there is no specified order in which the files are processed. This happens early during start-up, during the so-called start phase 1, described in [Starting NSO](../../administration/management/system-management/README.md#ug.sys\_mgmt.starting\_ncs).
+When starting empty, the CDB will try to initialize the database from all XML files found in the directories specified by the `init-path` and `db-dir` settings in `ncs.conf` (please see [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for exact details). The loading process scans the files with the `.xml` suffix and adds all the data in a single transaction. In other words, there is no specified order in which the files are processed. This happens early during start-up, during the so-called start phase 1, described in [Starting NSO](../../administration/management/system-management/#ug.sys_mgmt.starting_ncs).
 
 The content of the init file does not need to be a complete instance document but can specify just a part of the overall data, very much like the contents of the NETCONF `edit-config` operation. However, the end result of applying all the files must still be valid according to the model.
 
@@ -428,7 +428,7 @@ It is a good practice to wrap the data inside a `config` element, as it gives yo
 
 There are many ways to generate the XML data. A common approach is to dump existing data with the `ncs_load` utility or the `display xml` filter in the CLI. All of the data in the CDB can be represented (or exported, if you will) in XML. This is no coincidence. XML was the main format for encoding data with NETCONF when YANG was created and you can trace the origin of some YANG features back to XML.
 
-{% code title="Creating init XML File with the 'ncs_load' Command" %}
+{% code title="Creating init XML File with the " %}
 ```bash
 $ ncs_load -F p -p /domains > cdb-init.xml
 $ cat cdb-init.xml
