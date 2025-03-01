@@ -21,17 +21,10 @@ layout:
 
 # Welcome
 
-***
-
-Explore this site to access the broad range of NSO documentation, and:
-
-* Get started with NSO by learning and evaluating the product.&#x20;
-* Read the official NSO documentation guides.
-* Receive guidance on best practices for your NSO deployment.
-* Access supplemental material via resources, community forums, and associated channels.
+### Start Exploring
 
 ***
 
-## Start Exploring
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>NSO Basics</strong></td><td>Learn the fundamentals of Cisco NSO.</td><td><a href=".gitbook/assets/image (26).jpg">image (26).jpg</a></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Learning Paths</strong></td><td>Explore various paths to learning NSO.</td><td><a href=".gitbook/assets/image (37).jpg">image (37).jpg</a></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Quick Start</strong></td><td>Get up and running with NSO quickly.</td><td><a href=".gitbook/assets/image (29).jpg">image (29).jpg</a></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>User Guides</strong></td><td>Official NSO documentation guides.</td><td><a href=".gitbook/assets/image (5).jpg">image (5).jpg</a></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/guides">https://cisco-tailf.gitbook.io/nso-docs/guides</a></td></tr><tr><td><strong>Developer Reference</strong></td><td>NSO APIs and interfaces reference.</td><td><a href=".gitbook/assets/image (8).jpg">image (8).jpg</a></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/developers">https://cisco-tailf.gitbook.io/nso-docs/developers</a></td></tr><tr><td><strong>NSO Resources</strong></td><td>Platform tools, best practices, blogs, and more.</td><td><a href=".gitbook/assets/image (17).jpg">image (17).jpg</a></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/resources">https://cisco-tailf.gitbook.io/nso-docs/resources</a></td></tr></tbody></table>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>NSO Basics</strong></td><td>Learn the fundamentals of Cisco NSO.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Learning Paths</strong></td><td>Explore various paths to learning NSO.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Quick Start</strong></td><td>Get up and running with NSO quickly.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Docs and Guides</strong></td><td>Official NSO documentation guides.</td><td></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/guides">https://cisco-tailf.gitbook.io/nso-docs/guides</a></td></tr><tr><td><strong>Developer Reference</strong></td><td>NSO APIs and interfaces reference.</td><td></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/api-reference">https://cisco-tailf.gitbook.io/nso-docs/api-reference</a></td></tr><tr><td><strong>NSO</strong> <strong>Resources</strong></td><td>Platform tools, best practices, blogs, and more.</td><td></td><td><a href="https://cisco-tailf.gitbook.io/nso-docs/resources">https://cisco-tailf.gitbook.io/nso-docs/resources</a></td></tr></tbody></table>
+***
