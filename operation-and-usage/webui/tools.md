@@ -76,7 +76,7 @@ Individual alarm details are accessible by clicking the severity level icon on a
 
 ### Compress and Purge Alarms
 
-The Web UI provides options to compress and purge alarms.
+The Web UI provides additional options to compress and purge alarms.
 
 * The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
 * The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
@@ -193,7 +193,7 @@ To run a compliance report:
 
 1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
 2. Specify the following in the **Run report** pop-up:
-   * **Report title**
+   * **Report title**: A title for this specific report run.
    * **Historical time interval**. Select the time range. The report runs with the maximum possible interval if you do not specify an interval.
 3. Click **Run report**.
 
@@ -205,10 +205,11 @@ The **Reports results** tab is used to view the status and results of the compli
 
 #### View Compliance Report Results
 
-The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
+The report's results show if the devices/services included in the report are compliant/in-sync or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
 
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
-* **Results overview**: Shows a summary of the results with visuals on the number of compliant/non-compliant devices and in-sync/out-of-sync services.
+* **Results overview**: Shows a summary of results with visuals on the number of devices and services that are presently compliant/in-sync.
+* **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run.
 * **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
 
 {% hint style="info" %}
