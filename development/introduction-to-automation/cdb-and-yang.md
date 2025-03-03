@@ -402,7 +402,7 @@ In such cases, you can bootstrap the CDB data with XML files. There are various 
 
 In particular, some of the provided examples use the CDB init files mechanism to save you from typing out all of the initial configuration commands by hand. They do so by creating a file with the configuration encoded in the XML format.
 
-When starting empty, the CDB will try to initialize the database from all XML files found in the directories specified by the `init-path` and `db-dir` settings in `ncs.conf` (please see [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for exact details). The loading process scans the files with the `.xml` suffix and adds all the data in a single transaction. In other words, there is no specified order in which the files are processed. This happens early during start-up, during the so-called start phase 1, described in [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs).
+When starting empty, the CDB will try to initialize the database from all XML files found in the directories specified by the `init-path` and `db-dir` settings in `ncs.conf` (please see [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for exact details). The loading process scans the files with the `.xml` suffix and adds all the data in a single transaction. In other words, there is no specified order in which the files are processed. This happens early during start-up, during the so-called start phase 1, described in [Starting NSO](../../administration/management/system-management/#ug.sys_mgmt.starting_ncs).
 
 The content of the init file does not need to be a complete instance document but can specify just a part of the overall data, very much like the contents of the NETCONF `edit-config` operation. However, the end result of applying all the files must still be valid according to the model.
 
@@ -422,7 +422,7 @@ It is a good practice to wrap the data inside a `config` element, as it gives yo
 
 There are many ways to generate the XML data. A common approach is to dump existing data with the `ncs_load` utility or the `display xml` filter in the CLI. All of the data in the CDB can be represented (or exported, if you will) in XML. This is no coincidence. XML was the main format for encoding data with NETCONF when YANG was created and you can trace the origin of some YANG features back to XML.
 
-{% code title="Creating init XML File with the 'ncs_load' Command" %}
+{% code title="Creating init XML File with the " %}
 ```bash
 $ ncs_load -F p -p /domains > cdb-init.xml
 $ cat cdb-init.xml

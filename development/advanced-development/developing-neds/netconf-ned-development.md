@@ -23,7 +23,7 @@ The NSO example under `$NCS_DIR/examples.ncs/development-guide/ned-development/n
 
 The `netconf-console` NETCONF client tool is a Python script that can be used for testing, debugging, and simple client duties. For example, making the device YANG models available to NSO using the NETCONF IETF RFC 6022 `get-schema` operation to download YANG modules and the RFC 6241`get` operation, where the device implements the RFC 7895 YANG module library to provide information about all the YANG modules used by the NETCONF server. Type `netconf-console -h` for documentation.
 
-Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1/#man.1.ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
+Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](../../../man/section1.md#ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
 
 The `demo.sh` script in the `netconf-ned` example uses the `netconf-console` and `ncs-make-package` combination to create, build, and install the NETCONF NED. When you know beforehand which models you need from the device, you often begin with this approach when encountering a new NETCONF device.
 
@@ -140,7 +140,7 @@ If you make any changes to, for example, the YANG models after creating the pack
 
 ### **Configure the Device Connection**
 
-Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](https://developer.cisco.com/docs/nso-guides-6.3/ncs-man-pages-volume-1/#man.1.ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
+Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](../../../man/section1.md#ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
 
 ```bash
 $ ncs --cd ./nso-rundir
@@ -455,10 +455,11 @@ An NSO NED is a package containing the device YANG data models. The NED package 
 
 After the files have been downloaded from the device, they must be built before being used. The following example shows how to build a NED for the `hw0` device.
 
-<pre><code># devtools true
+```
+# devtools true
 # netconf-ned-builder project hardware 1.0 build-ned
-<strong># show netconf-ned-builder project hardware 1.0 build-status
-</strong>build-status success
+# show netconf-ned-builder project hardware 1.0 build-status
+build-status success
 # show netconf-ned-builder project hardware 1.0 module build-warning
 % No entries found.
 # show netconf-ned-builder project hardware 1.0 module build-error
@@ -466,7 +467,7 @@ After the files have been downloaded from the device, they must be built before 
 # unhide debug
 # show netconf-ned-builder project hardware 1.0 compiler-output
 % No entries found.
-</code></pre>
+```
 
 {% hint style="info" %}
 Build errors can be found in the `build-error` leaf under the module list entry. If there are errors in the build, resolve the issues in the YANG models, update them and their revision on the device, and download them from the device or place the YANG models in the cache as described earlier.

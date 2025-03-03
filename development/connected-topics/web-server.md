@@ -8,7 +8,7 @@ This page describes an embedded basic web server that can deliver static and Com
 
 ## Web Server Capabilities <a href="#d5e8815" id="d5e8815"></a>
 
-The web server can be configured through settings in `ncs.conf` . See the Manual Pages section [Configuration Parameters](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/tailf-ncs-config.yang\_config).
+The web server can be configured through settings in `ncs.conf` . See the Manual Pages section [Configuration Parameters](../../man/section5.md#configuration-parameters).
 
 Here is a brief overview of what you can configure on the web server:
 
@@ -29,7 +29,7 @@ In addition to what is configurable, the web server also GZip-compresses respons
 
 ## CGI Support <a href="#d5e8848" id="d5e8848"></a>
 
-The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see [Configuration Parameters](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/tailf-ncs-config.yang\_config) in manual Pages), you can write CGI scripts, that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
+The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see [Configuration Parameters](../../man/section5.md#configuration-parameters) in manual Pages), you can write CGI scripts, that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
 
 * `JSONRPC_SESSIONID`: the JSON-RPC session id (cookie).
 * `JSONRPC_START_TIME`: the start time of the JSON-RPC session.
@@ -200,7 +200,7 @@ HTTP/1.1 302 Found
 
 ## Package Upload <a href="#ug.webserver.package-upload" id="ug.webserver.package-upload"></a>
 
-The web server includes support for uploading packages to `/package-upload` using `HTTP POST` from the local host to the NSO host, making them installable there. It is disabled by default but can be enabled in `ncs.conf`; see [Configuration Parameters](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/tailf-ncs-config.yang\_config) in Manual Pages.
+The web server includes support for uploading packages to `/package-upload` using `HTTP POST` from the local host to the NSO host, making them installable there. It is disabled by default but can be enabled in `ncs.conf`; see [Configuration Parameters](../../man/section5.md#configuration-parameters) in Manual Pages.
 
 By default, only uploading 1 file per request will be processed and any remaining file parts after that will result in an error and its content will be ignored. To allow multiple files in a request you can increase `/ncs-config/webui/package-upload/max-files`.
 

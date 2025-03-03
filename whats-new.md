@@ -1,6 +1,6 @@
 ---
-description: Latest features and enhancements added in this release.
 icon: sparkles
+description: Latest features and enhancements added in this release.
 ---
 
 # What's New
@@ -35,7 +35,7 @@ Documentation Updates:
 
 * Added a new section [Compaction](administration/advanced-topics/compaction.md) to describe automatic and manual compaction. A new `ncs` command option `--disable-compaction-on-start` added to disable compaction on start.
 * Added a new section [Periodic Compaction](development/connected-topics/scheduler.md#ug.sc.compaction) to include scheduling of NSO compaction during low utilization periods.
-* Updated the [Manual Pages, NCS man-pages Volume 5](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5) to add a new configuration parameter `ncs-config/compaction/delayed-compaction-timeout`.
+* Updated the Manual Pages, [NCS man-pages Volume 5](man/section5.md) to add a new configuration parameter `ncs-config/compaction/delayed-compaction-timeout`.
 
 </details>
 
@@ -59,7 +59,7 @@ NED packages can now be added to the system without triggering a package reload/
 
 Documentation Updates:
 
-* Added a new section [Adding NED Packages](administration/management/package-management.md#ug.package\_mgmt.ned\_package\_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/package-management.md#ug.package\_mgmt.ned\_migration) and [Upgrade](administration/installation-and-deployment/upgrade-nso.md) sections.
+* Added a new section [Adding NED Packages](administration/management/package-management.md#ug.package_mgmt.ned_package_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/package-management.md#ug.package_mgmt.ned_migration) and [Upgrade](administration/installation-and-deployment/upgrade-nso.md) sections.
 
 </details>
 
@@ -73,9 +73,7 @@ Documentation Updates:
 
 * Added a new section [Package Authentication](administration/management/aaa-infrastructure.md#ug.aaa.packageauth) to describe the NSO package authentication mechanism.
 
-<!---->
-
-* Added a new section [Single Sign-on](development/advanced-development/web-ui-development/#single-sign-on-sso) to describe the NSO package authentication mechanism.
+- Added a new section [Single Sign-on](development/advanced-development/web-ui-development/#single-sign-on-sso) to describe the NSO package authentication mechanism.
 
 </details>
 
