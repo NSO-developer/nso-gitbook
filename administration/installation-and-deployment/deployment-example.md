@@ -339,7 +339,7 @@ The main security-related point is that no AAA checks are performed on this sock
 
 To drive this point home, when you invoke the `ncs_cli` command, a small C program that connects to the socket and tells NSO who you are, NSO assumes that authentication has already been performed. There is even a documented flag `--noaaa`, which tells NSO to skip all NACM rule checks for this session.
 
-You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
+You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
 
 ```bash
 $ cat /etc/ncs/ipc_access
