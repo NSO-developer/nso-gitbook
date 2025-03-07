@@ -141,7 +141,7 @@ A service YANG model that implements the above configuration:
   }
 ```
 
-For details on the YANG statements used by the YANG model, such as `leaf`, `container`, `list`, `leafref`, `mandatory`, `length`, `pattern`, etc., see the [IETF RFC 7950](https://www.rfc-editor.org/rfc/rfc7950) that documents the YANG 1.1 Data Modeling Language. The `tailf:xyz` are YANG extension statements documented by [tailf\_yang\_extensions(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.tailf\_yang\_extensions) in Manual Pages.
+For details on the YANG statements used by the YANG model, such as `leaf`, `container`, `list`, `leafref`, `mandatory`, `length`, `pattern`, etc., see the [IETF RFC 7950](https://www.rfc-editor.org/rfc/rfc7950) that documents the YANG 1.1 Data Modeling Language. The `tailf:xyz` are YANG extension statements documented by [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages.
 
 The service configuration is implemented in YANG by a `key-auth` list where the network element and local user names are the list keys. In addition, the list has a `distkey-servicepoint` service point YANG extension statement to enable the list parameters used by the Python service callbacks that this example implements. Finally, the used `service-data` and `nano-plan-data` groupings add the common definitions for a service and the plan data needed when the service is a nano service.
 

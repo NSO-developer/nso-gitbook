@@ -118,7 +118,7 @@ NEDs can be of type `netconf`, `snmp`, `cli`_,_ or `generic`. Only the `cli` and
 
 ### The Callback Component Type <a href="#d5e1251" id="d5e1251"></a>
 
-Callbacks are the collective name for a number of different functions that can be implemented in Java. One of the most important is the service callbacks, but also actions, transaction control, and data provision callbacks are in common use in an NSO implementation. For more on how to program callback using the DP API, see [DP API](../api-overview/java-api-overview.md#ug.java\_api\_overview.dp).
+Callbacks are the collective name for a number of different functions that can be implemented in Java. One of the most important is the service callbacks, but also actions, transaction control, and data provision callbacks are in common use in an NSO implementation. For more on how to program callback using the DP API, see [DP API](../api-overview/java-api-overview.md#ug.java_api_overview.dp).
 
 ### The Application Component Type <a href="#d5e1255" id="d5e1255"></a>
 
@@ -310,7 +310,7 @@ java-vm stdout-capture file /var/log/ncs/ncs-java-vm.log
 
 ## The NSO Java VM Timeouts <a href="#d5e1406" id="d5e1406"></a>
 
-The section `/ncs-config/japi` in `ncs.conf` contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for details.
+The section `/ncs-config/japi` in `ncs.conf` contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
 
 * `new-session-timeout` controls how long NSO will wait for the NSO Java VM to respond to a new session.
 * `query-timeout` controls how long NSO will wait for the NSO Java VM to respond to a request to get data.

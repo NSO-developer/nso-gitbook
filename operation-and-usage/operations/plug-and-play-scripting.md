@@ -4,7 +4,7 @@ description: Use NSO's plug-and-play scripting mechanism to add new functionalit
 
 # Plug-and-Play Scripting
 
-&#x20;A scripting mechanism can be used together with the CLI (scripting is not available for any other northbound interfaces). This section is intended for users who are familiar with UNIX shell scripting and/or programming. With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. No special tools are needed.
+A scripting mechanism can be used together with the CLI (scripting is not available for any other northbound interfaces). This section is intended for users who are familiar with UNIX shell scripting and/or programming. With the scripting mechanism, an end-user can add new functionality to NSO in a plug-and-play-like manner. No special tools are needed.
 
 There are three categories of scripts:
 
@@ -81,7 +81,7 @@ command:
 
 ## Command Scripts <a href="#d5e4525" id="d5e4525"></a>
 
-Command scripts are used to add new commands to the CLI. The scripts are executed in the context of a transaction. When the script is run in `oper` mode, this is a read-only transaction, when it is run in `config` mode, it is a read-write transaction. In that context, the script may make use of the environment variables `NCS_MAAPI_USID` and `NCS_MAAPI_THANDLE` in order to attach to the active transaction. This makes it simple to make use of the `ncs-maapi` command (see the [ncs-maapi(1)](https://developer.cisco.com/docs/nso-guides-6.2/#!ncs-man-pages-volume-1/man.1.maapi) in Manual Pages manual page) for various purposes.
+Command scripts are used to add new commands to the CLI. The scripts are executed in the context of a transaction. When the script is run in `oper` mode, this is a read-only transaction, when it is run in `config` mode, it is a read-write transaction. In that context, the script may make use of the environment variables `NCS_MAAPI_USID` and `NCS_MAAPI_THANDLE` in order to attach to the active transaction. This makes it simple to make use of the `ncs-maapi` command (see the [ncs-maapi(1)](../../man/section1.md#ncs-maapi) in Manual Pages manual page) for various purposes.
 
 Each command script must be able to handle the argument `--command` and, when invoked, write a `command` section to `stdout`. If the CLI command is intended to take parameters, one `param` section per CLI parameter must also be emitted.
 
