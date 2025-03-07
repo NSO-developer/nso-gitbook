@@ -183,7 +183,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../man/section1.md#ncs-installer) manual page included with NSO and also available from the online documentation on [DevNet](https://developer.cisco.com/docs/nso/guides/#!ncs-man-pages-volume-1/ncs-installer).
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../man/section1.md#ncs-installer) manual page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`.
 
