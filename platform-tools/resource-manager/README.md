@@ -2,6 +2,7 @@
 description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
+NOTE:- It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
 
 # Resource Manager (4.2.10)
 
