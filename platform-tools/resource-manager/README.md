@@ -11,7 +11,10 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-NOTE:- It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+**NOTE:** It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+{% endhint %}
+
+{% hint style="info" %}
 This version of NSO Resource Manager is 4.2.10.
 {% endhint %}
 
