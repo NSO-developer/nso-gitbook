@@ -209,7 +209,7 @@ The report's results show if the devices/services included in the report are com
 
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
 * **Results overview**: Shows a summary of results with visuals on the number of devices and services that are presently compliant/in-sync.
-* **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run.
+* **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run. The graph is presented based on the previous report runs and you can narrow down the graph to show data from specific periods (e.g., last 10 runs only).
 * **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
 
 {% hint style="info" %}
