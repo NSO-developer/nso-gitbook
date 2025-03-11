@@ -6,7 +6,7 @@ description: >-
 
 # Cryptographic Keys
 
-By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypted-string`, `tailf:aes-cfb-128-encrypted-string`, or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO. See the [tailf\_yang\_extensions(5)](../../man/section5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
+By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO. See the [tailf\_yang\_extensions(5)](../../man/section5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
 
 ## Providing Keys
 
@@ -14,7 +14,7 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
 
 * External keys under `/ncs-config/encrypted-strings/external-keys`.
 * Key rotation under `/ncs-config/encrypted-strings/key-rotation`.
-* Legacy (single generation) format: `/ncs-config/encrypted-strings/DES3CBC`, `/ncs-config/encrypted-strings/AESCFB128`, and `/ncs-config/encrypted-strings/AES256CFB128` .
+* Legacy (single generation) format: `/ncs-config/encrypted-strings/AESCFB128` and `/ncs-config/encrypted-strings/AES256CFB128` .
 
 ### NSO Installer Provided Cryptography Keys
 
@@ -23,11 +23,6 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
     ```xml
     <ncs-config xmlns="http://tail-f.com/yang/tailf-ncs-config">
       <encrypted-strings>
-        <DES3CBC>
-          <key1>0123456789abcdeg</key1>
-          <key2>0123456789abcdeg</key2>
-          <key3>0123456789abcdeg</key3>
-        </DES3CBC>
         <AESCFB128>
           <key>0123456789abcdef0123456789abcdeg</key>
         </AESCFB128>
@@ -53,9 +48,6 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
     Example system installation`ncs.crypto_keys` file (do not reuse):
 
     ```
-    DES3CBC_KEY1=2a83724b14e2b35g
-    DES3CBC_KEY2=7f63764c64a63e7g
-    DES3CBC_KEY3=bd2a479a2a40d04g
     AESCFB128_KEY=40f7c3b5222c1458be3411cdc0899fg
     AES256CFB128_KEY=5a08b6d78b1ce768c67e13e76f88d8af7f3d925ce5bfedf7e3169de6270bb6eg
     ```
@@ -71,11 +63,6 @@ To provide keys that can be rotated in `ncs.conf`, each generation of cryptograp
   <encrypted-strings>
     <key-rotation>
       <generation>0</generation>
-      <DES3CBC>
-        <key1>0123456789abcdeg</key1>
-        <key2>0123456789abcdeg</key2>
-        <key3>0123456789abcdeg</key3>
-      </DES3CBC>
       <AESCFB128>
         <key>0123456789abcdef0123456789abcdeg</key>
       </AESCFB128>
@@ -85,11 +72,6 @@ To provide keys that can be rotated in `ncs.conf`, each generation of cryptograp
     </key-rotation>
     <key-rotation>
       <generation>1</generation>
-      <DES3CBC>
-        <key1>0123456789abcdeh</key1>
-        <key2>0123456789abcdeh</key2>
-        <key3>0123456789abcdeh</key3>
-      </DES3CBC>
       <AESCFB128>
         <key>0123456789abcdef0123456789abcdeh</key>
       </AESCFB128>
@@ -105,14 +87,8 @@ External keys that can be rotated must be provided with the initial line `EXTERN
 
 ```
 EXTERNAL_KEY_FORMAT=2
-DES3CBC_KEY1[0]=0123456789abcdeg
-DES3CBC_KEY2[0]=0123456789abcdeg
-DES3CBC_KEY3[0]=0123456789abcdeg
 AESCFB128_KEY[0]=0123456789abcdef0123456789abcdeg
 AES256CFB128_KEY[0]=3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608g
-DES3CBC_KEY1[1]=0123456789abcdeh
-DES3CBC_KEY2[1]=0123456789abcdeh
-DES3CBC_KEY3[1]=0123456789abcdeh
 AESCFB128_KEY[1]=0123456789abcdef0123456789abcdeh
 AES256CFB128_KEY[1]=3c687d564e250ad987198d179537af563341357493ed2242ef3b16a881dd608h
 ```
@@ -187,3 +163,12 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 {% hint style="info" %}
 In a high-availability setting, keys must be identical on all nodes before attempting key rotation. Otherwise, the action will abort. The node executing the action will initiate the key reload for all nodes.
 {% endhint %}
+
+
+## Migrating 3DES Encrypted Values
+
+NSO 6.5 removed support for 3DES encryption since the algorithm is no longer deemed sufficiently secure. If you are migrating from an older version and you have data using the `tailf:des3-cbc-encrypted-string` YANG type, NSO will no longer be able to read this data. In fact, compiling a YANG module using this type will produce an error.
+
+To avoid losing data when upgrading to NSO 6.5 or later, you must first update all the YANG data models and change the `tailf:des3-cbc-encrypted-string` type to either `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`. Compile the updated models and then perform a package upgrade for the affected packages.
+
+While upgrading the packages, the automatic CDB schema upgrade will re-encrypt the data in the new (AES) format. At this point you are ready to upgrade to the new NSO version that no longer supports 3DES.
