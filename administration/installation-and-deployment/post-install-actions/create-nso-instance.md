@@ -8,7 +8,7 @@ description: Create a new NSO instance for Local Install.
 Applies to Local Install.
 {% endhint %}
 
-One of the included scripts with an NSO installation is the `ncs-setup`, which makes it very easy to create instances of NSO from a Local Install. You can look at the `--help` or [ncs-setup(1)](https://developer.cisco.com/docs/nso-guides-6.3/#!ncs-man-pages-volume-1/man.1.ncs-setup) in Manual Pages for more details, but the two options we need to know are:
+One of the included scripts with an NSO installation is the `ncs-setup`, which makes it very easy to create instances of NSO from a Local Install. You can look at the `--help` or [ncs-setup(1)](../../../man/section1.md#ncs-setup) in Manual Pages for more details, but the two options we need to know are:
 
 * `--dest` defines the directory where you want to set up NSO. if the directory does not exist, it will be created.
 * `--package` defines the NEDs that you want to have installed. You can specify this option multiple times.
@@ -54,7 +54,7 @@ To create an NSO instance:
 
     Following is a description of the important files and folders:
 
-    * `ncs.conf` is the NSO application configuration file, and is used to customize aspects of the NSO instance (for example, to change ports, enable/disable features, and so on.) See [ncs.conf(5)](https://developer.cisco.com/docs/nso-guides-6.3/#!ncs-man-pages-volume-5/man.5.ncs.conf) in Manual Pages for information.
+    * `ncs.conf` is the NSO application configuration file, and is used to customize aspects of the NSO instance (for example, to change ports, enable/disable features, and so on.) See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for information.
     * `packages/` is the directory that has symlinks to the NEDs that we referenced in the `--package` arguments at the time of setup. See [NSO Packages](../../../development/core-concepts/packages.md) in Development for more information.
     * `logs/` is the directory that contains all the logs from NSO. This directory is useful for troubleshooting.
 3. Start the NSO instance by navigating to the `nso-instance` directory and typing the `ncs` command. You must be situated in the `nso-instance` directory each time you want to start or stop NSO. If you have multiple instances, you need to navigate to each one and use the `ncs` command to start or stop each one.
