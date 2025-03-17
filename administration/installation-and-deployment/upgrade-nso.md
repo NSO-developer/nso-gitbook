@@ -384,15 +384,15 @@ reload-result {
 }
 ```
 
-On the other hand, upgrading packages in an HA setup is an error-prone process. Thus, NSO provides an action, `packages ha sync and-reload`to minimize such complexity. This action loads new data models into NSO instead of restarting the server process. As a result, it is considerably more efficient, and the time difference to upgrade can be considerable if the amount of data in CDB is huge.
+On the other hand, upgrading packages in an HA setup is an error-prone process. Thus, NSO provides an action, `packages ha sync and-reload`to minimize such complexity. It is considerably faster and more efficient than upgrading one node at a time.
 
 {% hint style="info" %}
 If the only change in the packages is the addition of new NED packages, the `and-add` can replace `and-reload` command for an even more optimized and less intrusive update. See [Adding NED Packages](../management/package-mgmt.md#ug.package_mgmt.ned_package_add) for details.
 {% endhint %}
 
-The action executes on the `primary` node. First, it syncs the physical packages from the `primary` node to the `secondary` nodes as tar archive files, regardless if the packages were initially added as directories or tar archives. Then, it performs the upgrade on all nodes in one go. The action does not perform the sync and the upgrade on the node with `none` role.
+The action executes on the `primary` node. First, it syncs the physical packages from the `primary` node to the `secondary` nodes as tar archive files, regardless if the packages were initially added as directories or tar archives. Then, it performs the upgrade on all nodes in one go. The action does not sync packages to or upgrade nodes with the `none` role.
 
-The `packages ha sync` action distributes new packages to the _secondary_ nodes. If a package already exists on the `secondary` node, it will replace it with the one on the `primary` node. Deleting a package on the `primary` node will also delete it on the `secondary` node. Packages found in load paths under the installation destination (by default `/opt/ncs/current`) are not distributed as they belong to the system and should not differ between the `primary` and the `secondary` nodes.
+The `packages ha sync` action only distributes new packages to the _secondary_ nodes. If a package already exists on the `secondary` node, it will replace it with the one on the `primary` node. Deleting a package on the `primary` node will also delete it on the `secondary` node. Packages found in load paths under the installation destination (by default `/opt/ncs/current`) are not distributed as they belong to the system and should not differ between the `primary` and the `secondary` nodes.
 
 It is crucial to ensure that the load path configuration is identical on both `primary` and `secondary` nodes. Otherwise, the distribution will not start, and the action output will contain detailed error information.
 
