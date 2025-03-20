@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# Cisco-provided NED Documentation
+# README Files for Cisco-provided NEDs
 **Cisco NSO (Network Services Orchestrator) NEDs (Network Element Drivers)** are software components that enable Cisco NSO to communicate with and configure network devices from different vendors using their native CLI, NETCONF, RESTCONF, or other proprietary interfaces.
 NEDs translate the NSO service models into device-specific commands, allowing NSO to manage multi-vendor networks efficiently. 
 
