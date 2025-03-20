@@ -1,6 +1,6 @@
 ---
 icon: paper-plane
-description: Supplementary documentation and resources for your NSO deployment.
+description: NED documentation.
 cover: .gitbook/assets/gb-cover-final.png
 coverY: 0
 layout:
@@ -19,12 +19,40 @@ layout:
     visible: true
 ---
 
-# Overview
+# NSO NED (Network Element Driver) Documentation
+**Cisco NSO (Network Services Orchestrator) NEDs (Network Element Drivers)** are software components that enable Cisco NSO to communicate with and configure network devices from different vendors using their native CLI, NETCONF, RESTCONF, or other proprietary interfaces.
+NEDs translate the NSO service models into device-specific commands, allowing NSO to manage multi-vendor networks efficiently. 
 
-## NSO Resources
+## The `README.md` File provided with the NEDs
+Each NED package comes with a `README.md` file that provides essential documentation and details, including:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Platform Tools</strong></td><td>Add-on packages and tools for your NSO deployment.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Best Practices</strong></td><td>Best practice guidelines for your NSO deployment.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>NSO Resources</strong></td><td>Miscellaneous resources for continued learning.</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+1. **Overview of the NED**  
+   - A brief introduction to the NED, including its supported device types and software versions.
 
-## More from Cisco DevNet
+2. **Installation Instructions**  
+   - Steps for installing and configuring the NED in Cisco NSO.
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Cisco DevNet</td><td><a href="https://developer.cisco.com/">https://developer.cisco.com/</a></td></tr><tr><td>DevNet on GitHub</td><td><a href="https://github.com/CiscoDevNet">https://github.com/CiscoDevNet</a></td></tr><tr><td>Sandbox</td><td><a href="https://developer.cisco.com/site/sandbox/">https://developer.cisco.com/site/sandbox/</a></td></tr><tr><td>IoT Dev Center</td><td><a href="https://developer.cisco.com/iot/">https://developer.cisco.com/iot/</a></td></tr><tr><td>Networking Dev Center</td><td><a href="https://developer.cisco.com/site/networking/">https://developer.cisco.com/site/networking/</a></td></tr><tr><td>Data Center Dev Center</td><td><a href="https://developer.cisco.com/site/data-center/">https://developer.cisco.com/site/data-center/</a></td></tr><tr><td>Collaboration Dev Center</td><td><a href="https://developer.cisco.com/site/collaboration/">https://developer.cisco.com/site/collaboration/</a></td></tr><tr><td>Security Dev Center</td><td><a href="https://developer.cisco.com/site/security/">https://developer.cisco.com/site/security/</a></td></tr><tr><td>CX Dev Center</td><td><a href="https://developer.cisco.com/cx/">https://developer.cisco.com/cx/</a></td></tr></tbody></table>
+3. **Supported Interfaces and Protocols**  
+   - Specifies whether the NED supports CLI, NETCONF, RESTCONF, or other management protocols.
+
+4. **Feature Support List**  
+   - Lists supported commands, configurations, and features for the device.
+
+5. **Limitations and Known Issues**  
+   - Any constraints, unsupported features, or known bugs related to the NED.
+
+6. **Usage Instructions**  
+   - Example commands, data models, and guidelines on how to interact with the NED.
+
+7. **Upgrade and Compatibility Information**  
+   - Details on how to upgrade the NED and which Cisco NSO versions it is compatible with.
+
+8. **Licensing and Support Information**  
+   - Guidelines on licensing requirements and where to get support.
+
+## NSO NED Administration
+See the NSO Administration Guide to [learn about Cisco-provided NEDs and how to manage them](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/ned-administration).
+
+## Cisco NSO NED Changelog Explorer
+The [NED Changelog Explorer](https://developer.cisco.com/docs/nso/ned-changelog-explorer/) allows you to quickly search for changes when upgrading to a specific NED version. This information is also available in the CHANGES file, packaged with each NSO NED release.
+
