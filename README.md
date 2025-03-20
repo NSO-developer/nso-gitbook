@@ -24,7 +24,7 @@ layout:
 NEDs translate the NSO service models into device-specific commands, allowing NSO to manage multi-vendor networks efficiently. 
 
 ## NSO NED Administration
-See the NSO Administration Guide to [learn about Cisco-provided NEDs and how to manage them](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/ned-administration).
+See the [NSO Administration Guide](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/management/ned-administration) to learn about Cisco-provided NEDs and how to manage them.
 
 ## The NED `README.md` File
 Each NED package comes with a `README.md` file that provides essential documentation and details, including:
