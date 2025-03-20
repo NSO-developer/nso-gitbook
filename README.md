@@ -1,6 +1,6 @@
 ---
 icon: paper-plane
-description: NED documentation.
+description: Cisco-provided NED documentation.
 cover: .gitbook/assets/gb-cover-final.png
 coverY: 0
 layout:
