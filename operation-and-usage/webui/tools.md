@@ -33,7 +33,7 @@ In the **Package upgrade** view, you can load custom packages in NSO.
 
 The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md).
 
-### **Install a Package**
+### Install a Package
 
 To install a new package:
 
@@ -43,11 +43,41 @@ To install a new package:
 3. Click **Install**.
 4. On the **Loaded** pane, click **Reload** and confirm the intent.
 
-### **Uninstall a Package**
+### Uninstall a Package
 
 To uninstall an existing package:
 
 * To uninstall a package, simply click **Deinstall** next to the package in the **Loaded packages** list.
+
+## Package Manager
+
+In the **Package Manager** view, you can view and load custom packages in NSO.
+
+### Add a Package
+
+To add a new package:
+
+1. Click the **Add package** button.
+2. Upload the package or drag-and-drop it in the **Add package** dialog. The file format must be .tar, .tar.gz or .tgz.
+3. Click **Confirm**.
+
+### View Package Details
+
+To view package details:
+
+* Click the package name. This reveals information about the package, such as its status, version, location, etc.
+
+### Reload Packages
+
+To reload the packages:
+
+* Click the **Reload all packages** button. The action is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md).
+
+### Uninstall a Package
+
+To uninstall a package:
+
+* Click the **Uninstall** button in the package details view.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
