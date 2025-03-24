@@ -574,15 +574,15 @@ The fields `challengeid` and response are base64 encoded when passed to the scri
 
 ## Authenticating IPC Access
 
-NSO communicates with clients (Python and Java client libraries, **ncs\_cli**, **netconf-subsys**, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
+NSO communicates with clients (Python and Java client libraries, `ncs_cli`, `netconf-subsys`, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 
-By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of **ncs\_cli** does. For example:
+By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.&#x20;
 
 ```bash
 ncs_cli --user admin
 ```
 
-connects to NSO as the user `admin`. The same is possible for the group. This unauthenticated access is currently the default.
+&#x20;The same is possible for the group. This unauthenticated access is currently the default.
 
 The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 
@@ -607,13 +607,13 @@ aaa authentication users user admin
 
 NSO will skip this access check in case the euid of the connecting process is 0 (root user) or same as the user NSO is running as. (In both these cases, the connecting user could access NSO data directly, bypassing the access check.)
 
-If using Unix socket IPC, clients and client libraries must now specify the path that identifies the socket. The path must match the one set under `ncs-local-ipc/path` in `ncs.conf`. Clients may expose a client-specific way to set it, such as the **-S** option of the **ncs\_cli** command. Alternatively, you can use the `NCS_IPC_PATH` environment variable to specify the socket path independently of the used client.
+If using Unix socket IPC, clients and client libraries must now specify the path that identifies the socket. The path must match the one set under `ncs-local-ipc/path` in `ncs.conf`. Clients may expose a client-specific way to set it, such as the `-S` option of the `ncs_cli` command. Alternatively, you can use the `NCS_IPC_PATH` environment variable to specify the socket path independently of the used client.
 
 See [examples.ncs/aaa/ipc](https://github.com/NSO-developer/nso-examples/tree/6.4/aaa/ipc) for a working example.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 
-Once a user is authenticated, group membership must be established. A single user can be a member of several groups. Group membership is used by the authorization rules to decide which operations a certain user is allowed to perform. Thus the NSO AAA authorization model is entirely group-based. This is also sometimes referred to as role-based authorization.
+Once a user is authenticated, group membership must be established. A single user can be a member of several groups. Group membership is used by the authorization rules to decide which operations a certain user is allowed to perform. Thus, the NSO AAA authorization model is entirely group-based. This is also sometimes referred to as role-based authorization.
 
 All groups are stored under `/nacm/groups`, and each group contains a number of usernames. The `ietf-netconf-acm.yang` model defines a group entry:
 
@@ -1010,15 +1010,9 @@ Similar to the command access check, whenever a user through some agent tries to
 
 We have the following leafs in the `rule` list entry.
 
-* `name`: The name of the rule. The rules are checked in order, with the ordering given by the YANG `ordered-by user` semantics, i.e. independent of the key values.
-* `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e. the default) matches all modules.\\
-
-{% hint style="info" %}
-```
-Since the elements of the path to a given node may be defined in different YANG modules when augmentation is used, rules that have a value other than `*` for the `module-name` leaf may require that additional processing is done before a decision to permit or deny, or the access can be taken. Thus if an XPath that completely identifies the nodes that the rule should apply to is given for the `path` leaf (see below), it may be best to leave the `module-name` leaf unset.
-```
-{% endhint %}
-
+* `name`: The name of the rule. The rules are checked in order, with the ordering given by the YANG `ordered-by user` semantics, i.e., independent of the key values.
+* `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e., the default) matches all modules. \
+  **Note**: Since the elements of the path to a given node may be defined in different YANG modules when augmentation is used, rules that have a value other than `*` for the `module-name` leaf may require that additional processing is done before a decision to permit or deny, or the access can be taken. Thus, if an XPath that completely identifies the nodes that the rule should apply to is given for the `path` leaf (see below), it may be best to leave the `module-name` leaf unset.
 * `rpc-name / notification-name / path`: This is a choice between three possible leafs that are used for matching, in addition to the `module-name`:
 * `rpc-name`: The name of an RPC operation, or `*` to match any RPC.
 * `notification-name`: the name of a notification, or `*` to match any notification.
@@ -1027,7 +1021,7 @@ Since the elements of the path to a given node may be defined in different YANG 
     1. Tagpaths that do not contain any keys. For example `/ncs/live-device/live-status`.
     2. Instantiated key: as in `/devices/device[name="x1"]/config/interface` matches the interface configuration for managed device "x1" It's possible to have partially instantiated paths only containing some keys instantiated - i.e. combinations of tagpaths and keypaths. Assuming a deeper tree, the path `/devices/device/config/interface[name="eth0"]` matches the `eth0` interface configuration on all managed devices.
     3. The wild card at the end as in: `/services/web-site/*` does not match the website service instances, but rather all children of the website service instances.
-    4. The leading/trailing whitespace as in: `" /devices/device/config "` are ignored.\\
+    4. The leading/trailing whitespace as in: `" /devices/device/config "` are ignored.
 
     Thus, the path in a rule is matched against the path in the attempted data access. If the attempted access has a path that is equal to or longer than the rule path - we have a match.\
     \
@@ -1067,13 +1061,13 @@ augment /nacm:nacm {
 }
 ```
 
-I.e. it has the same effect as the `log-if-permit` leaf for the `rule` lists, but for the case where the value of one of the default leafs permits access.
+I.e., it has the same effect as the `log-if-permit` leaf for the `rule` lists, but for the case where the value of one of the default leafs permits access.
 
-When NSO executes a command, the command rules in the authorization database are searched, The rules are tried in order, as described above. When a rule matches the operation (command) that NSO is attempting, the action of the matching rule is applied - whether permit or deny.
+When NSO executes a command, the command rules in the authorization database are searched, The rules are tried in order, as described above. When a rule matches the operation (command) that NSO is attempting, the action of the matching rule is applied — whether permit or deny.
 
-When actual data access is attempted, the data rules are searched. E.g. when a user attempts to execute `delete aaa` in the CLI, the user needs delete access to the entire tree `/aaa`.
+When actual data access is attempted, the data rules are searched. E.g., when a user attempts to execute `delete aaa` in the CLI, the user needs delete access to the entire tree `/aaa`.
 
-Another example is if a CLI user writes `show configuration aaa TAB` it suffices to have read access to at least one item below `/aaa` for the CLI to perform the TAB completion. If no rule matches or an explicit deny rule is found, the CLI will not TAB complete.
+Another example is if a CLI user writes `show configuration aaa` <kbd>TAB</kbd>, it suffices to have read access to at least one item below `/aaa` for the CLI to perform the <kbd>TAB</kbd> completion. If no rule matches or an explicit deny rule is found, the CLI will not <kbd>TAB</kbd>-complete.
 
 Yet another example is if a user tries to execute `delete aaa authentication users`, we need to perform a check on the paths `/aaa` and `/aaa/authentication` before attempting to delete the sub-tree. Say that we have a rule for path `/aaa/authentication/users` which is a permit rule and we have a subsequent rule for path `/aaa` which is a deny rule. With this rule set the user should indeed be allowed to delete the entire `/aaa/authentication/users` tree but not the `/aaa` tree nor the `/aaa/authentication` tree.
 
@@ -1097,18 +1091,18 @@ else
     return deny;
 ```
 
-The idea is that as we traverse (through TAB) down the XML tree, as long as there is at least one rule that can possibly match later, once we have more data, we must continue. For example, assume we have:
+The idea is that as we traverse (through <kbd>TAB</kbd>) down the XML tree, as long as there is at least one rule that can possibly match later, once we have more data, we must continue. For example, assume we have:
 
 1. `"/system/config/foo" --> permit`
 2. `"/system/config" --> deny`
 
-If we in the CLI stand at `"/system/config"` and hit TAB we want the CLI to show `foo` as a completion, but none of the other nodes that exist under `/system/config`. Whereas if we try to execute `delete /system/config` the request must be rejected.
+If we in the CLI stand at `"/system/config"` and hit <kbd>TAB</kbd> we want the CLI to show `foo` as a completion, but none of the other nodes that exist under `/system/config`. Whereas if we try to execute `delete /system/config` the request must be rejected.
 
 By default, NACM rules are configured for the entire `tailf:action` or YANG 1.1 `action` statements, but not for `input` statement child leafs. To override this behavior, and enable NACM rules on `input` leafs, set the following parameter to 'true': `/ncs-config/aaa/action-input-rules/enabled`. When enabled all action input leafs given to an action will be validated for NACM rules. If broad 'deny' NACM rules are used, you might need to add 'permit' rules for the affected action input leafs to allow actions to be used with parameters.
 
 ### NACM Rules and Services <a href="#d5e6693" id="d5e6693"></a>
 
-By design NACM rules are ignored for changes done by services - FASTMAP, Reactive FASTMAP, or Nano services. The reasoning behind this is that a service package can be seen as a controlled way to provide limited access to devices for a user group that is not allowed to apply arbitrary changes on the devices.
+By design NACM rules are ignored for changes done by services — FASTMAP, Reactive FASTMAP, or Nano services. The reasoning behind this is that a service package can be seen as a controlled way to provide limited access to devices for a user group that is not allowed to apply arbitrary changes on the devices.
 
 However, there are NSO installations where this behavior is not desired, and NSO administrators want to enforce NACM rules even on changes done by services. For this purpose, the leaf called `/nacm/enforce-nacm-on-services` is provided. By default, it is set to `false`.
 
@@ -1460,7 +1454,7 @@ NSO's AAA subsystem will cache the AAA information in order to speed up the auth
 
 ### Populating AAA using CDB <a href="#d5e6802" id="d5e6802"></a>
 
-To start NSO, the data models for AAA must be loaded. The defaults in the case that no actual data is loaded for these models allow all read and exec access, while write access is denied. Access may still be further restricted by the NACM extensions, though - e.g. the `/nacm` container has `nacm:default-deny-all`, meaning that not even read access is allowed if no data is loaded.
+To start NSO, the data models for AAA must be loaded. The defaults in the case that no actual data is loaded for these models allow all read and exec access, while write access is denied. Access may still be further restricted by the NACM extensions, though — e.g., the `/nacm` container has `nacm:default-deny-all`, meaning that not even read access is allowed if no data is loaded.
 
 The NSO installation ships with an XML initialization file containing AAA configuration. The file is called `aaa_init.xml` and is, by default, copied to the CDB directory by the NSO install scripts.
 

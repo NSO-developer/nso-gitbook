@@ -194,7 +194,7 @@ There are quite a few different global settings for NSO. The two mentioned above
 
 NSO uses Cisco Smart Licensing, which is described in detail in [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md). After registering your NSO instance(s), and receiving a token, following steps 1-6 as described in the [Create a License Registration Token](../management/system-management/cisco-smart-licensing.md#d5e2927) section of Cisco Smart Licensing, enter a token from your Cisco Smart Software Manager account on each host. Use the same token for all instances and script entering the token as part of the initial NSO configuration or from the management node:
 
-```cli
+```bash
 admin@nso-paris# license smart register idtoken YzY2Yj...
 admin@nso-london# license smart register idtoken YzY2Yj...
 ```
@@ -280,7 +280,7 @@ NSO metric has different contexts all containing different counters, gauges, and
 
 You may read counters by e.g. CLI, as in this example:
 
-```cli
+```bash
 admin@ncs# show metric sysadmin counter session cli-total
 metric sysadmin counter session cli-total 1
 ```
@@ -289,7 +289,7 @@ metric sysadmin counter session cli-total 1
 
 You may read gauges by e.g. CLI, as in this example:
 
-```cli
+```bash
 admin@ncs# show metric sysadmin gauge session cli-open
 metric sysadmin gauge session cli-open 1
 ```
@@ -298,7 +298,7 @@ metric sysadmin gauge session cli-open 1
 
 You may read rate of change gauges by e.g. CLI, as in this example:
 
-```cli
+```bash
 admin@ncs# show metric sysadmin gauge-rate session cli-open
 NAME  RATE
 -------------

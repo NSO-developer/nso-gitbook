@@ -39,7 +39,7 @@ The first line defines the root node. It contains elements that follow the same 
 
 You can write this structure by studying the YANG schema if you wish. However, a more typical approach is to start with manipulating NSO configuration by hand, such as through the NSO CLI or web UI. Then, generate the XML structure with the help of NSO output filters, using the `show ... | display xml-template` and similar commands. You can also reuse the existing configuration, such as the one loaded with the `ncs_load` utility. For a worked, step-by-step example, refer to the section [A Template is All You Need](implementing-services.md#ch_services.just_template).
 
-```cli
+```bash
 admin@ncs(config)# devices device rtr01 config ...
 admin@ncs(config-device-rtr01)# show configuration | display xml-template
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
@@ -74,11 +74,11 @@ Finally, every XML template has a name. The name of the template is the file pat
 
 ## Other Ways to Generate the XML Template Structure <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
 
-The NSO CLI features a **templatize** command that allows you to analyze a given configuration and find common configuration patterns. You can use these to, for example, create a configuration template for a service.
+The NSO CLI features a `templatize` command that allows you to analyze a given configuration and find common configuration patterns. You can use these to, for example, create a configuration template for a service.
 
 Suppose you have an existing interface configuration on a device:
 
-```cli
+```bash
 admin@ncs# show running-config devices device c0 config interface GigabitEthernet
 devices device c0
  config
@@ -97,7 +97,7 @@ devices device c0
 
 Using the `templatize` command, you can search for patterns in this part of the configuration, which produces the following:
 
-```cli
+```bash
 admin@ncs# templatize devices device c0 config interface GigabitEthernet
 Found potential templates at:
   devices device c0 \ config \ interface GigabitEthernet {$GigabitEthernet-name}
@@ -454,7 +454,7 @@ A guard can be specified literally (e.g. `guard="deny-all"` if "name" is the key
 Templates support macros - named XML snippets that facilitate reuse and simplify complex templates. When you call a previously defined macro, the templating engine inserts the macro data, expanded with the values of the supplied arguments. The following example demonstrates the use of a macro.
 
 {% code title="Example: Template with Macros" %}
-```
+```xml
   1 <config-template xmlns="http://tail-f.com/ns/config/1.0">
       <?macro GbEth name='{/name}' ip mask='255.255.255.0'?>
         <GigabitEthernet>
@@ -764,11 +764,11 @@ The `$OPERATION` variable is set internally by NSO in pre- and post-modification
 
 You can request additional information when applying templates in order to understand what is going on. When applying or committing a template in the CLI, the `debug` pipe command enables debug information:
 
-```cli
+```bash
 admin@ncs(config)# commit dry-run | debug template
 ```
 
-```cli
+```bash
 admin@ncs(config)# commit dry-run | debug xpath
 ```
 
@@ -776,20 +776,20 @@ The `debug xpath` option outputs _all_ XPath evaluations for the transaction, an
 
 The `debug template` option outputs XPath expression results from the template, under which context expressions are evaluated, what operation is used, and how it affects the configuration, for all templates that are invoked. You can narrow it down to only show debugging information for a template of interest:
 
-```cli
+```bash
 admin@ncs(config)# commit dry-run | debug template l3vpn
 ```
 
 Additionally, the template and xpath debugging can be combined:
 
-<pre><code><strong>admin@ncs(config)# commit dry-run | debug template | debug xpath
+<pre class="language-bash"><code class="lang-bash"><strong>admin@ncs(config)# commit dry-run | debug template | debug xpath
 </strong></code></pre>
 
 For XPath evaluation, you can also inspect the XPath trace log if it is enabled (e.g. with `tail -f logs/xpath.trace`). XPath trace is enabled in the `ncs.conf` configuration file and is enabled by default for the examples.
 
 Another option to help you get the XPath selections right is to use the NSO CLI `show` command with the `xpath` display flag to find out the correct path to an instance node. This shows the name of the key elements and also the namespace changes.
 
-```cli
+```bash
 admin@ncs# show running-config devices device c0 config ios:interface | display xpath
 /devices/device[name='c0']/config/ios:interface/FastEthernet[name='1/0']
 /devices/device[name='c0']/config/ios:interface/FastEthernet[name='1/1']
@@ -813,7 +813,7 @@ $ ncs_cmd -c "x /devices/device[name='c0']/config/ios:interface/FastEthernet/nam
 
 The following text walks through the output of the `debug template` command for a dns-v3 example service, found in [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3). To try it out for yourself, start the example with `make demo` and configure a service instance:
 
-```cli
+```bash
 admin@ncs# config
 admin@ncs(config)# load merge example.cfg
 admin@ncs(config)# commit dry-run | debug template
@@ -821,7 +821,7 @@ admin@ncs(config)# commit dry-run | debug template
 
 The XML template used in the service is simple but non-trivial:
 
-```
+```xml
   1 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                      servicepoint="dns">
       <devices xmlns="http://tail-f.com/ns/ncs">
@@ -861,7 +861,7 @@ The templating engine found the `foreach` in the `dns-template.xml` file at line
 
 NSO found two nodes in the leaf-list for this expression, which you can verify in the CLI:
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration dns instance1 target-device | display xpath
 /dns[name='instance1']/target-device [ c1 c2 ]
 ```
@@ -980,45 +980,45 @@ cli {
 
 NSO template engine supports a number of XML processing instructions to allow more dynamic templates:
 
-<table data-full-width="true"><thead><tr><th width="418">Syntax</th><th>Description</th></tr></thead><tbody><tr><td><pre><code>    &#x3C;?set v = value?>
-</code></pre></td><td>Allows you to assign a new variable or manipulate the existing value of a variable v. If used to create a new variable, the scope of visibility of this variable is limited to the parent tag of the processing instruction or the current processing instruction block. Specifically, if a new variable is defined inside a loop, then it is discarded at the end of each iteration.</td></tr><tr><td><pre><code>    &#x3C;?if {expression}?>
+<table data-full-width="true"><thead><tr><th width="418" valign="top">Syntax</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><pre><code>    &#x3C;?set v = value?>
+</code></pre></td><td valign="top">Allows you to assign a new variable or manipulate the existing value of a variable <code>v</code>. If used to create a new variable, the scope of visibility of this variable is limited to the parent tag of the processing instruction or the current processing instruction block. Specifically, if a new variable is defined inside a loop, then it is discarded at the end of each iteration.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?if {expression}?>
         ...
     &#x3C;?elif {expression}?>
         ...
     &#x3C;?else?>
         ...
     &#x3C;?end?>
-</code></pre></td><td>Processing instruction block that allows conditional execution based on the boolean result of the expression. For a detailed description, see <a href="templates.md#ch_templates.conditionals">Conditional Statements</a>.</td></tr><tr><td><pre><code>    &#x3C;?foreach {expression}?>
+</code></pre></td><td valign="top">Processing instruction block that allows conditional execution based on the boolean result of the expression. For a detailed description, see <a href="templates.md#ch_templates.conditionals">Conditional Statements</a>.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?foreach {expression}?>
         ...
     &#x3C;?end?>
-</code></pre></td><td>The expression must evaluate to a (possibly empty) XPath node-set. The template engine will then iterate over each node in the node set by changing the XPath current context node to this node and evaluating all children tags within this context. For the detailed description see <a href="templates.md#ch_templates.loops">Loop Statements</a>.</td></tr><tr><td><pre data-overflow="wrap"><code>    &#x3C;?for v = start_value; {progress condition}; v = next_value?>
+</code></pre></td><td valign="top">The expression must evaluate to a (possibly empty) XPath node-set. The template engine will then iterate over each node in the node set by changing the XPath current context node to this node and evaluating all children tags within this context. For the detailed description, see <a href="templates.md#ch_templates.loops">Loop Statements</a>.</td></tr><tr><td valign="top"><pre data-overflow="wrap"><code>    &#x3C;?for v = start_value; {progress condition}; v = next_value?>
         ...
     &#x3C;?end?>
-</code></pre></td><td><p>This processing instruction allows you to iterate over the same set of template tags by changing a variable value. The variable visibility scope obeys the same rules as the <code>set</code> processing instruction, except the variable value, is carried over to the next iteration instead of being discarded at the end of each iteration.</p><p>Only the condition expression is mandatory, either or both of initial and next value assignment can be omitted, e.g.:</p><pre><code>    &#x3C;?for ; {condition}; ?>
-</code></pre><p>For a detailed description see <a href="templates.md#ch_templates.loops">Loop Statements</a>.</p></td></tr><tr><td><pre><code>   &#x3C;?copy-tree {source}?>
-</code></pre></td><td>This instruction is analogous to <code>copy_tree()</code> function available in the MAAPI API. The parameter is an XPath expression that must evaluate to exactly one node in the data tree and indicate the source path to copy from. The target path is defined by the position of the <code>copy-tree</code> instruction in the template within the current context.</td></tr><tr><td><pre><code>    &#x3C;?set-root-node {expression}?>
-</code></pre></td><td>Allows to manipulate the root node of the XPath accessible tree. This expression is evaluated in an XPath context where the accessible tree is the entire datastore, which means that it is possible to select a root node outside the currently accessible tree. The current context node remains unchanged. The expression must evaluate to exactly one node in the data tree.</td></tr><tr><td><pre><code>    &#x3C;?set-context-node {expression}?>
-</code></pre></td><td>Allows you to manipulate the current context node used to evaluate XPath expressions in the template. The expression is evaluated within the current XPath context and must evaluate to exactly one node in the data tree.</td></tr><tr><td><pre><code>    &#x3C;?save-context name?>
-</code></pre></td><td>Store both the current context node and the root node of the XPath accessible tree with <em><code>name</code></em> being the key to access it later. It is possible to switch to this context later using <code>switch-context</code> with the name. Multiple contexts can be stored simultaneously under different names. Using save-context with the same name multiple times will result in the stored context being overwritten.</td></tr><tr><td><pre><code>    &#x3C;?switch-context name?>
-</code></pre></td><td>Used to switch to a context stored using <code>save-context</code> with the specified name. This means that both the current context node and the root node of the XPath accessible tree will be changed to the stored values. <code>switch-context</code> does not remove the context from the storage and can be used as many times as needed, however using it with a name that does not exist in the storage causes an error.</td></tr><tr><td><pre><code>    &#x3C;?if-ned-id ned-ids?>
+</code></pre></td><td valign="top"><p>This processing instruction allows you to iterate over the same set of template tags by changing a variable value. The variable visibility scope obeys the same rules as the <code>set</code> processing instruction, except the variable value, is carried over to the next iteration instead of being discarded at the end of each iteration.</p><p>Only the condition expression is mandatory; either or both of the initial and next value assignment can be omitted, e.g.,</p><pre><code>    &#x3C;?for ; {condition}; ?>
+</code></pre><p>For a detailed description, see <a href="templates.md#ch_templates.loops">Loop Statements</a>.</p></td></tr><tr><td valign="top"><pre><code>   &#x3C;?copy-tree {source}?>
+</code></pre></td><td valign="top">This instruction is analogous to <code>copy_tree()</code> function available in the MAAPI API. The parameter is an XPath expression that must evaluate to exactly one node in the data tree and indicate the source path to copy from. The target path is defined by the position of the <code>copy-tree</code> instruction in the template within the current context.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?set-root-node {expression}?>
+</code></pre></td><td valign="top">Allows you to manipulate the root node of the XPath-accessible tree. This expression is evaluated in an XPath context where the accessible tree is the entire datastore, which means that it is possible to select a root node outside the currently accessible tree. The current context node remains unchanged. The expression must evaluate to exactly one node in the data tree.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?set-context-node {expression}?>
+</code></pre></td><td valign="top">Allows you to manipulate the current context node used to evaluate XPath expressions in the template. The expression is evaluated within the current XPath context and must evaluate to exactly one node in the data tree.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?save-context name?>
+</code></pre></td><td valign="top">Store both the current context node and the root node of the XPath accessible tree with <em><code>name</code></em> being the key to access it later. It is possible to switch to this context later using <code>switch-context</code> with the name. Multiple contexts can be stored simultaneously under different names. Using save-context with the same name multiple times will result in the stored context being overwritten.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?switch-context name?>
+</code></pre></td><td valign="top">Used to switch to a context stored using <code>save-context</code> with the specified name. This means that both the current context node and the root node of the XPath accessible tree will be changed to the stored values. <code>switch-context</code> does not remove the context from the storage and can be used as many times as needed; however, using it with a name that does not exist in the storage causes an error.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?if-ned-id ned-ids?>
         ...
     &#x3C;?elif-ned-id ned-ids?>
         ...
     &#x3C;?else?>
         ...
     &#x3C;?end?>
-</code></pre></td><td><p>If there are multiple versions of the same NED expected to be loaded in the system, which define different versions of the same namespace, this processing instruction helps to resolve ambiguities in the schema between different versions of the NED. The part of the template following this processing instruction, up to matching <code>elif-ned-id</code>, <code>else</code> or <code>end</code> processing instruction is only applied to devices with the ned-id matching one of the ned-ids specified as a parameter to this processing instruction. If there are no ambiguities to resolve, then this processing instruction is not required. The <em><code>ned-ids</code></em> must contain one or more qualified NED ID identities separated by spaces.</p><p><br>The <code>elif-ned-id</code> is optional and used to define a part of the template that applies to devices with another set of ned-ids than previously specified. Multiple <code>elif-ned-id</code> instructions are allowed in a single block of <code>if-ned-id</code> instructions. The set of ned-ids specified as a parameter to <code>elif-ned-id</code> instruction must be non-intersecting with the previously specified ned-ids in this block.</p><p>The <code>else</code> processing instruction should be used with care in this context, as the set of the ned-ids it handles depends on the set of ned-ids loaded in the system, which can be hard to predict at the time of developing the template. To mitigate this problem it is recommended that the package containing this template defines a set of <code>supported-ned-ids</code> as described in <a href="templates.md#ch_templates.multined">Namespaces and Multi-NED Support</a>.</p></td></tr><tr><td><pre><code>    &#x3C;?if-ned-id-match regex?>
+</code></pre></td><td valign="top"><p>If there are multiple versions of the same NED expected to be loaded in the system, which define different versions of the same namespace, this processing instruction helps to resolve ambiguities in the schema between different versions of the NED. The part of the template following this processing instruction, up to matching <code>elif-ned-id</code>, <code>else</code> or <code>end</code> processing instruction, is only applied to devices with the <code>ned-id</code> matching one of the <code>ned-ids</code> specified as a parameter to this processing instruction. If there are no ambiguities to resolve, then this processing instruction is not required. The <code>ned-ids</code> must contain one or more qualified NED ID identities separated by spaces.</p><p><br>The <code>elif-ned-id</code> is optional and used to define a part of the template that applies to devices with another set of <code>ned-ids</code> than previously specified. Multiple <code>elif-ned-id</code> instructions are allowed in a single block of <code>if-ned-id</code> instructions. The set of ned-ids specified as a parameter to <code>elif-ned-id</code> instruction must be non-intersecting with the previously specified ned-ids in this block.</p><p>The <code>else</code> processing instruction should be used with care in this context, as the set of the <code>ned-ids</code> it handles depends on the set of <code>ned-ids</code> loaded in the system, which can be hard to predict at the time of developing the template. To mitigate this problem, it is recommended that the package containing this template defines a set of <code>supported-ned-ids</code> as described in <a href="templates.md#ch_templates.multined">Namespaces and Multi-NED Support</a>.</p></td></tr><tr><td valign="top"><pre><code>    &#x3C;?if-ned-id-match regex?>
         ...
     &#x3C;?elif-ned-id-match regex?>
         ...
     &#x3C;?else?>
         ...
     &#x3C;?end?>
-</code></pre></td><td>The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions work similarly to <code>if-ned-id</code> and <code>elif-ned-id</code> but they accept a regular expression as an argument instead of a list of ned-ids. The regular expression is matched against all of the ned-ids supported by the package. If the <code>if-ned-id-match</code> processing instruction is nested inside of another <code>if-ned-id-match</code> or <code>if-ned-id</code> processing instruction, then the regular expression will only be matched against the subset of ned-ids matched by the encompassing processing instruction. The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions are only allowed inside a device's mounted configuration subtree rooted at /devices/device/config.</td></tr><tr><td><pre><code>    &#x3C;?macro name params...?>
+</code></pre></td><td valign="top">The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions work similarly to <code>if-ned-id</code> and <code>elif-ned-id</code> but they accept a regular expression as an argument instead of a list of ned-ids. The regular expression is matched against all of the <code>ned-ids</code> supported by the package. If the <code>if-ned-id-match</code> processing instruction is nested inside of another <code>if-ned-id-match</code> or <code>if-ned-id</code> processing instruction, then the regular expression will only be matched against the subset of ned-ids matched by the encompassing processing instruction. The <code>if-ned-id-match</code> and <code>elif-ned-id-match</code> processing instructions are only allowed inside a device's mounted configuration subtree rooted at /devices/device/config.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?macro name params...?>
         ...
     &#x3C;?endmacro?>
-</code></pre></td><td>Define a new macro with the specified name and optional parameters. Macro definitions must come at the top of the template, right after the <code>config-template</code> tag. For a detailed description see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr><tr><td><pre><code>    &#x3C;?expand name params...?>
-</code></pre></td><td>Insert and expand the named macro, using the specified values for parameters. For a detailed description, see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr></tbody></table>
+</code></pre></td><td valign="top">Define a new macro with the specified name and optional parameters. Macro definitions must come at the top of the template, right after the <code>config-template</code> tag. For a detailed description see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?expand name params...?>
+</code></pre></td><td valign="top">Insert and expand the named macro, using the specified values for parameters. For a detailed description, see <a href="templates.md#ch_templates.macros">Macros in Templates</a>.</td></tr></tbody></table>
 
 The variable value in both `set` and `for` processing instructions are evaluated in the same way as the values within XML tags in a template (see [Values in a Template](templates.md#ch_templates.values)). So, it can be a mix of literal values and XPath expressions surrounded by `{...}`.
 

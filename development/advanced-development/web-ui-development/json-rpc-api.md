@@ -72,15 +72,15 @@ With a possible response like (first result for `add`, the second result for `su
 
 ### Trace Context
 
-JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by trace-id, span-id and tracestate. Trace Context standardizes the format of trace-id, span-id and key-value pairs to be sent between distributed entities. The terms span-id and parent-span-id in NSO correspond to the naming of parent-id used in the Trace Context standard.
+JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by `trace-id`, `span-id` and `tracestate`. Trace Context standardizes the format of `trace-id`, `span-id` and key-value pairs to be sent between distributed entities. The terms `span-id` and `parent-span-id` in NSO correspond to the naming of `parent-id` used in the Trace Context standard.
 
-Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format
+Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format:
 
 ```
 traceparent = <version>-<trace-id>-<parent-id>-<flags>
 ```
 
-where `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
+Where, `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
 
 An example of header `traceparent` in use is:
 
@@ -94,7 +94,7 @@ Header `tracestate` is a vendor-specific list of key-value pairs. An example of 
 tracestate: key1=value1,key2=value2
 ```
 
-where a value may contain space characters but not end with a space.
+Where, a value may contain space characters but not end with a space.
 
 NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the request generates an error response.
 
@@ -203,11 +203,11 @@ All methods may return one of the following JSON RPC or application-defined erro
 
 JSON-RPC runs on top of the embedded web server (see [Web Server](../../connected-topics/web-server.md)), which accepts HTTP and/or HTTPS.
 
-The JSON-RPC session ties the client and the server via an HTTP cookie, named `sessionid` which contains a randomly server-generated number. This cookie is not only secure (when the requests come over HTTPS), meaning that HTTPS cookies do not leak over HTTP, but even more importantly this cookie is also HTTP-only, meaning that only the server and the browser (e.g. not the JavaScript code) have access to the cookie. Furthermore, this cookie is a session cookie, meaning that a browser restart would delete the cookie altogether.
+The JSON-RPC session ties the client and the server via an HTTP cookie, named `sessionid` which contains a randomly server-generated number. This cookie is not only secure (when the requests come over HTTPS), meaning that HTTPS cookies do not leak over HTTP, but even more importantly, this cookie is also HTTP-only, meaning that only the server and the browser (e.g., not the JavaScript code) have access to the cookie. Furthermore, this cookie is a session cookie, meaning that a browser restart would delete the cookie altogether.
 
 The JSON-RPC session lives as long as the user does not request to log out, as long as the user is active within a 30-minute (default value, which is configurable) time frame, and as long as there are no severe server crashes. When the session dies, the server will reply with the intention to delete any `sessionid` cookies stored in the browser (to prevent any leaks).
 
-When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server, or by adding a reverse proxy (see [Web Server](../../connected-topics/web-server.md)).
+When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server or by adding a reverse proxy (see [Web Server](../../connected-topics/web-server.md)).
 
 </details>
 
@@ -224,9 +224,9 @@ Access-Control-Allow-Headers: Origin, Content-Type, Accept
 Access-Control-Request-Method: POST
 ```
 
-A server hosted at `http://server.com` responding with these headers would mean that the JSON-RPC API can be contacted from a browser that is showing a web page from `http://webpage.com`, and will allow the browser to make POST requests, with a limited amount of headers and with credentials (i.e. cookies).
+A server hosted at `http://server.com` responding with these headers would mean that the JSON-RPC API can be contacted from a browser that is showing a web page from `http://webpage.com`, and will allow the browser to make POST requests, with a limited amount of headers and with credentials (i.e., cookies).
 
-This is not enough though, because the browser also needs to be told that your JavaScript code really wants to make a CORS request. A jQuery example would show like this:
+This is not enough, though, because the browser also needs to be told that your JavaScript code really wants to make a CORS request. A jQuery example would look like this:
 
 ```json
 // with jQuery
@@ -263,7 +263,7 @@ A `tagpath` is a path pointing to a specific position in a YANG module's schema.
 
 A `keypath` is a path pointing to a specific position in a YANG module's instance.
 
-These kinds of paths are used for several of the API methods (e.g. `set_value`, `get_value`, `subscribe_changes`), and could be seen as XPath path specifications in abbreviated format.
+These kinds of paths are used for several of the API methods (e.g., `set_value`, `get_value`, `subscribe_changes`), and could be seen as XPath path specifications in abbreviated format.
 
 Let's look at some examples using the following YANG module as input:
 
@@ -328,7 +328,7 @@ The response will include details about the limit that triggered the error.
 
 Known limits:
 
-* Only 10000 commands/subscriptions are allowed per session
+* Only 10,000 commands/subscriptions are allowed per session.
 
 </details>
 

@@ -106,8 +106,7 @@ As a best practice, the available packages are kept in `/opt/ncs/packages/` and 
 Please note that the above package naming scheme is neither required nor enforced. If your package filesystem names differ from it, you will need to adjust the preceding command accordingly.
 {% endhint %}
 
-Finally, you start the new version of the NSO server with the package reload flag set.
-Set `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and start NSO:
+Finally, you start the new version of the NSO server with the package reload flag set. Set `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and start NSO:
 
 ```bash
 # systemctl start ncs
@@ -356,7 +355,7 @@ Example implementations that use scripts to upgrade a 2- and 3-node setup using 
 
 We have been using a two-node HCC layer-2 upgrade reference example elsewhere in the documentation to demonstrate installing NSO and adding the initial configuration. The upgrade-l2 example referenced in [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) implements shell and Python scripted steps to upgrade the NSO version using `ssh` to the Linux shell and the NSO CLI or Python Requests RESTCONF for accessing the `paris` and `london` nodes. See the example for details.
 
-If you do not wish to automate the upgrade process, you will need to follow the instructions from [Single Instance Upgrade](upgrade-nso.md#ug.admin\_guide.manual\_upgrade) and transfer the required files to each host manually. Additional information on HA is available in [High Availability](../management/high-availability.md). However, you can run the `high-availability` actions from the preceding script on the NSO CLI as-is. In this case, please take special care of which host you perform each command, as it can be easy to mix them up.
+If you do not wish to automate the upgrade process, you will need to follow the instructions from [Single Instance Upgrade](upgrade-nso.md#ug.admin_guide.manual_upgrade) and transfer the required files to each host manually. Additional information on HA is available in [High Availability](../management/high-availability.md). However, you can run the `high-availability` actions from the preceding script on the NSO CLI as-is. In this case, please take special care of which host you perform each command, as it can be easy to mix them up.
 
 ## Package Upgrade <a href="#d5e7083" id="d5e7083"></a>
 
@@ -388,7 +387,7 @@ reload-result {
 On the other hand, upgrading packages in an HA setup is an error-prone process. Thus, NSO provides an action, `packages ha sync and-reload`to minimize such complexity. This action loads new data models into NSO instead of restarting the server process. As a result, it is considerably more efficient, and the time difference to upgrade can be considerable if the amount of data in CDB is huge.
 
 {% hint style="info" %}
-If the only change in the packages is the addition of new NED packages, the `and-add` can replace `and-reload` command for an even more optimized and less intrusive update. See [Adding NED Packages](../management/package-mgmt.md#ug.package\_mgmt.ned\_package\_add) for details.
+If the only change in the packages is the addition of new NED packages, the `and-add` can replace `and-reload` command for an even more optimized and less intrusive update. See [Adding NED Packages](../management/package-mgmt.md#ug.package_mgmt.ned_package_add) for details.
 {% endhint %}
 
 The action executes on the `primary` node. First, it syncs the physical packages from the `primary` node to the `secondary` nodes as tar archive files, regardless if the packages were initially added as directories or tar archives. Then, it performs the upgrade on all nodes in one go. The action does not perform the sync and the upgrade on the node with `none` role.
@@ -404,7 +403,7 @@ If the parameter `and-reload` is also supplied with the `wait-commit-queue-empty
 Using the `wait-commit-queue-empty` parameter is the recommended approach, as it minimizes the risk of the upgrade failing due to commit queue items still relying on the old schema.
 
 {% code title="Package Upgrade Procedure" %}
-```cli
+```bash
 primary@node1# software packages list
 package {
   name dummy-1.0.tar.gz
@@ -426,7 +425,7 @@ Example implementations that use scripts to upgrade a 2- and 3-node setup using 
 
 We have been using a two-node HCC layer 2 upgrade reference example elsewhere in the documentation to demonstrate installing NSO and adding the initial configuration. The `upgrade-l2` example referenced in [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) implements shell and Python scripted steps to upgrade the `primary` `paris` package versions and sync the packages to the `secondary` `london` using `ssh` to the Linux shell and the NSO CLI or Python Requests RESTCONF for accessing the `paris` and `london` nodes. See the example for details.
 
-In some cases, NSO may warn when the upgrade looks suspicious. For more information on this, see [Loading Packages](../management/package-mgmt.md#ug.package\_mgmt.loading). If you understand the implications and are willing to risk losing data, use the `force` option with `packages reload` or set the `NCS_RELOAD_PACKAGES` environment variable to `force` when restarting NSO. It will force NSO to ignore warnings and proceed with the upgrade. In general, this is not recommended.
+In some cases, NSO may warn when the upgrade looks suspicious. For more information on this, see [Loading Packages](../management/package-mgmt.md#ug.package_mgmt.loading). If you understand the implications and are willing to risk losing data, use the `force` option with `packages reload` or set the `NCS_RELOAD_PACKAGES` environment variable to `force` when restarting NSO. It will force NSO to ignore warnings and proceed with the upgrade. In general, this is not recommended.
 
 In addition, you must take special care of NED upgrades because services depend on them. For example, since NSO 5 introduced the CDM feature, which allows loading multiple versions of a NED, a major NED upgrade requires a procedure involving the `migrate` action.
 

@@ -4,7 +4,7 @@ description: Use NSO's embedded web server to deliver dynamic content.
 
 # Web Server
 
-This page describes an embedded basic web server that can deliver static and Common Gateway Interface (CGI) dynamic content to a web client, commonly a browser. Due to the limitations of this web server, and/or of its configuration capabilities, a proxy server such as Nginx is recommended to address special requirements.
+This page describes an embedded basic web server that can deliver static and Common Gateway Interface (CGI) dynamic content to a web client, commonly a browser. Due to the limitations of this web server and/or of its configuration capabilities, a proxy server such as Nginx is recommended to address special requirements.
 
 ## Web Server Capabilities <a href="#d5e8815" id="d5e8815"></a>
 
@@ -22,14 +22,14 @@ Here is a brief overview of what you can configure on the web server:
 * `non-authenticated paths`: by default, all URL paths, except those needed for the login page are hidden from non-authenticated users; authentication is done by calling the JSON-RPC `login` method.
 * `allow symlinks`: Allow symlinks from under the `docroot`.
 * `cache`: set the cache time window for static content.
-* `log`: several logs are available to configure in terms of file paths - an access log, a full HTTP traffic/trace log, and a browser/JavaScript log.
+* `log`: several logs are available to configure in terms of file paths—an access log, a full HTTP traffic/trace log, and a browser/JavaScript log.
 * `custom headers`: set custom headers across all static and dynamic content, including requests to `/jsonrpc`.
 
 In addition to what is configurable, the web server also GZip-compresses responses automatically if the browser handles such responses, either by compressing the response on the fly or, if requesting a static file, like `/bigfile.txt`, by responding with the contents of `/bigfile.txt.gz`, if there is such a file.
 
 ## CGI Support <a href="#d5e8848" id="d5e8848"></a>
 
-The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see Configuration Parameters in [Manual Pages](../../man/section5.md#configuration-parameters)), you can write CGI scripts, that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
+The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see Configuration Parameters in [Manual Pages](../../man/section5.md#configuration-parameters)), you can write CGI scripts that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
 
 * `JSONRPC_SESSIONID`: the JSON-RPC session id (cookie).
 * `JSONRPC_START_TIME`: the start time of the JSON-RPC session.
@@ -37,7 +37,7 @@ The web server includes CGI functionality, disabled by default. Once you enable 
 * `JSONRPC_READ`: the latest JSON-RPC read transaction.
 * `JSONRPC_READS`: a comma-separated list of JSON-RPC read transactions.
 * `JSONRPC_WRITE`: the latest JSON-RPC write transaction.
-* `JSONRPC_WRITES`: a comma-separated of JSON-RPC write transactions.
+* `JSONRPC_WRITES`: a comma-separated list of JSON-RPC write transactions.
 * `MAAPI_USER`: the MAAPI username.
 * `MAAPI_GROUPS`: a comma-separated list of MAAPI groups.
 * `MAAPI_UID`: the MAAPI UID.
@@ -48,7 +48,7 @@ The web server includes CGI functionality, disabled by default. Once you enable 
 * `MAAPI_READ`: the latest MAAPI read transaction.
 * `MAAPI_READS`: a comma-separated list of MAAPI read transactions.
 * `MAAPI_WRITE`: the latest MAAPI write transaction.
-* `MAAPI_WRITES`: a comma-separated of MAAPI write transactions.
+* `MAAPI_WRITES`: a comma-separated list of MAAPI write transactions.
 
 Server or HTTP-specific information is also exported as environment variables:
 
@@ -73,7 +73,7 @@ Server or HTTP-specific information is also exported as environment variables:
 * `QUERY_STRING:`
 * `CONTENT_TYPE:`
 * `CONTENT_LENGTH:`
-* `HTTP_*"`: HTTP headers e.g. "Accept" value exported as `HTTP_ACCEPT`.
+* `HTTP_*"`: HTTP headers e.g., "Accept" value exported as `HTTP_ACCEPT`.
 
 ## Storing TLS Data in the Database <a href="#ug.webserver.tls_data_in_db" id="ug.webserver.tls_data_in_db"></a>
 
@@ -96,11 +96,11 @@ To enable the web server to fetch TLS data from the database, `ncs.conf` needs t
 ```
 {% endcode %}
 
-Note that the options `key-file`, `cert-file`, and `ca-cert-file`, are ignored when `read-from-db` is set to true. See the ncs.conf.5 man page for more details.
+Note that the options `key-file`, `cert-file`, and `ca-cert-file`, are ignored when `read-from-db` is set to true. See the [ncs.conf.5](../../man/section5.md#ncs.conf) man page for more details.
 
-The database is populated with TLS data by configuring the `/tailf-tls:tls/private-key, /tailf-tls:tls/certificate`, and, optionally, `/tailf-tls/ca-certificates`. It is possible to use password-protected private keys, then the _passphrase_ leaf in the `private-key` container needs to be set to the password of the encrypted private key. Unencrypted private key data can be supplied in both PKCS#8 and PKCS#1 format, while encrypted private key data needs to be supplied in PKCS#1 format.
+The database is populated with TLS data by configuring the `/tailf-tls:tls/private-key, /tailf-tls:tls/certificate`, and, optionally, `/tailf-tls/ca-certificates`. It is possible to use password-protected private keys; then the _passphrase_ leaf in the `private-key` container needs to be set to the password of the encrypted private key. Unencrypted private key data can be supplied in both PKCS#8 and PKCS#1 format, while encrypted private key data needs to be supplied in PKCS#1 format.
 
-In the following example a password-protected private key, the passphrase, a public key certificate, and two CA certificates are configured with the CLI.
+In the following example, a password-protected private key, the passphrase, a public key certificate, and two CA certificates are configured with the CLI.
 
 {% code title="Populating the Database with TLS data" %}
 ```
@@ -202,7 +202,7 @@ HTTP/1.1 302 Found
 
 The web server includes support for uploading packages to `/package-upload` using `HTTP POST` from the local host to the NSO host, making them installable there. It is disabled by default but can be enabled in `ncs.conf`; see Configuration Parameters in [Manual Pages](../../man/section5.md#configuration-parameters).
 
-By default, only uploading 1 file per request will be processed and any remaining file parts after that will result in an error and its content will be ignored. To allow multiple files in a request you can increase `/ncs-config/webui/package-upload/max-files`.
+By default, only uploading 1 file per request will be processed, and any remaining file parts after that will result in an error, and its content will be ignored. To allow multiple files in a request, you can increase `/ncs-config/webui/package-upload/max-files`.
 
 {% code title="Valid Package Example" %}
 ```bash

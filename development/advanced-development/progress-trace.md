@@ -83,7 +83,6 @@ The top-level container `progress` is by default invisible due to a hidden attri
        <name>debug</name>
     </hide-group>
     ```
-
 2.  Then, the `unhide` command is used in the CLI session:
 
     ```cli
@@ -124,7 +123,7 @@ admin# request progress trace test purge
 
 ### Log as Notification Events <a href="#d5e9521" id="d5e9521"></a>
 
-Progress events can be subscribed to as Notifications events. See [NOTIF API](../core-concepts/api-overview/java-api-overview.md#ug.java\_api\_overview.notif) for further details.
+Progress events can be subscribed to as Notifications events. See [NOTIF API](../core-concepts/api-overview/java-api-overview.md#ug.java_api_overview.notif) for further details.
 
 ### Verbosity <a href="#d5e9525" id="d5e9525"></a>
 
@@ -231,18 +230,9 @@ Further details can be found in the NSO Java API reference under `com.tailf.prog
 
 ## Correlating with OpenTelemetry Traces
 
-[OpenTelemetry](https://opentelemetry.io/)
-is an observability SDK that instruments your code and libraries
-to collect telemetry data. NSO 6.3 and later by default
-generate span IDs that are compatible with W3C Trace Context and
-OpenTelemetry.
+[OpenTelemetry](https://opentelemetry.io/) is an observability SDK that instruments your code and libraries to collect telemetry data. NSO 6.3 and later by default generate span IDs that are compatible with W3C Trace Context and OpenTelemetry.
 
-To simplify correlation of telemetry data when your NSO code uses
-libraries that are instrumented with OpenTelemetry, you can propagate
-parent span information from NSO to those libraries.
-To make the most use of this data, you need to export OpenTelemetry
-and NSO spans to a common system. You can export NSO
-span data with the Observability Exporter package.
+To simplify correlation of telemetry data when your NSO code uses libraries that are instrumented with OpenTelemetry, you can propagate parent span information from NSO to those libraries. To make the most use of this data, you need to export OpenTelemetry and NSO spans to a common system. You can export NSO span data with the Observability Exporter package.
 
 To set up the trace context for OpenTelemetry:
 
@@ -250,8 +240,7 @@ To set up the trace context for OpenTelemetry:
 2. Create an OpenTelemetry span with the `span_id`.
 3. Set the OpenTelemetry span as the current span for the OpenTelemetry `Context` of the execution unit.
 
-The following listing shows the code necessary to achieve this in
-Python. It requires the _opentelemetry-api_ package.
+The following listing shows the code necessary to achieve this in Python. It requires the _opentelemetry-api_ package.
 
 ```python
     @Service.create
@@ -278,13 +267,9 @@ Python. It requires the _opentelemetry-api_ package.
             ... # code with OpenTelemetry tracing
 ```
 
-The code uses OpenTelemetry tracing from the service create
-callback, however, you can use the same approach in any Maapi
-session.
+The code uses OpenTelemetry tracing from the service create callback, however, you can use the same approach in any Maapi session.
 
-For example, if your code uses Python _requests_
-package, you can easily instrument it by adding an additional
-_opentelemetry-instrumentation-requests_ package:
+For example, if your code uses Python _requests_ package, you can easily instrument it by adding an additional _opentelemetry-instrumentation-requests_ package:
 
 ```python
 import requests
@@ -293,11 +278,7 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 RequestsInstrumentor().instrument()
 ```
 
-If you now invoke _requests_ from service code
-as shown in the following snippet,
-it will produce OpenTelemetry spans, where top-most spans have
-parent span id set to the service span produced by NSO,
-as well as a matching trace ID.
+If you now invoke _requests_ from service code as shown in the following snippet, it will produce OpenTelemetry spans, where top-most spans have parent span id set to the service span produced by NSO, as well as a matching trace ID.
 
 ```python
             ... # code with OpenTelemetry tracing

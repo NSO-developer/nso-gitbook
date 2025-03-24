@@ -26,7 +26,7 @@ NSO supports reading encryption keys using an external command instead of storin
 
 To use this feature, set `/ncs-config/encrypted-strings/external-keys/command` to an executable command that will output the keys following the rules described in the following sections. The command will be executed on startup and when NSO reloads the configuration.
 
-If the external command fails during startup, the startup will abort. If the command fails during a reload, the error will be logged and the previously loaded keys will be kept in the system.
+If the external command fails during startup, the startup will abort. If the command fails during a reload, the error will be logged, and the previously loaded keys will be kept in the system.
 
 The process of providing encryption keys to NSO can be described by the following three steps:
 
@@ -42,7 +42,7 @@ The following table shows the mapping from the name to the path in the configura
 
 <table><thead><tr><th width="227">Name</th><th>Configuration path</th></tr></thead><tbody><tr><td><code>DES3CBC_KEY1</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key1</code></td></tr><tr><td><code>DES3CBC_KEY2</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key2</code></td></tr><tr><td><code>DES3CBC_KEY3</code></td><td><code>/ncs-config/encrypted-strings/DES3CBC/key3</code></td></tr><tr><td><code>AESCFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AESCFB128/key</code></td></tr><tr><td><code>AES256CFB128_KEY</code></td><td><code>/ncs-config/encrypted-strings/AES256CFB128/key</code></td></tr></tbody></table>
 
-To signal an error, including `ERROR=message` is preferred. A non-zero exit code or unsupported line content will also trigger an error. Any form of error will be logged to the development log and no encryption keys will be available in the system.
+To signal an error, including `ERROR=message` is preferred. A non-zero exit code or unsupported line content will also trigger an error. Any form of error will be logged to the development log, and no encryption keys will be available in the system.
 
 Example output providing all supported encryption key configuration settings (do not reuse):
 

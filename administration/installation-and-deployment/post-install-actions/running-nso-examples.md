@@ -11,7 +11,7 @@ Applies to Local Install.
 This section provides an overview of how to run the examples provided with the NSO installer. By working through the examples, the reader should get a good overview of the various aspects of NSO and hands-on experience from interacting with it.
 
 {% hint style="info" %}
-This section references the examples located in [$NCS_DIR/examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.4). The examples all have `README` files that include instructions related to the example.
+This section references the examples located in [$NCS\_DIR/examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.4). The examples all have `README` files that include instructions related to the example.
 {% endhint %}
 
 ## General Instructions <a href="#d5e1220" id="d5e1220"></a>
@@ -98,7 +98,7 @@ Bad configuration: /etc/ncs/ncs.conf:0: "./state/packages-in-use: \
 Daemon died status=21
 ```
 
-What happened above is that NSO did not find an `ncs.conf` in the local directory so it uses the default in `/etc/ncs/ncs.conf`. That `ncs.conf` says there shall be directories at `./` such as `./state` which is not true. Make sure that you `cd` to the root of the example and check that there is a `ncs.conf` file, and a `cdb-dir` directory.
+What happened above is that NSO did not find an `ncs.conf` in the local directory, so it uses the default in `/etc/ncs/ncs.conf`. That `ncs.conf` says there shall be directories at `./` such as `./state` which is not true. Make sure that you `cd` to the root of the example and check that there is a `ncs.conf` file and a `cdb-dir` directory.
 
 </details>
 
@@ -119,15 +119,15 @@ Daemon died status=20
 FAIL
 ```
 
-To resolve the above, just stop the running instance of NSO and netsim. Remember that it does not matter where you started the "running" NSO and netsim, there is no need to `cd` back to the other example before stopping.
+To resolve the above, just stop the running instance of NSO and netsim. Remember that it does not matter where you started the "running" NSO and netsim; there is no need to `cd` back to the other example before stopping.
 
 </details>
 
 <details>
 
-<summary>Not Having the Netsim Device Configuration Loaded into NSO</summary>
+<summary>Not Having the NetSim Device Configuration Loaded into NSO</summary>
 
-Another problem that users run into sometimes is where the netsim device configuration is not loaded into NSO. This can happen if the order of commands is not followed. To resolve this, remove the database files in the `ncs_cdb` directory (keep any files with the `.xml` extension). In this way, NSO will reload the XML initialization files provided by **ncs-setup**.
+Another problem that users run into sometimes is where the NetSim device configuration is not loaded into NSO. This can happen if the order of commands is not followed. To resolve this, remove the database files in the `ncs_cdb` directory (keep any files with the `.xml` extension). In this way, NSO will reload the XML initialization files provided by **ncs-setup**.
 
 ```bash
 $ ncs --stop

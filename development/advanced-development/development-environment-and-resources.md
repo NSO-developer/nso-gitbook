@@ -8,7 +8,7 @@ This section describes some recipes, tools, and other resources that you may fin
 
 ## Development NSO Instance <a href="#ch_devenv.local" id="ch_devenv.local"></a>
 
-Many developers prefer their own, dedicated NSO instance to avoid their work clashing with other team members. You can use either a local or remote Linux machine (such as a VM), or a macOS computer for this purpose.
+Many developers prefer their own, dedicated NSO instance to avoid their work clashing with other team members. You can use either a local or remote Linux machine (such as a VM) or a macOS computer for this purpose.
 
 The advantage of running local Linux with a GUI or macOS is that it is easier to set up the Integrated Development Environment (IDE) and other tools when they run on the same system as NSO. However, many IDEs today also allow working remotely, such as through the SSH protocol, making the choice of local versus remote less of a concern.
 
@@ -41,11 +41,11 @@ Modern IDEs offer many features on top of advanced file editing support, such as
 [Visual Studio Code](https://code.visualstudio.com/) (VS Code) is a freely available and extensible IDE. You can add support for Java, Python, and YANG languages, as well as remote access through SSH via VS Code extensions. Consider installing the following extensions:
 
 * **Python** by Microsoft: Adds Python support.
-* **Language Support for Java(TM)** by Red Hat: Adds Java support.
+* **Language Support for Java™** by Red Hat: Adds Java support.
 * **NSO Developer Studio** by Cisco: Adds NSO-specific features as described in [NSO Developer Studio](https://cisco-tailf.gitbook.io/nso-docs/resources/platform-tools/nso-developer-studio).
 * **Remote - SSH** by Microsoft: Adds support for remote development.
 
-The Remote - SSH extension is especially useful when you must work with a system through an SSH session. Once you connect to the remote host by clicking the `><` button (typically found in the bottom-left corner of the VS Code window), you can open and edit remote files with ease. If you also want language support (syntax highlighting and alike), you may need to install VS Code extensions remotely. That is, install the extensions after you have connected to the remote host, otherwise the extension installation screen might not show the option for installation on the connected host.
+The Remote - SSH extension is especially useful when you must work with a system through an SSH session. Once you connect to the remote host by clicking the `><` button (typically found in the bottom-left corner of the VS Code window), you can open and edit remote files with ease. If you also want language support (syntax highlighting and alike), you may need to install VS Code extensions remotely. That is, install the extensions after you have connected to the remote host; otherwise, the extension installation screen might not show the option for installation on the connected host.
 
 <figure><img src="../../images/vscode-remotessh.png" alt="" width="563"><figcaption><p>Using the Remote - SSH extension in VS Code</p></figcaption></figure>
 
@@ -53,11 +53,11 @@ You will also benefit greatly from setting up SSH certificate authentication if 
 
 ## Automating Instance Setup <a href="#ch_devenv.automate" id="ch_devenv.automate"></a>
 
-Once you get familiar with NSO development and gain some experience, a single NSO instance is likely to be insufficient; either because you need instances for unit testing, because you need one-off (throwaway) instances for an experiment, or something else entirely.
+Once you get familiar with NSO development and gain some experience, a single NSO instance is likely to be insufficient, either because you need instances for unit testing, because you need one-off (throwaway) instances for an experiment, or for something else entirely.
 
 NSO includes tooling to help you quickly set up new local instances when such a need arises.
 
-The following recipe relies on the `ncs-setup` command, which is available in the local install variant and requires a correctly set up shell environment (e.g. running `source ncsrc`). See [Local Install](../../administration/installation-and-deployment/local-install.md) for details.
+The following recipe relies on the `ncs-setup` command, which is available in the local install variant and requires a correctly set up shell environment (e.g., running `source ncsrc`). See [Local Install](../../administration/installation-and-deployment/local-install.md) for details.
 
 A new instance typically needs a few things to be useful:
 
@@ -67,9 +67,9 @@ A new instance typically needs a few things to be useful:
 
 In its simplest form, the `ncs-setup` invocation requires only a destination directory. However, you can specify additional packages to use with the `--package` option. Use the option to add as many packages as you need.
 
-Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory and NSO will load it at the first start, as described in [Initialization Files](../introduction-to-automation/cdb-and-yang.md#d5e268).
+Running `ncs-setup` creates the required filesystem structure for an NSO instance. If you wish to include initial configuration data, put the XML-encoded data in the `ncs-cdb` subdirectory, and NSO will load it at the first start, as described in [Initialization Files](../introduction-to-automation/cdb-and-yang.md#d5e268).
 
-NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data — much like how you would add a device to NSO manually.
+NSO also needs to know about the managed devices. In case you are using `ncs-netsim` simulated devices (described in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md)), you can use the `--netsim-dir` option with `ncs-setup` to add them directly. Otherwise, you may need to create some initial XML files with the relevant device configuration data—much like how you would add a device to NSO manually.
 
 Most of the time, you must also invoke a sync with the device so that it performs correctly with NSO. If you wish to push some initial configuration to the device, you may add the configuration in the form of initial XML data and perform a `sync-to`. Alternatively, you can simply do a `sync-from`. You can use the `ncs_cmd` command for this purpose.
 
@@ -97,7 +97,7 @@ Combining all of this together, consider the following example:
             --package $NCS_DIR/packages/neds/cisco-ios-cli-3.8 \
             --package $NCS_DIR/packages/neds/cisco-iosxr-cli-3.0
     ```
-4.  Now you can add custom initial data as XML files to `ncs-run/ncs-cdb/`. Usually, you would use existing files but you can also create them on-the-fly.
+4.  Now you can add custom initial data as XML files to `ncs-run/ncs-cdb/`. Usually, you would use existing files, but you can also create them on the fly.
 
     ```bash
     $ cat >ncs-run/ncs-cdb/my_init.xml <<'EOF'

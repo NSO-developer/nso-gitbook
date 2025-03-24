@@ -21,7 +21,7 @@ action-name sync-from action-node /devices
 If the task was added through an XML `init` file, the task will run with the `system` user, which implies that AAA rules will not be applied at all. Thus, the task action will not be able to initiate device communication.
 {% endhint %}
 
-If the action node instance is given as an XPath 1.0 expression, the expression is evaluated with the root as the context node, and the expression must return a node-set. The action is then invoked on each node in this node-set.
+If the action node instance is given as an XPath 1.0 expression, the expression is evaluated with the root as the context node, and the expression must return a node set. The action is then invoked on each node in this node set.
 
 Optionally, action parameters can be configured in XML format to be passed to the action during invocation.
 
@@ -80,9 +80,9 @@ action-name check-compliance action-node /reports
 
 A non-recurring task will by default be removed when it has finished executing. It will be up to the action to raise an alarm if an error occurs. The task can also be kept in the task list by setting the `keep` leaf.
 
-## Scheduling in a HA Cluster <a href="#d5e9426" id="d5e9426"></a>
+## Scheduling in an HA Cluster <a href="#d5e9426" id="d5e9426"></a>
 
-In a HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
+In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example, scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
 
 ```cli
 admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
@@ -118,7 +118,7 @@ history history-entry 2017-01-01T02:00:00.550128+00:00 0
 
 ### XPath Log <a href="#d5e9446" id="d5e9446"></a>
 
-Detailed information from the XPath evaluator can be enabled and made available in the xpath log. Add the following snippet to `ncs.conf`.
+Detailed information from the XPath evaluator can be enabled and made available in the XPath log. Add the following snippet to `ncs.conf`.
 
 ```xml
 <xpathTraceLog>
@@ -150,7 +150,7 @@ While investigating a failure with a scheduled task or performing maintenance on
 admin# scheduler suspend
 ```
 
-When ready the scheduler can be resumed.
+When ready, the scheduler can be resumed.
 
 ```cli
 admin# scheduler resume

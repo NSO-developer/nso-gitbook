@@ -45,7 +45,7 @@ Primary requirements to do a System Install include:
 
 <summary>Additional Requirements</summary>
 
-Additional requirements to, for example, build and run NSO production deployment examples, include:
+Additional requirements to, for example, build and run NSO production deployment examples include:
 
 * Java JDK 17 or higher.
 * Ant 1.9.8 or higher.
@@ -60,7 +60,7 @@ Additional requirements to, for example, build and run NSO production deployment
   * Mozilla Firefox
   * Microsoft Edge
   * Google Chrome
-* OpenSSH client applications. For example `ssh` and `scp` commands.
+* OpenSSH client applications. For example, `ssh` and `scp` commands.
 * cron. Run time-based tasks, such as `logrotate`.
 * `logrotate`. rotate, compress, and mail NSO and system logs.
 * `rsyslog`. pass NSO logs to a local syslog managed by `rsyslogd` and pass logs to a remote node.
@@ -80,13 +80,13 @@ To download the Cisco NSO installer and example NEDs:
 
 <summary>Identifying the Installer</summary>
 
-You need to know your system specifications (Operating System and CPU architecture) to choose the appropriate NSO Installer.
+You need to know your system specifications (Operating System and CPU architecture) to choose the appropriate NSO installer.
 
 NSO is delivered as an OS/CPU-specific signed self-extractable archive. The signed archive file has the pattern `nso-VERSION.OS.ARCH.signed.bin` that after signature verification extracts the `nso-VERSION.OS.ARCH.installer.bin` archive file, where:
 
 * `VERSION` is the NSO version to install.
 * `OS` is the Operating System (`linux` for all Linux distributions and `darwin` for macOS).
-* `ARCH` is the CPU architecture, for example, `x86_64`.
+* `ARCH` is the CPU architecture, for example`x86_64`.
 
 </details>
 
@@ -146,7 +146,7 @@ The following contents are unpacked:
 
 * `nso-VERSION.OS.ARCH.installer.bin`: The NSO installer.
 * `nso-VERSION.OS.ARCH.installer.bin.signature`: Signature generated for the NSO image.
-* `tailf.cer`: An enclosed Cisco signed x.509 end-entity certificate containing the public key that is used to verify the signature.
+* `tailf.cer`: An enclosed Cisco-signed x.509 end-entity certificate containing the public key that is used to verify the signature.
 * `README.signature`: File with further details on the unpacked content and steps on how to run the signature verification program. To manually verify the signature, refer to the steps in this file.
 * `cisco_x509_verify_release.py`: Python program that can be used to verify the 3-tier x.509 certificate chain and signature.
 * Multiple `.tar.gz` files: Bundled packages, extending the base NSO functionality.
@@ -159,11 +159,11 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 * Phased Provisioning
 * Resource Manager
 
-For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
+For platform tools documentation, refer to the individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
 
 **NED Packages**
 
-The NED Packages that are available with the NSO Installation are netsim-based example NEDs. These NEDs are used for NSO examples only.
+The NED packages that are available with the NSO installation are netsim-based example NEDs. These NEDs are used for NSO examples only.
 
 Fetch the latest production-grade NEDs from [Cisco Software Download](https://software.cisco.com/download/home) using the URLs provided on your NED license certificates.
 
@@ -180,7 +180,7 @@ Following is a list of a few of the installed manual pages:
 * `ncs-setup(1)`: Command to create an initial NSO setup.
 * `ncs.conf`: NSO daemon configuration file format.
 
-For example, to view the manual page describing the NSO configuration file you should type:
+For example, to view the manual page describing the NSO configuration file, you should type:
 
 ```bash
 $ man ncs.conf
@@ -267,9 +267,9 @@ To achieve this with immediate effect, give the command:
 
 When `overcommit_memory = 2`, the `/proc/sys/vm/overcommit_ratio` parameter defines the percent of the physical RAM + swap space used. The default is "50", or 50%. This setting will underutilize RAM usage if the system has more physical RAM than 50%.
 
-Setting the `overcommit_ratio` parameter to `100` will include any swap if present. On-disk memory (swap) gives the advantage of having more memory available in case an application needs more RAM than physically available momentarily. But it is usually slow, and thus best practice is to refrain from using the swap for NSO. To allocate physical RAM only, set the `overcommit_ratio` parameter to 100 \* ((RAM - swap space) / RAM).
+Setting the `overcommit_ratio` parameter to `100` will include any swap if present. On-disk memory (swap) gives the advantage of having more memory available in case an application needs more RAM than is physically available momentarily. But it is usually slow, and thus the best practice is to refrain from using the swap for NSO. To allocate physical RAM only, set the `overcommit_ratio` parameter to 100 \* ((RAM - swap space) / RAM).
 
-If the system's physical RAM (MemTotal) is less than or equal to the swap space (SwapTotal), using the swap cannot be avoided and the `overcommit_ratio` should be set to `100`.
+If the system's physical RAM (MemTotal) is less than or equal to the swap space (SwapTotal), using the swap cannot be avoided, and the `overcommit_ratio` should be set to `100`.
 
 {% code title="Example 1: Physical RAM (MemTotal) > Swap Space (SwapTotal)" %}
 ```bash
@@ -382,7 +382,7 @@ To generate a license registration token:
 
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
-    ```cli
+    ```bash
     $ ncs_cli -Cu admin
     admin@ncs# license smart register idtoken
     YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQtOGEzMTM3OTg5MG
@@ -395,7 +395,7 @@ To generate a license registration token:
     Upon successful registration, NSO automatically requests a license entitlement for its own instance and for the number of devices it orchestrates and their NED types. If development mode has been enabled, only development entitlement for the NSO instance itself is requested.
 2.  Inspect the requested entitlements using the command `show license all` (or by inspecting the NSO daemon log). An example output is shown below.
 
-    ```cli
+    ```bash
     admin@ncs# show license all
     ...
     <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
@@ -445,7 +445,7 @@ Smart Licensing evaluation time remaining: 89d 23h 0m 0s
 
 <summary>Communication Send Error</summary>
 
-During upgrades, If you experience a 'Communication Send Error' during license registration, restart the Smart Agent.
+During upgrades, if you experience a 'Communication Send Error' during license registration, restart the Smart Agent.
 
 </details>
 
@@ -457,7 +457,7 @@ In a situation where the NSO instance has no direct access to the Cisco Smart So
 
 Another option when direct access is not desired is to configure an HTTP or HTTPS proxy, e.g., `smart-license smart-agent proxy url https://127.0.0.1:8080`. If you plan to do this, take the note below regarding ignored CLI configurations into account:
 
-If `ncs.conf` contains configuration for any of java-executable, java-options, override-url/url or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/`, then any corresponding configuration done via the CLI is ignored.
+If `ncs.conf` contains a configuration for any of the java-executable, java-options, override-url/url, or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/`, then any corresponding configuration done via the CLI is ignored.
 
 </details>
 
@@ -489,7 +489,7 @@ type = "notifyRegisterSuccess"
 
 To check the registration status, use the command `show license status`.
 
-```cli
+```bash
 admin@ncs# show license status
 
 Smart Licensing is ENABLED
@@ -538,7 +538,7 @@ No. By default, the environment variables are configured and set on the shell wi
 
 <details>
 
-<summary>Can you start NSO from a directory, which is not a NSO runtime directory?</summary>
+<summary>Can you start NSO from a directory that is not an NSO runtime directory?</summary>
 
 Yes.
 
@@ -546,7 +546,7 @@ Yes.
 
 <details>
 
-<summary>Can you stop NSO from a directory, which is not a NSO runtime directory?</summary>
+<summary>Can you stop NSO from a directory that is not an NSO runtime directory?</summary>
 
 Yes.
 
@@ -556,7 +556,7 @@ Yes.
 
 <summary>For evaluation and development purposes, instead of a Local Install, you performed a System Install. Now you cannot build or run NSO examples as described in README files. How can you proceed further?</summary>
 
-The easiest way is to Uninstall the System install using `ncs-uninstall --all` and do a Local Install from scratch.
+The easiest way is to uninstall the System install using `ncs-uninstall --all` and do a Local Install from scratch.
 
 </details>
 

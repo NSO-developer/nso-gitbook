@@ -2,7 +2,6 @@
 
 * [Start](README.md)
 * [What's New](whats-new.md)
-* [Errata](errata.md)
 
 ## Administration
 

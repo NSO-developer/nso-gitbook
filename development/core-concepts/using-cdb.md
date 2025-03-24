@@ -23,7 +23,7 @@ NSO is designed to manage devices and services. NSO uses YANG as the overall mod
 
 `tailf-ncs.yang` is the top module that includes the following sub-modules:
 
-* `tailf-ncs-common.yang`: common definitions
+* `tailf-ncs-common.yang`: common definitions.
 * `tailf-ncs-packages.yang`: this sub-module defines the management of packages that are run by NSO. A package contains custom code, models, and documentation for any function added to the NSO platform. It can for example be a service application or a southbound integration to a device.
 * `tailf-ncs-devices.yang`: This is a core model of NSO. The device model defines everything a user can do with a device that NSO speaks to via a Network Element Driver, NED.
 * `tailf-ncs-services.yang`: Services represent anything that spans across devices. This can for example be MPLS VPN, MEF e-line, BGP peer, or website. NSO provides several mechanisms to handle services in general which are specified by this model. Also, it defines placeholder containers under which developers, as an option, can augment their specific services.
@@ -232,7 +232,7 @@ Given the YANG model in the example above (L3 VPN YANG Extract), the initial dat
 
 Another example of using these features is when initializing the AAA database. This is described in [AAA infrastructure](../../administration/management/aaa-infrastructure.md).
 
-All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
+All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys_mgmt.starting_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
 ```xml
@@ -701,7 +701,7 @@ We will look once again at the YANG model for the CDB package in the [examples.n
 ```
 {% endcode %}
 
-Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
+Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
 
 An example of Java code that creates operational data using the Navu API is shown in the example below (Creating Operational Data using Navu API)).
 
@@ -858,7 +858,7 @@ public class OperCdbSub implements ApplicationComponent, CdbDiffIterate {
 
 Notice that the `CdbOperSubscriber` is very similar to the `CdbConfigSubscriber` described earlier.
 
-In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py)  and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
+In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
 
 {% code title="Example: Populating Operational Data" %}
 ```bash
@@ -962,7 +962,7 @@ CDB can automatically handle the following changes to the schema:
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
-Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.disaster)).
+Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs_sys_mgmt.disaster)).
 
 ## Using Initialization Files for Upgrade <a href="#d5e3066" id="d5e3066"></a>
 
@@ -1146,7 +1146,7 @@ As with any package component type, the `upgrade` component has to be defined in
 ```
 {% endcode %}
 
-Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package\_mgmt.loading).
+Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package_mgmt.loading).
 
 <figure><img src="../../images/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
 

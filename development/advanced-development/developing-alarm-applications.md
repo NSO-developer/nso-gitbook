@@ -45,9 +45,7 @@ The centralized alarm sink can then be retrieved using the default constructor i
 ```
 {% endcode %}
 
-For applications outside the NSO Java VM, the
-`AlarmSinkCentral` needs to be supplied when constructing
-the alarm sink.
+For applications outside the NSO Java VM, the `AlarmSinkCentral` needs to be supplied when constructing the alarm sink.
 
 {% code title="Retrieving AlarmSink outside NSO Java VM" %}
 ```
@@ -55,9 +53,7 @@ the alarm sink.
 ```
 {% endcode %}
 
-When submitting an alarm using the local mode, you need a
-Maapi socket and a `Maapi` instance.
-The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
+When submitting an alarm using the local mode, you need a Maapi socket and a `Maapi` instance. The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
 
 {% code title="Retrieving AlarmSink using Local Mode" %}
 ```

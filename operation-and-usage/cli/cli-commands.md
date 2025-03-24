@@ -22,7 +22,7 @@ This command is auto-generated from the YANG file.
 
 For example, given the following action specification in a YANG file:
 
-```
+```yang
 tailf:action shutdown {
   tailf:actionpoint actions;
   input {
@@ -57,9 +57,9 @@ tailf:action shutdown {
 }
 ```
 
-The action can be invoked in the following way
+The action can be invoked in the following way:
 
-```
+```bash
 admin@ncs> shutdown timeout 10s message reboot options { \
     forceFsckAfterReboot true }
 ```
@@ -76,7 +76,7 @@ Abort or confirm a pending confirming commit. A pending confirming commit will a
 
 Example:
 
-```cli
+```bash
 admin@ncs# commit abort
 ```
 
@@ -94,7 +94,7 @@ Enter configure mode. The default is `terminal`.
 
 <summary><code>terminal</code></summary>
 
-Edit a private copy of the running configuration, no lock is taken.
+Edit a private copy of the running configuration; no lock is taken.
 
 </details>
 
@@ -106,7 +106,7 @@ Enter configure mode ignoring any confirm dialog
 
 Example:
 
-```cli
+```bash
 admin@ncs# config terminal
 Entering configuration mode terminal
 ```
@@ -121,7 +121,7 @@ List files in `<directory>.`
 
 Example:
 
-```cli
+```bash
 admin@ncs# file list /config
 rollback10001
 rollback10002
@@ -140,7 +140,7 @@ Display contents of a `<file>`.
 
 Example:
 
-```cli
+```bash
 admin@ncs# file show /etc/skel/.bash_profile
 # /etc/skel/.bash_profile
 
@@ -159,7 +159,7 @@ Display help text related to `<command>.`
 
 Example:
 
-```cli
+```bash
 admin@ncs# help job
 Help for command: job
     Job operations
@@ -171,11 +171,11 @@ Help for command: job
 
 <summary><code>job stop &#x3C;job id></code></summary>
 
-Stop a specific background job. In the default CLI the only command that creates background jobs is `monitor start`.
+Stop a specific background job. In the default CLI, the only command that creates background jobs is `monitor start`.
 
 Example:
 
-```cli
+```bash
 admin@ncs# monitor start /var/log/messages
 [ok][...]
 admin@ncs# show jobs
@@ -200,7 +200,7 @@ Log out a specific user session.
 
 Example:
 
-```cli
+```bash
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -225,7 +225,7 @@ Log out a specific user.
 
 Example:
 
-```cli
+```bash
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -242,7 +242,7 @@ Session User  Context From         Proto Date     Mode
 
 <summary><code>script reload</code></summary>
 
-Reload scripts found in the `scripts/command`directory. New scripts will be added and if a script file has been removed the corresponding CLI command will be purged. See [Plug-and-play Scripting](../operations/plug-and-play-scripting.md).
+Reload scripts found in the `scripts/command`directory. New scripts will be added, and if a script file has been removed, the corresponding CLI command will be purged. See [Plug-and-Play Scripting](../operations/plug-and-play-scripting.md).
 
 </details>
 
@@ -262,12 +262,12 @@ Display the message to a specific user.
 
 Example:
 
-<pre><code><strong>admin@ncs# send oper "I will reboot system in 5 minutes."
+<pre class="language-bash"><code class="lang-bash"><strong>admin@ncs# send oper "I will reboot system in 5 minutes."
 </strong></code></pre>
 
-In oper's session:
+In the oper's session:
 
-```cli
+```bash
 oper@ncs# Message from admin@ncs at 13:16:41...
 I will reboot system in 5 minutes.
 EOF
@@ -283,7 +283,7 @@ Display CLI properties.
 
 Example:
 
-```cli
+```bash
 admin@ncs# show cli
 autowizard            false
 complete-on-space     true
@@ -309,11 +309,11 @@ timestamp             disable
 
 <summary><code>show history [ &#x3C;limit> ]</code></summary>
 
-Display CLI command history. By default, the last 100 commands are listed. The size of the history list is configured using the history CLI setting. If a history limit has been specified only the last number of commands up to that limit will be shown.
+Display CLI command history. By default, the last 100 commands are listed. The size of the history list is configured using the history CLI setting. If a history limit has been specified, only the last number of commands up to that limit will be shown.
 
 Example:
 
-```cli
+```bash
 admin@ncs# show history
 06-19 14:34:02 -- ping router
 06-20 14:42:35 -- show running-config
@@ -335,7 +335,7 @@ Display currently running background jobs.
 
 Example:
 
-```cli
+```bash
 admin@ncs# show jobs
 JOB COMMAND
 3   monitor start /var/log/messages
@@ -355,15 +355,15 @@ Shows all possible commands starting with the `<command prefix>`.
 
 <summary><code>show running-config [ &#x3C;pathfilter> [ sort-by &#x3C;idx> ] ]</code></summary>
 
-Display current configuration. By default, the whole configuration is displayed. It is possible to limit what is shown by supplying a pathfilter.
+Display the current configuration. By default, the whole configuration is displayed. It is possible to limit what is shown by supplying a pathfilter.
 
-The `<pathfilter>` maybe either a path pointing to a specific instance or if an instance id is omitted, the part following the omitted instance is treated as a filter.
+The `<pathfilter>` maybe either a path pointing to a specific instance or, if an instance ID is omitted, the part following the omitted instance is treated as a filter.
 
 The `sort-by` argument can be given when the `<pathfilter>` points to a list element with secondary indexes. `<idx>` is the name of a secondary index. When given, the table will be sorted in the order defined by the secondary index. This makes it possible for the CLI user to control in which order instances should be displayed.
 
 To show the `aaa` settings for the `admin` user:
 
-```cli
+```bash
 admin@ncs# show running-config aaa authentication users user admin
 aaa authentication users user admin
  uid        1000
@@ -376,7 +376,7 @@ aaa authentication users user admin
 
 To show all users that have group ID 1000, omit the user ID and instead specify `gid` `1000`:
 
-<pre><code><strong>admin@ncs# show running-config aaa authentication users user * gid 1000
+<pre class="language-bash"><code class="lang-bash"><strong>admin@ncs# show running-config aaa authentication users user * gid 1000
 </strong>...
 </code></pre>
 
@@ -386,13 +386,13 @@ To show all users that have group ID 1000, omit the user ID and instead specify 
 
 <summary><code>show &#x3C;path> [ sort-by &#x3C;idx> ]</code></summary>
 
-This command shows the configuration as a table provided that `<path>` leads to a list element and the data can be rendered as a table (ie, the table fits on the screen). It is also possible to force table formatting of a list by using the `| tab` pipe command.
+This command shows the configuration as a table provided that `<path>` leads to a list element, and the data can be rendered as a table (i.e., the table fits on the screen). It is also possible to force table formatting of a list by using the `| tab` pipe command.
 
 The `sort-by` argument can be given when the _path_ points to a list element with secondary indexes. `<idx>` is the name of a secondary index. When given, the table will be sorted in the order defined by the secondary index. This makes it possible for the CLI user to control in which order instances should be displayed.
 
 Example:
 
-```cli
+```bash
 admin@ncs# show devices device ce0 module
 NAME                       REVISION    FEATURE  DEVIATION
 -----------------------------------------------------------
@@ -406,7 +406,7 @@ tailf-ned-cisco-ios-stats  2015-03-16  -        -
 
 <summary><code>source &#x3C;file></code></summary>
 
-Execute commands from \<file> as if they had been entered by the user. The `autowizard` is disabled when executing commands from the file, also any commands that require input from the user (commands added by clispec, for example) will receive an interrupt signal upon attempt to read from stdin.
+Execute commands from \<file> as if they had been entered by the user. The `autowizard` is disabled when executing commands from the file; also, any commands that require input from the user (commands added by clispec, for example) will receive an interrupt signal upon an attempt to read from stdin.
 
 </details>
 
@@ -420,7 +420,7 @@ Note that this command will only be available if `devtools` has been set to `tru
 
 Example:
 
-```cli
+```bash
 admin@ncs# timecmd id
 user = admin(501), gid=20, groups=admin, gids=12,20,33,61,79,80,81,98,100
 Command executed in 0.00 sec
@@ -433,11 +433,11 @@ admin@ncs#
 
 <summary><code>who</code></summary>
 
-Display currently logged-on users. The current session, i.e. the session running the show status command, is marked with an asterisk.
+Display currently logged-on users. The current session, i.e., the session running the show status command, is marked with an asterisk.
 
 Example:
 
-```cli
+```bash
 admin@ncs# who
 Session User  Context From         Proto Date     Mode
  25     oper  cli     192.168.1.72 ssh   12:10:40 operational
@@ -459,7 +459,7 @@ Set a parameter. If a new identifier is created and `autowizard` is enabled, the
 
 This command is auto-generated from the YANG file\_.\_
 
-If no `<value>` is provided, then the CLI will prompt the user for the value. No echo of the entered value will occur if `<path>` is an encrypted value, i.e. of the type MD5DigestString, DESDigestString, DES3CBCEncryptedString, AESCFB128EncryptedString, or AES256CFB128EncryptedString as documented in the `tailf-common.yang` data model.
+If no `<value>` is provided, then the CLI will prompt the user for the value. No echo of the entered value will occur if `<path>` is an encrypted value, i.e., of the type MD5DigestString, DESDigestString, DES3CBCEncryptedString, AESCFB128EncryptedString, or AES256CFB128EncryptedString as documented in the `tailf-common.yang` data model.
 
 </details>
 
@@ -469,7 +469,7 @@ If no `<value>` is provided, then the CLI will prompt the user for the value. No
 
 <summary><code>annotate &#x3C;statement> &#x3C;text></code></summary>
 
-Associate an annotation with a given configuration. To remove an annotation leave the text empty.
+Associate an annotation with a given configuration. To remove an annotation, leave the text empty.
 
 Only available when the system has been configured with attributes enabled.
 
@@ -494,7 +494,7 @@ Commit the current configuration to "running".
 
 Make a copy of an instance.
 
-Copying between different ned-id versions works as long as the schema nodes being copied have not changed between the versions.
+Copying between different `ned-id` versions works as long as the schema nodes being copied have not changed between the versions.
 
 </details>
 
@@ -502,11 +502,11 @@ Copying between different ned-id versions works as long as the schema nodes bein
 
 <summary><code>copy cfg [ merge | overwrite] &#x3C;src path> to &#x3C;dest path></code></summary>
 
-Copy data from one configuration tree to another. Only data that makes sense at the destination will be copied. No error message will be generated for data that cannot be copied and the operation can fail completely without any error messages being generated.
+Copy data from one configuration tree to another. Only data that makes sense at the destination will be copied. No error message will be generated for data that cannot be copied, and the operation can fail completely without any error messages being generated.
 
-For example to create a template from a part of a device config. First, configure the device then copy the config into the template configuration tree.
+For example, to create a template from a part of a device config. First, configure the device, then copy the config into the template configuration tree.
 
-```cli
+```bash
 admin@ncs(config)# devices template host_temp
 admin@ncs(config-template-host_temp)# exit
 admin@ncs(config)# copy cfg merge devices device ce0 config \
@@ -558,11 +558,9 @@ Edit a sub-element. Missing elements in the `<path>` will be created.
 <summary><code>exit (level | configuration-mode)level</code></summary>
 
 * `level`\
-  Exit from this level. If performed on the top level, will exit configure mode. This is the default if no option is given.
+  Exit from this level. If performed on the top level, it will exit configure mode. This is the default if no option is given.
 
-<!---->
-
-* `configuration-mode`\
+- `configuration-mode`\
   Exit from configuration mode regardless of which edit level.
 
 </details>
@@ -595,7 +593,7 @@ Inserts a new element. If the element already exists and has the `indexedView` o
 
 <summary><code>insert &#x3C;path>[ first| last| before key| after key]</code></summary>
 
-Inject a new element into an ordered list. The element can be added first, last (default), before or after another element.
+Inject a new element into an ordered list. The element can be added first, last (default), before, or after another element.
 
 </details>
 
@@ -608,12 +606,8 @@ Load configuration from file or terminal.
 * `merge`\
   Merge the content of the file/terminal with the current configuration.
 
-<!---->
-
-* `override`\
+- `override`\
   Configuration from file/terminal overwrites the current configuration.
-
-<!---->
 
 * `replace`\
   Configuration from file/terminal replaces the current configuration.
@@ -652,7 +646,7 @@ The file can then be used with the command ` load merge`` `` `_`FILENAME`_ to ac
 
 <summary><code>move &#x3C;path>[ first | last| before key | after key]</code></summary>
 
-Move an existing element to a new position in an ordered list. The element can be moved first, last (default), before or after another element.
+Move an existing element to a new position in an ordered list. The element can be moved first, last (default), before, or after another element.
 
 </details>
 
@@ -668,7 +662,7 @@ Rename an instance.
 
 <summary><code>revert</code></summary>
 
-Copy the running configuration into the current configuration, eg remove all uncommitted changes.
+Copy the running configuration into the current configuration, e.g., remove all uncommitted changes.
 
 </details>
 
@@ -676,17 +670,13 @@ Copy the running configuration into the current configuration, eg remove all unc
 
 <summary><code>rload (merge | override | replace) (terminal | &#x3C;file>)</code></summary>
 
-Load file relative to the current sub-mode. For example, given a file with a device config it is possible to enter one device and issue the `rload merge/override/replace <file>` command to load the config for that device, then enter another device and load the same config file using `rload`. See also the `load` command.
+Load the file relative to the current sub-mode. For example, given a file with a device config, it is possible to enter one device and issue the `rload merge/override/replace <file>` command to load the config for that device, then enter another device and load the same config file using `rload`. See also the `load` command.
 
 * `merge`\
   Merge the content of the file/terminal with the current configuration.
 
-<!---->
-
-* `override`\
+- `override`\
   Configuration from file/terminal overwrites the current configuration.
-
-<!---->
 
 * `replace`\
   Configuration from file/terminal replaces the current configuration.
@@ -703,16 +693,17 @@ The configuration changes are stored in rollback files where the most recent cha
 
 Only the deltas are stored in the rollback files. When rolling back the configuration to rollback N, all changes stored in rollback10001-rollbackN are applied.
 
-There are two ways to address which rollback file to use, either `fixed-number <number>` to address an absolute rollback number or `id <number>` to address a relative number. For e.g., the latest commit has relative rollback id 0, the second-latest has id 1, and so on.
+There are two ways to address which rollback file to use, either `fixed-number <number>` to address an absolute rollback number or `id <number>` to address a relative number. For example, the latest commit has a relative rollback ID of 0, the second-latest has ID 1, and so on.
 
 The optional path argument allows subtrees to be rolled back while the rest of the configuration tree remains unchanged.
 
-Instead of undoing all changes from rollback10001 to rollbackN it is possible to undo only the changes stored in a specific rollback file. This may or may not work depending on which changes have been made to the configuration after the rollback was created. In some cases applying the rollback file may fail, or the configuration may require additional changes in order to be valid. E.g. to undo the changes recorded in rollback 10019, but not the changes in 10020-N run the command `rollback-files apply-rollback-file selective fixed-number 10019`.
+Instead of undoing all changes from rollback10001 to rollbackN it is possible to undo only the changes stored in a specific rollback file. This may or may not work depending on which changes have been made to the configuration after the rollback was created. In some cases applying the rollback file may fail, or the configuration may require additional changes in order to be valid. E.g., to undo the changes recorded in rollback 10019, but not the changes in 10020-N run the command `rollback-files apply-rollback-file selective fixed-number 10019`.
 
 Example:
 
-<pre><code><strong>admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10005
-</strong></code></pre>
+```bash
+admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10005
+```
 
 This command is only available if rollback has been enabled in `ncs.conf`.
 
@@ -750,7 +741,7 @@ The `sort-by` argument can be given when the `<pathfilter>` points to a list ele
 
 <summary><code>show configuration commit changes [&#x3C;number> [&#x3C;path>]]</code></summary>
 
-Display edits associated with a commit, identified by the rollback number created for the commit. The changes are displayed as forward changes, as opposed to `show configuration rollback changes` which displays the commands for undoing the changes.
+Display edits associated with a commit, identified by the rollback number created for the commit. The changes are displayed as forward changes, as opposed to `show configuration rollback changes`, which displays the commands for undoing the changes.
 
 The optional path argument allows only edits related to a given subtree to be listed.
 
@@ -786,7 +777,7 @@ Display the "running" configuration without taking uncommitted changes into acco
 
 <summary><code>show configuration diff [&#x3C;pathfilter>]</code></summary>
 
-Display uncommitted changes to the running-config in diff-style, ie with + and - in front of added and deleted configuration lines.
+Display uncommitted changes to the running config in diff-style, i.e., with + and - in front of added and deleted configuration lines.
 
 </details>
 
@@ -838,7 +829,7 @@ Note that this command will only be available if `devtools` has been set to `tru
 
 Example:
 
-```cli
+```bash
 admin@ncs# timecmd id
 user = admin(501), gid=20, groups=admin, gids=12,20,33,61,79,80,81,98,100
 Command executed in 0.00 sec
@@ -882,12 +873,8 @@ Note that this command will only be available if `devtools` has been set to `tru
 * `eval`\
   Evaluate an XPath expression.
 
-<!---->
-
-* `must`\
+- `must`\
   Evaluate the expression as a YANG must expression.
-
-<!---->
 
 * `when`\
   Evaluate the expression as a YANG when expression.
@@ -900,7 +887,7 @@ Note that this command will only be available if `devtools` has been set to `tru
 
 Reapply entered config commands since the latest commit. The command will stop on the first error by default.
 
-Commands that may have unknown side-effects will be skipped and thus not reapplied, such as actions, custom commands, etc. To display all commands, including those that will be skipped, the pipe command `details` can be used.
+Commands that may have unknown side effects, will be skipped and thus not reapplied, such as actions, custom commands, etc. To display all commands, including those that will be skipped, the pipe command `details` can be used.
 
 Note that this command will only be available if there is a conflict.
 

@@ -8,7 +8,7 @@ The Configuration Database (CDB) is a built-in datastore for NSO, specifically d
 
 The `in-memory-v1` mode keeps all the configuration data in RAM for the fastest access time. New data is persisted to disk in the form of journal (WAL) files, which the system uses on every restart to reconstruct the RAM database. But the amount of RAM needed is proportional to the number of managed devices and services. When NSO is used to manage a large network, the amount of needed RAM can be quite large. This is the only CDB persistence mode available before NSO 6.4.
 
-The `on-demand-v1` mode loads data on demand from the disk into the RAM and supports offloading the least-used data to free up memory. Loading only the compiled YANG schema initially (in the form of .fxs files), results in faster system startup times. This mode was first introduced in NSO 6.4.
+The `on-demand-v1` mode loads data on demand from the disk into the RAM and supports offloading the least-used data to free up memory. Loading only the compiled YANG schema initially (in the form of .fxs files) results in faster system startup times. This mode was first introduced in NSO 6.4.
 
 {% hint style="warning" %}
 For reliable storage of the configuration on disk, regardless of the persistence mode, the CDB requires that the file system correctly implements the standard primitives for file synchronization and truncation. For this reason (as well as for performance), NFS or other network file systems are unsuitable for use with the CDB - they may be acceptable for development, but using them in production is unsupported and strongly discouraged.
@@ -16,16 +16,16 @@ For reliable storage of the configuration on disk, regardless of the persistence
 
 Compared to `in-memory-v1`, `on-demand-v1` mode has a number of benefits:
 
-* **Faster startup time**: Data is not loaded into memory at startup, only schema is.
+* **Faster startup time**: Data is not loaded into memory at startup; only the schema is.
 * **Lower memory requirements**: Data is loaded into memory only when needed and offloaded when not.
 * **Faster sync of high-availability nodes**: Only subscribed data on the followers is loaded at once.
-* **Background compaction**: Compaction process no longer locks the CDB, allowing writes to proceed uninterrupted.
+* **Background compaction**: The compaction process no longer locks the CDB, allowing writes to proceed uninterrupted.
 
-While the `on-demand-v1` mode is as fast for reads of "hot" data (already in memory) as the `in-memory-v1` mode, reads are slower for "cold" data (not loaded in memory), since the data first has to be read from disk. In turn, this results in a bigger variance in the time that a read takes in the `on-demand-v1` mode, based on whether the data is already available in RAM or not. The variance could express in different ways, for example taking a longer time to produce the service mapping or creating a rollback for the first request. To lessen the effect, we highly recommend fast storage, such as NVMe flash drives.
+While the `on-demand-v1` mode is as fast for reads of "hot" data (already in memory) as the `in-memory-v1` mode, reads are slower for "cold" data (not loaded in memory), since the data first has to be read from disk. In turn, this results in a bigger variance in the time that a read takes in the `on-demand-v1` mode, based on whether the data is already available in RAM or not. The variance could express in different ways, for example, by taking a longer time to produce the service mapping or creating a rollback for the first request. To lessen the effect, we highly recommend fast storage, such as NVMe flash drives.
 
-Furthermore, the two modes differ in the way they internally organize and store data, resulting in different performance characteristics. If sufficient RAM is available, in some cases `in-memory-v1` performs better, while in others, `on-demand-v1` performs better. One known case where the performance of `on-demand-v1` does not reach that of `in-memory-v1` is deleting large trees of data. But in general, only extensive testing of the specific use case can tell which mode performs better.
+Furthermore, the two modes differ in the way they internally organize and store data, resulting in different performance characteristics. If sufficient RAM is available, in some cases, `in-memory-v1` performs better, while in others, `on-demand-v1` performs better. One known case where the performance of `on-demand-v1` does not reach that of `in-memory-v1` is deleting large trees of data. But in general, only extensive testing of the specific use case can tell which mode performs better.
 
-As a rule of thumb, we recommend the `on-demand-v1` mode as it has typical performance comparable to `in-memory-v1` but has better maintainability properties. However, if performance requirements and testing favor the `in-memory-v1` mode, that may be a viable choice. Discounting the migration time, you can easily switch between the two modes with automatic migration at system startup.
+As a rule of thumb, we recommend the `on-demand-v1` mode, as it has typical performance comparable to `in-memory-v1` but has better maintainability properties. However, if performance requirements and testing favor the `in-memory-v1` mode, that may be a viable choice. Discounting the migration time, you can easily switch between the two modes with automatic migration at system startup.
 
 ## Configuring Persistence Mode
 
@@ -62,8 +62,8 @@ It is also possible to automatically trigger compaction after a set number of tr
 
 In the configuration datastore, compaction is by default delayed by 5 seconds when the threshold is reached to prevent any upcoming write transaction from being blocked. If the system is idle during these 5 seconds, meaning that there is no new transaction, the compaction will initiate. Otherwise, compaction is delayed by another 5 seconds. The delay time can be configured in `ncs.conf` by setting the `/ncs-config/compaction/delayed-compaction-timeout` property.
 
-As compaction may require a significant amount of time, it may be preferable to disable automatic compaction by CDB and instead trigger compaction manually according to specific needs. If doing so, it is highly recommended to have another automated system in place. Automation of compaction can be done by using a scheduling mechanism such as CRON, or by using the NCS scheduler. See [Scheduler](../../development/connected-topics/scheduler.md) for more information.
+As compaction may require a significant amount of time, it may be preferable to disable automatic compaction by CDB and instead trigger compaction manually according to specific needs. If doing so, it is highly recommended to have another automated system in place. Automation of compaction can be done by using a scheduling mechanism such as CRON or by using the NCS scheduler. See [Scheduler](../../development/connected-topics/scheduler.md) for more information.
 
-By default, CDB may perform compaction during its boot process. This may be disabled if required, by starting NSO with the flag `--disable-compaction-on-start`.
+By default, CDB may perform compaction during its boot process. This may be disabled, if required, by starting NSO with the flag `--disable-compaction-on-start`.
 
 Additionally, CDB CAPI provides a set of functions that may be used to create an external mechanism for compaction. See `cdb_initiate_journal_compaction()`, `cdb_initiate_journal_dbfile_compaction()`, and `cdb_get_compaction_info()` in [confd\_lib\_cdb(3)](../../man/section3.md#confd_lib_cdb) in Manual Pages.

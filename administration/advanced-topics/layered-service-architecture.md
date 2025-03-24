@@ -160,7 +160,7 @@ cfs-vlan v1 {
 
 The provisioning code for this CFS has to make a decision on where to instantiate what. In this example the "what" is trivial, it's the accompanying RFS, whereas the "where" is more involved. The two underlying RFS nodes, each manage 3 netsim routers, thus given the input, the CFS code must be able to determine which RFS node to choose. In this example, we have chosen to have an explicit map, thus on the `upper-nso` we also have:
 
-```cli
+```
 admin@upper-nso% show dispatch-map
 dispatch-map ex0 {
     rfs-node lower-nso-1;
@@ -220,7 +220,7 @@ The result of the template-based service is to instantiate the RFS, at the RFS n
 
 First, let's have a look at what happened in the upper-nso. Look at the modifications but ignore the fact that this is an LSA service:
 
-```cli
+```
 admin@upper-nso% request cfs-vlan v1 get-modifications no-lsa
 cli {
     local-node {
@@ -256,7 +256,7 @@ Just the dispatched data is shown. As `ex0` and `ex5` reside on different nodes,
 
 Now let's see what happened in the `lower-nso`. Look at the modifications and take into account that these are LSA nodes (this is the default):
 
-```cli
+```
 admin@upper-nso% request cfs-vlan v1 get-modifications
 cli {
   local-node {
@@ -310,7 +310,7 @@ Both the dispatched data and the modification of the remote service are shown. A
 
 The communication between the NSO nodes is of course NETCONF.
 
-```cli
+```
 admin@upper-nso% set cfs-vlan v1 a-router ex0 z-router ex5 iface eth3 unit 3 vid 78
 [ok][2016-10-20 16:52:45]
 
@@ -525,11 +525,11 @@ it goes through the following steps:
 
 With this infrastructure in place, it is fairly straightforward to implement actions for re-balancing devices among lower LSA nodes, as well as evacuating all devices from a given lower LSA node. The example contains implementations of those actions as well.
 
-### Rearchitecting an Existing VPN Application for LSA <a href="#d5e230" id="d5e230"></a>
+### Re-architecting an Existing VPN Application for LSA <a href="#d5e230" id="d5e230"></a>
 
 If we do not have the luxury of designing our NSO service application from scratch, but rather are faced with extending/changing an existing, already deployed application into the LSA architecture we can use the techniques described in this section.
 
-Usually, the reasons for rearchitecting an existing application are performance-related.
+Usually, the reasons for re-architecting an existing application are performance-related.
 
 In the NSO example collection, two popular examples are the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-python) examples. Those example contains an almost "real" VPN provisioning example whereby VPNs are provisioned in a network of CPEs, PEs, and P routers according to this picture:
 
@@ -657,7 +657,7 @@ The task for the upper layer FastMap code is then to instantiate a copy of itsel
 
 Finally, we must make a minor modification to the lower layer (RFS) provisioning code too. Originally, the FastMap code wrote all config for all routers participating in the VPN, now with the LSA partitioning, each lower layer NSO node is only responsible for the portion of the VPN that involves devices that reside in its /devices tree, thus the provisioning code must be changed to ignore devices that do not reside in the /devices tree.
 
-### Rearchitecting Details <a href="#d5e283" id="d5e283"></a>
+### Re-architecting Details <a href="#d5e283" id="d5e283"></a>
 
 In addition to conceptual changes of splitting into upper- and lower-layer parts, migrating an existing monolithic application to LSA may also impact the models used. In the new design, the upper-layer node contains the (more or less original) CFS model as well as the device-compiled RFS model, which it requires for communication with the RFS nodes. In a typical scenario, these are two separate models. So, for example, they must each use a unique namespace.
 
@@ -1166,7 +1166,7 @@ At this point the CFS node is running the new, 5.7 version and the RFS node is r
 
 With the packages ready, you execute the `devices device lower-nso-1 migrate new-ned-id cisco-nso-nc-5.4` command on the CFS node. The command configures the RFS device entry on CFS to use the new `cisco-nso-nc-5.4 ned-id`, as well as migrates the device configuration and service meta-data to the new model. Having completed the upgrade, you can now remove the `rfs-vlan-ned` if you wish.
 
-Later on, you may decide to upgrade the RFS node to NSO 5.6. Again, you prepare the new `rfs-vlan-nc-5.6` package for the CFS node in a similar way as before, now using the `cisco-nso-nc-5.6` ned-id instead of `cisco-nso-nc-5.4`. Next, you perform the RFS node upgrade to 5.6 and finally migrate the RFS device on the CFS node to the `cisco-nso-nc-5.6 ned-id`, with the **migrate** action.
+Later on, you may decide to upgrade the RFS node to NSO 5.6. Again, you prepare the new `rfs-vlan-nc-5.6` package for the CFS node in a similar way as before, now using the `cisco-nso-nc-5.6` ned-id instead of `cisco-nso-nc-5.4`. Next, you perform the RFS node upgrade to 5.6 and finally migrate the RFS device on the CFS node to the `cisco-nso-nc-5.6 ned-id`, with the `migrate` action.
 
 Likewise, you can return to the Single Version Deployment, by upgrading the RFS node to the NSO 5.7, reusing the old, or preparing anew, the `rfs-vlan-ned` package and migrating to the `lsa-netconf ned-id`.
 
@@ -1185,10 +1185,10 @@ Using a system user has two major limitations:
 
 To handle this scenario, one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
 
-On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g., alice) on the CFS node connects to an RFS node, she will authenticate using the credentials specified in the `/devices/device/authgroup` authgroup (e.g., `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user `lsa_passthrough_user` changes into alice on the RFS node.&#x20;
+On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g., alice) on the CFS node connects to an RFS node, she will authenticate using the credentials specified in the `/devices/device/authgroup` authgroup (e.g., `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user `lsa_passthrough_user` changes into alice on the RFS node.
 
 {% code overflow="wrap" %}
-```
+```bash
 admin@cfs% set devices authgroups group rfs-east default-map remote-name lsa_passthrough_user remote-password ahVaesai8Ahn0AiW passthrough
 admin@cfs% set devices device rfs1 authgroup rfs-east
 admin@cfs% set devices device rfs2 authgroup rfs-east
@@ -1199,7 +1199,7 @@ admin@cfs% commit
 On the RFS node, configure the mapping of permitted users in the `/cluster/global-settings/passthrough/permit` list. The key of the permit list specifies what user may change into a different user. The different possible users to change into are specified by the `as-user` leaf-list, and the `as-group` leaf-list specifies valid groups. The user will end up with the intersection of groups in the user session on the CFS and the groups specified by the `as-group` leaf-list. Only users in the permit list will be allowed to change into the users set in the permit list elements `as-user` list.
 
 {% code overflow="wrap" %}
-```
+```bash
 admin@rfs1% set cluster global-settings passthrough permit lsa_passthrough_user as-user [ alice bob carol ] as-group [ oper dev ]
 admin@rfs1% commit
 ```
@@ -1208,7 +1208,7 @@ admin@rfs1% commit
 To allow the passthrough user to change into any user, set the `as-any-user` leaf, or for any group, set the `as-any-group` leaf. Use this with care as setting these leafs will allow the `lsa_passthrough_user` to elevate privileges by changing to `user admin` / `group admin`.
 
 {% code overflow="wrap" %}
-```
+```bash
 admin@rfs1% set cluster global-settings passthrough permit lsa_passthrough_user as-any-user as-any-group
 admin@rfs1% commit
 ```

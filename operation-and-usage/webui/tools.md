@@ -23,7 +23,7 @@ The **Insights** view collects and displays the following types of operational i
 
 * Real-time data about transactions, commit queues, and northbound sessions.
 * Sessions created and closed towards northbound interfaces since the last restart (CLI, JSON-RPC, NETCONF, RESTCONF, SNMP).
-* Transactions since last restart (committed, aborted, and conflicting). You can select between the running and operational data stores.
+* Transactions since the last restart (committed, aborted, and conflicting). You can select between the running and operational data stores.
 * Devices and their sync statuses.
 * CDB info about its size, compaction, etc.
 
@@ -39,7 +39,7 @@ To install a new package:
 
 1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar` or `.tar.gz`) from your local disk.
 2. Click **Upload**. The package becomes visible under the **Available** pane.\
-   (The **Progress Trace** shows the real-time progress of the upload).
+   (The **Progress Trace** shows the real-time progress of the upload.).
 3. Click **Install**.
 4. On the **Loaded** pane, click **Reload** and confirm the intent.
 

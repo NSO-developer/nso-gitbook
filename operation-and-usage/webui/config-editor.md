@@ -12,11 +12,11 @@ The Configuration Editor's home page shows all the currently loaded YANG modules
 
 ## Editing Configuration Data <a href="#d5e6351" id="d5e6351"></a>
 
-All NSO configuration is performed in this view. You can edit the configuration data defined by the YANG model directly in this view or in some cases, get directed by the Web UI to this view.
+All NSO configuration is performed in this view. You can edit the configuration data defined by the YANG model directly in this view or, in some cases, get directed by the Web UI to this view.
 
 ## Configuration Navigator <a href="#d5e6354" id="d5e6354"></a>
 
-An important component of Configuration Editor is the Configuration Navigator which you can use to traverse and edit the configuration defined by the YANG model in a hierarchical tree-like fashion. This provides an efficient way to browse and configure aspects of NSO. Let's say, for example, you want to access all the devices in your deployment and choose a specific one to view and configure. In the Configuration Editor, you can do this by typing in `ncs:devices` in the navigator, and then choosing further guided options (automatically suggested by the Web UI), e.g., `ncs:devices/device/ce0/config/...`.
+An important component of Configuration Editor is the Configuration Navigator, which you can use to traverse and edit the configuration defined by the YANG model in a hierarchical tree-like fashion. This provides an efficient way to browse and configure aspects of NSO. Let's say, for example, you want to access all the devices in your deployment and choose a specific one to view and configure. In the Configuration Editor, you can do this by typing in `ncs:devices` in the navigator, and then choosing further guided options (automatically suggested by the Web UI), e.g., `ncs:devices/device/ce0/config/...`.
 
 <figure><img src="../../images/config-nav.png" alt="" width="367"><figcaption><p>Configuration Navigator</p></figcaption></figure>
 
@@ -35,7 +35,7 @@ When accessing an item (e.g., a device, service, etc.) using the Configuration E
 
 * **Edit Config** tab, to configure the item's configuration.
 * **Config** tab, to view configured items.
-* **Operdata** tab, to view the operational data relevant to the item (e.g., last sync time, last modified time, etc).
+* **Operdata** tab, to view the operational data relevant to the item (e.g., last sync time, last modified time, etc.).
 * **Actions** tab, to apply an action to the item with specified options/parameters.
 
 Depending on the selection of the tabs mentioned above, you may see four additional tabs in the **Configuration editor** view:

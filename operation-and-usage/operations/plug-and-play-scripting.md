@@ -140,7 +140,7 @@ end
 
 A command denying changes the configured `trace-dir` for a set of devices, it can use the `check_dir.sh` script.
 
-```
+```bash
 #!/bin/bash
 
 set -e
@@ -357,7 +357,7 @@ The following exit statuses are valid:
 
 A policy denying changes the configured `trace-dir` for a set of devices, it can use the `check_dir.sh` script.
 
-```
+```bash
 #!/bin/sh
 
 usage_and_exit() {
@@ -442,7 +442,7 @@ fi
 
 Trying to change that parameter would result in an aborted transaction
 
-```cli
+```bash
 admin@ncs(config)# devices global-settings trace-dir ./testing
 admin@ncs(config)# commit
 Aborted: /devices/global-settings/trace-dir: must retain it original
@@ -474,7 +474,7 @@ end
 
 Assume the administrator of a system would want to have a mail each time a change is performed on the system, a script such as `mail_admin.sh`:
 
-```
+```bash
 #!/bin/bash
 
 set -e
@@ -509,7 +509,7 @@ fi
 
 If the `admin` then loads this script:
 
-```cli
+```bash
 admin@ncs# script reload debug
 $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/scripts:
 ok
