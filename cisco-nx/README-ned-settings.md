@@ -82,6 +82,11 @@
                         format.
 
 
+    - cisco-nx internal-xml-transfer-timeout <uint32> (default 2147483647)
+
+      Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
+
+
 # 2. ned-settings cisco-nx connection
 -------------------------------------
 
