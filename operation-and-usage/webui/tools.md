@@ -69,7 +69,7 @@ To view package details:
 
 ### Reload Packages
 
-The reload action is the equivalent of the `packages reload` command in CLI and is used to load new/updated packages. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md). The package concepts are covered in [Package Management] (../../administration/management/package-mgmt.md).
+The reload action is the equivalent of the `packages reload` command in CLI and is used to load new/updated packages. Read more about the reload action in [NSO Packages](../operations/listing-packages.md). The package concepts are covered in [Package Management](../../administration/management/package-mgmt.md).
 
 To reload the packages:
 
