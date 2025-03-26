@@ -173,7 +173,7 @@
 
 * ericsson-minilink6600
   * [README-ned-settings](ericsson-minilink6600/README-ned-settings.md)
-  * [README v1.2.4 2025-03-20](ericsson-minilink6600/README.md)
+  * [README v1.3.0 2025-03-25](ericsson-minilink6600/README.md)
 
 * etsi-sol003
   * [README-ned-settings](etsi-sol003/README-ned-settings.md)
@@ -217,7 +217,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.70.1 2025-03-13](huawei-vrp/README.md)
+  * [README v6.71 2025-03-25](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
