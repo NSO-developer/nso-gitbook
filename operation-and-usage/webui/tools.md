@@ -69,9 +69,15 @@ To view package details:
 
 ### Reload Packages
 
+The reload action is the equivalent of the `packages reload` command in CLI and is used to load new/updated packages. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md). The package concepts are covered in [Package Management] (../../administration/management/package-mgmt.md).
+
 To reload the packages:
 
-* Click the **Reload all packages** button. The action is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md).
+1. Click the **Reload all packages** button.
+2. In the dialog, set the **Max wait time (sec)** for the commit queue to empty before proceeding withe the reload. The default is 10 seconds if you leave the field unset.
+3. Set the **Timeout action** behavior to define what happens after the maximum wait time is over, i.e., kill the open transactions and continue, or cancel (fail) the package reload operation altogether. The default for this setting is **fail**.
+4. Use the **Show trace** option to view a live trace of the reload operation (optional).
+5. Click **Reload**.
 
 ### Uninstall a Package
 
