@@ -3727,8 +3727,20 @@ how they relate to each other.
 > external command for processing.
 
 /ncs-config/logs/netconf-log/log-reply-status (boolean) \[false\]  
-> When set to 'true', NCS extends netconf log with rpc-reply status
-> ('ok' or 'error').
+> When set to 'true', NCS extends NETCONF log with rpc-reply status
+> ('ok', 'data', or 'error'). When the type is 'error', the content of
+> the error reply is included in the log output.
+
+/ncs-config/logs/netconf-log/log-get-content (boolean) \[false\]  
+> When set to 'true', NCS extends NETCONF log with the content of get
+> and get-config RPCs sufficient to enable personal accountability
+> compliance but limited in size to minimize performance impact.
+
+/ncs-config/logs/netconf-log/max-content-size (uint16) \[750\]  
+> Maximum size of body content of requests or replies included in log
+> when when log-get-content or log-reply-status is set to 'true'. This
+> value has has range of 50 to 5000 characters with a default value of
+> 750.
 
 /ncs-config/logs/jsonrpc-log  
 > jsonrpc-log is a log of JSON-RPC traffic. This log is enabled by
