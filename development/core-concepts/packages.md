@@ -300,8 +300,8 @@ There are four different types of NEDs:
 *   **SNMP**: Used for SNMP devices.
 
     The example [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-ned) has a package that has an SNMP NED component.
-* **CLI**: used for CLI devices. The package `$NCS_DIR/packages/neds/cisco-ios` is an example of a package that has a CLI NED component.
-* **Generic**: used for generic NED devices. The example [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device) has a package called `xml-rpc` which defines a NED component of type generic\_.\_
+* **CLI**: used for CLI devices. The [examples.ncs/device-management/cli-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/cli-ned) example has a package called `router-cli-1.0` that defines a NED component of type CLI.
+* **Generic**: used for generic NED devices. The example [examples.ncs/device-management/](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device)[generic-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/generic-ned) has a package called `xml-rpc` which defines a NED component of type generic.
 
 A CLI NED and a generic NED component must also come with additional user-written Java code, whereas a NETCONF NED and an SNMP NED have no Java code.
 
@@ -322,7 +322,7 @@ If we look at the components in the `stats` package above, we have:
   </component>
 ```
 
-The `Stats` class here implements a read-only data provider. See [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp).
+The `Stats` class here implements a read-only data provider. See [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp).
 
 The `callback` type of component is used for a wide range of callback-type Java applications, where one of the most important are the Service Callbacks. The following list of Java callback annotations applies to callback components.
 
@@ -417,7 +417,7 @@ Assuming we have a set of MIB files in `./mibs`, we can generate a package for a
 
 ### Creating a CLI NED Package or a Generic NED Package <a href="#d5e5199" id="d5e5199"></a>
 
-For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is `$NCS_DIR/packages/neds/cisco-ios` and a good starting point for a Generic NED is the example [examples.ncs/device-management/xmlrpc-device](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/xmlrpc-device).
+For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is the [examples.ncs/device-management/cli-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/cli-ned) and a good starting point for a Generic NED is the example [examples.ncs/device-management/generic-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/generic-ned).
 
 ### Creating a Service Package or a Data Provider Package <a href="#d5e5204" id="d5e5204"></a>
 

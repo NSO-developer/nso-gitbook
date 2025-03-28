@@ -3131,6 +3131,8 @@ NETCONF Call Home is enabled and configured under `/ncs-config/netconf-call-home
 
 A device can be connected through the NETCONF Call Home client only if `/devices/device/state/admin-state` is set to `call-home`. This state prevents any southbound communication to the device unless the connection has already been established through the NETCONF Call Home client protocol.
 
+See [examples.ncs/northbound-interfaces/netconf-call-home](https://github.com/NSO-developer/nso-examples/tree/6.4/northbound-interfaces/netconf-call-home) for an example.
+
 ## Notifications <a href="#d5e4000" id="d5e4000"></a>
 
 The NSO device manager has built-in support for device notifications. Notifications are a means for the managed devices to send structured data asynchronously to the manager. NSO has native support for NETCONF event notifications (see RFC 5277) but could also receive notifications from other protocols implemented by the Network Element Drivers.
