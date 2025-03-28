@@ -53,6 +53,8 @@ To uninstall an existing package:
 
 In the **Package Manager** view, you can view and load custom packages in NSO.
 
+<figure><img src="../../images/package-manager.png" alt=""><figcaption><p>Package Manager</p></figcaption></figure>
+
 ### Add a Package
 
 To add a new package:
