@@ -4,7 +4,7 @@ description: Learn the concepts of NSO device management.
 
 # Device Manager
 
-The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the primary copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this network configuration change into the corresponding changes for the managed devices. The device manager passes on the required changes to the NEDs (Network Element Drivers). A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound.
+The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. Normally NSO keeps the primary copy of the configuration for each managed device in the CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this network configuration change into the corresponding changes for the managed devices. The device manager passes on the required changes to the NEDs (Network Element Drivers). A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound.
 
 The NEDs fall into the following categories:
 
@@ -311,7 +311,7 @@ ncs-state daemon-status started
 
 ## Synchronizing Devices <a href="#user_guide.devicemanager.sync" id="user_guide.devicemanager.sync"></a>
 
-When the NSO daemon is running and has been initialized with IP/Port and authentication information as well as imported all modules you can start to manage devices through NSO.
+When the NSO daemon is running and has been initialized with IP/Port and authentication information, as well as imported all modules, you can start to manage devices through NSO.
 
 NSO provides the ability to synchronize the configuration to or from the device. If you know that the device has the correct configuration you can choose to synchronize from a managed device whereas if you know NSO has the correct device configuration and the device is incorrect, you can choose to synchronize from NSO to the device.
 
@@ -359,9 +359,9 @@ The command `devices sync-from`, in example (Synchronize from Devices), is an ac
 $ls $NCS_DIR/src/ncs/yang/
 ```
 
-All packages comes with YANG files as well. For example the directory `packages/cisco-ios/src/yang/` contains the YANG definition of an IOS device.
+Packages can add other YANG files as well. For example the directory `packages/cisco-ios/src/yang/` contains the YANG definition of an IOS device.
 
-The `tailf-ncs.yang` is the main part of the NSO YANG data model. The file mode `tailf-ncs.yang` includes all parts of the model from different files.
+The `tailf-ncs.yang` file defines the main NSO YANG data model; it includes parts of the model from many different submodule files.
 
 The actions `sync-from` and `sync-to` are modeled in the file `tailf-ncs-devices.yang`. The sync action(s) are defined as:
 
@@ -485,7 +485,7 @@ The actions `sync-from` and `sync-to` are modeled in the file `tailf-ncs-devices
 ```
 {% endcode %}
 
-Synchronizing from NSO to the device is common when a device has been configured out-of-band. NSO has no means to enforce that devices are not directly reconfigured behind the scenes of NSO; however, once an out-of-band configuration has been performed, NSO can detect the fact. When this happens it may (or may not, depending on the situation at hand) make sense to synchronize from NSO to the device, i.e. undo the rogue reconfigurations.
+Synchronizing from NSO to the device is common when a device has been configured out-of-band. NSO has no means to enforce that devices are not directly reconfigured behind the scenes of NSO; however, once an out-of-band configuration has been performed, NSO can detect the fact. When this happens, it may (or may not, depending on the situation at hand) make sense to synchronize from NSO to the device, i.e. undo the rogue reconfigurations.
 
 The command to do that is:
 

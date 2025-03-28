@@ -157,18 +157,20 @@ sync-result {
 }....
 ```
 
-The NSO data store, CDB, will store the configuration for every device at the path `devices device "name" config`, everything after this path is the configuration in the device. NSO keeps this synchronized. The synchronization is managed with the following principles:
+The NSO data store, CDB, will store the configuration for every device at the path `devices device "name" config` . Everything after this path is the configuration in the device. Normally, NSO keeps this synchronized with the device. The synchronization is managed with the following principles:
 
 1. At initialization, NSO can discover the configuration as shown above.
-2. The modus operandi when using NSO to perform configuration changes is that the network engineer uses NSO (CLI, WebUI, REST,...) to modify the representation in NSO CDB. The changes are committed to the network as a transaction that includes the actual devices. Only if all changes happen on the actual devices, will it be committed to the NSO data store. The transaction also covers the devices so if any of the devices participating in the transaction fails, NSO will roll back the configuration changes on all modified devices. This works even in the case of devices that do not natively support roll-back like Cisco IOS CLI.
+2. In day-to-day operations on the network, the network engineer uses NSO (CLI, WebUI, REST,...) to modify the representation of device configuration in the NSO CDB. The changes are committed to the network as a transaction that includes the actual devices. Only if all changes happen on the actual devices, they are committed to the NSO data store. The transaction also covers the devices, so if any device participating in the transaction fails, NSO will roll back the configuration changes on all modified devices. This works even in the case of devices that do not natively support roll-back, such as Cisco IOS CLI.
 3. NSO can detect out-of-band changes and reconcile them by either updating the CDB or modifying the configuration on the devices to reflect the currently stored configuration.
 
-NSO only needs to be synchronized with the devices in the event of a change being made outside of NSO. Changes made using NSO will reflected in both the CDB and the devices. The following actions do not need to be taken:
+NSO only needs to be synchronized with the devices in the event of a change being made outside of NSO. Changes made using NSO are reflected in both the CDB and the devices. The following actions do not need to be taken:
 
 1. Perform configuration change via NSO.
 2. Perform sync-from action.
 
-The above incorrect (or not necessary) sequence stems from the assumption that the NSO CLI talks directly to the devices. This is not the case; the northbound interfaces in NSO modify the configuration in the NSO data store, NSO calculates a minimum difference between the current configuration and the new configuration, giving only the changes to the configuration to the NEDS that runs the commands to the devices. All this as one single change-set.
+The above incorrect (or not necessary) sequence stems from the assumption that the NSO CLI talks directly to the devices. This is not the case; the northbound interfaces in NSO modify the configuration in the NSO data store, NSO calculates a minimum difference between the current configuration and the new configuration, giving only the changes to the configuration to the NEDs that runs the commands to the devices. All this is done as one single change-set.
+
+The one exception to the above are devices that change their own configuration. For example, you only configure A but also B appears in the device configuration. These are so-called "auto-configs". In this case, the NED needs to implement special code to handle each such scenario individually. If the NED does not fully cover all of these device quirks, the device may get out of sync when you make configuration changes through NSO.
 
 <figure><img src="../../images/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
 

@@ -1161,28 +1161,23 @@ The [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-develope
 
 ## Reconciling Existing Services <a href="#d5e1032" id="d5e1032"></a>
 
-A very common situation when we wish to deploy NSO in an existing network is that the network already has existing services implemented in the network. These services may have been deployed manually or through another provisioning system. The task is to introduce NSO and import the existing services into NSO. The goal is to use NSO to manage existing services, and to add additional instances of the same service type, using NSO. This is a non-trivial problem since existing services may have been introduced in various ways. Even if the service configuration has been done consistently it resembles the challenges of a general solution for rendering a corresponding C-program from assembler.
+A very common situation when we wish to deploy NSO in an existing network is that the network already has existing services implemented in the network. These services may have been deployed manually or through another provisioning system. The task is to introduce NSO and import the existing services into NSO. The goal is to use NSO to manage existing services, and to add additional instances of the same service type, using NSO. This is a non-trivial problem since existing services may have been introduced in various ways. The mapping operation is not necessarily reversible and it is therefore impossible, in general, to extract service parameters from the service instance.
 
-One of the prerequisites for this to work is that it is possible to construct a list of the already existing services. Maybe such a list exists in an inventory system, an external database, or maybe just an Excel spreadsheet. It may also be the case that we can:
+A better approach is to start with a list of existing service instances. Maybe such a list exists in an inventory system, an external database, or maybe just an Excel spreadsheet. If the service configuration has been done consistently (but it rarely is), it may also be the case that we can:
 
 1. Import all managed devices into NSO.
 2. Execute a full `sync-from` on the entire network.
 3. Write a program, using Python/Maapi or Java/Maapi that traverses the entire network configuration and computes the services list.
 
-The first thing we must do when we wish to reconcile existing services is to define the service YANG model. The second thing is to implement the service mapping logic and do it in such a way that given the service input parameters when we run the service code, they would all result in a configuration that is already there in the existing network.
+With the pre-existing services list, we also need to define the service YANG model and implement the service mapping logic in such a way that it results in a configuration that is already there in the existing network. Due to inconsistencies in actual configurations and different ways of configuring the same service, this usually requires significant effort. But it is required before a full service reconciliation is possible.
 
-The basic principles for reconciliation are:
+[Service Discovery and Import](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.discovery) describes the necessary steps and procedures.
 
-1. Read the device configuration to NSO using the `sync-from` action. This will get the device configuration that is a result of any existing services as well.
-2. Instantiate the services according to the principles above.
+## Brownfield Networks <a href="#d5e1052" id="d5e1052"></a>
 
-Performing the above actions with the default behavior would not render the correct reference counters since NSO did not create the original configuration. The service activation can be run with dedicated flags to take this into account. See the NSO User Guide for a detailed process.
+In contrast with service reconciliation, where the end goal is to manage the network services through NSO by incorporating existing configurations, there are also situations where NSO service activation solution is deployed in parallel with other solutions and these solutions must coexist in the network. By default, NSO expects to manage the full device configuration and can thus conflict with the configuration rendered from the other solutions.
 
-## Brown-field Networks <a href="#d5e1052" id="d5e1052"></a>
-
-In many cases, a service activation solution like NSO is deployed in parallel with existing activation solutions. It is then desirable to make sure that NSO does not conflict with the device configuration rendered from the existing solution.
-
-NSO has a commit flag that will restrict the device configuration to not overwrite data that NSO did not create: `commit no-overwrite`
+For such situations NSO supports the `commit no-overwrite`  operation. This commit flag restricts the device configuration to not overwrite data that NSO did not create. Since NSO 6.4, it also includes additional functionality for verifying device values that are required to compute the changes in the transaction (the values from the so-called transaction read-set) have not changed. This means `commit no-overwrite` in newer versions of NSO provides guarantees about correctness in the face of device changes that were not made through NSO.
 
 ## Advanced Services Orchestration <a href="#d5e1057" id="d5e1057"></a>
 
