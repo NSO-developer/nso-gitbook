@@ -993,7 +993,7 @@ See `pydoc3 _ncs` and `man confd_lib_lib` for further information.
 
 This API is a direct mapping of the NSO MAAPI C API. See `pydoc3 _ncs.maapi` and `man confd_lib_maapi` for further information.
 
-Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.refcount)).
+Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../advanced-development/developing-services/services-deep-dive.md#ch_svcref.refcount)).
 
 In the service code, you should use the `shared_*` set of functions, such as:
 
@@ -1142,6 +1142,12 @@ sock_cdb.close()
 print("/operdata/value is now %s" % new_value)
 ```
 {% endcode %}
+
+### Low-level Event Notification API
+
+The Python `_ncs.events` low-level module provides an API for subscribing to and processing NSO event notifications. Typically, the event notification API is used by applications that manage NSO using the SDK API using, for example, MAAPI or for debug purposes. In addition to subscribing to the various events, streams available over other northbound interfaces, such as NETCONF, RESTCONF, etc., can be subscribed to as well.
+
+See [`examples.ncs/sdk-api/event-notifications`](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/event-notifications) for an example. The [`examples.ncs/common/event_notifications.py`](https://github.com/NSO-developer/nso-examples/tree/6.4/common/event_notifications.py) Python script used by the example can also be used as a standalone application to, for example, debug any NSO instance.
 
 ## Advanced Topics
 
