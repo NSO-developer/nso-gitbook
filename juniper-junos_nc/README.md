@@ -13,30 +13,27 @@
   4. Sample device configuration
   5. Built in RPC actions
      5.1. rpc activate
-     5.2. rpc activate
-     5.3. rpc add-filter-path
-     5.4. rpc clean-package
-     5.5. rpc clear-cached-capabilities
-     5.6. rpc clear-filter-paths
-     5.7. rpc compare-config
-     5.8. rpc compile-modules
-     5.9. rpc deactivate
-     5.10. rpc deactivate
-     5.11. rpc export-package
-     5.12. rpc get-modules
-     5.13. rpc import-filter-paths
-     5.14. rpc list-filter-paths
-     5.15. rpc list-inactive
-     5.16. rpc list-inactive
-     5.17. rpc list-module-sets
-     5.18. rpc list-modules
-     5.19. rpc list-profiles
-     5.20. rpc patch-modules
-     5.21. rpc rebuild-package
-     5.22. rpc remove-filter-path
-     5.23. rpc show-default-local-dir
-     5.24. rpc show-loaded-schema
-     5.25. rpc verify-get-config
+     5.2. rpc add-filter-path
+     5.3. rpc clean-package
+     5.4. rpc clear-cached-capabilities
+     5.5. rpc clear-filter-paths
+     5.6. rpc compare-config
+     5.7. rpc compile-modules
+     5.8. rpc deactivate
+     5.9. rpc export-package
+     5.10. rpc get-modules
+     5.11. rpc import-filter-paths
+     5.12. rpc list-filter-paths
+     5.13. rpc list-inactive
+     5.14. rpc list-module-sets
+     5.15. rpc list-modules
+     5.16. rpc list-profiles
+     5.17. rpc patch-modules
+     5.18. rpc rebuild-package
+     5.19. rpc remove-filter-path
+     5.20. rpc show-default-local-dir
+     5.21. rpc show-loaded-schema
+     5.22. rpc verify-get-config
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -540,24 +537,7 @@
         Only show the resulting 'edit-config' which would be sent to device.
 
 
-  ## 5.2. rpc activate
-  --------------------
-
-    Set the activation state to 'active' for the node with the given schema path.
-
-      Input arguments:
-
-      - path <string>
-
-        Schema path or key-path to node in config to set to 'active'.
-
-
-      - dry-run <empty>
-
-        Only show the resulting 'edit-config' which would be sent to device.
-
-
-  ## 5.3. rpc add-filter-path
+  ## 5.2. rpc add-filter-path
   ---------------------------
 
     Add a path to be filtered, possibly removing paths being made redundant.
@@ -579,7 +559,7 @@
       - path <string>
 
 
-  ## 5.4. rpc clean-package
+  ## 5.3. rpc clean-package
   -------------------------
 
     Cleans the NED package from all downloaded third party YANG files.
@@ -591,7 +571,7 @@
         Print the full clean output also for successful executions (otherwise only printed on errors).
 
 
-  ## 5.5. rpc clear-cached-capabilities
+  ## 5.4. rpc clear-cached-capabilities
   -------------------------------------
 
     Clear all cached capabilities (module-set-id/content-id/yang-library/netconf-state).
@@ -599,7 +579,7 @@
       No input arguments
 
 
-  ## 5.6. rpc clear-filter-paths
+  ## 5.5. rpc clear-filter-paths
   ------------------------------
 
     Clear all filter-paths, except content from ned-setting 'filter-paths-file'.
@@ -607,7 +587,7 @@
       No input arguments
 
 
-  ## 5.7. rpc compare-config
+  ## 5.6. rpc compare-config
   --------------------------
 
     Do a NED-internal compare-config, with data either from device or file, optionally disabling
@@ -640,7 +620,7 @@
         xml      - Show diff as netconf edit-config XML.
 
 
-  ## 5.8. rpc compile-modules
+  ## 5.7. rpc compile-modules
   ---------------------------
 
     Compile YANG modules, showing all non-fatal warnings found.
@@ -662,7 +642,7 @@
         Ignore errors while compiling, i.e. which would normally cause compilation to abort.
 
 
-  ## 5.9. rpc deactivate
+  ## 5.8. rpc deactivate
   ----------------------
 
     Set the activation state to 'inactive' for the node with the given schema path.
@@ -679,25 +659,8 @@
         Only show the resulting 'edit-config' which would be sent to device.
 
 
-  ## 5.10. rpc deactivate
-  -----------------------
-
-    Set the activation state to 'inactive' for the node with the given schema path.
-
-      Input arguments:
-
-      - path <string>
-
-        Schema path or key-path to node in config to set to 'inactive'.
-
-
-      - dry-run <empty>
-
-        Only show the resulting 'edit-config' which would be sent to device.
-
-
-  ## 5.11. rpc export-package
-  ---------------------------
+  ## 5.9. rpc export-package
+  --------------------------
 
     Export the customized and rebuilt NED. The exported archive file can then be used to install the
     NED package in other NSO instances. The name of the file will have the following format ncs-<NSO
@@ -715,7 +678,7 @@
         Configure a customized suffix to the name of the archive file.
 
 
-  ## 5.12. rpc get-modules
+  ## 5.10. rpc get-modules
   ------------------------
 
     Fetch the YANG modules from the device.
@@ -814,7 +777,7 @@
             is relative to the git root directory.
 
 
-  ## 5.13. rpc import-filter-paths
+  ## 5.11. rpc import-filter-paths
   --------------------------------
 
     Import filter-paths from file, will be merged with currently loaded.
@@ -826,7 +789,7 @@
         File containing filter-paths, one on each line: <include|exclude> <schema-path>.
 
 
-  ## 5.14. rpc list-filter-paths
+  ## 5.12. rpc list-filter-paths
   ------------------------------
 
     List currently loaded/generated filter-paths.
@@ -844,7 +807,7 @@
         generate in src/yang.
 
 
-  ## 5.15. rpc list-inactive
+  ## 5.13. rpc list-inactive
   --------------------------
 
     List all nodes which have activation state set to 'inactive'.
@@ -852,15 +815,7 @@
       No input arguments
 
 
-  ## 5.16. rpc list-inactive
-  --------------------------
-
-    List all nodes which have activation state set to 'inactive'.
-
-      No input arguments
-
-
-  ## 5.17. rpc list-module-sets
+  ## 5.14. rpc list-module-sets
   -----------------------------
 
     List the yang-library module-sets advertised by the device, if device supports it.
@@ -868,7 +823,7 @@
       No input arguments
 
 
-  ## 5.18. rpc list-modules
+  ## 5.15. rpc list-modules
   -------------------------
 
     List the YANG modules advertised by the device. Including revision tag.
@@ -916,7 +871,7 @@
         Use a download profile to match a predefined subset of matching YANG files.
 
 
-  ## 5.19. rpc list-profiles
+  ## 5.16. rpc list-profiles
   --------------------------
 
     List all predefined download profiles bundled with the NED. Including a short description of each.
@@ -924,7 +879,7 @@
       No input arguments
 
 
-  ## 5.20. rpc patch-modules
+  ## 5.17. rpc patch-modules
   --------------------------
 
     Patch YANG modules, to remove non-fatal warnings found.
@@ -947,7 +902,7 @@
         package), existing files will be renamed to <name>.yang.orig.
 
 
-  ## 5.21. rpc rebuild-package
+  ## 5.18. rpc rebuild-package
   ----------------------------
 
     Rebuild the NED package directly from within NSO. This invokes the gnu make internally.
@@ -1006,7 +961,7 @@
         Set a custom suffix in the generated ned-id.
 
 
-  ## 5.22. rpc remove-filter-path
+  ## 5.19. rpc remove-filter-path
   -------------------------------
 
     Remove a path from filter-paths.
@@ -1025,7 +980,7 @@
       - path <string>
 
 
-  ## 5.23. rpc show-default-local-dir
+  ## 5.20. rpc show-default-local-dir
   -----------------------------------
 
     Show the path to the default directory where the YANG files are to be copied. I.e <path to current
@@ -1034,7 +989,7 @@
       No input arguments
 
 
-  ## 5.24. rpc show-loaded-schema
+  ## 5.21. rpc show-loaded-schema
   -------------------------------
 
     Display the schema currently built into the NED package. Each node will by default be listed with
@@ -1070,7 +1025,7 @@
         'all'.
 
 
-  ## 5.25. rpc verify-get-config
+  ## 5.22. rpc verify-get-config
   ------------------------------
 
     Verify XML contents of config, either from device or file, to validate

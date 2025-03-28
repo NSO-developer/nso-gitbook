@@ -964,6 +964,11 @@
         starting any of the specified roots will then be processed.
 
 
+      - details <empty>
+
+        Display schema details like must/when expression, leafrefs and leafref targets.
+
+
       - config <true|false> (default true)
 
         Set to false to display non config nodes in the schema. Note: scope will in this case be

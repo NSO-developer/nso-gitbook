@@ -65,13 +65,16 @@ This list of models will be the base used by the tool when downloading the model
   The downloader tool is pre-configured with following profiles:
 
   ```
-  all-models-from-device : Download all YANG models with dependencies directly from the device.
+  all : Download all YANG models available for Huawei VRP.
+  native-all: Download the Huawei VRP native YANG models (openconfig modules are skipped)
+  openconfig: Download all OpenConfig YANG models for Huawei VRP including the deviation/augment files.
+
   ```
 
-  Do as follows in the NSO CLI to download the files using the 'all-models-from-device' profile:
+  Do as follows in the NSO CLI to download the files using the 'all' profile:
 
   ```
-  # devices device dev-1 rpc rpc-get-modules get-modules profile all-models-from-device
+  # devices device dev-1 rpc rpc-get-modules get-modules profile all
   ```
 
   or just:

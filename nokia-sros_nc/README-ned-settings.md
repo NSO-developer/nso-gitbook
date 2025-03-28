@@ -251,6 +251,16 @@
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
+    - transaction nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - transaction nmda get-data datastore <union>
+
+      Configure datastore to be used when using the get-data rpc.
+
+
 ## 2.1. ned-settings nokia-sros_nc transaction extra-get-config-paths
 ---------------------------------------------------------------------
 
@@ -599,6 +609,24 @@
 
       Canonicalize leaf values of type 'identityref' in operational data before sending to NSO, i.e.
       add/change prefix to global prefix in NSO.
+
+
+    - live-status nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - live-status nmda get-data datastore <union> (default operational)
+
+      Configure datastore to be used when using the get-data rpc.
+
+
+    - live-status nmda get-data skip-config <true|false> (default false)
+
+      Ask the device to not include 'config true' data in the response.
+
+
+    - live-status nmda get-data origin-filter <union>
 
 
     - live-status ignore-get-error-codes <string> (default unknown-element)
