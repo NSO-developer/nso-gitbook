@@ -4,7 +4,7 @@ description: Create CLI NEDs.
 
 # CLI NED Development
 
-The CLI NED is a model-driven way to CLI script towards all Cisco-like devices. Some Java code is necessary for handling the corner cases a human-to-machine interface presents.&#x20;
+The CLI NED is a model-driven way to CLI script towards all Cisco-like devices. Some Java code is necessary for handling the corner cases a human-to-machine interface presents.
 
 See the [examples.ncs/device-manager/cli-ned](https://github.com/NSO-developer/nso-examples/tree/main/device-management/cli-ned) for an example of a Java implementation serving any YANG models, including those that come with the example.
 
