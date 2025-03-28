@@ -1,5 +1,5 @@
 ---
-description: Perform usage operations on NSO.
+description: Manage the network with NSO.
 icon: user-check
 ---
 
