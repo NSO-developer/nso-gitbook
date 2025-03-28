@@ -680,14 +680,14 @@ In order to allow templates to be reusable while at the same time keeping as man
   </supported-ned-id>
 
   <!-- Regex-based NED id match -->
-  <supported-ned-id-match>router-nc-1</supported-ned-id-match>
+  <supported-ned-id-match>router-nc-1\..*</supported-ned-id-match>
 </ncs-package>
 ```
 {% endcode %}
 
 Namely, if a package declares a list of supported-ned-ids, then the templates in this package are interpreted as if no other ned-ids are loaded in the system. If such a template is attempted to be applied to a device with ned-id outside the supported list, then a run-time error is generated because this ned-id was not considered when the template was loaded. This allows us to ignore ambiguities in the data model introduced by additional NEDs that were not considered during template development.
 
-If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system.
+If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system. Note, however, that `<supported-ned-id-match>`  in the current implementation only filters the list of currently loaded NEDs and does not result in relaxed loading mode.
 
 Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf for the corresponding package under `/packages/package` list.
 
