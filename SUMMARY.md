@@ -45,7 +45,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.27.16 2024-11-21](arista-dcs/README.md)
+  * [README v5.27.17 2025-03-28](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -197,7 +197,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.22 2025-03-14](fortinet-fortios/README.md)
+  * [README v5.11.23 2025-03-28](fortinet-fortios/README.md)
 
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
@@ -277,7 +277,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.9 2025-03-21](paloalto-panos_cli/README.md)
+  * [README v4.11.10 2025-03-28](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
@@ -338,7 +338,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.3.5 2024-12-13](zte-xpon/README.md)
+  * [README v4.4 2025-03-28](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
