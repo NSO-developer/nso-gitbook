@@ -2130,11 +2130,15 @@ vlan  newex1  false  -     init         reached  2024-04-16T21:40:02  -    -
 
 When a device is renamed, all components that derive their name from that device's name in all the service instances must be force-back-tracked.
 
-## Auto-configuring Devices in NSO <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
+## Auto-configuring Devices <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
 
 Provisioning new devices in NSO requires the user to be familiar with the concept of Network Element Drivers and the unique ned-id they use to distinguish their schema. For an end user interacting with a northbound client of NSO, the concept of a ned-id might feel too abstract. It could be challenging to know what device type and ned-id to select when configuring a device for the first time in NSO. After initial configuration, there are also additional steps required before the device can be operated from NSO.
 
-NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected. In the same transaction, NSO also fetches the host keys if required, and synchronizes the configuration from the device, making it ready to operate in a single step.
+NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected.
+
+When a transaction with a newly auto-configured device gets committed, NSO fetches the device host keys (if required) and synchronizes the configuration from the device. Depending on the NED used, additional transactions may be required. Also, if the device is unreachable, NSO will retry the operation at intervals, specified in the settings under `/devices/global-settings/auto-configure`.  The `oper-state` leaf indicates when the device becomes `enabled`. Once the device is in sync, the auto-configuration stops. If the configured retry attempts are exhausted, NSO raises an `auto-configure-failed` alarm.
+
+If several devices are committed simultaneously in the transaction with `auto-configure`, NSO will retry these immediately in separate transactions. This ensures that auto-configuration for a single device is not dependent on the success of the other devices.
 
 ### Examples <a href="#d5e3539" id="d5e3539"></a>
 
@@ -2176,7 +2180,7 @@ admin@ncs% set devices device d2 auto-configure vendor "Acme Inc." operating-sys
 admin@ncs% set devices device d3 auto-configure ned-id router-nc-1.0
 ```
 
-The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device.
+The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device. NSO will not try again, even if the `admin-state` is changed.
 
 ```cli
 admin@ncs% set devices device mydev2 auto-configure vendor "Acme Inc." operating-system AcmeOS
