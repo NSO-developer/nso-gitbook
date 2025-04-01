@@ -326,6 +326,12 @@
     admin@ncs(config)# devices device dev-1 state admin-state unlocked
     admin@ncs(config)# devices device dev-1 authgroup my-group
     ```
+    **IMPORTANT**:
+
+    The *device-type* shall always be set to *generic* when configuring a device instance
+    to use a 3PY NED. A common mistake is configuring it as *netconf*, which will cause
+    NSO to use its internal netconf client instead.
+
   - Finally commit the configuration
 
     ```

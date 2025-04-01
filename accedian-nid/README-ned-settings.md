@@ -95,31 +95,6 @@
       Change the default connector, e.g. 'ned-connector-default.json'.
 
 
-    - connection ssh client <enum> (default ganymed)
-
-      Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
-
-      ganymed  - The legacy SSH client. Used on all older versions of NSO.
-
-      sshj     - The new SSH client with support for the latest crypto features. This is the default
-                 when using the NED on NSO 5.6 or later.
-
-
-    - connection ssh host-key known-hosts-file <string>
-
-      Path to openssh formatted 'known_hosts' file containing valid host keys.
-
-
-    - connection ssh host-key public-key-file <string>
-
-      Path to openssh formatted public (.pub) host key file.
-
-
-    - connection ssh auth-key private-key-file <string>
-
-      Path to openssh formatted private key file.
-
-
 # 3. ned-settings accedian-nid deprecated
 -----------------------------------------
 
