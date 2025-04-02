@@ -277,7 +277,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.10 2025-03-28](paloalto-panos_cli/README.md)
+  * [README v4.11.11 2025-04-01](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
