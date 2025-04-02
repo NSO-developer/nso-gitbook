@@ -2,7 +2,7 @@
 description: Learn the concepts of NSO device management.
 ---
 
-# NSO Device Manager
+# Device Manager
 
 The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the primary copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this network configuration change into the corresponding changes for the managed devices. The device manager passes on the required changes to the NEDs (Network Element Drivers). A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound.
 
@@ -2812,7 +2812,7 @@ cannot connect to ce0
 Each transaction committed through the queues becomes a queue item. A queue item has an ID number. A bigger number means that it's scheduled later. Each queue item waits for something to happen. A queue item is in either of three states.
 
 1. `waiting`: The queue item is waiting for other queue items to finish. This is because the _waiting_ queue item has participating devices that are part of other queue items, ahead in the queue. It is waiting for a set of devices, to not occur ahead of itself in the queue.
-2. `executing`: The queue item is currently being processed. Multiple queue items can run currently as long as they don't share any managed devices. Transient errors might be present. These errors occur when NSO fails to communicate with some of the devices. The errors are shown in the leaf-list `transient-errors`. Retries will take place at intervals specified in `/ncs:devices/global-settings/commit-queue/retry-timeout`. Examples of transient errors are connection failures and that the changes are rejected due to the device being locked. Transient errors are potentially bad since the queue might grow if new items are added, waiting for the same device.
+2. `executing`: The queue item is currently being processed. Multiple queue items can run concurrently as long as they don't share any managed devices or if the atomic behaviour of the queue items are set to `false`. If NSO fails to connect to a device or the change is being rejected due to the device being locked, it is shown as a transient error in the `transient` list. NSO will retry aginast the device at intervals specified in `/ncs:devices/global-settings/commit-queue/retry-timeout`. Transient errors are potentially bad since the queue might grow if new items are added, waiting for the same device.
 3. `locked`: This queue item is locked and will not be processed until it has been unlocked, see the action `/ncs:devices/commit-queue/queue-item/unlock`. A locked queue item will block all subsequent queue items that are using any device in the locked queue item.
 
 ### Viewing and Manipulating the Commit Queue <a href="#d5e3710" id="d5e3710"></a>
