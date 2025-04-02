@@ -117,7 +117,7 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the NSO ID Allocator (`id-allocator`). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers. It can also allocate Odd/Even IDs depending upon the requirement and constraint passed.
+This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints.
 
 ### Overview
 
