@@ -349,6 +349,7 @@ Here, the value of the `/sys/dns/server` must start with `10.`, followed by any 
 
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
+{% code overflow="wrap" %}
 ```bash
 admin@ncs(config)# show full-configuration devices device ex0 config sys dns server
 devices device ex0
@@ -376,9 +377,11 @@ check-result {
 
 }
 ```
+{% endcode %}
 
-Alternatively, you can use the `/compliance/create-template` action when you already have existing device templates that you would like to use as a starting point for a compliance template. For example:
+To simplify template creation, NSO features the `/compliance/create-template` action that can initiate a compliance template from a set of device configurations or an existing device template. The resulting template can be used as-is or as a starting point for further refinement. For example:
 
+{% code overflow="wrap" %}
 ```bash
 admin@ncs(config)# show full-configuration devices template use-internal-dns
 devices template use-internal-dns
@@ -404,11 +407,45 @@ compliance template internal-dns
 admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
+{% endcode %}
+
+By providing a list of device configuration paths, the `create-template`  action can find common structural patterns in the device configurations and create a compliance template based on it.
+
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are made into regex match-all expressions. For example:
+
+{% code overflow="wrap" %}
+```bash
+admin@ncs(config)# compliance create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ]
+admin@ncs(config)# show configuration                                                                   compliance template syslog
+ ned-id router-nc-1.0
+  config
+   sys syslog server 10.3.4.5
+    enabled
+    selector 8
+     facility [ .* ]
+    !
+   !
+  !
+ !
+!
+admin@ncs(config)# commit
+Commit complete.
+```
+{% endcode %}
+
+&#x20;The action takes a number of arguments to control how the resulting template looks:
+
+* `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
+* `exclude-service-config` - Exclude configuration that is already under service management.
+* `collapse-list-keys` - Decides what lists to do matching on, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
 ```bash
 admin@ncs(config-report-gold-check)# device-check template internal-dns
+admin@ncs(config-template-internal-dns)# exit
+admin@ncs(config-report-gold-check)# device-check template syslog
 ```
 
 {% hint style="info" %}

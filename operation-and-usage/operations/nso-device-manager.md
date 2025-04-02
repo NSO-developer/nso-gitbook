@@ -1988,6 +1988,39 @@ Operation 'merge' on non-existing node:
 /devices/device[name='ce2']/config/ios:snmp-server/community[name='FUZBAR']/RO
 ```
 
+## Generating Device Templates From Configuration
+
+To simplify template creation, NSO features the `/devices/create-template` action that can initiate a template from a set of device configurations by finding common structural patterns. The resulting template can be used as as-is or as a starting point for further refinement.
+
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized. For example:
+
+{% code overflow="wrap" %}
+```bash
+admin@ncs(config)# devices create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ]
+admin@ncs(config)# show configuration                                                                   devices template syslog
+ ned-id router-nc-1.0
+  config
+   sys syslog server 10.3.4.5
+    enabled
+    selector 8
+     facility [ "{$server-selector-facility}" ]
+    !
+   !
+  !
+ !
+!
+admin@ncs(config)# commit
+Commit complete.
+```
+{% endcode %}
+
+The action takes a number of arguments to control how the resulting template looks:
+
+* `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
+* `exclude-service-config` - Exclude configuration that is already under service management.
+* `collapse-list-keys` - Decides what lists to make variables of, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
+
 ## Renaming Devices in NSO
 
 The usual way to rename an instance in a list is to delete it and create a new instance. Aside from having to explicitly create all its children, an obvious problem with this method is the dependencies - if there is a leafref that refers to this instance, this method of deleting and recreating will fail unless the leafref is also explicitly reset to the value of the new instance.

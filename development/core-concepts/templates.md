@@ -72,76 +72,128 @@ Note that a single template can configure multiple devices of different type, se
 
 Finally, every XML template has a name. The name of the template is the file path relative to the `templates` directory of the package, without the `.xml` extension. The name allows you to reference the template from the code later on. In case multiple packages define a template with the same path, you disambiguate between them by prepending _`<package name>`_`:` to the name. (Note that any colon or backslash characters in the package name or the file path must be backslash escaped.)
 
-## Other Ways to Generate the XML Template Structure <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
+## Generating a Template From Configuration <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
 
-The NSO CLI features a `templatize` command that allows you to analyze a given configuration and find common configuration patterns. You can use these to, for example, create a configuration template for a service.
+To simplify template creation, NSO features the `/services/create-template` action that can find common structural patterns in a set of device configurations and create a configuration template and the corresponding service YANG model based on it.
 
-Suppose you have an existing interface configuration on a device:
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized and service input parameters are created for these paths in the YANG model. For example:
 
+{% code overflow="wrap" %}
 ```bash
-admin@ncs# show running-config devices device c0 config interface GigabitEthernet
-devices device c0
- config
-  interface GigabitEthernet0/0/0/0
-   ip address 10.1.2.3 255.255.255.0
-  exit
-  interface GigabitEthernet0/0/0/1
-   ip address 10.1.4.3 255.255.255.0
-  exit
-  interface GigabitEthernet0/0/0/2
-   ip address 10.1.9.3 255.255.255.0
-  exit
- !
-!
+admin@ncs# services create-template name policy-map-srv path [ /devices/device[device-type/cli/ned-id='cisco-ios-cli-3.0:cisco-ios-cli-3.0']/config/policy-map ] include-doc
+template <config-template xmlns="http://tail-f.com/ns/config/1.0"
+                           servicepoint="policy-map-srv">
+            <devices xmlns="http://tail-f.com/ns/ncs">
+              <device tags="nocreate">
+                <name>{/device}</name>
+                <config>
+                  <policy-map xmlns="urn:ios"
+                              tags="merge"
+                              foreach="{/policy-map}">
+                    <name>{name}</name>
+                    <class foreach="{class}">
+                      <name>{name}</name>
+                      <drop/>
+                      <estimate>
+                        <bandwidth>
+                          <delay-one-in>
+                            <doi>500</doi>
+                            <milliseconds>100</milliseconds>
+                          </delay-one-in>
+                        </bandwidth>
+                      </estimate>
+                      <priority>
+                        <percent>33</percent>
+                      </priority>
+                    </class>
+                  </policy-map>
+                </config>
+              </device>
+            </devices>
+          </config-template>
+
+yang-module module policy-map-srv {
+  yang-version 1.1;
+  namespace "http://com/example/policy-map-srv";
+  prefix policy-map-srv;
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+
+  list policy-map-srv {
+    key name;
+
+    uses ncs:service-data;
+    ncs:servicepoint policy-map-srv;
+
+    leaf name {
+      type string;
+    }
+
+    leaf-list device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+
+    list policy-map {
+      key "name";
+      description
+        "Configure QoS Policy Map";
+      leaf name {
+        type string;
+      }
+      list class {
+        key "name";
+        description
+          "policy criteria";
+        leaf name {
+          type union {
+            type string;
+            type enumeration {
+              enum class-default {
+                description
+                  "System default class matching otherwise unclassified packet";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
+{% endcode %}
 
-Using the `templatize` command, you can search for patterns in this part of the configuration, which produces the following:
+The action takes a number of arguments to control how the resulting template looks:
 
-```bash
-admin@ncs# templatize devices device c0 config interface GigabitEthernet
-Found potential templates at:
-  devices device c0 \ config \ interface GigabitEthernet {$GigabitEthernet-name}
+* `name` - The name of the new service.
+* `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting. By giving different rates the user can decide how often configuration needs to occur for it to be included in the template.
+* `exclude-service-config` - Exclude configuration that is already under service management. This is useful when the intention is to detect common configuration that can be turned into a service.
+* `make-package` - Create a service package including the generated template and YANG module. The package is created in the parent directory specified by `in-directory`, but is not built. The package needs to be built separately by running `make` in its `src/` subdirectory. The user has the freedom of making modifications to the generated files.
+* `augment` - An XPath 1.0 location path to be included as an augment statement in the generated YANG module.
+* `include-doc` - Include descriptions derived from device schema in the generated YANG module.
+* `import-user-modules` - Import device YANG modules and their defined types in the generated YANG module.
+* `collapse-list-keys` - Decides what lists to parameterize, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find lists that differ among the device configurations.
 
-Template path:
-  devices device c0 \ config \ interface GigabitEthernet {$GigabitEthernet-name}
-Variables in template:
-  {$GigabitEthernet-name}  {$address}
+The [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3) environment can be used to try the command.
 
-<config xmlns="http://tail-f.com/ns/config/1.0">
-  <devices xmlns="http://tail-f.com/ns/ncs">
-    <device>
-      <name>c0</name>
-      <config>
-        <interface xmlns="urn:ios">
-          <GigabitEthernet>
-            <name>{$GigabitEthernet-name}</name>
-            <ip>
-              <address>
-                <primary>
-                  <address>{$address}</address>
-                  <mask>255.255.255.0</mask>
-                </primary>
-              </address>
-            </ip>
-          </GigabitEthernet>
-        </interface>
-      </config>
-    </device>
-  </devices>
-</config>
-```
-
-In this case, NSO finds a single pattern (the only one) and creates the corresponding template. In general, NSO might produce a number of templates. As an example, try running the command within the [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3) environment.
-
+{% code overflow="wrap" %}
 ```bash
 $ cd $NCS_DIR/examples.ncs/service-management/implement-a-service/dns-v3
 $ make demo
-admin@ncs#  templatize devices device c*
+admin@ncs# services create-template name policy-map-srv path [ /devices/device[device-type/cli/ned-id='cisco-ios-cli-3.0:cisco-ios-cli-3.0']/config ]
 ```
+{% endcode %}
 
-The algorithm works by searching the data at the specified path. For any list it encounters, it compares every item in the list with its siblings. If the two items have the same structure but not necessarily the same actual values (for leafs), that part of the configuration can be made into a template. If the two list items use the same value for a leaf, the value is used directly in the generated template. Otherwise, a unique variable name is created and used in its place, as shown in the example.
+## Generating the XML Template Structure <a href="#ch_templates.templatize" id="ch_templates.templatize"></a>
 
-However, `templatize` requires you to reference existing configurations in NSO. If such configuration is not readily available to you and you want to avoid manually creating sample configuration in NSO first, you can use the sample-xml-skeleton functionality of the **yanger** utility to generate sample XML data directly:
+`/services/create-template` requires you to reference existing configurations in NSO. If such configuration is not readily available to you and you want to avoid manually creating sample configuration in NSO first, you can use the `sample-xml-skeleton` functionality of the **yanger** utility to generate sample XML data directly:
 
 ```bash
 $ cd $NCS_DIR/packages/neds/cisco-ios-cli-3.8/
