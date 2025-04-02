@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (4.2.10)
+# Resource Manager (4.2.11)
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API. The applications are explained separately in the following sections below:
 
@@ -11,7 +11,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-The latest version of NSO Resource Manager is 4.2.10. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+The latest version of NSO Resource Manager is 4.2.11. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
@@ -117,11 +117,11 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the NSO ID Allocator (`id-allocator`). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers.
+This section explores deployment information and procedures for the NSO ID Allocator (`id-allocator`). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers which can serve for instance as VLAN identifiers. It can also allocate Odd/Even IDs depending upon the requirement and constraint passed.
 
 ### Overview
 
-The ID Allocator can host any number of ID pools. Each pool contains a certain number of IDs that can be allocated. They are specified by a range, and potentially broken into several ranges by a list of excluded ranges.
+The ID Allocator can host any number of ID pools, including Odd/Even pools. Each pool contains a certain number of IDs that can be allocated. They are specified by a range, and potentially broken into several ranges by a list of excluded ranges.
 
 The ID allocator YANG models are divided into a configuration data-specific model (`idallocator.yang`), and an operational data-specific model (`id-allocator-oper.yang`). Users of this package will request allocations in the configuration tree. The operational tree serves as an internal data structure of the package.
 
@@ -163,6 +163,49 @@ At this point, we have a pool with a range of 100 to 1000 and one allocation (10
 | NAME  | START | END | START | END | START | END  |  ID  |
 |-------|-------|-----|-------|-----|-------|------|------|
 | pool1 |   -   |  -  |       |     |  101  | 1000 | 100  |
+```
+
+</details>
+
+<details>
+
+<summary>Create an Odd Allocation Request</summary>
+
+When a pool has been created, it is possible to create an odd allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a odd value in the pool defined above.
+
+```
+admin@ncs# resource-pools id-pool pool3 allocation odd1 user myuser oddeven-alloc odd unit 4 description odd_allocation
+admin@ncs# commit
+```
+
+At this point, we have a pool with a range of 100 to 200 and one allocated ID (101), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an odd allocation ID.
+
+```
+| NAME  | START | END | START | END | START | END  |  ID  |
+|-------|-------|-----|-------|-----|-------|------|------|
+| pool3 |   -   |  -  |       |     |  100  | 100 | 101 |
+| pool3 |   -   |  -  |       |     |  102  | 200 | 101 |
+```
+
+</details>
+
+<details>
+
+<summary>Create an Even Allocation Request</summary>
+
+When a pool has been created, it is possible to create an even allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a even value in the pool defined above.
+
+```
+admin@ncs# resource-pools id-pool pool4 allocation even1 user myuser oddeven-alloc even unit 4 description even_allocation
+admin@ncs# commit
+```
+
+At this point, we have a pool with a range of 100 to 200 and one allocated ID (100), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an even allocation ID.
+
+```
+| NAME  | START | END | START | END | START | END  |  ID  |
+|-------|-------|-----|-------|-----|-------|------|------|
+| pool4 |   -   |  -  |       |     |  101  | 100 | 100 |
 ```
 
 </details>
@@ -262,9 +305,17 @@ Synchronous allocation can be requested through various Java APIs provided in `r
     redeployType, String poolName, String username, String id, boolean sync\_pool, long requestedId,
 
     boolean sync\_alloc).
+*   Request:Java:void idRequest(ServiceContext context, NavuNode service, RedeployType
+
+    redeployType, String poolName, String username, String id, boolean sync\_pool, long requestedId,
+
+    boolean sync\_alloc, IdType oddeven_alloc).
 *   Request:Python:id\_request(service, svc\_xpath, username, pool\_name, allocation\_name, sync\_pool,
 
     requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None).
+*   Request:Python:id\_request(service, svc\_xpath, username, pool\_name, allocation\_name, sync\_pool,
+
+    requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None, oddeven_alloc="default").
 *   Non-blocking call to check Response Ready:Java:boolean responseReady(NavuContext context,
 
     String poolName, String id).
@@ -289,8 +340,8 @@ The administrator's instructions on how to write these rules are detailed in the
 
 There are two alarms associated with the ID Allocator:
 
-* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation.
-* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool.
+* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation. This alarm is also raised when available Odd or Even available Ids are exhausted for further allocation.
+* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool. This alarm is also raised when the Even or Odd Ids are running low in available IDs.
 
 ### CDB Upgrade from Package version below 4.0.0
 
@@ -320,6 +371,8 @@ Note that when a pool parameter is provided, the operation will be on this speci
 admin@ncs> unhide debug
 admin@ncs> request rm-action id-allocator-tool operation fix_missing_allocation
 admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
+admin@ncs> request rm-action sync-alloc-id oddeven-alloc odd allocid id_oddDemo25 pool Odd_18 user testDemo sync true
+admin@ncs> request rm-action sync-alloc-id oddeven-alloc even allocid id_EvenDemo25 pool Pool_18 user testDemo sync true
 ```
 
 ## NSO IP Address Allocator Deployment
@@ -677,6 +730,11 @@ module resource - allocator {
                     type boolean;
                     default false;
                 }
+                leaf oddeven-alloc {
+                    description "Allocate IDs using oddeven_alloc, where odd generates an odd ID, even generates an even ID from the pool, and default follows the legacy allocation method";
+                    type string;
+                    default "default";
+                }
             }
             output {
                 leaf allocated {
@@ -847,6 +905,26 @@ module id - allocator {
                     are ten(10) percent IDs left in the pool.
                     ";
                 }
+                leaf low-threshold-odd-alarm {
+                    type uint8 {
+                        range "0 .. 100";
+                    }
+                    default 50;
+                    description "Change the value for when the low threshold odd alarm is
+                    raised. The value describes the percentage IDs left in
+                    the pool. The default is to raise the alarm when there
+                    are ten (50) percent IDs left in the pool.";
+                }
+                leaf low-threshold-even-alarm {
+                    type uint8 {
+                        range "0 .. 100";
+                    }
+                    default 50;
+                    description "Change the value for when the low threshold alarm is
+                    raised. The value describes the percentage IDs left in
+                    the pool. The default is to raise the alarm when there
+                    are ten (50) percent IDs left in the pool.";
+                }
             }
             description "The state of the id-pool.";
             tailf: info "Id pool";
@@ -865,6 +943,15 @@ module id - allocator {
             type uint32;
             description "The specific id to sync with";
             tailf: info "Request a specific id";
+        }
+        leaf oddeven-alloc {
+            description "allocate even or odd or default id based on the input. If default is given legacy ID allocation will be done";
+            type enumeration {
+                enum "default";
+                enum "even";
+                enum "odd";
+            }
+            default "default";
         }
         container method {
             choice method {

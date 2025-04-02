@@ -2,7 +2,7 @@
 description: Description of the APIs exposed by the Resource Manager package.
 ---
 
-# Resource Manager API Guide (4.2.10)
+# Resource Manager API Guide (4.2.11)
 
 ***
 
@@ -25,7 +25,7 @@ This documentation requires the reader to have a good understanding of NSO and i
 
 ## Resource Manager IP/ID Allocation APIs
 
-The APIs exposed by the Resource Manager package are used to allocate IP subnets and IDs from the IP and ID resource pools respectively by the applications requesting the resources. The APIs help to allocate, update, or deallocate the resources. You can make API calls to the resource pools as long as the pool is not exhausted of the resources. If the pool is exhausted of resources or if the referenced pool does not exist in the database when there is a request, the allocation raises an exception.&#x20;
+The APIs exposed by the Resource Manager package are used to allocate IP subnets and IDs from the IP and ID resource pools respectively by the applications requesting the resources. The APIs help to allocate, update, or deallocate the resources. You can make API calls to the resource pools as long as the pool is not exhausted of the resources. If the pool is exhausted of resources or if the referenced pool does not exist in the database when there is a request, the allocation raises an exception. The APIs also support allocating Odd or Even IDs from the resource pools, provided that the pool has available resources.&#x20;
 
 When a service makes multiple resource allocations from a single pool, the optional ‘name’ parameter allows the service to distinguish the different allocations. By default, the parameter value is an empty string.&#x20;
 
@@ -1336,7 +1336,7 @@ Returns the allocated subnet for the IP.
 
 ### Using Java APIs for Non-service IP Allocations
 
-This non-service IP address allocation API is created from Resource Manager 4.2.10.
+This non-service IP address allocation API is created from Resource Manager 4.2.11.
 
 <details>
 
@@ -1908,6 +1908,49 @@ test_with_sync.booleanValue(), requestId);
 
 <details>
 
+<summary>Java API for ID Allocation Request with Service Context and OddEven Alloc</summary>
+
+The following API is used to create or update an ID allocation request with requesting service redeploy type as `default`.
+
+```java
+idRequest(ServiceContext context,
+    NavuNode service,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,
+    IdType oddeven_alloc)
+```
+
+**API Parameters**
+
+```
+| Parameter     | Type          | Description                                                                  |
+|---------------|---------------|------------------------------------------------------------------------------|
+| context       | ServiceContext| Context referencing the requesting context that the service was invoked in.  |
+| service       | NavuNode      | NavuNode referencing the requesting service node.                            |
+| poolName      | String        | Name of the resource pool to request the allocation ID from.                 |
+| Username      | String        | Name of the user to use when redeploying the requesting service.             |
+| ID            | String        | Unique allocation ID.                                                        |
+| sync_pool     | Boolean       | Sync allocations with the ID value across pools.                             |
+| Requested ID  | Int           | Request the specific ID to be allocated.                                     |
+| oddeven_alloc | IdType        | Request the odd or even ID to be allocated.                                  |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(context, service, poolName, userName, id,
+test_with_sync.booleanValue(), requestId, oddeven_alloc);
+```
+
+</details>
+
+<details>
+
 <summary>Java API for ID Allocation Request with Service Context and Redeploy Type</summary>
 
 Use the following API to create or update an ID allocation request with the requesting service redeploy type as `redeployType`.
@@ -1946,6 +1989,52 @@ import com.tailf.pkg.idallocator.IdAllocator;
 
 IdAllocator.idRequest(context, service, redeployType, poolName, userName,
 id, test_with_sync.booleanValue(), requestId);
+```
+
+</details>
+
+<details>
+
+<summary>Java API for ID Allocation Request with Service Context, Redeploy Type and OddEven Alloc</summary>
+
+Use the following API to create or update an ID allocation request with the requesting service redeploy type as `redeployType`.
+
+```java
+idRequest(ServiceContext
+    context,
+    NavuNode service,
+    RedeployType redeployType,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,
+    IdType oddeven_alloc)
+```
+
+**API Parameter**
+
+```
+| Parameter    | Type          | Description                                                                                                     |
+|--------------|---------------|-----------------------------------------------------------------------------------------------------------------|
+| context      | ServiceContext| Context referencing the requesting context that the service was invoked in.                                     |
+| service      | NavuNode      | NavuNode referencing the requesting service node.                                                               |
+| redeployType |               | Service redeploy action. The available options are: default, touch, re-deploy, reactive-re-deploy, no-redeploy. |
+| poolName     | String        | Name of the resource pool to request the allocation ID from.                                                    |
+| username     | String        | Name of the user to use when redeploying the requesting service.                                                |
+| id           | String        | Unique allocation ID.                                                                                           |
+| sync_pool    | Boolean       | Sync allocations with the ID value across pools.                                                                |
+| requestedId  | Int           | Request the specific ID to be allocated.                                                                        |
+| oddeven_alloc| IdType        | Request the odd or even ID to be allocated.                                                                     |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(context, service, redeployType, poolName, userName,
+id, test_with_sync.booleanValue(), requestId, oddeven_alloc);
 ```
 
 </details>
@@ -2010,6 +2099,78 @@ LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , re
 
 IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(),
     requestedId, false);
+
+try {
+    if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
+        LOGGER.debug(String.format("responseReady maapi True. allocationName %s.",
+            allocationName));
+        ConfUInt32 id = IdAllocator.idRead(maapi, th, poolName, allocationName);
+        LOGGER.debug(String.format("idRead maapi: We got the id: %s.", id.longValue()));
+    }
+```
+
+</details>
+
+<details>
+
+<summary><code>idRequest() with oddeven_alloc</code></summary>
+
+This i`dRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
+
+```java
+idRequest(Maapi maapi,
+    int th,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    long requestedId,
+    boolean sync_alloc,
+    IdType oddeven_alloc)
+```
+
+**API Parameter**
+
+```
+| Parameter    | Type   | Description                                                               |
+|--------------|--------|---------------------------------------------------------------------------|
+| maapi        | Maapi  | Maapi object.                                                             |
+| th           | int    | Transaction handle.                                                       |
+| poolName     | String | Name of the resource pool to request the allocation ID from.              |
+| Username     | String | Name of the user to use when redeploying the requesting service.          |
+| id           | String | Unique allocation ID.                                                     |
+| sync_pool    | Boolean| Sync allocations with the ID value across pools.                          |
+| requestedId  | Int    | Request the specific ID to be allocated.                                  |
+| sync_alloc   | Boolean| If the boolean value is true, the allocation is synchronous.              |
+| oddeven_alloc| IdType | Request the odd or even ID to be allocated.                               |
+```
+
+**Example**
+
+```java
+NavuContainer loop = (NavuContainer) service;
+Maapi maapi = service.context().getMaapi();
+int th = service.context().getMaapiHandle();
+ConfBuf devName = (ConfBuf) loop.leaf("device").value();
+String poolName = loop.leaf("pool").value().toString();
+String username = "admin";
+String allocationName = loop.leaf("allocation-name").value().toString();
+ConfBool sync = (ConfBool) loop.leaf("sync").value();
+String oddevenStr = ConfValue.getStringByValue(servicePath + "/oddeven-alloc", service.leaf("oddeven-alloc").value());
+IdType oddeven_alloc = IdType.from(oddevenStr);
+
+LOGGER.debug("doMaapiCreate() , service Name = " + allocationName);
+
+long requestedId = loop.leaf("requestedId").exists()
+    ? ((ConfUInt32) loop.leaf("requestedId").value()).longValue()
+    : -1L;
+
+/* Create resource allocation request. */
+LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , requestedId %d",
+    poolName, allocationName, requestedId));
+
+IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(),
+    requestedId, false, oddeven_alloc);
 
 try {
     if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
@@ -2411,11 +2572,11 @@ The RM package also exposed Python APIs to request ID allocation from a resource
 
 <details>
 
-<summary>Python API for Default ID Allocation Request</summary>
+<summary>Python API for Default ID Allocation Request with oddeven_alloc</summary>
 
 Use the module `resource_manager.id_allocator`.
 
-The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), and root (optional).
+The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeve_alloc(optional).
 
 ```python
 id_request(service, 
@@ -2427,7 +2588,8 @@ id_request(service,
     requested_id=-1,
     redeploy_type="default",
     sync_alloc=False, 
-    root=None):
+    root=None,
+    oddeven_alloc="default"):
 ```
 
 **API Parameters**
@@ -2445,6 +2607,7 @@ id_request(service,
 | redeploy_type  |          | Service redeploy action. Available options: default, touch, re-deploy, reactive-re-deploy, no-redeploy.|
 | sync_alloc     | Boolean  | Allocation type, whether synchronous or asynchronous. By default, it is asynchronous.                  |
 | root           |          | Root node. If sync is set to true, you must provide a root node.                                       |
+| oddeven_alloc  | IdType   | A specific Odd/Even ID to be requested.                                                                |
 ```
 
 Example
@@ -2466,7 +2629,8 @@ id_allocator.id_request(
     allocation_name,
     False,
     "firstfree",
-    20
+    20,
+    oddeven_alloc
 )
 
 # The below will allocate the id synchronously from the pool ‘The Pool’
@@ -2478,7 +2642,8 @@ id_allocator.id_request(
     allocation_name,
     True,
     "firstfree",
-    20
+    20,
+    oddeven_alloc
 )
 
 vlan_id = id_allocator.id_read(tctx.username, root, 'vlan-pool', service.name)
@@ -2538,7 +2703,7 @@ Use the `module resource_manager.id_allocator`.
 
 <summary><code>id_request_tr</code></summary>
 
-The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), and root (optional).
+The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeven_alloc(optional).
 
 ```python
 id_request_tr(tr, username, 
@@ -2548,7 +2713,8 @@ id_request_tr(tr, username,
     requested_id=-1,
     redeploy_type="default",
     sync_alloc=False, 
-    root=None):
+    root=None,
+    oddeven_alloc="default"):
 ```
 
 **API Parameters**
@@ -2563,6 +2729,7 @@ id_request_tr(tr, username,
 | sync_pool       | Boolean     | Sync allocations with this name across the pool.                                                    |
 | requested_id    | Int         | A specific ID to be requested.                                                                      |
 | sync_alloc      | Boolean     | Set value to true to make a synchronous allocation request. By default, it is false (asynchronous). |
+| oddeven_alloc   | IdType      | A specific Odd/Even ID to be requested.                                                             |
 ```
 
 **Example**
@@ -2582,7 +2749,8 @@ def cb_create(self, tctx, root, service, proplist):
         -1,
         "default",
         False,
-        root
+        root,
+        oddeven_alloc
     )
     id = id_allocator.id_read(tctx.username, root, pool_name, alloc_name)
     if not id:
@@ -2627,6 +2795,8 @@ IdAllocator Did-139-Worker-94:
 {% code title="Example" %}
 ```bash
 admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
+admin@ncs> request rm-action sync-alloc-id oddeven-alloc odd allocid id_oddDemo25 pool Odd_18 user testDemo sync true
+admin@ncs> request rm-action sync-alloc-id oddeven-alloc even allocid id_EvenDemo25 pool Pool_18 user testDemo sync true
 ```
 {% endcode %}
 
