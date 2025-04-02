@@ -1071,8 +1071,12 @@ There are a number of session variables in the CLI. They are only used during th
 ```bash
 admin@ncs# show cli
 autowizard            false
+commit-prompt         false
 complete-on-space     true
+devtools              false
 display-level         99999999
+dry-run-duration      0
+dry-run-outformat     cli
 history               100
 idle-timeout          1800
 ignore-leading-space  false
@@ -1121,6 +1125,72 @@ autowizard true
 
 <details>
 
+<summary><code>commit-prompt (true | false)</code></summary>
+
+When enabled, the CLI will display dry-run output of the configuration changes and prompt the user to confirm before the commit operation or actions using the ncs-commit-params grouping. This setting is effective on the following actions.
+
+* Service actions
+  * `re-deploy`&#x20;
+  * `un-deploy`&#x20;
+* Device actions
+  * `sync-to`&#x20;
+  * `partial-sync-to`&#x20;
+  * `migrate`&#x20;
+  * `rollback`&#x20;
+
+For example with commit:
+
+```bash
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+For example with action:
+
+```bash
+admin@ncs(config)# dns-config test re-deploy
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+Warning: Please review the changes before 're-deploy'.
+Proceed? [yes,no]
+```
+
+{% hint style="info" %}
+Note that dry-run output could be very long if the configuration changes are large.
+{% endhint %}
+
+</details>
+
+<details>
+
 <summary><code>complete-on-space (true | false)</code></summary>
 
 Controls if command completion should be attempted when `<space>` is entered. Entering `<tab>` always results in command completion.
@@ -1132,6 +1202,228 @@ Controls if command completion should be attempted when `<space>` is entered. En
 <summary><code>devtools (true | false)</code></summary>
 
 Controls if certain commands that are useful for developers should be enabled. The command `xpath` and `timecmd` are examples of such a command.
+
+</details>
+
+<details>
+
+<summary><code>dry-run-duration (&#x3C;seconds>)</code> </summary>
+
+Valid period of dry-run output before prompting the user to confirm commit or action if `commit-prompt` is set to `true`.
+
+Setting this to 0 (zero) means the same dry-run output will be displayed instantly each time before prompting the user to proceed.
+
+If it is not set to 0 (zero), the CLI will not display dry-run output for the same configuration changes repeatedly within this time period. After it expires, dry-run output will be displayed again.
+
+For example with `dry-run-duration` set to 0 (zero):
+
+<pre class="language-bash"><code class="lang-bash"><strong>admin@ncs(config)# devices global-settings commit-retries attempts 3
+</strong>admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+</code></pre>
+
+For example with `dry-run-duration` set to 5 (seconds):
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# commit
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+The same situation applies to the case if `dry-run` flag is used with commit or `dry-run` option is used on action.
+
+For example with `dry-run-duration` set to 5 (seconds) and run `commit dry-run` first:
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit dry-run
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+admin@ncs(config)# commit
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+For example with `dry-run-duration` set to 5 (seconds) and run `re-deploy dry-run` first:
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# dns-config test re-deploy dry-run
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+admin@ncs(config)# dns-config test re-deploy
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# dns-config test re-deploy
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+Warning: Please review the changes before 're-deploy'.
+Proceed? [yes,no]
+```
+
+</details>
+
+<details>
+
+<summary><code>dry-run-outformat (&#x3C;string>)</code> </summary>
+
+Format of dry-run output for the configuration changes before prompting the user to confirm commit or action if `commit-prompt` is set to `true`.
+
+The supported formats are: `cli`, `xml`, `native` and `cli-c`.
+
+For example with `dry-run-outformat` set to `xml` first and then set to `cli-c`:
+
+```bash
+admin@ncs# dry-run-outformat xml
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+result-xml {
+    local-node {
+        data <devices xmlns="http://tail-f.com/ns/ncs">
+               <global-settings>
+                 <commit-retries>
+                   <attempts>3</attempts>
+                 </commit-retries>
+               </global-settings>
+             </devices>
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# do dry-run-outformat cli-c
+admin@ncs(config)# commit
+cli-c {
+    local-node {
+        data devices global-settings commit-retries attempts 3
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
 
 </details>
 
@@ -1195,7 +1487,7 @@ Controls whether a prompt should be displayed in configure mode. If set to false
 
 <summary><code>terminal (string)</code></summary>
 
-Terminal type. This setting is used for controlling how line editing is performed. Supported terminals are: `dumb`, `vt100`, `xterm`, `linux`, and `ansi`. Other terminals may also work but have no explicit support.
+Terminal type. This setting is used for controlling how line editing is performed. Supported terminals are: `dumb`, `vt100`, `xterm`, `linux` and `ansi`. Other terminals may also work but have no explicit support.
 
 </details>
 
