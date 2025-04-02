@@ -1908,7 +1908,7 @@ test_with_sync.booleanValue(), requestId);
 
 <details>
 
-<summary>Java API for ID Allocation Request with Service Context and OddEven Alloc</summary>
+<summary>Java API for ID Allocation Request with Service Context and OddEven Allocation</summary>
 
 The following API is used to create or update an ID allocation request with requesting service redeploy type as `default`.
 
@@ -1995,7 +1995,7 @@ id, test_with_sync.booleanValue(), requestId);
 
 <details>
 
-<summary>Java API for ID Allocation Request with Service Context, Redeploy Type and OddEven Alloc</summary>
+<summary>Java API for ID Allocation Request with Service Context, Redeploy Type and OddEven Allocation</summary>
 
 Use the following API to create or update an ID allocation request with the requesting service redeploy type as `redeployType`.
 
