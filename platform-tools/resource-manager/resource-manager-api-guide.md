@@ -2572,7 +2572,7 @@ The RM package also exposed Python APIs to request ID allocation from a resource
 
 <details>
 
-<summary>Python API for Default ID Allocation Request with oddeven_alloc</summary>
+<summary>Python API for Default ID Allocation Request</summary>
 
 Use the module `resource_manager.id_allocator`.
 
