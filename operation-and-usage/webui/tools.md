@@ -11,11 +11,11 @@ The **Tools** view includes utilities that you can use to run specific tasks on 
 The following tools are available:
 
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
-* [**Package upgrade**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
-* [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
+* [**Package Manager**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
+* [**High Availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
-* [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
-* [**Compliance reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
+* [**Commit Manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
+* [**Compliance Reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
@@ -27,27 +27,43 @@ The **Insights** view collects and displays the following types of operational i
 * Devices and their sync statuses.
 * CDB info about its size, compaction, etc.
 
-## Package Upgrade <a href="#d5e6487" id="d5e6487"></a>
+## Package Manager <a href="#d5e6487" id="d5e6487"></a>
 
-In the **Package upgrade** view, you can load custom packages in NSO.
+In the **Package Manager** view, you can view and load custom packages in NSO.
 
-The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md).
+<figure><img src="../../images/package-manager.png" alt=""><figcaption><p>Package Manager View</p></figcaption></figure>
 
-### **Install a Package**
+### Add a Package
 
-To install a new package:
+To add a new package:
 
-1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar` or `.tar.gz`) from your local disk.
-2. Click **Upload**. The package becomes visible under the **Available** pane.\
-   (The **Progress Trace** shows the real-time progress of the upload.).
-3. Click **Install**.
-4. On the **Loaded** pane, click **Reload** and confirm the intent.
+1. Click the **Add package** button.
+2. Upload the package or drag-and-drop it in the **Add package** dialog. The file format must be .tar, .tar.gz or .tgz.
+3. Click **Confirm**.
 
-### **Uninstall a Package**
+### View Package Details
 
-To uninstall an existing package:
+To view package details:
 
-* To uninstall a package, simply click **Deinstall** next to the package in the **Loaded packages** list.
+* Click the package name. This reveals information about the package, such as its status, version, location, etc.
+
+### Reload Packages
+
+The reload action is the equivalent of the `packages reload` command in CLI and is used to load new/updated packages. Read more about the reload action in [NSO Packages](../operations/listing-packages.md). The package concepts are covered in [Package Management](../../administration/management/package-mgmt.md).
+
+To reload the packages:
+
+1. Click the **Reload all packages** button.
+2. In the dialog, set the **Max wait time (sec)** for the commit queue to empty before proceeding withe the reload. The default is 10 seconds if you leave the field unset.
+3. Set the **Timeout action** behavior to define what happens after the maximum wait time is over, i.e., kill the open transactions and continue, or cancel (fail) the package reload operation altogether. The default for this setting is **fail**.
+4. Use the **Show trace** option to view a live trace of the reload operation (optional).
+5. Click **Reload**.
+
+### Uninstall a Package
+
+To uninstall a package:
+
+* Click the **Uninstall** button in the package details view.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
@@ -57,9 +73,42 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 ## Alarms <a href="#d5e6565" id="d5e6565"></a>
 
-The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by the device.
+The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
 
-You can run actions on an alarm by selecting it and using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button.
+<figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure>
+
+An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../../operation-and-usage/operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
+
+### Viewing Options
+
+You can search and sort the view to display alarm results according to your need.
+
+* To search for an alarm against an object, search for the object name (e.g., device name).
+* To sort the alarms list, use one of the specified criteria from **Alarm type** , **Severity**, **Is cleared**, or **Handling state**.
+
+**Alarm Details**
+
+Individual alarm details are accessible by clicking the severity level icon on an alarm. This brings up the alarm's details, its status (severity) changes, and historical handling information.
+
+### Compress and Purge Alarms
+
+The Web UI provides additional options to compress and purge alarms.
+
+* The **Compress alarms** action streamlines the alarm entries by deleting their historical state changes that occured before the last one (i.e., the only the latest state change is kept), while keeping the alarm entries intact.
+* The **Purge alarms** action completely removes the alarm entries according to the specified criteria.
+
+To utilize these features, click the respective button and follow the on-screen instructions.
+
+### Alarm Handling
+
+Alarm handling refers to attending to an alarm. This usually entails reviewing the alarm and setting a state on it, for example, **Acknowledged**. Historical handling state changes are accessible in alarm details.
+
+To set an alarm handling state:
+
+1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
+2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
+3. Enter a description (optional).
+4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
@@ -160,7 +209,7 @@ To run a compliance report:
 
 1. In the **Compliance reports** tab, click the desired report and then click **Run report**.
 2. Specify the following in the **Run report** pop-up:
-   * **Report title**
+   * **Report title**: A title for this specific report run.
    * **Historical time interval**. Select the time range. The report runs with the maximum possible interval if you do not specify an interval.
 3. Click **Run report**.
 
@@ -172,10 +221,11 @@ The **Reports results** tab is used to view the status and results of the compli
 
 #### View Compliance Report Results
 
-The report's results show if the devices/services included in the report are compliant or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
+The report's results show if the devices/services included in the report are compliant/in-sync or have violations. A summary of the report status is readily available in the **Report results** tab. To fetch detailed information on the report, click the report name. The following information panes are then available:
 
 * **Details**: Includes specifics about the report that was run, such as report name, date/time it was run, time range, and contents analyzed (i.e., services, devices, and rollback files).
-* **Results overview**: Shows a summary of the results with information on the number of compliant and non-compliant devices/services.
+* **Results overview**: Shows a summary of results with visuals on the number of devices and services that are presently compliant/in-sync.
+* **Historic compliance**: Shows a history of compliance (in percentages) for the devices and services that were included in the report run. The graph is presented based on the previous report runs and you can narrow down the graph to show data from specific periods (e.g., last 10 runs only).
 * **Devices**/**Services**/**Errors**: Displays individual compliance and error information for analyzed devices and services. In case of non-compliance, a 'diff view' is available.
 
 {% hint style="info" %}

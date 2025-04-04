@@ -204,7 +204,7 @@ To add a new group:
 
 1. Click the **Add SNMP group** button.
 2. Enter the **SNMP group name** and click **Continue**.
-3. In the group details page, add users to the newly created group. f a default map is desired for unknown/unmapped users, use the **Set default-map** option.
+3. In the group details page, add users to the newly created group. If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
    1. Click the **Add user** button to bring up the **Add user** overlay window.
    2. Specify the **local-user** and configure the following settings:
       * **community** (optional): Choose between **community-name** or **community-binary-name**.
