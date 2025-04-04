@@ -178,7 +178,7 @@ Going back to the example L3 VPN above, any part of `volvo` VPN instance can be 
 
 A simple change like changing the `as-number` on the service results in many changes in the network. NSO does this automatically.
 
-```cli
+```
 ncs(config)# vpn l3vpn volvo as-number 65102
 ncs(config-l3vpn-volvo)# commit dry-run outformat native
 native {
@@ -244,13 +244,13 @@ bandwidth    4500000
 Before we send anything to the network, let's look at the device configuration using a dry run. As you can see, both new CE devices are connected to the same PE router, but for different VPN customers.
 
 ```
-ncs(config)#commit dry-run outformat native
+ncs(config)# commit dry-run outformat native
 ```
 
 Finally, commit the configuration to the network
 
 ```
-(config)#commit
+(config)# commit
 ```
 
 ### Service Impacting Out-of-band Changes <a href="#d5e779" id="d5e779"></a>
@@ -402,33 +402,32 @@ vpn l3vpn volvo
 
 You can ask NSO to list all devices that are touched by a service and vice versa:
 
-```cli
-ncs# show vpn l3vpn device-list
-NAME   DEVICE LIST
-----------------------------------------
+```
+ncs# show vpn l3vpn modified devices
+NAME   DEVICES
+------------------------------------
 volvo  [ ce0 ce1 ce4 ce8 pe0 pe2 pe3 ]
 
-
-ncs# show devices device service-list
-NAME  SERVICE LIST
--------------------------------------
-ce0   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-ce1   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-ce2   [  ]
-ce3   [  ]
-ce4   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-ce5   [  ]
-ce6   [  ]
-ce7   [  ]
-ce8   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-p0    [  ]
-p1    [  ]
-p2    [  ]
-p3    [  ]
-pe0   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-pe1   [  ]
-pe2   [ "/l3vpn:vpn/l3vpn{volvo}" ]
-pe3   [ "/l3vpn:vpn/l3vpn{volvo}" ]
+ncs# show devices device services
+NAME  ID
+--------------------------------
+ce0   /vpn/l3vpn[name='volvo']
+ce1   /vpn/l3vpn[name='volvo']
+ce2
+ce3
+ce4   /vpn/l3vpn[name='volvo']
+ce5
+ce6
+ce7
+ce8   /vpn/l3vpn[name='volvo']
+p0
+p1
+p2
+p3
+pe0   /vpn/l3vpn[name='volvo']
+pe1
+pe2   /vpn/l3vpn[name='volvo']
+pe3   /vpn/l3vpn[name='volvo']
 ```
 
 Note that operational mode in the CLI was used above. Every service instance has an operational attribute that is maintained by the transaction manager and shows which device configuration it created. Furthermore, every device configuration has backward pointers to the corresponding service instances:
@@ -511,7 +510,7 @@ The reference counter above makes sure that NSO will not delete shared resources
 
 ### Using Commit Queues <a href="#d5e833" id="d5e833"></a>
 
-As described in [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue), the commit queue can be used to increase the transaction throughput. When the commit queue is for service activation, the services will have states reflecting outstanding commit queue items.
+As described in [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue), the commit queue can be used to increase the transaction throughput. When the commit queue is for service activation, the services will have states reflecting outstanding commit queue items.
 
 {% hint style="info" %}
 When committing a service using the commit queue in _async_ mode the northbound system can not rely on the service being fully activated in the network when the activation requests return.
@@ -760,10 +759,10 @@ $ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
 
 Start netsim, NSO, and the CLI:
 
-```
-$ncs-netsim start
-$ncs --with-package-reload
-$ncs_cli -C -u admin
+```bash
+$ ncs-netsim start
+$ ncs --with-package-reload
+$ ncs_cli -C -u admin
 ```
 
 When starting NSO above we give NSO a parameter to reload all packages so that our newly added `vlan` package is included. Packages can also be reloaded without restart. At this point we have a service model for VLANs, but no mapping of VLAN to device configurations. This is fine, we can try the service model and see if it makes sense. Create a VLAN service:

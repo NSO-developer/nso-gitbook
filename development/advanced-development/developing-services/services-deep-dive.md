@@ -24,7 +24,7 @@ In addition, `ncs:service-data` provides a common service interface to the users
 
 <summary><code>check-sync</code>, <code>deep-check-sync</code> actions</summary>
 
-Check if the configuration created by the service is (still) there. That is, a re-deploy of this service would produce no changes.\
+Check if the configuration created by the service is (still) there. That is, a redeploy of this service would produce no changes.\
 \
 The deep variant also retrieves the latest configuration from all the affected devices, making it relatively expensive.
 
@@ -34,7 +34,7 @@ The deep variant also retrieves the latest configuration from all the affected d
 
 <summary><code>re-deploy</code>, <code>reactive-re-deploy</code> actions</summary>
 
-Re-run the service mapping logic and deploy any changes from the current configuration. Non-reactive variant supports commit parameters, such as dry-run.
+Re-run the service mapping logic and deploy any changes from the current configuration. The non-reactive variant supports commit parameters, such as dry-run.
 
 The reactive variant performs an asynchronous re-deploy as the user of the original commit and uses the commit parameters from the latest commit of this service. It is often used with nano services, such as restarting a failed nano service.
 
@@ -44,7 +44,7 @@ The reactive variant performs an asynchronous re-deploy as the user of the origi
 
 <summary><code>un-deploy</code> action</summary>
 
-Remove the configuration produced by the service instance but keep the instance data, allowing a re-deploy later. This action effectively deactivates the service, while keeping it in the system.
+Remove the configuration produced by the service instance but keep the instance data, allowing a redeploy later. This action effectively deactivates the service while keeping it in the system.
 
 </details>
 
@@ -60,7 +60,7 @@ Show the changes in the configuration that this service instance produced. Behav
 
 <summary><code>touch</code> action</summary>
 
-Available in the configure mode, marks the service as being changed and allows re-deploying multiple services in the same transaction.
+Available in the configure mode, it marks the service as being changed and allows redeploying multiple services in the same transaction.
 
 </details>
 
@@ -169,7 +169,7 @@ NSO implements two additional, optional callbacks for scenarios where create is 
 
 For example, you can use the pre-modification callback to check the service prerequisites (pre-check) or make changes that you want persisted even after the service is removed, such as enabling some global device feature. The latter may be required when NSO is not the only system managing the device and removing the feature configuration would break non-NSO managed services.
 
-Similarly, you might use post-modification to reset the configuration to some default after the service is removed. Say the service configures an interface on a router for customer VPN. However, when the service is deprovisioned (removed), you don't want to simply erase the interface configuration. Instead, you want to put it in shutdown and configure it for a special, unused VLAN. The post-modification callback allows you to achieve this goal.
+Similarly, you might use post-modification to reset the configuration to some default after the service is removed. Say the service configures an interface on a router for customer VPN. However, when the service is de-provisioned (removed), you don't want to simply erase the interface configuration. Instead, you want to put it in shutdown and configure it for a special, unused VLAN. The post-modification callback allows you to achieve this goal.
 
 The main difference from create callback is that pre- and post-modification are called on update and delete, as well as service create. Since the service data node may no longer exist in case of delete, the API for these callbacks does not supply the `service` object. Instead, the callback receives the operation and key path to the service instance. See the following API signatures for details.
 
@@ -328,14 +328,14 @@ Furthermore, containers and list items created using the `sharedCreate()` and `s
 
 To see reference counting in action, start the [examples.ncs/service-management/implement-a-service/iface-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v3) example with `make demo` and configure a service instance.
 
-```cli
+```bash
 admin@ncs(config)# iface instance1 device c1 interface 0/1 ip-address 10.1.2.3 cidr-netmask 28
 admin@ncs(config)# commit
 ```
 
 Then configure another service instance with the same parameters and use the `display service-meta-data` pipe to show the reference counts and backpointers:
 
-```cli
+```bash
 admin@ncs(config)# iface instance2 device c1 interface 0/1 ip-address 10.1.2.3 cidr-netmask 28
 admin@ncs(config)# commit dry-run
 cli {
@@ -419,7 +419,7 @@ The most important principle to keep in mind is that the data created by any ser
 
 In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)).
 
-## Service Design
+## Stacked Service Design
 
 Designing services in NSO offers a great deal of flexibility with multiple approaches available to suit different needs. But what’s the best way to go about it? At its core, a service abstracts a network service or functionality, bridging user-friendly inputs with network configurations. This definition leaves the implementation open-ended, providing countless possibilities for designing and building services. However, there are certain techniques and best practices that can help enhance performance and simplify ongoing maintenance, making your services more efficient and easier to manage.
 
@@ -1033,7 +1033,7 @@ A prerequisite (or possibly the product in an iterative approach) is an NSO serv
 
 In the simplest case, there is only one variant and that is the one that the service needs to produce. Let's take the [examples.ncs/service-management/implement-a-service/iface-v2-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v2-py) example and consider what happens when a device already has an existing interface configuration.
 
-```cli
+```bash
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1
 devices device c1
@@ -1047,7 +1047,7 @@ devices device c1
 
 Configuring a new service instance does not produce any new device configuration (notice that device c1 has no changes).
 
-```cli
+```bash
 admin@ncs(config)# commit dry-run
 cli {
     local-node {
@@ -1063,7 +1063,7 @@ cli {
 
 However, when committed, NSO records the changes, just like in the case of overlapping configuration (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)). The main difference is that there is only a single backpointer, to a newly configured service, but the `refcount` is 2. The other item, that contributes to the `refcount`, is the original device configuration. Which is why the configuration is not deleted when the service instance is.
 
-```cli
+```bash
 admin@ncs# show running-config devices device c1 config interface\
  GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -1114,7 +1114,7 @@ main()
 
 Or, you might generate an XML data file to import using the `ncs_load` command; use `display xml` filter to help you create a template:
 
-```cli
+```bash
 admin@ncs# show running-config iface | display xml
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <iface xmlns="http://com/example/iface">
@@ -1129,15 +1129,16 @@ admin@ncs# show running-config iface | display xml
 
 Regardless of the way you implement the data import, you can run into two kinds of problems.
 
-On one hand, the service list data may be incomplete. Suppose that the earliest service instances deployed did not take the network mask as a parameter. Moreover, for some specific reasons, a number of interfaces had to deviate from the default of 28 and that information was never populated back in the inventory for old services after the netmask parameter was added.
+On one hand, the service list data may be incomplete. Suppose that the earliest service instances deployed did not take the network mask as a parameter. Moreover, for some specific reasons, a number of interfaces had to deviate from the default of 28 and that information was never populated back in the inventory for old services after the `netmask` parameter was added.
 
 Now the only place where that information is still kept may be the actual device configuration. Fortunately, you can access it through NSO, which may allow you to extract the missing data automatically, for example:
 
-<pre><code>devconfig = root.devices.device[service.device].config
+```bash
+devconfig = root.devices.device[service.device].config
 intf = devconfig.interface.GigabitEthernet[service.interface]
 netmask = intf.ip.address.primary.mask
-<strong>cidr = IPv4Network(f'0.0.0.0/{netmask}').prefixlen
-</strong></code></pre>
+cidr = IPv4Network(f'0.0.0.0/{netmask}').prefixlen
+```
 
 On the other hand, some parameters may be NSO specific, such as those controlling which variant of configuration to produce. Again, you might be able to use a script to find this information, or it could turn out that the configuration is too complex to make such a script feasible.
 
@@ -1149,7 +1150,7 @@ The last step is updating the metadata, telling NSO that a given service control
 
 Let's examine the effects of this action on the following data:
 
-```cli
+```bash
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -1167,7 +1168,7 @@ devices device c1
 
 Having run the action, NSO has updated the `refcount` to remove the reference to the original device configuration:
 
-```cli
+```bash
 admin@ncs# iface instance1 re-deploy reconcile
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
@@ -1187,7 +1188,7 @@ What is more, the reconcile algorithm works even if multiple service instances s
 
 Before reconciliation, the device configuration would show a refcount of three.
 
-```cli
+```bash
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -1205,7 +1206,7 @@ devices device c1
 
 Invoking `re-deploy reconcile` on either one or both of the instances makes the services sole owners of the configuration.
 
-```cli
+```bash
 admin@ncs# show running-config devices device c1 config\
  interface GigabitEthernet 0/1 | display service-meta-data
 devices device c1
@@ -1222,19 +1223,20 @@ devices device c1
 
 This means the device configuration is removed only when you remove both service instances.
 
-<pre><code>admin@ncs(config)# no iface instance1
+```bash
+admin@ncs(config)# no iface instance1
 admin@ncs(config)# commit dry-run outformat native
 native {
 }
-<strong>admin@ncs(config)# no iface instance2
-</strong><strong>admin@ncs(config)# commit dry-run outformat native
-</strong>native {
+admin@ncs(config)# no iface instance2
+admin@ncs(config)# commit dry-run outformat native
+native {
     device {
         name c1
         data no interface GigabitEthernet0/1
     }
 }
-</code></pre>
+```
 
 The reconcile operation only removes the references to the original configuration (without the service backpointer), so you can execute it as many times as you wish. Just note that it is part of a service re-deploy, with all the implications that brings, such as potentially deploying new configuration to devices when you change the service template.
 
@@ -1248,9 +1250,9 @@ Suppose there are two variants of the service configured in the network; `iface-
 
 We will tackle this scenario to show how you might perform service discovery in an iterative fashion. We shall start with the `iface-v2-py` as the first iteration of the `iface` service, which represents what configuration the service should produce to the best of our current knowledge.
 
-There are configurations for two service instances in the network already: for interfaces 0/1 and 0/2 on the `c1` device. So, configure the two corresponding `iface` instances.
+There are configurations for two service instances in the network already: For interfaces `0/1` and `0/2` on the `c1` device. So, configure the two corresponding `iface` instances.
 
-```cli
+```bash
 admin@ncs(config)# commit dry-run
 cli {
     local-node {
@@ -1275,7 +1277,7 @@ You can also use the `commit no-deploy` variant to add service parameters when a
 
 Then use the `re-deploy reconcile { discard-non-service-config } dry-run` command to observe the difference between the service-produced configuration and the one present in the network.
 
-```cli
+```bash
 admin@ncs# iface instance1 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {
@@ -1284,13 +1286,13 @@ cli {
 
 For `instance1`, the config is the same, so you can safely reconcile it already.
 
-```cli
+```bash
 admin@ncs# iface instance1 re-deploy reconcile
 ```
 
 But interface 0/2 (`instance2`), which you suspect was initially provisioned with the newer version of the service, produces the following:
 
-```cli
+```bash
 admin@ncs# iface instance2 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {
@@ -1325,7 +1327,7 @@ Instead, the right approach is to add the missing part to the service template. 
 
 In some cases, upgrading the old configuration to the new variant is viable, but in most situations, you likely want to avoid all device configuration changes. For the latter case, you need to add another parameter to the service model that selects the configuration variant. You must update the template too, producing the second iteration of the service.
 
-```
+```bash
 iface instance2
  device       c1
  interface    0/2
@@ -1337,7 +1339,7 @@ iface instance2
 
 With the updated configuration, you can now safely reconcile the `service2` service instance:
 
-```cli
+```bash
 admin@ncs# iface instance2 re-deploy reconcile\
  { discard-non-service-config } dry-run
 cli {
@@ -1347,7 +1349,7 @@ admin@ncs# iface instance2 re-deploy reconcile
 
 Nevertheless, keep in mind that the discard-non-service-config reconcile operation only considers parts of the device configuration under nodes that are created with the service mapping. Even if all data there is covered in the mapping, there could still be other parts that belong to the service but reside in an entirely different section of the device configuration (say DNS configuration under `ip name-server`, which is outside the `interface GigabitEthernet` part) or even a different device. That kind of configuration the `discard-non-service-config` option cannot find on its own and you must add manually.
 
-You can find the complete `iface` service as part of the \[examples.ncs/service-management/discovery)(https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/discovery) example.
+You can find the complete `iface` service as part of the [examples.ncs/service-management/discovery](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/discovery) example.
 
 Since there were only two service instances to reconcile, the process is now complete. In practice, you are likely to encounter multiple variants and many more service instances, requiring you to make additional iterations. But you can follow the iterative process shown here.
 
@@ -1370,7 +1372,7 @@ Pulling the configuration from the network needs to be initiated outside the ser
 The snippet in the example below shows running the `partial-sync-from` action via Java, using the `router` device from the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) example.
 
 {% code title="Example of Running partial-sync-from Action via Java API" %}
-```
+```java
         ConfXMLParam[] params = new ConfXMLParam[] {
         new ConfXMLParamValue("ncs", "path", new ConfList(new ConfValue[] {
         new ConfBuf("/ncs:devices/ncs:device[ncs:name='ex0']/"

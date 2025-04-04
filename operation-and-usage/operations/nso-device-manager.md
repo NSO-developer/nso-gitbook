@@ -2,7 +2,7 @@
 description: Learn the concepts of NSO device management.
 ---
 
-# NSO Device Manager
+# Device Manager
 
 The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. NSO keeps the primary copy of the configuration for each managed device in CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this network configuration change into the corresponding changes for the managed devices. The device manager passes on the required changes to the NEDs (Network Element Drivers). A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound.
 
@@ -1988,6 +1988,39 @@ Operation 'merge' on non-existing node:
 /devices/device[name='ce2']/config/ios:snmp-server/community[name='FUZBAR']/RO
 ```
 
+## Generating Device Templates From Configuration
+
+To simplify template creation, NSO features the `/devices/create-template` action that can initiate a template from a set of device configurations by finding common structural patterns. The resulting template can be used as as-is or as a starting point for further refinement.
+
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized. For example:
+
+{% code overflow="wrap" %}
+```bash
+admin@ncs(config)# devices create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ]
+admin@ncs(config)# show configuration                                                                   devices template syslog
+ ned-id router-nc-1.0
+  config
+   sys syslog server 10.3.4.5
+    enabled
+    selector 8
+     facility [ "{$server-selector-facility}" ]
+    !
+   !
+  !
+ !
+!
+admin@ncs(config)# commit
+Commit complete.
+```
+{% endcode %}
+
+The action takes a number of arguments to control how the resulting template looks:
+
+* `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
+* `exclude-service-config` - Exclude configuration that is already under service management.
+* `collapse-list-keys` - Decides what lists to make variables of, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
+
 ## Renaming Devices in NSO
 
 The usual way to rename an instance in a list is to delete it and create a new instance. Aside from having to explicitly create all its children, an obvious problem with this method is the dependencies - if there is a leafref that refers to this instance, this method of deleting and recreating will fail unless the leafref is also explicitly reset to the value of the new instance.
@@ -2130,11 +2163,15 @@ vlan  newex1  false  -     init         reached  2024-04-16T21:40:02  -    -
 
 When a device is renamed, all components that derive their name from that device's name in all the service instances must be force-back-tracked.
 
-## Auto-configuring Devices in NSO <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
+## Auto-configuring Devices <a href="#user_guide.devicemanager.auto-configuring-devices" id="user_guide.devicemanager.auto-configuring-devices"></a>
 
 Provisioning new devices in NSO requires the user to be familiar with the concept of Network Element Drivers and the unique ned-id they use to distinguish their schema. For an end user interacting with a northbound client of NSO, the concept of a ned-id might feel too abstract. It could be challenging to know what device type and ned-id to select when configuring a device for the first time in NSO. After initial configuration, there are also additional steps required before the device can be operated from NSO.
 
-NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected. In the same transaction, NSO also fetches the host keys if required, and synchronizes the configuration from the device, making it ready to operate in a single step.
+NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected.
+
+When a transaction with a newly auto-configured device gets committed, NSO fetches the device host keys (if required) and synchronizes the configuration from the device. Depending on the NED used, additional transactions may be required. Also, if the device is unreachable, NSO will retry the operation at intervals, specified in the settings under `/devices/global-settings/auto-configure`.  The `oper-state` leaf indicates when the device becomes `enabled`. Once the device is in sync, the auto-configuration stops. If the configured retry attempts are exhausted, NSO raises an `auto-configure-failed` alarm.
+
+If several devices are committed simultaneously in the transaction with `auto-configure`, NSO will retry these immediately in separate transactions. This ensures that auto-configuration for a single device is not dependent on the success of the other devices.
 
 ### Examples <a href="#d5e3539" id="d5e3539"></a>
 
@@ -2176,7 +2213,7 @@ admin@ncs% set devices device d2 auto-configure vendor "Acme Inc." operating-sys
 admin@ncs% set devices device d3 auto-configure ned-id router-nc-1.0
 ```
 
-The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device.
+The `admin-state` for the device, if configured, will be honored. I.e., while auto-configuring a new device, if the `admin-state` is set to be southbound-locked, NSO will only pick the ned-id automatically. NSO will not fetch host keys and synchronize config from the device. NSO will not try again, even if the `admin-state` is changed.
 
 ```cli
 admin@ncs% set devices device mydev2 auto-configure vendor "Acme Inc." operating-system AcmeOS
@@ -2808,7 +2845,7 @@ cannot connect to ce0
 Each transaction committed through the queues becomes a queue item. A queue item has an ID number. A bigger number means that it's scheduled later. Each queue item waits for something to happen. A queue item is in either of three states.
 
 1. `waiting`: The queue item is waiting for other queue items to finish. This is because the _waiting_ queue item has participating devices that are part of other queue items, ahead in the queue. It is waiting for a set of devices, to not occur ahead of itself in the queue.
-2. `executing`: The queue item is currently being processed. Multiple queue items can run currently as long as they don't share any managed devices. Transient errors might be present. These errors occur when NSO fails to communicate with some of the devices. The errors are shown in the leaf-list `transient-errors`. Retries will take place at intervals specified in `/ncs:devices/global-settings/commit-queue/retry-timeout`. Examples of transient errors are connection failures and that the changes are rejected due to the device being locked. Transient errors are potentially bad since the queue might grow if new items are added, waiting for the same device.
+2. `executing`: The queue item is currently being processed. Multiple queue items can run concurrently as long as they don't share any managed devices or if the atomic behaviour of the queue items are set to `false`. If NSO fails to connect to a device or the change is being rejected due to the device being locked, it is shown as a transient error in the `transient` list. NSO will retry aginast the device at intervals specified in `/ncs:devices/global-settings/commit-queue/retry-timeout`. Transient errors are potentially bad since the queue might grow if new items are added, waiting for the same device.
 3. `locked`: This queue item is locked and will not be processed until it has been unlocked, see the action `/ncs:devices/commit-queue/queue-item/unlock`. A locked queue item will block all subsequent queue items that are using any device in the locked queue item.
 
 ### Viewing and Manipulating the Commit Queue <a href="#d5e3710" id="d5e3710"></a>
@@ -3128,6 +3165,8 @@ If an SSH connection is established, any outstanding configuration in the commit
 NETCONF Call Home is enabled and configured under `/ncs-config/netconf-call-home` in the `ncs.conf` file. By default NETCONF Call Home is disabled.
 
 A device can be connected through the NETCONF Call Home client only if `/devices/device/state/admin-state` is set to `call-home`. This state prevents any southbound communication to the device unless the connection has already been established through the NETCONF Call Home client protocol.
+
+See [examples.ncs/northbound-interfaces/netconf-call-home](https://github.com/NSO-developer/nso-examples/tree/6.4/northbound-interfaces/netconf-call-home) for an example.
 
 ## Notifications <a href="#d5e4000" id="d5e4000"></a>
 

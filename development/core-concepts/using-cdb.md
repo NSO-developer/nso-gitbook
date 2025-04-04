@@ -23,7 +23,7 @@ NSO is designed to manage devices and services. NSO uses YANG as the overall mod
 
 `tailf-ncs.yang` is the top module that includes the following sub-modules:
 
-* `tailf-ncs-common.yang`: common definitions
+* `tailf-ncs-common.yang`: common definitions.
 * `tailf-ncs-packages.yang`: this sub-module defines the management of packages that are run by NSO. A package contains custom code, models, and documentation for any function added to the NSO platform. It can for example be a service application or a southbound integration to a device.
 * `tailf-ncs-devices.yang`: This is a core model of NSO. The device model defines everything a user can do with a device that NSO speaks to via a Network Element Driver, NED.
 * `tailf-ncs-services.yang`: Services represent anything that spans across devices. This can for example be MPLS VPN, MEF e-line, BGP peer, or website. NSO provides several mechanisms to handle services in general which are specified by this model. Also, it defines placeholder containers under which developers, as an option, can augment their specific services.
@@ -232,7 +232,7 @@ Given the YANG model in the example above (L3 VPN YANG Extract), the initial dat
 
 Another example of using these features is when initializing the AAA database. This is described in [AAA infrastructure](../../administration/management/aaa-infrastructure.md).
 
-All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
+All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys_mgmt.starting_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
 ```xml
@@ -428,7 +428,7 @@ public class PlainCdbSub implements ApplicationComponent  {
 We will walk through the code and highlight different aspects. We start with how the `Cdb` instance is retrieved in this example. It is always possible to open a socket to NSO and create the `Cdb` instance with this socket. But with this comes the responsibility to manage that socket. In NSO, there is a resource manager that can take over this responsibility. In the code, the field that should contain the `Cdb` instance is simply annotated with a `@Resource` annotation. The resource manager will find this annotation and create the `Cdb` instance as specified. In this example below (Resource Annotation) `Scope.INSTANCE` implies that new instances of this example class should have unique `Cdb` instances (see more in [The Resource Manager](nso-virtual-machines/nso-java-vm.md#ncs.ug.javavm.resman)).
 
 {% code title="Example: Resource Annotation" %}
-```
+```java
     @Resource(type = ResourceType.CDB, scope = Scope.INSTANCE,
               qualifier = "plain")
     private Cdb cdb;
@@ -701,7 +701,7 @@ We will look once again at the YANG model for the CDB package in the [examples.n
 ```
 {% endcode %}
 
-Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
+Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
 
 An example of Java code that creates operational data using the Navu API is shown in the example below (Creating Operational Data using Navu API)).
 
@@ -858,7 +858,7 @@ public class OperCdbSub implements ApplicationComponent, CdbDiffIterate {
 
 Notice that the `CdbOperSubscriber` is very similar to the `CdbConfigSubscriber` described earlier.
 
-In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py)  and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
+In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
 
 {% code title="Example: Populating Operational Data" %}
 ```bash
@@ -962,7 +962,7 @@ CDB can automatically handle the following changes to the schema:
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
-Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.disaster)).
+Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs_sys_mgmt.disaster)).
 
 ## Using Initialization Files for Upgrade <a href="#d5e3066" id="d5e3066"></a>
 
@@ -1027,22 +1027,22 @@ module servers {
 The differences from the earlier version of the YANG module can be seen in the example below (Difference between YANG Modules).
 
 {% code title="Example: Difference between YANG Modules" %}
-```
-diff ../servers1.5.yang ../servers1.4.yang
+```diff
+diff ../servers1.4.yang ../servers1.5.yang
 
 9,12d8
-<   revision "2007-06-01" {
-<       description "added protocol.";
-<   }
-<
+>   revision "2007-06-01" {
+>       description "added protocol.";
+>   }
+>
 31,37d26
-<         mandatory true;
-<       }
-<       leaf protocol {
-<         type enumeration {
-<             enum tcp;
-<             enum udp;
-<         }
+>         mandatory true;
+>       }
+>       leaf protocol {
+>         type enumeration {
+>             enum tcp;
+>             enum udp;
+>         }
 ```
 {% endcode %}
 
@@ -1128,7 +1128,7 @@ An alternative is to temporarily disable the validation by starting the NSO with
 
 In previous sections, we showed how automatic upgrades and XML initialization files can help in upgrading CDB when YANG models have changed. In some situations, this is not sufficient. For instance, if a YANG model is changed and new mandatory leaves are introduced that need calculations to set the values then a programmatic upgrade is needed. This is when the upgrade component of a package comes into play.
 
-An `upgrade` component is a Java class with a standard `main()` method that becomes a standalone program that is run as part of the package `reload` action.
+An `upgrade` component is a Java or Python class with a standard `main()` method that becomes a standalone program that is run as part of the package `reload` action.
 
 As with any package component type, the `upgrade` component has to be defined in the `package-meta-data.xml` file for the package (see the example below (Upgrade Package Components)).
 
@@ -1146,7 +1146,7 @@ As with any package component type, the `upgrade` component has to be defined in
 ```
 {% endcode %}
 
-Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package\_mgmt.loading).
+Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package_mgmt.loading).
 
 <figure><img src="../../images/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
 
@@ -1156,14 +1156,14 @@ So in preparation for a package upgrade, the new packages replace the old ones i
 
 When the package reload is requested, the packages in the load path are copied to the state directory. The old state directory is scratched, so that packages that no longer exist in the load path are removed and new packages are added. Unchanged packages will be unchanged. Automatic schema CDB upgrades will be performed, and afterward, for all packages that have an upgrade component and for which at least one YANG model was changed, this upgrade component will be executed. Also for added packages that have an upgrade component, this component will be executed. Hence the upgrade component needs to be programmed in such a way that care is taken for both the `new` and `upgrade` package scenarios.
 
-So how should an upgrade component be implemented? In the previous section, we described how CDB can perform an automatic upgrade. But this means that CDB has deleted all values that are no longer part of the schema. Well, not quite yet. At the initial phase of the NSO startup procedure (called start-phase0), it is possible to use all the CDB Java API calls to access the data using the schema from the database as it looked before the automatic upgrade. That is, the complete database as it stood before the upgrade is still available to the application. It is under this condition that the upgrade components are executed and this is the reason why they are standalone programs and not executed by the NSO Java-VM as all other Java code for components are.
+So how should an upgrade component be implemented? In the previous section, we described how CDB can perform an automatic upgrade. But this means that CDB has deleted all values that are no longer part of the schema. Well, not quite yet. At the initial phase of the NSO startup procedure (called start-phase0), it is possible to use all the CDB Java/Python API calls to access the data using the schema from the database as it looked before the automatic upgrade. That is, the complete database as it stood before the upgrade is still available to the application. It is under this condition that the upgrade components are executed and this is the reason why they are standalone programs and not executed by the NSO Java/Python-VM as all other Java/Python code for components are.
 
-So the CDB Java API can be used to read data defined by the old YANG models. To write new config data Maapi has a specific method `Maapi.attachInit()`. This method attaches a Maapi instance to the upgrade transaction (or init transaction) during `phase0`. This special upgrade transaction is only available during `phase0`. NSO will commit this transaction when the `phase0` is ended, so the user should only write config data (not attempt to commit, etc.).
+So the CDB Java/Python API can be used to read data defined by the old YANG models. To write new config data Maapi has a specific method `Maapi.attachInit()`. This method attaches a Maapi instance to the upgrade transaction (or init transaction) during `phase0`. This special upgrade transaction is only available during `phase0`. NSO will commit this transaction when the `phase0` is ended, so the user should only write config data (not attempt to commit, etc.).
 
-We take a look at the example [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) to see how an upgrade component can be implemented. Here the _vlan_ package has an original version which is replaced with a version _vlan\_v2_. See the `README` and play with examples to get acquainted.
+We take a look at the example [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) to see how an upgrade component can be implemented. Here the _vlan_ package has an original version which is replaced with a version `vlan_v2`. See the `vlan_v2-py` package for a Python variant. See the `README` and play with examples to get acquainted.
 
 {% hint style="info" %}
-The `upgrade-service` is a `service` package. But the upgrade components here described work equally well and in the same way for any package type. The only requirement is that the package contain at least one YANG model for the upgrade component to have meaning. If not the upgrade component will never be executed.
+The `upgrade-service` is a `service` package upgrade example. But the upgrade components here described work equally well and in the same way for any package type. The only requirement is that the package contain at least one YANG model for the upgrade component to have meaning. If not the upgrade component will never be executed.
 {% endhint %}
 
 The complete YANG model for the version 2 of the VLAN service looks as follows:
@@ -1325,7 +1325,7 @@ public class UpgradeService {
 Let's go through the code and point out the different aspects of writing an `upgrade` component. First (see the example below (Upgrade Init)) we open a socket and connect to NSO. We pass this socket to a Java API `Cdb` instance and call `Cdb.setUseForCdbUpgrade()`. This method will prepare `cdb` sessions for reading old data from the CDB database, and it should only be called in this context. At the end of this first code fragment, we start the CDB upgrade session:
 
 {% code title="Example: Upgrade Init" %}
-```
+```java
         Socket s1 = new Socket("localhost", Conf.NCS_PORT);
         Cdb cdb = new Cdb("cdb-upgrade-sock", s1);
         cdb.setUseForCdbUpgrade();
@@ -1340,7 +1340,7 @@ Let's go through the code and point out the different aspects of writing an `upg
 We then open and connect a second socket to NSO and pass this to a Java API Maapi instance. We call the `Maapi.attachInit()` method to get the init transaction (see the example below (Upgrade Get Transaction)).
 
 {% code title="Example: Upgrade Get Transaction" %}
-```
+```java
         Socket s2 = new Socket("localhost", Conf.NCS_PORT);
         Maapi maapi = new Maapi(s2);
         int th = maapi.attachInit();
@@ -1349,14 +1349,14 @@ We then open and connect a second socket to NSO and pass this to a Java API Maap
 
 Using the `CdbSession` instance we read the number of service instance that exists in the CDB database. We will work on all these instances. Also, if the number of instances is zero the loop will not be entered. This is a simple way to prevent the upgrade component from doing any harm in the case of this being a new package that is added to NSO for the first time:
 
-```
+```java
         int no = cdbsess.getNumberOfInstances("/services/vlan");
         for(int i = 0; i < no; i++) {
 ```
 
 Via the `CdbUpgradeSession`, the old service data is retrieved:
 
-```
+```java
             ConfBuf name = (ConfBuf)cdbsess.getElem("/services/vlan[%d]/name",
                                                     offset);
             ConfBuf iface = (ConfBuf)cdbsess.getElem("/services/vlan[%d]/iface",
@@ -1371,7 +1371,7 @@ Via the `CdbUpgradeSession`, the old service data is retrieved:
 
 The value for the new leaf introduced in the new version of the YANG model is calculated, and the value is set using Maapi and the init transaction:
 
-```
+```java
             String globId = String.format("%1$s-%2$s-%3$s", iface.toString(),
                                           unit.toString(), vid.toString());
             ConfPath gidpath = new ConfPath("/services/vlan{%s}/global-id",
@@ -1381,14 +1381,14 @@ The value for the new leaf introduced in the new version of the YANG model is ca
 
 At the end of the program, the sockets are closed. Important to note is that no commits or other handling of the init transaction is done. This is NSO's responsibility:
 
-```
+```java
         s1.close();
         s2.close();
 ```
 
 <figure><img src="../../images/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
 
-In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example, this more complicated scenario is illustrated with the tunnel package. The tunnel package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
+In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example, this more complicated scenario is illustrated with the `tunnel` package. See the `tunnel-py` package for a Python variant. The `tunnel` package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
 
 {% code title="Example: Tunnel Service YANG Model" %}
 ```yang
@@ -1534,7 +1534,7 @@ public class UpgradeService {
 
 We will walk through this code also and point out the aspects that differ from the earlier more simple scenario. First, we want to create the `Cdb` instance and get the CdbSession. However, in this scenario, the old namespace is removed and the Java API cannot retrieve it from NSO. To be able to use CDB to read and interpret the old YANG Model, the old generated and removed Java namespace classes have to be temporarily reinstalled. This is solved by adding a jar (Java archive) containing these removed namespaces to the `private-jar` directory of the tunnel package. The removed namespace can then be instantiated and passed to Cdb via an overridden version of the `Cdb.setUseForCdbUpgrade()` method:
 
-```
+```java
         ArrayList<ConfNamespace> nsList = new ArrayList<ConfNamespace>();
         nsList.add(new vlanService());
         Socket s1 = new Socket("localhost", Conf.NCS_PORT);
@@ -1549,7 +1549,7 @@ We will walk through this code also and point out the aspects that differ from t
 
 As an alternative to including the old namespace file in the package, a `ConfNamespaceStub` can be constructed for each old model that is to be accessed:
 
-```
+```java
 nslist.add(new ConfNamespaceStub(500805321,
                                  "http://example.com/vlan-service",
                                  "http://example.com/vlan-service",
@@ -1558,14 +1558,14 @@ nslist.add(new ConfNamespaceStub(500805321,
 
 Since the old YANG model with the service point is removed, the new service container with the new service has to be created before any config data can be written to this position:
 
-```
+```java
             ConfPath newPath = new ConfPath("/services/tunnel{%x}", name);
             maapi.create(th, newPath);
 ```
 
 The complete config for the old service is read via the `CdbUpgradeSession`. Note in particular that the path `oldPath` is constructed as a `ConfCdbUpgradePath`. These are the paths that allow access to nodes that are not available in the current schema (i.e., nodes in deleted models).
 
-```
+```java
             ConfXMLParam[] oldparams = new ConfXMLParam[] {
                 new ConfXMLParamLeaf("vl", "global-id"),
                 new ConfXMLParamLeaf("vl", "iface"),
@@ -1579,7 +1579,7 @@ The complete config for the old service is read via the `CdbUpgradeSession`. Not
 
 The new data structure with the service data is created and written to NSO via Maapi and the init transaction:
 
-```
+```java
             ConfXMLParam[] newparams = new ConfXMLParam[] {
                 new ConfXMLParamValue("tl", "gid",       data[0].getValue()),
                 new ConfXMLParamValue("tl", "interface", data[1].getValue()),

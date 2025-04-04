@@ -12,7 +12,7 @@ All the NSO examples use `ncs-netsim` to simulate the devices. A good way to lea
 
 The `ncs-netsim` tool takes any number of NED packages as input. The user can specify the number of device instances per package (device type) and a string that is used as a prefix for the name of the devices. The command takes the following parameters:
 
-```
+```bash
 admin$ ncs-netsim --help
 Usage ncs-netsim  [--dir <NetsimDir>]
             create-network <NcsPackage> <NumDevices> <Prefix> |
@@ -59,7 +59,7 @@ The network can be started with:
 $ ncs-netsim start
 ```
 
-You can add more devices to the network in a similar way as it was created. E.g. if you created a network with some Juniper devices and want to add some Cisco IOS devices. Point to the NED you want to use (See `{NCS_DIR}/packages/neds/`) and run the command. Remember to start the new devices after they have been added to the network.
+You can add more devices to the network in a similar way as it was created. E.g., if you created a network with some Juniper devices and want to add some Cisco IOS devices. Point to the NED you want to use (see `{NCS_DIR}/packages/neds/`) and run the command. Remember to start the new devices after they have been added to the network.
 
 ```bash
 $ ncs-netsim add-to-network ${NCS_DIR}/packages/neds/cisco-ios 2 c-device --dir ./netsim
@@ -71,13 +71,13 @@ To extract the device data from the simulated network to a file in XML format:
 $ ncs-netsim ncs-xml-init > devices.xml
 ```
 
-This data is usually used to load the simulated network into NSO. Putting the XML file in the `./ncs-cdb` folder will load it when NSO starts. If NSO is already started it can be reloaded while running.
+This data is usually used to load the simulated network into NSO. Putting the XML file in the `./ncs-cdb` folder will load it when NSO starts. If NSO is already started, it can be reloaded while running.
 
 ```bash
 $ ncs_load -l -m devices.xml
 ```
 
-The generated device data creates devices of the same type as the device being simulated. This is true for NETCONF, CLI, and SNMP devices. When simulating generic devices, the simulated device will run as a netconf device.
+The generated device data creates devices of the same type as the device being simulated. This is true for NETCONF, CLI, and SNMP devices. When simulating generic devices, the simulated device will run as a NETCONF device.
 
 Under very special circumstances, one can choose to force running the simulation as a generic device with the option `--force-generic`.
 
@@ -144,7 +144,7 @@ One might observe a limitation when the data models that are used by simulated d
 
 NSO and ConfD tools and Python APIs are basically the same except for naming, the default IPC port and the MAXDEPTH and MAXKEYLEN values, where for NSO tools, the values are set to 60 and 18, respectively. Thus, the advised solution is to use the NSO tools and NSO Python API with netsim.
 
-E.g. Instead of using the below command:
+E.g., instead of using the below command:
 
 ```bash
 $ CONFD_IPC_PORT=5010 ${NCS_DIR}/netsim/confd/bin/confd_load -m -l *.xml

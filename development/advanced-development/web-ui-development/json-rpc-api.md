@@ -72,15 +72,15 @@ With a possible response like (first result for `add`, the second result for `su
 
 ### Trace Context
 
-JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by trace-id, span-id and tracestate. Trace Context standardizes the format of trace-id, span-id and key-value pairs to be sent between distributed entities. The terms span-id and parent-span-id in NSO correspond to the naming of parent-id used in the Trace Context standard.
+JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by `trace-id`, `span-id` and `tracestate`. Trace Context standardizes the format of `trace-id`, `span-id` and key-value pairs to be sent between distributed entities. The terms `span-id` and `parent-span-id` in NSO correspond to the naming of `parent-id` used in the Trace Context standard.
 
-Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format
+Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format:
 
 ```
 traceparent = <version>-<trace-id>-<parent-id>-<flags>
 ```
 
-where `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
+Where, `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
 
 An example of header `traceparent` in use is:
 
@@ -94,7 +94,7 @@ Header `tracestate` is a vendor-specific list of key-value pairs. An example of 
 tracestate: key1=value1,key2=value2
 ```
 
-where a value may contain space characters but not end with a space.
+Where, a value may contain space characters but not end with a space.
 
 NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the request generates an error response.
 
@@ -203,11 +203,11 @@ All methods may return one of the following JSON RPC or application-defined erro
 
 JSON-RPC runs on top of the embedded web server (see [Web Server](../../connected-topics/web-server.md)), which accepts HTTP and/or HTTPS.
 
-The JSON-RPC session ties the client and the server via an HTTP cookie, named `sessionid` which contains a randomly server-generated number. This cookie is not only secure (when the requests come over HTTPS), meaning that HTTPS cookies do not leak over HTTP, but even more importantly this cookie is also HTTP-only, meaning that only the server and the browser (e.g. not the JavaScript code) have access to the cookie. Furthermore, this cookie is a session cookie, meaning that a browser restart would delete the cookie altogether.
+The JSON-RPC session ties the client and the server via an HTTP cookie, named `sessionid` which contains a randomly server-generated number. This cookie is not only secure (when the requests come over HTTPS), meaning that HTTPS cookies do not leak over HTTP, but even more importantly, this cookie is also HTTP-only, meaning that only the server and the browser (e.g., not the JavaScript code) have access to the cookie. Furthermore, this cookie is a session cookie, meaning that a browser restart would delete the cookie altogether.
 
 The JSON-RPC session lives as long as the user does not request to log out, as long as the user is active within a 30-minute (default value, which is configurable) time frame, and as long as there are no severe server crashes. When the session dies, the server will reply with the intention to delete any `sessionid` cookies stored in the browser (to prevent any leaks).
 
-When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server, or by adding a reverse proxy (see [Web Server](../../connected-topics/web-server.md)).
+When used in a browser, the JSON-RPC API does not accept cross-domain requests by default but can be configured to do so via the custom headers functionality in the embedded web server or by adding a reverse proxy (see [Web Server](../../connected-topics/web-server.md)).
 
 </details>
 
@@ -224,9 +224,9 @@ Access-Control-Allow-Headers: Origin, Content-Type, Accept
 Access-Control-Request-Method: POST
 ```
 
-A server hosted at `http://server.com` responding with these headers would mean that the JSON-RPC API can be contacted from a browser that is showing a web page from `http://webpage.com`, and will allow the browser to make POST requests, with a limited amount of headers and with credentials (i.e. cookies).
+A server hosted at `http://server.com` responding with these headers would mean that the JSON-RPC API can be contacted from a browser that is showing a web page from `http://webpage.com`, and will allow the browser to make POST requests, with a limited amount of headers and with credentials (i.e., cookies).
 
-This is not enough though, because the browser also needs to be told that your JavaScript code really wants to make a CORS request. A jQuery example would show like this:
+This is not enough, though, because the browser also needs to be told that your JavaScript code really wants to make a CORS request. A jQuery example would look like this:
 
 ```json
 // with jQuery
@@ -263,7 +263,7 @@ A `tagpath` is a path pointing to a specific position in a YANG module's schema.
 
 A `keypath` is a path pointing to a specific position in a YANG module's instance.
 
-These kinds of paths are used for several of the API methods (e.g. `set_value`, `get_value`, `subscribe_changes`), and could be seen as XPath path specifications in abbreviated format.
+These kinds of paths are used for several of the API methods (e.g., `set_value`, `get_value`, `subscribe_changes`), and could be seen as XPath path specifications in abbreviated format.
 
 Let's look at some examples using the following YANG module as input:
 
@@ -328,7 +328,7 @@ The response will include details about the limit that triggered the error.
 
 Known limits:
 
-* Only 10000 commands/subscriptions are allowed per session
+* Only 10,000 commands/subscriptions are allowed per session.
 
 </details>
 
@@ -873,7 +873,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 </details>
 
-### data
+### Data
 
 <details>
 
@@ -1049,7 +1049,7 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 
 </details>
 
-### data - attrs <a href="#methods-data-attrs" id="methods-data-attrs"></a>
+### Data - Attributes <a href="#methods-data-attrs" id="methods-data-attrs"></a>
 
 <details>
 
@@ -1099,7 +1099,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 </details>
 
-### data - leafs <a href="#methods-data-leafs" id="methods-data-leafs"></a>
+### Data - Leaves <a href="#methods-data-leafs" id="methods-data-leafs"></a>
 
 <details>
 
@@ -1251,7 +1251,7 @@ curl \
 
 </details>
 
-### data - leafref <a href="#methods-data-leafref" id="methods-data-leafref"></a>
+### Data - Leafref <a href="#methods-data-leafref" id="methods-data-leafref"></a>
 
 <details>
 
@@ -1357,7 +1357,7 @@ The `source` param will point to the keypath where the values originate. If the 
 
 </details>
 
-### data - lists <a href="#methods-data-lists" id="methods-data-lists"></a>
+### Data - Lists <a href="#methods-data-lists" id="methods-data-lists"></a>
 
 <details>
 
@@ -1556,7 +1556,7 @@ On the first invocation `lh` can either be omitted or set to \`-1\`.
 
 </details>
 
-### data - query <a href="#methods-data-query" id="methods-data-query"></a>
+### Data - Query <a href="#methods-data-query" id="methods-data-query"></a>
 
 <details>
 
@@ -1853,7 +1853,7 @@ curl \
 
 </details>
 
-### database <a href="#methods-database" id="methods-database"></a>
+### Database <a href="#methods-database" id="methods-database"></a>
 
 <details>
 
@@ -1935,7 +1935,7 @@ Copies the running datastore to the startup datastore.
 
 </details>
 
-### general <a href="#methods-general" id="methods-general"></a>
+### General <a href="#methods-general" id="methods-general"></a>
 
 <details>
 
@@ -2118,7 +2118,7 @@ The `xpath_expr` param is the XPath expression to be evaluated.
 
 </details>
 
-### messages <a href="#methods-messages" id="methods-messages"></a>
+### Messages <a href="#methods-messages" id="methods-messages"></a>
 
 <details>
 
@@ -2202,112 +2202,7 @@ When receiving a message:
 
 </details>
 
-### rollbacks <a href="#methods-rollbacks" id="methods-rollbacks"></a>
-
-<details>
-
-<summary><mark style="color:green;"><code>get_rollbacks</code></mark></summary>
-
-Lists all available rollback files.
-
-**Result**
-
-```json
-{"rollbacks": <array of rollback>}
-
-rollback =
- {"nr": <integer>,
-  "creator": <string>,
-  "date": <string>,
-  "via": <"system" | "cli" | "webui" | "netconf">,
-  "comment": <string>,
-  "label": <string>}
-```
-
-The `nr` param is a rollback number to be used in calls to `load_rollback` etc.
-
-The `creator` and `date` properties identify the name of the user responsible for committing the configuration stored in the rollback file and when it happened.
-
-The `via` param identifies the interface that was used to create the rollback file.
-
-The `label` and `comment` properties is as given by the flags passed to the `validate_commit` or `apply` method.
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>get_rollback</code></mark></summary>
-
-Gets the content of a specific rollback file. The rollback format is as defined in a curly bracket format as defined in the CLI.
-
-**Params**
-
-```json
-{"nr": <integer>}
-```
-
-**Result**
-
-```xml
-<string, rollback file in curly bracket format>
-```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>install_rollback</code></mark></summary>
-
-Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
-
-**Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
-
-**Params**
-
-```json
-{"nr": <integer>}
-```
-
-**Result**
-
-```json
-{}
-```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>load_rollback</code></mark></summary>
-
-Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
-
-**Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
-
-**Params**
-
-```json
-{"th": <integer>,
- "nr": <integer>,
- "path": <string>,
- "selective": <boolean, default: false>}
-```
-
-The `nr` param is a rollback number returned by `get_rollbacks`.
-
-The `path` param is a keypath that restricts the rollback to be applied only to a subtree.
-
-The `selective` param, false by default, can restrict the rollback process to use only the rollback specified by `nr`, rather than applying all known rollback files starting with the latest down to the one specified by `nr`.
-
-**Result**
-
-```json
-{}
-```
-
-</details>
-
-### schema <a href="#methods-schema" id="methods-schema"></a>
+### Schema <a href="#methods-schema" id="methods-schema"></a>
 
 <details>
 
@@ -2787,7 +2682,7 @@ curl \
 
 </details>
 
-### session <a href="#methods-session" id="methods-session"></a>
+### Session <a href="#methods-session" id="methods-session"></a>
 
 <details>
 
@@ -3038,7 +2933,7 @@ The `user` param is either the username of a logged-in user or session ID.
 
 </details>
 
-### session data <a href="#methods-session-data" id="methods-session-data"></a>
+### Session Data <a href="#methods-session-data" id="methods-session-data"></a>
 
 <details>
 
@@ -3107,7 +3002,7 @@ The `key` param for which all session data will be erased. Read more about the s
 
 </details>
 
-### transaction <a href="#methods-transaction" id="methods-transaction"></a>
+### Transaction <a href="#methods-transaction" id="methods-transaction"></a>
 
 <details>
 
@@ -3258,8 +3153,7 @@ Deletes a transaction created by `new_trans` or `new_webui_trans`_._
 
 <summary><mark style="color:green;"><code>set_trans_comment</code></mark></summary>
 
-Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be seen with a call to `get_rollbacks`.\
-**Note**: From NSO 6.5 it is recommended to instead use the `comment` flag passed to the `validate_commit` or `apply` method which in addition to storing the comment in the rollback file also propagates it down to the devices participating in the transaction.
+Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be viewed in the `/rollback:rollback-files/file` list. **Note**: From NSO 6.5 it is recommended to instead use the `comment` flag passed to the `validate_commit` or `apply` method which in addition to storing the comment in the rollback file also propagates it down to the devices participating in the transaction.
 
 **Params**
 
@@ -3279,7 +3173,7 @@ Adds a comment to the active read-write transaction. This comment will be stored
 
 <summary><mark style="color:green;"><code>set_trans_label</code></mark></summary>
 
-Adds a label to the active read-write transaction. This label will be stored in rollback files and can be seen with a call to `get_rollbacks`.\
+Adds a label to the active read-write transaction. This label will be stored in rollback files and can be viewed in the `/rollback:rollback-files/file` list.\
 **Note**: From NSO 6.5 it is recommended to instead use the `label` flag passed to the `validate_commit` or `apply` method which in addition to storing the label in the rollback file also sets it in resulting commit queue items and propagates it down to the devices participating in the transaction.
 
 **Params**
@@ -3296,7 +3190,7 @@ Adds a label to the active read-write transaction. This label will be stored in 
 
 </details>
 
-### transaction - changes <a href="#methods-transaction-changes" id="methods-transaction-changes"></a>
+### Transaction - Changes <a href="#methods-transaction-changes" id="methods-transaction-changes"></a>
 
 <details>
 
@@ -3469,7 +3363,7 @@ Tells the server that the conflicts have been resolved.
 
 </details>
 
-### transaction - commit changes <a href="#methods-transaction-commit-changes" id="methods-transaction-commit-changes"></a>
+### Transaction - Commit Changes <a href="#methods-transaction-commit-changes" id="methods-transaction-commit-changes"></a>
 
 <details>
 
@@ -3705,7 +3599,27 @@ Confirms the currently pending confirmed commit
 
 </details>
 
-### transaction - webui <a href="#methods-transaction-webui" id="methods-transaction-webui"></a>
+<details>
+
+<summary><mark style="color:green;"><code>apply</code></mark></summary>
+
+Performs validate, prepare and commit/abort in one go.
+
+**Params**
+
+```json
+{"th": <integer>, "flags": <flags>}
+```
+
+See the `commit` method for available flags.
+
+**Result**
+
+See result for method `commit`.
+
+</details>
+
+### Transaction - Web UI
 
 <details>
 
@@ -3755,7 +3669,7 @@ A new transaction handler ID.
 
 </details>
 
-### NSO specific <a href="#methods-nso-specific" id="methods-nso-specific"></a>
+### Services <a href="#methods-nso-specific" id="methods-nso-specific"></a>
 
 <details>
 
@@ -3782,6 +3696,24 @@ The `name` param is the name of the template to extract variables from.
 
 <details>
 
+<summary><mark style="color:green;"><code>get_service_points</code></mark></summary>
+
+List all service points. To be able to get the description part of the response the fxs files needs to be compiled with the flag "--include-doc".
+
+**Result**
+
+```json
+{"description": <string of tailf:info or description of the list/presence container>,
+ "keys": <if the path is to a list, an array of strings of the lists keys>,
+ "path": <a keypath to the service point>}
+```
+
+</details>
+
+### Packages
+
+<details>
+
 <summary><mark style="color:green;"><code>list_packages</code></mark></summary>
 
 Lists packages in NSO.
@@ -3804,41 +3736,5 @@ The `status` param specifies which package status to list:
 ```json
 {"packages": <array of key-value objects>}
 ```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>get_service_points</code></mark></summary>
-
-List all service points. To be able to get the description part of the response the fxs files needs to be compiled with the flag "--include-doc".
-
-**Result**
-
-```json
-{"description": <string of tailf:info or description of the list/presence container>,
- "keys": <if the path is to a list, an array of strings of the lists keys>,
- "path": <a keypath to the service point>}
-```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>apply</code></mark></summary>
-
-Performs validate, prepare and commit/abort in one go.
-
-**Params**
-
-```json
-{"th": <integer>, "flags": <flags>}
-```
-
-See the `commit` method for available flags.
-
-**Result**
-
-See result for method `commit`.
 
 </details>

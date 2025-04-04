@@ -14,13 +14,13 @@ If you already have a Local Install with existing data that you would like to co
 It is possible to perform the migration and upgrade simultaneously to a newer NSO version, however, doing so introduces additional complexity. If you run into issues, first migrate, and then perform the upgrade.
 {% endhint %}
 
-The following procedure assumes that NSO is installed as described in the NSO Local Install process, and will perform an initial System Install of the same NSO version. After following these steps, consult the NSO System Install guide for additional steps that are required for a fully functional System Install.
+The following procedure assumes that NSO is installed as described in the NSO Local Install process and will perform an initial System Install of the same NSO version. After following these steps, consult the NSO System Install guide for additional steps that are required for a fully functional System Install.
 
 The procedure also assumes you are using the `$HOME/ncs-run` folder as the run directory. If this is not the case, modify the following path accordingly.
 
 To migrate to System Install:
 
-1.  Stop the current (local) NSO instance, if it is running.
+1.  Stop the current (local) NSO instance if it is running.
 
     ```bash
     $ ncs --stop

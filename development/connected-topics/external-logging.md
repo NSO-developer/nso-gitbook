@@ -31,7 +31,7 @@ To support the debugging of the external log command behavior, a separate log fi
 </ext-log>
 ```
 
-By default, NED trace output is written to the file preserving backward compatibility. To write NED trace logs to file for all but the device `test`, which will use external log processing, the following configuration can be entered in the CLI:
+By default, NED trace output is written to the file preserving backward compatibility. To write NED trace logs to a file for all but the device `test`, which will use external log processing, the following configuration can be entered in the CLI:
 
 ```bash
 # devices global-settings trace-output file
@@ -58,4 +58,4 @@ Command line argument position and meaning:
 * `action`: The action being performed. Is always set to `log`. Added for forward compatibility.
 * `name:` Name of the log being processed.
 * `log-type`: Type of log data being processed. For all but NETCONF and NED trace logs, this is set to `system`. Depending on the type of NED one of `ned-trace-java`, `ned-trace-netconf` and `ned-trace-snmp` is used. NETCONF trace is set to `netconf-trace`.
-* `log-mode`: Format of log data being sent. For all but NETCONF and NED trace logs, this will be `raw`. NETCONF and NED trace logs can be pretty-printed and then the format will be `pretty`.
+* `log-mode`: Format of log data being sent. For all but NETCONF and NED trace logs, this will be `raw`. NETCONF and NED trace logs can be pretty-printed, and then the format will be `pretty`.

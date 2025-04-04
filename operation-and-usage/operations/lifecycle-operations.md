@@ -210,7 +210,7 @@ Synchronize parts of the devices' configuration by pulling from the network.
 
 <summary><code>ping</code></summary>
 
-ICMP ping the device.
+ICMP pings the device.
 
 </details>
 
@@ -218,7 +218,7 @@ ICMP ping the device.
 
 <summary><code>scp-from</code></summary>
 
-Secure copy the file from the device.
+Securely copy the file from the device.
 
 The `port` option specifies the port to connect to on the device. If this leaf is not configured, NSO will use the port for the management interface of the device.
 
@@ -230,7 +230,7 @@ The `preserve` option preserves modification times, access times, and modes from
 
 <summary><code>scp-to</code></summary>
 
-Secure copy file to the device.
+Securely copy the file to the device.
 
 The `port` option specifies the port to connect to on the device. If this leaf is not configured, NSO will use the port for the management interface of the device.
 
@@ -246,7 +246,7 @@ Synchronize the NSO copy of the device configuration by reading the actual devic
 
 If the `dry-run` option is used, the action simply reports (in different formats) what it would do. The `verbose` option can be used to show additional parse information reported by the NED.
 
-If you have any services that has created configuration on the device the corresponding service might be out-of-sync. Use the commands `check-sync` and `re-deploy` to reconcile this.
+If you have any services that have created a configuration on the device, the corresponding service might be out of sync. Use the commands `check-sync` and `re-deploy` to reconcile this.
 
 </details>
 
@@ -260,7 +260,7 @@ NSO pushes a minimal diff to the device. The diff is calculated by reading the c
 
 If the `dry-run` option is used, the action simply reports (in different formats) what it would do.
 
-Some of the operations above can't be performed while the device is being committed to (or waiting in the commit queue). This is to avoid getting inconsistent data when reading the configuration. The `wait-for-lock` option in these specifies a timeout to wait for a device lock to be placed in the commit queue. The lock will be automatically released once the action has been executed. If the `no-wait-for-lock` option is specified, the action will fail immediately for the device if the lock is taken for the device or if the device is placed in the commit queue. The `wait-for-lock` and the `no-wait-for-lock` options are device settings as well, they can be set as a device profile, device, and global setting. The `no-wait-for-lock` option is set in the global settings by default. If neither `wait-for-lock` and the `no-wait-for-lock` options are provided together with the action, the device setting is used.
+Some of the operations above can't be performed while the device is being committed to (or waiting in the commit queue). This is to avoid getting inconsistent data when reading the configuration. The `wait-for-lock` option in these specifies a timeout to wait for a device lock to be placed in the commit queue. The lock will be automatically released once the action has been executed. If the `no-wait-for-lock` option is specified, the action will fail immediately for the device if the lock is taken for the device or if the device is placed in the commit queue. The `wait-for-lock` and the `no-wait-for-lock` options are device settings as well; they can be set as a device profile, device, and global setting. The `no-wait-for-lock` option is set in the global settings by default. If neither `wait-for-lock` and the `no-wait-for-lock` options are provided together with the action, the device setting is used.
 
 </details>
 
@@ -272,11 +272,11 @@ Service actions are performed on the service instance.
 
 <summary><code>check-sync</code></summary>
 
-Check if the service has been undermined, i.e., if the service was to be re-deployed, would it do anything? This action will invoke the FASTMAP code to create the change set that is compared to the existing data in CDB locally.
+Check if the service has been undermined, i.e., if the service was to be redeployed, would it do anything? This action will invoke the FASTMAP code to create the change set that is compared to the existing data in CDB locally.
 
 If `outformat` is a boolean, `true` is returned if the service is in sync, i.e., a re-deploy would do nothing. If `outformat` is `cli`, `xml` or `native`, the changes that the service would do to the network if re-deployed are returned.
 
-If configuration changes have been made out-of-band then `deep-check-sync` is needed to detect an out-of-sync condition.
+If configuration changes have been made out-of-band, then `deep-check-sync` is needed to detect an out-of-sync condition.
 
 The `deep` option is used to recursively `check-sync` stacked services. The `shallow` option only `check-sync` the topmost service.
 
@@ -286,7 +286,7 @@ The `deep` option is used to recursively `check-sync` stacked services. The `sha
 
 <summary><code>deep-check-sync</code></summary>
 
-Check if the service has been undermined on the device itself. The action `check-sync` compares the output of the service code to what is stored in CDB locally. This action retrieves the configuration from the devices touched by the service and compares the forward diff set of the service to the retrieved data. This is thus a fairly heavy-weight operation. As opposed to the `check-sync` action that invokes the FASTMAP code, this action re-applies the forward diff-set. This is the same output you see when inspecting the `get-modifications` operational field in the service instance.
+Check if the service has been undermined on the device itself. The action `check-sync` compares the output of the service code to what is stored in CDB locally. This action retrieves the configuration from the devices touched by the service and compares the forward diff set of the service to the retrieved data. This is thus a fairly heavyweight operation. As opposed to the `check-sync` action that invokes the FASTMAP code, this action re-applies the forward diff-set. This is the same output you see when inspecting the `get-modifications` operational field in the service instance.
 
 If the device is in sync with CDB, the output of this action is identical to the output of the cheaper `check-sync` action.
 
@@ -308,7 +308,7 @@ The `deep` option is used to recursively `get-modifications` for stacked service
 
 <summary><code>re-deploy</code></summary>
 
-Run the service code again, possibly writing the changes of the service to the network once again. There are several reasons for performing this operation such as:
+Run the service code again, possibly writing the changes of the service to the network once again. There are several reasons for performing this operation, such as:
 
 * a `device sync-from` action has been performed to incorporate an out-of-band change.
 * data referenced by the service has changed such as topology information, QoS policy definitions, etc.
@@ -317,11 +317,11 @@ The `deep` option is used to recursively `re-deploy` stacked services. The `shal
 
 If the `dry-run` option is used, the action simply reports (in different formats) what it would do.
 
-Use the option `reconcile` if the service should reconcile original data, i.e., take control of that data. This option acknowledges other services controlling the same data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree that data is kept unless the option `discard-non-service-config` is used.
+Use the option `reconcile` if the service should reconcile original data, i.e., take control of that data. This option acknowledges other services controlling the same data. All data that existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree that data is kept unless the option `discard-non-service-config` is used.
 
-Note: The action is idempotent. If no configuration diff exists then nothing needs to be done.
+**Note**: The action is idempotent. If no configuration diff exists, then nothing needs to be done.
 
-Note: The NSO general principle of minimum change applies.
+**Note**: The NSO general principle of minimum change applies.
 
 </details>
 
@@ -333,7 +333,7 @@ This is a tailored `re-deploy` intended to be used in the reactive FASTMAP scena
 
 This action will `re-deploy` the services as a shallow depth `re-deploy`. It will be performed with the same user as the original commit. Also, the commit parameters will be identical to the latest commit involving this service.
 
-By default, this action is asynchronous and returns nothing. Use the `sync` leaf to get synchronous behavior and block until the service `re-deploy` transaction is committed. The `sync` leaf also means that the action will possibly return a commit result, such as commit queue ID if any, or an error if the transaction failed.
+By default, this action is asynchronous and returns nothing. Use the `sync` leaf to get synchronous behavior and block until the service `re-deploy` transaction is committed. The `sync` leaf also means that the action will possibly return a commit result, such as a commit queue ID if any, or an error if the transaction failed.
 
 </details>
 

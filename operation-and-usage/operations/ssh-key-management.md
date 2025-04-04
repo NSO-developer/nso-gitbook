@@ -9,7 +9,7 @@ The SSH protocol uses public key technology for two distinct purposes:
 1. **Server Authentication**: This use is a mandatory part of the protocol. It allows an SSH client to authenticate the server, i.e. verify that it is really talking to the intended server and not some man-in-the-middle intruder. This requires that the client has prior knowledge of the server's public keys, and the server proves its possession of one of the corresponding private keys by using it to sign some data. These keys are normally called 'host keys', and the authentication procedure is typically referred to as 'host key verification' or 'host key checking'.
 2. **Client Authentication**: This use is one of several possible client authentication methods, i.e. it is an alternative to the commonly used password authentication. The server is configured with one or more public keys which are authorized for authentication of a user. The client proves possession of one of the corresponding private keys by using it to sign some data - i.e. the exact reverse of the server authentication provided by host keys. The method is called 'public key authentication' in SSH terminology.
 
-These two usages are fundamentally independent, i.e. host key verification is done regardless of whether the client authentication is via public key, password, or some other method. However host key verification is of particular importance when client authentication is done via password, since failure to detect a man-in-the-middle attack in this case will result in the cleartext password being divulged to the attacker.
+These two usages are fundamentally independent, i.e., host key verification is done regardless of whether the client authentication is via public key, password, or some other method. However host key verification is of particular importance when client authentication is done via password, since failure to detect a man-in-the-middle attack in this case will result in the cleartext password being divulged to the attacker.
 
 ## NSO as SSH Server <a href="#ug.ssh_keys.server" id="ug.ssh_keys.server"></a>
 
@@ -23,7 +23,7 @@ The private host key(s) must be placed in the directory specified by `/ncs-confi
 
 ### Public Key Authentication <a href="#d5e4113" id="d5e4113"></a>
 
-The public keys that are authorized for authentication of a given user must be placed in the user's SSH directory. Refer to [Public Key Login](../../administration/management/aaa-infrastructure.md#ug.aaa.public\_key\_login) for details on how NSO searches for the keys to use.
+The public keys that are authorized for authentication of a given user must be placed in the user's SSH directory. Refer to [Public Key Login](../../administration/management/aaa-infrastructure.md#ug.aaa.public_key_login) for details on how NSO searches for the keys to use.
 
 ## NSO as SSH Client <a href="#ug.ssh_keys.client" id="ug.ssh_keys.client"></a>
 
@@ -42,7 +42,7 @@ The level of host key verification can be set globally via `/ssh/host-key-verifi
 The default is `reject-unknown`, and it is not recommended to use a different value, although it can be useful or needed in certain circumstances. E.g. `none` maybe useful in a development scenario, and temporary use of `reject-mismatch` maybe motivated until host keys have been configured for a set of existing managed devices.
 
 {% code title="Allowing SSH Connections With Unknown Host Keys" %}
-```cli
+```bash
 admin@ncs(config)# ssh host-key-verification reject-mismatch
 admin@ncs(config)# commit
 Commit complete.
@@ -59,12 +59,12 @@ There are several actions that can be used to retrieve the host keys from a devi
 
 * `/devices/fetch-ssh-host-keys`: Retrieve the host keys for all devices. Successfully retrieved keys are committed to the configuration.
 * `/devices/device-group/fetch-ssh-host-keys`: Retrieve the host keys for all devices in a device group. Successfully retrieved keys are committed to the configuration.
-* `/devices/device/ssh/fetch-host-keys`: Retrieve the host keys for one or more devices. In the CLI, range expressions can be used for the device name, e.g. using '\*' will retrieve keys for all devices, etc. The action will commit the retrieved keys if possible, i.e. if the device entry is already committed, otherwise (i.e. if the action is invoked from "configure mode" when the device entry has been created but not committed), the keys will be written to the current transaction, but not committed.
+* `/devices/device/ssh/fetch-host-keys`: Retrieve the host keys for one or more devices. In the CLI, range expressions can be used for the device name, e.g. using '\*' will retrieve keys for all devices, etc. The action will commit the retrieved keys if possible, i.e. if the device entry is already committed, otherwise (i.e., if the action is invoked from "configure mode" when the device entry has been created but not committed), the keys will be written to the current transaction, but not committed.
 
 The fingerprints of the retrieved keys will be reported as part of the result from these actions, but it is also possible to ask for the fingerprints of already retrieved keys by invoking the `/devices/device/ssh/host-key/show-fingerprint` action (`/devices/device/live-status-protocol/ssh/host-key/show-fingerprint` for live-status protocols that use SSH).
 
 {% code title="Retrieving SSH Host Keys for All Configured Devices" %}
-```cli
+```bash
 admin@ncs# devices fetch-ssh-host-keys
 fetch-result {
     device c0
@@ -96,7 +96,7 @@ The `/cluster/remote-node/ssh/fetch-host-keys` action can be used to retrieve th
 The fingerprints of the retrieved keys will be reported as part of the result from this action, but it is also possible to ask for the fingerprints of already retrieved keys by invoking the `/cluster/remote-node/ssh/host-key/show-fingerprint` action.
 
 {% code title="Retrieving SSH Host Keys for All Cluster Nodes" %}
-```cli
+```bash
 admin@ncs# cluster remote-node * ssh fetch-host-keys
 cluster remote-node ncs1 ssh fetch-host-keys
     result updated
@@ -123,14 +123,14 @@ cluster remote-node ncs3 ssh fetch-host-keys
 
 #### **Private Key Selection**
 
-The private key used for public key authentication can be taken either from the SSH directory for the local user or from a list of private keys in the NSO configuration. The user's SSH directory is determined according to the same logic as for the server-side public keys that are authorized for authentication of a given user, see [Public Key Login](../../administration/management/aaa-infrastructure.md#ug.aaa.public\_key\_login), but of course, different files in this directory are used, see below. Alternatively, the key can be configured in the `/ssh/private-key` list, using an arbitrary name for the list key. In both cases, the key must be in PEM format (e.g. as generated by the OpenSSH **ssh-keygen** command), and it may be encrypted or not. Encrypted keys configured in `/ssh/private-key` must have the passphrase for the key configured via `/ssh/private-key/passphrase`.
+The private key used for public key authentication can be taken either from the SSH directory for the local user or from a list of private keys in the NSO configuration. The user's SSH directory is determined according to the same logic as for the server-side public keys that are authorized for authentication of a given user, see [Public Key Login](../../administration/management/aaa-infrastructure.md#ug.aaa.public_key_login), but of course, different files in this directory are used, see below. Alternatively, the key can be configured in the `/ssh/private-key` list, using an arbitrary name for the list key. In both cases, the key must be in PEM format (e.g. as generated by the OpenSSH **ssh-keygen** command), and it may be encrypted or not. Encrypted keys configured in `/ssh/private-key` must have the passphrase for the key configured via `/ssh/private-key/passphrase`.
 
 #### **Connection to a Managed Device**
 
 The specific private key to use is configured via the `authgroup` indirection and the `umap` selection mechanisms as for password authentication, just a different alternative. Setting `/devices/authgroups/group/umap/public-key` (or `default-map` instead of `umap` for users that are not in `umap`) without any additional parameters will select the default of using a file called `id_dsa` in the local user's SSH directory, which must have an unencrypted key. A different file name can be set via `/devices/authgroups/group/umap/public-key/private-key/file/name`. For an encrypted key, the passphrase can be set via `/devices/authgroups/group/umap/public-key/private-key/file/passphrase`, or `/devices/authgroups/group/umap/public-key/private-key/file/use-password` can be set to indicate that the password used (if any) by the local user when authenticating to NSO should also be used as a passphrase for the key. To instead select a private key from the `/ssh/private-key` list, the name of the key is set via `/devices/authgroups/group/umap/public-key/private-key/name`.
 
 {% code title="Configuring a Private Key File for Publickey Authentication to Devices" %}
-```cli
+```bash
 admin@ncs(config)# devices authgroups group default umap admin
 admin@ncs(config-umap-admin)# public-key private-key file name /home/admin/.ssh/id-dsa
 admin@ncs(config-umap-admin)# public-key private-key file passphrase
@@ -145,7 +145,7 @@ Commit complete.
 This is again very similar to the case of a connection to a managed device, since the same `authgroup`/`umap` scheme is used. Setting `/cluster/authgroup/umap/public-key` (or `default-map` instead of `umap` for users that are not in `umap`) without any additional parameters will select the default of using a file called `id_dsa` in the local user's SSH directory, which must have an unencrypted key. A different file name can be set via `/cluster/authgroup/umap/public-key/private-key/file/name`. For an encrypted key, the passphrase can be set via `/cluster/authgroup/umap/public-key/private-key/file/passphrase`, or `/cluster/authgroup/umap/public-key/private-key/file/use-password` can be set to indicate that the password used (if any) by the local user when authenticating to NSO should also be used as a passphrase for the key. To instead select a private key from the `/ssh/private-key` list, the name of the key is set via `/cluster/authgroup/umap/public-key/private-key/name`.
 
 {% code title="Configuring a Private Key File for Publickey Authentication in Cluster" %}
-```cli
+```bash
 admin@ncs(config)# cluster authgroup default umap admin
 admin@ncs(config-umap-admin)# public-key private-key file name /home/admin/.ssh/id-dsa
 admin@ncs(config-umap-admin)# public-key private-key file passphrase

@@ -52,6 +52,10 @@ with ncs.maapi.single_read_trans('admin', 'python') as t:
 The example code here shows how to start a transaction but does not properly handle the case of concurrency conflicts when writing data. See [Handling Conflicts](../nso-concurrency-model.md#ncs.development.concurrency.handling) for details.
 {% endhint %}
 
+{% hint style="warning" %}
+When only reading data, always start a `read` transaction to read directly from the CDB datastore and data providers. `write` transactions cache repeated reads done by the same transaction.
+{% endhint %}
+
 A common use case is to create a MAAPI context and reuse it for several transactions. This reduces the latency and increases the transaction throughput, especially for backend applications. For scripting the lifetime is shorter and there is no need to keep the MAAPI contexts alive.
 
 This example shows how to keep a MAAPI connection alive between transactions:
@@ -989,7 +993,7 @@ See `pydoc3 _ncs` and `man confd_lib_lib` for further information.
 
 This API is a direct mapping of the NSO MAAPI C API. See `pydoc3 _ncs.maapi` and `man confd_lib_maapi` for further information.
 
-Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.refcount)).
+Note that additional care must be taken when using this API in service code, as it also exposes functions that do not perform reference counting (see [Reference Counting Overlapping Configuration](../../advanced-development/developing-services/services-deep-dive.md#ch_svcref.refcount)).
 
 In the service code, you should use the `shared_*` set of functions, such as:
 
@@ -1138,6 +1142,12 @@ sock_cdb.close()
 print("/operdata/value is now %s" % new_value)
 ```
 {% endcode %}
+
+### Low-level Event Notification API
+
+The Python `_ncs.events` low-level module provides an API for subscribing to and processing NSO event notifications. Typically, the event notification API is used by applications that manage NSO using the SDK API using, for example, MAAPI or for debug purposes. In addition to subscribing to the various events, streams available over other northbound interfaces, such as NETCONF, RESTCONF, etc., can be subscribed to as well.
+
+See [`examples.ncs/sdk-api/event-notifications`](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/event-notifications) for an example. The [`examples.ncs/common/event_notifications.py`](https://github.com/NSO-developer/nso-examples/tree/6.4/common/event_notifications.py) Python script used by the example can also be used as a standalone application to, for example, debug any NSO instance.
 
 ## Advanced Topics
 

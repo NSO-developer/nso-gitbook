@@ -4,7 +4,7 @@ description: Run NSO as non-root user.
 
 # Run NSO as Non-Privileged User
 
-A common misfeature found on UNIX operating systems is the restriction that only `root` can bind to ports below 1024. Many a dollar has been wasted on workarounds and often the results are security holes.
+A common misfeature found on UNIX operating systems is the restriction that only `root` can bind to ports below 1024. Many a dollar has been wasted on workarounds, and often the results are security holes.
 
 Both FreeBSD and Solaris have elegant configuration options to turn this feature off. On FreeBSD:
 

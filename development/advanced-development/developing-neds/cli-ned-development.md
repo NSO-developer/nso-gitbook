@@ -4,7 +4,11 @@ description: Create CLI NEDs.
 
 # CLI NED Development
 
-The CLI NED is a model-driven way to CLI script towards all Cisco-like devices. Some Java code is necessary for handling the corner cases a human-to-machine interface presents. The NSO CLI NED southbound of NSO shares a Cisco-style CLI engine with the northbound NSO CLI interface, and the CLI engine can thus run in both directions, producing CLI southbound and interpreting CLI data coming from southbound while presenting a CLI interface northbound. It is helpful to keep this in mind when learning and working with CLI NEDs.
+The CLI NED is a model-driven way to CLI script towards all Cisco-like devices. Some Java code is necessary for handling the corner cases a human-to-machine interface presents.
+
+See the [examples.ncs/device-manager/cli-ned](https://github.com/NSO-developer/nso-examples/tree/main/device-management/cli-ned) for an example of a Java implementation serving any YANG models, including those that come with the example.
+
+The NSO CLI NED southbound of NSO shares a Cisco-style CLI engine with the northbound NSO CLI interface, and the CLI engine can thus run in both directions, producing CLI southbound and interpreting CLI data coming from southbound while presenting a CLI interface northbound. It is helpful to keep this in mind when learning and working with CLI NEDs.
 
 *   A sequence of Cisco CLI commands can be turned into the equivalent manipulation of the internal XML tree that represents the configuration inside NSO.
 

@@ -66,7 +66,7 @@ device-type snmp version v3 snmp-authgroup my-authgroup
 state admin-state unlocked
 ```
 
-To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
 
 ```cli
 admin@host# show running-config devices authgroups snmp-group my-authgroup
@@ -150,7 +150,7 @@ bscActFlow        ned-modification-dependent
 
 This tells NSO that before modifying the `bscActFlow` column set the `bscActAdminState` to locked and restore the previous value after committing the set operation.
 
-All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#man.5.mib\_annotations) in manual pages for details.
+All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](../../../man/section5.md#mib_annotations) in manual pages for details.
 
 Make sure that the MIB annotation file is put into the directory where all the MIB files are which is given as input to the `ncsc --ncs-compile-mib-bundle` command
 

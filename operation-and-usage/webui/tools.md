@@ -23,7 +23,7 @@ The **Insights** view collects and displays the following types of operational i
 
 * Real-time data about transactions, commit queues, and northbound sessions.
 * Sessions created and closed towards northbound interfaces since the last restart (CLI, JSON-RPC, NETCONF, RESTCONF, SNMP).
-* Transactions since last restart (committed, aborted, and conflicting). You can select between the running and operational data stores.
+* Transactions since the last restart (committed, aborted, and conflicting). You can select between the running and operational data stores.
 * Devices and their sync statuses.
 * CDB info about its size, compaction, etc.
 

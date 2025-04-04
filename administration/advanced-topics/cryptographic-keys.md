@@ -16,7 +16,7 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
 * Key rotation under `/ncs-config/encrypted-strings/key-rotation`.
 * Legacy (single generation) format: `/ncs-config/encrypted-strings/DES3CBC`, `/ncs-config/encrypted-strings/AESCFB128`, and `/ncs-config/encrypted-strings/AES256CFB128` .
 
-### NSO Installer Provided Cryptography Keys
+### NSO Installer-Provided Cryptography Keys
 
 *   **Local installation**: Dummy keys are provided in legacy format in `ncs.conf` for development purposes. For deployment, the keys must be changed to random values. Example local installation `ncs.conf` (do not reuse):
 
@@ -177,7 +177,7 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 
 ## Reloading After Changes to the Cryptographic Keys
 
-1. Before changing the cryptographic keys, always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../man/section1.md#ncs-backup). Also, backup the external key file, default `${NCS_CONFIG_DIR}/ncs.crypto_keys`, or the `${NCS_CONFIG_DIR}/ncs.conf` file, depending on where the keys are stored.
+1. Before changing the cryptographic keys, always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../man/section1.md#ncs-backup). Also, back up the external key file, default `${NCS_CONFIG_DIR}/ncs.crypto_keys`, or the `${NCS_CONFIG_DIR}/ncs.conf` file, depending on where the keys are stored.
 2. Suppose you have previously provided keys in the legacy format and wish to switch to `/ncs-config/encrypted-strings/key-rotation` or `external-keys` with the initial line `EXTERNAL_KEY_FORMAT=2`. In that case, you must provide the currently used keys as generation `-1`. The new keys can have any non-negative generation number.
 3. Replace the external key file or `ncs.conf` file depending on where the keys are stored.
 4. Issue `ncs --reload` to reload the cryptographic keys.

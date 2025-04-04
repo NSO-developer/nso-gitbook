@@ -4,7 +4,7 @@ description: Implement network automation in your NSO deployment using services.
 
 # Services
 
-Services are the cornerstone of network automation with NSO. A service is not just a reusable recipe for provisioning network configurations; it allows you to manage the full configuration life-cycle with minimal effort.
+Services are the cornerstone of network automation with NSO. A service is not just a reusable recipe for provisioning network configurations; it allows you to manage the full configuration life cycle with minimal effort.
 
 This section examines in greater detail how services work, how to design them, and the different ways to implement them.
 
@@ -12,7 +12,7 @@ This section examines in greater detail how services work, how to design them, a
 For a quicker introduction and a simple showcase of services, see [Develop a Simple Service](../introduction-to-automation/develop-a-simple-service.md).
 {% endhint %}
 
-In NSO, the term service has a special meaning and represents an automation construct that orchestrates create, modify, and delete of a service instance into the resulting native commands to devices in the network. In its simplest form, a service takes some input parameters and maps them to device-specific configurations. It is a recipe or a set of instructions.
+In NSO, the term service has a special meaning and represents an automation construct that orchestrates the 'create', 'modify', and 'delete' of a service instance into the resulting native commands to devices in the network. In its simplest form, a service takes some input parameters and maps them to device-specific configurations. It is a recipe or a set of instructions.
 
 Much like you can bake many cakes using a single cake recipe, you can create many service instances using the same service. But unlike cakes, having the recipe produce exactly the same output, is not very useful. That is why service instances define a set of input parameters, which the service uses to customize the produced configuration.
 
@@ -55,7 +55,7 @@ To reiterate:
 
 This approach may seem somewhat unorthodox at first, but allows NSO to streamline and greatly simplify how you implement services.
 
-A common problem for traditional automation systems is that a set of instructions needs to be defined for every possible service instance change. Take for example a VPN service. During a service life cycle, you want to:
+A common problem for traditional automation systems is that a set of instructions needs to be defined for every possible service instance change. Take, for example, a VPN service. During a service life cycle, you want to:
 
 1. Create the initial VPN.
 2. Add a new site or leg to the VPN.
@@ -71,4 +71,4 @@ NSO reduces this problem to a single data-mapping definition for the "create" sc
 
 Another challenge in traditional systems is that a lot of code goes into managing error scenarios. The NSO built-in transaction manager takes that burden away from the developer of the service application by providing automatic rollback of incomplete changes.
 
-Another benefit of this approach is that NSO can automatically generate the northbound APIs and database schema from the YANG models, enabling a true DevOps way of working with service models. A new service model can be defined as part of a package and loaded into NSO. An existing service model can be modified and the package upgraded, and all northbound APIs and User Interfaces are automatically regenerated to reflect the new or updated models.
+Another benefit of this approach is that NSO can automatically generate the northbound APIs and database schema from the YANG models, enabling a true DevOps way of working with service models. A new service model can be defined as part of a package and loaded into NSO. An existing service model can be modified, and the package upgraded, and all northbound APIs and user interfaces are automatically regenerated to reflect the new or updated models.

@@ -1205,11 +1205,7 @@ For situations where alarm subscription outside of the NSO Java VM is desired, s
     source.start();
 ```
 
-To retrieve alarms from the `AlarmSource` listener,
-either a blocking `takeAlarm()` or a timeout based
-`pollAlarm()` can be used.
-The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it,
-or the `AlarmSource` can be used in a try-with-resources statement.
+To retrieve alarms from the `AlarmSource` listener, either a blocking `takeAlarm()` or a timeout based `pollAlarm()` can be used. The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it, or the `AlarmSource` can be used in a try-with-resources statement.
 
 {% code title="Consuming alarms inside NSO Java VM" %}
 ```
@@ -1294,9 +1290,7 @@ However, this case requires that the `AlarmSinkCentral` is started prior to the 
        sinkCentral.start();
 ```
 
-The alarm sink can then be started with the
-`AlarmSink(AlarmSinkCentral central)` constructor,
-i.e.:
+The alarm sink can then be started with the `AlarmSink(AlarmSinkCentral central)` constructor, i.e.:
 
 ```
        AlarmSink sink = new AlarmSink(sinkCentral);

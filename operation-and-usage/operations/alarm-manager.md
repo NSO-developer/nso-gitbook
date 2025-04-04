@@ -364,7 +364,7 @@ In the above scenario, we stop two of the devices and then ask NSO to connect to
 
 In the next command sequence, we start the device and request NSO to connect. This will clear the alarms.
 
-```cli
+```bash
 admin@ncs# exit
 $ ncs-netsim start pe0
 DEVICE pe0 OK STARTED
@@ -417,7 +417,7 @@ alarms alarm-list alarm pe1 connection-failure /devices/device[name='pe1'] ""
 
 Note that there are two status-change entries for the alarm and that the alarm is cleared. In the following scenario, we will state that the alarm is closed and finally purge (delete) all alarms that are cleared and closed (Again, note the distinction between operator states and the states from the underlying resources).
 
-```cli
+```bash
 admin@ncs# alarms alarm-list alarm pe0 connection-failure /devices/device[name='pe0']
           "" handle-alarm state closed description Fixed
 
@@ -434,7 +434,7 @@ purged-alarms 1
 
 Assume that you need to configure the northbound parameters. This is done using the alarm model. A logical mapping of the connection problem above is to map it to X.733 probable cause `connectionEstablishmentError (22)` . This is done in the NSO CLI in the following way:
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# alarms alarm-model alarm-type connection-failure probable-cause 22

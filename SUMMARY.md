@@ -2,7 +2,6 @@
 
 * [Start](README.md)
 * [What's New](whats-new.md)
-* [Errata](errata.md)
 
 ## Administration
 
@@ -59,7 +58,7 @@
   * [Basic Operations](operation-and-usage/operations/basic-operations.md)
   * [NEDs and Adding Devices](operation-and-usage/operations/neds-and-adding-devices.md)
   * [Manage Network Services](operation-and-usage/operations/managing-network-services.md)
-  * [NSO Device Manager](operation-and-usage/operations/nso-device-manager.md)
+  * [Device Manager](operation-and-usage/operations/nso-device-manager.md)
   * [SSH Key Management](operation-and-usage/operations/ssh-key-management.md)
   * [Alarm Manager](operation-and-usage/operations/alarm-manager.md)
   * [Plug-and-Play Scripting](operation-and-usage/operations/plug-and-play-scripting.md)

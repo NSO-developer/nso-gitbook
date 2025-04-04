@@ -13,7 +13,7 @@ What defines a correctly configured network? Where is the authoritative configur
 
 Compliance reporting can be configured to check the current situation, check historical events, or both. To assemble historical events, rollback files are used. Therefore this functionality must be enabled in NSO before report execution, otherwise, the history view cannot be presented.
 
-The reports can be created in either plain text, HTML, or DocBook XML format. In addition, the data can also be exported to a SQLite database file. The DocBook XML format allows you to use the report in further post-processing, such as creating a PDF using Apache FOP and your own custom styling.
+The reports are stored in a SQLite database file and can be exported to plain text, HTML or DocBook XML format. The report results can be re-exported to a new format at any time. The DocBook XML format allows you to use the report in further post-processing, such as creating a PDF using Apache FOP and your own custom styling. Every consecutive run of the report is stored in the same SQLite database. This allows for comparing the report results over time and one such comparison is available in the Web UI. The previous behavior before NSO 6.5 of getting one SQLite file per report run is available by setting `common-db` under the report definition to `false.`
 
 {% hint style="info" %}
 Reports can be generated using either the CLI or Web UI. The suggested and favored way of generating compliance reports is via the Web UI, which provides a convenient way of creating, configuring, and consuming compliance reports. In the NSO Web UI, compliance reporting options are accessible from the **Tools** menu (see [Web User Interface](../webui/) for more information). The CLI options are described in the sections below.
@@ -349,6 +349,7 @@ Here, the value of the `/sys/dns/server` must start with `10.`, followed by any 
 
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
+{% code overflow="wrap" %}
 ```bash
 admin@ncs(config)# show full-configuration devices device ex0 config sys dns server
 devices device ex0
@@ -376,9 +377,11 @@ check-result {
 
 }
 ```
+{% endcode %}
 
-Alternatively, you can use the `/compliance/create-template` action when you already have existing device templates that you would like to use as a starting point for a compliance template. For example:
+To simplify template creation, NSO features the `/compliance/create-template` action that can initiate a compliance template from a set of device configurations or an existing device template. The resulting template can be used as-is or as a starting point for further refinement. For example:
 
+{% code overflow="wrap" %}
 ```bash
 admin@ncs(config)# show full-configuration devices template use-internal-dns
 devices template use-internal-dns
@@ -404,29 +407,50 @@ compliance template internal-dns
 admin@ncs(config)# compliance template internal-dns
 admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns server 10\\\\..+
 ```
+{% endcode %}
+
+By providing a list of device configuration paths, the `create-template`  action can find common structural patterns in the device configurations and create a compliance template based on it.
+
+The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are made into regex match-all expressions. For example:
+
+{% code overflow="wrap" %}
+```bash
+admin@ncs(config)# compliance create-template name syslog path [ /devices/device[device-type/netconf/ned-id='router-nc-1.0:router-nc-1.0']/config/sys/syslog ]
+admin@ncs(config)# show configuration                                                                   compliance template syslog
+ ned-id router-nc-1.0
+  config
+   sys syslog server 10.3.4.5
+    enabled
+    selector 8
+     facility [ .* ]
+    !
+   !
+  !
+ !
+!
+admin@ncs(config)# commit
+Commit complete.
+```
+{% endcode %}
+
+&#x20;The action takes a number of arguments to control how the resulting template looks:
+
+* `path` - A list of XPath 1.0 expressions pointing into `/devices/device/config` to create the template from. The template is only created from the paths that are common in the node-set.
+* `match-rate` - Device configuration is included in the resulting template based on the rate of occurrence given by this setting.
+* `exclude-service-config` - Exclude configuration that is already under service management.
+* `collapse-list-keys` - Decides what lists to do matching on, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find those lists that differ among the device configurations.
 
 Finally, to use compliance templates in a report, reference them from `device-check/template`:
 
 ```bash
 admin@ncs(config-report-gold-check)# device-check template internal-dns
+admin@ncs(config-template-internal-dns)# exit
+admin@ncs(config-report-gold-check)# device-check template syslog
 ```
 
 {% hint style="info" %}
 By default the schemas for compliance templates are not accessible from application client libraries such as MAAPI. This reduces the memory usage for large device data models. The schema can be made accessible with the `/ncs-config/enable-client-template-schemas` setting in `ncs.conf`.
 {% endhint %}
-
-## Additional Configuration Checks
-
-In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
-
-To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
-
-You can configure this mode in the report definition, when specifying the device template to check against, for example:
-
-```bash
-ncs(config)# compliance reports report gold-check
-ncs(config-report-gold-check)# device-check template internal-dns strict
-```
 
 ## Device Live-Status Checks
 
@@ -468,3 +492,188 @@ check-result {
 {% hint style="info" %}
 Running checks on live-status data is slower than configuration data since it requires connecting to devices to read the data. In comparison, configuration data is checked against data in CDB.
 {% endhint %}
+
+## Additional Template Functionality
+
+In some cases, it is insufficient to only check that the required configuration is present, as other configurations on the device can interfere with the desired functionality. For example, a service may configure a routing table entry for the 198.51.100.0/24 network. If someone also configures a more specific entry, say 198.51.100.0/28, that entry will take precedence and may interfere with the way the service requires the traffic to be routed. In effect, this additional configuration can render the service inoperable.
+
+### `strict` Checks
+
+To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
+
+You can configure this mode in the report definition, when specifying the device template to check against, for example:
+
+```bash
+ncs(config)# compliance template interfaces check device ios0 strict
+```
+
+Consider the following template and device configuration:
+
+```bash
+compliance template interfaces
+ ned-id cisco-ios-cli-3.8
+  config
+   interface GigabitEthernet 0/0
+    ip address 192.168.1.1
+    ip address 255.255.255.0
+   !
+  !
+ !
+!
+devices device ios0
+ config
+  interface GigabitEthernet0/0
+   duplex full
+   ip address 192.168.1.1 255.255.255.0
+   no shutdown
+  exit
+ !
+!
+```
+
+The device will be compliant with a regular template check. When using `strict`, all unexpected configuration will be shown in the diff.
+
+```bash
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
++        FastEthernet 0/0 {
++        }
++        FastEthernet 1/0 {
++        }
+         GigabitEthernet 0/0 {
++            duplex full;
+         }
+     }
+ }
+
+}
+```
+
+### `strict` Sub-Tree Tag
+
+In the previous example, the `strict` check shows interfaces that are not mentioned explicitly in the template. This is because `strict` is applied to the entire tree, including everything under `interface`. In order to only have `strict` on certain parts of the tree, a tag can be used.
+
+```bash
+ncs(config)# tag add compliance template interfaces ned-id cisco-ios-cli-3.8 config interface GigabitEthernet 0/0 strict
+```
+
+After adding the `strict` tag to interface `GigabitEthernet`, running the check will result in a `strict` check against everything below `GigabitEthernet`.
+
+```bash
+admin@ncs(config)# compliance template interfaces check device ios0                                       check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
+         GigabitEthernet 0/0 {
++            duplex full;
+         }
+     }
+ }
+
+}
+```
+
+### `allow-empty` Tag
+
+A compliance template can be used on many different devices. The configuration on the devices, however, is not always identical. The following template checks that interfaces are set to be reachable.&#x20;
+
+```bash
+compliance template no-unreachables
+ ned-id cisco-ios-cli-3.8
+  config
+   interface FastEthernet *
+    ip unreachables false
+   !
+   interface GigabitEthernet *
+    ip unreachables false
+   !
+  !
+ !
+!
+devices device ios0
+ config
+  interface GigabitEthernet0/0
+   duplex full
+   ip address 192.168.1.1 255.255.255.0
+   no ip unreachables
+   no shutdown
+  exit
+ !
+!
+```
+
+The device in this example only has a `GigabitEthernet` interface which will result in a violation.
+
+```bash
+ncs(config)# compliance template no-unreachables check device ios0
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     interface {
+-        FastEthernet .* {
+-        }
+     }
+ }
+
+}
+```
+
+In this case, we are only interested in interfaces that are actually configured on the device. This is where the `allow-empty` tag comes in. By setting this tag on each interface, the check will only be run if there are interfaces configured of that type.
+
+```bash
+ncs(config)# tag add compliance template no-unreachables ned-id cisco-ios-cli-3.8 config interface FastEthernet .* allow-empty
+ncs(config)# tag add compliance template no-unreachables ned-id cisco-ios-cli-3.8 config interface GigabitEthernet .* allow-empty
+```
+
+With this tag, the device will no longer have any violations.
+
+```bash
+ncs(config)# compliance template no-unreachables check device ios0                                  check-result {
+    device ios0
+    result no-violation
+}
+```
+
+It will still result in violations if the configuration is incorrect, but not if it's empty.
+
+### `absent` Tag
+
+In order to ensure that configuration does not exist on a device, the `absent` tag can be used.
+
+```bash
+devices device ios0
+ config
+  no service password-encryption
+  service finger
+ !
+!
+compliance template no-finger
+ ned-id cisco-ios-cli-3.8
+  config
+   ! Tags: absent
+   service finger
+  !
+ !
+!
+```
+
+This template will result in a violation if `service finger` is configured on the device.
+
+```bash
+ncs(config)# compliance template no-finger check device ios0
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     service {
++        finger;
+     }
+ }
+
+}
+```

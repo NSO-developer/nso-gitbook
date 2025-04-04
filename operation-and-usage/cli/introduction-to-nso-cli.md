@@ -8,7 +8,7 @@ The NSO CLI (command line interface) provides a unified CLI towards the complete
 
 Starting the CLI:
 
-```
+```bash
 $> ncs_cli -C -u admin
 ```
 
@@ -25,7 +25,7 @@ NSO organizes all managed devices as a list of devices. The path to a specific d
 
 Show device operational data and configuration data:
 
-```cli
+```bash
 admin@ncs# show devices device
 devices device ce0
  ...
@@ -55,7 +55,7 @@ It can be annoying to move between modes to display configuration data and opera
 
 Show config data in operational mode and vice versa:
 
-```cli
+```bash
 admin@ncs# show running-config devices device
 admin@ncs(config)# do show running-config devices device
 ```
@@ -64,7 +64,7 @@ Look at the device configuration above, no configuration relates to the actual c
 
 Perform the action to synchronize from devices:
 
-```cli
+```bash
 admin@ncs(config)# devices sync-from
 sync-result {
     device ce0
@@ -79,7 +79,7 @@ sync-result {
 
 Display the device configuration after the synchronization:
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration devices device ce0 config
 devices device ce0
  config
@@ -149,7 +149,7 @@ The prompt indicates which mode the CLI is in. When moving from operational mode
 
 For example:
 
-```cli
+```bash
 admin@ncs# configure
 Entering configuration mode terminal
 admin@ncs(config)#
@@ -159,13 +159,13 @@ admin@ncs(config)#
 {% tab title="Operational Mode" %}
 The operational mode is the initial mode after successful login to the CLI. It is primarily used for viewing the system status, controlling the CLI environment, monitoring and troubleshooting network connectivity, and initiating the configure mode.
 
-A list of base commands available in the operational mode is listed below in the [Operational Mode Commands](introduction-to-nso-cli.md#d5e1943) section. Additional commands are rendered from the loaded YANG files.
+A list of base commands available in the operational mode is listed below in the [Operational Mode Commands](cli-commands.md#d5e1943) section. Additional commands are rendered from the loaded YANG files.
 {% endtab %}
 
 {% tab title="Configure Mode" %}
 The configure mode can be initiated by entering the `configure` command in operational mode. All changes to the network configuration are done to a copy of the active configuration. These changes do not take effect until a successful `commit` or `commit confirm` command is entered.
 
-A list of base commands available in `configure` mode is listed below in the [Configure Mode Commands](introduction-to-nso-cli.md#d5e2199) section. Additional commands are rendered from the loaded YANG files.
+A list of base commands available in `configure` mode is listed below in the [Configure Mode Commands](cli-commands.md#d5e2199) section. Additional commands are rendered from the loaded YANG files.
 
 {% hint style="info" %}
 When using the `config` mode to enter/set passwords, you may face issues if you are using special characters in your password (e.g., `!`, `""`, `\`, etc.). Some characters are automatically escaped by the CLI, while others require manual escaping. Therefore, the recommendation is to always enclose your password in double quotes `" "` and avoid using quotes `"` and backslash `\` characters in your password. If you prefer including quotes and backslash in your password, remember to manually escape them, as shown in the example below:
@@ -209,9 +209,9 @@ Options:
   < ... output omitted ... >
 ```
 
-<table data-full-width="true"><thead><tr><th width="376">Command</th><th>Description</th></tr></thead><tbody><tr><td><code>-h</code>, <code>--help</code></td><td>Display help text.</td></tr><tr><td><code>-H</code>, <code>--host</code> <em><code>HostName</code></em></td><td>Gives the name of the current host. The <code>ncs_cli</code> program will use the value of the system call <code>gethostbyname()</code> by default. The hostname is used in the CLI prompt.</td></tr><tr><td><code>-A</code>, <code>--address</code> <em><code>Address</code></em></td><td>CLI address to connect to. The default is 127.0.0.1. This can be controlled by either this flag or the UNIX environment variable <code>NCS_IPC_ADDR</code>. The <code>-A</code> flag takes precedence.</td></tr><tr><td><code>-P</code>, <code>--port</code> <em><code>PortNumber</code></em></td><td>CLI port to connect to. The default is the NSO IPC port, which is 4569 This can be controlled by either this flag, or the UNIX environment variable <code>NCS_IPC_PORT</code>. The <code>-P</code> flag takes precedence.</td></tr><tr><td><code>-c</code>, <code>--cwd</code> <em><code>Directory</code></em></td><td>The current working directory (CWD) for the user once in the CLI. All file references from the CLI will be relative to the CWD. By default, the value will be the actual CWD where <code>ncs_cli</code> is invoked.</td></tr><tr><td><code>-p</code>, <code>--proto</code> <code>ssh</code> | <code>tcp</code> | <code>console</code></td><td>The protocol the user is using to connect. This value is used in the audit logs. Defaults to <code>ssh</code> if <code>SSH_CONNECTION</code> environment variable is set; <code>console</code> otherwise.</td></tr><tr><td><code>-i</code>, <code>--ip</code> <em><code>IpAddress</code></em> | <em><code>IpAddress/Port</code></em></td><td>The IP (or IP address and port) which NSO reports that the user is connecting from. This value is used in the audit logs. Defaults to the information in the <code>SSH_CONNECTION</code> environment variable if set, 127.0.0.1 otherwise.</td></tr><tr><td><code>-v</code>, <code>--verbose</code></td><td>Produce additional output about the execution of the command, in particular during the initial handshake phase.</td></tr><tr><td><code>-n</code>, <code>--interactive</code></td><td>Force the CLI to echo prompts and commands. Useful when <code>ncs_cli</code> auto-detects it is not running in a terminal, e.g. when executing as a script, reading input from a file, or through a pipe.</td></tr><tr><td><code>-N</code>, <code>--noninteractive</code></td><td>Force the CLI to only show the output of the commands executed. Do not output the prompt or echo the commands, much like a shell does for a shell script.</td></tr><tr><td><code>-s</code>, <code>--stop-on-error</code></td><td>Force the CLI to terminate at the first error and use a non-zero exit code.</td></tr><tr><td><code>-E</code>, <code>--escape-char</code> <em><code>C</code></em></td><td>A special character that forcefully terminates the CLI when repeated three times in a row. Defaults to control underscore (Ctrl-_).</td></tr><tr><td><code>-J</code>, <code>-C</code></td><td>This flag sets the mode of the CLI. <code>-J</code> is Juniper style CLI, <code>-C</code> is Cisco XR style CLI.</td></tr><tr><td><code>-u</code>, <code>--user</code> <em><code>User</code></em></td><td>The username of the connecting user. Used for access control and group assignment in NSO (if the group mapping is kept in NSO). The default is to use the login name of the user.</td></tr><tr><td><code>-g</code>, <code>--groups</code> <em><code>GroupList</code></em></td><td>A comma-separated list of groups the connecting user is a member of. Used for access control by the AAA system in NSO to authorize data and command access. Defaults to the UNIX groups that the user belongs to, i.e. the same as the <code>groups</code> shell command returns.</td></tr><tr><td><code>-U</code>, <code>--uid</code> <em><code>Uid</code></em></td><td>The numeric user ID the user shall have. Used for executing OS commands on behalf of the user, when checking file access permissions, and when creating files. Defaults to the effective user ID (euid) in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-G</code>, <code>--gid</code> <em><code>Gid</code></em></td><td>The numeric group ID of the user shall have. Used for executing OS commands on behalf of the user, when checking file access permissions, and when creating files. Defaults to the effective group ID (egid) in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-D</code>, <code>--gids</code> <em><code>GidList</code></em></td><td>A comma-separated list of supplementary numeric group IDs the user shall have. Used for executing OS commands on behalf of the user and when checking file access permissions. Defaults to the supplementary UNIX group IDs in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-a</code>, <code>--noaaa</code></td><td>Completely disables all AAA checks for this CLI. This can be used as a disaster recovery mechanism if the AAA rules in NSO have somehow become corrupted.</td></tr><tr><td><code>-O</code>, <code>--opaque</code> <em><code>Opaque</code></em></td><td>Pass an opaque string to NSO. The string is not interpreted by NSO, only made available to application code. See built-in variables in <a href="https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#clispec">clispec(5)</a> and <code>maapi_get_user_session_opaque()</code> in <a href="https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-3/#confd_lib_maapi">confd_lib_maapi(3)</a>. The string can be given either via this flag or via the UNIX environment variable <code>NCS_CLI_OPAQUE</code>. The <code>-O</code> flag takes precedence.</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="376">Command</th><th>Description</th></tr></thead><tbody><tr><td><code>-h</code>, <code>--help</code></td><td>Display help text.</td></tr><tr><td><code>-H</code>, <code>--host</code> <em><code>HostName</code></em></td><td>Gives the name of the current host. The <code>ncs_cli</code> program will use the value of the system call <code>gethostbyname()</code> by default. The hostname is used in the CLI prompt.</td></tr><tr><td><code>-A</code>, <code>--address</code> <em><code>Address</code></em></td><td>CLI address to connect to. The default is 127.0.0.1. This can be controlled by either this flag or the UNIX environment variable <code>NCS_IPC_ADDR</code>. The <code>-A</code> flag takes precedence.</td></tr><tr><td><code>-P</code>, <code>--port</code> <em><code>PortNumber</code></em></td><td>CLI port to connect to. The default is the NSO IPC port, which is 4569 This can be controlled by either this flag, or the UNIX environment variable <code>NCS_IPC_PORT</code>. The <code>-P</code> flag takes precedence.</td></tr><tr><td><code>-c</code>, <code>--cwd</code> <em><code>Directory</code></em></td><td>The current working directory (CWD) for the user once in the CLI. All file references from the CLI will be relative to the CWD. By default, the value will be the actual CWD where <code>ncs_cli</code> is invoked.</td></tr><tr><td><code>-p</code>, <code>--proto</code> <code>ssh</code> | <code>tcp</code> | <code>console</code></td><td>The protocol the user is using to connect. This value is used in the audit logs. Defaults to <code>ssh</code> if <code>SSH_CONNECTION</code> environment variable is set; <code>console</code> otherwise.</td></tr><tr><td><code>-i</code>, <code>--ip</code> <em><code>IpAddress</code></em> | <em><code>IpAddress/Port</code></em></td><td>The IP (or IP address and port) which NSO reports that the user is connecting from. This value is used in the audit logs. Defaults to the information in the <code>SSH_CONNECTION</code> environment variable if set, 127.0.0.1 otherwise.</td></tr><tr><td><code>-v</code>, <code>--verbose</code></td><td>Produce additional output about the execution of the command, in particular during the initial handshake phase.</td></tr><tr><td><code>-n</code>, <code>--interactive</code></td><td>Force the CLI to echo prompts and commands. Useful when <code>ncs_cli</code> auto-detects it is not running in a terminal, e.g. when executing as a script, reading input from a file, or through a pipe.</td></tr><tr><td><code>-N</code>, <code>--noninteractive</code></td><td>Force the CLI to only show the output of the commands executed. Do not output the prompt or echo the commands, much like a shell does for a shell script.</td></tr><tr><td><code>-s</code>, <code>--stop-on-error</code></td><td>Force the CLI to terminate at the first error and use a non-zero exit code.</td></tr><tr><td><code>-E</code>, <code>--escape-char</code> <em><code>C</code></em></td><td>A special character that forcefully terminates the CLI when repeated three times in a row. Defaults to control underscore (Ctrl-_).</td></tr><tr><td><code>-J</code>, <code>-C</code></td><td>This flag sets the mode of the CLI. <code>-J</code> is Juniper style CLI, <code>-C</code> is Cisco XR style CLI.</td></tr><tr><td><code>-u</code>, <code>--user</code> <em><code>User</code></em></td><td>The username of the connecting user. Used for access control and group assignment in NSO (if the group mapping is kept in NSO). The default is to use the login name of the user.</td></tr><tr><td><code>-g</code>, <code>--groups</code> <em><code>GroupList</code></em></td><td>A comma-separated list of groups the connecting user is a member of. Used for access control by the AAA system in NSO to authorize data and command access. Defaults to the UNIX groups that the user belongs to, i.e., the same as the <code>groups</code> shell command returns.</td></tr><tr><td><code>-U</code>, <code>--uid</code> <em><code>Uid</code></em></td><td>The numeric user ID the user shall have. Used for executing OS commands on behalf of the user, when checking file access permissions, and when creating files. Defaults to the effective user ID (euid) in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-G</code>, <code>--gid</code> <em><code>Gid</code></em></td><td>The numeric group ID of the user shall have. Used for executing OS commands on behalf of the user, when checking file access permissions, and when creating files. Defaults to the effective group ID (egid) in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-D</code>, <code>--gids</code> <em><code>GidList</code></em></td><td>A comma-separated list of supplementary numeric group IDs the user shall have. Used for executing OS commands on behalf of the user and when checking file access permissions. Defaults to the supplementary UNIX group IDs in use for running the command. Note that NSO needs to run as root for this to work properly.</td></tr><tr><td><code>-a</code>, <code>--noaaa</code></td><td>Completely disables all AAA checks for this CLI. This can be used as a disaster recovery mechanism if the AAA rules in NSO have somehow become corrupted.</td></tr><tr><td><code>-O</code>, <code>--opaque</code> <em><code>Opaque</code></em></td><td>Pass an opaque string to NSO. The string is not interpreted by NSO, only made available to application code. See built-in variables in <a href="../../man/section5.md#clispec">clispec(5)</a> and <code>maapi_get_user_session_opaque()</code> in <a href="../../man/section3.md#confd_lib_maapi">confd_lib_maapi(3)</a>. The string can be given either via this flag or via the UNIX environment variable <code>NCS_CLI_OPAQUE</code>. The <code>-O</code> flag takes precedence.</td></tr></tbody></table>
 
-For `clispec(5)` and `confd_lib_maapi(3)` refer to [Manual Pages](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/).
+For `clispec(5)` and `confd_lib_maapi(3)` refer to [Manual Pages](../../man/index.md).
 
 ### CLI Styles <a href="#d5e1366" id="d5e1366"></a>
 
@@ -221,7 +221,7 @@ The CLI comes in two flavors: C-Style (Cisco XR style) and the J-style. It is po
 {% tab title="C-Style" %}
 Starting the CLI (C-style, Cisco XR style):
 
-```
+```bash
 $> ncs_cli -C -u admin
 ```
 {% endtab %}
@@ -229,7 +229,7 @@ $> ncs_cli -C -u admin
 {% tab title="J-Style" %}
 Starting the CLI (J-style):
 
-```
+```bash
 $> ncs_cli -J -u admin
 ```
 {% endtab %}
@@ -237,7 +237,7 @@ $> ncs_cli -J -u admin
 
 It is possible to interactively switch between these styles while inside the CLI using the builtin `switch` command:
 
-```cli
+```bash
 admin@ncs# switch cli
 ```
 
@@ -255,7 +255,7 @@ Once NSO is synchronized with the devices' configuration, done by using the `dev
 
 As an example, to change the speed setting on the interface GigabitEthernet0/1 across several devices:
 
-```cli
+```bash
 admin@ncs(config)# devices device ce0..1 config ios:interface GigabitEthernet0/1 speed auto
 admin@ncs(config-if)# top
 admin@ncs(config)# show configuration
@@ -301,7 +301,7 @@ This is operational data and the CLI is in configuration mode so the way of show
 
 The command `show configuration rollback changes` can be used to view rollback changes in more detail. It will show what will be done when the rollback file is loaded, similar to loading the rollback and using `show configuration`:
 
-```cli
+```bash
 admin@ncs(config)# show configuration rollback changes 10019
 devices device ce0
  config
@@ -321,7 +321,7 @@ devices device ce1
 
 The command `show configuration commit changes` can be used to see which changes were done in a given commit, i.e. the roll-forward commands performed in that commit:
 
-```cli
+```bash
 admin@ncs(config)# show configuration commit changes 10019
 !
 ! Created by: admin
@@ -346,7 +346,7 @@ devices device ce1
 
 The command `rollback-files apply-rollback-file` can be used to perform the rollback:
 
-```cli
+```bash
 admin@ncs(config)# rollback-files apply-rollback-file fixed-number 10019
 admin@ncs(config)# show configuration
 devices device ce0
@@ -367,14 +367,14 @@ devices device ce1
 
 And now the `commit` the rollback:
 
-```cli
+```bash
 admin@ncs(config)# commit
 Commit complete.
 ```
 
 When the command `rollback-files apply-rollback-file fixed-number 10019` is run the changes recorded in rollback 10019-N (where N is the highest, thus the most recent rollback number) will all be undone. In other words, the configuration will be rolled back to the state it was in before the commit associated with rollback 10019 was performed.
 
-It is also possible to undo individual changes by running the command `rollback-files apply-rollback-file selective`. E.g. to undo the changes recorded in rollback 10019, but not the changes in 10020-N run the command `rollback-files apply-rollback-file selective fixed-number 10019`.
+It is also possible to undo individual changes by running the command `rollback-files apply-rollback-file selective`. E.g., to undo the changes recorded in rollback 10019, but not the changes in 10020-N run the command `rollback-files apply-rollback-file selective fixed-number 10019`.
 
 This operation may fail if the commits following rollback 10019 depend on the changes made in rollback 10019.
 
@@ -382,7 +382,7 @@ This operation may fail if the commits following rollback 10019 depend on the ch
 
 It is possible to process the output from a command using an output redirect. This is done using the | character (a pipe character):
 
-```cli
+```bash
 admin@ncs# show running-config | ?
 Possible completions:
   annotation      Show only statements whose annotation matches a pattern
@@ -420,7 +420,7 @@ Note that the `tab` pipe target is used to enforce table output which is only su
 
 For example, the following are clearly not suitable because the data has a nested structure. It could take an incredibly long time to display it if you use the `tab` pipe target on a huge amount of data which is not a list element.
 
-```
+```bash
 show running-config | tab
 show running-config | include aaa | tab
 ```
@@ -430,7 +430,7 @@ show running-config | include aaa | tab
 
 This redirect target counts the number of lines in the output. For example:
 
-```cli
+```bash
 admin@ncs# show running-config | count
 Count: 1783 lines
 admin@ncs# show running-config aaa | count
@@ -441,7 +441,7 @@ Count: 28 lines
 
 The `include` targets is used to only include lines matching a regular expression:
 
-```cli
+```bash
 admin@ncs# show running-config aaa | include aaa
 aaa authentication users user admin
 aaa authentication users user oper
@@ -451,7 +451,7 @@ aaa authentication users user public
 
 In the example above only lines containing aaa are shown. Similarly lines not containing a regular expression can be included. This is done using the `exclude` target:
 
-```cli
+```bash
 admin@ncs# show running-config aaa authentication | exclude password
 aaa authentication users user admin
  uid        1000
@@ -481,7 +481,7 @@ aaa authentication users user public
 
 It is possible to display the context for a match using the pipe command `include -c`. Matching lines will be prefixed by `<line no>`: and context lines with `<line no>-`. For example:
 
-```cli
+```bash
 admin@ncs# show running-config aaa authentication | include -c 3 homes/admin
  2- uid        1000
  3- gid        1000
@@ -495,7 +495,7 @@ admin@ncs# show running-config aaa authentication | include -c 3 homes/admin
 
 It is possible to display the context for a match using the pipe command `context-match`:
 
-```cli
+```bash
 admin@ncs# show running-config aaa authentication | context-match homes/admin
 aaa authentication users user admin
  ssh_keydir /var/ncs/homes/admin/.ssh
@@ -505,7 +505,7 @@ aaa authentication users user admin
 
 It is possible to display the output starting at the first match of a regular expression. This is done using the `begin` pipe command:
 
-```cli
+```bash
 admin@ncs# show running-config aaa authentication users | begin public
 aaa authentication users user public
  uid        1000
@@ -520,13 +520,13 @@ aaa authentication users user public
 
 The output can also be saved to a file using the `save` or `append` redirect target:
 
-```cli
+```bash
 admin@ncs# show running-config aaa | save /tmp/saved
 ```
 
 Or to save the configuration, except all passwords:
 
-```cli
+```bash
 admin@ncs# show running-config aaa | exclude password | save /tmp/saved
 ```
 
@@ -534,11 +534,11 @@ admin@ncs# show running-config aaa | exclude password | save /tmp/saved
 
 The regular expressions are a subset of the regular expressions found in egrep and in the AWK programming language. Some common operators are:
 
-<table><thead><tr><th width="198">Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>.</code></td><td>Matches any character.</td></tr><tr><td><code>^</code></td><td>Matches the beginning of a string.</td></tr><tr><td><code>$</code></td><td>Matches the end of a string.</td></tr><tr><td><code>[abc...]</code></td><td>Character class, which matches any of the characters abc... Character ranges are specified by a pair of characters separated by a -.</td></tr><tr><td><code>[^abc...]</code></td><td>Negated character class, which matches any character except abc... .</td></tr><tr><td><code>r1 | r2</code></td><td>Alternation. It matches either r1 or r2.</td></tr><tr><td><code>r1r2</code></td><td>Concatenation. It matches r1 and then r2.</td></tr><tr><td><code>r+</code></td><td>Matches one or more rs.</td></tr><tr><td><code>r*</code></td><td>Matches zero or more rs.</td></tr><tr><td><code>r?</code></td><td>Matches zero or one rs.</td></tr><tr><td><code>(r)</code></td><td>Grouping. It matches r.</td></tr></tbody></table>
+<table><thead><tr><th width="198">Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>.</code></td><td>Matches any character.</td></tr><tr><td><code>^</code></td><td>Matches the beginning of a string.</td></tr><tr><td><code>$</code></td><td>Matches the end of a string.</td></tr><tr><td><code>[abc...]</code></td><td>Character class, which matches any of the characters abc... Character ranges are specified by a pair of characters separated by a <code>-</code>.</td></tr><tr><td><code>[^abc...]</code></td><td>Negated character class, which matches any character except abc... .</td></tr><tr><td><code>r1 | r2</code></td><td>Alternation. It matches either <code>r1</code> or <code>r2</code>.</td></tr><tr><td><code>r1r2</code></td><td>Concatenation. It matches <code>r1</code> and then <code>r2</code>.</td></tr><tr><td><code>r+</code></td><td>Matches one or more <code>rs</code>.</td></tr><tr><td><code>r*</code></td><td>Matches zero or more <code>rs</code>.</td></tr><tr><td><code>r?</code></td><td>Matches zero or one <code>rs</code>.</td></tr><tr><td><code>(r)</code></td><td>Grouping. It matches <code>r</code>.</td></tr></tbody></table>
 
 For example, to only display `uid` and `gid` do the following:
 
-```cli
+```bash
 admin@ncs# show running-config aaa | include "(uid)|(gid)"
  uid        1000
  gid        1000
@@ -556,7 +556,7 @@ There are several options for displaying the configuration and stats data in NSO
 
 To display the configuration of a device do:
 
-```cli
+```bash
 admin@ncs# show running-config devices device ce0 config
 devices device ce0
  config
@@ -577,7 +577,7 @@ This can also be done for a group of devices by substituting the instance name (
 
 To display the config of all devices:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * config
 devices device ce0
  config
@@ -602,7 +602,7 @@ devices device ce1
 
 It is possible to limit the output even further. View only the HTTP settings on each device:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * config ios:ip http
 devices device ce0
  config
@@ -619,7 +619,7 @@ devices device ce1
 
 There is an alternative syntax for this using the `select` pipe command:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     select config ios:ip http
 devices device ce0
@@ -637,7 +637,7 @@ devices device ce1
 
 The `select` pipe command can be used multiple times for adding additional content:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     select config ios:ip http | \
     select config ios:ip domain-lookup
@@ -658,7 +658,7 @@ devices device ce1
 
 There is also a `de-select` pipe command that can be used to instruct the CLI to not display certain parts of the config. The above printout could also be achieved by first selecting the `ip` container, and then de-selecting the `source-route` leaf:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     select config ios:ip | \
     de-select config ios:ip source-route
@@ -679,7 +679,7 @@ devices device ce1
 
 A use-case for the `de-select` pipe command is to de-select the `config` container to only display the device settings without actually displaying their config:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | de-select config
 devices device ce0
  address   127.0.0.1
@@ -699,14 +699,14 @@ devices device ce1
 
 The above statements also work for the `save` command. To save the devices managed by NSO, but not the contents of their `config` container:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     de-select config | save /tmp/devices
 ```
 
 It is possible to use the `select` command to select which list instances to display. To display all devices that have the interface `GigabitEthernet 0/0/0/4`:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     select config cisco-ios-xr:interface GigabitEthernet 0/0/0/4
 devices device p0
@@ -728,7 +728,7 @@ devices device p1
 
 This means to display all device instances that have the interface GigabitEthernet 0/0/0/4. Only the subtree defined by the select path will be displayed. It is also possible to display the entire content of the `config` container for each instance by using an additional select statement:
 
-```cli
+```bash
 admin@ncs# show running-config devices device * | \
     select config cisco-ios-xr:interface GigabitEthernet 0/0/0/4 | \
     select config | match-all
@@ -760,7 +760,7 @@ The `display` command is used to format configuration and statistics data. There
 
 For instance, assuming we have a data model featuring a set of hosts, each containing a set of servers, we can display the configuration data as JSON. This is depicted in the example below.
 
-```cli
+```bash
 admin@ncs# show running-config hosts | display json
 {
   "data": {
@@ -796,7 +796,7 @@ Still working with the same data model as used in the example above, we might wa
 
 The following example shows how to do that and shows the resulting output:
 
-```cli
+```bash
 admin@ncs# show running-config hosts | display keypath
 /hosts/host{host1} enabled
 /hosts/host{host1}/numberOfServers 2
@@ -824,26 +824,26 @@ Range expressions are also supported for key elements of non-integer types as lo
 
 The following can be done in the CLI to display a subset of the devices (`ce0`, `ce1`, `ce3`):
 
-```cli
+```bash
 admin@ncs# show running-config devices device ce0..1,3
 ```
 
 If the devices have names with slashes, for example, Firewall/1/1, Firewall/1/2, Firewall/1/3, Firewall/2/1, Firewall/2/2, and Firewall/2/3, expressions like this are possible:
 
-```cli
+```bash
 admin@ncs# show running-config devices device Firewall/1-2/*
 admin@ncs# show running-config devices device Firewall/1-2/1,3
 ```
 
 In configure mode, it is possible to edit a range of instances in one command:
 
-```cli
+```bash
 admin@ncs(config)# devices device ce0..2 config ios:ethernet cfm ieee
 ```
 
 Or, like this:
 
-```cli
+```bash
 admin@ncs(config)# devices device ce0..2 config
 admin@ncs(config-config)# ios:ethernet cfm ieee
 admin@ncs(config-config)# show config
@@ -928,7 +928,7 @@ Completion is disabled inside quotes. To type an argument containing spaces eith
 
 Command completion also applies to filenames and directories:
 
-```cli
+```bash
 admin@ncs# <space>
 Possible completions:
   alarms                 Alarm management
@@ -963,7 +963,7 @@ admin@ncs# devices check-s<space>ync
 
 All characters following a **`!`**, up to the next new line, are ignored. This makes it possible to have comments in a file containing CLI commands, and still be able to paste the file into the command-line interface. For example:
 
-```
+```bash
 ! Command file created by Joe Smith
 ! First show the configuration before we change it
 show running-config
@@ -994,7 +994,7 @@ The commands are:
 
 Example:
 
-```cli
+```bash
 admin@ncs(config)# annotate aaa authentication users user admin \
 "Only allow the XX department access to this user."
 admin@ncs(config)# tag add aaa authentication users user oper oper_tag
@@ -1004,7 +1004,7 @@ Commit complete.
 
 To view the placement of tags and annotations in the configuration it is recommended to use the pipe command `display curly-braces`. The annotations and tags will be displayed as comments where the tags are prefixed by `Tags:`. For example:
 
-```cli
+```bash
 admin@ncs(config)# do show running-config aaa authentication users user | \
     tags oper_tag | display curly-braces
 /* Tags: oper_tag */
@@ -1035,7 +1035,7 @@ Annotations and tags are part of the configuration. When adding, removing, or mo
 
 Messages appear when entering and exiting configure mode, when committing a configuration, and when typing a command or value that is not valid:
 
-```cli
+```bash
 admin@ncs# show c
 -----------------^
 syntax error:
@@ -1052,7 +1052,7 @@ When committing a configuration, the CLI first validates the configuration, and 
 
 If a missing identifier or a value is out of range a message will indicate where the errors are:
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# nacm rule-list any-group rule allowrule
@@ -1062,17 +1062,21 @@ Aborted: 'nacm rule-list any-group rule allowrule action' is not configured
 
 ## `ncs.conf` Settings <a href="#d5e1837" id="d5e1837"></a>
 
-Parts of the CLI behavior can be controlled from the `ncs.conf` file. See the [ncs.conf(5)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-5/#ncs.conf) in Manual Pages manual page for a comprehensive description of all the options.
+Parts of the CLI behavior can be controlled from the `ncs.conf` file. See the [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages manual page for a comprehensive description of all the options.
 
 ## CLI Environment <a href="#d5e1842" id="d5e1842"></a>
 
 There are a number of session variables in the CLI. They are only used during the session and are not persistent. Their values are inspected using `show cli` in operational mode, and set using **set** in operational mode. Their initial values are in order derived from the content of the `ncs.conf` file, and the global defaults as configured at `/aaa:session` and user-specific settings configured at `/aaa:user{<user>}/setting`.
 
-```cli
+```bash
 admin@ncs# show cli
 autowizard            false
+commit-prompt         false
 complete-on-space     true
+devtools              false
 display-level         99999999
+dry-run-duration      0
+dry-run-outformat     cli
 history               100
 idle-timeout          1800
 ignore-leading-space  false
@@ -1098,7 +1102,7 @@ When enabled, the CLI will prompt the user for the required settings when a new 
 \
 For example:
 
-```cli
+```bash
 admin@ncs(config)# aaa authentication users user John
 Value for 'uid' (<int>): 1006
 Value for 'gid' (<int>): 1006
@@ -1109,13 +1113,79 @@ Value for 'homedir' (<string>): /var/ncs/homes/john
 
 This helps the user set all mandatory settings.\
 \
-It is recommended to disable the autowizard before pasting in a list of commands, in order to avoid prompting. A good practice is to start all such scripts with a line that disables the `autowizard`:
+It is recommended to disable the autowizard before pasting in a list of commands in order to avoid prompting. A good practice is to start all such scripts with a line that disables the `autowizard`:
 
 ```
 autowizard false
 ...
 autowizard true
 ```
+
+</details>
+
+<details>
+
+<summary><code>commit-prompt (true | false)</code></summary>
+
+When enabled, the CLI will display dry-run output of the configuration changes and prompt the user to confirm before the commit operation or actions using the ncs-commit-params grouping. This setting is effective on the following actions.
+
+* Service actions
+  * `re-deploy`&#x20;
+  * `un-deploy`&#x20;
+* Device actions
+  * `sync-to`&#x20;
+  * `partial-sync-to`&#x20;
+  * `migrate`&#x20;
+  * `rollback`&#x20;
+
+For example with commit:
+
+```bash
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+For example with action:
+
+```bash
+admin@ncs(config)# dns-config test re-deploy
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+Warning: Please review the changes before 're-deploy'.
+Proceed? [yes,no]
+```
+
+{% hint style="info" %}
+Note that dry-run output could be very long if the configuration changes are large.
+{% endhint %}
 
 </details>
 
@@ -1137,6 +1207,228 @@ Controls if certain commands that are useful for developers should be enabled. T
 
 <details>
 
+<summary><code>dry-run-duration (&#x3C;seconds>)</code> </summary>
+
+Valid period of dry-run output before prompting the user to confirm commit or action if `commit-prompt` is set to `true`.
+
+Setting this to 0 (zero) means the same dry-run output will be displayed instantly each time before prompting the user to proceed.
+
+If it is not set to 0 (zero), the CLI will not display dry-run output for the same configuration changes repeatedly within this time period. After it expires, dry-run output will be displayed again.
+
+For example with `dry-run-duration` set to 0 (zero):
+
+<pre class="language-bash"><code class="lang-bash"><strong>admin@ncs(config)# devices global-settings commit-retries attempts 3
+</strong>admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+</code></pre>
+
+For example with `dry-run-duration` set to 5 (seconds):
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# commit
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+The same situation applies to the case if `dry-run` flag is used with commit or `dry-run` option is used on action.
+
+For example with `dry-run-duration` set to 5 (seconds) and run `commit dry-run` first:
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit dry-run
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+admin@ncs(config)# commit
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# commit
+cli {
+    local-node {
+        data  devices {
+                  global-settings {
+                      commit-retries {
+             +            attempts 3;
+                      }
+                  }
+              }
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+For example with `dry-run-duration` set to 5 (seconds) and run `re-deploy dry-run` first:
+
+```bash
+admin@ncs# dry-run-duration 5
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# dns-config test re-deploy dry-run
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+admin@ncs(config)# dns-config test re-deploy
+Proceed? [yes,no] no
+Aborted: by user
+... <User waits for 6 seconds> ...
+admin@ncs(config)# dns-config test re-deploy
+cli {
+    local-node {
+        data  devices {
+                   device ex1 {
+                       config {
+                           sys {
+                               dns {
+              +                    # after server 10.2.3.4
+              +                    server 192.0.2.1;
+                               }
+                           }
+                       }
+                   }
+               }
+              
+    }
+}
+Warning: Please review the changes before 're-deploy'.
+Proceed? [yes,no]
+```
+
+</details>
+
+<details>
+
+<summary><code>dry-run-outformat (&#x3C;string>)</code> </summary>
+
+Format of dry-run output for the configuration changes before prompting the user to confirm commit or action if `commit-prompt` is set to `true`.
+
+The supported formats are: `cli`, `xml`, `native` and `cli-c`.
+
+For example with `dry-run-outformat` set to `xml` first and then set to `cli-c`:
+
+```bash
+admin@ncs# dry-run-outformat xml
+admin@ncs# config
+Entering configuration mode terminal
+admin@ncs(config)# devices global-settings commit-retries attempts 3
+admin@ncs(config)# commit
+result-xml {
+    local-node {
+        data <devices xmlns="http://tail-f.com/ns/ncs">
+               <global-settings>
+                 <commit-retries>
+                   <attempts>3</attempts>
+                 </commit-retries>
+               </global-settings>
+             </devices>
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no] no
+Aborted: by user
+admin@ncs(config)# do dry-run-outformat cli-c
+admin@ncs(config)# commit
+cli-c {
+    local-node {
+        data devices global-settings commit-retries attempts 3
+    }
+}
+Warning: Please review the changes before commit.
+Proceed? [yes,no]
+```
+
+</details>
+
+<details>
+
 <summary><code>history (&#x3C;integer>)</code></summary>
 
 Size of CLI command history.
@@ -1147,7 +1439,7 @@ Size of CLI command history.
 
 <summary><code>idle-timeout (&#x3C;seconds>)</code></summary>
 
-Maximum idle time before being logged out. Use 0 (zero) for for infinity.
+Maximum idle time before being logged out. Use 0 (zero) for infinity.
 
 </details>
 
@@ -1187,7 +1479,7 @@ The current width of the terminal. This is used when paginating output to get th
 
 <summary><code>service prompt config</code></summary>
 
-Controls whether a prompt should be displayed in configure mode. If set to false then no prompt will be displayed. The setting is changed using the commands `no service prompt config` and `service prompt config` in configure mode.
+Controls whether a prompt should be displayed in configure mode. If set to false, then no prompt will be displayed. The setting is changed using the commands `no service prompt config` and `service prompt config` in configure mode.
 
 </details>
 
@@ -1195,7 +1487,7 @@ Controls whether a prompt should be displayed in configure mode. If set to false
 
 <summary><code>terminal (string)</code></summary>
 
-Terminal type. This setting is used for controlling how line editing is performed. Supported terminals are: `dumb`, `vt100`, `xterm`, `linux`, and `ansi`. Other terminals may also work but have no explicit support.
+Terminal type. This setting is used for controlling how line editing is performed. Supported terminals are: `dumb`, `vt100`, `xterm`, `linux` and `ansi`. Other terminals may also work but have no explicit support.
 
 </details>
 

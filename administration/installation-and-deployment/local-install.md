@@ -47,7 +47,7 @@ Primary requirements to do a Local Install include:
 
 <summary>Additional Requirements</summary>
 
-Additional requirements to, for example, build and run NSO examples/services, include:
+Additional requirements to, for example, build and run NSO examples/services include:
 
 * Java JDK 17 or higher.
 * Ant 1.9.8 or higher.
@@ -62,7 +62,7 @@ Additional requirements to, for example, build and run NSO examples/services, in
   * Mozilla Firefox
   * Microsoft Edge
   * Google Chrome
-* OpenSSH client applications. For example the `ssh` and `scp` commands.
+* OpenSSH client applications. For example, the `ssh` and `scp` commands.
 
 </details>
 
@@ -78,13 +78,13 @@ To download the Cisco NSO installer and example NEDs:
 
 <summary>Identifying the Installer</summary>
 
-You need to know your system specifications (Operating System and CPU architecture) in order to choose the appropriate NSO Installer.
+You need to know your system specifications (Operating System and CPU architecture) in order to choose the appropriate NSO installer.
 
 NSO is delivered as an OS/CPU-specific signed self-extractable archive. The signed archive file has the pattern `nso-VERSION.OS.ARCH.signed.bin` that after signature verification extracts the `nso-VERSION.OS.ARCH.installer.bin` archive file, where:
 
 * `VERSION` is the NSO version to install.
 * `OS` is the Operating System (`linux` for all Linux distributions and `darwin` for macOS).
-* `ARCH` is the CPU architecture, for example, `x86_64`.
+* `ARCH` is the CPU architecture, for example`x86_64`.
 
 </details>
 
@@ -153,7 +153,7 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 * Phased Provisioning
 * Resource Manager
 
-For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://developer.cisco.com/docs/nso).
+For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
 
 **NED packages**
 
@@ -163,7 +163,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual pages**
 
-The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-man-pages-volume-1) in Manual Pages.
+The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](../../man/section1.md#ncs) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -192,7 +192,7 @@ $ ncsc --help
 
 **Installer help**
 
-Run the `sh nso-VERSION.darwin.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](https://developer.cisco.com/docs/nso-api-6.4/ncs-man-pages-volume-1/#ncs-installer) Manual Page included with NSO.
+Run the `sh nso-VERSION.darwin.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../man/section1.md#ncs-installer) Manual Page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`. An example output is shown below.
 
@@ -282,7 +282,7 @@ To set the environment variables:
     ```
 2.  Most users add source `~/nso-x.x/ncsrc` (where `x.x` is the NSO version) to their `~/.bash_profile`, but you can simply do it manually when you want it. Once it has been sourced, you have access to all the NSO executable commands, which start with `ncs`.
 
-    ```
+    ```bash
       ncs {TAB} {TAB}
 
       # Output
@@ -347,7 +347,7 @@ To generate a license registration token:
 
 1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
 
-    ```cli
+    ```bash
     $ ncs_cli -Cu admin
     admin@ncs# license smart register idtoken YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQt
     OGEzMTM3OTg5MG
@@ -359,7 +359,7 @@ To generate a license registration token:
     Upon successful registration, NSO automatically requests a license entitlement for its own instance and for the number of devices it orchestrates and their NED types. If development mode has been enabled, only development entitlement for the NSO instance itself is requested.
 2.  Inspect the requested entitlements using the command `show license all` (or by inspecting the NSO daemon log). An example output is shown below.
 
-    ```cli
+    ```bash
     admin@ncs# show license all
     ...
     <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
@@ -389,7 +389,7 @@ To generate a license registration token:
 
 <summary>Evaluation Period</summary>
 
-If no registration token is provided, NSO enters a 90-day evaluation period and the remaining evaluation time is recorded hourly in the NSO daemon log:
+If no registration token is provided, NSO enters a 90-day evaluation period, and the remaining evaluation time is recorded hourly in the NSO daemon log:
 
 ```
 ...
@@ -421,7 +421,7 @@ In a situation where the NSO instance has no direct access to the Cisco Smart So
 
 Another option when direct access is not desired is to configure an HTTP or HTTPS proxy, e.g., `smart-license smart-agent proxy url https://127.0.0.1:8080`. If you plan to do this, take the note below regarding ignored CLI configurations into account:
 
-If `ncs.conf` contains configuration for any of java-executable, java-options, override-url/url or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/`, then any corresponding configuration done via the CLI is ignored.
+If `ncs.conf` contains a configuration for any of the java-executable, java-options, override-url/url, or proxy/url under the configure path `/ncs-config/smart-license/smart-agent/`, then any corresponding configuration done via the CLI is ignored.
 
 </details>
 
@@ -453,7 +453,7 @@ Licensing activities are also logged in the NSO daemon log as described in [Moni
 
 To check the registration status, use the command `show license status` An example output is shown below.
 
-```cli
+```bash
 admin@ncs# show license status
 Smart Licensing is ENABLED
 
@@ -500,7 +500,7 @@ Yes.
 
 <details>
 
-<summary>Can you start NSO from a directory, which is not a NSO runtime directory?</summary>
+<summary>Can you start NSO from a directory that is not an NSO runtime directory?</summary>
 
 No. To start NSO, you need to point to the run directory.
 
@@ -508,7 +508,7 @@ No. To start NSO, you need to point to the run directory.
 
 <details>
 
-<summary>Can you stop NSO from a directory, which is not a NSO runtime directory?</summary>
+<summary>Can you stop NSO from a directory that is not an NSO runtime directory?</summary>
 
 Yes.
 
@@ -518,7 +518,7 @@ Yes.
 
 <summary>Can we move NSO Installation from one folder to another?</summary>
 
-Yes. You can move the directory where you installed NSO to a new location in your directory tree. Simply move NSO's root directory to the new desired location, and update this file: `$NCS_DIR/ncsrc` (and `ncsrc.tcsh` if you want). This is a small and handy script that sets up some environment variables for you. Update the paths to the new location. The `$NCS_DIR/bin/ncs` and `$NCS_DIR/bin/ncsc` scripts will determine the location of NSO's root directory automatically.
+Yes. You can move the directory where you installed NSO to a new location in your directory tree. Simply move NSO's root directory to the new desired location and update this file: `$NCS_DIR/ncsrc` (and `ncsrc.tcsh` if you want). This is a small and handy script that sets up some environment variables for you. Update the paths to the new location. The `$NCS_DIR/bin/ncs` and `$NCS_DIR/bin/ncsc` scripts will determine the location of NSO's root directory automatically.
 
 </details>
 
