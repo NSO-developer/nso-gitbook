@@ -11,11 +11,11 @@ The **Tools** view includes utilities that you can use to run specific tasks on 
 The following tools are available:
 
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
-* [**Package upgrade**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
-* [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
+* [**Package Manager**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
+* [**High Availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
-* [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
-* [**Compliance reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
+* [**Commit Manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
+* [**Compliance Reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
@@ -27,29 +27,7 @@ The **Insights** view collects and displays the following types of operational i
 * Devices and their sync statuses.
 * CDB info about its size, compaction, etc.
 
-## Package Upgrade <a href="#d5e6487" id="d5e6487"></a>
-
-In the **Package upgrade** view, you can load custom packages in NSO.
-
-The **Reload** button on the **Packages** pane is the equivalent of the **packages reload** command in CLI. Read more about the **reload** action in [NSO Packages](../operations/listing-packages.md).
-
-### Install a Package
-
-To install a new package:
-
-1. In the **Package upgrade** view, click **Browse files** to select a new package (`.tar` or `.tar.gz`) from your local disk.
-2. Click **Upload**. The package becomes visible under the **Available** pane.\
-   (The **Progress Trace** shows the real-time progress of the upload).
-3. Click **Install**.
-4. On the **Loaded** pane, click **Reload** and confirm the intent.
-
-### Uninstall a Package
-
-To uninstall an existing package:
-
-* To uninstall a package, simply click **Deinstall** next to the package in the **Loaded packages** list.
-
-## Package Manager
+## Package Manager <a href="#d5e6487" id="d5e6487"></a>
 
 In the **Package Manager** view, you can view and load custom packages in NSO.
 
