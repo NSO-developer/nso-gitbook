@@ -31,7 +31,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Package Manager** view, you can view and load custom packages in NSO.
 
-<figure><img src="../../images/package-manager.png" alt=""><figcaption><p>Package Manager</p></figcaption></figure>
+<figure><img src="../../images/package-manager.png" alt=""><figcaption><p>Package Manager View</p></figcaption></figure>
 
 ### Add a Package
 
