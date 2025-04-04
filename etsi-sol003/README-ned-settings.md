@@ -48,7 +48,7 @@
 -----------------------------
 
 
-    - etsi-sol003 edit-timeout <uint32> (default 720)
+    - edit-timeout <uint32> (default 720)
 
       Configure the additional timeout in seconds for EDIT operations (0 - no additional EDIT
       timeout). Default 720s (12 minutes).
@@ -60,23 +60,23 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connection live-check status <true|false> (default true)
+    - live-check status <true|false> (default true)
 
       Check that real device is up/alive on connect.
 
 
-    - connection live-check api-resource <enum> (default vnf-subscriptions)
+    - live-check api-resource <enum> (default vnf-subscriptions)
 
       API Resource to check the connection with. Use an API Resource
       that has reachable and responsive GET endpoint.
@@ -86,14 +86,14 @@
       vnf-subscriptions  - vnf-subscriptions.
 
 
-    - connection ssl accept-any <true|false> (default false)
+    - ssl accept-any <true|false> (default false)
 
       Accept any SSL certificate presented by the device. Warning!
       This enables Man in the Middle attacks and should only be used
       for testing and troubleshooting.
 
 
-    - connection ssl certificate <binary>
+    - ssl certificate <binary>
 
       SSL certificate stored in DER format but since it is entered
       as Base64 it is very similar to PEM but without banners like "-----
@@ -102,30 +102,30 @@
       openssl s_client -connect HOST:PORT
 
 
-    - connection api-base-url <string>
+    - api-base-url <string>
 
       API base URL for device REST API.
 
 
-    - connection api-key <string>
+    - api-key <string>
 
       API authentication key if needed.
 
 
-    - connection api request method patch content-type <string> (default application/merge-patch+json)
+    - api request method patch content-type <string> (default application/merge-patch+json)
 
 
-    - connection api auth credentials username <string>
+    - api auth credentials username <string>
 
       API username for BASIC auth.
 
 
-    - connection api auth credentials password <string>
+    - api auth credentials password <string>
 
       API password for BASIC auth.
 
 
-    - connection api auth type <enum> (default oauth2)
+    - api auth type <enum> (default oauth2)
 
       API auth type.
 
@@ -134,148 +134,148 @@
       oauth2  - oauth2.
 
 
-    - connection api param tenant-id <string>
+    - api param tenant-id <string>
 
       Configure {tenantId}.
 
 
-    - connection api address default <string>
+    - api address default <string>
 
       API default host.
 
 
-    - connection api address identity <string>
+    - api address identity <string>
 
       API host for device Identity.
 
 
-    - connection api address token <string>
+    - api address token <string>
 
       API host for device Token.
 
 
-    - connection api address vnf-instance <string>
+    - api address vnf-instance <string>
 
       API host for device VNF Instance.
 
 
-    - connection api address ns-instance <string>
+    - api address ns-instance <string>
 
       API host for device NS Instance.
 
 
-    - connection api address runtime-catalog <string>
+    - api address runtime-catalog <string>
 
       API host for device Runtime Catalog.
 
 
-    - connection api address vim-inventory <string>
+    - api address vim-inventory <string>
 
       API host for device VIM Inventory.
 
 
-    - connection api address api-gateway <string>
+    - api address api-gateway <string>
 
       API host for device API Gateway.
 
 
-    - connection api address api-gateway-openshift <string>
+    - api address api-gateway-openshift <string>
 
       API host for device API Gateway Openshift.
 
 
-    - connection api base-url default <string>
+    - api base-url default <string>
 
       API default base URL.
 
 
-    - connection api base-url identity <string>
+    - api base-url identity <string>
 
       API base URL for device Identity.
 
 
-    - connection api base-url token <string> (default /auth/v1)
+    - api base-url token <string> (default /auth/v1)
 
       API base URL for device Token.
 
 
-    - connection api base-url vnf-instance <string> (default /vnflcm/v1)
+    - api base-url vnf-instance <string> (default /vnflcm/v1)
 
       API base URL for device VNF Instance.
 
 
-    - connection api base-url vnf-instance-ext-operation <string> (default /or_vnfm/vnflcm/v1)
+    - api base-url vnf-instance-ext-operation <string> (default /or_vnfm/vnflcm/v1)
 
       API base URL for device VNF Instance Operation/Migrate Extension.
 
 
-    - connection api base-url vnf-fault-management <string> (default /vnffm/v1)
+    - api base-url vnf-fault-management <string> (default /vnffm/v1)
 
       API base URL for device VNF Fault Management.
 
 
-    - connection api base-url vnf-performance-management <string> (default /vnfpm/v1)
+    - api base-url vnf-performance-management <string> (default /vnfpm/v1)
 
       API base URL for device VNF Performance Management.
 
 
-    - connection api base-url vnf-indicator <string> (default /vnfind/v1)
+    - api base-url vnf-indicator <string> (default /vnfind/v1)
 
       API base URL for device VNF Indicator.
 
 
-    - connection api base-url ns-instance <string> (default /nslcm/v1)
+    - api base-url ns-instance <string> (default /nslcm/v1)
 
       API base URL for device NS Instance.
 
 
-    - connection api base-url vnf-package <string> (default /vnfpkgm/v1)
+    - api base-url vnf-package <string> (default /vnfpkgm/v1)
 
       API base URL for device VNF Package.
 
 
-    - connection api base-url runtime-catalog <string> (default /v1)
+    - api base-url runtime-catalog <string> (default /v1)
 
       API base URL for device Runtime Catalog.
 
 
-    - connection api base-url vim-inventory <string> (default )
+    - api base-url vim-inventory <string> (default )
 
       API base URL for device VIM Inventory.
 
 
-    - connection api base-url api-gateway <string> (default )
+    - api base-url api-gateway <string> (default )
 
       API base URL for device API Gateway.
 
 
-    - connection api base-url api-gateway-openshift <string> (default )
+    - api base-url api-gateway-openshift <string> (default )
 
       API base URL for device API Gateway Openshift.
 
 
-    - connection api base-url rpc-action default-vnf-extension base-url <string> (default )
+    - api base-url rpc-action default-vnf-extension base-url <string> (default )
 
 
-    - connection api endpoint get vim-tenants <string> (default /resource-service/vims/:id/tenantsInfo)
+    - api endpoint get vim-tenants <string> (default /resource-service/vims/:id/tenantsInfo)
 
 
-    - connection api endpoint get vnf-instance-vnfc <string> (default /inventory-gateway/topology-inventory/v1/inventory/nodes/:id)
+    - api endpoint get vnf-instance-vnfc <string> (default /inventory-gateway/topology-inventory/v1/inventory/nodes/:id)
 
 
-    - connection api endpoint get gateway-vnf-instance <string> (default /vnf-manager/vnflcm/v1/vnf_instances/:id)
+    - api endpoint get gateway-vnf-instance <string> (default /vnf-manager/vnflcm/v1/vnf_instances/:id)
 
 
-    - connection api endpoint get vnf-instance-resource <string> (default /api-gateway/vnf/inventory/resources/:id)
+    - api endpoint get vnf-instance-resource <string> (default /api-gateway/vnf/inventory/resources/:id)
 
 
-    - connection api endpoint get tenant-vnf-instance-vnfc <string> (default /inventory-gateway/topology-inventory/:tenant-id/v1/inventory/nodes/:id)
+    - api endpoint get tenant-vnf-instance-vnfc <string> (default /inventory-gateway/topology-inventory/:tenant-id/v1/inventory/nodes/:id)
 
 
-    - connection api endpoint get tenant-gateway-vnf-instance <string> (default /vnf-manager/:tenant-id/vnflcm/v1/vnf_instances/:id)
+    - api endpoint get tenant-gateway-vnf-instance <string> (default /vnf-manager/:tenant-id/vnflcm/v1/vnf_instances/:id)
 
 
-    - connection api sync only <enum>
+    - api sync only <enum>
 
       vnf-instance          - vnf-instance.
 
@@ -310,7 +310,7 @@
       vim                   - vim.
 
 
-    - connection api sync filter api-actions <enum>
+    - api sync filter api-actions <enum>
 
       Default: [ GET ].
 
@@ -323,7 +323,7 @@
       DELETE  - DELETE.
 
 
-    - connection api sync filter ned-actions <enum>
+    - api sync filter ned-actions <enum>
 
       Default: [ CONFIG ].
 
@@ -332,43 +332,43 @@
       RPC-ACTION  - RPC-ACTION.
 
 
-    - connection api proto default <string>
+    - api proto default <string>
 
       API default proto.
 
 
-    - connection api proto runtime-catalog <string>
+    - api proto runtime-catalog <string>
 
       API proto for device Runtime Catalog.
 
 
-    - connection api number-of-retries <uint8> (default 0)
+    - api number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection api time-between-retry <uint8> (default 1)
+    - api time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connection api key <string>
+    - api key <string>
 
       API authentication key if needed.
 
 
-    - connection api token credentials username <string>
+    - api token credentials username <string>
 
       API username used for PASSWORD grant type.
 
 
-    - connection api token credentials password <string>
+    - api token credentials password <string>
 
       API password used for PASSWORD grant type.
 
 
-    - connection api token grant-type <enum> (default client_credentials)
+    - api token grant-type <enum> (default client_credentials)
 
       API token grant type.
 
@@ -377,7 +377,7 @@
       password            - password.
 
 
-    - connection api token auth-type <enum> (default basic)
+    - api token auth-type <enum> (default basic)
 
       API token auth type.
 
@@ -386,7 +386,7 @@
       oauth2  - oauth2.
 
 
-    - connection api token auth-request-template <enum> (default default)
+    - api token auth-request-template <enum> (default default)
 
       API token auth request template.
 
@@ -395,24 +395,24 @@
       x-header  - x-header.
 
 
-    - connection api token auth-request-x-header-params username-param <string> (default X-login)
+    - api token auth-request-x-header-params username-param <string> (default X-login)
 
 
-    - connection api token auth-request-x-header-params password-param <string> (default X-password)
+    - api token auth-request-x-header-params password-param <string> (default X-password)
 
 
-    - connection api token auth-request-x-header-params token-header-key <string> (default cookie)
+    - api token auth-request-x-header-params token-header-key <string> (default cookie)
 
 
-    - connection api token auth-request-x-header-params token-header-value <string> (default JSESSIONID=%s)
+    - api token auth-request-x-header-params token-header-value <string> (default JSESSIONID=%s)
 
 
-    - connection api token cache <true|false> (default true)
+    - api token cache <true|false> (default true)
 
       Disable/Enable API token caching.
 
 
-    - connection api token use-refresh-token <true|false> (default true)
+    - api token use-refresh-token <true|false> (default true)
 
       Disable/Enable refresh_token usage.
 
@@ -420,7 +420,7 @@
 ## 2.1. ned-settings etsi-sol003 connection api sync model
 ----------------------------------------------------------
 
-    - connection api sync model <name> <is-syncable> <sync-disabled> <sync-gracefully> <excluded> <no-addons> <sync-vnfc>
+    - api sync model <name> <is-syncable> <sync-disabled> <sync-gracefully> <excluded> <no-addons> <sync-vnfc>
 
       - name <enum>
 
@@ -489,7 +489,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -502,7 +502,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default true)
+    - java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -511,7 +511,7 @@
 ------------------------------------
 
 
-    - device model <enum> (default default-sol3)
+    - model <enum> (default default-sol3)
 
       default-sol3  - default-sol3.
 
@@ -526,32 +526,32 @@
 ----------------------------------
 
 
-    - flow vnf-instance instantiate auto <true|false> (default false)
+    - vnf-instance instantiate auto <true|false> (default false)
 
       Enable/Disable Instance instantiation after creation.
 
 
-    - flow vnf-instance terminate auto <true|false> (default false)
+    - vnf-instance terminate auto <true|false> (default false)
 
       Enable/Disable Instance termination before deletion.
 
 
-    - flow ns-instance instantiate auto <true|false> (default true)
+    - ns-instance instantiate auto <true|false> (default true)
 
       Enable/Disable Instance instantiation after creation.
 
 
-    - flow ns-instance terminate auto <true|false> (default true)
+    - ns-instance terminate auto <true|false> (default true)
 
       Enable/Disable Instance termination before deletion.
 
 
-    - flow subscription trace <true|false> (default false)
+    - subscription trace <true|false> (default false)
 
       Enable/Disable Subscription request tracing.
 
 
-    - flow subscription auth fallback <true|false> (default false)
+    - subscription auth fallback <true|false> (default false)
 
       Enable/Disable Subscription Authentication fallback to default
       device username/password
@@ -563,22 +563,22 @@
   Contains settings used for debugging (intended for NED developers).
 
 
-    - developer trace-enable <true|false> (default false)
+    - trace-enable <true|false> (default false)
 
       Enable developer tracing. WARNING: may choke NSO with large commits|systems.
 
 
-    - developer trace-connection <true|false> (default false)
+    - trace-connection <true|false> (default false)
 
       Enable connection tracing. WARNING: may choke NSO with IPC messages.
 
 
-    - developer trace-timestamp <true|false> (default false)
+    - trace-timestamp <true|false> (default false)
 
       Add timestamp from NED instance in trace messages for debug purpose.
 
 
-    - developer progress-verbosity <enum> (default disabled)
+    - progress-verbosity <enum> (default disabled)
 
       Maximum NED verbosity level which will get written in devel.log
       file
@@ -594,17 +594,17 @@
       debug         - debug.
 
 
-    - developer platform model <string>
+    - platform model <string>
 
       Override device model name/number.
 
 
-    - developer platform name <string>
+    - platform name <string>
 
       Override device name.
 
 
-    - developer platform version <string>
+    - platform version <string>
 
       Override device version.
 
