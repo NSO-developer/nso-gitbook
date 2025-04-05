@@ -66,22 +66,22 @@
 ----------------------------------------
 
 
-    - checkpoint-gaiaos_rest log-verbose <true|false> (default false)
+    - log-verbose <true|false> (default false)
 
       [DEPRECATED] Enabled extra verbose logging in NED (for debugging).
 
 
-    - checkpoint-gaiaos_rest use-mgmt-api <true|false> (default false)
+    - use-mgmt-api <true|false> (default false)
 
       Specify if Management REST API configuration should be used.
 
 
-    - checkpoint-gaiaos_rest use-rest-configuration <true|false> (default true)
+    - use-rest-configuration <true|false> (default true)
 
       Specify if REST configuration should be used.
 
 
-    - checkpoint-gaiaos_rest use-movable-nat-rules <true|false> (default false)
+    - use-movable-nat-rules <true|false> (default false)
 
       Enable using movable-nat-rules.
 
@@ -97,12 +97,12 @@
       }
 
 
-    - checkpoint-gaiaos_rest rest-show-limit <uint32> (default 500)
+    - rest-show-limit <uint32> (default 500)
 
       [DEPRECATED] Use rest-show-limits.
 
 
-    - checkpoint-gaiaos_rest clear-sessions <true|false> (default false)
+    - clear-sessions <true|false> (default false)
 
       Specify if stale sessions should be cleared before device write.
 
@@ -113,7 +113,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -126,7 +126,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default true)
+    - java <true|false> (default true)
 
       Toggle wether logs should be added to ncs-java-vm.log.
 
@@ -137,7 +137,7 @@
   Read from device ned-settings.
 
 
-    - read parallel-api-calls <enum> (default disable)
+    - parallel-api-calls <enum> (default disable)
 
       Enable/Disable parallel api calls invocation using Threads during sync-from.
 
@@ -146,13 +146,13 @@
       enable   - enable.
 
 
-    - read transaction-id-provisional <true|false> (default true)
+    - transaction-id-provisional <true|false> (default true)
 
       Enable/Disable use of new NSO feature to set provisional transaction-id in show() to save a
       call to getTransId() with sync-from.
 
 
-    - read throw-on-http-fivehundred-codes <true|false> (default true)
+    - throw-on-http-fivehundred-codes <true|false> (default true)
 
       When a REST API call fails with a 5XX HTTP Status code during sync-from the NED will throw an error instead of just logging it.
       Note: Disabling this ned-setting is not recommended as it can lead to config diff issues.
@@ -164,12 +164,12 @@
   Domain settings for multi-domain.
 
 
-    - domain name <string>
+    - name <string>
 
       Specify the domain to log in to.
 
 
-    - domain local-domain-config-only <true|false> (default false)
+    - local-domain-config-only <true|false> (default false)
 
       Only store local domain config.
 
@@ -180,32 +180,32 @@
   Control the usage of config mode configurations.
 
 
-    - config-mode-config use-config-mode-configuration <true|false> (default false)
+    - use-config-mode-configuration <true|false> (default false)
 
       Specify if config mode configuration should be used.
 
 
-    - config-mode-config is-gateway-device <true|false> (default false)
+    - is-gateway-device <true|false> (default false)
 
       Specify if this device is a gateway device.
 
 
-    - config-mode-config expert-mode-password <string>
+    - expert-mode-password <string>
 
       Specify the expert mode password.
 
 
-    - config-mode-config save-config <true|false> (default false)
+    - save-config <true|false> (default false)
 
       Specify if save config should be issued after every transaction.
 
 
-    - config-mode-config clienv-rows-all-config <uint8> (default 0)
+    - clienv-rows-all-config <uint8> (default 0)
 
       deprecated.
 
 
-    - config-mode-config ospf2-instance <string>
+    - ospf2-instance <string>
 
       Configuring accept|restrict-all-ipv4
       On the device one can configure an inbound-route-filter with either
@@ -229,7 +229,7 @@
       set inbound-route-filter ospf2 rank default
 
 
-    - config-mode-config use-expert-mode <true|false> (default false)
+    - use-expert-mode <true|false> (default false)
 
       Specify if expert mode should be used as standard mode.
 
@@ -239,7 +239,7 @@
 
   Specify what config line the NED should not send to the device.
 
-    - config-mode-config block-cli-line <name>
+    - block-cli-line <name>
 
       - name <string>
 
@@ -252,7 +252,7 @@
   Exclude config to be loaded into the NED. Only supports the exclusion of
   /config_mode_config/rba/role today.
 
-    - config-mode-config exclude-load-config <config-component> <config-name>
+    - exclude-load-config <config-component> <config-name>
 
       - config-component <string>
 
@@ -273,7 +273,7 @@
   set net-access telnet on
   If a needed command is not supported then the NED can be enhanced to support it.
 
-    - config-mode-config special-prompt-handling <command>
+    - special-prompt-handling <command>
 
       - command <string>
 
@@ -286,33 +286,33 @@
   Per device connection configuration.
 
 
-    - connection hostname-verification <true|false> (default true)
+    - hostname-verification <true|false> (default true)
 
       deprecated.
 
 
-    - connection rest-port <uint16> (default 443)
+    - rest-port <uint16> (default 443)
 
       Port number for the REST API.
 
 
-    - connection auth enter-last-published-session <true|false> (default false)
+    - auth enter-last-published-session <true|false> (default false)
 
       Login to last published session when you don't need to make any changes or updates.
 
 
-    - connection auth check <true|false> (default true)
+    - auth check <true|false> (default true)
 
       Check and authenticate on 401 response.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
@@ -327,7 +327,7 @@
   For example: Package can contain access-layer, access-layer can contain service-tcp but service-tcp cannot contain any of the other objects.
   Therefor we set service-tcp first, then access-layer and finally package.
 
-    - checkpoint-gaiaos_rest fetch-REST-config <name>
+    - fetch-REST-config <name>
 
       - name <string>
 
@@ -339,7 +339,7 @@
 
   Specify what nat-rule position commands the NED will not send.
 
-    - checkpoint-gaiaos_rest block-nat-rule-positions <name>
+    - block-nat-rule-positions <name>
 
       - name <string>
 
@@ -352,7 +352,7 @@
 
   Specify the rest path and body to be blocked.
 
-    - checkpoint-gaiaos_rest block-rest-call-body <path> <regex>
+    - block-rest-call-body <path> <regex>
 
       - path <string>
 
@@ -369,7 +369,7 @@
   Contains flags which updates extisting NED functionality.
 
 
-    - functionality-update access-rule-naming <true|false> (default false)
+    - access-rule-naming <true|false> (default false)
 
       Allows no, unique, or duplicated name for /access-layer/access-rule.
 
@@ -407,12 +407,12 @@
   Contains flags which modifies the transaction id calculations.
 
 
-    - transaction-id use-show-changes <true|false> (default false)
+    - use-show-changes <true|false> (default false)
 
       Specify if show-changes should be used for checking if the ned is in sync.
 
 
-    - transaction-id use-to-session <true|false> (default true)
+    - use-to-session <true|false> (default true)
 
       Specify if show-changes should use to-session parameter.
 
@@ -423,17 +423,17 @@
   Specify how many objects each rest call shall fetch.
 
 
-    - rest-show-limits default <uint16> (default 500)
+    - default <uint16> (default 500)
 
 
-    - rest-show-limits access-rulebase <uint16> (default 150)
+    - access-rulebase <uint16> (default 150)
 
 
 # 13. ned-settings checkpoint-gaiaos_rest rest-show-body-params
 ---------------------------------------------------------------
 
 
-    - rest-show-body-params dereference-group-members <true|false> (default true)
+    - dereference-group-members <true|false> (default true)
 
       Indicates whether to dereference "members" field by details level for every object in reply.
 
@@ -444,33 +444,33 @@
   Developer settings.
 
 
-    - developer-settings publish <true|false> (default true)
+    - publish <true|false> (default true)
 
       Specify if publish shall be issued after every REST commit.
 
 
-    - developer-settings sleep-after-publish <uint16> (default 0)
+    - sleep-after-publish <uint16> (default 0)
 
       Specify how long in seconds the NED should sleep after mgmt publish.
 
 
-    - developer-settings polling-interval <uint16> (default 0)
+    - polling-interval <uint16> (default 0)
 
       Configure in seconds how long the NED should wait between show-task calls after publish.
       Stops when status is succeeded or progress-percentage is 100
 
 
-    - developer-settings polling-timeout <uint16> (default 30)
+    - polling-timeout <uint16> (default 30)
 
       Configure the polling timeout(seconds).
 
 
-    - developer-settings send-REST-rollbacks <true|false> (default false)
+    - send-REST-rollbacks <true|false> (default false)
 
       [DEPRECATED].
 
 
-    - developer-settings cluster-member-interface-filter <true|false> (default false)
+    - cluster-member-interface-filter <true|false> (default false)
 
       Enable the filtering of /simple-cluster/cluster-members/interfaces.
       Occasionally, error in the device's response has been encountered when set to true.
@@ -979,7 +979,7 @@
 
   Specify what device CLI errors the NED should ignore.
 
-    - developer-settings ignore-device-warnings <ignore-warning>
+    - ignore-device-warnings <ignore-warning>
 
       - ignore-warning <string>
 
@@ -991,7 +991,7 @@
 
   Specify what additional key/value the request body shall contain.
 
-    - developer-settings request-body-additions <key> <operation> <object> <value>
+    - request-body-additions <key> <operation> <object> <value>
 
       - key <string>
 
@@ -1022,7 +1022,7 @@
   Contains settings used for debugging (intended for NED developers).
 
 
-    - developer progress-verbosity <enum> (default very-verbose)
+    - progress-verbosity <enum> (default very-verbose)
 
       Maximum NED verbosity level which will be reported.
 
@@ -1037,22 +1037,22 @@
       debug         - debug.
 
 
-    - developer trace-enable <true|false> (default false)
+    - trace-enable <true|false> (default false)
 
       [DEPRECATED] Enable developer tracing. WARNING: may choke NSO with large commits|systems.
 
 
-    - developer platform model <string>
+    - platform model <string>
 
       Override device model name/number.
 
 
-    - developer platform name <string>
+    - platform name <string>
 
       Override device name.
 
 
-    - developer platform version <string>
+    - platform version <string>
 
       Override device version.
 
@@ -1063,7 +1063,7 @@
   Configure the usage of db_edit.
 
 
-    - db-edit-config use-db-edit-configuration <true|false> (default false)
+    - use-db-edit-configuration <true|false> (default false)
 
       Specifies whether db_edit configuration should be used. Requires expert password
       to be set.
@@ -1076,18 +1076,18 @@
 ------------------------------------------------------
 
 
-    - vsx-settings use-vsx-provisioning-tool <true|false> (default false)
+    - use-vsx-provisioning-tool <true|false> (default false)
 
       Specify if vsx_provisioning_tool should be used.
 
 
-    - vsx-settings auth-group-credentials <true|false> (default false)
+    - auth-group-credentials <true|false> (default false)
 
       Specify if the credentials referred to in
       devices device DEVICE-NAME authgroup should be used.
 
 
-    - vsx-settings trace-vsx-provisioning-tool <true|false> (default false)
+    - trace-vsx-provisioning-tool <true|false> (default false)
 
       Specify if vsx_provisiong tool commands which include username/password should be traced.
 
@@ -1095,7 +1095,7 @@
 ## 17.1. ned-settings checkpoint-gaiaos_rest vsx-settings vsx-credentials
 -------------------------------------------------------------------------
 
-    - vsx-settings vsx-credentials <ip> <user> <password>
+    - vsx-credentials <ip> <user> <password>
 
       - ip <string>
 
@@ -1108,25 +1108,25 @@
 ----------------------------------------------
 
 
-    - mgmt api address default <string>
+    - api address default <string>
 
 
-    - mgmt api base-url <string> (default /web_api)
+    - api base-url <string> (default /web_api)
 
       API base URL for device REST API.
 
 
-    - mgmt api auth domain name <string>
+    - api auth domain name <string>
 
       Use domain to login to specific domain. Domain can be identified by name or UID.
 
 
-    - mgmt api auth enter-last-published-session <true|false> (default false)
+    - api auth enter-last-published-session <true|false> (default false)
 
       Login to the last published session. Such login is done with the Read Only permissions.
 
 
-    - mgmt api sync enabled <enum>
+    - api sync enabled <enum>
 
       Objects to be synced.
 
@@ -1175,7 +1175,7 @@
       nat-rule                   - nat-rule.
 
 
-    - mgmt api sync disabled <enum>
+    - api sync disabled <enum>
 
       Objects not to be synced.
 
@@ -1224,31 +1224,31 @@
       nat-rule                   - nat-rule.
 
 
-    - mgmt api config object defaults is-syncable <true|false> (default true)
+    - api config object defaults is-syncable <true|false> (default true)
 
 
-    - mgmt api config object defaults request list limit <uint16> (default 500)
+    - api config object defaults request list limit <uint16> (default 500)
 
 
-    - mgmt api config object defaults request list parallel-api-calls <true|false> (default true)
+    - api config object defaults request list parallel-api-calls <true|false> (default true)
 
       Enable/Disable parallel api calls invocation.
 
 
-    - mgmt api config session check-alive <true|false> (default true)
+    - api config session check-alive <true|false> (default true)
 
 
-    - mgmt api config session keep-alive <true|false> (default true)
+    - api config session keep-alive <true|false> (default true)
 
 
-    - mgmt conn ssl accept-any <true|false> (default true)
+    - conn ssl accept-any <true|false> (default true)
 
       Accept any SSL certificate presented by the device. Warning!
       This enables Man in the Middle attacks and should only be used
       for testing and troubleshooting.
 
 
-    - mgmt conn ssl certificate <binary>
+    - conn ssl certificate <binary>
 
       SSL certificate stored in DER format but since it is entered
       as Base64 it is very similar to PEM but without banners like "-----
@@ -1260,7 +1260,7 @@
 ## 18.1. ned-settings checkpoint-gaiaos_rest mgmt api sync object
 -----------------------------------------------------------------
 
-    - mgmt api sync object <name> <is-syncable>
+    - api sync object <name> <is-syncable>
 
       - name <enum>
 

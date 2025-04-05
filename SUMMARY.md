@@ -65,7 +65,7 @@
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
-  * [README v1.11.3 2024-09-06](checkpoint-gaiaos_rest/README.md)
+  * [README v1.11.4 2025-04-04](checkpoint-gaiaos_rest/README.md)
 
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
@@ -229,7 +229,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.7 2025-03-14](juniper-junos/README.md)
+  * [README v4.18.8 2025-04-04](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
