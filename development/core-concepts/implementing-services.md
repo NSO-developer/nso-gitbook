@@ -341,7 +341,7 @@ Experienced NSO developers naturally combine the two approaches, without much th
 
 For the following example, suppose you want the service to configure IP addressing on an ethernet interface. You know what configuration is required to do this manually for a particular ethernet interface. For a Cisco IOS-based device you would use the commands, such as:
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# devices device c1 config
@@ -745,7 +745,7 @@ Reading instance parameters is done with the help of the `service` function para
 
 The way configuration variables are prepared depends on the type of the service. For the interface addressing service with netmask, the netmask must be converted into dot-decimal format:
 
-```
+```java
         long tmp_mask = 0xffffffffL << (32 - cidr_mask);
         String quad_mask =
             ((tmp_mask >> 24) & 0xff) + "." +
@@ -756,7 +756,7 @@ The way configuration variables are prepared depends on the type of the service.
 
 The create code applies a template, with only minimal changes to the skeleton-generated sample; the names and values for the `myVars.putQuoted()` function are different since they are specific to this service.
 
-```
+```java
         Template myTemplate = new Template(context, "iface-template");
         TemplateVariables myVars = new TemplateVariables();
         myVars.putQuoted("NETMASK", quad_mask);
@@ -817,7 +817,7 @@ The generally recommended approach is to use either code with templates or templ
 
 Automatic, implicit loops in templates are harder to understand since the syntax looks like the one for normal leafs. A common example is a device definition as a leaf-list in the service YANG model, such as:
 
-```
+```yang
     leaf-list device {
       type leafref {
         path "/ncs:devices/ncs:device/ncs:name";
@@ -1317,7 +1317,7 @@ Unlike configuration data, which always requires a transaction, you can write op
 
 If you avoid transactions and write data directly, you must use the low-level CDB API, which requires manual connection management and does not support Maagic API for data model navigation.
 
-```
+```python
 with contextlib.closing(socket.socket()) as s:
     _ncs.cdb.connect(s, _ncs.cdb.DATA_SOCKET, ip='127.0.0.1', port=_ncs.PORT)
     _ncs.cdb.start_session(s, _ncs.cdb.OPERATIONAL)
@@ -1391,7 +1391,7 @@ Unlike configuration data, which always requires a transaction, you can write op
 
 If you avoid transactions and write data directly, you must use the low-level CDB API, which does not support NAVU for data model navigation.
 
-```
+```java
 int port = NcsMain.getInstance().getNcsPort();
 
 // Ensure socket gets closed on errors, also ending any ongoing session/lock
@@ -1410,7 +1410,7 @@ try (Socket socket = new Socket("localhost", port)) {
 
 The alternative, transaction-based approach uses high-level MAAPI and NAVU objects:
 
-```
+```java
 int port = NcsMain.getInstance().getNcsPort();
 
 // Ensure socket gets closed on errors, also ending any ongoing
@@ -1518,7 +1518,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     Additionally, reloading packages can also supply you with some valuable information. For example, it can tell you that the package requires a higher version of NSO which is specified in the `package-meta-data.xml` file, or about any Python-related syntax errors.
 
-    ```cli
+    ```bash
     admin@ncs# packages reload
     Error: Failed to load NCS package: demo; requires NCS version 6.3
     ```
@@ -1535,7 +1535,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     Last but not least, package reloading also provides some information on the validity of your XML configuration templates based on the NED namespace you are using for a specific part of the configuration, or just general syntactic errors in your template.
 
-    ```cli
+    ```bash
     admin@ncs# packages reload
     reload-result {
         package demo1
@@ -1558,7 +1558,7 @@ You can use these general steps to give you a high-level idea of how to approach
     \
     In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](templates.md#debugging-templates). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](templates.md#ch_templates.multined) when applying different bits of configuration to different versions of devices.
 
-    ```cli
+    ```bash
     admin@ncs# devtools true
     admin@ncs# config
     Entering configuration mode terminal
@@ -1580,7 +1580,7 @@ You can use these general steps to give you a high-level idea of how to approach
     Trace ID can also be provided as a commit parameter in your service code, or as a RESTCONF query parameter. See [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/maapi-commit-parameters) for an example.
 6.  Measuring the time it takes for specific commands to complete can also give you some hints about what is going on. You can do this by using the `timecmd`, which requires the dev tools to be enabled.
 
-    ```cli
+    ```bash
     admin@ncs# devtools true
     admin@ncs(config)# timecmd commit
     Commit complete.
@@ -1591,7 +1591,7 @@ You can use these general steps to give you a high-level idea of how to approach
     Another useful tool to examine how long a specific event or command takes is the progress trace. See how it is used in [Progress Trace](../advanced-development/progress-trace.md).
 7.  Double-check your service points in the model, templates, and in code. Since configuration templates don't get applied if the servicepoint attribute doesn't match the one defined in the service model or are not applied from the callbacks registered to specific service points, make sure they match and that they are not missing. Otherwise, you might notice errors such as the following ones.
 
-    ```cli
+    ```bash
     admin@ncs# packages reload
     reload-result {
         package demo
@@ -1623,7 +1623,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 9.  Trace the southbound communication. If the service instance creation results in a different configuration than would be expected from the NSO point of view, especially with custom NED packages, you can try enabling the southbound tracing (either per device or globally).
 
-    ```cli
+    ```bash
     admin@ncs(config)# devices global-settings trace pretty
     admin@ncs(config)# devices global-settings trace-dir ./my-trace
     admin@ncs(config)# commit

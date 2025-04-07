@@ -4,7 +4,7 @@ description: Configure NSO to receive SNMP notifications.
 
 # SNMP Notification Receiver
 
-NSO can act as an SNMP notification receiver (v1, v2c, v3) for its managed devices. The application can register notification handlers and react to the notifications, for example by mapping SNMP notifications to NSO alarms.
+NSO can act as an SNMP notification receiver (v1, v2c, v3) for its managed devices. The application can register notification handlers and react to the notifications, for example, by mapping SNMP notifications to NSO alarms.
 
 <figure><img src="../../images/snmp-notif.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
 

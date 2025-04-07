@@ -33,35 +33,35 @@ The table below shows the seven different data-related callbacks that could or m
 
 The table below displays the device types:
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td>SNMP, Cisco IOS, NETCONF devices with startup+running.</td><td>Devices that can abort, NETCONF devices without confirmed commit.</td><td>Cisco XR type of devices.</td><td>ConfD, Junos.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td>SNMP, Cisco IOS, NETCONF devices with startup+running.</td><td>Devices that can abort, NETCONF devices without confirmed commit.</td><td>Cisco XR type of devices.</td><td>ConfD, Junos.</td></tr></tbody></table>
 
 **INITIALIZE**: The initialize phase is used to initialize a transaction. For instance, if locking or other transaction preparations are necessary, they should be performed here. This callback is not mandatory to implement if no NED-specific transaction preparations are needed.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>initialize()</code>. NED code shall make the device go into config mode (if applicable) and lock (if applicable).</td><td><code>initialize()</code>. NED code shall start a transaction on the device.</td><td><code>initialize()</code>. NED code shall do the equivalent of configure exclusive.</td><td>Built in, NSO will lock.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>initialize()</code>. NED code shall make the device go into config mode (if applicable) and lock (if applicable).</td><td><code>initialize()</code>. NED code shall start a transaction on the device.</td><td><code>initialize()</code>. NED code shall do the equivalent of configure exclusive.</td><td>Built in, NSO will lock.</td></tr></tbody></table>
 
 **UNINITIALIZE**: If the transaction is not completed and the NED has done INITIALIZE, this method is called to undo the transaction preparations, that is restoring the NED to the state before INITIALIZE. This callback is not mandatory to implement if no NED-specific preparations were performed in INITIALIZE.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>uninitialize()</code>. NED code shall unlock (if applicable).</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td>Built in, NSO will unlock.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>uninitialize()</code>. NED code shall unlock (if applicable).</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td><code>uninitialize()</code>. NED code shall abort the transaction.</td><td>Built in, NSO will unlock.</td></tr></tbody></table>
 
 **PREPARE**: In the prepare phase, the NEDs get exposed to all the changes that are destined for each managed device handled by each NED. It is the responsibility of the NED to determine the outcome here. If the NED replies successfully from the prepare phase, NSO assumes the device will be able to go through with the proposed configuration change.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>prepare(Data)</code>. NED code shall send all data to the device.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td>Built in, NSO will edit-config towards the candidate, validate and commit confirmed with a timeout.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>prepare(Data)</code>. NED code shall send all data to the device.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td><code>prepare(Data)</code>. NED code shall add Data to the transaction and validate.</td><td>Built in, NSO will edit-config towards the candidate, validate and commit confirmed with a timeout.</td></tr></tbody></table>
 
 **ABORT**: If any participants in the transaction reject the proposed changes, all NEDs will be invoked in the `abort()` method for each managed device the NED handles. It is the responsibility of the NED to make sure that whatever was done in the PREPARE phase is undone. For NEDs that indicate as a reply in `newConnection()` that they want the reverse diff, they will get the reverse data as a parameter here.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>abort(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>abort(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td><code>abort(ReverseData | null)</code>. Abort the transaction</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
 
 **COMMIT**: Once all NEDs that get invoked in `commit(Timeout)` reply OK, the transaction is permanently committed to the system. The NED may still reject the change in COMMIT. If any NED rejects the COMMIT, all participants will be invoked in REVERT, NEDs that support confirmed commit with a timeout, Cisco XR may choose to use the provided timeout to make REVERT easy to implement.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>commit(Timeout)</code>. Do nothing</td><td><code>commit(Timeout)</code>. Commit the transaction.</td><td><code>commit(Timeout)</code>. Execute commit confirmed [Timeout] on the device.</td><td>Built in, commit confirmed with the timeout.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>commit(Timeout)</code>. Do nothing</td><td><code>commit(Timeout)</code>. Commit the transaction.</td><td><code>commit(Timeout)</code>. Execute commit confirmed [Timeout] on the device.</td><td>Built in, commit confirmed with the timeout.</td></tr></tbody></table>
 
 **REVERT**: This state is reached if any NED reports failure in the COMMIT phase. Similar to the ABORT state, the reverse diff is supplied to the NED if the NED has asked for that.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code>. discard-changes</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code> Either do the equivalent of copy startup to running, or apply the ReverseData to the device.</td><td><code>revert(ReverseData | null)</code>. discard-changes</td><td>Built in, discard-changes and close.</td></tr></tbody></table>
 
 **PERSIST**: This state is reached at the end of a successful transaction. Here it's the responsibility of the NED to make sure that if the device reboots, the changes are still there.
 
-<table data-full-width="true"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code>. confirm.</td><td>Built in, commit confirm.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Non transactional devices</th><th>Transactional devices</th><th>Transactional devices with confirmed commit</th><th>Fully capable NETCONF server</th></tr></thead><tbody><tr><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code> Either do the equivalent of copy running to startup or nothing.</td><td><code>persist()</code>. confirm.</td><td>Built in, commit confirm.</td></tr></tbody></table>
 
 The following state diagram depicts the different states the NED code goes through in the life of a transaction.
 
@@ -189,7 +189,7 @@ This interface method is invoked by NSO in the NED. The Java code must return wh
 
 The reason for this design is that it is common for many `show` commands to work on for example an entire interface, or some other item in the managed device. Say that the NSO operator (or MAAPI code) invokes:
 
-```
+```bash
 admin@host> show status devices device r1 live-status  \
      interface gigabitEthernet1/1/1 out-octets
 out-octets 340;
@@ -228,19 +228,19 @@ Try setting the leaf to true in NSO and commit. Then compare the configuration:
 $ ncs_cli -C -u admin
 ```
 
-```cli
+```bash
 admin@ncs# config
 ```
 
-```cli
+```bash
 admin@ncs(config)# devices device a0 config aaa enabled true
 ```
 
-```cli
+```bash
 admin@ncs(config)# commit
 ```
 
-```
+```bash
 Commit complete.
 ```
 

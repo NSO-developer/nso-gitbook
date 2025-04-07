@@ -103,7 +103,7 @@ The database is populated with TLS data by configuring the `/tailf-tls:tls/priva
 In the following example, a password-protected private key, the passphrase, a public key certificate, and two CA certificates are configured with the CLI.
 
 {% code title="Populating the Database with TLS data" %}
-```
+```bash
           
 admin@io> configure
 Entering configuration mode private
@@ -168,7 +168,7 @@ Commit complete.
 The SHA256 fingerprints of the public key certificate and the CA certificates can be accessed as operational data. The fingerprint is shown as a hex string. The first octet identifies what hashing algorithm is used, _04_ is SHA256, and the following octets is the actual fingerprint.
 
 {% code title="Show TLS Certificate Fingerprints" %}
-```
+```bash
           
 admin@io> show tls
 tls certificate fingerprint 04:65:8a:9e:36:2c:a7:42:8d:93:50:af:97:08:ff:e6:1b:c5:43:a8:2c:b5:bf:79:eb:be:b4:70:88:96:40:22:fd

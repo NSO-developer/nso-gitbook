@@ -8,7 +8,7 @@ Progress tracing in NSO provides developers with useful information for debuggin
 
 When a transaction or action is applied, NSO emits progress events. These events can be displayed and recorded in a number of different ways. The easiest way is to pipe an action to details in the CLI.
 
-```cli
+```bash
 admin@ncs% commit | details
 Possible completions:
   debug  verbose  very-verbose
@@ -70,7 +70,7 @@ running action /devices/device\[name='ce0'\]/sync-from usid=41 tid=1800 trace-id
 
 ## Configuring Progress Trace <a href="#d5e9484" id="d5e9484"></a>
 
-The pipe details in the CLI are useful during development cycles of for example a service, but not as useful when tracing calls from other northbound interfaces or events in a released running system. Then it's better to configure a progress trace to be outputted to a file or operational data which can be retrieved through a northbound interface.
+The pipe details in the CLI are useful during development cycles of, for example, a service, but not as useful when tracing calls from other northbound interfaces or events in a released running system. Then it's better to configure a progress trace to be outputted to a file or operational data, which can be retrieved through a northbound interface.
 
 ### Unhide Progress Trace <a href="#d5e9487" id="d5e9487"></a>
 
@@ -93,7 +93,7 @@ The top-level container `progress` is by default invisible due to a hidden attri
 
 Progress data can be outputted to a given file. This is useful when the data is to be analyzed in some third-party software like a spreadsheet application.
 
-```cli
+```bash
 admin@ncs% set progress trace test destination file event.csv format csv
 ```
 
@@ -105,19 +105,19 @@ The location of the file is the directory of `/ncs-config/logs/progress-trace/di
 
 When the data is to be retrieved through a northbound interface, it is more useful to output the progress events as operational data.
 
-```cli
+```bash
 admin@ncs% set progress trace test destination oper-data
 ```
 
 This will log non-persistent operational data to the `/progress:progress/trace/event` list. As this list might grow rapidly there is a maximum size of it (defaults to 1000 entries). When the maximum size is reached, the oldest list entry is purged.
 
-```cli
+```bash
 admin@ncs% set progress trace test max-size 2000
 ```
 
 Using the `/progress:progress/trace/purge` action the event list can be purged.
 
-```cli
+```bash
 admin# request progress trace test purge
 ```
 
@@ -137,7 +137,7 @@ Additional debug tracing can be turned on for various parts. These are conscious
 
 By default, all transaction and action events with the given verbosity level will be logged. To get a more selective choice of events, filters can be used.
 
-```cli
+```bash
 admin@ncs% show progress trace filter
 Possible completions:
   all-devices  - Only log events for devices.
@@ -151,7 +151,7 @@ Possible completions:
 
 The context filter can be used to only log events that originate through a specific northbound interface. The context is either one of `netconf`, `cli`, `webui`, `snmp`, `rest`, `system` or it can be any other context string defined through the use of MAAPI.
 
-```cli
+```bash
 admin@ncs% set progress trace test filter context netconf
 ```
 
@@ -240,7 +240,7 @@ To set up the trace context for OpenTelemetry:
 2. Create an OpenTelemetry span with the `span_id`.
 3. Set the OpenTelemetry span as the current span for the OpenTelemetry `Context` of the execution unit.
 
-The following listing shows the code necessary to achieve this in Python. It requires the _opentelemetry-api_ package.
+The following listing shows the code necessary to achieve this in Python. It requires the `opentelemetry-api` package.
 
 ```python
     @Service.create
@@ -267,9 +267,9 @@ The following listing shows the code necessary to achieve this in Python. It req
             ... # code with OpenTelemetry tracing
 ```
 
-The code uses OpenTelemetry tracing from the service create callback, however, you can use the same approach in any Maapi session.
+The code uses OpenTelemetry tracing from the service create callback; however, you can use the same approach in any Maapi session.
 
-For example, if your code uses Python _requests_ package, you can easily instrument it by adding an additional _opentelemetry-instrumentation-requests_ package:
+For example, if your code uses Python `requests` package, you can easily instrument it by adding an additional `opentelemetry.instrumentation.requests` package:
 
 ```python
 import requests
@@ -278,7 +278,7 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 RequestsInstrumentor().instrument()
 ```
 
-If you now invoke _requests_ from service code as shown in the following snippet, it will produce OpenTelemetry spans, where top-most spans have parent span id set to the service span produced by NSO, as well as a matching trace ID.
+If you now invoke `requests` from service code as shown in the following snippet, it will produce OpenTelemetry spans, where top-most spans have parent `span-id` set to the service span produced by NSO, as well as a matching trace ID.
 
 ```python
             ... # code with OpenTelemetry tracing

@@ -31,7 +31,7 @@ The YANG models describing all configuration capabilities of the SNMP agent resi
 
 An example session configuring the SNMP agent through the CLI may look like:
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# snmp agent udp-port 3457
@@ -123,7 +123,7 @@ Note, that this only relates to initialization the first time NSO is started. On
 
 ## Alarm MIB <a href="#d5e2482" id="d5e2482"></a>
 
-The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines a table of alarms and SNMP alarm notifications corresponding to alarm state changes. Based on the alarm model in NSO (see [NSO Alarms](../../../administration/management/system-management/README.md#nso-alarms)), the notifications as well as the alarm table contain the parameters that are required for alarm standards compliance (X.733 and 3GPP). The MIB files are located in `$NCS_DIR/src/ncs/snmp/mibs`.
+The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines a table of alarms and SNMP alarm notifications corresponding to alarm state changes. Based on the alarm model in NSO (see [NSO Alarms](../../../administration/management/system-management/#nso-alarms)), the notifications as well as the alarm table contain the parameters that are required for alarm standards compliance (X.733 and 3GPP). The MIB files are located in `$NCS_DIR/src/ncs/snmp/mibs`.
 
 * **TAILF-TOP-MIB.mib**\
   **T**he tail-f enterprise OID.

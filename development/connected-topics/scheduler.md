@@ -12,7 +12,7 @@ A standard Vixie Cron expression is used to represent the periodicity in which t
 
 Example: To schedule a task to run `sync-from` at 2 AM on the 1st of every month, we do:
 
-```cli
+```bash
 admin(config)# scheduler task sync schedule "0 2 1 * *" \
 action-name sync-from action-node /devices
 ```
@@ -25,7 +25,7 @@ If the action node instance is given as an XPath 1.0 expression, the expression 
 
 Optionally, action parameters can be configured in XML format to be passed to the action during invocation.
 
-```
+```bash
 admin(config-task-sync)# action-params "<device>ce0</device><device>ce1</device>"
 admin(config)# commit
 ```
@@ -39,7 +39,7 @@ next-run-time [ 2017-11-01 02:00:00+00:00 2017-12-01 02:00:00+00:00 2018-01-01 0
 
 You could also see if the task is running or not:
 
-```cli
+```bash
 admin# show scheduler task sync is-running
 is-running false
 ```
@@ -73,7 +73,7 @@ The following list describes the legal special characters and how you can use th
 
 The scheduler can also be used to configure non-recurring tasks that will run at a particular time.
 
-```cli
+```bash
 admin(config)# scheduler task my-compliance-report time 2017-11-01T02:00:00+01:00 \
 action-name check-compliance action-node /reports
 ```
@@ -84,7 +84,7 @@ A non-recurring task will by default be removed when it has finished executing. 
 
 In an HA cluster, a scheduled task will by default be run on the primary HA node. By configuring the `ha-mode` leaf a task can be scheduled to run on nodes with a particular HA mode, for example, scheduling a read-only action on the secondary nodes. More specifically, a task can be configured with the `ha-node-id` to only run on a certain node. These settings will not have any effect on a standalone node.
 
-```cli
+```bash
 admin(config)# scheduler task my-compliance-report schedule "0 2 1 * *" \
 ha-mode secondary ha-node-id secondary-node1 \
 action-name check-compliance action-node /reports
@@ -102,7 +102,7 @@ Troubleshooting information is covered below.
 
 To find out whether a scheduled task has run successfully or not, the easiest way is to view the history log of the scheduler. It will display the latest runs of the scheduled task.
 
-```cli
+```bash
 admin# show scheduler task sync history | notab
 history history-entry 2017-11-01T02:00:00.55003+00:00 0
  duration  0.15
@@ -146,12 +146,12 @@ Error information is written to the development log. The development log is mean
 
 While investigating a failure with a scheduled task or performing maintenance on the system, like upgrading, it might be useful to suspend the scheduler temporarily.
 
-```cli
+```bash
 admin# scheduler suspend
 ```
 
 When ready, the scheduler can be resumed.
 
-```cli
+```bash
 admin# scheduler resume
 ```
