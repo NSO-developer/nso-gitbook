@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.23.6 2025-03-27](a10-acos/README.md)
+  * [README v3.24 2025-04-07](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -133,7 +133,7 @@
   * [README v1.0.1 2025-02-24](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v24.4.1 2025-01-24](cisco-iosxr_netconf/README.md)
+  * [README v25.1.1 2025-04-07](cisco-iosxr_netconf/README.md)
 
 * cisco-ise
   * [README-ned-settings](cisco-ise/README-ned-settings.md)
@@ -177,7 +177,7 @@
 
 * etsi-sol003
   * [README-ned-settings](etsi-sol003/README-ned-settings.md)
-  * [README v1.13.19 2024-08-30](etsi-sol003/README.md)
+  * [README v1.13.20 2025-04-07](etsi-sol003/README.md)
 
 * extreme-xos
   * [README-ned-settings](extreme-xos/README-ned-settings.md)
@@ -342,5 +342,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.2.4 2025-02-10](zte-zxros/README.md)
+  * [README v1.2.5 2025-04-07](zte-zxros/README.md)
 

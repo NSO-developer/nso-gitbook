@@ -54,7 +54,7 @@
 ---------------------------
 
 
-    - zte-zxros extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-nx NED handle CLI parsing (i.e. transform the running-config from the device to
       the model based config tree).
@@ -77,7 +77,7 @@
   Configure NED to access device via a proxy.
 
 
-    - proxy remote-connection <enum>
+    - remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -88,32 +88,32 @@
       serial  - serial.
 
 
-    - proxy remote-address <union>
+    - remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - proxy remote-port <uint16>
+    - remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - proxy remote-name <string>
+    - remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - proxy remote-password <string>
+    - remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - proxy proxy-prompt <string>
+    - proxy-prompt <string>
 
       Prompt pattern on the proxy host before connecting to device.
 
 
-    - proxy remote-ssh-args <string>
+    - remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection.
 
@@ -124,7 +124,7 @@
   Configure NED to access device via a second proxy.
 
 
-    - proxy-2 remote-connection <enum>
+    - remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -135,32 +135,32 @@
       serial  - serial.
 
 
-    - proxy-2 remote-address <union>
+    - remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - proxy-2 remote-port <uint16>
+    - remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - proxy-2 remote-name <string>
+    - remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - proxy-2 remote-password <string>
+    - remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - proxy-2 proxy-prompt <string>
+    - proxy-prompt <string>
 
       Prompt pattern on the proxy host before connecting to device.
 
 
-    - proxy-2 remote-ssh-args <string>
+    - remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection.
 
@@ -171,7 +171,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - connection ssh client <enum>
+    - ssh client <enum>
 
       Configure the SSH client to use. Relevant only when using the
       NED with NSO 5.6 or later.
@@ -183,64 +183,64 @@
                  is the default when using the NED on NSO 5.6 or later.
 
 
-    - connection ssh host-key known-hosts-file <string>
+    - ssh host-key known-hosts-file <string>
 
       Path to openssh formatted 'known_hosts' file containing valid
       host keys.
 
 
-    - connection ssh host-key public-key-file <string>
+    - ssh host-key public-key-file <string>
 
       Path to openssh formatted public (.pub) host key file.
 
 
-    - connection ssh auth-key private-key-file <string>
+    - ssh auth-key private-key-file <string>
 
       Path to openssh formatted private key file.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connection character-set <string> (default UTF-8)
+    - character-set <string> (default UTF-8)
 
       Character set to use for telnet session.
 
 
-    - connection commands meta-data <WORD>
+    - commands meta-data <WORD>
 
       Change the default connector. Default 'ned-connector.json'.
 
 
-    - connection commands initial-action <union>
+    - commands initial-action <union>
 
       Interactor action used to initialize a connection.
 
 
-    - connection commands awaken-console <string>
+    - commands awaken-console <string>
 
       Command sent to awaken console during connection.
 
 
-    - connection commands send-delay <uint32> (default 0)
+    - commands send-delay <uint32> (default 0)
 
       Delay in ms before sending a command during connection.
 
 
-    - connection commands expect-timeout <uint32> (default 60000)
+    - commands expect-timeout <uint32> (default 60000)
 
       Default limit in ms for waiting for command response.
 
 
-    - connection prompts oper <string>
+    - prompts oper <string>
 
       Default (operational) device prompt.
 
@@ -251,7 +251,7 @@
   Transaction specific settings.
 
 
-    - transaction trans-id-method <enum> (default modeled-config)
+    - trans-id-method <enum> (default modeled-config)
 
       Select the method for calculating transaction-id.
 
@@ -270,52 +270,52 @@
   Settings used while interacting with a device.
 
 
-    - console ignore-errors <true|false>
+    - ignore-errors <true|false>
 
       Flag indicating if errors should be ignored.
 
 
-    - console ignore-warnings <true|false>
+    - ignore-warnings <true|false>
 
       Flag indicating if warnings should be ignored.
 
 
-    - console ignore-retries <true|false>
+    - ignore-retries <true|false>
 
       Flag indicating if retries should be ignored.
 
 
-    - console max-retries <uint16>
+    - max-retries <uint16>
 
       Maximum number of retries of a command.
 
 
-    - console retry-delay <uint16>
+    - retry-delay <uint16>
 
       Number of ms before retrying a command.
 
 
-    - console send-delay <uint32>
+    - send-delay <uint32>
 
       Enable delay before sending commands.
 
 
-    - console expect-timeout <uint32>
+    - expect-timeout <uint32>
 
       Set default timeout for sending commands.
 
 
-    - console chunk-size <uint8>
+    - chunk-size <uint8>
 
       Enable executing commands in chunks.
 
 
-    - console line-feed <string>
+    - line-feed <string>
 
       Overwrites default line-feed character.
 
 
-    - console obfuscate-secret <true|false>
+    - obfuscate-secret <true|false>
 
       Secrets will be obfuscated in trace & log files.
 
@@ -326,7 +326,7 @@
   Device warning regex entry list. Use to ignore warnings/errors
   etc.
 
-    - console extension warning <warning>
+    - extension warning <warning>
 
       - warning <WORD>
 
@@ -338,7 +338,7 @@
 
   Extend available commands to send.
 
-    - console extension command <name> <data>
+    - extension command <name> <data>
 
       - name <string>
 
@@ -354,7 +354,7 @@
 
   Extend available patterns to expect.
 
-    - console extension pattern <name> <data>
+    - extension pattern <name> <data>
 
       - name <string>
 
@@ -370,7 +370,7 @@
 
   Extend available actions to perform.
 
-    - console extension action <name> <init> <flush>
+    - extension action <name> <init> <flush>
 
       - name <string>
 
@@ -429,7 +429,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -442,7 +442,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default true)
+    - java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -453,22 +453,22 @@
   Contains settings used for debugging (intended for NED developers).
 
 
-    - developer trace-enable <true|false> (default false)
+    - trace-enable <true|false> (default false)
 
       Enable developer tracing. WARNING: may choke NSO with large commits|systems.
 
 
-    - developer trace-connection <true|false> (default false)
+    - trace-connection <true|false> (default false)
 
       Enable connection tracing. WARNING: may choke NSO with IPC messages.
 
 
-    - developer trace-timestamp <true|false> (default false)
+    - trace-timestamp <true|false> (default false)
 
       Add timestamp from NED instance in trace messages for debug purpose.
 
 
-    - developer progress-verbosity <enum> (default debug)
+    - progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level which will get written in devel.log
       file
@@ -484,17 +484,17 @@
       debug         - debug.
 
 
-    - developer platform model <string>
+    - platform model <string>
 
       Override device model name/number.
 
 
-    - developer platform name <string>
+    - platform name <string>
 
       Override device name.
 
 
-    - developer platform version <string>
+    - platform version <string>
 
       Override device version.
 
