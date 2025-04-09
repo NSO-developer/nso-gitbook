@@ -63,7 +63,7 @@ To reload the packages:
 
 To uninstall a package:
 
-* Click the **Uninstall** button in the package details view, or click the more options button (...) in the packages list.  
+* Click the **Uninstall** button in the package details view, or use the more options <img src="../../images/more-options.png" alt="" data-size="line"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
