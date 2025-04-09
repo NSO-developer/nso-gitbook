@@ -123,16 +123,17 @@ Moreover, in case of conflicts during service mapping, NSO optimizes the process
 
 For services, retries can be configured further or even disabled under `/services/global-settings`. You can also find the service conflicts NSO knows about by running the `show services scheduling conflict` command. For example:
 
-<pre><code><strong>admin@ncs# unhide debug
-</strong><strong>admin@ncs# show services scheduling conflict | notab
-</strong>services scheduling conflict mysvc-servicepoint mysvc-servicepoint
+```
+admin@ncs# unhide debug
+admin@ncs# show services scheduling conflict | notab
+services scheduling conflict mysvc-servicepoint mysvc-servicepoint
  type           dynamic
  first-seen     2022-08-27T17:15:10+00:00
  inactive-after 2022-08-27T17:15:09+00:00
  expires-after  2022-08-27T18:05:09+00:00
  ttl-multiplier 1
 admin@ncs#
-</code></pre>
+```
 
 Since a given service may not always conflict and can evolve over time, NSO reverts to default scheduling after expiry time, unless new conflicts occur.
 

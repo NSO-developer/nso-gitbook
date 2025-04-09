@@ -1032,7 +1032,7 @@ cli {
 
 NSO template engine supports a number of XML processing instructions to allow more dynamic templates:
 
-<table data-full-width="true"><thead><tr><th width="418" valign="top">Syntax</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><pre><code>    &#x3C;?set v = value?>
+<table data-full-width="false"><thead><tr><th valign="top">Syntax</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><pre><code>    &#x3C;?set v = value?>
 </code></pre></td><td valign="top">Allows you to assign a new variable or manipulate the existing value of a variable <code>v</code>. If used to create a new variable, the scope of visibility of this variable is limited to the parent tag of the processing instruction or the current processing instruction block. Specifically, if a new variable is defined inside a loop, then it is discarded at the end of each iteration.</td></tr><tr><td valign="top"><pre><code>    &#x3C;?if {expression}?>
         ...
     &#x3C;?elif {expression}?>

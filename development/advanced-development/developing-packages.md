@@ -724,13 +724,13 @@ First, we configure NSO to not start the NSO Java VM at all by adding the follow
 
 Now, after a restart or a configuration reload, no Java code is running, if we do:
 
-```
+```bash
   admin@iron> show status packages
 ```
 
 We will see that the `oper-status` of the packages is `java-uninitialized`. We can also do:
 
-```
+```bash
  admin@iron> show status java-vm
  start-status auto-start-not-enabled;
  status       not-connected;
@@ -747,7 +747,7 @@ $ ncs-start-java-vm
 
 So, now we're in a position where we can manually stop the NSO Java VM, recompile the Java code, and restart the NSO Java VM. This development cycle works fine. However, even though we're running the NSO Java VM standalone, we can still redeploy packages from the NSO CLI to reload and restart just our Java code, (no need to restart the NSO Java VM).
 
-```cli
+```bash
    admin@iron% request packages package stats redeploy
    result true
    [ok][2012-07-12 10:59:01]

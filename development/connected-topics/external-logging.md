@@ -31,7 +31,7 @@ To support the debugging of the external log command behavior, a separate log fi
 </ext-log>
 ```
 
-By default, NED trace output is written to the file preserving backward compatibility. To write NED trace logs to a file for all but the device `test`, which will use external log processing, the following configuration can be entered in the CLI:
+By default, NED trace output is written to the file, preserving backward compatibility. To write NED trace logs to a file for all but the device `test`, which will use external log processing, the following configuration can be entered in the CLI:
 
 ```bash
 # devices global-settings trace-output file
@@ -44,7 +44,7 @@ When setting both `external` and `file` bits without setting `/ncs-config/logs/e
 
 After enabling external log processing, NSO will start one instance of the external command for each configured log destination. Processing of the log data is done by reading from standard input and processing it as required.
 
-The command line arguments provide information about the log that is being processed and in what format the data is sent.
+The command-line arguments provide information about the log that is being processed and in what format the data is sent.
 
 The example below shows how the configured command `./log_processor` would be executed for NETCONF trace data configured to log in raw mode:
 

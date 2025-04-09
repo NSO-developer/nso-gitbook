@@ -10,7 +10,7 @@ Another limitation is that the service mapping code must not produce any side ef
 
 Nano services help you overcome these limitations. They implement a service as several smaller (nano) steps or stages, by using a technique called reactive FASTMAP (RFM), and provide a framework to safely execute actions with side effects. Reactive FASTMAP can also be implemented directly, using the CDB subscribers, but nano services offer a more streamlined and robust approach for staged provisioning.
 
-The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services) folder.
+The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services) folder.
 
 ## Basic Concepts <a href="#d5e9577" id="d5e9577"></a>
 
@@ -128,7 +128,7 @@ class NanoServiceCallbacks(ncs.application.NanoService):
 
 The `component` and `state` parameters allow the function to distinguish calls for different callbacks when registered for more than one.
 
-For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks).
+For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano_services.callbacks).
 
 ### Link Plan Outline to Service <a href="#d5e9633" id="d5e9633"></a>
 
@@ -591,7 +591,7 @@ The component reaches the `init` state right away. However, the `vr:configured` 
 
 Provisioning can continue only after the first component, `vr:vrouter`, has executed its `vr:onboarded` post-action. The precondition demonstrates how one component can depend on another component reaching some particular state or successfully executing a post-action.
 
-The `vr:onboarded` post-action performs a **sync-from** command for the new device. After that happens, the `vr:configured` state can push the device configuration according to the service parameters, by using an XML template, `templates/vrouter-configured.xml`. The service simply configures an interface with a VLAN ID and a description.
+The `vr:onboarded` post-action performs a `sync-from` command for the new device. After that happens, the `vr:configured` state can push the device configuration according to the service parameters, by using an XML template, `templates/vrouter-configured.xml`. The service simply configures an interface with a VLAN ID and a description.
 
 Similarly, the `vr:deployed` state has its own precondition, which makes use of the `ncs:any` statement. It specifies either (any) of the two monitor statements will satisfy the precondition.
 
@@ -749,7 +749,7 @@ $ netconf-console create-subscription=service-state-changes
 </notification>
 ```
 
-See [Notification Capability](northbound-apis/#ug.netconf\_agent.notif) in Northbound APIs for further reference.
+See [Notification Capability](northbound-apis/#ug.netconf_agent.notif) in Northbound APIs for further reference.
 
 CLI shows received notifications using `ncs_cli`:
 
@@ -1275,7 +1275,7 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
 
 ### Nano Services and Commit Queue
 
-The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
+The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
 
 When the commit queue is enabled and there are outstanding commit queue items, the network is lagging behind the CDB. The CDB is forward-looking and shows the desired state of the network. Hence, the nano plan shows the desired state as well, since changes to reach this state may not have been pushed to the devices yet.
 
@@ -1296,7 +1296,7 @@ While error recovery helps keeping the network consistent, the end result remain
 * The nano plan is marked as failed by creating the `failed` leaf under the plan.
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
-After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
@@ -1463,7 +1463,7 @@ Entering configuration mode terminal
 
 Now you create a service that sets up a VPN link between devices `ex1` and `ex2`, and is completed immediately since the `test-passed` leaf is set to `true`.
 
-```cli
+```bash
 admin@ncs(config)# link t2 unit 17 vlan-id 1
 admin@ncs(config-link-t2)# link t2 endpoints ex1 eth0 ex2 eth0 test-passed true
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth0)# commit
@@ -1522,7 +1522,7 @@ All components in the plan have reached their `ready` state.
 
 Now, change the link by changing the interface on one of the devices. To do this, you must remove the old list entry in "endpoints" and create a new one.
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# no link t2 endpoints ex1 eth0 ex2 eth0
@@ -1569,7 +1569,7 @@ cli  devices {
 
 Upon committing, the service just adds the new interface and does not remove anything at this point. The reason is that the `test-passed` leaf is not set to `true` for the new component. Commit this change and inspect the plan:
 
-```cli
+```bash
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# top
 admin@ncs(config)# exit
@@ -1631,14 +1631,14 @@ cli  devices {
 
 Both the old and the new link exist at this point. Now, set the `test-passed` leaf to `true` to force the new component to reach its ready state.
 
-```cli
+```bash
 admin@ncs(config)# link t2 endpoints ex1 eth0 ex2 eth1 test-passed true
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# commit
 ```
 
 If you now check the service plan, you see the following:
 
-```cli
+```bash
 admin@ncs(config-endpoints-ex1/eth0/ex2/eth1)# top
 admin@ncs(config)# exit
 admin@ncs# show link t2 plan

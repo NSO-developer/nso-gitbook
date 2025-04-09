@@ -26,7 +26,7 @@ Device configuration is usually the primary goal of a service. However, there ma
 
 The following definitions are used throughout this section:
 
-* **Service type**: Often referred to simply as a service, denotes a specific type of service, such as "L2 VPN", "L3 VPN", "Firewall", or "DNS".
+* **Service type**: Often referred to simply as a service; denotes a specific type of service, such as "L2 VPN", "L3 VPN", "Firewall", or "DNS".
 * **Service instance**: A specific instance of a service type, such as "L3 VPN for ACME" or "Firewall for user X".
 * **Service model**: The schema definition for a service type, defined in YANG. It specifies the names and format of input parameters for the service.
 * **Service mapping**: The instructions that implement a service by mapping the input parameters for a service instance to device configuration.
@@ -53,7 +53,7 @@ To reiterate:
 * The mapping is not defined using workflows, or sequences of device commands.
 * The mapping is not defined in the native device interface language.
 
-This approach may seem somewhat unorthodox at first, but allows NSO to streamline and greatly simplify how you implement services.
+This approach may seem somewhat unorthodox at first but allows NSO to streamline and greatly simplify how you implement services.
 
 A common problem for traditional automation systems is that a set of instructions needs to be defined for every possible service instance change. Take, for example, a VPN service. During a service life cycle, you want to:
 

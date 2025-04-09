@@ -262,7 +262,7 @@ You can also stop and start NSO, but then you have to pass the option `--with-pa
 
 Now, create a VLAN service, (nothing will happen since we have not defined any mapping).
 
-```cli
+```bash
 admin@ncs(config)# services vlan net-0 vlan-id 1234 device-if c0 interface 1/0
 admin@ncs(config-device-if-c0)# top
 admin@ncs(config)# commit
@@ -293,7 +293,7 @@ The class `NcsJVMLauncher` contains the `main()` method. The started Java VM wil
 
 The verbosity of Java error messages can be controlled by:
 
-```cli
+```bash
 admin@ncs(config)# java-vm exception-error-message verbosity
 Possible completions:
   standard  trace  verbose
@@ -411,7 +411,7 @@ $ ncs -c ./ncs.conf
 
 You can verify that the Java VM is not running by checking the package status:
 
-```cli
+```bash
 admin@ncs# show packages package vlan
 packages package vlan
  package-version 1.0

@@ -417,7 +417,7 @@ This section gives a brief instruction on how to download the device YANG models
 2. Configure a device instance using as usual. See [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco_generic_ned_setup) for more information. The device name `dev-1` will be used in this example.
 3.  Open an NCS CLI session (non-configure mode).
 
-    ```cli
+    ```bash
     > ncs_cli -C -u admin
     ```
 4.  The installed NED is now basically empty. It contains no YANG models except some used by the NED internally. This can be verified with the following CLI commands:
@@ -524,7 +524,7 @@ This section gives a brief instruction on how to download the device YANG models
     A download profile is a preset for the built-in download tool. Its purpose is to make the download procedure as easy as possible. A profile can, for instance, define a certain source from where the device YANG models will be downloaded. Another usage can be to limit the scope of the YANG files to download. For example, one profile to download the native device models, and another for the OpenConfig models. All download profiles are defined and verified by the Cisco NSO NED team. There is usually at least one profile available, otherwise, check the `README-rebuild.md` bundled in the NED package.
 9.  Finally, try downloading the YANG models using a profile. In case a non-default local directory is used as a target, it must be explicitly specified.
 
-    ```cli
+    ```bash
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile
     onf-tapi-from-device local-dir /tmp/ned-package-store/onf-tapi_rc-2.0/src/yang
     ```
@@ -532,7 +532,7 @@ This section gives a brief instruction on how to download the device YANG models
     \
     In case the default local directory is used, no further arguments are needed.
 
-    ```cli
+    ```bash
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile onf-tapi-from-device
     ```
 

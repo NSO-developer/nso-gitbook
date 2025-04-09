@@ -147,7 +147,7 @@ module cfs-vlan {
 
 Instantiating one CFS we have:
 
-```cli
+```
 admin@upper-nso% show cfs-vlan
 cfs-vlan v1 {
     a-router ex0;

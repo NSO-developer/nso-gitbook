@@ -91,7 +91,7 @@ admin@ncs#
 
 Next, instruct NSO to load the newly created package:
 
-```cli
+```bash
 admin@ncs# packages reload
 
 >>> System upgrade is starting.
@@ -106,7 +106,7 @@ reload-result {
 
 Once the package loading process is completed, you can verify the data model from your package was incorporated into NSO. Use the `show` command, which now supports an additional parameter:
 
-```cli
+```bash
 admin@ncs# show my-data-entries
 % No entries found.
 admin@ncs#
@@ -118,7 +118,7 @@ This command tells you that NSO knows about the extended data model but there is
 
 More interestingly, you are now able to add custom entries to the configuration. First, enter the CLI configuration mode:
 
-```cli
+```bash
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)#
@@ -126,14 +126,14 @@ admin@ncs(config)#
 
 Then add an arbitrary entry under my-data-entries:
 
-```cli
+```bash
 admin@ncs(config)# my-data-entries "entry number 1"
 admin@ncs(config-my-data-entries-entry number 1)#
 ```
 
 What is more, you can also set a dummy IP address:
 
-```cli
+```bash
 admin@ncs(config-my-data-entries-entry number 1)# dummy 0.0.0.0
 admin@ncs(config-my-data-entries-entry number 1)#
 ```
@@ -146,14 +146,14 @@ If you assumed from the YANG file, you are correct. YANG files provide the schem
 
 Exit the configuration mode and discard the changes by typing `abort`:
 
-```cli
+```bash
 admin@ncs(config-my-data-entries-entry number 1)# abort
 admin@ncs#
 ```
 
 Open the YANG file in an editor or list its contents from the CLI with the following command:
 
-```cli
+```bash
 admin@ncs# file show packages/my-data-entries/src/yang/my-data-entries.yang
 module my-data-entries {
 < ... output omitted ... >
@@ -168,7 +168,7 @@ module my-data-entries {
 
 At the start of the output, you can see the module `my-data-entries`, which contains your data model. By default, the `ncs-make-package` gives it the same name as the package. You can check that this module is indeed loaded:
 
-```cli
+```bash
 admin@ncs# show ncs-state loaded-data-models data-model my-data-entries
 
                                                                               EXPORTED  EXPORTED
@@ -218,7 +218,7 @@ leaf-list domains {
 
 This code describes a data structure that can hold many values, such as a number of domain names. In the CLI, you can assign multiple values to a `leaf-list` with the help of square bracket syntax:
 
-```cli
+```bash
 admin@ncs(config)# domains [ cisco.com tail-f.com ]
 ```
 
@@ -235,7 +235,7 @@ container server-admin {
 
 This code defines the concept of a server administrator. In the CLI, you first select the container before you access the child nodes:
 
-```cli
+```bash
 admin@ncs(config)# server-admin name "Ingrid"
 ```
 
@@ -256,13 +256,13 @@ list user-info {
 
 This code defines a list of users (of which there can be many), where each user is uniquely identified by their name. In the CLI, lists take an additional parameter, the key value, to select a single entry:
 
-```cli
+```bash
 admin@ncs(config)# user-info "Ingrid"
 ```
 
 To set a value of a particular list entry, first specify the entry, then the child node, like so:
 
-```cli
+```bash
 admin@ncs(config)# user-info "Ingrid" expertise "Linux"
 ```
 
@@ -373,7 +373,7 @@ admin@ncs#
 
 Finally, instruct NSO to reload the packages:
 
-```cli
+```bash
 admin@ncs# packages reload
 
 >>> System upgrade is starting.
