@@ -63,7 +63,7 @@ To reload the packages:
 
 To uninstall a package:
 
-* Click the **Uninstall** button in the package details view, or use the more options <img src="../../images/more-options.png" alt="" data-size="line"> button in the packages list.
+* Click the **Uninstall** button in the package details view, or use the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
@@ -105,7 +105,7 @@ Alarm handling refers to attending to an alarm. This usually entails reviewing t
 
 To set an alarm handling state:
 
-1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
+1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
 2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
 3. Enter a description (optional).
 4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
@@ -195,7 +195,7 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
