@@ -31,7 +31,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
-<figure><img src="../../images/package-manager.png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
+<figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
 
 ### Add a Package
 
