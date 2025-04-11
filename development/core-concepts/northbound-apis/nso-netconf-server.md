@@ -46,12 +46,12 @@ When integrating NSO into larger OSS/NMS environments, the NETCONF API is a good
 
 The NETCONF server in NSO supports the following capabilities in both NETCONF 1.0 ([RFC 4741](https://www.ietf.org/rfc/rfc4741.txt)) and NETCONF 1.1 ([RFC 6241](https://www.ietf.org/rfc/rfc6241.txt)).
 
-<table data-full-width="false"><thead><tr><th width="234">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:writable-running</code></td><td>This capability is always advertised.</td></tr><tr><td><code>:candidate</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:confirmed-commit</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:rollback-on-error</code></td><td>This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="../../../man/section5.md#ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td><code>:validate</code></td><td>NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td><code>:startup</code></td><td>Not supported by NSO.</td></tr><tr><td><code>:url</code></td><td><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol). There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
-</code></pre><p>Note that user name and password must be given for <code>sftp</code> URLs. NSO does not support <code>validate</code> from a URL.</p></td></tr><tr><td><code>:xpath</code></td><td>The NETCONF server supports XPath according to the W3C XPath 1.0 specification (<a href="https://www.w3.org/TR/xpath">https://www.w3.org/TR/xpath</a>).</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="234" valign="top">Capability</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>:writable-running</code></td><td valign="top">This capability is always advertised.</td></tr><tr><td valign="top"><code>:candidate</code></td><td valign="top">Not supported by NSO.</td></tr><tr><td valign="top"><code>:confirmed-commit</code></td><td valign="top">Not supported by NSO.</td></tr><tr><td valign="top"><code>:rollback-on-error</code></td><td valign="top">This capability allows the client to set the <code>&#x3C;error-option></code> parameter to <code>rollback-on-error</code>. The other permitted values are <code>stop-on-error</code> (default) and <code>continue-on-error</code>. Note that the meaning of the word "error" in this context is not defined in the specification. Instead, the meaning of this word must be defined by the data model. Also, note that if <code>stop-on-error</code> or <code>continue-on-error</code> is triggered by the server, it means that some parts of the edit operation succeeded, and some parts didn't. The error <code>partial-operation</code> must be returned in this case. <code>partial-operation</code> is obsolete and should not be returned by a server. If some other error occurs (i.e. an error not covered by the meaning of "error" above), the server generates an appropriate error message, and the data store is unaffected by the operation.<br><br>The NSO server never allows partial configuration changes, since it might result in inconsistent configurations, and recovery from such a state can be very difficult for a client. This means that regardless of the value of the <code>&#x3C;error-option></code> parameter, NSO will always behave as if it had the value <code>rollback-on-error</code>. So in NSO, the meaning of the word "error" in <code>stop-on-error</code> and <code>continue-on-error</code>, is something that never can happen.<br><br>It is possible to configure the NETCONF server to generate an <code>operation-not-supported</code> error if the client asks for the <code>error-option</code> <code>continue-on-error</code>. See <a href="../../../man/section5.md#ncs.conf">ncs.conf(5)</a> in Manual Pages.</td></tr><tr><td valign="top"><code>:validate</code></td><td valign="top">NSO supports both version 1.0 and 1.1 of this capability.</td></tr><tr><td valign="top"><code>:startup</code></td><td valign="top">Not supported by NSO.</td></tr><tr><td valign="top"><code>:url</code></td><td valign="top"><p>The URL schemes supported are <code>file</code>, <code>ftp</code>, and <code>sftp</code> (SSH File Transfer Protocol). There is no standard URL syntax for the <em><code>sftp</code></em> scheme, but NSO supports the syntax used by <code>curl</code>:</p><pre><code>sftp://&#x3C;user>:&#x3C;password>@&#x3C;host>/&#x3C;path>
+</code></pre><p>Note that user name and password must be given for <code>sftp</code> URLs. NSO does not support <code>validate</code> from a URL.</p></td></tr><tr><td valign="top"><code>:xpath</code></td><td valign="top">The NETCONF server supports XPath according to the W3C XPath 1.0 specification (<a href="https://www.w3.org/TR/xpath">https://www.w3.org/TR/xpath</a>).</td></tr></tbody></table>
 
 The following list of optional standard capabilities is also supported:
 
-<table><thead><tr><th width="237">Capability</th><th>Description</th></tr></thead><tbody><tr><td><code>:notification</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="nso-netconf-server.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td><code>:with-defaults</code></td><td><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td><code>:yang-library:1.0</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td><code>:yang-library:1.1</code></td><td>NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
+<table><thead><tr><th width="237" valign="top">Capability</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>:notification</code></td><td valign="top">NSO implements the <code>urn:ietf:params:netconf:capability:notification:1.0</code> capability, including support for the optional replay feature. See <a href="nso-netconf-server.md#ug.netconf_agent.notif">Notification Capability</a> for details.</td></tr><tr><td valign="top"><code>:with-defaults</code></td><td valign="top"><p>NSO implements the <code>urn:ietf:params:netconf:capability:with-defaults:1.0</code> capability, which is used by the server to inform the client how default values are handled by the server, and by the client to control whether default values should be generated to replies or not.</p><p>If the capability is enabled, NSO also implements the <code>urn:ietf:params:netconf:capability:with-operational-defaults:1.0</code> capability, which targets the operational state datastore while the <code>:with-defaults</code> capability targets configuration data stores.</p></td></tr><tr><td valign="top"><code>:yang-library:1.0</code></td><td valign="top">NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.0</code> capability, which informs the client that the server implements the YANG module library <a href="https://www.ietf.org/rfc/rfc7895.txt">RFC 7895</a>, and informs the client about the current <code>module-set-id</code>.</td></tr><tr><td valign="top"><code>:yang-library:1.1</code></td><td valign="top">NSO implements the <code>urn:ietf:params:netconf:capability:yang-library:1.1</code> capability, which informs the client that the server implements the YANG library <a href="https://www.ietf.org/rfc/rfc8525.txt">RFC 8525</a>, and informs the client about the current <code>content-id</code>.</td></tr></tbody></table>
 
 ## Protocol YANG Modules <a href="#d5e255" id="d5e255"></a>
 
@@ -74,16 +74,22 @@ In addition to the protocol capabilities listed above, NSO also implements a set
 
 In addition to this, NSO does not support pre-configuration or monitoring of subtree filters, and thus advertises a deviation module that deviates `/filters/stream-filter/filter-spec/stream-subtree-filter` and `/subscriptions/subscription/target/stream/stream-filter/within-subscription/filter-spec/stream-subtree-filter` as "not-supported".
 
-NSO does not generate `subscription-modified` notifications when the parameters of a subscription change, and there is currently no mechanism to suspend notifications so `subscription-suspended` and `subscription-resumed` notifications are never generated.
+NSO does not generate `subscription-modified` notifications when the parameters of a subscription change, and there is currently no mechanism to suspend notifications, so `subscription-suspended` and `subscription-resumed` notifications are never generated.
 
 There is basic support for monitoring subscriptions via the `/subscriptions` container. Currently, it is possible to view dynamic subscriptions' attributes: `subscription-id`, `stream`, `encoding`, `receiver`, `stop-time`, and `stream-xpath-filter`. Unsupported attributes are: `stream-subtree-filter`, `receiver/sent-event-records`, `receiver/excluded-event-records`, and `receiver/state`.
 
 * `ietf-yang-push`: This module from [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) extends operations, data nodes, and operational state defined in `ietf-subscribed-notifications;` and also introduces continuous and customizable notification subscriptions for updates from running and operational datastores. It defines the same features as `ietf-subscribed-notifications` and also the following feature:
-  * `on-change`: Indicates that on-change triggered notifications are supported. This feature is advertised by NSO but only supported on the running datastore.
+  * `on-change`: Indicates that on-change triggered notifications are supported. This feature is advertised by NSO.
+    * `dampening-period`: Indicates that dampening-period for on-change subscriptions is  supported. This feature is advertised by NSO.
+    * `sync-on-start`: Indicates that sync-on-start for on-change subscriptions is supported. This feature is advertised by NSO.
+    * `excluded-change`: Indicates that excluded-change for on-change subscription is supported. This feature is advertised by NSO.
+  * `periodic`: Indicates that periodic notifications are supported. This feature is advertised by NSO.
+    * `period`: Indicates that period for periodic notifications are supported. This feature is advertised by NSO.
+    * `anchor-time`: Indicates that anchor-time for periodic subscriptions is supported. This feature is advertised by NSO.
 
 In addition to this, NSO does not support pre-configuration or monitoring of subtree filters and thus advertises a deviation module that deviates `/filters/selection-filter/filter-spec/datastore-subtree-filter` and `/subscriptions/subscription/target/datastore/selection-filter/within-subscription/filter-spec/datastore-subtree-filter` as "not-supported".
 
-The monitoring of subscriptions via the `subscriptions` container does currently not support the attributes: `periodic/period`, `periodic/state`, `on-change/dampening-period`, `on-change/sync-on-start`, `on-change/excluded-change`.
+The monitoring of subscriptions via the `subscriptions` container currently does not support the attribute `/subscriptions/receivers/receiver/state` .
 
 ## Advertising Capabilities and YANG Modules <a href="#d5e376" id="d5e376"></a>
 
@@ -116,7 +122,7 @@ NSO uses [YANG Schema Mount](https://www.ietf.org/rfc/rfc8528.txt) to mount the 
 
 For example, to get the YANG library data for the device `x0`, we can do:
 
-```bash
+```
 $ netconf-console --get -x '/devices/device[name="x0"]/config/yang-library'
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -245,7 +251,7 @@ The `netconf-console` program is a simple NETCONF client. It is delivered as Pyt
 
 When NSO has been started, we can use `netconf-console` to query the configuration of the NETCONF Access Control groups:
 
-```bash
+```
 $ netconf-console --get-config -x /nacm/groups
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -363,7 +369,7 @@ Existing subscriptions and their configuration can be found in the `/subscriptio
 
 For example, for viewing all established subscriptions, we can do:
 
-```bash
+```
 $ netconf-console --get -x /subscriptions
 <?xml version="1.0" encoding="UTF-8"?>
 <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
@@ -494,7 +500,7 @@ This capability introduces a new RPC operation that is used to invoke actions de
 
 Here is a simple example that invokes the action `sync-from` on the device `ce1`. It uses the `netconf-console` command:
 
-```bash
+```
 $ cat ./sync-from-ce1.xml
 <action xmlns="http://tail-f.com/ns/netconf/actions/1.0">
   <data>
