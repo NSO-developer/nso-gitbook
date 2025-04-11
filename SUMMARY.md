@@ -41,11 +41,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.59 2025-04-03](alu-sr/README.md)
+  * [README v8.59.1 2025-04-10](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.27.17 2025-03-28](arista-dcs/README.md)
+  * [README v5.27.18 2025-04-10](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -116,11 +116,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.109.1 2025-03-27](cisco-ios/README.md)
+  * [README v6.109.2 2025-04-10](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.65 2025-04-03](cisco-iosxr/README.md)
+  * [README v7.65.1 2025-04-10](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)

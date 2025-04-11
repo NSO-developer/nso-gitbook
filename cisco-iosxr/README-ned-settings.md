@@ -162,15 +162,15 @@
 
       disabled          - Do not attempt to retrieve serial number from device.
 
-      diag              - Only use 'show diag'.
+      diag              - Only use '[admin] show diag [chassis]'.
 
       inventory         - Only use 'show inventory'.
 
-      prefer-diag       - First try 'show diag' then 'show inventory'.
+      prefer-diag       - First try '[admin] show diag [chassis]' then 'show inventory'.
 
-      prefer-inventory  - First try 'show inventory' then 'show diag'.
+      prefer-inventory  - First try 'show inventory' then '[admin] show diag [chassis]'.
 
-      auto              - prefer-inventory for 'cisco CRS' and 'cisco NCS' else prefer-diag.
+      auto              - prefer-inventory for 'cisco CRS' and 'cisco NCS', else prefer-diag.
 
 
     - connection platform-model-regex <WORD>

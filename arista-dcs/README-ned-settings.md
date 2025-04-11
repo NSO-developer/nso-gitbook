@@ -39,9 +39,11 @@
   3. connection
   4. logger
   5. live-status
-  6. read
-     6.1. show-running-all-match-pattern
-  7. write
+  6. developer
+     6.1. simulate-show
+  7. read
+     7.1. show-running-all-match-pattern
+  8. write
   ```
 
 
@@ -220,7 +222,74 @@
         Answer to device question.
 
 
-# 6. ned-settings arista-dcs read
+# 6. ned-settings arista-dcs developer
+--------------------------------------
+
+  Contains settings used for debugging (intended for NED developers).
+
+
+    - developer progress-verbosity <enum> (default debug)
+
+      Maximum NED verbosity level which will get written in devel.log file.
+
+      disabled      - disabled.
+
+      normal        - normal.
+
+      verbose       - verbose.
+
+      very-verbose  - very-verbose.
+
+      debug         - debug.
+
+
+    - developer model <string>
+
+      Simulate a model number.
+
+
+    - developer version <string>
+
+      Simulate a version number.
+
+
+    - developer trace-connection <true|false> (default false)
+
+      Enable developer connection tracing. WARNING: may choke NSO with large printouts.
+
+
+    - developer platform model <string>
+
+      Override device model name/number.
+
+
+    - developer platform name <string>
+
+      Override device name.
+
+
+    - developer platform version <string>
+
+      Override device version.
+
+
+## 6.1. ned-settings arista-dcs developer simulate-show
+-------------------------------------------------------
+
+  Used with live-status to inject simulated output for a show command.
+
+    - developer simulate-show <cmd> <file>
+
+      - cmd <WORD>
+
+        Full show command, e.g. 'show interfaces'.
+
+      - file <WORD>
+
+        Path to file containing output of simulated show command.
+
+
+# 7. ned-settings arista-dcs read
 ---------------------------------
 
   Settings used when reading from device.
@@ -239,7 +308,7 @@
       recommended to be careful with it.
 
 
-## 6.1. ned-settings arista-dcs read show-running-all-match-pattern
+## 7.1. ned-settings arista-dcs read show-running-all-match-pattern
 -------------------------------------------------------------------
 
   The list of the patterns included in the "show running-config all" command, for example:
@@ -254,7 +323,7 @@
         Regular Expression.
 
 
-# 7. ned-settings arista-dcs write
+# 8. ned-settings arista-dcs write
 ----------------------------------
 
   Settings used when writing to device.
