@@ -80,6 +80,11 @@
       Enable/disable partial sync.
 
 
+    - paloalto-panos_cli commit-all-delay <NUM> (default 0)
+
+      Delay in milliseconds before commit-all operation.
+
+
 # 2. ned-settings paloalto-panos_cli connection
 -----------------------------------------------
 
