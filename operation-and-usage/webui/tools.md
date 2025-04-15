@@ -35,11 +35,15 @@ In the **Packages** view, you can upload, install, and view the operational stat
 
 ### Add a Package
 
+Adding a new package via the Web UI entails uploading the package and then installing it after upload. You can add multiple packages at once. A package can be in one of the following operational states: **Up**, **Reload required**, **Not installed**, and **Error**.
+
 To add a new package:
 
 1. Click the **Add package** button.
-2. Browse the package using the **Add** button in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz.
-3. Click **Upload**.
+2. Browse the package using the **Add** button in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz. You can add multiple packages at once.
+3. Click **Upload**. A result is shown whether the operation was successful or not.
+4. Once the upload has finished successfully, select the packages to install.
+5. Click **Install**. A result is shown whether the operation was successful or not. The trace offer more details on the action.
 
 ### View Package Details
 
