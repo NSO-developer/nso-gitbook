@@ -12,10 +12,10 @@ The following tools are available:
 
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
 * [**Packages**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
-* [**High Availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
+* [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
-* [**Commit Manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
-* [**Compliance Reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
+* [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
+* [**Compliance reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
@@ -38,8 +38,8 @@ In the **Packages** view, you can upload, install, and view the operational stat
 To add a new package:
 
 1. Click the **Add package** button.
-2. Upload the package or drag-and-drop it in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz.
-3. Click **Confirm**.
+2. Browse the package using the **Add** button in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz.
+3. Click **Upload**.
 
 ### View Package Details
 
@@ -56,8 +56,9 @@ To reload the packages:
 1. Click the **Reload all packages** button.
 2. In the dialog, set the **Max wait time (sec)** for the commit queue to empty before proceeding with the reload. The default is 10 seconds if you leave the field unset.
 3. Set the **Timeout action** behavior to define what happens after the maximum wait time is over, i.e., kill the open transactions and continue, or cancel (fail) the package reload operation altogether. The default for this setting is **fail**.
-4. Use the **Show trace** option to view a live trace of the reload operation (optional).
-5. Click **Reload**.
+4. Apply additional action parameters from the following (optional): **Force** (to force package reload overriding issues or warnings), **Dry run** (to simulate the package reload process without making any actual changes), and **Wait commit queue empty** (to wait until the commit queue is empty before proceeding).
+5. Use the **Show trace** option to view a live trace of the reload operation (optional).
+7. Click **Reload**.
 
 ### Uninstall a Package
 
