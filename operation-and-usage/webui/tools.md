@@ -57,8 +57,8 @@ To reload the packages:
 2. In the dialog, set the **Max wait time (sec)** for the commit queue to empty before proceeding with the reload. The default is 10 seconds if you leave the field unset.
 3. Set the **Timeout action** behavior to define what happens after the maximum wait time is over, i.e., kill the open transactions and continue, or cancel (fail) the package reload operation altogether. The default for this setting is **fail**.
 4. Apply additional action parameters from the following (optional): **Force** (to force package reload overriding issues or warnings), **Dry run** (to simulate the package reload process without making any actual changes), and **Wait commit queue empty** (to wait until the commit queue is empty before proceeding).
-5. Use the **Show trace** option to view a live trace of the reload operation (optional).
-7. Click **Reload**.
+5. Click **Reload**. A live trace of the reload operation is displayed while the packages are being reloaded.
+6. Click **Done** when the operation has finished.
 
 ### Uninstall a Package
 
