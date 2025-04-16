@@ -42,14 +42,14 @@ To add a new package:
 1. Click the **Add package** button.
 2. Browse the package using the **Add** button in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz. You can add multiple packages at once.
 3. Click **Upload**. A result is shown whether the operation was successful or not.
-4. Once the upload has finished successfully, select the packages to install.
-5. Click **Install**. A result is shown whether the operation was successful or not. The trace offer more details on the action.
+4. Once the upload has finished successfully, select the packages to install. If you want to replace an existing package with a new one, use the **Replace package if already exists** option, and to bypass or ignore version mismatches, use the **Allow NSO mismatch** option.
+5. Click **Install**. A result is shown whether the operation was successful or not. For more details, see the trace output.
 
 ### View Package Details
 
 To view package details:
 
-* Click the package name. This reveals information about the package, such as its status, version, location, etc.
+* Click the package name. This reveals information about the package, such as its status, version, location, etc. You can also uninstall a package in this view.
 
 ### Reload Packages
 
@@ -68,7 +68,7 @@ To reload the packages:
 
 To uninstall a package:
 
-* Click the **Uninstall** button in the package details view, or use the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button in the packages list.
+* Go to the package details view and click the **Uninstall** button, or use the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
