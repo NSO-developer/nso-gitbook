@@ -60,7 +60,7 @@
   cisco-staros ned-settings.
 
 
-    - cisco-staros extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-staros NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -91,7 +91,7 @@
                          is used.
 
 
-    - cisco-staros write-memory-setting <enum> (default on-commit)
+    - write-memory-setting <enum> (default on-commit)
 
       Configure how and when an applied config is saved to persistent memory on the device.
 
@@ -106,17 +106,17 @@
       disabled    - Disable saving the applied config to persistent memory.
 
 
-    - cisco-staros write-config-file <string> (default /flash/system.cfg)
+    - write-config-file <string> (default /flash/system.cfg)
 
       Configure where configuration should be saved on the device.
 
 
-    - cisco-staros disable-encrypted-configs <true|false> (default false)
+    - disable-encrypted-configs <true|false> (default false)
 
       Disbale encrypted configs yang nodes in NED.
 
 
-    - cisco-staros ruledef-rules-as-ordered-by-user <true|false> (default false)
+    - ruledef-rules-as-ordered-by-user <true|false> (default false)
 
       This ned-settings used to handle all rules as 'ordered-by user' inside
       /active-charging/service/ruledef. All rules(sub-nodes) inside ruledef are now just
@@ -124,7 +124,7 @@
       to true to use 'ordered-by user' rules feature in NED.
 
 
-    - cisco-staros host-pool-ip-as-ordered-by-user <true|false> (default false)
+    - host-pool-ip-as-ordered-by-user <true|false> (default false)
 
       This ned-settings used to handle all IPs as 'ordered-by user' inside
       /active-charging/service/host-pool/ip. All IPs are now just a string,
@@ -132,7 +132,7 @@
       true to use 'ordered-by user' IP feature in NED.
 
 
-    - cisco-staros apn-ip-qos-dscp-as-single-line-syntax <true|false> (default false)
+    - apn-ip-qos-dscp-as-single-line-syntax <true|false> (default false)
 
       /context/apn/ip/qos-dscp entries can be configured as multiple lines
       or all entries in single line. New yang models introduced to support STAROS single
@@ -141,7 +141,7 @@
       syntax are supported. Set this ned-setting to true to use single line syntax feature in NED.
 
 
-    - cisco-staros use-context-ssh-key <true|false> (default false)
+    - use-context-ssh-key <true|false> (default false)
 
       By default /context/ssh/generate/key enabled in yang model and
       'ssh key <key> len <length> type v2-rsa' command transformed to
@@ -155,12 +155,12 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry.
 
@@ -171,7 +171,7 @@
   Configure NED settings related to live-status.
 
 
-    - live-status time-to-live <int32> (default 50)
+    - time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.
 
@@ -187,7 +187,7 @@
 
   Replace (or filter) config when reading from device.
 
-    - read replace-config <id> <regexp> <replacement> <when>
+    - replace-config <id> <regexp> <replacement> <when>
 
       - id <WORD>
 
@@ -217,7 +217,7 @@
   Settings used when writing to device.
 
 
-    - write context-ip-pool-modify-syntax <true|false> (default false)
+    - context-ip-pool-modify-syntax <true|false> (default false)
 
       Problem 1:
         /context/ip/pool yang model is compact-syntax and NSO can not generate
@@ -255,7 +255,7 @@
   useful if a dependency bug is found and you do not want to upgrade
   the NED or are in a hurry for the fix.
 
-    - write config-dependency <id> <mode> <move> <action> <stay> <options>
+    - config-dependency <id> <mode> <move> <action> <stay> <options>
 
       - id <WORD>
 
@@ -293,7 +293,7 @@
 
   Inject command (before or after) specified config-line upon commit.
 
-    - write inject-command <id> <config-line> <command> <where>
+    - inject-command <id> <config-line> <command> <where>
 
       - id <WORD>
 
@@ -363,7 +363,7 @@
 
   Replace (or filter) config when writing to device.
 
-    - write replace-commit <id> <regexp> <replacement>
+    - replace-commit <id> <regexp> <replacement>
 
       - id <WORD>
 
@@ -388,7 +388,7 @@
 
   regexp entry list to filter configs from sync-from.
 
-    - cisco-staros filter-config-in-sync-from <remove-config>
+    - filter-config-in-sync-from <remove-config>
 
       - remove-config <WORD>
 
@@ -403,12 +403,12 @@
   "enable-hidden-mode=true" and "test-commands-password=<password>".
 
 
-    - hidden-mode enable-hidden-mode <true|false> (default false)
+    - enable-hidden-mode <true|false> (default false)
 
       enable hidden mode(default is false).
 
 
-    - hidden-mode test-commands-password <string>
+    - test-commands-password <string>
 
       Permits access to internal test and debug commands.
 
@@ -431,7 +431,7 @@
   use this ned-settings to NED to retry the command and not start auto-rollback immediately.
 
 
-    - config-error-retry errors <error>
+    - errors <error>
 
       Add device error/warning regexp retry list.
 
@@ -440,12 +440,12 @@
         Warning/error regular expression, e.g. GTAC Failure .*.
 
 
-    - config-error-retry config-output-max-retries <NUM> (default 90)
+    - config-output-max-retries <NUM> (default 90)
 
       Max number of retries, when sending config command to device.
 
 
-    - config-error-retry config-output-retry-intervel <NUM> (default 1)
+    - config-output-retry-intervel <NUM> (default 1)
 
       Specify retry interval in seconds.
 
@@ -465,7 +465,7 @@
   in aborting commit if NED receives those warnings from device, you can configure
   NED to ignore them using this ned-settings.
 
-    - behaviour config-warning-ignore <warning>
+    - config-warning-ignore <warning>
 
       - warning <WORD>
 
@@ -482,7 +482,7 @@
   Contains settings used by the NED developers.
 
 
-    - developer-settings load-from-file <string>
+    - load-from-file <string>
 
       Make the NED load a file containing raw device config when doing sync-from.
 
@@ -493,7 +493,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -506,7 +506,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default false)
+    - java <true|false> (default false)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -517,7 +517,7 @@
   Configure NED to access device via a proxy.
 
 
-    - proxy remote-connection <enum>
+    - remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -528,37 +528,37 @@
       serial  - serial.
 
 
-    - proxy remote-address <ipv4|ipv6>
+    - remote-address <ipv4|ipv6>
 
       Address of host behind the proxy.
 
 
-    - proxy remote-port <uint16>
+    - remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - proxy remote-name <string>
+    - remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - proxy remote-password <string>
+    - remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - proxy authgroup <WORD>
+    - authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy proxy-prompt <string>
+    - proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - proxy remote-ssh-args <string>
+    - remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection.
 
