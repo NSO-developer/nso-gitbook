@@ -35,7 +35,7 @@ In the **Packages** view, you can upload, install, and view the operational stat
 
 ### Add a Package
 
-Adding a new package via the Web UI entails uploading the package and then installing it after upload. You can add multiple packages at once. A package can be in one of the following operational states: **Up**, **Reload required**, **Not installed**, and **Error**.
+Adding a new package via the Web UI entails uploading the package and then installing it. You can add multiple packages at once. A package can be in one of the following operational states after upload: **Up**, **Reload required**, **Not installed**, and **Error**.
 
 To add a new package:
 
