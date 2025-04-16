@@ -40,7 +40,7 @@ Adding a new package via the Web UI entails uploading the package and then insta
 To add a new package:
 
 1. Click the **Add package** button.
-2. Browse the package using the **Add** button in the **Add package** dialog. The file format must be .tar, .tar.gz, or .tgz. You can add multiple packages at once.
+2. In the **Add package** dialog, browse the package using the **Add** button. The file format must be .tar, .tar.gz, or .tgz. You can add multiple packages at once.
 3. Click **Upload**. A result is shown whether the operation was successful or not.
 4. Once the upload has finished successfully, select the packages to install. If you want to replace an existing package with a new one, use the **Replace package if already exists** option, and to bypass or ignore version mismatches, use the **Allow NSO mismatch** option.
 5. Click **Install**. A result is shown whether the operation was successful or not. For more details, see the trace output.
