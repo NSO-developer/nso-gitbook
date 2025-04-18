@@ -9,7 +9,7 @@
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
-  * [README v4.4.3 2025-03-31](accedian-nid/README.md)
+  * [README v4.5 2025-04-17](accedian-nid/README.md)
 
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.65.2 2025-04-16](cisco-iosxr/README.md)
+  * [README v7.66 2025-04-17](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.56.1 2025-03-14](cisco-staros/README.md)
+  * [README v5.56.2 2025-04-17](cisco-staros/README.md)
 
 * cisco-wsa
   * [README-ned-settings](cisco-wsa/README-ned-settings.md)
@@ -229,7 +229,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.9 2025-04-11](juniper-junos/README.md)
+  * [README v4.18.10 2025-04-17](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -320,6 +320,10 @@
   * [README-ned-settings](tejas-nms5500/README-ned-settings.md)
   * [README v1.0.7 2024-08-29](tejas-nms5500/README.md)
 
+* tilgin-tgem
+  * [README-ned-settings](tilgin-tgem/README-ned-settings.md)
+  * [README v1.0.1 2025-04-17](tilgin-tgem/README.md)
+
 * unix-bind
   * [README-ned-settings](unix-bind/README-ned-settings.md)
   * [README v2.2 2024-08-30](unix-bind/README.md)
@@ -338,7 +342,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.4 2025-03-28](zte-xpon/README.md)
+  * [README v4.4.1 2025-04-17](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)

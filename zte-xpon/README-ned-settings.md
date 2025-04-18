@@ -56,7 +56,7 @@
   Per-device settings for zte-xpon.
 
 
-    - zte-xpon extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED enable extensions to ease the task of the NSO CLI command parser. A common
       problem with this parser is that it can easily get lost when trying to parse configuration not
@@ -79,13 +79,13 @@
                         format.
 
 
-    - zte-xpon use-write <true|false> (default true)
+    - use-write <true|false> (default true)
 
       -  set to True to send WRITE command at commit (Default)
       -  set to False to skip sending WRITE command
 
 
-    - zte-xpon wait-time <uint32> (default 0)
+    - wait-time <uint32> (default 0)
 
       Some devices need more time to process some commands, before
       accepting others.
@@ -100,7 +100,7 @@
   Configure NED settings related to live-status.
 
 
-    - live-status time-to-live <int32> (default 50)
+    - time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
 
@@ -111,23 +111,23 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connection terminal server-echo <true|false> (default false)
+    - terminal server-echo <true|false> (default false)
 
       Enable (TELNET) server echo, i.e. use DO ECHO instead of DONT ECHO.
 
 
-    - connection terminal println-mode <enum> (default default)
+    - terminal println-mode <enum> (default default)
 
       default  - System property line.separator default.
 
@@ -138,7 +138,7 @@
       onlret   - Newline performs a carriage return.
 
 
-    - connection device-prompt <REGEXP> (default \A[\S ]+#[ ]?$)
+    - device-prompt <REGEXP> (default \A[\S ]+#[ ]?$)
 
       When doing a READ, the ned will do a "show configuration" command and get everything until the prompt occurs. 
       To do that, we need a prompt regexp match. By default it is set to "\A[\S ]+#[ ]?$". In cases where the device actually 
@@ -152,7 +152,7 @@
   Configure NED to access device via a proxy.
 
 
-    - proxy remote-connection <enum>
+    - remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -163,43 +163,43 @@
       serial  - Terminal server proxy.
 
 
-    - proxy remote-address <union>
+    - remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - proxy remote-port <uint16>
+    - remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - proxy remote-command <string>
+    - remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - proxy remote-name <string>
+    - remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - proxy remote-password <string>
+    - remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - proxy authgroup <WORD>
+    - authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy proxy-prompt <string>
+    - proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - proxy remote-ssh-args <string>
+    - remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -210,7 +210,7 @@
   Configure NED to access device via a second proxy.
 
 
-    - proxy-2 remote-connection <enum>
+    - remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -221,43 +221,43 @@
       serial  - Terminal server proxy.
 
 
-    - proxy-2 remote-address <union>
+    - remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - proxy-2 remote-port <uint16>
+    - remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - proxy-2 remote-command <string>
+    - remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - proxy-2 remote-name <string>
+    - remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - proxy-2 remote-password <string>
+    - remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - proxy-2 authgroup <WORD>
+    - authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-2 proxy-prompt <string>
+    - proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - proxy-2 remote-ssh-args <string>
+    - remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -268,23 +268,23 @@
   Contains settings used by the NED developers.
 
 
-    - developer load-from-file <string>
+    - load-from-file <string>
 
       Make the NED load a file containing raw device config when doing sync-from. Does only work on
       NETSIM targets.
 
 
-    - developer model <uint32>
+    - model <uint32>
 
       Simulate a model number.
 
 
-    - developer version <uint8>
+    - version <uint8>
 
       Simulate a version number.
 
 
-    - developer device-type <enum> (default netsim)
+    - device-type <enum> (default netsim)
 
       Real or simulated device.
 
@@ -293,7 +293,7 @@
       device  - device.
 
 
-    - developer progress-verbosity <enum> (default debug)
+    - progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level reported by the NED. Default debug.
 
@@ -308,17 +308,17 @@
       debug         - debug.
 
 
-    - developer platform model <string>
+    - platform model <string>
 
       Override device model name/number.
 
 
-    - developer platform name <string>
+    - platform name <string>
 
       Override device name.
 
 
-    - developer platform version <string>
+    - platform version <string>
 
       Override device version.
 
@@ -329,52 +329,52 @@
   Settings used while interacting with a device.
 
 
-    - console ignore-errors <true|false> (default false)
+    - ignore-errors <true|false> (default false)
 
       Flag indicating if errors should be ignored.
 
 
-    - console ignore-warnings <true|false> (default false)
+    - ignore-warnings <true|false> (default false)
 
       Flag indicating if warnings should be ignored.
 
 
-    - console ignore-retries <true|false> (default false)
+    - ignore-retries <true|false> (default false)
 
       Flag indicating if retries should be ignored.
 
 
-    - console max-retries <uint8> (default 100)
+    - max-retries <uint8> (default 100)
 
       Maximum number of retries of a command.
 
 
-    - console retry-delay <uint16> (default 1000)
+    - retry-delay <uint16> (default 1000)
 
       Number of ms before retrying a command.
 
 
-    - console send-delay <uint32> (default 0)
+    - send-delay <uint32> (default 0)
 
       Enable delay before sending commands.
 
 
-    - console expect-timeout <uint32> (default 60000)
+    - expect-timeout <uint32> (default 60000)
 
       Set default timeout for sending commands.
 
 
-    - console chunk-size <uint8> (default 1)
+    - chunk-size <uint8> (default 1)
 
       Enable executing commands in chunks.
 
 
-    - console line-feed <string>
+    - line-feed <string>
 
       Overwrites default line-feed character.
 
 
-    - console obfuscate-secret <true|false>
+    - obfuscate-secret <true|false>
 
       Secrets will be obfuscated in trace & log files.
 
@@ -384,7 +384,7 @@
 
   Extend which messages to ignore warnings/errors etc.
 
-    - console extension warning <warning>
+    - extension warning <warning>
 
       - warning <WORD>
 
@@ -396,7 +396,7 @@
 
   Extend available commands to send.
 
-    - console extension command <name> <data>
+    - extension command <name> <data>
 
       - name <string>
 
@@ -412,7 +412,7 @@
 
   Extend available patterns to expect.
 
-    - console extension pattern <name> <data>
+    - extension pattern <name> <data>
 
       - name <string>
 
@@ -428,7 +428,7 @@
 
   Extend available actions to perform.
 
-    - console extension action <name> <init> <flush>
+    - extension action <name> <init> <flush>
 
       - name <string>
 
@@ -487,7 +487,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -500,7 +500,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default false)
+    - java <true|false> (default false)
 
       Toggle logs to be added to ncs-java-vm.log.
 
