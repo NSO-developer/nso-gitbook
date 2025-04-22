@@ -252,7 +252,7 @@
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
-    - nmda get-data enable <true|false> (default true)
+    - nmda get-data enable <true|false> (default false)
 
       Use get-data rpc for data retrieval, if device supports it.
 
@@ -626,7 +626,7 @@
       add/change prefix to global prefix in NSO.
 
 
-    - nmda get-data enable <true|false> (default true)
+    - nmda get-data enable <true|false> (default false)
 
       Use get-data rpc for data retrieval, if device supports it.
 

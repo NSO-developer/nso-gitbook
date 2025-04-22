@@ -875,15 +875,45 @@
         Directory containing one or many xml file representing the wanted scope.
 
 
-      - filter trim-schema nodes <union>
+      - filter trim-schema method <enum> (default patch)
 
-        List of nodes to trim. Use one of the pre-defined top node names. Alternatively, specify a
-        custom xpath to trim (prefix is mandatory on each element in the path).
+        Select method to be used for trimming.
+
+        deviate  - Trim by creating a YANG deviation file containing all selected nodes.
+
+        patch    - Trim by patching the YANG models and remove all selected nodes from them before
+                   they are being compiled.
 
 
-      - filter trim-schema file <string> (default /tmp/nedcom-trim-deviations.yang)
+        Either of:
 
-        Name of auto generated deviation file with nodes to trim.
+          - filter trim-schema nodes <union>
+
+            List of nodes to trim. Use one of the pre-defined top node names. Alternatively, specify a
+            custom xpath to trim (prefix is mandatory on each element in the path).
+
+        OR:
+
+          - filter trim-schema all-unused <empty>
+
+            Trim all currently unused nodes in the schema. This means all config nodes that are
+            currently not populated in CDB.
+
+        OR:
+
+          - filter trim-schema nodes-from-file <string> (default /tmp/nedcom-trim-schema-nodes.txt)
+
+            Specify a path to a custom file to be used for trimming nodes. The file shall contain
+            schema paths, including relevant prefixes to all nodes to be trimmed. One schema path per
+            line.
+
+        OR:
+
+          - filter trim-schema custom-deviation-file <string>
+
+            Specify a path to a custom YANG deviation file to be used for trimming the schema. The
+            file shall comply to the standard for deviation files and contain paths to all nodes to be
+            trimmed from the schema.
 
 
       - filter auto-config dir <string>
@@ -910,6 +940,11 @@
       - ned-id suffix <string>
 
         Set a custom suffix in the generated ned-id.
+
+
+      - include-netsim <empty>
+
+        Do compile the YANG models for netsim as well, when rebuilding the NED package.
 
 
   ## 5.16. rpc remove-filter-path
