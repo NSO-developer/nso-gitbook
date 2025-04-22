@@ -2,6 +2,7 @@
 
 * [Start](README.md)
 * [What's New](whats-new.md)
+* [Out-of-band Interoperation](operation-and-usage/operations/out-of-band-interoperation.md)
 * [NSO at a Glance](nso-at-a-glance.md)
 
 ## Administration
