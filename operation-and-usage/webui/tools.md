@@ -40,10 +40,11 @@ Adding a new package via the Web UI entails uploading the package and then insta
 To add a new package:
 
 1. Click the **Add package** button.
-2. In the **Add package** dialog, browse the package using the **Add** button. The file format must be .tar, .tar.gz, or .tgz. You can add multiple packages at once.
+2. In the **Add package** dialog, browse the package using the **Add** button. The file format must be `.tar`, `.tar.gz`, or `.tgz`. You can add multiple packages at once.
 3. Click **Upload**. A result is shown whether the operation was successful or not.
 4. Once the upload has finished successfully, select the packages to install. If you want to replace an existing package with a new one, use the **Replace package if already exists** option, and to bypass or ignore version mismatches, use the **Allow NSO mismatch** option.
 5. Click **Install**. A result is shown whether the operation was successful or not. For more details and troubleshooting the errors, see the trace output.
+6. Perform a reload of packages if a **Reload required** oper state is shown.
 
 ### View Package Details
 
@@ -68,7 +69,7 @@ To reload the packages:
 
 To uninstall a package:
 
-* Go to the package details view and click the **Uninstall** button, or use the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button in the packages list.
+* Go to the package details view and click the **Uninstall** button, or use the more options <img src="../../images/more-options.png" alt="" data-size="line"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
@@ -82,7 +83,7 @@ The **Alarms** view displays alerts in the system for your NSO-managed objects a
 
 <figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure>
 
-An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../../operation-and-usage/operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
+An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
 
 ### Viewing Options
 
@@ -110,7 +111,7 @@ Alarm handling refers to attending to an alarm. This usually entails reviewing t
 
 To set an alarm handling state:
 
-1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
+1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
 2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
 3. Enter a description (optional).
 4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
@@ -200,11 +201,11 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" style="height: 1em; width: 1em; vertical-align: text-bottom;" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
-* **Delete**: Delete the report.&#x20;
+* **Delete**: Delete the report.
 * **Edit name**: Edit the report name.
 {% endhint %}
 
