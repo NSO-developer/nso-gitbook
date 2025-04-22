@@ -109,7 +109,7 @@ The initialization steps are also performed as `root` for the nodes that make up
 
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
-*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
+*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. If the server needs to serve multiple domains or IP addresses, additional `server-alias` values can be configured. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
 
     **Note**: The SSL certificates that NSO generates are self-signed:
 

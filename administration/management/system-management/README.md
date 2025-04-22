@@ -65,8 +65,9 @@ We strongly encourage you to review and customize the exposed interfaces to your
 
 * `/ncs-config/webui/match-host-name` to `true`.
 * `/ncs-config/webui/server-name` to the hostname of the server.
+* `/ncs-config/webui/server-alias` to additional domains or IP addresses used for serving HTTP(S).
 
-If you decide to allow remote access to the web server, also make sure you use TLS-secured HTTPS instead of HTTP. Not doing so exposes you to security risks.
+If you decide to allow remote access to the web server, make sure you use TLS-secured HTTPS instead of HTTP and keep `match-host-name` enabled. Not doing so exposes you to security risks.
 
 {% hint style="info" %}
 Using `/ncs-config/webui/match-host-name = true` requires you to use the configured hostname when accessing the server. Web browsers do this automatically but you may need to set the `Host` header when performing requests programmatically using an IP address instead of the hostname.
