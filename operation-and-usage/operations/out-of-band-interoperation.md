@@ -259,7 +259,7 @@ long as there is one.  You can describe this with a rule, such as:
  !
 ```
 
-![Out-of-band policy](oob-policy.png)
+![Out-of-band policy](../../images/oob-policy.png)
 
 This, however, brings up another question: what should happen if you redeploy
 the service?  Should NSO use the service-provided IP or should the out-of-band
