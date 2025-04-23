@@ -12,6 +12,14 @@ Complete the following activities in the given order to perform a Local Install 
 
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="local-install.md#step-1---fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="local-install.md#li.download.the.installer">2. Download Installer/NEDs</a><br><a href="local-install.md#li.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="local-install.md#li.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="local-install.md#li.set.env.variables">5. Set Environment Variables</a><br><a href="local-install.md#li.create.runtime.directory">6. Runtime Directory Creation</a><br><a href="local-install.md#li.generate.license.token">7. Generate License Token</a></td><td></td></tr></tbody></table>
 
+{% hint style="info" %}
+#### Mode of Install
+
+NSO Local Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/fips-general-information)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
+
+<sup>\* FIPS: Federal Information Processing Standards</sup>
+{% endhint %}
+
 ### Step 1 - Fulfill System Requirements
 
 Start by setting up your system to install and run NSO.
@@ -27,7 +35,7 @@ To install NSO:
 
 Primary requirements to do a Local Install include:
 
-* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
 * GNU libc 2.24 or higher.
 * Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
@@ -63,6 +71,29 @@ Additional requirements to, for example, build and run NSO examples/services inc
   * Microsoft Edge
   * Google Chrome
 * OpenSSH client applications. For example, the `ssh` and `scp` commands.
+
+</details>
+
+<details>
+
+<summary>FIPS Mode Entropy Requirements</summary>
+
+The following applies if you are running a container-based setup of your FIPS install:
+
+In containerized environments (e.g., Docker) that run on older Linux kernels (e.g., Ubuntu 18.04), `/dev/random` may block if the system’s entropy pool is low. This can lead to delays or hangs in FIPS mode, as cryptographic operations require high-quality randomness.
+
+To avoid this:
+
+* Prefer newer kernels (e.g., Ubuntu 22.04 or later), where entropy handling is improved to mitigate the issue.
+* Or, install an entropy daemon like Haveged on the Docker host to help maintain sufficient entropy.
+
+Check available entropy on the host system with:
+
+```bash
+cat /proc/sys/kernel/random/entropy_avail
+```
+
+A value of 256 or higher is generally considered safe. Reference: [Oracle blog post](https://blogs.oracle.com/linux/post/entropyavail-256-is-good-enough-for-everyone).
 
 </details>
 
@@ -150,20 +181,21 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 
 * HCC
 * Observability Exporter
-* Phased Provisioning
-* Resource Manager
 
-For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
+- Phased Provisioning
+- Resource Manager
+
+For platform tools documentation, refer to the individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
 
 **NED packages**
 
-The NED Packages that are available with the NSO Installation are netsim-based example NEDs. These NEDs are used for NSO examples only.
+The NED packages that are available with the NSO installation are NetSim-based example NEDs. These NEDs are used for NSO examples only.
 
 Fetch the latest production-grade NEDs from [Cisco Software Download](https://software.cisco.com/download/home) using the URLs provided on your NED license certificates.
 
 **Manual pages**
 
-The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF formats and from the online documentation located on [NCS man-pages, Volume 1](../../man/section1.md#ncs) in Manual Pages.
+The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../man/section1.md#ncs) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -174,13 +206,13 @@ Following is a list of a few of the installed manual pages:
 * `ncs-setup(1)`: Command to create an initial NSO setup.
 * `ncs.conf`: NSO daemon configuration file format.
 
-For example, to view the manual page describing the NSO configuration file you should type:
+For example, to view the manual page describing the NSO configuration file, you should type:
 
 ```bash
 $ man ncs.conf
 ```
 
-Apart from the manual pages, extensive information about command line options can be obtained by running `ncs` and `ncsc` with the `--help` (abbreviated `-h`) flag.
+Apart from the manual pages, extensive information about command-line options can be obtained by running `ncs` and `ncsc` with the `--help` (abbreviated `-h`) flag.
 
 ```bash
 $ ncs --help
@@ -235,37 +267,85 @@ removing existing files) without asking for confirmation.
 
 ### Step 4 - Run the Installer <a href="#li.run.the.installer" id="li.run.the.installer"></a>
 
-Local Install of NSO Software is performed in a single user-specified directory, for example in your `$HOME` directory. It is always recommended to install NSO in a directory named as the version of the release, for example, if the version being installed is `6.1`, the directory should be `~/nso-6.1`.
+Local Install of NSO software is performed in a single user-specified directory, for example in your `$HOME` directory.&#x20;
+
+{% hint style="success" %}
+It is always recommended to install NSO in a directory named as the version of the release, for example, if the version being installed is `6.1`, the directory should be `~/nso-6.1`.
+{% endhint %}
 
 To run the installer:
 
 1. Navigate to your Install Directory.
-2.  Run the following command to install NSO in your Install Directory. The `--local-install` parameter is optional.
+2. Run the command given below to install NSO in your Install Directory. The `--local-install` parameter is optional. At this point, you can choose to install NSO in standard mode or in FIPS (Federal Information Processing Standards) mode.
 
-    ```bash
-    $ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install
-    ```
+{% tabs %}
+{% tab title="Standard Local Install" %}
+The standard mode is the regular NSO install and is suitable for most installations. FIPS is disabled in this mode.
 
-    \
-    An example output is shown below.
+For standard NSO install, run the installer as below:
 
-    ```bash
-    sh nso-6.0.darwin.x86_64.installer.bin --local-install ~/nso-6.0
+```bash
+$ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install
+```
 
-    # Output
-    INFO  Using temporary directory /var/folders/90/n5sbctr922336_
-    0jrzhb54400000gn/T//ncs_installer.93831 to stage NCS installation bundle
-    INFO  Unpacked ncs-6.0 in /Users/user/nso-6.0
-    INFO  Found and unpacked corresponding DOCUMENTATION_PACKAGE
-    INFO  Found and unpacked corresponding EXAMPLE_PACKAGE
-    INFO  Found and unpacked corresponding JAVA_PACKAGE
-    INFO  Generating default SSH hostkey (this may take some time)
-    INFO  SSH hostkey generated
-    INFO  Environment set-up generated in /Users/user/nso-6.0/ncsrc
-    INFO  NSO installation script finished
-    INFO  Found and unpacked corresponding NETSIM_PACKAGE
-    INFO  NCS installation complete
-    ```
+An example output is shown below:
+
+{% code title="Example: Standard Local Install" %}
+```bash
+sh nso-6.0.darwin.x86_64.installer.bin --local-install ~/nso-6.0
+
+# Output
+INFO  Using temporary directory /var/folders/90/n5sbctr922336_
+0jrzhb54400000gn/T//ncs_installer.93831 to stage NCS installation bundle
+INFO  Unpacked ncs-6.0 in /Users/user/nso-6.0
+INFO  Found and unpacked corresponding DOCUMENTATION_PACKAGE
+INFO  Found and unpacked corresponding EXAMPLE_PACKAGE
+INFO  Found and unpacked corresponding JAVA_PACKAGE
+INFO  Generating default SSH hostkey (this may take some time)
+INFO  SSH hostkey generated
+INFO  Environment set-up generated in /Users/user/nso-6.0/ncsrc
+INFO  NSO installation script finished
+INFO  Found and unpacked corresponding NETSIM_PACKAGE
+INFO  NCS installation complete
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="FIPS Local Install" %}
+FIPS mode creates a FIPS-compliant NSO install.
+
+FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.&#x20;
+
+For FIPS-compliant NSO install, run the installer with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.&#x20;
+
+```bash
+$ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install --fips-install
+```
+
+{% hint style="info" %}
+#### NSO Configuration for FIPS
+
+Note the following as part of FIPS-specific configuration/install:
+
+1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:&#x20;
+
+```xml
+<fips-mode>
+    <enabled>true</enabled>
+</fips-mode>
+```
+
+2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.&#x20;
+3. The default `crypto.so` is overwritten at install for FIPS compliance.
+
+Additionally, note that:
+
+* As certain algorithms typically available with CiscoSSL are not included in the FIPS 140-3 validated module (and therefore disabled in FIPS mode), you need to configure NSO to use only the algorithms and cryptographic suites available through the CiscoSSL FIPS 140-3 object module.
+* With FIPS, NSO signals the NEDs to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components, ensuring compliance with FIPS 140-3. To support this, NED packages may also require upgrading, as older versions — particularly SSH-based NEDs — often lack the necessary FIPS signaling or Bouncy Castle support required for cryptographic compliance.
+* Configure SSH keys in `ncs.conf` and `init.xml`.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
 ### Step 5 - Set Environment Variables <a href="#li.set.env.variables" id="li.set.env.variables"></a>
 

@@ -22,7 +22,7 @@ To avoid surprises during any upgrade, first ensure the following:
 
 * Hosts have sufficient disk space, as some additional space is required for an upgrade.
 * The software is compatible with the target OS. However, sometimes a newer version of Java or system libraries, such as glibc, may be required.
-* All the required NEDs and custom packages are compatible with the target NSO version.
+* All the required NEDs and custom packages are compatible with the target NSO version. If you're planning to run the upgraded version in FIPS-compliant mode, make sure to upgrade the NEDs to the latest version.
 * Existing packages have been compiled for the new version and are available to you during the upgrade.
 * Check whether the existing `ncs.conf` file can be used as-is or needs updating. For example, stronger encryption algorithms may require you to configure additional keying material.
 * Review the `CHANGES` file for information on what has changed.
@@ -59,39 +59,100 @@ The upgrade of a single NSO instance requires the following steps:
 7. Update the packages in `/var/opt/ncs/packages/` if recompilation is needed.
 8. Start the NSO server process, instructing it to reload the packages.
 
-The following steps assume that you are upgrading to the 6.4 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.
+{% hint style="info" %}
+The following steps assume that you are upgrading to the 6.5 release. They pertain to a System Install of NSO, and you must perform them with Super User privileges.&#x20;
 
+If you're upgrading from a non-FIPS setup to a [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips)-compliant setup, ensure that the system requirements comply to FIPS mode install. This entails considering FIPS compliance at OS level as well as configuring NSO to use only FIPS-validated algorithms for keys and certificates.
+{% endhint %}
+
+{% stepper %}
+{% step %}
 As a best practice, always create a backup before trying to upgrade.
 
 ```bash
 # ncs-backup
 ```
+{% endstep %}
 
-For the upgrade itself, you must first download to the host and install the new NSO release.
+{% step %}
+For the upgrade itself, you must first download to the host and install the new NSO release. At this point, you can choose to install NSO in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) **(Federal Information Processing Standards) mode**.
+
+{% tabs %}
+{% tab title="Standard System Install" %}
+The standard mode is the regular NSO install and is suitable for most installations. FIPS is disabled in this mode.
+
+For standard NSO installation, run the installer as below:&#x20;
 
 ```bash
-# sh nso-6.4.linux.x86_64.installer.bin --system-install
+# sh nso-6.5.linux.x86_64.installer.bin --system-install
 ```
+{% endtab %}
 
-Then, stop the currently running server with the help of `systemd` or an equivalent command relevant to your system.
+{% tab title="FIPS System Install" %}
+FIPS mode creates a FIPS-compliant NSO install.&#x20;
+
+FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.&#x20;
+
+For FIPS-compliant NSO install, run the installer with the additional `--fips-install` flag. Afterwards, if needed, enable FIPS in `ncs.conf` as described further below.
+
+```bash
+# sh nso-6.5.linux.x86_64.installer.bin --system-install --fips-install
+```
+{% endtab %}
+{% endtabs %}
+{% endstep %}
+
+{% step %}
+Stop the currently running server with the help of `systemd` or an equivalent command relevant to your system.
 
 ```bash
 # systemctl stop ncs
 Stopping ncs: .
 ```
+{% endstep %}
 
+{% step %}
 Compact the CDB files write log using, for example, the `ncs --cdb-compact $NCS_RUN_DIR/cdb` command.
+{% endstep %}
 
-Next, you update the symbolic link for the currently selected version to point to the newly installed one, 6.4 in this case.
+{% step %}
+Next, you update the symbolic link for the currently selected version to point to the newly installed one, 6.5 in this case.
 
 ```bash
 # cd /opt/ncs
 # rm -f current
-# ln -s ncs-6.4 current
+# ln -s ncs-6.5 current
+```
+{% endstep %}
+
+{% step %}
+While seldom necessary, at this point, you would also update the `/etc/ncs/ncs.conf` file. If you ran the installer with FIPS mode, update `ncs.conf` accordingly.
+
+{% hint style="info" %}
+#### NSO Configuration for FIPS
+
+Note the following as part of FIPS-specific configuration:
+
+1. If you're upgrading from a non-FIPS version (e.g., 6.4) to a FIPS-compliant version (e.g., 6.5), the following `ncs.conf` entry needs to be manually added to enable FIPS. Afterwards, upon upgrading between FIPS-compliant versions, the existing entry automatically updates, eliminating the need for any manual intervention.
+
+```xml
+<fips-mode>
+    <enabled>true</enabled>
+</fips-mode>
 ```
 
-While seldom necessary, at this point, you would also update the `/etc/ncs/ncs.conf` file.
+2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.&#x20;
+3. The default `crypto.so` is overwritten at install for FIPS compliance.
 
+Additionally, note that:
+
+* As certain algorithms typically available with CiscoSSL are not included in the FIPS 140-3 validated module (and therefore disabled in FIPS mode), you need to configure NSO to use only the algorithms and cryptographic suites available through the CiscoSSL FIPS 140-3 object module.
+* With FIPS, NSO signals the NEDs to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components, ensuring compliance with FIPS 140-3. To support this, NED packages may also require upgrading, as older versions — particularly SSH-based NEDs — often lack the necessary FIPS signaling or Bouncy Castle support required for cryptographic compliance.
+* Configure SSH keys in `ncs.conf` and `init.xml`.
+{% endhint %}
+{% endstep %}
+
+{% step %}
 Now, ensure that the `/var/opt/ncs/packages/` directory has appropriate packages for the new version. It should be possible to continue using the same packages for a maintenance upgrade. But for a major upgrade, you must normally rebuild the packages or use pre-built ones for the new version. You must ensure this directory contains the exact same version of each existing package, compiled for the new release, and nothing else.
 
 As a best practice, the available packages are kept in `/opt/ncs/packages/` and `/var/opt/ncs/packages/` only contains symbolic links. In this case, to identify the release for which they were compiled, the package file names all start with the corresponding NSO version. Then, you only need to rearrange the symbolic links in the `/var/opt/ncs/packages/` directory.
@@ -99,14 +160,16 @@ As a best practice, the available packages are kept in `/opt/ncs/packages/` and 
 ```bash
 # cd /var/opt/ncs/packages/
 # rm -f *
-# for pkg in /opt/ncs/packages/ncs-6.4-*; do ln -s $pkg; done
+# for pkg in /opt/ncs/packages/ncs-6.5-*; do ln -s $pkg; done
 ```
 
 {% hint style="warning" %}
 Please note that the above package naming scheme is neither required nor enforced. If your package filesystem names differ from it, you will need to adjust the preceding command accordingly.
 {% endhint %}
+{% endstep %}
 
-Finally, you start the new version of the NSO server with the package reload flag set. Set `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and start NSO:
+{% step %}
+Finally, you start the new version of the NSO server with the `package reload` flag set. Set `NCS_RELOAD_PACKAGES=true` in `/etc/ncs/ncs.systemd.conf` and start NSO:
 
 ```bash
 # systemctl start ncs
@@ -126,6 +189,8 @@ ncs.service" and "journalctl -xe" for details. [FAILED]
 ```
 
 The above error does not imply that NSO failed to start, just that it took longer than 90 seconds. Therefore, it is recommended you wait some additional time before verifying.
+{% endstep %}
+{% endstepper %}
 
 ## Recover from a Failed Upgrade <a href="#d5e6931" id="d5e6931"></a>
 

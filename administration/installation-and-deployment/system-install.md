@@ -10,6 +10,14 @@ Complete the following activities in the given order to perform a System Install
 
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="system-install.md#step-1---fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="system-install.md#si.download.the.installer">2. Download Installer/NEDs</a><br><a href="system-install.md#si.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="system-install.md#si.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="system-install.md#si.setup.user.access">5. Set up User Access</a><br><a href="system-install.md#si.set.env.variables">6. Set Environment Variables</a><br><a href="system-install.md#si.runtime.directory.creation">7. Runtime Directory Creation</a><br><a href="system-install.md#si.generate.license.token">8. Generate License Token</a></td><td></td></tr></tbody></table>
 
+{% hint style="info" %}
+#### Mode of Install
+
+NSO System Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/fips-general-information)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
+
+<sup>\* FIPS: Federal Information Processing Standards</sup>
+{% endhint %}
+
 ### Step 1 - Fulfill System Requirements
 
 Start by setting up your system to install and run NSO.
@@ -25,7 +33,7 @@ To install NSO:
 
 Primary requirements to do a System Install include:
 
-* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. Linux for production.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. Linux for production. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
 * GNU libc 2.24 or higher.
 * Java JRE 17 or higher. Used by Cisco Smart Licensing.
 * Required and included with many Linux/macOS distributions:
@@ -65,6 +73,29 @@ Additional requirements to, for example, build and run NSO production deployment
 * `logrotate`. rotate, compress, and mail NSO and system logs.
 * `rsyslog`. pass NSO logs to a local syslog managed by `rsyslogd` and pass logs to a remote node.
 * `systemd` or `init.d` scripts to start and stop NSO.
+
+</details>
+
+<details>
+
+<summary>FIPS Mode Entropy Requirements</summary>
+
+The following applies if you are running a container-based setup of your FIPS install:
+
+In containerized environments (e.g., Docker) that run on older Linux kernels (e.g., Ubuntu 18.04), `/dev/random` may block if the system’s entropy pool is low. This can lead to delays or hangs in FIPS mode, as cryptographic operations require high-quality randomness.
+
+To avoid this:
+
+* Prefer newer kernels (e.g., Ubuntu 22.04 or later), where entropy handling is improved to mitigate the issue.
+* Or, install an entropy daemon like Haveged on the Docker host to help maintain sufficient entropy.
+
+Check available entropy on the host system with:
+
+```bash
+cat /proc/sys/kernel/random/entropy_avail
+```
+
+A value of 256 or higher is generally considered safe. Reference: [Oracle blog post](https://blogs.oracle.com/linux/post/entropyavail-256-is-good-enough-for-everyone).
 
 </details>
 
@@ -213,17 +244,66 @@ sh nso-6.0.linux.x86_64.installer.bin --help
 To run the installer:
 
 1. Navigate to your Install Directory.
-2.  Run the installer with the `--system-install` option to perform System Install. This option creates an Install of NSO that is suitable for production deployment.
+2. Run the installer with the `--system-install` option to perform System Install. This option creates an install of NSO that is suitable for production deployment. At this point, you can choose to install NSO in standard mode or in FIPS (Federal Information Processing Standards) mode.
 
-    ```bash
-    $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install
-    ```
+{% tabs %}
+{% tab title="Standard System Install" %}
+The standard mode is the regular NSO install and is suitable for most installations. FIPS is disabled in this mode.
 
-    For example:
+For standard NSO install, run the installer as below.&#x20;
 
-    ```bash
-    $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
-    ```
+```bash
+$ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install
+```
+
+{% code title="Example: Standard System Install" %}
+```bash
+$ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="FIPS System Install" %}
+FIPS mode creates a FIPS-compliant NSO install.
+
+FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.&#x20;
+
+For FIPS-compliant NSO install, run the command with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.
+
+```bash
+$ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install --fips-install
+```
+
+{% code title="Example: FIPS System Install" %}
+```bash
+$ sudo sh nso-6.5.linux.x86_64.installer.bin --system-install --fips-install
+```
+{% endcode %}
+
+{% hint style="info" %}
+#### NSO Configuration for FIPS
+
+Note the following as part of FIPS-specific configuration/install:
+
+1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:&#x20;
+
+```xml
+<fips-mode>
+    <enabled>true</enabled>
+</fips-mode>
+```
+
+2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.&#x20;
+3. The default `crypto.so` is overwritten at install for FIPS compliance.
+
+Additionally, note that:
+
+* As certain algorithms typically available with CiscoSSL are not included in the FIPS 140-3 validated module (and therefore disabled in FIPS mode), you need to configure NSO to use only the algorithms and cryptographic suites available through the CiscoSSL FIPS 140-3 object module.
+* With FIPS, NSO signals the NEDs to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components, ensuring compliance with FIPS 140-3. To support this, NED packages may also require upgrading, as older versions — particularly SSH-based NEDs — often lack the necessary FIPS signaling or Bouncy Castle support required for cryptographic compliance.
+* Configure SSH keys in `ncs.conf` and `init.xml`.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
 <details>
 
