@@ -259,7 +259,12 @@
 
     - nmda get-data datastore <union>
 
-      Configure datastore to be used when using the get-data rpc.
+      Configure datastore to be used by the get-data rpc.
+
+
+    - nmda get-data origin-filter <union>
+
+      Configure an origin filter to be used by the get-data rpc.
 
 
 ## 2.1. ned-settings nokia-sros_nc transaction ignore-rpc-errors
@@ -633,15 +638,17 @@
 
     - nmda get-data datastore <union> (default operational)
 
-      Configure datastore to be used when using the get-data rpc.
+      Configure datastore to be used by the get-data rpc.
+
+
+    - nmda get-data origin-filter <union>
+
+      Configure an origin filter to be used by the get-data rpc.
 
 
     - nmda get-data skip-config <true|false> (default false)
 
       Ask the device to not include 'config true' data in the response.
-
-
-    - nmda get-data origin-filter <union>
 
 
     - ignore-get-error-codes <string> (default unknown-element)

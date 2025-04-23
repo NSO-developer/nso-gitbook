@@ -36,9 +36,10 @@
   ```
   1. ned-settings juniper-junos_nc
   2. transaction
-     2.1. extra-get-config-paths
-     2.2. exclude-namespaces
-     2.3. inject-meta-data
+     2.1. ignore-rpc-errors
+     2.2. extra-get-config-paths
+     2.3. exclude-namespaces
+     2.4. inject-meta-data
   3. connection
      3.1. capabilities
           3.1.1. regex-exclude
@@ -67,49 +68,49 @@
   Settings affecting different aspects of NSO transactions towards device.
 
 
-    - transaction confirmed-commit enable <true|false> (default true)
+    - confirmed-commit enable <true|false> (default true)
 
       Enables confirmed-commit (if supported by device).
 
 
-    - transaction confirmed-commit confirm-timeout <uint16>
+    - confirmed-commit confirm-timeout <uint16>
 
       Timeout in seconds, if set, used as 'confirm-timeout' parameter to the confirmed-commit
       (otherwise defaults to 600 seconds).
 
 
-    - transaction confirmed-commit persisted <true|false> (default false)
+    - confirmed-commit persisted <true|false> (default false)
 
       Enable this setting to use the 'persist-id' to let confirming commit be done in other session
       (e.g. if closing session between commit and persist phases). NOTE: This can only be used with
       devices which support netconf capability 'confirmed-commit:1.1'.
 
 
-    - transaction validate-before-commit <true|false> (default false)
+    - validate-before-commit <true|false> (default false)
 
       If devices supports the validate1.1 capability, the NED will send a validate rpc before
       sending the commit rpc.
 
 
-    - transaction persist-to-startup <true|false> (default true)
+    - persist-to-startup <true|false> (default true)
 
       If enabled, 'running' datastore will be copied to 'startup' in NSO persist stage (if device
       supports distinct startup datastore).
 
 
-    - transaction discard-changes-before-lock <true|false> (default false)
+    - discard-changes-before-lock <true|false> (default false)
 
       If enabled, and using the 'candidate' datastore, a 'discard-changes' operation will be issued
       before trying to lock 'candidate'.
 
 
-    - transaction lock-running-before-candidate <true|false> (default false)
+    - lock-running-before-candidate <true|false> (default false)
 
       If enabled, and using the 'candidate' datastore, the 'running' datastore will also be locked
       during transactions.
 
 
-    - transaction reconnect-on-commit <true|false> (default false)
+    - reconnect-on-commit <true|false> (default false)
 
       If enabled, the NED will reconnect to the device after commit to ensure connectivity is not
       broken (i.e. aborting the NSO commit stage if re-connect fails). This can for example be used
@@ -121,7 +122,7 @@
       'confirmed-commit/persisted' needs to be enabled aswell.
 
 
-    - transaction commit-in-persist <true|false> (default false)
+    - commit-in-persist <true|false> (default false)
 
       If enabled, the NED will not send commit until in the persist phase in NSO (like a confirmed
       commit, assuming config has been validated in the prepare or commit phase). Normally the
@@ -131,42 +132,42 @@
       aborted in the prepare or commit phases for NSO to be able to rollback properly).
 
 
-    - transaction ignore-rpc-warnings <true|false> (default true)
+    - ignore-rpc-warnings <true|false> (default true)
 
       By default rpc-error reply with severity 'warning' will not be treated as error, set to
       'false' to treat warnings as errors (i.e. abort transaction on warnings).
 
 
-    - transaction report-full-rpc-error <true|false> (default false)
+    - report-full-rpc-error <true|false> (default false)
 
       Enable this setting to get full rpc-error payload as message when error occurs (i.e. instead
       of just error-message).
 
 
-    - transaction filter-invalid-values <true|false> (default false)
+    - filter-invalid-values <true|false> (default false)
 
       Filter out invalid leaf values from config before sending to NSO to avoid sync-from failure on
       for example invalid range expression.
 
 
-    - transaction canonicalize-idrefs <true|false> (default false)
+    - canonicalize-idrefs <true|false> (default false)
 
       Canonicalize leaf values of type 'identityref' in config before sending to NSO, i.e.
       add/change prefix to global prefix in NSO.
 
 
-    - transaction filter-config-by-version <union> (default disable)
+    - filter-config-by-version <union> (default disable)
 
       Yang API version to allow (given meta-data annotations in yang models and/or injections).
 
 
-    - transaction get-config-no-filter <true|false> (default false)
+    - get-config-no-filter <true|false> (default false)
 
       Perform full get-config without specifying any filter at all. This applies to operations like
       full sync-from and compare-config.
 
 
-    - transaction trans-id-method <enum> (default custom)
+    - trans-id-method <enum> (default custom)
 
       Select the method for calculating transaction-id. Note that both 'config-hash' and
       'config-data' will exclude config according to filtering which might be in effect,
@@ -182,12 +183,12 @@
                      or something similar.
 
 
-    - transaction use-maapi-setvalues <true|false> (default false)
+    - use-maapi-setvalues <true|false> (default false)
 
       Use maapi setValues method instead of loadConfigStream to load data to NSO.
 
 
-    - transaction abort-on-diff <true|false> (default false)
+    - abort-on-diff <true|false> (default false)
 
       Enable to detect diff immediately when config is applied (i.e. in commit/abort/revert).
       If a diff is detected an exception is thrown, having the effect in commit that the transaction
@@ -199,7 +200,7 @@
       be used during development.
 
 
-    - transaction filter-side-effects <true|false> (default false)
+    - filter-side-effects <true|false> (default false)
 
       Enable to automatically filter out side-effects when commiting config. With this feature enabled
       the NED will accumulate 'exclude filter-paths' which are used to filter out config from device
@@ -207,21 +208,21 @@
       overlapping models.
 
 
-    - transaction filter-paths-file <string>
+    - filter-paths-file <string>
 
       File containing paths to filter out from data (config/oper/rpc-reply). Each line in the file
       is of the format '<include|exclude> <schema-path>'. If no include lines are present, it implies
       everything is included if not explicitly excluded. This can be combined with 'exclude-namespaces'.
 
 
-    - transaction delete-with-remove <true|false> (default false)
+    - delete-with-remove <true|false> (default false)
 
       Enable this setting to always use netconf operation 'remove' instead of 'delete' when deleting
       nodes with edit-config. This will have the effect that if trying to delete a node which is not
       present the operation will be ignored.
 
 
-    - transaction set-default-to-delete <true|false> (default true)
+    - set-default-to-delete <true|false> (default true)
 
       Enable this setting to treat the operation 'set default' as a delete operation. By default, for
       devices that has 'with-defaults' handling 'explicit' (or lacks this capability), the behaviour of
@@ -229,7 +230,7 @@
       be deleted, i.e. the value is explicitly set back to its default instead of being deleted.
 
 
-    - transaction delete-by-set-to-default <true|false> (default false)
+    - delete-by-set-to-default <true|false> (default false)
 
       Enable this setting to make the NED convert 'delete' operations to 'set to default' on nodes with
       default values. Use this option to prevent NSO from emitting delete operations on nodes that were
@@ -237,31 +238,55 @@
       'replace' feature.
 
 
-    - transaction enable-diff-dependencies <true|false> (default true)
+    - enable-diff-dependencies <true|false> (default true)
 
       Enable this setting to be able to use the 'diff-dependencies' annotations on nodes in the schema where device
       has bugs imposing ordering dependencies for certain edit operations. For more information in the annotations
       that can be used, see section 9.12 in the README.md.
 
 
-    - transaction force-revert-diff <true|false> (default false)
+    - force-revert-diff <true|false> (default false)
 
       Enable this setting to force the use of an NSO calculated diff to apply when doing revert on device.
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
-    - transaction fetch-serial-number <true|false> (default true)
+    - nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - nmda get-data datastore <union>
+
+      Configure datastore to be used when using the get-data rpc.
+
+
+    - fetch-serial-number <true|false> (default true)
 
       Use rpc get-chassis-inventory (i.e. 'show chassis hardware') to fetch serial number.
 
 
-    - transaction revert-with-rollback <true|false> (default true)
+    - revert-with-rollback <true|false> (default true)
 
       Use Junos proprietary RPC 'rollback-config' with index 1 to do revert the running config after
       commit (i.e. to undo commit).
 
 
-## 2.1. ned-settings juniper-junos_nc transaction extra-get-config-paths
+## 2.1. ned-settings juniper-junos_nc transaction ignore-rpc-errors
+-------------------------------------------------------------------
+
+  Configure additional device errors that shall be treated as warnings (i.e. to be ignored, not
+  aborting transaction).
+
+    - ignore-rpc-errors <error>
+
+      - error <string>
+
+        Warning regular expression, e.g. '^.*interface.* does not exist.*$'. NOTE: please use
+        lowercase letters for device warnings, except for regex keywords.
+
+
+## 2.2. ned-settings juniper-junos_nc transaction extra-get-config-paths
 ------------------------------------------------------------------------
 
   This list can be used to add extra filters when sending get-config RPC to the device.
@@ -269,28 +294,28 @@
   certain top-nodes. The key of the list is the path to add (non-unique nodes must be prefixed
   with 'global' prefix, i.e. prefix from module).
 
-    - transaction extra-get-config-paths <path>
+    - extra-get-config-paths <path>
 
       - path <schema-path>
 
         Schema path to explicitly add to filter for get-config.
 
 
-## 2.2. ned-settings juniper-junos_nc transaction exclude-namespaces
+## 2.3. ned-settings juniper-junos_nc transaction exclude-namespaces
 --------------------------------------------------------------------
 
   This list can be used to filter out certain namespaces from the configuration
   (i.e. all nodes belonging to namespaces given in this list will be dropped
   from the config before sent to NSO).
 
-    - transaction exclude-namespaces <ns>
+    - exclude-namespaces <ns>
 
       - ns <namespace>
 
         Namespace to exclude (i.e. as it appears in the yang module).
 
 
-## 2.3. ned-settings juniper-junos_nc transaction inject-meta-data
+## 2.4. ned-settings juniper-junos_nc transaction inject-meta-data
 ------------------------------------------------------------------
 
   Inject tailf:meta-data extension into schema at given path, used for example to trigger xml
@@ -311,7 +336,7 @@
 
   NOTE: For more information about custom xml transforms, see section 'Custom XML transforms' in the README.md.
 
-    - transaction inject-meta-data <id> <path> <meta-data> <meta-value>
+    - inject-meta-data <id> <path> <meta-data> <meta-value>
 
       - id <uint16>
 
@@ -345,7 +370,7 @@
   Settings related the netconf capablities, and the discovery of supported yang modules.
 
 
-    - capabilities defaults-mode-override <enum>
+    - defaults-mode-override <enum>
 
       Use this setting to override/force the 'with-defaults' handling reported to NSO,
       regardless of what the device reports. When 'trim' is forced, the NED will trim
@@ -359,7 +384,7 @@
       trim        - trim.
 
 
-    - capabilities use-netconf-state <true|false> (default true)
+    - use-netconf-state <true|false> (default true)
 
       If this setting is enabled, and the device declares support for ietf-yang namespace
       'ietf-netconf-monitoring', the list /netconf-state/schemas/schema will be fetched from the
@@ -367,7 +392,7 @@
       persistent oper data until cleared with the built-in rpc clear-cached-capabilities.
 
 
-    - capabilities use-modules-state <true|false> (default true)
+    - use-modules-state <true|false> (default true)
 
       If this setting is enabled, and the device declares support for the netconf capability 'yang-library',
       the node /modules-state from the ietf namespace 'ietf-yang-library' will be fetched from the device
@@ -376,7 +401,7 @@
       with the built-in rpc clear-cached-capabilities.
 
 
-    - capabilities use-yang-library <true|false> (default true)
+    - use-yang-library <true|false> (default true)
 
       If this setting is enabled, and the device declares support for the netconf capability 'yang-library'
       (version 1.1), the node /yang-library from the ietf namespace 'ietf-yang-library' will be fetched
@@ -385,10 +410,10 @@
       cache is cleared with the built-in rpc clear-cached-capabilities.
 
 
-    - capabilities use-all-local-modules <true|false> (default false)
+    - use-all-local-modules <true|false> (default false)
 
 
-    - capabilities use-legacy-obu-attrs <true|false> (default true)
+    - use-legacy-obu-attrs <true|false> (default true)
 
       Juniper uses a proprietary attribute scheme when doing ordered-by user edits, however in
       recent versions of Junos this is no longer the case, disable this setting to use attributes
@@ -401,7 +426,7 @@
   List of regex patterns to use for excluding capabilities sent from device in hello, for example to
   exclude a capability which the device announces in hello, but which is not correctly implemented
 
-    - capabilities regex-exclude <pattern>
+    - regex-exclude <pattern>
 
       - pattern <regex>
 
@@ -415,7 +440,7 @@
   when this list is non-empty, only capabilities matching any of the patterns in this list will
   be included
 
-    - capabilities regex-include <pattern>
+    - regex-include <pattern>
 
       - pattern <regex>
 
@@ -430,7 +455,7 @@
   'regex-exclude', and replaced with an inject. Also if device leaves out a capability that should be
   present and is needed, it can be injected.
 
-    - capabilities inject <capa>
+    - inject <capa>
 
       - capa <string>
 
@@ -444,17 +469,17 @@
   Settings related to the SSH client used by the NED to connect to the device.
 
 
-    - ssh host-key known-hosts-file <string>
+    - host-key known-hosts-file <string>
 
       Path to openssh formatted 'known_hosts' file containing valid host keys.
 
 
-    - ssh host-key public-key-file <string>
+    - host-key public-key-file <string>
 
       Path to openssh formatted public (.pub) host key file.
 
 
-    - ssh host-key auto-fetch <true|false> (default false)
+    - host-key auto-fetch <true|false> (default false)
 
       Enable this setting to let the NED handle host-key validation internally (i.e. instead of using
       NSO's 'ssh fetch-host-keys' action). The NED will store the host-key sent on the first
@@ -478,14 +503,14 @@
        $ ncs_cmd -c "mdel /ncs:devices/device{dev-1}/ned-settings/juniper-junos_nc-oper/known-host-keys"
 
 
-    - ssh auth-key private-key-file <string>
+    - auth-key private-key-file <string>
 
       Path to openssh formatted private key file for doing public key auth to device or proxy. Note
       that if private-key authentication is needed to the device when connecting through a proxy,
       that needs to be configured in 'proxy/auth-key/private-key-file.
 
 
-    - ssh keep-alive-interval <seconds> (default 0)
+    - keep-alive-interval <seconds> (default 0)
 
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
       keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
@@ -505,7 +530,7 @@
   globally, or in a profile, which is a convenient way to switch all or some devices to connect through a jump-host.
 
 
-    - proxy global-proxy <true|false> (default false)
+    - global-proxy <true|false> (default false)
 
       Enable this setting to 'reverse' the meaning of the settings in the proxy section into actually configuring the
       proxy host instead of the device behind the proxy. Note that if enabling 'global-proxy' and host-key-validation is
@@ -514,12 +539,12 @@
       built-in standard fetch-host-keys can not be used of course since the configured device address is not to the proxy any more.
 
 
-    - proxy remote-address <ip-address|domain-name>
+    - remote-address <ip-address|domain-name>
 
       Internal address of device, i.e. when accessed from the proxy.
 
 
-    - proxy remote-port <uint16>
+    - remote-port <uint16>
 
       Port of device.
 
@@ -541,14 +566,14 @@
           Authentication credentials for the device behind the proxy.
 
 
-    - proxy auth-key private-key-file <string>
+    - auth-key private-key-file <string>
 
       Path to openssh formatted private key file for doing public key auth to device behind proxy.
       Note that if private-key authentication is needed to the proxy itself, that needs to be
       configured as it would be for the device, in 'connection/ssh/auth-key/private-key-file.
 
 
-    - proxy host-key-validation <true|false> (default false)
+    - host-key-validation <true|false> (default false)
 
       Determines if the host-key of the device or proxy should be validated or not. If validation is
       preferred, the host-key must be configured in 'connection/ssh/host-key'.
@@ -560,7 +585,7 @@
   Configure NED settings related to live-status.
 
 
-    - live-status do-separate-get-calls <true|false> (default false)
+    - do-separate-get-calls <true|false> (default false)
 
       By default this NED is passing a subtree filter with all requested paths to the device in one
       get call. This is a fast method. Some devices do however not function properly with subtree
@@ -568,33 +593,51 @@
       to true if the NED shall do separate get calls.
 
 
-    - live-status show-stats-filter <true|false> (default true)
+    - show-stats-filter <true|false> (default true)
 
       Use the filter API from NSO to do live-status requests (available in NSO 6.1 and later). This
       API is much more flexible and will result in fewer round-trips to the device and possibly less
       data transferred from the device.
 
 
-    - live-status time-to-live <int32> (default 50)
+    - time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.
 
 
-    - live-status filter-unmodeled <true|false> (default true)
+    - filter-unmodeled <true|false> (default true)
 
       Filters out operational data not present in yang-model before returning result to NSO.
 
 
-    - live-status filter-invalid-values <true|false> (default false)
+    - filter-invalid-values <true|false> (default false)
 
       Filter out invalid leaf values from config before sending to NSO to avoid sync-from failure on
       for example invalid range expression.
 
 
-    - live-status canonicalize-idrefs <true|false> (default true)
+    - canonicalize-idrefs <true|false> (default true)
 
       Canonicalize leaf values of type 'identityref' in operational data before sending to NSO, i.e.
       add/change prefix to global prefix in NSO.
+
+
+    - nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - nmda get-data datastore <union> (default operational)
+
+      Configure datastore to be used when using the get-data rpc.
+
+
+    - nmda get-data skip-config <true|false> (default false)
+
+      Ask the device to not include 'config true' data in the response.
+
+
+    - nmda get-data origin-filter <union>
 
 
 ## 5.1. ned-settings juniper-junos_nc live-status regex-exclude
@@ -606,7 +649,7 @@
   unique, prefixes can be omitted, but not when used in a key-path, then a 'global' path is needed,
   i.e. prefixed as it would appear in NSO, including the prefix on each level where new namespace occurs.
 
-    - live-status regex-exclude <pattern>
+    - regex-exclude <pattern>
 
       - pattern <regex>
 
@@ -619,18 +662,18 @@
   Configuration of CLI interaction through 'exec any <cli-cmd>'.
 
 
-    - cli port <uint16>
+    - port <uint16>
 
       Alternatative port on device, if interactive CLI not availble on same port as 'netconf'
       subsystem.
 
 
-    - cli prompt-pattern <string> (default ^[^>]+>)
+    - prompt-pattern <string> (default ^[^>]+>)
 
       Regex to match device prompt.
 
 
-    - cli no-pagination-cmd <string> (default set cli screen-length 0)
+    - no-pagination-cmd <string> (default set cli screen-length 0)
 
       Command line to send after login to turn off pagination on the  device (i.e. to make output from commands not
       stop to prompt user for 'more').
@@ -650,7 +693,7 @@
 
     live-status cli auto-prompts 10 question ".*assword: ?" answer secret
 
-    - cli auto-prompts <id> <question> <answer>
+    - auto-prompts <id> <question> <answer>
 
       - id <WORD>
 
@@ -671,7 +714,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Sets the logger verbosity. Enable raw trace on the device instance in NSO to
       get trace output. To trace the netconf raw RPCs, set level to verbose or debug.
@@ -685,7 +728,7 @@
       debug    - Least restrictive level, logs everything, output might grow very large.
 
 
-    - logger java <true|false> (default true)
+    - java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log, Note, this file is shared between all NED
       instances and might grow very large if level is increased.
@@ -697,12 +740,12 @@
   Contains settings used by the NED developers.
 
 
-    - developer trace-timestamp <true|false> (default false)
+    - trace-timestamp <true|false> (default false)
 
       Add timestamp from NED instance in trace messages for debug purpose.
 
 
-    - developer sync-from-verbose <enum> (default brief)
+    - sync-from-verbose <enum> (default brief)
 
       Set info level for sync-from verbose output.
 
@@ -711,13 +754,13 @@
       full   - full.
 
 
-    - developer strict-maapi-error-check <true|false> (default true)
+    - strict-maapi-error-check <true|false> (default true)
 
       When this setting is enabled, if maapi reports error when loading data to NSO, the error is
       reported back to NSO, failing show operation.
 
 
-    - developer progress-verbosity <enum> (default debug)
+    - progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level which will get written in devel.log file.
 
@@ -732,17 +775,17 @@
       debug         - debug.
 
 
-    - developer platform model <string>
+    - platform model <string>
 
       Override device model name/number.
 
 
-    - developer platform name <string>
+    - platform name <string>
 
       Override device name.
 
 
-    - developer platform version <string>
+    - platform version <string>
 
       Override device version.
 
