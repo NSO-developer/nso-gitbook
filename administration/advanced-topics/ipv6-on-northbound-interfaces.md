@@ -31,7 +31,7 @@ In most IPv6 deployments, it will however be necessary to support IPv6 and IPv4 
 
 To configure the SNMP agent to accept requests to port 161 on any local IPv6 address, we could similarly use the CLI and give the command:
 
-```cli
+```bash
 admin@ncs(config)# snmp agent extra-listen :: 161
 ```
 

@@ -7,8 +7,8 @@ icon: download
 
 ## Ways to Deploy NSO <a href="#d5e46" id="d5e46"></a>
 
-* By installation
-* By using Cisco-provided container images
+* [By installation](./#by-installation)
+* [By using Cisco-provided container images](./#by-using-cisco-provided-container-images)
 
 ### By Installation
 

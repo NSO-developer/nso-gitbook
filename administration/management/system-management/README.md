@@ -82,7 +82,7 @@ Let's look at all the settings that can be manipulated through the NSO northboun
 
 We summarize the most relevant parts below:
 
-```cli
+```bash
 ncs@ncs(config)#
 Possible completions:
   aaa                        AAA management, users and groups
@@ -114,7 +114,7 @@ NSO has a built-in SSH server which makes it possible to SSH directly into the N
 
 There are also configuration parameters that are more related to how NSO behaves when talking to the devices. These reside in `devices global-settings`.
 
-```cli
+```bash
 admin@ncs(config)# devices global-settings
 Possible completions:
   backlog-auto-run               Auto-run the backlog at successful connection
@@ -138,7 +138,7 @@ Possible completions:
 
 Users are configured at the path `aaa authentication users`.
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration aaa authentication users user
 aaa authentication users user admin
  uid        1000
@@ -158,7 +158,7 @@ aaa authentication users user oper
 
 Access control, including group memberships, is managed using the NACM model (RFC 6536).
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration nacm
 nacm write-default permit
 nacm groups group admin
@@ -193,7 +193,7 @@ Adding a user includes the following steps:
 
 It is likely that the new user also needs access to work with device configuration. The mapping from NSO users and corresponding device authentication is configured in `authgroups`. So, the user needs to be added there as well.
 
-```cli
+```bash
 admin@ncs(config)# show full-configuration devices authgroups
 devices authgroups group default
  umap admin
@@ -209,7 +209,7 @@ devices authgroups group default
 
 If the last step is forgotten, you will see the following error:
 
-```cli
+```bash
 jim@ncs(config)# devices device c0 config ios:snmp-server community fee
 jim@ncs(config-config)# commit
 Aborted: Resource authgroup for jim doesn't exist
@@ -231,7 +231,7 @@ $ ncs --status
 
 Or, in the CLI:
 
-```cli
+```bash
 ncs# show ncs-state
 ```
 
@@ -239,16 +239,16 @@ For details on the output see `$NCS_DIR/src/yang/tailf-common-monitoring2.yang`.
 
 Below is an overview of the output:
 
-<table data-header-hidden data-full-width="true"><thead><tr><th width="246"></th><th></th></tr></thead><tbody><tr><td><code>daemon-status</code></td><td>You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td><code>version</code></td><td>The NSO version.</td></tr><tr><td><code>smp</code></td><td>Number of threads used by the daemon.</td></tr><tr><td><code>ha</code></td><td>The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td><code>internal/callpoints</code></td><td><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
+<table data-full-width="false"><thead><tr><th width="246" valign="top">Item</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>daemon-status</code></td><td valign="top">You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td valign="top"><code>version</code></td><td valign="top">The NSO version.</td></tr><tr><td valign="top"><code>smp</code></td><td valign="top">Number of threads used by the daemon.</td></tr><tr><td valign="top"><code>ha</code></td><td valign="top">The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td valign="top"><code>internal/callpoints</code></td><td valign="top"><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
   id=l3vpn-servicepoint daemonId=10 daemonName=ncs-dp-6-l3vpn:L3VPN
   id=nsr-servicepoint daemonId=11 daemonName=ncs-dp-7-nsd:NSRService
   id=vm-esc-servicepoint daemonId=12 daemonName=ncs-dp-8-vm-manager-esc:ServiceforVMstarting
   id=vnf-catalogue-esc daemonId=13 daemonName=ncs-dp-9-vnf-catalogue-esc:ESCVNFCatalogueService
-</code></pre></td></tr><tr><td><code>internal/cdb</code></td><td>The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td><code>loaded-data-models</code></td><td>The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td>All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here.</td></tr><tr><td><code>patches</code></td><td>Lists any installed patches.</td></tr><tr><td><code>upgrade-mode</code></td><td>If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
+</code></pre></td></tr><tr><td valign="top"><code>internal/cdb</code></td><td valign="top">The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td valign="top"><code>loaded-data-models</code></td><td valign="top">The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td valign="top"><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td valign="top">All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here.</td></tr><tr><td valign="top"><code>patches</code></td><td valign="top">Lists any installed patches.</td></tr><tr><td valign="top"><code>upgrade-mode</code></td><td valign="top">If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
 
 It is also important to look at the packages that are loaded. This can be done in the CLI with:
 
-```
+```bash
 admin> show packages
 packages package cisco-asa
  package-version 3.4.0

@@ -240,27 +240,7 @@ YANG has a set of built-in types, similar to those of many programming languages
 
 The table below lists YANG built-in types:
 
-| Name                | Type        | Description                                       |
-| ------------------- | ----------- | ------------------------------------------------- |
-| binary              | Text        | Any binary data                                   |
-| bits                | Text/Number | A set of bits or flags                            |
-| boolean             | Text        | `true` or `false`                                 |
-| decimal64           | Number      | 64-bit fixed point real number                    |
-| empty               | Empty       | A leaf that does not have any value               |
-| enumeration         | Text/Number | Enumerated strings with associated numeric values |
-| identityref         | Text        | A reference to an abstract identity               |
-| instance-identifier | Text        | References a data tree node                       |
-| int8                | Number      | 8-bit signed integer                              |
-| int16               | Number      | 16-bit signed integer                             |
-| int32               | Number      | 32-bit signed integer                             |
-| int64               | Number      | 64-bit signed integer                             |
-| leafref             | Text/Number | A reference to a leaf instance                    |
-| string              | Text        | Human readable string                             |
-| uint8               | Number      | 8-bit unsigned integer                            |
-| uint16              | Number      | 16-bit unsigned integer                           |
-| uint32              | Number      | 32-bit unsigned integer                           |
-| uint64              | Number      | 64-bit unsigned integer                           |
-| union               | Text/Number | Choice of member types                            |
+<table><thead><tr><th valign="top">Name</th><th valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top">binary</td><td valign="top">Text</td><td valign="top">Any binary data</td></tr><tr><td valign="top">bits</td><td valign="top">Text/Number</td><td valign="top">A set of bits or flags</td></tr><tr><td valign="top">boolean</td><td valign="top">Text</td><td valign="top"><code>true</code> or <code>false</code></td></tr><tr><td valign="top">decimal64</td><td valign="top">Number</td><td valign="top">64-bit fixed point real number</td></tr><tr><td valign="top">empty</td><td valign="top">Empty</td><td valign="top">A leaf that does not have any value</td></tr><tr><td valign="top">enumeration</td><td valign="top">Text/Number</td><td valign="top">Enumerated strings with associated numeric values</td></tr><tr><td valign="top">identityref</td><td valign="top">Text</td><td valign="top">A reference to an abstract identity</td></tr><tr><td valign="top">instance-identifier</td><td valign="top">Text</td><td valign="top">References a data tree node</td></tr><tr><td valign="top">int8</td><td valign="top">Number</td><td valign="top">8-bit signed integer</td></tr><tr><td valign="top">int16</td><td valign="top">Number</td><td valign="top">16-bit signed integer</td></tr><tr><td valign="top">int32</td><td valign="top">Number</td><td valign="top">32-bit signed integer</td></tr><tr><td valign="top">int64</td><td valign="top">Number</td><td valign="top">64-bit signed integer</td></tr><tr><td valign="top">leafref</td><td valign="top">Text/Number</td><td valign="top">A reference to a leaf instance</td></tr><tr><td valign="top">string</td><td valign="top">Text</td><td valign="top">Human readable string</td></tr><tr><td valign="top">uint8</td><td valign="top">Number</td><td valign="top">8-bit unsigned integer</td></tr><tr><td valign="top">uint16</td><td valign="top">Number</td><td valign="top">16-bit unsigned integer</td></tr><tr><td valign="top">uint32</td><td valign="top">Number</td><td valign="top">32-bit unsigned integer</td></tr><tr><td valign="top">uint64</td><td valign="top">Number</td><td valign="top">64-bit unsigned integer</td></tr><tr><td valign="top">union</td><td valign="top">Text/Number</td><td valign="top">Choice of member types</td></tr></tbody></table>
 
 ### Derived Types (`typedef`)
 

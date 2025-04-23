@@ -1205,11 +1205,7 @@ For situations where alarm subscription outside of the NSO Java VM is desired, s
     source.start();
 ```
 
-To retrieve alarms from the `AlarmSource` listener,
-either a blocking `takeAlarm()` or a timeout based
-`pollAlarm()` can be used.
-The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it,
-or the `AlarmSource` can be used in a try-with-resources statement.
+To retrieve alarms from the `AlarmSource` listener, either a blocking `takeAlarm()` or a timeout based `pollAlarm()` can be used. The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it, or the `AlarmSource` can be used in a try-with-resources statement.
 
 {% code title="Consuming alarms inside NSO Java VM" %}
 ```
@@ -1294,9 +1290,7 @@ However, this case requires that the `AlarmSinkCentral` is started prior to the 
        sinkCentral.start();
 ```
 
-The alarm sink can then be started with the
-`AlarmSink(AlarmSinkCentral central)` constructor,
-i.e.:
+The alarm sink can then be started with the `AlarmSink(AlarmSinkCentral central)` constructor, i.e.:
 
 ```
        AlarmSink sink = new AlarmSink(sinkCentral);
@@ -1447,38 +1441,7 @@ The class `ConfObject` defines public int constants for the different value type
 
 The table lists `ConfValue` types.
 
-| Constant                | YANG type                        | ConfValue                 | Description             |
-| ----------------------- | -------------------------------- | ------------------------- | ----------------------- |
-| `J_STR`                 | string                           | `ConfBuf`                 | Human readable string   |
-| `J_BUF`                 | string                           | `ConfBuf`                 | Human readable string   |
-| `J_INT8`                | int8                             | `ConfInt8`                | 8-bit signed integer    |
-| `J_INT16`               | int16                            | `ConfInt16`               | 16-bit signed integer   |
-| `J_INT32`               | int32                            | `ConfInt32`               | 32-bit signed integer   |
-| `J_INT64`               | int64                            | `ConfInt64`               | 64-bit signed integer   |
-| `J_UINT8`               | uint8                            | `ConfUInt8`               | 8-bit unsigned integer  |
-| `J_UINT16`              | uint16                           | `ConfUInt16`              | 16-bit unsigned integer |
-| `J_UINT32`              | uint32                           | `ConfUInt32`              | 32-bit unsigned integer |
-| `J_UINT64`              | uint64                           | `ConfUInt64`              | 64-bit unsigned integer |
-| `J_IPV4`                | inet:ipv4-address                | `ConfIPv4`                | 64-bit unsigned         |
-| `J_IPV6`                | inet:ipv6-address                | `ConfIPv6`                | IP v6 Address           |
-| `J_BOOL`                | boolean                          | `ConfBoolean`             | Boolean value           |
-| `J_QNAME`               | xs:QName                         | `ConfQName`               | A namespace/tag pair    |
-| `J_DATETIME`            | yang:date-and-time               | `ConfDateTime`            | Date and Time Value     |
-| `J_DATE`                | xs:date                          | `ConfDate`                | XML schema Date         |
-| `J_ENUMERATION`         | enum                             | `ConfEnumeration`         | An enumeration value    |
-| `J_BIT32`               | bits                             | `ConfBit32`               | 32 bit value            |
-| `J_BIT64`               | bits                             | `ConfBit64`               | 64 bit value            |
-| `J_LIST`                | leaf-list                        | `-`                       | -                       |
-| `J_INSTANCE_IDENTIFIER` | instance-identifier              | `ConfObjectRef`           | yang builtin            |
-| `J_OID`                 | tailf:snmp-oid                   | `ConfOID`                 | -                       |
-| `J_BINARY`              | tailf:hex-list, tailf:octet-list | `ConfBinary, ConfHexList` | -                       |
-| `J_IPV4PREFIX`          | inet:ipv4-prefix                 | `ConfIPv4Prefix`          | -                       |
-| `J_IPV6PREFIX`          | -                                | `ConfIPv6Prefix`          | -                       |
-| `J_IPV6PREFIX`          | inet:ipv6-prefix                 | `ConfIPv6Prefix`          | -                       |
-| `J_DEFAULT`             | -                                | `ConfDefault`             | default value indicator |
-| `J_NOEXISTS`            | -                                | `ConfNoExists`            | no value indicator      |
-| `J_DECIMAL64`           | decimal64                        | `ConfDecimal64`           | yang builtin            |
-| `J_IDENTITYREF`         | identityref                      | `ConfIdentityRef`         | yang builtin            |
+<table><thead><tr><th valign="top">Constant</th><th valign="top">YANG type</th><th valign="top">ConfValue</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>J_STR</code></td><td valign="top">string</td><td valign="top"><code>ConfBuf</code></td><td valign="top">Human readable string</td></tr><tr><td valign="top"><code>J_BUF</code></td><td valign="top">string</td><td valign="top"><code>ConfBuf</code></td><td valign="top">Human readable string</td></tr><tr><td valign="top"><code>J_INT8</code></td><td valign="top">int8</td><td valign="top"><code>ConfInt8</code></td><td valign="top">8-bit signed integer</td></tr><tr><td valign="top"><code>J_INT16</code></td><td valign="top">int16</td><td valign="top"><code>ConfInt16</code></td><td valign="top">16-bit signed integer</td></tr><tr><td valign="top"><code>J_INT32</code></td><td valign="top">int32</td><td valign="top"><code>ConfInt32</code></td><td valign="top">32-bit signed integer</td></tr><tr><td valign="top"><code>J_INT64</code></td><td valign="top">int64</td><td valign="top"><code>ConfInt64</code></td><td valign="top">64-bit signed integer</td></tr><tr><td valign="top"><code>J_UINT8</code></td><td valign="top">uint8</td><td valign="top"><code>ConfUInt8</code></td><td valign="top">8-bit unsigned integer</td></tr><tr><td valign="top"><code>J_UINT16</code></td><td valign="top">uint16</td><td valign="top"><code>ConfUInt16</code></td><td valign="top">16-bit unsigned integer</td></tr><tr><td valign="top"><code>J_UINT32</code></td><td valign="top">uint32</td><td valign="top"><code>ConfUInt32</code></td><td valign="top">32-bit unsigned integer</td></tr><tr><td valign="top"><code>J_UINT64</code></td><td valign="top">uint64</td><td valign="top"><code>ConfUInt64</code></td><td valign="top">64-bit unsigned integer</td></tr><tr><td valign="top"><code>J_IPV4</code></td><td valign="top">inet:ipv4-address</td><td valign="top"><code>ConfIPv4</code></td><td valign="top">64-bit unsigned</td></tr><tr><td valign="top"><code>J_IPV6</code></td><td valign="top">inet:ipv6-address</td><td valign="top"><code>ConfIPv6</code></td><td valign="top">IP v6 Address</td></tr><tr><td valign="top"><code>J_BOOL</code></td><td valign="top">boolean</td><td valign="top"><code>ConfBoolean</code></td><td valign="top">Boolean value</td></tr><tr><td valign="top"><code>J_QNAME</code></td><td valign="top">xs:QName</td><td valign="top"><code>ConfQName</code></td><td valign="top">A namespace/tag pair</td></tr><tr><td valign="top"><code>J_DATETIME</code></td><td valign="top">yang:date-and-time</td><td valign="top"><code>ConfDateTime</code></td><td valign="top">Date and Time Value</td></tr><tr><td valign="top"><code>J_DATE</code></td><td valign="top">xs:date</td><td valign="top"><code>ConfDate</code></td><td valign="top">XML schema Date</td></tr><tr><td valign="top"><code>J_ENUMERATION</code></td><td valign="top">enum</td><td valign="top"><code>ConfEnumeration</code></td><td valign="top">An enumeration value</td></tr><tr><td valign="top"><code>J_BIT32</code></td><td valign="top">bits</td><td valign="top"><code>ConfBit32</code></td><td valign="top">32 bit value</td></tr><tr><td valign="top"><code>J_BIT64</code></td><td valign="top">bits</td><td valign="top"><code>ConfBit64</code></td><td valign="top">64 bit value</td></tr><tr><td valign="top"><code>J_LIST</code></td><td valign="top">leaf-list</td><td valign="top"><code>-</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_INSTANCE_IDENTIFIER</code></td><td valign="top">instance-identifier</td><td valign="top"><code>ConfObjectRef</code></td><td valign="top">yang builtin</td></tr><tr><td valign="top"><code>J_OID</code></td><td valign="top">tailf:snmp-oid</td><td valign="top"><code>ConfOID</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_BINARY</code></td><td valign="top">tailf:hex-list, tailf:octet-list</td><td valign="top"><code>ConfBinary, ConfHexList</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_IPV4PREFIX</code></td><td valign="top">inet:ipv4-prefix</td><td valign="top"><code>ConfIPv4Prefix</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_IPV6PREFIX</code></td><td valign="top">-</td><td valign="top"><code>ConfIPv6Prefix</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_IPV6PREFIX</code></td><td valign="top">inet:ipv6-prefix</td><td valign="top"><code>ConfIPv6Prefix</code></td><td valign="top">-</td></tr><tr><td valign="top"><code>J_DEFAULT</code></td><td valign="top">-</td><td valign="top"><code>ConfDefault</code></td><td valign="top">default value indicator</td></tr><tr><td valign="top"><code>J_NOEXISTS</code></td><td valign="top">-</td><td valign="top"><code>ConfNoExists</code></td><td valign="top">no value indicator</td></tr><tr><td valign="top"><code>J_DECIMAL64</code></td><td valign="top">decimal64</td><td valign="top"><code>ConfDecimal64</code></td><td valign="top">yang builtin</td></tr><tr><td valign="top"><code>J_IDENTITYREF</code></td><td valign="top">identityref</td><td valign="top"><code>ConfIdentityRef</code></td><td valign="top">yang builtin</td></tr></tbody></table>
 
 An important class in the `com.tailf.conf` package, not inheriting `ConfObject`, is `ConfPath`. ConfPath is used to represent a keypath that can point to any element in an instantiated model. As such it is constructed from an array of `ConfObject[]` instances where each element is expected to be either a `ConfTag` or a `ConfKey`.
 

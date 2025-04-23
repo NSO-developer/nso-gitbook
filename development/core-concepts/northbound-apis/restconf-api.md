@@ -83,7 +83,7 @@ If you want to run RESTCONF with a different transport configuration than what t
 
 It is now possible to do a RESTCONF requests towards NSO. Any HTTP client can be used, in the following examples curl will be used. The example below will show what a typical RESTCONF request could look like.
 
-{% code title="Example: A RESTCONF Request using " %}
+{% code title="Example: A RESTCONF Request using curl" %}
 ```bash
 # Note that the command is wrapped in several lines in order to fit.
 #
@@ -146,7 +146,7 @@ As can be seen from the result, the server exposes three additional resources:
 
 To fetch configuration, operational data, or both, from the server, a request to the `data` resource is made. To restrict the amount of returned data, the following example will prune the amount of output to only consist of the topmost nodes. This is achieved by using the `depth` query argument as shown in the example below:
 
-{% code title="Example: Get the Top-most Resources Under " %}
+{% code title="Example: Get the Top-most Resources Under data" %}
 ```http
 GET /restconf/data?depth=1
 Accept: application/yang-data+xml
@@ -169,7 +169,7 @@ Accept: application/yang-data+xml
 
 Let's assume we are interested in the `dhcp/subnet` resource in our configuration. In the following examples, assume that it is defined by a corresponding Yang module that we have named `dhcp.yang`, looking like this:
 
-{% code title="Example: The " %}
+{% code title="Example: The dhcp.yang Resource" %}
 ```cli
 > yanger -f tree examples.confd/restconf/basic/dhcp.yang
 module: dhcp
@@ -193,7 +193,7 @@ We can issue an HTTP GET request to retrieve the value content of the resource. 
 
 Note also how we have prefixed the `dhcp:dhcp` resource. This is how RESTCONF handles namespaces, where the prefix is the YANG module name and the namespace is as defined by the namespace statement in the YANG module.
 
-{% code title="Example: Get the " %}
+{% code title="Example: Get the dhcp/subnet Resource" %}
 ```http
 GET /restconf/data/dhcp:dhcp/subnet
 
@@ -203,7 +203,7 @@ HTTP/1.1 204 No Content
 
 We can now create the `dhcp/subnet` resource by sending an HTTP POST request + the data that we want to store. Note the `Content-Type` HTTP header, which indicates the format of the provided body. Two formats are supported: XML or JSON. In this example, we are using XML, which is indicated by the `Content-Type` value: `application/yang-data+xml`.
 
-{% code title="Example: Create a New " %}
+{% code title="Example: Create a new dhcp/subnet resource" %}
 ```http
 POST /restconf/data/dhcp:dhcp
 Content-Type: application/yang-data+xml
@@ -236,7 +236,7 @@ If we now want to modify a part of our `dhcp/subnet` config, we can use the HTTP
 
 Also, note the difference of the `PATCH` URI compared to the earlier `POST` request. With the latter, since the resource does not yet exist, we `POST` to the parent resource (`dhcp:dhcp`), while with the `PATCH` request we address the (existing) resource (`10.254.239.0%2F27`).
 
-{% code title="Example: Modify a Part of the " %}
+{% code title="Example: Modify a part of the dhcp/subnet resource" %}
 ```http
 PATCH /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
@@ -252,7 +252,7 @@ HTTP/1.1 204 No Content
 
 We can also replace the subnet with some new configuration. To do this, we make use of the `PUT` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
-{% code title="Example: Replace a " %}
+{% code title="Example: Replace a dhcp/subnet resource" %}
 ```http
 PUT /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 Content-Type: application/yang-data+xml
@@ -273,7 +273,7 @@ HTTP/1.1 204 No Content
 
 To delete the subnet, we make use of the `DELETE` HTTP method as shown below. Since the operation was successful and no body was returned, we will get a `204 No Content` return code.
 
-{% code title="Example: Delete a " %}
+{% code title="Example: Delete a dhcp/subnet resource" %}
 ```http
 DELETE /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27
 
@@ -300,7 +300,7 @@ The RESTCONF API root will now be `/my_own_restconf_root`.
 
 A client may discover the root resource by getting the `/.well-known/host-meta` resource as shown in the example below:
 
-{% code title="Example: Example Returning " %}
+{% code title="Example: Returning /restconf" %}
 ```
    The client might send the following:
 
@@ -361,7 +361,7 @@ Accept: application/yang-data+xml
 
 This Capability identifies the `basic-mode` default-handling mode that is used by the server for processing default leafs in requests for data resources.
 
-{% code title="Example:The " %}
+{% code title="Example: The default capability URI" %}
 ```
           urn:ietf:params:restconf:capability:defaults:1.0
 ```
@@ -369,13 +369,13 @@ This Capability identifies the `basic-mode` default-handling mode that is used b
 
 The `capability` URL will contain a query parameter named `basic-mode` which value tells us what the default behavior of the RESTCONF server is when it returns a leaf. The possible values are shown in the table below (`basic-mode` values):
 
-<table><thead><tr><th width="163">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>report-all</code></td><td>Values set to the YANG default value are reported.</td></tr><tr><td><code>trim</code></td><td>Values set to the YANG default value are not reported.</td></tr><tr><td><code>explicit</code></td><td>Values that has been set by a client to the YANG default value will be reported.</td></tr></tbody></table>
+<table><thead><tr><th width="163" valign="top">Value</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>report-all</code></td><td valign="top">Values set to the YANG default value are reported.</td></tr><tr><td valign="top"><code>trim</code></td><td valign="top">Values set to the YANG default value are not reported.</td></tr><tr><td valign="top"><code>explicit</code></td><td valign="top">Values that has been set by a client to the YANG default value will be reported.</td></tr></tbody></table>
 
 The values presented in the table above can also be used by the Client together with the `with-defaults` query parameter to override the default RESTCONF server behavior. Added to these values, the Client can also use the `report-all-tagged` value.
 
 The table below lists additional `with-defaults` value.
 
-<table><thead><tr><th width="231">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>report-all-tagged</code></td><td>Works as the <code>report-all</code> but a default value will include an XML/JSON attribute to indicate that the value is in fact a default value.</td></tr></tbody></table>
+<table><thead><tr><th width="231" valign="top">Value</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>report-all-tagged</code></td><td valign="top">Works as the <code>report-all</code> but a default value will include an XML/JSON attribute to indicate that the value is in fact a default value.</td></tr></tbody></table>
 
 Referring back to the example: Example: NSO RESTCONF Capabilities, where the RESTCONF server returned the default capability:
 
@@ -391,15 +391,15 @@ A set of optional RESTCONF Capability URIs are defined to identify the specific 
 
 The table shows query parameter capabilities.
 
-<table><thead><tr><th width="184">Name</th><th>URI</th></tr></thead><tbody><tr><td>depth</td><td>urn:ietf:params:restconf:capability:depth:1.0</td></tr><tr><td>fields</td><td>urn:ietf:params:restconf:capability:fields:1.0</td></tr><tr><td>filter</td><td>urn:ietf:params:restconf:capability:filter:1.0</td></tr><tr><td>replay</td><td>urn:ietf:params:restconf:capability:replay:1.0</td></tr><tr><td>with.defaults</td><td>urn:ietf:params:restconf:capability:with.defaults:1.0</td></tr></tbody></table>
+<table><thead><tr><th width="184" valign="top">Name</th><th valign="top">URI</th></tr></thead><tbody><tr><td valign="top"><code>depth</code></td><td valign="top"><code>urn:ietf:params:restconf:capability:depth:1.0</code></td></tr><tr><td valign="top"><code>fields</code></td><td valign="top"><code>urn:ietf:params:restconf:capability:fields:1.0</code></td></tr><tr><td valign="top"><code>filter</code></td><td valign="top"><code>urn:ietf:params:restconf:capability:filter:1.0</code></td></tr><tr><td valign="top"><code>replay</code></td><td valign="top"><code>urn:ietf:params:restconf:capability:replay:1.0</code></td></tr><tr><td valign="top"><code>with.defaults</code></td><td valign="top"><code>urn:ietf:params:restconf:capability:with.defaults:1.0</code></td></tr></tbody></table>
 
-For a description of the query parameter functionality, see [Query Parameters](restconf-api.md#ncs.northbound.restconf.query\_params).
+For a description of the query parameter functionality, see [Query Parameters](restconf-api.md#ncs.northbound.restconf.query_params).
 
 ## Query Parameters <a href="#ncs.northbound.restconf.query_params" id="ncs.northbound.restconf.query_params"></a>
 
 Each RESTCONF operation allows zero or more query parameters to be present in the request URI. Query parameters can be given in any order, but can appear at most once. Supplying query parameters when invoking RPCs and actions is not supported, if supplied the response will be 400 (Bad Request) and the `error-app-tag` will be set to `invalid-value`. However, the query parameters `trace-id` and `unhide` are exempted from this rule and supported for RPC and action invocation. The defined query parameters and in what type of HTTP request they can be used are shown in the table below (Query parameters).
 
-<table><thead><tr><th width="185">Name</th><th width="154">Method</th><th>Description</th></tr></thead><tbody><tr><td><code>content</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Select config and/or non-config data resources.</td></tr><tr><td><code>depth</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Request limited subtree depth in the reply content.</td></tr><tr><td><code>fields</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Request a subset of the target resource contents.</td></tr><tr><td><code>exclude</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Exclude a subset of the target resource contents.</td></tr><tr><td><code>filter</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Boolean notification filter for event stream resources.</td></tr><tr><td><code>insert</code></td><td><code>POST</code>,<code>PUT</code></td><td>Insertion mode for <em>ordered-by user</em> data resources</td></tr><tr><td><code>point</code></td><td><code>POST</code>,<code>PUT</code></td><td>Insertion point for <em>ordered-by user</em> data resources</td></tr><tr><td><code>start-time</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Replay buffer start time for event stream resources.</td></tr><tr><td><code>stop-time</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Replay buffer stop time for event stream resources.</td></tr><tr><td><code>with-defaults</code></td><td><code>GET</code>,<code>HEAD</code></td><td>Control the retrieval of default values.</td></tr><tr><td><code>with-origin</code></td><td><code>GET</code></td><td>Include the "origin" metadata annotations, as detailed in the NMDA.</td></tr></tbody></table>
+<table><thead><tr><th width="185" valign="top">Name</th><th width="154" valign="top">Method</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>content</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Select config and/or non-config data resources.</td></tr><tr><td valign="top"><code>depth</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Request limited subtree depth in the reply content.</td></tr><tr><td valign="top"><code>fields</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Request a subset of the target resource contents.</td></tr><tr><td valign="top"><code>exclude</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Exclude a subset of the target resource contents.</td></tr><tr><td valign="top"><code>filter</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Boolean notification filter for event stream resources.</td></tr><tr><td valign="top"><code>insert</code></td><td valign="top"><code>POST</code>,<code>PUT</code></td><td valign="top">Insertion mode for <em>ordered-by user</em> data resources</td></tr><tr><td valign="top"><code>point</code></td><td valign="top"><code>POST</code>,<code>PUT</code></td><td valign="top">Insertion point for <em>ordered-by user</em> data resources</td></tr><tr><td valign="top"><code>start-time</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Replay buffer start time for event stream resources.</td></tr><tr><td valign="top"><code>stop-time</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Replay buffer stop time for event stream resources.</td></tr><tr><td valign="top"><code>with-defaults</code></td><td valign="top"><code>GET</code>,<code>HEAD</code></td><td valign="top">Control the retrieval of default values.</td></tr><tr><td valign="top"><code>with-origin</code></td><td valign="top"><code>GET</code></td><td valign="top">Include the "origin" metadata annotations, as detailed in the NMDA.</td></tr></tbody></table>
 
 ### The `content` Query Parameter
 
@@ -407,7 +407,7 @@ The `content` query parameter controls if configuration, non-configuration, or b
 
 The allowed values are:
 
-<table><thead><tr><th width="148">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>config</code></td><td>Return only configuration descendant data nodes.</td></tr><tr><td><code>nonconfig</code></td><td>Return only non-configuration descendant data nodes.</td></tr><tr><td><code>all</code></td><td>Return all descendant data nodes.</td></tr></tbody></table>
+<table><thead><tr><th width="148" valign="top">Value</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>config</code></td><td valign="top">Return only configuration descendant data nodes.</td></tr><tr><td valign="top"><code>nonconfig</code></td><td valign="top">Return only non-configuration descendant data nodes.</td></tr><tr><td valign="top"><code>all</code></td><td valign="top">Return all descendant data nodes.</td></tr></tbody></table>
 
 ### The `depth` Query Parameter
 
@@ -423,7 +423,7 @@ For a full definition of the `fields` value can be constructed, refer to the [RF
 
 Note that the `fields` query parameter cannot be used together with the `exclude` query parameter. This will result in an error.
 
-{% code title="Example: Example of How to Use the " %}
+{% code title="Example: Example of how to use the fields query parameter" %}
 ```http
 GET /restconf/data/dhcp:dhcp?fields=subnet/range(low;high)
 Accept: application/yang-data+xml
@@ -463,7 +463,7 @@ Selecting multiple nodes to exclude can be done the same way as for the `fields`
 
 When `exclude` is not used:
 
-{% code title="Example: Example of How to Use the " %}
+{% code title="Example: Example of how to use the exclude query parameter" %}
 ```http
 GET /restconf/data/dhcp:dhcp/subnet
 Accept: application/yang-data+xml
@@ -515,11 +515,11 @@ These query parameters are only allowed on an event stream resource and are furt
 
 The `insert` query parameter is used to specify how a resource should be inserted within an `ordered-by user` list. The allowed values are shown in the table below (The `content` query parameter values).
 
-<table><thead><tr><th width="142">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>first</code></td><td>Insert the new data as the new first entry.</td></tr><tr><td><code>last</code></td><td>Insert the new data as the new last entry. This is the default value.</td></tr><tr><td><code>before</code></td><td>Insert the new data before the insertion point, as specified by the value of the <code>point</code> parameter.</td></tr><tr><td><code>after</code></td><td>Insert the new data after the insertion point, as specified by the value of the <code>point</code> parameter.</td></tr></tbody></table>
+<table><thead><tr><th width="142" valign="top">Value</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>first</code></td><td valign="top">Insert the new data as the new first entry.</td></tr><tr><td valign="top"><code>last</code></td><td valign="top">Insert the new data as the new last entry. This is the default value.</td></tr><tr><td valign="top"><code>before</code></td><td valign="top">Insert the new data before the insertion point, as specified by the value of the <code>point</code> parameter.</td></tr><tr><td valign="top"><code>after</code></td><td valign="top">Insert the new data after the insertion point, as specified by the value of the <code>point</code> parameter.</td></tr></tbody></table>
 
 This parameter is only valid if the target data represents a YANG list or leaf-list that is `ordered-by user`. In the example below, we will insert a new `router` value, first, in the `ordered-by user` leaf-list of `dhcp-options/router` values. Remember that the default behavior is for new entries to be inserted last in an `ordered-by user` leaf-list.
 
-{% code title="Example: Insert " %}
+{% code title="Example: Insert first into a ordered-by user leaf-list " %}
 ```bash
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
@@ -555,7 +555,7 @@ HTTP/1.1 200 OK
 
 The `point` query parameter is used to specify the insertion point for a data resource that is being created or moved within an `ordered-by user` list or leaf-list. In the example below, we will insert the new `router` value: `two.acme.org`, after the first value: `one.acme.org` in the `ordered-by user` leaf-list of `dhcp-options/router` values.
 
-{% code title="Example: Insert " %}
+{% code title="Example: Insert first into a ordered-by user leaf-list " %}
 ```bash
 # Note: we have to split the POST line in order to fit the page
 POST /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/dhcp-options?\
@@ -593,7 +593,7 @@ HTTP/1.1 200 OK
 
 There are additional NSO query parameters available for the RESTCONF API. These additional query parameters are described in the table below (Additional Query Parameters).
 
-<table data-full-width="true"><thead><tr><th width="200">Name</th><th width="161">Methods</th><th>Description</th></tr></thead><tbody><tr><td><code>dry-run</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td><code>dry-run-reverse</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td><code>no-networking</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td><code>no-out-of-sync-check</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td><code>no-overwrite</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td><code>no-revision-drop</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td><code>no-deploy</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td><code>reconcile</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td><code>use-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td><code>no-lsa</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td><code>commit-queue</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td><code>commit-queue-atomic</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td><code>commit-queue-block-others</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td><code>commit-queue-lock</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td><code>commit-queue-tag</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td><code>commit-queue-timeout</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td><code>commit-queue-error-option</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td><code>trace-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="restconf-api.md#trace-context">Trace Context</a>.</td></tr><tr><td><code>limit</code></td><td><code>GET</code></td><td>Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>offset</code></td><td><code>GET</code></td><td>Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td><code>rollback-comment</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-label</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td><code>rollback-id</code></td><td><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td>Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td><code>with-service-meta-data</code></td><td><code>GET</code></td><td>Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th valign="top">Name</th><th valign="top">Methods</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>dry-run</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. Possible values are: <code>xml</code>, <code>cli</code><em>,</em> and <code>native</code>. The value used specifies in what format we want the returned diff to be.</td></tr><tr><td valign="top"><code>dry-run-reverse</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Used together with the <code>dry-run=native</code> parameter to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.</td></tr><tr><td valign="top"><code>no-networking</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.</td></tr><tr><td valign="top"><code>no-out-of-sync-check</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Continue with the transaction even if NSO detects that a device's configuration is out of sync. Can't be used together with no-overwrite.</td></tr><tr><td valign="top"><code>no-overwrite</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. Can't be used together with no-out-of-sync-check.</td></tr><tr><td valign="top"><code>no-revision-drop</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.</td></tr><tr><td valign="top"><code>no-deploy</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Commit without invoking the service create method, i.e, write the service instance data without activating the service(s). The service(s) can later be re-deployed to write the changes of the service(s) to the network.</td></tr><tr><td valign="top"><code>reconcile</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If the manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td></tr><tr><td valign="top"><code>use-lsa</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td></tr><tr><td valign="top"><code>no-lsa</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td></tr><tr><td valign="top"><code>commit-queue</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Commit the transaction data to the commit queue. Possible values are: <code>async</code>, <code>sync</code>, and <code>bypass</code>. If the <code>async</code> value is set the operation returns successfully if the transaction data has been successfully placed in the queue. The <code>sync</code> value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. The <code>bypass</code> value means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code> the data in this transaction will bypass the commit queue. The data will be written directly to the devices.</td></tr><tr><td valign="top"><code>commit-queue-atomic</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Sets the atomic behavior of the resulting queue item. Possible values are: <code>true</code> and <code>false</code>. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</td></tr><tr><td valign="top"><code>commit-queue-block-others</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.</td></tr><tr><td valign="top"><code>commit-queue-lock</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</td></tr><tr><td valign="top"><code>commit-queue-tag</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.</td></tr><tr><td valign="top"><code>commit-queue-timeout</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Specifies a maximum number of seconds to wait for completion. Possible values are <code>infinity</code> or a positive integer. If the timer expires, the transaction is kept in the commit-queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.</td></tr><tr><td valign="top"><code>commit-queue-error-option</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">The error option to use. Depending on the selected error option, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>. The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created. The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The <code>stop-on-error</code> means that the commit queue will place a lock with <code>block-others</code> on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked. Read about error recovery in <a href="../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</td></tr><tr><td valign="top"><code>trace-id</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing. The <code>trace-id</code> query parameter can also be used with RPCs and actions to relay a <code>trace-id</code> from northbound requests. The <code>trace-id</code> will be included in the <code>X-Cisco-NSO-Trace-ID</code> header in the response.<br><strong>NOTE:</strong> <code>trace-id</code> as a query parameter is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for <code>trace-id</code>, see <a href="restconf-api.md#trace-context">Trace Context</a>.</td></tr><tr><td valign="top"><code>limit</code></td><td valign="top"><code>GET</code></td><td valign="top">Used by the client to specify a limited set of list entries to retrieve. See The value of the <code>limit</code> parameter is either an integer greater than or equal to <code>1</code>, or the string <code>unbounded</code>. The string <code>unbounded</code> is the default value. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td valign="top"><code>offset</code></td><td valign="top"><code>GET</code></td><td valign="top">Used by the client to specify the number of list elements to skip before returning the requested set of list entries. See The value of the <code>offset</code> parameter is an integer greater than or equal to <code>0</code>. The default value is <code>0</code>. See <a href="restconf-api.md#ncs.northbound.partial_response">Partial Responses</a> for an example.</td></tr><tr><td valign="top"><code>rollback-comment</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Used to specify a comment to be attached to the Rollback File that will be created as a result of the <code>POST</code> operation. This assumes that Rollback File handling is enabled.</td></tr><tr><td valign="top"><code>rollback-label</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Used to specify a label to be attached to the Rollback File that will be created as a result of the POST operation. This assume that Rollback File handling is enabled.</td></tr><tr><td valign="top"><code>rollback-id</code></td><td valign="top"><code>POST</code><br><code>PUT</code><br><code>PATCH</code><br><code>DELETE</code></td><td valign="top">Return the rollback ID in the response if a rollback file was created during this operation. This requires rollbacks to be enabled in the NSO to take effect.</td></tr><tr><td valign="top"><code>with-service-meta-data</code></td><td valign="top"><code>GET</code></td><td valign="top">Include FASTMAP attributes such as backpointers and reference counters in the reply. These are typically internal to NSO and thus not shown by default.</td></tr></tbody></table>
 
 ## Edit Collision Prevention
 
@@ -796,7 +796,7 @@ Errors occurring during streaming of events will be reported as Server-Sent Even
 
 ## Schema Resource
 
-RFC 8040, Section 3.7 describes the retrieval of YANG modules used by the server via the RPC operation `get-schema`. The YANG source is made available by NSO in two ways: compiled into the `fxs` file or put in the loadPath. See [Monitoring of the NETCONF Server](restconf-api.md#ug.netconf\_agent.monitoring).
+RFC 8040, Section 3.7 describes the retrieval of YANG modules used by the server via the RPC operation `get-schema`. The YANG source is made available by NSO in two ways: compiled into the `fxs` file or put in the loadPath. See [Monitoring of the NETCONF Server](restconf-api.md#ug.netconf_agent.monitoring).
 
 The example below shows how to list the available Yang modules. Since we are interested in the `dhcp` module, we only show that part of the output:
 
@@ -844,7 +844,7 @@ The NSO RESTCONF API also supports the YANG Patch Media Type, as defined in [RFC
 
 A YANG `Patch` is an ordered list of edits that are applied to the target datastore by the RESTCONF server. A YANG Patch request is sent as an HTTP PATCH request containing a body describing the edit operations to be performed. The format of the body is defined in the [RFC 8072](https://www.ietf.org/rfc/rfc8072.txt).
 
-Referring to the example above (DHCP Yang model) in the [Getting Started](restconf-api.md#ncs.northbound.restconf.getting\_started) section; we will show how to use YANG Patch to achieve the same result but with fewer amount of requests.
+Referring to the example above (DHCP Yang model) in the [Getting Started](restconf-api.md#ncs.northbound.restconf.getting_started) section; we will show how to use YANG Patch to achieve the same result but with fewer amount of requests.
 
 ### Create Two New Resources with the YANG Patch <a href="#d5e2039" id="d5e2039"></a>
 
@@ -941,7 +941,7 @@ HTTP/1.1 200 OK
 
 To verify that our modify and delete operations took place we make use of two RESTCONF `GET` requests as shown below.
 
-{% code title="Example: Verify the Modified " %}
+{% code title="Example: Verify the modified max-release-time value" %}
 ```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.239.0%2F27/max-lease-time
 Accept: application/yang-data+xml
@@ -954,7 +954,7 @@ HTTP/1.1 200 OK
 ```
 {% endcode %}
 
-{% code title="Example: Verify the Default Values after Delete of the " %}
+{% code title="Example: Verify the Default Values after Delete of the max-release-time value" %}
 ```http
 GET /restconf/data/dhcp:dhcp/subnet=10.254.244.0%2F27/max-lease-time?\
       with-defaults=report-all-tagged
@@ -988,7 +988,7 @@ HTTP/1.1 200 OK
 
 A RESTCONF client can discover which datastores and YANG modules the server supports by reading the YANG library information from the operational state datastore. Note in the example below that, since the result consists of three top nodes, it can't be represented in XML; hence we request the returned content to be in JSON format. See also [Collections](restconf-api.md#ncs.northbound.restconf.extensions.collections).
 
-{% code title="Example: Check Which Datastores the RESTCONF Server Supports" %}
+{% code title="Example: Check which Datastores the RESTCONF Server Supports" %}
 ```http
 GET /restconf/ds/ietf-datastores:operational/datastore
 Accept: application/yang-data+json
@@ -1086,7 +1086,7 @@ The API consists of the following replies:
 
 In the following examples, we'll use this data model:
 
-{% code title="Example: " %}
+{% code title="Example: example.yang : model for the Query API example" %}
 ```yang
 container x {
   list host {
@@ -1110,7 +1110,7 @@ container x {
 
 The actual format of the payload should be represented either in XML or JSON. Note how we indicate the type of content using the `Content-Type` HTTP header. For XML, it could look like this:
 
-{% code title="Example: Example of a " %}
+{% code title="Example: Example of a start-query request" %}
 ```http
 POST /restconf/tailf/query
 Content-Type: application/yang-data+xml
@@ -1138,7 +1138,7 @@ Content-Type: application/yang-data+xml
 
 The same request in JSON format would look like:
 
-{% code title="Example: JSON Example of a " %}
+{% code title="Example: JSON Example of a start-query request" %}
 ```http
 POST /restconf/tailf/query
 Content-Type: application/yang-data+json
@@ -1402,12 +1402,7 @@ The meta-data for an object is represented by another object constructed either 
 
 Note that the meta-data node types, e.g., tags and annotations, are prefixed by the module name of the YANG module where the meta-data object is defined. This representation conforms to [RFC 7952 Section 5.2](https://www.rfc-editor.org/rfc/rfc7952.html#section-5.2). The YANG module name prefixes for meta-data node types are listed below:
 
-| Meta-data type    | Prefix                       |
-| ----------------- | ---------------------------- |
-| `origin`          | `ietf-origin`                |
-| `inactive/active` | `tailf-netconf-inactive`     |
-| `default`         | `ietf-netconf-with-defaults` |
-| `All other`       | `tailf_netconf`              |
+<table><thead><tr><th valign="top">Meta-data type</th><th valign="top">Prefix</th></tr></thead><tbody><tr><td valign="top"><code>origin</code></td><td valign="top"><code>ietf-origin</code></td></tr><tr><td valign="top"><code>inactive/active</code></td><td valign="top"><code>tailf-netconf-inactive</code></td></tr><tr><td valign="top"><code>default</code></td><td valign="top"><code>ietf-netconf-with-defaults</code></td></tr><tr><td valign="top"><code>All other</code></td><td valign="top"><code>tailf_netconf</code></td></tr></tbody></table>
 
 Compare this to the encoding in NSO versions prior to 6.3, where we represented meta-data for an object by another object constructed of the object name prefixed with either one or two "@" signs. The meta-data object "@x" referred to the sibling object "x" and the "@@x" object referred to the parent object. No module name prefixes were included for the meta-data data object types. This did not conform to [RFC 7952](https://www.rfc-editor.org/rfc/rfc7952.html) for legacy reasons. See the example below.
 
@@ -1440,7 +1435,7 @@ Cache entries have a maximum Time-To-Live (TTL) and upon expiry, a cache entry i
 It is also possible to combine the Client's IP address with the User name as a key into the cache. This behavior is disabled by default. It can be enabled by setting the `enable-auth-cache-client-ip` parameter to `true`. With this enabled, only a Client coming from the same IP address may get a hit in the authentication cache.
 
 {% code title="Example: NSO Configuration of the Authentication Cache TTL" %}
-```
+```xml
   ...
   <aaa>
      ...
@@ -1463,7 +1458,7 @@ It is possible to configure the NSO RESTCONF server to pick up the client IP add
 To avoid misuse of this feature, only requests from trusted sources will be searched for such an HTTP header. The list of trusted sources is configured via the `allowed-proxy-ip-prefix` as shown in the example.
 
 {% code title="Example: NSO Configuration of Client IP via Proxy" %}
-```
+```xml
   ...
   <webui>
      ...
@@ -1481,7 +1476,7 @@ To avoid misuse of this feature, only requests from trusted sources will be sear
 
 ## External Token Authentication/Validation
 
-The NSO RESTCONF server can be set up to pass a long, a token used for authentication and/or validation of the client. Note that this requires `external authentication/validation` to be set up properly. See [External Token Validation](../../../administration/management/aaa-infrastructure.md#ug.aaa.external\_validation) and [External Authentication](../../../administration/management/aaa-infrastructure.md#ug.aaa.external\_authentication) for details.
+The NSO RESTCONF server can be set up to pass a long, a token used for authentication and/or validation of the client. Note that this requires `external authentication/validation` to be set up properly. See [External Token Validation](../../../administration/management/aaa-infrastructure.md#ug.aaa.external_validation) and [External Authentication](../../../administration/management/aaa-infrastructure.md#ug.aaa.external_authentication) for details.
 
 With token authentication, we mean that the client sends a `User:Password` to the RESTCONF server, which will invoke an external executable that performs the authentication and upon success produces a token that the RESTCONF server will return in the `X-Auth-Token` HTTP header of the reply.
 
@@ -1490,7 +1485,7 @@ With token validation, we mean that the RESTCONF server will pass along any toke
 To make this work, the following need to be configured in the `ncs.conf` file:
 
 {% code title="Example: Configure RESTCONF External Token Authentication/Validation" %}
-```
+```xml
   ...
   <restconf>
      ...
@@ -1510,7 +1505,7 @@ An HTTP cookie (web cookie, browser cookie) is a small piece of data that a serv
 To make this happen, the name of the cookie needs to be configured as well as a `directives` string which will be sent as part of the cookie.
 
 {% code title="Example: Configure the RESTCONF Token Cookie" %}
-```
+```xml
   ...
   <restconf>
      ...
@@ -1676,10 +1671,6 @@ yanger -p . -t expand -f swagger example-jukebox.yang \
 ```
 {% endcode %}
 
-For a large YANG model the generated Swagger JSON output also becomes very large;
-so in order to restrict the amount of JSON output, a number of switches can be used,
-for example: `--swagger-only-actions` or `--swagger-max-depth`, etc.
+For a large YANG model the generated Swagger JSON output also becomes very large; so in order to restrict the amount of JSON output, a number of switches can be used, for example: `--swagger-only-actions` or `--swagger-max-depth`, etc.
 
-Note that, per default, any hidden YANG elements will not show up in the JSON output.
-This behavior can be modified by using the switches: `--swagger-unhide-all` and
-`--swagger-unhide`.
+Note that, per default, any hidden YANG elements will not show up in the JSON output. This behavior can be modified by using the switches: `--swagger-unhide-all` and `--swagger-unhide`.

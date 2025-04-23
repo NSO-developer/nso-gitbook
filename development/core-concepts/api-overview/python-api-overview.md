@@ -104,14 +104,7 @@ From here, you can navigate in the model. In the table, you can see examples of 
 
 The table below lists Maagic object navigation.
 
-| Action                                       | Returns             |
-| -------------------------------------------- | ------------------- |
-| `root.devices`                               | `Container`         |
-| `root.devices.device`                        | `List`              |
-| `root.devices.device['ce0']`                 | `ListElement`       |
-| `root.devices.device['ce0'].device_type.cli` | `PresenceContainer` |
-| `root.devices.device['ce0'].address`         | `str`               |
-| `root.devices.device['ce0'].port`            | `int`               |
+<table><thead><tr><th valign="top">Action</th><th valign="top">Returns</th></tr></thead><tbody><tr><td valign="top"><code>root.devices</code></td><td valign="top"><code>Container</code></td></tr><tr><td valign="top"><code>root.devices.device</code></td><td valign="top"><code>List</code></td></tr><tr><td valign="top"><code>root.devices.device['ce0']</code></td><td valign="top"><code>ListElement</code></td></tr><tr><td valign="top"><code>root.devices.device['ce0'].device_type.cli</code></td><td valign="top"><code>PresenceContainer</code></td></tr><tr><td valign="top"><code>root.devices.device['ce0'].address</code></td><td valign="top"><code>str</code></td></tr><tr><td valign="top"><code>root.devices.device['ce0'].port</code></td><td valign="top"><code>int</code></td></tr></tbody></table>
 
 You can also get a Maagic object from a keypath:
 
@@ -772,7 +765,7 @@ They are `maagic.Node` objects, which provide easy access to the modeled paramet
 
 The table below lists the action handler callback parameters:
 
-<table><thead><tr><th width="141">Parameter</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>self</code></td><td><code>ncs.dp.Action</code></td><td>The action object.</td></tr><tr><td><code>uinfo</code></td><td><code>ncs.UserInfo</code></td><td>User information of the requester.</td></tr><tr><td><code>name</code></td><td><code>string</code></td><td>The tailf:action name.</td></tr><tr><td><code>kp</code></td><td><code>ncs.HKeypathRef</code></td><td>The keypath of the action.</td></tr><tr><td><code>input</code></td><td><code>ncs.maagic.Node</code></td><td>An object containing the parameters of the input section of the action yang model.</td></tr><tr><td><code>output</code></td><td><code>ncs.maagic.Node</code></td><td>The object where to put the output parameters as defined in the output section of the action yang model.</td></tr></tbody></table>
+<table><thead><tr><th width="141" valign="top">Parameter</th><th width="201" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>self</code></td><td valign="top"><code>ncs.dp.Action</code></td><td valign="top">The action object.</td></tr><tr><td valign="top"><code>uinfo</code></td><td valign="top"><code>ncs.UserInfo</code></td><td valign="top">User information of the requester.</td></tr><tr><td valign="top"><code>name</code></td><td valign="top"><code>string</code></td><td valign="top">The tailf:action name.</td></tr><tr><td valign="top"><code>kp</code></td><td valign="top"><code>ncs.HKeypathRef</code></td><td valign="top">The keypath of the action.</td></tr><tr><td valign="top"><code>input</code></td><td valign="top"><code>ncs.maagic.Node</code></td><td valign="top">An object containing the parameters of the input section of the action yang model.</td></tr><tr><td valign="top"><code>output</code></td><td valign="top"><code>ncs.maagic.Node</code></td><td valign="top">The object where to put the output parameters as defined in the output section of the action yang model.</td></tr></tbody></table>
 
 ### Service Handler
 
@@ -884,7 +877,7 @@ Add a template to `packages/pyservice/templates/service.template.xml`:
 
 The table below lists the service handler callback parameters:
 
-<table><thead><tr><th width="160">Parameter</th><th width="272">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>self</code></td><td><code>ncs.application.Service</code></td><td>The service object.</td></tr><tr><td><code>tctx</code></td><td><code>ncs.TransCtxRef</code></td><td>Transaction context.</td></tr><tr><td><code>root</code></td><td><code>ncs.maagic.Node</code></td><td>An object pointing to the root with the current transaction context, using shared operations (<code>create</code>, <code>set_elem</code>, ...) for configuration modifications.</td></tr><tr><td><code>service</code></td><td><code>ncs.maagic.Node</code></td><td>An object pointing to the service with the current transaction context, using shared operations (<code>create</code>, <code>set_elem</code>, ...) for configuration modifications.</td></tr><tr><td><code>proplist</code></td><td>list(tuple(str, str))</td><td>The opaque object for the service configuration used to store hidden state information between invocations. It is updated by returning a modified list.</td></tr></tbody></table>
+<table><thead><tr><th width="160" valign="top">Parameter</th><th width="272" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>self</code></td><td valign="top"><code>ncs.application.Service</code></td><td valign="top">The service object.</td></tr><tr><td valign="top"><code>tctx</code></td><td valign="top"><code>ncs.TransCtxRef</code></td><td valign="top">Transaction context.</td></tr><tr><td valign="top"><code>root</code></td><td valign="top"><code>ncs.maagic.Node</code></td><td valign="top">An object pointing to the root with the current transaction context, using shared operations (<code>create</code>, <code>set_elem</code>, ...) for configuration modifications.</td></tr><tr><td valign="top"><code>service</code></td><td valign="top"><code>ncs.maagic.Node</code></td><td valign="top">An object pointing to the service with the current transaction context, using shared operations (<code>create</code>, <code>set_elem</code>, ...) for configuration modifications.</td></tr><tr><td valign="top"><code>proplist</code></td><td valign="top">list(tuple(str, str))</td><td valign="top">The opaque object for the service configuration used to store hidden state information between invocations. It is updated by returning a modified list.</td></tr></tbody></table>
 
 ### Validation Point Handler
 
@@ -979,7 +972,7 @@ Failed: 'validation validate-value': invalid value
 
 The table below lists the validation point handler callback parameters:
 
-<table><thead><tr><th width="203">Parameter</th><th width="256">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>self</code></td><td><code>ncs.dp.ValidationPoint</code></td><td>The validation point object.</td></tr><tr><td><code>tctx</code></td><td><code>ncs.TransCtxRef</code></td><td>Transaction context.</td></tr><tr><td><code>kp</code></td><td><code>ncs.HKeypathRef</code></td><td>The keypath of the node being validated.</td></tr><tr><td><code>value</code></td><td><code>ncs.Value</code></td><td>Current value of the node being validated.</td></tr><tr><td><code>validationpoint</code></td><td><code>string</code></td><td>The validation point that triggered the validation.</td></tr></tbody></table>
+<table><thead><tr><th width="203" valign="top">Parameter</th><th width="256" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>self</code></td><td valign="top"><code>ncs.dp.ValidationPoint</code></td><td valign="top">The validation point object.</td></tr><tr><td valign="top"><code>tctx</code></td><td valign="top"><code>ncs.TransCtxRef</code></td><td valign="top">Transaction context.</td></tr><tr><td valign="top"><code>kp</code></td><td valign="top"><code>ncs.HKeypathRef</code></td><td valign="top">The keypath of the node being validated.</td></tr><tr><td valign="top"><code>value</code></td><td valign="top"><code>ncs.Value</code></td><td valign="top">Current value of the node being validated.</td></tr><tr><td valign="top"><code>validationpoint</code></td><td valign="top"><code>string</code></td><td valign="top">The validation point that triggered the validation.</td></tr></tbody></table>
 
 ## Low-level APIs
 

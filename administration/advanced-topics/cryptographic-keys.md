@@ -145,7 +145,7 @@ To rotate to a new generation of keys and re-encrypt the data:
 
 CLI example:
 
-```
+```bash
 $ ${NCS_DIR}/bin/ncs-backup
 $ ncs_cli -Cu admin
 # key-rotation get-active-generation 

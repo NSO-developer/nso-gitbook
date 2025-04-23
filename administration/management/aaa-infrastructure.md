@@ -594,7 +594,7 @@ NSO will use Unix domain sockets for IPC communications when `ncs-local-ipc/enab
 
 As part of the initial handshake, NSO reads the effective UID (euid) of the process initiating the Unix socket connection. The system then finds an `/aaa/authentication/users/user` entry with the corresponding `uid` value. Access is permitted or denied based on the `local_ipc_access` value. If access is permitted, the user connects as the user, found in the `/aaa/authentication/users/user` list. The following is an example of such a user list entry:
 
-```
+```bash
 aaa authentication users user admin
  uid              500
  gid              500

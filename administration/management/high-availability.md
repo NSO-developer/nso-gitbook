@@ -152,7 +152,7 @@ This command takes into account the current time and can be used during troubles
 
 NSO HA Raft can be controlled through several actions. All actions are found under `/ha-raft/`. In the best-case scenario, you will only need the `create-cluster` action to initialize the cluster and the `read-only` and `create-cluster` actions when upgrading the NSO version. The available actions are listed below:
 
-<table data-header-hidden><thead><tr><th width="240">Action</th><th>Description</th></tr></thead><tbody><tr><td><code>create-cluster</code></td><td>Initialise an HA Raft cluster. This action should only be invoked once to form a new cluster when no HA Raft log exists.<br>The members of the HA Raft cluster consist of the NCS node where the <code>/ha-raft/create-cluster</code>action is invoked, which will become the leader of the cluster; and the members specified by the <code>member</code> parameter.</td></tr><tr><td><code>adjust-membership</code></td><td>Add or remove an HA node from the HA Raft cluster.</td></tr><tr><td><code>disconnect</code></td><td>Disconnect an HA node from all remaining nodes. In the event of revoking a TLS certificate, invoke this action to disconnect the already established connections to the node with the revoked certificate. A disconnected node with a valid TLS certificate may re-establish the connection.</td></tr><tr><td><code>reset</code></td><td>Reset the (disabled) local node to make the leader perform a full sync to this local node if an HA Raft cluster exists. If reset is performed on the leader node, the node will step down from leadership and it will be synced by the next leader node.<br>An HA Raft member will change role to <code>disabled</code> if <code>ncs.conf</code> has incompatible changes to the <code>ncs.conf</code> on the leader; a member will also change role to <code>disabled</code> if there are non-recoverable failures upon opening a snapshot.<br>See the <code>/ha-raft/status/disable-reason</code> leaf for the reason.<br>Set force to <code>true</code> to override reset when <code>/ha-raft/status/role</code> is not set to <code>disabled</code>.</td></tr><tr><td><code>handover</code></td><td>Handover leadership to another member of the HA Raft cluster or step down from leadership and start a new election.</td></tr><tr><td><code>read-only</code></td><td>Toggle read-only mode. If the mode is <code>true</code> no configuration changes can occur.</td></tr></tbody></table>
+<table><thead><tr><th width="240" valign="top">Action</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>create-cluster</code></td><td valign="top">Initialise an HA Raft cluster. This action should only be invoked once to form a new cluster when no HA Raft log exists.<br>The members of the HA Raft cluster consist of the NCS node where the <code>/ha-raft/create-cluster</code>action is invoked, which will become the leader of the cluster; and the members specified by the <code>member</code> parameter.</td></tr><tr><td valign="top"><code>adjust-membership</code></td><td valign="top">Add or remove an HA node from the HA Raft cluster.</td></tr><tr><td valign="top"><code>disconnect</code></td><td valign="top">Disconnect an HA node from all remaining nodes. In the event of revoking a TLS certificate, invoke this action to disconnect the already established connections to the node with the revoked certificate. A disconnected node with a valid TLS certificate may re-establish the connection.</td></tr><tr><td valign="top"><code>reset</code></td><td valign="top">Reset the (disabled) local node to make the leader perform a full sync to this local node if an HA Raft cluster exists. If reset is performed on the leader node, the node will step down from leadership and it will be synced by the next leader node.<br>An HA Raft member will change role to <code>disabled</code> if <code>ncs.conf</code> has incompatible changes to the <code>ncs.conf</code> on the leader; a member will also change role to <code>disabled</code> if there are non-recoverable failures upon opening a snapshot.<br>See the <code>/ha-raft/status/disable-reason</code> leaf for the reason.<br>Set force to <code>true</code> to override reset when <code>/ha-raft/status/role</code> is not set to <code>disabled</code>.</td></tr><tr><td valign="top"><code>handover</code></td><td valign="top">Handover leadership to another member of the HA Raft cluster or step down from leadership and start a new election.</td></tr><tr><td valign="top"><code>read-only</code></td><td valign="top">Toggle read-only mode. If the mode is <code>true</code> no configuration changes can occur.</td></tr></tbody></table>
 
 ### Network and `ncs.conf` Prerequisites <a href="#ch_ha.raft_ports" id="ch_ha.raft_ports"></a>
 
@@ -228,7 +228,7 @@ With all the nodes configured and running, connect to the node that you would li
 
 This action makes the current node a cluster leader and joins the other specified nodes to the newly created cluster. For example:
 
-```cli
+```bash
 admin@ncs# ha-raft create-cluster member [ birch.example.org cedar.example.org ]
 admin@ncs# show ha-raft
 ha-raft status role leader
@@ -257,7 +257,7 @@ In addition to the above, you may also examine the `logs/raft.log` file for deta
 
 After the initial cluster setup, you can add new nodes or remove existing nodes from the cluster with the help of the `ha-raft adjust-membership` action. For example:
 
-```cli
+```bash
 admin@ncs# show ha-raft status member
 ha-raft status member [ ash.example.org birch.example.org cedar.example.org ]
 admin@ncs# ha-raft adjust-membership remove-node birch.example.org
@@ -274,7 +274,7 @@ Additionally, you can force an existing follower node to perform a full re-sync 
 
 As leader selection during the Raft election is not deterministic, NSO provides the `ha-raft handover` action, which allows you to either trigger a new election if called with no arguments or transfer leadership to a specific node. The latter is especially useful when, for example, one of the nodes resides in a different location and more traffic between locations may incur extra costs or additional latency, so you prefer this node is not the leader under normal conditions.
 
-#### Passive follower
+#### Passive Follower
 
 In certain situations, it may be advantageous to have a follower node that cannot be promoted to leader role. Consider a scenario with three Raft-enabled nodes distributed across two different data centers.
 
@@ -321,7 +321,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 3. Then take a backup of all nodes.
 4.  Once the backup successfully completes, stop the designated fail-over primary (actual secondary) NSO process, update its `ncs.conf` and the related (certificate) files for HA Raft, and then start it again. Connect to this node's CLI, here called node2, and verify HA Raft is enabled with the `show` `ha-raft` command.
 
-    ```cli
+    ```bash
     admin@node2# show ha-raft
     ha-raft status role stalled
     ha-raft status local-node node2.example.org
@@ -329,7 +329,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
     ```
 5.  Now repeat the same for the designated primary (`node1`). If you have set the seed nodes, you should see the fail-over primary show under `connected-node`.
 
-    ```cli
+    ```bash
     admin@node1# show ha-raft
     ha-raft status role stalled
     ha-raft status connected-node [ node2.example.org ]
@@ -338,7 +338,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
     ```
 6.  On the old designated primary (node1) invoke the `ha-raft create-cluster` action and create a two-node Raft cluster with the old fail-over primary (`node2`, actual secondary). The action takes a list of nodes identified by their names. If you have configured `seed-nodes`, you will get auto-completion support, otherwise you have to type in the name of the node yourself.
 
-    ```cli
+    ```bash
     admin@node1# ha-raft create-cluster member [ node2.example.org ]
     admin@node1# show ha-raft
     ha-raft status role leader
@@ -353,7 +353,7 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 7. Raft requires at least three nodes to operate effectively (as described in [NSO HA Raft](high-availability.md#ug.ha.raft)) and currently, there are only two in the cluster. If the initial cluster had only two nodes, you must provision an additional node and set it up for HA Raft. If the cluster initially had three nodes, there is the remaining secondary node, `node3`, which you must stop, update its configuration as you did with the other two nodes, and start it up again.
 8.  Finally, on the old designated primary and current HA Raft leader, use the `ha-raft adjust-membership add-node` action to add this third node to the cluster.
 
-    ```cli
+    ```bash
     admin@node1# ha-raft adjust-membership add-node node3.example.org
     admin@node1# show ha-raft status member
     ha-raft status member [ node1.example.org node2.example.org node3.example.org ]
@@ -533,7 +533,7 @@ The read-write mode can manually be enabled from the `/high-availability/read-on
 
 When any node loses connection, this can also be observed in high-availability alarms as either a `ha-primary-down` or a `ha-secondary-down` alarm.
 
-```
+```bash
 alarms alarm-list alarm ncs ha-primary-down /high-availability/ha-node[id='paris']
  is-cleared              false
  last-status-change      2022-05-30T10:02:45.706947+00:00
@@ -545,7 +545,7 @@ alarms alarm-list alarm ncs ha-primary-down /high-availability/ha-node[id='paris
   alarm-text         "Lost connection to primary due to: Primary closed connection"
 ```
 
-```
+```bash
 alarms alarm-list alarm ncs ha-secondary-down /high-availability/ha-node[id='london'] ""
  is-cleared              false
  last-status-change      2022-05-30T10:04:33.231808+00:00
@@ -561,13 +561,13 @@ alarms alarm-list alarm ncs ha-secondary-down /high-availability/ha-node[id='lon
 
 Startup behavior is defined by a combination of the parameters `/high-availability/settings/start-up/assume-nominal-role` and `/high-availability/settings/start-up/join-ha` as well as the node's nominal role:
 
-<table data-header-hidden><thead><tr><th width="188">assume-nominal-role</th><th width="137">join-ha</th><th width="154">nominal-role</th><th>behaviour</th></tr></thead><tbody><tr><td><code>assume-nominal-role</code></td><td><code>join-ha</code></td><td><code>nominal-role</code></td><td><code>behaviour</code></td></tr><tr><td><code>true</code></td><td><code>false</code></td><td><code>primary</code></td><td>Assume primary role.</td></tr><tr><td><code>true</code></td><td><code>false</code></td><td><code>secondary</code></td><td>Attempt to connect as secondary to the node (if any) which has nominal-role primary. If this fails, make no retry attempts and assume none role.</td></tr><tr><td><code>true</code></td><td><code>false</code></td><td><code>none</code></td><td>Assume none role</td></tr><tr><td><code>false</code></td><td><code>true</code></td><td><code>primary</code></td><td>Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>.</td></tr><tr><td><code>false</code></td><td><code>true</code></td><td><code>secondary</code></td><td>Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>. If all retry attempts fail, assume none role.</td></tr><tr><td><code>false</code></td><td><code>true</code></td><td><code>none</code></td><td>Assume none role.</td></tr><tr><td><code>true</code></td><td><code>true</code></td><td><code>primary</code></td><td>Query HA setup once for a node with primary role. If found, attempt to connect as secondary to that node. If no current primary is found, assume primary role.</td></tr><tr><td><code>true</code></td><td><code>true</code></td><td><code>secondary</code></td><td>Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>. If all retry attempts fail, assume none role.</td></tr><tr><td><code>true</code></td><td><code>true</code></td><td><code>none</code></td><td>Assume none role.</td></tr><tr><td><code>false</code></td><td><code>false</code></td><td><code>-</code></td><td>Assume none role.</td></tr></tbody></table>
+<table><thead><tr><th valign="top">assume-nominal-role</th><th valign="top">join-ha</th><th valign="top">nominal-role</th><th valign="top">Behaviour</th></tr></thead><tbody><tr><td valign="top"><code>true</code></td><td valign="top"><code>false</code></td><td valign="top"><code>primary</code></td><td valign="top">Assume primary role.</td></tr><tr><td valign="top"><code>true</code></td><td valign="top"><code>false</code></td><td valign="top"><code>secondary</code></td><td valign="top">Attempt to connect as secondary to the node (if any) which has nominal-role primary. If this fails, make no retry attempts and assume none role.</td></tr><tr><td valign="top"><code>true</code></td><td valign="top"><code>false</code></td><td valign="top"><code>none</code></td><td valign="top">Assume none role</td></tr><tr><td valign="top"><code>false</code></td><td valign="top"><code>true</code></td><td valign="top"><code>primary</code></td><td valign="top">Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>.</td></tr><tr><td valign="top"><code>false</code></td><td valign="top"><code>true</code></td><td valign="top"><code>secondary</code></td><td valign="top">Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>. If all retry attempts fail, assume none role.</td></tr><tr><td valign="top"><code>false</code></td><td valign="top"><code>true</code></td><td valign="top"><code>none</code></td><td valign="top">Assume none role.</td></tr><tr><td valign="top"><code>true</code></td><td valign="top"><code>true</code></td><td valign="top"><code>primary</code></td><td valign="top">Query HA setup once for a node with primary role. If found, attempt to connect as secondary to that node. If no current primary is found, assume primary role.</td></tr><tr><td valign="top"><code>true</code></td><td valign="top"><code>true</code></td><td valign="top"><code>secondary</code></td><td valign="top">Attempt to join HA setup as secondary by querying for current primary. Retries will be attempted. Retry attempt interval is defined by <code>/high-availability/settings/reconnect-interval</code>. If all retry attempts fail, assume none role.</td></tr><tr><td valign="top"><code>true</code></td><td valign="top"><code>true</code></td><td valign="top"><code>none</code></td><td valign="top">Assume none role.</td></tr><tr><td valign="top"><code>false</code></td><td valign="top"><code>false</code></td><td valign="top"><code>-</code></td><td valign="top">Assume none role.</td></tr></tbody></table>
 
 ### Actions <a href="#d5e5031" id="d5e5031"></a>
 
 NSO rule-based HA can be controlled through several actions. All actions are found under `/high-availability/`. The available actions are listed below:
 
-<table data-header-hidden><thead><tr><th width="240">Action</th><th>Description</th></tr></thead><tbody><tr><td><code>be-primary</code></td><td>Order the local node to assume ha role primary</td></tr><tr><td><code>be-none</code></td><td>Order the local node to assume ha role none</td></tr><tr><td><code>be-secondary-to</code></td><td>Order the local node to connect as secondary to the provided HA node. This is an asynchronous operation, result can be found under <code>/high-availability/status/be-secondary-result</code></td></tr><tr><td><code>local-node-id</code></td><td>Identify the which of the nodes in <code>/high-availability/ha-node</code> (if any) corresponds to the local NSO instance</td></tr><tr><td><code>enable</code></td><td>Enable NSO rule-based HA and optionally assume a ha role according to /high-availability/settings/start-up/ parameters</td></tr><tr><td><code>disable</code></td><td>Disable NSO rule-based HA and assume a ha role none</td></tr></tbody></table>
+<table><thead><tr><th valign="top">Action</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>be-primary</code></td><td valign="top">Order the local node to assume ha role primary</td></tr><tr><td valign="top"><code>be-none</code></td><td valign="top">Order the local node to assume ha role none</td></tr><tr><td valign="top"><code>be-secondary-to</code></td><td valign="top">Order the local node to connect as secondary to the provided HA node. This is an asynchronous operation, result can be found under <code>/high-availability/status/be-secondary-result</code></td></tr><tr><td valign="top"><code>local-node-id</code></td><td valign="top">Identify the which of the nodes in <code>/high-availability/ha-node</code> (if any) corresponds to the local NSO instance</td></tr><tr><td valign="top"><code>enable</code></td><td valign="top">Enable NSO rule-based HA and optionally assume a ha role according to /high-availability/settings/start-up/ parameters</td></tr><tr><td valign="top"><code>disable</code></td><td valign="top">Disable NSO rule-based HA and assume a ha role none</td></tr></tbody></table>
 
 ### Status Check <a href="#d5e5077" id="d5e5077"></a>
 
@@ -595,7 +595,7 @@ The HCC layer-3 DNS Update functionality depends on the command line utility `ns
 
 Tools Dependencies are listed below:
 
-<table><thead><tr><th width="192">Tool</th><th width="164">Package</th><th width="128">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>ip</code></td><td><code>iproute2</code></td><td>yes</td><td>Adds and deletes the virtual IP from the network interface.</td></tr><tr><td><code>awk</code></td><td><code>mawk</code> or <code>gawk</code></td><td>yes</td><td>Installed with most Linux distributions.</td></tr><tr><td><code>sed</code></td><td><code>sed</code></td><td>yes</td><td>Installed with most Linux distributions.</td></tr><tr><td><code>arping</code></td><td><code>iputils</code> or <code>arping</code></td><td>optional</td><td>Installation recommended. Will reduce the propagation of changes to the virtual IP for layer-2 configurations.</td></tr><tr><td><code>gobgpd</code> and <code>gobgp</code></td><td><code>GoBGP 2.x</code></td><td>optional</td><td>Required for layer-3 configurations. gobgpd is started by the HCC package and advertises the virtual IP using BGP. gobgp is used to get advertised routes.</td></tr><tr><td><code>nsupdate</code></td><td><code>bind-tools</code> or <code>knot-dnsutils</code></td><td>optional</td><td>Required for layer-3 DNS update functionality and is used to submit Dynamic DNS Update requests to a name server.</td></tr></tbody></table>
+<table><thead><tr><th width="192" valign="top">Tool</th><th width="164" valign="top">Package</th><th width="128" valign="top">Required</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>ip</code></td><td valign="top"><code>iproute2</code></td><td valign="top">yes</td><td valign="top">Adds and deletes the virtual IP from the network interface.</td></tr><tr><td valign="top"><code>awk</code></td><td valign="top"><code>mawk</code> or <code>gawk</code></td><td valign="top">yes</td><td valign="top">Installed with most Linux distributions.</td></tr><tr><td valign="top"><code>sed</code></td><td valign="top"><code>sed</code></td><td valign="top">yes</td><td valign="top">Installed with most Linux distributions.</td></tr><tr><td valign="top"><code>arping</code></td><td valign="top"><code>iputils</code> or <code>arping</code></td><td valign="top">optional</td><td valign="top">Installation recommended. Will reduce the propagation of changes to the virtual IP for layer-2 configurations.</td></tr><tr><td valign="top"><code>gobgpd</code> and <code>gobgp</code></td><td valign="top"><code>GoBGP 2.x</code></td><td valign="top">optional</td><td valign="top">Required for layer-3 configurations. gobgpd is started by the HCC package and advertises the virtual IP using BGP. gobgp is used to get advertised routes.</td></tr><tr><td valign="top"><code>nsupdate</code></td><td valign="top"><code>bind-tools</code> or <code>knot-dnsutils</code></td><td valign="top">optional</td><td valign="top">Required for layer-3 DNS update functionality and is used to submit Dynamic DNS Update requests to a name server.</td></tr></tbody></table>
 
 Same as with built-in HA functionality, all NSO instances must be configured to run in HA mode. See the [following instructions](high-availability.md#ha.moo) on how to enable HA on NSO instances.
 
@@ -671,11 +671,11 @@ The layer-2 functionality is configured by providing a list of IPv4 and/or IPv6 
 
 Global Layer-2 Configuration:
 
-<table><thead><tr><th width="168">Parameters</th><th width="199">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>enabled</code></td><td>boolean</td><td>If set to 'true', the primary node in an HA group automatically binds the set of Virtual IPv[46] addresses.</td></tr><tr><td><code>vip-address</code></td><td>list of inet:ip-address</td><td>The list of virtual IPv[46] addresses to bind on the primary node. The addresses are automatically unbound when a node becomes secondary. The addresses can therefore be used externally to reliably connect to the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th valign="top">Parameters</th><th valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>enabled</code></td><td valign="top">boolean</td><td valign="top">If set to 'true', the primary node in an HA group automatically binds the set of Virtual IPv[46] addresses.</td></tr><tr><td valign="top"><code>vip-address</code></td><td valign="top">list of inet:ip-address</td><td valign="top">The list of virtual IPv[46] addresses to bind on the primary node. The addresses are automatically unbound when a node becomes secondary. The addresses can therefore be used externally to reliably connect to the HA group primary node.</td></tr></tbody></table>
 
 #### **Example Configuration**
 
-```cli
+```bash
 admin@ncs(config)# hcc enabled
 admin@ncs(config)# hcc vip 192.168.123.22
 admin@ncs(config)# hcc vip 2001:db8::10
@@ -696,7 +696,7 @@ HCC operates a [`GoBGP`](https://osrg.github.io/gobgp/) subprocess as an embedde
 
 Operational data in the YANG model includes the state of the BGP daemon subprocess and the state of each BGP neighbor connection. The BGP daemon writes log messages directly to NSO where the HCC module extracts updated operational data and then repeats the BGP daemon log messages into the HCC log verbatim. You can find these log messages in the developer log (`devel.log`).
 
-```cli
+```bash
 admin@ncs# show hcc
 NODE    BGPD  BGPD
 ID      PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -719,17 +719,17 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="194" valign="top">Parameters</th><th width="190" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>node-id</code></td><td valign="top"><code>string</code></td><td valign="top">Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td valign="top"><code>enabled</code></td><td valign="top"><code>boolean</code></td><td valign="top">If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td valign="top"><code>as</code></td><td valign="top"><code>inet:as-number</code></td><td valign="top">The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td valign="top"><code>router-id</code></td><td valign="top"><code>inet:ip-address</code></td><td valign="top">The router ID for the local BGP daemon.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
 Per-Neighbor BGP Configuration:
 
-<table><thead><tr><th width="178">Parameters</th><th width="201">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>address</code></td><td><code>inet:ip-address</code></td><td>BGP neighbor IP address.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>BGP neighbor Autonomous System Number.</td></tr><tr><td><code>ttl-min</code></td><td><code>uint8</code></td><td>Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td><code>password</code></td><td><code>string</code></td><td>Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
+<table><thead><tr><th width="178" valign="top">Parameters</th><th width="201" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>address</code></td><td valign="top"><code>inet:ip-address</code></td><td valign="top">BGP neighbor IP address.</td></tr><tr><td valign="top"><code>as</code></td><td valign="top"><code>inet:as-number</code></td><td valign="top">BGP neighbor Autonomous System Number.</td></tr><tr><td valign="top"><code>ttl-min</code></td><td valign="top"><code>uint8</code></td><td valign="top">Optional minimum TTL value for BGP packets. When configured enables BGP Generalized TTL Security Mechanism (GTSM).</td></tr><tr><td valign="top"><code>password</code></td><td valign="top"><code>string</code></td><td valign="top">Optional password to use for BGP authentication with this neighbor.</td></tr><tr><td valign="top"><code>enabled</code></td><td valign="top"><code>boolean</code></td><td valign="top">If set to <code>true</code>, then an outgoing BGP connection to this neighbor is established by the HA group primary node.</td></tr></tbody></table>
 
 #### **Example**
 
-```cli
+```bash
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
@@ -754,7 +754,7 @@ HCC listens on the underlying NSO HA notifications stream. When HCC receives a n
 
 Operational data in the YANG model includes the result of the latest DNS update operation.
 
-```cli
+```bash
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-20T23:16:33.472522+00:00
 hcc dns status exit-code 0
@@ -762,7 +762,7 @@ hcc dns status exit-code 0
 
 If the DNS Update is unsuccessful, an error message will be populated in operational data, for example:
 
-```cli
+```bash
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-20T23:36:33.372631+00:00
 hcc dns status exit-code 2
@@ -781,30 +781,17 @@ The DNS configuration parameters are found under `/hcc:hcc/dns`.
 
 Layer-3 DNS Configuration:
 
-| Parameters | Type             | Description                                     |
-| ---------- | ---------------- | ----------------------------------------------- |
-| `enabled`  | boolean          | If set to `true`, DNS updates will be enabled.  |
-| `fqdn`     | inet:domain-name | DNS domain-name for the HA primary.             |
-| `ttl`      | uint32           | Time to live for DNS record, default 86400.     |
-| `key-file` | string           | Specifies the file path for `nsupdate` keyfile. |
-| `server`   | inet:ip-address  | DNS Server IP Address.                          |
-| `port`     | uint32           | DNS Server port, default 53.                    |
-| `zone`     | inet:host        | DNS Zone to update on the server.               |
-| `timeout`  | uint32           | Timeout for `nsupdate` command, default 300.    |
+<table><thead><tr><th valign="top">Parameters</th><th valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>enabled</code></td><td valign="top">boolean</td><td valign="top">If set to <code>true</code>, DNS updates will be enabled.</td></tr><tr><td valign="top"><code>fqdn</code></td><td valign="top">inet:domain-name</td><td valign="top">DNS domain-name for the HA primary.</td></tr><tr><td valign="top"><code>ttl</code></td><td valign="top">uint32</td><td valign="top">Time to live for DNS record, default 86400.</td></tr><tr><td valign="top"><code>key-file</code></td><td valign="top">string</td><td valign="top">Specifies the file path for <code>nsupdate</code> keyfile.</td></tr><tr><td valign="top"><code>server</code></td><td valign="top">inet:ip-address</td><td valign="top">DNS Server IP Address.</td></tr><tr><td valign="top"><code>port</code></td><td valign="top">uint32</td><td valign="top">DNS Server port, default 53.</td></tr><tr><td valign="top"><code>zone</code></td><td valign="top">inet:host</td><td valign="top">DNS Zone to update on the server.</td></tr><tr><td valign="top"><code>timeout</code></td><td valign="top">uint32</td><td valign="top">Timeout for <code>nsupdate</code> command, default 300.</td></tr></tbody></table>
 
 Each NSO node can be placed in a separate Location/Site/Availability-Zone. This is configured as a list member configuration, with one list entry per node ID. The member list configuration parameters are found under `/hcc:hcc/dns/member{node-id}`.
 
-| Parameter    | Type            | Description                                                                                                                         |
-| ------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `node-id`    | string          | Unique NSO HA node ID. Valid values are: /high-availability/ha-node when built-in HA is used or /ha-raft/status/member for HA Raft. |
-| `ip-address` | inet:ip-address | IP where NSO listens for incoming requests to any northbound interfaces.                                                            |
-| `location`   | string          | Name of the Location/Site/Availability-Zone where node is placed.                                                                   |
+<table><thead><tr><th valign="top">Parameter</th><th valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>node-id</code></td><td valign="top">string</td><td valign="top">Unique NSO HA node ID. Valid values are: /high-availability/ha-node when built-in HA is used or /ha-raft/status/member for HA Raft.</td></tr><tr><td valign="top"><code>ip-address</code></td><td valign="top">inet:ip-address</td><td valign="top">IP where NSO listens for incoming requests to any northbound interfaces.</td></tr><tr><td valign="top"><code>location</code></td><td valign="top">string</td><td valign="top">Name of the Location/Site/Availability-Zone where node is placed.</td></tr></tbody></table>
 
 #### Example
 
 Here is an example configuration for a setup of two dual-stack NSO nodes, node-1 and node-2, that have an IPv4 and an IPv6 address configured. The configuration also sets up an update signing with the specified key.
 
-```cli
+```bash
 admin@ncs(config)#  hcc dns enabled
 admin@ncs(config)#  hcc dns fqdn example.com
 admin@ncs(config)#  hcc dns ttl 120
@@ -837,15 +824,11 @@ The layer-2 operation is configured by simply defining the VIP addresses and ena
 
 Addresses:
 
-| Hostname | Address        | Role                               |
-| -------- | -------------- | ---------------------------------- |
-| `paris`  | 192.168.23.99  | Paris service node.                |
-| `london` | 192.168.23.98  | London service node.               |
-| `vip4`   | 192.168.23.122 | NSO primary node IPv4 VIP address. |
+<table><thead><tr><th valign="top">Hostname</th><th valign="top">Address</th><th valign="top">Role</th></tr></thead><tbody><tr><td valign="top"><code>paris</code></td><td valign="top">192.168.23.99</td><td valign="top">Paris service node.</td></tr><tr><td valign="top"><code>london</code></td><td valign="top">192.168.23.98</td><td valign="top">London service node.</td></tr><tr><td valign="top"><code>vip4</code></td><td valign="top">192.168.23.122</td><td valign="top">NSO primary node IPv4 VIP address.</td></tr></tbody></table>
 
 Configuring VIPs:
 
-```cli
+```bash
 admin@ncs(config)# hcc enabled
 admin@ncs(config)# hcc vip 192.168.23.122
 admin@ncs(config)# commit
@@ -901,11 +884,11 @@ Layer-3 operation is configured for each NSO HA group node separately. The HCC c
 
 Addresses:
 
-<table><thead><tr><th>Hostname</th><th>Address</th><th width="101">AS</th><th>Role</th></tr></thead><tbody><tr><td><code>paris</code></td><td>192.168.31.99</td><td>64512</td><td>Paris node</td></tr><tr><td><code>london</code></td><td>192.168.30.98</td><td>64513</td><td>London node</td></tr><tr><td><code>router</code></td><td><p>192.168.30.2</p><p>192.168.31.2</p></td><td>64514</td><td>BGP-enabled router</td></tr><tr><td><code>vip4</code></td><td>192.168.23.122</td><td></td><td>Primary node IPv4 VIP address</td></tr></tbody></table>
+<table><thead><tr><th width="200.78765869140625" valign="top">Hostname</th><th width="170.1207275390625" valign="top">Address</th><th width="101" valign="top">AS</th><th valign="top">Role</th></tr></thead><tbody><tr><td valign="top"><code>paris</code></td><td valign="top">192.168.31.99</td><td valign="top">64512</td><td valign="top">Paris node</td></tr><tr><td valign="top"><code>london</code></td><td valign="top">192.168.30.98</td><td valign="top">64513</td><td valign="top">London node</td></tr><tr><td valign="top"><code>router</code></td><td valign="top"><p>192.168.30.2</p><p>192.168.31.2</p></td><td valign="top">64514</td><td valign="top">BGP-enabled router</td></tr><tr><td valign="top"><code>vip4</code></td><td valign="top">192.168.23.122</td><td valign="top"></td><td valign="top">Primary node IPv4 VIP address</td></tr></tbody></table>
 
 Configuring BGP for Paris Node:
 
-```cli
+```bash
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
@@ -916,7 +899,7 @@ admin@ncs(config)# commit
 
 Configuring BGP for London Node:
 
-```cli
+```bash
 admin@ncs(config)# hcc bgp node london enabled
 admin@ncs(config)# hcc bgp node london as 64513
 admin@ncs(config)# hcc bgp node london router-id 192.168.30.98
@@ -929,7 +912,7 @@ Check BGP Neighbor Connectivity:
 
 Check neighbor connectivity on the `paris` primary node. Note that its connection to neighbor 192.168.31.2 (`router`) is `ESTABLISHED`.
 
-```cli
+```bash
 admin@ncs# show hcc
       BGPD  BGPD
 NODE ID PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -940,7 +923,7 @@ paris   2486  running  192.168.31.2  ESTABLISHED  true
 
 Check neighbor connectivity on the `london` secondary node. Note that the primary node also has an `ESTABLISHED` connection to its neighbor 192.168.30.2 (`router`). The primary and secondary nodes both maintain their BGP neighbor connections at all times when BGP is enabled, but only the primary node announces routes for the VIPs.
 
-```cli
+```bash
 admin@ncs# show hcc
       BGPD  BGPD
 NODE ID PID   STATUS   ADDRESS       STATE        CONNECTED
@@ -953,7 +936,7 @@ Check Advertised BGP Routes Neighbors:
 
 Check the BGP routes received by the `router`.
 
-```cli
+```bash
 admin@ncs# show ip bgp
 ...
 Network          Next Hop            Metric LocPrf Weight Path
@@ -977,13 +960,13 @@ DNS Update Action:
 
 The user can explicitly update DNS from the specific NSO node by running the update action.
 
-```cli
+```bash
 admin@ncs# hcc dns update
 ```
 
 Check the result of invoking the DNS update utility using the operational data in `/hcc/dns`:
 
-```cli
+```bash
 admin@ncs# show hcc dns
 hcc dns status time 2023-10-10T20:47:31.733661+00:00
 hcc dns status exit-code 0
@@ -1007,7 +990,7 @@ DNS get-node-location Action:
 
 /hcc/dns/member holds the information about all members involved in HA. The `get-node-location` action provides information on the location of an NSO node.
 
-```cli
+```bash
 admin@ncs(config)# hcc dns get-node-location
 location SanJose
 ```
@@ -1053,7 +1036,7 @@ n2  127.0.0.1
 
 Then, you can disable the high availability subsystem on `n1` to simulate a node failure.
 
-```cli
+```bash
 admin@n1# high-availability disable
 result NSO Built-in HA disabled
 admin@n1# exit

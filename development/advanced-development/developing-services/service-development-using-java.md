@@ -122,7 +122,7 @@ devices device c0
 
 6. Finally, set VLAN information manually on a device to prepare for the mapping later.
 
-```cli
+```bash
 admin@ncs(config)# devices device c0 config ios:vlan 1234 
 admin@ncs(config)# devices device c0 config ios:interface
                    FastEthernet 1/0 switchport mode trunk 
