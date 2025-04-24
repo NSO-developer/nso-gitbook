@@ -276,7 +276,7 @@ It is always recommended to install NSO in a directory named as the version of t
 To run the installer:
 
 1. Navigate to your Install Directory.
-2. Run the command given below to install NSO in your Install Directory. The `--local-install` parameter is optional. At this point, you can choose to install NSO in standard mode or in FIPS (Federal Information Processing Standards) mode.
+2. Run the command given below to install NSO in your Install Directory. The `--local-install` parameter is optional. At this point, you can choose to install NSO in standard mode or in FIPS mode.
 
 {% tabs %}
 {% tab title="Standard Local Install" %}

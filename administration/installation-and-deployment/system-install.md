@@ -244,7 +244,7 @@ sh nso-6.0.linux.x86_64.installer.bin --help
 To run the installer:
 
 1. Navigate to your Install Directory.
-2. Run the installer with the `--system-install` option to perform System Install. This option creates an install of NSO that is suitable for production deployment. At this point, you can choose to install NSO in standard mode or in FIPS (Federal Information Processing Standards) mode.
+2. Run the installer with the `--system-install` option to perform System Install. This option creates an install of NSO that is suitable for production deployment. At this point, you can choose to install NSO in standard mode or in FIPS mode.
 
 {% tabs %}
 {% tab title="Standard System Install" %}
