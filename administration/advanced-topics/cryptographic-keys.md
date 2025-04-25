@@ -187,3 +187,10 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 {% hint style="info" %}
 In a high-availability setting, keys must be identical on all nodes before attempting key rotation. Otherwise, the action will abort. The node executing the action will initiate the key reload for all nodes.
 {% endhint %}
+
+
+## Migrating 3DES Encrypted Values
+
+NSO 6.5 will remove support for 3DES encryption since the algorithm is no longer deemed sufficiently secure. If you are migrating from an older version and you have data using the `tailf:des3-cbc-encrypted-string` YANG type, NSO will no longer be able to read this data.
+
+To avoid losing data when upgrading to NSO 6.5 or later, it is recommended that you update all the YANG data models and change the `tailf:des3-cbc-encrypted-string` type to either `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string` as soon as possible. Compile the updated models and then perform a package upgrade for the affected packages, which will re-encrypt the data in the new (AES) format.
