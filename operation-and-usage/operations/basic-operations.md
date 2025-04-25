@@ -793,7 +793,9 @@ Validation scripts can also be defined in Python, see more about that in [Plug-a
 
 ### Out-of-band Changes, Transactions, and Pre-Provisioning <a href="#d5e363" id="d5e363"></a>
 
-In reality, network engineers will still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this. The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
+In reality, network engineers might still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this.
+
+&#x20;The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
 
 From the UNIX shell, start a CLI session towards `c0`.
 
@@ -951,7 +953,9 @@ devices device c0
 !
 ```
 
-To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. There is also an option to over-ride the out-of-sync check:
+To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to`  or `sync-from`  explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
+
+There is also an option to override the out-of-sync check but beware that this could result in NSO inadvertently overwriting some device configuration:
 
 ```bash
 admin@ncs(config)# commit no-out-of-sync-check

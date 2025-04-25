@@ -1031,6 +1031,8 @@ Some of the steps in the process can be automated, while others are mostly manua
 
 A prerequisite (or possibly the product in an iterative approach) is an NSO service that supports all the different variants of the configuration for the service that are used in the network. This usually means there will be a few additional parameters in the service model that allow selecting the variant of device configuration produced, as well as some covering other non-standard configurations (if such configuration is present).
 
+Alternatively, some parts of the configuration could be managed as out-of-band, in order to simplify and expedite the development of the service model and the mapping logic. But out-of-band data has more limitations when used with service updates. See [Out-of-band Interoperation](../../../operation-and-usage/operations/out-of-band-interoperation.md) for specific disadvantages and carefully consider if out-of-band data is really the right choice.
+
 In the simplest case, there is only one variant and that is the one that the service needs to produce. Let's take the [examples.ncs/service-management/implement-a-service/iface-v2-py](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/iface-v2-py) example and consider what happens when a device already has an existing interface configuration.
 
 ```bash
@@ -1146,7 +1148,7 @@ In general, this can be the most tricky part of the service discovery process, m
 
 ### Reconciliation <a href="#d5e3480" id="d5e3480"></a>
 
-The last step is updating the metadata, telling NSO that a given service controls (owns) the device configuration that was already present when the NSO service was configured. This is called reconciliation and you achieve it using a special `re-deploy reconcile` action for the service.
+The last step is updating the metadata, telling NSO that a given service controls (owns) the device configuration that was already present when the NSO service was configured. This is called reconciliation and you achieve it using a special `re-deploy reconcile { attach-non-service-config }`  action for the service.
 
 Let's examine the effects of this action on the following data:
 

@@ -1470,7 +1470,7 @@ Finally, it is worth mentioning the trace functionality does not come for free. 
 
 ## Checking Device Configuration <a href="#user_guide.devicemanager.cheap-synch-check" id="user_guide.devicemanager.cheap-synch-check"></a>
 
-When managing large networks with NSO a good strategy is to consider the NSO copy of the network configuration to be the main primary copy. All device configuration changes must go through NSO and all other device re-configurations are considered rogue.
+When managing large networks with NSO, a good strategy is to consider the NSO copy of the network configuration to be the main primary copy. All device configuration changes must go through NSO and all other device re-configurations are considered rogue.
 
 NSO does not contain any functionality which disallows rogue re-configurations of managed devices, however, it does contain a mechanism whereby it is a very cheap operation to discover if one or several devices have been configured out-of-band.
 
@@ -2169,7 +2169,7 @@ Provisioning new devices in NSO requires the user to be familiar with the concep
 
 NSO can auto-configure devices during initial provisioning. Under `/devices/device/auto-configure`, a user can specify either the ned-id explicitly or a combination of the device vendor and `product-family` or `operating-system`. These are meta-data specified in the `package-meta-data.xml` file in the NED package. Based on the combination of this meta-data or using the ned-id explicitly configured, a ned-id from a matching NED package is selected from the currently loaded packages. If multiple packages match the given combination, the package with the latest version is selected.
 
-When a transaction with a newly auto-configured device gets committed, NSO fetches the device host keys (if required) and synchronizes the configuration from the device. Depending on the NED used, additional transactions may be required. Also, if the device is unreachable, NSO will retry the operation at intervals, specified in the settings under `/devices/global-settings/auto-configure`.  The `oper-state` leaf indicates when the device becomes `enabled`. Once the device is in sync, the auto-configuration stops. If the configured retry attempts are exhausted, NSO raises an `auto-configure-failed` alarm.
+When a transaction with a newly auto-configured device gets committed, NSO fetches the device host keys (if required) and synchronizes the configuration from the device. Depending on the NED used, additional transactions may be required. Also, if the device is unreachable, NSO will retry the operation at intervals, specified in the settings under `/devices/global-settings/auto-configure`. The `oper-state` leaf indicates when the device becomes `enabled`. Once the device is in sync, the auto-configuration stops. If the configured retry attempts are exhausted, NSO raises an `auto-configure-failed` alarm.
 
 If several devices are committed simultaneously in the transaction with `auto-configure`, NSO will retry these immediately in separate transactions. This ensures that auto-configuration for a single device is not dependent on the success of the other devices.
 

@@ -333,7 +333,7 @@ ncs# devices device ce0 sync-from
 result true
 ```
 
-And then restore the service:
+Then they can restore the service:
 
 ```cli
 ncs# vpn l3vpn volvo re-deploy dry-run { outformat native } 
@@ -350,6 +350,11 @@ native {
 }
 ncs# vpn l3vpn volvo re-deploy
 ```
+
+However, in some cases the device change was made with a good reason and it may be desirable to keep it. In that case, the engineer can either:
+
+* Update the service configuration in NSO to reflect the new device configuration. This is the preferred way but requires the service to support the particular device configuration.
+* Alternatively, accept the change as out-of-band service change, as described in [Out-of-band Interoperation](out-of-band-interoperation.md).
 
 ### Service Deletion <a href="#d5e809" id="d5e809"></a>
 
@@ -1177,7 +1182,7 @@ With the pre-existing services list, we also need to define the service YANG mod
 
 In contrast with service reconciliation, where the end goal is to manage the network services through NSO by incorporating existing configurations, there are also situations where NSO service activation solution is deployed in parallel with other solutions and these solutions must coexist in the network. By default, NSO expects to manage the full device configuration and can thus conflict with the configuration rendered from the other solutions.
 
-For such situations NSO supports the `commit no-overwrite`  operation. This commit flag restricts the device configuration to not overwrite data that NSO did not create. Since NSO 6.4, it also includes additional functionality for verifying device values that are required to compute the changes in the transaction (the values from the so-called transaction read-set) have not changed. This means `commit no-overwrite` in newer versions of NSO provides guarantees about correctness in the face of device changes that were not made through NSO.
+For such situations NSO supports the `commit no-overwrite` operation. This commit flag restricts the device configuration to not overwrite data that NSO did not create. Since NSO 6.4, it also includes additional functionality for verifying device values that are required to compute the changes in the transaction (the values from the so-called transaction read-set) have not changed. This means `commit no-overwrite` in newer versions of NSO provides guarantees about correctness in the face of device changes that were not made through NSO.
 
 ## Advanced Services Orchestration <a href="#d5e1057" id="d5e1057"></a>
 
