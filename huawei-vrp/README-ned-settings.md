@@ -92,18 +92,18 @@
   Connection configuration.
 
 
-    - number-of-retries <uint8> (default 0)
+    - connection number-of-retries <uint8> (default 0)
 
       Configure max number of extra retries the NED will try to connect to the device before giving
       up. Default 0.
 
 
-    - time-between-retry <uint8> (default 1)
+    - connection time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - ssh client <enum>
+    - connection ssh client <enum>
 
       default  - default.
 
@@ -112,18 +112,18 @@
       ganymed  - ganymed.
 
 
-    - ssh keyboard-interactive <true|false> (default false)
+    - connection ssh keyboard-interactive <true|false> (default false)
 
       Enable this when the ssh connection is done via Duo push or similar keyboard
       interactive methods
 
 
-    - disable-pagination-with-config <string>
+    - connection disable-pagination-with-config <string>
 
       Will change screen-length in device config to 0 during connection.
 
 
-    - device-capabilities disable-probe <true|false> (default false)
+    - connection device-capabilities disable-probe <true|false> (default false)
 
       During connection the NED will probe the device by sending commands and
       evaluating results. If the capabilities are known this setting can be used
@@ -131,47 +131,47 @@
       to inform the ned about the device capabilities.
 
 
-    - device-capabilities commit <true|false> (default false)
+    - connection device-capabilities commit <true|false> (default false)
 
 
-    - device-capabilities switch-port <true|false> (default false)
+    - connection device-capabilities switch-port <true|false> (default false)
 
 
-    - device-capabilities igmp-snooping <true|false> (default false)
+    - connection device-capabilities igmp-snooping <true|false> (default false)
 
 
-    - device-capabilities hwtacacs-server <true|false> (default false)
+    - connection device-capabilities hwtacacs-server <true|false> (default false)
 
 
-    - device-capabilities ntp-service <true|false> (default false)
+    - connection device-capabilities ntp-service <true|false> (default false)
 
 
-    - commands meta-data <WORD>
+    - connection commands meta-data <WORD>
 
       Change the default connector. Default 'ned-connector.json'.
 
 
-    - commands initial-action <union>
+    - connection commands initial-action <union>
 
       Interactor action used to initialize a connection.
 
 
-    - commands awaken <string>
+    - connection commands awaken <string>
 
       Command sent to awaken console during connection.
 
 
-    - commands send-delay <uint32> (default 0)
+    - connection commands send-delay <uint32> (default 0)
 
       Delay in ms before sending a command during connection.
 
 
-    - commands expect-timeout <uint32> (default 60000)
+    - connection commands expect-timeout <uint32> (default 60000)
 
       Default limit in ms for waiting for command response.
 
 
-    - logger silent <true|false> (default false)
+    - connection logger silent <true|false> (default false)
 
       Toggle detailed logs to only written to store.
 
@@ -182,49 +182,49 @@
   Settings used while interacting with a device.
 
 
-    - ignore-errors <true|false> (default false)
+    - console ignore-errors <true|false> (default false)
 
       If set to true the ned will ignore any error messages while applying the
       configuration. Please note that this can lead to NSO being out of sync
       with the device, since some commands might not be accepted.
 
 
-    - ignore-warnings <true|false> (default false)
+    - console ignore-warnings <true|false> (default false)
 
       If set to true the ned will ignore any warning messages while applying the
       configuration. Please note that this can lead to NSO being out of sync
       with the device, since some commands might not be accepted.
 
 
-    - ignore-retries <true|false> (default false)
+    - console ignore-retries <true|false> (default false)
 
       Flag indicating if retries should be ignored.
 
 
-    - max-retries <uint8> (default 100)
+    - console max-retries <uint8> (default 100)
 
       Changes the maximum number of attempts to get a device to accept a
       configuration command.
 
 
-    - retry-delay <uint16> (default 1000)
+    - console retry-delay <uint16> (default 1000)
 
       Changes the delay in milliseconds that the ned will wait before
       resending a failed command.
 
 
-    - send-delay <uint32> (default 0)
+    - console send-delay <uint32> (default 0)
 
       Enable delay before sending commands.
 
 
-    - expect-timeout <uint32> (default 60000)
+    - console expect-timeout <uint32> (default 60000)
 
       Changes the default timeout in milliseconds that the ned will wait for
       a configuration command to be accepted.
 
 
-    - chunk-size <uint8> (default 1)
+    - console chunk-size <uint8> (default 1)
 
       This config allows the NED to send several commands at once. Please note
       that error and retry handling will not work as expected, if the the size
@@ -232,12 +232,12 @@
       chunk sent.
 
 
-    - line-feed <string>
+    - console line-feed <string>
 
       Overwrites default line-feed character.
 
 
-    - obfuscate-secret <true|false>
+    - console obfuscate-secret <true|false>
 
       Secrets will be obfuscated in trace & log files.
 
@@ -248,7 +248,7 @@
   Add regular expressions for warnings/errors which the ned should ignore when
   applying the configuration on a device.
 
-    - extension warning <warning>
+    - console extension warning <warning>
 
       - warning <WORD>
 
@@ -260,7 +260,7 @@
 
   Extend available commands to send.
 
-    - extension command <name> <data>
+    - console extension command <name> <data>
 
       - name <string>
 
@@ -276,7 +276,7 @@
 
   Extend available patterns to expect.
 
-    - extension pattern <name> <data>
+    - console extension pattern <name> <data>
 
       - name <string>
 
@@ -292,7 +292,7 @@
 
   Extend available actions to perform.
 
-    - extension action <name> <init> <flush>
+    - console extension action <name> <init> <flush>
 
       - name <string>
 
@@ -351,12 +351,12 @@
   Settings for controlling logs generated.
 
 
-    - java <true|false> (default true)
+    - logger java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -375,7 +375,7 @@
   Configure NED to access device via a proxy.
 
 
-    - remote-connection <enum>
+    - proxy remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -386,48 +386,48 @@
       serial  - Terminal server proxy.
 
 
-    - remote-address <union>
+    - proxy remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - remote-port <uint16>
+    - proxy remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - remote-command <string>
+    - proxy remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - remote-name <string>
+    - proxy remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - remote-password <string>
+    - proxy remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - remote-secondary-password <string>
+    - proxy remote-secondary-password <string>
 
       Password on the device behind the proxy.
 
 
-    - authgroup <WORD>
+    - proxy authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-prompt <string>
+    - proxy proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - remote-ssh-args <string>
+    - proxy remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -502,7 +502,7 @@
   Configure NED to access device via a second proxy.
 
 
-    - remote-connection <enum>
+    - proxy-2 remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -513,48 +513,48 @@
       serial  - Terminal server proxy.
 
 
-    - remote-address <union>
+    - proxy-2 remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - remote-port <uint16>
+    - proxy-2 remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - remote-command <string>
+    - proxy-2 remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - remote-name <string>
+    - proxy-2 remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - remote-password <string>
+    - proxy-2 remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - remote-secondary-password <string>
+    - proxy-2 remote-secondary-password <string>
 
       Password on the device behind the proxy.
 
 
-    - authgroup <WORD>
+    - proxy-2 authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-prompt <string>
+    - proxy-2 proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - remote-ssh-args <string>
+    - proxy-2 remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -565,7 +565,7 @@
   Transaction specific settings.
 
 
-    - trans-id-method <enum> (default modeled-config)
+    - transaction trans-id-method <enum> (default modeled-config)
 
       Select the method for calculating transaction-id.
 
@@ -584,7 +584,7 @@
                              that and uses only the list output for the trans-id calculation.
 
 
-    - abort-on-diff <true|false> (default false)
+    - transaction abort-on-diff <true|false> (default false)
 
       Enable to detect diff immediately when config is applied (i.e. in commit/abort/revert).
       If a diff is detected an exception is thrown, having the effect in commit that the transaction
@@ -602,13 +602,13 @@
   Settings used when reading from device.
 
 
-    - snmp-agent-defaults <true|false> (default false)
+    - read snmp-agent-defaults <true|false> (default false)
 
       This reads the default values for snmp-agent and adds them to the display
       current-configuration output.
 
 
-    - info-center-defaults enable <true|false> (default false)
+    - read info-center-defaults enable <true|false> (default false)
 
       Enable and set the info-center source default channel * values injection
       as this list is set by default, but hidden (only some device versions can use include-defaults to see it)
@@ -653,12 +653,12 @@
       will remove the entries from cdb.
 
 
-    - file-transfer enable <true|false> (default false)
+    - read file-transfer enable <true|false> (default false)
 
       Enable the NED to retrieve the current device config via ftp.
 
 
-    - file-transfer protocol <enum> (default sftp)
+    - read file-transfer protocol <enum> (default sftp)
 
       This setting is used to select which mode of transport to use when extracting
       the current configuration from a device
@@ -668,30 +668,30 @@
       sftp  - sftp.
 
 
-    - file-transfer save <true|false> (default true)
+    - read file-transfer save <true|false> (default true)
 
       This setting toggles whether or not to save the current device configuration
       before extracting it via file transfer
 
 
-    - file-transfer port <uint16> (default 21)
+    - read file-transfer port <uint16> (default 21)
 
       Set a different port for ftp.
 
 
-    - enable-inject-diffserv-domain-defaults <true|false> (default false)
+    - read enable-inject-diffserv-domain-defaults <true|false> (default false)
 
       This settings can be used to instruct the ned to inject default values for diffserv domain
       ip-dscp-inbound & 8021p-inbound config. Default false.
 
 
-    - enable-inject-interface-port-queue-defaults <true|false> (default false)
+    - read enable-inject-interface-port-queue-defaults <true|false> (default false)
 
       This settings can be used to instruct the ned to inject default values for interface
       port-queue config. Default false.
 
 
-    - enable-inject-acl-rule-defaults <true|false> (default false)
+    - read enable-inject-acl-rule-defaults <true|false> (default false)
 
       This settings can be used to instruct the ned to inject default values
       for acl rule configuration i.e. ip source wildcard 0 is read as 0.0.0.0 etc.
@@ -709,7 +709,7 @@
   ned-settings) but also perform a sync-from in order to populate
   NCS/NSO CDB with newly configured injection config.
 
-    - inject-config <id> <regexp> <config> <where>
+    - read inject-config <id> <regexp> <config> <where>
 
       - id <WORD>
 
@@ -742,7 +742,7 @@
   out config line(s) upon reading from device, i.e. both in a sync-from
   and a config-hash transaction id.
 
-    - replace-config <id> <regex> <replacement>
+    - read replace-config <id> <regex> <replacement>
 
       - id <WORD>
 
@@ -767,18 +767,18 @@
   Settings used when writing to device.
 
 
-    - configuration-mode enabled <true|false> (default false)
+    - write configuration-mode enabled <true|false> (default false)
 
       Enables sending the '[undo ]configuration exclusive' command.
 
 
-    - configuration-mode exclusive <true|false> (default false)
+    - write configuration-mode exclusive <true|false> (default false)
 
       Set to true to send 'configuration exclusive' command after system-view enter and 'undo configuration exclusive' after commit. 
       Set to false to send 'undo configuration exclusive'
 
 
-    - remove-and-redeploy-bgp-peer <true|false> (default false)
+    - write remove-and-redeploy-bgp-peer <true|false> (default false)
 
       Enable this to remove the bgp peer and re-add it, when the ipv4-family unicast peer group is changed.
 
@@ -813,7 +813,7 @@
       Default: false. This means that there is a remove-before-change behavior.
 
 
-    - commit-before-ethTrunk-set <true|false> (default false)
+    - write commit-before-ethTrunk-set <true|false> (default false)
 
       Set this to true to inject a "commit" command before setting a physical interface to a eth-trunk.
       This is useful when, in the same transaction, the Eth-Trunk interface is created and a
@@ -837,7 +837,7 @@
       dedicated transactions for eth-trunk setting.
 
 
-    - ranged-leaf-as-list <true|false> (default false)
+    - write ranged-leaf-as-list <true|false> (default false)
 
       Enable vlan ranged list a...b as opposed to a leaf <a to b> - mostly applied to vlans.
       Enable this to make NSO list ranges aware in cases where the ranged is specified as a leaf or two, of format <a to b>.
@@ -884,12 +884,12 @@
       NOTE: this is the oposite behavior of ENCAP_VLAN_AS_LEAF behavior
 
 
-    - lock-local-user <true|false> (default false)
+    - write lock-local-user <true|false> (default false)
 
       Will trigger exception if NSO output contains aaa/local-user{ned-user}.
 
 
-    - memory-setting <enum> (default persist)
+    - write memory-setting <enum> (default persist)
 
       Select the config persistence method for Huawei device (default is 'persist').
 
@@ -898,20 +898,20 @@
       none     - Never save config on device as part of NCS transaction.
 
 
-    - commit-trial-seconds <INTEGER<0|60-65535>> (default 0)
+    - write commit-trial-seconds <INTEGER<0|60-65535>> (default 0)
 
       Set to >= 60 to use commit trial <seconds> along with a
       confirming commit when transaction is done, utilizing the
       implict rollback on revert by calling abort trial.
 
 
-    - commit-trial-seconds-wait <INTEGER<0-65535>> (default 0)
+    - write commit-trial-seconds-wait <INTEGER<0-65535>> (default 0)
 
       Time for system running on a trial basis waits until commit after trial. 0 to disable
       (default).
 
 
-    - disable-alt-no-syntax <true|false> (default false)
+    - write disable-alt-no-syntax <true|false> (default false)
 
       This setting can be used to disable the alternative syntax used to delete some nodes on some
       VRP versions. The nodes affected are marked in yang-model with meta-data 'vrp-alt-no-syntax'.
@@ -919,52 +919,52 @@
       deleted. Use this setting to disable stripping. Default false.
 
 
-    - disable-redeploy-on-change <true|false> (default false)
+    - write disable-redeploy-on-change <true|false> (default false)
 
       This setting can be used to disable the vrp cli extension vrp:redeploy-on-change, which
       updates the NSO output by redeployingconfiguration being reset on device by another config
       change. Default false.
 
 
-    - disable-if-qos-queue-reset-percentage <true|false> (default false)
+    - write disable-if-qos-queue-reset-percentage <true|false> (default false)
 
       This settings can be used to disable the vrp cli extensionvrp:qos-queue-reset-percentage,
       which updates the NSO output toset percentage to 0 before setting the value present in CDB.
       Default false.
 
 
-    - disable-suppress-vlan-delete <true|false> (default false)
+    - write disable-suppress-vlan-delete <true|false> (default false)
 
       This settings can be used to disable the vrp cli extension vrp:suppress-vlan-delete. The
       extension updates the NSO output to suppress the removal of vlan list entries, since an empty
       entry is not displayed on device and the command affects vlan batch leaf-list. Default false.
 
 
-    - disable-redeploy-route-policy-if-match-on-ip-ip-prefix-change <true|false> (default false)
+    - write disable-redeploy-route-policy-if-match-on-ip-ip-prefix-change <true|false> (default false)
 
       This settings can be used to disable the vrp cli
       extensionredeploy-route-policy-if-match-on-ip-ip-prefix-change. Default false.
 
 
-    - suppress-interface-portswitch-command <true|false> (default false)
+    - write suppress-interface-portswitch-command <true|false> (default false)
 
       This settings can be used to instruct the ned to suppress thesending of interface portswitch
       commands. Default false.
 
 
-    - enable-updated-interface-qos-profile <true|false> (default false)
+    - write enable-updated-interface-qos-profile <true|false> (default false)
 
       This settings can be used to instruct the ned to support the updated interface qos-profile
       legacy model from v6.28. Default false.
 
 
-    - force-redeploy-vsi-on-id-change <true|false> (default true)
+    - write force-redeploy-vsi-on-id-change <true|false> (default true)
 
       This settings can be used to instruct the ned to redeploy vsi config even if vsi id has not
       changed. Default true.
 
 
-    - range-syntax-command-len <uint16> (default 90)
+    - write range-syntax-command-len <uint16> (default 90)
 
       This settings is used to split a NSO command line into
       multiple device commands, when the number of parameters is too high and
@@ -972,7 +972,7 @@
       Default 90
 
 
-    - rollback enable <true|false> (default false)
+    - write rollback enable <true|false> (default false)
 
       Enable use of rollback command.
 
@@ -1002,7 +1002,7 @@
   Note the $1 used to inject the first catch group. Up to 9 groups
   may be used.
 
-    - inject-command <id> <config> <command> <where>
+    - write inject-command <id> <config> <command> <where>
 
       - id <WORD>
 
@@ -1035,7 +1035,7 @@
   useful if a dependency bug is found and you do not want to upgrade
   the NED or are in a hurry for the fix.
 
-    - config-dependency <id> <mode> <move> <action> <stay> <options>
+    - write config-dependency <id> <mode> <move> <action> <stay> <options>
 
       - id <WORD>
 
@@ -1074,7 +1074,7 @@
   Configure auto (dynamic behaviour).
 
 
-    - bgp-af-peer-group-trim <true|false> (default false)
+    - auto bgp-af-peer-group-trim <true|false> (default false)
 
       If this setting is set to true the NED will delete device-generated BGP peer group config in
       ipv4-family unicast container unless included in the NSO transaction. Default false.
@@ -1086,7 +1086,7 @@
   Configure NED settings related to live-status.
 
 
-    - time-to-live <int32> (default 50)
+    - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
 

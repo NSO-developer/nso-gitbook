@@ -265,6 +265,23 @@ The number of lines in the
       NETSIM targets.
 
 
+    - developer load-native-config allow-delete <true|false> (default false)
+
+      Enable this setting to be able to handle limited delete operations with 'load-native-config'.
+      Please note that not all syntax available on a real device works, some delete operations can
+      not be parsed by the NED. Use the 'verbose' flag to 'load-native-config' to see if delete
+      commands can be parsed. Currently this is only supported when 'extended-parser' is set to
+      'turbo-xml-mode'.
+
+
+    - developer load-native-config delete-with-remove <true|false> (default false)
+
+      Enable this setting to use 'remove' instead of 'delete' when sending delete operations to NSO.
+      This is useful when doing delete commands for data that might not be present in CDB. Please
+      note that deletes for missing data will still be part of transaction, and will be sent to
+      device. Use with care, and do proper testing to understand behaviour.
+
+
     - developer trace-connection <true|false> (default false)
 
       Enable developer connection tracing. WARNING: may choke NSO with large printouts.

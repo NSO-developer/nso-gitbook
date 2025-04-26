@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.24 2025-04-07](a10-acos/README.md)
+  * [README v3.24.1 2025-04-25](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -61,7 +61,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.5.2 2025-04-24](ceragon-ip20/README.md)
+  * [README v1.6 2025-04-25](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.56.2 2025-04-17](cisco-staros/README.md)
+  * [README v5.57 2025-04-25](cisco-staros/README.md)
 
 * cisco-wsa
   * [README-ned-settings](cisco-wsa/README-ned-settings.md)
@@ -197,7 +197,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.23 2025-03-28](fortinet-fortios/README.md)
+  * [README v5.11.24 2025-04-25](fortinet-fortios/README.md)
 
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
@@ -217,7 +217,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.72 2025-04-11](huawei-vrp/README.md)
+  * [README v6.73 2025-04-25](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
