@@ -75,7 +75,7 @@ As a best practice, always create a backup before trying to upgrade.
 {% endstep %}
 
 {% step %}
-For the upgrade itself, you must first download to the host and install the new NSO release. At this point, you can choose to install NSO in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) **(Federal Information Processing Standards) mode**.
+For the upgrade itself, you must first download to the host and install the new NSO release. At this point, you can choose to install NSO in standard mode or in FIPS mode.
 
 {% tabs %}
 {% tab title="Standard System Install" %}

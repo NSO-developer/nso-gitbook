@@ -15,7 +15,7 @@ Complete the following activities in the given order to perform a Local Install 
 {% hint style="info" %}
 #### Mode of Install
 
-NSO Local Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/fips-general-information)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
+NSO Local Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
 
 <sup>\* FIPS: Federal Information Processing Standards</sup>
 {% endhint %}
