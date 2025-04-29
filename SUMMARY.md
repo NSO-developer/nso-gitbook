@@ -34,7 +34,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.4.14 2025-04-11](alu-isam/README.md)
+  * [README v1.4.15 2025-04-28](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.66.1 2025-04-24](cisco-iosxr/README.md)
+  * [README v7.67 2025-04-28](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)

@@ -59,7 +59,7 @@
   The following top level ned-settings can be modified.
 
 
-    - cisco-iosxr extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Configure method for loading running-config to NSO.
 
@@ -74,7 +74,7 @@
       auto            - Set to auto to use fastest available method to load data to NSO.
 
 
-    - cisco-iosxr internal-xml-transfer-timeout <uint32> (default 2147483647)
+    - internal-xml-transfer-timeout <uint32> (default 2147483647)
 
       Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
 
