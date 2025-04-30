@@ -59,7 +59,7 @@ This release brings more improvements to extend the design and functionality of 
 * The Alarms tool now offers a vastly updated design as well as improved functionality to handle NSO alarms. Users will see enhancements in the information and options to interact with alarms.
 * New improvements have also been made in the Compliance Reporting tool to offer more visual details via graphs in report results.
 
-Documentation Updates:
+Document**ation Updates:**
 
 * Updated the Web UI's Tools section to document new updates in the [Packages](operation-and-usage/webui/tools.md#d5e6487), [Alarms](operation-and-usage/webui/tools.md#d5e6565), and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui_compliance) sections.
 
@@ -75,9 +75,13 @@ Documentation Updates:
 
 <details>
 
-<summary>Run NSO as Non-root User in Cisco Containers</summary>
+<summary>NSO Runs as Non-root User in Cisco Containers</summary>
 
+NSO is now installed with the '--run-as-user' option for build and production containers to run NSO from the non-root 'nso' user that belongs to the 'nso' user group.
 
+Documentation Updates:
+
+* Added a new [NSO Runs from a Non-Root User](whats-new.md#nso-runs-as-non-root-user-in-cisco-containers) section to the [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) chapter.
 
 </details>
 
