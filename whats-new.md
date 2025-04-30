@@ -95,7 +95,7 @@ Documentation Updates:
 
 <details>
 
-<summary>URL Redirection Behind Nginx Reverse Proxy</summary>
+<summary>Enhanced Support for Frontend URL Redirection Behind Nginx Reverse Proxy</summary>
 
 
 
@@ -175,9 +175,16 @@ Documentation Updates:
 
 <details>
 
-<summary>Retries for Auto-configure</summary>
+<summary><strong>Enhanced Device Auto-Configuration with Improved Reliability</strong></summary>
 
+The device auto-configure feature in NSO is now more robust and reliable, with enhanced retry mechanisms to handle common deployment challenges. This update ensures smoother and more successful device onboarding in a wider range of network environments.
 
+* Automatic Retry on Failure: The auto-configure process now automatically retries in scenarios where:
+  * The device requires a commit operation before configuration can be copied.
+  * The device is unreachable.
+  * Concurrent auto-configuration processes are running for other devices.
+* Granular Control: New global settings under `/devices/global-settings/auto-configure` allow administrators to fine-tune the retry behavior, controlling the number of attempts and the interval between them.
+* Proactive Alerting: A new `auto-configure-failed` alarm is raised when the maximum number of retry attempts is exhausted, providing immediate notification of persistent auto-configuration failures.
 
 </details>
 
@@ -201,7 +208,7 @@ Documentation Updates:
 
 <summary>Support for OpenSSL 3.0</summary>
 
-
+NSO has added support for OpenSSL 3.0 in this release. The Cisco SSL library in this regard has been updated to version 3.0.15.8.0.221 (ciscossl-3.0.15.8.0.221).
 
 </details>
 
