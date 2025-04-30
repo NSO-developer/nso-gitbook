@@ -119,6 +119,22 @@ However, for the phases that follow the work phase, all the logic is implemented
 
 NSO keeps checkpoints for each transaction, to restart it from the conflicting phase and save itself from redoing the work from the preceding phases if possible. NSO automatically checks if the transaction checkpoint read- or write-set grows too large. This allows for larger transactions to go through without memory exhaustion. When all checkpoints are skipped, no transaction retries are possible, and the transaction fails. When later-stage checkpoints are skipped, the transaction retry will take more time.
 
+The read-set and write-set size limits that NSO uses for transaction checkpoints are configurable in `ncs.conf` under:
+
+* /ncs-config/checkpoint/max-read-set-size
+* /ncs-config/checkpoint/max-write-set-size
+* /ncs-config/checkpoint/total-size-limit
+
+See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax) for details.
+
+A transaction checkpoint reaching a size limit will result in a log entry:
+
+```
+not creating rollback checkpoint, write-set size limit exceeded
+```
+
+If checkpoints are skipped, we might miss retry points/attempts if the transaction fails due to conflicts.
+
 Moreover, in case of conflicts during service mapping, NSO optimizes the process even further. It tracks the conflicting services to not schedule them concurrently in the future. This automatic retry behavior is enabled by default.
 
 For services, retries can be configured further or even disabled under `/services/global-settings`. You can also find the service conflicts NSO knows about by running the `show services scheduling conflict` command. For example:
@@ -332,18 +348,6 @@ public class MyProgram {
 ```
 
 And what if your use case requires you to customize how the transaction is started or applied? `ncsRunWithRetry()` can take additional parameters that allow you to control those aspects. Please see the relevant API documentation for the full reference.
-
-## Transaction Checkpoints
-
-For concurrent transactions, NSO uses a checkpoint structure. If the transaction fails due to conflicts, a checkpoint is used to check for conflicts, rollback, and retry the transaction. For transactions involving a significant amount of data compared to available memory, checkpoints can lead to high memory usage and cause out-of-memory issues.
-
-Therefore, NSO uses read-set and write-set size limits that are configurable in `ncs.conf` for transaction checkpoints using:
-
-* /ncs-config/checkpoint/max-read-set-size
-* /ncs-config/checkpoint/max-write-set-size
-* /ncs-config/checkpoint/total-size-limit
-
-See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax)for details.
 
 ## Designing for Concurrency <a href="#ncs.development.concurrency.designing" id="ncs.development.concurrency.designing"></a>
 
