@@ -73,7 +73,7 @@ Added new `ncs.conf` configuration to modify read-set and write-set size limits 
 
 Documentation Updates:
 
-* Added a new [Transaction Checkpoints](development/core-concepts/nso-concurrency-model.md#transaction-checkpoints) section to the [NSO Concurrency Model](development/core-concepts/nso-concurrency-model.md) chapter.
+* Added a new [transaction checkpoint limits](development/core-concepts/nso-concurrency-model.md#automatic-retries-) section to the [NSO Concurrency Model](development/core-concepts/nso-concurrency-model.md) chapter.
 
 </details>
 
