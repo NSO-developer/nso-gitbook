@@ -333,6 +333,18 @@ public class MyProgram {
 
 And what if your use case requires you to customize how the transaction is started or applied? `ncsRunWithRetry()` can take additional parameters that allow you to control those aspects. Please see the relevant API documentation for the full reference.
 
+## Transaction Checkpoints
+
+For concurrent transactions, NSO uses a checkpoint structure. If the transaction fails due to conflicts, a checkpoint is used to check for conflicts, rollback, and retry the transaction. For transactions involving a significant amount of data compared to available memory, checkpoints can lead to high memory usage and cause out-of-memory issues.
+
+Therefore, NSO uses read-set and write-set size limits that are configurable in `ncs.conf` for transaction checkpoints using:
+
+* /ncs-config/checkpoint/max-read-set-size
+* /ncs-config/checkpoint/max-write-set-size
+* /ncs-config/checkpoint/total-size-limit
+
+See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax)for details.
+
 ## Designing for Concurrency <a href="#ncs.development.concurrency.designing" id="ncs.development.concurrency.designing"></a>
 
 In general, transaction conflicts in NSO cannot be avoided altogether, so your code should handle them gracefully with retries. Retries are required to ensure correctness but do take up additional time and resources. Since a high percentage of retries will notably decrease the throughput of the system, you should endeavor to construct your data models and logic in a way that minimizes the chance of conflicts.

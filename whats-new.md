@@ -69,7 +69,11 @@ Document**ation Updates:**
 
 <summary>Configurable Size Limits for Transaction Checkpoints</summary>
 
+Added new `ncs.conf` configuration to modify read-set and write-set size limits for transaction checkpoints.
 
+Documentation Updates:
+
+* Added a new Transaction Checkpoints section to the [NSO Concurrency Model](development/core-concepts/nso-concurrency-model.md) chapter.
 
 </details>
 
@@ -77,7 +81,7 @@ Document**ation Updates:**
 
 <summary>NSO Runs as Non-root User in Cisco Containers</summary>
 
-NSO is now installed with the '--run-as-user' option for build and production containers to run NSO from the non-root 'nso' user that belongs to the 'nso' user group.
+NSO is now installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
 Documentation Updates:
 
