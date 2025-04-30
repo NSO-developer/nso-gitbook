@@ -107,6 +107,7 @@ The migration process is designed to ensure a smooth transition from a System-In
 
 * We recommend reading through this guide to understand better the expectations, requirements, and functioning aspects of a containerized deployment.
 * Verify the compatibility of your current system configurations with the containerized NSO setup. See [System Requirements](containerized-nso.md#sec.system-reqs) for more information.
+* Note that [NSO runs from a non-root user ](containerized-nso.md#nso-runs-from-a-non-root-user)with the containerized NSO setup[.](containerized-nso.md#nso-runs-from-a-non-root-user)&#x20;
 * Determine and install the container orchestration tool you plan to use (e.g., Docker, etc.).
 * Ensure that your current NSO installation is fully operational and backed up and that you have a clear rollback strategy in case any issues arise. Pay special attention to customizations and integrations that your current NSO setup might have, and verify their compatibility with the containerized version of NSO.
 * Have a contingency plan in place for quick recovery in case any issues are encountered during migration.
