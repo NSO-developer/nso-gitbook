@@ -173,6 +173,14 @@ If the `ncs.conf` file is edited after startup, it can be reloaded using MAAPI `
 
 If you need to perform operations before or after the `ncs` process is started in the Production container, you can use Python and/or Bash scripts to achieve this. Add the scripts to the `$NCS_CONFIG_DIR/pre-ncs-start.d/` and `$NCS_CONFIG_DIR/post-ncs-start.d/` directories to have the `run-nso.sh` script run them.
 
+### NSO Runs from a Non-Root User
+
+NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.&#x20;
+
+When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/blob/main/getting-started/netsim-sshkey) for an example.
+
+The NSO container runs a script called `take-ownership.sh` as part of its startup, which takes ownership of all the directories that NSO needs. The script will be one of the first things to run. The script can be overridden to take ownership of even more directories, such as mounted volumes or bind mounts.
+
 ### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
 
 An admin user can be created on startup by the run script in the container. Three environment variables control the addition of an admin user:
