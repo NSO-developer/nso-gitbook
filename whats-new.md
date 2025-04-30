@@ -64,3 +64,147 @@ Documentation Updates:
 * Updated the Web UI's Tools section to document new updates in the [Packages](operation-and-usage/webui/tools.md#d5e6487), [Alarms](operation-and-usage/webui/tools.md#d5e6565), and [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui_compliance) sections.
 
 </details>
+
+<details>
+
+<summary>Configurable Size Limits for Transaction Checkpoints</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Run NSO as Non-root User in Cisco Containers</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Support for RFC 8650 (YANG-Push over RESTCONF)</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>URL Redirection Behind Nginx Reverse Proxy</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Connection Setup Logging for Erlang SSH Client</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Compliance Templates for Operational Data</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Compliance Processing Tags</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Support XML strings as Input to <code>shared_set_values</code> in Python API</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Display Dry-run Output and Prompt before Committing</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Methods for Template Creation</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Support for Efficient Stream-parsing of JSON</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Support for SFTP as Standardised File Transfer Protocol for SCP Action</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Limit Devices in Actions by XPath</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Retries for Auto-configure</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Unified Label for Commit</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Improved NED <code>migrate</code> Action Report for Changes to Node Constraints</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Support for OpenSSL 3.0</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Improved Execution of Configuration Changes on a Subset of Devices</summary>
+
+
+
+</details>
