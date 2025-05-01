@@ -1073,6 +1073,8 @@
             file shall comply to the standard for deviation files and contain paths to all nodes to be
             trimmed from the schema.
 
+        OR:
+
 
       - filter auto-config dir <string>
 

@@ -34,7 +34,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.4.15 2025-04-28](alu-isam/README.md)
+  * [README v1.4.16 2025-04-30](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -125,7 +125,7 @@
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_gnmi/README-rebuild.md)
-  * [README v1.1.7 2025-02-05](cisco-iosxr_gnmi/README.md)
+  * [README v1.1.8 2025-04-30](cisco-iosxr_gnmi/README.md)
 
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
@@ -166,6 +166,10 @@
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
   * [README v2.1.6 2024-08-23](ericsson-efn324/README.md)
+
+* ericsson-enm
+  * [README-ned-settings](ericsson-enm/README-ned-settings.md)
+  * [README v1.0.0 2025-04-30](ericsson-enm/README.md)
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
@@ -229,12 +233,12 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.10 2025-04-17](juniper-junos/README.md)
+  * [README v4.18.11 2025-04-30](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.18 2025-03-27](juniper-junos_nc/README.md)
+  * [README v1.1.19 2025-04-30](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -251,7 +255,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.12 2025-02-06](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.13 2025-04-30](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
@@ -265,7 +269,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.44 2025-03-31](onf-tapi_rc/README.md)
+  * [README v2.0.45 2025-04-30](onf-tapi_rc/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)

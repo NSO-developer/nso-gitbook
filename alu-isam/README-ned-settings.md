@@ -43,9 +43,10 @@
   6. read
      6.1. replace-config
   7. alu-isam-config-warning
-  8. connection
-  9. logger
-  10. proxy
+  8. alu-isam-extra-errors
+  9. connection
+  10. logger
+  11. proxy
   ```
 
 
@@ -306,7 +307,33 @@ The number of lines in the
         Note that in order for the warning exception to take effect, you must disconnect and connect again.
 
 
-# 8. ned-settings alu-isam connection
+# 8. ned-settings alu-isam alu-isam-extra-errors
+------------------------------------------------
+
+  This section describes device messages that must be handled as errors.
+
+    - alu-isam alu-isam-extra-errors <message>
+
+      - message <string>
+
+        Extra error regular expresio, e.g. ^INFO:.*.
+
+    Depending on the use case, sometimes different messages from the device must be threated as errors
+    even if they are not error messages.
+
+    For example, to add a new extra error message:
+
+         admin@ncs(config)# devices device <device-name> ned-settings alu-isam alu-isam-extra-errors "INFO: PIP #1370.*"
+         admin@ncs(config-device-isam-1)# commit
+         Commit complete.
+         admin@ncs(config-device-isam-1)# disconnect
+         admin@ncs(config-device-isam-1)# connect
+         result true
+
+      Note that in order for the new error messages to take effect, you must disconnect and connect again.
+
+
+# 9. ned-settings alu-isam connection
 -------------------------------------
 
   Configure settings specific to the connection between NED and device.
@@ -323,8 +350,8 @@ The number of lines in the
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-# 9. ned-settings alu-isam logger
----------------------------------
+# 10. ned-settings alu-isam logger
+----------------------------------
 
   Settings for controlling logs generated.
 
@@ -347,7 +374,7 @@ The number of lines in the
       Toggle logs to be added to ncs-java-vm.log.
 
 
-# 10. ned-settings alu-isam proxy
+# 11. ned-settings alu-isam proxy
 ---------------------------------
 
   Configure NED to access device via a proxy.

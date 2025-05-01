@@ -68,7 +68,7 @@
   Settings for the RESTCONF connection.
 
 
-    - use-host-name <true|false> (default false)
+    - connection use-host-name <true|false> (default false)
 
       Configure the NED whether to use the host name or the ip address to the device when
       connecting. If set to true the host name will be used if possible.
@@ -80,7 +80,7 @@
   Authentication related settings.
 
 
-    - method <enum> (default basic)
+    - authentication method <enum> (default basic)
 
       Configure authentication method to use when the NED interacts with the RESTCONF device.
 
@@ -93,7 +93,7 @@
                       configurations. Either a static token or address info etc to a token broker.
 
 
-    - use-token-cache <true|false> (default false)
+    - authentication use-token-cache <true|false> (default false)
 
       When set to true, the NED will cache the negotiated authentication token for later use in any subsequent connections.
       The cache reduces the number of round trips needed when connecting to the target. Applicable token based mechanisms
@@ -103,7 +103,7 @@
       Use with caution when NED is interacting with any other device.
 
 
-    - mode <enum>
+    - authentication mode <enum>
 
       The bearer-token method has the following additional settings.
 
@@ -113,7 +113,7 @@
       static-token  - Use a statically configured token configured in the 'token-value' setting.
 
 
-    - token-value <string>
+    - authentication token-value <string>
 
       Configure a static token value.
 
@@ -124,27 +124,27 @@
   Bearer token request settings.
 
 
-    - url <string> (default /restconf/auth)
+    - token-request url <string> (default /restconf/auth)
 
       URL path to bearer token broker. This does not use the base-url. Default: /restconf/auth.
 
 
-    - port <uint32>
+    - token-request port <uint32>
 
       Port used used by bearer token broker. Default: use same as restconf connection.
 
 
-    - address <string>
+    - token-request address <string>
 
       Address used used by bearer token broker. Default: use same as restconf connection.
 
 
-    - username-parameter <string>
+    - token-request username-parameter <string>
 
       Username parameter name if different from 'username' in configured auth group.
 
 
-    - password-parameter <string>
+    - token-request password-parameter <string>
 
       Password parameter name if different from 'password' in configured auth group.
 
@@ -156,22 +156,22 @@
   NED is closing.
 
 
-    - url <string>
+    - token-revoke url <string>
 
       URL path to bearer token broker. This does not use the base-url.
 
 
-    - port <uint32>
+    - token-revoke port <uint32>
 
       Port used used by bearer token broker. Default: use same as for requesting token.
 
 
-    - address <string>
+    - token-revoke address <string>
 
       Address used used by bearer token broker. Default: use same as for requesting token.
 
 
-    - query <string>
+    - token-revoke query <string>
 
       Additional query parameter(s) used when doing the token revokation.
 
@@ -182,32 +182,32 @@
   Settings related to SSL/TLS enabled connections.
 
 
-    - accept-any <true|false>
+    - ssl accept-any <true|false>
 
       Accept any SSL certificate presented by the device.
       Warning! This enables Man in the Middle attacks and should only be used for testing and troubleshooting.
 
 
-    - hostname <string>
+    - ssl hostname <string>
 
       Device hostname/fqdn. Useful when SSL certificate CN verification fails because NSO uses IP
       address instead of hostname. Note: when accept-any = false and there is no
       connection/ssl/certificate defined, the NED will automatically fetch the server certificate.
 
 
-    - ciphers <union>
+    - ssl ciphers <union>
 
       Configure permitted ciphers to use when doing TLS handshake. Leave empty to use system
       default.
 
 
-    - protocols <union>
+    - ssl protocols <union>
 
       Configure permitted protocol versions to use when doing TLS handshake. Leave empty to use
       system default.
 
 
-    - certificate <Base64 binary>
+    - ssl certificate <Base64 binary>
 
       Configure a certificate to be used for identifying the device to connect to. It can be either
       a host certificate identifying the device or a self signed root certificate that has been used
@@ -231,7 +231,7 @@
   configured to 'none'.
 
 
-    - client certificate <Base64 binary>
+    - mtls client certificate <Base64 binary>
 
       Configure a certificate to be used by the NED in a mutual TLS (mTLS) setup. This certificate
       will be used for identifying the NED by the device.
@@ -241,7 +241,7 @@
       "----- BEGIN CERTIFICATE -----".
 
 
-    - client private-key <string>
+    - mtls client private-key <string>
 
       Private key stored in DER format but since it is entered as Base64 it is very similar to PEM but
       without banners like:
@@ -250,7 +250,7 @@
       The private key is stored encrypted in NSO.
 
 
-    - client key-password <string>
+    - mtls client key-password <string>
 
       Configure a optional password to the private key from the previous step. The password is
       stored encrypted in NSO.
@@ -262,7 +262,7 @@
   Configure NED settings related to live-status.
 
 
-    - time-to-live <int32> (default 50)
+    - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
 
@@ -273,13 +273,13 @@
   Settings related to the RESTCONF API.
 
 
-    - url-base <auto|string> (default auto)
+    - restconf url-base <auto|string> (default auto)
 
       Device RESTCONF API URL base. Note: this setting is automatically configured when one of the
       pre-set RESTCONF profiles is used.
 
 
-    - get ignore-http-status-code <[ <http code> <http code>... ]>
+    - restconf get ignore-http-status-code <[ <http code> <http code>... ]>
 
       Configure additional HTTP status codes that shall not trigger and error when the
       NED checks the device response upon a RESTCONF GET call. By default the NED will
@@ -290,7 +290,7 @@
       to be configured with this setting to make the NED fully operational.
 
 
-    - model-discovery <enabled|disabled> (default enabled)
+    - restconf model-discovery <enabled|disabled> (default enabled)
 
       Configure the NED to auto probe for models supported by the device. This API call is part of
       the RESTCONF specification, but is not supported by all devices.  Note: this setting is
@@ -301,7 +301,7 @@
       disabled  - Disabled.
 
 
-    - capability-discovery <enabled|disabled> (default enabled)
+    - restconf capability-discovery <enabled|disabled> (default enabled)
 
       Configure the NED to auto probe for capabilities supported by the device. This API call is
       part of the RESTCONF specification, but is not supported by all devices.  Note: this setting
@@ -312,7 +312,7 @@
       disabled  - Disabled.
 
 
-    - protocol <enum> (default default)
+    - restconf protocol <enum> (default default)
 
       Configure the protocol to be used by the NED when applying config to the device. By default
       the standard RESTCONF protocol is used. For devices supporting the newer YANG-PACH extension
@@ -328,13 +328,13 @@
                     RESTCONF.
 
 
-    - model-download accept-header <application/yang|string> (default application/yang)
+    - restconf model-download accept-header <application/yang|string> (default application/yang)
 
       Configure accept header to use by the built-in YANG downloader tool when fetching the models
       from the device.
 
 
-    - profile <enum> (default none)
+    - restconf profile <enum> (default none)
 
       The NED supports a set of preconfigured RESTCONF profiles. Each profile has been customised
       for a certain device type. A profile configures RESTCONF settings  like default url-base, model-discovery,
@@ -365,7 +365,7 @@
   device on fro subsequent connections.
 
 
-    - model <enabled|disabled> (default disabled)
+    - cache model <enabled|disabled> (default disabled)
 
       Configure the NED to cache the list of models supported by the device. Using the cache in
       combination with models discovery enabled does save one additional round trip to the device
@@ -376,7 +376,7 @@
       disabled  - Disabled.
 
 
-    - capability <enabled|disabled> (default disabled)
+    - cache capability <enabled|disabled> (default disabled)
 
       Configure the NED to cache the list of capabilities supported by the device. Using the cache
       in combination with capabilities discovery enabled does save one additional round trip to the
@@ -387,7 +387,7 @@
       disabled  - Disabled.
 
 
-    - url-base <enabled|disabled> (default disabled)
+    - cache url-base <enabled|disabled> (default disabled)
 
       Configure the NED to cache the url base used by the device. Using the cache in combination
       with url-base set to 'auto' does save one additional round trip to the device upon each
@@ -404,7 +404,7 @@
   Settings related to RESTCONF operations on config.
 
 
-    - update-method <patch|put> (default patch)
+    - config update-method <patch|put> (default patch)
 
       Configure NED behaviour when updating config on the device.
 
@@ -413,23 +413,23 @@
       put    - Update using replace. A RESTCONF PUT call is used.
 
 
-    - gather-updates-into-single-patch <true|false> (default false)
+    - config gather-updates-into-single-patch <true|false> (default false)
 
       When set to true the NED tries to gather updates on leafs with the same parent into one single
       PATCH call. When set to false the NED generates one PATCH for each update. Default: false.
 
 
-    - force-top-node-prefix on-create <true|false> (default true)
+    - config force-top-node-prefix on-create <true|false> (default true)
 
       On create operations.
 
 
-    - force-top-node-prefix on-update <true|false> (default false)
+    - config force-top-node-prefix on-update <true|false> (default false)
 
       On update operations (PATCH / PUT).
 
 
-    - yang-patch update-method <enum> (default merge)
+    - config yang-patch update-method <enum> (default merge)
 
       Configure NED behaviour when updating config on the device.
 
@@ -438,7 +438,7 @@
       replace  - Update using YANG-PATCH replace.
 
 
-    - get-method <enum> (default default)
+    - config get-method <enum> (default default)
 
       Configure NED behaviour when fetching config from the device when doing sync-from etc.
 
@@ -450,14 +450,14 @@
                                    Custom Call Points' for more information.
 
 
-    - device-requires-consecutive-gets <true|false> (default true)
+    - config device-requires-consecutive-gets <true|false> (default true)
 
       A device with custom call points might require the NED to execute additional consecutive GET
       calls on sub levels to fetch all data. Then configure this setting to true. Note: this setting
        is automatically configured when one of the pre-set RESTCONF profiles is used.
 
 
-    - custom-get-call-points <path>
+    - config custom-get-call-points <path>
 
       Specify schema paths to be used as call points when the NED is doing RESTCONF GET calls. See
       chapter 'Configuring Custom Call Points' for more information. Note: this setting is
@@ -493,7 +493,7 @@
         - fields <string>
 
 
-    - append-content-config-query <true|false> (default false)
+    - config append-content-config-query <true|false> (default false)
 
       Appends the content=config query to the url on all GET calls. This instructs the device to
       filter out operational data from the dumps to be returned. This can have good impact on
@@ -506,7 +506,7 @@
   Configure NED adaptions for device deviations.
 
 
-    - list-entry move method <enum> (default default)
+    - deviations list-entry move method <enum> (default default)
 
       The RESTCONF protocol does specify special REST operations to use when moving or inserting
       entries in lists that are ordered by user (a certain YANG annotation). Some devices
@@ -519,7 +519,7 @@
       default            - default.
 
 
-    - list-entry update wrap-in-list <true|false> (default true)
+    - deviations list-entry update wrap-in-list <true|false> (default true)
 
       When updating configuration inside a list entry, the NED by default wraps the payload in a list.
 
@@ -554,7 +554,7 @@
   NED settings related to RESTCONF operations for operational data.
 
 
-    - get-method <enum> (default nearest-container)
+    - live-status get-method <enum> (default nearest-container)
 
       Configure NED behaviour when fetching operational data from the device.
 
@@ -568,21 +568,21 @@
                                    used as paths when reading operational data.
 
 
-    - append-content-nonconfig-query <true|false> (default false)
+    - live-status append-content-nonconfig-query <true|false> (default false)
 
       Appends the content=nonconfig query to the url on all live-status GET calls. This instructs
       the device to filter out config data from the dumps to be returned. Required that the content
       query feature is supported by the device.
 
 
-    - device-requires-consecutive-gets <true|false> (default true)
+    - live-status device-requires-consecutive-gets <true|false> (default true)
 
       A device with custom call points might require the NED to execute additional consecutive GET
       calls on sub levels to fetch all data. Then configure this setting to true. Note: this setting
        is automatically configured when one of the pre-set RESTCONF profiles is used.
 
 
-    - custom-get-call-points <path>
+    - live-status custom-get-call-points <path>
 
       Specify schema paths to be used as call points when the NED is doing RESTCONF GET calls. See
       chapter 'Configuring Custom Call Points' for more information. Note: this setting is
@@ -624,13 +624,13 @@
   Configure notification streams available on the device.
 
 
-    - inactive-stream-reset timeout <uint32> (default 0)
+    - notif inactive-stream-reset timeout <uint32> (default 0)
 
       Configure the maximum allowed number of seconds of inactivity on a stream. The value 0 means
       indefinite time.
 
 
-    - automatic-stream-discovery <enum> (default enabled)
+    - notif automatic-stream-discovery <enum> (default enabled)
 
       Let the NED automatically probe the device for supported streams.
 
@@ -639,14 +639,14 @@
       disabled  - Disabled.
 
 
-    - preferred-encoding <enum> (default xml)
+    - notif preferred-encoding <enum> (default xml)
 
       json  - JSON encoding.
 
       xml   - XML encoding.
 
 
-    - stream <name> <path> <replay-support> <description>
+    - notif stream <name> <path> <replay-support> <description>
 
       Manually configure info about stream on the device. This is useful when interacting with
       devices not capable of advertising the supported streams automatically.
@@ -677,13 +677,13 @@
   "netsim".
 
 
-    - infinera-tnms <true|false> (default false)
+    - deviations infinera-tnms <true|false> (default false)
 
       Apply additional transforms needed to read the TAPI config from an Infinera TNMS TR-NBI
       controller.
 
 
-    - do-restore-end-point-list-keys <true|false> (default false)
+    - deviations do-restore-end-point-list-keys <true|false> (default false)
 
       Some devices treat the /context/connectivity-context/connectivity-service/end-point list in a
       non TAPI/YANG compliant way.The key node 'local-id' set by the NSO is ignored. Instead the
@@ -696,7 +696,7 @@
       MCP.
 
 
-    - do-restore-end-point-list-layer-protocol-constraint-keys <true|false> (default false)
+    - deviations do-restore-end-point-list-layer-protocol-constraint-keys <true|false> (default false)
 
       Some devices treat the list 
       /context/connectivity-context/connectivity-service/end-point/do-restore-end-point-list-layer-protocol-constraint-keys
@@ -709,7 +709,7 @@
       The following device types do have this kind of problem: Ciena MCP
 
 
-    - do-filter-invalid-connectivity-services <true|false> (default false)
+    - deviations do-filter-invalid-connectivity-services <true|false> (default false)
 
       Filter the connectivity service list from invalid entries. When dumping this list, some
       devices do return entries with invalid number of end-points. According to the TAPI
@@ -728,12 +728,12 @@
   work with devices of type Ciena MCP and Kratos OpenSpace.
 
 
-    - do-enable <true|false> (default false)
+    - automatic-uuid-mapping do-enable <true|false> (default false)
 
       Enable the uuid map.
 
 
-    - do-automatic-delete <true|false> (default true)
+    - automatic-uuid-mapping do-automatic-delete <true|false> (default true)
 
       Let the NED delete entries from the uuid map when the corresponding entries are deleted from
       CDB. If this option is set to false, the uuid entries will stay in the map until they are
@@ -748,7 +748,7 @@
   Settings for controlling logs generated.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -761,7 +761,7 @@
       debug    - debug.
 
 
-    - java <true|false> (default true)
+    - logger java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -778,14 +778,14 @@
   Settings related to device capabilities.
 
 
-    - strict-model-revision-check <true|false> (default true)
+    - capabilities strict-model-revision-check <true|false> (default true)
 
       Configure the NED to do a strict revision check of the models published if possible. With this setting
       enabled the exact revision needs to match the corresponding model built into the NED. Otherwise support
       for it will be dropped by NSO. I.e not possible to read or write config using that model.
 
 
-    - defaults-mode-override <enum>
+    - capabilities defaults-mode-override <enum>
 
       Configure default value mode.
 
@@ -796,7 +796,7 @@
       trim        - Default mode 'trim'.
 
 
-    - regex-exclude <pattern>
+    - capabilities regex-exclude <pattern>
 
       Configure a pattern for matching models to exclude from the capabilities list advertised by the device.
       To be used to limit the scope of models registered into NSO by the NED.
@@ -804,7 +804,7 @@
       - pattern <string>
 
 
-    - regex-include <pattern>
+    - capabilities regex-include <pattern>
 
       Configure a pattern for matching models to include from the capabilities list advertised by the device.
       To be used to limit the scope of models registered into NSO by the NED.
@@ -812,7 +812,7 @@
       - pattern <string>
 
 
-    - inject <capa>
+    - capabilities inject <capa>
 
       Configure additional names of models / urn:s to include in the capabilities list. If a device
       is not able to advertise any capability list, the names of the models to be used must be
@@ -821,7 +821,7 @@
       - capa <string>
 
 
-    - inject-tapi-version <enum>
+    - capabilities inject-tapi-version <enum>
 
       Configure the TAPI version used by the device. This setting is intended only for TAPI devices
       that are not able to advertise the YANG models used ny themselves. Note: this setting is
@@ -844,7 +844,7 @@
   General settings related to config handling.
 
 
-    - trans-id-method <enum> (default disabled)
+    - config trans-id-method <enum> (default disabled)
 
       A transaction id is a hash that the NED optionally can calculate upon operations like commit and
       check-sync. This NED does by default have trans-id calculation disabled.
@@ -870,7 +870,7 @@
       disabled                 - Disable the calculation of transaction id completely.
 
 
-    - inbound-transforms <enum>
+    - config inbound-transforms <enum>
 
       Configure the following built-in transforms to be applied on the inbound payload before it is
       passed to NSO.
@@ -884,7 +884,7 @@
       restore-identityrefs  - restore-identityrefs.
 
 
-    - filter-unmodeled <true|false> (default false)
+    - config filter-unmodeled <true|false> (default false)
 
       Filter all nodes that are not represented in the YANG schema from the JSON payload received
       from the device, before passing it to NSO. This can be useful if config applied to the device
@@ -892,14 +892,14 @@
       containing unmodelled data.
 
 
-    - filter-invalid-list-entries <true|false> (default false)
+    - config filter-invalid-list-entries <true|false> (default false)
 
       Filter all config data list entry nodes containing incomplete key sets. A list entry that does
       not contain complete key sets will make NSO bail out the read operation completely. This
       setting will prevent such issues.
 
 
-    - partial-sync-from do-full-sync-from-on-error <true|false> (default true)
+    - config partial-sync-from do-full-sync-from-on-error <true|false> (default true)
 
       If a partial-sync-from operation fails, the NED can automatically try a full sync-from instead. This is
       the default behaviour. The main reason is that the partial show feature is used internally by NSO during
@@ -915,7 +915,7 @@
   General settings related to live-status.
 
 
-    - filter-unmodeled <true|false> (default false)
+    - live-status filter-unmodeled <true|false> (default false)
 
       Filter all nodes that are not represented in the YANG schema from the JSON payload received
       from the device, before passing it to NSO. This can be useful if config applied to the device
@@ -923,7 +923,7 @@
       containing unmodelled data.
 
 
-    - inbound-transforms <enum> (default sort-keys)
+    - live-status inbound-transforms <enum> (default sort-keys)
 
       Configure the following built-in transforms to be applied on the inbound payload before it is
       passed to NSO.
@@ -937,7 +937,7 @@
       restore-identityrefs  - restore-identityrefs.
 
 
-    - filter-invalid-list-entries <true|false> (default false)
+    - live-status filter-invalid-list-entries <true|false> (default false)
 
       Filter all config data list entry nodes containing incomplete key sets. A list entry that does
       not contain complete key sets will make NSO bail out the read operation completely. This

@@ -65,7 +65,7 @@
   The following top level ned-settings can be modified.
 
 
-    - cisco-ios extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-ios NED handle CLI parsing (i.e. transform the running-config from the device
       to the model based config tree).
@@ -90,7 +90,7 @@
                         is used.
 
 
-    - cisco-ios internal-xml-transfer-timeout <uint32> (default 2147483647)
+    - internal-xml-transfer-timeout <uint32> (default 2147483647)
 
       Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
 
