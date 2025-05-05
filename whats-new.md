@@ -93,7 +93,11 @@ Documentation Updates:
 
 <summary>Support for RFC 8650 (YANG-Push over RESTCONF)</summary>
 
+Implemented support for RFC 8650, "Dynamic Subscription to YANG Events and Datastores over RESTCONF." This update enables subscribed notifications and Yang-Push functionality for RESTCONF. For more details, refer to RFC 8650 and the NSO documentation. Note that subtree filtering and JSON format are not yet supported and are planned for a future release.
 
+Documentation Updates:
+
+* Added a new section, [Dynamic Subscriptions](development/core-concepts/northbound-apis/restconf-api.md#dynamic-subscriptions), in the RESTCONF API documentation.
 
 </details>
 
@@ -115,17 +119,28 @@ Documentation Updates:
 
 <details>
 
-<summary>Compliance Templates for Operational Data</summary>
+<summary>Compliance Templates Checks for Operational Data</summary>
 
+Support has been added in compliance templates to read the live status of devices. This feature is optional and requires opting in. To activate this functionality, NEDs must be recompiled using the new ncsc flag `--ncs-with-operational-compliance`.&#x20;
 
+Documentation Updates:
+
+* Updated the [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md#device-live-status-checks) section in Operation and Usage to add new details about live-status checks.
 
 </details>
 
 <details>
 
-<summary>Compliance Processing Tags</summary>
+<summary>Compliance Processing Tags Enhancement</summary>
 
+This release introduces new compliance template enhancements:
 
+* A new `allow-empty` tag allows empty nodes to be considered compliant. Configurations that do not match will still fail.
+* Support for enabling or disabling strict mode on parts of a compliance template. The `strict` tag can now be applied to sub-trees, allowing fine-grained control over strict compliance checking.
+
+Updated Documentation:
+
+* Updated the [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md#additional-template-functionality) section in Operation and Usage to add new details about the tags.
 
 </details>
 
