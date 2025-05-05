@@ -162,9 +162,17 @@ Updated Documentation:
 
 <details>
 
-<summary>Methods for Template Creation</summary>
+<summary> Template Creation Enhancements</summary>
 
+Added and extended support for generating templates based on device configuration structures:
 
+* New Action: `/devices/create-template` enables creation of device templates from user-defined config paths.
+* Extended Action: `/compliance/create-template` now supports generating compliance templates from specified config paths.
+* New Action: `/services/create-template` allows creation of service templates and infers a resource-facing service model from config path structures. Outputs include the template and service model, optionally exportable as a service package.
+
+Documentation Updates:
+
+* Updated the [Device Manager](operation-and-usage/operations/nso-device-manager.md#generating-device-templates-from-configuration), [Services](development/core-concepts/templates.md#ch_templates.templatize), and [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md#device-configuration-checks) sections to add new details about this functionality.
 
 </details>
 
