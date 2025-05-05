@@ -172,7 +172,7 @@ Added and extended support for generating templates based on device configuratio
 
 Documentation Updates:
 
-* Updated the [Device Manager](operation-and-usage/operations/nso-device-manager.md#generating-device-templates-from-configuration), [Services](development/core-concepts/templates.md#ch_templates.templatize), and [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md#device-configuration-checks) sections to add new details about this functionality.
+* Updated the [Device Manager](operation-and-usage/operations/nso-device-manager.md#generating-device-templates-from-configuration), [Templates](development/core-concepts/templates.md#ch_templates.templatize), and [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md#device-configuration-checks) sections to add new details about this functionality.
 
 </details>
 
