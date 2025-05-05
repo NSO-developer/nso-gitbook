@@ -225,6 +225,10 @@ This update removes the need for the `tag` parameter in the commit queue, with `
 
 While `rollback-label` and `rollback-comment` remain for rollback files, their use is discouraged in favor of the new `label` and `comment` parameters.
 
+Documentation Updates:
+
+* Updated the [JSON-RPC API](development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction) 'transaction' section to update details about this change.
+
 </details>
 
 <details>
