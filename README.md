@@ -22,7 +22,7 @@ layout:
 
 # Start
 
-Use this page to navigate your way through the NSO documentation and access the resources most relevant to your role.
+Use the page to navigate your way through the NSO documentation and access the resources most relevant to your role.
 
 ## NSO Roles
 
