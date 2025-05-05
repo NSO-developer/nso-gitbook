@@ -219,7 +219,11 @@ The device auto-configure feature in NSO is now more robust and reliable, with e
 
 <summary>Unified Label for Commit</summary>
 
+This release adds `label` and `comment` as commit parameters across all northbound interfaces and actions supporting the `ncs-commit-params` grouping in the `tailf-ncs-devices` YANG module. These parameters will appear in rollback files, be propagated through the NSO cluster, and applied to devices where needed.
 
+This update removes the need for the `tag` parameter in the commit queue, with `label` now serving as the primary method for event correlation. `label` will replace `commit-queue/tag` in all northbound events, allowing for better event tracking across NSO nodes.
+
+While `rollback-label` and `rollback-comment` remain for rollback files, their use is discouraged in favor of the new `label` and `comment` parameters.
 
 </details>
 
