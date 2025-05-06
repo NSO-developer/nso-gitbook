@@ -48,7 +48,7 @@
   Fortinet FMG ned-settings.
 
 
-    - fortinet-fmg fortinet-check-sync <enum> (default enable)
+    - fortinet-check-sync <enum> (default enable)
 
       Check fortigate and fortimanager are in sync before pushing config.
 
@@ -57,7 +57,7 @@
       disable  - disable fortigate and fortimanager check-sync.
 
 
-    - fortinet-fmg specific-adom-sync-from <string>
+    - specific-adom-sync-from <string>
 
       Specify adom names to fetch from device.
 
@@ -70,7 +70,7 @@
       NOTE: only configured adoms will be fetched during sync-from/check-sync.
 
 
-    - fortinet-fmg proceed-sync-from-on-invalid-value <true|false> (default false)
+    - proceed-sync-from-on-invalid-value <true|false> (default false)
 
       The value ranges or types on all versions of fortimanager may not have
       been accounted for by the NED. By default, invalid values cause the
@@ -80,7 +80,7 @@
       such behavior.
 
 
-    - fortinet-fmg workspace-mode <enum> (default disabled)
+    - workspace-mode <enum> (default disabled)
 
       FMG workspace mode.
 
