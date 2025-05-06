@@ -280,7 +280,7 @@ NSO has added support for OpenSSL 3.0 in this release. The Cisco SSL library in 
 
 <details>
 
-<summary>Improved Execution of Configuration Changes when Using the CLI on a ubset of Devices</summary>
+<summary>Improved Execution of Configuration Changes when Using the CLI on a Subset of Devices</summary>
 
 Added support for entering an array of keys to get detected as a range. If the list supports ranges for keys, these can be entered similarly to 'foo key1,key2,key3 bar', and all the keys will be used for the range.
 
