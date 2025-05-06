@@ -103,14 +103,6 @@ Documentation Updates:
 
 <details>
 
-<summary>Enhanced Support for Frontend URL Redirection Behind Nginx Reverse Proxy</summary>
-
-
-
-</details>
-
-<details>
-
 <summary>Connection Setup Logging for Erlang SSH Client</summary>
 
 
@@ -186,9 +178,9 @@ Documentation Updates:
 
 <details>
 
-<summary>Support for SFTP as Standardised File Transfer Protocol for SCP Action</summary>
+<summary>Support for SFTP as Standardized File Transfer Protocol for SCP Action</summary>
 
-
+NSO now supports the option to use SFTP to transfer files between NSO and devices in addition to SCP.
 
 </details>
 
@@ -212,6 +204,10 @@ The device auto-configure feature in NSO is now more robust and reliable, with e
   * Concurrent auto-configuration processes are running for other devices.
 * Granular Control: New global settings under `/devices/global-settings/auto-configure` allow administrators to fine-tune the retry behavior, controlling the number of attempts and the interval between them.
 * Proactive Alerting: A new `auto-configure-failed` alarm is raised when the maximum number of retry attempts is exhausted, providing immediate notification of persistent auto-configuration failures.
+
+Documentation Updates:
+
+* Updated the [Device Manager](operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.auto-configuring-devices) chapter to add details about auto-configure.
 
 </details>
 
