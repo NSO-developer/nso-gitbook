@@ -138,9 +138,9 @@ Updated Documentation:
 
 <details>
 
-<summary>Support XML strings as Input to <code>shared_set_values</code> in Python API</summary>
+<summary>Support XML Strings as Input to <code>shared_set_values</code> in Python API</summary>
 
-
+Added two new methods, `ncs.maagic.set_values_xml()` and `ncs.maagic.shared_set_values_xml()`, making it possible to set large amounts of data using an XML document as input.
 
 </details>
 
