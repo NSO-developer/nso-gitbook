@@ -68,6 +68,8 @@ If the `accept-empty-capabilities` parameter is included, the template is applie
 
 This action will behave differently depending on whether it is invoked with a transaction or not. When invoked with a transaction (such as via the CLI) it will apply the template to it and leave it to the user to commit or revert the resulting changes. If invoked without a transaction (for example when invoked via RESTCONF), the action will automatically create one and commit the resulting changes. An error will be returned and the transaction aborted if the template failed to apply on any of the devices.
 
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -80,6 +82,8 @@ Depending on the device the signature is implemented as a transaction-id, timest
 
 As some NEDs implement the signature as a hash-sum of the entire configuration, this operation might for some devices be just as expensive as performing a full `compare-config` command.
 
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -90,6 +94,8 @@ Check if the device YANG modules loaded by NSO have revisions that are compatibl
 
 This can indicate for example that the device has a YANG module of later revision than the corresponding NED.
 
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -97,6 +103,8 @@ This can indicate for example that the device has a YANG module of later revisio
 <summary><code>clear-trace</code></summary>
 
 Clear all trace files for all active traces for all managed devices.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
 
 </details>
 
@@ -115,6 +123,8 @@ Retrieve the config from the device and compare it to the NSO locally stored cop
 Set up a session to the unlocked device. This is not used in real operational scenarios. NSO automatically establishes connections on demand. However, it is useful for test purposes when installing new NEDs, adding devices, etc.
 
 When a device is southbound locked, all southbound communication is turned off. The `override-southbound-locked` flag overrides the southbound lock for connection attempts. Thus, this is a way to update the capabilities including revision information for a managed device although the device is southbound locked.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
 
 </details>
 
@@ -142,6 +152,8 @@ Delete the device configuration in NSO without executing the corresponding delet
 
 Close all sessions to the device.
 
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -149,6 +161,8 @@ Close all sessions to the device.
 <summary><code>fetch-ssh-host-keys</code></summary>
 
 Retrieve the SSH host keys from all devices, or all devices in the given device group, and store them in each device's `ssh/host-key` list. Successfully retrieved new or updated keys are always committed by the action.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
 
 </details>
 
@@ -196,6 +210,8 @@ The action reports what paths have been modified and the services affected by th
 
 If the `no-networking` option is used, no southbound traffic is generated toward the devices. Only the device configuration in CDB is used for the migration. If used, NSO can not know if the device is in sync. To determine this, the **compare-config** or the **sync-from** action must be used.
 
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -224,6 +240,8 @@ The `port` option specifies the port to connect to on the device. If this leaf i
 
 The `preserve` option preserves modification times, access times, and modes from the original file. This is not always supported by the device.
 
+The `protocol` option selects which protocol to use for the file transfer. SCP (default) or SFTP.
+
 </details>
 
 <details>
@@ -236,6 +254,10 @@ The `port` option specifies the port to connect to on the device. If this leaf i
 
 The `preserve` option preserves modification times, access times, and modes from the original file. This is not always supported by the device.
 
+The `protocol` option selects which protocol to use for the file transfer. SCP (default) or SFTP.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
+
 </details>
 
 <details>
@@ -247,6 +269,8 @@ Synchronize the NSO copy of the device configuration by reading the actual devic
 If the `dry-run` option is used, the action simply reports (in different formats) what it would do. The `verbose` option can be used to show additional parse information reported by the NED.
 
 If you have any services that have created a configuration on the device, the corresponding service might be out of sync. Use the commands `check-sync` and `re-deploy` to reconcile this.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
 
 </details>
 
@@ -261,6 +285,8 @@ NSO pushes a minimal diff to the device. The diff is calculated by reading the c
 If the `dry-run` option is used, the action simply reports (in different formats) what it would do.
 
 Some of the operations above can't be performed while the device is being committed to (or waiting in the commit queue). This is to avoid getting inconsistent data when reading the configuration. The `wait-for-lock` option in these specifies a timeout to wait for a device lock to be placed in the commit queue. The lock will be automatically released once the action has been executed. If the `no-wait-for-lock` option is specified, the action will fail immediately for the device if the lock is taken for the device or if the device is placed in the commit queue. The `wait-for-lock` and the `no-wait-for-lock` options are device settings as well; they can be set as a device profile, device, and global setting. The `no-wait-for-lock` option is set in the global settings by default. If neither `wait-for-lock` and the `no-wait-for-lock` options are provided together with the action, the device setting is used.
+
+The `device-select` option takes an XPath 1.0 expression that applies the action to the selected devices. The XPath expression can be a location path or an expression evaluated as a predicate to the `/devices/device` list. The `device-group` option takes a list of group names that expand to their group members. The `device`, `device-select`, and `device-group` options can be combined.
 
 </details>
 

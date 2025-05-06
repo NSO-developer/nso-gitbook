@@ -103,9 +103,11 @@ Documentation Updates:
 
 <details>
 
-<summary>Connection Setup Logging for Erlang SSH Client</summary>
+<summary>NETCONF Connection Setup Logging for Erlang SSH Client</summary>
 
+SSH connections by the built-in NETCONF client are now logged in the device and cluster traces, including details for successful connections and errors when establishing SSH connections and why an SSH connection was terminated.
 
+See the [Tracing Device Communication](operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.tracing) section for details on enabling NED traffic tracing.
 
 </details>
 
@@ -138,17 +140,30 @@ Updated Documentation:
 
 <details>
 
-<summary>Support XML Strings as Input to <code>shared_set_values</code> in Python API</summary>
+<summary>Support XML strings as Input to MAAPI<code>set_values</code> in Python API</summary>
 
-Added two new methods, `ncs.maagic.set_values_xml()` and `ncs.maagic.shared_set_values_xml()`, making it possible to set large amounts of data using an XML document as input.
+Added two new methods `ncs.maagic.set_values_xml()` and `ncs.maagic.shared_set_values_xml()`, making it possible to set large amounts of data using an XML document as input.
+
+The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/main/scaling-performance/perf-bulkcreate) example has been updated to use the new `ncs.maagic.shared_set_values_xml()` method.
 
 </details>
 
 <details>
 
-<summary>Display Dry-run Output and Prompt before Committing</summary>
+<summary>CLI Display Dry-run Output and Prompt before Committing</summary>
 
+Added CLI functionality to display dry-run output and prompt the user to confirm before the commit operation or actions using the ncs-commit-params grouping.
 
+Documentation Updates:
+
+* New parameters added to the [ncs.conf(5)](man/section5.md#ncs.conf) man page
+  * /ncs-config/cli/commit-prompt/enabled
+  * /ncs-config/cli/commit-prompt/dry-run/duration
+  * /ncs-config/cli/commit-prompt/dry-run/outformat
+* Added new CLI settings commands to configuring the new functionality per session.
+  * [commit-prompt](operation-and-usage/cli/introduction-to-nso-cli.md#commit-prompt-true-or-false)
+  * [dry-run-duration](operation-and-usage/cli/introduction-to-nso-cli.md#dry-run-duration-less-than-seconds-greater-than)
+  * [dry-run-outformat](operation-and-usage/cli/introduction-to-nso-cli.md#dry-run-outformat-less-than-string-greater-than)
 
 </details>
 
@@ -172,7 +187,7 @@ Documentation Updates:
 
 <summary>Support for Efficient Stream-parsing of JSON</summary>
 
-
+The JSON parser has been improved from a non-streaming model to a streaming one. This reduces memory usage, especially for large inputs.
 
 </details>
 
@@ -182,13 +197,33 @@ Documentation Updates:
 
 NSO now supports the option to use SFTP to transfer files between NSO and devices in addition to SCP.
 
+Documentation Updates:
+
+* Updated the [scp-from](operation-and-usage/operations/lifecycle-operations.md#scp-from) and [scp-to](operation-and-usage/operations/lifecycle-operations.md#scp-to) device actions section.
+
 </details>
 
 <details>
 
 <summary>Limit Devices in Actions by XPath</summary>
 
+Added leaf 'device-select' and leaf-list 'device-group' to the input of the following actions:
 
+* /devices/connect
+* /devices/disconnect
+* /devices/check-sync
+* /devices/sync-to
+* /devices/sync-from
+* /devices/check-yang-modules
+* /devices/fetch-ssh-host-keys
+* /devices/apply-template
+* /devices/migrate
+* /devices/scp-to
+* /devices/clear-trace
+
+Documentation Updates:
+
+* Updated the [Device Actions](operation-and-usage/operations/lifecycle-operations.md#d5e5227)[ ](operation-and-usage/operations/lifecycle-operations.md#d5e5227)section.
 
 </details>
 
@@ -231,7 +266,7 @@ Documentation Updates:
 
 <summary>Improved NED <code>migrate</code> Action Report for Changes to Node Constraints</summary>
 
-
+Each modified path in the schema diff for `/packages/reload`, `/packages/ha/sync, /devices/migrate`, `/devices/device-group/ned-id/migrate`, and `/devices/device/migrate` actions now contain a list of all modifications done to the node. This includes all added, removed, or modified constraints, for example, `when` or `must` expressions.
 
 </details>
 
@@ -245,8 +280,8 @@ NSO has added support for OpenSSL 3.0 in this release. The Cisco SSL library in 
 
 <details>
 
-<summary>Improved Execution of Configuration Changes on a Subset of Devices</summary>
+<summary>Improved Execution of Configuration Changes when Using the CLI on a ubset of Devices</summary>
 
-
+Added support for entering an array of keys to get detected as a range. If the list supports ranges for keys, these can be entered similarly to 'foo key1,key2,key3 bar', and all the keys will be used for the range.
 
 </details>
