@@ -80,7 +80,7 @@ There is basic support for monitoring subscriptions via the `/subscriptions` con
 
 * `ietf-yang-push`: This module from [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) extends operations, data nodes, and operational state defined in `ietf-subscribed-notifications;` and also introduces continuous and customizable notification subscriptions for updates from running and operational datastores. It defines the same features as `ietf-subscribed-notifications` and also the following feature:
   * `on-change`: Indicates that on-change triggered notifications are supported. This feature is advertised by NSO.
-    * `dampening-period`: Indicates that dampening-period for on-change subscriptions is  supported. This feature is advertised by NSO.
+    * `dampening-period`: Indicates that dampening-period for on-change subscriptions is supported. This feature is advertised by NSO.
     * `sync-on-start`: Indicates that sync-on-start for on-change subscriptions is supported. This feature is advertised by NSO.
     * `excluded-change`: Indicates that excluded-change for on-change subscription is supported. This feature is advertised by NSO.
   * `periodic`: Indicates that periodic notifications are supported. This feature is advertised by NSO.
@@ -985,6 +985,10 @@ To control the commit behavior of NSO the following input parameters are availab
   Sets a user-defined label that is visible in rollback files, compliance reports, notifications, and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.
 * `comment`\
   Sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.
+* `confirm-network-state`\
+  NSO will check network state as part of the commit. This includes checking device configurations for out-of-band changes and processing such changes according to the out-of-band policy.
+* `confirm-network-state/re-evaluate-policies`\
+  In addition to processing the newly found out-of-band device changes, NSO will process again the out-of-band policies for the services that the commit is touching.
 * `no-revision-drop`\
   NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
 * `no-overwrite`\
