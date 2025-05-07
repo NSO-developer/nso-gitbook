@@ -25,7 +25,7 @@ layout:
 
 ### Explore What's New in NSO
 
-{% embed url="https://cisco-tailf.gitbook.io/nso-docs/guides/whats-new" %}
+{% embed url="https://nso-docs.cisco.com/guides/whats-new" %}
 
 ### Start Exploring NSO
 

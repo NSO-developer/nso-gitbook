@@ -21,7 +21,7 @@
 
 ## Quick Links
 
-* [What's New](https://cisco-tailf.gitbook.io/nso-docs/guides/whats-new)
+* [What's New](https://nso-docs.cisco.com/guides/whats-new)
 * [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/)
 * [NED Changelog Explorer](https://developer.cisco.com/docs/nso/ned-changelog-explorer/)
 * [NED Capabilities Explorer](https://developer.cisco.com/docs/nso/ned-capabilities-explorer/)
