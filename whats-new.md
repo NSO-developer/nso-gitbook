@@ -6,7 +6,7 @@ icon: sparkles
 # What's New
 
 {% hint style="info" %}
-Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.3\&to=6.4).
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.4\&to=6.5).
 {% endhint %}
 
 ## Release Highlights
