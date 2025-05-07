@@ -159,7 +159,7 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 * Phased Provisioning
 * Resource Manager
 
-For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://cisco-tailf.gitbook.io/nso-docs/resources).
+For platform tools documentation, refer to individual package's `README` file or to the [online documentation](https://nso-docs.cisco.com/resources).
 
 **NED Packages**
 

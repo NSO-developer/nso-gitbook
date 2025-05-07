@@ -42,7 +42,7 @@ Modern IDEs offer many features on top of advanced file editing support, such as
 
 * **Python** by Microsoft: Adds Python support.
 * **Language Support for Java(TM)** by Red Hat: Adds Java support.
-* **NSO Developer Studio** by Cisco: Adds NSO-specific features as described in [NSO Developer Studio](https://cisco-tailf.gitbook.io/nso-docs/resources/platform-tools/nso-developer-studio).
+* **NSO Developer Studio** by Cisco: Adds NSO-specific features as described in [NSO Developer Studio](https://nso-docs.cisco.com/resources/platform-tools/nso-developer-studio).
 * **Remote - SSH** by Microsoft: Adds support for remote development.
 
 The Remote - SSH extension is especially useful when you must work with a system through an SSH session. Once you connect to the remote host by clicking the `><` button (typically found in the bottom-left corner of the VS Code window), you can open and edit remote files with ease. If you also want language support (syntax highlighting and alike), you may need to install VS Code extensions remotely. That is, install the extensions after you have connected to the remote host, otherwise the extension installation screen might not show the option for installation on the connected host.
