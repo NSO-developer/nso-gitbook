@@ -85,7 +85,7 @@ NSO is now installed with the `--run-as-user` option for build and production co
 
 Documentation Updates:
 
-* Added a new [NSO Runs from a Non-Root User](whats-new.md#nso-runs-as-non-root-user-in-cisco-containers) section to the [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) chapter.
+* Added a new [NSO Runs from a Non-Root User](administration/installation-and-deployment/containerized-nso.md#nso-runs-from-a-non-root-user) section to the [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) chapter.
 
 </details>
 
@@ -115,7 +115,7 @@ See the [Tracing Device Communication](operation-and-usage/operations/nso-device
 
 <summary>Compliance Templates Checks for Operational Data</summary>
 
-Support has been added in compliance templates to read the live status of devices. This feature is optional and requires opting in. To activate this functionality, NEDs must be recompiled using the new ncsc flag `--ncs-with-operational-compliance`.&#x20;
+Support has been added in compliance templates to read the live status of devices. This feature is optional and requires opting in. To activate this functionality, NEDs must be recompiled using the new ncsc flag `--ncs-with-operational-compliance`.
 
 Documentation Updates:
 
@@ -169,7 +169,7 @@ Documentation Updates:
 
 <details>
 
-<summary> Template Creation Enhancements</summary>
+<summary>Template Creation Enhancements</summary>
 
 Added and extended support for generating templates based on device configuration structures:
 
