@@ -87,7 +87,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.20.9 2025-04-20](cisco-apicdc/README.md)
+  * [README v3.20.10 2025-05-07](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.1 2025-04-24](cisco-nx/README.md)
+  * [README v5.27.2 2025-05-07](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -260,7 +260,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.22 2025-04-22](nokia-sros_nc/README.md)
+  * [README v1.0.23 2025-05-07](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)
@@ -269,7 +269,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.45 2025-04-30](onf-tapi_rc/README.md)
+  * [README v2.0.46 2025-05-07](onf-tapi_rc/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
@@ -318,7 +318,7 @@
 * siae-smdc_rc
   * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
-  * [README v1.0.14 2025-03-03](siae-smdc_rc/README.md)
+  * [README v1.0.15 2025-05-07](siae-smdc_rc/README.md)
 
 * tejas-nms5500
   * [README-ned-settings](tejas-nms5500/README-ned-settings.md)

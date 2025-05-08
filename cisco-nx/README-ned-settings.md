@@ -65,7 +65,7 @@
   The following top level ned-settings can be modified.
 
 
-    - cisco-nx extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-nx NED handle CLI parsing (i.e. transform the running-config from the device to
       the model based config tree).
@@ -82,7 +82,7 @@
                         format.
 
 
-    - cisco-nx internal-xml-transfer-timeout <uint32> (default 2147483647)
+    - internal-xml-transfer-timeout <uint32> (default 2147483647)
 
       Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
 
@@ -473,7 +473,7 @@
   This will catch the question from the device, and answer 'y'. Note that this can be used together
   with the square-bracket responses, for example to give a password to a file-copy command.
 
-    - cisco-nx auto-prompts <id> <question> <answer>
+    - auto-prompts <id> <question> <answer>
 
       - id <WORD>
 
