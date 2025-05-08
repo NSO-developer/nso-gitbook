@@ -175,7 +175,7 @@ The NSO HA, together with the `tailf-hcc` package, provides three features:
 * If the leader/primary fails, a follower/secondary takes over and starts to act as leader/primary. This is how HA Raft works and how the rule-based HA variant of this example is configured to handle failover automatically.
 * At failover, `tailf-hcc` sets up a virtual alias IP address on the leader/primary node only and uses gratuitous ARP packets to update all nodes in the network with the new mapping to the leader/primary node.
 
-Nodes in other networks can be updated using the `tailf-hcc` layer-3 BGP functionality or a load balancer. See the `load-balancer`and `hcc`examples in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/main/high-availability).
+Nodes in other networks can be updated using the `tailf-hcc` layer-3 BGP functionality or a load balancer. See the `load-balancer`and `hcc`examples in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability).
 
 See the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) for a reference to an HA Raft and rule-based HA `tailf-hcc` Layer 3 BGP examples.
 
