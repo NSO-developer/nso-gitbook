@@ -316,7 +316,7 @@ The following typedef defines the different states an alarm can be set into.
 
 It is of course also possible to manipulate the alarm handling list from either Java code or Javascript code running in the web browser using the `js_maapi` library.
 
-Below is a simple scenario to illustrate the alarm concepts. The example can be found in [examples.ncs/service-management/mpls-vpn-simple](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-simple).
+Below is a simple scenario to illustrate the alarm concepts. The example can be found in [examples.ncs/service-management/mpls-vpn-simple](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-simple).
 
 ```bash
 $ make stop clean all start

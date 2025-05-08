@@ -4,7 +4,7 @@ description: Develop and deploy a nano service using a guided example.
 
 # Develop and Deploy a Nano Service
 
-This section shows how to develop and deploy a simple NSO nano service for managing the provisioning of SSH public keys for authentication. For more details on nano services, see [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) in Development. The example showcasing development is available under [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey). In addition, there is a reference from the `README` in the example's directory to the deployment version of the example.
+This section shows how to develop and deploy a simple NSO nano service for managing the provisioning of SSH public keys for authentication. For more details on nano services, see [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) in Development. The example showcasing development is available under [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey). In addition, there is a reference from the `README` in the example's directory to the deployment version of the example.
 
 ## Development <a href="#d5e1323" id="d5e1323"></a>
 
