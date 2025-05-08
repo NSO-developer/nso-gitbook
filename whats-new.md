@@ -144,7 +144,7 @@ Updated Documentation:
 
 Added two new methods `ncs.maagic.set_values_xml()` and `ncs.maagic.shared_set_values_xml()`, making it possible to set large amounts of data using an XML document as input.
 
-The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/main/scaling-performance/perf-bulkcreate) example has been updated to use the new `ncs.maagic.shared_set_values_xml()` method.
+The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.5/scaling-performance/perf-bulkcreate) example has been updated to use the new `ncs.maagic.shared_set_values_xml()` method.
 
 </details>
 

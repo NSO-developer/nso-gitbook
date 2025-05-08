@@ -123,7 +123,7 @@ The `netsim` directory contains three files:
   6. `%NAME%` - for the name of the ConfD instance.
   7. `%COUNTER%` - for the number of the ConfD instance
 * The `Makefile` should compile the YANG files so that ConfD can run them. The `Makefile` should also have an `install` target that installs all files required for ConfD to run one instance of a simulated network element. This is typically all `fxs` files.
-* An optional `start.sh` file where additional programs can be started. A good example of a package where the netsim component contains some additional C programs is the `webserver` package in [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/website-service) example.
+* An optional `start.sh` file where additional programs can be started. A good example of a package where the netsim component contains some additional C programs is the `webserver` package in [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/website-service) example.
 
 Remember the picture of the network we wish to work with, there the routers, PE and CE, have an IP address and some additional data. So far here, we have generated a simulated network with YANG models. The routers in our simulated network have no data in them, we can log in to one of the routers to verify that:
 
@@ -138,7 +138,7 @@ admin@zoe> exit
 
 The ConfD devices in our simulated network all have a Juniper CLI engine, thus we can, using the command `ncs-netsim cli [devicename]`, log in to an individual router.
 
-To achieve this, we need to have some additional XML initializing files for the ConfD instances. It is the responsibility of the `install` target in the netsim Makefile to ensure that each ConfD instance gets initialized with the proper init data. In the NSO example collection, the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-python) examples contain the two above-mentioned PE and CE packages but modified, so that the network elements in the simulated network get initialized properly.
+To achieve this, we need to have some additional XML initializing files for the ConfD instances. It is the responsibility of the `install` target in the netsim Makefile to ensure that each ConfD instance gets initialized with the proper init data. In the NSO example collection, the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-python) examples contain the two above-mentioned PE and CE packages but modified, so that the network elements in the simulated network get initialized properly.
 
 If we run that example in the NSO example collection we see:
 
@@ -202,7 +202,7 @@ With the scripting mechanism, an end-user can add new functionality to NSO in a 
 
 Scripts defined in an NSO package work pretty much as system-level scripts configured with the `/ncs-config/scripts/dir` configuration parameter. The difference is that the location of the scripts is predefined. The scripts directory must be named `scripts` and must be located in the top directory of the package.
 
-In this complete example [examples.ncs/sdk-api/scripting](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/scripting), there is a `README` file and a simple post-commit script `packages/scripting/scripts/post-commit/show_diff.sh` as well as a simple command script `packages/scripting/scripts/command/echo.sh`.
+In this complete example [examples.ncs/sdk-api/scripting](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/scripting), there is a `README` file and a simple post-commit script `packages/scripting/scripts/post-commit/show_diff.sh` as well as a simple command script `packages/scripting/scripts/command/echo.sh`.
 
 ## Creating a Service Package <a href="#d5e5354" id="d5e5354"></a>
 
@@ -538,7 +538,7 @@ In debugging and error reporting, these root cause messages can be valuable to u
 * `verbose`: Show all messages for the chain of cause exceptions, if any.
 * `trace`: Show messages for the chain of cause exceptions with exception class and the trace for the bottom root cause.
 
-Here is an example of how this can be used. In the [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/website-service) example, we try to create a service without the necessary pre-preparations:
+Here is an example of how this can be used. In the [examples.ncs/service-management/website-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/website-service) example, we try to create a service without the necessary pre-preparations:
 
 {% code title="Example: Setting Error Message Verbosity" %}
 ```cli

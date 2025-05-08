@@ -11,7 +11,7 @@ Applies to Local Install.
 This section provides an overview of how to run the examples provided with the NSO installer. By working through the examples, the reader should get a good overview of the various aspects of NSO and hands-on experience from interacting with it.
 
 {% hint style="info" %}
-This section references the examples located in [$NCS\_DIR/examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.4). The examples all have `README` files that include instructions related to the example.
+This section references the examples located in [$NCS\_DIR/examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.5). The examples all have `README` files that include instructions related to the example.
 {% endhint %}
 
 ## General Instructions <a href="#d5e1220" id="d5e1220"></a>

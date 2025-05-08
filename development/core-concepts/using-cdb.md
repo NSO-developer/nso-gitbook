@@ -13,9 +13,9 @@ The figure below illustrates the architecture of when the CDB is used. The Appli
 
 <figure><img src="../../images/cdbarch.png" alt="" width="563"><figcaption><p>NSO CDB Architecture Scenario</p></figcaption></figure>
 
-While CDB is the default data store for configuration data in NSO, it is possible to use an external database, if needed. See the example [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-db) for details.
+While CDB is the default data store for configuration data in NSO, it is possible to use an external database, if needed. See the example [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/external-db) for details.
 
-In the following, we will use the files in [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) as a source for our examples. Refer to `README` in that directory for additional details.
+In the following, we will use the files in [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-java) as a source for our examples. Refer to `README` in that directory for additional details.
 
 ## The NSO Data Model <a href="#ncs.ug.architecture.im" id="ncs.ug.architecture.im"></a>
 
@@ -266,17 +266,17 @@ Since write operations that do not attempt to obtain the subscription lock are a
 
 ## Example <a href="#d5e2773" id="d5e2773"></a>
 
-We will take a first look at the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example. This example is an NSO project with two packages: `cdb` and `router`.
+We will take a first look at the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example. This example is an NSO project with two packages: `cdb` and `router`.
 
 ### Example packages
 
-* `router`: A NED package with a simple but still realistic model of a network device. The only component in this package is the NED component that uses NETCONF to communicate with the device. This package is used in many NSO examples including [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/router-network) which is an introduction to NSO device manager, NSO netsim, and this router package.
+* `router`: A NED package with a simple but still realistic model of a network device. The only component in this package is the NED component that uses NETCONF to communicate with the device. This package is used in many NSO examples including [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/router-network) which is an introduction to NSO device manager, NSO netsim, and this router package.
 * `cdb`: This package has an even simpler YANG model to illustrate some aspects of CDB data retrieval. The package consists of five application components:
   * Plain CDB Subscriber: This CDB subscriber subscribes to changes under the path `/devices/device{ex0}/config`. Whenever a change occurs there, the code iterates through the change and prints the values.
   * CdbCfgSubscriber: A more advanced CDB subscriber that subscribes to changes under the path `/devices/device/config/sys/interfaces/interface`.
   * OperSubscriber: An operational data subscriber that subscribes to changes under the path `/t:test/stats-item`.
 
-The [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples `packages/cdb` package includes the YANG model in the in the example below:.
+The [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) examples `packages/cdb` package includes the YANG model in the in the example below:.
 
 {% code title="Example: Simple Config Data" %}
 ```yang
@@ -533,7 +533,7 @@ The `finish()` method (Example below (Plain Subscriber `finish`)) is called when
 ```
 {% endcode %}
 
-We will now compile and start the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example, populate some config data, and look at the result. The example below (Plain Subscriber Startup) shows how to do this.
+We will now compile and start the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example, populate some config data, and look at the result. The example below (Plain Subscriber Startup) shows how to do this.
 
 {% code title="Example: Plain Subscriber Startup" %}
 ```bash
@@ -583,7 +583,7 @@ NAME
 ```
 {% endcode %}
 
-We have now added a server to the Syslog. What remains is to check what our 'Plain CDB Subscriber' `ApplicationComponent` got as a result of this update. In the `logs` directory of the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example there is a file named `PlainCdbSub.out` which contains the log data from this application component. At the beginning of this file, a lot of logging is performed which emanates from the `sync-from` of the device. At the end of this file, we can find the three log rows that come from our update. See the extract in the example below (Plain Subscriber Output) (with each row split over several to fit on the page).
+We have now added a server to the Syslog. What remains is to check what our 'Plain CDB Subscriber' `ApplicationComponent` got as a result of this update. In the `logs` directory of the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example there is a file named `PlainCdbSub.out` which contains the log data from this application component. At the beginning of this file, a lot of logging is performed which emanates from the `sync-from` of the device. At the end of this file, we can find the three log rows that come from our update. See the extract in the example below (Plain Subscriber Output) (with each row split over several to fit on the page).
 
 {% code title="Example: Plain Subscriber Output" %}
 ```
@@ -678,7 +678,7 @@ If we look at the file `logs/ConfigCdbSub.out`, we will find log records from th
 
 ### Operational Data
 
-We will look once again at the YANG model for the CDB package in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example. Inside the `test.yang` YANG model, there is a `test` container. As a child in this container, there is a list `stats-item` (see the example below (CDB Simple Operational Data).
+We will look once again at the YANG model for the CDB package in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example. Inside the `test.yang` YANG model, there is a `test` container. As a child in this container, there is a list `stats-item` (see the example below (CDB Simple Operational Data).
 
 {% code title="Example: CDB Simple Operational Data" %}
 ```yang
@@ -762,7 +762,7 @@ An example of Java code that deletes operational data using the CDB API is shown
 ```
 {% endcode %}
 
-In the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example the `cdb` package, there is also an application component with an operational data subscriber that subscribes to data from the path `"/t:test/stats-item"` (see the example below (CDB Operational Subscriber Java code)).
+In the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example the `cdb` package, there is also an application component with an operational data subscriber that subscribes to data from the path `"/t:test/stats-item"` (see the example below (CDB Operational Subscriber Java code)).
 
 {% code title="Example: CDB Operational Subscriber Java code" %}
 ```java
@@ -858,7 +858,7 @@ public class OperCdbSub implements ApplicationComponent, CdbDiffIterate {
 
 Notice that the `CdbOperSubscriber` is very similar to the `CdbConfigSubscriber` described earlier.
 
-In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
+In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
 
 {% code title="Example: Populating Operational Data" %}
 ```bash
@@ -1160,7 +1160,7 @@ So how should an upgrade component be implemented? In the previous section, we d
 
 So the CDB Java/Python API can be used to read data defined by the old YANG models. To write new config data Maapi has a specific method `Maapi.attachInit()`. This method attaches a Maapi instance to the upgrade transaction (or init transaction) during `phase0`. This special upgrade transaction is only available during `phase0`. NSO will commit this transaction when the `phase0` is ended, so the user should only write config data (not attempt to commit, etc.).
 
-We take a look at the example [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) to see how an upgrade component can be implemented. Here the _vlan_ package has an original version which is replaced with a version `vlan_v2`. See the `vlan_v2-py` package for a Python variant. See the `README` and play with examples to get acquainted.
+We take a look at the example [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/upgrade-service) to see how an upgrade component can be implemented. Here the _vlan_ package has an original version which is replaced with a version `vlan_v2`. See the `vlan_v2-py` package for a Python variant. See the `README` and play with examples to get acquainted.
 
 {% hint style="info" %}
 The `upgrade-service` is a `service` package upgrade example. But the upgrade components here described work equally well and in the same way for any package type. The only requirement is that the package contain at least one YANG model for the upgrade component to have meaning. If not the upgrade component will never be executed.
@@ -1388,7 +1388,7 @@ At the end of the program, the sockets are closed. Important to note is that no 
 
 <figure><img src="../../images/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
 
-In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example, this more complicated scenario is illustrated with the `tunnel` package. See the `tunnel-py` package for a Python variant. The `tunnel` package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
+In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/upgrade-service) example, this more complicated scenario is illustrated with the `tunnel` package. See the `tunnel-py` package for a Python variant. The `tunnel` package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
 
 {% code title="Example: Tunnel Service YANG Model" %}
 ```yang
