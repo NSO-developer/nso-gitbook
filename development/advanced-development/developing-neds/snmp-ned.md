@@ -26,7 +26,7 @@ To add a device, the following steps need to be followed. They are described in 
 
 ## Compiling and Loading MIBs <a href="#d5e86" id="d5e86"></a>
 
-(See the `Makefile` in the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-ned) example under `packages/ex-snmp-ned/src/Makefile`, for an example of the below description.) Make sure that you have all MIBs available, including import dependencies, and that they contain no errors.
+(See the `Makefile` in the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-ned) example under `packages/ex-snmp-ned/src/Makefile`, for an example of the below description.) Make sure that you have all MIBs available, including import dependencies, and that they contain no errors.
 
 The `ncsc --ncs-compile-mib-bundle` compiler is used to compile MIBs and MIB annotation files into NSO load files. Assuming a directory with input MIB files (and optional MIB annotation files) exist, the following command compiles all the MIBs in `device-models` and writes the output to `ncs-device-model-dir`.
 
@@ -139,7 +139,7 @@ Some SNMP agents require a certain order of row deletions and creations. By defa
 
 Sometimes rows in some SNMP agents cannot be modified once created. Such rows can be marked with the annotation `ned-recreate-when-modified`. This makes the SNMP NED to first delete the row, and then immediately recreate it with the new values.
 
-A good starting point for understanding annotations is to look at the example in the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-ned) directory. The BASIC-CONFIG-MIB mib has a table where rows can be modified if the `bscActAdminState` is set to locked. To have NSO do this automatically when modifying entries rather than leaving it to users an annotation file can be created. See the `BASIC-CONFIG-MIB.miba` which contains the following:
+A good starting point for understanding annotations is to look at the example in the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-ned) directory. The BASIC-CONFIG-MIB mib has a table where rows can be modified if the `bscActAdminState` is set to locked. To have NSO do this automatically when modifying entries rather than leaving it to users an annotation file can be created. See the `BASIC-CONFIG-MIB.miba` which contains the following:
 
 ```
 ## NCS Annotation module for BASIC-CONFIG-MIB
@@ -158,7 +158,7 @@ Make sure that the MIB annotation file is put into the directory where all the M
 
 NSO can manage SNMP devices within transactions, a transaction can span Cisco devices, NETCONF devices, and SNMP devices. If a transaction fails NSO will generate the reverse operation to the SNMP device.
 
-The basic features of the SNMP will be illustrated below by using the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/snmp-ned) example. First, try to connect to all SNMP devices:
+The basic features of the SNMP will be illustrated below by using the [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-ned) example. First, try to connect to all SNMP devices:
 
 ```cli
 admin@ncs# devices connect

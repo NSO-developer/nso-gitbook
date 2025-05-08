@@ -12,7 +12,7 @@ Since all the NSO examples and README steps that come with the installer are pri
 
 To work with the System Install structure, this may require a little or bigger modification depending on the example.
 
-For example, to port the [example.ncs/nano-services/basic-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services/basic-vrouter) example to the System Install structure:
+For example, to port the [example.ncs/nano-services/basic-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.5/nano-services/basic-vrouter) example to the System Install structure:
 
 1.  Make the following changes to the `basic-vrouter/ncs.conf` file:
 

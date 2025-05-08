@@ -57,7 +57,7 @@ Example error output:
 ERROR=error message
 ```
 
-Below is a complete example of an application written in Python providing encryption keys from a plain text file. The application is included in the [examples.ncs/sdk-api/external-encryption-keys](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-encryption-keys) example:
+Below is a complete example of an application written in Python providing encryption keys from a plain text file. The application is included in the [examples.ncs/sdk-api/external-encryption-keys](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/external-encryption-keys) example:
 
 ```python
 #!/usr/bin/env python3

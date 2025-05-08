@@ -181,7 +181,7 @@ The action takes a number of arguments to control how the resulting template loo
 * `import-user-modules` - Import device YANG modules and their defined types in the generated YANG module.
 * `collapse-list-keys` - Decides what lists to parameterize, either `all`, `automatic` (default), or those specified by the `list-path` parameter. The default is to find lists that differ among the device configurations.
 
-The [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3) environment can be used to try the command.
+The [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v3) environment can be used to try the command.
 
 {% code overflow="wrap" %}
 ```bash
@@ -863,7 +863,7 @@ $ ncs_cmd -c "x /devices/device[name='c0']/config/ios:interface/FastEthernet/nam
 
 ### Example Debug Template Output <a href="#d5e2727" id="d5e2727"></a>
 
-The following text walks through the output of the `debug template` command for a dns-v3 example service, found in [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/implement-a-service/dns-v3). To try it out for yourself, start the example with `make demo` and configure a service instance:
+The following text walks through the output of the `debug template` command for a dns-v3 example service, found in [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v3). To try it out for yourself, start the example with `make demo` and configure a service instance:
 
 ```bash
 admin@ncs# config

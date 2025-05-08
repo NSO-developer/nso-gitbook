@@ -50,4 +50,4 @@ The following config settings in the `.app` file are explicitly treated by NSO:
 
 ## Example <a href="#d5e1835" id="d5e1835"></a>
 
-The [examples.ncs/service-management/rfs-service-erlang](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service-erlang) example in the bundled collection shows how to create a service written in Erlang and execute it internally in NSO. This Erlang example is a subset of the Java example [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service).
+The [examples.ncs/service-management/rfs-service-erlang](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/rfs-service-erlang) example in the bundled collection shows how to create a service written in Erlang and execute it internally in NSO. This Erlang example is a subset of the Java example [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/rfs-service).

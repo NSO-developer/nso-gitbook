@@ -48,7 +48,7 @@ Consult the [Installation](./) documentation for information on installing NSO o
 {% hint style="info" %}
 See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
-The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
+The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
 ### Build Image
@@ -510,7 +510,7 @@ This example covers the necessary information to manifest the use of NSO images 
 
 #### **Packages**
 
-The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey) example:
+The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example:
 
 * `distkey`: A simple Python + template service package that automates the setup of SSH public key authentication between netsim (ConfD) devices and NSO using a nano service.
 * `ne`: A NETCONF NED package representing a netsim network element that implements a configuration subscriber Python application that adds or removes the configured public key, which the netsim (ConfD) network element checks when authenticating public key authentication clients.

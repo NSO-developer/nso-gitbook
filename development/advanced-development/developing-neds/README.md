@@ -536,7 +536,7 @@ If applying the steps for this example on a production system, you should first 
 
 ### Prepare the Example <a href="#d5e10954" id="d5e10954"></a>
 
-This guide uses the MPLS VPN example in Python from the NSO example set under [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-python) to demonstrate porting an existing application to use the `juniper-junos_nc` NED. The simulated Junos device is replaced with a Junos vMX 21.1R1.11 container, but other NETCONF/YANG-compliant Junos versions also work.
+This guide uses the MPLS VPN example in Python from the NSO example set under [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-python) to demonstrate porting an existing application to use the `juniper-junos_nc` NED. The simulated Junos device is replaced with a Junos vMX 21.1R1.11 container, but other NETCONF/YANG-compliant Junos versions also work.
 
 ### **Add the `juniper-junos` and `juniper-junos_nc` NED Packages**
 

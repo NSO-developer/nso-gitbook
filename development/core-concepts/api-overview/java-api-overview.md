@@ -283,7 +283,7 @@ Write operations that do not attempt to obtain the subscription lock, are allowe
 
 To view registered subscribers, use the `ncs --status` command. For details on how to use the different subscription functions, see the Javadoc for NSO Java API.
 
-The code in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) example illustrates three different types of CDB subscribers:
+The code in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/cdb-java) example illustrates three different types of CDB subscribers:
 
 * A simple CDB config subscriber that utilizes the low-level CDB API directly to subscribe to changes in the subtree of the configuration.
 * Two Navu CDB subscribers, one subscribing to configuration changes, and one subscribing to changes in operational data.
@@ -292,7 +292,7 @@ The code in the [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer
 
 The DP API makes it possible to create callbacks which are called when certain events occur in NSO. As the name of the API indicates, it is possible to write data provider callbacks that provide data to NSO that is stored externally. However, this is only one of several callback types provided by this API. There exist callback interfaces for the following types:
 
-* Service Callbacks - invoked for service callpoints in the YANG model. Implements service to device information mappings. See, for example, [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/rfs-service).
+* Service Callbacks - invoked for service callpoints in the YANG model. Implements service to device information mappings. See, for example, [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/rfs-service).
 * Action Callbacks - invoked for a certain action in the YANG model which is defined with a callpoint directive.
 * Authentication Callbacks - invoked for external authentication functions.
 * Authorization Callbacks - invoked for external authorization of operations and data. Note, avoid this callback if possible since performance will otherwise be affected.
@@ -417,7 +417,7 @@ We also have two additional optional callbacks that may be implemented for effic
 * `getObject()`: If this optional callback is implemented, the work of the callback is to return an entire `object`, i.e., a list instance. This is not the same `getObject()` as the one that is used in combination with the `iterator()`
 * `numInstances()`: When NSO needs to figure out how many instances we have of a certain element, by default NSO will repeatedly invoke the `iterator()` callback. If this callback is installed, it will be called instead.
 
-The following example illustrates an external data provider. The example is possible to run from the examples collection. It resides under [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-db).
+The following example illustrates an external data provider. The example is possible to run from the examples collection. It resides under [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/external-db).
 
 The example comes with a tailor-made database - `MyDb`. That source code is provided with the example but not shown here. However, the functionality will be obvious from the method names like `newItem()`, `lock()`, `save()`, etc.
 
@@ -684,7 +684,7 @@ The action callbacks are:
 * `init()` Similar to the transaction `init()` callback. However note that, unlike the case with transaction and data callbacks, both `init()` and `action()` are registered for each `actionpoint` (i.e. different action points can have different `init()` callbacks), and there is no `finish()` callback - the action is completed when the `action()` callback returns.
 * `action()` This callback is invoked to actually execute the `rpc` or `action`. It receives the input parameters (if any) and returns the output parameters (if any).
 
-In the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example, we can define a `self-test` action. In the `packages/l3vpn/src/yang/l3vpn.yang`, we locate the service callback definition:
+In the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-java) example, we can define a `self-test` action. In the `packages/l3vpn/src/yang/l3vpn.yang`, we locate the service callback definition:
 
 ```
 uses ncs:service-data;
