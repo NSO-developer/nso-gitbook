@@ -221,7 +221,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.73.1 2025-05-02](huawei-vrp/README.md)
+  * [README v6.73.2 2025-05-09](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -233,7 +233,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.11 2025-04-30](juniper-junos/README.md)
+  * [README v4.18.12 2025-05-09](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -273,7 +273,7 @@
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
-  * [README v4.2.34 2024-10-25](openstack-cos/README.md)
+  * [README v4.2.35 2025-05-09](openstack-cos/README.md)
 
 * overture-1400
   * [README-ned-settings](overture-1400/README-ned-settings.md)
