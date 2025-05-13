@@ -119,10 +119,6 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints. Odd/Even ID allocation feature includes an additional parameter named oddeven_alloc, allowing users to specify whether IDs should be allocated as Odd, Even, or Default.
 
-## Odd-Even ID Allocation
-
-The `oddeven_alloc` feature introduces a flexible way to control how IDs are assigned across various operations. By specifying this parameter, users can choose whether the system should allocate IDs as Odd, Even, or use the Default allocation method. This enhancement provides greater control and predictability in ID assignment, making it especially useful in environments that require structured or sequential ID patterns. The oddeven_alloc parameter can be configured during service creation, tooling RM actions, and non-service ID allocation scenarios. It is fully supported through both the CLI and APIs, including Java and Python, ensuring seamless integration into existing workflows and automation scripts.
-
 ### Overview
 
 The ID Allocator can host any number of ID pools, including Odd/Even pools. Each pool contains a certain number of IDs that can be allocated. They are specified by a range, and potentially broken into several ranges by a list of excluded ranges.
@@ -132,6 +128,8 @@ The ID allocator YANG models are divided into a configuration data-specific mode
 An ID request can allocate either the lowest possible ID in a pool or a specified (by the user) value, such as 5 or 1000.
 
 Allocation requests can be synchronized between pools. This synchronization is based on the ID of the allocation request itself (such as for instance `allocation1`), the result is that the allocations will have the same allocated value across pools.
+
+The `oddeven_alloc` feature introduces a flexible way to control how IDs are assigned across various operations. By specifying this parameter, users can choose whether the system should allocate IDs as Odd, Even, or use the Default allocation method. This enhancement provides greater control and predictability in ID assignment, making it especially useful in environments that require structured or sequential ID patterns. The oddeven_alloc parameter can be configured during service creation, tooling RM actions, and non-service ID allocation scenarios. It is fully supported through both the CLI and APIs, including Java and Python, ensuring seamless integration into existing workflows and automation scripts.
 
 The `oddeven_alloc` parameter introduces flexible ID allocation behavior, allowing users to define how IDs are assigned during various operations. This feature supports three modes of allocation:
 
