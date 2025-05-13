@@ -1919,7 +1919,6 @@ idRequest(ServiceContext context,
     String username,
     String id,
     boolean sync_pool,
-    long requestedId,
     IdType oddeven_alloc)
 ```
 
@@ -1934,7 +1933,6 @@ idRequest(ServiceContext context,
 | Username      | String        | Name of the user to use when redeploying the requesting service.             |
 | ID            | String        | Unique allocation ID.                                                        |
 | sync_pool     | Boolean       | Sync allocations with the ID value across pools.                             |
-| Requested ID  | Int           | Request the specific ID to be allocated.                                     |
 | oddeven_alloc | IdType        | Request the odd or even ID to be allocated.                                  |
 ```
 
@@ -1944,7 +1942,7 @@ idRequest(ServiceContext context,
 import com.tailf.pkg.idallocator.IdAllocator;
 
 IdAllocator.idRequest(context, service, poolName, userName, id,
-test_with_sync.booleanValue(), requestId, oddeven_alloc);
+test_with_sync.booleanValue(), oddeven_alloc);
 ```
 
 </details>
@@ -2008,7 +2006,7 @@ idRequest(ServiceContext
     String username,
     String id,
     boolean sync_pool,
-    long requestedId,
+    boolean sync_alloc,
     IdType oddeven_alloc)
 ```
 
@@ -2024,7 +2022,7 @@ idRequest(ServiceContext
 | username     | String        | Name of the user to use when redeploying the requesting service.                                                |
 | id           | String        | Unique allocation ID.                                                                                           |
 | sync_pool    | Boolean       | Sync allocations with the ID value across pools.                                                                |
-| requestedId  | Int           | Request the specific ID to be allocated.                                                                        |
+| sync_alloc   | Int           | Request the specific ID to be allocated.                                                                        |
 | oddeven_alloc| IdType        | Request the odd or even ID to be allocated.                                                                     |
 ```
 
@@ -2034,7 +2032,7 @@ idRequest(ServiceContext
 import com.tailf.pkg.idallocator.IdAllocator;
 
 IdAllocator.idRequest(context, service, redeployType, poolName, userName,
-id, test_with_sync.booleanValue(), requestId, oddeven_alloc);
+id, test_with_sync.booleanValue(), oddeven_alloc);
 ```
 
 </details>
@@ -2047,7 +2045,7 @@ The following API is used to create or update an ID allocation request with non-
 
 <summary><code>idRequest()</code></summary>
 
-This i`dRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
+This `idRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
 
 ```java
 idRequest(Maapi maapi,
@@ -2115,7 +2113,7 @@ try {
 
 <summary><code>idRequest() with oddeven_alloc</code></summary>
 
-This i`dRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
+This `idRequest()` method takes maapi object and transaction handle (`th`) as a parameter instead of `ServiceContext` object.
 
 ```java
 idRequest(Maapi maapi,
@@ -2124,7 +2122,6 @@ idRequest(Maapi maapi,
     String username,
     String id,
     boolean sync_pool,
-    long requestedId,
     boolean sync_alloc,
     IdType oddeven_alloc)
 ```
@@ -2140,7 +2137,6 @@ idRequest(Maapi maapi,
 | Username     | String | Name of the user to use when redeploying the requesting service.          |
 | id           | String | Unique allocation ID.                                                     |
 | sync_pool    | Boolean| Sync allocations with the ID value across pools.                          |
-| requestedId  | Int    | Request the specific ID to be allocated.                                  |
 | sync_alloc   | Boolean| If the boolean value is true, the allocation is synchronous.              |
 | oddeven_alloc| IdType | Request the odd or even ID to be allocated.                               |
 ```
@@ -2161,16 +2157,12 @@ IdType oddeven_alloc = IdType.from(oddevenStr);
 
 LOGGER.debug("doMaapiCreate() , service Name = " + allocationName);
 
-long requestedId = loop.leaf("requestedId").exists()
-    ? ((ConfUInt32) loop.leaf("requestedId").value()).longValue()
-    : -1L;
-
 /* Create resource allocation request. */
 LOGGER.debug(String.format("id allocation Requesting %s , allocationName %s , requestedId %d",
     poolName, allocationName, requestedId));
 
 IdAllocator.idRequest(maapi, th, poolName, username, allocationName, sync.booleanValue(),
-    requestedId, false, oddeven_alloc);
+    false, oddeven_alloc);
 
 try {
     if (IdAllocator.responseReady(maapi, th, poolName, allocationName)) {
@@ -2559,6 +2551,47 @@ test_with_sync.booleanValue(), requestId, syncAlloc.booleanValue());
 
 </details>
 
+</details>
+
+<details>
+
+<summary>Default Java API for ID Allocation Request with Odd/Even Allocation</summary>
+
+The following API is used to verify the response for a synchronous or asynchronous ID allocation request with additional parameter i.e., oddeven_alloc
+
+```java
+idRequest(NavuNode service,
+    String poolName,
+    String username,
+    String id,
+    boolean sync_pool,
+    IdType oddeven_alloc)
+```
+
+**API Parameters**
+
+```
+| Parameter     | Type       | Description                                                                                       |
+|---------------|------------|---------------------------------------------------------------------------------------------------|
+| service       | NavuNode   | Navu node referencing the requesting service node.                                                |
+| poolName      | String     | Name of the resource pool to request the allocation ID from.                                      |
+| username      | String     |                                                                                                   |
+| id            | String     | Unique allocation ID.                                                                             |
+| sync_pool     | Boolean    | Sync allocations with the ID value across pools.                                                  |
+| oddeven_alloc | IdType     | Request the odd or even ID to be allocated.                                                       |
+```
+
+**Example**
+
+```java
+import com.tailf.pkg.idallocator.IdAllocator;
+
+IdAllocator.idRequest(service, poolName, userName, id,
+test_with_sync.booleanValue(), oddeven_alloc);
+```
+
+</details>
+
 {% hint style="info" %}
 **Common Exceptions Raised by Java APIs for Errors**
 
@@ -2628,7 +2661,6 @@ id_allocator.id_request(
     pool_name,
     allocation_name,
     False,
-    "firstfree",
     20,
     oddeven_alloc
 )
@@ -2641,7 +2673,6 @@ id_allocator.id_request(
     pool_name,
     allocation_name,
     True,
-    "firstfree",
     20,
     oddeven_alloc
 )
@@ -2795,8 +2826,6 @@ IdAllocator Did-139-Worker-94:
 {% code title="Example" %}
 ```bash
 admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
-admin@ncs> request rm-action sync-alloc-id oddeven-alloc odd allocid id_oddDemo25 pool Odd_18 user testDemo sync true
-admin@ncs> request rm-action sync-alloc-id oddeven-alloc even allocid id_EvenDemo25 pool Pool_18 user testDemo sync true
 ```
 {% endcode %}
 

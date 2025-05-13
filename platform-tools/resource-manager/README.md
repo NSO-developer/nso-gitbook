@@ -117,7 +117,11 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints.
+This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints. Odd/Even ID allocation feature includes an additional parameter named oddeven_alloc, allowing users to specify whether IDs should be allocated as Odd, Even, or Default.
+
+## Odd-Even ID Allocation
+
+The `oddeven_alloc` feature introduces a flexible way to control how IDs are assigned across various operations. By specifying this parameter, users can choose whether the system should allocate IDs as Odd, Even, or use the Default allocation method. This enhancement provides greater control and predictability in ID assignment, making it especially useful in environments that require structured or sequential ID patterns. The oddeven_alloc parameter can be configured during service creation, tooling RM actions, and non-service ID allocation scenarios. It is fully supported through both the CLI and APIs, including Java and Python, ensuring seamless integration into existing workflows and automation scripts.
 
 ### Overview
 
@@ -128,6 +132,14 @@ The ID allocator YANG models are divided into a configuration data-specific mode
 An ID request can allocate either the lowest possible ID in a pool or a specified (by the user) value, such as 5 or 1000.
 
 Allocation requests can be synchronized between pools. This synchronization is based on the ID of the allocation request itself (such as for instance `allocation1`), the result is that the allocations will have the same allocated value across pools.
+
+The `oddeven_alloc` parameter introduces flexible ID allocation behavior, allowing users to define how IDs are assigned during various operations. This feature supports three modes of allocation:
+
+ - Default – IDs are allocated using the system's standard mechanism.
+
+ - Odd – Only odd-numbered IDs are assigned.
+
+ - Even – Only even-numbered IDs are assigned.
 
 ### Examples
 
@@ -371,8 +383,6 @@ Note that when a pool parameter is provided, the operation will be on this speci
 admin@ncs> unhide debug
 admin@ncs> request rm-action id-allocator-tool operation fix_missing_allocation
 admin@ncs> request rm-action id-allocator-tool operation printIdPool pool multiService
-admin@ncs> request rm-action sync-alloc-id oddeven-alloc odd allocid id_oddDemo25 pool Odd_18 user testDemo sync true
-admin@ncs> request rm-action sync-alloc-id oddeven-alloc even allocid id_EvenDemo25 pool Pool_18 user testDemo sync true
 ```
 
 ## NSO IP Address Allocator Deployment
