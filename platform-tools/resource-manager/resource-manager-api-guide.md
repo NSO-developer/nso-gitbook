@@ -31,9 +31,9 @@ When a service makes multiple resource allocations from a single pool, the optio
 
 Resource allocation can be synchronous or asynchronous.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="560"><figcaption></figcaption></figure>
 
-The synchronized allocation API request uses a Reactive-Fast-Map to allocate resources and still manages the interface to look synchronous. This means that as you create any allocation request from Northbound, you can see the allocation results, such as the requested IP subnet/ID in the same transaction. If a NB is making an allocation request, and in the same transaction a configuration is being applied to a specific device, the commit dry run receives the request response, and the response is processed by the RM and the configurations are pushed to the device in the same transaction. Thus, the NB user can see the get modification in the commit dry run.&#x20;
+The synchronized allocation API request uses a Reactive-Fast-Map to allocate resources and still manages the interface to look synchronous. This means that as you create any allocation request from Northbound, you can see the allocation results, such as the requested IP subnet/ID in the same transaction. If a NB is making an allocation request, and in the same transaction a configuration is being applied to a specific device, the commit dry run receives the request response, and the response is processed by the RM and the configurations are pushed to the device in the same transaction. Thus, the NB user can see the get modification in the commit dry run.
 
 During a resource request, the resource is allocated and stored in the create callback. This allocation is visible to other services that are run in the same or subsequent transactions and therefore avoids the recreation of resource when the service is redeployed. Synchronous allocation does not require service re-deploy to read allocation. The same transaction can read allocation. Commit dry-run or get-modification displays the allocation details as output.
 
@@ -2300,7 +2300,7 @@ try {
 **Common Exceptions Raised by Java APIs for Errors**
 
 * The API may throw the below exception if no pool resource exists for the requested allocation: `ResourceErrorException`.
-* The API may throw the below exception if the ID request conflicts with another allocation or does not match the previous allocation in case of multiple owner requests: `AllocationException`.&#x20;
+* The API may throw the below exception if the ID request conflicts with another allocation or does not match the previous allocation in case of multiple owner requests: `AllocationException`.
 {% endhint %}
 
 ### Verifying Responses for ID Allocations – Java APIs
@@ -2551,13 +2551,11 @@ test_with_sync.booleanValue(), requestId, syncAlloc.booleanValue());
 
 </details>
 
-</details>
-
 <details>
 
 <summary>Default Java API for ID Allocation Request with Odd/Even Allocation</summary>
 
-The following API is used to verify the response for a synchronous or asynchronous ID allocation request with additional parameter i.e., oddeven_alloc
+The following API is used to verify the response for a synchronous or asynchronous ID allocation request with additional parameter i.e., oddeven\_alloc
 
 ```java
 idRequest(NavuNode service,
@@ -2609,7 +2607,7 @@ The RM package also exposed Python APIs to request ID allocation from a resource
 
 Use the module `resource_manager.id_allocator`.
 
-The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeve_alloc (optional).
+The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeve\_alloc (optional).
 
 ```python
 id_request(service, 
@@ -2726,7 +2724,7 @@ id = id_allocator.id_read(tctx.username, root, pool_name, allocation_name)
 
 ### Using Python APIs for Non-Service ID Allocation
 
-The RM package also exposes Python APIs to request ID allocation from a resource pool by passing the maapi object and transaction handle instead of the service.  The below APIs are Python APIs for non-service ID allocation.
+The RM package also exposes Python APIs to request ID allocation from a resource pool by passing the maapi object and transaction handle instead of the service. The below APIs are Python APIs for non-service ID allocation.
 
 Use the `module resource_manager.id_allocator`.
 
@@ -2734,7 +2732,7 @@ Use the `module resource_manager.id_allocator`.
 
 <summary><code>id_request_tr</code></summary>
 
-The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeven_alloc (optional).
+The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeven\_alloc (optional).
 
 ```python
 id_request_tr(tr, username, 

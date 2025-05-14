@@ -117,7 +117,7 @@ Synchronous allocation is only supported through the Java and Python APIs provid
 
 ## NSO ID Allocator Deployment
 
-This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints. Odd/Even ID allocation feature includes an additional parameter named oddeven_alloc, allowing users to specify whether IDs should be allocated as Odd, Even, or Default.
+This section explores deployment information and procedures for the NSO ID Allocator (id-allocator). The NSO Resource ID Allocator is an extension of the generic resource allocation mechanism called the NSO Manager. It can allocate integers, which can serve, for instance, as VLAN identifiers. Additionally, it can allocate Odd or Even IDs based on the specified requirements and constraints. Odd/Even ID allocation feature includes an additional parameter named oddeven\_alloc, allowing users to specify whether IDs should be allocated as Odd, Even, or Default.
 
 ### Overview
 
@@ -133,11 +133,9 @@ The `oddeven_alloc` feature introduces a flexible way to control how IDs are ass
 
 The `oddeven_alloc` parameter introduces flexible ID allocation behavior, allowing users to define how IDs are assigned during various operations. This feature supports three modes of allocation:
 
- - Default – IDs are allocated using the system's standard mechanism.
-
- - Odd – Only odd-numbered IDs are assigned.
-
- - Even – Only even-numbered IDs are assigned.
+* Default – IDs are allocated using the system's standard mechanism.
+* Odd – Only odd-numbered IDs are assigned.
+* Even – Only even-numbered IDs are assigned.
 
 ### Examples
 
@@ -193,8 +191,8 @@ At this point, we have a pool with a range of 100 to 200 and one allocated ID (1
 ```
 | NAME  | START | END | START | END | START | END  |  ID  |
 |-------|-------|-----|-------|-----|-------|------|------|
-| pool3 |   -   |  -  |       |     |  100  | 100 | 101 |
-| pool3 |   -   |  -  |       |     |  102  | 200 | 101 |
+| pool3 |   -   |  -  |       |     |  100  | 100 | 101   |
+| pool3 |   -   |  -  |       |     |  102  | 200 | 101   |
 ```
 
 </details>
@@ -215,7 +213,7 @@ At this point, we have a pool with a range of 100 to 200 and one allocated ID (1
 ```
 | NAME  | START | END | START | END | START | END  |  ID  |
 |-------|-------|-----|-------|-----|-------|------|------|
-| pool4 |   -   |  -  |       |     |  101  | 100 | 100 |
+| pool4 |   -   |  -  |       |     |  101  | 100 | 100   |
 ```
 
 </details>
@@ -293,7 +291,7 @@ admin@ncs# set resource-pools id-pool methodRangeFirst allocation a username \
            admin request method firstfree
 ```
 
-If we remove the allocation `a` and do a new allocation, using the default method, we allocate the first free ID, in this case, 1 again. Using the round-robin scheme, we instead allocate the next in order, i.e. 2.
+If we remove the allocation `a` and do a new allocation, using the default method, we allocate the first free ID, in this case, 1 again. Using the round-robin scheme, we instead allocate the next in order, i.e., 2.
 
 ```
 admin@ncs# set resource-pools id-pool methodRoundRobin allocation a username \
@@ -319,13 +317,13 @@ Synchronous allocation can be requested through various Java APIs provided in `r
 
     redeployType, String poolName, String username, String id, boolean sync\_pool, long requestedId,
 
-    boolean sync\_alloc, IdType oddeven_alloc).
+    boolean sync\_alloc, IdType oddeven\_alloc).
 *   Request:Python:id\_request(service, svc\_xpath, username, pool\_name, allocation\_name, sync\_pool,
 
     requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None).
 *   Request:Python:id\_request(service, svc\_xpath, username, pool\_name, allocation\_name, sync\_pool,
 
-    requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None, oddeven_alloc="default").
+    requested\_id=-1, redeploy\_type="default", sync\_alloc=False, root=None, oddeven\_alloc="default").
 *   Non-blocking call to check Response Ready:Java:boolean responseReady(NavuContext context,
 
     String poolName, String id).
