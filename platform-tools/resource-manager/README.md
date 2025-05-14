@@ -181,7 +181,7 @@ At this point, we have a pool with a range of 100 to 1000 and one allocation (10
 
 <summary>Create an Odd Allocation Request</summary>
 
-When a pool has been created, it is possible to create an odd allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a odd value in the pool defined above.
+When a pool has been created, it is possible to create an odd allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an odd value in the pool defined above.
 
 ```
 admin@ncs# resource-pools id-pool pool3 allocation odd1 user myuser oddeven-alloc odd unit 4 description odd_allocation
