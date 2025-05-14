@@ -1933,7 +1933,7 @@ idRequest(ServiceContext context,
 | Username      | String        | Name of the user to use when redeploying the requesting service.             |
 | ID            | String        | Unique allocation ID.                                                        |
 | sync_pool     | Boolean       | Sync allocations with the ID value across pools.                             |
-| oddeven_alloc | IdType        | Request the odd or even ID to be allocated.                                  |
+| oddeven_alloc | IdType        | Request the Odd or Even ID to be allocated.                                  |
 ```
 
 **Example**
@@ -2023,7 +2023,7 @@ idRequest(ServiceContext
 | id           | String        | Unique allocation ID.                                                                                           |
 | sync_pool    | Boolean       | Sync allocations with the ID value across pools.                                                                |
 | sync_alloc   | Int           | Request the specific ID to be allocated.                                                                        |
-| oddeven_alloc| IdType        | Request the odd or even ID to be allocated.                                                                     |
+| oddeven_alloc| IdType        | Request the Odd or Even ID to be allocated.                                                                     |
 ```
 
 **Example**
@@ -2138,7 +2138,7 @@ idRequest(Maapi maapi,
 | id           | String | Unique allocation ID.                                                     |
 | sync_pool    | Boolean| Sync allocations with the ID value across pools.                          |
 | sync_alloc   | Boolean| If the boolean value is true, the allocation is synchronous.              |
-| oddeven_alloc| IdType | Request the odd or even ID to be allocated.                               |
+| oddeven_alloc| IdType | Request the Odd or Even ID to be allocated.                               |
 ```
 
 **Example**
@@ -2578,7 +2578,7 @@ idRequest(NavuNode service,
 | username      | String     |                                                                                                   |
 | id            | String     | Unique allocation ID.                                                                             |
 | sync_pool     | Boolean    | Sync allocations with the ID value across pools.                                                  |
-| oddeven_alloc | IdType     | Request the odd or even ID to be allocated.                                                       |
+| oddeven_alloc | IdType     | Request the Odd or Even ID to be allocated.                                                       |
 ```
 
 **Example**
@@ -2609,7 +2609,7 @@ The RM package also exposed Python APIs to request ID allocation from a resource
 
 Use the module `resource_manager.id_allocator`.
 
-The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeve_alloc(optional).
+The `id_request` function is used to create an allocation request for an ID. It takes several arguments including the service, service xpath, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeve_alloc (optional).
 
 ```python
 id_request(service, 
@@ -2734,7 +2734,7 @@ Use the `module resource_manager.id_allocator`.
 
 <summary><code>id_request_tr</code></summary>
 
-The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeven_alloc(optional).
+The `id_request_tr` function is used to create an allocation request for an ID. It takes several arguments including the tr, username, pool name, allocation name, sync flag, requested ID (optional), redeploy type (optional), alloc sync flag (optional), root (optional) and oddeven_alloc (optional).
 
 ```python
 id_request_tr(tr, username, 

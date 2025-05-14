@@ -181,14 +181,14 @@ At this point, we have a pool with a range of 100 to 1000 and one allocation (10
 
 <summary>Create an Odd Allocation Request</summary>
 
-When a pool has been created, it is possible to create an odd allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an odd value in the pool defined above.
+When a pool has been created, it is possible to create an Odd allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an Odd value in the pool defined above.
 
 ```
 admin@ncs# resource-pools id-pool pool3 allocation odd1 user myuser oddeven-alloc odd unit 4 description odd_allocation
 admin@ncs# commit
 ```
 
-At this point, we have a pool with a range of 100 to 200 and one allocated ID (101), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an odd allocation ID.
+At this point, we have a pool with a range of 100 to 200 and one allocated ID (101), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an Odd allocation ID.
 
 ```
 | NAME  | START | END | START | END | START | END  |  ID  |
@@ -203,7 +203,7 @@ At this point, we have a pool with a range of 100 to 200 and one allocated ID (1
 
 <summary>Create an Even Allocation Request</summary>
 
-When a pool has been created, it is possible to create an even allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an even value in the pool defined above.
+When a pool has been created, it is possible to create an Even allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an Even value in the pool defined above.
 
 ```
 admin@ncs# resource-pools id-pool pool4 allocation even1 user myuser oddeven-alloc even unit 4 description even_allocation
