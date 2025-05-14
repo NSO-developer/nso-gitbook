@@ -203,7 +203,7 @@ At this point, we have a pool with a range of 100 to 200 and one allocated ID (1
 
 <summary>Create an Even Allocation Request</summary>
 
-When a pool has been created, it is possible to create an even allocation requests on the values handled by a pool. The CLI interaction below shows how to allocate a even value in the pool defined above.
+When a pool has been created, it is possible to create an even allocation request on the values handled by a pool. The CLI interaction below shows how to allocate an even value in the pool defined above.
 
 ```
 admin@ncs# resource-pools id-pool pool4 allocation even1 user myuser oddeven-alloc even unit 4 description even_allocation
@@ -350,8 +350,8 @@ The administrator's instructions on how to write these rules are detailed in the
 
 There are two alarms associated with the ID Allocator:
 
-* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation. This alarm is also raised when available Odd or Even available Ids are exhausted for further allocation.
-* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool. This alarm is also raised when the Even or Odd Ids are running low in available IDs.
+* **Empty Alarm**: This alarm is raised when the pool is empty, and there are no available IDs for further allocation. This alarm is also raised when the available Odd or Even IDs are exhausted for further allocation.
+* **Low threshold Reached Alarm**: This alarm is raised when the pool is nearing empty, e.g., there is only 10% or fewer left in the pool. This alarm is also raised when the Even or Odd IDs are running low in available IDs.
 
 ### CDB Upgrade from Package version below 4.0.0
 

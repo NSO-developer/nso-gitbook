@@ -25,9 +25,9 @@ This documentation requires the reader to have a good understanding of NSO and i
 
 ## Resource Manager IP/ID Allocation APIs
 
-The APIs exposed by the Resource Manager package are used to allocate IP subnets and IDs from the IP and ID resource pools respectively by the applications requesting the resources. The APIs help to allocate, update, or deallocate the resources. You can make API calls to the resource pools as long as the pool is not exhausted of the resources. If the pool is exhausted of resources or if the referenced pool does not exist in the database when there is a request, the allocation raises an exception. The APIs also support allocating Odd or Even IDs from the resource pools, provided that the pool has available resources.&#x20;
+The APIs exposed by the Resource Manager package are used to allocate IP subnets and IDs from the IP and ID resource pools respectively by the applications requesting the resources. The APIs help to allocate, update, or deallocate the resources. You can make API calls to the resource pools as long as the pool is not exhausted of the resources. If the pool is exhausted of resources or if the referenced pool does not exist in the database when there is a request, the allocation raises an exception. The APIs also support allocating Odd or Even IDs from the resource pools, provided the pool has available resources.
 
-When a service makes multiple resource allocations from a single pool, the optional ‘name’ parameter allows the service to distinguish the different allocations. By default, the parameter value is an empty string.&#x20;
+When a service makes multiple resource allocations from a single pool, the optional ‘name’ parameter allows the service to distinguish the different allocations. By default, the parameter value is an empty string.
 
 Resource allocation can be synchronous or asynchronous.
 
