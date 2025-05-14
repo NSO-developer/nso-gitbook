@@ -61,7 +61,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.8.0 2025-05-07](ceragon-ip20/README.md)
+  * [README v1.8.1 2025-05-13](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.2 2025-05-07](cisco-nx/README.md)
+  * [README v5.27.3 2025-05-13](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
