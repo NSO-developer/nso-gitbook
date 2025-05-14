@@ -210,7 +210,7 @@ admin@ncs# resource-pools id-pool pool4 allocation even1 user myuser oddeven-all
 admin@ncs# commit
 ```
 
-At this point, we have a pool with a range of 100 to 200 and one allocated ID (100), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an even allocation ID.
+At this point, we have a pool with a range of 100 to 200 and one allocated ID (100), as shown in the table below (Pool Range: 100-200). As per the request, we need to allocate an Even allocation ID.
 
 ```
 | NAME  | START | END | START | END | START | END  |  ID  |
