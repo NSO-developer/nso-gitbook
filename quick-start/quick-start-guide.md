@@ -1,6 +1,6 @@
 ---
-icon: book-sparkles
 description: Quick start instructions to get started with NSO.
+icon: book-sparkles
 ---
 
 # Quick Start Guide
@@ -28,7 +28,7 @@ Before you install NSO onto your system, you need to decide whether to do a Syst
 
 This evaluation copy has been provided under the terms of the Cisco NSO Evaluation License. There are two versions of the NSO installer for macOS and Linux systems, respectively:
 
-* [x] [NSO for Linux and MacOS (Darwin), including NED examples](https://software.cisco.com/download/home/286331591/type/286283941/release/6.4)
+* [x] [NSO for Linux and MacOS (Darwin), including NED examples](https://software.cisco.com/download/home/286331591/type/286283941/release)
 
 ## Requirements <a href="#requirements" id="requirements"></a>
 
