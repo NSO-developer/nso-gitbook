@@ -61,7 +61,7 @@
   The following top level ned-settings can be modified.
 
 
-    - cisco-asa extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Configure config parsing method.
 
