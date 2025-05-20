@@ -9,7 +9,7 @@
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
-  * [README v4.5 2025-04-17](accedian-nid/README.md)
+  * [README v4.5.1 2025-05-19](accedian-nid/README.md)
 
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.3 2025-05-13](cisco-nx/README.md)
+  * [README v5.27.4 2025-05-19](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)

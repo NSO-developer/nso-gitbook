@@ -50,7 +50,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - accedian-nid extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
       model based config tree).
@@ -79,18 +79,18 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - connection number-of-retries <uint8> (default 0)
+    - number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - connection time-between-retry <uint8> (default 1)
+    - time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connection connector <WORD>
+    - connector <WORD>
 
       Change the default connector, e.g. 'ned-connector-default.json'.
 
@@ -101,7 +101,7 @@
   Deprecated ned-settings.
 
 
-    - deprecated connection legacy-mode <enum> (default disabled)
+    - connection legacy-mode <enum> (default disabled)
 
       enabled   - enabled.
 
@@ -114,7 +114,7 @@
   Settings for controlling logs generated.
 
 
-    - logger level <enum> (default info)
+    - level <enum> (default info)
 
       Set level of logging.
 
@@ -127,7 +127,7 @@
       debug    - debug.
 
 
-    - logger java <true|false> (default true)
+    - java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -138,7 +138,7 @@
   Transaction specific settings.
 
 
-    - transaction trans-id-method <enum> (default modeled-config)
+    - trans-id-method <enum> (default modeled-config)
 
       Select the method for calculating transaction-id.
 
@@ -156,7 +156,7 @@
   This list contains port names that will keep 'force-tx-on'. If the list is empty 'force-tx-on'
   will be left as it is.
 
-    - accedian-nid sfp-ports <port>
+    - sfp-ports <port>
 
       - port <string>
 
@@ -169,7 +169,7 @@
   Contains settings used for debugging (intended for NED developers).
 
 
-    - developer progress-verbosity <enum> (default debug)
+    - progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level which will get written in devel.log file.
 
