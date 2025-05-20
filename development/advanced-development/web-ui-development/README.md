@@ -6,6 +6,8 @@ description: NSO Web UI development information.
 
 Web UI development is thought to be in the hands of the customer's front-end developers. They know best the requirements and how to fulfill those requirements in terms of aesthetics, functionality, and toolchain (frameworks, libraries, external data sources, and services).
 
+A good starting point for learning how to create a Web UI package that uses the [JSON-RPC API](json-rpc-api.md) to query data from NSO is the [examples.ncs/northbound-interfaces/webui](https://github.com/NSO-developer/nso-examples/tree/6.5/northbound-interfaces/webui) example.
+
 NSO comes with a northbound interface in the shape of a [JSON-RPC API](json-rpc-api.md). This API is designed with Web UI applications in mind, and it complies with the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification) while using HTTP/S as the transport mechanism.
 
 The JSON-RPC API contains a handful of methods with well-defined input `method` and `params`, along with the output `result`.
