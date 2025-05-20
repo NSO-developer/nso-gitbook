@@ -390,6 +390,8 @@ Stacked services are also the basis for LSA, which takes this concept even furth
 
 The standard naming convention with stacked services distinguishes between a Resource-Facing Service (RFS), that directly configures one or more devices, and a Customer-Facing Service (CFS), that is the top-level service, configuring only other services, not devices. There can be more than two layers of services in the stack, too.
 
+To kickstart learning how to create a stacked service that uses a single CFS and several RFS to configure one device per RFS with a simple VLAN configuration, see the [examples.ncs/service-management/cfs-rfs-stacked](https://github.com/NSO-developer/nso-examples/blob/6.4/service-management/cfs-rfs-stacke) example.
+
 While NSO does not prevent a single service from configuring devices as well as services, in the majority of cases this results in a less clean design and is best avoided.
 
 Overall, creating stacked services is very similar to the non-stacked approach. First, you can design the RFS services as usual. Actually, you might take existing services and reuse those. These then become your lower-level services, since they are lower in the stack.
@@ -419,7 +421,7 @@ The most important principle to keep in mind is that the data created by any ser
 
 In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)).
 
-## Service Design
+## Stacked Service Design
 
 Designing services in NSO offers a great deal of flexibility with multiple approaches available to suit different needs. But what’s the best way to go about it? At its core, a service abstracts a network service or functionality, bridging user-friendly inputs with network configurations. This definition leaves the implementation open-ended, providing countless possibilities for designing and building services. However, there are certain techniques and best practices that can help enhance performance and simplify ongoing maintenance, making your services more efficient and easier to manage.
 
