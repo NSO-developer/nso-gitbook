@@ -386,6 +386,8 @@ Service stacking concepts usually come into play for bigger, more complex servic
 * Smaller services reusable as components across the solution.
 * Avoiding overlapping configuration between service instances causing conflicts, such as using one service instance per device (see examples in [Designing for Maximal Transaction Throughput](../scaling-and-performance-optimization.md#ncs.development.scaling.throughput)).
 
+To kickstart learning how to create a stacked service that uses a single CFS and several RFS to configure one device per RFS with a simple VLAN configuration, see the [examples.ncs/service-management/cfs-rfs-stacked](https://github.com/NSO-developer/nso-examples/blob/6.5/service-management/cfs-rfs-stacke) example.
+
 Stacked services are also the basis for LSA, which takes this concept even further. See [Layered Service Architecture](../../../administration/advanced-topics/layered-service-architecture.md) for details.
 
 The standard naming convention with stacked services distinguishes between a Resource-Facing Service (RFS), that directly configures one or more devices, and a Customer-Facing Service (CFS), that is the top-level service, configuring only other services, not devices. There can be more than two layers of services in the stack, too.
@@ -1148,7 +1150,7 @@ In general, this can be the most tricky part of the service discovery process, m
 
 ### Reconciliation <a href="#d5e3480" id="d5e3480"></a>
 
-The last step is updating the metadata, telling NSO that a given service controls (owns) the device configuration that was already present when the NSO service was configured. This is called reconciliation and you achieve it using a special `re-deploy reconcile { attach-non-service-config }`  action for the service.
+The last step is updating the metadata, telling NSO that a given service controls (owns) the device configuration that was already present when the NSO service was configured. This is called reconciliation and you achieve it using a special `re-deploy reconcile { attach-non-service-config }` action for the service.
 
 Let's examine the effects of this action on the following data:
 
