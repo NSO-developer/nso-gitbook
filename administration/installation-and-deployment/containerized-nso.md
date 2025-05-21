@@ -48,7 +48,7 @@ Consult the [Installation](./) documentation for information on installing NSO o
 {% hint style="info" %}
 See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
-The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
+The README in the examples.ncs/getting-started/netsim-sshkey example provides a link to the container-based deployment variant of the example. See the `setup.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
 ### Build Image
@@ -107,7 +107,7 @@ The migration process is designed to ensure a smooth transition from a System-In
 
 * We recommend reading through this guide to understand better the expectations, requirements, and functioning aspects of a containerized deployment.
 * Verify the compatibility of your current system configurations with the containerized NSO setup. See [System Requirements](containerized-nso.md#sec.system-reqs) for more information.
-* Note that [NSO runs from a non-root user ](containerized-nso.md#nso-runs-from-a-non-root-user)with the containerized NSO setup[.](containerized-nso.md#nso-runs-from-a-non-root-user)&#x20;
+* Note that [NSO runs from a non-root user ](containerized-nso.md#nso-runs-from-a-non-root-user)with the containerized NSO setup[.](containerized-nso.md#nso-runs-from-a-non-root-user)
 * Determine and install the container orchestration tool you plan to use (e.g., Docker, etc.).
 * Ensure that your current NSO installation is fully operational and backed up and that you have a clear rollback strategy in case any issues arise. Pay special attention to customizations and integrations that your current NSO setup might have, and verify their compatibility with the containerized version of NSO.
 * Have a contingency plan in place for quick recovery in case any issues are encountered during migration.
@@ -176,7 +176,7 @@ If you need to perform operations before or after the `ncs` process is started i
 
 ### NSO Runs from a Non-Root User
 
-NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.&#x20;
+NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
 When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/blob/main/getting-started/netsim-sshkey) for an example.
 
