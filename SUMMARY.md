@@ -104,7 +104,7 @@
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
-  * [README v1.6.13 2024-12-04](cisco-fmc/README.md)
+  * [README v1.6.14 2025-05-21](cisco-fmc/README.md)
 
 * cisco-ftd
   * [README-ned-settings](cisco-ftd/README-ned-settings.md)
@@ -150,10 +150,6 @@
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
   * [README v5.57 2025-04-25](cisco-staros/README.md)
-
-* cisco-wsa
-  * [README-ned-settings](cisco-wsa/README-ned-settings.md)
-  * [README v4.1.1 2024-08-29](cisco-wsa/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)

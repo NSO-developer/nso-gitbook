@@ -595,6 +595,24 @@
   admin@ncs(config-config)# cisco-fmc:actions deploy-policy deviceList { name CiscoFTDdev01 } version 0 ignoreWarning true forceDeploy false
   ```
 
+  ## 5.3 Get available domains.
+  These are used in devices device <dev_name> ned-settings cisco-fmc cisco-fmc-settings fmc-domain-name
+
+  ```
+  admin@ncs# config
+  Entering configuration mode terminal
+  admin@ncs(config)# devices device cisco-fmc-0
+  admin@ncs(config-device-cisco-fmc-0)# config
+  admin@ncs(config-config)#
+  admin@ncs(config-config)# cisco-fmc:actions get-domains
+  domains {
+      domainName Global/KRK-LAB
+      domainName Global/BRU-LAB
+      domainName Global
+      domainName Global/CALO-AUTO-PODS
+  }
+  ```
+
 
 # 6. Built in live-status show
 ------------------------------
