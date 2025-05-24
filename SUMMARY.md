@@ -34,7 +34,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.4.18 2025-05-22](alu-isam/README.md)
+  * [README v1.4.19 2025-05-23](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -116,7 +116,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.109.5 2025-05-15](cisco-ios/README.md)
+  * [README v6.109.6 2025-05-23](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
@@ -217,7 +217,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.74 2025-05-16](huawei-vrp/README.md)
+  * [README v6.74.1 2025-05-23](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -234,7 +234,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.19 2025-04-30](juniper-junos_nc/README.md)
+  * [README v1.1.20 2025-05-23](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -277,7 +277,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.12 2025-04-11](paloalto-panos_cli/README.md)
+  * [README v4.11.13 2025-05-23](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
