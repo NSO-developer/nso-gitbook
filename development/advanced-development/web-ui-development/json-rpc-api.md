@@ -340,7 +340,7 @@ Known limits:
 
 <summary><mark style="color:green;"><code>get_cmds</code></mark></summary>
 
-Get a list of the session's batch commands.
+<code>get_cmds</code> - Get a list of the session's batch commands.
 
 **Params**
 
@@ -368,7 +368,7 @@ cmd =
 
 <summary><mark style="color:green;"><code>init_cmd</code></mark></summary>
 
-Starts a batch command.
+<code>init_cmd</code> - Starts a batch command.
 
 **Note**: The `start_cmd` method must be called to actually get the batch command to generate any messages unless the `handle` is provided as input.
 
@@ -407,7 +407,7 @@ A handle to the batch command is returned (equal to `handle` if provided).
 
 <summary><mark style="color:green;"><code>send_cmd_data</code></mark></summary>
 
-Sends data to batch command started with `init_cmd`_._
+<code>send_cmd_data</code> - Sends data to batch command started with `init_cmd`_._
 
 **Params**
 
@@ -436,7 +436,7 @@ The `handle` param is as returned from a call to `init_cmd` and the `data` param
 
 <summary><mark style="color:green;"><code>start_cmd</code></mark></summary>
 
-Signals that a batch command can start to generate output.
+<code>start_cmd</code> - Signals that a batch command can start to generate output.
 
 **Note**: This method must be called to actually start the activity initiated by calls to one of the methods `init_cmd`.
 
@@ -460,7 +460,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>suspend_cmd</code></mark></summary>
 
-Suspends output from a batch command.
+<code>suspend_cmd</code> - Suspends output from a batch command.
 
 **Note**: the `init_cmd` method must have been called with the `emulate` param set to true for this to work
 
@@ -484,7 +484,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>resume_cmd</code></mark></summary>
 
-Resumes a batch command started with `init_cmd`_._
+<code>resume_cmd</code> - Resumes a batch command started with `init_cmd`_._
 
 **Note**: the `init_cmd` method must have been called with the `emulate` param set to `true` for this to work.
 
@@ -508,7 +508,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>stop_cmd</code></mark></summary>
 
-Stops a batch command.
+<code>stop_cmd</code> - Stops a batch command.
 
 **Note**: This method must be called to stop the activity started by calls to one of the methods `init_cmd`.
 
@@ -534,7 +534,7 @@ The `handle` param is as returned from a call to `init_cmd`.
 
 <summary><mark style="color:green;"><code>get_subscriptions</code></mark></summary>
 
-Get a list of the session's subscriptions.
+<code>get_subscriptions</code> - Get a list of the session's subscriptions.
 
 **Params**
 
@@ -562,7 +562,7 @@ subscription =
 
 <summary><mark style="color:green;"><code>subscribe_cdboper</code></mark></summary>
 
-Starts a subscriber to operational data in CDB. Changes done to configuration data will not be seen here.
+<code>subscribe_cdboper</code> - Starts a subscriber to operational data in CDB. Changes done to configuration data will not be seen here.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -602,7 +602,7 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 <summary><mark style="color:green;"><code>subscribe_changes</code></mark></summary>
 
-Starts a subscriber to configuration data in CDB. Changes done to operational data in CDB data will not be seen here. Furthermore, subscription messages will only be generated when a transaction is successfully committed.
+<code>subscribe_changes</code> - Starts a subscriber to configuration data in CDB. Changes done to operational data in CDB data will not be seen here. Furthermore, subscription messages will only be generated when a transaction is successfully committed.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages, unless the `handle` is provided as input.
 
@@ -654,7 +654,7 @@ The `changes` param is an array of changes of the same type as returned by the `
 
 <summary><mark style="color:green;"><code>subscribe_poll_leaf</code></mark></summary>
 
-Starts a polling subscriber to any type of operational and configuration data (outside of CDB as well).
+<code>subscribe_poll_leaf</code> - Starts a polling subscriber to any type of operational and configuration data (outside of CDB as well).
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -692,7 +692,7 @@ Subscription messages will end up in the `comet` method and the format is a simp
 
 <summary><mark style="color:green;"><code>subscribe_upgrade</code></mark></summary>
 
-Starts a subscriber to upgrade messages.
+<code>subscribe_upgrade</code> - Starts a subscriber to upgrade messages.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -728,7 +728,7 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 <summary><mark style="color:green;"><code>subscribe_jsonrpc_batch</code></mark></summary>
 
-Starts a subscriber to JSONRPC messages for batch requests.
+<code>subscribe_jsonrpc_batch</code> - Starts a subscriber to JSONRPC messages for batch requests.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -774,7 +774,7 @@ Subscription messages will end up in the `comet` method having exact same struct
 
 <summary><mark style="color:green;"><code>subscribe_progress_trace</code></mark></summary>
 
-Starts a subscriber to progress trace events.
+<code>subscribe_progress_trace</code> - Starts a subscriber to progress trace events.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -829,7 +829,7 @@ Subscription messages will end up in the `comet` method and the format of that m
 
 <summary><mark style="color:green;"><code>start_subscription</code></mark></summary>
 
-Signals that a subscribe command can start to generate output.
+<code>start_subscription</code> - Signals that a subscribe command can start to generate output.
 
 **Note**: This method must be called to actually start the activity initiated by calls to one of the methods `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade` \*\*with no `handle`.
 
@@ -853,7 +853,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 <summary><mark style="color:green;"><code>unsubscribe</code></mark></summary>
 
-Stops a subscriber.
+<code>unsubscribe</code> - Stops a subscriber.
 
 **Note**: This method must be called to stop the activity started by calls to one of the methods `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf` or `subscribe_upgrade`.
 
@@ -879,7 +879,7 @@ The `handle` param is as returned from a call to `subscribe_cdboper`, `subscribe
 
 <summary><mark style="color:green;"><code>create</code></mark></summary>
 
-Create a list entry, a presence container, or a leaf of type empty (unless in a union, then use `set_value`).
+<code>create</code> - Create a list entry, a presence container, or a leaf of type empty (unless in a union, then use `set_value`).
 
 **Params**
 
@@ -908,7 +908,7 @@ The `path` param is a keypath pointing to data to be created.
 
 <summary><mark style="color:green;"><code>delete</code></mark></summary>
 
-Deletes an existing list entry, a presence container, or an optional leaf and all its children (if any).
+<code>delete</code> - Deletes an existing list entry, a presence container, or an optional leaf and all its children (if any).
 
 **Note**: If the permission to delete is denied on a child, the 'warnings' array in the result will contain a warning 'Some elements could not be removed due to NACM rules prohibiting access.'. The `delete` method will still delete as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
@@ -940,7 +940,7 @@ The `path` param is a keypath pointing to data to be deleted.
 
 <summary><mark style="color:green;"><code>exists</code></mark></summary>
 
-Checks if optional data exists.
+<code>exists</code> - Checks if optional data exists.
 
 **Params**
 
@@ -963,7 +963,7 @@ The `path` param is a keypath pointing to data to be checked for existence.
 
 <summary><mark style="color:green;"><code>get_case</code></mark></summary>
 
-Get the case of a choice leaf.
+<code>get_case</code> - Get the case of a choice leaf.
 
 **Params**
 
@@ -987,7 +987,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 <summary><mark style="color:green;"><code>show_config</code></mark></summary>
 
-Retrieves configuration and operational data from the provided transaction.
+<code>show_config</code> - Retrieves configuration and operational data from the provided transaction.
 
 **Params**
 
@@ -1021,7 +1021,7 @@ The `path` param is a keypath to the configuration to be returned. `result_as` c
 
 <summary><mark style="color:green;"><code>load</code></mark></summary>
 
-Load XML configuration into the current transaction.
+<code>load</code> - Load XML configuration into the current transaction.
 
 **Params**
 
@@ -1055,7 +1055,7 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 
 <summary><mark style="color:green;"><code>get_attrs</code></mark></summary>
 
-Get node attributes.
+<code>get_attrs</code> - Get node attributes.
 
 **Params**
 
@@ -1079,7 +1079,7 @@ The `path` param is a keypath pointing to the node and the `names` param is a li
 
 <summary><mark style="color:green;"><code>set_attrs</code></mark></summary>
 
-Set node attributes.
+<code>set_attrs</code> - Set node attributes.
 
 **Params**
 
@@ -1105,7 +1105,7 @@ The `path` param is a keypath pointing to the node and the `attrs` param is an o
 
 <summary><mark style="color:green;"><code>get_value</code></mark></summary>
 
-Gets a leaf value.
+<code>get_value</code> - Gets a leaf value.
 
 **Params**
 
@@ -1153,7 +1153,7 @@ curl \
 
 <summary><mark style="color:green;"><code>get_values</code></mark></summary>
 
-Get leaf values.
+<code>get_values</code> - Get leaf values.
 
 **Params**
 
@@ -1188,7 +1188,7 @@ access = {"read": true, write: true}
 
 <summary><mark style="color:green;"><code>set_value</code></mark></summary>
 
-Sets a leaf value.
+<code>set_value</code> - Sets a leaf value.
 
 **Params**
 
@@ -1257,7 +1257,7 @@ curl \
 
 <summary><mark style="color:green;"><code>deref</code></mark></summary>
 
-Dereferences a leaf with a leafref type.
+<code>deref</code> - Dereferences a leaf with a leafref type.
 
 **Params**
 
@@ -1289,7 +1289,7 @@ The `path` param is a keypath pointing to a leaf with a leafref type.
 
 <summary><mark style="color:green;"><code>get_leafref_values</code></mark></summary>
 
-Gets all possible values for a leaf with a leafref type.
+<code>get_leafref_values</code> - Gets all possible values for a leaf with a leafref type.
 
 **Params**
 
@@ -1363,7 +1363,7 @@ The `source` param will point to the keypath where the values originate. If the 
 
 <summary><mark style="color:green;"><code>rename_list_entry</code></mark></summary>
 
-Renames a list entry.
+<code>rename_list_entry</code> - Renames a list entry.
 
 **Params**
 
@@ -1399,7 +1399,7 @@ The `to_keys` param is an array with the new key values. The array must contain 
 
 <summary><mark style="color:green;"><code>copy_list_entry</code></mark></summary>
 
-Copies a list entry.
+<code>copy_list_entry</code> - Copies a list entry.
 
 **Params**
 
@@ -1435,7 +1435,7 @@ Copying between different ned-id versions works as long as the schema nodes bein
 
 <summary><mark style="color:green;"><code>move_list_entry</code></mark></summary>
 
-Moves an ordered-by user list entry relative to its siblings.
+<code>move_list_entry</code> - Moves an ordered-by user list entry relative to its siblings.
 
 **Params**
 
@@ -1470,7 +1470,7 @@ If the `mode` param is set to `before` or `after` the `to_path` param must be sp
 
 <summary><mark style="color:green;"><code>append_list_entry</code></mark></summary>
 
-Append a list entry to a leaf-list.
+<code>append_list_entry</code> - Append a list entry to a leaf-list.
 
 **Params**
 
@@ -1494,7 +1494,7 @@ The `path` is a keypath pointing to a leaf-list.
 
 <summary><mark style="color:green;"><code>count_list_keys</code></mark></summary>
 
-Counts the number of keys in a list.
+<code>count_list_keys</code> - Counts the number of keys in a list.
 
 **Params**
 
@@ -1517,7 +1517,7 @@ The `path` parameter is a keypath pointing to a list.
 
 <summary><mark style="color:green;"><code>get_list_keys</code></mark></summary>
 
-Enumerates keys in a list.
+<code>get_list_keys</code> - Enumerates keys in a list.
 
 **Params**
 
@@ -1562,7 +1562,7 @@ On the first invocation `lh` can either be omitted or set to \`-1\`.
 
 <summary><mark style="color:green;"><code>query</code></mark></summary>
 
-Starts a new query attached to a transaction handle, retrieves the results, and stops the query immediately. This is a convenience method for calling `start_query`, `run_query` and `stop_query` in a one-time sequence.
+<code>query</code> - Starts a new query attached to a transaction handle, retrieves the results, and stops the query immediately. This is a convenience method for calling `start_query`, `run_query` and `stop_query` in a one-time sequence.
 
 This method should not be used for paginated results, as it results in performance degradation - use `start_query`, multiple `run_query` and `stop_query` instead.
 
@@ -1597,7 +1597,7 @@ curl \
 
 <summary><mark style="color:green;"><code>start_query</code></mark></summary>
 
-Starts a new query attached to a transaction handle. On success, a query handle is returned to be in subsequent calls to `run_query`.
+<code>start_query</code> - Starts a new query attached to a transaction handle. On success, a query handle is returned to be in subsequent calls to `run_query`.
 
 **Params**
 
@@ -1711,7 +1711,7 @@ curl \
 
 <summary><mark style="color:green;"><code>run_query</code></mark></summary>
 
-Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](json-rpc-api.md#start_query).
+<code>run_query</code> - Retrieves the result to a query (as chunks). For more details on queries, read the description of [`start_query`](json-rpc-api.md#start_query).
 
 **Params**
 
@@ -1775,7 +1775,7 @@ curl \
 
 <summary><mark style="color:green;"><code>reset_query</code></mark></summary>
 
-Reset/rewind a running query so that it starts from the beginning again. The next call to `run_query` will then return the first chunk of result entries.
+<code>reset_query</code> - Reset/rewind a running query so that it starts from the beginning again. The next call to `run_query` will then return the first chunk of result entries.
 
 **Params**
 
@@ -1816,7 +1816,7 @@ curl \
 
 <summary><mark style="color:green;"><code>stop_query</code></mark></summary>
 
-Stops the running query identified by query handler. If a query is not explicitly closed using this call, it will be cleaned up when the transaction the query is linked to ends.
+<code>stop_query</code> - Stops the running query identified by query handler. If a query is not explicitly closed using this call, it will be cleaned up when the transaction the query is linked to ends.
 
 **Params**
 
@@ -1859,7 +1859,7 @@ curl \
 
 <summary><mark style="color:green;"><code>reset_candidate_db</code></mark></summary>
 
-Resets the candidate datastore.
+<code>reset_candidate_db</code> - Resets the candidate datastore.
 
 **Result**
 
@@ -1873,7 +1873,7 @@ Resets the candidate datastore.
 
 <summary><mark style="color:green;"><code>lock_db</code></mark></summary>
 
-Takes a database lock.
+<code>lock_db</code> - Takes a database lock.
 
 **Params**
 
@@ -1903,7 +1903,7 @@ The \``data.sessions`\` param is an array of strings describing the current sess
 
 <summary><mark style="color:green;"><code>unlock_db</code></mark></summary>
 
-Releases a database lock.
+<code>unlock_db</code> - Releases a database lock.
 
 **Params**
 
@@ -1925,7 +1925,7 @@ The `db` param specifies which datastore to unlock.
 
 <summary><mark style="color:green;"><code>copy_running_to_startup_db</code></mark></summary>
 
-Copies the running datastore to the startup datastore.
+<code>copy_running_to_startup_db</code> - Copies the running datastore to the startup datastore.
 
 **Result**
 
@@ -1941,7 +1941,7 @@ Copies the running datastore to the startup datastore.
 
 <summary><mark style="color:green;"><code>comet</code></mark></summary>
 
-Listens on a comet channel, i.e. all asynchronous messages from batch commands started by calls to `start_cmd`, `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf`, or `subscribe_upgrade` ends up on the comet channel.
+<code>comet</code> - Listens on a comet channel, i.e. all asynchronous messages from batch commands started by calls to `start_cmd`, `subscribe_cdboper`, `subscribe_changes`, `subscribe_messages`, `subscribe_poll_leaf`, or `subscribe_upgrade` ends up on the comet channel.
 
 You are expected to have a continuous long polling call to the `comet` method at any given time. As soon as the browser or server closes the socket, due to browser or server connect timeout, the `comet` method should be called again.
 
@@ -2035,7 +2035,7 @@ In this case, the admin user seems to have set \`/dhcp:dhcp/default-lease-time\`
 
 <summary><mark style="color:green;"><code>get_system_setting</code></mark></summary>
 
-Extracts system settings such as capabilities, supported datastores, etc.
+<code>get_system_setting</code> - Extracts system settings such as capabilities, supported datastores, etc.
 
 **Params**
 
@@ -2077,7 +2077,7 @@ The above is the result if using the `all` operation.
 
 <summary><mark style="color:green;"><code>abort</code></mark></summary>
 
-Abort a JSON-RPC method by its associated ID.
+<code>abort</code> - Abort a JSON-RPC method by its associated ID.
 
 **Params**
 
@@ -2099,7 +2099,7 @@ The `id` param is the id of the JSON-RPC method to be aborted.
 
 <summary><mark style="color:green;"><code>eval_XPath</code></mark></summary>
 
-Evaluates an xpath expression on the server side.
+<code>eval_XPath</code> - Evaluates an xpath expression on the server side.
 
 **Params**
 
@@ -2124,7 +2124,7 @@ The `xpath_expr` param is the XPath expression to be evaluated.
 
 <summary><mark style="color:green;"><code>send_message</code></mark></summary>
 
-Sends a message to another user in the CLI or Web UI.
+<code>send_message</code> - Sends a message to another user in the CLI or Web UI.
 
 **Params**
 
@@ -2149,7 +2149,7 @@ The `to` param is the user name of the user to send the message to and the `mess
 
 <summary><mark style="color:green;"><code>subscribe_messages</code></mark></summary>
 
-Starts a subscriber to messages.
+<code>subscribe_messages</code> - Starts a subscriber to messages.
 
 **Note**: The `start_subscription` method must be called to actually get the subscription to generate any messages unless the `handle` is provided as input.
 
@@ -2208,7 +2208,7 @@ When receiving a message:
 
 <summary><mark style="color:green;"><code>get_rollbacks</code></mark></summary>
 
-Lists all available rollback files.
+<code>get_rollbacks</code> - Lists all available rollback files.
 
 **Result**
 
@@ -2238,7 +2238,7 @@ The `label` and `comment` properties is as given calling the methods `set_commen
 
 <summary><mark style="color:green;"><code>get_rollback</code></mark></summary>
 
-Gets the content of a specific rollback file. The rollback format is as defined in a curly bracket format as defined in the CLI.
+<code>get_rollback</code> - Gets the content of a specific rollback file. The rollback format is as defined in a curly bracket format as defined in the CLI.
 
 **Params**
 
@@ -2258,7 +2258,7 @@ Gets the content of a specific rollback file. The rollback format is as defined 
 
 <summary><mark style="color:green;"><code>install_rollback</code></mark></summary>
 
-Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
+<code>install_rollback</code> - Installs a specific rollback file into a new transaction and commits it. The configuration is restored to the one stored in the rollback file and no further operations are needed. It is the equivalent of creating a new private write private transaction handler with `new_write_trans`, followed by calls to the methods `load_rollback`, `validate_commit` and `commit`.
 
 **Note:** If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `install_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
@@ -2280,7 +2280,7 @@ Installs a specific rollback file into a new transaction and commits it. The con
 
 <summary><mark style="color:green;"><code>load_rollback</code></mark></summary>
 
-Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
+<code>load_rollback</code> - Rolls back within an existing transaction, starting with the latest rollback file, down to a specified rollback file, or selecting only the specified rollback file (also known as "selective rollback").
 
 **Note**: If the permission to rollback is denied on some nodes, the 'warnings' array in the result will contain a warning 'Some changes could not be applied due to NACM rules prohibiting access.'. The `load_rollback` will still rollback as much as is allowed by the rules. See [AAA Infrastructure](../../../administration/management/aaa-infrastructure.md) for more information about permissions and authorization.
 
@@ -2313,7 +2313,7 @@ The `selective` param, false by default, can restrict the rollback process to us
 
 <summary><mark style="color:green;"><code>get_description</code></mark></summary>
 
-Get description. To be able to get the description in the response, the `fxs` file needs to be compiled with the flag `--include-doc`. This operation can be heavy so instead of calling get\_description directly, we can confirm that there is a description before calling in `CS_HAS_DESCR` flag that we get from `get_schema` response.
+<code>get_description</code> - Get description. To be able to get the description in the response, the `fxs` file needs to be compiled with the flag `--include-doc`. This operation can be heavy so instead of calling get\_description directly, we can confirm that there is a description before calling in `CS_HAS_DESCR` flag that we get from `get_schema` response.
 
 **Params**
 
@@ -2336,7 +2336,7 @@ A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module
 
 <summary><mark style="color:green;"><code>get_schema</code></mark></summary>
 
-Exports a JSON schema for a selected part (or all) of a specific YANG module (with optional instance data inserted).
+<code>get_schema</code> - Exports a JSON schema for a selected part (or all) of a specific YANG module (with optional instance data inserted).
 
 **Params**
 
@@ -2566,7 +2566,7 @@ curl \
 
 <summary><mark style="color:green;"><code>hide_schema</code></mark></summary>
 
-Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
+<code>hide_schema</code> - Hides data that has been adorned with a `hidden` statement in YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
 
 **Params**
 
@@ -2589,7 +2589,7 @@ The `group_name` param is as defined by a `hidden` statement in a YANG module.
 
 <summary><mark style="color:green;"><code>unhide_schema</code></mark></summary>
 
-Unhides data that has been adorned with a `hidden` statement in the YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
+<code>unhide_schema</code> - Unhides data that has been adorned with a `hidden` statement in the YANG modules. `hidden` statement is an extension defined in the tail-common YANG module (http://tail-f.com/yang/common).
 
 **Params**
 
@@ -2615,7 +2615,7 @@ The `passwd` param is a password needed to hide the data that has been adorned w
 
 <summary><mark style="color:green;"><code>get_module_prefix_map</code></mark></summary>
 
-Returns a map from module name to module prefix.
+<code>get_module_prefix_map</code> - Returns a map from module name to module prefix.
 
 **Params**
 
@@ -2682,7 +2682,7 @@ curl \
 
 <summary><mark style="color:green;"><code>run_action</code></mark></summary>
 
-Invokes an action or RPC defined in a YANG module.
+<code>run_action</code> - Invokes an action or RPC defined in a YANG module.
 
 **Params**
 
@@ -2793,7 +2793,7 @@ curl \
 
 <summary><mark style="color:green;"><code>login</code></mark></summary>
 
-Creates a user session and sets a browser cookie.
+<code>login</code> - Creates a user session and sets a browser cookie.
 
 **Params**
 
@@ -2888,7 +2888,7 @@ curl \
 
 <summary><mark style="color:green;"><code>challenge_response</code></mark></summary>
 
-Creates a user session and sets a browser cookie.
+<code>challenge_response</code> - Creates a user session and sets a browser cookie.
 
 **Params**
 
@@ -2967,7 +2967,7 @@ curl \
 
 <summary><mark style="color:green;"><code>logout</code></mark></summary>
 
-Removes a user session and invalidates the browser cookie.
+<code>logout</code> - Removes a user session and invalidates the browser cookie.
 
 The HTTP cookie identifies the user session so no input parameters are needed.
 
@@ -3020,7 +3020,7 @@ curl \
 
 <summary><mark style="color:green;"><code>kick_user</code></mark></summary>
 
-Kills a user session, i.e. kicking out the user.
+<code>kick_user</code> - Kills a user session, i.e. kicking out the user.
 
 **Params**
 
@@ -3044,7 +3044,7 @@ The `user` param is either the username of a logged-in user or session ID.
 
 <summary><mark style="color:green;"><code>get_session_data</code></mark></summary>
 
-Gets session data from the session store.
+<code>get_session_data</code> - Gets session data from the session store.
 
 **Params**
 
@@ -3066,7 +3066,7 @@ The `key` param for which to get the stored data for. Read more about the sessio
 
 <summary><mark style="color:green;"><code>put_session_data</code></mark></summary>
 
-Puts session data into the session store. The session store is a small key-value server-side database where data can be stored under a unique key. The data may be an arbitrary object, but not a function object. The object is serialized into a JSON string and then stored on the server.
+<code>put_session_data</code> - Puts session data into the session store. The session store is a small key-value server-side database where data can be stored under a unique key. The data may be an arbitrary object, but not a function object. The object is serialized into a JSON string and then stored on the server.
 
 **Params**
 
@@ -3089,7 +3089,7 @@ The key param is the unique key for which the data in the `value` param is to be
 
 <summary><mark style="color:green;"><code>erase_session_data</code></mark></summary>
 
-Erases session data previously stored with `put_session_data`.
+<code>erase_session_data</code> - Erases session data previously stored with `put_session_data`.
 
 **Params**
 
@@ -3113,7 +3113,7 @@ The `key` param for which all session data will be erased. Read more about the s
 
 <summary><mark style="color:green;"><code>get_trans</code></mark></summary>
 
-Lists all transactions.
+<code>get_trans</code> - Lists all transactions.
 
 **Params**
 
@@ -3159,7 +3159,7 @@ curl \
 
 <summary><mark style="color:green;"><code>new_trans</code></mark></summary>
 
-Creates a new transaction.
+<code>new_trans</code> - Creates a new transaction.
 
 **Params**
 
@@ -3238,7 +3238,7 @@ curl \
 
 <summary><mark style="color:green;"><code>delete_trans</code></mark></summary>
 
-Deletes a transaction created by `new_trans` or `new_webui_trans`_._
+<code>delete_trans</code> - Deletes a transaction created by `new_trans` or `new_webui_trans`_._
 
 **Params**
 
@@ -3258,7 +3258,7 @@ Deletes a transaction created by `new_trans` or `new_webui_trans`_._
 
 <summary><mark style="color:green;"><code>set_trans_comment</code></mark></summary>
 
-Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be seen with a call to `get_rollbacks`.
+<code>set_trans_comment</code> - Adds a comment to the active read-write transaction. This comment will be stored in rollback files and can be seen with a call to `get_rollbacks`.
 
 **Params**
 
@@ -3278,7 +3278,7 @@ Adds a comment to the active read-write transaction. This comment will be stored
 
 <summary><mark style="color:green;"><code>set_trans_label</code></mark></summary>
 
-Adds a label to the active read-write transaction. This label will be stored in rollback files and can be seen with a call to `get_rollbacks`.
+<code>set_trans_label</code> - Adds a label to the active read-write transaction. This label will be stored in rollback files and can be seen with a call to `get_rollbacks`.
 
 **Params**
 
@@ -3300,7 +3300,7 @@ Adds a label to the active read-write transaction. This label will be stored in 
 
 <summary><mark style="color:green;"><code>is_trans_modified</code></mark></summary>
 
-Checks if any modifications have been done to a transaction.
+<code>is_trans_modified</code> - Checks if any modifications have been done to a transaction.
 
 **Params**
 
@@ -3320,7 +3320,7 @@ Checks if any modifications have been done to a transaction.
 
 <summary><mark style="color:green;"><code>get_trans_changes</code></mark></summary>
 
-Extracts modifications done to a transaction.
+<code>get_trans_changes</code> - Extracts modifications done to a transaction.
 
 **Params**
 
@@ -3377,7 +3377,7 @@ curl \
 
 <summary><mark style="color:green;"><code>validate_trans</code></mark></summary>
 
-Validates a transaction.
+<code>validate_trans</code> - Validates a transaction.
 
 **Params**
 
@@ -3421,7 +3421,7 @@ The `data.errors` param points to a keypath that is invalid.
 
 <summary><mark style="color:green;"><code>get_trans_conflicts</code></mark></summary>
 
-Gets the conflicts registered in a transaction.
+<code>get_trans_conflicts</code> - Gets the conflicts registered in a transaction.
 
 **Params**
 
@@ -3451,7 +3451,7 @@ The `old` param is only interesting if `op` is set to `modified`.
 
 <summary><mark style="color:green;"><code>resolve_trans</code></mark></summary>
 
-Tells the server that the conflicts have been resolved.
+<code>resolve_trans</code> - Tells the server that the conflicts have been resolved.
 
 **Params**
 
@@ -3473,7 +3473,7 @@ Tells the server that the conflicts have been resolved.
 
 <summary><mark style="color:green;"><code>validate_commit</code></mark></summary>
 
-Validates a transaction before calling `commit`. If this method succeeds (with or without warnings) then the next operation must be a call to either `commit` or `clear_validate_lock`. The configuration will be locked for access by other users until one of these methods is called.
+<code>validate_commit</code> - Validates a transaction before calling `commit`. If this method succeeds (with or without warnings) then the next operation must be a call to either `commit` or `clear_validate_lock`. The configuration will be locked for access by other users until one of these methods is called.
 
 **Params**
 
@@ -3544,7 +3544,7 @@ Same as for the `validate_trans` method.
 
 <summary><mark style="color:green;"><code>clear_validate_lock</code></mark></summary>
 
-Releases validate lock taken by `validate_commit`.
+<code>clear_validate_lock</code> - Releases validate lock taken by `validate_commit`.
 
 **Params**
 
@@ -3564,7 +3564,7 @@ Releases validate lock taken by `validate_commit`.
 
 <summary><mark style="color:green;"><code>commit</code></mark></summary>
 
-Copies the configuration into the running datastore.
+<code>commit</code> - Copies the configuration into the running datastore.
 
 **Params**
 
@@ -3673,7 +3673,7 @@ The `commit_queue_id` is returned if the commit entered the commit queue, either
 
 <summary><mark style="color:green;"><code>abort_commit</code></mark></summary>
 
-Aborts the active read-write transaction.
+<code>abort_commit</code> - Aborts the active read-write transaction.
 
 **Result**
 
@@ -3687,7 +3687,7 @@ Aborts the active read-write transaction.
 
 <summary><mark style="color:green;"><code>confirm_commit</code></mark></summary>
 
-Confirms the currently pending confirmed commit
+<code>confirm_commit</code> - Confirms the currently pending confirmed commit
 
 **Result**
 
@@ -3703,7 +3703,7 @@ Confirms the currently pending confirmed commit
 
 <summary><mark style="color:green;"><code>get_webui_trans</code></mark></summary>
 
-Gets the WebUI read-write transaction.
+<code>get_webui_trans</code> - Gets the WebUI read-write transaction.
 
 **Result**
 
@@ -3723,7 +3723,7 @@ trans =
 
 <summary><mark style="color:green;"><code>new_webui_trans</code></mark></summary>
 
-Creates a read-write transaction that can be retrieved by `get_webui_trans`.
+<code>new_webui_trans</code> - Creates a read-write transaction that can be retrieved by `get_webui_trans`.
 
 **Params**
 
@@ -3753,7 +3753,7 @@ A new transaction handler ID.
 
 <summary><mark style="color:green;"><code>get_template_variables</code></mark></summary>
 
-Extracts all variables from an NSO service/device template.
+<code>get_template_variables</code> - Extracts all variables from an NSO service/device template.
 
 **Params**
 
@@ -3776,7 +3776,7 @@ The `name` param is the name of the template to extract variables from.
 
 <summary><mark style="color:green;"><code>list_packages</code></mark></summary>
 
-Lists packages in NSO.
+<code>list_packages</code> - Lists packages in NSO.
 
 **Params**
 
@@ -3803,7 +3803,7 @@ The `status` param specifies which package status to list:
 
 <summary><mark style="color:green;"><code>get_service_points</code></mark></summary>
 
-List all service points. To be able to get the description part of the response the fxs files needs to be compiled with the flag "--include-doc".
+<code>get_service_points</code> - List all service points. To be able to get the description part of the response the fxs files needs to be compiled with the flag "--include-doc".
 
 **Result**
 
@@ -3819,7 +3819,7 @@ List all service points. To be able to get the description part of the response 
 
 <summary><mark style="color:green;"><code>apply</code></mark></summary>
 
-Performs validate, prepare and commit/abort in one go.
+<code>apply</code> - Performs validate, prepare and commit/abort in one go.
 
 **Params**
 
