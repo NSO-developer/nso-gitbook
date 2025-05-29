@@ -302,7 +302,8 @@
                        out everything except the requested parts. The filtered config is then sent
                        back to NSO.
 
-      cmd-path-full  - Hardwire NSO show-partial capability to 'cmd-path-full'.
+      cmd-path-full  - Hardwire NSO show-partial capability to 'cmd-path-full' (instead of
+                       'cmd-path-modes-only' with walk-mode).
 
 
     - read show-hidden-interfaces <true|false> (default false)
