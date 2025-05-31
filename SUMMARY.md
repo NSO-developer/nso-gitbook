@@ -45,7 +45,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.27.19 2025-05-16](arista-dcs/README.md)
+  * [README v5.27.20 2025-05-30](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -277,7 +277,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.13 2025-05-23](paloalto-panos_cli/README.md)
+  * [README v4.11.14 2025-05-30](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
