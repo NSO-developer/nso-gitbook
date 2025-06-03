@@ -14,7 +14,7 @@ NSO uses YANG for Service Models as well as for specifying device interfaces. Wh
 
 NSO also relies on the revision statement in YANG modules for revision management of different versions of the same type of managed device, but running different software versions.
 
-A YANG module can be directly transformed into a final schema (.fxs) file that can be loaded into NSO. Currently, all features of the YANG 1.0 language except the `anyxml` statement are supported. Most features of the YANG 1.1 language are supported. For a list of exceptions, please refer to the `YANG 1.1` section of the `ncsc` man page.
+A YANG module can be directly transformed into a final schema (.fxs) file that can be loaded into NSO. Currently, all features of the YANG 1.0 language are supported where `anyxml` statement data is treated as a string. Most features of the YANG 1.1 language are supported. For a list of exceptions, please refer to the `YANG 1.1` section of the `ncsc` man page.
 
 The data models including the .fxs file along with any code are bundled into packages that can be loaded to NSO. This is true for service applications as well as for NEDs and other packages. The corresponding YANG can be found in the `src/yang` directory in the package.
 
