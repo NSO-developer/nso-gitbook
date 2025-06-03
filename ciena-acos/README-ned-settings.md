@@ -48,7 +48,7 @@
   ciena-acos ned-settings.
 
 
-    - ciena-acos extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED enable extensions to ease the task of the NSO CLI command parser. A common
       problem with this parser is that it can easily get lost when trying to parse configuration not
@@ -71,7 +71,7 @@
                         format.
 
 
-    - ciena-acos slot <uint32>
+    - slot <uint32>
 
       Equipment group slot (Ciena 6500 platform specific settings).
 
