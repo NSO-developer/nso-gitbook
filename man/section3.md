@@ -1,4 +1,4 @@
-# Man-pages Section 3
+# Section 3
 
 ---
 
@@ -5044,7 +5044,8 @@ enum confd_expr_op {
   CONFD_EXEC_DERIVED_FROM         = 9,
   CONFD_EXEC_DERIVED_FROM_OR_SELF = 10,
   CONFD_EXEC_CONTAINS             = 11,
-  CONFD_EXEC_STRING_COMPARE       = 12
+  CONFD_EXEC_STRING_COMPARE       = 12,
+  CONFD_EXEC_COMPARE              = 13
 };
 ```
 
@@ -5081,10 +5082,14 @@ containers.
 The `struct confd_list_filter` has a `values` array field and
 `num_values` to indicate how many values are present. For backward
 compatibility, the `val` pointer is maintained and points to the same
-value as `values[0]`. In a `string_compare` expression the filter uses
-two values: `values[0]` contains the string to compare against and
-`values[1]` contains the comparison operator of type
+value as `values[0]`. In a `string-compare` or `compare` expression the
+filter uses two values: `values[0]` contains the value to compare
+against and `values[1]` contains the comparison operator of type
 `enum confd_expr_op`, e.g. `CONFD_CMP_LT` for less than.
+
+Note that the `string compare` and `compare` functions will not send a
+list-filter to the data provider if both expressions evaluate to
+node-sets.
 
 *Errors*: CONFD_ERR_MALLOC
 

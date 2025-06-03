@@ -1,4 +1,4 @@
-# Man-pages Section 5
+# Section 5
 
 ---
 

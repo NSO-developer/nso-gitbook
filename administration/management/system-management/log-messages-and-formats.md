@@ -3,9 +3,7 @@
 
 <details>
 
-<summary>AAA_LOAD_FAIL</summary>
-
-<code>AAA_LOAD_FAIL</code>
+<summary><code>AAA_LOAD_FAIL</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -19,9 +17,7 @@
 
 <details>
 
-<summary>ABORT_CAND_COMMIT</summary>
-
-<code>ABORT_CAND_COMMIT</code>
+<summary><code>ABORT_CAND_COMMIT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -35,9 +31,7 @@
 
 <details>
 
-<summary>ABORT_CAND_COMMIT_REBOOT</summary>
-
-<code>ABORT_CAND_COMMIT_REBOOT</code>
+<summary><code>ABORT_CAND_COMMIT_REBOOT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -51,9 +45,7 @@
 
 <details>
 
-<summary>ABORT_CAND_COMMIT_TERM</summary>
-
-<code>ABORT_CAND_COMMIT_TERM</code>
+<summary><code>ABORT_CAND_COMMIT_TERM</code></summary>
 
 * **Severity**  
   `INFO`
@@ -67,9 +59,7 @@
 
 <details>
 
-<summary>ABORT_CAND_COMMIT_TIMER</summary>
-
-<code>ABORT_CAND_COMMIT_TIMER</code>
+<summary><code>ABORT_CAND_COMMIT_TIMER</code></summary>
 
 * **Severity**  
   `INFO`
@@ -83,9 +73,7 @@
 
 <details>
 
-<summary>ACCEPT_FATAL</summary>
-
-<code>ACCEPT_FATAL</code>
+<summary><code>ACCEPT_FATAL</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -99,9 +87,7 @@
 
 <details>
 
-<summary>ACCEPT_FDLIMIT</summary>
-
-<code>ACCEPT_FDLIMIT</code>
+<summary><code>ACCEPT_FDLIMIT</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -115,9 +101,7 @@
 
 <details>
 
-<summary>AUTH_LOGIN_FAIL</summary>
-
-<code>AUTH_LOGIN_FAIL</code>
+<summary><code>AUTH_LOGIN_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -131,9 +115,7 @@
 
 <details>
 
-<summary>AUTH_LOGIN_SUCCESS</summary>
-
-<code>AUTH_LOGIN_SUCCESS</code>
+<summary><code>AUTH_LOGIN_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -147,9 +129,7 @@
 
 <details>
 
-<summary>AUTH_LOGOUT</summary>
-
-<code>AUTH_LOGOUT</code>
+<summary><code>AUTH_LOGOUT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -163,9 +143,7 @@
 
 <details>
 
-<summary>BADCONFIG</summary>
-
-<code>BADCONFIG</code>
+<summary><code>BADCONFIG</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -179,9 +157,7 @@
 
 <details>
 
-<summary>BAD_DEPENDENCY</summary>
-
-<code>BAD_DEPENDENCY</code>
+<summary><code>BAD_DEPENDENCY</code></summary>
 
 * **Severity**  
   `ERR`
@@ -195,9 +171,7 @@
 
 <details>
 
-<summary>BAD_NS_HASH</summary>
-
-<code>BAD_NS_HASH</code>
+<summary><code>BAD_NS_HASH</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -211,9 +185,7 @@
 
 <details>
 
-<summary>BIND_ERR</summary>
-
-<code>BIND_ERR</code>
+<summary><code>BIND_ERR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -227,9 +199,7 @@
 
 <details>
 
-<summary>BRIDGE_DIED</summary>
-
-<code>BRIDGE_DIED</code>
+<summary><code>BRIDGE_DIED</code></summary>
 
 * **Severity**  
   `ERR`
@@ -243,41 +213,7 @@
 
 <details>
 
-<summary>CANDIDATE_BAD_FILE_FORMAT</summary>
-
-<code>CANDIDATE_BAD_FILE_FORMAT</code>
-
-* **Severity**  
-  `WARNING`
-* **Description**  
-  The candidate database file has a bad format. The candidate database is reset to the empty database.
-* **Format String**  
-  `"Bad format found in candidate db file ~s; resetting candidate"`
-
-</details>
-
-
-<details>
-
-<summary>CANDIDATE_CORRUPT_FILE</summary>
-
-<code>CANDIDATE_CORRUPT_FILE</code>
-
-* **Severity**  
-  `WARNING`
-* **Description**  
-  The candidate database file is corrupt and cannot be read. The candidate database is reset to the empty database.
-* **Format String**  
-  `"Corrupt candidate db file ~s; resetting candidate"`
-
-</details>
-
-
-<details>
-
-<summary>CAND_COMMIT_ROLLBACK_DONE</summary>
-
-<code>CAND_COMMIT_ROLLBACK_DONE</code>
+<summary><code>CAND_COMMIT_ROLLBACK_DONE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -291,9 +227,7 @@
 
 <details>
 
-<summary>CAND_COMMIT_ROLLBACK_FAILURE</summary>
-
-<code>CAND_COMMIT_ROLLBACK_FAILURE</code>
+<summary><code>CAND_COMMIT_ROLLBACK_FAILURE</code></summary>
 
 * **Severity**  
   `ERR`
@@ -307,9 +241,35 @@
 
 <details>
 
-<summary>CDB_BACKUP</summary>
+<summary><code>CANDIDATE_BAD_FILE_FORMAT</code></summary>
 
-<code>CDB_BACKUP</code>
+* **Severity**  
+  `WARNING`
+* **Description**  
+  The candidate database file has a bad format. The candidate database is reset to the empty database.
+* **Format String**  
+  `"Bad format found in candidate db file ~s; resetting candidate"`
+
+</details>
+
+
+<details>
+
+<summary><code>CANDIDATE_CORRUPT_FILE</code></summary>
+
+* **Severity**  
+  `WARNING`
+* **Description**  
+  The candidate database file is corrupt and cannot be read. The candidate database is reset to the empty database.
+* **Format String**  
+  `"Corrupt candidate db file ~s; resetting candidate"`
+
+</details>
+
+
+<details>
+
+<summary><code>CDB_BACKUP</code></summary>
 
 * **Severity**  
   `INFO`
@@ -323,9 +283,7 @@
 
 <details>
 
-<summary>CDB_BOOT_ERR</summary>
-
-<code>CDB_BOOT_ERR</code>
+<summary><code>CDB_BOOT_ERR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -339,9 +297,7 @@
 
 <details>
 
-<summary>CDB_CLIENT_TIMEOUT</summary>
-
-<code>CDB_CLIENT_TIMEOUT</code>
+<summary><code>CDB_CLIENT_TIMEOUT</code></summary>
 
 * **Severity**  
   `ERR`
@@ -355,9 +311,7 @@
 
 <details>
 
-<summary>CDB_CONFIG_LOST</summary>
-
-<code>CDB_CONFIG_LOST</code>
+<summary><code>CDB_CONFIG_LOST</code></summary>
 
 * **Severity**  
   `INFO`
@@ -371,9 +325,7 @@
 
 <details>
 
-<summary>CDB_DB_LOST</summary>
-
-<code>CDB_DB_LOST</code>
+<summary><code>CDB_DB_LOST</code></summary>
 
 * **Severity**  
   `INFO`
@@ -387,9 +339,7 @@
 
 <details>
 
-<summary>CDB_FATAL_ERROR</summary>
-
-<code>CDB_FATAL_ERROR</code>
+<summary><code>CDB_FATAL_ERROR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -403,9 +353,7 @@
 
 <details>
 
-<summary>CDB_INIT_LOAD</summary>
-
-<code>CDB_INIT_LOAD</code>
+<summary><code>CDB_INIT_LOAD</code></summary>
 
 * **Severity**  
   `INFO`
@@ -419,9 +367,7 @@
 
 <details>
 
-<summary>CDB_MIGRATE</summary>
-
-<code>CDB_MIGRATE</code>
+<summary><code>CDB_MIGRATE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -435,9 +381,7 @@
 
 <details>
 
-<summary>CDB_OFFLOAD</summary>
-
-<code>CDB_OFFLOAD</code>
+<summary><code>CDB_OFFLOAD</code></summary>
 
 * **Severity**  
   `DEBUG`
@@ -451,9 +395,7 @@
 
 <details>
 
-<summary>CDB_OP_INIT</summary>
-
-<code>CDB_OP_INIT</code>
+<summary><code>CDB_OP_INIT</code></summary>
 
 * **Severity**  
   `ERR`
@@ -467,9 +409,7 @@
 
 <details>
 
-<summary>CDB_STALE_BACKUP</summary>
-
-<code>CDB_STALE_BACKUP</code>
+<summary><code>CDB_STALE_BACKUP</code></summary>
 
 * **Severity**  
   `INFO`
@@ -483,9 +423,7 @@
 
 <details>
 
-<summary>CDB_UPGRADE_FAILED</summary>
-
-<code>CDB_UPGRADE_FAILED</code>
+<summary><code>CDB_UPGRADE_FAILED</code></summary>
 
 * **Severity**  
   `ERR`
@@ -499,9 +437,7 @@
 
 <details>
 
-<summary>CGI_REQUEST</summary>
-
-<code>CGI_REQUEST</code>
+<summary><code>CGI_REQUEST</code></summary>
 
 * **Severity**  
   `INFO`
@@ -515,9 +451,7 @@
 
 <details>
 
-<summary>CHANGE_USER</summary>
-
-<code>CHANGE_USER</code>
+<summary><code>CHANGE_USER</code></summary>
 
 * **Severity**  
   `INFO`
@@ -531,25 +465,7 @@
 
 <details>
 
-<summary>CLI_CMD</summary>
-
-<code>CLI_CMD</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  User executed a CLI command.
-* **Format String**  
-  `"CLI '~s'"`
-
-</details>
-
-
-<details>
-
-<summary>CLI_CMD_ABORTED</summary>
-
-<code>CLI_CMD_ABORTED</code>
+<summary><code>CLI_CMD_ABORTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -563,9 +479,7 @@
 
 <details>
 
-<summary>CLI_CMD_DONE</summary>
-
-<code>CLI_CMD_DONE</code>
+<summary><code>CLI_CMD_DONE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -579,9 +493,21 @@
 
 <details>
 
-<summary>CLI_DENIED</summary>
+<summary><code>CLI_CMD</code></summary>
 
-<code>CLI_DENIED</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  User executed a CLI command.
+* **Format String**  
+  `"CLI '~s'"`
+
+</details>
+
+
+<details>
+
+<summary><code>CLI_DENIED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -595,9 +521,7 @@
 
 <details>
 
-<summary>COMMIT_INFO</summary>
-
-<code>COMMIT_INFO</code>
+<summary><code>COMMIT_INFO</code></summary>
 
 * **Severity**  
   `INFO`
@@ -611,9 +535,7 @@
 
 <details>
 
-<summary>COMMIT_QUEUE_CORRUPT</summary>
-
-<code>COMMIT_QUEUE_CORRUPT</code>
+<summary><code>COMMIT_QUEUE_CORRUPT</code></summary>
 
 * **Severity**  
   `ERR`
@@ -627,9 +549,7 @@
 
 <details>
 
-<summary>CONFIG_CHANGE</summary>
-
-<code>CONFIG_CHANGE</code>
+<summary><code>CONFIG_CHANGE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -643,9 +563,7 @@
 
 <details>
 
-<summary>CONFIG_DEPRECATED</summary>
-
-<code>CONFIG_DEPRECATED</code>
+<summary><code>CONFIG_DEPRECATED</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -659,9 +577,7 @@
 
 <details>
 
-<summary>CONFIG_OBSOLETE</summary>
-
-<code>CONFIG_OBSOLETE</code>
+<summary><code>CONFIG_OBSOLETE</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -675,9 +591,7 @@
 
 <details>
 
-<summary>CONFIG_TRANSACTION_LIMIT</summary>
-
-<code>CONFIG_TRANSACTION_LIMIT</code>
+<summary><code>CONFIG_TRANSACTION_LIMIT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -691,9 +605,7 @@
 
 <details>
 
-<summary>CONSULT_FILE</summary>
-
-<code>CONSULT_FILE</code>
+<summary><code>CONSULT_FILE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -707,9 +619,7 @@
 
 <details>
 
-<summary>CRYPTO_KEYS_FAILED_LOADING</summary>
-
-<code>CRYPTO_KEYS_FAILED_LOADING</code>
+<summary><code>CRYPTO_KEYS_FAILED_LOADING</code></summary>
 
 * **Severity**  
   `INFO`
@@ -723,9 +633,7 @@
 
 <details>
 
-<summary>DAEMON_DIED</summary>
-
-<code>DAEMON_DIED</code>
+<summary><code>DAEMON_DIED</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -739,9 +647,7 @@
 
 <details>
 
-<summary>DAEMON_TIMEOUT</summary>
-
-<code>DAEMON_TIMEOUT</code>
+<summary><code>DAEMON_TIMEOUT</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -755,9 +661,7 @@
 
 <details>
 
-<summary>DEVEL_AAA</summary>
-
-<code>DEVEL_AAA</code>
+<summary><code>DEVEL_AAA</code></summary>
 
 * **Severity**  
   `INFO`
@@ -771,9 +675,7 @@
 
 <details>
 
-<summary>DEVEL_CAPI</summary>
-
-<code>DEVEL_CAPI</code>
+<summary><code>DEVEL_CAPI</code></summary>
 
 * **Severity**  
   `INFO`
@@ -787,9 +689,7 @@
 
 <details>
 
-<summary>DEVEL_CDB</summary>
-
-<code>DEVEL_CDB</code>
+<summary><code>DEVEL_CDB</code></summary>
 
 * **Severity**  
   `INFO`
@@ -803,9 +703,7 @@
 
 <details>
 
-<summary>DEVEL_CONFD</summary>
-
-<code>DEVEL_CONFD</code>
+<summary><code>DEVEL_CONFD</code></summary>
 
 * **Severity**  
   `INFO`
@@ -819,9 +717,7 @@
 
 <details>
 
-<summary>DEVEL_ECONFD</summary>
-
-<code>DEVEL_ECONFD</code>
+<summary><code>DEVEL_ECONFD</code></summary>
 
 * **Severity**  
   `INFO`
@@ -835,9 +731,7 @@
 
 <details>
 
-<summary>DEVEL_SLS</summary>
-
-<code>DEVEL_SLS</code>
+<summary><code>DEVEL_SLS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -851,9 +745,7 @@
 
 <details>
 
-<summary>DEVEL_SNMPA</summary>
-
-<code>DEVEL_SNMPA</code>
+<summary><code>DEVEL_SNMPA</code></summary>
 
 * **Severity**  
   `INFO`
@@ -867,9 +759,7 @@
 
 <details>
 
-<summary>DEVEL_SNMPGW</summary>
-
-<code>DEVEL_SNMPGW</code>
+<summary><code>DEVEL_SNMPGW</code></summary>
 
 * **Severity**  
   `INFO`
@@ -883,9 +773,7 @@
 
 <details>
 
-<summary>DEVEL_WEBUI</summary>
-
-<code>DEVEL_WEBUI</code>
+<summary><code>DEVEL_WEBUI</code></summary>
 
 * **Severity**  
   `INFO`
@@ -899,9 +787,7 @@
 
 <details>
 
-<summary>DUPLICATE_MODULE_NAME</summary>
-
-<code>DUPLICATE_MODULE_NAME</code>
+<summary><code>DUPLICATE_MODULE_NAME</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -915,9 +801,7 @@
 
 <details>
 
-<summary>DUPLICATE_NAMESPACE</summary>
-
-<code>DUPLICATE_NAMESPACE</code>
+<summary><code>DUPLICATE_NAMESPACE</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -931,9 +815,7 @@
 
 <details>
 
-<summary>DUPLICATE_PREFIX</summary>
-
-<code>DUPLICATE_PREFIX</code>
+<summary><code>DUPLICATE_PREFIX</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -947,9 +829,7 @@
 
 <details>
 
-<summary>ERRLOG_SIZE_CHANGED</summary>
-
-<code>ERRLOG_SIZE_CHANGED</code>
+<summary><code>ERRLOG_SIZE_CHANGED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -963,9 +843,7 @@
 
 <details>
 
-<summary>EVENT_SOCKET_TIMEOUT</summary>
-
-<code>EVENT_SOCKET_TIMEOUT</code>
+<summary><code>EVENT_SOCKET_TIMEOUT</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -979,9 +857,7 @@
 
 <details>
 
-<summary>EVENT_SOCKET_WRITE_BLOCK</summary>
-
-<code>EVENT_SOCKET_WRITE_BLOCK</code>
+<summary><code>EVENT_SOCKET_WRITE_BLOCK</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -995,9 +871,7 @@
 
 <details>
 
-<summary>EXEC_WHEN_CIRCULAR_DEPENDENCY</summary>
-
-<code>EXEC_WHEN_CIRCULAR_DEPENDENCY</code>
+<summary><code>EXEC_WHEN_CIRCULAR_DEPENDENCY</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -1011,41 +885,7 @@
 
 <details>
 
-<summary>EXTAUTH_BAD_RET</summary>
-
-<code>EXTAUTH_BAD_RET</code>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  Authentication is external and the external program returned badly formatted data.
-* **Format String**  
-  `"External auth program (user=~s) ret bad output: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>EXT_AUTH_2FA</summary>
-
-<code>EXT_AUTH_2FA</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  External challenge sent to a user.
-* **Format String**  
-  `"external challenge sent to ~s from ~s with ~s"`
-
-</details>
-
-
-<details>
-
-<summary>EXT_AUTH_2FA_FAIL</summary>
-
-<code>EXT_AUTH_2FA_FAIL</code>
+<summary><code>EXT_AUTH_2FA_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1059,9 +899,21 @@
 
 <details>
 
-<summary>EXT_AUTH_2FA_SUCCESS</summary>
+<summary><code>EXT_AUTH_2FA</code></summary>
 
-<code>EXT_AUTH_2FA_SUCCESS</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  External challenge sent to a user.
+* **Format String**  
+  `"external challenge sent to ~s from ~s with ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>EXT_AUTH_2FA_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1075,9 +927,21 @@
 
 <details>
 
-<summary>EXT_AUTH_FAIL</summary>
+<summary><code>EXTAUTH_BAD_RET</code></summary>
 
-<code>EXT_AUTH_FAIL</code>
+* **Severity**  
+  `ERR`
+* **Description**  
+  Authentication is external and the external program returned badly formatted data.
+* **Format String**  
+  `"External auth program (user=~s) ret bad output: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>EXT_AUTH_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1091,9 +955,7 @@
 
 <details>
 
-<summary>EXT_AUTH_SUCCESS</summary>
-
-<code>EXT_AUTH_SUCCESS</code>
+<summary><code>EXT_AUTH_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1107,9 +969,7 @@
 
 <details>
 
-<summary>EXT_AUTH_TOKEN_FAIL</summary>
-
-<code>EXT_AUTH_TOKEN_FAIL</code>
+<summary><code>EXT_AUTH_TOKEN_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1123,9 +983,7 @@
 
 <details>
 
-<summary>EXT_AUTH_TOKEN_SUCCESS</summary>
-
-<code>EXT_AUTH_TOKEN_SUCCESS</code>
+<summary><code>EXT_AUTH_TOKEN_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1139,9 +997,7 @@
 
 <details>
 
-<summary>EXT_BIND_ERR</summary>
-
-<code>EXT_BIND_ERR</code>
+<summary><code>EXT_BIND_ERR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1155,9 +1011,7 @@
 
 <details>
 
-<summary>FILE_ERROR</summary>
-
-<code>FILE_ERROR</code>
+<summary><code>FILE_ERROR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1171,9 +1025,7 @@
 
 <details>
 
-<summary>FILE_LOAD</summary>
-
-<code>FILE_LOAD</code>
+<summary><code>FILE_LOAD</code></summary>
 
 * **Severity**  
   `DEBUG`
@@ -1187,25 +1039,7 @@
 
 <details>
 
-<summary>FILE_LOADING</summary>
-
-<code>FILE_LOADING</code>
-
-* **Severity**  
-  `DEBUG`
-* **Description**  
-  System starts to load a file.
-* **Format String**  
-  `"Loading file ~s"`
-
-</details>
-
-
-<details>
-
-<summary>FILE_LOAD_ERR</summary>
-
-<code>FILE_LOAD_ERR</code>
+<summary><code>FILE_LOAD_ERR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1219,9 +1053,21 @@
 
 <details>
 
-<summary>FXS_MISMATCH</summary>
+<summary><code>FILE_LOADING</code></summary>
 
-<code>FXS_MISMATCH</code>
+* **Severity**  
+  `DEBUG`
+* **Description**  
+  System starts to load a file.
+* **Format String**  
+  `"Loading file ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>FXS_MISMATCH</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1235,9 +1081,7 @@
 
 <details>
 
-<summary>GROUP_ASSIGN</summary>
-
-<code>GROUP_ASSIGN</code>
+<summary><code>GROUP_ASSIGN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1251,9 +1095,7 @@
 
 <details>
 
-<summary>GROUP_NO_ASSIGN</summary>
-
-<code>GROUP_NO_ASSIGN</code>
+<summary><code>GROUP_NO_ASSIGN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1267,9 +1109,7 @@
 
 <details>
 
-<summary>HA_BAD_VSN</summary>
-
-<code>HA_BAD_VSN</code>
+<summary><code>HA_BAD_VSN</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1283,9 +1123,7 @@
 
 <details>
 
-<summary>HA_DUPLICATE_NODEID</summary>
-
-<code>HA_DUPLICATE_NODEID</code>
+<summary><code>HA_DUPLICATE_NODEID</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1299,9 +1137,7 @@
 
 <details>
 
-<summary>HA_FAILED_CONNECT</summary>
-
-<code>HA_FAILED_CONNECT</code>
+<summary><code>HA_FAILED_CONNECT</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1315,9 +1151,7 @@
 
 <details>
 
-<summary>HA_SECONDARY_KILLED</summary>
-
-<code>HA_SECONDARY_KILLED</code>
+<summary><code>HA_SECONDARY_KILLED</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1331,9 +1165,7 @@
 
 <details>
 
-<summary>INTERNAL_ERROR</summary>
-
-<code>INTERNAL_ERROR</code>
+<summary><code>INTERNAL_ERROR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1347,9 +1179,7 @@
 
 <details>
 
-<summary>JIT_ENABLED</summary>
-
-<code>JIT_ENABLED</code>
+<summary><code>JIT_ENABLED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1363,9 +1193,7 @@
 
 <details>
 
-<summary>JSONRPC_LOG_MSG</summary>
-
-<code>JSONRPC_LOG_MSG</code>
+<summary><code>JSONRPC_LOG_MSG</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1379,25 +1207,7 @@
 
 <details>
 
-<summary>JSONRPC_REQUEST</summary>
-
-<code>JSONRPC_REQUEST</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  JSON-RPC method requested.
-* **Format String**  
-  `"JSON-RPC: '~s' with JSON params ~s"`
-
-</details>
-
-
-<details>
-
-<summary>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</summary>
-
-<code>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</code>
+<summary><code>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1411,9 +1221,7 @@
 
 <details>
 
-<summary>JSONRPC_REQUEST_IDLE_TIMEOUT</summary>
-
-<code>JSONRPC_REQUEST_IDLE_TIMEOUT</code>
+<summary><code>JSONRPC_REQUEST_IDLE_TIMEOUT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1427,9 +1235,21 @@
 
 <details>
 
-<summary>JSONRPC_WARN_MSG</summary>
+<summary><code>JSONRPC_REQUEST</code></summary>
 
-<code>JSONRPC_WARN_MSG</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  JSON-RPC method requested.
+* **Format String**  
+  `"JSON-RPC: '~s' with JSON params ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>JSONRPC_WARN_MSG</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -1443,9 +1263,7 @@
 
 <details>
 
-<summary>KICKER_MISSING_SCHEMA</summary>
-
-<code>KICKER_MISSING_SCHEMA</code>
+<summary><code>KICKER_MISSING_SCHEMA</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1459,9 +1277,7 @@
 
 <details>
 
-<summary>LIB_BAD_SIZES</summary>
-
-<code>LIB_BAD_SIZES</code>
+<summary><code>LIB_BAD_SIZES</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1475,9 +1291,7 @@
 
 <details>
 
-<summary>LIB_BAD_VSN</summary>
-
-<code>LIB_BAD_VSN</code>
+<summary><code>LIB_BAD_VSN</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1491,9 +1305,7 @@
 
 <details>
 
-<summary>LIB_NO_ACCESS</summary>
-
-<code>LIB_NO_ACCESS</code>
+<summary><code>LIB_NO_ACCESS</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1507,9 +1319,7 @@
 
 <details>
 
-<summary>LISTENER_INFO</summary>
-
-<code>LISTENER_INFO</code>
+<summary><code>LISTENER_INFO</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1523,25 +1333,7 @@
 
 <details>
 
-<summary>LOCAL_AUTH_FAIL</summary>
-
-<code>LOCAL_AUTH_FAIL</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Authentication for a locally configured user failed.
-* **Format String**  
-  `"local authentication failed via ~s from ~s with ~s: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>LOCAL_AUTH_FAIL_BADPASS</summary>
-
-<code>LOCAL_AUTH_FAIL_BADPASS</code>
+<summary><code>LOCAL_AUTH_FAIL_BADPASS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1555,9 +1347,21 @@
 
 <details>
 
-<summary>LOCAL_AUTH_FAIL_NOUSER</summary>
+<summary><code>LOCAL_AUTH_FAIL</code></summary>
 
-<code>LOCAL_AUTH_FAIL_NOUSER</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  Authentication for a locally configured user failed.
+* **Format String**  
+  `"local authentication failed via ~s from ~s with ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>LOCAL_AUTH_FAIL_NOUSER</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1571,9 +1375,7 @@
 
 <details>
 
-<summary>LOCAL_AUTH_SUCCESS</summary>
-
-<code>LOCAL_AUTH_SUCCESS</code>
+<summary><code>LOCAL_AUTH_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1587,9 +1389,7 @@
 
 <details>
 
-<summary>LOCAL_IPC_ACCESS_DENIED</summary>
-
-<code>LOCAL_IPC_ACCESS_DENIED</code>
+<summary><code>LOCAL_IPC_ACCESS_DENIED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1603,9 +1403,7 @@
 
 <details>
 
-<summary>LOGGING_DEST_CHANGED</summary>
-
-<code>LOGGING_DEST_CHANGED</code>
+<summary><code>LOGGING_DEST_CHANGED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1619,9 +1417,7 @@
 
 <details>
 
-<summary>LOGGING_SHUTDOWN</summary>
-
-<code>LOGGING_SHUTDOWN</code>
+<summary><code>LOGGING_SHUTDOWN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1635,9 +1431,7 @@
 
 <details>
 
-<summary>LOGGING_STARTED</summary>
-
-<code>LOGGING_STARTED</code>
+<summary><code>LOGGING_STARTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1651,9 +1445,7 @@
 
 <details>
 
-<summary>LOGGING_STARTED_TO</summary>
-
-<code>LOGGING_STARTED_TO</code>
+<summary><code>LOGGING_STARTED_TO</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1667,9 +1459,7 @@
 
 <details>
 
-<summary>LOGGING_STATUS_CHANGED</summary>
-
-<code>LOGGING_STATUS_CHANGED</code>
+<summary><code>LOGGING_STATUS_CHANGED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1683,9 +1473,7 @@
 
 <details>
 
-<summary>LOGIN_REJECTED</summary>
-
-<code>LOGIN_REJECTED</code>
+<summary><code>LOGIN_REJECTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1699,9 +1487,7 @@
 
 <details>
 
-<summary>MAAPI_LOGOUT</summary>
-
-<code>MAAPI_LOGOUT</code>
+<summary><code>MAAPI_LOGOUT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1715,9 +1501,7 @@
 
 <details>
 
-<summary>MAAPI_WRITE_TO_SOCKET_FAIL</summary>
-
-<code>MAAPI_WRITE_TO_SOCKET_FAIL</code>
+<summary><code>MAAPI_WRITE_TO_SOCKET_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1731,9 +1515,7 @@
 
 <details>
 
-<summary>MISSING_AES256CFB128_SETTINGS</summary>
-
-<code>MISSING_AES256CFB128_SETTINGS</code>
+<summary><code>MISSING_AES256CFB128_SETTINGS</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1747,9 +1529,7 @@
 
 <details>
 
-<summary>MISSING_AESCFB128_SETTINGS</summary>
-
-<code>MISSING_AESCFB128_SETTINGS</code>
+<summary><code>MISSING_AESCFB128_SETTINGS</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1763,9 +1543,7 @@
 
 <details>
 
-<summary>MISSING_DES3CBC_SETTINGS</summary>
-
-<code>MISSING_DES3CBC_SETTINGS</code>
+<summary><code>MISSING_DES3CBC_SETTINGS</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1779,25 +1557,7 @@
 
 <details>
 
-<summary>MISSING_NS</summary>
-
-<code>MISSING_NS</code>
-
-* **Severity**  
-  `CRIT`
-* **Description**  
-  While validating the consistency of the config - a required namespace was missing.
-* **Format String**  
-  `"The namespace ~s could not be found in the loadPath."`
-
-</details>
-
-
-<details>
-
-<summary>MISSING_NS2</summary>
-
-<code>MISSING_NS2</code>
+<summary><code>MISSING_NS2</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1811,9 +1571,21 @@
 
 <details>
 
-<summary>MMAP_SCHEMA_FAIL</summary>
+<summary><code>MISSING_NS</code></summary>
 
-<code>MMAP_SCHEMA_FAIL</code>
+* **Severity**  
+  `CRIT`
+* **Description**  
+  While validating the consistency of the config - a required namespace was missing.
+* **Format String**  
+  `"The namespace ~s could not be found in the loadPath."`
+
+</details>
+
+
+<details>
+
+<summary><code>MMAP_SCHEMA_FAIL</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1827,25 +1599,7 @@
 
 <details>
 
-<summary>NETCONF</summary>
-
-<code>NETCONF</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  NETCONF traffic log message
-* **Format String**  
-  `"~s"`
-
-</details>
-
-
-<details>
-
-<summary>NETCONF_HDR_ERR</summary>
-
-<code>NETCONF_HDR_ERR</code>
+<summary><code>NETCONF_HDR_ERR</code></summary>
 
 * **Severity**  
   `ERR`
@@ -1859,9 +1613,21 @@
 
 <details>
 
-<summary>NIF_LOG</summary>
+<summary><code>NETCONF</code></summary>
 
-<code>NIF_LOG</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  NETCONF traffic log message
+* **Format String**  
+  `"~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>NIF_LOG</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1875,9 +1641,7 @@
 
 <details>
 
-<summary>NOAAA_CLI_LOGIN</summary>
-
-<code>NOAAA_CLI_LOGIN</code>
+<summary><code>NOAAA_CLI_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -1891,25 +1655,7 @@
 
 <details>
 
-<summary>NOTIFICATION_REPLAY_STORE_FAILURE</summary>
-
-<code>NOTIFICATION_REPLAY_STORE_FAILURE</code>
-
-* **Severity**  
-  `CRIT`
-* **Description**  
-  A failure occurred in the builtin notification replay store
-* **Format String**  
-  `"~s"`
-
-</details>
-
-
-<details>
-
-<summary>NO_CALLPOINT</summary>
-
-<code>NO_CALLPOINT</code>
+<summary><code>NO_CALLPOINT</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1923,9 +1669,7 @@
 
 <details>
 
-<summary>NO_SUCH_IDENTITY</summary>
-
-<code>NO_SUCH_IDENTITY</code>
+<summary><code>NO_SUCH_IDENTITY</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1939,9 +1683,7 @@
 
 <details>
 
-<summary>NO_SUCH_NS</summary>
-
-<code>NO_SUCH_NS</code>
+<summary><code>NO_SUCH_NS</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1955,9 +1697,7 @@
 
 <details>
 
-<summary>NO_SUCH_TYPE</summary>
-
-<code>NO_SUCH_TYPE</code>
+<summary><code>NO_SUCH_TYPE</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -1971,25 +1711,21 @@
 
 <details>
 
-<summary>NS_LOAD_ERR</summary>
-
-<code>NS_LOAD_ERR</code>
+<summary><code>NOTIFICATION_REPLAY_STORE_FAILURE</code></summary>
 
 * **Severity**  
   `CRIT`
 * **Description**  
-  System tried to process a loaded namespace and failed.
+  A failure occurred in the builtin notification replay store
 * **Format String**  
-  `"Failed to process namespace ~s: ~s"`
+  `"~s"`
 
 </details>
 
 
 <details>
 
-<summary>NS_LOAD_ERR2</summary>
-
-<code>NS_LOAD_ERR2</code>
+<summary><code>NS_LOAD_ERR2</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -2003,9 +1739,21 @@
 
 <details>
 
-<summary>OPEN_LOGFILE</summary>
+<summary><code>NS_LOAD_ERR</code></summary>
 
-<code>OPEN_LOGFILE</code>
+* **Severity**  
+  `CRIT`
+* **Description**  
+  System tried to process a loaded namespace and failed.
+* **Format String**  
+  `"Failed to process namespace ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>OPEN_LOGFILE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2019,9 +1767,7 @@
 
 <details>
 
-<summary>PAM_AUTH_FAIL</summary>
-
-<code>PAM_AUTH_FAIL</code>
+<summary><code>PAM_AUTH_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2035,9 +1781,7 @@
 
 <details>
 
-<summary>PAM_AUTH_SUCCESS</summary>
-
-<code>PAM_AUTH_SUCCESS</code>
+<summary><code>PAM_AUTH_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2051,9 +1795,7 @@
 
 <details>
 
-<summary>PHASE0_STARTED</summary>
-
-<code>PHASE0_STARTED</code>
+<summary><code>PHASE0_STARTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2067,9 +1809,7 @@
 
 <details>
 
-<summary>PHASE1_STARTED</summary>
-
-<code>PHASE1_STARTED</code>
+<summary><code>PHASE1_STARTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2083,9 +1823,7 @@
 
 <details>
 
-<summary>READ_STATE_FILE_FAILED</summary>
-
-<code>READ_STATE_FILE_FAILED</code>
+<summary><code>READ_STATE_FILE_FAILED</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -2099,9 +1837,7 @@
 
 <details>
 
-<summary>RELOAD</summary>
-
-<code>RELOAD</code>
+<summary><code>RELOAD</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2115,9 +1851,7 @@
 
 <details>
 
-<summary>REOPEN_LOGS</summary>
-
-<code>REOPEN_LOGS</code>
+<summary><code>REOPEN_LOGS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2131,41 +1865,7 @@
 
 <details>
 
-<summary>RESTCONF_REQUEST</summary>
-
-<code>RESTCONF_REQUEST</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  RESTCONF request
-* **Format String**  
-  `"RESTCONF: request with ~s: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>RESTCONF_RESPONSE</summary>
-
-<code>RESTCONF_RESPONSE</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  RESTCONF response
-* **Format String**  
-  `"RESTCONF: response with ~s: ~s duration ~s us"`
-
-</details>
-
-
-<details>
-
-<summary>REST_AUTH_FAIL</summary>
-
-<code>REST_AUTH_FAIL</code>
+<summary><code>REST_AUTH_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2179,9 +1879,7 @@
 
 <details>
 
-<summary>REST_AUTH_SUCCESS</summary>
-
-<code>REST_AUTH_SUCCESS</code>
+<summary><code>REST_AUTH_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2195,9 +1893,35 @@
 
 <details>
 
-<summary>REST_REQUEST</summary>
+<summary><code>RESTCONF_REQUEST</code></summary>
 
-<code>REST_REQUEST</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  RESTCONF request
+* **Format String**  
+  `"RESTCONF: request with ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>RESTCONF_RESPONSE</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  RESTCONF response
+* **Format String**  
+  `"RESTCONF: response with ~s: ~s duration ~s us"`
+
+</details>
+
+
+<details>
+
+<summary><code>REST_REQUEST</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2211,9 +1935,7 @@
 
 <details>
 
-<summary>REST_RESPONSE</summary>
-
-<code>REST_RESPONSE</code>
+<summary><code>REST_RESPONSE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2227,9 +1949,7 @@
 
 <details>
 
-<summary>ROLLBACK_FAIL_CREATE</summary>
-
-<code>ROLLBACK_FAIL_CREATE</code>
+<summary><code>ROLLBACK_FAIL_CREATE</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2243,9 +1963,7 @@
 
 <details>
 
-<summary>ROLLBACK_FAIL_DELETE</summary>
-
-<code>ROLLBACK_FAIL_DELETE</code>
+<summary><code>ROLLBACK_FAIL_DELETE</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2259,9 +1977,7 @@
 
 <details>
 
-<summary>ROLLBACK_FAIL_RENAME</summary>
-
-<code>ROLLBACK_FAIL_RENAME</code>
+<summary><code>ROLLBACK_FAIL_RENAME</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2275,9 +1991,7 @@
 
 <details>
 
-<summary>ROLLBACK_FAIL_REPAIR</summary>
-
-<code>ROLLBACK_FAIL_REPAIR</code>
+<summary><code>ROLLBACK_FAIL_REPAIR</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2291,9 +2005,7 @@
 
 <details>
 
-<summary>ROLLBACK_REMOVE</summary>
-
-<code>ROLLBACK_REMOVE</code>
+<summary><code>ROLLBACK_REMOVE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2307,9 +2019,7 @@
 
 <details>
 
-<summary>ROLLBACK_REPAIR</summary>
-
-<code>ROLLBACK_REPAIR</code>
+<summary><code>ROLLBACK_REPAIR</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2323,9 +2033,7 @@
 
 <details>
 
-<summary>SESSION_CREATE</summary>
-
-<code>SESSION_CREATE</code>
+<summary><code>SESSION_CREATE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2339,9 +2047,7 @@
 
 <details>
 
-<summary>SESSION_LIMIT</summary>
-
-<code>SESSION_LIMIT</code>
+<summary><code>SESSION_LIMIT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2355,9 +2061,7 @@
 
 <details>
 
-<summary>SESSION_MAX_EXCEEDED</summary>
-
-<code>SESSION_MAX_EXCEEDED</code>
+<summary><code>SESSION_MAX_EXCEEDED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2371,9 +2075,7 @@
 
 <details>
 
-<summary>SESSION_TERMINATION</summary>
-
-<code>SESSION_TERMINATION</code>
+<summary><code>SESSION_TERMINATION</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2387,9 +2089,7 @@
 
 <details>
 
-<summary>SKIP_FILE_LOADING</summary>
-
-<code>SKIP_FILE_LOADING</code>
+<summary><code>SKIP_FILE_LOADING</code></summary>
 
 * **Severity**  
   `DEBUG`
@@ -2403,9 +2103,7 @@
 
 <details>
 
-<summary>SNMP_AUTHENTICATION_FAILED</summary>
-
-<code>SNMP_AUTHENTICATION_FAILED</code>
+<summary><code>SNMP_AUTHENTICATION_FAILED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2419,9 +2117,7 @@
 
 <details>
 
-<summary>SNMP_CANT_LOAD_MIB</summary>
-
-<code>SNMP_CANT_LOAD_MIB</code>
+<summary><code>SNMP_CANT_LOAD_MIB</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -2435,9 +2131,7 @@
 
 <details>
 
-<summary>SNMP_MIB_LOADING</summary>
-
-<code>SNMP_MIB_LOADING</code>
+<summary><code>SNMP_MIB_LOADING</code></summary>
 
 * **Severity**  
   `DEBUG`
@@ -2451,9 +2145,7 @@
 
 <details>
 
-<summary>SNMP_NOT_A_TRAP</summary>
-
-<code>SNMP_NOT_A_TRAP</code>
+<summary><code>SNMP_NOT_A_TRAP</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2467,9 +2159,7 @@
 
 <details>
 
-<summary>SNMP_READ_STATE_FILE_FAILED</summary>
-
-<code>SNMP_READ_STATE_FILE_FAILED</code>
+<summary><code>SNMP_READ_STATE_FILE_FAILED</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -2483,9 +2173,7 @@
 
 <details>
 
-<summary>SNMP_REQUIRES_CDB</summary>
-
-<code>SNMP_REQUIRES_CDB</code>
+<summary><code>SNMP_REQUIRES_CDB</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -2499,9 +2187,7 @@
 
 <details>
 
-<summary>SNMP_TRAP_NOT_FORWARDED</summary>
-
-<code>SNMP_TRAP_NOT_FORWARDED</code>
+<summary><code>SNMP_TRAP_NOT_FORWARDED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2515,9 +2201,7 @@
 
 <details>
 
-<summary>SNMP_TRAP_NOT_RECOGNIZED</summary>
-
-<code>SNMP_TRAP_NOT_RECOGNIZED</code>
+<summary><code>SNMP_TRAP_NOT_RECOGNIZED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2531,9 +2215,7 @@
 
 <details>
 
-<summary>SNMP_TRAP_OPEN_PORT</summary>
-
-<code>SNMP_TRAP_OPEN_PORT</code>
+<summary><code>SNMP_TRAP_OPEN_PORT</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2547,9 +2229,7 @@
 
 <details>
 
-<summary>SNMP_TRAP_UNKNOWN_SENDER</summary>
-
-<code>SNMP_TRAP_UNKNOWN_SENDER</code>
+<summary><code>SNMP_TRAP_UNKNOWN_SENDER</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2563,9 +2243,7 @@
 
 <details>
 
-<summary>SNMP_TRAP_V1</summary>
-
-<code>SNMP_TRAP_V1</code>
+<summary><code>SNMP_TRAP_V1</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2579,9 +2257,7 @@
 
 <details>
 
-<summary>SNMP_WRITE_STATE_FILE_FAILED</summary>
-
-<code>SNMP_WRITE_STATE_FILE_FAILED</code>
+<summary><code>SNMP_WRITE_STATE_FILE_FAILED</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -2595,9 +2271,7 @@
 
 <details>
 
-<summary>SSH_HOST_KEY_UNAVAILABLE</summary>
-
-<code>SSH_HOST_KEY_UNAVAILABLE</code>
+<summary><code>SSH_HOST_KEY_UNAVAILABLE</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2611,9 +2285,7 @@
 
 <details>
 
-<summary>SSH_SUBSYS_ERR</summary>
-
-<code>SSH_SUBSYS_ERR</code>
+<summary><code>SSH_SUBSYS_ERR</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2627,9 +2299,7 @@
 
 <details>
 
-<summary>STARTED</summary>
-
-<code>STARTED</code>
+<summary><code>STARTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2643,9 +2313,7 @@
 
 <details>
 
-<summary>STARTING</summary>
-
-<code>STARTING</code>
+<summary><code>STARTING</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2659,9 +2327,7 @@
 
 <details>
 
-<summary>STOPPING</summary>
-
-<code>STOPPING</code>
+<summary><code>STOPPING</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2675,9 +2341,7 @@
 
 <details>
 
-<summary>TOKEN_MISMATCH</summary>
-
-<code>TOKEN_MISMATCH</code>
+<summary><code>TOKEN_MISMATCH</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2691,9 +2355,7 @@
 
 <details>
 
-<summary>UPGRADE_ABORTED</summary>
-
-<code>UPGRADE_ABORTED</code>
+<summary><code>UPGRADE_ABORTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2707,9 +2369,7 @@
 
 <details>
 
-<summary>UPGRADE_COMMITTED</summary>
-
-<code>UPGRADE_COMMITTED</code>
+<summary><code>UPGRADE_COMMITTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2723,9 +2383,7 @@
 
 <details>
 
-<summary>UPGRADE_INIT_STARTED</summary>
-
-<code>UPGRADE_INIT_STARTED</code>
+<summary><code>UPGRADE_INIT_STARTED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2739,9 +2397,7 @@
 
 <details>
 
-<summary>UPGRADE_INIT_SUCCEEDED</summary>
-
-<code>UPGRADE_INIT_SUCCEEDED</code>
+<summary><code>UPGRADE_INIT_SUCCEEDED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2755,9 +2411,7 @@
 
 <details>
 
-<summary>UPGRADE_PERFORMED</summary>
-
-<code>UPGRADE_PERFORMED</code>
+<summary><code>UPGRADE_PERFORMED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2771,25 +2425,7 @@
 
 <details>
 
-<summary>WEBUI_LOG_MSG</summary>
-
-<code>WEBUI_LOG_MSG</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  WebUI access log message
-* **Format String**  
-  `"WebUI access log: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>WEB_ACTION</summary>
-
-<code>WEB_ACTION</code>
+<summary><code>WEB_ACTION</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2803,9 +2439,7 @@
 
 <details>
 
-<summary>WEB_CMD</summary>
-
-<code>WEB_CMD</code>
+<summary><code>WEB_CMD</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2819,9 +2453,7 @@
 
 <details>
 
-<summary>WEB_COMMIT</summary>
-
-<code>WEB_COMMIT</code>
+<summary><code>WEB_COMMIT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2835,9 +2467,21 @@
 
 <details>
 
-<summary>WRITE_STATE_FILE_FAILED</summary>
+<summary><code>WEBUI_LOG_MSG</code></summary>
 
-<code>WRITE_STATE_FILE_FAILED</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  WebUI access log message
+* **Format String**  
+  `"WebUI access log: ~s"`
+
+</details>
+
+
+<details>
+
+<summary><code>WRITE_STATE_FILE_FAILED</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -2851,9 +2495,7 @@
 
 <details>
 
-<summary>XPATH_EVAL_ERROR1</summary>
-
-<code>XPATH_EVAL_ERROR1</code>
+<summary><code>XPATH_EVAL_ERROR1</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -2867,9 +2509,7 @@
 
 <details>
 
-<summary>XPATH_EVAL_ERROR2</summary>
-
-<code>XPATH_EVAL_ERROR2</code>
+<summary><code>XPATH_EVAL_ERROR2</code></summary>
 
 * **Severity**  
   `WARNING`
@@ -2883,9 +2523,7 @@
 
 <details>
 
-<summary>COMMIT_UN_SYNCED_DEV</summary>
-
-<code>COMMIT_UN_SYNCED_DEV</code>
+<summary><code>COMMIT_UN_SYNCED_DEV</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2899,9 +2537,7 @@
 
 <details>
 
-<summary>NCS_DEVICE_OUT_OF_SYNC</summary>
-
-<code>NCS_DEVICE_OUT_OF_SYNC</code>
+<summary><code>NCS_DEVICE_OUT_OF_SYNC</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2915,9 +2551,7 @@
 
 <details>
 
-<summary>NCS_JAVA_VM_FAIL</summary>
-
-<code>NCS_JAVA_VM_FAIL</code>
+<summary><code>NCS_JAVA_VM_FAIL</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2931,9 +2565,7 @@
 
 <details>
 
-<summary>NCS_JAVA_VM_START</summary>
-
-<code>NCS_JAVA_VM_START</code>
+<summary><code>NCS_JAVA_VM_START</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2947,9 +2579,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_AUTH_BAD_RET</summary>
-
-<code>NCS_PACKAGE_AUTH_BAD_RET</code>
+<summary><code>NCS_PACKAGE_AUTH_BAD_RET</code></summary>
 
 * **Severity**  
   `ERR`
@@ -2963,9 +2593,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_AUTH_FAIL</summary>
-
-<code>NCS_PACKAGE_AUTH_FAIL</code>
+<summary><code>NCS_PACKAGE_AUTH_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2979,9 +2607,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_AUTH_SUCCESS</summary>
-
-<code>NCS_PACKAGE_AUTH_SUCCESS</code>
+<summary><code>NCS_PACKAGE_AUTH_SUCCESS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -2995,9 +2621,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_BAD_DEPENDENCY</summary>
-
-<code>NCS_PACKAGE_BAD_DEPENDENCY</code>
+<summary><code>NCS_PACKAGE_BAD_DEPENDENCY</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3011,9 +2635,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_BAD_NCS_VERSION</summary>
-
-<code>NCS_PACKAGE_BAD_NCS_VERSION</code>
+<summary><code>NCS_PACKAGE_BAD_NCS_VERSION</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3027,9 +2649,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_CHAL_2FA</summary>
-
-<code>NCS_PACKAGE_CHAL_2FA</code>
+<summary><code>NCS_PACKAGE_CHAL_2FA</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3043,9 +2663,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_CHAL_FAIL</summary>
-
-<code>NCS_PACKAGE_CHAL_FAIL</code>
+<summary><code>NCS_PACKAGE_CHAL_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3059,9 +2677,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_CIRCULAR_DEPENDENCY</summary>
-
-<code>NCS_PACKAGE_CIRCULAR_DEPENDENCY</code>
+<summary><code>NCS_PACKAGE_CIRCULAR_DEPENDENCY</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3075,9 +2691,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_COPYING</summary>
-
-<code>NCS_PACKAGE_COPYING</code>
+<summary><code>NCS_PACKAGE_COPYING</code></summary>
 
 * **Severity**  
   `DEBUG`
@@ -3091,9 +2705,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_DUPLICATE</summary>
-
-<code>NCS_PACKAGE_DUPLICATE</code>
+<summary><code>NCS_PACKAGE_DUPLICATE</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3107,9 +2719,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_SYNTAX_ERROR</summary>
-
-<code>NCS_PACKAGE_SYNTAX_ERROR</code>
+<summary><code>NCS_PACKAGE_SYNTAX_ERROR</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3123,9 +2733,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_UPGRADE_ABORTED</summary>
-
-<code>NCS_PACKAGE_UPGRADE_ABORTED</code>
+<summary><code>NCS_PACKAGE_UPGRADE_ABORTED</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3139,9 +2747,7 @@
 
 <details>
 
-<summary>NCS_PACKAGE_UPGRADE_UNSAFE</summary>
-
-<code>NCS_PACKAGE_UPGRADE_UNSAFE</code>
+<summary><code>NCS_PACKAGE_UPGRADE_UNSAFE</code></summary>
 
 * **Severity**  
   `CRIT`
@@ -3155,9 +2761,7 @@
 
 <details>
 
-<summary>NCS_PYTHON_VM_FAIL</summary>
-
-<code>NCS_PYTHON_VM_FAIL</code>
+<summary><code>NCS_PYTHON_VM_FAIL</code></summary>
 
 * **Severity**  
   `ERR`
@@ -3171,9 +2775,7 @@
 
 <details>
 
-<summary>NCS_PYTHON_VM_START</summary>
-
-<code>NCS_PYTHON_VM_START</code>
+<summary><code>NCS_PYTHON_VM_START</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3187,9 +2789,7 @@
 
 <details>
 
-<summary>NCS_PYTHON_VM_START_UPGRADE</summary>
-
-<code>NCS_PYTHON_VM_START_UPGRADE</code>
+<summary><code>NCS_PYTHON_VM_START_UPGRADE</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3203,9 +2803,7 @@
 
 <details>
 
-<summary>NCS_SERVICE_OUT_OF_SYNC</summary>
-
-<code>NCS_SERVICE_OUT_OF_SYNC</code>
+<summary><code>NCS_SERVICE_OUT_OF_SYNC</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3219,9 +2817,7 @@
 
 <details>
 
-<summary>NCS_SET_PLATFORM_DATA_ERROR</summary>
-
-<code>NCS_SET_PLATFORM_DATA_ERROR</code>
+<summary><code>NCS_SET_PLATFORM_DATA_ERROR</code></summary>
 
 * **Severity**  
   `ERR`
@@ -3235,9 +2831,7 @@
 
 <details>
 
-<summary>NCS_SMART_LICENSING_ENTITLEMENT_NOTIFICATION</summary>
-
-<code>NCS_SMART_LICENSING_ENTITLEMENT_NOTIFICATION</code>
+<summary><code>NCS_SMART_LICENSING_ENTITLEMENT_NOTIFICATION</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3251,9 +2845,7 @@
 
 <details>
 
-<summary>NCS_SMART_LICENSING_EVALUATION_COUNTDOWN</summary>
-
-<code>NCS_SMART_LICENSING_EVALUATION_COUNTDOWN</code>
+<summary><code>NCS_SMART_LICENSING_EVALUATION_COUNTDOWN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3267,9 +2859,7 @@
 
 <details>
 
-<summary>NCS_SMART_LICENSING_FAIL</summary>
-
-<code>NCS_SMART_LICENSING_FAIL</code>
+<summary><code>NCS_SMART_LICENSING_FAIL</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3283,9 +2873,7 @@
 
 <details>
 
-<summary>NCS_SMART_LICENSING_GLOBAL_NOTIFICATION</summary>
-
-<code>NCS_SMART_LICENSING_GLOBAL_NOTIFICATION</code>
+<summary><code>NCS_SMART_LICENSING_GLOBAL_NOTIFICATION</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3299,9 +2887,7 @@
 
 <details>
 
-<summary>NCS_SMART_LICENSING_START</summary>
-
-<code>NCS_SMART_LICENSING_START</code>
+<summary><code>NCS_SMART_LICENSING_START</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3315,41 +2901,7 @@
 
 <details>
 
-<summary>NCS_SNMPM_START</summary>
-
-<code>NCS_SNMPM_START</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Starting the NCS SNMP manager component
-* **Format String**  
-  `"Starting the NCS SNMP manager component"`
-
-</details>
-
-
-<details>
-
-<summary>NCS_SNMPM_STOP</summary>
-
-<code>NCS_SNMPM_STOP</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  The NCS SNMP manager component has been stopped
-* **Format String**  
-  `"The NCS SNMP manager component has been stopped"`
-
-</details>
-
-
-<details>
-
-<summary>NCS_SNMP_INIT_ERR</summary>
-
-<code>NCS_SNMP_INIT_ERR</code>
+<summary><code>NCS_SNMP_INIT_ERR</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3363,9 +2915,35 @@
 
 <details>
 
-<summary>BAD_LOCAL_PASS</summary>
+<summary><code>NCS_SNMPM_START</code></summary>
 
-<code>BAD_LOCAL_PASS</code>
+* **Severity**  
+  `INFO`
+* **Description**  
+  Starting the NCS SNMP manager component
+* **Format String**  
+  `"Starting the NCS SNMP manager component"`
+
+</details>
+
+
+<details>
+
+<summary><code>NCS_SNMPM_STOP</code></summary>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  The NCS SNMP manager component has been stopped
+* **Format String**  
+  `"The NCS SNMP manager component has been stopped"`
+
+</details>
+
+
+<details>
+
+<summary><code>BAD_LOCAL_PASS</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3379,9 +2957,7 @@
 
 <details>
 
-<summary>EXT_LOGIN</summary>
-
-<code>EXT_LOGIN</code>
+<summary><code>EXT_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3395,9 +2971,7 @@
 
 <details>
 
-<summary>EXT_NO_LOGIN</summary>
-
-<code>EXT_NO_LOGIN</code>
+<summary><code>EXT_NO_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3411,9 +2985,7 @@
 
 <details>
 
-<summary>NO_SUCH_LOCAL_USER</summary>
-
-<code>NO_SUCH_LOCAL_USER</code>
+<summary><code>NO_SUCH_LOCAL_USER</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3427,9 +2999,7 @@
 
 <details>
 
-<summary>PAM_LOGIN_FAILED</summary>
-
-<code>PAM_LOGIN_FAILED</code>
+<summary><code>PAM_LOGIN_FAILED</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3443,9 +3013,7 @@
 
 <details>
 
-<summary>PAM_NO_LOGIN</summary>
-
-<code>PAM_NO_LOGIN</code>
+<summary><code>PAM_NO_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3459,9 +3027,7 @@
 
 <details>
 
-<summary>SSH_LOGIN</summary>
-
-<code>SSH_LOGIN</code>
+<summary><code>SSH_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3475,9 +3041,7 @@
 
 <details>
 
-<summary>SSH_LOGOUT</summary>
-
-<code>SSH_LOGOUT</code>
+<summary><code>SSH_LOGOUT</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3491,9 +3055,7 @@
 
 <details>
 
-<summary>SSH_NO_LOGIN</summary>
-
-<code>SSH_NO_LOGIN</code>
+<summary><code>SSH_NO_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3507,9 +3069,7 @@
 
 <details>
 
-<summary>WEB_LOGIN</summary>
-
-<code>WEB_LOGIN</code>
+<summary><code>WEB_LOGIN</code></summary>
 
 * **Severity**  
   `INFO`
@@ -3523,9 +3083,7 @@
 
 <details>
 
-<summary>WEB_LOGOUT</summary>
-
-<code>WEB_LOGOUT</code>
+<summary><code>WEB_LOGOUT</code></summary>
 
 * **Severity**  
   `INFO`

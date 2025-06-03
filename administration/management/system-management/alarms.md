@@ -39,9 +39,7 @@ alarm-type
 
 <details>
 
-<summary>abort-error</summary>
-
-<code>abort-error</code>
+<summary><code>abort-error</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -63,9 +61,7 @@ configuration is likely to be inconsistent with the NCS CDB.
 
 <details>
 
-<summary>alarm-type</summary>
-
-<code>alarm-type</code>
+<summary><code>alarm-type</code></summary>
 
 * **Description**  
   Base identity for alarm types.  A unique identification of the
@@ -87,9 +83,7 @@ Notification varbinds.
 
 <details>
 
-<summary>auto-configure-failed</summary>
-
-<code>auto-configure-failed</code>
+<summary><code>auto-configure-failed</code></summary>
 
 * **Initial Perceived Severity**  
   warning
@@ -108,9 +102,7 @@ to connect and sync the device.
 
 <details>
 
-<summary>cdb-offload-threshold-too-low</summary>
-
-<code>cdb-offload-threshold-too-low</code>
+<summary><code>cdb-offload-threshold-too-low</code></summary>
 
 * **Initial Perceived Severity**  
   warning
@@ -131,9 +123,7 @@ is no offloadable data present in the memory.
 
 <details>
 
-<summary>certificate-expiration</summary>
-
-<code>certificate-expiration</code>
+<summary><code>certificate-expiration</code></summary>
 
 * **Description**  
   The certificate is nearing its expiry or has already expired.
@@ -151,9 +141,7 @@ warning to critical.
 
 <details>
 
-<summary>cluster-subscriber-failure</summary>
-
-<code>cluster-subscriber-failure</code>
+<summary><code>cluster-subscriber-failure</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -176,9 +164,7 @@ a remote node.
 
 <details>
 
-<summary>commit-through-queue-blocked</summary>
-
-<code>commit-through-queue-blocked</code>
+<summary><code>commit-through-queue-blocked</code></summary>
 
 * **Initial Perceived Severity**  
   warning
@@ -197,9 +183,7 @@ queue indefinitely.
 
 <details>
 
-<summary>commit-through-queue-failed</summary>
-
-<code>commit-through-queue-failed</code>
+<summary><code>commit-through-queue-failed</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -224,9 +208,7 @@ queue indefinitely.
 
 <details>
 
-<summary>commit-through-queue-failed-transiently</summary>
-
-<code>commit-through-queue-failed-transiently</code>
+<summary><code>commit-through-queue-failed-transiently</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -256,9 +238,7 @@ on transient errors.
 
 <details>
 
-<summary>commit-through-queue-rollback-failed</summary>
-
-<code>commit-through-queue-rollback-failed</code>
+<summary><code>commit-through-queue-rollback-failed</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -277,9 +257,7 @@ on transient errors.
 
 <details>
 
-<summary>configuration-error</summary>
-
-<code>configuration-error</code>
+<summary><code>configuration-error</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -303,9 +281,7 @@ parameters needed to connect to device.
 
 <details>
 
-<summary>connection-failure</summary>
-
-<code>connection-failure</code>
+<summary><code>connection-failure</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -325,9 +301,7 @@ parameters needed to connect to device.
 
 <details>
 
-<summary>final-commit-error</summary>
-
-<code>final-commit-error</code>
+<summary><code>final-commit-error</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -347,9 +321,7 @@ commit.  When this happens, NCS and the device are out of sync.
 
 <details>
 
-<summary>ha-alarm</summary>
-
-<code>ha-alarm</code>
+<summary><code>ha-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to high availablity.
@@ -360,9 +332,7 @@ high availability alarms are used in the alarms.
 
 <details>
 
-<summary>ha-node-down-alarm</summary>
-
-<code>ha-node-down-alarm</code>
+<summary><code>ha-node-down-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to nodes going down in
@@ -373,9 +343,7 @@ for the specific node down alarms are used in the alarms.
 
 <details>
 
-<summary>ha-primary-down</summary>
-
-<code>ha-primary-down</code>
+<summary><code>ha-primary-down</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -396,9 +364,7 @@ for the specific node down alarms are used in the alarms.
 
 <details>
 
-<summary>ha-secondary-down</summary>
-
-<code>ha-secondary-down</code>
+<summary><code>ha-secondary-down</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -418,9 +384,7 @@ for the specific node down alarms are used in the alarms.
 
 <details>
 
-<summary>missing-transaction-id</summary>
-
-<code>missing-transaction-id</code>
+<summary><code>missing-transaction-id</code></summary>
 
 * **Initial Perceived Severity**  
   warning
@@ -443,9 +407,7 @@ a case of misconfigured NACM rules on the managed device.
 
 <details>
 
-<summary>ncs-cluster-alarm</summary>
-
-<code>ncs-cluster-alarm</code>
+<summary><code>ncs-cluster-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to cluster.
@@ -456,9 +418,7 @@ cluster alarms are used in the alarms.
 
 <details>
 
-<summary>ncs-dev-manager-alarm</summary>
-
-<code>ncs-dev-manager-alarm</code>
+<summary><code>ncs-dev-manager-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to the device manager
@@ -469,9 +429,7 @@ device alarms are used in the alarms.
 
 <details>
 
-<summary>ncs-package-alarm</summary>
-
-<code>ncs-package-alarm</code>
+<summary><code>ncs-package-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to packages.
@@ -482,9 +440,7 @@ package alarms are used in the alarms.
 
 <details>
 
-<summary>ncs-service-manager-alarm</summary>
-
-<code>ncs-service-manager-alarm</code>
+<summary><code>ncs-service-manager-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to the service manager
@@ -495,9 +451,7 @@ service alarms are used in the alarms.
 
 <details>
 
-<summary>ncs-snmp-notification-receiver-alarm</summary>
-
-<code>ncs-snmp-notification-receiver-alarm</code>
+<summary><code>ncs-snmp-notification-receiver-alarm</code></summary>
 
 * **Description**  
   Base type for SNMP notification receiver Alarms. This is never
@@ -508,9 +462,7 @@ alarms are used in the alarms.
 
 <details>
 
-<summary>ned-live-tree-connection-failure</summary>
-
-<code>ned-live-tree-connection-failure</code>
+<summary><code>ned-live-tree-connection-failure</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -531,9 +483,7 @@ live-status-protocol NEDs.
 
 <details>
 
-<summary>out-of-sync</summary>
-
-<code>out-of-sync</code>
+<summary><code>out-of-sync</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -554,9 +504,7 @@ device has been configured out of band from NCS point of view.
 
 <details>
 
-<summary>package-load-failure</summary>
-
-<code>package-load-failure</code>
+<summary><code>package-load-failure</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -575,9 +523,7 @@ device has been configured out of band from NCS point of view.
 
 <details>
 
-<summary>package-operation-failure</summary>
-
-<code>package-operation-failure</code>
+<summary><code>package-operation-failure</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -592,9 +538,7 @@ device has been configured out of band from NCS point of view.
 
 <details>
 
-<summary>receiver-configuration-error</summary>
-
-<code>receiver-configuration-error</code>
+<summary><code>receiver-configuration-error</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -614,9 +558,7 @@ be missed.
 
 <details>
 
-<summary>revision-error</summary>
-
-<code>revision-error</code>
+<summary><code>revision-error</code></summary>
 
 * **Initial Perceived Severity**  
   major
@@ -637,9 +579,7 @@ be missed.
 
 <details>
 
-<summary>service-activation-failure</summary>
-
-<code>service-activation-failure</code>
+<summary><code>service-activation-failure</code></summary>
 
 * **Initial Perceived Severity**  
   critical
@@ -657,9 +597,7 @@ be missed.
 
 <details>
 
-<summary>time-violation-alarm</summary>
-
-<code>time-violation-alarm</code>
+<summary><code>time-violation-alarm</code></summary>
 
 * **Description**  
   Base type for all alarms related to time violations.
@@ -670,9 +608,7 @@ time violation alarms are used in the alarms.
 
 <details>
 
-<summary>transaction-lock-time-violation</summary>
-
-<code>transaction-lock-time-violation</code>
+<summary><code>transaction-lock-time-violation</code></summary>
 
 * **Initial Perceived Severity**  
   warning
