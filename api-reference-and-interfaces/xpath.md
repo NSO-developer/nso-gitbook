@@ -11,4 +11,4 @@ The NSO XPath documentation covers implementation details and extension to or de
 
 {% embed url="https://datatracker.ietf.org/doc/html/rfc7950#section-10" %}
 
-{% embed url="https://cisco-tailf.gitbook.io/nso-docs/guides/resources/index/section5#tailf_yang_extensions" %}
+{% embed url="https://nso-docs.cisco.com/guides/resources/index/section5#xpath-functions" %}
