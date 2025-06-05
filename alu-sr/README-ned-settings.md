@@ -59,7 +59,7 @@
 ------------------------
 
 
-    - alu-sr trans-id-method <enum> (default config-data)
+    - trans-id-method <enum> (default config-data)
 
       Configure how the NED shall calculate the transaction id. Typically used after each commit and
       for check-sync operations.
@@ -90,7 +90,7 @@
                                                 that it is not modeled by the NED.
 
 
-    - alu-sr candidate-commit <enum> (default disabled)
+    - candidate-commit <enum> (default disabled)
 
       Make the NED use the candidate commit feature available on some ALU devices.
 
@@ -100,7 +100,7 @@
                   be enabled on the device.
 
 
-    - alu-sr extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the alu-sr NED enable extensions to ease the task of the NSO CLI command parser. A common
       problem with this parser is that it can easily get lost when trying to parse ALU configuration
@@ -125,7 +125,7 @@
                         is used.
 
 
-    - alu-sr number-of-lines-to-send-in-chunk <uint8> (default 100)
+    - number-of-lines-to-send-in-chunk <uint8> (default 100)
 
       Number of commands lines in a chunk sent by the alu-sr NED to the device. Default is 100. A
       higher number normally result in better performance but will also have negative impact on the
@@ -133,7 +133,7 @@
       mode.
 
 
-    - alu-sr partial-show-method <enum> (default bulk-mode)
+    - partial-show-method <enum> (default bulk-mode)
 
       Method to use when executing a partial show on the device (for instance when doing a 'commit
       no-overwrite').
