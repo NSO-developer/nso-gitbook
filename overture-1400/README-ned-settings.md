@@ -51,7 +51,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - overture-1400 extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the overture-1400 NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).

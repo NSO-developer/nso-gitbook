@@ -104,7 +104,7 @@
     - connection terminal height <uint32> (default 200)
 
 
-    - connection ssh client <enum> (default ganymed)
+    - connection ssh client <enum>
 
       Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
 

@@ -38,7 +38,10 @@
   2. logger
   3. connection
      3.1. timeouts
-  4. developer
+  4. platform
+  5. developer
+  6. sync-from
+     6.1. MeContext
   ```
 
 
@@ -124,7 +127,28 @@
       operation.
 
 
-# 4. ned-settings ericsson-enm developer
+# 4. ned-settings ericsson-enm platform
+---------------------------------------
+
+  Platform info overrides.
+
+
+    - platform model <string>
+
+      Override device model name/number.
+
+
+    - platform name <string>
+
+      Override device name.
+
+
+    - platform version <string>
+
+      Override device version.
+
+
+# 5. ned-settings ericsson-enm developer
 ----------------------------------------
 
   Contains settings used by the NED developers.
@@ -166,5 +190,23 @@
 
 
     - developer sync_from_debug offline_file_path <string>
+
+
+# 6. ned-settings ericsson-enm sync-from
+----------------------------------------
+
+  controlls various aspects of the sync-from operation.
+
+
+## 6.1. ned-settings ericsson-enm sync-from MeContext
+-----------------------------------------------------
+
+  This list defines a filter for the MeContext elements that will be processed at sync-from.
+  If this list is not empty only the MeContext elements that match the filter will be processed.
+  If the list is empty all MeContext elements will be processed.
+
+    - sync-from MeContext <MeContext>
+
+      - MeContext <string>
 
 

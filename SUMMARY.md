@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.24.1 2025-04-25](a10-acos/README.md)
+  * [README v3.24.2 2025-06-05](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -41,11 +41,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.60.2 2025-05-16](alu-sr/README.md)
+  * [README v8.60.3 2025-06-05](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.27.20 2025-05-30](arista-dcs/README.md)
+  * [README v5.27.21 2025-06-05](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -69,7 +69,7 @@
 
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
-  * [README v6.6.2 2024-08-22](ciena-acos/README.md)
+  * [README v6.6.3 2025-06-05](ciena-acos/README.md)
 
 * ciena-mcp
   * [README-ned-settings](ciena-mcp/README-ned-settings.md)
@@ -116,11 +116,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.109.7 2025-05-28](cisco-ios/README.md)
+  * [README v6.109.8 2025-06-05](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.69.1 2025-05-28](cisco-iosxr/README.md)
+  * [README v7.69.2 2025-06-05](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -165,7 +165,7 @@
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
-  * [README v1.0.0 2025-04-30](ericsson-enm/README.md)
+  * [README v1.1 2025-06-05](ericsson-enm/README.md)
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
@@ -233,7 +233,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.14 2025-05-28](juniper-junos/README.md)
+  * [README v4.18.15 2025-06-05](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -277,11 +277,11 @@
 
 * overture-1400
   * [README-ned-settings](overture-1400/README-ned-settings.md)
-  * [README v4.1.5 2024-08-23](overture-1400/README.md)
+  * [README v4.1.6 2025-06-05](overture-1400/README.md)
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.14 2025-05-30](paloalto-panos_cli/README.md)
+  * [README v4.11.15 2025-06-05](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
