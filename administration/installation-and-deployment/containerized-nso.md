@@ -178,7 +178,7 @@ If you need to perform operations before or after the `ncs` process is started i
 
 NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
-When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/blob/main/getting-started/netsim-sshkey) for an example.
+When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) for an example.
 
 The NSO container runs a script called `take-ownership.sh` as part of its startup, which takes ownership of all the directories that NSO needs. The script will be one of the first things to run. The script can be overridden to take ownership of even more directories, such as mounted volumes or bind mounts.
 
