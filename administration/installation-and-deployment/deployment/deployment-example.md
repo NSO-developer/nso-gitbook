@@ -12,23 +12,23 @@ This section shows examples of a typical deployment for a highly available (HA) 
 * Upgrading NSO on all nodes in the HA cluster
 * Upgrading NSO packages on all nodes in the HA cluster
 
-The deployment examples use both the legacy rule-based and recommended HA Raft setup. See [High Availability](../management/high-availability.md) for HA details. The HA Raft deployment consists of three nodes running NSO and a node managing them, while the rule-based HA deployment uses only two nodes.
+The deployment examples use both the legacy rule-based and recommended HA Raft setup. See [High Availability](../../management/high-availability.md) for HA details. The HA Raft deployment consists of three nodes running NSO and a node managing them, while the rule-based HA deployment uses only two nodes.
 
 Based on the Raft consensus algorithm, the HA Raft version provides the best fault tolerance, performance, and security and is therefore recommended.
 
 For the HA Raft setup, the NSO nodes `paris.fra`, `london.eng`, and `berlin.ger` nodes make up a cluster of one leader and two followers.
 
-<figure><img src="../../images/raft_container_deployment.png" alt="" width="563"><figcaption><p>The HA Raft Deployment Network</p></figcaption></figure>
+<figure><img src="../../../images/raft_container_deployment.png" alt="" width="563"><figcaption><p>The HA Raft Deployment Network</p></figcaption></figure>
 
 For the rule-based HA setup, the NSO nodes `paris` and `london` make up one HA pair — one primary and one secondary.
 
-<figure><img src="../../images/container_deployment.png" alt="" width="563"><figcaption><p>The Rule-Based HA Deployment Network</p></figcaption></figure>
+<figure><img src="../../../images/container_deployment.png" alt="" width="563"><figcaption><p>The Rule-Based HA Deployment Network</p></figcaption></figure>
 
-HA is usually not optional for a deployment. Data resides in CDB, a RAM database with a disk-based journal for persistence. Both HA variants can be set up to avoid the need for manual intervention in a failure scenario, where HA Raft does the best job of keeping the cluster up. See [High Availability](../management/high-availability.md) for details.
+HA is usually not optional for a deployment. Data resides in CDB, a RAM database with a disk-based journal for persistence. Both HA variants can be set up to avoid the need for manual intervention in a failure scenario, where HA Raft does the best job of keeping the cluster up. See [High Availability](../../management/high-availability.md) for details.
 
 ## Initial NSO Installation <a href="#d5e7609" id="d5e7609"></a>
 
-An NSO system installation on the NSO nodes is recommended for deployments. For System Installation details, see the [System Install](system-install.md) steps.
+An NSO system installation on the NSO nodes is recommended for deployments. For System Installation details, see the [System Install](../system-install.md) steps.
 
 In this container-based example, Docker Compose uses a `Dockerfile` to build the container image and install NSO on multiple nodes, here containers. A shell script uses an SSH client to access the NSO nodes from the manager node to demonstrate HA failover and, as an alternative, a Python script that implements SSH and RESTCONF clients.
 
@@ -38,7 +38,7 @@ In this container-based example, Docker Compose uses a `Dockerfile` to build the
 * The packages are compressed into a `tar.gz` format for easier distribution, but that is not a requirement.
 
 {% hint style="info" %}
-While this deployment example uses containers, it is intended as a generic deployment guide. For details on running NSO in a container, such as Docker, see [Containerized NSO](containerized-nso.md).
+While this deployment example uses containers, it is intended as a generic deployment guide. For details on running NSO in a container, such as Docker, see [Containerized NSO](../containerized-nso.md).
 {% endhint %}
 
 This example uses a minimal Red Hat UBI distribution for hosting NSO with the following added packages:
@@ -46,7 +46,7 @@ This example uses a minimal Red Hat UBI distribution for hosting NSO with the fo
 * NSO's basic dependency requirements are fulfilled by adding the Java Runtime Environment (JRE), OpenSSH, and OpenSSL packages.
 * The OpenSSH server is used for shell access and secure copy to the NSO Linux host for NSO version upgrade purposes. The NSO built-in SSH server provides CLI and NETCONF access to NSO.
 * The NSO services require Python.
-* To fulfill the `tailf-hcc` server dependencies, the `iproute2` utilities and `sudo` packages are installed. See [Dependencies](../management/high-availability.md#ug.ha.hcc.deps) (in the section [Tailf HCC Package](../management/high-availability.md#ug.ha.hcc)) for details on dependencies.
+* To fulfill the `tailf-hcc` server dependencies, the `iproute2` utilities and `sudo` packages are installed. See [Dependencies](../../management/high-availability.md#ug.ha.hcc.deps) (in the section [Tailf HCC Package](../../management/high-availability.md#ug.ha.hcc)) for details on dependencies.
 * The `rsyslog` package enables storing an NSO log file from several NSO logs locally and forwarding some logs to the manager.
 * The `arp` command from the `net-tools` and `iputils` (`ping`) packages have been added for demonstration purposes.
 
@@ -98,18 +98,18 @@ The initialization steps are also performed as `root` for the nodes that make up
 
 * The NSO IPC socket is configured in `ncs.conf` to only listen to localhost 127.0.0.1 connections, which is the default setting.\
   \
-  By default, the clients connecting to the NSO IPC socket are considered trusted, i.e., no authentication is required, and the use of 127.0.0.1 with the `/ncs-config/ncs-ipc-address` IP address in `ncs.conf` to prevent remote access. See [Security Considerations](deployment-example.md#ug.admin_guide.deployment.security) and [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for more details.
-* `/ncs-config/aaa/pam` is set to enable PAM to authenticate users as recommended. All remote access to NSO must now be done using the NSO host's privileges. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
-* Depending on your Linux distribution, you may have to change the `/ncs-config/aaa/pam/service` setting. The default value is `common-auth`. Check the file `/etc/pam.d/common-auth` and make sure it fits your needs. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.\
+  By default, the clients connecting to the NSO IPC socket are considered trusted, i.e., no authentication is required, and the use of 127.0.0.1 with the `/ncs-config/ncs-ipc-address` IP address in `ncs.conf` to prevent remote access. See [Security Considerations](deployment-example.md#ug.admin_guide.deployment.security) and [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for more details.
+* `/ncs-config/aaa/pam` is set to enable PAM to authenticate users as recommended. All remote access to NSO must now be done using the NSO host's privileges. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
+* Depending on your Linux distribution, you may have to change the `/ncs-config/aaa/pam/service` setting. The default value is `common-auth`. Check the file `/etc/pam.d/common-auth` and make sure it fits your needs. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.\
   \
-  Alternatively, or as a complement to the PAM authentication, users can be stored in the NSO CDB database or authenticated externally. See [Authentication](../management/aaa-infrastructure.md#ug.aaa.authentication) for details.
-*   RESTCONF token authentication under `/ncs-config/aaa/external-validation` is enabled using a `token_auth.sh` script that was added earlier together with a `generate_token.sh` script. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.\
+  Alternatively, or as a complement to the PAM authentication, users can be stored in the NSO CDB database or authenticated externally. See [Authentication](../../management/aaa-infrastructure.md#ug.aaa.authentication) for details.
+*   RESTCONF token authentication under `/ncs-config/aaa/external-validation` is enabled using a `token_auth.sh` script that was added earlier together with a `generate_token.sh` script. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.\
     \
     The scripts allow users to generate a token for RESTCONF authentication through, for example, the NSO CLI and NETCONF interfaces that use SSH authentication or the Web interface.
 
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
-*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. If the server needs to serve multiple domains or IP addresses, additional `server-alias` values can be configured. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
+*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. If the server needs to serve multiple domains or IP addresses, additional `server-alias` values can be configured. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
 
     **Note**: The SSL certificates that NSO generates are self-signed:
 
@@ -129,10 +129,10 @@ The initialization steps are also performed as `root` for the nodes that make up
           .......
     ```
 
-    Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
+    Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
 * Disable `/ncs-config/webui/cgi` unless needed.
-* The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
-*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
+* The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
+*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
 
     ```xml
         <prompt1>\u@nso-\H> </prompt1>
@@ -141,8 +141,8 @@ The initialization steps are also performed as `root` for the nodes that make up
         <c-prompt1>\u@nso-\H# </c-prompt1>
         <c-prompt2>\u@nso-\H(\m)# </c-prompt2>
     ```
-* NSO HA Raft is enabled under `/ncs-config/ha-raft`, and the rule-based HA under `/ncs-config/ha`. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
-* Depending on your provisioned applications, you may want to turn `/ncs-config/rollback/enabled` off. Rollbacks do not work well with nano service reactive FASTMAP applications or if maximum transaction performance is a goal. If your application performs classical NSO provisioning, the recommendation is to enable rollbacks. Otherwise not. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
+* NSO HA Raft is enabled under `/ncs-config/ha-raft`, and the rule-based HA under `/ncs-config/ha`. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
+* Depending on your provisioned applications, you may want to turn `/ncs-config/rollback/enabled` off. Rollbacks do not work well with nano service reactive FASTMAP applications or if maximum transaction performance is a goal. If your application performs classical NSO provisioning, the recommendation is to enable rollbacks. Otherwise not. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
 
 ## The `aaa_init.xml` Configuration <a href="#ug.admin_guide.deployment.aaa" id="ug.admin_guide.deployment.aaa"></a>
 
@@ -157,7 +157,7 @@ The NSO authorization system is group-based; thus, for the rules to apply to a s
 * Adding the `admin` user to the `ncsadmin` group and the `oper` user to the limited `ncsoper` group will ensure that the two users get properly authorized with NSO.
 * Not adding the `root` user to any group matching the NACM groups results in zero access, as no NACM rule will match, and the default in the `aaa_init.xml` file is to deny all access.
 
-The NSO NACM functionality is based on the [Network Configuration Access Control Model](https://datatracker.ietf.org/doc/html/rfc8341) IETF RFC 8341 with NSO extensions augmented by `tailf-acm.yang`. See [AAA infrastructure](../management/aaa-infrastructure.md), for more details.
+The NSO NACM functionality is based on the [Network Configuration Access Control Model](https://datatracker.ietf.org/doc/html/rfc8341) IETF RFC 8341 with NSO extensions augmented by `tailf-acm.yang`. See [AAA infrastructure](../../management/aaa-infrastructure.md), for more details.
 
 The manager in this example logs into the different NSO hosts using the Linux user login credentials. This scheme has many advantages, mainly because all audit logs on the NSO hosts will show who did what and when. Therefore, the common bad practice of having a shared `admin` Linux user and NSO local user with a shared password is not recommended.
 
@@ -167,7 +167,7 @@ The default `aaa_init.xml` file provided with the NSO system installation must n
 
 ## The High Availability and VIP Configuration <a href="#d5e7892" id="d5e7892"></a>
 
-This example sets up one HA cluster using HA Raft or rule-based HA with the `tailf-hcc` server to manage virtual IP addresses. See [NSO Rule-based HA](../management/high-availability.md) and [Tail-f HCC Package](../management/high-availability.md#ug.ha.hcc) for details.
+This example sets up one HA cluster using HA Raft or rule-based HA with the `tailf-hcc` server to manage virtual IP addresses. See [NSO Rule-based HA](../../management/high-availability.md) and [Tail-f HCC Package](../../management/high-availability.md#ug.ha.hcc) for details.
 
 The NSO HA, together with the `tailf-hcc` package, provides three features:
 
@@ -192,7 +192,7 @@ There are quite a few different global settings for NSO. The two mentioned above
 
 ## Cisco Smart Licensing <a href="#d5e7928" id="d5e7928"></a>
 
-NSO uses Cisco Smart Licensing, which is described in detail in [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md). After registering your NSO instance(s), and receiving a token, following steps 1-6 as described in the [Create a License Registration Token](../management/system-management/cisco-smart-licensing.md#d5e2927) section of Cisco Smart Licensing, enter a token from your Cisco Smart Software Manager account on each host. Use the same token for all instances and script entering the token as part of the initial NSO configuration or from the management node:
+NSO uses Cisco Smart Licensing, which is described in detail in [Cisco Smart Licensing](../../management/system-management/cisco-smart-licensing.md). After registering your NSO instance(s), and receiving a token, following steps 1-6 as described in the [Create a License Registration Token](../../management/system-management/cisco-smart-licensing.md#d5e2927) section of Cisco Smart Licensing, enter a token from your Cisco Smart Software Manager account on each host. Use the same token for all instances and script entering the token as part of the initial NSO configuration or from the management node:
 
 ```bash
 admin@nso-paris# license smart register idtoken YzY2Yj...
@@ -217,7 +217,7 @@ For the HA Raft and rule-based HA upgrade-l2 examples, see the reference from th
 
 ### Audit Network Log and NED Traces <a href="#d5e7968" id="d5e7968"></a>
 
-Use the audit-network-log for recording southbound traffic towards devices. Enable by setting `/ncs-config/logs/audit-network-log/enabled` and `/ncs-config/logs/audit-network-log/file/enabled` to true in `$NCS_CONFIG_DIR/ncs.conf`, See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for more information.
+Use the audit-network-log for recording southbound traffic towards devices. Enable by setting `/ncs-config/logs/audit-network-log/enabled` and `/ncs-config/logs/audit-network-log/file/enabled` to true in `$NCS_CONFIG_DIR/ncs.conf`, See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for more information.
 
 NED trace logs are a crucial tool for debugging NSO installations and not recommended for deployment. These logs are very verbose and for debugging only. Do not enable these logs in production.
 
@@ -235,11 +235,11 @@ Thus, it is usually not good enough to control the NED trace from `/devices/glob
 
 ### Python Logs <a href="#d5e7999" id="d5e7999"></a>
 
-While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../development/core-concepts/nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages) for more details.
+While there is a global log for, for example, compilation errors in `/var/log/ncs/ncs-python-vm.log`, logs from user application packages are written to separate files for each package, and the log file naming is `ncs-python-vm-`_`pkg_name`_`.log`. The level of logging from Python code is controlled on a per package basis. See [Debugging of Python packages](../../../development/core-concepts/nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages) for more details.
 
 ### Java Logs <a href="#d5e8006" id="d5e8006"></a>
 
-User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../development/core-concepts/nso-virtual-machines/nso-java-vm.md#logging) in Java VM for more details.
+User application Java logs are written to `/var/log/ncs/ncs-java-vm.log`. The level of logging from Java code is controlled per Java package. See [Logging](../../../development/core-concepts/nso-virtual-machines/nso-java-vm.md#logging) in Java VM for more details.
 
 ### Internal NSO Log <a href="#d5e8011" id="d5e8011"></a>
 
@@ -309,6 +309,8 @@ NAME  RATE
 
 ## Security Considerations <a href="#ug.admin_guide.deployment.security" id="ug.admin_guide.deployment.security"></a>
 
+This section covers security considerations for this example. See [Secure Deployment Considerations](secure-deployment.md) for a general description.
+
 The presented configuration enables the built-in web server for the WebUI and RESTCONF interfaces. It is paramount for security that you only enable HTTPS access with `/ncs-config/webui/match-host-name` and `/ncs-config/webui/server-name` properly set.
 
 The AAA setup described so far in this deployment document is the recommended AAA setup. To reiterate:
@@ -323,7 +325,7 @@ If you have more fine-grained authorization requirements than read-write and rea
 
 The default `aaa_init.xml` file must not be used as-is before reviewing and verifying that every NACM rule in the file matches the desired authorization level.
 
-For a detailed discussion of the configuration of authorization rules through NACM, see [AAA infrastructure](../management/aaa-infrastructure.md), particularly the section [Authorization](../management/aaa-infrastructure.md#ug.aaa.authorization).
+For a detailed discussion of the configuration of authorization rules through NACM, see [AAA infrastructure](../../management/aaa-infrastructure.md), particularly the section [Authorization](../../management/aaa-infrastructure.md#ug.aaa.authorization).
 
 A considerably more complex scenario is when users require shell access to the host but are either untrusted or should not have any access to NSO at all. NSO listens to a so-called IPC socket configured through `/ncs-config/ncs-ipc-address`. This socket is typically limited to local connections and defaults to `127.0.0.1:4569` for security. The socket multiplexes several different access methods to NSO.
 
@@ -331,7 +333,7 @@ The main security-related point is that no AAA checks are performed on this sock
 
 To drive this point home, when you invoke the `ncs_cli` command, a small C program that connects to the socket and tells NSO who you are, NSO assumes that authentication has already been performed. There is even a documented flag `--noaaa`, which tells NSO to skip all NACM rule checks for this session.
 
-You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages for details.
+You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
 
 ```bash
 $ cat /etc/ncs/ipc_access
@@ -343,4 +345,4 @@ $ cat /etc/ncs/ipc_access
 .......
 ```
 
-For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../management/high-availability.md#ug.ha.raft) for more HA Raft details.
+For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../../management/high-availability.md#ug.ha.raft) for more HA Raft details.
