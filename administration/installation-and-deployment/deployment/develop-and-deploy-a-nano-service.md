@@ -4,13 +4,13 @@ description: Develop and deploy a nano service using a guided example.
 
 # Develop and Deploy a Nano Service
 
-This section shows how to develop and deploy a simple NSO nano service for managing the provisioning of SSH public keys for authentication. For more details on nano services, see [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) in Development. The example showcasing development is available under [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey). In addition, there is a reference from the `README` in the example's directory to the deployment version of the example.
+This section shows how to develop and deploy a simple NSO nano service for managing the provisioning of SSH public keys for authentication. For more details on nano services, see [Nano Services for Staged Provisioning](../../../development/core-concepts/nano-services.md) in Development. The example showcasing development is available under [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/4/getting-started/netsim-sshkey). In addition, there is a reference from the `README` in the example's directory to the deployment version of the example.
 
 ## Development <a href="#d5e1323" id="d5e1323"></a>
 
-<figure><img src="../../images/ex-development.png" alt="" width="563"><figcaption><p>The Development Host Topology</p></figcaption></figure>
+<figure><img src="../../../images/ex-development.png" alt="" width="563"><figcaption><p>The Development Host Topology</p></figcaption></figure>
 
-After installing NSO with the [Local Install](../../administration/installation-and-deployment/local-install.md) option, development often begins with either retrieving an existing YANG model representing what the managed network element (a virtual or physical device, such as a router) can do or constructing a new YANG model that at least covers the configuration of interest to an NSO service. To enable NSO service development, the network element's YANG model can be used with NSO's netsim tool that uses ConfD (Configuration Daemon) to simulate the network elements and their management interfaces like NETCONF. Read more about netsim in [Network Simulator](../../operation-and-usage/operations/network-simulator-netsim.md).
+After installing NSO with the [Local Install](../local-install.md) option, development often begins with either retrieving an existing YANG model representing what the managed network element (a virtual or physical device, such as a router) can do or constructing a new YANG model that at least covers the configuration of interest to an NSO service. To enable NSO service development, the network element's YANG model can be used with NSO's netsim tool that uses ConfD (Configuration Daemon) to simulate the network elements and their management interfaces like NETCONF. Read more about netsim in [Network Simulator](../../../operation-and-usage/operations/network-simulator-netsim.md).
 
 The simple network element YANG model used for this example is available under `packages/ne/src/yang/ssh-authkey.yang`. The `ssh-authkey.yang` model implements a list of SSH public keys for identifying a user. The list of keys augments a list of users in the ConfD built-in `tailf-aaa.yang` module that ConfD uses to authenticate users.
 
@@ -141,7 +141,7 @@ A service YANG model that implements the above configuration:
   }
 ```
 
-For details on the YANG statements used by the YANG model, such as `leaf`, `container`, `list`, `leafref`, `mandatory`, `length`, `pattern`, etc., see the [IETF RFC 7950](https://www.rfc-editor.org/rfc/rfc7950) that documents the YANG 1.1 Data Modeling Language. The `tailf:xyz` are YANG extension statements documented by [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages.
+For details on the YANG statements used by the YANG model, such as `leaf`, `container`, `list`, `leafref`, `mandatory`, `length`, `pattern`, etc., see the [IETF RFC 7950](https://www.rfc-editor.org/rfc/rfc7950) that documents the YANG 1.1 Data Modeling Language. The `tailf:xyz` are YANG extension statements documented by [tailf\_yang\_extensions(5)](../../../man/section5.md#tailf_yang_extensions) in Manual Pages.
 
 The service configuration is implemented in YANG by a `key-auth` list where the network element and local user names are the list keys. In addition, the list has a `distkey-servicepoint` service point YANG extension statement to enable the list parameters used by the Python service callbacks that this example implements. Finally, the used `service-data` and `nano-plan-data` groupings add the common definitions for a service and the plan data needed when the service is a nano service.
 
@@ -400,7 +400,7 @@ The `ncs_cli` program identifies itself with NSO as the `admin` user without aut
 
 See the `README` in the `netsim-sshkey` example's directory for a reference to an NSO system installation in a container deployment variant.
 
-<figure><img src="../../images/ex-deployment.png" alt=""><figcaption><p>The Deployment Container Topology</p></figcaption></figure>
+<figure><img src="../../../images/ex-deployment.png" alt=""><figcaption><p>The Deployment Container Topology</p></figcaption></figure>
 
 The deployment variant differs from the development example by:
 
@@ -424,4 +424,4 @@ Two scripts showcase the nano service:
 
 As with the development version, both scripts will demo the service by generating keys, distributing the public key, and configuring NSO for public key authentication with the network elements.
 
-To run the example and for more details, see the instructions in the `README` file of the deployment example.
+To run the example and for more details, see the instructions in the `README` file of the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/netsim-sshkey) deployment example.
