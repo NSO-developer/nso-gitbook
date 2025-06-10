@@ -11,7 +11,7 @@ Complete the following activities in the given order to perform a System Install
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="system-install.md#step-1-fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="system-install.md#si.download.the.installer">2. Download Installer/NEDs</a><br><a href="system-install.md#si.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="system-install.md#si.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="system-install.md#si.setup.user.access">5. Set up User Access</a><br><a href="system-install.md#si.set.env.variables">6. Set Environment Variables</a><br><a href="system-install.md#si.runtime.directory.creation">7. Runtime Directory Creation</a><br><a href="system-install.md#si.generate.license.token">8. Generate License Token</a></td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
-#### Mode of Install
+**Mode of Install**
 
 NSO System Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
 
@@ -250,7 +250,7 @@ To run the installer:
 {% tab title="Standard System Install" %}
 The standard mode is the regular NSO install and is suitable for most installations. FIPS is disabled in this mode.
 
-For standard NSO install, run the installer as below.&#x20;
+For standard NSO install, run the installer as below.
 
 ```bash
 $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install
@@ -266,7 +266,7 @@ $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
 {% tab title="FIPS System Install" %}
 FIPS mode creates a FIPS-compliant NSO install.
 
-FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.&#x20;
+FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.
 
 For FIPS-compliant NSO install, run the command with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.
 
@@ -281,11 +281,11 @@ $ sudo sh nso-6.5.linux.x86_64.installer.bin --system-install --fips-install
 {% endcode %}
 
 {% hint style="info" %}
-#### NSO Configuration for FIPS
+**NSO Configuration for FIPS**
 
 Note the following as part of FIPS-specific configuration/install:
 
-1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:&#x20;
+1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:
 
 ```xml
 <fips-mode>
@@ -293,7 +293,7 @@ Note the following as part of FIPS-specific configuration/install:
 </fips-mode>
 ```
 
-2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.&#x20;
+2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.
 3. The default `crypto.so` is overwritten at install for FIPS compliance.
 
 Additionally, note that:
@@ -329,7 +329,7 @@ If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interact
 
 For more information on the `ncs-installer`, see the [ncs-installer(1)](../../man/section1.md#ncs-installer) man page.
 
-For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
+For an extensive guide to NSO deployment, refer to [Development to Production Deployment](development-to-production-deployment/)_._
 
 </details>
 
