@@ -104,7 +104,7 @@
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
-  * [README v1.6.14 2025-05-21](cisco-fmc/README.md)
+  * [README v1.6.15 2025-06-09](cisco-fmc/README.md)
 
 * cisco-ftd
   * [README-ned-settings](cisco-ftd/README-ned-settings.md)
@@ -130,7 +130,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.0.1 2025-02-24](cisco-iosxr_nc/README.md)
+  * [README v1.0.2 2025-06-09](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v25.1.1 2025-04-09](cisco-iosxr_netconf/README.md)

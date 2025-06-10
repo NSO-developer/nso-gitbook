@@ -36,9 +36,10 @@
   ```
   1. ned-settings huawei-vrp_nc
   2. transaction
-     2.1. extra-get-config-paths
-     2.2. exclude-namespaces
-     2.3. inject-meta-data
+     2.1. ignore-rpc-errors
+     2.2. extra-get-config-paths
+     2.3. exclude-namespaces
+     2.4. inject-meta-data
   3. connection
      3.1. capabilities
           3.1.1. regex-exclude
@@ -250,7 +251,44 @@
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
-## 2.1. ned-settings huawei-vrp_nc transaction extra-get-config-paths
+    - transaction nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - transaction nmda get-data with-origin <true|false> (default false)
+
+      Configure whether or not to include a </with-origin> tag in the get-data request. The
+      with-origin setting is usually only supported for operational datastores, like ds:operational.
+
+
+    - transaction nmda get-data datastore <union>
+
+      Configure datastore to be used by the get-data rpc. A value with prefix is mandatory.
+
+
+    - transaction nmda get-data origin-filter <union>
+
+      Configure an origin filter to be used by the get-data rpc. A value with prefix is mandatory.
+      Origin filter are usually only supported if an operational datastore like ds:operational has
+      been configured.
+
+
+## 2.1. ned-settings huawei-vrp_nc transaction ignore-rpc-errors
+----------------------------------------------------------------
+
+  Configure additional device errors that shall be treated as warnings (i.e. to be ignored, not
+  aborting transaction).
+
+    - transaction ignore-rpc-errors <error>
+
+      - error <string>
+
+        Warning regular expression, e.g. '^.*interface.* does not exist.*$'. NOTE: please use
+        lowercase letters for device warnings, except for regex keywords.
+
+
+## 2.2. ned-settings huawei-vrp_nc transaction extra-get-config-paths
 ---------------------------------------------------------------------
 
   This list can be used to add extra filters when sending get-config RPC to the device.
@@ -265,7 +303,7 @@
         Schema path to explicitly add to filter for get-config.
 
 
-## 2.2. ned-settings huawei-vrp_nc transaction exclude-namespaces
+## 2.3. ned-settings huawei-vrp_nc transaction exclude-namespaces
 -----------------------------------------------------------------
 
   This list can be used to filter out certain namespaces from the configuration
@@ -279,7 +317,7 @@
         Namespace to exclude (i.e. as it appears in the yang module).
 
 
-## 2.3. ned-settings huawei-vrp_nc transaction inject-meta-data
+## 2.4. ned-settings huawei-vrp_nc transaction inject-meta-data
 ---------------------------------------------------------------
 
   Inject tailf:meta-data extension into schema at given path, used for example to trigger xml
@@ -577,6 +615,34 @@
 
       Canonicalize leaf values of type 'identityref' in operational data before sending to NSO, i.e.
       add/change prefix to global prefix in NSO.
+
+
+    - live-status nmda get-data enable <true|false> (default false)
+
+      Use get-data rpc for data retrieval, if device supports it.
+
+
+    - live-status nmda get-data with-origin <true|false> (default false)
+
+      Configure whether or not to include a </with-origin> tag in the get-data request. The
+      with-origin setting is usually only supported for operational datastores, like ds:operational.
+
+
+    - live-status nmda get-data datastore <union> (default operational)
+
+      Configure datastore to be used by the get-data rpc. A value with prefix is mandatory.
+
+
+    - live-status nmda get-data origin-filter <union>
+
+      Configure an origin filter to be used by the get-data rpc. A value with prefix is mandatory.
+      Origin filter are usually only supported if an operational datastore like ds:operational has
+      been configured.
+
+
+    - live-status nmda get-data skip-config <true|false> (default false)
+
+      Ask the device to not include 'config true' data in the response.
 
 
 ## 5.1. ned-settings huawei-vrp_nc live-status regex-exclude
