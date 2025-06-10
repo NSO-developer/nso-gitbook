@@ -466,7 +466,7 @@ In an NSO System Install setup, not only does the shared token need to match bet
 
 The token configured on the secondary node is overwritten with the encrypted token of type `aes-256-cfb-128-encrypted-string` from the primary node when the secondary node connects to the primary. If there is a mismatch between the encrypted-string configuration on the nodes, NSO will not decrypt the HA token to match the token presented. As a result, the primary node denies the secondary node access the next time the HA connection needs to reestablish with a "Token mismatch, secondary is not allowed" error.
 
-See the `upgrade-l2` example, referenced from [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc), for an example setup and the [Deployment Example](../installation-and-deployment/deployment-example.md) for a description of the example.
+See the `upgrade-l2` example, referenced from [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc), for an example setup and the [Deployment Example](../installation-and-deployment/deployment/deployment-example.md) for a description of the example.
 
 Also, note that the `ncs.crypto_keys` file is highly sensitive. The file contains the encryption keys for all CDB data that is encrypted on disk. Besides the HA token, this often includes passwords for various entities, such as login credentials to managed devices.
 
