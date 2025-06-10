@@ -78,7 +78,7 @@ PAM (Pluggable Authentication Modules) is the recommended authentication method 
 
 See [PAM](../../management/aaa-infrastructure.md#ug.aaa.pam) for details.
 
-## Customizing AAA Configuration
+### Customizing AAA Configuration
 
 When customizing the default `aaa_init.xml` configuration:
 
@@ -89,7 +89,7 @@ When customizing the default `aaa_init.xml` configuration:
 
 See [AAA Infrastructure](../../management/aaa-infrastructure.md) for details.
 
-## Additional Authentication Methods
+### Additional Authentication Methods
 
 * CLI and NETCONF: SSH public key authentication
 * RESTCONF: Token, JWT, LDAP, or TACACS+ authentication
