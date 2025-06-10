@@ -2,7 +2,7 @@
 description: Security features to consider for NSO deployment.
 ---
 
-# Secure Deployment Considerations
+# Secure Deployment
 
 When deploying NSO in production environments, security should be a primary consideration. This section guides the NSO features available for securing your NSO deployment.
 
@@ -53,19 +53,17 @@ Running NSO with minimal privileges is a fundamental security best practice:
 * Use the NSO installer `--run-as-user User` option to run NSO as a non-root user
 * Some files are installed with elevated privileges - refer to the [ncs-installer(1)](../../../man/section1.md#system-installation) man page under the `--run-as-user User` option for details
 * The NSO 6.5+ production container runs NSO from a [non-root user](../containerized-nso.md#nso-runs-from-a-non-root-user)
-* If the CLI is used and we want to create CLI commands that run executables, we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdptywrapper` program.
+*   If the CLI is used and we want to create CLI commands that run executables, we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdptywrapper` program.\
     To be able to run an executable as root or a specific user, we need to make `cmdptywrapper` `setuid` `root`, i.e.:
 
     1. `# chown root cmdptywrapper`
     2. `# chmod u+s cmdptywrapper`
 
-    Failing that, all programs will be executed as the user running the `ncs` daemon. Consequently, if that user is the `root`, we do not have to perform the `chmod` operations above.
-    \
+    Failing that, all programs will be executed as the user running the `ncs` daemon. Consequently, if that user is the `root`, we do not have to perform the `chmod` operations above.\
     The same applies to executables run via actions, but then we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdwrapper` program instead:
 
     1. `# chown root cmdwrapper`
     2. `# chmod u+s cmdwrapper`
-
 * The deployment variant referenced in the README file of the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example provides a native and NSO production container based example.
 
 ## Authentication, Authorization, and Accounting (AAA)
@@ -76,12 +74,12 @@ PAM (Pluggable Authentication Modules) is the recommended authentication method 
 
 * Group assignments based on the OS group database `/etc/group`
 * Default NACM (Network Configuration Access Control Module) settings provide two groups:
-    * `ncsadmin`: unlimited access rights
-    * `ncsoper`: minimal access rights (read-only)
+  * `ncsadmin`: unlimited access rights
+  * `ncsoper`: minimal access rights (read-only)
 
 See [PAM](../../management/aaa-infrastructure.md#ug.aaa.pam) for details.
 
-## Customizing AAA Configuration
+### Customizing AAA Configuration
 
 When customizing the default `aaa_init.xml` configuration:
 
@@ -92,7 +90,7 @@ When customizing the default `aaa_init.xml` configuration:
 
 See [AAA Infrastructure](../../management/aaa-infrastructure.md) for details.
 
-## Additional Authentication Methods
+### Additional Authentication Methods
 
 * CLI and NETCONF: SSH public key authentication
 * RESTCONF: Token, JWT, LDAP, or TACACS+ authentication
@@ -106,8 +104,9 @@ See [Authentication](../../management/aaa-infrastructure.md#ug.aaa.authenticatio
 
 ## Securing IPC Access
 
-Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket). \
+Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).\
 Examples of programs that connect using IPC sockets:
+
 * Remote commands, such as `ncs --reload`
 * MAAPI, CDB, DP, event notification API clients
 * The `ncs_cli` program
@@ -121,9 +120,9 @@ Examples of programs that connect using IPC sockets:
 ### Best Practices
 
 * Use Unix sockets for authenticating the client based on the UID of the other end of the socket connection
-    * Root and the user NSO runs from always have access
-    * If using TCP sockets, configure NSO to use access checks with a pre-shared key
-        * If enabling non-localhost IPC over TCP sockets, implement encryption
+  * Root and the user NSO runs from always have access
+  * If using TCP sockets, configure NSO to use access checks with a pre-shared key
+    * If enabling non-localhost IPC over TCP sockets, implement encryption
 
 See [Authenticating IPC Access](../../management/aaa-infrastructure.md#authenticating-ipc-access) for details.
 
@@ -132,21 +131,21 @@ See [Authenticating IPC Access](../../management/aaa-infrastructure.md#authentic
 Secure communication with managed devices:
 
 * Use [Cisco-provided NEDs](../../management/ned-administration.md) when possible
-* Refer to the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) README, which references a deployment variant of
-the example for SSH key update patterns using nano services.
+* Refer to the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) README, which references a deployment variant of\
+  the example for SSH key update patterns using nano services.
 
 ## Cryptographic Key Management
 
 ### Hashing Algorithms
 
 * Set the `ncs.conf` `/ncs-config/crypt-hash/algorithm` to sha-512 for password hashing
-    * Used by the `ianach:crypt-hash` type for secure password storage
+  * Used by the `ianach:crypt-hash` type for secure password storage
 
 ### Encryption Keys
 
 * Generate new encryption keys before or at startup
 * Replace or rotate keys generated by the NSO installer
-    * Rotate keys periodically
+  * Rotate keys periodically
 * Store keys securely (default location: `/etc/ncs/ncs.crypto_keys`)
 * The `ncs.crypto_keys` file contains the highly sensitive encryption keys for all encrypted CDB data
 
@@ -175,10 +174,10 @@ For additional protection, implement rate limiting at the network level using to
 When deploying NSO in [HA (High Availability)](../../management/high-availability.md) configurations:
 
 * RAFT HA:
-    * Uses encrypted TLS with mutual X.509 authentication
+  * Uses encrypted TLS with mutual X.509 authentication
 * Rule-based HA:
-    * Unencrypted communication
-    * Shared token for authentication between HA group nodes
+  * Unencrypted communication
+  * Shared token for authentication between HA group nodes
 
 {% hint style="info" %}
 Encrypted strings for all encrypted CDB data, default stored in `/etc/ncs/ncs.crypto_keys`, must be identical across nodes
@@ -199,5 +198,3 @@ For enhanced security and regulatory compliance:
 * FIPS mode restricts NSO to use only FIPS 140-3 validated cryptographic modules
 * Enable with the `--fips-install` option during [installation](../system-install.md)
 * Required for certain government and regulated industry deployments
-
-
