@@ -529,7 +529,7 @@ FASTMAP covers the complete service life cycle: creating, changing, and deleting
 FASTMAP is based on generating changes from an initial create operation. When the service instance is created the reverse of the resulting device configuration is stored together with the service instance. If an NSO user later changes the service instance, NSO first applies (in an isolated transaction) the reverse diff of the service, effectively undoing the previous create operation. Then it runs the logic to create the service again and finally performs a diff against the current configuration. Only the result of the diff is then sent to the affected devices.
 
 {% hint style="warning" %}
-It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.opaque) for techniques to achieve this.
+It is therefore very important that the service create code produces the same device changes for a given set of input parameters every time it is executed. See [Persistent Opaque Data](../advanced-development/developing-services/services-deep-dive.md#ch_svcref.opaque) for techniques to achieve this.
 {% endhint %}
 
 If the service instance is deleted, NSO applies the reverse diff of the service, effectively removing all configuration changes the service did on the devices.
@@ -730,7 +730,7 @@ The create code usually performs the following tasks:
 * Prepare configuration variables.
 * Apply one or more XML templates.
 
-Reading instance parameters is done with the help of the `service` function parameter, using [NAVU API](api-overview/java-api-overview.md#ug.java\_api\_overview.navu). For example:
+Reading instance parameters is done with the help of the `service` function parameter, using [NAVU API](api-overview/java-api-overview.md#ug.java_api_overview.navu). For example:
 
 ```java
     public Properties create(ServiceContext context,
@@ -1309,7 +1309,7 @@ But where does the operational data come from? The service application code prov
 
 This approach works well when operational data is updated based on some event, such as a received notification or a user action, and NSO is used to cache its value.
 
-For cases, where this is insufficient, NSO also allows producing operational data on demand, each time a client requests it, through the Data Provider API. See [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp) for this alternative approach.
+For cases, where this is insufficient, NSO also allows producing operational data on demand, each time a client requests it, through the Data Provider API. See [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp) for this alternative approach.
 
 ### Writing Operational Data in Python <a href="#d5e2012" id="d5e2012"></a>
 
@@ -1468,7 +1468,7 @@ The basic concepts of nano services are covered in detail by [Nano Services for 
 3. Configures NSO to use the public key for authentication with the netsim network elements using a Python service `create()` callback and service template.
 4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in **connect** action.
 
-Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md).
+Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
 
 The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.4/nano-services) directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
 
@@ -1493,7 +1493,7 @@ This is why it is important to have a systematic approach when debugging and tro
 
 You can use these general steps to give you a high-level idea of how to approach troubleshooting your NSO services:
 
-1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../administration/management/system-management/#ug.sys\_mgmt.tshoot) in Administration.\
+1. Ensure that your NSO instance is installed and running properly. You can verify the overall status with `ncs --status` shell command. To find out more about installation problems and potential runtime issues, check [Troubleshooting](../../administration/management/system-management/#ug.sys_mgmt.tshoot) in Administration.\
    \
    If you encounter a blank CLI when you connect to NSO you must also make sure that your user is added to the correct NACM group (for example `ncsadmin`) and that the rules for this group allow the user to view and edit your service through CLI. You can find out more about groups and authorization rules in [AAA Infrastructure](../../administration/management/aaa-infrastructure.md) in Administration.
 2.  Verify that you are using the latest version of your packages. This means copying the latest packages into load path, recompiling the package YANG models and code with the `make` command, and reloading the packages. In the end, you must expect the NSO packages to be successfully reloaded to proceed with troubleshooting. You can read more about loading packages in [Loading Packages](../advanced-development/developing-packages.md#loading-packages). If nothing else, successfully reloading packages will at least make sure that you can use and try to create service instances through NSO.\
@@ -1556,7 +1556,7 @@ You can use these general steps to give you a high-level idea of how to approach
 3.  Examine what the template and XPath expressions evaluate to. If some service instance parameters are missing or are mapped incorrectly, there might be an error in the service template parameter mapping or in their XPath expressions. Use the CLI pipe command `debug template` to show all the XPath expression results from your service configuration templates or `debug xpath` to output all XPath expression results for the current transaction (e.g., as a part of the YANG model as well).
 
     \
-    In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](templates.md#debugging-templates). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](templates.md#ch\_templates.multined) when applying different bits of configuration to different versions of devices.
+    In addition, you can use the `xpath eval` command in CLI configuration mode to test and evaluate arbitrary XPath expressions. The same can be done with `ncs_cmd` from the command shell. To see all the XPath expression evaluations in your system, you can also enable and inspect the `xpath.trace` log. You can read more about debugging templates and XPath in [Debugging Templates](templates.md#debugging-templates). If you are using multiple versions of the same NED, make sure that you are using the correct processing instructions as described in [Namespaces and Multi-NED Support](templates.md#ch_templates.multined) when applying different bits of configuration to different versions of devices.
 
     ```cli
     admin@ncs# devtools true
@@ -1565,8 +1565,8 @@ You can use these general steps to give you a high-level idea of how to approach
     admin@ncs(config)# xpath eval /devices/device
     admin@ncs(config)# xpath eval /devices/device[name='r0']
     ```
-4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-virtual-machines/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../advanced-development/developing-packages.md#ug.package\_dev.java\_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
-5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.logging) in Administration.
+4. Validate that your custom service code is performing as intended. Depending on your programming language of choice, there might be different options to do that. If you are using Java, you can find out more on how to configure logging for the internal Java VM Log4j in [Logging](nso-virtual-machines/nso-java-vm.md#logging). You can use a debugger as well, to see the service code execution line by line. To learn how to use Eclipse IDE to debug Java package code, read [Using Eclipse to Debug the Package Java Code](../advanced-development/developing-packages.md#ug.package_dev.java_debugger). The same is true for Python. NSO uses the standard `logging` module for logging, which can be configured as per instructions in [Debugging of Python Packages](nso-virtual-machines/nso-python-vm.md#debugging-of-python-packages). Python debugger can be set up as well with `debugpy` or `pydevd-pycharm` modules.
+5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs_sys_mgmt.logging) in Administration.
 
     \
     Another useful option is to append a custom trace ID to your service commits. The trace ID can be used to follow the request in logs from its creation all the way to the configuration changes that get pushed to the device. In case no trace ID is specified, NSO will generate a random one, but custom trace IDs are useful for focused troubleshooting sessions.
