@@ -6,7 +6,7 @@ description: Connect client libraries to NSO with IPC.
 
 Client libraries connect to NSO for inter-process communication (IPC) using TCP or Unix domain sockets.
 
-If NSO is configured to use TCP sockets for IPC, you can tell NSO which address to use for these connections through the `/ncs-config/ncs-ipc-address/ip` (default value 127.0.0.1) and `/ncs-config/ncs-ipc-address/port` (default value 4569) elements in `ncs.conf`. If you change these values, you will likely need to configure the clients accordingly. Note that these values have security implications; see [Security Issues](security-issues.md). In particular, changing the address away from 127.0.0.1 may allow unauthenticated remote connections.
+If NSO is configured to use TCP sockets for IPC, you can tell NSO which address to use for these connections through the `/ncs-config/ncs-ipc-address/ip` (default value 127.0.0.1) and `/ncs-config/ncs-ipc-address/port` (default value 4569) elements in `ncs.conf`. If you change these values, you will likely need to configure the clients accordingly. Note that these values have security implications; see [Security Issues](../installation-and-deployment/deployment/secure-deployment.md#securing-ipc-access). In particular, changing the address away from 127.0.0.1 may allow unauthenticated remote connections.
 
 Many of the clients read the environment variables `NCS_IPC_ADDR` and `NCS_IPC_PORT` to determine if something other than the default is to be used, but others might need source code changes. This is a list of clients that communicate with NSO and what needs to be done when `ncs-ipc-address` is changed.
 
