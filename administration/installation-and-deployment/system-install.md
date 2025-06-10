@@ -249,7 +249,7 @@ If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interact
 
 For more information on the `ncs-installer`, see the [ncs-installer(1)](../../man/section1.md#ncs-installer) man page.
 
-For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
+For an extensive guide to NSO deployment, refer to [Development to Production Deployment](development-to-production-deployment/)_._
 
 </details>
 
