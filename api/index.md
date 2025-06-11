@@ -1,4 +1,6 @@
-<a id="module-ncs.maapi"></a>
+# NSO API Reference
+
+## ncs.maapi <a id="module-ncs.maapi"></a>
 
 MAAPI high level module.
 
