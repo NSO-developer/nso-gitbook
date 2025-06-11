@@ -126,5 +126,5 @@
   * [Section 1](man/section1.md)
   * [Section 3](man/section3.md)
   * [Section 5](man/section5.md)
-* [NSO API Reference](https://developer.cisco.com/docs/nso/#!api-reference)
+* [NSO API Reference](api/index.md)
 * [NSO Docs Home](https://developer.cisco.com/docs/nso/)
