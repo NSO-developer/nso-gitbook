@@ -53,7 +53,7 @@
   arista-dcs ned-settings.
 
 
-    - arista-dcs extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED enable extensions to ease the task of the NSO CLI command parser. A common
       problem with this parser is that it can easily get lost when trying to parse configuration not

@@ -36,6 +36,8 @@
   ```
   1. ned-settings eci-muse
   2. connection
+     2.1. for-version
+     2.2. for-version
   3. logger
   4. developer
   ```
@@ -139,6 +141,13 @@
       API authentication key if needed.
 
 
+    - connection api version <enum> (default 1)
+
+      1  - 1.
+
+      2  - 2.
+
+
     - connection api request service action update id-value-as <enum> (default DOMAIN_SERVICE_ID)
 
       SERVICE_ID         - SERVICE_ID.
@@ -165,7 +174,7 @@
       API host for device Service.
 
 
-    - connection api base-url default <string>
+    - connection api base-url default <string> (default /MuseApplication/ServiceManager/V1.1)
 
       API default base URL.
 
@@ -205,6 +214,46 @@
     - connection api key <string>
 
       API authentication key if needed.
+
+
+## 2.1. ned-settings eci-muse connection api address for-version
+----------------------------------------------------------------
+
+  Device REST API host for specific API version.
+
+    - connection api address for-version <version> <default> <service>
+
+      - version <enum>
+
+        1  - 1.
+
+        2  - 2.
+
+      - default <string>
+
+        Device REST API default host for specific API version.
+
+      - service <string>
+
+
+## 2.2. ned-settings eci-muse connection api base-url for-version
+-----------------------------------------------------------------
+
+  Device REST API base URL for specific API version.
+
+    - connection api base-url for-version <version> <default> <service>
+
+      - version <enum>
+
+        1  - 1.
+
+        2  - 2.
+
+      - default <string>
+
+        Device REST API default base URL for specific API version.
+
+      - service <string>
 
 
 # 3. ned-settings eci-muse logger
