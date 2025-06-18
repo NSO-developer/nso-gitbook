@@ -47,7 +47,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - paloalto-panos_cli extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED enable extensions to ease the task of the NSO CLI command parser. A common
       problem with this parser is that it can easily get lost when trying to parse configuration not
@@ -70,17 +70,17 @@
                         format.
 
 
-    - paloalto-panos_cli commit-all-oper-command <string> (default )
+    - commit-all-oper-command <string> (default )
 
       Commit command needed for having the changes pushed to firewall devices managed by Panorama.
 
 
-    - paloalto-panos_cli partial-sync <true|false> (default true)
+    - partial-sync <true|false> (default true)
 
       Enable/disable partial sync.
 
 
-    - paloalto-panos_cli commit-all-delay <NUM> (default 0)
+    - commit-all-delay <NUM> (default 0)
 
       Delay in milliseconds before commit-all operation.
 

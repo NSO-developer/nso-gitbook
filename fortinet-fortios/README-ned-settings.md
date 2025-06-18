@@ -47,17 +47,17 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - fortinet-fortios ignore-unlicensed-devices <true|false> (default false)
+    - ignore-unlicensed-devices <true|false> (default false)
 
       Ignore unlicensed devices at connection time.
 
 
-    - fortinet-fortios disable-pagination-unlicensed-device <true|false> (default false)
+    - disable-pagination-unlicensed-device <true|false> (default false)
 
       Disable pagination even if the device is unlicensed.
 
 
-    - fortinet-fortios extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the fortinet-fortios NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -80,7 +80,7 @@
                         (which potentially can cause following config to be skipped).
 
 
-    - fortinet-fortios transaction-id-method <enum> (default device-checksum)
+    - transaction-id-method <enum> (default device-checksum)
 
       Method used for calculating the transaction id.
 
@@ -91,27 +91,27 @@
       conf-file-ver    - Calculate MD5 on reported conf file ver checksum.
 
 
-    - fortinet-fortios conf-file-ver-delay <NUM> (default 2000)
+    - conf-file-ver-delay <NUM> (default 2000)
 
       Delay in milliseconds before fetching the config file ver.
 
 
-    - fortinet-fortios device-checksum-delay <NUM> (default 2000)
+    - device-checksum-delay <NUM> (default 2000)
 
       Delay in milliseconds before fetching the device configuration checksum.
 
 
-    - fortinet-fortios device-checksum-delay-during-commit <NUM> (default 0)
+    - device-checksum-delay-during-commit <NUM> (default 0)
 
       Delay in milliseconds before fetching the device configuration checksum during commit.
 
 
-    - fortinet-fortios filter-encrypted-passwords <true|false> (default true)
+    - filter-encrypted-passwords <true|false> (default true)
 
       Filter encrypted passwords.
 
 
-    - fortinet-fortios prompt <string> (default #)
+    - prompt <string> (default #)
 
       Change device prompt, default is '#'.
 
