@@ -418,7 +418,6 @@ admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.25
 
 User can set the preferred allocation-method on the pool while creating the pool or user can update the allocation-method later also by selecting the allocation-method value as either 'firstfree' or 'sequential'.
 
-
 Default value is 'firstfree'. If firstfree, release Subnets can be reused immidiately. If sequential, released IPs will be used once the available pool is exhausted.
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
