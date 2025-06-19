@@ -155,12 +155,12 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - number-of-retries <uint8> (default 0)
+    - connection number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
 
 
-    - time-between-retry <uint8> (default 1)
+    - connection time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry.
 
@@ -171,7 +171,7 @@
   Configure NED settings related to live-status.
 
 
-    - time-to-live <int32> (default 50)
+    - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.
 
@@ -187,7 +187,7 @@
 
   Replace (or filter) config when reading from device.
 
-    - replace-config <id> <regexp> <replacement> <when>
+    - read replace-config <id> <regexp> <replacement> <when>
 
       - id <WORD>
 
@@ -217,7 +217,7 @@
   Settings used when writing to device.
 
 
-    - context-ip-pool-modify-syntax <true|false> (default false)
+    - write context-ip-pool-modify-syntax <true|false> (default false)
 
       Problem 1:
         /context/ip/pool yang model is compact-syntax and NSO can not generate
@@ -255,7 +255,7 @@
   useful if a dependency bug is found and you do not want to upgrade
   the NED or are in a hurry for the fix.
 
-    - config-dependency <id> <mode> <move> <action> <stay> <options>
+    - write config-dependency <id> <mode> <move> <action> <stay> <options>
 
       - id <WORD>
 
@@ -293,7 +293,7 @@
 
   Inject command (before or after) specified config-line upon commit.
 
-    - inject-command <id> <config-line> <command> <where>
+    - write inject-command <id> <config-line> <command> <where>
 
       - id <WORD>
 
@@ -363,7 +363,7 @@
 
   Replace (or filter) config when writing to device.
 
-    - replace-commit <id> <regexp> <replacement>
+    - write replace-commit <id> <regexp> <replacement>
 
       - id <WORD>
 
@@ -403,12 +403,12 @@
   "enable-hidden-mode=true" and "test-commands-password=<password>".
 
 
-    - enable-hidden-mode <true|false> (default false)
+    - hidden-mode enable-hidden-mode <true|false> (default false)
 
       enable hidden mode(default is false).
 
 
-    - test-commands-password <string>
+    - hidden-mode test-commands-password <string>
 
       Permits access to internal test and debug commands.
 
@@ -431,7 +431,7 @@
   use this ned-settings to NED to retry the command and not start auto-rollback immediately.
 
 
-    - errors <error>
+    - config-error-retry errors <error>
 
       Add device error/warning regexp retry list.
 
@@ -440,12 +440,12 @@
         Warning/error regular expression, e.g. GTAC Failure .*.
 
 
-    - config-output-max-retries <NUM> (default 90)
+    - config-error-retry config-output-max-retries <NUM> (default 90)
 
       Max number of retries, when sending config command to device.
 
 
-    - config-output-retry-intervel <NUM> (default 1)
+    - config-error-retry config-output-retry-intervel <NUM> (default 1)
 
       Specify retry interval in seconds.
 
@@ -465,7 +465,7 @@
   in aborting commit if NED receives those warnings from device, you can configure
   NED to ignore them using this ned-settings.
 
-    - config-warning-ignore <warning>
+    - behaviour config-warning-ignore <warning>
 
       - warning <WORD>
 
@@ -482,7 +482,7 @@
   Contains settings used by the NED developers.
 
 
-    - load-from-file <string>
+    - developer-settings load-from-file <string>
 
       Make the NED load a file containing raw device config when doing sync-from.
 
@@ -493,7 +493,7 @@
   Settings for controlling logs generated.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -506,7 +506,7 @@
       debug    - debug.
 
 
-    - java <true|false> (default false)
+    - logger java <true|false> (default false)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -517,7 +517,7 @@
   Configure NED to access device via a proxy.
 
 
-    - remote-connection <enum>
+    - proxy remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -528,37 +528,37 @@
       serial  - serial.
 
 
-    - remote-address <ipv4|ipv6>
+    - proxy remote-address <ipv4|ipv6>
 
       Address of host behind the proxy.
 
 
-    - remote-port <uint16>
+    - proxy remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - remote-name <string>
+    - proxy remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - remote-password <string>
+    - proxy remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - authgroup <WORD>
+    - proxy authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-prompt <string>
+    - proxy proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - remote-ssh-args <string>
+    - proxy remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection.
 

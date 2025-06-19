@@ -41,7 +41,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.60.3 2025-06-05](alu-sr/README.md)
+  * [README v8.61 2025-06-18](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.57 2025-04-25](cisco-staros/README.md)
+  * [README v5.57.1 2025-06-18](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -310,6 +310,10 @@
 * redhat-dir389
   * [README-ned-settings](redhat-dir389/README-ned-settings.md)
   * [README v1.2.6 2025-01-07](redhat-dir389/README.md)
+
+* riverbed-steelhead
+  * [README-ned-settings](riverbed-steelhead/README-ned-settings.md)
+  * [README v4.0.4 2025-06-18](riverbed-steelhead/README.md)
 
 * sfr-nbe300
   * [README-ned-settings](sfr-nbe300/README-ned-settings.md)
