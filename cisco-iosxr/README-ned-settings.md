@@ -314,7 +314,8 @@
 
     - read strip-descriptions <true|false> (default false)
 
-      To strip whitespace added by device at end of line of descriptions, enable this setting.
+      Enable this setting to strip a single blank ' ' sometimes added by device at end of line of
+      descriptions.
 
 
     - read show-running-xml <true|false> (default true)

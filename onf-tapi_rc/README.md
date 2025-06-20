@@ -547,7 +547,6 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
-
 # 3. Dependencies
 -----------------
 
@@ -1100,6 +1099,11 @@
       - ned-id suffix <string>
 
         Set a custom suffix in the generated ned-id.
+
+
+      - additional-build-args <string>
+
+        Additional arguments to pass to build(make) commands.
 
 
   ## 5.9. rpc show-default-local-dir
