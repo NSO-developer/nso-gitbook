@@ -88,6 +88,13 @@ To run the images, make sure that your system meets the following requirements:
 
 * A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
 * A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
+*   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.5` is the image you want to check):
+
+    {% code title="Example: Check Java and Python Versions of Container" %}
+    ```bash
+    docker run --rm cisco-nso-prod:6.5 sh -c "java -version && python --version"
+    ```
+    {% endcode %}
 
 {% hint style="info" %}
 Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.
