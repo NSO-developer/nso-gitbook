@@ -1,4 +1,8 @@
-# NSO Manual Pages
+---
+icon: file-lines
+---
+
+# Manual Pages
 
 ## Section 1: User Commands and Programs
 
