@@ -8,7 +8,7 @@ icon: book-sparkles
 ***
 
 {% hint style="info" %}
-This quick start guide uses a Local Install of NSO for those just getting started. The [NSO Installation and Deployment Guide](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment) details handling Local and System installations.
+This quick start guide uses a Local Install of NSO for those just getting started to try or evaluate NSO. The [NSO Installation and Deployment Guide](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment) details handling Local and System installations.
 {% endhint %}
 
 <details>
@@ -37,19 +37,19 @@ For development purposes, choose between the following:
 * Linux for x86\_64 or arm64.
 * macOS Darwin for x86\_64 or arm64.
 
-A detailed list of NSO installation requirements can be found in the [NSO Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment) guide.
+A detailed list of NSO installation requirements can be found in the [NSO Installation and Deployment Guide](https://nso-docs.cisco.com/guides/administration/installation-and-deployment).
 
 ## Installation <a href="#installation" id="installation"></a>
 
 {% hint style="info" %}
-The recommended guide for installing NSO is the [NSO Installation and Deployment](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment) guide. The description below is a quick-start version.
+The recommended guide for installing NSO is the [NSO Installation and Deployment Guide](https://nso-docs.cisco.com/guides/administration/installation-and-deployment). The description below is a quick-start version.
 {% endhint %}
 
 ### Operating System <a href="#operating-system" id="operating-system"></a>
 
 Cisco NSO can run on macOS or Linux systems. If you are a Windows user (or do not wish to install it natively on your laptop), you can install NSO on a Linux virtual machine or in a container.
 
-If you use Docker, there are pre-built system install images available. See the [Containerized NSO](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment/containerized-nso) guide.
+If you use Docker, there are pre-built system install images available. See the [Containerized NSO](https://nso-docs.cisco.com/guides/administration/installation-and-deployment/containerized-nso) guide.
 
 There are [NSO Playgrounds](https://developer.cisco.com/codeexchange/github/repo/CiscoDevNet/NSO-Playground-Local-Install/) available to dive right in and try out examples in a user-friendly browser-based integrated development environment (IDE).
 
@@ -208,7 +208,7 @@ cd ~/nso-6.0
 
 ### Documentation <a href="#documentation" id="documentation"></a>
 
-> **Note**: Links to the online version of the [NSO Guides](https://cisco-tailf.gitbook.io/nso-docs/guides) and [NSO Extension API Reference](https://developer.cisco.com/docs/nso/api/) documentation.
+> **Note**: Links to the online version of the [NSO Guides](https://nso-docs.cisco.com/guides) and [NSO Extension API Reference](https://developer.cisco.com/docs/nso/api/) documentation.
 
 Along with the binaries, NSO installs a full set of documentation available in the `doc/` folder in `~/nso-6.0`.
 
