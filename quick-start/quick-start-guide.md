@@ -363,7 +363,7 @@ drwxr-xr-x  10 user  staff   320 Nov 29 05:17 juniper-junos-nc-3.0
 
 7. And now you have the newer NED versions available, as well as the demo/evaluation versions included with NSO itself!
 
-### `ncsrc` <a href="#ncsrc" id="ncsrc"></a>
+### `ncsrc` File <a href="#ncsrc" id="ncsrc"></a>
 
 The last thing to note is the files `ncsrc` and `ncsrc.tsch`. These are shell scripts for bash and `tsch` that set up your `PATH` and other environment variables for NSO. Depending on your shell, you will need `source` this file before starting your NSO work.
 
@@ -411,7 +411,7 @@ One of the included scripts with an NSO installation is `ncs-setup`, which makes
     ```
 2.  If you check out the `nso-instance` directory now, you'll find several new files and folders have been created. This guide won't go through them all in detail now, but a couple are handy to know about.
 
-    * `ncs.conf` is the NSO application configuration file. Used to customize aspects of the NSO instance (change ports, enable/disable features, etc.). The defaults are often perfect for projects like this.
+    * `ncs.conf` is the NSO application configuration file which is used to customize aspects of the NSO instance (for example, change ports, enable/disable features, enable Web UI, etc.). The defaults are often perfect for projects like this.
     * `packages/` is the directory that has symlinks to the NEDs that we referenced in the `--package` arguments at setup.
     * `logs/` is the directory that contains all the logs from NSO. This directory is useful when troubleshooting.
 
@@ -450,9 +450,11 @@ status: started
 
 ## Get Started <a href="#getting-started" id="getting-started"></a>
 
-We recommend that you start with the [online version](https://cisco-tailf.gitbook.io/nso-docs/guides) or in the doc directory `$HOME/nso-VERSION/doc/pdf/`.
+We recommend that you start with the [online version](https://nso-docs.cisco.com/guides) or in the doc directory `$HOME/nso-VERSION/doc/pdf/`.
 
 There are a lot of examples in the `$HOME/nso-VERSION/examples.ncs` directory. The examples have a short description in the `$HOME/nso-VERSION/examples.ncs/README`file. Each example has a README file that explains how to run it.
+
+To access the Web UI (usually at http://localhost:8080), first enable it in the `ncs.conf` file. See the [NSO Web UI Guide](https://nso-docs.cisco.com/guides/operation-and-usage/webui) for more information.
 
 ## Sandboxes <a href="#sandboxes" id="sandboxes"></a>
 
