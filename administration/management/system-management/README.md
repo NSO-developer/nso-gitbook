@@ -481,7 +481,7 @@ It is always advisable to stop NSO before performing a restore.
 1.  First stop NSO if NSO is not stopped yet.
 
     ```
-    systemctl stop nso
+    systemctl stop ncs
     ```
 2.  Restore the backup.
 
@@ -494,7 +494,7 @@ It is always advisable to stop NSO before performing a restore.
 3.  Start NSO.
 
     ```
-    systemctl start nso
+    systemctl start ncs
     ```
 
 ## Rollbacks
