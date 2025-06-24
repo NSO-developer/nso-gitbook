@@ -14,7 +14,7 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues and feature requests
+  8. How to report NED issues
   9. Ned read timeout policy
   10. APIC cluster health handling
   ```
