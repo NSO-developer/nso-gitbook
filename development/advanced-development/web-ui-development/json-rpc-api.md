@@ -992,24 +992,36 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 **Params**
 
 ```json
-{"th": <integer>,
- "path": <string>
- "result_as": <"string" | "json" | "json2", default: "string">
- "with_oper": <boolean, default: false>
- "max_size": <"integer", default: 0>}
+{"th": <integer>}
 ```
 
-The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format, string for a compact string format, `json` for JSON-compatible with RESTCONF and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kb, set to 0 to disable the limit.
+```json
+{"path": <string>}
+```
+
+```json
+{"result_as": <"json" | "json2" | "cli" | "cli-c" | "xml", default: "cli">}
+```
+
+```json
+{"with_oper": <boolean, default: false>}
+```
+
+```json
+{"max_size": <"integer", default: 0>}
+```
+
+The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format; `cli` for CLI curly bracket format, `cli-c` for Cisco CLI style format, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit. The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`.
 
 **Result**
 
-`result_as` string:
+The `result_as` param when set to `cli`, `cli-c`, or `xml` :
 
 ```json
 {"config": <string>}
 ```
 
-`result_as` JSON:
+The `result_as`  param when set to `json` or `json2`:
 
 ```json
 {"data": <json>}
