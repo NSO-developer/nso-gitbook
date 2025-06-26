@@ -192,11 +192,11 @@ The simplest form of an XPath expression is a plain XPath variable:
       <name>{$CE}</name>
 ```
 
-A value can contain any number of `{...}` expressions and strings. The end result is the concatenation of all the strings and XPath expressions. For example, `<description>Link to PE: {$PE} - {$PE_INT_NAME}</description>` might evaluate to `<description>Link to PE: pe0 - GigabitEthernet0/0/0/3</description>`.
+A value can contain any number of `{...}` expressions and strings. The end result is the concatenation of all the strings and XPath expressions. For example, `<description>Link to PE: {$PE} - {$PE_INT_NAME}</description>` might evaluate to `<description>Link to PE: pe0 - GigabitEthernet0/0/0/3</description>` if you set `PE` to `pe0` and `PE_INT_NAME` to `GigabitEthernet0/0/0/3` when applying the template.
 
-if you set `PE` to `pe0` and `PE_INT_NAME` to `GigabitEthernet0/0/0/3` when applying the template.
+You set the values for variables in the code where you apply the template. However, if you set the value to an empty string, the corresponding statement is ignored (in this case you may use the XPath function `string()` to set a node to the actual empty string).
 
-You set the values for variables in the code where you apply the template. NSO also sets some predefined variables, which you can reference:
+NSO also sets some predefined variables, which you can reference:
 
 * `$DEVICE`: The name of the current device. Cannot be overridden.
 * `$TEMPLATE_NAME`: The name of the current template. Cannot be overridden.
@@ -637,7 +637,7 @@ In order to allow templates to be reusable while at the same time keeping as man
 
 Namely, if a package declares a list of supported-ned-ids, then the templates in this package are interpreted as if no other ned-ids are loaded in the system. If such a template is attempted to be applied to a device with ned-id outside the supported list, then a run-time error is generated because this ned-id was not considered when the template was loaded. This allows us to ignore ambiguities in the data model introduced by additional NEDs that were not considered during template development.
 
-If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system.
+If a package declares a list of supported-ned-ids and the runtime system does not have one or more declared NEDs loaded, then the template engine uses the so-called relaxed loading mode, which means it ignores any unknown namespaces and `<?if-ned-id?>` clauses containing exclusively unknown ned-ids, assuming that these parts of the template are not applicable in the current running system. Note, however, that `<supported-ned-id-match>` in the current implementation only filters the list of currently loaded NEDs and does not result in relaxed loading mode.
 
 Because relaxed loading mode performs less strict validation and potentially prevents some errors from being detected, the package developer should always make sure to test in the system with all the supported ned-ids loaded, i.e. when the loading mode is `strict`. The loading mode can be verified by looking at the value of `template-loading-mode` leaf for the corresponding package under `/packages/package` list.
 

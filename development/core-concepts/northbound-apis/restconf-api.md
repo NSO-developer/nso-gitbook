@@ -1184,6 +1184,10 @@ The actual XPath query to run is specified by the `foreach` element. The example
 </foreach>
 ```
 
+{% hint style="info" %}
+Note that the `foreach`  element, specifying an XPath, expects nodes qualified with YANG module prefix, not YANG module name as is customary elsewhere in RESTCONF.
+{% endhint %}
+
 Now we need to define what we want to have returned from the node set by using one or more `select` sections. What to actually return is defined by the XPath `expression`.
 
 Choose how the result should be represented. Basically, it can be the actual value or the path leading to the value. This is specified per select chunk. The possible result types are `string`, `path`, `leaf-value`_,_ and `inline`.
