@@ -10,9 +10,9 @@ By using the NSO built-in encrypted YANG extension types `tailf:des3-cbc-encrypt
 
 ## Providing Keys
 
-NSO supports defining one or more sets of cryptographic keys directly in `ncs.conf` and in an external key file read by an external command. Three methods can be used to configure the keys in `ncs.conf`:
+NSO supports defining one or more sets of cryptographic keys directly in `ncs.conf` or using an external command. Three methods can be used to configure the keys in `ncs.conf`:
 
-* External keys under `/ncs-config/encrypted-strings/external-keys`.
+* External command providing keys under `/ncs-config/encrypted-strings/external-keys`.
 * Key rotation under `/ncs-config/encrypted-strings/key-rotation`.
 * Legacy (single generation) format: `/ncs-config/encrypted-strings/DES3CBC`, `/ncs-config/encrypted-strings/AESCFB128`, and `/ncs-config/encrypted-strings/AES256CFB128` .
 
@@ -61,6 +61,16 @@ NSO supports defining one or more sets of cryptographic keys directly in `ncs.co
     ```
 
     For details on using a custom external command to read the encryption keys, see [Encrypted Strings](../../development/connected-topics/encryption-keys.md).
+
+You can generate a new set of keys, e.g. for use within the `ncs.crypto_keys`  file, with the following command (requires `openssl`  to be present):
+
+```sh
+#!/bin/sh
+cat <<EOF
+AESCFB128_KEY=$(openssl rand -hex 16)
+AES256CFB128_KEY=$(openssl rand -hex 32)
+EOF
+```
 
 ### Providing Keys for Key Rotation
 
@@ -187,7 +197,6 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 {% hint style="info" %}
 In a high-availability setting, keys must be identical on all nodes before attempting key rotation. Otherwise, the action will abort. The node executing the action will initiate the key reload for all nodes.
 {% endhint %}
-
 
 ## Migrating 3DES Encrypted Values
 

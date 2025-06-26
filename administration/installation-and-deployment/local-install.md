@@ -339,6 +339,10 @@ Since the Runtime Directory is self-contained, this is also the way to move betw
 
 </details>
 
+{% hint style="warning" %}
+The `ncs-setup`  command creates an `ncs.conf` file that uses predefined encryption keys for easier migration of data across installations. It is not suitable for cases where data confidentiality is required, such as a production deployment. See [cryptographic-keys.md](../advanced-topics/cryptographic-keys.md "mention") for ways to generate suitable keys.
+{% endhint %}
+
 ### Step 7 - Generate License Registration Token <a href="#li.generate.license.token" id="li.generate.license.token"></a>
 
 To conclude the NSO installation, a license registration token must be created using a (CSSM) account. This is because NSO uses Cisco Smart Licensing, as described in the [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md) to make it easy to deploy and manage NSO license entitlements. Login credentials to the [Cisco Smart Software Manager](https://www.cisco.com/c/en/us/buy/smart-accounts/software-manager.html) (CSSM) account are provided by your Cisco contact and detailed instructions on how to [create a registration token](../management/system-management/cisco-smart-licensing.md#d5e2927) can be found in the Cisco Smart Licensing. General licensing information covering licensing models, how licensing works, usage compliance, etc., is covered in the [Cisco Software Licensing Guide](https://www.cisco.com/c/en/us/buy/licensing/licensing-guide.html).

@@ -40,7 +40,7 @@ During the offloading process, data is evicted from memory:
 
 The allowed amount is defined either by the absolute value `offload/threshold/megabytes` or by `offload/threshold/system-memory-percentage`, where the value is calculated dynamically based on the available system RAM. We recommend using the latter unless testing has shown specific requirements.
 
-The actual value should be adjusted according to the use case and system requirements; there is no single optimal setting for all cases. We recommend you start with defaults and then adjust according to observations. You can enable the new `/ncs-config/cdb/persistence/db-statistics` property to aid you in this task; the counters and gauges are available under `/ncs:metric/sysadmin/*/cdb`.
+The actual value should be adjusted according to the use case and system requirements; there is no single optimal setting for all cases. We recommend you start with defaults and then adjust according to observations. You can enable the new `/ncs-config/cdb/persistence/db-statistics` property to aid you in this task (producing `LOG` files inside the CDB directory), as well as the counters and gauges that are available under `/ncs:metric/sysadmin/*/cdb`.
 
 ## Compaction
 
