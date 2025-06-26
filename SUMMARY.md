@@ -226,7 +226,7 @@
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
   * [README-rebuild](huawei-vrp_nc/README-rebuild.md)
-  * [README v1.1.7 2025-06-13](huawei-vrp_nc/README.md)
+  * [README v1.1.8 2025-06-25](huawei-vrp_nc/README.md)
 
 * infoblox-nios
   * [README-ned-settings](infoblox-nios/README-ned-settings.md)
