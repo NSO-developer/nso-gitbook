@@ -13,7 +13,7 @@ Complete the following activities in the given order to perform a Local Install 
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="local-install.md#step-1-fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="local-install.md#li.download.the.installer">2. Download Installer/NEDs</a><br><a href="local-install.md#li.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="local-install.md#li.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="local-install.md#li.set.env.variables">5. Set Environment Variables</a><br><a href="local-install.md#li.create.runtime.directory">6. Runtime Directory Creation</a><br><a href="local-install.md#li.generate.license.token">7. Generate License Token</a></td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
-#### Mode of Install
+**Mode of Install**
 
 NSO Local Install can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips)**-compliant mode**. Standard mode install supports a broader set of cryptographic algorithms, while the FIPS mode install restricts NSO to use only FIPS 140-3-validated cryptographic modules and algorithms for enhanced/regulated security and compliance. Use FIPS mode only in environments that require compliance with specific security standards, especially in U.S. federal agencies or regulated industries. For all other use cases, install NSO in standard mode.
 
@@ -267,7 +267,7 @@ removing existing files) without asking for confirmation.
 
 ### Step 4 - Run the Installer <a href="#li.run.the.installer" id="li.run.the.installer"></a>
 
-Local Install of NSO software is performed in a single user-specified directory, for example in your `$HOME` directory.&#x20;
+Local Install of NSO software is performed in a single user-specified directory, for example in your `$HOME` directory.
 
 {% hint style="success" %}
 It is always recommended to install NSO in a directory named as the version of the release, for example, if the version being installed is `6.1`, the directory should be `~/nso-6.1`.
@@ -314,20 +314,20 @@ INFO  NCS installation complete
 {% tab title="FIPS Local Install" %}
 FIPS mode creates a FIPS-compliant NSO install.
 
-FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.&#x20;
+FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.
 
-For FIPS-compliant NSO install, run the installer with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.&#x20;
+For FIPS-compliant NSO install, run the installer with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.
 
 ```bash
 $ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install --fips-install
 ```
 
 {% hint style="info" %}
-#### NSO Configuration for FIPS
+**NSO Configuration for FIPS**
 
 Note the following as part of FIPS-specific configuration/install:
 
-1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:&#x20;
+1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:
 
 ```xml
 <fips-mode>
@@ -335,7 +335,7 @@ Note the following as part of FIPS-specific configuration/install:
 </fips-mode>
 ```
 
-2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.&#x20;
+2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.
 3. The default `crypto.so` is overwritten at install for FIPS compliance.
 
 Additionally, note that:
@@ -418,6 +418,10 @@ Since the Runtime Directory is self-contained, this is also the way to move betw
 ```
 
 </details>
+
+{% hint style="warning" %}
+The `ncs-setup`  command creates an `ncs.conf` file that uses predefined encryption keys for easier migration of data across installations. It is not suitable for cases where data confidentiality is required, such as a production deployment. See [cryptographic-keys.md](../advanced-topics/cryptographic-keys.md "mention") for ways to generate suitable keys.
+{% endhint %}
 
 ### Step 7 - Generate License Registration Token <a href="#li.generate.license.token" id="li.generate.license.token"></a>
 
