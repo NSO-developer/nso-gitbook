@@ -91,7 +91,7 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.25 2025-06-13](cisco-asa/README.md)
+  * [README v6.18.26 2025-06-26](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
@@ -116,11 +116,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.109.10 2025-06-19](cisco-ios/README.md)
+  * [README v6.109.11 2025-06-26](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.69.4 2025-06-19](cisco-iosxr/README.md)
+  * [README v7.69.5 2025-06-26](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
