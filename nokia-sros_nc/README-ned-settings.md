@@ -184,9 +184,19 @@
                      or something similar.
 
 
-    - transaction use-maapi-setvalues <true|false> (default false)
+      Either of:
 
-      Use maapi setValues method instead of loadConfigStream to load data to NSO.
+        - devices device ned-settings nokia-sros_nc transaction use-maapi-setvalues <true|false>
+
+          Use maapi setValues method instead of loadConfigStream to load data to NSO. This method is
+          very strict. Inacurracies in the loaded configuration will throw an error.
+
+      OR:
+
+        - devices device ned-settings nokia-sros_nc transaction use-maapi-load-config-cmds <true|false>
+
+          Use maapi loadConfigCmds method instead of loadConfigStream to load data to NSO. This
+          method is more relaxed. Inaccuracies in the loaded configuration will be silently ignored.
 
 
     - transaction abort-on-diff <true|false> (default false)

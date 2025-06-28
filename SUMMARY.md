@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.24.2 2025-06-05](a10-acos/README.md)
+  * [README v3.24.3 2025-06-27](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -34,7 +34,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.4.19 2025-05-23](alu-isam/README.md)
+  * [README v1.4.20 2025-06-27](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -193,7 +193,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.36 2025-05-05](fortinet-fmg/README.md)
+  * [README v4.3.37 2025-06-27](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -226,19 +226,19 @@
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
   * [README-rebuild](huawei-vrp_nc/README-rebuild.md)
-  * [README v1.1.8 2025-06-25](huawei-vrp_nc/README.md)
+  * [README v1.1.9 2025-06-27](huawei-vrp_nc/README.md)
 
 * infoblox-nios
   * [README-ned-settings](infoblox-nios/README-ned-settings.md)
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.17 2025-06-19](juniper-junos/README.md)
+  * [README v4.18.18 2025-06-27](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.20 2025-05-23](juniper-junos_nc/README.md)
+  * [README v1.1.21 2025-06-27](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -255,12 +255,12 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.13 2025-04-30](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.14 2025-06-27](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.25 2025-05-15](nokia-sros_nc/README.md)
+  * [README v1.0.26 2025-06-27](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)
