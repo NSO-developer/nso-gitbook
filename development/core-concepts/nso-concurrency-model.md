@@ -125,7 +125,7 @@ The read-set and write-set size limits that NSO uses for transaction checkpoints
 * /ncs-config/checkpoint/max-write-set-size
 * /ncs-config/checkpoint/total-size-limit
 
-See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax) for details.
+See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax)for details.
 
 A transaction checkpoint reaching a size limit will result in a log entry:
 
@@ -447,3 +447,13 @@ In the end, it depends on the situation whether list enumeration can affect thro
 ### Python Assigning to Self
 
 As several service invocations may run in parallel, Python self-assignment in service handling code can cause difficult-to-debug issues. Therefore, NSO checks for such patterns and issues an alarm (default) or a log entry containing a warning and a keypath to the service instance that caused the warning. See [NSO Python VM](nso-virtual-machines/nso-python-vm.md) for details.
+
+### **Controlling `no-overwrite` Behavior in Concurrent Environments**
+
+The `no-overwrite` commit parameter mechanism prevents NSO from applying configuration changes that conflict with the device's current state. Since NSO 6.4, the `no-overwrite` mechanism has been enhanced to include configurable compare scopes using a new `compare` parameter. This enables fine-grained control over how NSO validates device state consistency before applying changes.
+
+You can choose from the following three `compare` scopes:
+
+<table><thead><tr><th valign="top">Scope</th><th valign="top">Description</th><th valign="top">Use Case and Considerations</th></tr></thead><tbody><tr><td valign="top"><code>write-set-only</code></td><td valign="top">Only modified data is checked (pre-6-4 behavior).</td><td valign="top"><p>Minimizes the amount of data fetched from the device, thus, reducing overhead. </p><p></p><p>Suitable for scenarios where performance is critical, and the device is trusted to validate its own configuration constraints.<br><br>Use this scope for devices with simple YANG models or when minimal validation is sufficient.</p></td></tr><tr><td valign="top"><code>write-and-full-read-set</code></td><td valign="top">Both modified and read data are checked (introduced in NSO 6.4).</td><td valign="top"><p>Provides the highest level of consistency by ensuring that all dependent data matches NSO’s CDB. Recommended for critical devices or complex configurations where data integrity is paramount.</p><p></p><p>Can be resource-intensive, especially for devices with third-party YANG models containing extensive dependencies (<code>when</code>, <code>must</code>, or <code>leafref</code> expressions).<br><br>Use this scope for devices requiring strict configuration alignment with NSO’s CDB.</p></td></tr><tr><td valign="top"><code>write-and-service-read-set</code></td><td valign="top">Checks only modified data and reads during the transform phase (new default introduced in 6.4).</td><td valign="top"><p>Offers improved performance over <code>write-and-full-read-set</code> by limiting the scope to service-related reads, while still ensuring consistency for service-driven configurations.</p><p></p><p>Avoids performance penalties from validation-phase reads in complex device models.<br><br>Balances performance and accuracy for devices with complex YANG models, such as those used in 3PY NEDs, where validation-phase reads can significantly increase the read-set size.<br><br>Use this scope for multi-vendor environments with third-party devices where services drive configuration changes.</p></td></tr></tbody></table>
+
+These compare scopes are critical when designing for concurrency, as they determine the risk of conflicting changes and impact service transaction performance.
