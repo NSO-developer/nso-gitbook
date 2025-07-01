@@ -9,7 +9,7 @@
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
-  * [README v4.5.1 2025-05-19](accedian-nid/README.md)
+  * [README v4.6 2025-06-30](accedian-nid/README.md)
 
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
@@ -133,7 +133,7 @@
   * [README v1.0.2 2025-06-09](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v25.1.1 2025-04-09](cisco-iosxr_netconf/README.md)
+  * [README v25.2.1 2025-06-30](cisco-iosxr_netconf/README.md)
 
 * cisco-ise
   * [README-ned-settings](cisco-ise/README-ned-settings.md)
@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.6.3 2025-06-16](eci-muse/README.md)
+  * [README v1.6.4 2025-06-30](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)

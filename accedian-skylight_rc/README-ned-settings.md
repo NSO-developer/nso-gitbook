@@ -188,6 +188,13 @@
       Warning! This enables Man in the Middle attacks and should only be used for testing and troubleshooting.
 
 
+    - ssl hostname <string>
+
+      Device hostname/fqdn. Useful when SSL certificate CN verification fails because NSO uses IP
+      address instead of hostname. Note: when accept-any = false and there is no
+      connection/ssl/certificate defined, the NED will automatically fetch the server certificate.
+
+
     - ssl ciphers <union>
 
       Configure permitted ciphers to use when doing TLS handshake. Leave empty to use system
@@ -876,6 +883,13 @@
 -------------------------------------------------------------
 
   General settings related to live-status.
+
+
+    - live-status show-stats-filter <true|false> (default false)
+
+      Use the filter API from NSO to do live-status requests. This API is more flexible and will
+      result in fewer round-trips to the device and possibly less data transferred from the device.
+      The live-status time-to-live settings are not applicable when using this API.
 
 
     - live-status filter-unmodeled <true|false> (default false)
