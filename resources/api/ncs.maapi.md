@@ -223,7 +223,7 @@ Members:
 
 <details>
 
-<summary>**`comment`(...)**</summary>
+<summary>comment(...)</summary>
 
 Method:
 
@@ -237,7 +237,7 @@ Set comment.
 
 <details>
 
-<summary>**`commit_queue_async`(...)**</summary>
+<summary>commit_queue_async(...)</summary>
 
 Method:
 
@@ -251,7 +251,7 @@ Set commit queue asynchronous mode of operation.
 
 <details>
 
-<summary>**`commit_queue_atomic`(...)**</summary>
+<summary>commit_queue_atomic(...)</summary>
 
 Method:
 
@@ -265,7 +265,7 @@ Make the commit queue item atomic.
 
 <details>
 
-<summary>**`commit_queue_block_others`(...)**</summary>
+<summary>commit_queue_block_others(...)</summary>
 
 Method:
 
@@ -280,7 +280,7 @@ this device.
 
 <details>
 
-<summary>**`commit_queue_bypass`(...)**</summary>
+<summary>commit_queue_bypass(...)</summary>
 
 Method:
 
@@ -295,7 +295,7 @@ configured by default.
 
 <details>
 
-<summary>**`commit_queue_error_option`(...)**</summary>
+<summary>commit_queue_error_option(...)</summary>
 
 Method:
 
@@ -309,7 +309,7 @@ Set commit queue item behaviour on error.
 
 <details>
 
-<summary>**`commit_queue_lock`(...)**</summary>
+<summary>commit_queue_lock(...)</summary>
 
 Method:
 
@@ -323,7 +323,7 @@ Make the commit queue item locked.
 
 <details>
 
-<summary>**`commit_queue_non_atomic`(...)**</summary>
+<summary>commit_queue_non_atomic(...)</summary>
 
 Method:
 
@@ -337,7 +337,7 @@ Make the commit queue item non-atomic.
 
 <details>
 
-<summary>**`commit_queue_sync`(...)**</summary>
+<summary>commit_queue_sync(...)</summary>
 
 Method:
 
@@ -351,7 +351,7 @@ Set commit queue synchronous mode of operation.
 
 <details>
 
-<summary>**`commit_queue_tag`(...)**</summary>
+<summary>commit_queue_tag(...)</summary>
 
 Method:
 
@@ -368,7 +368,7 @@ Use label() instead.
 
 <details>
 
-<summary>**`confirm_network_state`(...)**</summary>
+<summary>confirm_network_state(...)</summary>
 
 Method:
 
@@ -384,7 +384,7 @@ change to the device.
 
 <details>
 
-<summary>**`confirm_network_state_re_evaluate_policies`(...)**</summary>
+<summary>confirm_network_state_re_evaluate_policies(...)</summary>
 
 Method:
 
@@ -401,7 +401,7 @@ services.
 
 <details>
 
-<summary>**`dry_run_cli`(...)**</summary>
+<summary>dry_run_cli(...)</summary>
 
 Method:
 
@@ -415,7 +415,7 @@ Dry-run commit outformat CLI.
 
 <details>
 
-<summary>**`dry_run_cli_c`(...)**</summary>
+<summary>dry_run_cli_c(...)</summary>
 
 Method:
 
@@ -429,7 +429,7 @@ Dry-run commit outformat cli-c.
 
 <details>
 
-<summary>**`dry_run_cli_c_reverse`(...)**</summary>
+<summary>dry_run_cli_c_reverse(...)</summary>
 
 Method:
 
@@ -443,7 +443,7 @@ Dry-run commit outformat cli-c reverse.
 
 <details>
 
-<summary>**`dry_run_native`(...)**</summary>
+<summary>dry_run_native(...)</summary>
 
 Method:
 
@@ -457,7 +457,7 @@ Dry-run commit outformat native.
 
 <details>
 
-<summary>**`dry_run_native_reverse`(...)**</summary>
+<summary>dry_run_native_reverse(...)</summary>
 
 Method:
 
@@ -471,7 +471,7 @@ Dry-run commit outformat native reverse.
 
 <details>
 
-<summary>**`dry_run_xml`(...)**</summary>
+<summary>dry_run_xml(...)</summary>
 
 Method:
 
@@ -485,7 +485,7 @@ Dry-run commit outformat XML.
 
 <details>
 
-<summary>**`get_comment`(...)**</summary>
+<summary>get_comment(...)</summary>
 
 Method:
 
@@ -499,7 +499,7 @@ Get comment.
 
 <details>
 
-<summary>**`get_commit_queue_error_option`(...)**</summary>
+<summary>get_commit_queue_error_option(...)</summary>
 
 Method:
 
@@ -513,7 +513,7 @@ Get commit queue item behaviour on error.
 
 <details>
 
-<summary>**`get_commit_queue_sync_timeout`(...)**</summary>
+<summary>get_commit_queue_sync_timeout(...)</summary>
 
 Method:
 
@@ -527,7 +527,7 @@ Get commit queue synchronous mode of operation timeout.
 
 <details>
 
-<summary>**`get_commit_queue_tag`(...)**</summary>
+<summary>get_commit_queue_tag(...)</summary>
 
 Method:
 
@@ -543,7 +543,7 @@ This function is deprecated and will be removed in a future release.
 
 <details>
 
-<summary>**`get_dry_run_outformat`(...)**</summary>
+<summary>get_dry_run_outformat(...)</summary>
 
 Method:
 
@@ -557,7 +557,7 @@ Get dry-run outformat
 
 <details>
 
-<summary>**`get_label`(...)**</summary>
+<summary>get_label(...)</summary>
 
 Method:
 
@@ -571,7 +571,7 @@ Get label.
 
 <details>
 
-<summary>**`get_no_overwrite_scope`(...)**</summary>
+<summary>get_no_overwrite_scope(...)</summary>
 
 Method:
 
@@ -585,7 +585,7 @@ Get no-overwrite scope
 
 <details>
 
-<summary>**`get_trace_id`(...)**</summary>
+<summary>get_trace_id(...)</summary>
 
 Method:
 
@@ -599,7 +599,7 @@ Get trace id.
 
 <details>
 
-<summary>**`is_commit_queue_async`(...)**</summary>
+<summary>is_commit_queue_async(...)</summary>
 
 Method:
 
@@ -613,7 +613,7 @@ Get commit queue asynchronous mode of operation.
 
 <details>
 
-<summary>**`is_commit_queue_atomic`(...)**</summary>
+<summary>is_commit_queue_atomic(...)</summary>
 
 Method:
 
@@ -627,7 +627,7 @@ Check if the commit queue item should be atomic.
 
 <details>
 
-<summary>**`is_commit_queue_block_others`(...)**</summary>
+<summary>is_commit_queue_block_others(...)</summary>
 
 Method:
 
@@ -642,7 +642,7 @@ queue items for this device.
 
 <details>
 
-<summary>**`is_commit_queue_bypass`(...)**</summary>
+<summary>is_commit_queue_bypass(...)</summary>
 
 Method:
 
@@ -657,7 +657,7 @@ configured by default.
 
 <details>
 
-<summary>**`is_commit_queue_lock`(...)**</summary>
+<summary>is_commit_queue_lock(...)</summary>
 
 Method:
 
@@ -671,7 +671,7 @@ Check if the commit queue item should be locked.
 
 <details>
 
-<summary>**`is_commit_queue_non_atomic`(...)**</summary>
+<summary>is_commit_queue_non_atomic(...)</summary>
 
 Method:
 
@@ -685,7 +685,7 @@ Check if the commit queue item should be non-atomic.
 
 <details>
 
-<summary>**`is_commit_queue_sync`(...)**</summary>
+<summary>is_commit_queue_sync(...)</summary>
 
 Method:
 
@@ -699,7 +699,7 @@ Get commit queue synchronous mode of operation.
 
 <details>
 
-<summary>**`is_confirm_network_state`(...)**</summary>
+<summary>is_confirm_network_state(...)</summary>
 
 Method:
 
@@ -715,7 +715,7 @@ configuration change to the device.
 
 <details>
 
-<summary>**`is_confirm_network_state_re_evaluate_policies`(...)**</summary>
+<summary>is_confirm_network_state_re_evaluate_policies(...)</summary>
 
 Method:
 
@@ -729,7 +729,7 @@ Is confirm-network-state with re-evaluate-policies enabled.
 
 <details>
 
-<summary>**`is_dry_run`(...)**</summary>
+<summary>is_dry_run(...)</summary>
 
 Method:
 
@@ -743,7 +743,7 @@ Is dry-run enabled
 
 <details>
 
-<summary>**`is_dry_run_reverse`(...)**</summary>
+<summary>is_dry_run_reverse(...)</summary>
 
 Method:
 
@@ -757,7 +757,7 @@ Is dry-run reverse enabled.
 
 <details>
 
-<summary>**`is_no_deploy`(...)**</summary>
+<summary>is_no_deploy(...)</summary>
 
 Method:
 
@@ -771,7 +771,7 @@ Should service create method be invoked or not.
 
 <details>
 
-<summary>**`is_no_lsa`(...)**</summary>
+<summary>is_no_lsa(...)</summary>
 
 Method:
 
@@ -785,7 +785,7 @@ Get no-lsa commit parameter.
 
 <details>
 
-<summary>**`is_no_networking`(...)**</summary>
+<summary>is_no_networking(...)</summary>
 
 Method:
 
@@ -800,7 +800,7 @@ not actually pushed to the device.
 
 <details>
 
-<summary>**`is_no_out_of_sync_check`(...)**</summary>
+<summary>is_no_out_of_sync_check(...)</summary>
 
 Method:
 
@@ -815,7 +815,7 @@ change.
 
 <details>
 
-<summary>**`is_no_overwrite`(...)**</summary>
+<summary>is_no_overwrite(...)</summary>
 
 Method:
 
@@ -831,7 +831,7 @@ configuration change to the device.
 
 <details>
 
-<summary>**`is_no_revision_drop`(...)**</summary>
+<summary>is_no_revision_drop(...)</summary>
 
 Method:
 
@@ -845,7 +845,7 @@ Get no-revision-drop commit parameter.
 
 <details>
 
-<summary>**`is_reconcile_attach_non_service_config`(...)**</summary>
+<summary>is_reconcile_attach_non_service_config(...)</summary>
 
 Method:
 
@@ -860,7 +860,7 @@ behaviour.
 
 <details>
 
-<summary>**`is_reconcile_detach_non_service_config`(...)**</summary>
+<summary>is_reconcile_detach_non_service_config(...)</summary>
 
 Method:
 
@@ -875,7 +875,7 @@ behaviour.
 
 <details>
 
-<summary>**`is_reconcile_discard_non_service_config`(...)**</summary>
+<summary>is_reconcile_discard_non_service_config(...)</summary>
 
 Method:
 
@@ -890,7 +890,7 @@ behaviour.
 
 <details>
 
-<summary>**`is_reconcile_keep_non_service_config`(...)**</summary>
+<summary>is_reconcile_keep_non_service_config(...)</summary>
 
 Method:
 
@@ -905,7 +905,7 @@ behaviour.
 
 <details>
 
-<summary>**`is_use_lsa`(...)**</summary>
+<summary>is_use_lsa(...)</summary>
 
 Method:
 
@@ -919,7 +919,7 @@ Get use-lsa commit parameter.
 
 <details>
 
-<summary>**`label`(...)**</summary>
+<summary>label(...)</summary>
 
 Method:
 
@@ -933,7 +933,7 @@ Set label.
 
 <details>
 
-<summary>**`no_deploy`(...)**</summary>
+<summary>no_deploy(...)</summary>
 
 Method:
 
@@ -947,7 +947,7 @@ Do not invoke service's create method.
 
 <details>
 
-<summary>**`no_lsa`(...)**</summary>
+<summary>no_lsa(...)</summary>
 
 Method:
 
@@ -961,7 +961,7 @@ Set no-lsa commit parameter.
 
 <details>
 
-<summary>**`no_networking`(...)**</summary>
+<summary>no_networking(...)</summary>
 
 Method:
 
@@ -976,7 +976,7 @@ the device.
 
 <details>
 
-<summary>**`no_out_of_sync_check`(...)**</summary>
+<summary>no_out_of_sync_check(...)</summary>
 
 Method:
 
@@ -991,7 +991,7 @@ change.
 
 <details>
 
-<summary>**`no_overwrite`(...)**</summary>
+<summary>no_overwrite(...)</summary>
 
 Method:
 
@@ -1007,7 +1007,7 @@ device.
 
 <details>
 
-<summary>**`no_revision_drop`(...)**</summary>
+<summary>no_revision_drop(...)</summary>
 
 Method:
 
@@ -1021,7 +1021,7 @@ Set no-revision-drop commit parameter.
 
 <details>
 
-<summary>**`reconcile_attach_non_service_config`(...)**</summary>
+<summary>reconcile_attach_non_service_config(...)</summary>
 
 Method:
 
@@ -1036,7 +1036,7 @@ behaviour.
 
 <details>
 
-<summary>**`reconcile_detach_non_service_config`(...)**</summary>
+<summary>reconcile_detach_non_service_config(...)</summary>
 
 Method:
 
@@ -1051,7 +1051,7 @@ behaviour.
 
 <details>
 
-<summary>**`reconcile_discard_non_service_config`(...)**</summary>
+<summary>reconcile_discard_non_service_config(...)</summary>
 
 Method:
 
@@ -1066,7 +1066,7 @@ behaviour.
 
 <details>
 
-<summary>**`reconcile_keep_non_service_config`(...)**</summary>
+<summary>reconcile_keep_non_service_config(...)</summary>
 
 Method:
 
@@ -1081,7 +1081,7 @@ behaviour.
 
 <details>
 
-<summary>**`set_dry_run_outformat`(...)**</summary>
+<summary>set_dry_run_outformat(...)</summary>
 
 Method:
 
@@ -1095,7 +1095,7 @@ Set dry-run outformat
 
 <details>
 
-<summary>**`trace_id`(...)**</summary>
+<summary>trace_id(...)</summary>
 
 Method:
 
@@ -1109,7 +1109,7 @@ Set trace id.
 
 <details>
 
-<summary>**`use_lsa`(...)**</summary>
+<summary>use_lsa(...)</summary>
 
 Method:
 
@@ -1135,7 +1135,7 @@ Members:
 
 <details>
 
-<summary>**`CLI`**</summary>
+<summary>CLI</summary>
 
 Enumeration for dry run formats:
 XML    = 1
@@ -1147,7 +1147,7 @@ CLI_C  = 4
 
 <details>
 
-<summary>**`CLI_C`**</summary>
+<summary>CLI_C</summary>
 
 Enumeration for dry run formats:
 XML    = 1
@@ -1159,7 +1159,7 @@ CLI_C  = 4
 
 <details>
 
-<summary>**`NATIVE`**</summary>
+<summary>NATIVE</summary>
 
 Enumeration for dry run formats:
 XML    = 1
@@ -1171,7 +1171,7 @@ CLI_C  = 4
 
 <details>
 
-<summary>**`XML`**</summary>
+<summary>XML</summary>
 
 Enumeration for dry run formats:
 XML    = 1
@@ -1183,7 +1183,7 @@ CLI_C  = 4
 
 <details>
 
-<summary>**`name`**</summary>
+<summary>name</summary>
 
 The name of the Enum member.
 
@@ -1191,7 +1191,7 @@ The name of the Enum member.
 
 <details>
 
-<summary>**`value`**</summary>
+<summary>value</summary>
 
 The value of the Enum member.
 
@@ -1239,7 +1239,7 @@ Members:
 
 <details>
 
-<summary>**`apply_template`(...)**</summary>
+<summary>apply_template(...)</summary>
 
 Method:
 
@@ -1253,7 +1253,7 @@ Apply a template.
 
 <details>
 
-<summary>**`attach`(...)**</summary>
+<summary>attach(...)</summary>
 
 Method:
 
@@ -1283,7 +1283,7 @@ Returns:
 
 <details>
 
-<summary>**`attach_init`(...)**</summary>
+<summary>attach_init(...)</summary>
 
 Method:
 
@@ -1297,7 +1297,7 @@ Attach to phase0 for CDB initialization and upgrade.
 
 <details>
 
-<summary>**`authenticate`(...)**</summary>
+<summary>authenticate(...)</summary>
 
 Method:
 
@@ -1336,7 +1336,7 @@ Returns:
 
 <details>
 
-<summary>**`close`(...)**</summary>
+<summary>close(...)</summary>
 
 Method:
 
@@ -1350,7 +1350,7 @@ Ends session and closes socket.
 
 <details>
 
-<summary>**`cursor`(...)**</summary>
+<summary>cursor(...)</summary>
 
 Method:
 
@@ -1364,7 +1364,7 @@ Get an iterable list cursor.
 
 <details>
 
-<summary>**`destroy_cursor`(...)**</summary>
+<summary>destroy_cursor(...)</summary>
 
 Method:
 
@@ -1382,7 +1382,7 @@ Arguments:
 
 <details>
 
-<summary>**`detach`(...)**</summary>
+<summary>detach(...)</summary>
 
 Method:
 
@@ -1400,7 +1400,7 @@ Arguments:
 
 <details>
 
-<summary>**`do_display`(...)**</summary>
+<summary>do_display(...)</summary>
 
 Method:
 
@@ -1427,7 +1427,7 @@ Returns
 
 <details>
 
-<summary>**`end_progress_span`(...)**</summary>
+<summary>end_progress_span(...)</summary>
 
 Method:
 
@@ -1444,7 +1444,7 @@ start_progress_span() instead.
 
 <details>
 
-<summary>**`exists`(...)**</summary>
+<summary>exists(...)</summary>
 
 Method:
 
@@ -1467,7 +1467,7 @@ Returns:
 
 <details>
 
-<summary>**`find_next`(...)**</summary>
+<summary>find_next(...)</summary>
 
 Method:
 
@@ -1496,7 +1496,7 @@ The strategy to use is defined by 'type':
 
 <details>
 
-<summary>**`get_next`(...)**</summary>
+<summary>get_next(...)</summary>
 
 Method:
 
@@ -1520,7 +1520,7 @@ Returns:
 
 <details>
 
-<summary>**`get_objects`(...)**</summary>
+<summary>get_objects(...)</summary>
 
 Method:
 
@@ -1547,7 +1547,7 @@ Returns:
 
 <details>
 
-<summary>**`get_running_db_status`(...)**</summary>
+<summary>get_running_db_status(...)</summary>
 
 Method:
 
@@ -1568,7 +1568,7 @@ Returns:
 
 <details>
 
-<summary>**`ip`**</summary>
+<summary>ip</summary>
 
 Return address to connect to the IPC port
 
@@ -1576,7 +1576,7 @@ Return address to connect to the IPC port
 
 <details>
 
-<summary>**`load_schemas`(...)**</summary>
+<summary>load_schemas(...)</summary>
 
 Method:
 
@@ -1593,7 +1593,7 @@ the NSO daemon via a MAAPI socket.
 
 <details>
 
-<summary>**`netconf_ssh_call_home`(...)**</summary>
+<summary>netconf_ssh_call_home(...)</summary>
 
 Method:
 
@@ -1607,7 +1607,7 @@ Initiate NETCONF SSH Call Home.
 
 <details>
 
-<summary>**`netconf_ssh_call_home_opaque`(...)**</summary>
+<summary>netconf_ssh_call_home_opaque(...)</summary>
 
 Method:
 
@@ -1621,7 +1621,7 @@ Initiate NETCONF SSH Call Home w. opaque data.
 
 <details>
 
-<summary>**`path`**</summary>
+<summary>path</summary>
 
 Return path to connect to the IPC port
 
@@ -1629,7 +1629,7 @@ Return path to connect to the IPC port
 
 <details>
 
-<summary>**`port`**</summary>
+<summary>port</summary>
 
 Return port to connect to the IPC port
 
@@ -1637,7 +1637,7 @@ Return port to connect to the IPC port
 
 <details>
 
-<summary>**`progress_info`(...)**</summary>
+<summary>progress_info(...)</summary>
 
 Method:
 
@@ -1664,7 +1664,7 @@ Arguments:
 
 <details>
 
-<summary>**`query_free_result`(...)**</summary>
+<summary>query_free_result(...)</summary>
 
 Method:
 
@@ -1687,7 +1687,7 @@ Arguments:
 
 <details>
 
-<summary>**`report_progress`(...)**</summary>
+<summary>report_progress(...)</summary>
 
 Method:
 
@@ -1706,7 +1706,7 @@ Use progress_info() instead.
 
 <details>
 
-<summary>**`report_progress_start`(...)**</summary>
+<summary>report_progress_start(...)</summary>
 
 Method:
 
@@ -1729,7 +1729,7 @@ Use start_progress_span() instead.
 
 <details>
 
-<summary>**`report_progress_stop`(...)**</summary>
+<summary>report_progress_stop(...)</summary>
 
 Method:
 
@@ -1749,7 +1749,7 @@ Use end_progress_span() instead.
 
 <details>
 
-<summary>**`report_service_progress`(...)**</summary>
+<summary>report_service_progress(...)</summary>
 
 Method:
 
@@ -1766,7 +1766,7 @@ Use progress_info() instead.
 
 <details>
 
-<summary>**`report_service_progress_start`(...)**</summary>
+<summary>report_service_progress_start(...)</summary>
 
 Method:
 
@@ -1787,7 +1787,7 @@ Use start_progress_span() instead.
 
 <details>
 
-<summary>**`report_service_progress_stop`(...)**</summary>
+<summary>report_service_progress_stop(...)</summary>
 
 Method:
 
@@ -1807,7 +1807,7 @@ Use end_progress_span() instead.
 
 <details>
 
-<summary>**`run_with_retry`(...)**</summary>
+<summary>run_with_retry(...)</summary>
 
 Method:
 
@@ -1838,7 +1838,7 @@ Returns:
 
 <details>
 
-<summary>**`safe_create`(...)**</summary>
+<summary>safe_create(...)</summary>
 
 Method:
 
@@ -1860,7 +1860,7 @@ Arguments:
 
 <details>
 
-<summary>**`safe_delete`(...)**</summary>
+<summary>safe_delete(...)</summary>
 
 Method:
 
@@ -1883,7 +1883,7 @@ Arguments:
 
 <details>
 
-<summary>**`safe_get_elem`(...)**</summary>
+<summary>safe_get_elem(...)</summary>
 
 Method:
 
@@ -1909,7 +1909,7 @@ Returns:
 
 <details>
 
-<summary>**`safe_get_object`(...)**</summary>
+<summary>safe_get_object(...)</summary>
 
 Method:
 
@@ -1937,7 +1937,7 @@ Returns:
 
 <details>
 
-<summary>**`set_elem`(...)**</summary>
+<summary>set_elem(...)</summary>
 
 Method:
 
@@ -1960,7 +1960,7 @@ Arguments:
 
 <details>
 
-<summary>**`shared_apply_template`(...)**</summary>
+<summary>shared_apply_template(...)</summary>
 
 Method:
 
@@ -1974,7 +1974,7 @@ FASTMAP version of apply_template().
 
 <details>
 
-<summary>**`shared_copy_tree`(...)**</summary>
+<summary>shared_copy_tree(...)</summary>
 
 Method:
 
@@ -1988,7 +1988,7 @@ FASTMAP version of copy_tree().
 
 <details>
 
-<summary>**`shared_create`(...)**</summary>
+<summary>shared_create(...)</summary>
 
 Method:
 
@@ -2002,7 +2002,7 @@ FASTMAP version of create().
 
 <details>
 
-<summary>**`shared_insert`(...)**</summary>
+<summary>shared_insert(...)</summary>
 
 Method:
 
@@ -2016,7 +2016,7 @@ FASTMAP version of insert().
 
 <details>
 
-<summary>**`shared_set_elem`(...)**</summary>
+<summary>shared_set_elem(...)</summary>
 
 Method:
 
@@ -2033,7 +2033,7 @@ before calling shared_set_elem2() under the hood.
 
 <details>
 
-<summary>**`shared_set_values`(...)**</summary>
+<summary>shared_set_values(...)</summary>
 
 Method:
 
@@ -2047,7 +2047,7 @@ FASTMAP version of set_values().
 
 <details>
 
-<summary>**`start_progress_span`(...)**</summary>
+<summary>start_progress_span(...)</summary>
 
 Method:
 
@@ -2087,7 +2087,7 @@ Returns:
 
 <details>
 
-<summary>**`start_read_trans`(...)**</summary>
+<summary>start_read_trans(...)</summary>
 
 Method:
 
@@ -2103,7 +2103,7 @@ For details see start_trans().
 
 <details>
 
-<summary>**`start_trans`(...)**</summary>
+<summary>start_trans(...)</summary>
 
 Method:
 
@@ -2147,7 +2147,7 @@ Flags (maapi):
 
 <details>
 
-<summary>**`start_trans_in_trans`(...)**</summary>
+<summary>start_trans_in_trans(...)</summary>
 
 Method:
 
@@ -2183,7 +2183,7 @@ Returns:
 
 <details>
 
-<summary>**`start_user_session`(...)**</summary>
+<summary>start_user_session(...)</summary>
 
 Method:
 
@@ -2236,7 +2236,7 @@ Example use:
 
 <details>
 
-<summary>**`start_write_trans`(...)**</summary>
+<summary>start_write_trans(...)</summary>
 
 Method:
 
@@ -2252,7 +2252,7 @@ For details see start_trans().
 
 <details>
 
-<summary>**`write_service_log_entry`(...)**</summary>
+<summary>write_service_log_entry(...)</summary>
 
 Method:
 
@@ -2280,7 +2280,7 @@ Members:
 
 <details>
 
-<summary>**`WRITE_AND_FULL_READ_SET`**</summary>
+<summary>WRITE_AND_FULL_READ_SET</summary>
 
 Enumeration for no-overwrite scopes:
 WRITE_SET_ONLY             = 1
@@ -2291,7 +2291,7 @@ WRITE_AND_SERVICE_READ_SET = 3
 
 <details>
 
-<summary>**`WRITE_AND_SERVICE_READ_SET`**</summary>
+<summary>WRITE_AND_SERVICE_READ_SET</summary>
 
 Enumeration for no-overwrite scopes:
 WRITE_SET_ONLY             = 1
@@ -2302,7 +2302,7 @@ WRITE_AND_SERVICE_READ_SET = 3
 
 <details>
 
-<summary>**`WRITE_SET_ONLY`**</summary>
+<summary>WRITE_SET_ONLY</summary>
 
 Enumeration for no-overwrite scopes:
 WRITE_SET_ONLY             = 1
@@ -2313,7 +2313,7 @@ WRITE_AND_SERVICE_READ_SET = 3
 
 <details>
 
-<summary>**`name`**</summary>
+<summary>name</summary>
 
 The name of the Enum member.
 
@@ -2321,7 +2321,7 @@ The name of the Enum member.
 
 <details>
 
-<summary>**`value`**</summary>
+<summary>value</summary>
 
 The value of the Enum member.
 
@@ -2357,7 +2357,7 @@ Members:
 
 <details>
 
-<summary>**`close`(...)**</summary>
+<summary>close(...)</summary>
 
 Method:
 
@@ -2408,7 +2408,7 @@ Members:
 
 <details>
 
-<summary>**`abort`(...)**</summary>
+<summary>abort(...)</summary>
 
 Method:
 
@@ -2422,7 +2422,7 @@ Abort the transaction.
 
 <details>
 
-<summary>**`apply`(...)**</summary>
+<summary>apply(...)</summary>
 
 Method:
 
@@ -2464,7 +2464,7 @@ Flags (maapi):
 
 <details>
 
-<summary>**`apply_params`(...)**</summary>
+<summary>apply_params(...)</summary>
 
 Method:
 
@@ -2514,7 +2514,7 @@ Example use:
 
 <details>
 
-<summary>**`commit`(...)**</summary>
+<summary>commit(...)</summary>
 
 Method:
 
@@ -2528,7 +2528,7 @@ Commit the transaction.
 
 <details>
 
-<summary>**`end_progress_span`(...)**</summary>
+<summary>end_progress_span(...)</summary>
 
 Method:
 
@@ -2545,7 +2545,7 @@ start_progress_span() instead.
 
 <details>
 
-<summary>**`finish`(...)**</summary>
+<summary>finish(...)</summary>
 
 Method:
 
@@ -2562,7 +2562,7 @@ by an external database, this will invoke the finish() callback.
 
 <details>
 
-<summary>**`get_params`(...)**</summary>
+<summary>get_params(...)</summary>
 
 Method:
 
@@ -2578,7 +2578,7 @@ The result is an instance of the CommitParams class.
 
 <details>
 
-<summary>**`hide_group`(...)**</summary>
+<summary>hide_group(...)</summary>
 
 Method:
 
@@ -2595,7 +2595,7 @@ with flag FLAG_HIDE_ALL_HIDEGROUPS.
 
 <details>
 
-<summary>**`prepare`(...)**</summary>
+<summary>prepare(...)</summary>
 
 Method:
 
@@ -2638,7 +2638,7 @@ Flags (maapi):
 
 <details>
 
-<summary>**`progress_info`(...)**</summary>
+<summary>progress_info(...)</summary>
 
 Method:
 
@@ -2665,7 +2665,7 @@ Arguments:
 
 <details>
 
-<summary>**`start_progress_span`(...)**</summary>
+<summary>start_progress_span(...)</summary>
 
 Method:
 
@@ -2706,7 +2706,7 @@ Returns:
 
 <details>
 
-<summary>**`unhide_group`(...)**</summary>
+<summary>unhide_group(...)</summary>
 
 Method:
 
@@ -2723,7 +2723,7 @@ with flag FLAG_HIDE_ALL_HIDEGROUPS.
 
 <details>
 
-<summary>**`validate`(...)**</summary>
+<summary>validate(...)</summary>
 
 Method:
 
