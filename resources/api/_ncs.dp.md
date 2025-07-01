@@ -2082,6 +2082,8 @@ AuthCtxRef cannot be directly instantiated from Python.
 
 Members:
 
+_None_
+
 ### _class_ **AuthorizationCtxRef**
 
 This type represents the c-type struct confd_authorization_ctx.
@@ -2095,11 +2097,15 @@ AuthorizationCtxRef cannot be directly instantiated from Python.
 
 Members:
 
+_None_
+
 ### _class_ **DaemonCtxRef**
 
 struct confd_daemon_ctx references object
 
 Members:
+
+_None_
 
 ### _class_ **DbCtxRef**
 
@@ -2191,6 +2197,8 @@ ListFilter cannot be directly instantiated from Python.
 
 Members:
 
+_None_
+
 ### _class_ **NotificationCtxRef**
 
 This type represents the c-type struct confd_notification_ctx.
@@ -2205,6 +2213,8 @@ Available attributes:
 NotificationCtxRef cannot be directly instantiated from Python.
 
 Members:
+
+_None_
 
 ### _class_ **TrItemRef**
 
@@ -2225,4 +2235,6 @@ Available attributes:
 TrItemRef cannot be directly instantiated from Python.
 
 Members:
+
+_None_
 

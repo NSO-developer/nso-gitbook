@@ -392,6 +392,8 @@ and obtain the output parameters.
 
 Members:
 
+_None_
+
 ### _class_ **BackendError**
 
 Exception type used within maagic backends.
@@ -516,6 +518,8 @@ Initialize a Case node. Should not be called explicitly.
 
 Members:
 
+_None_
+
 ### _class_ **Choice**
 
 Represents a choice node.
@@ -591,6 +595,8 @@ Empty()
 Initialize an Empty object.
 
 Members:
+
+_None_
 
 ### _class_ **EmptyLeaf**
 
@@ -675,6 +681,8 @@ Arguments:
 * value -- integer representation of the enumeration (int)
 
 Members:
+
+_None_
 
 ### _class_ **Leaf**
 
@@ -1166,6 +1174,8 @@ Initialize a Node object. Should not be called explicitly.
 
 Members:
 
+_None_
+
 ### _class_ **NonEmptyLeaf**
 
 Represents a leaf with a type other than "empty".
@@ -1373,4 +1383,6 @@ Arguments:
 * namespaces -- which namespaces to include in the tree (list)
 
 Members:
+
+_None_
 

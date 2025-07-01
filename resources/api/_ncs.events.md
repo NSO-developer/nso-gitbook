@@ -341,6 +341,8 @@ Notification cannot be directly instantiated from Python.
 
 Members:
 
+_None_
+
 ### _class_ **NotificationsData**
 
 This type represents the c-type struct confd_notifications_data.
@@ -363,4 +365,6 @@ Keyword arguments:
 * verbosity -- progress verbosity level (int) - optional
 
 Members:
+
+_None_
 

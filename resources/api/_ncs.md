@@ -1203,6 +1203,8 @@ TransCtxRef cannot be directly instantiated from Python.
 
 Members:
 
+_None_
+
 ### _class_ **UserInfo**
 
 This type represents the c-type struct confd_user_info.

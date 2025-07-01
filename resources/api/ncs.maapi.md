@@ -1209,6 +1209,8 @@ Initialize a key.
 
 Members:
 
+_None_
+
 ### _class_ **Maapi**
 
 Class encapsulating a MAAPI connection.

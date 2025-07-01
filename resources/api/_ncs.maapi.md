@@ -3924,3 +3924,5 @@ struct maapi_cursor object
 
 Members:
 
+_None_
+
