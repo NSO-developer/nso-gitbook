@@ -1137,11 +1137,10 @@ Members:
 
 <summary>CLI</summary>
 
-Enumeration for dry run formats:
-XML    = 1
-CLI    = 2
-NATIVE = 3
-CLI_C  = 4
+```python
+CLI = 2
+```
+
 
 </details>
 
@@ -1149,11 +1148,10 @@ CLI_C  = 4
 
 <summary>CLI_C</summary>
 
-Enumeration for dry run formats:
-XML    = 1
-CLI    = 2
-NATIVE = 3
-CLI_C  = 4
+```python
+CLI_C = 4
+```
+
 
 </details>
 
@@ -1161,11 +1159,10 @@ CLI_C  = 4
 
 <summary>NATIVE</summary>
 
-Enumeration for dry run formats:
-XML    = 1
-CLI    = 2
+```python
 NATIVE = 3
-CLI_C  = 4
+```
+
 
 </details>
 
@@ -1173,11 +1170,10 @@ CLI_C  = 4
 
 <summary>XML</summary>
 
-Enumeration for dry run formats:
-XML    = 1
-CLI    = 2
-NATIVE = 3
-CLI_C  = 4
+```python
+XML = 1
+```
+
 
 </details>
 
@@ -2284,10 +2280,10 @@ Members:
 
 <summary>WRITE_AND_FULL_READ_SET</summary>
 
-Enumeration for no-overwrite scopes:
-WRITE_SET_ONLY             = 1
-WRITE_AND_FULL_READ_SET    = 2
-WRITE_AND_SERVICE_READ_SET = 3
+```python
+WRITE_AND_FULL_READ_SET = 2
+```
+
 
 </details>
 
@@ -2295,10 +2291,10 @@ WRITE_AND_SERVICE_READ_SET = 3
 
 <summary>WRITE_AND_SERVICE_READ_SET</summary>
 
-Enumeration for no-overwrite scopes:
-WRITE_SET_ONLY             = 1
-WRITE_AND_FULL_READ_SET    = 2
+```python
 WRITE_AND_SERVICE_READ_SET = 3
+```
+
 
 </details>
 
@@ -2306,10 +2302,10 @@ WRITE_AND_SERVICE_READ_SET = 3
 
 <summary>WRITE_SET_ONLY</summary>
 
-Enumeration for no-overwrite scopes:
-WRITE_SET_ONLY             = 1
-WRITE_AND_FULL_READ_SET    = 2
-WRITE_AND_SERVICE_READ_SET = 3
+```python
+WRITE_SET_ONLY = 1
+```
+
 
 </details>
 
