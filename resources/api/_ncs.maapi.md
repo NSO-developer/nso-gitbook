@@ -1817,11 +1817,9 @@ Keyword arguments:
 ### progress_info_th
 
 ```python
-
-```
-
 progress_info_th(sock, thandle, msg, verbosity, attrs, links, path) ->
                  None
+```
 
 While spans represents a pair of data points: start and stop; info events
 are instead singular events, one point in time. Call progress_info() to
@@ -1924,11 +1922,9 @@ Keyword arguments:
 ### query_start
 
 ```python
-
-```
-
 query_start(sock, thandle, expr, context_node, chunk_size, initial_offset,
             result_as, select, sort) -> int
+```
 
 Starts a new query attached to the transaction given in 'th'.
 Returns a query handle.
@@ -2074,11 +2070,9 @@ Keyword arguments:
 ### report_progress_stop
 
 ```python
-
-```
-
 report_progress_stop(sock, verbosity, msg, annotation,
                      package, timestamp) -> int
+```
 
 Report progress events.
 Used for calculation of the duration between two events.
@@ -2172,11 +2166,9 @@ Keyword arguments:
 ### report_service_progress_stop
 
 ```python
-
-```
-
 report_service_progress_stop(sock, verbosity, msg, annotation,
                              package, path) -> None
+```
 
 Report progress events for a service.
 Used for calculation of the duration between two events.
@@ -2734,11 +2726,9 @@ Keyword arguments:
 ### start_progress_span_th
 
 ```python
-
-```
-
 start_progress_span_th(sock, thandle, msg, verbosity,
                        attrs, links, path) -> dict
+```
 
 Starts a progress span. Progress spans are trace messages written to the
 progress trace and the developer log. A progress span consists of a start
@@ -2818,11 +2808,9 @@ Keyword arguments:
 ### start_trans_flags2
 
 ```python
-
-```
-
 start_trans_flags2(sock, name, readwrite, usid, vendor, product, version,
  client_id) -> int
+```
 
 This function does the same as start_trans_flags() but allows for
 additional information to be passed to ConfD/NCS.

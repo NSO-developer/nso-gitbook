@@ -257,11 +257,9 @@ Keyword arguments:
 ### action_seterr_extended_info
 
 ```python
-
-```
-
 action_seterr_extended_info(uinfo, code, apptag_ns, apptag_tag,
                             error_info, errstr) -> None
+```
 
 This function can be used to provide structured error information in the
 same way as action_seterr_extended(), and additionally provide contents for
@@ -602,11 +600,9 @@ Keyword arguments:
 ### db_seterr_extended_info
 
 ```python
-
-```
-
 db_seterr_extended_info(dbx, code, apptag_ns, apptag_tag,
                         error_info, errstr) -> None
+```
 
 This function can be used to provide structured error information in the
 same way as db_seterr_extended(), and additionally provide contents for
@@ -957,11 +953,9 @@ Keyword arguments:
 ### notification_seterr_extended_info
 
 ```python
-
-```
-
 notification_seterr_extended_info(nctx, code, apptag_ns, apptag_tag,
                                   error_info, errstr) -> None
+```
 
 This function can be used to provide structured error information in the
 same way as notification_seterr_extended(), and additionally provide
@@ -1388,11 +1382,9 @@ Keyword arguments:
 ### register_range_data_cb
 
 ```python
-
-```
-
 register_range_data_cb(dx, callpoint, data, lower, upper, path,
                        flags) -> None
+```
 
 This is a variant of register_data_cb() which registers a set of callbacks
 for a range of list entries.
@@ -1707,11 +1699,9 @@ Keyword arguments:
 ### trans_seterr_extended_info
 
 ```python
-
-```
-
 trans_seterr_extended_info(tctx, code, apptag_ns, apptag_tag,
                            error_info, errstr) -> None
+```
 
 This function can be used to provide structured error information in the
 same way as trans_seterr_extended(), and additionally provide contents for

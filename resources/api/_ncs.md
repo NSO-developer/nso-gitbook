@@ -1459,6 +1459,19 @@ Returns a string representation for the Value type.
 
 Class method:
 
+```python
+str2val(value, schema_type) -> Value
+(class method)
+```
+
+Create and return a Value from a string. The schema_type argument must be
+either a 2-tuple with namespace and keypath, a CsNode instance or a CsType
+instance.
+
+Keyword arguments:
+
+* value -- string value
+* schema_type -- either (ns, keypath), a CsNode or a CsType
 
 </details>
 

@@ -711,6 +711,8 @@ Members:
 
 Method:
 
+Exception.add_note(note) --
+add a note to the exception
 
 </details>
 
@@ -727,6 +729,8 @@ Method:
 
 Method:
 
+Exception.with_traceback(tb) --
+set self.__traceback__ to tb and return self.
 
 </details>
 
