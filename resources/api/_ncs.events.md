@@ -15,7 +15,7 @@ This documentation should be read together with the [confd_lib_events(3)](../man
 
 ## Functions
 
-### _function_ diff_notification_done
+### diff_notification_done
 
 ```python
 diff_notification_done(sock, tctx) -> None
@@ -31,7 +31,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * tctx -- a transaction context
 
-### _function_ notifications_connect
+### notifications_connect
 
 ```python
 notifications_connect(sock, mask, ip, port, path) -> None
@@ -47,7 +47,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional).
 
-### _function_ notifications_connect2
+### notifications_connect2
 
 ```python
 notifications_connect2(sock, mask, data, ip, port, path) -> None
@@ -65,7 +65,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional)
 
-### _function_ read_notification
+### read_notification
 
 ```python
 read_notification(sock) -> dict
@@ -255,7 +255,7 @@ Keys for type NOTIF_CALL_HOME_INFO (struct ncs_call_home_notification):
 *   ssh_host_key
 *   ssh_key_alg
 
-### _function_ sync_audit_network_notification
+### sync_audit_network_notification
 
 ```python
 sync_audit_network_notification(sock, usid) -> None
@@ -271,7 +271,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * usid -- the user session id
 
-### _function_ sync_audit_notification
+### sync_audit_notification
 
 ```python
 sync_audit_notification(sock, usid) -> None
@@ -287,7 +287,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * usid -- the user session id
 
-### _function_ sync_ha_notification
+### sync_ha_notification
 
 ```python
 sync_ha_notification(sock) -> None

@@ -8,7 +8,7 @@ functions that should be used are cd(), get_node() and get_root().
 
 ## Functions
 
-### _function_ as_pyval
+### as_pyval
 
 ```python
 as_pyval(mobj, name_type=3, include_oper=False, enum_as_string=True)
@@ -36,7 +36,7 @@ key names
 * include_oper -- include operational data (boolean)
 * enum_as_string -- return enumerator in str form (boolean)
 
-### _function_ cd
+### cd
 
 ```python
 cd(node, path)
@@ -53,7 +53,7 @@ Returns:
 
 * node (maagic.Node)
 
-### _function_ get_maapi
+### get_maapi
 
 ```python
 get_maapi(obj)
@@ -72,7 +72,7 @@ Returns:
 
 * maapi object (maapi.Maapi)
 
-### _function_ get_memory_node
+### get_memory_node
 
 ```python
 get_memory_node(backend_or_node, path)
@@ -97,7 +97,7 @@ Example use:
 
     conf = ncs.maagic.get_memory_node(t, '/ncs:devices/device{ce0}/conf')
 
-### _function_ get_memory_root
+### get_memory_root
 
 ```python
 get_memory_root(backend_or_node)
@@ -115,7 +115,7 @@ Arguments:
                      information under mount points (maagic.Node,
                      maapi.Transaction or maapi.Maapi)
 
-### _function_ get_node
+### get_node
 
 ```python
 get_node(backend_or_node, path, shared=False)
@@ -137,7 +137,7 @@ Example use:
 
     node = ncs.maagic.get_node(t, '/ncs:devices/device{ce0}')
 
-### _function_ get_root
+### get_root
 
 ```python
 get_root(backend=None, shared=False)
@@ -173,7 +173,7 @@ Example use:
         with ncs.maapi.Session(m, 'admin', 'python'):
             root = ncs.maagic.get_root(m)
 
-### _function_ get_tagvalues
+### get_tagvalues
 
 ```python
 get_tagvalues(node)
@@ -185,7 +185,7 @@ Arguments:
 
 * node -- A Node object.
 
-### _function_ get_trans
+### get_trans
 
 ```python
 get_trans(node_or_trans)
@@ -196,7 +196,7 @@ Get Transaction object from node_or_trans.
 Return Transaction object from node_or_trans. Raise BackendError if
 provided object does not contain a Transaction object.
 
-### _function_ set_memory_tree
+### set_memory_tree
 
 ```python
 set_memory_tree(node, trans_obj=None)
@@ -214,7 +214,7 @@ Arguments:
 * trans_obj -- another transaction object to use in case node's backend is
                not a transaction backend (Node or maapi.Transaction)
 
-### _function_ set_values_xml
+### set_values_xml
 
 ```python
 set_values_xml(node, xml)
@@ -225,7 +225,7 @@ Parses the XML document in 'xml' and sets values in the transaction.
 The XML document must be explicit with regards to namespaces and tags and
 the top node must represent the corresponding 'node' object.
 
-### _function_ shared_set_memory_tree
+### shared_set_memory_tree
 
 ```python
 shared_set_memory_tree(node, trans_obj=None)
@@ -235,7 +235,7 @@ Calls Maapi.shared_set_values() using using TagValue's from 'node'.
 
 For use in FASTMAP code (services). See set_memory_tree().
 
-### _function_ shared_set_values_xml
+### shared_set_values_xml
 
 ```python
 shared_set_values_xml(node, xml)

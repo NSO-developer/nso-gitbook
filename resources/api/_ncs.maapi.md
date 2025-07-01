@@ -14,7 +14,7 @@ This documentation should be read together with the [confd_lib_maapi(3)](../man/
 
 ## Functions
 
-### _function_ aaa_reload
+### aaa_reload
 
 ```python
 aaa_reload(sock, synchronous) -> None
@@ -33,7 +33,7 @@ Keyword arguments:
     the loading is complete; if 0, will only initiate the loading of AAA
     data and return immediately
 
-### _function_ aaa_reload_path
+### aaa_reload_path
 
 ```python
 aaa_reload_path(sock, synchronous, path) -> None
@@ -52,7 +52,7 @@ Keyword arguments:
     data and return immediately
 * path -- the subtree to be loaded
 
-### _function_ abort_trans
+### abort_trans
 
 ```python
 abort_trans(sock, thandle) -> None
@@ -65,7 +65,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ abort_upgrade
+### abort_upgrade
 
 ```python
 abort_upgrade(sock) -> None
@@ -79,7 +79,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ apply_template
+### apply_template
 
 ```python
 apply_template(sock, thandle, template, variables, flags, rootpath) -> None
@@ -98,7 +98,7 @@ Keyword arguments:
 * flags -- should be 0
 * rootpath -- in what context to apply the template
 
-### _function_ apply_trans
+### apply_trans
 
 ```python
 apply_trans(sock, thandle, keepopen) -> None
@@ -117,7 +117,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * keepopen -- if true, transaction is not discarded if validation fails
 
-### _function_ apply_trans_flags
+### apply_trans_flags
 
 ```python
 apply_trans_flags(sock, thandle, keepopen, flags) -> None
@@ -132,7 +132,7 @@ Keyword arguments:
 * keepopen -- if true, transaction is not discarded if validation fails
 * flags -- flags to set in the transaction
 
-### _function_ apply_trans_params
+### apply_trans_params
 
 ```python
 apply_trans_params(sock, thandle, keepopen, params) -> list
@@ -147,7 +147,7 @@ Keyword arguments:
 * keepopen -- if true, transaction is not discarded if validation fails
 * params -- list of TagValue objects
 
-### _function_ attach
+### attach
 
 ```python
 attach(sock, hashed_ns, ctx) -> None
@@ -161,7 +161,7 @@ Keyword arguments:
 * hashed_ns -- the namespace to use
 * ctx -- transaction context
 
-### _function_ attach2
+### attach2
 
 ```python
 attach2(sock, hashed_ns, usid, thandle) -> None
@@ -177,7 +177,7 @@ Keyword arguments:
 * usid -- user session id, can be set to 0 to use the owner of the transaction
 * thandle -- transaction handle
 
-### _function_ attach_init
+### attach_init
 
 ```python
 attach_init(sock) -> int
@@ -190,7 +190,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ authenticate
+### authenticate
 
 ```python
 authenticate(sock, user, password, n) -> tuple
@@ -211,7 +211,7 @@ Keyword arguments:
 * pass -- password
 * n -- number of groups to return
 
-### _function_ authenticate2
+### authenticate2
 
 ```python
 authenticate2(sock, user, password, src_addr, src_port, context, prot, n) -> tuple
@@ -233,7 +233,7 @@ Keyword arguments:
 * prot -- the protocol used by the client for connecting
 * n -- number of groups to return
 
-### _function_ candidate_abort_commit
+### candidate_abort_commit
 
 ```python
 candidate_abort_commit(sock) -> None
@@ -245,7 +245,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ candidate_abort_commit_persistent
+### candidate_abort_commit_persistent
 
 ```python
 candidate_abort_commit_persistent(sock, persist_id) -> None
@@ -258,7 +258,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * persist_id -- gives the cookie for an already ongoing persistent                 confirmed commit
 
-### _function_ candidate_commit
+### candidate_commit
 
 ```python
 candidate_commit(sock) -> None 
@@ -270,7 +270,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ candidate_commit_info
+### candidate_commit_info
 
 ```python
 candidate_commit_info(sock, persist_id, label, comment) -> None
@@ -293,7 +293,7 @@ Keyword arguments:
 * label -- the Label
 * comment -- the Comment
 
-### _function_ candidate_commit_persistent
+### candidate_commit_persistent
 
 ```python
 candidate_commit_persistent(sock, persist_id) -> None
@@ -306,7 +306,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * persist_id -- gives the cookie for an already ongoing persistent                 confirmed commit
 
-### _function_ candidate_confirmed_commit
+### candidate_confirmed_commit
 
 ```python
 candidate_confirmed_commit(sock, timeoutsecs) -> None
@@ -321,7 +321,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * timeoutsecs -- timeout in seconds
 
-### _function_ candidate_confirmed_commit_info
+### candidate_confirmed_commit_info
 
 ```python
 candidate_confirmed_commit_info(sock, timeoutsecs, persist, persist_id, label, comment) -> None
@@ -346,7 +346,7 @@ Keyword arguments:
 * label -- the Label
 * comment -- the Comment
 
-### _function_ candidate_confirmed_commit_persistent
+### candidate_confirmed_commit_persistent
 
 ```python
 candidate_confirmed_commit_persistent(sock, timeoutsecs, persist, persist_id) -> None
@@ -361,7 +361,7 @@ Keyword arguments:
 * persist -- sets the cookie for the persistent confirmed commit
 * persist_id -- gives the cookie for an already ongoing persistent                 confirmed commit
 
-### _function_ candidate_reset
+### candidate_reset
 
 ```python
 candidate_reset(sock) -> None
@@ -373,7 +373,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ candidate_validate
+### candidate_validate
 
 ```python
 candidate_validate(sock) -> None
@@ -385,7 +385,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ cd
+### cd
 
 ```python
 cd(sock, thandle, path) -> None
@@ -399,7 +399,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position to change to
 
-### _function_ clear_opcache
+### clear_opcache
 
 ```python
 clear_opcache(sock, path) -> None
@@ -412,7 +412,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * path -- the path to the subtree to clear
 
-### _function_ cli_accounting
+### cli_accounting
 
 ```python
 cli_accounting(sock, user, usid, cmdstr) -> None
@@ -426,7 +426,7 @@ Keyword arguments:
 * user -- user to generate the entry for
 * thandle -- transaction handle
 
-### _function_ cli_cmd
+### cli_cmd
 
 ```python
 cli_cmd(sock, usess, buf) -> None
@@ -440,7 +440,7 @@ Keyword arguments:
 * usess -- user session
 * buf -- string to write
 
-### _function_ cli_cmd2
+### cli_cmd2
 
 ```python
 cli_cmd2(sock, usess, buf, flags) -> None
@@ -457,7 +457,7 @@ Keyword arguments:
 * buf -- string to write
 * flags -- as above
 
-### _function_ cli_cmd3
+### cli_cmd3
 
 ```python
 cli_cmd3(sock, usess, buf, flags, unhide) -> None
@@ -474,7 +474,7 @@ Keyword arguments:
 * unhide -- The unhide parameter is used for passing a hide group which is
     unhidden during the execution of the command.
 
-### _function_ cli_cmd4
+### cli_cmd4
 
 ```python
 cli_cmd4(sock, usess, buf, flags, unhide) -> None
@@ -491,7 +491,7 @@ Keyword arguments:
 * unhide -- The unhide parameter is used for passing a hide group which is
     unhidden during the execution of the command.
 
-### _function_ cli_cmd_to_path
+### cli_cmd_to_path
 
 ```python
 cli_cmd_to_path(sock, line, nsize, psize) -> tuple
@@ -507,7 +507,7 @@ Keyword arguments:
 * nsize -- limit length of namespace
 * psize -- limit length of path
 
-### _function_ cli_cmd_to_path2
+### cli_cmd_to_path2
 
 ```python
 cli_cmd_to_path2(sock, thandle, line, nsize, psize) -> tuple
@@ -525,7 +525,7 @@ Keyword arguments:
 * nsize -- limit length of namespace
 * psize -- limit length of path
 
-### _function_ cli_diff_cmd
+### cli_diff_cmd
 
 ```python
 cli_diff_cmd(sock, thandle, thandle_old, flags, path, size) -> str
@@ -544,7 +544,7 @@ Keyword arguments:
 * path -- as for cli_path_cmd
 * size -- limit diff
 
-### _function_ cli_get
+### cli_get
 
 ```python
 cli_get(sock, usess, opt, size) -> str
@@ -559,7 +559,7 @@ Keyword arguments:
 * opt -- option to get
 * size -- maximum response size (optional, default 1024)
 
-### _function_ cli_path_cmd
+### cli_path_cmd
 
 ```python
 cli_path_cmd(sock, thandle, flags, path, size) -> str
@@ -580,7 +580,7 @@ Keyword arguments:
 * path -- the path for the cmd
 * size -- limit cmd
 
-### _function_ cli_prompt
+### cli_prompt
 
 ```python
 cli_prompt(sock, usess, prompt, echo, size) -> str
@@ -597,7 +597,7 @@ Keyword arguments:
     ECHO shows the input, NOECHO does not
 * size -- maximum response size (optional, default 1024)
 
-### _function_ cli_set
+### cli_set
 
 ```python
 cli_set(sock, usess, opt, value) -> None
@@ -612,7 +612,7 @@ Keyword arguments:
 * opt -- option to set
 * value -- the new value of the session parameter
 
-### _function_ cli_write
+### cli_write
 
 ```python
 cli_write(sock, usess, buf) -> None
@@ -626,7 +626,7 @@ Keyword arguments:
 * usess -- user session
 * buf -- string to write
 
-### _function_ close
+### close
 
 ```python
 close(sock) -> None 
@@ -638,7 +638,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ commit_trans
+### commit_trans
 
 ```python
 commit_trans(sock, thandle) -> None
@@ -651,7 +651,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ commit_upgrade
+### commit_upgrade
 
 ```python
 commit_upgrade(sock) -> None
@@ -663,7 +663,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ confirmed_commit_in_progress
+### confirmed_commit_in_progress
 
 ```python
 confirmed_commit_in_progress(sock) -> int
@@ -677,7 +677,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ connect
+### connect
 
 ```python
 connect(sock, ip, port, path) -> None
@@ -692,7 +692,7 @@ Keyword arguments:
 * port -- the port
 * path -- the path if socket is AF_UNIX (optional)
 
-### _function_ copy
+### copy
 
 ```python
 copy(sock, from_thandle, to_thandle) -> None
@@ -706,7 +706,7 @@ Keyword arguments:
 * from_thandle -- transaction handle
 * to_thandle -- transaction handle
 
-### _function_ copy_path
+### copy_path
 
 ```python
 copy_path(sock, from_thandle, to_thandle, path) -> None
@@ -721,7 +721,7 @@ Keyword arguments:
 * to_thandle -- transaction handle
 * path -- the subtree rooted at path is copied
 
-### _function_ copy_running_to_startup
+### copy_running_to_startup
 
 ```python
 copy_running_to_startup(sock) -> None
@@ -733,7 +733,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ copy_tree
+### copy_tree
 
 ```python
 copy_tree(sock, thandle, frompath, topath) -> None
@@ -747,7 +747,7 @@ Keyword arguments:
 * frompath -- the subtree rooted at path is copied
 * topath -- to which path the subtree is copied
 
-### _function_ create
+### create
 
 ```python
 create(sock, thandle, path) -> None
@@ -763,7 +763,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- path of item to create
 
-### _function_ cs_node_cd
+### cs_node_cd
 
 ```python
 cs_node_cd(socket, thandle, path) -> Union[_ncs.CsNode, None]
@@ -781,7 +781,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- the keypath
 
-### _function_ cs_node_children
+### cs_node_children
 
 ```python
 cs_node_children(sock, thandle, mount_point, path) -> List[_ncs.CsNode]
@@ -801,7 +801,7 @@ Keyword arguments:
 * mount_point -- a CsNode instance
 * path -- the path to the instance of the node
 
-### _function_ delete
+### delete
 
 ```python
 delete(sock, thandle, path) -> None
@@ -816,7 +816,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- path of item to delete
 
-### _function_ delete_all
+### delete_all
 
 ```python
 delete_all(sock, thandle, how) -> None
@@ -838,7 +838,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * how -- DEL_SAFE, DEL_EXPORTED or DEL_ALL
 
-### _function_ delete_config
+### delete_config
 
 ```python
 delete_config(sock, name) -> None
@@ -851,7 +851,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * name -- name of the datastore to empty
 
-### _function_ destroy_cursor
+### destroy_cursor
 
 ```python
 destroy_cursor(mc) -> None
@@ -863,7 +863,7 @@ Keyword arguments:
 
 * mc -- maapiCursor
 
-### _function_ detach
+### detach
 
 ```python
 detach(sock, ctx) -> None
@@ -876,7 +876,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * ctx -- transaction context
 
-### _function_ detach2
+### detach2
 
 ```python
 detach2(sock, thandle) -> None
@@ -890,7 +890,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ diff_iterate
+### diff_iterate
 
 ```python
 diff_iterate(sock, thandle, iter, flags) -> None
@@ -944,7 +944,7 @@ Keyword arguments:
 * iter -- iterator function, will be called for every diff in the transaction
 * flags -- bitmask of ITER_WANT_ATTR and ITER_WANT_P_CONTAINER
 
-### _function_ disconnect_remote
+### disconnect_remote
 
 ```python
 disconnect_remote(sock, address) -> None
@@ -957,7 +957,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * address -- ip address (string)
 
-### _function_ disconnect_sockets
+### disconnect_sockets
 
 ```python
 disconnect_sockets(sock, sockets) -> None
@@ -970,7 +970,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * sockets -- list of sockets (int)
 
-### _function_ do_display
+### do_display
 
 ```python
 do_display(sock, thandle, path) -> int
@@ -986,7 +986,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- path to the 'display-when' statement
 
-### _function_ end_progress_span
+### end_progress_span
 
 ```python
 end_progress_span(sock, span, annotation) -> int
@@ -1001,7 +1001,7 @@ Keyword arguments:
 * annotation -- metadata about the event, indicating error, explains latency
     or shows result etc
 
-### _function_ end_user_session
+### end_user_session
 
 ```python
 end_user_session(sock) -> None
@@ -1013,7 +1013,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ exists
+### exists
 
 ```python
 exists(sock, thandle, path) -> bool
@@ -1027,7 +1027,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position to check
 
-### _function_ find_next
+### find_next
 
 ```python
 find_next(mc, type, inkeys) -> Union[List[_ncs.Value], bool]
@@ -1054,7 +1054,7 @@ Keyword arguments:
 * type -- CONFD_FIND_NEXT or CONFD_FIND_SAME_OR_NEXT
 * inkeys -- where to start finding
 
-### _function_ finish_trans
+### finish_trans
 
 ```python
 finish_trans(sock, thandle) -> None
@@ -1070,7 +1070,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ get_attrs
+### get_attrs
 
 ```python
 get_attrs(sock, thandle, attrs, keypath) -> list
@@ -1085,7 +1085,7 @@ Keyword arguments:
 * attrs -- list of type of attributes to get
 * keypath -- path to choice
 
-### _function_ get_authorization_info
+### get_authorization_info
 
 ```python
 get_authorization_info(sock, usessid) -> _ncs.AuthorizationInfo
@@ -1098,7 +1098,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- user session id
 
-### _function_ get_case
+### get_case
 
 ```python
 get_case(sock, thandle, choice, keypath) -> _ncs.Value
@@ -1113,7 +1113,7 @@ Keyword arguments:
 * choice -- choice name
 * keypath -- path to choice
 
-### _function_ get_elem
+### get_elem
 
 ```python
 get_elem(sock, thandle, path) -> _ncs.Value
@@ -1127,7 +1127,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position of elem
 
-### _function_ get_my_user_session_id
+### get_my_user_session_id
 
 ```python
 get_my_user_session_id(sock) -> int
@@ -1139,7 +1139,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ get_next
+### get_next
 
 ```python
 get_next(mc) -> Union[List[_ncs.Value], bool]
@@ -1152,7 +1152,7 @@ Keyword arguments:
 
 * mc -- maapiCursor
 
-### _function_ get_object
+### get_object
 
 ```python
 get_object(sock, thandle, n, keypath) -> List[_ncs.Value]
@@ -1166,7 +1166,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position of list entry
 
-### _function_ get_objects
+### get_objects
 
 ```python
 get_objects(mc, n, nobj) -> List[_ncs.Value]
@@ -1181,7 +1181,7 @@ Keyword arguments:
 * n -- at most n values will be read
 * nobj -- number of nobj lists which n elements will be taken from
 
-### _function_ get_rollback_id
+### get_rollback_id
 
 ```python
 get_rollback_id(sock, thandle) -> int
@@ -1195,7 +1195,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ get_running_db_status
+### get_running_db_status
 
 ```python
 get_running_db_status(sock) -> int
@@ -1210,7 +1210,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ get_schema_file_path
+### get_schema_file_path
 
 ```python
 get_schema_file_path(sock) -> str
@@ -1227,7 +1227,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ get_stream_progress
+### get_stream_progress
 
 ```python
 get_stream_progress(sock, id) -> int
@@ -1247,7 +1247,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * id -- the id returned from load_config_stream()
 
-### _function_ get_templates
+### get_templates
 
 ```python
 get_templates(sock) -> list
@@ -1259,7 +1259,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ get_trans_params
+### get_trans_params
 
 ```python
 get_trans_params(sock, thandle) -> list
@@ -1273,7 +1273,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ get_user_session
+### get_user_session
 
 ```python
 get_user_session(sock, usessid) -> _ncs.UserInfo
@@ -1286,7 +1286,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- session id
 
-### _function_ get_user_session_identification
+### get_user_session_identification
 
 ```python
 get_user_session_identification(sock, usessid) -> dict
@@ -1303,7 +1303,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- user session id
 
-### _function_ get_user_session_opaque
+### get_user_session_opaque
 
 ```python
 get_user_session_opaque(sock, usessid) -> str
@@ -1317,7 +1317,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- user session id
 
-### _function_ get_user_sessions
+### get_user_sessions
 
 ```python
 get_user_sessions(sock) -> list
@@ -1329,7 +1329,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ get_values
+### get_values
 
 ```python
 get_values(sock, thandle, values, keypath) -> list
@@ -1343,7 +1343,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * values -- list of tagValues
 
-### _function_ getcwd
+### getcwd
 
 ```python
 getcwd(sock, thandle) -> str
@@ -1356,7 +1356,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ getcwd_kpath
+### getcwd_kpath
 
 ```python
 getcwd_kpath(sock, thandle) -> _ncs.HKeypathRef
@@ -1369,7 +1369,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ hide_group
+### hide_group
 
 ```python
 hide_group(sock, thandle, group_name) -> None
@@ -1384,7 +1384,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * group_name -- the group name
 
-### _function_ init_cursor
+### init_cursor
 
 ```python
 init_cursor(sock, thandle, path) -> maapi.Cursor
@@ -1401,7 +1401,7 @@ Keyword arguments:
 * secondary_index -- name of secondary index to use (optional)
 * xpath_expr -- xpath expression used to filter results (optional)
 
-### _function_ init_upgrade
+### init_upgrade
 
 ```python
 init_upgrade(sock, timeoutsecs, flags) -> None
@@ -1417,7 +1417,7 @@ Keyword arguments:
 * flags -- 0 or 'UPGRADE_KILL_ON_TIMEOUT' (will terminate all ongoing
     transactions
 
-### _function_ insert
+### insert
 
 ```python
 insert(sock, thandle, path) -> None
@@ -1431,7 +1431,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- the subtree rooted at path is copied
 
-### _function_ install_crypto_keys
+### install_crypto_keys
 
 ```python
 install_crypto_keys(sock) -> None
@@ -1443,7 +1443,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ is_candidate_modified
+### is_candidate_modified
 
 ```python
 is_candidate_modified(sock) -> bool
@@ -1455,7 +1455,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ is_lock_set
+### is_lock_set
 
 ```python
 is_lock_set(sock, name) -> int
@@ -1468,7 +1468,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ is_running_modified
+### is_running_modified
 
 ```python
 is_running_modified(sock) -> bool
@@ -1480,7 +1480,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ iterate
+### iterate
 
 ```python
 iterate(sock, thandle, iter, flags, path) -> None
@@ -1501,7 +1501,7 @@ The iter callback function should have the following signature:
 
     def my_iterator(kp, v, attr_vals)
 
-### _function_ keypath_diff_iterate
+### keypath_diff_iterate
 
 ```python
 keypath_diff_iterate(sock, thandle, iter, flags, path) -> None
@@ -1517,7 +1517,7 @@ Keyword arguments:
 * flags -- bitmask of ITER_WANT_ATTR and ITER_WANT_P_CONTAINER
 * path -- receive only changes from this path and below
 
-### _function_ kill_user_session
+### kill_user_session
 
 ```python
 kill_user_session(sock, usessid) -> None
@@ -1530,7 +1530,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- the MAAPI session id to be killed
 
-### _function_ load_config
+### load_config
 
 ```python
 load_config(sock, thandle, flags, filename) -> None
@@ -1553,7 +1553,7 @@ Keyword arguments:
 * flags -- as above
 * filename -- to read the configuration from
 
-### _function_ load_config_cmds
+### load_config_cmds
 
 ```python
 load_config_cmds(sock, thandle, flags, cmds, path) -> None
@@ -1568,7 +1568,7 @@ Keyword arguments:
 * cmds -- a string of cmds
 * flags -- as above
 
-### _function_ load_config_stream
+### load_config_stream
 
 ```python
 load_config_stream(sock, th, flags) -> int
@@ -1583,7 +1583,7 @@ Keyword arguments:
 * thandle -- a transaction handle
 * flags -- as for load_config()
 
-### _function_ load_config_stream_result
+### load_config_stream_result
 
 ```python
 load_config_stream_result(sock, id) -> int
@@ -1597,7 +1597,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * id -- the id returned from load_config_stream()
 
-### _function_ load_schemas
+### load_schemas
 
 ```python
 load_schemas(sock) -> None 
@@ -1609,7 +1609,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ load_schemas_list
+### load_schemas_list
 
 ```python
 load_schemas_list(sock, flags, nshash, nsflags) -> None
@@ -1624,7 +1624,7 @@ Keyword arguments:
 * nshash -- the listed namespaces that schema information should be loaded for
 * nsflags -- namespace specific flags
 
-### _function_ lock
+### lock
 
 ```python
 lock(sock, name) -> None
@@ -1637,7 +1637,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * name -- name of the database to lock
 
-### _function_ lock_partial
+### lock_partial
 
 ```python
 lock_partial(sock, name, xpaths) -> int
@@ -1650,7 +1650,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * xpaths -- a list of strings
 
-### _function_ move
+### move
 
 ```python
 move(sock, thandle, tokey, path) -> None
@@ -1666,7 +1666,7 @@ Keyword arguments:
 * tokey -- confdValue list
 * path -- the subtree rooted at path is copied
 
-### _function_ move_ordered
+### move_ordered
 
 ```python
 move_ordered(sock, thandle, where, tokey, path) -> None
@@ -1682,7 +1682,7 @@ Keyword arguments:
 * tokey -- confdValue list
 * path -- the subtree rooted at path is copied
 
-### _function_ netconf_ssh_call_home
+### netconf_ssh_call_home
 
 ```python
 netconf_ssh_call_home(sock, host, port) -> None
@@ -1696,7 +1696,7 @@ sock -- a python socket instance
 host -- an ipv4 addres, ipv6 address, or host name
 port -- the port to connect to
 
-### _function_ netconf_ssh_call_home_opaque
+### netconf_ssh_call_home_opaque
 
 ```python
 netconf_ssh_call_home_opaque(sock, host, opaque, port) -> None
@@ -1710,7 +1710,7 @@ host -- an ipv4 addres, ipv6 address, or host name
 opaque -- opaque string passed to an external call home session
 port -- the port to connect to
 
-### _function_ num_instances
+### num_instances
 
 ```python
 num_instances(sock, thandle, path) -> int
@@ -1724,7 +1724,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position to check
 
-### _function_ perform_upgrade
+### perform_upgrade
 
 ```python
 perform_upgrade(sock, loadpathdirs) -> None
@@ -1737,7 +1737,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * loadpathdirs -- list of directories that are searched for CDB 'init' files
 
-### _function_ popd
+### popd
 
 ```python
 popd(sock, thandle) -> None
@@ -1750,7 +1750,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ prepare_trans
+### prepare_trans
 
 ```python
 prepare_trans(sock, thandle) -> None
@@ -1763,7 +1763,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ prepare_trans_flags
+### prepare_trans_flags
 
 ```python
 prepare_trans_flags(sock, thandle, flags) -> None
@@ -1777,7 +1777,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * flags -- flags to set in the transaction
 
-### _function_ prio_message
+### prio_message
 
 ```python
 prio_message(sock, to, message) -> None
@@ -1792,7 +1792,7 @@ Keyword arguments:
 * to -- user to send message to or 'all' to send to all users
 * message -- the message
 
-### _function_ progress_info
+### progress_info
 
 ```python
 progress_info(sock, msg, verbosity, attrs, links, path) -> None
@@ -1814,7 +1814,7 @@ Keyword arguments:
 * links -- to existing traces or spans [{'trace_id':'...', 'span_id':'...'}]
 * path -- keypath to an action/leaf/service
 
-### _function_ progress_info_th
+### progress_info_th
 
 ```python
 
@@ -1840,7 +1840,7 @@ Keyword arguments:
 * links -- to existing traces or spans [{'trace_id':'...', 'span_id':'...'}]
 * path -- keypath to an action/leaf/service
 
-### _function_ pushd
+### pushd
 
 ```python
 pushd(sock, thandle, path) -> None
@@ -1855,7 +1855,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- position to change to
 
-### _function_ query_free_result
+### query_free_result
 
 ```python
 query_free_result(qrs) -> None
@@ -1867,7 +1867,7 @@ Keyword arguments:
 
 * qrs -- the query result structure to free
 
-### _function_ query_reset
+### query_reset
 
 ```python
 query_reset(sock, qh) -> None
@@ -1880,7 +1880,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * qh -- query handle
 
-### _function_ query_reset_to
+### query_reset_to
 
 ```python
 query_reset_to(sock, qh, offset) -> None
@@ -1894,7 +1894,7 @@ Keyword arguments:
 * qh -- query handle
 * offset -- offset counted from the beginning
 
-### _function_ query_result
+### query_result
 
 ```python
 query_result(sock, qh) -> _ncs.QueryResult
@@ -1908,7 +1908,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * qh -- query handle
 
-### _function_ query_result_count
+### query_result_count
 
 ```python
 query_result_count(sock, qh) -> int
@@ -1921,7 +1921,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * qh -- query handle
 
-### _function_ query_start
+### query_start
 
 ```python
 
@@ -1948,7 +1948,7 @@ Keyword arguments:
 * select -- An array of XPath 'select' expressions.
 * sort -- An array of XPath expressions which will be used for sorting
 
-### _function_ query_stop
+### query_stop
 
 ```python
 query_stop(sock, qh) -> None
@@ -1961,7 +1961,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * qh -- query handle
 
-### _function_ rebind_listener
+### rebind_listener
 
 ```python
 rebind_listener(sock, listener) -> None
@@ -1981,7 +1981,7 @@ Keyword arguments:
         LISTENER_CLI
         LISTENER_WEBUI
 
-### _function_ reload_config
+### reload_config
 
 ```python
 reload_config(sock) -> None
@@ -1993,7 +1993,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ reopen_logs
+### reopen_logs
 
 ```python
 reopen_logs(sock) -> None
@@ -2005,7 +2005,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ report_progress
+### report_progress
 
 ```python
 report_progress(sock, verbosity, msg) -> None
@@ -2026,7 +2026,7 @@ Keyword arguments:
 * verbosity -- at which verbosity level the message should be reported
 * msg -- message to report
 
-### _function_ report_progress2
+### report_progress2
 
 ```python
 report_progress2(sock, verbosity, msg, package) -> None
@@ -2048,7 +2048,7 @@ Keyword arguments:
 * msg -- message to report
 * package -- from what package the message is reported
 
-### _function_ report_progress_start
+### report_progress_start
 
 ```python
 report_progress_start(sock, verbosity, msg, package) -> int
@@ -2071,7 +2071,7 @@ Keyword arguments:
 * msg -- message to report
 * package -- from what package the message is reported (only NCS)
 
-### _function_ report_progress_stop
+### report_progress_stop
 
 ```python
 
@@ -2100,7 +2100,7 @@ Keyword arguments:
 * package -- from what package the message is reported (only NCS)
 * timestamp -- start of the event
 
-### _function_ report_service_progress
+### report_service_progress
 
 ```python
 report_service_progress(sock, verbosity, msg, path) -> None
@@ -2122,7 +2122,7 @@ Keyword arguments:
 * msg -- message to report
 * path -- service instance path
 
-### _function_ report_service_progress2
+### report_service_progress2
 
 ```python
 report_service_progress2(sock, verbosity, msg, package, path) -> None
@@ -2145,7 +2145,7 @@ Keyword arguments:
 * package -- from what package the message is reported
 * path -- service instance path
 
-### _function_ report_service_progress_start
+### report_service_progress_start
 
 ```python
 report_service_progress_start(sock, verbosity, msg, package, path) -> int
@@ -2169,7 +2169,7 @@ Keyword arguments:
 * package -- from what package the message is reported
 * path -- service instance path
 
-### _function_ report_service_progress_stop
+### report_service_progress_stop
 
 ```python
 
@@ -2199,7 +2199,7 @@ Keyword arguments:
 * path -- service instance path
 * timestamp -- start of the event
 
-### _function_ request_action
+### request_action
 
 ```python
 request_action(sock, params, hashed_ns, path) -> list
@@ -2214,7 +2214,7 @@ Keyword arguments:
 * hashed_ns -- namespace
 * path -- path to action
 
-### _function_ request_action_str_th
+### request_action_str_th
 
 ```python
 request_action_str_th(sock, thandle, cmd, path) -> str
@@ -2230,7 +2230,7 @@ Keyword arguments:
 * cmd -- string parameters
 * path -- path to action
 
-### _function_ request_action_th
+### request_action_th
 
 ```python
 request_action_th(sock, thandle, params, path) -> list
@@ -2245,7 +2245,7 @@ Keyword arguments:
 * params -- tagValue parameters for the action
 * path -- path to action
 
-### _function_ revert
+### revert
 
 ```python
 revert(sock, thandle) -> None
@@ -2258,7 +2258,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * thandle -- transaction handle
 
-### _function_ roll_config
+### roll_config
 
 ```python
 roll_config(sock, thandle, path) -> int
@@ -2274,7 +2274,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * path -- tree for which to save the rollback configuration
 
-### _function_ roll_config_result
+### roll_config_result
 
 ```python
 roll_config_result(sock, id) -> int
@@ -2288,7 +2288,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * id -- the id returned from roll_config()
 
-### _function_ save_config
+### save_config
 
 ```python
 save_config(sock, thandle, flags, path) -> int
@@ -2340,7 +2340,7 @@ Keyword arguments:
 * flags -- as above
 * path -- save only configuration below path
 
-### _function_ save_config_result
+### save_config_result
 
 ```python
 save_config_result(sock, id) -> None
@@ -2353,7 +2353,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * id -- the id returned from save_config
 
-### _function_ set_attr
+### set_attr
 
 ```python
 set_attr(sock, thandle, attr, v, keypath) -> None
@@ -2369,7 +2369,7 @@ Keyword arguments:
 * v -- value to set the attribute to
 * keypath -- path to choice
 
-### _function_ set_comment
+### set_comment
 
 ```python
 set_comment(sock, thandle, comment) -> None
@@ -2384,7 +2384,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * comment -- the Comment
 
-### _function_ set_delayed_when
+### set_delayed_when
 
 ```python
 set_delayed_when(sock, thandle, on) -> None
@@ -2399,7 +2399,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * on -- disables when on=0, enables for all other n
 
-### _function_ set_elem
+### set_elem
 
 ```python
 set_elem(sock, thandle, v, path) -> None
@@ -2414,7 +2414,7 @@ Keyword arguments:
 * v -- confdValue
 * path -- position of elem
 
-### _function_ set_elem2
+### set_elem2
 
 ```python
 set_elem2(sock, thandle, strval, path) -> None
@@ -2429,7 +2429,7 @@ Keyword arguments:
 * strval -- confdValue
 * path -- position of elem
 
-### _function_ set_flags
+### set_flags
 
 ```python
 set_flags(sock, thandle, flags) -> None
@@ -2443,7 +2443,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * flags -- flags to set
 
-### _function_ set_label
+### set_label
 
 ```python
 set_label(sock, thandle, label) -> None
@@ -2458,7 +2458,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * label -- the Label
 
-### _function_ set_namespace
+### set_namespace
 
 ```python
 set_namespace(sock, thandle, hashed_ns) -> None
@@ -2472,7 +2472,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * hashed_ns -- the namespace to use
 
-### _function_ set_next_user_session_id
+### set_next_user_session_id
 
 ```python
 set_next_user_session_id(sock, usessid) -> None
@@ -2488,7 +2488,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- user session id
 
-### _function_ set_object
+### set_object
 
 ```python
 set_object(sock, thandle, values, keypath) -> None
@@ -2503,7 +2503,7 @@ Keyword arguments:
 * values -- list of values
 * keypath -- path to set
 
-### _function_ set_readonly_mode
+### set_readonly_mode
 
 ```python
 set_readonly_mode(sock, flag) -> None
@@ -2516,7 +2516,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * flag -- non-zero means read-only mode
 
-### _function_ set_running_db_status
+### set_running_db_status
 
 ```python
 set_running_db_status(sock, status) -> None
@@ -2529,7 +2529,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * status -- integer status to set
 
-### _function_ set_user_session
+### set_user_session
 
 ```python
 set_user_session(sock, usessid) -> None
@@ -2542,7 +2542,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * usessid -- user session id
 
-### _function_ set_values
+### set_values
 
 ```python
 set_values(sock, thandle, values, keypath) -> None
@@ -2557,7 +2557,7 @@ Keyword arguments:
 * values -- list of tagValues
 * keypath -- path to set
 
-### _function_ shared_apply_template
+### shared_apply_template
 
 ```python
 shared_apply_template(sock, thandle, template, variables,flags, rootpath) -> None
@@ -2574,7 +2574,7 @@ Keyword arguments:
 * flags -- Must be set as 0
 * rootpath -- in what context to apply the template
 
-### _function_ shared_copy_tree
+### shared_copy_tree
 
 ```python
 shared_copy_tree(sock, thandle, flags, frompath, topath) -> None
@@ -2590,7 +2590,7 @@ Keyword arguments:
 * frompath -- the path to copy the tree from
 * topath -- the path to copy the tree to
 
-### _function_ shared_create
+### shared_create
 
 ```python
 shared_create(sock, thandle, flags, path) -> None
@@ -2604,7 +2604,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * flags -- Must be set as 0
 
-### _function_ shared_insert
+### shared_insert
 
 ```python
 shared_insert(sock, thandle, flags, path) -> None
@@ -2619,7 +2619,7 @@ Keyword arguments:
 * flags -- Must be set as 0
 * path -- the path to the list to insert a new entry into
 
-### _function_ shared_set_elem
+### shared_set_elem
 
 ```python
 shared_set_elem(sock, thandle, v, flags, path) -> None
@@ -2635,7 +2635,7 @@ Keyword arguments:
 * flags -- should be 0
 * path -- the path to the element to set
 
-### _function_ shared_set_elem2
+### shared_set_elem2
 
 ```python
 shared_set_elem2(sock, thandle, strval, flags, path) -> None
@@ -2651,7 +2651,7 @@ Keyword arguments:
 * flags -- should be 0
 * path -- the path to the element to set
 
-### _function_ shared_set_values
+### shared_set_values
 
 ```python
 shared_set_values(sock, thandle, values, flags, keypath) -> None
@@ -2667,7 +2667,7 @@ Keyword arguments:
 * flags -- should be 0
 * keypath -- path to set
 
-### _function_ snmpa_reload
+### snmpa_reload
 
 ```python
 snmpa_reload(sock, synchronous) -> None
@@ -2686,7 +2686,7 @@ Keyword arguments:
     the loading is complete; if 0, will only initiate the loading and return
     immediately
 
-### _function_ start_phase
+### start_phase
 
 ```python
 start_phase(sock, phase, synchronous) -> None
@@ -2703,7 +2703,7 @@ Keyword arguments:
     the loading is complete; if 0, will only initiate the loading of AAA
     data and return immediately
 
-### _function_ start_progress_span
+### start_progress_span
 
 ```python
 start_progress_span(sock, msg, verbosity, attrs, links, path) -> dict
@@ -2731,7 +2731,7 @@ Keyword arguments:
 * links -- to existing traces or spans [{'trace_id':'...', 'span_id':'...'}]
 * path -- keypath to an action/leaf/service
 
-### _function_ start_progress_span_th
+### start_progress_span_th
 
 ```python
 
@@ -2763,7 +2763,7 @@ Keyword arguments:
 * links -- to existing traces or spans [{'trace_id':'...', 'span_id':'...'}]
 * path -- keypath to an action/leaf/service
 
-### _function_ start_trans
+### start_trans
 
 ```python
 start_trans(sock, name, readwrite) -> int
@@ -2782,7 +2782,7 @@ Keyword arguments:
 * name -- name of the database
 * readwrite -- CONFD_READ or CONFD_WRITE
 
-### _function_ start_trans2
+### start_trans2
 
 ```python
 start_trans2(sock, name, readwrite, usid) -> int
@@ -2798,7 +2798,7 @@ Keyword arguments:
 * readwrite -- CONFD_READ or CONFD_WRITE
 * usid -- user session id
 
-### _function_ start_trans_flags
+### start_trans_flags
 
 ```python
 start_trans_flags(sock, name, readwrite, usid) -> int
@@ -2815,7 +2815,7 @@ Keyword arguments:
 * usid -- user session id
 * flags -- same as for 'set_flags'
 
-### _function_ start_trans_flags2
+### start_trans_flags2
 
 ```python
 
@@ -2839,7 +2839,7 @@ Keyword arguments:
 * version -- version string (may be None)
 * client_id -- client identification string (may be None)
 
-### _function_ start_trans_in_trans
+### start_trans_in_trans
 
 ```python
 start_trans_in_trans(sock, readwrite, usid, thandle) -> int
@@ -2856,7 +2856,7 @@ Keyword arguments:
 * usid -- user session id
 * thandle -- identifies the backend transaction to use
 
-### _function_ start_user_session
+### start_user_session
 
 ```python
 start_user_session(sock, username, context, groups, src_addr, prot) -> None
@@ -2873,7 +2873,7 @@ Keyword arguments:
 * src-addr -- src address of e.g. the client connecting
 * prot -- the protocol used by the client for connecting
 
-### _function_ start_user_session2
+### start_user_session2
 
 ```python
 start_user_session2(sock, username, context, groups, src_addr, src_port, prot) -> None
@@ -2891,7 +2891,7 @@ Keyword arguments:
 * src-port -- src port of e.g. the client connecting
 * prot -- the protocol used by the client for connecting
 
-### _function_ start_user_session3
+### start_user_session3
 
 ```python
 start_user_session3(sock, username, context, groups, src_addr, src_port, prot, vendor, product, version, client_id) -> None
@@ -2916,7 +2916,7 @@ Keyword arguments:
 * version -- version string (may be None)
 * client_id -- client identification string (may be None)
 
-### _function_ start_user_session_gen
+### start_user_session_gen
 
 ```python
 start_user_session_gen(sock, username, context, groups,  vendor, product, version, client_id) -> None
@@ -2938,7 +2938,7 @@ Keyword arguments:
 * version -- version string (may be None)
 * client_id -- client identification string (may be None)
 
-### _function_ stop
+### stop
 
 ```python
 stop(sock) -> None
@@ -2950,7 +2950,7 @@ Keyword arguments:
 
 * sock -- a python socket instance
 
-### _function_ sys_message
+### sys_message
 
 ```python
 sys_message(sock, to, message) -> None
@@ -2965,7 +2965,7 @@ Keyword arguments:
 * to -- user to send message to or 'all' to send to all users
 * message -- the message
 
-### _function_ unhide_group
+### unhide_group
 
 ```python
 unhide_group(sock, thandle, group_name) -> None
@@ -2980,7 +2980,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * group_name -- the group name
 
-### _function_ unlock
+### unlock
 
 ```python
 unlock(sock, name) -> None
@@ -2993,7 +2993,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * name -- name of the database to unlock
 
-### _function_ unlock_partial
+### unlock_partial
 
 ```python
 unlock_partial(sock, lockid) -> None
@@ -3006,7 +3006,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * lockid -- id of the lock
 
-### _function_ user_message
+### user_message
 
 ```python
 user_message(sock, to, message, sender) -> None
@@ -3021,7 +3021,7 @@ Keyword arguments:
 * message -- the message
 * sender -- send as
 
-### _function_ validate_trans
+### validate_trans
 
 ```python
 validate_trans(sock, thandle, unlock, forcevalidation) -> None
@@ -3051,7 +3051,7 @@ Keyword arguments:
 * unlock -- int or bool
 * forcevalidation -- int or bool
 
-### _function_ wait_start
+### wait_start
 
 ```python
 wait_start(sock, phase) -> None
@@ -3064,7 +3064,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * phase -- phase to wait for, 0, 1 or 2
 
-### _function_ write_service_log_entry
+### write_service_log_entry
 
 ```python
 write_service_log_entry(sock, path, msg, type, level) -> None
@@ -3083,7 +3083,7 @@ Keyword arguments:
 * type -- log entry type
 * level -- log entry level
 
-### _function_ xpath2kpath
+### xpath2kpath
 
 ```python
 xpath2kpath(sock, xpath) -> _ncs.HKeypathRef
@@ -3096,7 +3096,7 @@ Keyword arguments:
 * sock -- a python socket instance
 * xpath -- to convert
 
-### _function_ xpath2kpath_th
+### xpath2kpath_th
 
 ```python
 xpath2kpath_th(sock, thandle, xpath) -> _ncs.HKeypathRef
@@ -3110,7 +3110,7 @@ Keyword arguments:
 * thandle -- transaction handle
 * xpath -- to convert
 
-### _function_ xpath_eval
+### xpath_eval
 
 ```python
 xpath_eval(sock, thandle, expr, result, trace, path) -> None
@@ -3135,7 +3135,7 @@ Keyword arguments:
 * trace -- a trace function that takes a string as a parameter
 * path -- the context node
 
-### _function_ xpath_eval_expr
+### xpath_eval_expr
 
 ```python
 xpath_eval_expr(sock, thandle, expr, trace, path) -> str

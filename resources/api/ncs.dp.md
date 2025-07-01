@@ -4,7 +4,7 @@ Callback module for connecting data providers to ConfD/NCS.
 
 ## Functions
 
-### _function_ return_worker_socket
+### return_worker_socket
 
 ```python
 return_worker_socket(state, key)
@@ -14,7 +14,7 @@ Return worker socket associated with a worker thread from Daemon/state.
 
 Return worker socket to pool.
 
-### _function_ take_worker_socket
+### take_worker_socket
 
 ```python
 take_worker_socket(state, name, key=None)

@@ -38,7 +38,7 @@ Exampled:
 
 ## Functions
 
-### _function_ connect
+### connect
 
 ```python
 connect(ip='127.0.0.1', port=4569, path=None)
@@ -58,7 +58,7 @@ Returns:
 
 * socket (Python socket)
 
-### _function_ retry_on_conflict
+### retry_on_conflict
 
 ```python
 retry_on_conflict(retries=10, log=None)
@@ -89,7 +89,7 @@ Arguments:
 * retries -- number of times to retry (int)
 * log -- optional log object for logging conflict details
 
-### _function_ single_read_trans
+### single_read_trans
 
 ```python
 single_read_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
@@ -140,7 +140,7 @@ Returns:
 
 * read transaction object (maapi.Transaction)
 
-### _function_ single_write_trans
+### single_write_trans
 
 ```python
 single_write_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)

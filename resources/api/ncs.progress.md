@@ -71,7 +71,7 @@ There are multiple optional fields.
 
 ## Functions
 
-### _function_ conv_links
+### conv_links
 
 ```python
 conv_links(links)

@@ -12,7 +12,7 @@ This documentation should be read together with the [confd_lib_ha(3)](../man/sec
 
 ## Functions
 
-### _function_ bemaster
+### bemaster
 
 ```python
 bemaster(sock, mynodeid) -> None
@@ -21,7 +21,7 @@ bemaster(sock, mynodeid) -> None
 This function is deprecated and will be removed.
 Use beprimary() instead.
 
-### _function_ benone
+### benone
 
 ```python
 benone(sock) -> None
@@ -34,7 +34,7 @@ Keyword arguments:
 
 * sock -- a previously connected HA socket
 
-### _function_ beprimary
+### beprimary
 
 ```python
 beprimary(sock, mynodeid) -> None
@@ -47,7 +47,7 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * mynodeid -- name of the node (Value or string)
 
-### _function_ berelay
+### berelay
 
 ```python
 berelay(sock) -> None
@@ -60,7 +60,7 @@ Keyword arguments:
 
 * sock -- a previously connected HA socket
 
-### _function_ besecondary
+### besecondary
 
 ```python
 besecondary(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
@@ -83,7 +83,7 @@ Keyword arguments:
 * primary_ip -- ip address of the primary node
 * waitreply  -- synchronous or not (bool)
 
-### _function_ beslave
+### beslave
 
 ```python
 beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
@@ -92,7 +92,7 @@ beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
 This function is deprecated and will be removed.
 Use besecondary() instead.
 
-### _function_ connect
+### connect
 
 ```python
 connect(sock, token, ip, port, pstr) -> None
@@ -112,7 +112,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET or AF_INET6 (optional)
 * pstr -- a filename if socket is AF_UNIX (optional).
 
-### _function_ secondary_dead
+### secondary_dead
 
 ```python
 secondary_dead(sock, nodeid) -> None
@@ -126,7 +126,7 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * nodeid -- name of the node (Value or string)
 
-### _function_ slave_dead
+### slave_dead
 
 ```python
 slave_dead(sock, nodeid) -> None
@@ -135,7 +135,7 @@ slave_dead(sock, nodeid) -> None
 This function is deprecated and will be removed.
 Use secondary_dead() instead.
 
-### _function_ status
+### status
 
 ```python
 status(sock) -> None

@@ -4,7 +4,7 @@ This module provides some logging utilities.
 
 ## Functions
 
-### _function_ init_logging
+### init_logging
 
 ```python
 init_logging(vmid, log_file, log_level)
@@ -12,7 +12,7 @@ init_logging(vmid, log_file, log_level)
 
 Initialize logging
 
-### _function_ log_datefmt
+### log_datefmt
 
 ```python
 log_datefmt()
@@ -20,7 +20,7 @@ log_datefmt()
 
 Return date format used in logging.
 
-### _function_ log_file
+### log_file
 
 ```python
 log_file()
@@ -28,7 +28,7 @@ log_file()
 
 Return log file used, if any else None
 
-### _function_ log_format
+### log_format
 
 ```python
 log_format()
@@ -36,7 +36,7 @@ log_format()
 
 Return log format.
 
-### _function_ log_handler
+### log_handler
 
 ```python
 log_handler()
@@ -44,7 +44,7 @@ log_handler()
 
 Return log handler used, if any else None
 
-### _function_ mk_log_formatter
+### mk_log_formatter
 
 ```python
 mk_log_formatter()
@@ -52,7 +52,7 @@ mk_log_formatter()
 
 Create log formatter with log and date format setup
 
-### _function_ reopen_logs
+### reopen_logs
 
 ```python
 reopen_logs()
@@ -60,7 +60,7 @@ reopen_logs()
 
 Re-open log files if log handler is set
 
-### _function_ set_log_level
+### set_log_level
 
 ```python
 set_log_level(vmid, log_level)

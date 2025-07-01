@@ -21,7 +21,7 @@ This documentation should be read together with the [confd_lib_dp(3)](../man/sec
 
 ## Functions
 
-### _function_ aaa_reload
+### aaa_reload
 
 ```python
 aaa_reload(tctx) -> None
@@ -35,7 +35,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ access_reply_result
+### access_reply_result
 
 ```python
 access_reply_result(actx, result) -> None
@@ -50,7 +50,7 @@ Keyword arguments:
 * actx -- the authorization context
 * result -- the result (ACCESS_RESULT_xxx)
 
-### _function_ action_delayed_reply_error
+### action_delayed_reply_error
 
 ```python
 action_delayed_reply_error(uinfo, errstr) -> None
@@ -65,7 +65,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * errstr -- an error string
 
-### _function_ action_delayed_reply_ok
+### action_delayed_reply_ok
 
 ```python
 action_delayed_reply_ok(uinfo) -> None
@@ -79,7 +79,7 @@ Keyword arguments:
 
 * uinfo -- a user info context
 
-### _function_ action_reply_command
+### action_reply_command
 
 ```python
 action_reply_command(uinfo, values) -> None
@@ -93,7 +93,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * values -- a list of strings or None
 
-### _function_ action_reply_completion
+### action_reply_completion
 
 ```python
 action_reply_completion(uinfo, values) -> None
@@ -114,7 +114,7 @@ built up like:
 
 The third item of the tuple (extra) may be set to None.
 
-### _function_ action_reply_range_enum
+### action_reply_range_enum
 
 ```python
 action_reply_range_enum(uinfo, values, keysize) -> None
@@ -135,7 +135,7 @@ specifies multiple keys this list is still flat. The keysize argument
 tells us how many keys to use for each list element. So the size of values
 should be a multiple of keysize.
 
-### _function_ action_reply_rewrite
+### action_reply_rewrite
 
 ```python
 action_reply_rewrite(uinfo, values, unhides) -> None
@@ -150,7 +150,7 @@ Keyword arguments:
 * values -- a list of strings or None
 * unhides -- a list of strings or None
 
-### _function_ action_reply_rewrite2
+### action_reply_rewrite2
 
 ```python
 action_reply_rewrite2(uinfo, values, unhides, selects) -> None
@@ -166,7 +166,7 @@ Keyword arguments:
 * unhides -- a list of strings or None
 * selects -- a list of strings or None
 
-### _function_ action_reply_values
+### action_reply_values
 
 ```python
 action_reply_values(uinfo, values) -> None
@@ -180,7 +180,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * values -- a list of _lib.TagValue instances or None
 
-### _function_ action_set_fd
+### action_set_fd
 
 ```python
 action_set_fd(uinfo, sock) -> None
@@ -203,7 +203,7 @@ A typical implementation of an action cb_init() callback looks like:
         def cb_init(self, uinfo):
             dp.action_set_fd(uinfo, self.workersock)
 
-### _function_ action_set_timeout
+### action_set_timeout
 
 ```python
 action_set_timeout(uinfo, timeout_secs) -> None
@@ -222,7 +222,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * timeout_secs -- timeout value
 
-### _function_ action_seterr
+### action_seterr
 
 ```python
 action_seterr(uinfo, errstr) -> None
@@ -237,7 +237,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * errstr -- an error message string
 
-### _function_ action_seterr_extended
+### action_seterr_extended
 
 ```python
 action_seterr_extended(uninfo, code, apptag_ns, apptag_tag, errstr) -> None
@@ -254,7 +254,7 @@ Keyword arguments:
 * apptag_tag -- either 0 or the hash value for a data model node
 * errstr -- an error message string
 
-### _function_ action_seterr_extended_info
+### action_seterr_extended_info
 
 ```python
 
@@ -276,7 +276,7 @@ Keyword arguments:
 * error_info -- a list of _lib.TagValue instances
 * errstr -- an error message string
 
-### _function_ auth_seterr
+### auth_seterr
 
 ```python
 auth_seterr(actx, errstr) -> None
@@ -294,7 +294,7 @@ Keyword arguments:
 * actx -- the auth context
 * errstr -- an error message string
 
-### _function_ authorization_set_timeout
+### authorization_set_timeout
 
 ```python
 authorization_set_timeout(actx, timeout_secs) -> None
@@ -312,7 +312,7 @@ Keyword arguments:
 * actx -- the authorization context
 * timeout_secs -- timeout value
 
-### _function_ connect
+### connect
 
 ```python
 connect(dx, sock, type, ip, port, path) -> None
@@ -330,7 +330,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional).
 
-### _function_ data_get_list_filter
+### data_get_list_filter
 
 ```python
 data_get_list_filter(tctx) -> ListFilter
@@ -342,7 +342,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ data_reply_attrs
+### data_reply_attrs
 
 ```python
 data_reply_attrs(tctx, attrs) -> None
@@ -356,7 +356,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * attrs -- a list of _lib.AttrValue instances
 
-### _function_ data_reply_found
+### data_reply_found
 
 ```python
 data_reply_found(tctx) -> None
@@ -369,7 +369,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ data_reply_next_key
+### data_reply_next_key
 
 ```python
 data_reply_next_key(tctx, keys, next) -> None
@@ -387,7 +387,7 @@ Keyword arguments:
 A list may have mutiple key leafs specified in the data model. This is why
 the keys argument must be a list.
 
-### _function_ data_reply_next_object_array
+### data_reply_next_object_array
 
 ```python
 data_reply_next_object_array(tctx, v, next) -> None
@@ -404,7 +404,7 @@ Keyword arguments:
 * v -- a list of _lib.Value instances
 * next -- int value passed to the next invocation of cb_get_next() callback
 
-### _function_ data_reply_next_object_arrays
+### data_reply_next_object_arrays
 
 ```python
 data_reply_next_object_arrays(tctx, objs, timeout_millisecs) -> None
@@ -433,7 +433,7 @@ E.g.:
              ( None, -1 )
            ]
 
-### _function_ data_reply_next_object_tag_value_array
+### data_reply_next_object_tag_value_array
 
 ```python
 data_reply_next_object_tag_value_array(tctx, tvs, next) -> None
@@ -449,7 +449,7 @@ Keyword arguments:
 * next -- int value passed to the next invocation of cb_get_next_object()
           callback
 
-### _function_ data_reply_next_object_tag_value_arrays
+### data_reply_next_object_tag_value_arrays
 
 ```python
 data_reply_next_object_tag_value_arrays(tctx, objs, timeout_millisecs) -> None
@@ -477,7 +477,7 @@ E.g.:
              ( None, -1 )
            ]
 
-### _function_ data_reply_not_found
+### data_reply_not_found
 
 ```python
 data_reply_not_found(tctx) -> None
@@ -490,7 +490,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ data_reply_tag_value_array
+### data_reply_tag_value_array
 
 ```python
 data_reply_tag_value_array(tctx, tvs) -> None
@@ -505,7 +505,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * tvs -- a list of _lib.TagValue instances or None
 
-### _function_ data_reply_value
+### data_reply_value
 
 ```python
 data_reply_value(tctx, v) -> None
@@ -518,7 +518,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * v -- a _lib.Value instance
 
-### _function_ data_reply_value_array
+### data_reply_value_array
 
 ```python
 data_reply_value_array(tctx, vs) -> None
@@ -533,7 +533,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * vs -- a list of _lib.Value instances
 
-### _function_ data_set_timeout
+### data_set_timeout
 
 ```python
 data_set_timeout(tctx, timeout_secs) -> None
@@ -552,7 +552,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * timeout_secs -- timeout value
 
-### _function_ db_set_timeout
+### db_set_timeout
 
 ```python
 db_set_timeout(dbx, timeout_secs) -> None
@@ -569,7 +569,7 @@ Keyword arguments:
 * dbx -- a db context of DbCtxRef
 * timeout_secs -- timeout value
 
-### _function_ db_seterr
+### db_seterr
 
 ```python
 db_seterr(dbx, errstr) -> None
@@ -582,7 +582,7 @@ Keyword arguments:
 * dbx -- a db context
 * errstr -- an error message string
 
-### _function_ db_seterr_extended
+### db_seterr_extended
 
 ```python
 db_seterr_extended(dbx, code, apptag_ns, apptag_tag, errstr) -> None
@@ -599,7 +599,7 @@ Keyword arguments:
 * apptag_tag -- either 0 or the hash value for a data model node
 * errstr -- an error message string
 
-### _function_ db_seterr_extended_info
+### db_seterr_extended_info
 
 ```python
 
@@ -621,7 +621,7 @@ Keyword arguments:
 * error_info -- a list of _lib.TagValue instances
 * errstr -- an error message string
 
-### _function_ delayed_reply_error
+### delayed_reply_error
 
 ```python
 delayed_reply_error(tctx, errstr) -> None
@@ -635,7 +635,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * errstr -- an error message string
 
-### _function_ delayed_reply_ok
+### delayed_reply_ok
 
 ```python
 delayed_reply_ok(tctx) -> None
@@ -648,7 +648,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ delayed_reply_validation_warn
+### delayed_reply_validation_warn
 
 ```python
 delayed_reply_validation_warn(tctx) -> None
@@ -661,7 +661,7 @@ Keyword arguments:
 
 * tctx -- a transaction context
 
-### _function_ error_seterr
+### error_seterr
 
 ```python
 error_seterr(uinfo, errstr) -> None
@@ -676,7 +676,7 @@ Keyword arguments:
 * uinfo -- a user info context
 * errstr -- an string describing the error
 
-### _function_ fd_ready
+### fd_ready
 
 ```python
 fd_ready(dx, sock) -> None
@@ -692,7 +692,7 @@ Keyword arguments:
 * dx -- a daemon context acquired through a call to init_daemon()
 * sock -- the socket
 
-### _function_ init_daemon
+### init_daemon
 
 ```python
 init_daemon(name) -> DaemonCtxRef
@@ -704,7 +704,7 @@ Keyword arguments:
 
 * name -- a string used to uniquely identify the daemon
 
-### _function_ install_crypto_keys
+### install_crypto_keys
 
 ```python
 install_crypto_keys(dtx) -> None
@@ -723,7 +723,7 @@ Keyword arguments:
 
 * dtx -- a daemon context wich is connected through a call to connect()
 
-### _function_ nano_service_reply_proplist
+### nano_service_reply_proplist
 
 ```python
 nano_service_reply_proplist(tctx, proplist) -> None
@@ -745,7 +745,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * proplist -- a list of properties or None
 
-### _function_ notification_flush
+### notification_flush
 
 ```python
 notification_flush(nctx) -> None
@@ -761,7 +761,7 @@ Keyword arguments:
 
 * nctx -- notification context returned from register_notification_stream()
 
-### _function_ notification_replay_complete
+### notification_replay_complete
 
 ```python
 notification_replay_complete(nctx) -> None
@@ -774,7 +774,7 @@ Keyword arguments:
 
 * nctx -- notification context returned from register_notification_stream()
 
-### _function_ notification_replay_failed
+### notification_replay_failed
 
 ```python
 notification_replay_failed(nctx) -> None
@@ -790,7 +790,7 @@ Keyword arguments:
 
 * nctx -- notification context returned from register_notification_stream()
 
-### _function_ notification_reply_log_times
+### notification_reply_log_times
 
 ```python
 notification_reply_log_times(nctx, creation, aged) -> None
@@ -805,7 +805,7 @@ Keyword arguments:
 * creation -- a _lib.DateTime instance
 * aged -- a _lib.DateTime instance or None
 
-### _function_ notification_send
+### notification_send
 
 ```python
 notification_send(nctx, time, values) -> None
@@ -820,7 +820,7 @@ Keyword arguments:
 * time -- a _lib.DateTime instance
 * values -- a list of _lib.TagValue instances or None
 
-### _function_ notification_send_path
+### notification_send_path
 
 ```python
 notification_send_path(nctx, time, values, path) -> None
@@ -837,7 +837,7 @@ Keyword arguments:
 * values -- a list of _lib.TagValue instances or None
 * path -- path to the parent of the notification in the data tree
 
-### _function_ notification_send_snmp
+### notification_send_snmp
 
 ```python
 notification_send_snmp(nctx, notification, varbinds) -> None
@@ -855,7 +855,7 @@ Keyword arguments:
 * notification -- the notification string
 * varbinds -- a list of _lib.SnmpVarbind instances or None
 
-### _function_ notification_send_snmp_inform
+### notification_send_snmp_inform
 
 ```python
 notification_send_snmp_inform(nctx, notification, varbinds, cb_id, ref) ->None
@@ -872,7 +872,7 @@ Keyword arguments:
 * cb_id -- callback id
 * ref -- argument send to callbacks
 
-### _function_ notification_set_fd
+### notification_set_fd
 
 ```python
 notification_set_fd(nctx, sock) -> None
@@ -888,7 +888,7 @@ Keyword arguments:
 * nctx -- notification context returned from register_notification_stream()
 * sock -- a previously connected worker socket
 
-### _function_ notification_set_snmp_notify_name
+### notification_set_snmp_notify_name
 
 ```python
 notification_set_snmp_notify_name(nctx, notify_name) -> None
@@ -902,7 +902,7 @@ Keyword arguments:
 * nctx -- notification context returned from register_snmp_notification()
 * notify_name -- the snmpNotifyName
 
-### _function_ notification_set_snmp_src_addr
+### notification_set_snmp_src_addr
 
 ```python
 notification_set_snmp_src_addr(nctx, family, src_addr) -> None
@@ -920,7 +920,7 @@ Keyword arguments:
 * family -- AF_INET, AF_INET6 or AF_UNSPEC
 * src_addr -- the source address in string format
 
-### _function_ notification_seterr
+### notification_seterr
 
 ```python
 notification_seterr(nctx, errstr) -> None
@@ -937,7 +937,7 @@ Keyword arguments:
 * nctx -- notification context returned from register_notification_stream()
 * errstr -- an error message string
 
-### _function_ notification_seterr_extended
+### notification_seterr_extended
 
 ```python
 notification_seterr_extended(nctx, code, apptag_ns, apptag_tag, errstr) ->None
@@ -954,7 +954,7 @@ Keyword arguments:
 * apptag_tag -- either 0 or the hash value for a data model node
 * errstr -- an error message string
 
-### _function_ notification_seterr_extended_info
+### notification_seterr_extended_info
 
 ```python
 
@@ -976,7 +976,7 @@ Keyword arguments:
 * error_info -- a list of _lib.TagValue instances
 * errstr -- an error message string
 
-### _function_ register_action_cbs
+### register_action_cbs
 
 ```python
 register_action_cbs(dx, actionpoint, acb) -> None
@@ -1022,7 +1022,7 @@ cb_action()
 cb_command()
     The argv argument is a list of strings.
 
-### _function_ register_auth_cb
+### register_auth_cb
 
 ```python
 register_auth_cb(dx, acb) -> None
@@ -1044,7 +1044,7 @@ E.g.:
     acb = AuthCallbacks()
     dp.register_auth_cb(dx, acb)
 
-### _function_ register_authorization_cb
+### register_authorization_cb
 
 ```python
 register_authorization_cb(dx, acb, cmd_filter, data_filter) -> None
@@ -1069,7 +1069,7 @@ E.g.:
     acb = AuthCallbacks()
     dp.register_authorization_cb(dx, acb)
 
-### _function_ register_data_cb
+### register_data_cb
 
 ```python
 register_data_cb(dx, callpoint, data, flags) -> None
@@ -1142,7 +1142,7 @@ E.g.:
     dcb = DataCallbacks()
     dp.register_data_cb(dx, 'example-callpoint-1', dcb)
 
-### _function_ register_db_cb
+### register_db_cb
 
 ```python
 register_db_cb(dx, dbcbs) -> None
@@ -1211,7 +1211,7 @@ E.g.:
     dbcbs = DbCallbacks()
     dp.register_db_cb(dx, dbcbs)
 
-### _function_ register_done
+### register_done
 
 ```python
 register_done(dx) -> None
@@ -1226,7 +1226,7 @@ Keyword arguments:
 
 * dx -- a daemon context acquired through a call to init_daemon()
 
-### _function_ register_error_cb
+### register_error_cb
 
 ```python
 register_error_cb(dx, errortypes, ecbs) -> None
@@ -1252,7 +1252,7 @@ E.g.:
                          dp.ERRTYPE_MISC, ecbs)
     dp.register_done(ctx)
 
-### _function_ register_nano_service_cb
+### register_nano_service_cb
 
 ```python
 register_nano_service_cb(dx,servicepoint,componenttype,state,nscb) -> None
@@ -1282,7 +1282,7 @@ E.g:
     nscb = NanoServiceCallbacks()
     dp.register_nano_service_cb(dx, 'service-point-1', 'comp', 'state', nscb)
 
-### _function_ register_notification_snmp_inform_cb
+### register_notification_snmp_inform_cb
 
 ```python
 register_notification_snmp_inform_cb(dx, cb_id, cbs) -> None
@@ -1309,7 +1309,7 @@ E.g.:
     cbs = NotifySnmpCallbacks()
     dp.register_notification_snmp_inform_cb(dx, 'callback-id-1', cbs)
 
-### _function_ register_notification_stream
+### register_notification_stream
 
 ```python
 register_notification_stream(dx, ncbs, sock, streamname) -> NotificationCtxRef
@@ -1342,7 +1342,7 @@ E.g.:
     livectx = dp.register_notification_stream(dx, ncbs, workersock,
     'streamname')
 
-### _function_ register_notification_sub_snmp_cb
+### register_notification_sub_snmp_cb
 
 ```python
 register_notification_sub_snmp_cb(dx, sub_id, cbs) -> None
@@ -1366,7 +1366,7 @@ E.g.:
     cbs = NotifySubSnmpCallbacks()
     dp.register_notification_sub_snmp_cb(dx, 'sub-id-1', cbs)
 
-### _function_ register_range_action_cbs
+### register_range_action_cbs
 
 ```python
 register_range_action_cbs(dx, actionpoint, acb, lower, upper, path) -> None
@@ -1385,7 +1385,7 @@ Keyword arguments:
 * upper -- a list of Value's or None
 * path -- path for the list (string)
 
-### _function_ register_range_data_cb
+### register_range_data_cb
 
 ```python
 
@@ -1407,7 +1407,7 @@ Keyword arguments:
 * path -- path for the list (string)
 * flags -- data callbacks flags, dp.DATA_* (optional)
 
-### _function_ register_range_valpoint_cb
+### register_range_valpoint_cb
 
 ```python
 register_range_valpoint_cb(dx, valpoint, vcb, lower, upper, path) -> None
@@ -1426,7 +1426,7 @@ Keyword arguments:
 * upper -- a list of Value's or None
 * path -- path for the list (string)
 
-### _function_ register_service_cb
+### register_service_cb
 
 ```python
 register_service_cb(dx, servicepoint, scb) -> None
@@ -1455,7 +1455,7 @@ E.g:
     scb = ServiceCallbacks()
     dp.register_service_cb(dx, 'service-point-1', scb)
 
-### _function_ register_snmp_notification
+### register_snmp_notification
 
 ```python
 register_snmp_notification(dx, sock, notify_name, ctx_name) -> NotificationCtxRef
@@ -1473,7 +1473,7 @@ Keyword arguments:
 * notify_name -- the snmpNotifyName
 * ctx_name -- the SNMP context
 
-### _function_ register_trans_cb
+### register_trans_cb
 
 ```python
 register_trans_cb(dx, trans) -> None
@@ -1520,7 +1520,7 @@ E.g.:
     tcb = TransCallbacks()
     dp.register_trans_cb(dx, tcb)
 
-### _function_ register_trans_validate_cb
+### register_trans_validate_cb
 
 ```python
 register_trans_validate_cb(dx, vcbs) -> None
@@ -1548,7 +1548,7 @@ E.g.:
     vcbs = TransValidateCallbacks()
     dp.register_trans_validate_cb(dx, vcbs)
 
-### _function_ register_usess_cb
+### register_usess_cb
 
 ```python
 register_usess_cb(dx, ucb) -> None
@@ -1574,7 +1574,7 @@ E.g.:
     ucb = UserSessionCallbacks()
     dp.register_usess_cb(dx, acb)
 
-### _function_ register_valpoint_cb
+### register_valpoint_cb
 
 ```python
 register_valpoint_cb(dx, valpoint, vcb) -> None
@@ -1599,7 +1599,7 @@ E.g.:
     vcb = ValpointCallback()
     dp.register_valpoint_cb(dx, 'valpoint-1', vcb)
 
-### _function_ release_daemon
+### release_daemon
 
 ```python
 release_daemon(dx) -> None
@@ -1614,7 +1614,7 @@ Keyword arguments:
 
 * dx -- a daemon context acquired through a call to init_daemon()
 
-### _function_ service_reply_proplist
+### service_reply_proplist
 
 ```python
 service_reply_proplist(tctx, proplist) -> None
@@ -1636,7 +1636,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * proplist -- a list of properties or None
 
-### _function_ set_daemon_flags
+### set_daemon_flags
 
 ```python
 set_daemon_flags(dx, flags) -> None
@@ -1650,7 +1650,7 @@ Keyword arguments:
 * dx -- a daemon context acquired through a call to init_daemon()
 * flags -- the flags to set
 
-### _function_ trans_set_fd
+### trans_set_fd
 
 ```python
 trans_set_fd(tctx, sock) -> None
@@ -1674,7 +1674,7 @@ A minimal implementation of a transaction cb_init() callback looks like:
         def cb_init(self, tctx):
             dp.trans_set_fd(tctx, self.workersock)
 
-### _function_ trans_seterr
+### trans_seterr
 
 ```python
 trans_seterr(tctx, errstr) -> None
@@ -1687,7 +1687,7 @@ Keyword arguments:
 * tctx -- a transaction context
 * errstr -- an error message string
 
-### _function_ trans_seterr_extended
+### trans_seterr_extended
 
 ```python
 trans_seterr_extended(tctx, code, apptag_ns, apptag_tag, errstr) -> None
@@ -1704,7 +1704,7 @@ Keyword arguments:
 * apptag_tag -- either 0 or the hash value for a data model node
 * errstr -- an error message string
 
-### _function_ trans_seterr_extended_info
+### trans_seterr_extended_info
 
 ```python
 
