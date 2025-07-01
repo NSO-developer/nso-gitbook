@@ -3633,7 +3633,7 @@ how they relate to each other.
 
 /ncs-config/logs/audit-network-log  
 > audit-network-log is an audit log recording southbound traffic towards
-> devices.
+> devices. This log is not rotated, i.e. use logrotate(8).
 
 /ncs-config/logs/audit-network-log/enabled (boolean) \[false\]  
 > If set to true, the log is enabled.
@@ -3645,11 +3645,11 @@ how they relate to each other.
 > If set to true, file logging is enabled
 
 /ncs-config/logs/audit-network-log/syslog  
-> Syslog is not available for audit-network-log. This parameter has no
-> effect.
+> Syslog is not available for audit-network-log. These parameters have
+> no effect.
 
 /ncs-config/logs/audit-network-log/syslog/enabled (boolean) \[false\]  
-> If set to true, syslog messages are sent.
+> Unsupported.
 
 /ncs-config/logs/audit-network-log/syslog/facility (daemon \| authpriv \| local0 \| local1 \| local2 \| local3 \| local4 \| local5 \| local6 \| local7 \| uint32)  
 > This optional value overrides the
@@ -3677,7 +3677,7 @@ how they relate to each other.
 > Syslog is not available for raft-log. This parameter has no effect.
 
 /ncs-config/logs/raft-log/syslog/enabled (boolean) \[false\]  
-> If set to true, syslog messages are sent.
+> Unsupported.
 
 /ncs-config/logs/raft-log/syslog/facility (daemon \| authpriv \| local0 \| local1 \| local2 \| local3 \| local4 \| local5 \| local6 \| local7 \| uint32)  
 > This optional value overrides the
@@ -4361,9 +4361,9 @@ how they relate to each other.
 >
 > The task of the external program, which for example could be a FUSION
 > client, is to validate the token and also provide the token to user
-> and groups mappings. Refer to the External validation section of the
-> AAA chapter in the User Guide for the details of how the program
-> should report the result back to NCS.
+> and groups mappings. Refer to the External Token Validation section of
+> the documentation for the details of how the program should report the
+> result back to NCS.
 
 /ncs-config/aaa/external-validation/use-base64 (boolean) \[false\]  
 > When set to true, \${TOKEN} in the data passed to the executable will
