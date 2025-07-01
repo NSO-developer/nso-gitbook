@@ -71,17 +71,13 @@ There are multiple optional fields.
 
 ## Functions
 
-<details>
-
-<summary>conv_links</summary>
+### _function_ conv_links
 
 ```python
 conv_links(links)
 ```
 
 convert from [Span() | dict()] -> [dict()]
-
-</details>
 
 
 ## Classes

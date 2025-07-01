@@ -15,9 +15,7 @@ This documentation should be read together with the [confd_lib_events(3)](../man
 
 ## Functions
 
-<details>
-
-<summary>diff_notification_done</summary>
+### _function_ diff_notification_done
 
 ```python
 diff_notification_done(sock, tctx) -> None
@@ -33,11 +31,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * tctx -- a transaction context
 
-</details>
-
-<details>
-
-<summary>notifications_connect</summary>
+### _function_ notifications_connect
 
 ```python
 notifications_connect(sock, mask, ip, port, path) -> None
@@ -53,11 +47,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional).
 
-</details>
-
-<details>
-
-<summary>notifications_connect2</summary>
+### _function_ notifications_connect2
 
 ```python
 notifications_connect2(sock, mask, data, ip, port, path) -> None
@@ -75,11 +65,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional)
 
-</details>
-
-<details>
-
-<summary>read_notification</summary>
+### _function_ read_notification
 
 ```python
 read_notification(sock) -> dict
@@ -269,11 +255,7 @@ Keys for type NOTIF_CALL_HOME_INFO (struct ncs_call_home_notification):
 *   ssh_host_key
 *   ssh_key_alg
 
-</details>
-
-<details>
-
-<summary>sync_audit_network_notification</summary>
+### _function_ sync_audit_network_notification
 
 ```python
 sync_audit_network_notification(sock, usid) -> None
@@ -289,11 +271,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * usid -- the user session id
 
-</details>
-
-<details>
-
-<summary>sync_audit_notification</summary>
+### _function_ sync_audit_notification
 
 ```python
 sync_audit_notification(sock, usid) -> None
@@ -309,11 +287,7 @@ Keyword arguments:
 * sock -- a previously connected notification socket
 * usid -- the user session id
 
-</details>
-
-<details>
-
-<summary>sync_ha_notification</summary>
+### _function_ sync_ha_notification
 
 ```python
 sync_ha_notification(sock) -> None
@@ -327,8 +301,6 @@ blocked until this function gets called.
 Keyword arguments:
 
 * sock -- a previously connected notification socket
-
-</details>
 
 
 ## Classes

@@ -12,9 +12,7 @@ This documentation should be read together with the [confd_lib_ha(3)](../man/sec
 
 ## Functions
 
-<details>
-
-<summary>bemaster</summary>
+### _function_ bemaster
 
 ```python
 bemaster(sock, mynodeid) -> None
@@ -23,11 +21,7 @@ bemaster(sock, mynodeid) -> None
 This function is deprecated and will be removed.
 Use beprimary() instead.
 
-</details>
-
-<details>
-
-<summary>benone</summary>
+### _function_ benone
 
 ```python
 benone(sock) -> None
@@ -40,11 +34,7 @@ Keyword arguments:
 
 * sock -- a previously connected HA socket
 
-</details>
-
-<details>
-
-<summary>beprimary</summary>
+### _function_ beprimary
 
 ```python
 beprimary(sock, mynodeid) -> None
@@ -57,11 +47,7 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * mynodeid -- name of the node (Value or string)
 
-</details>
-
-<details>
-
-<summary>berelay</summary>
+### _function_ berelay
 
 ```python
 berelay(sock) -> None
@@ -74,11 +60,7 @@ Keyword arguments:
 
 * sock -- a previously connected HA socket
 
-</details>
-
-<details>
-
-<summary>besecondary</summary>
+### _function_ besecondary
 
 ```python
 besecondary(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
@@ -101,11 +83,7 @@ Keyword arguments:
 * primary_ip -- ip address of the primary node
 * waitreply  -- synchronous or not (bool)
 
-</details>
-
-<details>
-
-<summary>beslave</summary>
+### _function_ beslave
 
 ```python
 beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
@@ -114,11 +92,7 @@ beslave(sock, mynodeid, primary_id, primary_ip, waitreply) -> None
 This function is deprecated and will be removed.
 Use besecondary() instead.
 
-</details>
-
-<details>
-
-<summary>connect</summary>
+### _function_ connect
 
 ```python
 connect(sock, token, ip, port, pstr) -> None
@@ -138,11 +112,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET or AF_INET6 (optional)
 * pstr -- a filename if socket is AF_UNIX (optional).
 
-</details>
-
-<details>
-
-<summary>secondary_dead</summary>
+### _function_ secondary_dead
 
 ```python
 secondary_dead(sock, nodeid) -> None
@@ -156,11 +126,7 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 * nodeid -- name of the node (Value or string)
 
-</details>
-
-<details>
-
-<summary>slave_dead</summary>
+### _function_ slave_dead
 
 ```python
 slave_dead(sock, nodeid) -> None
@@ -169,11 +135,7 @@ slave_dead(sock, nodeid) -> None
 This function is deprecated and will be removed.
 Use secondary_dead() instead.
 
-</details>
-
-<details>
-
-<summary>status</summary>
+### _function_ status
 
 ```python
 status(sock) -> None
@@ -188,7 +150,5 @@ connected with node.
 Keyword arguments:
 
 * sock -- a previously connected HA socket
-
-</details>
 
 

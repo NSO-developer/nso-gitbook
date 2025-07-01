@@ -4,9 +4,7 @@ Module for building NCS applications.
 
 ## Functions
 
-<details>
-
-<summary>get_device</summary>
+### _function_ get_device
 
 ```python
 get_device(node, name)
@@ -25,11 +23,7 @@ Returns:
 
 * device node (maagic.Node)
 
-</details>
-
-<details>
-
-<summary>get_ned_id</summary>
+### _function_ get_ned_id
 
 ```python
 get_ned_id(device)
@@ -46,8 +40,6 @@ Arguments:
 Returns:
 
 * ned_id (str)
-
-</details>
 
 
 ## Classes

@@ -20,9 +20,7 @@ This documentation should be read together with the [confd_lib_cdb(3)](../man/se
 
 ## Functions
 
-<details>
-
-<summary>cd</summary>
+### _function_ cd
 
 ```python
 cd(sock, path) -> None
@@ -36,11 +34,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to cd to
 
-</details>
-
-<details>
-
-<summary>close</summary>
+### _function_ close
 
 ```python
 close(sock) -> None
@@ -53,11 +47,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>connect</summary>
+### _function_ connect
 
 ```python
 connect(sock, type, ip, port, path) -> None
@@ -75,11 +65,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional).
 
-</details>
-
-<details>
-
-<summary>connect_name</summary>
+### _function_ connect_name
 
 ```python
 connect_name(sock, type, name, ip, port, path) -> None
@@ -101,11 +87,7 @@ Keyword arguments:
 * port -- the port if socket is AF_INET (optional)
 * path -- a filename if socket is AF_UNIX (optional).
 
-</details>
-
-<details>
-
-<summary>create</summary>
+### _function_ create
 
 ```python
 create(sock, path) -> None
@@ -123,11 +105,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- item to create (string)
 
-</details>
-
-<details>
-
-<summary>cs_node_cd</summary>
+### _function_ cs_node_cd
 
 ```python
 cs_node_cd(socket, path) -> Union[_ncs.CsNode, None]
@@ -144,11 +122,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- the path
 
-</details>
-
-<details>
-
-<summary>delete</summary>
+### _function_ delete
 
 ```python
 delete(sock, path) -> None
@@ -162,11 +136,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- item to delete (string)
 
-</details>
-
-<details>
-
-<summary>diff_iterate</summary>
+### _function_ diff_iterate
 
 ```python
 diff_iterate(sock, subid, iter, flags, initstate) -> int
@@ -202,11 +172,7 @@ Where arguments are:
 * newv - the new value or None
 * state - the initstate object
 
-</details>
-
-<details>
-
-<summary>diff_iterate_resume</summary>
+### _function_ diff_iterate_resume
 
 ```python
 diff_iterate_resume(sock, reply, iter, resumestate) -> int
@@ -229,11 +195,7 @@ Keyword arguments:
 * iter -- iterator function (see diff_iterate())
 * resumestate -- opaque passed to iter function
 
-</details>
-
-<details>
-
-<summary>end_session</summary>
+### _function_ end_session
 
 ```python
 end_session(sock) -> None
@@ -248,11 +210,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>exists</summary>
+### _function_ exists
 
 ```python
 exists(sock, path) -> bool
@@ -267,11 +225,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to check for existence
 
-</details>
-
-<details>
-
-<summary>get</summary>
+### _function_ get
 
 ```python
 get(sock, path) -> _ncs.Value
@@ -285,11 +239,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to leaf
 
-</details>
-
-<details>
-
-<summary>get_case</summary>
+### _function_ get_case
 
 ```python
 get_case(sock, choice, path) -> None
@@ -305,11 +255,7 @@ Keyword arguments:
 * choice -- the choice (string)
 * path -- path to container or list entry where choice is defined (string)
 
-</details>
-
-<details>
-
-<summary>get_compaction_info</summary>
+### _function_ get_compaction_info
 
 ```python
 get_compaction_info(sock, dbfile) -> dict
@@ -333,11 +279,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * dbfile -- A_CDB, O_CDB or S_CDB.
 
-</details>
-
-<details>
-
-<summary>get_modifications</summary>
+### _function_ get_modifications
 
 ```python
 get_modifications(sock, subid, flags, path) -> list
@@ -357,11 +299,7 @@ Keyword arguments:
 * flags -- the flags
 * path -- a path in string format or None
 
-</details>
-
-<details>
-
-<summary>get_modifications_cli</summary>
+### _function_ get_modifications_cli
 
 ```python
 get_modifications_cli(sock, subid, flags) -> str
@@ -378,11 +316,7 @@ Keyword arguments:
 * subid -- subscription id
 * flags -- the flags
 
-</details>
-
-<details>
-
-<summary>get_modifications_iter</summary>
+### _function_ get_modifications_iter
 
 ```python
 get_modifications_iter(sock, flags) -> list
@@ -399,11 +333,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * flags -- the flags
 
-</details>
-
-<details>
-
-<summary>get_object</summary>
+### _function_ get_object
 
 ```python
 get_object(sock, n, path) -> list
@@ -418,11 +348,7 @@ Keyword arguments:
 * n -- max number of values to read
 * path -- path to a list entry or a container (string)
 
-</details>
-
-<details>
-
-<summary>get_objects</summary>
+### _function_ get_objects
 
 ```python
 get_objects(sock, n, ix, nobj, path) -> list
@@ -443,11 +369,7 @@ Keyword arguments:
 * nobj -- number of objects to read
 * path -- path to a list entry or a container (string)
 
-</details>
-
-<details>
-
-<summary>get_phase</summary>
+### _function_ get_phase
 
 ```python
 get_phase(sock) -> dict
@@ -470,11 +392,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>get_replay_txids</summary>
+### _function_ get_replay_txids
 
 ```python
 get_replay_txids(sock) -> List[Tuple]
@@ -494,11 +412,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>get_transaction_handle</summary>
+### _function_ get_transaction_handle
 
 ```python
 get_transaction_handle(sock) -> int
@@ -525,11 +439,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>get_txid</summary>
+### _function_ get_txid
 
 ```python
 get_txid(sock) -> tuple
@@ -547,11 +457,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>get_user_session</summary>
+### _function_ get_user_session
 
 ```python
 get_user_session(sock) -> int
@@ -574,11 +480,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>get_values</summary>
+### _function_ get_values
 
 ```python
 get_values(sock, values, path) -> list
@@ -596,11 +498,7 @@ Keyword arguments:
 * values -- a list of TagValue instances
 * path -- path to a list entry or a container (string)
 
-</details>
-
-<details>
-
-<summary>getcwd</summary>
+### _function_ getcwd
 
 ```python
 getcwd(sock) -> str
@@ -616,11 +514,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>getcwd_kpath</summary>
+### _function_ getcwd_kpath
 
 ```python
 getcwd_kpath(sock) -> _ncs.HKeypathRef
@@ -633,11 +527,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>index</summary>
+### _function_ index
 
 ```python
 index(sock, path) -> int
@@ -650,11 +540,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to list entry
 
-</details>
-
-<details>
-
-<summary>initiate_journal_compaction</summary>
+### _function_ initiate_journal_compaction
 
 ```python
 initiate_journal_compaction(sock) -> None
@@ -673,11 +559,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>initiate_journal_dbfile_compaction</summary>
+### _function_ initiate_journal_dbfile_compaction
 
 ```python
 initiate_journal_dbfile_compaction(sock, dbfile) -> None
@@ -691,11 +573,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * dbfile -- A_CDB, O_CDB or S_CDB.
 
-</details>
-
-<details>
-
-<summary>is_default</summary>
+### _function_ is_default
 
 ```python
 is_default(sock, path) -> bool
@@ -712,11 +590,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to leaf
 
-</details>
-
-<details>
-
-<summary>mandatory_subscriber</summary>
+### _function_ mandatory_subscriber
 
 ```python
 mandatory_subscriber(sock, name) -> None
@@ -731,11 +605,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * name -- the name
 
-</details>
-
-<details>
-
-<summary>next_index</summary>
+### _function_ next_index
 
 ```python
 next_index(sock, path) -> int
@@ -750,11 +620,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to list entry
 
-</details>
-
-<details>
-
-<summary>num_instances</summary>
+### _function_ num_instances
 
 ```python
 num_instances(sock, path) -> int
@@ -767,11 +633,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to list node
 
-</details>
-
-<details>
-
-<summary>oper_subscribe</summary>
+### _function_ oper_subscribe
 
 ```python
 oper_subscribe(sock, nspace, path) -> int
@@ -788,11 +650,7 @@ Keyword arguments:
 * nspace -- the namespace hash
 * path -- path to node
 
-</details>
-
-<details>
-
-<summary>popd</summary>
+### _function_ popd
 
 ```python
 popd(sock) -> None
@@ -805,11 +663,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>pushd</summary>
+### _function_ pushd
 
 ```python
 pushd(sock, path) -> None
@@ -822,11 +676,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * path -- path to cd to
 
-</details>
-
-<details>
-
-<summary>read_subscription_socket</summary>
+### _function_ read_subscription_socket
 
 ```python
 read_subscription_socket(sock) -> list
@@ -839,11 +689,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>read_subscription_socket2</summary>
+### _function_ read_subscription_socket2
 
 ```python
 read_subscription_socket2(sock) -> tuple
@@ -856,11 +702,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>replay_subscriptions</summary>
+### _function_ replay_subscriptions
 
 ```python
 replay_subscriptions(sock, txid, sub_points) -> None
@@ -879,11 +721,7 @@ Keyword arguments:
 * txid -- a 4-tuple of the form (s1, s2, s3, primary)
 * sub_points -- a list of subscription points
 
-</details>
-
-<details>
-
-<summary>set_case</summary>
+### _function_ set_case
 
 ```python
 set_case(sock, choice, scase, path) -> None
@@ -899,11 +737,7 @@ Keyword arguments:
 * scase -- the case (string)
 * path -- path to container or list entry where choice is defined (string)
 
-</details>
-
-<details>
-
-<summary>set_elem</summary>
+### _function_ set_elem
 
 ```python
 set_elem(sock, value, path) -> None
@@ -918,11 +752,7 @@ Keyword arguments:
 * value -- the value to set
 * path -- a string pointing to a single leaf
 
-</details>
-
-<details>
-
-<summary>set_namespace</summary>
+### _function_ set_namespace
 
 ```python
 set_namespace(sock, hashed_ns) -> None
@@ -938,11 +768,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * hashed_ns -- the namespace hash
 
-</details>
-
-<details>
-
-<summary>set_object</summary>
+### _function_ set_object
 
 ```python
 set_object(sock, values, path) -> None
@@ -957,11 +783,7 @@ Keyword arguments:
 * values -- a list of Value:s
 * path -- path to container or list entry (string)
 
-</details>
-
-<details>
-
-<summary>set_timeout</summary>
+### _function_ set_timeout
 
 ```python
 set_timeout(sock, timeout_secs) -> None
@@ -979,11 +801,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * timeout_secs -- timeout in seconds
 
-</details>
-
-<details>
-
-<summary>set_values</summary>
+### _function_ set_values
 
 ```python
 set_values(sock, values, path) -> None
@@ -997,11 +815,7 @@ Keyword arguments:
 * values -- a list of TagValue:s
 * path -- path to container or list entry (string)
 
-</details>
-
-<details>
-
-<summary>start_session</summary>
+### _function_ start_session
 
 ```python
 start_session(sock, db) -> None
@@ -1016,11 +830,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * db -- the database
 
-</details>
-
-<details>
-
-<summary>start_session2</summary>
+### _function_ start_session2
 
 ```python
 start_session2(sock, db, flags) -> None
@@ -1038,11 +848,7 @@ Keyword arguments:
 * db -- the database
 * flags -- the flags
 
-</details>
-
-<details>
-
-<summary>sub_abort_trans</summary>
+### _function_ sub_abort_trans
 
 ```python
 sub_abort_trans(sock, code, apptag_ns, apptag_tag, reason) -> None
@@ -1063,11 +869,7 @@ Keyword arguments:
 * apptag_tag -- the tag hash
 * reason -- reason string
 
-</details>
-
-<details>
-
-<summary>sub_abort_trans_info</summary>
+### _function_ sub_abort_trans_info
 
 ```python
 sub_abort_trans_info(sock, code, apptag_ns, apptag_tag, error_info, reason) -> None
@@ -1084,11 +886,7 @@ Keyword arguments:
 * error_info -- a list of TagValue instances
 * reason -- reason string
 
-</details>
-
-<details>
-
-<summary>sub_progress</summary>
+### _function_ sub_progress
 
 ```python
 sub_progress(sock, msg) -> None
@@ -1104,11 +902,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * msg -- the message
 
-</details>
-
-<details>
-
-<summary>subscribe</summary>
+### _function_ subscribe
 
 ```python
 subscribe(sock, prio, nspace, path) -> int
@@ -1127,11 +921,7 @@ Keyword arguments:
 * nspace -- the namespace hash
 * path -- path to node
 
-</details>
-
-<details>
-
-<summary>subscribe2</summary>
+### _function_ subscribe2
 
 ```python
 subscribe2(sock, type, flags, prio, nspace, path) -> int
@@ -1154,11 +944,7 @@ Keyword arguments:
 * nspace -- the namespace hash
 * path -- path to node
 
-</details>
-
-<details>
-
-<summary>subscribe_done</summary>
+### _function_ subscribe_done
 
 ```python
 subscribe_done(sock) -> None
@@ -1172,11 +958,7 @@ Keyword arguments:
 
 * sock -- a previously connected CDB socket
 
-</details>
-
-<details>
-
-<summary>sync_subscription_socket</summary>
+### _function_ sync_subscription_socket
 
 ```python
 sync_subscription_socket(sock, st) -> None
@@ -1193,11 +975,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * st -- sync type (int)
 
-</details>
-
-<details>
-
-<summary>trigger_oper_subscriptions</summary>
+### _function_ trigger_oper_subscriptions
 
 ```python
 trigger_oper_subscriptions(sock, sub_points, flags) -> None
@@ -1215,11 +993,7 @@ Keyword arguments:
 * sub_points -- a list of subscription points
 * flags -- the flags
 
-</details>
-
-<details>
-
-<summary>trigger_subscriptions</summary>
+### _function_ trigger_subscriptions
 
 ```python
 trigger_subscriptions(sock, sub_points) -> None
@@ -1237,11 +1011,7 @@ Keyword arguments:
 * sock -- a previously connected CDB socket
 * sub_points -- a list of subscription points
 
-</details>
-
-<details>
-
-<summary>wait_start</summary>
+### _function_ wait_start
 
 ```python
 wait_start(sock) -> None
@@ -1256,7 +1026,5 @@ can read its configuration. The call can be used after connect().
 Keyword arguments:
 
 * sock -- a previously connected CDB socket
-
-</details>
 
 

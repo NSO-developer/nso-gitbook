@@ -4,9 +4,7 @@ This module provides some logging utilities.
 
 ## Functions
 
-<details>
-
-<summary>init_logging</summary>
+### _function_ init_logging
 
 ```python
 init_logging(vmid, log_file, log_level)
@@ -14,11 +12,7 @@ init_logging(vmid, log_file, log_level)
 
 Initialize logging
 
-</details>
-
-<details>
-
-<summary>log_datefmt</summary>
+### _function_ log_datefmt
 
 ```python
 log_datefmt()
@@ -26,11 +20,7 @@ log_datefmt()
 
 Return date format used in logging.
 
-</details>
-
-<details>
-
-<summary>log_file</summary>
+### _function_ log_file
 
 ```python
 log_file()
@@ -38,11 +28,7 @@ log_file()
 
 Return log file used, if any else None
 
-</details>
-
-<details>
-
-<summary>log_format</summary>
+### _function_ log_format
 
 ```python
 log_format()
@@ -50,11 +36,7 @@ log_format()
 
 Return log format.
 
-</details>
-
-<details>
-
-<summary>log_handler</summary>
+### _function_ log_handler
 
 ```python
 log_handler()
@@ -62,11 +44,7 @@ log_handler()
 
 Return log handler used, if any else None
 
-</details>
-
-<details>
-
-<summary>mk_log_formatter</summary>
+### _function_ mk_log_formatter
 
 ```python
 mk_log_formatter()
@@ -74,11 +52,7 @@ mk_log_formatter()
 
 Create log formatter with log and date format setup
 
-</details>
-
-<details>
-
-<summary>reopen_logs</summary>
+### _function_ reopen_logs
 
 ```python
 reopen_logs()
@@ -86,19 +60,13 @@ reopen_logs()
 
 Re-open log files if log handler is set
 
-</details>
-
-<details>
-
-<summary>set_log_level</summary>
+### _function_ set_log_level
 
 ```python
 set_log_level(vmid, log_level)
 ```
 
 Set log level on the vmid logger and root logger
-
-</details>
 
 
 ## Classes

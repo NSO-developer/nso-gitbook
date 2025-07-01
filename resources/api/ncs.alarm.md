@@ -4,9 +4,7 @@ NCS Alarm Manager module.
 
 ## Functions
 
-<details>
-
-<summary>clear_alarm</summary>
+### _function_ clear_alarm
 
 ```python
 clear_alarm(alarm)
@@ -17,11 +15,7 @@ Clear an alarm.
 Arguments:
     alarm -- An instance of Alarm.
 
-</details>
-
-<details>
-
-<summary>managed_object_instance</summary>
+### _function_ managed_object_instance
 
 ```python
 managed_object_instance(instanceval)
@@ -32,11 +26,7 @@ Create a managed object of type instance-identifier.
 Arguments:
     instanceval -- The instance-identifier (string or HKeypathRef)
 
-</details>
-
-<details>
-
-<summary>managed_object_oid</summary>
+### _function_ managed_object_oid
 
 ```python
 managed_object_oid(oidval)
@@ -47,11 +37,7 @@ Create a managed object of type yang:object-identifier.
 Arguments:
     oidval -- The OID (string)
 
-</details>
-
-<details>
-
-<summary>managed_object_string</summary>
+### _function_ managed_object_string
 
 ```python
 managed_object_string(strval)
@@ -62,11 +48,7 @@ Create a managed object of type string.
 Arguments:
     strval --- The string value
 
-</details>
-
-<details>
-
-<summary>raise_alarm</summary>
+### _function_ raise_alarm
 
 ```python
 raise_alarm(alarm)
@@ -76,8 +58,6 @@ Raise an alarm.
 
 Arguments:
     alarm -- An instance of Alarm.
-
-</details>
 
 
 ## Classes
