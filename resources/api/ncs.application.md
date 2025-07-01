@@ -623,6 +623,8 @@ function.
 
 <summary>maapi</summary>
 
+_Readonly property_
+
 
 </details>
 
@@ -808,6 +810,8 @@ function.
 <details>
 
 <summary>maapi</summary>
+
+_Readonly property_
 
 
 </details>

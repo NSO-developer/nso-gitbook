@@ -55,22 +55,6 @@ Members:
 
 <details>
 
-<summary>Pattern</summary>
-
-Pattern matching key-path, internal to DataCallbacks
-
-</details>
-
-<details>
-
-<summary>RegisterPoint</summary>
-
-Registered handler point, internal to DataCallbacks
-
-</details>
-
-<details>
-
 <summary>cb_exists_optional(...)</summary>
 
 Method:

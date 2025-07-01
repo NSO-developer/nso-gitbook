@@ -207,6 +207,8 @@ Get alarm list key.
 
 <summary>key</summary>
 
+_Readonly property_
+
 Get alarm list key.
 
 </details>

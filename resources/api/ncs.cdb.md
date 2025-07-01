@@ -55,6 +55,8 @@ This method is deprecated, use the name attribute instead.
 
 <summary>ident</summary>
 
+_Readonly property_
+
 Thread identifier of this thread or None if it has not been started.
 
 This is a nonzero integer. See the get_ident() function. Thread
@@ -162,6 +164,8 @@ initial name is set by the constructor.
 <details>
 
 <summary>native_id</summary>
+
+_Readonly property_
 
 Native integral thread ID of this thread, or None if it has not been started.
 
@@ -403,6 +407,8 @@ This method is deprecated, use the name attribute instead.
 
 <summary>ident</summary>
 
+_Readonly property_
+
 Thread identifier of this thread or None if it has not been started.
 
 This is a nonzero integer. See the get_ident() function. Thread
@@ -510,6 +516,8 @@ initial name is set by the constructor.
 <details>
 
 <summary>native_id</summary>
+
+_Readonly property_
 
 Native integral thread ID of this thread, or None if it has not been started.
 
@@ -718,6 +726,8 @@ This method is deprecated, use the name attribute instead.
 
 <summary>ident</summary>
 
+_Readonly property_
+
 Thread identifier of this thread or None if it has not been started.
 
 This is a nonzero integer. See the get_ident() function. Thread
@@ -825,6 +835,8 @@ initial name is set by the constructor.
 <details>
 
 <summary>native_id</summary>
+
+_Readonly property_
 
 Native integral thread ID of this thread, or None if it has not been started.
 

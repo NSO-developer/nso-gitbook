@@ -231,14 +231,6 @@ INIT_RETRY_INTERVAL_S = 1
 
 <details>
 
-<summary>State</summary>
-
-State access to dp.Daemon state, primarily used in callbacks.
-
-</details>
-
-<details>
-
 <summary>ctx(...)</summary>
 
 Method:
@@ -299,6 +291,8 @@ This method is deprecated, use the name attribute instead.
 <details>
 
 <summary>ident</summary>
+
+_Readonly property_
 
 Thread identifier of this thread or None if it has not been started.
 
@@ -418,6 +412,8 @@ initial name is set by the constructor.
 <details>
 
 <summary>native_id</summary>
+
+_Readonly property_
 
 Native integral thread ID of this thread, or None if it has not been started.
 
@@ -561,6 +557,8 @@ dp.register_done() will be called before the thread is started.
 <details>
 
 <summary>wsock</summary>
+
+_Readonly property_
 
 
 </details>

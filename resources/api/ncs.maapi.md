@@ -1568,6 +1568,8 @@ Returns:
 
 <summary>ip</summary>
 
+_Readonly property_
+
 Return address to connect to the IPC port
 
 </details>
@@ -1621,6 +1623,8 @@ Initiate NETCONF SSH Call Home w. opaque data.
 
 <summary>path</summary>
 
+_Readonly property_
+
 Return path to connect to the IPC port
 
 </details>
@@ -1628,6 +1632,8 @@ Return path to connect to the IPC port
 <details>
 
 <summary>port</summary>
+
+_Readonly property_
 
 Return port to connect to the IPC port
 
