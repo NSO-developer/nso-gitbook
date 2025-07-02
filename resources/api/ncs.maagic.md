@@ -1342,3 +1342,12 @@ Members:
 
 _None_
 
+## Predefined Values
+
+```python
+
+NODE_NAME_FULL = 0
+NODE_NAME_PY_FULL = 2
+NODE_NAME_PY_SHORT = 3
+NODE_NAME_SHORT = 1
+```

@@ -152,3 +152,15 @@ Keyword arguments:
 * sock -- a previously connected HA socket
 
 
+## Predefined Values
+
+```python
+
+STATE_MASTER = 3
+STATE_NONE = 1
+STATE_PRIMARY = 3
+STATE_SECONDARY = 2
+STATE_SECONDARY_RELAY = 4
+STATE_SLAVE = 2
+STATE_SLAVE_RELAY = 4
+```

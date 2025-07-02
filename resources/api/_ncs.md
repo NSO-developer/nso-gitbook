@@ -18,6 +18,430 @@ this module and may be easier to use.
 - [_ncs.maapi](_ncs.maapi.md): Low level module for connecting to NCS with a read/write interface
 inside transactions.
 
+## Functions
+
+### cs_node_cd
+
+```python
+cs_node_cd(start, path) -> Union[CsNode, None]
+```
+
+Utility function which finds the resulting CsNode given an (optional)
+starting node and a (relative or absolute) string keypath.
+
+Keyword arguments:
+
+* start -- a CsNode instance or None
+* path -- the path
+
+### decrypt
+
+```python
+decrypt(ciphertext) -> str
+```
+
+When data is read over the CDB interface, the MAAPI interface or received
+in event notifications, the data for the builtin types
+tailf:aes-cfb-128-encrypted-string and
+tailf:aes-256-cfb-128-encrypted-string is encrypted.
+This function decrypts ciphertext and returns the clear text as
+a string.
+
+Keyword arguments:
+
+* ciphertext -- encrypted string
+
+### expr_op2str
+
+```python
+expr_op2str(op) -> str
+```
+
+Convert confd_expr_op value to a string.
+
+Keyword arguments:
+
+* op -- confd_expr_op integer value
+
+### fatal
+
+```python
+fatal(str) -> None
+```
+
+Utility function which formats a string, prints it to stderr and exits with
+exit code 1. This function will never return.
+
+Keyword arguments:
+
+* str -- a message string
+
+### find_cs_node
+
+```python
+find_cs_node(hkeypath, len) -> Union[CsNode, None]
+```
+
+Utility function which finds the CsNode corresponding to the len first
+elements of the hashed keypath. To make the search consider the full
+keypath leave out the len parameter.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+* len -- number of elements to return (optional)
+
+### find_cs_node_child
+
+```python
+find_cs_node_child(parent, xmltag) -> Union[CsNode, None]
+```
+
+Utility function which finds the CsNode corresponding to the child node
+given as xmltag.
+
+See confd_find_cs_node_child() in [confd_lib_lib(3)](../man/section3.md#confd_lib_lib).
+
+Keyword arguments:
+
+* parent -- the parent CsNode
+* xmltag -- the child node
+
+### find_cs_root
+
+```python
+find_cs_root(ns) -> Union[CsNode, None]
+```
+
+When schema information is available to the library, this function returns
+the root of the tree representaton of the namespace given by ns for the
+(first) toplevel node. For namespaces that are augmented into other
+namespaces such that they do not have a toplevel node, this function returns
+None - the nodes of such a namespace are found below the augment target
+node(s) in other tree(s).
+
+Keyword arguments:
+
+* ns -- the namespace id
+
+### find_ns_type
+
+```python
+find_ns_type(nshash, name) -> Union[CsType, None]
+```
+
+Returns a CsType type definition for the type named name, which is defined
+in the namespace identified by nshash, or None if the type could not be
+found. If nshash is 0, the type name will be looked up among the built-in
+types (i.e. the YANG built-in types, the types defined in the YANG
+"tailf-common" module, and the types defined in the "confd" and "xs"
+namespaces).
+
+Keyword arguments:
+
+* nshash -- a namespace hash or 0 (0 searches for built-in types)
+* name -- the name of the type
+
+### get_leaf_list_type
+
+```python
+get_leaf_list_type(node) -> CsType
+```
+
+For a leaf-list node, the type() method in the CsNodeInfo identifies a
+"list type" for the leaf-list "itself". This function returns the type
+of the elements in the leaf-list, i.e. corresponding to the type
+substatement for the leaf-list in the YANG module.
+
+Keyword arguments:
+
+* node -- The CsNode of the leaf-list
+
+### get_nslist
+
+```python
+get_nslist() -> list
+```
+
+Provides a list of the namespaces known to the library as a list of
+five-tuples. Each tuple contains the the namespace hash (int), the prefix
+(string), the namespace uri (string), the revision (string), and the
+module name (string).
+
+If schemas are not loaded an empty list will be returned.
+
+### hash2str
+
+```python
+hash2str(hash) -> Union[str, None]
+```
+
+Returns a string representing the node name given by hash, or None if the
+hash value is not found. Requires that schema information has been loaded
+from the NCS daemon into the library - otherwise it always returns None.
+
+Keyword arguments:
+
+* hash -- a hash
+
+### hkeypath_dup
+
+```python
+hkeypath_dup(hkeypath) -> HKeypathRef
+```
+
+Duplicates a HKeypathRef object.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+
+### hkeypath_dup_len
+
+```python
+hkeypath_dup_len(hkeypath, len) -> HKeypathRef
+```
+
+Duplicates the first len elements of hkeypath.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+* len -- number of elements to include in the copy
+
+### hkp_prefix_tagmatch
+
+```python
+hkp_prefix_tagmatch(hkeypath, tags) -> bool
+```
+
+A simplified version of hkp_tagmatch() - it returns True if the tagpath
+matches a prefix of the hkeypath, i.e. it is equivalent to calling
+hkp_tagmatch() and checking if the return value includes CONFD_HKP_MATCH_TAGS.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+* tags -- a list of XmlTag instances
+
+### hkp_tagmatch
+
+```python
+hkp_tagmatch(hkeypath, tags) -> int
+```
+
+When checking the hkeypaths that get passed into each iteration in e.g.
+cdb_diff_iterate() we can either explicitly check the paths, or use this
+function to do the job. The tags list (typically statically initialized)
+specifies a tagpath to match against the hkeypath. See cdb_diff_match().
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+* tags -- a list of XmlTag instances
+
+### init
+
+```python
+init(name, file, level) -> None
+```
+
+Initializes the ConfD library. Must be called before any other NCS API
+functions are called. There should be no need to call this function
+directly. It is called internally when the Python module is loaded.
+
+Keyword arguments:
+
+* name -- e
+* file -- (optional)
+* level -- (optional)
+
+### internal_connect
+
+```python
+internal_connect(id, sock, ip, port, path) -> None
+```
+
+Internal function used by NCS Python VM.
+
+### list_filter_type2str
+
+```python
+list_filter_type2str(op) -> str
+```
+
+Convert confd_list_filter_type value to a string.
+
+Keyword arguments:
+
+* type -- confd_list_filter_type integer value
+
+### max_object_size
+
+```python
+max_object_size(object) -> int
+```
+
+Utility function which returns the maximum size (i.e. the needed length of
+the confd_value_t array) for an "object" retrieved by cdb_get_object(),
+maapi_get_object(), and corresponding multi-object functions.
+
+Keyword arguments:
+
+* object -- the CsNode
+
+### mmap_schemas
+
+```python
+mmap_schemas(filename) -> None
+```
+
+If shared memory schema support has been enabled, this function will
+will map a shared memory segment into the current process address space
+and make it ready for use.
+
+The filename can be obtained by using the get_schema_file_path() function
+
+The filename argument specifies the pathname of the file that is used as
+backing store.
+
+Keyword arguments:
+
+* filename -- a filename string
+
+### next_object_node
+
+```python
+next_object_node(object, cur, value) -> Union[CsNode, None]
+```
+
+Utility function to allow navigation of the confd_cs_node schema tree in
+parallel with the confd_value_t array populated by cdb_get_object(),
+maapi_get_object(), and corresponding multi-object functions.
+
+The cur parameter is the CsNode for the current value, and the value
+parameter is the current value in the array. The function returns a CsNode
+for the next value in the array, or None when the complete object has been
+traversed. In the initial call for a given traversal, we must pass
+self.children() for the cur parameter - this always points to the CsNode
+for the first value in the array.
+
+Keyword arguments:
+
+* object -- CsNode of the list container node
+* cur -- The CsNode of the current value
+* value -- The current value
+
+### ns2prefix
+
+```python
+ns2prefix(ns) -> Union[str, None]
+```
+
+Returns a string giving the namespace prefix for the namespace ns, if the
+namespace is known to the library - otherwise it returns None.
+
+Keyword arguments:
+
+* ns -- a namespace hash
+
+### pp_kpath
+
+```python
+pp_kpath(hkeypath) -> str
+```
+
+Utility function which pretty prints a string representation of the path
+hkeypath. This will use the NCS curly brace notation, i.e.
+"/servers/server{www}/ip". Requires that schema information is available
+to the library.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+
+### pp_kpath_len
+
+```python
+pp_kpath_len(hkeypath, len) -> str
+```
+
+A variant of pp_kpath() that prints only the first len elements of hkeypath.
+
+Keyword arguments:
+
+* hkeypath -- a _lib.HKeypathRef instance
+* len -- number of elements to print
+
+### set_debug
+
+```python
+set_debug(level, file) -> None
+```
+
+Sets the debug level
+
+Keyword arguments:
+
+* file -- (optional)
+* level -- (optional)
+
+### set_kill_child_on_parent_exit
+
+```python
+set_kill_child_on_parent_exit() -> bool
+```
+
+Instruct the operating system to kill this process if the parent process
+exits.
+
+### str2hash
+
+```python
+str2hash(str) -> int
+```
+
+Returns the hash value representing the node name given by str, or 0 if the
+string is not found.  Requires that schema information has been loaded from
+the NCS daemon into the library - otherwise it always returns 0.
+
+Keyword arguments:
+
+* str -- a name string
+
+### stream_connect
+
+```python
+stream_connect(sock, id, flags, ip, port, path) -> None
+```
+
+Connects a stream socket to NCS.
+
+Keyword arguments:
+
+* sock -- a Python socket instance
+* id -- id
+* flags -- flags
+* ip -- ip address - if sock family is AF_INET or AF_INET6 (optional)
+* port -- port - if sock family is AF_INET or AF_INET6 (optional)
+* path -- a filename - if sock family is AF_UNIX (optional)
+
+### xpath_pp_kpath
+
+```python
+xpath_pp_kpath(hkeypath) -> str
+```
+
+Utility function which pretty prints a string representation of the path
+hkeypath. This will format the path as an XPath, i.e.
+"/servers/server[name="www"']/ip". Requires that schema information is
+available to the library.
+
+Keyword arguments:
+
+* hkeypath -- a HKeypathRef instance
+
+
 ## Classes
 
 ### _class_ **AttrValue**
@@ -1526,3 +1950,323 @@ tag hash value (unsigned int)
 
 </details>
 
+## Predefined Values
+
+```python
+
+ACCUMULATE = 1
+ADDR = '127.0.0.1'
+ALREADY_LOCKED = -4
+ATTR_ANNOTATION = 2147483649
+ATTR_BACKPOINTER = 2147483651
+ATTR_INACTIVE = 0
+ATTR_ORIGIN = 2147483655
+ATTR_ORIGINAL_VALUE = 2147483653
+ATTR_OUT_OF_BAND = 2147483664
+ATTR_REFCOUNT = 2147483650
+ATTR_TAGS = 2147483648
+ATTR_WHEN = 2147483652
+CANDIDATE = 1
+CMP_EQ = 1
+CMP_GT = 3
+CMP_GTE = 4
+CMP_LT = 5
+CMP_LTE = 6
+CMP_NEQ = 2
+CMP_NOP = 0
+CONFD_EOF = -2
+CONFD_ERR = -1
+CONFD_OK = 0
+CONFD_PORT = 4565
+CS_NODE_CMP_NORMAL = 0
+CS_NODE_CMP_SNMP = 1
+CS_NODE_CMP_SNMP_IMPLIED = 2
+CS_NODE_CMP_UNSORTED = 4
+CS_NODE_CMP_USER = 3
+CS_NODE_HAS_DISPLAY_WHEN = 1024
+CS_NODE_HAS_META_DATA = 2048
+CS_NODE_HAS_MOUNT_POINT = 32768
+CS_NODE_HAS_WHEN = 512
+CS_NODE_IS_ACTION = 8
+CS_NODE_IS_CASE = 128
+CS_NODE_IS_CDB = 4
+CS_NODE_IS_CONTAINER = 256
+CS_NODE_IS_DYN = 1
+CS_NODE_IS_LEAFREF = 16384
+CS_NODE_IS_LEAF_LIST = 8192
+CS_NODE_IS_LIST = 1
+CS_NODE_IS_NOTIF = 64
+CS_NODE_IS_PARAM = 16
+CS_NODE_IS_RESULT = 32
+CS_NODE_IS_STRING_AS_BINARY = 65536
+CS_NODE_IS_WRITE = 2
+CS_NODE_IS_WRITE_ALL = 4096
+C_BINARY = 39
+C_BIT32 = 29
+C_BIT64 = 30
+C_BITBIG = 50
+C_BOOL = 17
+C_BUF = 5
+C_CDBBEGIN = 37
+C_DATE = 20
+C_DATETIME = 19
+C_DECIMAL64 = 43
+C_DEFAULT = 42
+C_DOUBLE = 14
+C_DQUAD = 46
+C_DURATION = 27
+C_EMPTY = 53
+C_ENUM_HASH = 28
+C_ENUM_VALUE = 28
+C_HEXSTR = 47
+C_IDENTITYREF = 44
+C_INT16 = 7
+C_INT32 = 8
+C_INT64 = 9
+C_INT8 = 6
+C_IPV4 = 15
+C_IPV4PREFIX = 40
+C_IPV4_AND_PLEN = 48
+C_IPV6 = 16
+C_IPV6PREFIX = 41
+C_IPV6_AND_PLEN = 49
+C_LIST = 31
+C_NOEXISTS = 1
+C_OBJECTREF = 34
+C_OID = 38
+C_PTR = 36
+C_QNAME = 18
+C_STR = 4
+C_SYMBOL = 3
+C_TIME = 23
+C_UINT16 = 11
+C_UINT32 = 12
+C_UINT64 = 13
+C_UINT8 = 10
+C_UNION = 35
+C_XMLBEGIN = 32
+C_XMLBEGINDEL = 45
+C_XMLEND = 33
+C_XMLMOVEAFTER = 52
+C_XMLMOVEFIRST = 51
+C_XMLTAG = 2
+DB_INVALID = 0
+DB_VALID = 1
+DEBUG = 1
+DELAYED_RESPONSE = 2
+EOF = -2
+ERR = -1
+ERRCODE_ACCESS_DENIED = 3
+ERRCODE_APPLICATION = 4
+ERRCODE_APPLICATION_INTERNAL = 5
+ERRCODE_DATA_MISSING = 8
+ERRCODE_INCONSISTENT_VALUE = 2
+ERRCODE_INTERNAL = 7
+ERRCODE_INTERRUPT = 9
+ERRCODE_IN_USE = 0
+ERRCODE_PROTO_USAGE = 6
+ERRCODE_RESOURCE_DENIED = 1
+ERRINFO_KEYPATH = 0
+ERRINFO_STRING = 1
+ERR_ABORTED = 49
+ERR_ACCESS_DENIED = 3
+ERR_ALREADY_EXISTS = 2
+ERR_APPLICATION_INTERNAL = 39
+ERR_BADPATH = 8
+ERR_BADSTATE = 17
+ERR_BADTYPE = 5
+ERR_BAD_CONFIG = 36
+ERR_BAD_KEYREF = 14
+ERR_CLI_CMD = 59
+ERR_DATA_MISSING = 58
+ERR_EOF = 45
+ERR_EXTERNAL = 19
+ERR_HA_ABORT = 71
+ERR_HA_BADCONFIG = 69
+ERR_HA_BADFXS = 27
+ERR_HA_BADNAME = 29
+ERR_HA_BADTOKEN = 28
+ERR_HA_BADVSN = 52
+ERR_HA_BIND = 30
+ERR_HA_CLOSED = 26
+ERR_HA_CONNECT = 25
+ERR_HA_NOTICK = 31
+ERR_HA_WITH_UPGRADE = 47
+ERR_INCONSISTENT_VALUE = 38
+ERR_INTERNAL = 18
+ERR_INUSE = 11
+ERR_INVALID_INSTANCE = 43
+ERR_LIB_NOT_INITIALIZED = 34
+ERR_LOCKED = 10
+ERR_MALLOC = 20
+ERR_MISSING_INSTANCE = 42
+ERR_MUST_FAILED = 41
+ERR_NOEXISTS = 1
+ERR_NON_UNIQUE = 13
+ERR_NOSESSION = 22
+ERR_NOSTACK = 9
+ERR_NOTCREATABLE = 6
+ERR_NOTDELETABLE = 7
+ERR_NOTMOVABLE = 46
+ERR_NOTRANS = 61
+ERR_NOTSET = 12
+ERR_NOT_IMPLEMENTED = 51
+ERR_NOT_WRITABLE = 4
+ERR_NO_MOUNT_ID = 67
+ERR_OS = 24
+ERR_POLICY_COMPILATION_FAILED = 54
+ERR_POLICY_EVALUATION_FAILED = 55
+ERR_POLICY_FAILED = 53
+ERR_PROTOUSAGE = 21
+ERR_RESOURCE_DENIED = 37
+ERR_STALE_INSTANCE = 68
+ERR_START_FAILED = 57
+ERR_SUBAGENT_DOWN = 33
+ERR_TIMEOUT = 48
+ERR_TOOMANYTRANS = 23
+ERR_TOO_FEW_ELEMS = 15
+ERR_TOO_MANY_ELEMS = 16
+ERR_TOO_MANY_SESSIONS = 35
+ERR_TRANSACTION_CONFLICT = 70
+ERR_UNAVAILABLE = 44
+ERR_UNSET_CHOICE = 40
+ERR_UPGRADE_IN_PROGRESS = 60
+ERR_VALIDATION_WARNING = 32
+ERR_XPATH = 50
+EXEC_COMPARE = 13
+EXEC_CONTAINS = 11
+EXEC_DERIVED_FROM = 9
+EXEC_DERIVED_FROM_OR_SELF = 10
+EXEC_RE_MATCH = 8
+EXEC_STARTS_WITH = 7
+EXEC_STRING_COMPARE = 12
+FALSE = 0
+FIND_NEXT = 0
+FIND_SAME_OR_NEXT = 1
+HKP_MATCH_FULL = 3
+HKP_MATCH_HKP = 2
+HKP_MATCH_NONE = 0
+HKP_MATCH_TAGS = 1
+INTENDED = 7
+IN_USE = -5
+ITER_CONTINUE = 3
+ITER_RECURSE = 2
+ITER_STOP = 1
+ITER_SUSPEND = 4
+ITER_UP = 5
+ITER_WANT_ANCESTOR_DELETE = 2
+ITER_WANT_ATTR = 4
+ITER_WANT_CLI_ORDER = 1024
+ITER_WANT_CLI_STR = 8
+ITER_WANT_LEAF_FIRST_ORDER = 32
+ITER_WANT_LEAF_LAST_ORDER = 64
+ITER_WANT_PREV = 1
+ITER_WANT_P_CONTAINER = 256
+ITER_WANT_REVERSE = 128
+ITER_WANT_SCHEMA_ORDER = 16
+ITER_WANT_SUPPRESS_OPER_DEFAULTS = 2048
+LF_AND = 1
+LF_CMP = 3
+LF_CMP_LL = 7
+LF_EXEC = 5
+LF_EXISTS = 4
+LF_NOT = 2
+LF_OR = 0
+LF_ORIGIN = 6
+LIB_API_VSN = 134610944
+LIB_API_VSN_STR = '08060000'
+LIB_PROTO_VSN = 86
+LIB_PROTO_VSN_STR = '86'
+LIB_VSN = 134610944
+LIB_VSN_STR = '08060000'
+LISTENER_CLI = 8
+LISTENER_IPC = 1
+LISTENER_NETCONF = 2
+LISTENER_SNMP = 4
+LISTENER_WEBUI = 16
+LOAD_SCHEMA_HASH = 65536
+LOAD_SCHEMA_NODES = 1
+LOAD_SCHEMA_TYPES = 2
+MMAP_SCHEMAS_FIXED_ADDR = 2
+MMAP_SCHEMAS_KEEP_SIZE = 1
+MOP_ATTR_SET = 6
+MOP_CREATED = 1
+MOP_DELETED = 2
+MOP_MODIFIED = 3
+MOP_MOVED_AFTER = 5
+MOP_VALUE_SET = 4
+NCS_ERR_CONNECTION_CLOSED = 64
+NCS_ERR_CONNECTION_REFUSED = 56
+NCS_ERR_CONNECTION_TIMEOUT = 63
+NCS_ERR_DEVICE = 65
+NCS_ERR_SERVICE_CONFLICT = 62
+NCS_ERR_TEMPLATE = 66
+NCS_LISTENER_NETCONF_CALL_HOME = 32
+NCS_PORT = 4569
+NO_DB = 0
+OK = 0
+OPERATIONAL = 4
+PATH = None
+PORT = 4569
+PRE_COMMIT_RUNNING = 6
+PROGRESS_INFO = 3
+PROGRESS_START = 1
+PROGRESS_STOP = 2
+PROTO_CONSOLE = 4
+PROTO_HTTP = 6
+PROTO_HTTPS = 7
+PROTO_SSH = 2
+PROTO_SSL = 5
+PROTO_SYSTEM = 3
+PROTO_TCP = 1
+PROTO_TLS = 9
+PROTO_TRACE = 3
+PROTO_UDP = 8
+PROTO_UNKNOWN = 0
+QUERY_HKEYPATH = 1
+QUERY_HKEYPATH_VALUE = 2
+QUERY_STRING = 0
+QUERY_TAG_VALUE = 3
+READ = 1
+READ_WRITE = 2
+RUNNING = 2
+SERIAL_HKEYPATH = 2
+SERIAL_NONE = 0
+SERIAL_TAG_VALUE = 3
+SERIAL_VALUE_T = 1
+SILENT = 0
+SNMP_COL_ROW = 3
+SNMP_Counter32 = 6
+SNMP_Counter64 = 9
+SNMP_INTEGER = 1
+SNMP_Interger32 = 2
+SNMP_IpAddress = 5
+SNMP_NULL = 0
+SNMP_OBJECT_IDENTIFIER = 4
+SNMP_OCTET_STRING = 3
+SNMP_OID = 2
+SNMP_Opaque = 8
+SNMP_TimeTicks = 7
+SNMP_Unsigned32 = 10
+SNMP_VARIABLE = 1
+STARTUP = 3
+TIMEZONE_UNDEF = -111
+TRACE = 2
+TRANSACTION = 5
+TRANS_CB_FLAG_FILTERED = 1
+TRUE = 1
+USESS_FLAG_FORWARD = 1
+USESS_FLAG_HAS_IDENTIFICATION = 2
+USESS_FLAG_HAS_OPAQUE = 4
+USESS_LOCK_MODE_EXCLUSIVE = 2
+USESS_LOCK_MODE_NONE = 0
+USESS_LOCK_MODE_PRIVATE = 1
+USESS_LOCK_MODE_SHARED = 3
+VALIDATION_FLAG_COMMIT = 2
+VALIDATION_FLAG_TEST = 1
+VALIDATION_WARN = -3
+VERBOSITY_DEBUG = 3
+VERBOSITY_NORMAL = 0
+VERBOSITY_VERBOSE = 1
+VERBOSITY_VERY_VERBOSE = 2
+```
