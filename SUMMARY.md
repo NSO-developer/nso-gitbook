@@ -30,7 +30,7 @@
 
 * adva-825
   * [README-ned-settings](adva-825/README-ned-settings.md)
-  * [README v4.1.21 2025-01-02](adva-825/README.md)
+  * [README v4.1.22 2025-07-02](adva-825/README.md)
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
@@ -125,7 +125,7 @@
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_gnmi/README-rebuild.md)
-  * [README v1.1.9 2025-05-15](cisco-iosxr_gnmi/README.md)
+  * [README v1.1.10 2025-07-02](cisco-iosxr_gnmi/README.md)
 
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.6 2025-06-06](cisco-nx/README.md)
+  * [README v5.27.7 2025-07-02](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -322,7 +322,7 @@
 * siae-smdc_rc
   * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
-  * [README v1.0.15 2025-05-07](siae-smdc_rc/README.md)
+  * [README v1.0.16 2025-07-02](siae-smdc_rc/README.md)
 
 * tejas-nms5500
   * [README-ned-settings](tejas-nms5500/README-ned-settings.md)

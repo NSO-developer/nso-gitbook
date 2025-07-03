@@ -19,6 +19,7 @@
      5.5. rpc list-profiles
      5.6. rpc rebuild-package
      5.7. rpc show-default-local-dir
+     5.8. rpc show-loaded-schema
      5.7. live-status exec any
      5.8. live-status exec gnoi
   6. Built in live-status show
@@ -322,6 +323,12 @@
     admin@ncs(config)# devices device dev-1 state admin-state unlocked
     admin@ncs(config)# devices device dev-1 authgroup my-group
     ```
+    **IMPORTANT**:
+
+    The *device-type* shall always be set to *generic* when configuring a device instance
+    to use a 3PY NED. A common mistake is configuring it as *netconf*, which will cause
+    NSO to use its internal netconf client instead.
+
 
   ####   Additional configurations
 
@@ -524,7 +531,6 @@
   Java logging does not use any IPC messages sent to NSO. Consequently, NSO performance is not
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
-
 
 # 3. Dependencies
 -----------------
@@ -776,15 +782,47 @@
         Directory containing one or many xml file representing the wanted scope.
 
 
-      - filter trim-schema nodes <string>
+      - filter trim-schema method <enum> (default patch)
 
-        List of nodes to trim. Use one of the pre-defined top node names. Alternatively, specify a
-        custom xpath to trim (prefix is mandatory on each element in the path).
+        Select method to be used for trimming.
+
+        deviate  - Trim by creating a YANG deviation file containing all selected nodes.
+
+        patch    - Trim by patching the YANG models and remove all selected nodes from them before
+                   they are being compiled.
 
 
-      - filter trim-schema file <string> (default /tmp/nedcom-trim-deviations.yang)
+        Either of:
 
-        Name of auto generated deviation file with nodes to trim.
+          - filter trim-schema nodes <string>
+
+            List of nodes to trim. Use one of the pre-defined top node names. Alternatively, specify a
+            custom xpath to trim (prefix is mandatory on each element in the path).
+
+        OR:
+
+          - filter trim-schema all-unused <empty>
+
+            Trim all currently unused nodes in the schema. This means all config nodes that are
+            currently not populated in CDB.
+
+        OR:
+
+          - filter trim-schema nodes-from-file <string> (default /tmp/nedcom-trim-schema-nodes.txt)
+
+            Specify a path to a custom file to be used for trimming nodes. The file shall contain
+            schema paths, including relevant prefixes to all nodes to be trimmed. One schema path per
+            line.
+
+        OR:
+
+          - filter trim-schema custom-deviation-file <string>
+
+            Specify a path to a custom YANG deviation file to be used for trimming the schema. The
+            file shall comply to the standard for deviation files and contain paths to all nodes to be
+            trimmed from the schema.
+
+        OR:
 
 
       - filter auto-config dir <string>
@@ -818,6 +856,11 @@
         Path to the directory where the YANG files are to be copied (defaults to src/yang in package).
 
 
+      - additional-build-args <string>
+
+        Additional arguments to pass to build(make) commands.
+
+
   ## 5.7. rpc show-default-local-dir
   ----------------------------------
 
@@ -825,6 +868,47 @@
     NED package>/src/yang.
 
       No input arguments
+
+
+  ## 5.8. rpc show-loaded-schema
+  ------------------------------
+
+    Display the schema currently built into the NED package. Each node will by default be listed with
+    a schema path.
+
+      Input arguments:
+
+      - scope <enum> (default all)
+
+        Select the scope for the nodes that will be listed.
+
+        all     - Display all nodes in the schema. This is the default.
+
+        used    - Display only the config nodes in use, i.e currently populated in CDB.
+
+        unused  - Display only the config nodes that are not in use.
+
+
+      - count <empty>
+
+        Count the nodes and return the sum instead of the full list of nodes.
+
+
+      - root-paths <string>
+
+        Specify root paths for which nodes shall be listed or counted. Only nodes with a schema path
+        starting any of the specified roots will then be processed.
+
+
+      - config <true|false> (default true)
+
+        Set to false to display non config nodes in the schema. Note: scope will in this case be
+        'all'.
+
+
+      - details <empty>
+
+        Display schema details like must/when expression, leafrefs and leafref targets.
 
   ## 5.7. live-status exec any
    ----------------------------------

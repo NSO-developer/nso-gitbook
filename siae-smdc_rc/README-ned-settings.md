@@ -411,7 +411,7 @@
   Settings specific for the SIAE SM-DC device RESTCONF implementation.
 
 
-    - siae-smdc_rc config sync-from include-control-construct <true|false> (default false)
+    - config sync-from include-control-construct <true|false> (default false)
 
       When doing full sync-from the config under
       /nw:networks/networks/node/yang-ext:mount/control-construct is by default not included. The
@@ -419,7 +419,7 @@
       to true to include the control-construct data in a full sync-from.
 
 
-    - siae-smdc_rc live-status include-control-construct <true|false> (default false)
+    - live-status include-control-construct <true|false> (default false)
 
       When doing live-status gets the data under
       /nw:networks/networks/node/yang-ext:mount/control-construct is by default not included. The
