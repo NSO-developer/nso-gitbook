@@ -9,7 +9,7 @@
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
-  * [README v4.6 2025-06-30](accedian-nid/README.md)
+  * [README v4.6.1 2025-07-03](accedian-nid/README.md)
 
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
@@ -269,7 +269,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.48 2025-06-19](onf-tapi_rc/README.md)
+  * [README v2.0.48 2025-07-03](onf-tapi_rc/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)

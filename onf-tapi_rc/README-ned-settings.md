@@ -352,7 +352,7 @@
 
       nokia-nrct        - Use with a NOKIA NRC-T version 22.6 or newer.
 
-      ciena-mcp         - Use with CIENA MCP controller.
+      ciena-mcp         - Use with CIENA MCP and NCS controllers.
 
       kratos-openspace  - Use with Kratos Openspace controller.
 
@@ -836,6 +836,8 @@
       v2.3.1  - TAPI bundle 2.3.1.
 
       v2.4.0  - TAPI bundle 2.4.0.
+
+      v2.5.0  - TAPI bundle 2.5.0.
 
 
 ## 6.2. ned-settings onf-tapi_rc general config

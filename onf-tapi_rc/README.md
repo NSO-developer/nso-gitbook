@@ -100,6 +100,8 @@
   |                           |                 |        |                                                   |
   | Ciena MCP                 | 7.2             |        | Experimental support                              |
   |                           |                 |        |                                                   |
+  | Ciena NCS                 | 9.1             |        | Formerly named MCP. Experimental support          |
+  |                           |                 |        |                                                   |
   | Infinera TNMS TR-NBI      | R4.20.0.1388.0  |        |                                                   |
   | Transport Controller      |                 |        |                                                   |
   |                           |                 |        |                                                   |
@@ -118,7 +120,9 @@
   +---------------------------+-----------------+------------------------------------------------------------+
   | ONF TAPI                  | 2.1.3           |                                                            |
   |                           |                 |                                                            |
-  | ONF TAPI                  | 2.4.0           | Used Ciena MCP.                                            |
+  | ONF TAPI                  | 2.4.0           | Used Ciena MCP 7                                           |
+  |                           |                 |                                                            |
+  | ONF TAPI                  | 2.5.0           | Used Ciena NCS 9                                           |
   +---------------------------+-----------------+------------------------------------------------------------+
   ```
 
