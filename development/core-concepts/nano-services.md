@@ -10,7 +10,7 @@ Another limitation is that the service mapping code must not produce any side ef
 
 Nano services help you overcome these limitations. They implement a service as several smaller (nano) steps or stages, by using a technique called reactive FASTMAP (RFM), and provide a framework to safely execute actions with side effects. Reactive FASTMAP can also be implemented directly, using the CDB subscribers, but nano services offer a more streamlined and robust approach for staged provisioning.
 
-The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano\_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
+The section starts by gradually introducing the nano service concepts in a typical use case. To aid readers working with nano services for the first time, some of the finer points are omitted in this part and discussed later on, in [Implementation Reference](nano-services.md#ug.nano_services.impl). The latter is designed as a reference to aid you during implementation, so it focuses on recapitulating the workings of nano services at the expense of examples. The rest of the chapter covers individual features with associated use cases and the complete working examples, which you may find in the `examples.ncs` folder.
 
 ## Basic Concepts <a href="#d5e9577" id="d5e9577"></a>
 
@@ -128,7 +128,7 @@ class NanoServiceCallbacks(ncs.application.NanoService):
 
 The `component` and `state` parameters allow the function to distinguish calls for different callbacks when registered for more than one.
 
-For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano\_services.callbacks).
+For most flexibility, each state defines a separate callback, allowing you to implement some with a template and others with code, all as part of the same service. You may even use Java instead of Python, as explained in [Nano Service Callbacks](nano-services.md#ug.nano_services.callbacks).
 
 ### Link Plan Outline to Service <a href="#d5e9633" id="d5e9633"></a>
 
@@ -749,7 +749,7 @@ $ netconf-console create-subscription=service-state-changes
 </notification>
 ```
 
-See [Notification Capability](northbound-apis/#ug.netconf\_agent.notif) in Northbound APIs for further reference.
+See [Notification Capability](northbound-apis/#ug.netconf_agent.notif) in Northbound APIs for further reference.
 
 CLI shows received notifications using `ncs_cli`:
 
@@ -1276,13 +1276,13 @@ You can use XPath with the `ncs:plan-location` statement. The XPath is evaluated
 
 ### Nano Services and Commit Queue
 
-The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
+The commit queue feature, described in [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue), allows for increased overall throughput of NSO by committing configuration changes into an outbound queue item instead of directly to affected devices. Nano services are aware of the commit queue and will make use of it, however, this interaction requires additional consideration.
 
 When the commit queue is enabled and there are outstanding commit queue items, the network is lagging behind the CDB. The CDB is forward-looking and shows the desired state of the network. Hence, the nano plan shows the desired state as well, since changes to reach this state may not have been pushed to the devices yet.
 
 To keep the convergence of the nano service in sync with the commit queue, nano services behave more asynchronously:
 
-* A nano service does not make any progression while the service has an outstanding commit queue item. The outstanding item is listed under `plan/commit-queue` for the service, in normal or in zombie mode.
+* A nano service state does not make any progression while the service has an outstanding commit queue item. The outstanding item is listed under `plan/commit-queue` for the service, in normal or in zombie mode.
 * On completion of the commit queue item, the nano plan comes in sync with the network. The outstanding commit queue item is removed from the list above and the system issues a `reactive-re-deploy` action to resume the progression of the nano service.
 * Post-actions are delayed, while there is an outstanding commit queue item.
 * Deleting a nano service always (even without a commit queue) creates a zombie and schedules its re-deploy to perform backtracking. Again, the re-deploy and, consequently, removal will not take place while there is an outstanding commit queue item.
@@ -1297,7 +1297,9 @@ While error recovery helps keeping the network consistent, the end result remain
 * The nano plan is marked as failed by creating the `failed` leaf under the plan.
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
-After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+
+The `service-commit-queue-event` helps detect that a nano service instance deployment failed because a configuration change committed through the commit queue has failed. See [The service-commit-queue-event Notification](nano-services.md#d5e10003) section for details.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
