@@ -1281,7 +1281,7 @@ When the commit queue is enabled and there are outstanding commit queue items, t
 
 To keep the convergence of the nano service in sync with the commit queue, nano services behave more asynchronously:
 
-* A nano service does not make any progression while the service has an outstanding commit queue item. The outstanding item is listed under `plan/commit-queue` for the service, in normal or in zombie mode.
+* A nano service state does not make any progression while the service has an outstanding commit queue item. The outstanding item is listed under `plan/commit-queue` for the service, in normal or in zombie mode.
 * On completion of the commit queue item, the nano plan comes in sync with the network. The outstanding commit queue item is removed from the list above and the system issues a `reactive-re-deploy` action to resume the progression of the nano service.
 * Post-actions are delayed, while there is an outstanding commit queue item.
 * Deleting a nano service always (even without a commit queue) creates a zombie and schedules its re-deploy to perform backtracking. Again, the re-deploy and, consequently, removal will not take place while there is an outstanding commit queue item.
@@ -1297,6 +1297,8 @@ While error recovery helps keeping the network consistent, the end result remain
 * The scheduled post-actions are canceled. Canceled post actions stay in the `side-effect-queue` with status `canceled` and are not going to be executed.
 
 After such an event, manual intervention is required. If not using the `rollback-on-error` option or the rollback transaction fails, consult [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for the correct procedure to follow. Once the cause of the commit queue failure is resolved, you can manually resume the service progression by invoking the `reactive-re-deploy` action on a nano service or a zombie.
+
+The `service-commit-queue-event` helps detect that a nano service instance deployment failed because a configuration change committed through the commit queue has failed. See [The service-commit-queue-event Notification](nano-services.md#d5e10003) section for details.
 
 ## Graceful Link Migration Example <a href="#d5e10385" id="d5e10385"></a>
 
