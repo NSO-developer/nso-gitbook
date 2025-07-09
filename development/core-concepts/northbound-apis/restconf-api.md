@@ -1640,7 +1640,7 @@ A number of HTTP headers have been deemed so important by security reasons that 
 *   `xXssProtection`: `1; mode=block`
 
     This header is a feature of Internet Explorer, Chrome and Safari that stops pages from loading when they detect reflected cross-site scripting (XSS) attacks. It enables XSS filtering and tells the browser to prevent rendering of the page if an attack is detected.
-*   `strictTransportSecurity`: `max-age=15552000; includeSubDomains`
+*   `strictTransportSecurity`: `max-age=31536000; includeSubDomains`
 
     The default value tells browsers that the RESTCONF server should only be accessed using HTTPS, instead of using HTTP. It sets the time that the browser should remember this and states that this rule applies to all of the server's subdomains as well.
 *   `contentSecurityPolicy`: `default-src 'self'; block-all-mixed-content; base-uri 'self'; frame-ancestors 'none';`
@@ -1660,7 +1660,7 @@ YANG and Swagger are two different languages serving slightly different purposes
 The `yanger` tool is a YANG parser and validator that provides options to convert YANG modules to a multitude of formats including Swagger. You use the `-f swagger` option to generate a Swagger definition from one or more YANG files. The following command generates a Swagger file named `example.json` from the `example.yang` YANG file:
 
 ```
-yanger -t expand -f swagger example.yang -o example.json      
+yanger -t expand -f swagger example.yang -o example.json
 ```
 
 It is only supported to generate Swagger from one YANG module at a time. It is possible however to augment this module by supplying additional modules. The following command generates a Swagger document from `base.yang` which is augmented by `base-ext-1.yang` and `base-ext-2.yang`:
@@ -1674,7 +1674,7 @@ Only supplying augmenting modules is not supported.
 Use the `--help` option to the `yanger` command to see all available options:
 
 ```
-yanger --help       
+yanger --help
 ```
 
 The complete list of options related to Swagger generation is:
