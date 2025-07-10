@@ -45,12 +45,12 @@
 ---------------------------
 
 
-    - ciena-mcp mcp-scripts-folder <string> (default /var/opt/ncs/packages/mc-scripts)
+    - mcp-scripts-folder <string> (default /var/opt/ncs/packages/mc-scripts)
 
       Define path to locations where MCP custom scripts are be stored.
 
 
-    - ciena-mcp mcp-service-model-api <enum> (default VERSION_4_BSM_L2SERVICE)
+    - mcp-service-model-api <enum> (default VERSION_4_BSM_L2SERVICE)
 
       Define latest max API vers supported by the NED; Warning! Customer dependent selection!.
 
@@ -61,27 +61,27 @@
       VERSION_6_TSM            - VERSION_6_TSM.
 
 
-    - ciena-mcp global-page-limit <uint64> (default 1000)
+    - global-page-limit <uint64> (default 1000)
 
       Define global pagination limit for services; currently 1000.
 
 
-    - ciena-mcp live-prepare-check <true|false> (default false)
+    - live-prepare-check <true|false> (default false)
 
       TSM Specific: Enable live prepare device checks before modify.
 
 
-    - ciena-mcp sync-duplicate-clean <true|false> (default true)
+    - sync-duplicate-clean <true|false> (default true)
 
       TSM Specific: Cache eline services and clean duplicated items at sync-from.
 
 
-    - ciena-mcp managed-lag <true|false> (default false)
+    - managed-lag <true|false> (default false)
 
       TSM Specific: enable to manage LAG section.
 
 
-    - ciena-mcp ciena-authentication-method <enum> (default legacy)
+    - ciena-authentication-method <enum> (default legacy)
 
       Select legacy for simple user/pass auth; Uses bearer token only;
       Select CSFRCookie to use CSFR Token + Bearer token in header;

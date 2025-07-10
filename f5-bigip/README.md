@@ -14,7 +14,8 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues
+  8. How to report NED issues and feature requests
+  9. How to rebuild a NED
   ```
 
 
@@ -167,6 +168,12 @@
       package f5-bigip-gen-1.0
       result true
    }
+  ```
+
+  Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
+
+  ```
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/f5-bigip-gen-1.0
   ```
 
 
@@ -395,6 +402,15 @@
   Java logging does not use any IPC messages sent to NSO. Consequently, NSO performance is not
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
+
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
 
 
 # 3. Dependencies
@@ -1287,4 +1303,21 @@
      of the new feature. This usually means that both read and write permissions are required.
      Pseudo access via tools like Webex, Zoom etc is not acceptable. However, it is ok with access
      through VPNs, jump servers etc.
+
+
+# 9. How to rebuild a NED
+--------------------------
+
+  To rebuild the NED do as follows:
+
+  ```
+  > cd $NED_ROOT_DIR/src
+  > make clean all
+  ```
+
+  When the NED has been successfully rebuilt, it is necessary to reload the package into NSO.
+
+  ```
+  admin@ncs# packages reload
+  ```
 

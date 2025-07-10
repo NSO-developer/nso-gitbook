@@ -59,13 +59,13 @@
 --------------------------
 
 
-    - f5-bigip device-group <string>
+    - device-group <string>
 
       Set following to execute config sync after every commit
       (run /cm config-sync to-group <device-group>)
 
 
-    - f5-bigip file-download-buffer-size <string>
+    - file-download-buffer-size <string>
 
       When downloading a file through the live-status call
         admin@ncs% request devices device <device-name> live-status bigip-actions file download local-path <local-path> remote-file-path <remote-path>
@@ -74,12 +74,12 @@
       This is the slowest download option but also the option where the md5sum will always match.
 
 
-    - f5-bigip partition <string> (default Common/)
+    - partition <string> (default Common/)
 
       Specifying partitions through ned-settings.
 
 
-    - f5-bigip delay-before-send <int64> (default 0)
+    - delay-before-send <int64> (default 0)
 
       A delay in milliseconds can be specified so that the NED will wait the
       specified amount of time before sending each command in the queue.

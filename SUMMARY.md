@@ -74,7 +74,7 @@
 * ciena-mcp
   * [README-ned-settings](ciena-mcp/README-ned-settings.md)
   * [README.TSM](ciena-mcp/README.TSM.md)
-  * [README v1.9.20 2024-11-21](ciena-mcp/README.md)
+  * [README v1.9.21 2025-07-08](ciena-mcp/README.md)
 
 * ciena-saos_nc
   * [README-ned-settings](ciena-saos_nc/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.7 2025-07-02](cisco-nx/README.md)
+  * [README v5.27.8 2025-07-07](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.6.4 2025-06-30](eci-muse/README.md)
+  * [README v1.6.5 2025-07-07](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -185,7 +185,7 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.24.3 2024-12-24](f5-bigip/README.md)
+  * [README v3.24.4 2025-07-08](f5-bigip/README.md)
 
 * fireeye-cms
   * [README-ned-settings](fireeye-cms/README-ned-settings.md)
@@ -242,7 +242,7 @@
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
-  * [README v3.8.18 2025-01-02](mrv-masteros/README.md)
+  * [README v3.8.19 2025-07-08](mrv-masteros/README.md)
 
 * nec-ipasolink-vr
   * [README-ned-settings](nec-ipasolink-vr/README-ned-settings.md)
@@ -334,7 +334,7 @@
 
 * unix-bind
   * [README-ned-settings](unix-bind/README-ned-settings.md)
-  * [README v2.2 2024-08-30](unix-bind/README.md)
+  * [README v2.2.1 2025-07-08](unix-bind/README.md)
 
 * vecima-eac
   * [README-ned-settings](vecima-eac/README-ned-settings.md)
@@ -354,5 +354,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.2.5 2025-04-07](zte-zxros/README.md)
+  * [README v1.2.6 2025-07-07](zte-zxros/README.md)
 
