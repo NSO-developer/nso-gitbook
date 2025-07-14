@@ -250,7 +250,9 @@ The NSO Resource Manager interface and the resource allocator provide a generic 
 
 The APIs exposed by RM are implemented in Python as well as Java, so the NB user can configure the service to be a Java package or a Python package and call the allocator API as per the implementation. The NB user can also use NSO CLI to make an allocation request to the IP allocator RM package.
 
-The IP resource pool supports two types of allocation method, named 'firstfree' and 'sequential'. We can specify the allocation method time by setting the parameter `allocation-method` for IP pool. Default value is 'firstfree' which is also a legacy allocation method, in which released IP subnet can be reused immidiately while in 'sequential' allocation method, released subnets are stored separately and if requested subnet is not present in the available, then this subnets can be alloacted. 
+The IP resource pool supports two types of allocation method, named 'firstfree' and 'sequential'. We can specify the allocation method by setting the parameter `allocation-method` for IP pool. Default value is 'firstfree' which is a legacy allocation method, in which released IP subnet can be reused immediately while in 'sequential' allocation method, released subnets are stored separately in a `available-secondary` set. when the allocation request comes and if requested subnet is not present in the availables, then the subnets can be allocated from the `available-secondary`.
+
+By default the `available-secondary` set is hidden, user had to run the command `unhide debug` first then user can see the details of the available-secondary set of the IP pool.
 
 ### Using Java APIs for IP Allocations
 
