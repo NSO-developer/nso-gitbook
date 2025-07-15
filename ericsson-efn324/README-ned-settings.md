@@ -50,7 +50,7 @@
 ---------------------------------
 
 
-    - ericsson-efn324 extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the ericsson-efn324 NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -146,7 +146,7 @@
 
   Settings for controlling logs generated.
 
-    - ericsson-efn324 logging <module> <verbose> <silent> <debug> <java> <capacity>
+    - logging <module> <verbose> <silent> <debug> <java> <capacity>
 
       - module <enum>
 

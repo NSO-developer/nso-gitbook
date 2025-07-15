@@ -161,7 +161,7 @@
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
-  * [README v2.1.6 2024-08-23](ericsson-efn324/README.md)
+  * [README v2.1.7 2025-07-14](ericsson-efn324/README.md)
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
