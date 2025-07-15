@@ -6,8 +6,8 @@
 
 * [Observability Exporter](platform-tools/observability-exporter.md)
 * [Phased Provisioning](platform-tools/phased-provisioning.md)
-* [Resource Manager (4.2.11)](platform-tools/resource-manager/README.md)
-  * [Resource Manager API Guide (4.2.11)](platform-tools/resource-manager/resource-manager-api-guide.md)
+* [Resource Manager (4.2.12)](platform-tools/resource-manager/README.md)
+  * [Resource Manager API Guide (4.2.12)](platform-tools/resource-manager/resource-manager-api-guide.md)
 * [NSO Developer Studio](platform-tools/nso-developer-studio.md)
 
 ## Best Practices
