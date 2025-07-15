@@ -250,9 +250,9 @@ The NSO Resource Manager interface and the resource allocator provide a generic 
 
 The APIs exposed by RM are implemented in Python as well as Java, so the NB user can configure the service to be a Java package or a Python package and call the allocator API as per the implementation. The NB user can also use NSO CLI to make an allocation request to the IP allocator RM package.
 
-The IP resource pool supports two types of allocation method, named 'firstfree' and 'sequential'. We can specify the allocation method by setting the parameter `allocation-method` for IP pool. Default value is 'firstfree' which is a legacy allocation method, in which released IP subnet can be reused immediately while in 'sequential' allocation method, released subnets are stored separately in a `available-secondary` set. when the allocation request comes and if requested subnet is not present in the availables, then the subnets can be allocated from the `available-secondary`.
+The IP resource pool supports two types of allocation method, named 'firstfree' and 'sequential'. We can specify the allocation method by setting the parameter `allocation-method` for an IP pool. The default allocation-method is 'firstfree' which is also a legacy allocation method, where released IP subnet can be reused immediately. While in the 'sequential' allocation method, released subnets are stored separately in a `available-secondary` set. when an allocation request is made and the requested subnet is not present in the available set, then the subnets can be allocated from the `available-secondary` set.
 
-By default the `available-secondary` set is hidden, user had to run the command `unhide debug` first then user can see the details of the available-secondary set of the IP pool.
+By default the `available-secondary` set is hidden, and user must run the command `unhide debug` to view the details of the available-secondary set of an IP pool.
 
 ### Using Java APIs for IP Allocations
 
@@ -745,6 +745,10 @@ poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
 {% endhint %}
 
 #### Creating Synchronous or Asynchronous IP Subnet Allocation Requests
+
+{% hint style="info" %}
+* Please note: The 'sync' parameter which was used to specify synchronous or asynchronous mode has been renamed to 'sync-alloc'.
+{% endhint %}
 
 The `sync_alloc` parameter in the API determines if the allocation request is for a synchronous or asynchronous mode. Set the `sync_alloc` parameter to true for synchronous flow.
 
