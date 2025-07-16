@@ -31,7 +31,11 @@ Documentation Updates:
 
 <summary>Web Server Hostname Matching</summary>
 
-NSO supports serving web traffic from multiple domains and IP addresses. This functionality is configured by `server-name` and `server-alias` settings in the `ncs.conf` file. In addition, the web server refuses to serve requests to other domain names and addresses by default, in order to not expose the system to redirect-related attacks. This functionality can be disabled, but that is strongly discouraged.
+NSO supports serving web traffic from multiple domains and IP addresses. This functionality is configured by the `/ncs-config/webui/server-name` and `server-alias` settings in the `ncs.conf` file. In addition, the web server refuses to serve requests to other domain names and addresses by default, see `/ncs-config/webui/match-host-name`, in order to not expose the system to redirect-related attacks. This functionality can be disabled for development purposes, but that is strongly discouraged for deployments.
+
+Documentation Updates:
+
+* Updated the [Exposed Interfaces](administration/management/system-management/#exposed-interfaces) section.
 
 </details>
 
