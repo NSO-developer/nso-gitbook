@@ -41,7 +41,7 @@
   4. platform
   5. developer
   6. sync-from
-     6.1. MeContext
+     6.1. filter
   ```
 
 
@@ -184,29 +184,39 @@
       Add timestamp from NED instance in trace messages for debug purpose.
 
 
-    - developer sync_from_debug use_offline_file <true|false> (default false)
+    - developer sync_from_debug read_raw_config_from_file <string>
 
-      .
+      If set, the NED will load the specified XML file instead of the device.
 
 
-    - developer sync_from_debug offline_file_path <string>
+    - developer sync_from_debug save_raw_config_to_file <string>
+
+      If set, the NED will save the raw config to this file.
 
 
 # 6. ned-settings ericsson-enm sync-from
 ----------------------------------------
 
-  controlls various aspects of the sync-from operation.
+  controls various aspects of the sync-from operation.
 
 
-## 6.1. ned-settings ericsson-enm sync-from MeContext
------------------------------------------------------
+## 6.1. ned-settings ericsson-enm sync-from filter
+--------------------------------------------------
 
-  This list defines a filter for the MeContext elements that will be processed at sync-from.
-  If this list is not empty only the MeContext elements that match the filter will be processed.
-  If the list is empty all MeContext elements will be processed.
+  .
 
-    - sync-from MeContext <MeContext>
+    - sync-from filter <matchCondition> <value>
 
-      - MeContext <string>
+      - matchCondition <enum>
+
+        EQUALS       - EQUALS.
+
+        STARTS_WITH  - STARTS_WITH.
+
+        ENDS_WITH    - ENDS_WITH.
+
+        CONTAINS     - CONTAINS.
+
+      - value <string>
 
 

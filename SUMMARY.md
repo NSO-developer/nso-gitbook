@@ -165,7 +165,7 @@
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
-  * [README v1.1 2025-06-05](ericsson-enm/README.md)
+  * [README v1.1.1 2025-07-15](ericsson-enm/README.md)
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
@@ -298,6 +298,9 @@
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)
   * [README v1.18.16 2025-01-24](rad-vx/README.md)
+
+* radware-cc
+  * [README v1.0.0 2025-05-17](radware-cc/README.md)
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
