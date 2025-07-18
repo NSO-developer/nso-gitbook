@@ -8,7 +8,7 @@ in a cluster. The purpose of this API is to manage the HA
 functionality. The details on usage of the HA API are described in the
 chapter High availability in the User Guide.
 
-This documentation should be read together with the [confd_lib_ha(3)](../man/section3.md#confd_lib_ha) man page.
+This documentation should be read together with the [confd_lib_ha(3)](../man/confd_lib_ha.3.md) man page.
 
 ## Functions
 
