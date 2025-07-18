@@ -16,7 +16,7 @@ CDB can also store operational data, i.e. data which is designated with a
 both read and written by the applications, but NETCONF and the other
 northbound agents can only read the operational data.
 
-This documentation should be read together with the [confd_lib_cdb(3)](../man/section3.md#confd_lib_cdb) man page.
+This documentation should be read together with the [confd_lib_cdb(3)](../man/confd_lib_cdb.3.md) man page.
 
 ## Functions
 
@@ -73,7 +73,7 @@ connect_name(sock, type, name, ip, port, path) -> None
 
 When we use connect() to create a connection to NCS/CDB, the name
 argument passed to the library initialization function confd_init() (see
-[confd_lib_lib(3)](../man/section3.md#confd_lib_lib)) is used to identify the connection in status reports and
+[confd_lib_lib(3)](../man/confd_lib_lib.3.md)) is used to identify the connection in status reports and
 logs. I we want different names to be used for different connections from
 the same application process, we can use connect_name() with the wanted
 name instead of connect().
@@ -470,7 +470,7 @@ configuration data has been received on that socket, before
 sync_subscription_socket() has been called. Additionally, it is not
 possible to call this function from the iter() function passed to
 diff_iterate(). To retrieve full information about the user session,
-use _maapi.get_user_session() (see [confd_lib_maapi(3)](../man/section3.md#confd_lib_maapi)).
+use _maapi.get_user_session() (see [confd_lib_maapi(3)](../man/confd_lib_maapi.3.md)).
 
 Note:
 >    When the ConfD High Availability functionality is used, the

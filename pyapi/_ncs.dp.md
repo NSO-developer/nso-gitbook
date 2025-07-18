@@ -17,7 +17,7 @@ about callpoints in tailf_yang_extensions(5). Read more about how to use
 the module in the User Guide chapters on Operational data and External
 data.
 
-This documentation should be read together with the [confd_lib_dp(3)](../man/section3.md#confd_lib_dp) man page.
+This documentation should be read together with the [confd_lib_dp(3)](../man/confd_lib_dp.3.md) man page.
 
 ## Functions
 

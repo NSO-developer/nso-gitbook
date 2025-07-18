@@ -6,7 +6,7 @@ This module defines a high level interface to the low-level maapi functions.
 
 The 'Maapi' class encapsulates a MAAPI connection which upon constructing,
 sets up a connection towards ConfD/NCS. An example of setting up a transaction
-and manipulating data:
+and manipulating data::
 
     import ncs
 
@@ -18,7 +18,7 @@ and manipulating data:
     t.apply()
 
 Another way is to use context managers, which will handle all cleanup
-related to transactions, user sessions and socket connections:
+related to transactions, user sessions and socket connections::
 
     with ncs.maapi.Maapi() as m:
         with ncs.maapi.Session(m, 'admin', 'test_context'):
@@ -28,6 +28,8 @@ related to transactions, user sessions and socket connections:
                 t.apply()
 
 Finally, a really compact way of doing this:
+
+Exampled:
 
     with ncs.maapi.single_write_trans('admin', 'test_context') as t:
         t.get_elem('/model/data{one}/str')
@@ -2194,8 +2196,8 @@ Arguments:
 * user - username (str)
 * context - context for the session (str)
 * groups - groups (list)
-* src_ip - source ip address (str)
-* src_port - source port (int)
+* src_ip - source ip address (str), ignored for NSO
+* src_port - source port (int), ignored for NSO
 * proto - protocol used by for connecting (i.e. ncs.PROTO_TCP)
 * vendor -- lock error information (str, optional)
 * product -- lock error information (str, optional)

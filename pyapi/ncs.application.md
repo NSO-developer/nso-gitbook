@@ -100,8 +100,7 @@ Application(*args, **kwds)
 
 Initialize an Application object.
 
-Not designed to be instantiated directly; these objects are created
-by NCS.
+Don't try to initialize this object. I will be done by NCS.
 
 Members:
 

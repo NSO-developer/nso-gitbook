@@ -10,7 +10,7 @@ We also use MAAPI to attach to already existing NCS transactions, for
 example when we wish to implement semantic validation of configuration
 data in Python, and also when we wish to implement CLI wizards in Python.
 
-This documentation should be read together with the [confd_lib_maapi(3)](../man/section3.md#confd_lib_maapi) man page.
+This documentation should be read together with the [confd_lib_maapi(3)](../man/confd_lib_maapi.3.md) man page.
 
 ## Functions
 
