@@ -856,7 +856,7 @@ arguments a format string and a variable number of extra arguments as
 in: `char *` `fmt`, `...``);`
 
 The paths for MAAPI work like paths for CDB (see
-[confd_lib_cdb(3)](confd_lib_cdb.paths.3.md)) with the exception that
+[confd_lib_cdb(3)](confd_lib_cdb.3.md#paths)) with the exception that
 the bracket notation '\[n\]' is not allowed for MAAPI paths.
 
 All the functions that take a path on this form also have a `va_list`
@@ -2180,7 +2180,7 @@ above, we would do:
 </div>
 
 The '%\*x' modifier (see the PATHS section in
-[confd_lib_cdb(3)](confd_lib_cdb.paths.3.md)) is especially useful
+[confd_lib_cdb(3)](confd_lib_cdb.3.md#paths)) is especially useful
 when working with a maapi cursor. The example above assumes that we know
 that the /servers/server list has exactly one key. But we can
 alternatively write
@@ -2330,7 +2330,7 @@ This function reads at most `n` values from the list entry or container
 specified by the path, and places them in the `values` array, which is
 provided by the caller. The array is populated according to the
 specification of the Value Array format in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 On success, the function returns the actual number of elements needed.
@@ -2466,7 +2466,7 @@ CONFD_ERR_ACCESS_DENIED
 Set all leafs corresponding to the complete contents of a list entry or
 container, excluding for sub-lists. The `values` array must be populated
 with `n` values according to the specification of the Value Array format
-in the [XML STRUCTURES](confd_types.xml_structures.3.md) section of
+in the [XML STRUCTURES](confd_types.3.md#xml_structures) section of
 the [confd_types(3)](confd_types.3.md) manual page. Additionally,
 since operational data cannot be written, array elements corresponding
 to operational data leafs or containers must have the value C_NOEXISTS.
@@ -3088,7 +3088,7 @@ will be passed to an external authentication executable (see the if
 `confd.conf`, see [confd.conf(5)](ncs.conf.5.md). They will also be
 made available to the authentication callback that can be registered by
 an application (see
-[confd_lib_dp(3)](confd_lib_dp.authentication_callback.3.md)).
+[confd_lib_dp(3)](confd_lib_dp.3.md#authentication_callback)).
 
 *Errors*: CONFD_ERR_PROTOUSAGE, CONFD_ERR_MALLOC, CONFD_ERR_OS,
 CONFD_ERR_NOSESSION
@@ -3369,7 +3369,7 @@ This function explicitly sets ConfDs notion of the consistency state.
 Invoke an action defined in the data model. The `params` and `values`
 arrays are the parameters for and results from the action, respectively,
 and use the Tagged Value Array format described in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page. The library allocates
 memory for the result values, and the caller is responsible for freeing
 it. This can in all cases be done with code like this:

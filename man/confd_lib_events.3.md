@@ -235,7 +235,7 @@ The following events can be subscribed to:
 `CONFD_NOTIF_STREAM_EVENT`  
 > This event is generated for a notification stream, i.e. event
 > notifications sent by an application as described in the [NOTIFICATION
-> STREAMS](confd_lib_dp.notification_streams.3.md) section of
+> STREAMS](confd_lib_dp.3.md#notification_streams) section of
 > [confd_lib_dp(3)](confd_lib_dp.3.md). The application receives a
 > `struct confd_stream_notification` where the
 > `enum confd_stream_notif_type type` gives the specific event that

@@ -2182,7 +2182,7 @@ This function is used to return an array of values, corresponding to a
 complete list entry, to ConfD. It can be used by the optional
 `get_object()` callback. The `vs` array is populated with `n` values
 according to the specification of the Value Array format in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 Values for leaf-lists may be passed as a single array element with type
@@ -2258,7 +2258,7 @@ This function is used to return an array of values, corresponding to a
 complete list entry, to ConfD. It can be used by the optional
 `get_object()` callback. The `tvs` array is populated with `n` values
 according to the specification of the Tagged Value Array format in the
-[XML STRUCTURES](confd_types.xml_structures.3.md) section of the
+[XML STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 I.e. the difference from `confd_data_reply_value_array()` is that the
@@ -2332,7 +2332,7 @@ corresponding to a complete list entry, to ConfD. It can be used by the
 optional `get_object()` callback. The `tvas` array is populated with `n`
 values and attribute lists according to the specification of the Tagged
 Value Attribute Array format in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 I.e. the difference from `confd_data_reply_tag_value_array()` is that
@@ -2736,7 +2736,7 @@ to calling `confd_trans_seterr()` with the `errstr` value and returning
 CONFD_ERR from the callback. It is also possible to first call
 `confd_trans_seterr()` (for the varargs format) or
 `confd_trans_seterr_extended()` etc (for [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) as described
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) as described
 in [confd_lib_lib(3)](confd_lib_lib.3.md)), and then call
 `confd_delayed_reply_error()` with NULL for `errstr`.
 
@@ -2774,7 +2774,7 @@ the `validate()` callback if we are doing semantic validation in C. The
 
 This function can be used to provide more structured error information
 from a transaction or data callback, see the section [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_trans_seterr_extended_info(
@@ -2785,7 +2785,7 @@ This function can be used to provide structured error information in the
 same way as `confd_trans_seterr_extended()`, and additionally provide
 contents for the NETCONF \<error-info\> element. See the section
 [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     void confd_db_seterr(
@@ -2803,7 +2803,7 @@ The `fmt` argument is a printf style format string.
 
 This function can be used to provide more structured error information
 from a db callback, see the section [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_db_seterr_extended_info(
@@ -2814,7 +2814,7 @@ This function can be used to provide structured error information in the
 same way as `confd_db_seterr_extended()`, and additionally provide
 contents for the NETCONF \<error-info\> element. See the section
 [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_db_set_timeout(
@@ -2919,7 +2919,7 @@ FASTMAP transaction by means of `maapi_attach2()` (see
 `maapi_attach2()`. The `usid` parameter for `maapi_attach2()` should be
 given as 0. To modify data in the FASTMAP transaction, the NCS-specific
 `maapi_shared_xxx()` functions must be used, see the section [NCS
-SPECIFIC FUNCTIONS](confd_lib_maapi.ncs_functions.3.md) in the
+SPECIFIC FUNCTIONS](confd_lib_maapi.3.md#ncs_functions) in the
 [confd_lib_maapi(3)](confd_lib_maapi.3.md) manual page.
 
 The `pre_modification()` and `post_modification()` callbacks are
@@ -3277,7 +3277,7 @@ The `nctx` pointer is provided by ConfD as described above. The `time`
 argument specifies the event time for the notification. The `values`
 argument is an array of length `nvalues`, populated with the content of
 the notification as described for the Tagged Value Array format in the
-[XML STRUCTURES](confd_types.xml_structures.3.md) section of the
+[XML STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 > **Note**  
@@ -3468,7 +3468,7 @@ supply an error message before calling
 
 This function can be used to provide more structured error information
 from a notification callback, see the section [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_notification_seterr_extended_info(
@@ -3479,7 +3479,7 @@ This function can be used to provide structured error information in the
 same way as `confd_notification_seterr_extended()`, and additionally
 provide contents for the NETCONF \<error-info\> element. See the section
 [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_register_snmp_notification(
@@ -3984,7 +3984,7 @@ The conditional `data` element is an array of type
 value is `CONFD_DATA_CREATE`, `CONFD_DATA_MERGE`, `CONFD_DATA_REPLACE`,
 or `CONFD_DATA_INSERT`. The data array is populated with values
 according to the specification of the Tagged Value Array format in the
-[XML STRUCTURES](confd_types.xml_structures.3.md) section of the
+[XML STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 > **Note**  
@@ -4204,7 +4204,7 @@ an action defined via `rpc`), and finally the `params` argument is a
 representation of the inout parameters provided when the action is
 invoked. The `params` argument is an array of length `nparams`,
 populated as described for the Tagged Value Array format in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page.
 
 The `command()` callback is invoked for CLI callback commands. It must
@@ -4430,7 +4430,7 @@ message and return CONFD_ERR instead of CONFD_OK.
 
 This function can be used to provide more structured error information
 from an action callback, see the section [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_action_seterr_extended_info(
@@ -4441,7 +4441,7 @@ This function can be used to provide structured error information in the
 same way as `confd_action_seterr_extended()`, and additionally provide
 contents for the NETCONF \<error-info\> element. See the section
 [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) in
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) in
 [confd_lib_lib(3)](confd_lib_lib.3.md).
 
     int confd_action_delayed_reply_ok(

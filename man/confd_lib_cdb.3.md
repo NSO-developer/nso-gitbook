@@ -555,7 +555,7 @@ closed.
 
 Whenever CONFD_ERR is returned from any API function described here, it
 is possible to obtain additional information on the error through the
-symbol `confd_errno`, see the [ERRORS](confd_lib_lib.errors.3.md)
+symbol `confd_errno`, see the [ERRORS](confd_lib_lib.3.md#errors)
 section in the [confd_lib_lib(3)](confd_lib_lib.3.md) manual page.
 
     int cdb_connect(
@@ -1313,7 +1313,7 @@ further delivery of subscription notification is suspended and an error
 is returned to the caller of `cdb_trigger_subscriptions()`. The error is
 the result of mapping the CONFD_ERRCODE as set by the aborting client as
 described for MAAPI in the [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) section in the
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) section in the
 [confd_lib_lib(3)](confd_lib_lib.3.md) manpage. Note however that the
 configuration is still the way it is - so it is up to the caller of
 `cdb_trigger_subscriptions()` to take appropriate action (for example:
@@ -1381,7 +1381,7 @@ further delivery of subscription notification is suspended and an error
 is returned to the caller of `cdb_replay_subscriptions()`. The error is
 the result of mapping the CONFD_ERRCODE as set by the aborting client as
 described for MAAPI in the [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) section in the
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) section in the
 [confd_lib_lib(3)](confd_lib_lib.3.md) manpage.
 
     int cdb_read_subscription_socket(
@@ -1825,7 +1825,7 @@ current transaction. It is only valid to call after
 `CDB_SUB_PREPARE`. The arguments after sock are the same as to
 `confd_X_seterr_extended()` and give the caller a way of indicating the
 reason for the failure. Details can be found in the [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) section in the
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) section in the
 [confd_lib_lib(3)](confd_lib_lib.3.md) manpage.
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
@@ -1837,7 +1837,7 @@ REPORTING](confd_lib_lib.extended_error_reporting.3.md) section in the
 This function does the same as `cdb_sub_abort_trans()`, and additionally
 gives the possibility to provide contents for the NETCONF \<error-info\>
 element. See the [EXTENDED ERROR
-REPORTING](confd_lib_lib.extended_error_reporting.3.md) section in the
+REPORTING](confd_lib_lib.3.md#extended_error_reporting) section in the
 [confd_lib_lib(3)](confd_lib_lib.3.md) manpage.
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
@@ -2211,7 +2211,7 @@ of actual elements, and if there are no presence sub-containers, the
 number is constant.
 
 As an example, with the YANG fragment in the
-[PATHS](confd_lib_cdb.paths.3.md) section above, this code could be
+[PATHS](confd_lib_cdb.3.md#paths) section above, this code could be
 used to read the values for interface "eth0" on host "buzz":
 
 <div class="informalexample">

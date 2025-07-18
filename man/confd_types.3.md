@@ -17,7 +17,7 @@ represented in the C language.
 
 The following `enum` defines the different types. These are used to
 represent data model types from several different sources - see the
-section [DATA MODEL TYPES](confd_types.data_model.3.md) at the end of
+section [DATA MODEL TYPES](confd_types.3.md#data_model) at the end of
 this manual page for a full specification of how the data model types
 map to these types.
 
@@ -262,7 +262,7 @@ typedef struct confd_value {
 > Sometimes we wish to retrieve a string representation of defined hash
 > values. This can be done with the function `confd_hash2str()`, see the
 > [USING SCHEMA
-> INFORMATION](confd_types.using_schema_information.3.md) section
+> INFORMATION](confd_types.3.md#using_schema_information) section
 > below.
 
 `C_BUF`  
@@ -1450,7 +1450,7 @@ a given type, by searching for a `typepoint` string that matches the
 The above is enough for ConfD to use the types that we have defined, but
 the libconfd library can also do local string\<-\>value translation if
 we have loaded the schema information, as described in the [USING SCHEMA
-INFORMATION](confd_types.using_schema_information.3.md) section below.
+INFORMATION](confd_types.3.md#using_schema_information) section below.
 For this to work for user-defined types, we must register the type
 definitions with the library, using one of these functions:
 
@@ -1468,7 +1468,7 @@ have a name for the type.
     struct confd_cs_node *node, struct confd_type *type);
 
 This function takes a pointer to a schema node (see the section [USING
-SCHEMA INFORMATION](confd_types.using_schema_information.3.md)) that
+SCHEMA INFORMATION](confd_types.3.md#using_schema_information)) that
 uses the type instead of namespace and type name. It is necessary to use
 this for registration of user-defined types that are specified "inline",
 but it can also be used for user-defined types specified via `typedef`.
@@ -1791,11 +1791,11 @@ could be found with `confd_find_ns_type(0, "string")`.
 ## Xml Structures
 
 Three different methods are used to represent a subtree of data nodes.
-["Value Array"](confd_types.xml_structures.array.3.md) describes a
+["Value Array"](confd_types.3.md#xml_structures.array) describes a
 format that is simpler but has some limitations, while ["Tagged Value
-Array"](confd_types.xml_structures.tagged_array.3.md) and ["Tagged
+Array"](confd_types.3.md#xml_structures.tagged_array) and ["Tagged
 Value Attribute
-Array"](confd_types.xml_structures.tagged_attr_array.3.md) describe
+Array"](confd_types.3.md#xml_structures.tagged_attr_array) describe
 formats that are more complex but can represent an arbitrary subtree.
 
 ### Value Array
@@ -1991,19 +1991,19 @@ These subsections describe the following sets of types, which can be
 used with YANG data modeling:
 
 - [YANG built-in
-  types](confd_types.data_model.yang_builtin_types.3.md)
+  types](confd_types.3.md#data_model.yang_builtin_types)
 
 - [The ietf-yang-types YANG
-  module](confd_types.data_model.ietf_yang_types.3.md)
+  module](confd_types.3.md#data_model.ietf_yang_types)
 
 - [The ietf-inet-types YANG
-  module](confd_types.data_model.ietf_inet_types.3.md)
+  module](confd_types.3.md#data_model.ietf_inet_types)
 
 - [The tailf-common YANG
-  module](confd_types.data_model.tailf_common.3.md)
+  module](confd_types.3.md#data_model.tailf_common)
 
 - [The tailf-xsd-types YANG
-  module](confd_types.data_model.tailf_xsd_types.3.md)
+  module](confd_types.3.md#data_model.tailf_xsd_types)
 
 ### YANG built-in types
 
@@ -2658,7 +2658,7 @@ implementation. The type is defined in the
 > In the Tail-f implementation, this type is logically a union of the
 > types tailf:md5-digest-string, tailf:sha-256-digest-string, and
 > tailf:sha-512-digest-string - see the section [The tailf-common YANG
-> module](confd_types.data_model.tailf_common.3.md) below. All the
+> module](confd_types.3.md#data_model.tailf_common) below. All the
 > hashed values of these types are accepted, and the choice of algorithm
 > to use for hashing clear text is specified via the
 > /confdConfig/cryptHash/algorithm parameter in `confd.conf` (see

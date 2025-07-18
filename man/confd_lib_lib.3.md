@@ -233,7 +233,7 @@ The `estream` parameter is used by all printouts from the library. The
 If the `estream` parameter is NULL, no printouts to a file will occur.
 Independent of the `estream` parameter, syslog can be enabled for the
 library by setting the global variable `confd_lib_use_syslog` to `1`.
-See [SYSLOG AND DEBUG](confd_lib_lib.syslog_and_debug.3.md) in this
+See [SYSLOG AND DEBUG](confd_lib_lib.3.md#syslog_and_debug) in this
 man page.
 
     int confd_set_debug(
@@ -404,7 +404,7 @@ elements of `hkeypath`.
 Several of the functions in [confd_lib_maapi(3)](confd_lib_maapi.3.md)
 and [confd_lib_cdb(3)](confd_lib_cdb.3.md) take a variable number of
 arguments which are then, similar to printf, used to generate the path
-passed to NSO - see the [PATHS](confd_lib_cdb.paths.3.md) section of
+passed to NSO - see the [PATHS](confd_lib_cdb.3.md#paths) section of
 confd_lib_cdb(3). This function takes the same arguments, but only
 formats the path as a string, writing at most `bufsiz` characters into
 `buf`. If the path is absolute and schema information is available to
@@ -1099,7 +1099,7 @@ same way as `confd_trans_seterr_extended()`, and additionally provide
 contents for the NETCONF \<error-info\> element. The `error_info`
 argument is an array of length `n`, populated as described for the
 Tagged Value Array format in the [XML
-STRUCTURES](confd_types.xml_structures.3.md) section of the
+STRUCTURES](confd_types.3.md#xml_structures) section of the
 [confd_types(3)](confd_types.3.md) manual page. The `error_info`
 information is discarded for other northbound agents than NETCONF.
 
