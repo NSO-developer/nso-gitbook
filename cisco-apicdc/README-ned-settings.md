@@ -92,19 +92,22 @@
 
     - cisco-apicdc port <string> (default 22)
 
-      Port number. sftp:22, ftp:21.
+      Port number. scp,sftp:22, ftp:21.
 
 
     - cisco-apicdc protocol <enum> (default sftp)
 
-      ftp or sftp;
+      ftp, sftp or scp;
       The APIC-DC device will use <protocol> to copy the config archive on
       the remote host and the NED will use <protocol> to get that config archive;
-      So please note that, the remote host needs to support <protocol>
+      So please note that, the remote host needs to support <protocol>. 
+      In case of scp you need to set ned-settings/cisco-apicdc/local-host=true
 
       ftp   - ftp.
 
       sftp  - sftp.
+
+      scp   - scp.
 
 
     - cisco-apicdc management-EPG <enum>

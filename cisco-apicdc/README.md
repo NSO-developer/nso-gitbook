@@ -262,12 +262,12 @@
   - Configure the way the NED wil get the configuration when performing a sync-from.
 
     When executing sync-from the NED supports multiple ways of getting the configuration file.
-    Using the following ned-settings, the NED can get the config file using ftp or sftp protocols,
+    Using the following ned-settings, the NED can get the config file using ftp, sftp or scp protocols
     localhost or a intermediate host. It also can do a sync-from a static (handled by the user)
     file without triggering a config export from APIC device.
 
     ```
-    devices device dev-1 ned-settings cisco-apicdc protocol <sftp/ftp>
+    devices device dev-1 ned-settings cisco-apicdc protocol <scp/sftp/ftp>
     devices device dev-1 ned-settings cisco-apicdc config-path <path>
     devices device dev-1 ned-settings cisco-apicdc local-host <true/false>
     devices device dev-1 ned-settings cisco-apicdc host <host>
