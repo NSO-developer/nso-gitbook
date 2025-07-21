@@ -903,6 +903,20 @@ Get use-lsa commit parameter.
 
 <details>
 
+<summary>is_with_service_meta_data(...)</summary>
+
+Method:
+
+```python
+is_with_service_meta_data(self)
+```
+
+Get with-service-meta-data commit parameter.
+
+</details>
+
+<details>
+
 <summary>label(...)</summary>
 
 Method:
@@ -1102,6 +1116,20 @@ use_lsa(self)
 ```
 
 Set use-lsa commit parameter.
+
+</details>
+
+<details>
+
+<summary>with_service_meta_data(...)</summary>
+
+Method:
+
+```python
+with_service_meta_data(self)
+```
+
+Set with-service-meta-data commit parameter.
 
 </details>
 
