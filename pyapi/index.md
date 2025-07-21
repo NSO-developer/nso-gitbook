@@ -1,3 +1,7 @@
+---
+icon: code
+---
+
 # Python API Reference
 
 Documentation for Python modules, generated from module source:
