@@ -243,38 +243,6 @@
 
 <details>
 
-<summary>CAND_COMMIT_ROLLBACK_DONE</summary>
-
-<code>CAND_COMMIT_ROLLBACK_DONE</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Candidate commit rollback done
-* **Format String**  
-  `"Candidate commit rollback done"`
-
-</details>
-
-
-<details>
-
-<summary>CAND_COMMIT_ROLLBACK_FAILURE</summary>
-
-<code>CAND_COMMIT_ROLLBACK_FAILURE</code>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  Failed to rollback candidate commit
-* **Format String**  
-  `"Failed to rollback candidate commit due to: ~s"`
-
-</details>
-
-
-<details>
-
 <summary>CANDIDATE_BAD_FILE_FORMAT</summary>
 
 <code>CANDIDATE_BAD_FILE_FORMAT</code>
@@ -301,6 +269,38 @@
   The candidate database file is corrupt and cannot be read. The candidate database is reset to the empty database.
 * **Format String**  
   `"Corrupt candidate db file ~s; resetting candidate"`
+
+</details>
+
+
+<details>
+
+<summary>CAND_COMMIT_ROLLBACK_DONE</summary>
+
+<code>CAND_COMMIT_ROLLBACK_DONE</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Candidate commit rollback done
+* **Format String**  
+  `"Candidate commit rollback done"`
+
+</details>
+
+
+<details>
+
+<summary>CAND_COMMIT_ROLLBACK_FAILURE</summary>
+
+<code>CAND_COMMIT_ROLLBACK_FAILURE</code>
+
+* **Severity**  
+  `ERR`
+* **Description**  
+  Failed to rollback candidate commit
+* **Format String**  
+  `"Failed to rollback candidate commit due to: ~s"`
 
 </details>
 
@@ -531,6 +531,22 @@
 
 <details>
 
+<summary>CLI_CMD</summary>
+
+<code>CLI_CMD</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  User executed a CLI command.
+* **Format String**  
+  `"CLI '~s'"`
+
+</details>
+
+
+<details>
+
 <summary>CLI_CMD_ABORTED</summary>
 
 <code>CLI_CMD_ABORTED</code>
@@ -557,22 +573,6 @@
   CLI command finished successfully.
 * **Format String**  
   `"CLI done"`
-
-</details>
-
-
-<details>
-
-<summary>CLI_CMD</summary>
-
-<code>CLI_CMD</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  User executed a CLI command.
-* **Format String**  
-  `"CLI '~s'"`
 
 </details>
 
@@ -1011,16 +1011,16 @@
 
 <details>
 
-<summary>EXT_AUTH_2FA_FAIL</summary>
+<summary>EXTAUTH_BAD_RET</summary>
 
-<code>EXT_AUTH_2FA_FAIL</code>
+<code>EXTAUTH_BAD_RET</code>
 
 * **Severity**  
-  `INFO`
+  `ERR`
 * **Description**  
-  External challenge authentication failed for a user.
+  Authentication is external and the external program returned badly formatted data.
 * **Format String**  
-  `"external challenge authentication failed via ~s from ~s with ~s: ~s"`
+  `"External auth program (user=~s) ret bad output: ~s"`
 
 </details>
 
@@ -1043,6 +1043,22 @@
 
 <details>
 
+<summary>EXT_AUTH_2FA_FAIL</summary>
+
+<code>EXT_AUTH_2FA_FAIL</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  External challenge authentication failed for a user.
+* **Format String**  
+  `"external challenge authentication failed via ~s from ~s with ~s: ~s"`
+
+</details>
+
+
+<details>
+
 <summary>EXT_AUTH_2FA_SUCCESS</summary>
 
 <code>EXT_AUTH_2FA_SUCCESS</code>
@@ -1053,22 +1069,6 @@
   An external challenge authenticated user logged in.
 * **Format String**  
   `"external challenge authentication succeeded via ~s from ~s with ~s, member of groups: ~s~s"`
-
-</details>
-
-
-<details>
-
-<summary>EXTAUTH_BAD_RET</summary>
-
-<code>EXTAUTH_BAD_RET</code>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  Authentication is external and the external program returned badly formatted data.
-* **Format String**  
-  `"External auth program (user=~s) ret bad output: ~s"`
 
 </details>
 
@@ -1187,22 +1187,6 @@
 
 <details>
 
-<summary>FILE_LOAD_ERR</summary>
-
-<code>FILE_LOAD_ERR</code>
-
-* **Severity**  
-  `CRIT`
-* **Description**  
-  System tried to load a file in its load path and failed.
-* **Format String**  
-  `"Failed to load file ~s: ~s"`
-
-</details>
-
-
-<details>
-
 <summary>FILE_LOADING</summary>
 
 <code>FILE_LOADING</code>
@@ -1213,6 +1197,22 @@
   System starts to load a file.
 * **Format String**  
   `"Loading file ~s"`
+
+</details>
+
+
+<details>
+
+<summary>FILE_LOAD_ERR</summary>
+
+<code>FILE_LOAD_ERR</code>
+
+* **Severity**  
+  `CRIT`
+* **Description**  
+  System tried to load a file in its load path and failed.
+* **Format String**  
+  `"Failed to load file ~s: ~s"`
 
 </details>
 
@@ -1379,6 +1379,22 @@
 
 <details>
 
+<summary>JSONRPC_REQUEST</summary>
+
+<code>JSONRPC_REQUEST</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  JSON-RPC method requested.
+* **Format String**  
+  `"JSON-RPC: '~s' with JSON params ~s"`
+
+</details>
+
+
+<details>
+
 <summary>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</summary>
 
 <code>JSONRPC_REQUEST_ABSOLUTE_TIMEOUT</code>
@@ -1405,22 +1421,6 @@
   JSON-RPC idle timeout.
 * **Format String**  
   `"Stopping session due to idle timeout: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>JSONRPC_REQUEST</summary>
-
-<code>JSONRPC_REQUEST</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  JSON-RPC method requested.
-* **Format String**  
-  `"JSON-RPC: '~s' with JSON params ~s"`
 
 </details>
 
@@ -1523,22 +1523,6 @@
 
 <details>
 
-<summary>LOCAL_AUTH_FAIL_BADPASS</summary>
-
-<code>LOCAL_AUTH_FAIL_BADPASS</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Authentication for a locally configured user failed due to providing bad password.
-* **Format String**  
-  `"local authentication failed via ~s from ~s with ~s: ~s"`
-
-</details>
-
-
-<details>
-
 <summary>LOCAL_AUTH_FAIL</summary>
 
 <code>LOCAL_AUTH_FAIL</code>
@@ -1547,6 +1531,22 @@
   `INFO`
 * **Description**  
   Authentication for a locally configured user failed.
+* **Format String**  
+  `"local authentication failed via ~s from ~s with ~s: ~s"`
+
+</details>
+
+
+<details>
+
+<summary>LOCAL_AUTH_FAIL_BADPASS</summary>
+
+<code>LOCAL_AUTH_FAIL_BADPASS</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Authentication for a locally configured user failed due to providing bad password.
 * **Format String**  
   `"local authentication failed via ~s from ~s with ~s: ~s"`
 
@@ -1779,22 +1779,6 @@
 
 <details>
 
-<summary>MISSING_NS2</summary>
-
-<code>MISSING_NS2</code>
-
-* **Severity**  
-  `CRIT`
-* **Description**  
-  While validating the consistency of the config - a required namespace was missing.
-* **Format String**  
-  `"The namespace ~s (referenced by ~s) could not be found in the loadPath."`
-
-</details>
-
-
-<details>
-
 <summary>MISSING_NS</summary>
 
 <code>MISSING_NS</code>
@@ -1805,6 +1789,22 @@
   While validating the consistency of the config - a required namespace was missing.
 * **Format String**  
   `"The namespace ~s could not be found in the loadPath."`
+
+</details>
+
+
+<details>
+
+<summary>MISSING_NS2</summary>
+
+<code>MISSING_NS2</code>
+
+* **Severity**  
+  `CRIT`
+* **Description**  
+  While validating the consistency of the config - a required namespace was missing.
+* **Format String**  
+  `"The namespace ~s (referenced by ~s) could not be found in the loadPath."`
 
 </details>
 
@@ -1827,22 +1827,6 @@
 
 <details>
 
-<summary>NETCONF_HDR_ERR</summary>
-
-<code>NETCONF_HDR_ERR</code>
-
-* **Severity**  
-  `ERR`
-* **Description**  
-  The cleartext header indicating user and groups was badly formatted.
-* **Format String**  
-  `"Got bad NETCONF TCP header"`
-
-</details>
-
-
-<details>
-
 <summary>NETCONF</summary>
 
 <code>NETCONF</code>
@@ -1853,6 +1837,22 @@
   NETCONF traffic log message
 * **Format String**  
   `"~s"`
+
+</details>
+
+
+<details>
+
+<summary>NETCONF_HDR_ERR</summary>
+
+<code>NETCONF_HDR_ERR</code>
+
+* **Severity**  
+  `ERR`
+* **Description**  
+  The cleartext header indicating user and groups was badly formatted.
+* **Format String**  
+  `"Got bad NETCONF TCP header"`
 
 </details>
 
@@ -1885,6 +1885,22 @@
   A user used the --noaaa flag to confd_cli
 * **Format String**  
   `"logged in from the CLI with aaa disabled"`
+
+</details>
+
+
+<details>
+
+<summary>NOTIFICATION_REPLAY_STORE_FAILURE</summary>
+
+<code>NOTIFICATION_REPLAY_STORE_FAILURE</code>
+
+* **Severity**  
+  `CRIT`
+* **Description**  
+  A failure occurred in the builtin notification replay store
+* **Format String**  
+  `"~s"`
 
 </details>
 
@@ -1955,16 +1971,16 @@
 
 <details>
 
-<summary>NOTIFICATION_REPLAY_STORE_FAILURE</summary>
+<summary>NS_LOAD_ERR</summary>
 
-<code>NOTIFICATION_REPLAY_STORE_FAILURE</code>
+<code>NS_LOAD_ERR</code>
 
 * **Severity**  
   `CRIT`
 * **Description**  
-  A failure occurred in the builtin notification replay store
+  System tried to process a loaded namespace and failed.
 * **Format String**  
-  `"~s"`
+  `"Failed to process namespace ~s: ~s"`
 
 </details>
 
@@ -1981,22 +1997,6 @@
   System tried to process a loaded namespace and failed.
 * **Format String**  
   `"Failed to process namespaces: ~s"`
-
-</details>
-
-
-<details>
-
-<summary>NS_LOAD_ERR</summary>
-
-<code>NS_LOAD_ERR</code>
-
-* **Severity**  
-  `CRIT`
-* **Description**  
-  System tried to process a loaded namespace and failed.
-* **Format String**  
-  `"Failed to process namespace ~s: ~s"`
 
 </details>
 
@@ -2131,38 +2131,6 @@
 
 <details>
 
-<summary>REST_AUTH_FAIL</summary>
-
-<code>REST_AUTH_FAIL</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Rest authentication for a user failed.
-* **Format String**  
-  `"rest authentication failed from ~s"`
-
-</details>
-
-
-<details>
-
-<summary>REST_AUTH_SUCCESS</summary>
-
-<code>REST_AUTH_SUCCESS</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  A rest authenticated user logged in.
-* **Format String**  
-  `"rest authentication succeeded from ~s , member of groups: ~s"`
-
-</details>
-
-
-<details>
-
 <summary>RESTCONF_REQUEST</summary>
 
 <code>RESTCONF_REQUEST</code>
@@ -2189,6 +2157,38 @@
   RESTCONF response
 * **Format String**  
   `"RESTCONF: response with ~s: ~s duration ~s us"`
+
+</details>
+
+
+<details>
+
+<summary>REST_AUTH_FAIL</summary>
+
+<code>REST_AUTH_FAIL</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Rest authentication for a user failed.
+* **Format String**  
+  `"rest authentication failed from ~s"`
+
+</details>
+
+
+<details>
+
+<summary>REST_AUTH_SUCCESS</summary>
+
+<code>REST_AUTH_SUCCESS</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  A rest authenticated user logged in.
+* **Format String**  
+  `"rest authentication succeeded from ~s , member of groups: ~s"`
 
 </details>
 
@@ -2771,6 +2771,22 @@
 
 <details>
 
+<summary>WEBUI_LOG_MSG</summary>
+
+<code>WEBUI_LOG_MSG</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  WebUI access log message
+* **Format String**  
+  `"WebUI access log: ~s"`
+
+</details>
+
+
+<details>
+
 <summary>WEB_ACTION</summary>
 
 <code>WEB_ACTION</code>
@@ -2813,22 +2829,6 @@
   User performed Web UI commit.
 * **Format String**  
   `"WebUI commit ~s"`
-
-</details>
-
-
-<details>
-
-<summary>WEBUI_LOG_MSG</summary>
-
-<code>WEBUI_LOG_MSG</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  WebUI access log message
-* **Format String**  
-  `"WebUI access log: ~s"`
 
 </details>
 
@@ -3315,22 +3315,6 @@
 
 <details>
 
-<summary>NCS_SNMP_INIT_ERR</summary>
-
-<code>NCS_SNMP_INIT_ERR</code>
-
-* **Severity**  
-  `INFO`
-* **Description**  
-  Failed to locate snmp_init.xml in loadpath
-* **Format String**  
-  `"Failed to locate snmp_init.xml in loadpath ~s"`
-
-</details>
-
-
-<details>
-
 <summary>NCS_SNMPM_START</summary>
 
 <code>NCS_SNMPM_START</code>
@@ -3357,6 +3341,22 @@
   The NCS SNMP manager component has been stopped
 * **Format String**  
   `"The NCS SNMP manager component has been stopped"`
+
+</details>
+
+
+<details>
+
+<summary>NCS_SNMP_INIT_ERR</summary>
+
+<code>NCS_SNMP_INIT_ERR</code>
+
+* **Severity**  
+  `INFO`
+* **Description**  
+  Failed to locate snmp_init.xml in loadpath
+* **Format String**  
+  `"Failed to locate snmp_init.xml in loadpath ~s"`
 
 </details>
 
