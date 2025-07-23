@@ -150,7 +150,7 @@ bscActFlow        ned-modification-dependent
 
 This tells NSO that before modifying the `bscActFlow` column set the `bscActAdminState` to locked and restore the previous value after committing the set operation.
 
-All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](../../../man/section5.md#mib_annotations) in manual pages for details.
+All MIB annotations for a particular MIB are written to a file with the file suffix `.miba`. See [mib\_annotations(5)](../../../man/mib_annotations.5.md) in manual pages for details.
 
 Make sure that the MIB annotation file is put into the directory where all the MIB files are which is given as input to the `ncsc --ncs-compile-mib-bundle` command
 

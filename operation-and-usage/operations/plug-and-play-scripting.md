@@ -81,7 +81,7 @@ command:
 
 ## Command Scripts <a href="#d5e4525" id="d5e4525"></a>
 
-Command scripts are used to add new commands to the CLI. The scripts are executed in the context of a transaction. When the script is run in `oper` mode, this is a read-only transaction, when it is run in `config` mode, it is a read-write transaction. In that context, the script may make use of the environment variables `NCS_MAAPI_USID` and `NCS_MAAPI_THANDLE` in order to attach to the active transaction. This makes it simple to make use of the `ncs-maapi` command (see the [ncs-maapi(1)](../../man/section1.md#ncs-maapi) in Manual Pages manual page) for various purposes.
+Command scripts are used to add new commands to the CLI. The scripts are executed in the context of a transaction. When the script is run in `oper` mode, this is a read-only transaction, when it is run in `config` mode, it is a read-write transaction. In that context, the script may make use of the environment variables `NCS_MAAPI_USID` and `NCS_MAAPI_THANDLE` in order to attach to the active transaction. This makes it simple to make use of the `ncs-maapi` command (see the [ncs-maapi(1)](../../man/ncs-maapi.1.md) in Manual Pages manual page) for various purposes.
 
 Each command script must be able to handle the argument `--command` and, when invoked, write a `command` section to `stdout`. If the CLI command is intended to take parameters, one `param` section per CLI parameter must also be emitted.
 

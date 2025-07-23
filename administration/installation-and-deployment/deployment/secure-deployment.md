@@ -44,14 +44,14 @@ The default `ncs.conf` for production installations differs from the development
 * Development enables these interfaces for convenience.
 * Production enables restricted-file-access for CLI.
 
-See [ncs.conf(5)](../../../man/section5.md#ncs.conf) for all available options to configure the NSO daemon.
+See [ncs.conf(5)](../../../man/ncs.conf.5.md) for all available options to configure the NSO daemon.
 
 ## Eliminating Root Access
 
 Running NSO with minimal privileges is a fundamental security best practice:
 
 * Use the NSO installer `--run-as-user User` option to run NSO as a non-root user.
-* Some files are installed with elevated privileges - refer to the [ncs-installer(1)](../../../man/section1.md#system-installation) man page under the `--run-as-user User` option for details.
+* Some files are installed with elevated privileges - refer to the [ncs-installer(1)](../../../man/ncs-installer.1.md#system-installation) man page under the `--run-as-user User` option for details.
 * The NSO production container runs NSO from a [non-root user](../containerized-nso.md#nso-runs-from-a-non-root-user).
 *   If the CLI is used and we want to create CLI commands that run executables, we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdptywrapper` program.\
     To be able to run an executable as root or a specific user, we need to make `cmdptywrapper` `setuid` `root`, i.e.:

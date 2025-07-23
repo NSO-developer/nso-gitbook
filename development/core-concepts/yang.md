@@ -521,7 +521,7 @@ We can use `ncsc` compiler to compile the YANG module.
 $ ncsc -c test.yang
 ```
 
-The above command creates an output file `test.fxs` that is a compiled schema that can be loaded into the system. The `ncsc` compiler with all its flags is fully described in [ncsc(1)](../../man/section1.md#ncsc) in Manual Pages.
+The above command creates an output file `test.fxs` that is a compiled schema that can be loaded into the system. The `ncsc` compiler with all its flags is fully described in [ncsc(1)](../../man/ncsc.1.md) in Manual Pages.
 
 There exist several standards-based auxiliary YANG modules defining various useful data types. These modules, as well as their accompanying `.fxs` files can be found in the `${NCS_DIR}/src/confd/yang` directory in the distribution.
 
@@ -594,7 +594,7 @@ The remedy is to modify `ncs.conf` so that it contains the proper load path or t
 $ ncs -c ncs.conf --addloadpath ${NCS_DIR}/etc/ncs --foreground --verbose
 ```
 
-`ncs.conf` is the configuration file for NSO itself. It is described in the [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages.
+`ncs.conf` is the configuration file for NSO itself. It is described in the [ncs.conf(5)](../../man/ncs.conf.5.md) in Manual Pages.
 
 ## Integrity Constraints <a href="#d5e2141" id="d5e2141"></a>
 
@@ -626,7 +626,7 @@ An example is:
 }
 ```
 
-XPath is a very powerful tool here. It is often possible to express the most realistic validation constraints using XPath expressions. Note that for performance reasons, it is recommended to use the `tailf:dependency` statement in the `must` statement. The compiler gives a warning if a `must` statement lacks a `tailf:dependency` statement, and it cannot derive the dependency from the expression. The options `--fail-on-warnings` or `-E TAILF_MUST_NEED_DEPENDENCY` can be given to force this warning to be treated as an error. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages for details.
+XPath is a very powerful tool here. It is often possible to express the most realistic validation constraints using XPath expressions. Note that for performance reasons, it is recommended to use the `tailf:dependency` statement in the `must` statement. The compiler gives a warning if a `must` statement lacks a `tailf:dependency` statement, and it cannot derive the dependency from the expression. The options `--fail-on-warnings` or `-E TAILF_MUST_NEED_DEPENDENCY` can be given to force this warning to be treated as an error. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md) in Manual Pages for details.
 
 Another useful built-in constraint checker is the `unique` statement.
 
@@ -666,7 +666,7 @@ We specify that the combination of IP and port must be unique. Thus the configur
 
 The usage of leafrefs (See the YANG specification) ensures that we do not end up with configurations with dangling pointers. Leafrefs are also especially good, since the CLI and Web UI can render a better interface.
 
-If other constraints are necessary, validation callback functions can be programmed in Java, Python, or Erlang. See `tailf:validate` in [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages for details.
+If other constraints are necessary, validation callback functions can be programmed in Java, Python, or Erlang. See `tailf:validate` in [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md) in Manual Pages for details.
 
 ## The `when` statement <a href="#d5e2173" id="d5e2173"></a>
 
@@ -684,7 +684,7 @@ leaf b {
 
 This data model snippet says that `b` can only exist if `a` is true. If `a` is true, and `b` has a value, and `a` is set to false, `b` will automatically be deleted.
 
-Since the XPath expression in theory can refer to any node in the data tree, it has to be re-evaluated when any node in the tree is modified. But this would have a disastrous performance impact, so to avoid this, NSO keeps track of dependencies for each when expression. In many cases, the **confdc** can figure out these dependencies by itself. In the example above, NSO will detect that `b` is dependent on `a`, and evaluate `b`'s XPath expression only if `a` is modified. If `confdc` cannot detect the dependencies by itself, it requires a `tailf:dependency` statement in the `when` statement. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages for details.
+Since the XPath expression in theory can refer to any node in the data tree, it has to be re-evaluated when any node in the tree is modified. But this would have a disastrous performance impact, so to avoid this, NSO keeps track of dependencies for each when expression. In many cases, the **confdc** can figure out these dependencies by itself. In the example above, NSO will detect that `b` is dependent on `a`, and evaluate `b`'s XPath expression only if `a` is modified. If `confdc` cannot detect the dependencies by itself, it requires a `tailf:dependency` statement in the `when` statement. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md) in Manual Pages for details.
 
 ## Using the Tail-f Extensions with YANG <a href="#d5e2188" id="d5e2188"></a>
 
@@ -733,7 +733,7 @@ Note the import statement where we import `tailf-common`.
 
 When we are using YANG specifications to generate Java classes for ConfM, these extensions are ignored. They only make sense on the device side. It is worth mentioning them though since EMS developers will certainly get the YANG specifications from the device developers, thus the YANG specifications may contain extensions
 
-The man page [tailf\_yang\_extensions(5)](../../man/section5.md#tailf_yang_extensions) in Manual Pages describes all the Tail-f YANG extensions.
+The man page [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md) in Manual Pages describes all the Tail-f YANG extensions.
 
 ### Using a YANG Annotation File <a href="#d5e2207" id="d5e2207"></a>
 
@@ -805,7 +805,7 @@ Certain parts of a YANG model are used by northbound agents, e.g. CLI and Web UI
 
 A YANG statement can be annotated with a `description` statement which is used to describe the definition for a reader of the module. This text is often too long and too detailed to be useful as help text in a CLI. For this reason, NSO by default does not use the text in the `description` for this purpose. Instead, a tail-f-specific statement, `tailf:info` is used. It is recommended that the standard `description` statement contains a detailed description suitable for a module reader (e.g. NETCONF client or server implementor), and `tailf:info` contains a CLI help text.
 
-As an alternative, NSO can be instructed to use the text in the `description` statement also for CLI help text. See the option `--use-description` in [ncsc(1)](../../man/section1.md#ncsc) in Manual Pages.
+As an alternative, NSO can be instructed to use the text in the `description` statement also for CLI help text. See the option `--use-description` in [ncsc(1)](../../man/ncsc.1.md) in Manual Pages.
 
 For example, CLI uses the help text to prompt for a value of this particular type. The CLI shows this information during tab/command completion or if the end-user explicitly asks for help using the `?-`character. The behavior depends on the mode the CLI is running in.
 
@@ -1425,7 +1425,7 @@ The path specification for `server-ip` means the IP address of the server under 
 
 The path specification for `server-port` means the port number of the server with the same IP as specified in `server-ip`, under the host with the same name as specified in `server-host`.
 
-This syntax quickly gets awkward and error-prone. NSO supports a shorthand syntax, by introducing an XPath function `deref()` (see [XPATH FUNCTIONS](../../man/section5.md#xpath-functions) in Manual Pages ). Technically, this function follows a `leafref` value and returns all nodes that the `leafref` refers to (typically just one). The example above can be written like this:
+This syntax quickly gets awkward and error-prone. NSO supports a shorthand syntax, by introducing an XPath function `deref()` (see [XPATH FUNCTIONS](../../man/yang_tailf_extensions.5.md#xpath-functions) in Manual Pages ). Technically, this function follows a `leafref` value and returns all nodes that the `leafref` refers to (typically just one). The example above can be written like this:
 
 ```yang
 leaf server-host {

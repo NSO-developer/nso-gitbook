@@ -8,7 +8,7 @@ This page describes an embedded basic web server that can deliver static and Com
 
 ## Web Server Capabilities <a href="#d5e8815" id="d5e8815"></a>
 
-The web server can be configured through settings in `ncs.conf` . See the [Manual Pages](../../man/section5.md#configuration-parameters) section Configuration Parameters.
+The web server can be configured through settings in `ncs.conf` . See the [Manual Pages](../../man/ncs.conf.5.md#configuration-parameters) section Configuration Parameters.
 
 Here is a brief overview of what you can configure on the web server:
 
@@ -29,7 +29,7 @@ In addition to what is configurable, the web server also GZip-compresses respons
 
 ## CGI Support <a href="#d5e8848" id="d5e8848"></a>
 
-The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see Configuration Parameters in [Manual Pages](../../man/section5.md#configuration-parameters)), you can write CGI scripts that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
+The web server includes CGI functionality, disabled by default. Once you enable it in `ncs.conf` (see Configuration Parameters in [Manual Pages](../../man/ncs.conf.5.md#configuration-parameters)), you can write CGI scripts that will be called with the following NSO environment variables prefixed with NCS\_ when a user has logged in via JSON-RPC:
 
 * `JSONRPC_SESSIONID`: the JSON-RPC session id (cookie).
 * `JSONRPC_START_TIME`: the start time of the JSON-RPC session.
@@ -96,7 +96,7 @@ To enable the web server to fetch TLS data from the database, `ncs.conf` needs t
 ```
 {% endcode %}
 
-Note that the options `key-file`, `cert-file`, and `ca-cert-file`, are ignored when `read-from-db` is set to true. See the [ncs.conf.5](../../man/section5.md#ncs.conf) man page for more details.
+Note that the options `key-file`, `cert-file`, and `ca-cert-file`, are ignored when `read-from-db` is set to true. See the [ncs.conf.5](../../man/ncs.conf.5.md) man page for more details.
 
 The database is populated with TLS data by configuring the `/tailf-tls:tls/private-key, /tailf-tls:tls/certificate`, and, optionally, `/tailf-tls/ca-certificates`. It is possible to use password-protected private keys; then the _passphrase_ leaf in the `private-key` container needs to be set to the password of the encrypted private key. Unencrypted private key data can be supplied in both PKCS#8 and PKCS#1 format, while encrypted private key data needs to be supplied in PKCS#1 format.
 
@@ -200,7 +200,7 @@ HTTP/1.1 302 Found
 
 ## Package Upload <a href="#ug.webserver.package-upload" id="ug.webserver.package-upload"></a>
 
-The web server includes support for uploading packages to `/package-upload` using `HTTP POST` from the local host to the NSO host, making them installable there. It is disabled by default but can be enabled in `ncs.conf`; see Configuration Parameters in [Manual Pages](../../man/section5.md#configuration-parameters).
+The web server includes support for uploading packages to `/package-upload` using `HTTP POST` from the local host to the NSO host, making them installable there. It is disabled by default but can be enabled in `ncs.conf`; see Configuration Parameters in [Manual Pages](../../man/ncs.conf.5.md#configuration-parameters).
 
 By default, only uploading 1 file per request will be processed, and any remaining file parts after that will result in an error, and its content will be ignored. To allow multiple files in a request, you can increase `/ncs-config/webui/package-upload/max-files`.
 
