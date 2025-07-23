@@ -28,13 +28,15 @@ To avoid surprises during any upgrade, first ensure the following:
 * Review the `CHANGES` file for information on what has changed.
 * If upgrading from a no longer supported software version, verify that the upgrade can be performed directly. In situations where the currently installed version is very old, you may have to upgrade to one or more intermediate versions before upgrading to the target version.
 
-In case it turns out any of the packages are incompatible or cannot be recompiled, you will need to contact the package developers for an updated or recompiled version. For an official Cisco-supplied package, it is recommended that you always obtain a pre-compiled version if it is available for the target NSO release, instead of compiling the package yourself.
+In case it turns out that any of the packages are incompatible or cannot be recompiled, you will need to contact the package developers for an updated or recompiled version. For an official Cisco-supplied package, it is recommended that you always obtain a pre-compiled version if it is available for the target NSO release, instead of compiling the package yourself.
 
 Additional preparation steps may be required based on the upgrade and the actual setup, such as when using the Layered Service Architecture (LSA) feature. In particular, for a major NSO upgrade in a multi-version LSA cluster, ensure that the new version supports the other cluster members and follow the additional steps outlined in [Deploying LSA](../advanced-topics/layered-service-architecture.md#deploying-lsa) in Layered Service Architecture.
 
 If you use the High Availability (HA) feature, the upgrade consists of multiple steps on different nodes. To avoid mistakes, you are encouraged to script the process, for which you will need to set up and verify access to all NSO instances with either `ssh`, `nct`, or some other remote management command. For the reference example, we use in this chapter, see [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc). The management station uses shell and Python scripts that use `ssh` to access the Linux shell and NSO CLI and Python Requests for NSO RESTCONF interface access.
 
 Likewise, NSO 5.3 added support for 256-bit AES encrypted strings, requiring the AES256CFB128 key in the `ncs.conf` configuration. You can generate one with the `openssl rand -hex 32` or a similar command. Alternatively, if you use an external command to provide keys, ensure that it includes a value for an `AES256CFB128_KEY` in the output.
+
+With regard to init system, NSO 6.4 introduces `systemd` as the default option instead of SysV. In interactive mode, when upgrading to NSO 6.4 and later, the installer prompts the user to continue using the old SysV service or prepare a `systemd` service. In non-interactive mode, a `systemd` service is prepared by default. When using the `--non-interactive` option, the `/etc/systemd/system/ncs.service` file will be overwritten if it already exists.
 
 Finally, regardless of the upgrade type, ensure that you have a working backup and can easily restore the previous configuration if needed, as described in [Backup and Restore](../management/system-management/#backup-and-restore).
 
