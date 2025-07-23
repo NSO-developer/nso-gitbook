@@ -104,7 +104,7 @@
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
-  * [README v1.6.15 2025-06-09](cisco-fmc/README.md)
+  * [README v1.7 2025-07-22](cisco-fmc/README.md)
 
 * cisco-ftd
   * [README-ned-settings](cisco-ftd/README-ned-settings.md)

@@ -123,17 +123,6 @@
   Bellow are NED behaviour settings.
 
 
-    - cisco-fmc-settings fmc-domain-name <string>
-
-      Domain name to be used fo all REST calls to:
-      POST|PUT|GET|DELETE /api/fmc_config/v1/domain/{domain_UUID}/devices/devicerecords
-      POST|PUT|GET|DELETE /api/fmc_config/v1/domain/{domainUUID}/policy/accesspolicies.
-      If no domain name is configured the NED will use the GLOBAL DOMAIN.
-      Get the domain names available using:
-        devices device <dev_name> config cisco-fmc:actions get-domains
-      Note that the NED will translate from domain name to domain UUID.
-
-
     - cisco-fmc-settings async-task-timeout <uint32> (default 600)
 
       This setting is used to configure the time in seconds that the NED will wait for
