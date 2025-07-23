@@ -160,7 +160,7 @@ Added CLI functionality to display dry-run output and prompt the user to confirm
 
 Documentation Updates:
 
-* New parameters added to the [ncs.conf(5)](man/section5.md#ncs.conf) man page
+* New parameters added to the [ncs.conf(5)](man/ncs.conf.5.md) man page
   * /ncs-config/cli/commit-prompt/enabled
   * /ncs-config/cli/commit-prompt/dry-run/duration
   * /ncs-config/cli/commit-prompt/dry-run/outformat

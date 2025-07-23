@@ -303,7 +303,7 @@ java-vm stdout-capture file /var/log/ncs/ncs-java-vm.log
 
 ## The NSO Java VM Timeouts <a href="#d5e1406" id="d5e1406"></a>
 
-The section `/ncs-config/api` in `ncs.conf` contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](../../../man/section5.md#ncs.conf) in Manual Pages for details.
+The section `/ncs-config/api` in `ncs.conf` contains a number of very important timeouts. See `$NCS_DIR/src/ncs/ncs_config/tailf-ncs-config.yang` and [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
 
 * `new-session-timeout` controls how long NSO will wait for the NSO Java VM to respond to a new session.
 * `query-timeout` controls how long NSO will wait for the NSO Java VM to respond to a request to get data.

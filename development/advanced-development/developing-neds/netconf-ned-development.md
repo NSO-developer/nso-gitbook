@@ -23,7 +23,7 @@ The NSO example under [examples.ncs/device-management/netconf-ned](https://githu
 
 The `netconf-console` NETCONF client tool is a Python script that can be used for testing, debugging, and simple client duties. For example, making the device YANG models available to NSO using the NETCONF IETF RFC 6022 `get-schema` operation to download YANG modules and the RFC 6241`get` operation, where the device implements the RFC 7895 YANG module library to provide information about all the YANG modules used by the NETCONF server. Type `netconf-console -h` for documentation.
 
-Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](../../../man/section1.md#ncs-make-package) in Manual Pages and `ncs-make-package -h` for documentation.
+Once the required YANG models are downloaded or copied from the device, the `ncs-make-package` bash script tool can be used to create and build, for example, the NETCONF NED package. See [ncs-make-package(1)](../../../man/ncs-make-package.1.md) in Manual Pages and `ncs-make-package -h` for documentation.
 
 The `demo.sh` script in the `netconf-ned` example uses the `netconf-console` and `ncs-make-package` combination to create, build, and install the NETCONF NED. When you know beforehand which models you need from the device, you often begin with this approach when encountering a new NETCONF device.
 
@@ -140,7 +140,7 @@ If you make any changes to, for example, the YANG models after creating the pack
 
 ### **Configure the Device Connection**
 
-Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](../../../man/section1.md#ncs) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
+Start NSO. NSO will load the new package. If the package was loaded previously, use the `--with-package-reload` option. See [ncs(1)](../../../man/ncs.1.md) in Manual Pages for details. If NSO is already running, use the `packages reload` CLI command.
 
 ```bash
 $ ncs --cd ./nso-rundir
