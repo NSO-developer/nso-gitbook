@@ -325,7 +325,7 @@ If you choose a non-default Installation Directory by using `--install-dir`, you
 
 Use the `--ignore-init-scripts` option to disable provisioning the `systemd` system service.
 
-If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interactive mode, the user will be prompted to continue using the old SysV service behavior or prepare a `systemd` service. In non-interactive mode, a `systemd` service will be prepared where a `/etc/systemd/system/ncs.service.prepare` file is created. The service is not enabled to start at boot. To enable it, rename it to `/etc/systemd/system/ncs.service` and remove the old `/etc/init.d/ncs` SysV service.
+If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interactive mode, the user will be prompted to continue using the old SysV service behavior or prepare a `systemd` service. In non-interactive mode, a `systemd` service will be prepared where a `/etc/systemd/system/ncs.service.prepare` file is created. The service is not enabled to start at boot. To enable it, rename it to `/etc/systemd/system/ncs.service` and remove the old `/etc/init.d/ncs` SysV service. When using the `--non-interactive` option, the `/etc/systemd/system/ncs.service` file will be overwritten if it already exists.
 
 For more information on the `ncs-installer`, see the [ncs-installer(1)](../../man/ncs-installer.1.md) man page.
 
