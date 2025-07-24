@@ -240,12 +240,12 @@ For details on the output see `$NCS_DIR/src/yang/tailf-common-monitoring2.yang`.
 
 Below is an overview of the output:
 
-<table data-header-hidden data-full-width="true"><thead><tr><th width="246"></th><th></th></tr></thead><tbody><tr><td><code>daemon-status</code></td><td>You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td><code>version</code></td><td>The NSO version.</td></tr><tr><td><code>smp</code></td><td>Number of threads used by the daemon.</td></tr><tr><td><code>ha</code></td><td>The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td><code>internal/callpoints</code></td><td><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
+<table data-header-hidden data-full-width="true"><thead><tr><th width="246" valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top"><code>daemon-status</code></td><td valign="top">You can see the NSO daemon mode, starting, phase0, phase1, started, stopping. The phase0 and phase1 modes are schema upgrade modes and will appear if you have upgraded any data models.</td></tr><tr><td valign="top"><code>version</code></td><td valign="top">The NSO version.</td></tr><tr><td valign="top"><code>smp</code></td><td valign="top">Number of threads used by the daemon.</td></tr><tr><td valign="top"><code>ha</code></td><td valign="top">The High-Availability mode of the NCS daemon will show up here: <code>secondary</code>, <code>primary</code>, <code>relay-secondary</code>.</td></tr><tr><td valign="top"><code>internal/callpoints</code></td><td valign="top"><p>The next section is callpoints. Make sure that any validation points, etc. are registered. (The <code>ncs-rfs-service-hook</code> is an obsolete callpoint, ignore this one).</p><ul><li><code>UNKNOWN</code> code tries to register a call-point that does not exist in a data model.</li><li><code>NOT-REGISTERED</code> a loaded data model has a call-point but no code has registered.</li></ul><p>Of special interest is of course the <code>servicepoints</code>. All your deployed service models should have a corresponding <code>service-point</code>. For example:</p><pre data-overflow="wrap"><code>servicepoints:
   id=l3vpn-servicepoint daemonId=10 daemonName=ncs-dp-6-l3vpn:L3VPN
   id=nsr-servicepoint daemonId=11 daemonName=ncs-dp-7-nsd:NSRService
   id=vm-esc-servicepoint daemonId=12 daemonName=ncs-dp-8-vm-manager-esc:ServiceforVMstarting
   id=vnf-catalogue-esc daemonId=13 daemonName=ncs-dp-9-vnf-catalogue-esc:ESCVNFCatalogueService
-</code></pre></td></tr><tr><td><code>internal/cdb</code></td><td>The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td><code>loaded-data-models</code></td><td>The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td>All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here.</td></tr><tr><td><code>patches</code></td><td>Lists any installed patches.</td></tr><tr><td><code>upgrade-mode</code></td><td>If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
+</code></pre></td></tr><tr><td valign="top"><code>internal/cdb</code></td><td valign="top">The <code>cdb</code> section is important. Look for any locks. This might be a sign that a developer has taken a CDB lock without releasing it. The subscriber section is also important. A design pattern is to register subscribers to wait for something to change in NSO and then trigger an action. Reactive FASTMAP is designed around that. Validate that all expected subscribers are OK.</td></tr><tr><td valign="top"><code>loaded-data-models</code></td><td valign="top">The next section shows all namespaces and YANG modules that are loaded. If you, for example, are missing a service model, make sure it is loaded.</td></tr><tr><td valign="top"><code>cli</code><em>,</em> <code>netconf</code><em>,</em> <code>rest</code><em>,</em> <code>snmp</code><em>,</em> <code>webui</code></td><td valign="top">All northbound agents like CLI, REST, NETCONF, SNMP, etc. are listed with their IP and port. So if you want to connect over REST, for example, you can see the port number here.</td></tr><tr><td valign="top"><code>patches</code></td><td valign="top">Lists any installed patches.</td></tr><tr><td valign="top"><code>upgrade-mode</code></td><td valign="top">If the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. Existing CLI sessions can get system information.</td></tr></tbody></table>
 
 It is also important to look at the packages that are loaded. This can be done in the CLI with:
 
@@ -375,23 +375,43 @@ Alarms are described on the link below:
 [alarms.md](alarms.md)
 {% endcontent-ref %}
 
-### Trace ID <a href="#d5e2587" id="d5e2587"></a>
+### Tracing in NSO <a href="#d5e2587" id="d5e2587"></a>
 
-NSO can issue a unique Trace ID per northbound request, visible in logs and trace headers. This Trace ID can be used to follow the request from service invocation to configuration changes pushed to any device affected by the change. The Trace ID may either be passed in from an external client or generated by NSO.
+Tracing enables observability across NSO operations by tagging requests with unique identifiers. NSO allows for using Trace ID and Trace Context (recommended). These allow tracking of requests across service invocations, internal operations, and downstream device configurations.
 
-Trace ID is enabled by default.
+#### Trace ID <a href="#d5e2587" id="d5e2587"></a>
 
-Trace ID is propagated downwards in LSA setups and is fully integrated with commit queues.
+NSO can issue a unique Trace ID per northbound request, visible in logs and trace headers. This Trace ID can be used to follow the request from service invocation to configuration changes pushed to any device affected by the change. The Trace ID may either be passed in from an external client or generated by NSO. Note that:
 
-Trace ID can be passed to NSO over NETCONF, RESTCONF, JSON-RPC, or CLI as a commit parameter.
+* Trace ID is enabled by default.
+* Trace ID is propagated downwards in [LSA](../../advanced-topics/layered-service-architecture.md) setups and is fully integrated with commit queues.
+* Trace ID can be passed to NSO over NETCONF, RESTCONF, JSON-RPC, or CLI as a commit parameter.
+* If Trace ID is not given as a commit parameter, NSO will generate one.&#x20;
 
-If Trace ID is not given as a commit parameter, NSO will generate one. The generated Trace ID is an array of 16 random bytes, encoded as a 32-character hexadecimal string, in accordance with [Trace ID](https://www.w3.org/TR/trace-context/#trace-id).
+The generated Trace ID is an array of 16 random bytes, encoded as a 32-character hexadecimal string, in accordance with [Trace ID](https://www.w3.org/TR/trace-context/#trace-id). NSO also accepts arbitrary strings, but the UUID format (as per [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122), a 128-bit value formatted as a 36-character hyphenated string: xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx, e.g., `550e8400-e29b-41d4-a716-446655440000`) is the preferred approach for creating Trace IDs.
 
 For RESTCONF requests, this generated Trace ID will be communicated back to the requesting client as an HTTP header called `X-Cisco-NSO-Trace-ID`. The `trace-id` query parameter can also be used with RPCs and actions to relay a trace-id from northbound requests.
 
-For NETCONF, the Trace ID will be returned as an attribute called `trace-id`.
+For NETCONF, the Trace ID will be returned as an attribute called `trace-id`.&#x20;
 
 Trace ID will appear in relevant log entries and trace file headers on the form `trace-id=...`.
+
+#### **Trace Context (Recommended)**
+
+NSO supports Trace Context based on the [W3C Trace Context specification](https://www.w3.org/TR/trace-context/), which is the recommended approach for distributed request tracing. This allows tracing information to flow between systems using standardized headers.
+
+When using Trace Context:
+
+* Trace information is carried in the `traceparent` and `tracestate` attributes.
+* The trace ID is a UUID (RFC 4122) and is automatically generated and enforced.
+* Trace Context is propagated automatically across NSO operations, including LSA setups and commit queues.
+* There is no need to pass the trace ID manually as a commit parameter.
+* It is supported across all major northbound protocols: NETCONF, RESTCONF, JSON-RPC, and CLI.
+* Trace data appears in logs and trace files, enabling consistent request tracking across services and systems.
+
+{% hint style="info" %}
+When Trace Context is used, NSO handles tracing internally in compliance with W3C standards. Using an explicit `trace-id` commit parameter is therefore neither needed nor recommended.
+{% endhint %}
 
 ## Disaster Management <a href="#ug.ncs_sys_mgmt.disaster" id="ug.ncs_sys_mgmt.disaster"></a>
 

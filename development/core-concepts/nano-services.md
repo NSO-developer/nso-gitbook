@@ -698,7 +698,7 @@ data:     "tailf-ncs:service-commit-queue-event": {
 data:       "service": "/vrouter:vrouter[name='vr7']",
 data:       "id": 1637135519125,
 data:       "status": "completed",
-data:       "trace-id": "vr7-1"
+data:       "trace-id": "89695E25-3E2F-4985-A491-6E1C5223705A"
 data:     }
 data:   }
 data: }
@@ -712,7 +712,7 @@ data:       "component": "self",
 data:       "state": "tailf-ncs:ready",
 data:       "operation": "modified",
 data:       "status": "reached",
-data:       "trace-id": "vr7-1"
+data:       "trace-id": "89695E25-3E2F-4985-A491-6E1C5223705A"
 data:     }
 data:   }
 data: }
@@ -732,7 +732,7 @@ $ netconf-console create-subscription=service-state-changes
     <service xmlns:vr="http://com/example/vrouter">/vr:vrouter[vr:name='vr7']</service>
     <id>1637135519125</id>
     <status>completed</status>
-    <trace-id>vr7-1</trace-id>
+    <trace-id>89695E25-3E2F-4985-A491-6E1C5223705A</trace-id>
   </service-commit-queue-event>
 </notification>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -744,7 +744,7 @@ $ netconf-console create-subscription=service-state-changes
     <state>ready</state>
     <operation>modified</operation>
     <status>reached</status>
-    <trace-id>vr7-1</trace-id>
+    <trace-id>89695E25-3E2F-4985-A491-6E1C5223705A</trace-id>
   </plan-state-change>
 </notification>
 ```
@@ -762,7 +762,7 @@ notification
   service /vrouter[name='vr17']
   id 1637135519125
   status completed
-  trace-id vr7-1
+  trace-id 89695E25-3E2F-4985-A491-6E1C5223705A
  !
 !
 notification
@@ -773,23 +773,23 @@ notification
   state ready
   operation modified
   status reached
-  trace-id vr7-1
+  trace-id 89695E25-3E2F-4985-A491-6E1C5223705A
  !
 !
 ```
 
 ### The `trace-id` in the Notification <a href="#d5e10037" id="d5e10037"></a>
 
-You have likely noticed the trace-id field at the end of the example notifications above. The trace ID is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.5/nano-services/netsim-vrouter) example, are emitted after applying a RESTCONF plain patch:
+You have likely noticed the `trace-id` field at the end of the example notifications above. The [Trace ID](../../administration/management/system-management/#d5e2587) is an optional but very useful parameter when committing the service configuration. It helps you trace the commit in the emitted log messages and the `service-state-changes` stream notifications. The above notifications, taken from the [examples.ncs/nano-services/netsim-vrouter](https://github.com/NSO-developer/nso-examples/tree/6.5/nano-services/netsim-vrouter) example, are emitted after applying a RESTCONF plain patch:
 
 ```
 $ curl -isu admin:admin -X PATCH
   -H "Content-type: application/yang-data+json"
-  'http://localhost:8080/restconf/data?commit-queue=sync&trace-id=vr7-1'
+  'http://localhost:8080/restconf/data?commit-queue=sync&trace-id=89695E25-3E2F-4985-A491-6E1C5223705A'
   -d '{ "vrouter:vrouter": [ { "name": "vr7" } ] }'
 ```
 
-Note that the trace ID is specified as part of the URL. If missing, NSO will generate and assign one on its own.
+Note that the trace ID is specified as part of the URL. If missing, NSO will generate and assign one on its own. See [Trace ID](../../administration/management/system-management/#d5e2587) for more information.
 
 ## Developing and Updating a Nano Service <a href="#d5e10046" id="d5e10046"></a>
 
