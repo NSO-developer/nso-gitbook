@@ -18,7 +18,7 @@
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
-  * [README v1.6.4 2024-11-25](accedian-spp/README.md)
+  * [README v1.7 2025-07-23](accedian-spp/README.md)
 
 * actelis-ead
   * [README-ned-settings](actelis-ead/README-ned-settings.md)
