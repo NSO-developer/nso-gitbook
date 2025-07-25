@@ -41,11 +41,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.61.2 2025-07-17](alu-sr/README.md)
+  * [README v8.61.3 2025-07-24](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.27.21 2025-06-05](arista-dcs/README.md)
+  * [README v5.28 2025-07-24](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
