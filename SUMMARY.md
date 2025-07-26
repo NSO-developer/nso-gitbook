@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.69.6 2025-07-11](cisco-iosxr/README.md)
+  * [README v7.69.7 2025-07-25](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -197,7 +197,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.24 2025-04-25](fortinet-fortios/README.md)
+  * [README v5.11.25 2025-07-25](fortinet-fortios/README.md)
 
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
