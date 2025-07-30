@@ -423,7 +423,7 @@ admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.25
 
 User can set the preferred allocation-method on the pool while creating the pool or user can update the allocation-method later also by selecting the allocation-method value as either 'firstfree' or 'sequential'.
 
-Default value is 'firstfree'. If firstfree, release Subnets can be reused immidiately. If sequential, released IPs will be used once the available pool is exhausted.
+Default value is 'firstfree'. If firstfree, release Subnets can be reused immediately. If sequential, released IPs will be used once the available pool is exhausted.
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
 ```
@@ -447,7 +447,7 @@ myuser request subnet-size 30
 
 <summary>Create an Allocation for allocation method firstfree or sequential</summary>
 
-IP Pool supports two ways of IP allocation: 'firstfree' and 'sequential'. If we set allocation-method of the pool to 'firstfree', which is also a default allocation-method value, then released IP can be reused immidiately, but if we set the value to 'sequential' then the released IP will not be ised immidiately. Once the requested IP allocation is not possible from the available pool, released IPs can be allocated.
+IP Pool supports two ways of IP allocation: 'firstfree' and 'sequential'. If we set allocation-method of the pool to 'firstfree', which is also a default allocation-method value, then released IP can be reused immediately, but if we set the value to 'sequential' then the released IP will not be used immediately. Once the requested IP allocation is not possible from the available pool, released IPs can be allocated.
 
 We can create an IP pool and set the allocation-method to firstfree, and then create an allocation request a1. if we release the allocation a1 and again request the allocation a2 with the same subnet-size, then the same IP will get allocated.
 
