@@ -74,6 +74,11 @@
       connecting. If set to true the host name will be used if possible.
 
 
+    - connection custom-hostname <string>
+
+      The hostname of the device. This is used to connect to the device.
+
+
 ## 2.1. ned-settings accedian-skylight_rc connection authentication
 -------------------------------------------------------------------
 
