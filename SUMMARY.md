@@ -205,7 +205,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.2.5 2025-05-22](huawei-ias/README.md)
+  * [README v2.3 2025-07-30](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
