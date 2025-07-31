@@ -244,7 +244,7 @@ To restore a backup:
 2.  Run the `ncs-backup --restore` command. Start a new container with the same persistent shared volumes mounted but with a different command. Instead of running the `/run-nso.sh`, which is the normal command of the NSO container, run the `restore` command.
 
     ```bash
-    docker run -it --rm --volumes-from cisco-nso -v NSO-vol:/nso -v NSO-log-vol:/log \
+    docker run -it --rm -v NSO-vol:/nso -v NSO-log-vol:/log \
     --entrypoint ncs-backup cisco-nso-prod:6.2 \
     --restore /nso/run/backups/ncs-6.2@2024-11-03T11:31:07.backup.gz
 
