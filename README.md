@@ -4,6 +4,7 @@ icon: hands-clapping
 cover: .gitbook/assets/gb-cover-final.png
 coverY: 0
 layout:
+  width: wide
   cover:
     visible: true
     size: hero
@@ -16,6 +17,8 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
     visible: true
 ---
 
