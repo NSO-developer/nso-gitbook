@@ -93,6 +93,11 @@
   Cisco Nexus connection configuration.
 
 
+    - connection populate-smart-license <true|false> (default true)
+
+      Enable or disable population of smart license information.
+
+
     - connection number-of-retries <0-255> (default 1)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
