@@ -1,17 +1,6 @@
 ---
 description: Administrate and manage NSO.
 icon: chevrons-right
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Get Started
@@ -22,8 +11,8 @@ layout:
 
 ## Management
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>System Management</strong></td><td>Configure &#x26; manage your NSO deployment.</td><td><a href="management/system-management/">system-management</a></td></tr><tr><td><strong>Package Managament</strong></td><td>Learn about NSO packages and how to use them.</td><td><a href="management/package-mgmt.md">package-mgmt.md</a></td></tr><tr><td><strong>High Availability</strong></td><td>Set up multiple nodes in a highly-available (HA) setup.</td><td><a href="management/high-availability.md">high-availability.md</a></td></tr><tr><td><strong>AAA Infrastructure</strong></td><td>Set up user authentication and authorization.</td><td><a href="management/aaa-infrastructure.md">aaa-infrastructure.md</a></td></tr><tr><td><strong>NED Administration</strong></td><td>Administer and manage Cisco-provided NEDs.</td><td><a href="management/ned-administration.md">ned-administration.md</a></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>System Management</strong></td><td>Configure &#x26; manage your NSO deployment.</td><td><a href="management/system-management/">system-management</a></td></tr><tr><td><strong>Package Management</strong></td><td>Learn about NSO packages and how to use them.</td><td><a href="management/package-mgmt.md">package-mgmt.md</a></td></tr><tr><td><strong>High Availability</strong></td><td>Set up multiple nodes in a highly-available (HA) setup.</td><td><a href="management/high-availability.md">high-availability.md</a></td></tr><tr><td><strong>AAA Infrastructure</strong></td><td>Set up user authentication and authorization.</td><td><a href="management/aaa-infrastructure.md">aaa-infrastructure.md</a></td></tr><tr><td><strong>NED Administration</strong></td><td>Administer and manage Cisco-provided NEDs.</td><td><a href="management/ned-administration.md">ned-administration.md</a></td></tr></tbody></table>
 
 ## Advanced Topics
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Locks</strong></td><td>Understand how transaction locks work.</td><td><a href="advanced-topics/locks.md">locks.md</a></td></tr><tr><td><strong>CDB Persistence</strong></td><td>Select the optimal CDB persistence mode.</td><td><a href="advanced-topics/cdb-persistence.md">cdb-persistence.md</a></td></tr><tr><td><strong>IPC Connection</strong></td><td>Learn how client libraries connect to NSO.</td><td><a href="advanced-topics/ipc-connection.md">ipc-connection.md</a></td></tr><tr><td><strong>Service Manager Restart</strong></td><td>Configure the timeout period of Service Manager.</td><td><a href="advanced-topics/restart-strategies-for-service-manager.md">restart-strategies-for-service-manager.md</a></td></tr><tr><td><strong>IPv6 on Northbound</strong></td><td>Use IPv6 on Northbound NSO interfaces.</td><td><a href="advanced-topics/ipv6-on-northbound-interfaces.md">ipv6-on-northbound-interfaces.md</a></td></tr><tr><td><strong>LSA</strong></td><td>Learn about Layered Service Architecture.</td><td><a href="advanced-topics/layered-service-architecture.md">layered-service-architecture.md</a></td></tr><tr><td><strong>Cryptographic Keys</strong></td><td>Implement string storage with cryptographic keys.</td><td><a href="advanced-topics/cryptographic-keys.md">cryptographic-keys.md</a></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Locks</strong></td><td>Understand how transaction locks work.</td><td><a href="advanced-topics/locks.md">locks.md</a></td></tr><tr><td><strong>CDB Persistence</strong></td><td>Select the optimal CDB persistence mode.</td><td><a href="advanced-topics/cdb-persistence.md">cdb-persistence.md</a></td></tr><tr><td><strong>IPC Connection</strong></td><td>Learn how client libraries connect to NSO.</td><td><a href="advanced-topics/ipc-connection.md">ipc-connection.md</a></td></tr><tr><td><strong>Cryptographic Keys</strong></td><td>Implement string storage with cryptographic keys.</td><td><a href="advanced-topics/cryptographic-keys.md">cryptographic-keys.md</a></td></tr><tr><td><strong>Service Manager Restart</strong></td><td>Configure the timeout period of Service Manager.</td><td><a href="advanced-topics/restart-strategies-for-service-manager.md">restart-strategies-for-service-manager.md</a></td></tr><tr><td><strong>IPv6 on Northbound</strong></td><td>Use IPv6 on Northbound NSO interfaces.</td><td><a href="advanced-topics/ipv6-on-northbound-interfaces.md">ipv6-on-northbound-interfaces.md</a></td></tr><tr><td><strong>LSA</strong></td><td>Learn about Layered Service Architecture.</td><td><a href="advanced-topics/layered-service-architecture.md">layered-service-architecture.md</a></td></tr></tbody></table>
