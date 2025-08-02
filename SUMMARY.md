@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.27.9 2025-07-11](cisco-nx/README.md)
+  * [README v5.28 2025-08-01](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.57.1 2025-06-18](cisco-staros/README.md)
+  * [README v5.57.2 2025-08-01](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -233,7 +233,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.19 2025-07-17](juniper-junos/README.md)
+  * [README v4.18.20 2025-08-01](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -353,7 +353,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.4.3 2025-07-18](zte-xpon/README.md)
+  * [README v4.4.4 2025-08-01](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)

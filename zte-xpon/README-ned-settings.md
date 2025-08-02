@@ -100,7 +100,7 @@
   Configure NED settings related to live-status.
 
 
-    - time-to-live <int32> (default 50)
+    - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
 
@@ -111,23 +111,23 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - number-of-retries <uint8> (default 0)
+    - connection number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - time-between-retry <uint8> (default 1)
+    - connection time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - terminal server-echo <true|false> (default false)
+    - connection terminal server-echo <true|false> (default false)
 
       Enable (TELNET) server echo, i.e. use DO ECHO instead of DONT ECHO.
 
 
-    - terminal println-mode <enum> (default default)
+    - connection terminal println-mode <enum> (default default)
 
       default  - System property line.separator default.
 
@@ -138,7 +138,7 @@
       onlret   - Newline performs a carriage return.
 
 
-    - device-prompt <REGEXP> (default \A[\S ]+#[ ]?$)
+    - connection device-prompt <REGEXP> (default \A[\S ]+#[ ]?$)
 
       When doing a READ, the ned will do a "show configuration" command and get everything until the prompt occurs. 
       To do that, we need a prompt regexp match. By default it is set to "\A[\S ]+#[ ]?$". In cases where the device actually 
@@ -152,7 +152,7 @@
   Configure NED to access device via a proxy.
 
 
-    - remote-connection <enum>
+    - proxy remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -163,43 +163,43 @@
       serial  - Terminal server proxy.
 
 
-    - remote-address <union>
+    - proxy remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - remote-port <uint16>
+    - proxy remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - remote-command <string>
+    - proxy remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - remote-name <string>
+    - proxy remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - remote-password <string>
+    - proxy remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - authgroup <WORD>
+    - proxy authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-prompt <string>
+    - proxy proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - remote-ssh-args <string>
+    - proxy remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -210,7 +210,7 @@
   Configure NED to access device via a second proxy.
 
 
-    - remote-connection <enum>
+    - proxy-2 remote-connection <enum>
 
       Connection type between proxy and device.
 
@@ -221,43 +221,43 @@
       serial  - Terminal server proxy.
 
 
-    - remote-address <union>
+    - proxy-2 remote-address <union>
 
       Address of host behind the proxy.
 
 
-    - remote-port <uint16>
+    - proxy-2 remote-port <uint16>
 
       Port of host behind the proxy.
 
 
-    - remote-command <string>
+    - proxy-2 remote-command <string>
 
       Connection command used to initiate proxy on device. Optional for ssh/telnet. Accepts
       $(proxy/remote-xxx) for inserting remote-xxx config.
 
 
-    - remote-name <string>
+    - proxy-2 remote-name <string>
 
       User name on the device behind the proxy.
 
 
-    - remote-password <string>
+    - proxy-2 remote-password <string>
 
       Password on the device behind the proxy.
 
 
-    - authgroup <WORD>
+    - proxy-2 authgroup <WORD>
 
       Authentication credentials for the device behind the proxy.
 
 
-    - proxy-prompt <string>
+    - proxy-2 proxy-prompt <string>
 
       Prompt pattern on the proxy host.
 
 
-    - remote-ssh-args <string>
+    - proxy-2 remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
 
@@ -268,23 +268,23 @@
   Contains settings used by the NED developers.
 
 
-    - load-from-file <string>
+    - developer load-from-file <string>
 
       Make the NED load a file containing raw device config when doing sync-from. Does only work on
       NETSIM targets.
 
 
-    - model <uint32>
+    - developer model <uint32>
 
       Simulate a model number.
 
 
-    - version <uint8>
+    - developer version <uint8>
 
       Simulate a version number.
 
 
-    - device-type <enum> (default netsim)
+    - developer device-type <enum> (default netsim)
 
       Real or simulated device.
 
@@ -293,7 +293,7 @@
       device  - device.
 
 
-    - progress-verbosity <enum> (default debug)
+    - developer progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level reported by the NED. Default debug.
 
@@ -308,17 +308,17 @@
       debug         - debug.
 
 
-    - platform model <string>
+    - developer platform model <string>
 
       Override device model name/number.
 
 
-    - platform name <string>
+    - developer platform name <string>
 
       Override device name.
 
 
-    - platform version <string>
+    - developer platform version <string>
 
       Override device version.
 
@@ -329,52 +329,52 @@
   Settings used while interacting with a device.
 
 
-    - ignore-errors <true|false> (default false)
+    - console ignore-errors <true|false> (default false)
 
       Flag indicating if errors should be ignored.
 
 
-    - ignore-warnings <true|false> (default false)
+    - console ignore-warnings <true|false> (default false)
 
       Flag indicating if warnings should be ignored.
 
 
-    - ignore-retries <true|false> (default false)
+    - console ignore-retries <true|false> (default false)
 
       Flag indicating if retries should be ignored.
 
 
-    - max-retries <uint8> (default 100)
+    - console max-retries <uint8> (default 100)
 
       Maximum number of retries of a command.
 
 
-    - retry-delay <uint16> (default 1000)
+    - console retry-delay <uint16> (default 1000)
 
       Number of ms before retrying a command.
 
 
-    - send-delay <uint32> (default 0)
+    - console send-delay <uint32> (default 0)
 
       Enable delay before sending commands.
 
 
-    - expect-timeout <uint32> (default 60000)
+    - console expect-timeout <uint32> (default 60000)
 
       Set default timeout for sending commands.
 
 
-    - chunk-size <uint8> (default 1)
+    - console chunk-size <uint8> (default 1)
 
       Enable executing commands in chunks.
 
 
-    - line-feed <string>
+    - console line-feed <string>
 
       Overwrites default line-feed character.
 
 
-    - obfuscate-secret <true|false>
+    - console obfuscate-secret <true|false>
 
       Secrets will be obfuscated in trace & log files.
 
@@ -384,7 +384,7 @@
 
   Extend which messages to ignore warnings/errors etc.
 
-    - extension warning <warning>
+    - console extension warning <warning>
 
       - warning <WORD>
 
@@ -396,7 +396,7 @@
 
   Extend available commands to send.
 
-    - extension command <name> <data>
+    - console extension command <name> <data>
 
       - name <string>
 
@@ -412,7 +412,7 @@
 
   Extend available patterns to expect.
 
-    - extension pattern <name> <data>
+    - console extension pattern <name> <data>
 
       - name <string>
 
@@ -428,7 +428,7 @@
 
   Extend available actions to perform.
 
-    - extension action <name> <init> <flush>
+    - console extension action <name> <init> <flush>
 
       - name <string>
 
@@ -487,7 +487,7 @@
   Settings for controlling logs generated.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -500,7 +500,7 @@
       debug    - debug.
 
 
-    - java <true|false> (default false)
+    - logger java <true|false> (default false)
 
       Toggle logs to be added to ncs-java-vm.log.
 
