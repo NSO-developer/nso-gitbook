@@ -2,7 +2,7 @@
 description: Learn the concepts of NSO device management.
 ---
 
-# NSO Device Manager
+# Device Manager
 
 The NSO device manager is the center of NSO. The device manager maintains a flat list of all managed devices. Normally NSO keeps the primary copy of the configuration for each managed device in the CDB. Whenever a configuration change is done to the list of device configuration primary copies, the device manager will partition this network configuration change into the corresponding changes for the managed devices. The device manager passes on the required changes to the NEDs (Network Element Drivers). A NED needs to be installed for every type of device OS, like Cisco IOS NED, Cisco XR NED, Juniper JUNOS NED, etc. The NEDs communicate through the native device protocol southbound.
 
