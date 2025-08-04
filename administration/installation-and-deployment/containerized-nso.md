@@ -46,7 +46,7 @@ Consult the [Installation](./) documentation for information on installing NSO o
 {% endhint %}
 
 {% hint style="info" %}
-See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
+See [Developing and Deploying a Nano Service](deployment/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
 The README in the examples.ncs/getting-started/netsim-sshkey example provides a link to the container-based deployment variant of the example. See the `setup.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}

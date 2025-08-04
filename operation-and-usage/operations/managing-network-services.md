@@ -1162,7 +1162,7 @@ A limitation in the scenarios described so far is that the mapping definition co
 
 Nano services using Reactive FASTMAP handle these scenarios with an executable plan that the system can follow to provision the service. The general idea is to implement the service as several smaller (nano) steps or stages, by using reactive FASTMAP and provide a framework to safely execute actions with side effects.
 
-The [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md).
+The [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
 
 ## Reconciling Existing Services <a href="#d5e1032" id="d5e1032"></a>
 

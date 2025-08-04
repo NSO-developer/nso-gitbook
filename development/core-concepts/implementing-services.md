@@ -1468,7 +1468,7 @@ The basic concepts of nano services are covered in detail by [Nano Services for 
 3. Configures NSO to use the public key for authentication with the netsim network elements using a Python service `create()` callback and service template.
 4. Test the connection using the public key through a nano service side-effect executed by the NSO built-in **connect** action.
 
-Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md).
+Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
 
 The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.5/nano-services) directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
 

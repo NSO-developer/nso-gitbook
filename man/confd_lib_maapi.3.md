@@ -1155,7 +1155,7 @@ freed by the application by means of calling `free(3)`.
 If the flag `CONFD_USESS_FLAG_HAS_OPAQUE` is set in the `flags` field of
 the `confd_user_info` structure, "opaque" information has been provided
 by the northbound client (see the `-O` option in
-[confd_cli(1)](confd_cli.1.md)). The information can then be retrieved
+[confd_cli(1)](ncs_cli.1.md)). The information can then be retrieved
 by calling this function. If the call is successful, `opaque` is set to
 point to a dynamically allocated string, which must be freed by the
 application by means of calling `free(3)`.
