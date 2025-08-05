@@ -45,7 +45,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.28 2025-07-24](arista-dcs/README.md)
+  * [README v5.29 2025-08-03](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
