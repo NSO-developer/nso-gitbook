@@ -205,6 +205,11 @@
       Configure SSH client keep alive interval in seconds, default 0.
 
 
+    - connection populate-smart-license <true|false> (default true)
+
+      Enable or disable population of smart license information.
+
+
 # 4. ned-settings cisco-ios proxy
 ---------------------------------
 

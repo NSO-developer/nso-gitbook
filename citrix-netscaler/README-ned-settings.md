@@ -48,17 +48,17 @@
   Citrix-netscaler ned-settings.
 
 
-    - citrix-netscaler use-admin-partition <string>
+    - use-admin-partition <string>
 
       Admin partition name.
 
 
-    - citrix-netscaler use-bulkbindings-api-filter <true|false> (default false)
+    - use-bulkbindings-api-filter <true|false> (default false)
 
       Use bulkbindings API filter when retreiving bindings object.
 
 
-    - citrix-netscaler sync-objects-list-filter <string>
+    - sync-objects-list-filter <string>
 
       User editable list of comma separated syncing objects.
 

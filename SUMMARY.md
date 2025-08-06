@@ -14,7 +14,7 @@
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
   * [README-rebuild](accedian-skylight_rc/README-rebuild.md)
-  * [README v3.0.2 2025-07-29](accedian-skylight_rc/README.md)
+  * [README v3.0.3 2025-08-05](accedian-skylight_rc/README.md)
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
@@ -205,7 +205,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.3 2025-07-30](huawei-ias/README.md)
+  * [README v2.3.1 2025-08-05](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
