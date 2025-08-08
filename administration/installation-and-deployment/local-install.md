@@ -29,6 +29,10 @@ To install NSO:
 1. Fulfill at least the primary requirements.
 2. If you intend to build and run NSO examples, you also need to install additional applications listed under Additional Requirements.
 
+{% hint style="warning" %}
+Where requirements list a specific or higher version, there always exists a (small) possibility that a higher version introduces breaking changes. If in doubt whether the higher version is fully backwards compatible, always use the specific version.
+{% endhint %}
+
 <details>
 
 <summary>Primary Requirements</summary>
@@ -420,7 +424,7 @@ Since the Runtime Directory is self-contained, this is also the way to move betw
 </details>
 
 {% hint style="warning" %}
-The `ncs-setup`  command creates an `ncs.conf` file that uses predefined encryption keys for easier migration of data across installations. It is not suitable for cases where data confidentiality is required, such as a production deployment. See [cryptographic-keys.md](../advanced-topics/cryptographic-keys.md) for ways to generate suitable keys.
+The `ncs-setup` command creates an `ncs.conf` file that uses predefined encryption keys for easier migration of data across installations. It is not suitable for cases where data confidentiality is required, such as a production deployment. See [cryptographic-keys.md](../advanced-topics/cryptographic-keys.md) for ways to generate suitable keys.
 {% endhint %}
 
 ### Step 7 - Generate License Registration Token <a href="#li.generate.license.token" id="li.generate.license.token"></a>
