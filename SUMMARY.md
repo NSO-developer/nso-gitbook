@@ -14,7 +14,7 @@
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
   * [README-rebuild](accedian-skylight_rc/README-rebuild.md)
-  * [README v3.0.3 2025-08-05](accedian-skylight_rc/README.md)
+  * [README v3.0.4 2025-08-07](accedian-skylight_rc/README.md)
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
@@ -41,7 +41,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.61.3 2025-07-24](alu-sr/README.md)
+  * [README v8.62 2025-08-07](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.69.7 2025-07-25](cisco-iosxr/README.md)
+  * [README v7.70 2025-08-07](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -345,7 +345,7 @@
 
 * viptela-vmanage
   * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
-  * [README v1.6.26 2024-11-21](viptela-vmanage/README.md)
+  * [README v1.6.26 2025-08-07](viptela-vmanage/README.md)
 
 * vmware-vsphere
   * [README-ned-settings](vmware-vsphere/README-ned-settings.md)

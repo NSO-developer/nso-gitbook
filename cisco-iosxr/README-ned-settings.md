@@ -207,6 +207,11 @@
       version causing the sshj client to fail file transfers.
 
 
+    - connection populate-smart-license <true|false> (default true)
+
+      Enable or disable population of smart license information.
+
+
 # 4. ned-settings cisco-iosxr proxy
 -----------------------------------
 

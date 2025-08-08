@@ -1065,7 +1065,49 @@
 # 6. Built in live-status show
 ------------------------------
 
-  The NED does not support TTL'based data
+  Accedian-skylight_rc NED supports several live-status TTL-based data, mainly denoted in the yang model by the presence of 'config false' annotation in the yang nodes.
+
+  Here are some examples of nodes that supports live-status data (note: since this NED is 3PY yang, the following list is not exhaustive):
+  ```
+  /service-endpoints/service-endpoint/status
+  /sessions/session/service-endpoints/session-protocol/<rfc2544 or y1564>/reports
+  /sessions/session/status
+  ```
+
+  Before using live-status feature of the accedian-skylight_rc NED, several ned-settings have to be configured:
+  ```
+   ned-settings accedian-skylight_rc general live-status restore-namespaces-and-identityrefs true
+   ned-settings accedian-skylight_rc restconf live-status append-content-nonconfig-query true
+  ```
+
+  After commiting the above ned-settings, live-status data can be fetched by executing commands similar as the following:
+  ```
+  admin@ncs# show devices device <device-id> live-status sessions
+  live-status sessions session NED_Test_Session_01
+   service-endpoints ANT2
+   service-endpoints SFP
+  live-status sessions session SCALE_SOAK_ID-_ip9wucu3pZBIPuPJxo
+   service-endpoints ei_867a034f-20ea-4b01-b48f-e66193dc69cb_default
+   service-endpoints ei_ff89a007-a259-44f5-9422-beaef511e6f0_default
+  live-status sessions session SCALE_SOAK_ID-eCR1JciOGVSJuvIo_F97ZVpFFtEHYCRxsKzV26YW-HNo1JjSeh2xnSBl453mqU1cvIXASa7Y2ODSoFI
+   service-endpoints ei_867a034f-20ea-4b01-b48f-e66193dc69cb_default
+   service-endpoints ei_ff89a007-a259-44f5-9422-beaef511e6f0_default
+  live-status sessions session SCALE_SOAK_ID-eN_xIMVkSbTPPImCj0IKSiZ7XxzbCvr6j
+   service-endpoints ei_867a034f-20ea-4b01-b48f-e66193dc69cb_default
+   service-endpoints ei_ff89a007-a259-44f5-9422-beaef511e6f0_default
+  live-status sessions session SCALE_SOAK_ID-yok3eXFEt_5Km8DceRqY
+   service-endpoints ei_867a034f-20ea-4b01-b48f-e66193dc69cb_default
+   service-endpoints ei_ff89a007-a259-44f5-9422-beaef511e6f0_default
+  ```
+
+  Above command will fetch live-status data for all sessions. The following example shows how to fetch data for a particular session:
+  ```
+  admin@ncs# show devices device <device-id> live-status sessions session SESS_ECHO01
+  live-status sessions session SESS_ECHO01
+   service-endpoints SEP_ECHO1
+   status status stopped
+  admin@ncs#
+  ```
 
 
 # 7. Limitations

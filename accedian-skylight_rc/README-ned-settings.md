@@ -897,6 +897,14 @@
       The live-status time-to-live settings are not applicable when using this API.
 
 
+    - live-status restore-namespaces-and-identityrefs <true|false> (default true)
+
+      Make the NED go through the operational data dump and fix/restore the namespace information
+      and prefixes on identityref values etc. This is a common problem on many Skylight devices. NSO
+      is very strict about namespaces and will typically bail out the operation completely if it
+      finds a namespace issue. This setting will prevent such issues. Enabled by default.
+
+
     - live-status filter-unmodeled <true|false> (default false)
 
       Filter all nodes that are not represented in the YANG schema from the JSON payload received
