@@ -27,6 +27,10 @@ To install NSO:
 1. Fulfill at least the primary requirements.
 2. If you intend to build and run NSO deployment examples, you also need to install additional applications listed under Additional Requirements.
 
+{% hint style="warning" %}
+Where requirements list a specific or higher version, there always exists a (small) possibility that a higher version introduces breaking changes. If in doubt whether the higher version is fully backwards compatible, always use the specific version.
+{% endhint %}
+
 <details>
 
 <summary>Primary Requirements</summary>
