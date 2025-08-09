@@ -558,7 +558,7 @@
       The default value is 50 seconds.
 
 
-# 9.Configure the NED using ned-settings
+9.Configure the NED using ned-settings
 ---------------------------------------
 
   The cisco-sma NED can be configured using the cisco-sma

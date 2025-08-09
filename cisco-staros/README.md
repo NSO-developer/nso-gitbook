@@ -710,6 +710,50 @@ admin@ncs(config)# commit
      admin@ncs(config-ipv4)#
      ```
 
+  2. The STAROS device replace the `/active-charging/service/rulebase/action/priority` entry if it exists
+     within the same `group-of-ruledefs/ruledef`.  However, according to YANG RFC and NSO, there is
+     no mechanism to replace a list key based on optional leaves. This is a limitation in both YANG
+     and NSO. The only viable approach is to remove the existing entry and recreate it with the updated
+     key and optional leaves.
+
+     The NED implements `group-of-ruledefs/ruledef` as unique in the priority list to prevent duplicate
+     entries from being pushed to the STAROS device.
+
+     ```
+     # devices device dev-1 config
+     # active-charging service ecs rulebase test
+     # action priority 65535 group-of-ruledefs gof-test1 charging-action ca-test1
+
+     admin@ncs(config-rulebase-test)# commit dry-run outformat native
+     Aborted: values are not unique: mms_CE-MSISDN-IMSI-SGSN-IP-SUBSCRIBER-IP
+     'devices device dev-1 config active-charging service ecs rulebase test action priority 55555 group-of-ruledefs'
+     'devices device dev-1 config active-charging service ecs rulebase test action priority 65535 group-of-ruledefs'
+     admin@ncs(config-rulebase-test)#
+     admin@ncs(config-rulebase-test)#
+     ```
+
+     Resolution:
+
+     To resolve this issue, first remove the conflicting priority entry and then recreate the desired configuration.
+
+     ```
+     # no action priority 55555
+     # commit dry-run outformat native
+     native {
+         device {
+             name dev-1
+             data active-charging service ecs
+                   rulebase test
+                    no action priority 55555
+                   exit
+                   rulebase test
+                    action priority 65535 group-of-ruledefs gof-test1 charging-action ca-test1
+                   exit
+                  exit
+         }
+     }
+     ```
+
 
 # 8. How to report NED issues and feature requests
 --------------------------------------------------

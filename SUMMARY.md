@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.57.2 2025-08-01](cisco-staros/README.md)
+  * [README v5.57.3 2025-08-08](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -238,7 +238,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.22 2025-07-04](juniper-junos_nc/README.md)
+  * [README v1.1.23 2025-08-08](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -345,7 +345,7 @@
 
 * viptela-vmanage
   * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
-  * [README v1.6.26 2025-08-07](viptela-vmanage/README.md)
+  * [README v1.6.27 2025-08-08](viptela-vmanage/README.md)
 
 * vmware-vsphere
   * [README-ned-settings](vmware-vsphere/README-ned-settings.md)
