@@ -148,6 +148,15 @@
       2  - 2.
 
 
+    - connection api vpn-level <enum> (default L2VPN)
+
+      VPN level for the API.
+
+      L2VPN  - L2VPN.
+
+      L3VPN  - L3VPN.
+
+
     - connection api request service action update id-value-as <enum> (default DOMAIN_SERVICE_ID)
 
       SERVICE_ID         - SERVICE_ID.

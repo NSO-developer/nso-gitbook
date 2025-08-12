@@ -50,7 +50,7 @@
 ----------------------------
 
 
-    - cisco-fxos extended-parser <enum> (default turbo-mode)
+    - extended-parser <enum> (default turbo-mode)
 
       Make the cisco-fxos NED enable extensions to ease the task of the NSO CLI command parser. A
       common problem with this parser is that it can easily get lost when trying to parse

@@ -46,7 +46,7 @@
 -----------------------------
 
 
-    - actelis-ead extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
       model based config tree).

@@ -26,7 +26,7 @@
 
 * adtran-dpoe
   * [README-ned-settings](adtran-dpoe/README-ned-settings.md)
-  * [README v1.0.1 2025-01-07](adtran-dpoe/README.md)
+  * [README v1.0.2 2025-08-11](adtran-dpoe/README.md)
 
 * adva-825
   * [README-ned-settings](adva-825/README-ned-settings.md)
@@ -79,7 +79,7 @@
 * ciena-saos_nc
   * [README-ned-settings](ciena-saos_nc/README-ned-settings.md)
   * [README-rebuild](ciena-saos_nc/README-rebuild.md)
-  * [README v1.0.4 2025-02-24](ciena-saos_nc/README.md)
+  * [README v1.0.5 2025-08-11](ciena-saos_nc/README.md)
 
 * cisco-aireos
   * [README-ned-settings](cisco-aireos/README-ned-settings.md)
@@ -130,7 +130,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.0.2 2025-06-09](cisco-iosxr_nc/README.md)
+  * [README v1.0.3 2025-08-11](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v25.2.1 2025-06-30](cisco-iosxr_netconf/README.md)
@@ -221,7 +221,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.77.1 2025-08-08](huawei-vrp/README.md)
+  * [README v6.77.1 2025-08-11](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)

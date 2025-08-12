@@ -49,7 +49,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - brocade-ironware extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the brocade-ironware NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -72,7 +72,7 @@
                         (which potentially can cause following config to be skipped).
 
 
-    - brocade-ironware ironware-transaction-id-method <enum>
+    - ironware-transaction-id-method <enum>
 
       Method of the brocade-ironware NED to use for calculating a transaction id. Typically used for
       check-sync operations.
@@ -83,7 +83,7 @@
                      memory'for calculation.
 
 
-    - brocade-ironware banner-delimeter-fastiron <string> (default {)
+    - banner-delimeter-fastiron <string> (default {)
 
       This is a single character delimiter used for setting a banner.This character must not be used
       inside the banner text!.
