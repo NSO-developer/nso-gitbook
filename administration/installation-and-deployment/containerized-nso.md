@@ -382,8 +382,8 @@ docker run -itd --name cisco-nso \
 -v NSO-vol:/nso \
 -v NSO-log-vol:/log \
 --net=host \
--e ADMIN_USERNAME=admin\
--e ADMIN_PASSWORD=admin\
+-e ADMIN_USERNAME=admin \
+-e ADMIN_PASSWORD=admin \
 cisco-nso-prod:6.4
 ```
 
