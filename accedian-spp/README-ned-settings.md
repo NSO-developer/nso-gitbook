@@ -54,7 +54,7 @@
 ------------------------------
 
 
-    - accedian-spp extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the accedian-spp NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -78,7 +78,7 @@
                         data to NSO.
 
 
-    - accedian-spp trans-id-from-conf-changes <true|false> (default false)
+    - trans-id-from-conf-changes <true|false> (default false)
 
       EXPERIMENTAL. Enables trans-id fetching with the
       'configuration changes' command sent to device.
