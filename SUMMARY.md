@@ -100,7 +100,7 @@
 
 * cisco-esa
   * [README-ned-settings](cisco-esa/README-ned-settings.md)
-  * [README v2.0.11 2024-08-29](cisco-esa/README.md)
+  * [README v2.0.12 2025-08-13](cisco-esa/README.md)
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
@@ -145,7 +145,7 @@
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
-  * [README v2.1.1 2024-08-29](cisco-sma/README.md)
+  * [README v2.1.2 2025-08-13](cisco-sma/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)

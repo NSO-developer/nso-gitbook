@@ -50,7 +50,7 @@
 ------------------------------
 
 
-    - cisco-aireos use-startup-commands <true|false> (default false)
+    - use-startup-commands <true|false> (default false)
 
       This ned-setting executes 'show run-config startup-commands' in sync-from.
       By default executing 'show run-config startup-commands' is disabled.
@@ -70,7 +70,7 @@
           must disconnect and connect again, to re-read ned-settings.
 
 
-    - cisco-aireos extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-aireos NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -100,7 +100,7 @@
 
   This section describes how device output (warnings/errors) can be filtered.
 
-    - cisco-aireos cisco-aireos-config-warning <warning>
+    - cisco-aireos-config-warning <warning>
 
       - warning <WORD>
 
@@ -147,7 +147,7 @@
 
   This section describes how to remove/filter configs during sync-from.
 
-    - cisco-aireos cisco-aireos-remove-sync-from-config <remove-config>
+    - cisco-aireos-remove-sync-from-config <remove-config>
 
       - remove-config <WORD>
 

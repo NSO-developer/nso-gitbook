@@ -55,7 +55,7 @@
 ----------------------------
 
 
-    - vecima-eac extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-nx NED handle CLI parsing (i.e. transform the running-config from the device to
       the model based config tree).
