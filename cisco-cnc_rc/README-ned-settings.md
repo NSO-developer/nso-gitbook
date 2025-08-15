@@ -551,6 +551,13 @@
   General settings related to live-status.
 
 
+    - live-status show-stats-filter <true|false> (default false)
+
+      Use the filter API from NSO to do live-status requests. This API is more flexible and will
+      result in fewer round-trips to the device and possibly less data transferred from the device.
+      The live-status time-to-live settings are not applicable when using this API.
+
+
     - live-status filter-unmodeled <true|false> (default false)
 
       Filter all nodes that are not represented in the YANG schema from the JSON payload received
