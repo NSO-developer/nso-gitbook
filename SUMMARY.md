@@ -159,7 +159,6 @@
   * [ncsc](man/ncsc.1.md)
   * [tailf\_yang\_cli\_extensions](man/tailf_yang_cli_extensions.5.md)
   * [tailf\_yang\_extensions](man/tailf_yang_extensions.5.md)
-* [Java API Reference](https://developer.cisco.com/docs/nso/api)
 
 ## Developer Reference
 
