@@ -123,3 +123,14 @@
   * [Section 1](man/section1.md)
   * [Section 3](man/section3.md)
   * [Section 5](man/section5.md)
+
+## Developer Reference
+
+* [Python, Java, and Erlang Extensibility SDK](developer-reference/python-java-and-erlang-extensibility-sdk.md)
+* [RESTCONF API](developer-reference/restconf-api/README.md)
+  * [Sample RESTCONF API Docs](https://developer.cisco.com/docs/nso/overview/)
+* [NETCONF Interface](developer-reference/netconf-interface.md)
+* [CLI](developer-reference/cli.md)
+* [JSON-RPC API](developer-reference/json-rpc-api.md)
+* [SNMP Agent](developer-reference/snmp-agent.md)
+* [XPath](developer-reference/xpath.md)
