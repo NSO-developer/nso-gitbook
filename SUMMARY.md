@@ -83,7 +83,7 @@
 
 * cisco-aireos
   * [README-ned-settings](cisco-aireos/README-ned-settings.md)
-  * [README v3.9.25 2025-02-18](cisco-aireos/README.md)
+  * [README v3.9.26 2025-08-15](cisco-aireos/README.md)
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
@@ -96,7 +96,7 @@
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
   * [README-rebuild](cisco-cnc_rc/README-rebuild.md)
-  * [README v1.0.9 2025-02-14](cisco-cnc_rc/README.md)
+  * [README v1.0.10 2025-08-15](cisco-cnc_rc/README.md)
 
 * cisco-esa
   * [README-ned-settings](cisco-esa/README-ned-settings.md)
@@ -233,12 +233,12 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.20 2025-08-01](juniper-junos/README.md)
+  * [README v4.18.21 2025-08-15](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.23 2025-08-08](juniper-junos_nc/README.md)
+  * [README v1.1.24 2025-08-15](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -255,7 +255,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.14 2025-06-27](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.15 2025-08-15](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
