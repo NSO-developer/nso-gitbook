@@ -116,11 +116,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.109.13 2025-08-06](cisco-ios/README.md)
+  * [README v6.109.14 2025-08-20](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.70 2025-08-07](cisco-iosxr/README.md)
+  * [README v7.71 2025-08-20](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -300,7 +300,7 @@
   * [README v1.18.16 2025-01-24](rad-vx/README.md)
 
 * radware-cc
-  * [README v1.0.0 2025-05-17](radware-cc/README.md)
+  * [README v1.0.0 2025-08-20](radware-cc/README.md)
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
