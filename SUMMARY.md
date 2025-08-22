@@ -41,7 +41,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.62 2025-08-07](alu-sr/README.md)
+  * [README v8.63 2025-08-21](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -87,7 +87,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.1 2025-07-18](cisco-apicdc/README.md)
+  * [README v3.21.2 2025-08-21](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.28 2025-08-01](cisco-nx/README.md)
+  * [README v5.29 2025-08-21](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -221,7 +221,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.77.1 2025-08-11](huawei-vrp/README.md)
+  * [README v6.78 2025-08-21](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
