@@ -759,7 +759,7 @@ Thus, we end up with three distinct packages from the original one:
 
 The purpose of the upper CFS node is to manage all CFS services and to push the resulting service mappings to the RFS services. The lower RFS nodes are configured as devices in the device tree of the upper CFS node and the RFS services are created under the `/devices/device/config` accordingly. This is almost identical to the relation between a normal NSO node and the normal devices. However, there are differences when it comes to commit parameters and the commit queue, as well as some other LSA-specific features.
 
-Such a design allows you to decide whether you will run the same version of NSO on all nodes or not. Since some differences arise between the two options, this document distinguishes a _single-version_ deployment from a multi-version one.
+Such a design allows you to decide whether you will run the same version of NSO on all nodes or not. Since some differences arise between the two options, this document distinguishes a single-version deployment from a multi-version one.
 
 Deployment of an LSA cluster where all the nodes have the same major version of NSO running is called a single version deployment. If the versions are different, then it is a multi-version deployment, since the packages on the CFS node must be managed differently.
 
@@ -1158,19 +1158,21 @@ If that is not feasible, the solution is to run a Multi-Version Deployment. Alon
 
 The procedure requires you to have two versions of the device-compiled RFS service packages loaded in the upper CFS node when calling the `migrate` action: one version compiled by referencing the old (current) NED ID and the other one by referencing the new (target) NED ID.
 
-To illustrate, suppose you currently have an upper-layer and a lower-layer node both running NSO 5.4. The nodes were set up as described in the Single Version Deployment option, with the upper CFS node using the `tailf-ncs-ned:lsa-netconf` NED ID for the lower-layer RFS node. The CFS node also uses the `rfs-vlan-ned` NED package for the `rfs-vlan` service.
+To illustrate, suppose you currently have an upper-layer and a lower-layer node both running NSO 5.4. The nodes were set up as described in the Single-Version Deployment option, with the upper CFS node using the `tailf-ncs-ned:lsa-netconf` NED ID for the lower-layer RFS node. The CFS node also uses the `rfs-vlan-ned` NED package for the `rfs-vlan` service.
 
 Now you wish to upgrade the CFS node to NSO 5.7 but keep the RFS node on the existing version 5.4. Before upgrading the CFS node, you create a backup and recompile the `rfs-vlan-ned` package for NSO 5.7. Note that the package references the `lsa-netconf` `ned-id`, which is the `ned-id` configured for the RFS device in the CFS node's CDB. Then, you perform the CFS node upgrade as usual.
 
-At this point the CFS node is running the new, 5.7 version and the RFS node is running 5.4. Since you now have a Multi Version Deployment, you should migrate to the correct `ned-id` as well. Therefore, you prepare the `rfs-vlan-nc-5.4` package, as described in the Multi-Version Deployment option, compile the package, and load it into the CFS node. Thanks to the NSO CDM feature, both packages, `rfs-vlan-nc-5.4` and `rfs-vlan-ned`, can be used at the same time.
+At this point the CFS node is running the new, 5.7 version and the RFS node is running 5.4. Since you now have a Multi-Version Deployment, you should migrate to the correct `ned-id` as well. Therefore, you prepare the `rfs-vlan-nc-5.4` package, as described in the Multi-Version Deployment option, compile the package, and load it into the CFS node. Thanks to the NSO CDM feature, both packages, `rfs-vlan-nc-5.4` and `rfs-vlan-ned`, can be used at the same time.
 
 With the packages ready, you execute the `devices device lower-nso-1 migrate new-ned-id cisco-nso-nc-5.4` command on the CFS node. The command configures the RFS device entry on CFS to use the new `cisco-nso-nc-5.4 ned-id`, as well as migrates the device configuration and service meta-data to the new model. Having completed the upgrade, you can now remove the `rfs-vlan-ned` if you wish.
 
 Later on, you may decide to upgrade the RFS node to NSO 5.6. Again, you prepare the new `rfs-vlan-nc-5.6` package for the CFS node in a similar way as before, now using the `cisco-nso-nc-5.6` ned-id instead of `cisco-nso-nc-5.4`. Next, you perform the RFS node upgrade to 5.6 and finally migrate the RFS device on the CFS node to the `cisco-nso-nc-5.6 ned-id`, with the **migrate** action.
 
-Likewise, you can return to the Single Version Deployment, by upgrading the RFS node to the NSO 5.7, reusing the old, or preparing anew, the `rfs-vlan-ned` package and migrating to the `lsa-netconf ned-id`.
+Likewise, you can return to the Single-Version Deployment, by upgrading the RFS node to the NSO 5.7, reusing the old, or preparing anew, the `rfs-vlan-ned` package and migrating to the `lsa-netconf ned-id`.
 
-All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed `ned-id`, so for those no migration is necessary.
+All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed `ned-id`, so for those, no migration is necessary.
+
+The [NSO example set](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture) illustrates different aspects of LSA deployment including working with single- and multi-version deployments.
 
 ### User Authorization Passthrough
 
