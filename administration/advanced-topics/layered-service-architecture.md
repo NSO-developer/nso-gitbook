@@ -1172,7 +1172,7 @@ Likewise, you can return to the Single-Version Deployment, by upgrading the RFS 
 
 All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed `ned-id`, so for those, no migration is necessary.
 
-The [NSO example set](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture) illustrates different aspects of LSA deployment including working with single- and multi-version deployments.
+The [NSO example set](https://github.com/NSO-developer/nso-examples/tree/6.4/layered-services-architecture) illustrates different aspects of LSA deployment including working with single- and multi-version deployments.
 
 ### User Authorization Passthrough
 
@@ -1187,7 +1187,7 @@ Using a system user has two major limitations:
 
 To handle this scenario, one can enable the passthrough of the user name and its groups to lower layer nodes to allow the session on the RFS to assume the same user as used on the CFS (similar to use of "sudo"). This will allow for the use of a system user between the CFS and RFS while allowing for auditing and RBAC on the RFS using the locally authenticated user on the CFS.
 
-On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g., alice) on the CFS node connects to an RFS node, she will authenticate using the credentials specified in the `/devices/device/authgroup` authgroup (e.g., `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user `lsa_passthrough_user` changes into alice on the RFS node.&#x20;
+On the CFS node, create an authgroup under `/devices/authgroups/group` with the `/devices/authgroups/group/{umap,default-map}/passthrough` empty leaf set, then select this authgroup on the configured RFS nodes by setting the `/devices/device/authgroup` leaf. When the passthrough leaf is set and a user (e.g., alice) on the CFS node connects to an RFS node, she will authenticate using the credentials specified in the `/devices/device/authgroup` authgroup (e.g., `lsa_passthrough_user` : `ahVaesai8Ahn0AiW`). Once the authentication completes successfully, the user `lsa_passthrough_user` changes into alice on the RFS node.
 
 {% code overflow="wrap" %}
 ```
