@@ -531,6 +531,22 @@
 
 <details>
 
+<summary>CIPHER_NOT_SUPPORTED</summary>
+
+<code>CIPHER_NOT_SUPPORTED</code>
+
+* **Severity**  
+  `ERR`
+* **Description**  
+  libcrypto does not support the indicated cipher
+* **Format String**  
+  `"libcrypto does not support ~s"`
+
+</details>
+
+
+<details>
+
 <summary>CLI_CMD_ABORTED</summary>
 
 <code>CLI_CMD_ABORTED</code>
