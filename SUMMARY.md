@@ -45,7 +45,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.29 2025-08-03](arista-dcs/README.md)
+  * [README v5.30 2025-08-22](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -199,6 +199,10 @@
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
   * [README v5.11.25 2025-07-25](fortinet-fortios/README.md)
 
+* furukawa-fx1
+  * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
+  * [README v2.0.5 2025-08-22](furukawa-fx1/README.md)
+
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
   * [README v1.2.7.1 2024-09-02](hpe-ihss/README.md)
@@ -233,7 +237,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.21 2025-08-15](juniper-junos/README.md)
+  * [README v4.18.22 2025-08-22](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
