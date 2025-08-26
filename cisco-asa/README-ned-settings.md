@@ -210,6 +210,11 @@
       The binary data for the secondary SSH host key.
 
 
+    - connection populate-smart-license <true|false> (default true)
+
+      Enable or disable population of smart license information.
+
+
 # 4. ned-settings cisco-asa proxy
 ---------------------------------
 
