@@ -49,7 +49,7 @@
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
-  * [README v1.10.10 2024-09-24](arris-cmts/README.md)
+  * [README v1.10.11 2025-08-26](arris-cmts/README.md)
 
 * brocade-ironware
   * [README-ned-settings](brocade-ironware/README-ned-settings.md)
