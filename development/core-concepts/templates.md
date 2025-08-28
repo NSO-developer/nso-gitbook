@@ -417,6 +417,63 @@ Tags `create` and `replace` are not inherited and only apply to the node they ar
 
 Tag `delete` applies only to the current node; any children (except keys specifying the list/leaf-list entry to delete) are ignored.
 
+Optionally, you can use the `child-tags` or the `inherit` attribute together with the `tags` attribute on XML elements to specify operation on the children nodes separately from the current node.
+
+NSO supports the same type of values for `child-tags` as for `tags`, i.e., `merge`, `replace`, `create`, `nocreate`, `delete`. The `child-tags` attribute specifies which operation should be applied to all sub-nodes (until a new tag is introduced) regardless of what operation is being set to the current node.
+
+The `inherit` attribute value can be either `true` or `false`. It specifies whether the operation (i.e., the `tags` value) on the current node should be inherited by its sub-nodes.
+
+If both `child-tags` and `inherit` attributes are set, `child-tags` would take precedence over `inherit`.
+
+Here are some examples of different combinations of `tags` with `child-tags` and/or `inherit`:
+
+*   `tags="nocreate" child-tags="merge"`: The parent node `<GigabitEthernet>` will have `nocreate` behavior while the children nodes `<name>` and `<description>` will have `merge` behavior.
+
+    ```xml
+        <GigabitEthernet tags="nocreate" child-tags="merge">
+          <name>{link/interface-number}</name>
+          <description>Link to PE</description>
+          ...
+    ```
+*   `tags="nocreate" inherit="false"`: The parent node `<GigabitEthernet>` will have `nocreate` behavior which is not inherited to its children nodes due to `inherit="false"`. The children nodes `<name>` and `<description>` will have the default operation `merge` since no operation is explicitly set.
+
+    ```xml
+        <GigabitEthernet tags="nocreate" inherit="false">
+          <name>{link/interface-number}</name>
+          <description>Link to PE</description>
+          ...
+    ```
+*   &#x20;`tags="create" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `create` behavior while its children nodes on all the sub-levels  `<name>`, `<description>`, `<manually-set>`, `<presence-container>` and `<dummy>` (except `<state>`) will have `nocreate` behavior due to `child-tags="nocreate"` which affects subtree of the current node (until a new `tags="merge"` is introduced on the sub-node `state` of which it will have a new operation `merge`).
+
+    ```xml
+        <GigabitEthernet tags="create" child-tags="nocreate">
+          <name>{link/interface-number}</name>
+          <description>Link to PE</description>
+          <manually-set>
+            <presence-container>
+              <dummy>123</dummy>
+              <state tags="merge">enabled</state>
+            </presence-container>
+          </manually-set>
+          ...
+    ```
+*   `tags="replace" inherit="true"`: The parent node `<GigabitEthernet>` will have `replace` behavior which is inherited to its children nodes due to `inherit="true"`. The children nodes `<name>` and `<description>` will have the inherited operation `replace` since no operation is explicitly set. The inheritance is cascaded to children nodes on all the sub-levels (until a new tag is introduced).
+
+    ```xml
+        <GigabitEthernet tags="replace" inherit="true">
+          <name>{link/interface-number}</name>
+          <description>Link to PE</description>
+          ...
+    ```
+*   `tags="replace" inherit="true" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `replace` behavior which is not inherited to its children nodes even though `inherit="true"`. This is because `child-tags="nocreate"` takes precedence over `inherit="true"`. So, the children nodes `<name>` and `<description>` will have `nocreate` behavior.
+
+    ```xml
+        <GigabitEthernet tags="replace" inherit="true" child-tags="nocreate">
+          <name>{link/interface-number}</name>
+          <description>Link to PE</description>
+          ...
+    ```
+
 ## Operations on Ordered Lists and Leaf-lists <a href="#ch_templates.order_ops" id="ch_templates.order_ops"></a>
 
 For ordered-by-user lists and leaf lists, where item order is significant, you can use the `insert` attribute to specify where in the list, or leaf-list, the node should be inserted. You specify whether the node should be inserted first or last in the node-set, or before or after a specific instance.
