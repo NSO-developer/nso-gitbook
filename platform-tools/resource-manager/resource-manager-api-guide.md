@@ -2,7 +2,7 @@
 description: Description of the APIs exposed by the Resource Manager package.
 ---
 
-# Resource Manager API Guide (4.2.11)
+# Resource Manager API Guide (4.2.12)
 
 ***
 
@@ -33,7 +33,7 @@ Resource allocation can be synchronous or asynchronous.
 
 <figure><img src="../../.gitbook/assets/image.png" alt="" width="560"><figcaption></figcaption></figure>
 
-The synchronized allocation API request uses a Reactive-Fast-Map to allocate resources and still manages the interface to look synchronous. This means that as you create any allocation request from Northbound, you can see the allocation results, such as the requested IP subnet/ID in the same transaction. If a NB is making an allocation request, and in the same transaction a configuration is being applied to a specific device, the commit dry run receives the request response, and the response is processed by the RM and the configurations are pushed to the device in the same transaction. Thus, the NB user can see the get modification in the commit dry run.
+The synchronized allocation API request uses Reactive FastMap to allocate resources while ensuring the interface appears synchronous. This means that as you create an allocation request from northbound, you can see the allocation results, such as the requested IP subnet or ID in the same transaction. If a northbound is making an allocation request and, in the same transaction, a configuration is being applied to a specific device, the `commit dry-run` receives the request response which is processed by the Resource Manager. The configurations are then pushed to the device in the same transaction. Thus, the northbound user can see the `get-modifications` in the `commit dry-run`.
 
 During a resource request, the resource is allocated and stored in the create callback. This allocation is visible to other services that are run in the same or subsequent transactions and therefore avoids the recreation of resource when the service is redeployed. Synchronous allocation does not require service re-deploy to read allocation. The same transaction can read allocation. Commit dry-run or get-modification displays the allocation details as output.
 
@@ -249,6 +249,10 @@ Resource Manager exposes the API calls to request IPv4 and IPv6 subnet allocatio
 The NSO Resource Manager interface and the resource allocator provide a generic resource allocation mechanism that works well with services. Each pool has an allocation list where services are expected to create instances to signal that they request an allocation. The request parameters are stored in the request container, and the allocation response is written in the response container.
 
 The APIs exposed by RM are implemented in Python as well as Java, so the NB user can configure the service to be a Java package or a Python package and call the allocator API as per the implementation. The NB user can also use NSO CLI to make an allocation request to the IP allocator RM package.
+
+The IP resource pool supports two types of allocation methods, namely `firstfree` and `sequential`. You can specify the allocation method by setting the parameter `allocation-method` for an IP pool. The default allocation method is `firstfree` (legacy allocation method), where a released IP subnet can be reused immediately, while in the `sequential` allocation method, the released subnets are stored separately in a `available-secondary` set. When an allocation request is made and the requested subnet is not present in the available set, the subnets can be allocated from the `available-secondary` set.
+
+By default, the `available-secondary` set is hidden and user must run the command `unhide debug` to view the details of the `available-secondary` set of an IP pool.
 
 ### Using Java APIs for IP Allocations
 
@@ -741,6 +745,10 @@ poolName, userName, startIp, cidrMask, id, invertCidr.booleanValue());
 {% endhint %}
 
 #### Creating Synchronous or Asynchronous IP Subnet Allocation Requests
+
+{% hint style="info" %}
+* Note that the `sync` parameter used to specify synchronous or asynchronous mode has been renamed to `sync-alloc`.
+{% endhint %}
 
 The `sync_alloc` parameter in the API determines if the allocation request is for a synchronous or asynchronous mode. Set the `sync_alloc` parameter to true for synchronous flow.
 
@@ -1336,7 +1344,7 @@ Returns the allocated subnet for the IP.
 
 ### Using Java APIs for Non-service IP Allocations
 
-This non-service IP address allocation API is created from Resource Manager 4.2.11.
+This non-service IP address allocation API is created from Resource Manager 4.2.12.
 
 <details>
 
