@@ -445,11 +445,11 @@ myuser request subnet-size 30
 
 <details>
 
-<summary>Create an Allocation for allocation method firstfree or sequential</summary>
+<summary>Create an Allocation Method</summary>
 
-IP Pool supports two ways of IP allocation: 'firstfree' and 'sequential'. If we set allocation-method of the pool to 'firstfree', which is also a default allocation-method value, then released IP can be reused immediately, but if we set the value to 'sequential' then the released IP will not be used immediately. Once the requested IP allocation is not possible from the available pool, released IPs can be allocated.
+The IP Pool supports two ways of IP allocation: `firstfree` and `sequential`. If we set allocation method of the pool to `firstfree`, which is also the default allocation method, then the released IP can be reused immediately, but if we set the value to `sequential`, then the released IP will not be used immediately. Once the requested IP allocation is not possible from the available pool, released IPs can be allocated.
 
-We can create an IP pool and set the allocation-method to firstfree, and then create an allocation request a1. if we release the allocation a1 and again request the allocation a2 with the same subnet-size, then the same IP will get allocated.
+We can create an IP pool and set the allocation method to `firstfree`, and then create an allocation request `a1`. If we release the allocation `a1` and again request the allocation `a2` with the same subnet size, then the same IP will get allocated.
 
 We can create an IP pool and set the allocation-method to sequential, and then create an allocation request a1. if we release the allocation a1 and again request the allocation a2 with the same subnet-size, then the different IP will get allocated.
 
