@@ -451,7 +451,7 @@ The IP Pool supports two ways of IP allocation: `firstfree` and `sequential`. If
 
 We can create an IP pool and set the allocation method to `firstfree`, and then create an allocation request `a1`. If we release the allocation `a1` and again request the allocation `a2` with the same subnet size, then the same IP will get allocated.
 
-We can create an IP pool and set the allocation-method to sequential, and then create an allocation request a1. if we release the allocation a1 and again request the allocation a2 with the same subnet-size, then the different IP will get allocated.
+We can create an IP pool and set the allocation method to `sequential`, and then create an allocation request `a1`. If we release the allocation, `a1` and again request the allocation `a2` with the same subnet size, then a different IP will get allocated.
 
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
