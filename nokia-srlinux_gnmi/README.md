@@ -599,8 +599,8 @@
   --------------------------
 
     Export the customized and rebuilt NED. The exported archive file can then be used to install the
-    NED package in other NSO instances. The name of the file will by default have the following format
-     ncs-<NSO version>-<NED name>-<NED-version>-customized.tgz.
+    NED package in other NSO instances. The name of the file will have the following format ncs-<NSO
+    version>-<NED name>-<NED-version>-customized.tgz.
 
       Input arguments:
 
@@ -813,6 +813,16 @@
 
         OR:
 
+          - filter trim-schema all-with-status <enum>
+
+            Trim all nodes in the schema annotated with matching 'status' statements.
+
+            deprecated  - Means node is still supported, but usage no longer recommended.
+
+            obsolete    - Means node is not supported anymore, and should not be used.
+
+        OR:
+
           - filter trim-schema nodes-from-file <string> (default /tmp/nedcom-trim-schema-nodes.txt)
 
             Specify a path to a custom file to be used for trimming nodes. The file shall contain
@@ -893,10 +903,26 @@
 
         unused  - Display only the config nodes that are not in use.
 
+        rpcs    - Display the rpc nodes defined in the schema.
+
+
+      - with-status <enum>
+
+        Only select nodes annotated with matching 'status' statements.
+
+        deprecated  - Means node is still supported, but usage no longer recommended.
+
+        obsolete    - Means node is not supported anymore, and should not be used.
+
 
       - count <empty>
 
         Count the nodes and return the sum instead of the full list of nodes.
+
+
+      - details <empty>
+
+        Display schema details like must/when expression, leafrefs and leafref targets.
 
 
       - root-paths <string>
@@ -911,9 +937,42 @@
         'all'.
 
 
-      - details <empty>
+      - output file <string>
 
-        Display schema details like must/when expression, leafrefs and leafref targets.
+
+      - developer generate-schypp-pragmas pragma <enum> (default remove)
+
+        Set pragma type.
+
+        remove   - remove.
+
+        replace  - replace.
+
+
+      - developer generate-schypp-pragmas statement <enum>
+
+        Set the yang statement for the pragma.
+
+        must    - must.
+
+        when    - when.
+
+        unique  - unique.
+
+
+      - developer generate-schypp-pragmas pattern <string>
+
+        Configure the pattern to search for matching statements. Use ".*" to match any string.
+
+
+      - developer generate-schypp-pragmas replace-with <string>
+
+        For replace pragmas, set replacement for statements matching the pattern.
+
+
+      - developer generate-schypp-pragmas add-comment <empty>
+
+        Prepend extra comment containing info about the statement.
 
   ## 5.7.1 any
 

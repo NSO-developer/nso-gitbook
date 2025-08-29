@@ -450,3 +450,4 @@
       Toggle logs to be added to ncs-java-vm.log.
 
 
+-# adidional ned settings

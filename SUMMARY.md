@@ -185,7 +185,7 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.24.4 2025-07-08](f5-bigip/README.md)
+  * [README v3.24.5 2025-08-28](f5-bigip/README.md)
 
 * fireeye-cms
   * [README-ned-settings](fireeye-cms/README-ned-settings.md)
