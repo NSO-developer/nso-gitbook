@@ -30,7 +30,7 @@ The YANG model of the resource allocator (`resource-allocator.yang`) can be augm
 
 Since the allocation request may fail the response container contains a choice where one case is for error and one for success.
 
-Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated. By default these details are hidden, user must run the command 'unhide debug' to view the details of the 'allocating-service' for the respective allocation.
+Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated. By default, these details are hidden and the user must run the command 'unhide debug' to view the details of the 'allocating-service' for the respective allocation.
 
 The resource allocation packages should subscribe to several points in this `resource-pool` tree. First, they must detect when a new resource pool is created or deleted. Secondly, they must detect when an allocation request is created or deleted. A package may also augment the pool definition with additional parameters, for example, an IP address allocator may wish to add configuration parameters for defining the available subnets to allocate from, in which case it must also subscribe to changes to these settings.
 
@@ -421,9 +421,9 @@ admin@ncs# resource-pools ip-address-pool pool1 subnet 10.0.0.0 24
 admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.255
 ```
 
-User can set the preferred allocation-method on the pool while creating the pool or user can update the allocation-method later also by selecting the allocation-method value as either 'firstfree' or 'sequential'.
+The user can set the preferred allocation method on the pool while creating the pool or update the allocation method later by selecting the allocation method value as `firstfree` or `sequential`.
 
-Default value is 'firstfree'. If firstfree, release Subnets can be reused immediately. If sequential, released IPs will be used once the available pool is exhausted.
+The default value is `firstfree`. If `firstfree` is used, released subnets can be reused immediately. If `sequential` is used, released IPs will be used once the available pool is exhausted.
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
 ```
