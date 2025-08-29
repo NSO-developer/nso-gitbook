@@ -30,7 +30,7 @@ The YANG model of the resource allocator (`resource-allocator.yang`) can be augm
 
 Since the allocation request may fail the response container contains a choice where one case is for error and one for success.
 
-Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated. By default, these details are hidden and the user must run the command 'unhide debug' to view the details of the 'allocating-service' for the respective allocation.
+Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated. By default, these details are hidden and the user must run the command `unhide debug` to view the details of the `allocating-service` for the respective allocation.
 
 The resource allocation packages should subscribe to several points in this `resource-pool` tree. First, they must detect when a new resource pool is created or deleted. Secondly, they must detect when an allocation request is created or deleted. A package may also augment the pool definition with additional parameters, for example, an IP address allocator may wish to add configuration parameters for defining the available subnets to allocate from, in which case it must also subscribe to changes to these settings.
 
