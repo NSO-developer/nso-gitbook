@@ -449,6 +449,12 @@
       config-device       - Always read config from device.
 
 
+    - read strip-encrypted-values <true|false> (default false)
+
+      Strip encrypted values from the config dump. This is useful when the NED is used to read the
+      config from device and the config contains encrypted values that are changing at every read.
+
+
 # 8. ned-settings huawei-ias write
 ----------------------------------
 

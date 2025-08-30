@@ -41,7 +41,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.63 2025-08-21](alu-sr/README.md)
+  * [README v8.63.1 2025-08-29](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -87,7 +87,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.2 2025-08-21](cisco-apicdc/README.md)
+  * [README v3.21.3 2025-08-29](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -225,19 +225,19 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.78 2025-08-21](huawei-vrp/README.md)
+  * [README v6.78.1 2025-08-29](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
   * [README-rebuild](huawei-vrp_nc/README-rebuild.md)
-  * [README v1.1.10 2025-08-25](huawei-vrp_nc/README.md)
+  * [README v1.1.11 2025-08-29](huawei-vrp_nc/README.md)
 
 * infoblox-nios
   * [README-ned-settings](infoblox-nios/README-ned-settings.md)
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.22 2025-08-22](juniper-junos/README.md)
+  * [README v4.18.23 2025-08-29](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)

@@ -17,6 +17,7 @@
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
   10. Configure the NED to use ssh multi factor authentication
+  11. NED Secrets - Securing your Secrets
   ```
 
 
@@ -1213,3 +1214,83 @@ admin@ncs(config)# commit
   ```
   ERROR: external mfa executable failed <....>
   ```
+
+# 11. NED Secrets - Securing your Secrets
+-----------------------------------------
+
+    It is best practice to avoid storing your secrets (e.g. passwords and
+    shared keys) in plain-text, either on NSO or on the device. In NSO we
+    support multiple encrypted datatypes that are encrypted using a local
+    key.
+
+    Naturally, for security reasons, NSO in general has no way of
+    encrypting/decrypting passwords with the secret key on the
+    device. This means that if nothing is done about this we will
+    become out of sync once we write secrets to the device. Looking at
+    the huawei-hias NED there are over 50 paths that contain such secrets.
+
+    In order to avoid becoming out of sync the NED reads back these elements
+    immediately after set and stores the encrypted value(s) in a special
+    `secrets` table in oper data. Later on, when config is read from the
+    device, the NED replaces all cached encrypted values with their plaintext
+    values; effectively avoiding all config diffs in this area. If the values
+    are changed on the device, the new encrypted value will not match the
+    cached pair and no replacement will take place. This is desired, since out
+    of band changes should be detected.
+
+    This handles the device-side encryption, but passwords are still unencrypted
+    in NSO. To deal with this we support using NSO-encrypted strings instead of
+    plaintext passwords in the NSO data model.
+
+
+
+    The secrets management will store this encrypted values in our `secrets` table:
+
+      admin@ncs# show devices device dev-1 ned-settings secrets
+      ID                                      ENCRYPTED                         REGEX
+      ---------------------------------------------------------------------------------
+      hias:username(newuser)/password/secret   xAb[PDCO[fQDJhDfMIciONMedifAAB
+
+      which means that compare-config or sync-from will not show any
+      changes and will not result in any updates to CDB". In fact, we can
+      still see the unencrypted value in the device tree:
+
+
+    --- Increasing security with NSO-side encryption
+
+    We have two alternatives, either we can manually encrypt our values using
+    one of the NSO-encrypted types (e.g `aes-256-cfb-128-encrypted-string`) and
+    set them to the tree, or we can recompile the NED to always encrypt secrets.
+
+    --- Setting encrypted value
+
+    Let us say we know that the NSO-encrypted string
+      `$9$T963R76+wgaQuZCtcGC/Nreo75FigP+znmOln8XDFK0=` (`admin`), we
+    can then set it in the device tree as normal
+
+      admin@ncs(config)# devices device dev-1 config username newuser2 password  $9$T963R76+wgaQuZCtcGC/Nreo75FigP+znmOln8XDFK0=
+      admin@ncs(config-config)# commit
+
+    when commiting this value it will be decrypted and the plaintext will be written to the device.
+    Unlike the previous example the plaintext is not visible in the device tree
+
+
+    On the device side this plaintext value is of course encrypted
+    with the device key, and just as before we store it in our
+    `secrets` table
+
+
+    --- Auto-encrypting passwords in NSO
+
+    To avoid having to pre-encrypt your passwords you can rebuild your NED in your OS
+    command shell specifying an encrypted type for secrets using a command like:
+
+    yourhost:~/huawei-hias-cli-x.y$ NEDCOM_SECRET_TYPE="tailf:aes-cfb-128-encrypted-string" make -C src/ clean all
+
+    Or by adding the line `NEDCOM_SECRET_TYPE=tailf:aes-cfb-128-encrypted-string`
+    in top of the `Makefile` located in <huawei-hias-cli-x.y>/src directory. 
+
+    Doing this means that even if the input to a passwordis a plaintext string, NSO will always
+    encrypt it, and you will never see plain text secrets in the device tree.
+
+    If we reload our example with the new NED all of the secrets are now encrypted.
