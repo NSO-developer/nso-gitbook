@@ -10,7 +10,7 @@ certain MIB objects without having to edit the original MIB file.
 
 MIB annotations are separate file with a .miba suffix, and is applied to
 a MIB when a YANG module is generated and when the MIB is compiled. See
-[ncsc(1)](ncsc.1.md).
+[ncsc(1)](confdc.1.md).
 
 ## Syntax
 
@@ -99,4 +99,3 @@ An example of a MIB annotation file.
 ## See Also
 
 The NSO User Guide  
-> 
