@@ -645,7 +645,7 @@ If we want to access data in CDB where the toplevel element name is not
 unique, we need to set the namespace. We are reading data related to a
 specific .fxs file. confdc can be used to generate a `.h` file with a
 \#define for the namespace, by the flag `--emit-h` to confdc (see
-[confdc(1)](confdc.1.md)).
+[confdc(1)](ncsc.1.md)).
 
 It is also possible to indicate which namespace to use through the
 namespace prefix when we read and write data. Thus the path /foo:bar/baz
