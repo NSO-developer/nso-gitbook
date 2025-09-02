@@ -3148,7 +3148,7 @@ In the `tailf-ncs.yang` data model, you find a YANG data model that can be used 
 * View all received notifications.
 
 {% hint style="info" %}
-Notifications must be defined at the top level of a YANG module. NSO does currently not support defining notifications inside lists or containers as specified in section 7.16 in [RFC 7950](http://www.ietf.org/rfc/rfc7950.txt).
+Notifications must be defined at the top level of a YANG module. NSO does currently not support defining notifications inside lists or containers as specified in section 7.16 in [RFC 7950](https://www.ietf.org/rfc/rfc7950.txt).
 {% endhint %}
 
 ### An Example Session <a href="#d5e4020" id="d5e4020"></a>
