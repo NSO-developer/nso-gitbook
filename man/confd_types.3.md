@@ -168,7 +168,7 @@ typedef struct confd_value {
 >
 > </div>
 >
-> When a YANG module is compiled by the [confdc(1)](confdc.1.md)
+> When a YANG module is compiled by the [confdc(1)](ncsc.1.md)
 > compiler, the `--emit-h` flag is used to generate a .h file containing
 > definitions for all the nodes in the module. For example if we compile
 > the following YANG module:
@@ -1529,7 +1529,7 @@ maintained by the library - they will become invalid if
 `confd_load_schemas()` or `maapi_load_schemas()` is subsequently called
 again.
 
-The [confdc(1)](confdc.1.md) compiler can also optionally generate a C
+The [confdc(1)](ncsc.1.md) compiler can also optionally generate a C
 header file that has \#define symbols for the integer values
 corresponding to data model nodes and enumerations.
 
