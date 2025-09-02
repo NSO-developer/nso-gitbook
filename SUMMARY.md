@@ -297,7 +297,7 @@
 
 * quagga-bgp
   * [README-ned-settings](quagga-bgp/README-ned-settings.md)
-  * [README v4.2.14 2024-10-15](quagga-bgp/README.md)
+  * [README v4.2.15 2025-09-01](quagga-bgp/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)

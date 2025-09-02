@@ -14,7 +14,9 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues
+  8. How to report NED issues and feature requests
+  9. How to rebuild a NED
+  10. Configure the NED to use ssh multi factor authentication
   ```
 
 
@@ -164,6 +166,12 @@
       package quagga-bgp-cli-1.0
       result true
    }
+  ```
+
+  Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
+
+  ```
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/quagga-bgp-cli-1.0
   ```
 
 
@@ -398,6 +406,15 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
 
 # 3. Dependencies
 -----------------
@@ -533,3 +550,159 @@
      Pseudo access via tools like Webex, Zoom etc is not acceptable. However, it is ok with access
      through VPNs, jump servers etc as long as we can connect to the NED via SSH/TELNET.
 
+
+# 9. How to rebuild a NED
+--------------------------
+
+  To rebuild the NED do as follows:
+
+  ```
+  > cd $NED_ROOT_DIR/src
+  > make clean all
+  ```
+
+  When the NED has been successfully rebuilt, it is necessary to reload the package into NSO.
+
+  ```
+  admin@ncs# packages reload
+  ```
+
+
+# 10. Configure the NED to use ssh multi factor authentication
+---------------------------------------------------------------
+
+  This NED supports multi factor authentication (MFA) using the ssh authentication
+  method 'keyboard-interactive'.
+
+  Some additional steps are required to enable the MFA support:
+
+  1. Verify that your NSO version supports MFA. This is configurable as additional
+     settings in the authentication group used by the device instance.
+
+     Enter a NSO CLI and enter the following and do tab completion:
+
+     ```
+     > ncs_cli -C -u admin
+     admin@ncs# show running-config devices authgroups group default default-map <tab>
+     Possible completions:
+     action-name                 The action to call when a notification is received.
+     callback-node               Invoke a standalone action to retrieve login credentials for managed devices on the 'callback-node' instance.
+     mfa                         Settings for handling multi-factor authentication towards the device
+     public-key                  Use public-key authentication
+     remote-name                 Specify device user name
+     remote-password             Specify the remote password
+     remote-secondary-password   Second password for configuration
+     same-pass                   Use the local NCS password as the remote password
+     same-secondary-password     Use the local NCS password as the remote secondary password
+     same-user                   Use the local NCS user name as the remote user name
+     ```
+
+     If 'mfa' is displayed in the output like above, NSO has MFA support enabled.
+     In case MFA is not supported it is necessary to upgrade NSO before proceeding.
+
+  2. Implement the authenticator executable. The MFA feature relies on an external executable to take care of the client part
+     of the multi factor authentication. The NED will automatically call this executable for each challenge presented by the
+     ssh server and expects to get a proper response in return.
+
+     The executable can be a simple shell script or a program implemented in any programming language.
+
+     The required behaviour is like this:
+      - read one line from stdin
+        The line passed from the NED will be a semi colon separated string containing the following info:
+        ```
+        [<device name>;<user>;<password>;<opaque>;<ssh server name>;<ssh server instruction>;<ssh server prompt>;]
+        ```
+        The elements for device name, user, password and opaque corresponds to what has been configured in NSO.
+        The ssh server name, instruction and prompt are given by the ssh server during the authentication step.
+
+        Each individual element in the semi colon separated list is Base64 encoded.
+
+      - Extract the challenge based on the contents above.
+
+      - Print a response matching the challenge to stdout and exit with code 0
+
+      - In case a matching response can not be given do exit with code 2
+
+     Below is a simple example of an MFA authenticator implemented in Python3:
+
+     ```
+     #!/usr/bin/env python3
+     import sys
+     import base64
+
+     # This is an example on how to implement an external multi factor authentication handler
+     # that will be called by the NED upon a ssh 'keyboard-interactive' authentication
+     # The handler is reading a line from stdin with the following expected format:
+     #   [<device name>;<user>;<password>;<opaque>;<ssh server name>;<ssh server instruction>;<ssh server prompt>;]
+     # All elements are base64 encoded.
+
+     def decode(arg):
+         return str(base64.b64decode(arg))[2:-1]
+
+     if __name__ == '__main__':
+         query_challenges = {
+             "admin@localhost's password: ":'admin',
+             'Enter SMS passcode:':'secretSMScode',
+             'Press secret key: ':'2'
+         }
+         # read line from stdin and trim brackets
+         line = sys.stdin.readline().strip()[1:-1]
+         args = line.split(';')
+         prompt = decode(args[6])
+         if prompt in query_challenges.keys():
+             print(query_challenges[prompt])
+             exit(0)
+         else:
+             exit(2)
+     ```
+
+  3. Configure the authentication group used by the device instance to enable MFA. There
+     are two configurables available:
+     - executable    The path to the external multi factor authentication executable (mandatory).
+     - opaque        Opaque data that will passed as a cookie element to the executable (optional).
+
+     ```
+     > ncs_cli -C -u admin
+     admin@ncs# config
+     Entering configuration mode terminal
+     admin@ncs(config)# devices authgroups group <name> default-map mfa executable <path to the executable>
+     admin@ncs(config)# devices authgroups group <name> default-map mfa opaque <some opaque data>
+     admin@ncs(config)# commit
+     ```
+
+  4. Try connecting to the device.
+
+
+## 10.1 Trouble shooting
+------------------------
+  In case of connection problems the following steps can help for debugging:
+
+  Enable the NED trace in debug level:
+
+  ```
+  > devices device dev-1 trace raw
+  > devices device dev-1 ned-settings quagga-bgp logger level debug
+  > commit
+  ```
+
+  Try connect again
+
+  Inspect the generated trace file.
+
+  Verify that the ssh client is using the external authenticator executable:
+
+  ```
+  using ssh external mfa executable: <configured path to executable>
+  ```
+
+  Verify that the executable is called with the challenges presented by the ssh server:
+
+  ```
+  calling external mfa executable with ssh server given name: '<name>', instruction: '<instruction>', prompt '<challenge>'
+  ```
+
+  Check for any errors reported by the NED when calling the executable
+
+  ```
+  ERROR: external mfa executable failed <....>
+  ```
