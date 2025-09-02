@@ -11342,11 +11342,11 @@ populated before the call. For example:
 
 </div>
 
-The `context` parameter can be any string. The string provided here is
-precisely the context string which will be used to authorize all data
-access through the AAA system. Each AAA rule has a context string which
-must match in order for a AAA rule to match. (See the AAA chapter in the
-User Guide.)
+The `context` parameter can be any string up to 31 characters in length.
+The string provided here is precisely the context string which will be
+used to authorize all data access through the AAA system. Each AAA rule
+has a context string which must match in order for a AAA rule to match.
+(See the AAA chapter in the User Guide.)
 
 Using the string "system" for `context` has special significance:
 

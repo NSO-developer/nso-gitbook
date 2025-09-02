@@ -168,9 +168,9 @@ built-in commands. It contains (in any order) zero or more "delete",
 "move", "paginate", "info", "paraminfo", "help", "paramhelp",
 "confirmText", "defaultConfirmOption", "dropElem", "compactElem",
 "compactStatsElem", "columnStats", "multiValue", "columnWidth",
-"columnAlign", "defaultColumnAlign", "noKeyCompletion",
-"noMatchCompletion", "modeName", "suppressMode", "suppressTable",
-"enforceTable", "showTemplate", "showTemplateLegend",
+"minColumnWidth", "columnAlign", "defaultColumnAlign",
+"noKeyCompletion", "noMatchCompletion", "modeName", "suppressMode",
+"suppressTable", "enforceTable", "showTemplate", "showTemplateLegend",
 "showTemplateEnter", "showTemplateFooter", "runTemplate",
 "runTemplateLegend", "runTemplateEnter", "runTemplateFooter", "addMode",
 "autocommitDelay", "keymap", "pipeFlags", "addPipeFlags",
@@ -363,6 +363,25 @@ Attributes:
 
 Note that the tailf:cli-column-width YANG extension can be used to the
 same effect directly in YANG file.
+
+#### `/clispec/$MODE/modifications/minColumnWidth`
+
+The "minColumnWidth" element can be used to set minimum widths for
+specific columns in auto-rendered tables.
+
+Attributes:
+
+*path* (pathType)  
+> The "path" attribute is mandatory. It specifies which path to set the
+> minimum column width for. pathType is a space-separated list of node
+> names, pointing out a specific data model node.
+
+*minWidth* (xs:positiveInteger)  
+> The "minWidth" attribute is mandatory. It specified a minimum column
+> width.
+
+Note that the tailf:cli-min-column-width YANG extension can be used to
+the same effect directly in YANG file.
 
 #### `/clispec/$MODE/modifications/columnAlign`
 
@@ -2882,9 +2901,12 @@ The NSO User Guide
 Whenever we start (or reload) the NCS daemon it reads its configuration
 from `./ncs.conf` or `${NCS_DIR}/etc/ncs/ncs.conf` or from the file
 specified with the `-c` option, as described in [ncs(1)](section1.md#ncs).
+
 Parts of the configuration can be placed in separate files in the
-`ncs.conf.d` sub-directory next to the `ncs.conf` file. Files without
-the ".conf" extension will be ignored.
+`ncs.conf.d` sub-directory, next to the `ncs.conf` file. Each of these
+files should include the `ncs-config` XML element and the relevant
+section from the main configuration file. Files without the ".conf"
+extension will be ignored.
 
 `ncs.conf` is an XML configuration file formally defined by a YANG
 model, `tailf-ncs-config.yang` as referred to in the SEE ALSO section.
@@ -5112,7 +5134,7 @@ how they relate to each other.
 > This header is always sent in HTTP responses. By setting the value to
 > the empty string will cause the header not to be sent.
 
-/ncs-config/restconf/strict-transport-security (string) \[max-age=15552000; includeSubDomains\]  
+/ncs-config/restconf/strict-transport-security (string) \[max-age=31536000; includeSubDomains\]  
 > The HTTP Strict-Transport-Security response header (often abbreviated
 > as HSTS) lets a web site tell browsers that it should only be accessed
 > using HTTPS, instead of using HTTP.
@@ -5486,7 +5508,7 @@ how they relate to each other.
 > This header is always sent in HTTP responses. By setting the value to
 > the empty string will cause the header not to be sent.
 
-/ncs-config/webui/strict-transport-security (string) \[max-age=15552000; includeSubDomains\]  
+/ncs-config/webui/strict-transport-security (string) \[max-age=31536000; includeSubDomains\]  
 > The HTTP Strict-Transport-Security response header (often abbreviated
 > as HSTS) lets a web site tell browsers that it should only be accessed
 > using HTTPS, instead of using HTTP.
@@ -7249,8 +7271,8 @@ The *cli-delayed-auto-commit* statement can be used in: *container*,
 
 #### tailf:cli-delete-container-on-delete
 
-Specifies that the parent container should be deleted when . this leaf
-is deleted.
+Specifies that the parent container should be deleted when this leaf is
+deleted.
 
 The *cli-delete-container-on-delete* statement can be used in: *leaf*
 and *refine*.
@@ -8467,10 +8489,13 @@ The *cli-replace-all* statement can be used in: *leaf-list*,
 
 #### tailf:cli-reset-container
 
-Specifies that all sibling leaves in the container should be reset when
-this element is set.
+Specifies that all sibling leaves in the container should be removed
+when this element is set. If setting multiple leaves in a single
+command, only the remaining sibling leaves are removed.
 
-When used on a container its content is cleared when set.
+When this extension is used on a container, its child leaves will
+inherit the extension. Additionally, performing set on the container
+will clear all of its contents.
 
 The *cli-reset-container* statement can be used in: *leaf*, *list*,
 *container*, and *refine*.
