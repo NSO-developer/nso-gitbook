@@ -1,17 +1,6 @@
 ---
-icon: chevrons-right
 description: Administrate and manage NSO.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+icon: chevrons-right
 ---
 
 # Get Started
