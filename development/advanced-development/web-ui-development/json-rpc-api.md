@@ -3402,7 +3402,8 @@ The `old` param is only interesting if `op` is set to `modified`.
 ```
 
 ```json
-{"debug": <array of string, optional>}
+{"debug": <array of debug_flags, optional>}
+debug_flags = <"service" | "template" | "xpath" | "kicker" | "subscriber"> 
 ```
 
 ```json
@@ -3415,12 +3416,12 @@ The `old` param is only interesting if `op` is set to `modified`.
 
 ```json
 {"flags": <flags, default: []>}
-flags = <array of string or bitmask>
+flags = <array of string>
 ```
 
 The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the `validate_commit` operation. The same `comet_id` can also be used to get the progress trace for any coming commit operations. In order to get progress tracing for commit operations, these three parameters have to be provided with the `validate_commit` operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
 
-The `debug` param can be used the same way as the `details` param to get debug trace events for the validate\_commit and corresponding commit operation. These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation. The `debug` param is an array with all debug flags for which debug events should be displayed. Valid values are "service", "template", "xpath", "kicker", and "subscriber". Any other values will result in "invalid params" error. The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
+The `debug` param can be used the same way as the `details` param to get debug trace events for the validate\_commit and corresponding commit operation. These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation. The `debug` param is an array with all debug flags for which debug events should be displayed. The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
 
 The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
@@ -3438,7 +3439,6 @@ Or:
 
 ```json
 {"warnings": <array of warning>}
-
 warning = {"paths": <array of string>, "message": <string>}
 ```
 
@@ -3472,28 +3472,30 @@ Same as for the `validate_trans` method.
 
 <summary><mark style="color:green;"><code>commit</code></mark></summary>
 
-`commit` - Copies the configuration into the running datastore.
+`commit` - Commits the configuration into the running datastore.
 
 **Params**
 
 ```json
-{"th": <integer>,
- "timeout": <integer, default: 0>,
- "release_locks": <boolean, default: true>,
- "rollback-id": <boolean, default: true>}
+{"th": <integer>}
 ```
 
-The commit with a `timeout` parameter represents a confirmed commit.
+```json
+{"release_locks": <boolean, defailt: true>}
+```
+
+```json
+{"rollback-id": <boolean, default: true>}
+```
+
+```json
+{"flags": <flags, default: []>}
+flags = <array of string>
+```
 
 If `rollback-id` is set to `true`, the response will include the ID of the rollback file created during the commit if any.
 
 Commit behavior can be changed via an extra `flags` param:
-
-```json
-{"flags": <flags, default: []>}
-
-flags = <array of string or bitmask>
-```
 
 The `flags` param is a list of flags that can change the commit behavior:
 
@@ -3533,15 +3535,6 @@ The `flags` param is a list of flags that can change the commit behavior:
 - `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.\
   **Note**: `trace-id` is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [TraceContext](json-rpc-api.md#trace-context).
 
-For backward compatibility, the `flags` param can also be a bit mask with the following limit values:
-
-* \``1 << 0`\` - Do not release locks, overridden by the `release_locks` if set.
-* \``1 << 2`\` - Do not drop revision.
-
-If a call to `confirm_commit` is not done within `timeout` seconds an automatic rollback is performed. This method can also be used to "extend" a confirmed commit that is already in progress, i.e. set a new timeout or add changes.
-
-A call to `abort_commit` can be made to abort the confirmed commit.
-
 **Note**: Must be preceded by a call to `validate_commit`_._
 
 **Note**: The transaction handler is deallocated as a side effect of this method.
@@ -3568,52 +3561,6 @@ Successful commit with `commit-queue=async`:
 
 The `commit_queue_id` is returned if the commit entered the commit queue, either by specifying `commit-queue=async` or by enabling it in the configuration.
 
-**Errors (specific)**
-
-```json
-{"type": "trans.confirmed_commit_in_progress"}
-```
-
-```json
-{"type": "trans.confirmed_commit_is_only_valid_for_candidate"}
-```
-
-```json
-{"type": "trans.confirmed_commit_needs_config_writable_through_candidate"}
-```
-
-```json
-{"type": "trans.confirmed_commit_not_supported_in_private_mode"}
-```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>abort_commit</code></mark></summary>
-
-`abort_commit` - Aborts the active read-write transaction.
-
-**Result**
-
-```json
-{}
-```
-
-</details>
-
-<details>
-
-<summary><mark style="color:green;"><code>confirm_commit</code></mark></summary>
-
-`confirm_commit` - Confirms the currently pending confirmed commit
-
-**Result**
-
-```json
-{}
-```
-
 </details>
 
 <details>
@@ -3625,8 +3572,44 @@ The `commit_queue_id` is returned if the commit entered the commit queue, either
 **Params**
 
 ```json
-{"th": <integer>, "flags": <flags>}
+{"th": <integer>}
 ```
+
+```json
+{"comet_id": <string, optional>}
+```
+
+```json
+{"handle": <string, optional>}
+```
+
+```json
+{"details": <"normal" | "verbose" | "very_verbose" | "debug", optional>}
+```
+
+```json
+{"debug": <array of debug_flags, optional>}
+debug_flags = <"service" | "template" | "xpath" | "kicker" | "subscriber">
+```
+
+```json
+{"debug_service_name": <string, optional>}
+```
+
+```json
+{"debug_service_name": <string, optional>}
+```
+
+```json
+{"flags": <flags, default: []>}
+flags = <array of string>
+```
+
+The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
+
+The `debug` param can be used the same way as the `details` param to get debug trace events. These are the same trace events that can be displayed in the CLI with the "debug" pipe command for the commit operation. The `debug` param is an array with all debug flags for which debug events should be displayed. The `debug` param can be used together with the `details` param to get both progress and debug trace events for the operation.
+
+The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
 See the `commit` method for available flags.
 
