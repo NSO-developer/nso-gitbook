@@ -177,6 +177,16 @@ The `run-nso.sh` script runs a check at startup to determine which `ncs.conf` fi
 If the `ncs.conf` file is edited after startup, it can be reloaded using MAAPI `reload_config()`. Example: `$ ncs_cmd -c "reload"`.
 {% endhint %}
 
+{% hint style="info" %}
+The default `ncs.conf` file in `/defaults` has a set of environment variables that can be used to enable interfaces (all interfaces are disabled by default) which is useful when spinning up the Production container for quick testing. An interface can be enabled by setting the corresponding environment variable to `true`.
+
+* `NCS_CLI_SSH`: Enables CLI over SSH on port `2024`.
+* `NCS_WEBUI_TRANSPORT_TCP`: Enables JSON-RPC and RESTCONF over TCP on port `8080`.
+* `NCS_WEBUI_TRANSPORT_SSL`: Enables JSON-RPC and RESTCONF over SSL/TLS on port `8888`.
+* `NCS_NETCONF_TRANSPORT_SSH`: Enables NETCONF over SSH on port `2022`.
+* `NCS_NETCONF_TRANSPORT_TCP`: Enables NETCONF over TCP on port `2023`.
+{% endhint %}
+
 ### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
 
 If you need to perform operations before or after the `ncs` process is started in the Production container, you can use Python and/or Bash scripts to achieve this. Add the scripts to the `$NCS_CONFIG_DIR/pre-ncs-start.d/` and `$NCS_CONFIG_DIR/post-ncs-start.d/` directories to have the `run-nso.sh` script run them.
