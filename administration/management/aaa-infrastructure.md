@@ -227,10 +227,10 @@ To configure PAM we typically need to do the following:
       <service>common-auth</service>
     </pam>
     ```
-3.  If PAM is enabled and we want to use PAM for login, the system may have to run as `root`. This depends on how PAM is configured locally. However, the default system authentication will typically require `root`, since the PAM libraries then read `/etc/shadow`. If we don't want to run NSO as root, the solution here is to change the owner of a helper program called `$NCS_DIR/lib/ncs/lib/core/pam/priv/epam` and also set the `setuid` bit.
+3.  If PAM is enabled and we want to use PAM for login, the system may have to run as `root`. This depends on how PAM is configured locally. However, the default system authentication will typically require `root`, since the PAM libraries then read `/etc/shadow`. If we don't want to run NSO as root, the solution here is to change the owner of a helper program called `$NCS_DIR/lib/ncs/lib/pam-*/priv/epam` and also set the `setuid` bit.
 
     ```bash
-    # cd $NCS_DIR/lib/ncs/lib/core/pam/priv/
+    # cd $NCS_DIR/lib/ncs/lib/pam-*/priv/
     # chown root:root epam
     # chmod u+s epam
     ```
@@ -576,13 +576,13 @@ The fields `challengeid` and response are base64 encoded when passed to the scri
 
 NSO communicates with clients (Python and Java client libraries, `ncs_cli`, `netconf-subsys`, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 
-By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.&#x20;
+By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.
 
 ```bash
 ncs_cli --user admin
 ```
 
-&#x20;The same is possible for the group. This unauthenticated access is currently the default.
+The same is possible for the group. This unauthenticated access is currently the default.
 
 The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 
@@ -1011,7 +1011,7 @@ Similar to the command access check, whenever a user through some agent tries to
 We have the following leafs in the `rule` list entry.
 
 * `name`: The name of the rule. The rules are checked in order, with the ordering given by the YANG `ordered-by user` semantics, i.e., independent of the key values.
-* `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e., the default) matches all modules. \
+* `module-name`: The `module-name` string is the name of the YANG module where the node being accessed is defined. The special value `*` (i.e., the default) matches all modules.\
   **Note**: Since the elements of the path to a given node may be defined in different YANG modules when augmentation is used, rules that have a value other than `*` for the `module-name` leaf may require that additional processing is done before a decision to permit or deny, or the access can be taken. Thus, if an XPath that completely identifies the nodes that the rule should apply to is given for the `path` leaf (see below), it may be best to leave the `module-name` leaf unset.
 * `rpc-name / notification-name / path`: This is a choice between three possible leafs that are used for matching, in addition to the `module-name`:
 * `rpc-name`: The name of an RPC operation, or `*` to match any RPC.

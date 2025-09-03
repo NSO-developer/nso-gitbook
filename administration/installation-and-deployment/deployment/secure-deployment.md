@@ -53,13 +53,13 @@ Running NSO with minimal privileges is a fundamental security best practice:
 * Use the NSO installer `--run-as-user User` option to run NSO as a non-root user.
 * Some files are installed with elevated privileges - refer to the [ncs-installer(1)](../../../man/ncs-installer.1.md#system-installation) man page under the `--run-as-user User` option for details.
 * The NSO production container runs NSO from a [non-root user](../containerized-nso.md#nso-runs-from-a-non-root-user).
-*   If the CLI is used and we want to create CLI commands that run executables, we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdptywrapper` program.\
+*   If the CLI is used and we want to create CLI commands that run executables, we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/confd-*/priv/cmdptywrapper` program.\
     To be able to run an executable as root or a specific user, we need to make `cmdptywrapper` `setuid` `root`, i.e.:
 
     1. `# chown root cmdptywrapper`
     2. `# chmod u+s cmdptywrapper`
 
-    Failing that, all programs will be executed as the user running the `ncs` daemon. Consequently, if that user is the `root`, we do not have to perform the `chmod` operations above. The same applies to executables run via actions, but then we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/core/confd/priv/cmdwrapper` program instead:
+    Failing that, all programs will be executed as the user running the `ncs` daemon. Consequently, if that user is the `root`, we do not have to perform the `chmod` operations above. The same applies to executables run via actions, but then we may want to modify the permissions of the `$NCS_DIR/lib/ncs/lib/confd-*/priv/cmdwrapper` program instead:
 
     1. `# chown root cmdwrapper`
     2. `# chmod u+s cmdwrapper`
@@ -103,7 +103,7 @@ See [Authentication](../../management/aaa-infrastructure.md#ug.aaa.authenticatio
 
 ## Securing IPC Access
 
-Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).&#x20;
+Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).
 
 Examples of programs that connect using IPC sockets:
 
