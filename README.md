@@ -1,23 +1,9 @@
 ---
-icon: power-off
 description: Get started with the Cisco Crosswork NSO documentation guides.
+icon: power-off
 cover: >-
   https://github.com/NSO-developer/nso-gitbook/blob/main/images/gb-cover-final.png?raw=true
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Start

@@ -419,7 +419,7 @@ The most important principle to keep in mind is that the data created by any ser
 
 In stacked service design, the lower-level service data is under the control of the higher-level service and must not be directly manipulated. Only the higher-level service may manipulate that data. However, two higher-level services may manipulate the same structures, since NSO performs reference counting (see [Reference Counting Overlapping Configuration](services-deep-dive.md#ch_svcref.refcount)).
 
-## Service Design
+## Stacked Service Design
 
 Designing services in NSO offers a great deal of flexibility with multiple approaches available to suit different needs. But what’s the best way to go about it? At its core, a service abstracts a network service or functionality, bridging user-friendly inputs with network configurations. This definition leaves the implementation open-ended, providing countless possibilities for designing and building services. However, there are certain techniques and best practices that can help enhance performance and simplify ongoing maintenance, making your services more efficient and easier to manage.
 

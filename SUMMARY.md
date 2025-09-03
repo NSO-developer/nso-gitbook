@@ -130,7 +130,6 @@
 * [RESTCONF API](developer-reference/restconf-api/README.md)
   * [Sample RESTCONF API Docs](https://developer.cisco.com/docs/nso/overview/)
 * [NETCONF Interface](developer-reference/netconf-interface.md)
-* [CLI](developer-reference/cli.md)
 * [JSON-RPC API](developer-reference/json-rpc-api.md)
 * [SNMP Agent](developer-reference/snmp-agent.md)
 * [XPath](developer-reference/xpath.md)
