@@ -28,7 +28,7 @@ As of this writing, the server supports the following specifications:
 * [RFC 8525](https://www.ietf.org/rfc/rfc8525.txt) - YANG Library
 * [RFC 8528](https://www.ietf.org/rfc/rfc8528.txt) - YANG Schema Mount
 * [RFC 8639](https://www.ietf.org/rfc/rfc8639.txt) - Subscription to YANG Notifications
-* [RFC 8641 ](https://www.ietf.org/rfc/rfc8641.txt)- Subscription to YANG Notifications for Datastore Updates
+* [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt) - Subscription to YANG Notifications for Datastore Updates
 * [RFC 8650](https://www.ietf.org/rfc/rfc8650.txt) - Dynamic Subscription to YANG Events and Datastores over RESTCONF
 * [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html) - RESTCONF Extension to support Trace Context Headers
 
@@ -834,9 +834,9 @@ Errors occurring during streaming of events will be reported as Server-Sent Even
 
 ## Dynamic Subscriptions
 
-This section describes how Subscribed Notifications and YANG-Push are implemented for RESTCONF. Dynamic subscriptions for RESTCONF are described in [RFC 8650](http://www.ietf.org/rfc/rfc8650.txt), YANG-Push is described in [RFC 8641](http://www.ietf.org/rfc/rfc8641.txt), and Subscribed Notifications are described in [RFC 8639](http://www.ietf.org/rfc/rfc8639.txt).
+This section describes how Subscribed Notifications and YANG-Push are implemented for RESTCONF. Dynamic subscriptions for RESTCONF are described in [RFC 8650](https://www.ietf.org/rfc/rfc8650.txt), YANG-Push is described in [RFC 8641](https://www.ietf.org/rfc/rfc8641.txt), and Subscribed Notifications are described in [RFC 8639](https://www.ietf.org/rfc/rfc8639.txt).
 
-Subscribed notifications and YANG-Push in RESTCONF use the same underlying mechanism as NETCONF and therefore take the same input when establishing, modifying, deleting, killing, or re-syncing a subscription, as well as give the same notification messages for the same scenarios. The main difference is in how the subscription is started. This is more similar to how subscriptions to notification events are done for RESTCONF event streams. To start a subscription, one must first send a POST request to the establish-subscription RPC. This will respond with an ID for the subscription, as well as a URI to which a subsequent GET request can be made. This GET request will start a session for the subscription that will be used to receive notifications. The URI includes the ID for the subscription. The `Accept` header will be `text/event-stream` as shown in the example below. This process is described in more detail in [RFC 8650](http://www.ietf.org/rfc/rfc8650.txt). Just as with RESTCONF Event Streams, the GET request works like along polling request and will not return, instead waiting for notifications to arrive. Each line of the notification will have the prefix `data:` .
+Subscribed notifications and YANG-Push in RESTCONF use the same underlying mechanism as NETCONF and therefore take the same input when establishing, modifying, deleting, killing, or re-syncing a subscription, as well as give the same notification messages for the same scenarios. The main difference is in how the subscription is started. This is more similar to how subscriptions to notification events are done for RESTCONF event streams. To start a subscription, one must first send a POST request to the establish-subscription RPC. This will respond with an ID for the subscription, as well as a URI to which a subsequent GET request can be made. This GET request will start a session for the subscription that will be used to receive notifications. The URI includes the ID for the subscription. The `Accept` header will be `text/event-stream` as shown in the example below. This process is described in more detail in [RFC 8650](https://www.ietf.org/rfc/rfc8650.txt). Just as with RESTCONF Event Streams, the GET request works like along polling request and will not return, instead waiting for notifications to arrive. Each line of the notification will have the prefix `data:` .
 
 {% code title="Example: An Establish-subscription Request" %}
 ```http

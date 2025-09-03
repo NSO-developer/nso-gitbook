@@ -1137,7 +1137,7 @@ It is important to keep in mind that while in some cases XPath converts the lite
 
 ## XPath Functions <a href="#d5e2911" id="d5e2911"></a>
 
-This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](../../man/yang_tailf_extensions.5.md#xpath-functions) in Manual Pages for a full list.
+This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](../../man/tailf_yang_extensions.5.md#xpath-functions) in Manual Pages for a full list.
 
 <details>
 

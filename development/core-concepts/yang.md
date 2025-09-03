@@ -1425,7 +1425,7 @@ The path specification for `server-ip` means the IP address of the server under 
 
 The path specification for `server-port` means the port number of the server with the same IP as specified in `server-ip`, under the host with the same name as specified in `server-host`.
 
-This syntax quickly gets awkward and error-prone. NSO supports a shorthand syntax, by introducing an XPath function `deref()` (see [XPATH FUNCTIONS](../../man/yang_tailf_extensions.5.md#xpath-functions) in Manual Pages ). Technically, this function follows a `leafref` value and returns all nodes that the `leafref` refers to (typically just one). The example above can be written like this:
+This syntax quickly gets awkward and error-prone. NSO supports a shorthand syntax, by introducing an XPath function `deref()` (see [XPATH FUNCTIONS](../../man/tailf_yang_extensions.5.md#xpath-functions) in Manual Pages ). Technically, this function follows a `leafref` value and returns all nodes that the `leafref` refers to (typically just one). The example above can be written like this:
 
 ```yang
 leaf server-host {
