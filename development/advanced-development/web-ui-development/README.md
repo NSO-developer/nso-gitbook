@@ -174,7 +174,8 @@ define([
 
   funs.newReadTrans = function() {
     log('Create a new read-only transaction...');
-    return jsonRpc.call('new_read_trans', {
+    return jsonRpc.call('new_trans', {
+      mode: 'read',
       db: 'running'
     }).done(function(result) {
       ths.read = result.th;

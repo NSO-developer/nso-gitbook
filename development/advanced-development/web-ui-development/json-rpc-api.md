@@ -119,7 +119,7 @@ For brevity, in the upcoming descriptions of each method, only the input `params
 {% endhint %}
 
 * Authorization is based on HTTP cookies. The response to a successful call to `login` would create a session, and set an HTTP-only cookie, and even an HTTP-only secure cookie over HTTPS, named `sessionid`. All subsequent calls are authorized by the presence and the validity of this cookie.
-* The `th` param is a transaction handle identifier as returned from a call to `new_read_trans` or `new_write_trans`.
+* The `th` param is a transaction handle identifier as returned from a call to `new_trans`.
 * The `comet_id` param is a unique ID (decided by the client) that must be given first in a call to the `comet` method, and then to upcoming calls which trigger comet notifications.
 * The `handle` param needs to have a semantic value (not just a counter) prefixed with the `comet` ID (for disambiguation), and overrides the handle that would have otherwise been returned by the call. This gives more freedom to the client and sets semantic handles.
 
@@ -1315,7 +1315,7 @@ The `path` param is a keypath pointing to a leaf with a leafref type.
  "keys": <object>}
 ```
 
-The `th` param is as returned from a call to `new_read_trans` or `new_write_trans`. The `path` param is a keypath pointing to a leaf with a leafref type.
+The `th` param is as returned from a call to `new_trans`. The `path` param is a keypath pointing to a leaf with a leafref type.
 
 **Note**: If the leafref is within an action or RPC, `th` should be created with an `action_path`.
 
@@ -2002,7 +2002,7 @@ curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
-         "method": "batch_init_done",
+         "method": "start_cmd",
          "params": {"handle": "2"}}' \
     http://127.0.0.1:8008/jsonrpc
 
@@ -3265,7 +3265,7 @@ curl \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jsonrpc": "2.0", "id": 1,
-        "method": "changes",
+        "method": "get_trans_changes",
         "params": {"th": 2}}' \
     http://127.0.0.1:8008/jsonrpc
 
