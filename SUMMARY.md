@@ -209,7 +209,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.3.1 2025-08-05](huawei-ias/README.md)
+  * [README v2.4 2025-09-03](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
@@ -349,7 +349,7 @@
 
 * viptela-vmanage
   * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
-  * [README v1.6.27 2025-08-08](viptela-vmanage/README.md)
+  * [README v1.6.28 2025-09-03](viptela-vmanage/README.md)
 
 * vmware-vsphere
   * [README-ned-settings](vmware-vsphere/README-ned-settings.md)
