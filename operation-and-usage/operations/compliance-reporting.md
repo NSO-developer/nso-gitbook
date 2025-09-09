@@ -46,7 +46,7 @@ This report definition, when executed, checks whether all devices known to NSO a
 For such a check, the behavior of the verification can be specified:
 
 * To request a check-sync action to verify that the device is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
-* To scan the commit log (i.e. rollback files) for changes on the devices and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
+* To scan the commit log (i.e., rollback files) for changes on the devices and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
 
 ```
 ncs(config-report-gold-check)# device-check ?
@@ -71,7 +71,7 @@ For the example `gold-check`, you can also use service checks. This type of chec
 For service checks, the verification behavior can be specified as well:
 
 * To request a check-sync action to verify that the service is currently in sync. This behavior is controlled by the leaf `current-out-of-sync` (default `true`).
-* To scan the commit log (i.e. rollback files) for changes on the services and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
+* To scan the commit log (i.e., rollback files) for changes on the services and report these. This behavior is controlled by the leaf `historic-changes` (default `true`).
 
 ```
 ncs(config-report-gold-check)# service-check ?
@@ -99,7 +99,7 @@ compliance reports report gold-check
 !
 ```
 
-You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui\_compliance) for more information.
+You can also use the web UI to define compliance reports. See the section [Compliance Reporting](../webui/tools.md#sec.webui_compliance) for more information.
 
 ## Running Compliance Reports <a href="#d5e4911" id="d5e4911"></a>
 
@@ -153,7 +153,7 @@ The parameters that are possible to specify for a report `run` action are:
 * `title`: The title in the resulting report.
 * `from`: The date and time from which the report should start the information gathering. If not set, the oldest available information is implied.
 * `to`: The date and time when the information gathering should stop. If not set, the current date and time are implied. If set, no new check-syncs of devices and/or services will be attempted.
-* `outformat`: One of `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will formatted using the DocBook schema.
+* `outformat`: One of the formats from `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will be formatted using the DocBook schema. The generated file can be [downloaded](compliance-reporting.md#downloading-compliance-reports) using standard CLI tools like `curl` or `wget` via the URL returned by NSO.
 
 We will request a report run with a `title` and formatted as `text`.
 
@@ -329,6 +329,66 @@ Device ce3
  }
 ```
 {% endcode %}
+
+### Downloading Compliance Reports
+
+NSO generates a report file and returns a `location` URL pointing to it after running a compliance report using the command `compliance reports <report-name> run outformat <format>` . This URL is a direct HTTP(S) link to the report, which can be downloaded using a standard tool like `curl` or `wget`. With basic authentication, the tools authenticate with NSO using a username and password, and allow users to retrieve and save the report file locally for further processing, automation, or archiving. If session-based authentication is enforced (in `ncs.conf`), you must first establish a session and use the returned session cookie to download the report, instead of sending credentials with each request.
+
+The examples below clarify how to make requests.
+
+{% tabs %}
+{% tab title="curl" %}
+**Basic Authentication**
+
+{% code title="Example" overflow="wrap" %}
+```bash
+$ curl -u admin:your_password "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -o report.<format>
+```
+{% endcode %}
+
+Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
+
+**Session-based Authentication**
+
+{% code title="Example" overflow="wrap" %}
+```bash
+# 1. Start a session and save the cookie
+$ curl --cookie-jar cookies.txt -u admin:your_password "http://<nso-host>:<port>/api"
+
+# 2. Use the session cookie to download the report
+$ curl --cookie cookies.txt --cookie-jar cookies.txt "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -o report.<format>
+```
+{% endcode %}
+
+Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
+{% endtab %}
+
+{% tab title="wget" %}
+**Basic Authentication**
+
+{% code title="Example" overflow="wrap" %}
+```bash
+$ wget --user=admin --password=your_password "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -O report.<format>
+```
+{% endcode %}
+
+Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
+
+**Session-based Authentication**
+
+{% code title="Example" overflow="wrap" %}
+```bash
+# 1. Start a session and save cookies
+$ curl --cookie-jar cookies.txt -u admin:your_password "http://<nso-host>:<port>/api"
+
+# 2. Use wget with the saved cookie
+$ wget --load-cookies cookies.txt --save-cookies cookies.txt "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -O report.<format>
+```
+{% endcode %}
+
+Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
+{% endtab %}
+{% endtabs %}
 
 ## Device Configuration Checks
 
