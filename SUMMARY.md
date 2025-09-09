@@ -225,7 +225,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.78.1 2025-08-29](huawei-vrp/README.md)
+  * [README v6.78.2 2025-09-08](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
