@@ -377,7 +377,7 @@ Alarms are described on the link below:
 
 ### Tracing in NSO <a href="#d5e2587" id="d5e2587"></a>
 
-Tracing enables observability across NSO operations by tagging requests with unique identifiers. NSO allows for using Trace Context (recommended) and Trace ID while the `label` and `comment` commit parameters can be used to correlate events. These allow tracking of requests across service invocations, internal operations, and downstream device configurations.
+Tracing enables observability across NSO operations by tagging requests with unique identifiers. NSO allows for using Trace Context (recommended) and Trace ID while the `label` commit parameter can be used to correlate events. These allow tracking of requests across service invocations, internal operations, and downstream device configurations.
 
 #### **Trace Context (Recommended)**
 
