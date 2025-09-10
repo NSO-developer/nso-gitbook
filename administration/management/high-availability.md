@@ -723,7 +723,6 @@ Per-Neighbor BGP Configuration:
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
-admin@ncs(config)# hcc bgp node paris gobgp-bindir /usr/bin
 admin@ncs(config)# hcc bgp node paris neighbor 192.168.31.2 as 64514
 admin@ncs(config)# ... repeated for each neighbor if more than one ...
             ... repeated for each node ...
@@ -899,7 +898,6 @@ Configuring BGP for Paris Node:
 admin@ncs(config)# hcc bgp node paris enabled
 admin@ncs(config)# hcc bgp node paris as 64512
 admin@ncs(config)# hcc bgp node paris router-id 192.168.31.99
-admin@ncs(config)# hcc bgp node paris gobgp-bindir /usr/bin
 admin@ncs(config)# hcc bgp node paris neighbor 192.168.31.2 as 64514
 admin@ncs(config)# commit
 ```
@@ -910,7 +908,6 @@ Configuring BGP for London Node:
 admin@ncs(config)# hcc bgp node london enabled
 admin@ncs(config)# hcc bgp node london as 64513
 admin@ncs(config)# hcc bgp node london router-id 192.168.30.98
-admin@ncs(config)# hcc bgp node london gobgp-bindir /usr/bin
 admin@ncs(config)# hcc bgp node london neighbor 192.168.30.2 as 64514
 admin@ncs(config)# commit
 ```
