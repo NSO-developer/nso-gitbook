@@ -2789,6 +2789,20 @@
 
 <details>
 
+<summary><code>NCS_UPGRADE_ABORTED_INTERNAL</code></summary>
+
+* **Severity**  
+  `CRIT`
+* **Description**  
+  The CDB upgrade was aborted due to some internal error. CDB is left untouched
+* **Format String**  
+  `"NCS upgrade failed with reason '~s'"`
+
+</details>
+
+
+<details>
+
 <summary><code>BAD_LOCAL_PASS</code></summary>
 
 * **Severity**  
