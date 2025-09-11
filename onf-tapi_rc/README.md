@@ -22,6 +22,7 @@
      5.8. rpc rebuild-package
      5.9. rpc show-default-local-dir
      5.10. rpc show-loaded-schema
+     5.11. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -1222,6 +1223,25 @@
       - developer generate-schypp-pragmas add-comment <empty>
 
         Prepend extra comment containing info about the statement.
+
+
+  ## 5.11. rpc xpath-trace-analyzer
+  ---------------------------------
+
+    A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
+    expressions in third-party YANG files that may negatively impact NSO performance.
+
+      Input arguments:
+
+      - file <string> (default logs/xpath.trace)
+
+        Path to the NSO xpath trace file to use. The xpath trace file used by the current NSO will be
+        used by default.
+
+
+      - number-of-entries <uint8> (default 10)
+
+        Set the number of entries to display in the generated top list.
 
 
 # 6. Built in live-status show

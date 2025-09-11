@@ -44,6 +44,7 @@
   7. read
      7.1. show-running-all-match-pattern
   8. write
+     8.1. inject-command
   ```
 
 
@@ -349,5 +350,75 @@
                     will be triggered. No rollback of the running config is done.
 
       disabled    - Disable saving the applied config to persistent memory.
+
+
+## 8.1. ned-settings arista-dcs write inject-command
+----------------------------------------------------
+
+  - write inject-command <id> <config-line> <command> <where>
+
+  The arista-dcs write inject-command ned-setting can be used to inject
+  command line(s) in a transaction. This can be needed, for example,
+  when deleting crypto config which requires a clear command to be
+  run before delete.
+
+  The ned-settings is configured with:
+
+  id
+   User defined name for this ned-setting used to identify the list entry
+
+  config-line
+   The config line(s) where command should be injected (DOTALL regexp)
+
+  command
+   The command (or config) to inject after|before config-line.
+   Prefix with 'do ' if you want to run exec command in config mode.
+   Prefix with 'exec ' if you want to run exec command in exec mode.
+
+  'where', eight values are supported:
+    before-each
+     inject command before each matching <config-line>
+    before-first
+     inject command before first matching <config-line>
+    after-each
+     inject command after each matching <config-line>
+    after-last
+     inject command after last matching <config-line>
+    before-topmode
+     inject command before regex <config-line> topmode
+    after-topmode
+     inject command after regex <config-line> topmode
+    first
+     inject command first if regex <config-line> matches or is unset
+    last
+     inject command last if regex <config-line> matches or is unset
+
+  An example (of a previously hard coded inject case):
+
+   devices global-settings ned-settings arista-dcs write inject-command C1 config-line
+    "no crypto ikev2 keyring \\S+" command "do clear crypto session" before-first
+   devices global-settings ned-settings arista-dcs write inject-command C2 config-line
+    "no crypto ikev2 keyring \\S+" command "do clear crypto ikev2 sa fast" before-first
+
+  The above inject command configs will cause a delete of ikev2 keyring to
+  look like this:
+
+   do clear crypto session
+   do clear crypto ikev2 sa fast
+   no crypto ikev2 keyring XXX
+
+  $i (where i is value from 1 to 9) can also be used to inject
+  matches values from the config line. For example:
+
+   devices global-settings ned-settings arista-dcs write inject-command C2 config-line
+    "no interface Tunnel(\\d+)" command "do clear dmvpn session interface Tunnel $1 static" before-first
+
+  with a deletion of interface Tunnel100 results in:
+
+   !do clear dmvpn session interface Tunnel 100 static
+   no interface Tunnel100
+
+  Hence, $1 is replaced with the first group value from the config line,
+  which is (\\d+).
 
 
