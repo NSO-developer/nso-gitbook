@@ -440,15 +440,11 @@ In environments with high NETCONF traffic, particularly when using `ncs_device_n
 
 Use the following command prior to enabling HA or assigning roles:
 
-Copy
-
 ```bash
 admin@ncs# high-availability read-only mode true
 ```
 
 After successful sync and HA establishment, disable read-only mode:
-
-Copy
 
 ```bash
 admin@ncs# high-availability read-only mode false
