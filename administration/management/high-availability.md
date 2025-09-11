@@ -204,6 +204,7 @@ As part of the configuration, you must:
 * Identify the cluster this node belongs to with `cluster-name`.
 * Reload or restart the NSO process (if already running).
 * Repeat the preceding steps for every participating node.
+* Enable read-only mode on designated leader to avoid potential sync issues in cluster formation.
 * Invoke the `create-cluster` action.
 
 The cluster name is simply a character string that uniquely identifies this HA cluster. The nodes in the cluster must use the same cluster name or they will refuse to establish a connection. This setting helps prevent mistakenly adding a node to the wrong cluster when multiple clusters are in operation, such as in an LSA setup.
@@ -233,6 +234,7 @@ With all the nodes configured and running, connect to the node that you would li
 This action makes the current node a cluster leader and joins the other specified nodes to the newly created cluster. For example:
 
 ```bash
+admin@ncs# request ha-raft read-only-mode true
 admin@ncs# ha-raft create-cluster member [ birch.example.org cedar.example.org ]
 admin@ncs# show ha-raft
 ha-raft status role leader
@@ -241,6 +243,7 @@ ha-raft status member [ ash.example.org birch.example.org cedar.example.org ]
 ha-raft status connected-node [ birch.example.org cedar.example.org ]
 ha-raft status local-node ash.example.org
 ...
+admin@ncs# request ha-raft read-only-mode false
 ```
 
 You can use the `show ha-raft` command on any node to inspect the status of the HA Raft cluster. The output includes the current cluster leader and members according to this node, as well as information about the local node, such as node name (`local-node`) and role. The `status/connected-node` list contains the names of the nodes with which this node has active network connections.
@@ -250,7 +253,7 @@ In case you get an error, such as the `Error: NSO can't reach member node 'ncsd@
 * The node at the `ADDRESS` is reachable. You can use the `ping` `ADDRESS` command, for example.
 * The problematic node has the correct `ncs.conf` configuration, especially `cluster-name` and `node-address`. The latter should match the `ADDRESS` and should contain at least one dot.
 * Nodes use compatible configuration. For example, make sure the `ncs.crypto_keys` file (if used) or the `encrypted-strings` configuration in `ncs.conf` is identical across nodes.
-* HA Raft is enabled, using the **show ha-raft** command on the unreachable node.
+* HA Raft is enabled, using the `show ha-raft` command on the unreachable node.
 * The firewall configuration on the OS and on the network level permits traffic on the required ports (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports)).
 * The node uses a certificate that the CA can validate. For example, copy the certificates to the same location and run `openssl verify -CAfile CA_CERT NODE_CERT` to verify this.
 * Verify the `epmd -names` command on each node shows the ncsd process. If not, stop NSO, run `epmd -kill`, and then start NSO again.
@@ -445,6 +448,22 @@ Rule-based HA allows administrators to:
 * View the state of the current HA setup
 
 NSO rule-based HA is defined in `tailf-ncs-high-availability.yang`, with data residing under the `/high-availability/` container.
+
+{% hint style="info" %}
+In environments with high NETCONF traffic, particularly when using `ncs_device_notifs`, it's recommended to enable read-only mode on the designated primary node before performing HA activation or sync. This prevents `app_sync` from being blocked by notification processing.
+
+Use the following command prior to enabling HA or assigning roles:
+
+```bash
+admin@ncs# high-availability read-only mode true
+```
+
+After successful sync and HA establishment, disable read-only mode:
+
+```bash
+admin@ncs# high-availability read-only mode false
+```
+{% endhint %}
 
 NSO rule-based HA does not manage any virtual IP addresses, or advertise any BGP routes or similar. This must be handled by an external package. Tail-f HCC 5.x and greater has this functionality compatible with NSO rule-based HA. You can read more about the HCC package in the [following chapter](high-availability.md#ug.ha.hcc).
 
