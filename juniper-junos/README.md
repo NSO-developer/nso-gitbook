@@ -220,6 +220,7 @@ leverage this feature:
   admin@ncs# devices device mx960-1 rpc rpc-request-shell-execute request-shell-execute command "cli request unified-edge sgw call-trace show brief \\| display json"
   ```
 
+
 # 4. Special handling for config of type 'unreadable' for keys and passwords
 --------------------------------------------------------------------------------
 
@@ -291,7 +292,27 @@ FORCE_ORDERED_PREFIX_LIST_ITEM like this:
   ```
 
 
-# 6. Customizing yang model for specific schema paths at build time
+# 6. Forcing list /configuration/routing-options/static/route to be "ordered-by system"
+---------------------------------------------------------------------------------------
+
+Juniper introduced a change in Junos OS, where the `/configuration/routing-options/static/route`
+list transitioned from `ordered-by user` to `ordered-by system`. This change took effect in
+Junos OS version 22.4.
+
+However, it's important to note that some **intermediate service releases** (e.g., 21.2R3-S8.5)
+also adopted the `ordered-by system` behavior. This can lead to non-backward compatible behavior
+for configurations that rely on the previous `ordered-by user` sorting.
+
+To explicitly force the `ordered-by system` behavior for this list, regardless of the specific
+Junos version or its intermediate releases, set the compile-time option
+`FORCE_ORDERED_BY_SYSTEM_ROUTE` to `True` when building:
+
+  ```
+  make JUNOS_MIN_VER=<JUNOS_TWO_DIGIT_VERSION> FORCE_ORDERED_BY_SYSTEM_ROUTE=True clean all
+  ```
+
+
+# 7. Customizing yang model for specific schema paths at build time
 --------------------------------------------------------------------------------
 
 In some situations the yang-model doesn't fit the semantics and/or specific
@@ -372,7 +393,7 @@ For replacing a yang-statement:
   ```
 
 
-# 7. Disabling hack with transaction hook which expands vlan ranges
+# 8. Disabling hack with transaction hook which expands vlan ranges
 --------------------------------------------------------------------
 
 By default there is a transaction hook attached to the below nodes, which
@@ -422,8 +443,9 @@ The nodes which currently has the transaction hook attached by default:
   /configuration/interfaces/interface/...
       unit/vlan-id-list
 
-8. Migrating from juniper-junos to the juniper-junos_nc generic NED
--------------------------------------------------------------------
+
+# 9. Migrating from juniper-junos to the juniper-junos_nc generic NED
+---------------------------------------------------------------------
 
 NSO has supported Junos devices from early on. The legacy juniper-junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.
 

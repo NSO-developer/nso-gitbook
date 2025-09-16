@@ -329,7 +329,7 @@
   ## Please make sure the following MANDATORY ned-settings are properly configured with remote-name as needed for logging in. 
 
   ```
-   ned-settings ericsson-minilink6352 connection remote-name login_username
+   ned-settings ceragon-ip20 connection remote-name login_username
   ```
 
   - Finally commit the configuration
@@ -466,6 +466,15 @@
   Java logging does not use any IPC messages sent to NSO. Consequently, NSO performance is not
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
+
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
 
 
 # 3. Dependencies

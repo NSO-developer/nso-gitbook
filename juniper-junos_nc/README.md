@@ -34,6 +34,7 @@
      5.20. rpc show-default-local-dir
      5.21. rpc show-loaded-schema
      5.22. rpc verify-get-config
+     5.23. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -1184,6 +1185,25 @@ admin@ncs(config)# commit
         Show verbose output, like 'sync-from verbose'.
 
 
+  ## 5.23. rpc xpath-trace-analyzer
+  ---------------------------------
+
+    A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
+    expressions in third-party YANG files that may negatively impact NSO performance.
+
+      Input arguments:
+
+      - file <string> (default logs/xpath.trace)
+
+        Path to the NSO xpath trace file to use. The xpath trace file used by the current NSO will be
+        used by default.
+
+
+      - number-of-entries <uint8> (default 10)
+
+        Set the number of entries to display in the generated top list.
+
+
 # 6. Built in live-status show
 ------------------------------
 
@@ -1193,9 +1213,10 @@ admin@ncs(config)# commit
 # 7. Limitations
 ----------------
 
-    At least Juniper Junos EVO version 25 does have two YANG models with the same prefix defined.
+    At least Juniper Junos EVO version 25 does have a few YANG models with the same prefix defined.
     This is a bug that will make NSO refuse to load the NED package. To avoid this, the NED does automatically
-    change the prefix to 'jnsd' for the YANG model junos-genstate-nsagentd-status.yang.
+    change the prefix to 'jnsd' for the YANG model junos-genstate-nsagentd-status.yang as well as
+    'jgsnmps' for the YANG model junos-genstate-snmp-statistics.yang
 
 
 # 8. How to report NED issues and feature requests

@@ -61,7 +61,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.9.0 2025-06-12](ceragon-ip20/README.md)
+  * [README v1.10.0 2025-09-15](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
@@ -242,7 +242,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.24 2025-08-15](juniper-junos_nc/README.md)
+  * [README v1.1.25 2025-09-15](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
