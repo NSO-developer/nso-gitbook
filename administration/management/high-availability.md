@@ -244,6 +244,24 @@ admin@ncs# request ha-raft read-only-mode false
 
 You can use the `show ha-raft` command on any node to inspect the status of the HA Raft cluster. The output includes the current cluster leader and members according to this node, as well as information about the local node, such as node name (`local-node`) and role. The `status/connected-node` list contains the names of the nodes with which this node has active network connections.
 
+<details>
+
+<summary><code>show ha-raft</code> Field Definitions</summary>
+
+The command `show ha-raft` is used in NSO to display the current state of the HA Raft cluster. The output typically includes the following information:
+
+* The role of the local node (for example, whether it is the `leader`, `follower`, `candidate`, or `stalled`).
+* The leader of the cluster, if one has been elected.
+* The list of member nodes that belong to the HA Raft cluster.
+* The connected nodes, which are the nodes with which the local node currently has active RAFT communication.
+* The local node information, detailing the node’s name and status.
+
+This command is useful for both verifying that the HA Raft cluster is set up correctly and for troubleshooting issues by checking the connectivity and role assignments of the nodes. Some noteworthy terms of output are defined in the table below.
+
+<table><thead><tr><th width="287.47265625" valign="top">Term</th><th valign="top">Definition</th></tr></thead><tbody><tr><td valign="top"><code>role</code></td><td valign="top">The current node’s Raft role (<code>leader</code>, <code>follower</code>, or <code>candidate</code>). Occasionally, in NSO, a node might appear as <code>stalled</code> if it has lost contact with the leader or quorum.</td></tr><tr><td valign="top"><code>leader</code></td><td valign="top">The current known leader of the cluster.</td></tr><tr><td valign="top"><code>member</code></td><td valign="top">A node that is part of the RAFT consensus group (i.e., a voting participant, not an observer). Leaders, followers, and candidates are members; observers are not.</td></tr><tr><td valign="top"><code>connected-node</code></td><td valign="top">The nodes this instance is connected to.</td></tr><tr><td valign="top"><code>local-node</code></td><td valign="top">The name of the current node.</td></tr><tr><td valign="top"><code>lag</code></td><td valign="top">The number of indices the replicated log is behind the leader node. A value of <code>0</code> means no lag — the node's RAFT log is fully up-to-date with the leader. The larger the value, the more out-of-sync the node is, which may indicate a replication or connectivity issue.</td></tr><tr><td valign="top"><code>index</code></td><td valign="top">The last replicated HA Raft log index, i.e., this is the last log entry replicated to a node.</td></tr><tr><td valign="top"><code>state</code></td><td valign="top"><p>The synchronization status of the node’s RAFT log. Common values include:</p><ul><li><code>in-sync</code>: The node is up-to-date with the leader.</li><li><code>behind</code>: The node is lagging behind in log replication.</li><li><code>unreachable</code>: The node is not communicating with one or more RAFT peers, i.e., the node cannot reach the leader or other RAFT peers, preventing synchronization.</li><li><code>requires-snapshot</code>: The node has fallen too far behind to catch up using logs and needs a full snapshot from the leader.</li></ul></td></tr><tr><td valign="top"><code>current-index</code></td><td valign="top">The latest log index on this node.</td></tr><tr><td valign="top"><code>applied-index</code></td><td valign="top">The last index applied to CDB.</td></tr><tr><td valign="top"><code>serial-number</code></td><td valign="top">The certificate serial number. Used to uniquely identify the node.</td></tr></tbody></table>
+
+</details>
+
 In case you get an error, such as the `Error: NSO can't reach member node 'ncsd@ADDRESS'.`, please verify all of the following:
 
 * The node at the `ADDRESS` is reachable. You can use the `ping` `ADDRESS` command, for example.
