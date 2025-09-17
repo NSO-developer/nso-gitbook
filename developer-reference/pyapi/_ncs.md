@@ -2,7 +2,7 @@
 
 NCS Python low level module.
 
-This module and its submodules provide Python bindings for the C APIs, described by the [confd\_lib(3)](../../man/confd_lib.3.md) man page.
+This module and its submodules provide Python bindings for the C APIs, described by the [confd\_lib(3)](../../resources/man/confd_lib.3.md) man page.
 
 The companion high level module, ncs, provides an abstraction layer on top of this module and may be easier to use.
 
@@ -87,7 +87,7 @@ find_cs_node_child(parent, xmltag) -> Union[CsNode, None]
 
 Utility function which finds the CsNode corresponding to the child node given as xmltag.
 
-See confd\_find\_cs\_node\_child() in [confd\_lib\_lib(3)](../../man/confd_lib_lib.3.md).
+See confd\_find\_cs\_node\_child() in [confd\_lib\_lib(3)](../../resources/man/confd_lib_lib.3.md).
 
 Keyword arguments:
 

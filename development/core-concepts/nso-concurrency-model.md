@@ -125,7 +125,7 @@ The read-set and write-set size limits that NSO uses for transaction checkpoints
 * /ncs-config/checkpoint/max-write-set-size
 * /ncs-config/checkpoint/total-size-limit
 
-See [ncs.conf(5) ](../../man/index.md#section-5-file-formats-and-syntax)for details.
+See [ncs.conf(5) ](../../resources/man/README.md#section-5-file-formats-and-syntax)for details.
 
 A transaction checkpoint reaching a size limit will result in a log entry:
 

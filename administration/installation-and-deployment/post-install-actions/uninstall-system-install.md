@@ -8,7 +8,7 @@ description: Remove System Install.
 Applies to System Install.
 {% endhint %}
 
-NSO can be uninstalled using the [ncs-installer(1)](../../../man/ncs-installer.1.md) option only if NSO is installed with `--system-install` option. Either part of the static files or the full installation can be removed using `ncs-uninstall` option. Ensure to stop NSO before uninstalling.
+NSO can be uninstalled using the [ncs-installer(1)](../../../resources/man/ncs-installer.1.md) option only if NSO is installed with `--system-install` option. Either part of the static files or the full installation can be removed using `ncs-uninstall` option. Ensure to stop NSO before uninstalling.
 
 ```bash
 # ncs-uninstall --all

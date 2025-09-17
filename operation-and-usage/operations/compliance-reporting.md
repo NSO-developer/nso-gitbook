@@ -516,7 +516,7 @@ By default the schemas for compliance templates are not accessible from applicat
 
 In addition to configuration, compliance templates can also check for operational data. This can be used, for example, to check device interface statuses and device software versions.
 
-This feature is opt-in and requires the NEDs to be re-compiled with the `--ncs-with-operational-compliance` [ncsc(1)](../../man/ncsc.1.md) flag. Instructions on how to re-compile a NED is included in each NED package.
+This feature is opt-in and requires the NEDs to be re-compiled with the `--ncs-with-operational-compliance` [ncsc(1)](../../resources/man/ncsc.1.md) flag. Instructions on how to re-compile a NED is included in each NED package.
 
 ```bash
 admin@ncs(config)# compliance template interface-up
