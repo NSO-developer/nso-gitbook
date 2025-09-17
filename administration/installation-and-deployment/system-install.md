@@ -204,7 +204,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual Pages**
 
-The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The Manual Pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../man/ncs-installer.1.md) in Manual Pages.
+The installation program will unpack the NSO manual pages from the documentation archive, allowing you to use the `man` command to view them. The Manual Pages are also available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../resources/man/ncs-installer.1.md) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -233,7 +233,7 @@ $ ncsc --help
 
 **Installer Help**
 
-Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../man/ncs-installer.1.md) Manual Page included with NSO.
+Run the `sh nso-VERSION.linux.x86_64.installer.bin --help` command to view additional help on running binaries. More details can be found in the [ncs-installer(1)](../../resources/man/ncs-installer.1.md) Manual Page included with NSO.
 
 Notice the two options for `--local-install` or `--system-install`.
 
@@ -331,7 +331,7 @@ Use the `--ignore-init-scripts` option to disable provisioning the `systemd` sys
 
 If a legacy SysV service exists in `/etc/init.d/ncs` when installing in interactive mode, the user will be prompted to continue using the old SysV service behavior or prepare a `systemd` service. In non-interactive mode, a `systemd` service will be prepared where a `/etc/systemd/system/ncs.service.prepare` file is created. The service is not enabled to start at boot. To enable it, rename it to `/etc/systemd/system/ncs.service` and remove the old `/etc/init.d/ncs` SysV service. When using the `--non-interactive` option, the `/etc/systemd/system/ncs.service` file will be overwritten if it already exists.
 
-For more information on the `ncs-installer`, see the [ncs-installer(1)](../../man/ncs-installer.1.md) man page.
+For more information on the `ncs-installer`, see the [ncs-installer(1)](../../resources/man/ncs-installer.1.md) man page.
 
 For an extensive guide to NSO deployment, refer to [Development to Production Deployment](development-to-production-deployment/)_._
 

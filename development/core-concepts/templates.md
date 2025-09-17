@@ -1080,7 +1080,7 @@ It is important to keep in mind that while in some cases XPath converts the lite
 
 ## XPath Functions <a href="#d5e2911" id="d5e2911"></a>
 
-This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](../../man/tailf_yang_extensions.5.md#xpath-functions) in Manual Pages for a full list.
+This section lists a few useful functions, available in XPath expressions. The list is not exhaustive; please refer to the [XPath standard](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), [YANG standard](https://datatracker.ietf.org/doc/html/rfc7950#section-10), and NSO-specific extensions in [XPATH FUNCTIONS](../../resources/man/tailf_yang_extensions.5.md#xpath-functions) in Manual Pages for a full list.
 
 <details>
 
@@ -1117,7 +1117,7 @@ This section lists a few useful functions, available in XPath expressions. The l
 * [current()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.1.1)
 * [deref()](https://datatracker.ietf.org/doc/html/rfc7950#section-10.3.1)
 * [last()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-last)
-* [sort-by()](../../man/tailf_yang_extensions.5.md) in Manual Pages
+* [sort-by()](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages
 
 </details>
 
@@ -1125,10 +1125,10 @@ This section lists a few useful functions, available in XPath expressions. The l
 
 <summary>Other</summary>
 
-* [compare()](../../man/tailf_yang_extensions.5.md) in Manual Pages
+* [compare()](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages
 * [count()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-count)
-* [max()](../../man/tailf_yang_extensions.5.md) in Manual Pages
-* [min()](../../man/tailf_yang_extensions.5.md) in Manual Pages
+* [max()](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages
+* [min()](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages
 * [not()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
 * [sum()](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum)
 

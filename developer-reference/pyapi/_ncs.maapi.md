@@ -4,7 +4,7 @@ Low level module for connecting to NCS with a read/write interface inside transa
 
 This module is used to connect to the NCS transaction manager. The API described here has several purposes. We can use MAAPI when we wish to implement our own proprietary management agent. We also use MAAPI to attach to already existing NCS transactions, for example when we wish to implement semantic validation of configuration data in Python, and also when we wish to implement CLI wizards in Python.
 
-This documentation should be read together with the [confd\_lib\_maapi(3)](../../man/confd_lib_maapi.3.md) man page.
+This documentation should be read together with the [confd\_lib\_maapi(3)](../../resources/man/confd_lib_maapi.3.md) man page.
 
 ## Functions
 

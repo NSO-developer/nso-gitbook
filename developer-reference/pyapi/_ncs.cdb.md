@@ -8,7 +8,7 @@ CDB owns and stores the configuration data and the user of the API wants to read
 
 CDB can also store operational data, i.e. data which is designated with a "config false" statement in the YANG data model. Operational data can be both read and written by the applications, but NETCONF and the other northbound agents can only read the operational data.
 
-This documentation should be read together with the [confd\_lib\_cdb(3)](../../man/confd_lib_cdb.3.md) man page.
+This documentation should be read together with the [confd\_lib\_cdb(3)](../../resources/man/confd_lib_cdb.3.md) man page.
 
 ## Functions
 
@@ -59,7 +59,7 @@ Keyword arguments:
 connect_name(sock, type, name, ip, port, path) -> None
 ```
 
-When we use connect() to create a connection to NCS/CDB, the name argument passed to the library initialization function confd\_init() (see [confd\_lib\_lib(3)](../../man/confd_lib_lib.3.md)) is used to identify the connection in status reports and logs. I we want different names to be used for different connections from the same application process, we can use connect\_name() with the wanted name instead of connect().
+When we use connect() to create a connection to NCS/CDB, the name argument passed to the library initialization function confd\_init() (see [confd\_lib\_lib(3)](../../resources/man/confd_lib_lib.3.md)) is used to identify the connection in status reports and logs. I we want different names to be used for different connections from the same application process, we can use connect\_name() with the wanted name instead of connect().
 
 Keyword arguments:
 
@@ -388,7 +388,7 @@ Keyword arguments:
 get_user_session(sock) -> int
 ```
 
-Returns the user session id for the transaction that triggered the current subscription notification. This function uses a subscription socket, and can only be called when a subscription notification for configuration data has been received on that socket, before sync\_subscription\_socket() has been called. Additionally, it is not possible to call this function from the iter() function passed to diff\_iterate(). To retrieve full information about the user session, use \_maapi.get\_user\_session() (see [confd\_lib\_maapi(3)](../../man/confd_lib_maapi.3.md)).
+Returns the user session id for the transaction that triggered the current subscription notification. This function uses a subscription socket, and can only be called when a subscription notification for configuration data has been received on that socket, before sync\_subscription\_socket() has been called. Additionally, it is not possible to call this function from the iter() function passed to diff\_iterate(). To retrieve full information about the user session, use \_maapi.get\_user\_session() (see [confd\_lib\_maapi(3)](../../resources/man/confd_lib_maapi.3.md)).
 
 Note:
 

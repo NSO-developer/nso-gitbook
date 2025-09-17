@@ -4,7 +4,7 @@ Low level module for connecting to NCS HA subsystem.
 
 This module is used to connect to the NCS High Availability (HA) subsystem. NCS can replicate the configuration data on several nodes in a cluster. The purpose of this API is to manage the HA functionality. The details on usage of the HA API are described in the chapter High availability in the User Guide.
 
-This documentation should be read together with the [confd\_lib\_ha(3)](../../man/confd_lib_ha.3.md) man page.
+This documentation should be read together with the [confd\_lib\_ha(3)](../../resources/man/confd_lib_ha.3.md) man page.
 
 ## Functions
 

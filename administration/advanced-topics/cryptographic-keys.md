@@ -6,7 +6,7 @@ description: >-
 
 # Cryptographic Keys
 
-By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO. See the [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
+By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO. See the [tailf\_yang\_extensions(5)](../../resources/man/tailf_yang_extensions.5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
 
 ## Providing Keys
 
@@ -110,7 +110,7 @@ There is always an active generation:
 * If using the legacy method of providing keys in `ncs.conf` or when providing keys using the `/ncs-config/encrypted-strings/key-rotation` method without providing the initial line `EXTERNAL_KEY_FORMAT=2` in the application, the active generation will be `-1`.
 * If starting NSO without any previous keys using the `/ncs-config/encrypted-strings/key-rotation` method or the `external-keys` method with the initial line `EXTERNAL_KEY_FORMAT=2`, the highest provided generation will be selected as the active generation.
 
-For `ncs.conf` details, see the [ncs.conf(5) man page](../../man/ncs.conf.5.md) under `/ncs-config/encrypted-strings`.
+For `ncs.conf` details, see the [ncs.conf(5) man page](../../resources/man/ncs.conf.5.md) under `/ncs-config/encrypted-strings`.
 
 ## Key Rotation
 
@@ -124,7 +124,7 @@ Key rotation helps ensure that sensitive data remains secure over time. It reduc
 
 To rotate to a new generation of keys and re-encrypt the data:
 
-1. Always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../man/ncs-backup.1.md).
+1. Always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../resources/man/ncs-backup.1.md).
 2. Check the currently active generation using the `/key-rotation/get-active-generation` action.
 3. Re-encrypt all encrypted values with a new set of keys using the `/key-rotation/apply-new-key` action with the `new-key-generation` to rotate to as input.\
    The commit queue must be empty before running the action, or the action will fail, as the snapshot database is re-initialized. To wait for the commit queue to become empty, use the `wait-commit-queue` argument with the number of seconds to wait before failing.
@@ -163,7 +163,7 @@ Under the hood, the`/key-rotation/apply-new-keys` action, when executed, perform
 
 ## Reloading After Changes to the Cryptographic Keys
 
-1. Before changing the cryptographic keys, always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../man/ncs-backup.1.md). Also, back up the external key file, default `${NCS_CONFIG_DIR}/ncs.crypto_keys`, or the `${NCS_CONFIG_DIR}/ncs.conf` file, depending on where the keys are stored.
+1. Before changing the cryptographic keys, always [take a backup](../management/system-management/#backup-and-restore) using [ncs-backup](../../resources/man/ncs-backup.1.md). Also, back up the external key file, default `${NCS_CONFIG_DIR}/ncs.crypto_keys`, or the `${NCS_CONFIG_DIR}/ncs.conf` file, depending on where the keys are stored.
 2. Suppose you have previously provided keys in the legacy format and wish to switch to `/ncs-config/encrypted-strings/key-rotation` or `external-keys` with the initial line `EXTERNAL_KEY_FORMAT=2`. In that case, you must provide the currently used keys as generation `-1`. The new keys can have any non-negative generation number.
 3. Replace the external key file or `ncs.conf` file depending on where the keys are stored.
 4. Issue `ncs --reload` to reload the cryptographic keys.

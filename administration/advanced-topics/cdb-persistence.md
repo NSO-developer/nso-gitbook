@@ -66,4 +66,4 @@ As compaction may require a significant amount of time, it may be preferable to 
 
 By default, CDB may perform compaction during its boot process. This may be disabled, if required, by starting NSO with the flag `--disable-compaction-on-start`.
 
-Additionally, CDB CAPI provides a set of functions that may be used to create an external mechanism for compaction. See `cdb_initiate_journal_compaction()`, `cdb_initiate_journal_dbfile_compaction()`, and `cdb_get_compaction_info()` in [confd\_lib\_cdb(3)](../../man/confd_lib_cdb.3.md) in Manual Pages.
+Additionally, CDB CAPI provides a set of functions that may be used to create an external mechanism for compaction. See `cdb_initiate_journal_compaction()`, `cdb_initiate_journal_dbfile_compaction()`, and `cdb_get_compaction_info()` in [confd\_lib\_cdb(3)](../../resources/man/confd_lib_cdb.3.md) in Manual Pages.

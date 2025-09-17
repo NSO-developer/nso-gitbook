@@ -4,7 +4,7 @@ description: Manage and work with NSO encrypted strings.
 
 # Encrypted Strings
 
-By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO that can be decrypted. See the [tailf\_yang\_extensions(5)](../../man/tailf_yang_extensions.5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
+By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encrypted-string` or `tailf:aes-256-cfb-128-encrypted-string`, it is possible to store encrypted string values in NSO that can be decrypted. See the [tailf\_yang\_extensions(5)](../../resources/man/tailf_yang_extensions.5.md#yang-types-2) man page for more details on the encrypted string YANG extension types.
 
 ## Decrypting the Encrypted Strings
 
@@ -22,7 +22,7 @@ my_decrypted_str = _ncs.decrypt(my_encrypted_str)
 
 ## Reading Encryption Keys using an External Command
 
-NSO supports reading encryption keys using an external command instead of storing them in `ncs.conf` to allow for use with external key management systems. For `ncs.conf` details, see the [ncs.conf(5) man page](../../man/ncs.conf.5.md) under `/ncs-config/encrypted-strings`.
+NSO supports reading encryption keys using an external command instead of storing them in `ncs.conf` to allow for use with external key management systems. For `ncs.conf` details, see the [ncs.conf(5) man page](../../resources/man/ncs.conf.5.md) under `/ncs-config/encrypted-strings`.
 
 To use this feature, set `/ncs-config/encrypted-strings/external-keys/command` to an executable command that will output the keys following the rules described in the following sections. The command will be executed on startup and when NSO reloads the configuration.
 

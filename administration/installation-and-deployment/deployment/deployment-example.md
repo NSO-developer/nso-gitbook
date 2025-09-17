@@ -98,18 +98,18 @@ The initialization steps are also performed as `root` for the nodes that make up
 
 * The NSO IPC socket is configured in `ncs.conf` to only listen to localhost 127.0.0.1 connections, which is the default setting.\
   \
-  By default, the clients connecting to the NSO IPC socket are considered trusted, i.e., no authentication is required, and the use of 127.0.0.1 with the `/ncs-config/ncs-ipc-address` IP address in `ncs.conf` to prevent remote access. See [Security Considerations](deployment-example.md#ug.admin_guide.deployment.security) and [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for more details.
-* `/ncs-config/aaa/pam` is set to enable PAM to authenticate users as recommended. All remote access to NSO must now be done using the NSO host's privileges. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
-* Depending on your Linux distribution, you may have to change the `/ncs-config/aaa/pam/service` setting. The default value is `common-auth`. Check the file `/etc/pam.d/common-auth` and make sure it fits your needs. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.\
+  By default, the clients connecting to the NSO IPC socket are considered trusted, i.e., no authentication is required, and the use of 127.0.0.1 with the `/ncs-config/ncs-ipc-address` IP address in `ncs.conf` to prevent remote access. See [Security Considerations](deployment-example.md#ug.admin_guide.deployment.security) and [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for more details.
+* `/ncs-config/aaa/pam` is set to enable PAM to authenticate users as recommended. All remote access to NSO must now be done using the NSO host's privileges. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
+* Depending on your Linux distribution, you may have to change the `/ncs-config/aaa/pam/service` setting. The default value is `common-auth`. Check the file `/etc/pam.d/common-auth` and make sure it fits your needs. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.\
   \
   Alternatively, or as a complement to the PAM authentication, users can be stored in the NSO CDB database or authenticated externally. See [Authentication](../../management/aaa-infrastructure.md#ug.aaa.authentication) for details.
-*   RESTCONF token authentication under `/ncs-config/aaa/external-validation` is enabled using a `token_auth.sh` script that was added earlier together with a `generate_token.sh` script. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.\
+*   RESTCONF token authentication under `/ncs-config/aaa/external-validation` is enabled using a `token_auth.sh` script that was added earlier together with a `generate_token.sh` script. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.\
     \
     The scripts allow users to generate a token for RESTCONF authentication through, for example, the NSO CLI and NETCONF interfaces that use SSH authentication or the Web interface.
 
     The token provided to the user is added to a simple YANG list of tokens where the list key is the username.
 * The token list is stored in the NSO CDB operational data store and is only accessible from the node's local MAAPI and CDB APIs. See the HA Raft and rule-based HA `upgrade-l2/manager-etc/yang/token.yang` file in the examples.
-*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. If the server needs to serve multiple domains or IP addresses, additional `server-alias` values can be configured. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
+*   The NSO web server HTTPS interface should be enabled under `/ncs-config/webui`, along with `/ncs-config/webui/match-host-name = true` and `/ncs-config/webui/server-name` set to the hostname of the node, following security best practice. If the server needs to serve multiple domains or IP addresses, additional `server-alias` values can be configured. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
 
     **Note**: The SSL certificates that NSO generates are self-signed:
 
@@ -129,10 +129,10 @@ The initialization steps are also performed as `root` for the nodes that make up
           .......
     ```
 
-    Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
+    Thus, if this is a production environment and the JSON-RPC and RESTCONF interfaces using the web server are not used solely for internal purposes, the self-signed certificate must be replaced with a properly signed certificate. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages under `/ncs-config/webui/transport/ssl/cert-file` and `/ncs-config/restconf/transport/ssl/certFile` for more details.
 * Disable `/ncs-config/webui/cgi` unless needed.
-* The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
-*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
+* The NSO SSH CLI login is enabled under `/ncs-config/cli/ssh/enabled`. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
+*   The NSO CLI style is set to C-style, and the CLI prompt is modified to include the hostname under `/ncs-config/cli/prompt`. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
 
     ```xml
         <prompt1>\u@nso-\H> </prompt1>
@@ -141,8 +141,8 @@ The initialization steps are also performed as `root` for the nodes that make up
         <c-prompt1>\u@nso-\H# </c-prompt1>
         <c-prompt2>\u@nso-\H(\m)# </c-prompt2>
     ```
-* NSO HA Raft is enabled under `/ncs-config/ha-raft`, and the rule-based HA under `/ncs-config/ha`. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
-* Depending on your provisioned applications, you may want to turn `/ncs-config/rollback/enabled` off. Rollbacks do not work well with nano service reactive FASTMAP applications or if maximum transaction performance is a goal. If your application performs classical NSO provisioning, the recommendation is to enable rollbacks. Otherwise not. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
+* NSO HA Raft is enabled under `/ncs-config/ha-raft`, and the rule-based HA under `/ncs-config/ha`. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
+* Depending on your provisioned applications, you may want to turn `/ncs-config/rollback/enabled` off. Rollbacks do not work well with nano service reactive FASTMAP applications or if maximum transaction performance is a goal. If your application performs classical NSO provisioning, the recommendation is to enable rollbacks. Otherwise not. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
 
 ## The `aaa_init.xml` Configuration <a href="#ug.admin_guide.deployment.aaa" id="ug.admin_guide.deployment.aaa"></a>
 
@@ -217,7 +217,7 @@ For the HA Raft and rule-based HA upgrade-l2 examples, see the reference from th
 
 ### Audit Network Log and NED Traces <a href="#d5e7968" id="d5e7968"></a>
 
-Use the audit-network-log for recording southbound traffic towards devices. Enable by setting `/ncs-config/logs/audit-network-log/enabled` and `/ncs-config/logs/audit-network-log/file/enabled` to true in `$NCS_CONFIG_DIR/ncs.conf`, See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for more information.
+Use the audit-network-log for recording southbound traffic towards devices. Enable by setting `/ncs-config/logs/audit-network-log/enabled` and `/ncs-config/logs/audit-network-log/file/enabled` to true in `$NCS_CONFIG_DIR/ncs.conf`, See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for more information.
 
 NED trace logs are a crucial tool for debugging NSO installations and not recommended for deployment. These logs are very verbose and for debugging only. Do not enable these logs in production.
 
@@ -333,7 +333,7 @@ The main security-related point is that no AAA checks are performed on this sock
 
 To drive this point home, when you invoke the `ncs_cli` command, a small C program that connects to the socket and tells NSO who you are, NSO assumes that authentication has already been performed. There is even a documented flag `--noaaa`, which tells NSO to skip all NACM rule checks for this session.
 
-You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](../../../man/ncs.conf.5.md) in Manual Pages for details.
+You must protect the socket to prevent untrusted Linux shell users from accessing the NSO instance using this method. This is done by using a file in the Linux file system. The file `/etc/ncs/ipc_access` gets created and populated with random data at install time. Enable `/ncs-config/ncs-ipc-access-check/enabled` in `ncs.conf` and ensure that trusted users can read the `/etc/ncs/ipc_access` file, for example, by changing group access to the file. See [ncs.conf(5)](../../../resources/man/ncs.conf.5.md) in Manual Pages for details.
 
 ```bash
 $ cat /etc/ncs/ipc_access
