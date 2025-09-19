@@ -34,7 +34,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.4.20 2025-06-27](alu-isam/README.md)
+  * [README v1.5 2025-09-18](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.72.1 2025-09-16](cisco-iosxr/README.md)
+  * [README v7.72.2 2025-09-18](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -209,7 +209,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.5 2025-09-12](huawei-ias/README.md)
+  * [README v2.6 2025-09-18](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)

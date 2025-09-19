@@ -480,6 +480,14 @@
       Max number of retries (one per second) when sending config command to device.
 
 
+    - write range-syntax-command-len <uint16> (default 255)
+
+      This settings is used to split a NSO command line into
+      multiple device commands, when the number of parameters is too high and
+      the device reports an error about it (ussually in ranged lists). Disabled with 0. 
+      Default 255
+
+
 # 9. ned-settings huawei-ias live-status
 ----------------------------------------
 
