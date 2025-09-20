@@ -272,6 +272,19 @@
       commit (i.e. to undo commit).
 
 
+    - transaction annotate-commit <enum> (default disabled)
+
+      Enable support for annotating the commit on JunOS devices through NSO. When this option is
+      enabled, the NED uses the JunOS-specific 'commit-configuration' RPC instead of the standard
+      Netconf 'commit' RPC. This feature is available only on NSO version 6.5 or later.
+
+      with-label    - The device commit annotation will use the NSO commit label.
+
+      with-comment  - The device commit annotation will use the NSO commit comment.
+
+      disabled      - disabled.
+
+
 ## 2.1. ned-settings juniper-junos_nc transaction ignore-rpc-errors
 -------------------------------------------------------------------
 
