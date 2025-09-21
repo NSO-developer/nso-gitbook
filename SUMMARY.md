@@ -116,7 +116,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.110 2025-09-16](cisco-ios/README.md)
+  * [README v6.110.1 2025-09-19](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
