@@ -192,8 +192,6 @@
   * [econfd_maapi Module](developer-reference/erlang/econfd_maapi.md)
   * [econfd_notif Module](developer-reference/erlang/econfd_notif.md)
   * [econfd_schema Module](developer-reference/erlang/econfd_schema.md)
-  * [econfd Module](developer-reference/erlang/econfd.md)
-  * [econfd Module](developer-reference/erlang/econfd.md)
 * [RESTCONF API](developer-reference/restconf-api/README.md)
   * [Sample RESTCONF API Docs](https://developer.cisco.com/docs/nso/overview/)
 * [NETCONF Interface](developer-reference/netconf-interface.md)
