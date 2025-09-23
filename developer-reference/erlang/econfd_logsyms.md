@@ -2,9 +2,9 @@
 
 ## Types
 
-[logsym/0](#logsym0)
+[logsym/0](#logsym-0)
 
-[logsyms/0](#logsyms0)
+[logsyms/0](#logsyms-0)
 
 ### logsym/0
 
@@ -20,17 +20,17 @@
 
 ## Functions
 
-[array()](#array0)
+[array()](#array-0)
 
-[array(Max, \_)](#array2)
+[array(Max, \_)](#array-2)
 
-[get\_descr(LogSym)](#get_descr1)
+[get\_descr(LogSym)](#get_descr-1)
 
-[get\_logsym(LogSym)](#get_logsym1)
+[get\_logsym(LogSym)](#get_logsym-1)
 
-[get\_logsymstr(LogSym)](#get_logsymstr1)
+[get\_logsymstr(LogSym)](#get_logsymstr-1)
 
-[max\_sym()](#max_sym0)
+[max\_sym()](#max_sym-0)
 
 ### array/0
 
@@ -38,7 +38,7 @@
 -spec array() -> logsyms().
 ```
 
-Related types: [logsyms()](#logsyms0)
+Related types: [logsyms()](#logsyms-0)
 
 ### array/2
 
@@ -58,7 +58,7 @@ array(Max, _)
 -spec get_logsym(LogSym :: integer()) -> logsym().
 ```
 
-Related types: [logsym()](#logsym0)
+Related types: [logsym()](#logsym-0)
 
 ### get_logsymstr/1
 

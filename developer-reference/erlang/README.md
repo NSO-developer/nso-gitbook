@@ -1,6 +1,6 @@
 # ConfD Erlang API
 
-The <c>econfd</c> application is the Erlang API towards the ConfD daemon. It is delivered as an OTP application, which must be started by the system which wishes to interface to ConfD. As an alternative, the supervisor <c>econfd_sup</c> can be started directly.
+The `econfd` application is the Erlang API towards the ConfD daemon. It is delivered as an OTP application, which must be started by the system which wishes to interface to ConfD. As an alternative, the supervisor `econfd_sup` can be started directly.
 
 This is the equivalent of libconfd.so for C programmers.
 

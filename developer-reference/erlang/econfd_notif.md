@@ -5,10 +5,10 @@ An Erlang interface equivalent to the event notifications C-API, (documented in 
 
 ## Types
 
-[notif\_option/0](#notif_option0) - \-------------------------------------------------------------------- External functions --------------------------------------------------------------------
+[notif\_option/0](#notif_option-0) - \-------------------------------------------------------------------- External functions --------------------------------------------------------------------
 
 
-[notification/0](#notification0)
+[notification/0](#notification-0)
 
 ### notif_option/0
 
@@ -24,7 +24,7 @@ An Erlang interface equivalent to the event notifications C-API, (documented in 
           {verbosity, 0..3}.
 ```
 
-Related types: [econfd:datetime()](econfd.md#datetime0)
+Related types: [econfd:datetime()](econfd.md#datetime-0)
 
 \-------------------------------------------------------------------- External functions --------------------------------------------------------------------
 
@@ -56,32 +56,32 @@ Related types: [econfd:datetime()](econfd.md#datetime0)
 
 ## Functions
 
-[close(Socket)](#close1) - Close the event notification connection.
+[close(Socket)](#close-1) - Close the event notification connection.
 
 
-[connect(Path, Mask)](#connect2)
+[connect(Path, Mask)](#connect-2)
 
-[connect(Path, Mask, Options)](#connect3)
+[connect(Path, Mask, Options)](#connect-3)
 
-[connect(Address, Port, Mask, Options)](#connect4)
+[connect(Address, Port, Mask, Options)](#connect-4)
 
-[do\_connect(Address, Mask, Options)](#do_connect3) - Connect to the notif server.
-
-
-[handle\_notif(Notif)](#handle_notif1) - Decode the notif message and return corresponding record depending on the type of the message.
-
-[maybe\_element(N, Tuple)](#maybe_element2)
-
-[notification\_done(Socket, Thandle)](#notification_done2) - Indicate that we're done with diff processing.
-
-[notification\_done(Socket, Usid, NotifType)](#notification_done3) - Indicate that we're done with notif processing.
-
-[recv(Socket)](#recv1) - Equivalent to [recv(Socket, infinity)](#recv2).
+[do\_connect(Address, Mask, Options)](#do_connect-3) - Connect to the notif server.
 
 
-[recv(Socket, Timeout)](#recv2) - Wait for an event notification message and return corresponding record depending on the type of the message.
+[handle\_notif(Notif)](#handle_notif-1) - Decode the notif message and return corresponding record depending on the type of the message.
 
-[unpack\_ha\_node(\_)](#unpack_ha_node1)
+[maybe\_element(N, Tuple)](#maybe_element-2)
+
+[notification\_done(Socket, Thandle)](#notification_done-2) - Indicate that we're done with diff processing.
+
+[notification\_done(Socket, Usid, NotifType)](#notification_done-3) - Indicate that we're done with notif processing.
+
+[recv(Socket)](#recv-1) - Equivalent to [recv(Socket, infinity)](#recv-2).
+
+
+[recv(Socket, Timeout)](#recv-2) - Wait for an event notification message and return corresponding record depending on the type of the message.
+
+[unpack\_ha\_node(\_)](#unpack_ha_node-1)
 
 ### close/1
 
@@ -92,7 +92,7 @@ Related types: [econfd:datetime()](econfd.md#datetime0)
                    Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Close the event notification connection.
 
@@ -106,7 +106,7 @@ Close the event notification connection.
                  when Address :: econfd:ip(), Mask :: integer().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### connect/3
 
@@ -123,7 +123,7 @@ Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip
                      Mask :: integer().
 ```
 
-Related types: [notif\_option()](#notif_option0), [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [notif\_option()](#notif_option-0), [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### connect/4
 
@@ -142,7 +142,7 @@ connect(Address, Port, Mask, Options)
                         Options :: [Option].
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
 Connect to the notif server.
 
@@ -154,7 +154,7 @@ Connect to the notif server.
                       when Notif :: binary() | term().
 ```
 
-Related types: [notification()](#notification0)
+Related types: [notification()](#notification-0)
 
 Decode the notif message and return corresponding record depending on the type of the message.
 
@@ -178,7 +178,7 @@ maybe_element(N, Tuple)
                                    ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Indicate that we're done with diff processing.
 
@@ -197,7 +197,7 @@ Whenever we subscribe to ?CONFD_NOTIF_COMMIT_DIFF we must indicate to confd that
                                    ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Indicate that we're done with notif processing.
 
@@ -210,7 +210,7 @@ When we subscribe to ?CONFD_NOTIF_AUDIT with ?CONFD_NOTIF_AUDIT_SYNC or to ?NCS_
 recv(Socket)
 ```
 
-Equivalent to [recv(Socket, infinity)](#recv2).
+Equivalent to [recv(Socket, infinity)](#recv-2).
 
 
 ### recv/2
@@ -226,7 +226,7 @@ Equivalent to [recv(Socket, infinity)](#recv2).
                       {error, econfd:error_reason()}.
 ```
 
-Related types: [notification()](#notification0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:transport\_error()](econfd.md#transport_error0)
+Related types: [notification()](#notification-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:transport\_error()](econfd.md#transport_error-0)
 
 Wait for an event notification message and return corresponding record depending on the type of the message.
 

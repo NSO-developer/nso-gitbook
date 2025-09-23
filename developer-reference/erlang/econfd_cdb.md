@@ -96,25 +96,25 @@ Thus in the list with length N \[Index] is an implicit key during the life of a 
 
 ## Types
 
-[cdb\_sess/0](#cdb_sess0) - A datastructure which is used as a handle to all the of the access functions
+[cdb\_sess/0](#cdb_sess-0) - A datastructure which is used as a handle to all the of the access functions
 
 
-[compaction\_dbfile/0](#compaction_dbfile0) - CDB files used for compaction. CDB file can be either
+[compaction\_dbfile/0](#compaction_dbfile-0) - CDB files used for compaction. CDB file can be either
 
-[compaction\_info/0](#compaction_info0) - A datastructure to handle compaction information
-
-
-[dbtype/0](#dbtype0) - When we open CDB sessions we must choose which database to read or write from/to. These ints are defined in econfd.hrl
+[compaction\_info/0](#compaction_info-0) - A datastructure to handle compaction information
 
 
-[err/0](#err0) - Errors can be either
-
-[sub\_ns/0](#sub_ns0) - A namespace or use '' as wildcard (any namespace)
+[dbtype/0](#dbtype-0) - When we open CDB sessions we must choose which database to read or write from/to. These ints are defined in econfd.hrl
 
 
-[sub\_type/0](#sub_type0) - Subscription type
+[err/0](#err-0) - Errors can be either
 
-[subscription\_sync\_type/0](#subscription_sync_type0) - Return value from the fun passed to wait/3, indicating what to do with further notifications coming from this transaction. These ints are defined in econfd.hrl
+[sub\_ns/0](#sub_ns-0) - A namespace or use '' as wildcard (any namespace)
+
+
+[sub\_type/0](#sub_type-0) - Subscription type
+
+[subscription\_sync\_type/0](#subscription_sync_type-0) - Return value from the fun passed to wait/3, indicating what to do with further notifications coming from this transaction. These ints are defined in econfd.hrl
 
 
 ### cdb_sess/0
@@ -175,7 +175,7 @@ Errors can be either
 -type sub_ns() :: econfd:namespace() | ''.
 ```
 
-Related types: [econfd:namespace()](econfd.md#namespace0)
+Related types: [econfd:namespace()](econfd.md#namespace-0)
 
 A namespace or use '' as wildcard (any namespace)
 
@@ -204,152 +204,152 @@ Return value from the fun passed to wait/3, indicating what to do with further n
 
 ## Functions
 
-[cd(CDB, IKeypath)](#cd2) - Change the context node of the session.
+[cd(CDB, IKeypath)](#cd-2) - Change the context node of the session.
 
-[choice\_path(Tag)](#choice_path1)
+[choice\_path(Tag)](#choice_path-1)
 
-[close(Cdb\_session)](#close1) - End the session and close the socket.
+[close(Cdb\_session)](#close-1) - End the session and close the socket.
 
 
-[collect\_until(String, Stop)](#collect_until2)
+[collect\_until(String, Stop)](#collect_until-2)
 
-[collect\_until(T, Stop, Sofar)](#collect_until3)
+[collect\_until(T, Stop, Sofar)](#collect_until-3)
 
-[connect()](#connect0) - Equivalent to [connect(\{127, 0, 0, 1\})](#connect1).
+[connect()](#connect-0) - Equivalent to [connect(\{127, 0, 0, 1\})](#connect-1).
 
 
-[connect(Path)](#connect1)
+[connect(Path)](#connect-1)
 
-[connect(Path, ClientName)](#connect2)
+[connect(Path, ClientName)](#connect-2)
 
-[connect(Address, Port, ClientName)](#connect3)
+[connect(Address, Port, ClientName)](#connect-3)
 
-[create(CDB, IKeypath)](#create2) - Only for CDB operational data: Create the element denoted by IKP.
+[create(CDB, IKeypath)](#create-2) - Only for CDB operational data: Create the element denoted by IKP.
 
 
-[delete(CDB, IKeypath)](#delete2) - Only for CDB operational data: Delete the element denoted by IKP.
+[delete(CDB, IKeypath)](#delete-2) - Only for CDB operational data: Delete the element denoted by IKP.
 
 
-[diff\_iterate(CDB, SubPoint, Fun, Flags, State)](#diff_iterate5)
+[diff\_iterate(CDB, SubPoint, Fun, Flags, State)](#diff_iterate-5)
 
-[do\_connect(Address, ClientName)](#do_connect2) - Connect to CDB.
+[do\_connect(Address, ClientName)](#do_connect-2) - Connect to CDB.
 
-[end\_session(CDB)](#end_session1) - Terminate the session.
+[end\_session(CDB)](#end_session-1) - Terminate the session.
 
-[exists(CDB, IKeypath)](#exists2) - Checks existense of an object.
+[exists(CDB, IKeypath)](#exists-2) - Checks existense of an object.
 
-[get\_case(CDB, IKeypath, Choice)](#get_case3) - Returns the current case for a choice.
+[get\_case(CDB, IKeypath, Choice)](#get_case-3) - Returns the current case for a choice.
 
 
-[get\_compaction\_info(Socket, Dbfile)](#get_compaction_info2)
+[get\_compaction\_info(Socket, Dbfile)](#get_compaction_info-2)
 
-[get\_elem(CDB, IKeypath)](#get_elem2) - Read an element.
+[get\_elem(CDB, IKeypath)](#get_elem-2) - Read an element.
 
-[get\_modifications\_cli(CDB, SubPoint)](#get_modifications_cli2)
+[get\_modifications\_cli(CDB, SubPoint)](#get_modifications_cli-2)
 
-[get\_modifications\_cli(CDB, SubPoint, Flags)](#get_modifications_cli3)
+[get\_modifications\_cli(CDB, SubPoint, Flags)](#get_modifications_cli-3)
 
-[get\_object(CDB, IKeypath)](#get_object2) - Returns all the values in a container or list entry.
+[get\_object(CDB, IKeypath)](#get_object-2) - Returns all the values in a container or list entry.
 
 
-[get\_objects(CDB, IKeypath, StartIndex, NumEntries)](#get_objects4) - Returns all the values for NumEntries list entries.
+[get\_objects(CDB, IKeypath, StartIndex, NumEntries)](#get_objects-4) - Returns all the values for NumEntries list entries.
 
-[get\_phase(Socket)](#get_phase1) - Get CDB start-phase.
+[get\_phase(Socket)](#get_phase-1) - Get CDB start-phase.
 
 
-[get\_txid(Socket)](#get_txid1) - Get CDB transaction id.
+[get\_txid(Socket)](#get_txid-1) - Get CDB transaction id.
 
-[get\_values(CDB, IKeypath, Values)](#get_values3) - Returns the values for the leafs that have the "value" 'not_found' in the Values list.
+[get\_values(CDB, IKeypath, Values)](#get_values-3) - Returns the values for the leafs that have the "value" 'not_found' in the Values list.
 
-[ibool(X)](#ibool1)
+[ibool(X)](#ibool-1)
 
-[index(CDB, IKeypath)](#index2) - Returns the position (starting at 0) of the list entry in path.
+[index(CDB, IKeypath)](#index-2) - Returns the position (starting at 0) of the list entry in path.
 
 
-[initiate\_journal\_compaction(Socket)](#initiate_journal_compaction1)
+[initiate\_journal\_compaction(Socket)](#initiate_journal_compaction-1)
 
-[initiate\_journal\_dbfile\_compaction(Socket, Dbfile)](#initiate_journal_dbfile_compaction2)
+[initiate\_journal\_dbfile\_compaction(Socket, Dbfile)](#initiate_journal_dbfile_compaction-2)
 
-[mk\_elem(List)](#mk_elem1)
+[mk\_elem(List)](#mk_elem-1)
 
-[mop\_2\_str(\_)](#mop_2_str1)
+[mop\_2\_str(\_)](#mop_2_str-1)
 
-[new\_session(Socket, Db)](#new_session2) - Initiate a new session using the socket returned by connect().
+[new\_session(Socket, Db)](#new_session-2) - Initiate a new session using the socket returned by connect().
 
 
-[new\_session(Socket, Db, Flags)](#new_session3) - Initiate a new session using the socket returned by connect(), with detailed control via the Flags argument.
+[new\_session(Socket, Db, Flags)](#new_session-3) - Initiate a new session using the socket returned by connect(), with detailed control via the Flags argument.
 
 
-[next\_index(CDB, IKeypath)](#next_index2) - Returns the position (starting at 0) of the list entry after the given path (which can be non-existing, and if multiple keys the last keys can be '*').
+[next\_index(CDB, IKeypath)](#next_index-2) - Returns the position (starting at 0) of the list entry after the given path (which can be non-existing, and if multiple keys the last keys can be '*').
 
 
-[num\_instances(CDB, IKeypath)](#num_instances2) - Returns the number of entries in a list.
+[num\_instances(CDB, IKeypath)](#num_instances-2) - Returns the number of entries in a list.
 
 
-[parse\_keystring(Str)](#parse_keystring1)
+[parse\_keystring(Str)](#parse_keystring-1)
 
-[parse\_keystring0(Str)](#parse_keystring01)
+[parse\_keystring0(Str)](#parse_keystring0-1)
 
-[request(CDB, Op)](#request2)
+[request(CDB, Op)](#request-2)
 
-[request(CDB, Op, Arg)](#request3)
+[request(CDB, Op, Arg)](#request-3)
 
-[set\_case(CDB, IKeypath, Choice, Case)](#set_case4) - Only for CDB operational data: Set the case for a choice.
+[set\_case(CDB, IKeypath, Choice, Case)](#set_case-4) - Only for CDB operational data: Set the case for a choice.
 
 
-[set\_elem(CDB, Value, IKeypath)](#set_elem3) - Only for CDB operational data: Write Value into CDB.
+[set\_elem(CDB, Value, IKeypath)](#set_elem-3) - Only for CDB operational data: Write Value into CDB.
 
 
-[set\_elem2(CDB, ValueBin, IKeypath)](#set_elem23) - Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual value representation.
+[set\_elem2(CDB, ValueBin, IKeypath)](#set_elem2-3) - Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual value representation.
 
 
-[set\_object(CDB, ValueList, IKeypath)](#set_object3) - Only for CDB operational data: Write an entire object, i.e. YANG list entry or container.
+[set\_object(CDB, ValueList, IKeypath)](#set_object-3) - Only for CDB operational data: Write an entire object, i.e. YANG list entry or container.
 
 
-[set\_values(CDB, ValueList, IKeypath)](#set_values3) - Only for CDB operational data: Write a list of tagged values.
+[set\_values(CDB, ValueList, IKeypath)](#set_values-3) - Only for CDB operational data: Write a list of tagged values.
 
-[skip\_ws(String)](#skip_ws1)
+[skip\_ws(String)](#skip_ws-1)
 
-[subscribe(CDB, Priority, MatchKeyString)](#subscribe3)
+[subscribe(CDB, Priority, MatchKeyString)](#subscribe-3)
 
-[subscribe(CDB, Priority, Ns, MatchKeyString)](#subscribe4) - Set up a CDB configuration subscription.
+[subscribe(CDB, Priority, Ns, MatchKeyString)](#subscribe-4) - Set up a CDB configuration subscription.
 
-[subscribe(CDB, Type, Priority, Ns, MatchKeyString)](#subscribe5)
+[subscribe(CDB, Type, Priority, Ns, MatchKeyString)](#subscribe-5)
 
-[subscribe(CDB, Type, Flags, Priority, Ns, MatchKeyString)](#subscribe6)
+[subscribe(CDB, Type, Flags, Priority, Ns, MatchKeyString)](#subscribe-6)
 
-[subscribe\_done(CDB)](#subscribe_done1)
+[subscribe\_done(CDB)](#subscribe_done-1)
 
-[subscribe\_session(Socket)](#subscribe_session1) - Initialize a subscription socket.
+[subscribe\_session(Socket)](#subscribe_session-1) - Initialize a subscription socket.
 
-[sync\_subscription\_socket(CDB, SyncType, TimeOut, Fun)](#sync_subscription_socket4)
+[sync\_subscription\_socket(CDB, SyncType, TimeOut, Fun)](#sync_subscription_socket-4)
 
-[trigger\_oper\_subscriptions(Socket)](#trigger_oper_subscriptions1) - Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions2).
+[trigger\_oper\_subscriptions(Socket)](#trigger_oper_subscriptions-1) - Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions-2).
 
 
-[trigger\_oper\_subscriptions(Socket, SubPoints)](#trigger_oper_subscriptions2) - Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions3).
+[trigger\_oper\_subscriptions(Socket, SubPoints)](#trigger_oper_subscriptions-2) - Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions-3).
 
 
-[trigger\_oper\_subscriptions(Socket, SubPoints, Flags)](#trigger_oper_subscriptions3) - Trigger CDB operational subscribers as if an update in oper data had been done.
+[trigger\_oper\_subscriptions(Socket, SubPoints, Flags)](#trigger_oper_subscriptions-3) - Trigger CDB operational subscribers as if an update in oper data had been done.
 
-[trigger\_subscriptions(Socket)](#trigger_subscriptions1) - Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions2).
+[trigger\_subscriptions(Socket)](#trigger_subscriptions-1) - Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions-2).
 
 
-[trigger\_subscriptions(Socket, SubPoints)](#trigger_subscriptions2) - Trigger CDB subscribers as if an update in the configuration had been done.
+[trigger\_subscriptions(Socket, SubPoints)](#trigger_subscriptions-2) - Trigger CDB subscribers as if an update in the configuration had been done.
 
 
-[wait(CDB, TimeOut, Fun)](#wait3)
+[wait(CDB, TimeOut, Fun)](#wait-3)
 
-[wait\_start(Socket)](#wait_start1) - Wait for CDB to become available (reach start-phase one).
+[wait\_start(Socket)](#wait_start-1) - Wait for CDB to become available (reach start-phase one).
 
 
-[xx(Str, Acc)](#xx2)
+[xx(Str, Acc)](#xx-2)
 
-[xx(T, Sofar, Acc)](#xx3)
+[xx(T, Sofar, Acc)](#xx-3)
 
-[yy(Str)](#yy1)
+[yy(Str)](#yy-1)
 
-[yy(T, Sofar)](#yy2)
+[yy(T, Sofar)](#yy-2)
 
 ### cd/2
 
@@ -361,7 +361,7 @@ Return value from the fun passed to wait/3, indicating what to do with further n
                 Result :: ok | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Change the context node of the session.
 
@@ -383,7 +383,7 @@ choice_path(Tag)
                    Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0)
 
 End the session and close the socket.
 
@@ -410,9 +410,9 @@ collect_until(T, Stop, Sofar)
 -spec connect() -> econfd:connect_result().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
-Equivalent to [connect(\{127, 0, 0, 1\})](#connect1).
+Equivalent to [connect(\{127, 0, 0, 1\})](#connect-1).
 
 
 ### connect/1
@@ -423,7 +423,7 @@ Equivalent to [connect(\{127, 0, 0, 1\})](#connect1).
                  when Address :: econfd:ip().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### connect/2
 
@@ -434,7 +434,7 @@ Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip
                  when Address :: econfd:ip(), Port :: non_neg_integer().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### connect/3
 
@@ -446,7 +446,7 @@ Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip
                      ClientName :: binary().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### create/2
 
@@ -455,7 +455,7 @@ Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip
                 when CDB :: cdb_sess(), IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Only for CDB operational data: Create the element denoted by IKP.
 
@@ -467,7 +467,7 @@ Only for CDB operational data: Create the element denoted by IKP.
                 when CDB :: cdb_sess(), IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Only for CDB operational data: Delete the element denoted by IKP.
 
@@ -487,7 +487,7 @@ Only for CDB operational data: Delete the element denoted by IKP.
                           Result :: {ok, State} | {error, term()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0)
+Related types: [cdb\_sess()](#cdb_sess-0)
 
 ### do_connect/2
 
@@ -499,7 +499,7 @@ Related types: [cdb\_sess()](#cdb_sess0)
                         ClientName :: binary().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
 Connect to CDB.
 
@@ -512,7 +512,7 @@ If the port is changed it must also be changed in confd.conf A call to cdb_conne
 -spec end_session(CDB) -> {ok, econfd:socket()} when CDB :: cdb_sess().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [econfd:socket()](econfd.md#socket0)
+Related types: [cdb\_sess()](#cdb_sess-0), [econfd:socket()](econfd.md#socket-0)
 
 Terminate the session.
 
@@ -529,7 +529,7 @@ This releases the lock on CDB which is active during a read session. Returns a s
                     Result :: {ok, boolean()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Checks existense of an object.
 
@@ -547,7 +547,7 @@ Leafs in the data model may be optional, and presence containers and list entrie
                       Result :: {ok, econfd:qtag()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:qtag()](econfd.md#qtag0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:qtag()](econfd.md#qtag-0)
 
 Returns the current case for a choice.
 
@@ -564,7 +564,7 @@ Returns the current case for a choice.
                                      {error, econfd:error_reason()}.
 ```
 
-Related types: [compaction\_dbfile()](#compaction_dbfile0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 ### get_elem/2
 
@@ -576,7 +576,7 @@ Related types: [compaction\_dbfile()](#compaction_dbfile0), [econfd:error\_reaso
                       Result :: {ok, econfd:value()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:value()](econfd.md#value0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Read an element.
 
@@ -595,7 +595,7 @@ Note, the C interface has separate get functions for different types.
                                        {error, econfd:error_reason()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [econfd:error\_reason()](econfd.md#error_reason0)
+Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
 
 ### get_modifications_cli/3
 
@@ -610,7 +610,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [econfd:error\_reason()](econfd.md#err
                                        {error, econfd:error_reason()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [econfd:error\_reason()](econfd.md#error_reason0)
+Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
 
 ### get_object/2
 
@@ -622,7 +622,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [econfd:error\_reason()](econfd.md#err
                         Result :: {ok, [econfd:value()]} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:value()](econfd.md#value0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Returns all the values in a container or list entry.
 
@@ -639,7 +639,7 @@ Returns all the values in a container or list entry.
                          Result :: {ok, [[econfd:value()]]} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:value()](econfd.md#value0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Returns all the values for NumEntries list entries.
 
@@ -655,7 +655,7 @@ Starting at index StartIndex. The return value has one Erlang list for each YANG
                        Result :: {ok, {Phase, Type}} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get CDB start-phase.
 
@@ -669,7 +669,7 @@ Get CDB start-phase.
                       Result :: {ok, PrimaryNode, Now} | {ok, Now}.
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 Get CDB transaction id.
 
@@ -687,11 +687,11 @@ When we are a cdb client, and ConfD restarts, we can use this function to retrie
                         Result :: {ok, [econfd:tagval()]} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Returns the values for the leafs that have the "value" 'not_found' in the Values list.
 
-This can be used to read an arbitrary set of sub-elements of a container or list entry. The return value is a list of the same length as Values, i.e. the requested leafs are in the same position in the returned list as in the Values argument. The elements in the returned list are always "canonical" though, i.e. of the form [`econfd:tagval()`](econfd.md#tagval0).
+This can be used to read an arbitrary set of sub-elements of a container or list entry. The return value is a list of the same length as Values, i.e. the requested leafs are in the same position in the returned list as in the Values argument. The elements in the returned list are always "canonical" though, i.e. of the form [`econfd:tagval()`](econfd.md#tagval-0).
 
 
 ### ibool/1
@@ -710,7 +710,7 @@ ibool(X)
                    Result :: {ok, integer()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Returns the position (starting at 0) of the list entry in path.
 
@@ -724,7 +724,7 @@ Returns the position (starting at 0) of the list entry in path.
                                          Result :: ok.
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 ### initiate_journal_dbfile_compaction/2
 
@@ -741,7 +741,7 @@ Related types: [econfd:socket()](econfd.md#socket0)
                                                      econfd:error_reason()}.
 ```
 
-Related types: [compaction\_dbfile()](#compaction_dbfile0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 ### mk_elem/1
 
@@ -765,7 +765,7 @@ mop_2_str(_)
                          Result :: {ok, cdb_sess()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [dbtype()](#dbtype0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Initiate a new session using the socket returned by connect().
 
@@ -781,7 +781,7 @@ Initiate a new session using the socket returned by connect().
                          Result :: {ok, cdb_sess()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [dbtype()](#dbtype0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [cdb\_sess()](#cdb_sess-0), [dbtype()](#dbtype-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Initiate a new session using the socket returned by connect(), with detailed control via the Flags argument.
 
@@ -796,7 +796,7 @@ Initiate a new session using the socket returned by connect(), with detailed con
                         Result :: {ok, integer()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Returns the position (starting at 0) of the list entry after the given path (which can be non-existing, and if multiple keys the last keys can be '*').
 
@@ -811,7 +811,7 @@ Returns the position (starting at 0) of the list entry after the given path (whi
                            Result :: {ok, non_neg_integer()} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Returns the number of entries in a list.
 
@@ -851,7 +851,7 @@ request(CDB, Op, Arg)
                       Case :: econfd:qtag().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:qtag()](econfd.md#qtag0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:qtag()](econfd.md#qtag-0)
 
 Only for CDB operational data: Set the case for a choice.
 
@@ -866,7 +866,7 @@ Only for CDB operational data: Set the case for a choice.
                       IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:value()](econfd.md#value0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Only for CDB operational data: Write Value into CDB.
 
@@ -881,7 +881,7 @@ Only for CDB operational data: Write Value into CDB.
                        IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual value representation.
 
@@ -896,7 +896,7 @@ Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual 
                         IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:value()](econfd.md#value0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:value()](econfd.md#value-0)
 
 Only for CDB operational data: Write an entire object, i.e. YANG list entry or container.
 
@@ -911,7 +911,7 @@ Only for CDB operational data: Write an entire object, i.e. YANG list entry or c
                         IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Only for CDB operational data: Write a list of tagged values.
 
@@ -936,7 +936,7 @@ This function is an alternative to set_object/3, and allows for writing more com
                        Result :: {ok, SubPoint} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
 
 ### subscribe/4
 
@@ -950,7 +950,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0)
                        Result :: {ok, SubPoint} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [sub\_ns()](#sub_ns0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0)
 
 Set up a CDB configuration subscription.
 
@@ -998,7 +998,7 @@ subscribe() returns a subscription point which is an integer. This integer value
                        Result :: {ok, SubPoint} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [sub\_ns()](#sub_ns0), [sub\_type()](#sub_type0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
 
 ### subscribe/6
 
@@ -1015,7 +1015,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [sub\_ns()](#sub_ns0),
                        Result :: {ok, SubPoint} | err().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [sub\_ns()](#sub_ns0), [sub\_type()](#sub_type0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
 
 ### subscribe_done/1
 
@@ -1023,7 +1023,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0), [sub\_ns()](#sub_ns0),
 -spec subscribe_done(CDB) -> ok | err() when CDB :: cdb_sess().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0)
+Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
 
 ### subscribe_session/1
 
@@ -1032,7 +1032,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [err()](#err0)
                            when Socket :: econfd:socket().
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [econfd:socket()](econfd.md#socket0)
+Related types: [cdb\_sess()](#cdb_sess-0), [econfd:socket()](econfd.md#socket-0)
 
 Initialize a subscription socket.
 
@@ -1052,9 +1052,9 @@ sync_subscription_socket(CDB, SyncType, TimeOut, Fun)
                                     when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions2).
+Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions-2).
 
 
 ### trigger_oper_subscriptions/2
@@ -1067,9 +1067,9 @@ Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscripti
                                             [pos_integer()] | all.
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions3).
+Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions-3).
 
 
 ### trigger_oper_subscriptions/3
@@ -1083,7 +1083,7 @@ Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_s
                                         Flags :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Trigger CDB operational subscribers as if an update in oper data had been done.
 
@@ -1097,9 +1097,9 @@ Flags can be given as ?CDB_LOCK_WAIT to have the call wait until the subscriptio
                                when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions2).
+Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions-2).
 
 
 ### trigger_subscriptions/2
@@ -1111,7 +1111,7 @@ Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions2).
                                    SubPoints :: [pos_integer()] | all.
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Trigger CDB subscribers as if an update in the configuration had been done.
 
@@ -1137,7 +1137,7 @@ Trigger CDB subscribers as if an update in the configuration had been done.
                       {error, econfd:error_reason()}.
 ```
 
-Related types: [cdb\_sess()](#cdb_sess0), [subscription\_sync\_type()](#subscription_sync_type0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:transport\_error()](econfd.md#transport_error0)
+Related types: [cdb\_sess()](#cdb_sess-0), [subscription\_sync\_type()](#subscription_sync_type-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:transport\_error()](econfd.md#transport_error-0)
 
 ### wait_start/1
 
@@ -1145,7 +1145,7 @@ Related types: [cdb\_sess()](#cdb_sess0), [subscription\_sync\_type()](#subscrip
 -spec wait_start(Socket) -> ok | err() when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Wait for CDB to become available (reach start-phase one).
 

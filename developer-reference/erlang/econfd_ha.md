@@ -5,7 +5,7 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
 
 ## Types
 
-[ha\_node/0](#ha_node0)
+[ha\_node/0](#ha_node-0)
 
 ### ha_node/0
 
@@ -15,40 +15,40 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
 
 ## Functions
 
-[bemaster(Socket, NodeId)](#bemaster2) - Instruct a HA node to be primary in the cluster.
+[bemaster(Socket, NodeId)](#bemaster-2) - Instruct a HA node to be primary in the cluster.
 
 
-[benone(Socket)](#benone1) - Instruct a HA node to be nothing in the cluster.
+[benone(Socket)](#benone-1) - Instruct a HA node to be nothing in the cluster.
 
 
-[beprimary(Socket, NodeId)](#beprimary2) - Instruct a HA node to be primary in the cluster.
+[beprimary(Socket, NodeId)](#beprimary-2) - Instruct a HA node to be primary in the cluster.
 
 
-[berelay(Socket)](#berelay1) - Instruct a HA secondary to be a relay for other secondaries.
+[berelay(Socket)](#berelay-1) - Instruct a HA secondary to be a relay for other secondaries.
 
 
-[besecondary(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#besecondary4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
+[besecondary(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#besecondary-4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
 
 
-[beslave(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#beslave4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
+[beslave(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#beslave-4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
 
 
-[close(Socket)](#close1) - Close the HA connection.
+[close(Socket)](#close-1) - Close the HA connection.
 
 
-[connect(Path, Token)](#connect2)
+[connect(Path, Token)](#connect-2)
 
-[connect(Address, Port, Token)](#connect3)
+[connect(Address, Port, Token)](#connect-3)
 
-[do\_connect(Address, Token)](#do_connect2) - Connect to the HA subsystem.
+[do\_connect(Address, Token)](#do_connect-2) - Connect to the HA subsystem.
 
-[getstatus(Socket)](#getstatus1) - Request status from a HA node.
-
-
-[secondary\_dead(Socket, NodeId)](#secondary_dead2) - Instruct ConfD that another node is dead.
+[getstatus(Socket)](#getstatus-1) - Request status from a HA node.
 
 
-[slave\_dead(Socket, NodeId)](#slave_dead2) - Instruct ConfD that another node is dead.
+[secondary\_dead(Socket, NodeId)](#secondary_dead-2) - Instruct ConfD that another node is dead.
+
+
+[slave\_dead(Socket, NodeId)](#slave_dead-2) - Instruct ConfD that another node is dead.
 
 
 ### bemaster/2
@@ -61,7 +61,7 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
                       Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct a HA node to be primary in the cluster.
 
@@ -75,7 +75,7 @@ Instruct a HA node to be primary in the cluster.
                     Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Instruct a HA node to be nothing in the cluster.
 
@@ -90,7 +90,7 @@ Instruct a HA node to be nothing in the cluster.
                        Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct a HA node to be primary in the cluster.
 
@@ -104,7 +104,7 @@ Instruct a HA node to be primary in the cluster.
                      Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Instruct a HA secondary to be a relay for other secondaries.
 
@@ -122,7 +122,7 @@ Instruct a HA secondary to be a relay for other secondaries.
                          Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [ha\_node()](#ha_node0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [ha\_node()](#ha_node-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
 
@@ -139,7 +139,7 @@ Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary
                      Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [ha\_node()](#ha_node0), [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [ha\_node()](#ha_node-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
 
@@ -153,7 +153,7 @@ Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary
                    Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Close the HA connection.
 
@@ -167,7 +167,7 @@ Close the HA connection.
                  when Address :: econfd:ip(), Token :: binary().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 ### connect/3
 
@@ -185,7 +185,7 @@ connect(Address, Port, Token)
                         Token :: binary().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
 Connect to the HA subsystem.
 
@@ -201,7 +201,7 @@ If the port is changed it must also be changed in confd.conf To close a HA socke
                        Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Request status from a HA node.
 
@@ -217,7 +217,7 @@ Request status from a HA node.
                                 ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct ConfD that another node is dead.
 
@@ -232,7 +232,7 @@ Instruct ConfD that another node is dead.
                         Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Instruct ConfD that another node is dead.
 

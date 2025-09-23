@@ -7,27 +7,27 @@ This modules implements the Management Agent API. All functions in this module h
 
 ## Types
 
-[confd\_user\_identification/0](#confd_user_identification0)
+[confd\_user\_identification/0](#confd_user_identification-0)
 
-[confd\_user\_info/0](#confd_user_info0)
+[confd\_user\_info/0](#confd_user_info-0)
 
-[dbname/0](#dbname0) - The DB name can be either
+[dbname/0](#dbname-0) - The DB name can be either
 
-[err/0](#err0) - Errors can be either
+[err/0](#err-0) - Errors can be either
 
-[find\_next\_type/0](#find_next_type0) - The type is used in `find_next/3` can be either
+[find\_next\_type/0](#find_next_type-0) - The type is used in `find_next/3` can be either
 
-[maapi\_cursor/0](#maapi_cursor0)
+[maapi\_cursor/0](#maapi_cursor-0)
 
-[proto/0](#proto0) - The protocol to start user session can be either
+[proto/0](#proto-0) - The protocol to start user session can be either
 
-[read\_ret/0](#read_ret0)
+[read\_ret/0](#read_ret-0)
 
-[template\_type/0](#template_type0) - The type is used in `ncs_template_variables/3`
+[template\_type/0](#template_type-0) - The type is used in `ncs_template_variables/3`
 
-[verbosity/0](#verbosity0) - The type is used in `start_span_th/7` and can be either
+[verbosity/0](#verbosity-0) - The type is used in `start_span_th/7` and can be either
 
-[xpath\_eval\_option/0](#xpath_eval_option0)
+[xpath\_eval\_option/0](#xpath_eval_option-0)
 
 ### confd_user_identification/0
 
@@ -122,7 +122,7 @@ The protocol to start user session can be either
           {error, econfd:transport_error()}.
 ```
 
-Related types: [econfd:transport\_error()](econfd.md#transport_error0)
+Related types: [econfd:transport\_error()](econfd.md#transport_error-0)
 
 ### template_type/0
 
@@ -164,422 +164,422 @@ Check `maapi_start_span_th()` in confd_lib_maapi(3) for detailed information.
           {root, econfd:ikeypath()}.
 ```
 
-Related types: [econfd:ikeypath()](econfd.md#ikeypath0)
+Related types: [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 ## Functions
 
-[aaa\_reload(Socket, Synchronous)](#aaa_reload2) - Tell AAA to reload external AAA data.
+[aaa\_reload(Socket, Synchronous)](#aaa_reload-2) - Tell AAA to reload external AAA data.
 
 
-[abort\_trans(Socket, Tid)](#abort_trans2) - Abort transaction.
+[abort\_trans(Socket, Tid)](#abort_trans-2) - Abort transaction.
 
 
-[abort\_upgrade(Socket)](#abort_upgrade1) - Abort in-service upgrade.
+[abort\_upgrade(Socket)](#abort_upgrade-1) - Abort in-service upgrade.
 
 
-[aes256\_key(Aes256Key)](#aes256_key1)
+[aes256\_key(Aes256Key)](#aes256_key-1)
 
-[aes\_key(AesKey, AesIVec)](#aes_key2)
+[aes\_key(AesKey, AesIVec)](#aes_key-2)
 
-[all\_keys(Cursor, Acc)](#all_keys2)
+[all\_keys(Cursor, Acc)](#all_keys-2)
 
-[all\_keys(Socket, Tid, IKeypath)](#all_keys3) - Utility function. Return all keys in a list.
+[all\_keys(Socket, Tid, IKeypath)](#all_keys-3) - Utility function. Return all keys in a list.
 
 
-[apply\_trans(Socket, Tid, KeepOpen)](#apply_trans3) - Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans4).
+[apply\_trans(Socket, Tid, KeepOpen)](#apply_trans-3) - Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans-4).
 
 
-[apply\_trans(Socket, Tid, KeepOpen, Flags)](#apply_trans4) - Apply all in the transaction.
+[apply\_trans(Socket, Tid, KeepOpen, Flags)](#apply_trans-4) - Apply all in the transaction.
 
-[attach(Socket, Ns, Tctx)](#attach3) - Attach to a running transaction.
+[attach(Socket, Ns, Tctx)](#attach-3) - Attach to a running transaction.
 
-[attach2(Socket, Ns, USid, Thandle)](#attach24) - Attach to a running transaction. Give NameSpace as 0 if it doesn't matter (-1 works too but is deprecated).
+[attach2(Socket, Ns, USid, Thandle)](#attach2-4) - Attach to a running transaction. Give NameSpace as 0 if it doesn't matter (-1 works too but is deprecated).
 
 
-[attach\_init(Socket)](#attach_init1) - Attach to the CDB init/upgrade transaction in phase0.
+[attach\_init(Socket)](#attach_init-1) - Attach to the CDB init/upgrade transaction in phase0.
 
-[authenticate(Socket, User, Pass, Groups)](#authenticate4) - Autenticate a user using ConfD AAA.
+[authenticate(Socket, User, Pass, Groups)](#authenticate-4) - Autenticate a user using ConfD AAA.
 
 
-[authenticate2(Socket, User, Pass, SrcIp, SrcPort, Context, Proto, Groups)](#authenticate28) - Autenticate a user using ConfD AAA.
+[authenticate2(Socket, User, Pass, SrcIp, SrcPort, Context, Proto, Groups)](#authenticate2-8) - Autenticate a user using ConfD AAA.
 
 
-[bool2int(\_)](#bool2int1)
+[bool2int(\_)](#bool2int-1)
 
-[candidate\_abort\_commit(Socket)](#candidate_abort_commit1) - Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit2).
+[candidate\_abort\_commit(Socket)](#candidate_abort_commit-1) - Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit-2).
 
 
-[candidate\_abort\_commit(Socket, PersistId)](#candidate_abort_commit2) - Cancel persistent confirmed commit.
+[candidate\_abort\_commit(Socket, PersistId)](#candidate_abort_commit-2) - Cancel persistent confirmed commit.
 
 
-[candidate\_commit(Socket)](#candidate_commit1) - Equivalent to [candidate_commit_info(Socket, undefined, <<>>, <<>>)](#candidate_commit_info4).
+[candidate\_commit(Socket)](#candidate_commit-1) - Equivalent to [candidate_commit_info(Socket, undefined, <<>>, <<>>)](#candidate_commit_info-4).
 
-[candidate\_commit(Socket, PersistId)](#candidate_commit2) - Equivalent to [candidate_commit_info(Socket, PersistId, <<>>, <<>>)](#candidate_commit_info4).
+[candidate\_commit(Socket, PersistId)](#candidate_commit-2) - Equivalent to [candidate_commit_info(Socket, PersistId, <<>>, <<>>)](#candidate_commit_info-4).
 
-[candidate\_commit\_info(Socket, Label, Comment)](#candidate_commit_info3) - Equivalent to [candidate_commit_info(Socket, undefined, Label, Comment)](#candidate_commit_info4).
+[candidate\_commit\_info(Socket, Label, Comment)](#candidate_commit_info-3) - Equivalent to [candidate_commit_info(Socket, undefined, Label, Comment)](#candidate_commit_info-4).
 
-[candidate\_commit\_info(Socket, PersistId, Label, Comment)](#candidate_commit_info4) - Combines `candidate_commit/2` and `candidate_commit_info/3` \- set "Label" and/or "Comment" when confirming a persistent confirmed commit.
+[candidate\_commit\_info(Socket, PersistId, Label, Comment)](#candidate_commit_info-4) - Combines `candidate_commit/2` and `candidate_commit_info/3` \- set "Label" and/or "Comment" when confirming a persistent confirmed commit.
 
-[candidate\_confirmed\_commit(Socket, TimeoutSecs)](#candidate_confirmed_commit2) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, <<>>, <<>>)](#candidate_confirmed_commit_info6).
+[candidate\_confirmed\_commit(Socket, TimeoutSecs)](#candidate_confirmed_commit-2) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
 
-[candidate\_confirmed\_commit(Socket, TimeoutSecs, Persist, PersistId)](#candidate_confirmed_commit4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, Persist, PersistId, <<>>, <<>>)](#candidate_confirmed_commit_info6).
+[candidate\_confirmed\_commit(Socket, TimeoutSecs, Persist, PersistId)](#candidate_confirmed_commit-4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, Persist, PersistId, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
 
-[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Label, Comment)](#candidate_confirmed_commit_info4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, Label, Comment)](#candidate_confirmed_commit_info6).
+[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Label, Comment)](#candidate_confirmed_commit_info-4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, Label, Comment)](#candidate_confirmed_commit_info-6).
 
-[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Persist, PersistId, Label, Comment)](#candidate_confirmed_commit_info6) - Combines `candidate_confirmed_commit/4` and `candidate_confirmed_commit_info/4` \- set "Label" and/or "Comment" when starting or extending a persistent confirmed commit.
+[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Persist, PersistId, Label, Comment)](#candidate_confirmed_commit_info-6) - Combines `candidate_confirmed_commit/4` and `candidate_confirmed_commit_info/4` \- set "Label" and/or "Comment" when starting or extending a persistent confirmed commit.
 
-[candidate\_reset(Socket)](#candidate_reset1) - Copy running into candidate.
+[candidate\_reset(Socket)](#candidate_reset-1) - Copy running into candidate.
 
 
-[candidate\_validate(Socket)](#candidate_validate1) - Validate the candidate config.
+[candidate\_validate(Socket)](#candidate_validate-1) - Validate the candidate config.
 
 
-[cli\_prompt(Socket, USid, Prompt, Echo)](#cli_prompt4) - Prompt CLI user for a reply.
+[cli\_prompt(Socket, USid, Prompt, Echo)](#cli_prompt-4) - Prompt CLI user for a reply.
 
 
-[cli\_prompt(Socket, USid, Prompt, Echo, Timeout)](#cli_prompt5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
+[cli\_prompt(Socket, USid, Prompt, Echo, Timeout)](#cli_prompt-5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
 
 
-[cli\_prompt\_oneof(Socket, USid, Prompt, Choice)](#cli_prompt_oneof4) - Prompt CLI user for a reply.
+[cli\_prompt\_oneof(Socket, USid, Prompt, Choice)](#cli_prompt_oneof-4) - Prompt CLI user for a reply.
 
 
-[cli\_prompt\_oneof(Socket, USid, Prompt, Choice, Timeout)](#cli_prompt_oneof5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
+[cli\_prompt\_oneof(Socket, USid, Prompt, Choice, Timeout)](#cli_prompt_oneof-5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
 
 
-[cli\_read\_eof(Socket, USid, Echo)](#cli_read_eof3) - Read data from CLI until EOF.
+[cli\_read\_eof(Socket, USid, Echo)](#cli_read_eof-3) - Read data from CLI until EOF.
 
 
-[cli\_read\_eof(Socket, USid, Echo, Timeout)](#cli_read_eof4) - Read data from CLI until EOF - return error if no reply is received within Timeout seconds.
+[cli\_read\_eof(Socket, USid, Echo, Timeout)](#cli_read_eof-4) - Read data from CLI until EOF - return error if no reply is received within Timeout seconds.
 
 
-[cli\_write(Socket, USid, Message)](#cli_write3) - Write mesage to the CLI.
+[cli\_write(Socket, USid, Message)](#cli_write-3) - Write mesage to the CLI.
 
 
-[close(Socket)](#close1) - Close socket.
+[close(Socket)](#close-1) - Close socket.
 
 
-[commit\_trans(Socket, Tid)](#commit_trans2) - Commit a transaction.
+[commit\_trans(Socket, Tid)](#commit_trans-2) - Commit a transaction.
 
 
-[commit\_upgrade(Socket)](#commit_upgrade1) - Commit in-service upgrade.
+[commit\_upgrade(Socket)](#commit_upgrade-1) - Commit in-service upgrade.
 
 
-[confirmed\_commit\_in\_progress(Socket)](#confirmed_commit_in_progress1) - Is a confirmed commit in progress.
+[confirmed\_commit\_in\_progress(Socket)](#confirmed_commit_in_progress-1) - Is a confirmed commit in progress.
 
 
-[connect(Path)](#connect1) - Connect a maapi socket to ConfD.
+[connect(Path)](#connect-1) - Connect a maapi socket to ConfD.
 
 
-[connect(Address, Port)](#connect2) - Connect a maapi socket to ConfD.
+[connect(Address, Port)](#connect-2) - Connect a maapi socket to ConfD.
 
 
-[copy(Socket, FromTH, ToTH)](#copy3) - Copy data from one transaction to another.
+[copy(Socket, FromTH, ToTH)](#copy-3) - Copy data from one transaction to another.
 
 
-[copy\_running\_to\_startup(Socket)](#copy_running_to_startup1) - Copy running to startup.
+[copy\_running\_to\_startup(Socket)](#copy_running_to_startup-1) - Copy running to startup.
 
 
-[copy\_tree(Socket, Tid, FromIKeypath, ToIKeypath)](#copy_tree4) - Copy an entire subtree in the configuration from one point to another.
+[copy\_tree(Socket, Tid, FromIKeypath, ToIKeypath)](#copy_tree-4) - Copy an entire subtree in the configuration from one point to another.
 
 
-[create(Socket, Tid, IKeypath)](#create3) - Create a new element.
+[create(Socket, Tid, IKeypath)](#create-3) - Create a new element.
 
 
-[delete(Socket, Tid, IKeypath)](#delete3) - Delete an element.
+[delete(Socket, Tid, IKeypath)](#delete-3) - Delete an element.
 
 
-[delete\_config(Socket, DbName)](#delete_config2) - Delete all data from a data store.
+[delete\_config(Socket, DbName)](#delete_config-2) - Delete all data from a data store.
 
 
-[des\_key(DesKey1, DesKey2, DesKey3, DesIVec)](#des_key4)
+[des\_key(DesKey1, DesKey2, DesKey3, DesIVec)](#des_key-4)
 
-[detach(Socket, Thandle)](#detach2) - Detach from the transaction.
+[detach(Socket, Thandle)](#detach-2) - Detach from the transaction.
 
 
-[diff\_iterate(Sock, Tid, Fun, InitState)](#diff_iterate4) - Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate5).
+[diff\_iterate(Sock, Tid, Fun, InitState)](#diff_iterate-4) - Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate-5).
 
 
-[diff\_iterate(Socket, Tid, Fun, Flags, State)](#diff_iterate5) - Iterate through a diff.
+[diff\_iterate(Socket, Tid, Fun, Flags, State)](#diff_iterate-5) - Iterate through a diff.
 
-[do\_connect(SockAddr)](#do_connect1)
+[do\_connect(SockAddr)](#do_connect-1)
 
-[end\_progress\_span(Socket, SpanId1, Annotation)](#end_progress_span3)
+[end\_progress\_span(Socket, SpanId1, Annotation)](#end_progress_span-3)
 
-[end\_user\_session(Socket)](#end_user_session1) - Ends a user session.
+[end\_user\_session(Socket)](#end_user_session-1) - Ends a user session.
 
 
-[exists(Socket, Tid, IKeypath)](#exists3) - Check if an element exists.
+[exists(Socket, Tid, IKeypath)](#exists-3) - Check if an element exists.
 
 
-[find\_next(Cursor, Type, Key)](#find_next3) - find the list entry matching Type and Key.
+[find\_next(Cursor, Type, Key)](#find_next-3) - find the list entry matching Type and Key.
 
 
-[finish\_trans(Socket, Tid)](#finish_trans2) - Finish a transaction.
+[finish\_trans(Socket, Tid)](#finish_trans-2) - Finish a transaction.
 
 
-[get\_attrs(Socket, Tid, IKeypath, AttrList)](#get_attrs4) - Get the selected attributes for an element.
+[get\_attrs(Socket, Tid, IKeypath, AttrList)](#get_attrs-4) - Get the selected attributes for an element.
 
-[get\_authorization\_info(Socket, USid)](#get_authorization_info2) - Get authorization info for a user session.
+[get\_authorization\_info(Socket, USid)](#get_authorization_info-2) - Get authorization info for a user session.
 
 
-[get\_case(Socket, Tid, IKeypath, Choice)](#get_case4) - Get the current case for a choice.
+[get\_case(Socket, Tid, IKeypath, Choice)](#get_case-4) - Get the current case for a choice.
 
 
-[get\_elem(Socket, Tid, IKeypath)](#get_elem3) - Read an element.
+[get\_elem(Socket, Tid, IKeypath)](#get_elem-3) - Read an element.
 
 
-[get\_elem\_no\_defaults(Socket, Tid, IKeypath)](#get_elem_no_defaults3) - Read an element, but return 'default' instead of the value if the default value is in effect.
+[get\_elem\_no\_defaults(Socket, Tid, IKeypath)](#get_elem_no_defaults-3) - Read an element, but return 'default' instead of the value if the default value is in effect.
 
 
-[get\_my\_user\_session\_id(Socket)](#get_my_user_session_id1) - Get my user session id.
+[get\_my\_user\_session\_id(Socket)](#get_my_user_session_id-1) - Get my user session id.
 
 
-[get\_next(Cursor)](#get_next1) - iterate through the entries of a list.
+[get\_next(Cursor)](#get_next-1) - iterate through the entries of a list.
 
 
-[get\_object(Socket, Tid, IKeypath)](#get_object3) - Read all the values in a container or list entry.
+[get\_object(Socket, Tid, IKeypath)](#get_object-3) - Read all the values in a container or list entry.
 
 
-[get\_objects(Cursor, NumEntries)](#get_objects2) - Read all the values for NumEntries list entries, starting at the point given by the cursor C.
+[get\_objects(Cursor, NumEntries)](#get_objects-2) - Read all the values for NumEntries list entries, starting at the point given by the cursor C.
 
-[get\_rollback\_id(Socket, Tid)](#get_rollback_id2) - Get rollback id of commited transaction.
+[get\_rollback\_id(Socket, Tid)](#get_rollback_id-2) - Get rollback id of commited transaction.
 
 
-[get\_running\_db\_status(Socket)](#get_running_db_status1) - Get the "running status".
+[get\_running\_db\_status(Socket)](#get_running_db_status-1) - Get the "running status".
 
 
-[get\_user\_session(Socket, USid)](#get_user_session2) - Get session info for a user session.
+[get\_user\_session(Socket, USid)](#get_user_session-2) - Get session info for a user session.
 
 
-[get\_user\_sessions(Socket)](#get_user_sessions1) - Get all user sessions.
+[get\_user\_sessions(Socket)](#get_user_sessions-1) - Get all user sessions.
 
 
-[get\_values(Socket, Tid, IKeypath, Values)](#get_values4) - Read the values for the leafs that have the "value" 'not_found' in the Values list.
+[get\_values(Socket, Tid, IKeypath, Values)](#get_values-4) - Read the values for the leafs that have the "value" 'not_found' in the Values list.
 
-[hide\_group(Socket, Tid, GroupName)](#hide_group3) - Do hide a hide group.
+[hide\_group(Socket, Tid, GroupName)](#hide_group-3) - Do hide a hide group.
 
-[hkeypath2ikeypath(Socket, HKeypath)](#hkeypath2ikeypath2) - Convert a hkeypath to an ikeypath.
+[hkeypath2ikeypath(Socket, HKeypath)](#hkeypath2ikeypath-2) - Convert a hkeypath to an ikeypath.
 
 
-[ibool(X)](#ibool1)
+[ibool(X)](#ibool-1)
 
-[init\_cursor(Socket, Tid, IKeypath)](#init_cursor3) - Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor4).
+[init\_cursor(Socket, Tid, IKeypath)](#init_cursor-3) - Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor-4).
 
 
-[init\_cursor(Socket, Tid, IKeypath, XPath)](#init_cursor4) - Initalize a get_next() cursor.
+[init\_cursor(Socket, Tid, IKeypath, XPath)](#init_cursor-4) - Initalize a get_next() cursor.
 
 
-[init\_upgrade(Socket, TimeoutSecs, Flags)](#init_upgrade3) - Start in-service upgrade.
+[init\_upgrade(Socket, TimeoutSecs, Flags)](#init_upgrade-3) - Start in-service upgrade.
 
 
-[insert(Socket, Tid, IKeypath)](#insert3) - Insert an entry in an integer-keyed list.
+[insert(Socket, Tid, IKeypath)](#insert-3) - Insert an entry in an integer-keyed list.
 
 
-[install\_crypto\_keys(Socket)](#install_crypto_keys1) - Fetch keys for the encrypted data types from the server.
+[install\_crypto\_keys(Socket)](#install_crypto_keys-1) - Fetch keys for the encrypted data types from the server.
 
-[is\_candidate\_modified(Socket)](#is_candidate_modified1) - Check if candidate has been modified.
+[is\_candidate\_modified(Socket)](#is_candidate_modified-1) - Check if candidate has been modified.
 
 
-[is\_lock\_set(Socket, DbName)](#is_lock_set2) - Check if a db is locked or not.
+[is\_lock\_set(Socket, DbName)](#is_lock_set-2) - Check if a db is locked or not.
 
-[is\_running\_modified(Socket)](#is_running_modified1) - Check if running has been modified since the last copy to startup was done.
+[is\_running\_modified(Socket)](#is_running_modified-1) - Check if running has been modified since the last copy to startup was done.
 
 
-[iterate(Socket, Tid, IKeypath, Fun, Flags, State)](#iterate6) - Iterate over all the data in the transaction and the underlying data store.
+[iterate(Socket, Tid, IKeypath, Fun, Flags, State)](#iterate-6) - Iterate over all the data in the transaction and the underlying data store.
 
-[iterate\_result(Sock, Fun, \_)](#iterate_result3)
+[iterate\_result(Sock, Fun, \_)](#iterate_result-3)
 
-[keypath\_diff\_iterate(Socket, Tid, IKeypath, Fun, State)](#keypath_diff_iterate5) - Iterate through a diff.
+[keypath\_diff\_iterate(Socket, Tid, IKeypath, Fun, State)](#keypath_diff_iterate-5) - Iterate through a diff.
 
-[keypath\_diff\_iterate(Sock, Tid, IKP, Fun, Flags, InitState)](#keypath_diff_iterate6)
+[keypath\_diff\_iterate(Sock, Tid, IKP, Fun, Flags, InitState)](#keypath_diff_iterate-6)
 
-[kill\_user\_session(Socket, USid)](#kill_user_session2) - Kill a user session.
+[kill\_user\_session(Socket, USid)](#kill_user_session-2) - Kill a user session.
 
 
-[lock(Socket, DbName)](#lock2) - Lock a database.
+[lock(Socket, DbName)](#lock-2) - Lock a database.
 
 
-[lock\_partial(Socket, DbName, XPath)](#lock_partial3) - Request a partial lock on a database.
+[lock\_partial(Socket, DbName, XPath)](#lock_partial-3) - Request a partial lock on a database.
 
-[mk\_uident(UId)](#mk_uident1)
+[mk\_uident(UId)](#mk_uident-1)
 
-[move(Socket, Tid, IKeypath, ToKey)](#move4) - Move (rename) an entry in a list.
+[move(Socket, Tid, IKeypath, ToKey)](#move-4) - Move (rename) an entry in a list.
 
 
-[move\_ordered(Socket, Tid, IKeypath, To)](#move_ordered4) - Move an entry in an "ordered-by user" list.
+[move\_ordered(Socket, Tid, IKeypath, To)](#move_ordered-4) - Move an entry in an "ordered-by user" list.
 
 
-[ncs\_apply\_template(Socket, Tid, TemplateName, RootIKeypath, Variables, Documents, Shared)](#ncs_apply_template7) - Apply a template that has been loaded into NCS.
+[ncs\_apply\_template(Socket, Tid, TemplateName, RootIKeypath, Variables, Documents, Shared)](#ncs_apply_template-7) - Apply a template that has been loaded into NCS.
 
-[ncs\_apply\_trans\_params(Socket, Tid, KeepOpen, Params)](#ncs_apply_trans_params4) - Apply transaction with commit parameters.
+[ncs\_apply\_trans\_params(Socket, Tid, KeepOpen, Params)](#ncs_apply_trans_params-4) - Apply transaction with commit parameters.
 
-[ncs\_get\_trans\_params(Socket, Tid)](#ncs_get_trans_params2) - Get transaction commit parameters.
+[ncs\_get\_trans\_params(Socket, Tid)](#ncs_get_trans_params-2) - Get transaction commit parameters.
 
 
-[ncs\_template\_variables(Socket, TemplateName)](#ncs_template_variables2) - Retrieve the variables used in a template.
+[ncs\_template\_variables(Socket, TemplateName)](#ncs_template_variables-2) - Retrieve the variables used in a template.
 
 
-[ncs\_template\_variables(Socket, TemplateName, Type)](#ncs_template_variables3) - Retrieve the variables used in a template.
+[ncs\_template\_variables(Socket, TemplateName, Type)](#ncs_template_variables-3) - Retrieve the variables used in a template.
 
 
-[ncs\_templates(Socket)](#ncs_templates1) - Retrieve a list of the templates currently loaded into NCS.
+[ncs\_templates(Socket)](#ncs_templates-1) - Retrieve a list of the templates currently loaded into NCS.
 
 
-[ncs\_write\_service\_log\_entry(Socket, IKeypath, Message, Type, Level)](#ncs_write_service_log_entry5) - Write a service log entry.
+[ncs\_write\_service\_log\_entry(Socket, IKeypath, Message, Type, Level)](#ncs_write_service_log_entry-5) - Write a service log entry.
 
 
-[netconf\_ssh\_call\_home(Socket, Host, Port)](#netconf_ssh_call_home3)
+[netconf\_ssh\_call\_home(Socket, Host, Port)](#netconf_ssh_call_home-3)
 
-[netconf\_ssh\_call\_home\_opaque(Socket, Host, Opaque, Port)](#netconf_ssh_call_home_opaque4)
+[netconf\_ssh\_call\_home\_opaque(Socket, Host, Opaque, Port)](#netconf_ssh_call_home_opaque-4)
 
-[num\_instances(Socket, Tid, IKeypath)](#num_instances3) - Find the number of entries in a list.
+[num\_instances(Socket, Tid, IKeypath)](#num_instances-3) - Find the number of entries in a list.
 
 
-[perform\_upgrade(Socket, LoadPathList)](#perform_upgrade2) - Do in-service upgrade.
+[perform\_upgrade(Socket, LoadPathList)](#perform_upgrade-2) - Do in-service upgrade.
 
 
-[prepare\_trans(Socket, Tid)](#prepare_trans2) - Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans3).
+[prepare\_trans(Socket, Tid)](#prepare_trans-2) - Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans-3).
 
 
-[prepare\_trans(Socket, Tid, Flags)](#prepare_trans3) - Prepare for commit.
+[prepare\_trans(Socket, Tid, Flags)](#prepare_trans-3) - Prepare for commit.
 
 
-[prio\_message(Socket, To, Message)](#prio_message3) - Write priority message.
+[prio\_message(Socket, To, Message)](#prio_message-3) - Write priority message.
 
 
-[progress\_info(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info6)
+[progress\_info(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info-6)
 
-[progress\_info\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info_th7)
+[progress\_info\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info_th-7)
 
-[reload\_config(Socket)](#reload_config1) - Tell ConfD daemon to reload its configuration.
+[reload\_config(Socket)](#reload_config-1) - Tell ConfD daemon to reload its configuration.
 
 
-[request\_action(Socket, Params, IKeypath)](#request_action3) - Invoke an action defined in the data model.
+[request\_action(Socket, Params, IKeypath)](#request_action-3) - Invoke an action defined in the data model.
 
 
-[request\_action\_th(Socket, Tid, Params, IKeypath)](#request_action_th4) - Invoke an action defined in the data model using the provided transaction.
+[request\_action\_th(Socket, Tid, Params, IKeypath)](#request_action_th-4) - Invoke an action defined in the data model using the provided transaction.
 
-[reverse(X)](#reverse1)
+[reverse(X)](#reverse-1)
 
-[revert(Socket, Tid)](#revert2) - Remove all changes in the transaction.
+[revert(Socket, Tid)](#revert-2) - Remove all changes in the transaction.
 
 
-[set\_attr(Socket, Tid, IKeypath, Attr, Value)](#set_attr5) - Set the an attribute for an element. Value == undefined means that the attribute should be deleted.
+[set\_attr(Socket, Tid, IKeypath, Attr, Value)](#set_attr-5) - Set the an attribute for an element. Value == undefined means that the attribute should be deleted.
 
 
-[set\_comment(Socket, Tid, Comment)](#set_comment3) - Set the "Comment" that is stored in the rollback file when a transaction towards running is committed.
+[set\_comment(Socket, Tid, Comment)](#set_comment-3) - Set the "Comment" that is stored in the rollback file when a transaction towards running is committed.
 
 
-[set\_delayed\_when(Socket, Tid, Value)](#set_delayed_when3) - Enable/disable the "delayed when" mode for a transaction.
+[set\_delayed\_when(Socket, Tid, Value)](#set_delayed_when-3) - Enable/disable the "delayed when" mode for a transaction.
 
-[set\_elem(Socket, Tid, IKeypath, Value)](#set_elem4) - Write an element.
+[set\_elem(Socket, Tid, IKeypath, Value)](#set_elem-4) - Write an element.
 
 
-[set\_elem2(Socket, Tid, IKeypath, BinValue)](#set_elem24) - Write an element using the textual value representation.
+[set\_elem2(Socket, Tid, IKeypath, BinValue)](#set_elem2-4) - Write an element using the textual value representation.
 
 
-[set\_flags(Socket, Tid, Flags)](#set_flags3) - Change flag settings for a transaction.
+[set\_flags(Socket, Tid, Flags)](#set_flags-3) - Change flag settings for a transaction.
 
-[set\_label(Socket, Tid, Label)](#set_label3) - Set the "Label" that is stored in the rollback file when a transaction towards running is committed.
+[set\_label(Socket, Tid, Label)](#set_label-3) - Set the "Label" that is stored in the rollback file when a transaction towards running is committed.
 
 
-[set\_object(Socket, Tid, IKeypath, ValueList)](#set_object4) - Write an entire object, i.e. YANG list entry or container.
+[set\_object(Socket, Tid, IKeypath, ValueList)](#set_object-4) - Write an entire object, i.e. YANG list entry or container.
 
 
-[set\_readonly\_mode(Socket, Mode)](#set_readonly_mode2) - Control if we can create rw transactions.
+[set\_readonly\_mode(Socket, Mode)](#set_readonly_mode-2) - Control if we can create rw transactions.
 
 
-[set\_running\_db\_status(Socket, Status)](#set_running_db_status2) - Set the "running status".
+[set\_running\_db\_status(Socket, Status)](#set_running_db_status-2) - Set the "running status".
 
 
-[set\_user\_session(Socket, USid)](#set_user_session2) - Assign a user session.
+[set\_user\_session(Socket, USid)](#set_user_session-2) - Assign a user session.
 
 
-[set\_values(Socket, Tid, IKeypath, ValueList)](#set_values4) - Write a list of tagged values.
+[set\_values(Socket, Tid, IKeypath, ValueList)](#set_values-4) - Write a list of tagged values.
 
-[shared\_create(Socket, Tid, IKeypath)](#shared_create3) - Create a new element, and also set an attribute indicating how many times this element has been created.
+[shared\_create(Socket, Tid, IKeypath)](#shared_create-3) - Create a new element, and also set an attribute indicating how many times this element has been created.
 
 
-[shared\_set\_elem(Socket, Tid, IKeypath, Value)](#shared_set_elem4) - Write an element from NCS FastMap.
+[shared\_set\_elem(Socket, Tid, IKeypath, Value)](#shared_set_elem-4) - Write an element from NCS FastMap.
 
 
-[shared\_set\_elem2(Socket, Tid, IKeypath, BinValue)](#shared_set_elem24) - Write an element using the textual value representation from NCS fastmap.
+[shared\_set\_elem2(Socket, Tid, IKeypath, BinValue)](#shared_set_elem2-4) - Write an element using the textual value representation from NCS fastmap.
 
 
-[shared\_set\_values(Socket, Tid, IKeypath, ValueList)](#shared_set_values4) - Write a list of tagged values from NCS FastMap.
+[shared\_set\_values(Socket, Tid, IKeypath, ValueList)](#shared_set_values-4) - Write a list of tagged values from NCS FastMap.
 
 
-[snmpa\_reload(Socket, Synchronous)](#snmpa_reload2) - Tell ConfD to reload external SNMP Agent config data.
+[snmpa\_reload(Socket, Synchronous)](#snmpa_reload-2) - Tell ConfD to reload external SNMP Agent config data.
 
 
-[start\_phase(Socket, Phase, Synchronous)](#start_phase3) - Tell ConfD to proceed to next start phase.
+[start\_phase(Socket, Phase, Synchronous)](#start_phase-3) - Tell ConfD to proceed to next start phase.
 
 
-[start\_progress\_span(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span6)
+[start\_progress\_span(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span-6)
 
-[start\_progress\_span\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span_th7)
+[start\_progress\_span\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span_th-7)
 
-[start\_trans(Socket, DbName, RwMode)](#start_trans3) - Start a new transaction.
+[start\_trans(Socket, DbName, RwMode)](#start_trans-3) - Start a new transaction.
 
 
-[start\_trans(Socket, DbName, RwMode, USid)](#start_trans4) - Start a new transaction within an existing user session.
+[start\_trans(Socket, DbName, RwMode, USid)](#start_trans-4) - Start a new transaction within an existing user session.
 
 
-[start\_trans(Socket, DbName, RwMode, USid, Flags)](#start_trans5) - Start a new transaction within an existing user session and/or with flags.
+[start\_trans(Socket, DbName, RwMode, USid, Flags)](#start_trans-5) - Start a new transaction within an existing user session and/or with flags.
 
-[start\_trans(Sock, DbName, RwMode, Usid, Flags, UId)](#start_trans6)
+[start\_trans(Sock, DbName, RwMode, Usid, Flags, UId)](#start_trans-6)
 
-[start\_trans\_in\_trans(Socket, RwMode, USid, Tid)](#start_trans_in_trans4) - Start a new transaction with an existing transaction as backend.
+[start\_trans\_in\_trans(Socket, RwMode, USid, Tid)](#start_trans_in_trans-4) - Start a new transaction with an existing transaction as backend.
 
-[start\_trans\_in\_trans(Socket, RwMode, USid, Tid, Flags)](#start_trans_in_trans5) - Start a new transaction with an existing transaction as backend.
+[start\_trans\_in\_trans(Socket, RwMode, USid, Tid, Flags)](#start_trans_in_trans-5) - Start a new transaction with an existing transaction as backend.
 
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, Proto)](#start_user_session6) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto)](#start_user_session7).
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, Proto)](#start_user_session-6) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto)](#start_user_session-7).
 
 
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto)](#start_user_session7) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto, undefined)](#start_user_session8).
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto)](#start_user_session-7) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto, undefined)](#start_user_session-8).
 
 
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto, UId)](#start_user_session8) - Initiate a new maapi user session.
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto, UId)](#start_user_session-8) - Initiate a new maapi user session.
 
-[stop(Socket)](#stop1) - Equivalent to [stop(Sock, true)](#stop2).
+[stop(Socket)](#stop-1) - Equivalent to [stop(Sock, true)](#stop-2).
 
-[stop(Socket, Synchronous)](#stop2) - Tell ConfD daemon to stop, if Synchronous is true won't return until daemon has come to a halt.
+[stop(Socket, Synchronous)](#stop-2) - Tell ConfD daemon to stop, if Synchronous is true won't return until daemon has come to a halt.
 
-[sys\_message(Socket, To, Message)](#sys_message3) - Write system message.
+[sys\_message(Socket, To, Message)](#sys_message-3) - Write system message.
 
 
-[unhide\_group(Socket, Tid, GroupName)](#unhide_group3) - Do unhide a hide group.
+[unhide\_group(Socket, Tid, GroupName)](#unhide_group-3) - Do unhide a hide group.
 
-[unlock(Socket, DbName)](#unlock2) - Unlock a database.
+[unlock(Socket, DbName)](#unlock-2) - Unlock a database.
 
 
-[unlock\_partial(Socket, LockId)](#unlock_partial2) - Remove the partial lock identified by LockId.
+[unlock\_partial(Socket, LockId)](#unlock_partial-2) - Remove the partial lock identified by LockId.
 
 
-[user\_message(Socket, To, From, Message)](#user_message4) - Write user message.
+[user\_message(Socket, To, From, Message)](#user_message-4) - Write user message.
 
 
-[validate\_trans(Socket, Tid, UnLock, ForceValidation)](#validate_trans4) - Validate the transaction.
+[validate\_trans(Socket, Tid, UnLock, ForceValidation)](#validate_trans-4) - Validate the transaction.
 
 
-[wait\_start(Socket)](#wait_start1) - Equivalent to [wait_start(Socket, 2)](#wait_start2).
+[wait\_start(Socket)](#wait_start-1) - Equivalent to [wait_start(Socket, 2)](#wait_start-2).
 
-[wait\_start(Socket, Phase)](#wait_start2) - Wait until ConfD daemon has reached a certain start phase.
+[wait\_start(Socket, Phase)](#wait_start-2) - Wait until ConfD daemon has reached a certain start phase.
 
 
-[xpath\_eval(Socket, Tid, Expr, ResultFun, State, Options)](#xpath_eval6) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
+[xpath\_eval(Socket, Tid, Expr, ResultFun, State, Options)](#xpath_eval-6) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
 
-[xpath\_eval(Socket, Tid, Expr, ResultFun, TraceFun, State, Context)](#xpath_eval7) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
+[xpath\_eval(Socket, Tid, Expr, ResultFun, TraceFun, State, Context)](#xpath_eval-7) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
 
-[xpath\_eval\_expr(Socket, Tid, Expr, Options)](#xpath_eval_expr4) - Evaluate the XPath expression Expr, returning the result as a string.
+[xpath\_eval\_expr(Socket, Tid, Expr, Options)](#xpath_eval_expr-4) - Evaluate the XPath expression Expr, returning the result as a string.
 
 
-[xpath\_eval\_expr(Socket, Tid, Expr, TraceFun, Context)](#xpath_eval_expr5) - Evaluate the XPath expression Expr, returning the result as a string.
+[xpath\_eval\_expr(Socket, Tid, Expr, TraceFun, Context)](#xpath_eval_expr-5) - Evaluate the XPath expression Expr, returning the result as a string.
 
 
-[xpath\_eval\_expr\_loop(Sock, TraceFun)](#xpath_eval_expr_loop2)
+[xpath\_eval\_expr\_loop(Sock, TraceFun)](#xpath_eval_expr_loop-2)
 
-[xpath\_eval\_loop(Sock, ResultFun, TraceFun, State)](#xpath_eval_loop4)
+[xpath\_eval\_loop(Sock, ResultFun, TraceFun, State)](#xpath_eval_loop-4)
 
 ### aaa_reload/2
 
@@ -590,7 +590,7 @@ Related types: [econfd:ikeypath()](econfd.md#ikeypath0)
                         Synchronous :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Tell AAA to reload external AAA data.
 
@@ -602,7 +602,7 @@ Tell AAA to reload external AAA data.
                      when Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Abort transaction.
 
@@ -613,7 +613,7 @@ Abort transaction.
 -spec abort_upgrade(Socket) -> ok | err() when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Abort in-service upgrade.
 
@@ -647,7 +647,7 @@ all_keys(Cursor, Acc)
                       Result :: {ok, [econfd:key()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:key()](econfd.md#key0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:key()](econfd.md#key-0), [econfd:socket()](econfd.md#socket-0)
 
 Utility function. Return all keys in a list.
 
@@ -662,9 +662,9 @@ Utility function. Return all keys in a list.
                          KeepOpen :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans4).
+Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans-4).
 
 
 ### apply_trans/4
@@ -678,7 +678,7 @@ Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans4).
                          Flags :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Apply all in the transaction.
 
@@ -695,7 +695,7 @@ This is the combination of validate/prepare/commit done in the right order.
                     Tctx :: econfd:confd_trans_ctx().
 ```
 
-Related types: [err()](#err0), [econfd:confd\_trans\_ctx()](econfd.md#confd_trans_ctx0), [econfd:namespace()](econfd.md#namespace0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:confd\_trans\_ctx()](econfd.md#confd_trans_ctx-0), [econfd:namespace()](econfd.md#namespace-0), [econfd:socket()](econfd.md#socket-0)
 
 Attach to a running transaction.
 
@@ -713,7 +713,7 @@ Give NameSpace as 0 if it doesn't matter (-1 works too but is deprecated).
                      Thandle :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:namespace()](econfd.md#namespace0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:namespace()](econfd.md#namespace-0), [econfd:socket()](econfd.md#socket-0)
 
 Attach to a running transaction. Give NameSpace as 0 if it doesn't matter (-1 works too but is deprecated).
 
@@ -727,7 +727,7 @@ Attach to a running transaction. Give NameSpace as 0 if it doesn't matter (-1 wo
                          Result :: {ok, Thandle} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Attach to the CDB init/upgrade transaction in phase0.
 
@@ -745,7 +745,7 @@ Returns the transaction handle to use in subsequent maapi calls on success.
                           Groups :: [binary()].
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Autenticate a user using ConfD AAA.
 
@@ -767,7 +767,7 @@ Autenticate a user using ConfD AAA.
                            Groups :: [binary()].
 ```
 
-Related types: [err()](#err0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
 Autenticate a user using ConfD AAA.
 
@@ -785,9 +785,9 @@ bool2int(_)
                                 when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit2).
+Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit-2).
 
 
 ### candidate_abort_commit/2
@@ -799,7 +799,7 @@ Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit2).
                                     PersistId :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Cancel persistent confirmed commit.
 
@@ -811,9 +811,9 @@ Cancel persistent confirmed commit.
                           when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_commit_info(Socket, undefined, <<>>, <<>>)](#candidate_commit_info4).
+Equivalent to [candidate_commit_info(Socket, undefined, <<>>, <<>>)](#candidate_commit_info-4).
 
 Copies candidate to running or confirms a confirmed commit.
 
@@ -827,9 +827,9 @@ Copies candidate to running or confirms a confirmed commit.
                               PersistId :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_commit_info(Socket, PersistId, <<>>, <<>>)](#candidate_commit_info4).
+Equivalent to [candidate_commit_info(Socket, PersistId, <<>>, <<>>)](#candidate_commit_info-4).
 
 Confirms persistent confirmed commit.
 
@@ -844,9 +844,9 @@ Confirms persistent confirmed commit.
                                    Comment :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_commit_info(Socket, undefined, Label, Comment)](#candidate_commit_info4).
+Equivalent to [candidate_commit_info(Socket, undefined, Label, Comment)](#candidate_commit_info-4).
 
 Like `candidate_commit/1`, but set the "Label" and/or "Comment" that is stored in the rollback file when the candidate is committed to running.
 
@@ -867,7 +867,7 @@ Note: To ensure that the "Label" and/or "Comment" are stored in the rollback fil
                                    Comment :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Combines `candidate_commit/2` and `candidate_commit_info/3` \- set "Label" and/or "Comment" when confirming a persistent confirmed commit.
 
@@ -883,9 +883,9 @@ Note: To ensure that the "Label" and/or "Comment" are stored in the rollback fil
                                         TimeoutSecs :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, <<>>, <<>>)](#candidate_confirmed_commit_info6).
+Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
 
 Copy candidate into running, but rollback if not confirmed by a call of `candidate_commit/1`.
 
@@ -904,9 +904,9 @@ Copy candidate into running, but rollback if not confirmed by a call of `candida
                                             binary() | undefined.
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, Persist, PersistId, <<>>, <<>>)](#candidate_confirmed_commit_info6).
+Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, Persist, PersistId, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
 
 Starts or extends persistent confirmed commit.
 
@@ -924,9 +924,9 @@ Starts or extends persistent confirmed commit.
                                              Comment :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, Label, Comment)](#candidate_confirmed_commit_info6).
+Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, Label, Comment)](#candidate_confirmed_commit_info-6).
 
 Like `candidate_confirmed_commit/2`, but set the "Label" and/or "Comment" that is stored in the rollback file when the candidate is committed to running.
 
@@ -952,7 +952,7 @@ Note: To ensure that the "Label" and/or "Comment" are stored in the rollback fil
                                              Comment :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Combines `candidate_confirmed_commit/4` and `candidate_confirmed_commit_info/4` \- set "Label" and/or "Comment" when starting or extending a persistent confirmed commit.
 
@@ -966,7 +966,7 @@ Note: To ensure that the "Label" and/or "Comment" are stored in the rollback fil
                          when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Copy running into candidate.
 
@@ -978,7 +978,7 @@ Copy running into candidate.
                             when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Validate the candidate config.
 
@@ -994,7 +994,7 @@ Validate the candidate config.
                         Echo :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Prompt CLI user for a reply.
 
@@ -1012,7 +1012,7 @@ Prompt CLI user for a reply.
                         Timeout :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
 
@@ -1029,7 +1029,7 @@ Prompt CLI user for a reply - return error if no reply is received within Timeou
                               Choice :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Prompt CLI user for a reply.
 
@@ -1047,7 +1047,7 @@ Prompt CLI user for a reply.
                               Timeout :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
 
@@ -1062,7 +1062,7 @@ Prompt CLI user for a reply - return error if no reply is received within Timeou
                           Echo :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Read data from CLI until EOF.
 
@@ -1079,7 +1079,7 @@ Read data from CLI until EOF.
                           Timeout :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Read data from CLI until EOF - return error if no reply is received within Timeout seconds.
 
@@ -1094,7 +1094,7 @@ Read data from CLI until EOF - return error if no reply is received within Timeo
                        Message :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Write mesage to the CLI.
 
@@ -1108,7 +1108,7 @@ Write mesage to the CLI.
                    Result :: ok | {error, econfd:error_reason()}.
 ```
 
-Related types: [econfd:error\_reason()](econfd.md#error_reason0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
 Close socket.
 
@@ -1120,7 +1120,7 @@ Close socket.
                       when Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Commit a transaction.
 
@@ -1132,7 +1132,7 @@ Commit a transaction.
                         when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Commit in-service upgrade.
 
@@ -1147,7 +1147,7 @@ Commit in-service upgrade.
                                               {ok, boolean()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Is a confirmed commit in progress.
 
@@ -1158,7 +1158,7 @@ Is a confirmed commit in progress.
 -spec connect(Path) -> econfd:connect_result() when Path :: string().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0)
 
 Connect a maapi socket to ConfD.
 
@@ -1170,7 +1170,7 @@ Connect a maapi socket to ConfD.
                  when Address :: econfd:ip(), Port :: non_neg_integer().
 ```
 
-Related types: [econfd:connect\_result()](econfd.md#connect_result0), [econfd:ip()](econfd.md#ip0)
+Related types: [econfd:connect\_result()](econfd.md#connect_result-0), [econfd:ip()](econfd.md#ip-0)
 
 Connect a maapi socket to ConfD.
 
@@ -1185,7 +1185,7 @@ Connect a maapi socket to ConfD.
                   ToTH :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Copy data from one transaction to another.
 
@@ -1197,7 +1197,7 @@ Copy data from one transaction to another.
                                  when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Copy running to startup.
 
@@ -1213,7 +1213,7 @@ Copy running to startup.
                        ToIKeypath :: econfd:ikeypath().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Copy an entire subtree in the configuration from one point to another.
 
@@ -1228,7 +1228,7 @@ Copy an entire subtree in the configuration from one point to another.
                     IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Create a new element.
 
@@ -1243,7 +1243,7 @@ Create a new element.
                     IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Delete an element.
 
@@ -1256,7 +1256,7 @@ Delete an element.
                            Socket :: econfd:socket(), DbName :: dbname().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Delete all data from a data store.
 
@@ -1274,7 +1274,7 @@ des_key(DesKey1, DesKey2, DesKey3, DesIVec)
                 when Socket :: econfd:socket(), Thandle :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Detach from the transaction.
 
@@ -1285,7 +1285,7 @@ Detach from the transaction.
 diff_iterate(Sock, Tid, Fun, InitState)
 ```
 
-Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate5).
+Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate-5).
 
 
 ### diff_iterate/5
@@ -1303,7 +1303,7 @@ Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate5).
                           Result :: {ok, State} | {error, term()}.
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 Iterate through a diff.
 
@@ -1330,7 +1330,7 @@ do_connect(SockAddr)
                                      TraceId :: binary() | undefined}}.
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 ### end_user_session/1
 
@@ -1339,7 +1339,7 @@ Related types: [econfd:socket()](econfd.md#socket0)
                           when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Ends a user session.
 
@@ -1355,7 +1355,7 @@ Ends a user session.
                     Result :: {ok, boolean()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Check if an element exists.
 
@@ -1372,7 +1372,7 @@ Check if an element exists.
                            {ok, econfd:key(), Cursor} | done | err().
 ```
 
-Related types: [err()](#err0), [find\_next\_type()](#find_next_type0), [maapi\_cursor()](#maapi_cursor0), [econfd:key()](econfd.md#key0)
+Related types: [err()](#err-0), [find\_next\_type()](#find_next_type-0), [maapi\_cursor()](#maapi_cursor-0), [econfd:key()](econfd.md#key-0)
 
 find the list entry matching Type and Key.
 
@@ -1384,7 +1384,7 @@ find the list entry matching Type and Key.
                       when Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Finish a transaction.
 
@@ -1401,7 +1401,7 @@ Finish a transaction.
                        Result :: {ok, [{Attr, Value}]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Get the selected attributes for an element.
 
@@ -1418,7 +1418,7 @@ Calling with an empty attribute list returns all attributes.
                                     Result :: {ok, Info} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get authorization info for a user session.
 
@@ -1435,7 +1435,7 @@ Get authorization info for a user session.
                       Result :: {ok, Case} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:qtag()](econfd.md#qtag0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:qtag()](econfd.md#qtag-0), [econfd:socket()](econfd.md#socket-0)
 
 Get the current case for a choice.
 
@@ -1451,7 +1451,7 @@ Get the current case for a choice.
                       Result :: {ok, econfd:value()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Read an element.
 
@@ -1467,7 +1467,7 @@ Read an element.
                                   Result :: {ok, Value} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Read an element, but return 'default' instead of the value if the default value is in effect.
 
@@ -1481,7 +1481,7 @@ Read an element, but return 'default' instead of the value if the default value 
                                     Result :: {ok, USid} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get my user session id.
 
@@ -1496,7 +1496,7 @@ Get my user session id.
                           {ok, econfd:key(), Cursor} | done | err().
 ```
 
-Related types: [err()](#err0), [maapi\_cursor()](#maapi_cursor0), [econfd:key()](econfd.md#key0)
+Related types: [err()](#err-0), [maapi\_cursor()](#maapi_cursor-0), [econfd:key()](econfd.md#key-0)
 
 iterate through the entries of a list.
 
@@ -1512,7 +1512,7 @@ iterate through the entries of a list.
                         Result :: {ok, [econfd:value()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Read all the values in a container or list entry.
 
@@ -1530,7 +1530,7 @@ Read all the values in a container or list entry.
                              err().
 ```
 
-Related types: [err()](#err0), [maapi\_cursor()](#maapi_cursor0)
+Related types: [err()](#err-0), [maapi\_cursor()](#maapi_cursor-0)
 
 Read all the values for NumEntries list entries, starting at the point given by the cursor C.
 
@@ -1545,7 +1545,7 @@ The return value has one Erlang list for each YANG list entry, i.e. it is a list
                              Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 Get rollback id of commited transaction.
 
@@ -1559,7 +1559,7 @@ Get rollback id of commited transaction.
                                    Result :: {ok, Status} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get the "running status".
 
@@ -1574,7 +1574,7 @@ Get the "running status".
                               Result :: {ok, confd_user_info()} | err().
 ```
 
-Related types: [confd\_user\_info()](#confd_user_info0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [confd\_user\_info()](#confd_user_info-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get session info for a user session.
 
@@ -1588,7 +1588,7 @@ Get session info for a user session.
                                Result :: {ok, [USid]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Get all user sessions.
 
@@ -1605,11 +1605,11 @@ Get all user sessions.
                         Result :: {ok, [econfd:tagval()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Read the values for the leafs that have the "value" 'not_found' in the Values list.
 
-This can be used to read an arbitrary set of sub-elements of a container or list entry. The return value is a list of the same length as Values, i.e. the requested leafs are in the same position in the returned list as in the Values argument. The elements in the returned list are always "canonical" though, i.e. of the form [`econfd:tagval()`](econfd.md#tagval0).
+This can be used to read an arbitrary set of sub-elements of a container or list entry. The return value is a list of the same length as Values, i.e. the requested leafs are in the same position in the returned list as in the Values argument. The elements in the returned list are always "canonical" though, i.e. of the form [`econfd:tagval()`](econfd.md#tagval-0).
 
 
 ### hide_group/3
@@ -1622,7 +1622,7 @@ This can be used to read an arbitrary set of sub-elements of a container or list
                         GroupName :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Do hide a hide group.
 
@@ -1639,7 +1639,7 @@ Hide all nodes belonging to a hide group in a transaction that started with flag
                                Result :: {ok, IKeypath} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Convert a hkeypath to an ikeypath.
 
@@ -1660,9 +1660,9 @@ ibool(X)
                          IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [maapi\_cursor()](#maapi_cursor0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [maapi\_cursor()](#maapi_cursor-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor4).
+Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor-4).
 
 
 ### init_cursor/4
@@ -1676,7 +1676,7 @@ Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor4).
                          XPath :: undefined | binary() | string().
 ```
 
-Related types: [maapi\_cursor()](#maapi_cursor0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [maapi\_cursor()](#maapi_cursor-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Initalize a get_next() cursor.
 
@@ -1691,7 +1691,7 @@ Initalize a get_next() cursor.
                           Flags :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start in-service upgrade.
 
@@ -1706,7 +1706,7 @@ Start in-service upgrade.
                     IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Insert an entry in an integer-keyed list.
 
@@ -1718,7 +1718,7 @@ Insert an entry in an integer-keyed list.
                              when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Fetch keys for the encrypted data types from the server.
 
@@ -1734,7 +1734,7 @@ Encrypted data type can be tailf:aes-cfb-128-encrypted-string and tailf:aes-256-
                                    Result :: {ok, boolean()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Check if candidate has been modified.
 
@@ -1749,7 +1749,7 @@ Check if candidate has been modified.
                          Result :: {ok, integer()} | err().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Check if a db is locked or not.
 
@@ -1765,7 +1765,7 @@ Return 0 or the Usid of the lock owner.
                                  Result :: {ok, boolean()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Check if running has been modified since the last copy to startup was done.
 
@@ -1786,7 +1786,7 @@ Check if running has been modified since the last copy to startup was done.
                      Result :: {ok, State} | {error, term()}.
 ```
 
-Related types: [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Iterate over all the data in the transaction and the underlying data store.
 
@@ -1817,7 +1817,7 @@ iterate_result(Sock, Fun, _)
                                       {ok, State} | {error, term()}.
 ```
 
-Related types: [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Iterate through a diff.
 
@@ -1839,7 +1839,7 @@ keypath_diff_iterate(Sock, Tid, IKP, Fun, Flags, InitState)
                                USid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Kill a user session.
 
@@ -1851,7 +1851,7 @@ Kill a user session.
               when Socket :: econfd:socket(), DbName :: dbname().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Lock a database.
 
@@ -1867,7 +1867,7 @@ Lock a database.
                           Result :: {ok, LockId} | err().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Request a partial lock on a database.
 
@@ -1891,7 +1891,7 @@ mk_uident(UId)
                   ToKey :: econfd:key().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:key()](econfd.md#key0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:key()](econfd.md#key-0), [econfd:socket()](econfd.md#socket-0)
 
 Move (rename) an entry in a list.
 
@@ -1909,7 +1909,7 @@ Move (rename) an entry in a list.
                               {before | 'after', econfd:key()}.
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:key()](econfd.md#key0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:key()](econfd.md#key-0), [econfd:socket()](econfd.md#socket-0)
 
 Move an entry in an "ordered-by user" list.
 
@@ -1930,7 +1930,7 @@ Move an entry in an "ordered-by user" list.
                                 Shared :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Apply a template that has been loaded into NCS.
 
@@ -1952,7 +1952,7 @@ The TemplateName parameter gives the name of the template. The Variables paramet
                                         err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Apply transaction with commit parameters.
 
@@ -1970,7 +1970,7 @@ This is a version of apply_trans that takes commit parameters in form of a list 
                                       {ok, [econfd:tagval()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Get transaction commit parameters.
 
@@ -1985,7 +1985,7 @@ Get transaction commit parameters.
                                     TemplateName :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Retrieve the variables used in a template.
 
@@ -2001,7 +2001,7 @@ Retrieve the variables used in a template.
                                     Type :: template_type().
 ```
 
-Related types: [err()](#err0), [template\_type()](#template_type0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [template\_type()](#template_type-0), [econfd:socket()](econfd.md#socket-0)
 
 Retrieve the variables used in a template.
 
@@ -2013,7 +2013,7 @@ Retrieve the variables used in a template.
                        when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Retrieve a list of the templates currently loaded into NCS.
 
@@ -2032,7 +2032,7 @@ Retrieve a list of the templates currently loaded into NCS.
                                          Level :: econfd:value().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Write a service log entry.
 
@@ -2047,7 +2047,7 @@ Write a service log entry.
                                    Port :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
 ### netconf_ssh_call_home_opaque/4
 
@@ -2061,7 +2061,7 @@ Related types: [err()](#err0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](e
                                           Port :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
 ### num_instances/3
 
@@ -2074,7 +2074,7 @@ Related types: [err()](#err0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](e
                            Result :: {ok, integer()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Find the number of entries in a list.
 
@@ -2088,7 +2088,7 @@ Find the number of entries in a list.
                              LoadPathList :: [binary()].
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Do in-service upgrade.
 
@@ -2100,9 +2100,9 @@ Do in-service upgrade.
                        when Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans3).
+Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans-3).
 
 
 ### prepare_trans/3
@@ -2115,7 +2115,7 @@ Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans3).
                            Flags :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Prepare for commit.
 
@@ -2130,7 +2130,7 @@ Prepare for commit.
                           Message :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Write priority message.
 
@@ -2152,7 +2152,7 @@ Write priority message.
                                  SpanId :: binary() | undefined}].
 ```
 
-Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [verbosity()](#verbosity-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 ### progress_info_th/7
 
@@ -2173,7 +2173,7 @@ Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypat
                                     SpanId :: binary() | undefined}].
 ```
 
-Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [verbosity()](#verbosity-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 ### reload_config/1
 
@@ -2181,7 +2181,7 @@ Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypat
 -spec reload_config(Socket) -> ok | err() when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Tell ConfD daemon to reload its configuration.
 
@@ -2198,7 +2198,7 @@ Tell ConfD daemon to reload its configuration.
                                 ok | {ok, [econfd:tagval()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Invoke an action defined in the data model.
 
@@ -2216,7 +2216,7 @@ Invoke an action defined in the data model.
                                    ok | {ok, [econfd:tagval()]} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Invoke an action defined in the data model using the provided transaction.
 
@@ -2236,7 +2236,7 @@ reverse(X)
                 when Socket :: econfd:socket(), Tid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Remove all changes in the transaction.
 
@@ -2253,7 +2253,7 @@ Remove all changes in the transaction.
                       Value :: econfd:value() | undefined.
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Set the an attribute for an element. Value == undefined means that the attribute should be deleted.
 
@@ -2268,7 +2268,7 @@ Set the an attribute for an element. Value == undefined means that the attribute
                          Comment :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Set the "Comment" that is stored in the rollback file when a transaction towards running is committed.
 
@@ -2284,7 +2284,7 @@ Set the "Comment" that is stored in the rollback file when a transaction towards
                               Result :: {ok, OldValue} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Enable/disable the "delayed when" mode for a transaction.
 
@@ -2302,7 +2302,7 @@ Returns the old setting on success.
                       Value :: econfd:value().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Write an element.
 
@@ -2318,7 +2318,7 @@ Write an element.
                        BinValue :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Write an element using the textual value representation.
 
@@ -2333,7 +2333,7 @@ Write an element using the textual value representation.
                        Flags :: non_neg_integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Change flag settings for a transaction.
 
@@ -2350,7 +2350,7 @@ See ?MAAPI_FLAG_XXX in econfd.hrl for the available flags, however ?MAAPI_FLAG_H
                        Label :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Set the "Label" that is stored in the rollback file when a transaction towards running is committed.
 
@@ -2366,7 +2366,7 @@ Set the "Label" that is stored in the rollback file when a transaction towards r
                         ValueList :: [econfd:value()].
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Write an entire object, i.e. YANG list entry or container.
 
@@ -2380,7 +2380,7 @@ Write an entire object, i.e. YANG list entry or container.
                                Mode :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Control if we can create rw transactions.
 
@@ -2394,7 +2394,7 @@ Control if we can create rw transactions.
                                    Status :: Valid | InValid.
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Set the "running status".
 
@@ -2408,7 +2408,7 @@ Set the "running status".
                               USid :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Assign a user session.
 
@@ -2424,7 +2424,7 @@ Assign a user session.
                         ValueList :: [econfd:tagval()].
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Write a list of tagged values.
 
@@ -2441,7 +2441,7 @@ This function is an alternative to `set_object/4`, and allows for writing more c
                            IKeypath :: econfd:ikeypath().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Create a new element, and also set an attribute indicating how many times this element has been created.
 
@@ -2457,7 +2457,7 @@ Create a new element, and also set an attribute indicating how many times this e
                              Value :: econfd:value().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:value()](econfd.md#value0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Write an element from NCS FastMap.
 
@@ -2473,7 +2473,7 @@ Write an element from NCS FastMap.
                               BinValue :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Write an element using the textual value representation from NCS fastmap.
 
@@ -2489,7 +2489,7 @@ Write an element using the textual value representation from NCS fastmap.
                                ValueList :: [econfd:tagval()].
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0), [econfd:tagval()](econfd.md#tagval0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:tagval()](econfd.md#tagval-0)
 
 Write a list of tagged values from NCS FastMap.
 
@@ -2503,7 +2503,7 @@ Write a list of tagged values from NCS FastMap.
                           Synchronous :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Tell ConfD to reload external SNMP Agent config data.
 
@@ -2518,7 +2518,7 @@ Tell ConfD to reload external SNMP Agent config data.
                          Synchronous :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Tell ConfD to proceed to next start phase.
 
@@ -2545,7 +2545,7 @@ Tell ConfD to proceed to next start phase.
                                        TraceId :: binary() | undefined}}.
 ```
 
-Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [verbosity()](#verbosity-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 ### start_progress_span_th/7
 
@@ -2575,7 +2575,7 @@ Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypat
                                               binary() | undefined}}.
 ```
 
-Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [verbosity()](#verbosity-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 ### start_trans/3
 
@@ -2588,7 +2588,7 @@ Related types: [verbosity()](#verbosity0), [econfd:ikeypath()](econfd.md#ikeypat
                          Result :: {ok, integer()} | err().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start a new transaction.
 
@@ -2605,7 +2605,7 @@ Start a new transaction.
                          Result :: {ok, integer()} | err().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start a new transaction within an existing user session.
 
@@ -2623,7 +2623,7 @@ Start a new transaction within an existing user session.
                          Result :: {ok, integer()} | err().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start a new transaction within an existing user session and/or with flags.
 
@@ -2648,7 +2648,7 @@ start_trans(Sock, DbName, RwMode, Usid, Flags, UId)
                                   Result :: {ok, integer()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start a new transaction with an existing transaction as backend.
 
@@ -2668,7 +2668,7 @@ To use the existing user session of the socket, give Usid = 0.
                                   Result :: {ok, integer()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Start a new transaction with an existing transaction as backend.
 
@@ -2690,9 +2690,9 @@ To use the existing user session of the socket, give Usid = 0.
                                 Proto :: proto().
 ```
 
-Related types: [err()](#err0), [proto()](#proto0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [proto()](#proto-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto)](#start_user_session7).
+Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto)](#start_user_session-7).
 
 
 ### start_user_session/7
@@ -2711,9 +2711,9 @@ Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, P
                                 Proto :: proto().
 ```
 
-Related types: [err()](#err0), [proto()](#proto0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [proto()](#proto-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto, undefined)](#start_user_session8).
+Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto, undefined)](#start_user_session-8).
 
 
 ### start_user_session/8
@@ -2735,7 +2735,7 @@ Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, P
                                     undefined.
 ```
 
-Related types: [confd\_user\_identification()](#confd_user_identification0), [err()](#err0), [proto()](#proto0), [econfd:ip()](econfd.md#ip0), [econfd:socket()](econfd.md#socket0)
+Related types: [confd\_user\_identification()](#confd_user_identification-0), [err()](#err-0), [proto()](#proto-0), [econfd:ip()](econfd.md#ip-0), [econfd:socket()](econfd.md#socket-0)
 
 Initiate a new maapi user session.
 
@@ -2748,9 +2748,9 @@ returns a maapi session id. Before we can execute any maapi functions we must al
 -spec stop(Socket) -> ok when Socket :: econfd:socket().
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [stop(Sock, true)](#stop2).
+Equivalent to [stop(Sock, true)](#stop-2).
 
 Tell ConfD daemon to stop, returns when daemon has exited.
 
@@ -2762,7 +2762,7 @@ Tell ConfD daemon to stop, returns when daemon has exited.
               when Socket :: econfd:socket(), Synchronous :: boolean().
 ```
 
-Related types: [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:socket()](econfd.md#socket-0)
 
 Tell ConfD daemon to stop, if Synchronous is true won't return until daemon has come to a halt.
 
@@ -2779,7 +2779,7 @@ Note that the socket will most certainly not be possible to use again, since Con
                          Message :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Write system message.
 
@@ -2794,7 +2794,7 @@ Write system message.
                           GroupName :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Do unhide a hide group.
 
@@ -2808,7 +2808,7 @@ Unhide all nodes belonging to a hide group in a transaction that started with fl
                 when Socket :: econfd:socket(), DbName :: dbname().
 ```
 
-Related types: [dbname()](#dbname0), [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [dbname()](#dbname-0), [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Unlock a database.
 
@@ -2822,7 +2822,7 @@ Unlock a database.
                             LockId :: integer().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Remove the partial lock identified by LockId.
 
@@ -2838,7 +2838,7 @@ Remove the partial lock identified by LockId.
                           Message :: binary().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Write user message.
 
@@ -2854,7 +2854,7 @@ Write user message.
                             ForceValidation :: boolean().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Validate the transaction.
 
@@ -2865,9 +2865,9 @@ Validate the transaction.
 -spec wait_start(Socket) -> ok | err() when Socket :: econfd:socket().
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
-Equivalent to [wait_start(Socket, 2)](#wait_start2).
+Equivalent to [wait_start(Socket, 2)](#wait_start-2).
 
 Wait until ConfD daemon has completely started.
 
@@ -2879,7 +2879,7 @@ Wait until ConfD daemon has completely started.
                     when Socket :: econfd:socket(), Phase :: 1 | 2.
 ```
 
-Related types: [err()](#err0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 
 Wait until ConfD daemon has reached a certain start phase.
 
@@ -2900,7 +2900,7 @@ Wait until ConfD daemon has reached a certain start phase.
                         Result :: {ok, State} | err().
 ```
 
-Related types: [err()](#err0), [xpath\_eval\_option()](#xpath_eval_option0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [xpath\_eval\_option()](#xpath_eval_option-0), [econfd:socket()](econfd.md#socket-0)
 
 Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
 
@@ -2925,7 +2925,7 @@ The possible values for Ret in the return value for ResultFun are ?ITER_CONTINUE
                         Result :: {ok, State} | {error, term()}.
 ```
 
-Related types: [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
 
@@ -2945,7 +2945,7 @@ The possible values for Ret in the return value for ResultFun are ?ITER_CONTINUE
                              Result :: {ok, binary()} | err().
 ```
 
-Related types: [err()](#err0), [xpath\_eval\_option()](#xpath_eval_option0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [xpath\_eval\_option()](#xpath_eval_option-0), [econfd:socket()](econfd.md#socket-0)
 
 Evaluate the XPath expression Expr, returning the result as a string.
 
@@ -2964,7 +2964,7 @@ Evaluate the XPath expression Expr, returning the result as a string.
                              Result :: {ok, binary()} | err().
 ```
 
-Related types: [err()](#err0), [econfd:ikeypath()](econfd.md#ikeypath0), [econfd:socket()](econfd.md#socket0)
+Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Evaluate the XPath expression Expr, returning the result as a string.
 
