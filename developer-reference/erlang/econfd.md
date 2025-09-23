@@ -1076,7 +1076,7 @@ Related types: [tag\_val\_object\_next()](#tag_val_object_next-0), [vals\_next()
 -type qtag() :: tag() | tag_cons(namespace(), tag()).
 ```
 
-Related types: [namespace()](#namespace-0), [tag()](#tag-0), [tag\_cons()](#tag_cons-0)
+Related types: [namespace()](#namespace-0), [tag()](#tag-0), [tag\_cons()](#tag_cons-2)
 
 A "qualified tag" is either a single tag or a pair of a namespace and a tag. An example could be 'interface' or \['http://example.com/ns/interfaces/2.1' | interface]
 
