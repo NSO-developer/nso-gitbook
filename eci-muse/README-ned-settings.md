@@ -170,6 +170,13 @@
       value is used.
 
 
+    - connection api request service use-for-id <enum> (default id)
+
+      id         - id.
+
+      ls-vpn-id  - ls-vpn-id.
+
+
     - connection api request service payload customerName length <uint16> (default 30)
 
 

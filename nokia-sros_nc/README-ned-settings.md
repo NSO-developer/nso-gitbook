@@ -285,6 +285,20 @@
       been configured.
 
 
+    - transaction annotate-commit <enum> (default disabled)
+
+      Enable support for annotating the commit on SROS devices through NSO. When this option is
+      enabled, the NED uses the SROS specific non RFC compliant extension to the commit RPC.This
+      feature only works on NSO version 6.5 or later in combination with devices running SROS 23 or
+      newer.
+
+      with-label    - The device commit annotation will use the NSO commit label.
+
+      with-comment  - The device commit annotation will use the NSO commit comment.
+
+      disabled      - disabled.
+
+
 ## 2.1. ned-settings nokia-sros_nc transaction ignore-rpc-errors
 ----------------------------------------------------------------
 
@@ -384,7 +398,7 @@
 
     - bof-settings use-config-region-ns <true|false> (default false)
 
-      SROS requires special non rfc compliant extensions to the messages used by the netconf
+      SROS requires special non RFC compliant extensions to the messages used by the netconf
       protocol to handle 'bof' settings. These extensions should actually be prefixed with their own
       namespace. However, it seems that older versions of SROS cannot handle extra namespaces. This
       applies to versions up to SROS 23. For SROS version 23 or newer it is required to set this

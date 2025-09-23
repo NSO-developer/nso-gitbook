@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.6.6 2025-08-12](eci-muse/README.md)
+  * [README v1.7 2025-09-22](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -264,7 +264,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.26 2025-06-27](nokia-sros_nc/README.md)
+  * [README v1.0.27 2025-09-22](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)

@@ -31,6 +31,7 @@
      5.17. rpc show-default-local-dir
      5.18. rpc show-loaded-schema
      5.19. rpc verify-get-config
+     5.20. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -1127,6 +1128,25 @@ admin@ncs(config)# commit
       - verbose <empty>
 
         Show verbose output, like 'sync-from verbose'.
+
+
+  ## 5.20. rpc xpath-trace-analyzer
+  ---------------------------------
+
+    A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
+    expressions in third-party YANG files that may negatively impact NSO performance.
+
+      Input arguments:
+
+      - file <string> (default logs/xpath.trace)
+
+        Path to the NSO xpath trace file to use. The xpath trace file used by the current NSO will be
+        used by default.
+
+
+      - number-of-entries <uint8> (default 10)
+
+        Set the number of entries to display in the generated top list.
 
 
 # 6. Built in live-status show
