@@ -19,6 +19,8 @@ Cisco Crosswork Network Services Orchestrator (NSO) enabled by Tail-f is an indu
 
 <figure><img src=".gitbook/assets/nsoarch.png" alt="" width="563"><figcaption></figcaption></figure>
 
+<figure><img src=".gitbook/assets/archnso.png" alt="" width="563"><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 The terms 'ncs' and 'tail-f' are used extensively in file names, command-line command names, YANG models, application programming interfaces (API), etc. Throughout this documentation, we use NSO to mean the product.
 {% endhint %}
@@ -32,6 +34,8 @@ At its heart, NSO makes network orchestration possible by leveraging the followi
 * **A rich set of northbound interfaces:** Includes human interfaces like web UI and a CLI, programmable interfaces including RESTCONF, NETCONF, JSON-RPC, and language bindings including Java, Python, and Erlang.
 * **A central point of access to manage NSO:** Manages entire networks for network engineers using the NSO CLI or web UI. Although this documentation illustrates the use cases using CLI examples, it is important to understand that any northbound interface can be used to achieve the same functionality.
 * **Network Element Drivers (NEDs):** Used as software packages to facilitate telnet, SSH, or API interactions with the devices that it manages.
+
+<figure><img src=".gitbook/assets/1a (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Background: The Orchestration Challenge
 
