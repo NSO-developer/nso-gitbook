@@ -390,7 +390,7 @@ Stacked services are also the basis for LSA, which takes this concept even furth
 
 The standard naming convention with stacked services distinguishes between a Resource-Facing Service (RFS), that directly configures one or more devices, and a Customer-Facing Service (CFS), that is the top-level service, configuring only other services, not devices. There can be more than two layers of services in the stack, too.
 
-To kickstart learning how to create a stacked service that uses a single CFS and several RFS to configure one device per RFS with a simple VLAN configuration, see the [examples.ncs/service-management/cfs-rfs-stacked](https://github.com/NSO-developer/nso-examples/blob/6.4/service-management/cfs-rfs-stacke) example.
+To kickstart learning how to create a stacked service that uses a single CFS and several RFS to configure one device per RFS with a simple VLAN configuration, see the [examples.ncs/service-management/cfs-rfs-stacked](https://github.com/NSO-developer/nso-examples/blob/6.4/service-management/cfs-rfs-stacked) example.
 
 While NSO does not prevent a single service from configuring devices as well as services, in the majority of cases this results in a less clean design and is best avoided.
 
