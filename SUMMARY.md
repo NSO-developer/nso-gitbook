@@ -41,11 +41,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.64 2025-09-19](alu-sr/README.md)
+  * [README v8.64.1 2025-09-25](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.30.2 2025-09-18](arista-dcs/README.md)
+  * [README v5.30.3 2025-09-25](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -120,7 +120,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.72.2 2025-09-18](cisco-iosxr/README.md)
+  * [README v7.72.3 2025-09-25](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -285,7 +285,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.16 2025-07-10](paloalto-panos_cli/README.md)
+  * [README v4.11.17 2025-09-25](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
@@ -320,7 +320,7 @@
 
 * riverbed-steelhead
   * [README-ned-settings](riverbed-steelhead/README-ned-settings.md)
-  * [README v4.0.4 2025-06-18](riverbed-steelhead/README.md)
+  * [README v4.0.4.1 2025-09-25](riverbed-steelhead/README.md)
 
 * sfr-nbe300
   * [README-ned-settings](sfr-nbe300/README-ned-settings.md)
