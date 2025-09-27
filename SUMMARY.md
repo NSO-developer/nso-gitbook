@@ -112,7 +112,7 @@
 
 * cisco-fxos
   * [README-ned-settings](cisco-fxos/README-ned-settings.md)
-  * [README v1.1.12 2024-10-11](cisco-fxos/README.md)
+  * [README v1.1.13 2025-09-26](cisco-fxos/README.md)
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.29.2 2025-09-16](cisco-nx/README.md)
+  * [README v5.29.3 2025-09-26](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -304,7 +304,7 @@
   * [README v1.18.16 2025-01-24](rad-vx/README.md)
 
 * radware-cc
-  * [README v1.0.0 2025-08-20](radware-cc/README.md)
+  * [README v1.0.0.1 2025-09-26](radware-cc/README.md)
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
