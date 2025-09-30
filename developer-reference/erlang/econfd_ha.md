@@ -15,41 +15,19 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
 
 ## Functions
 
-[bemaster(Socket, NodeId)](#bemaster-2) - Instruct a HA node to be primary in the cluster.
-
-
-[benone(Socket)](#benone-1) - Instruct a HA node to be nothing in the cluster.
-
-
-[beprimary(Socket, NodeId)](#beprimary-2) - Instruct a HA node to be primary in the cluster.
-
-
-[berelay(Socket)](#berelay-1) - Instruct a HA secondary to be a relay for other secondaries.
-
-
-[besecondary(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#besecondary-4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
-
-
-[beslave(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#beslave-4) - Instruct a HA node to be secondary in the cluster where PrimaryNodeId is primary.
-
-
-[close(Socket)](#close-1) - Close the HA connection.
-
-
-[connect(Path, Token)](#connect-2)
-
-[connect(Address, Port, Token)](#connect-3)
-
-[do\_connect(Address, Token)](#do_connect-2) - Connect to the HA subsystem.
-
-[getstatus(Socket)](#getstatus-1) - Request status from a HA node.
-
-
-[secondary\_dead(Socket, NodeId)](#secondary_dead-2) - Instruct ConfD that another node is dead.
-
-
-[slave\_dead(Socket, NodeId)](#slave_dead-2) - Instruct ConfD that another node is dead.
-
+[bemaster(Socket, NodeId)](#bemaster-2)\
+[benone(Socket)](#benone-1)\
+[beprimary(Socket, NodeId)](#beprimary-2)\
+[berelay(Socket)](#berelay-1)\
+[besecondary(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#besecondary-4)\
+[beslave(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#beslave-4)\
+[close(Socket)](#close-1)\
+[connect(Path, Token)](#connect-2)\
+[connect(Address, Port, Token)](#connect-3)\
+[do\_connect(Address, Token)](#do_connect-2)\
+[getstatus(Socket)](#getstatus-1)\
+[secondary\_dead(Socket, NodeId)](#secondary_dead-2)\
+[slave\_dead(Socket, NodeId)](#slave_dead-2)
 
 ### bemaster/2
 

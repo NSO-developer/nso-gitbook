@@ -96,26 +96,14 @@ Thus in the list with length N \[Index] is an implicit key during the life of a 
 
 ## Types
 
-[cdb\_sess/0](#cdb_sess-0) - A datastructure which is used as a handle to all the of the access functions
-
-
-[compaction\_dbfile/0](#compaction_dbfile-0) - CDB files used for compaction. CDB file can be either
-
-[compaction\_info/0](#compaction_info-0) - A datastructure to handle compaction information
-
-
-[dbtype/0](#dbtype-0) - When we open CDB sessions we must choose which database to read or write from/to. These ints are defined in econfd.hrl
-
-
-[err/0](#err-0) - Errors can be either
-
-[sub\_ns/0](#sub_ns-0) - A namespace or use '' as wildcard (any namespace)
-
-
-[sub\_type/0](#sub_type-0) - Subscription type
-
-[subscription\_sync\_type/0](#subscription_sync_type-0) - Return value from the fun passed to wait/3, indicating what to do with further notifications coming from this transaction. These ints are defined in econfd.hrl
-
+[cdb\_sess/0](#cdb_sess-0)\
+[compaction\_dbfile/0](#compaction_dbfile-0)\
+[compaction\_info/0](#compaction_info-0)\
+[dbtype/0](#dbtype-0)\
+[err/0](#err-0)\
+[sub\_ns/0](#sub_ns-0)\
+[sub\_type/0](#sub_type-0)\
+[subscription\_sync\_type/0](#subscription_sync_type-0)
 
 ### cdb_sess/0
 
@@ -204,151 +192,63 @@ Return value from the fun passed to wait/3, indicating what to do with further n
 
 ## Functions
 
-[cd(CDB, IKeypath)](#cd-2) - Change the context node of the session.
-
-[choice\_path(Tag)](#choice_path-1)
-
-[close(Cdb\_session)](#close-1) - End the session and close the socket.
-
-
-[collect\_until(String, Stop)](#collect_until-2)
-
-[collect\_until(T, Stop, Sofar)](#collect_until-3)
-
-[connect()](#connect-0) - Equivalent to [connect(\{127, 0, 0, 1\})](#connect-1).
-
-
-[connect(Path)](#connect-1)
-
-[connect(Path, ClientName)](#connect-2)
-
-[connect(Address, Port, ClientName)](#connect-3)
-
-[create(CDB, IKeypath)](#create-2) - Only for CDB operational data: Create the element denoted by IKP.
-
-
-[delete(CDB, IKeypath)](#delete-2) - Only for CDB operational data: Delete the element denoted by IKP.
-
-
-[diff\_iterate(CDB, SubPoint, Fun, Flags, State)](#diff_iterate-5)
-
-[do\_connect(Address, ClientName)](#do_connect-2) - Connect to CDB.
-
-[end\_session(CDB)](#end_session-1) - Terminate the session.
-
-[exists(CDB, IKeypath)](#exists-2) - Checks existense of an object.
-
-[get\_case(CDB, IKeypath, Choice)](#get_case-3) - Returns the current case for a choice.
-
-
-[get\_compaction\_info(Socket, Dbfile)](#get_compaction_info-2)
-
-[get\_elem(CDB, IKeypath)](#get_elem-2) - Read an element.
-
-[get\_modifications\_cli(CDB, SubPoint)](#get_modifications_cli-2)
-
-[get\_modifications\_cli(CDB, SubPoint, Flags)](#get_modifications_cli-3)
-
-[get\_object(CDB, IKeypath)](#get_object-2) - Returns all the values in a container or list entry.
-
-
-[get\_objects(CDB, IKeypath, StartIndex, NumEntries)](#get_objects-4) - Returns all the values for NumEntries list entries.
-
-[get\_phase(Socket)](#get_phase-1) - Get CDB start-phase.
-
-
-[get\_txid(Socket)](#get_txid-1) - Get CDB transaction id.
-
-[get\_values(CDB, IKeypath, Values)](#get_values-3) - Returns the values for the leafs that have the "value" 'not_found' in the Values list.
-
-[ibool(X)](#ibool-1)
-
-[index(CDB, IKeypath)](#index-2) - Returns the position (starting at 0) of the list entry in path.
-
-
-[initiate\_journal\_compaction(Socket)](#initiate_journal_compaction-1)
-
-[initiate\_journal\_dbfile\_compaction(Socket, Dbfile)](#initiate_journal_dbfile_compaction-2)
-
-[mk\_elem(List)](#mk_elem-1)
-
-[mop\_2\_str(\_)](#mop_2_str-1)
-
-[new\_session(Socket, Db)](#new_session-2) - Initiate a new session using the socket returned by connect().
-
-
-[new\_session(Socket, Db, Flags)](#new_session-3) - Initiate a new session using the socket returned by connect(), with detailed control via the Flags argument.
-
-
-[next\_index(CDB, IKeypath)](#next_index-2) - Returns the position (starting at 0) of the list entry after the given path (which can be non-existing, and if multiple keys the last keys can be '*').
-
-
-[num\_instances(CDB, IKeypath)](#num_instances-2) - Returns the number of entries in a list.
-
-
-[parse\_keystring(Str)](#parse_keystring-1)
-
-[parse\_keystring0(Str)](#parse_keystring0-1)
-
-[request(CDB, Op)](#request-2)
-
-[request(CDB, Op, Arg)](#request-3)
-
-[set\_case(CDB, IKeypath, Choice, Case)](#set_case-4) - Only for CDB operational data: Set the case for a choice.
-
-
-[set\_elem(CDB, Value, IKeypath)](#set_elem-3) - Only for CDB operational data: Write Value into CDB.
-
-
-[set\_elem2(CDB, ValueBin, IKeypath)](#set_elem2-3) - Only for CDB operational data: Write ValueBin into CDB. ValueBin is the textual value representation.
-
-
-[set\_object(CDB, ValueList, IKeypath)](#set_object-3) - Only for CDB operational data: Write an entire object, i.e. YANG list entry or container.
-
-
-[set\_values(CDB, ValueList, IKeypath)](#set_values-3) - Only for CDB operational data: Write a list of tagged values.
-
-[skip\_ws(String)](#skip_ws-1)
-
-[subscribe(CDB, Priority, MatchKeyString)](#subscribe-3)
-
-[subscribe(CDB, Priority, Ns, MatchKeyString)](#subscribe-4) - Set up a CDB configuration subscription.
-
-[subscribe(CDB, Type, Priority, Ns, MatchKeyString)](#subscribe-5)
-
-[subscribe(CDB, Type, Flags, Priority, Ns, MatchKeyString)](#subscribe-6)
-
-[subscribe\_done(CDB)](#subscribe_done-1)
-
-[subscribe\_session(Socket)](#subscribe_session-1) - Initialize a subscription socket.
-
-[sync\_subscription\_socket(CDB, SyncType, TimeOut, Fun)](#sync_subscription_socket-4)
-
-[trigger\_oper\_subscriptions(Socket)](#trigger_oper_subscriptions-1) - Equivalent to [trigger_oper_subscriptions(Socket, all)](#trigger_oper_subscriptions-2).
-
-
-[trigger\_oper\_subscriptions(Socket, SubPoints)](#trigger_oper_subscriptions-2) - Equivalent to [trigger_oper_subscriptions(Socket, SubPoints, 0)](#trigger_oper_subscriptions-3).
-
-
-[trigger\_oper\_subscriptions(Socket, SubPoints, Flags)](#trigger_oper_subscriptions-3) - Trigger CDB operational subscribers as if an update in oper data had been done.
-
-[trigger\_subscriptions(Socket)](#trigger_subscriptions-1) - Equivalent to [trigger_subscriptions(Socket, all)](#trigger_subscriptions-2).
-
-
-[trigger\_subscriptions(Socket, SubPoints)](#trigger_subscriptions-2) - Trigger CDB subscribers as if an update in the configuration had been done.
-
-
-[wait(CDB, TimeOut, Fun)](#wait-3)
-
-[wait\_start(Socket)](#wait_start-1) - Wait for CDB to become available (reach start-phase one).
-
-
-[xx(Str, Acc)](#xx-2)
-
-[xx(T, Sofar, Acc)](#xx-3)
-
-[yy(Str)](#yy-1)
-
+[cd(CDB, IKeypath)](#cd-2)\
+[close(Cdb\_session)](#close-1)\
+[collect\_until(T, Stop, Sofar)](#collect_until-3)\
+[connect()](#connect-0)\
+[connect(Path)](#connect-1)\
+[connect(Path, ClientName)](#connect-2)\
+[connect(Address, Port, ClientName)](#connect-3)\
+[create(CDB, IKeypath)](#create-2)\
+[delete(CDB, IKeypath)](#delete-2)\
+[diff\_iterate(CDB, SubPoint, Fun, Flags, State)](#diff_iterate-5)\
+[do\_connect(Address, ClientName)](#do_connect-2)\
+[end\_session(CDB)](#end_session-1)\
+[exists(CDB, IKeypath)](#exists-2)\
+[get\_case(CDB, IKeypath, Choice)](#get_case-3)\
+[get\_compaction\_info(Socket, Dbfile)](#get_compaction_info-2)\
+[get\_elem(CDB, IKeypath)](#get_elem-2)\
+[get\_modifications\_cli(CDB, SubPoint)](#get_modifications_cli-2)\
+[get\_modifications\_cli(CDB, SubPoint, Flags)](#get_modifications_cli-3)\
+[get\_object(CDB, IKeypath)](#get_object-2)\
+[get\_objects(CDB, IKeypath, StartIndex, NumEntries)](#get_objects-4)\
+[get\_phase(Socket)](#get_phase-1)\
+[get\_txid(Socket)](#get_txid-1)\
+[get\_values(CDB, IKeypath, Values)](#get_values-3)\
+[ibool(X)](#ibool-1)\
+[index(CDB, IKeypath)](#index-2)\
+[initiate\_journal\_compaction(Socket)](#initiate_journal_compaction-1)\
+[initiate\_journal\_dbfile\_compaction(Socket, Dbfile)](#initiate_journal_dbfile_compaction-2)\
+[mk\_elem(List)](#mk_elem-1)\
+[new\_session(Socket, Db)](#new_session-2)\
+[new\_session(Socket, Db, Flags)](#new_session-3)\
+[next\_index(CDB, IKeypath)](#next_index-2)\
+[num\_instances(CDB, IKeypath)](#num_instances-2)\
+[parse\_keystring0(Str)](#parse_keystring0-1)\
+[request(CDB, Op)](#request-2)\
+[request(CDB, Op, Arg)](#request-3)\
+[set\_case(CDB, IKeypath, Choice, Case)](#set_case-4)\
+[set\_elem(CDB, Value, IKeypath)](#set_elem-3)\
+[set\_elem2(CDB, ValueBin, IKeypath)](#set_elem2-3)\
+[set\_object(CDB, ValueList, IKeypath)](#set_object-3)\
+[set\_values(CDB, ValueList, IKeypath)](#set_values-3)\
+[subscribe(CDB, Priority, MatchKeyString)](#subscribe-3)\
+[subscribe(CDB, Priority, Ns, MatchKeyString)](#subscribe-4)\
+[subscribe(CDB, Type, Priority, Ns, MatchKeyString)](#subscribe-5)\
+[subscribe(CDB, Type, Flags, Priority, Ns, MatchKeyString)](#subscribe-6)\
+[subscribe\_done(CDB)](#subscribe_done-1)\
+[subscribe\_session(Socket)](#subscribe_session-1)\
+[sync\_subscription\_socket(CDB, SyncType, TimeOut, Fun)](#sync_subscription_socket-4)\
+[trigger\_oper\_subscriptions(Socket)](#trigger_oper_subscriptions-1)\
+[trigger\_oper\_subscriptions(Socket, SubPoints)](#trigger_oper_subscriptions-2)\
+[trigger\_oper\_subscriptions(Socket, SubPoints, Flags)](#trigger_oper_subscriptions-3)\
+[trigger\_subscriptions(Socket)](#trigger_subscriptions-1)\
+[trigger\_subscriptions(Socket, SubPoints)](#trigger_subscriptions-2)\
+[wait(CDB, TimeOut, Fun)](#wait-3)\
+[wait\_start(Socket)](#wait_start-1)\
+[xx(Str, Acc)](#xx-2)\
+[xx(T, Sofar, Acc)](#xx-3)\
+[yy(Str)](#yy-1)\
 [yy(T, Sofar)](#yy-2)
 
 ### cd/2
@@ -368,12 +268,6 @@ Change the context node of the session.
 Note that this function can not be used as an existence test.
 
 
-### choice_path/1
-
-```erlang
-choice_path(Tag)
-```
-
 ### close/1
 
 ```erlang
@@ -387,16 +281,6 @@ Related types: [econfd:error\_reason()](econfd.md#error_reason-0)
 
 End the session and close the socket.
 
-
-### collect_until/2
-
-```erlang
--spec collect_until(String, Stop) -> String
-                       when
-                           String :: string(),
-                           Stop :: char(),
-                           String :: string().
-```
 
 ### collect_until/3
 
@@ -489,6 +373,11 @@ Only for CDB operational data: Delete the element denoted by IKP.
 
 Related types: [cdb\_sess()](#cdb_sess-0)
 
+Iterate over changes in CDB after a subscription triggers.
+
+This function can be called from within the fun passed to wait/3. When called it will invoke Fun for each change that matched the Point. If Flags is ?CDB_ITER_WANT_PREV, OldValue will be the previous value (if available). When OldValue or Value is not available (or requested) they will be the atom 'undefined'. When Op == ?MOP_MOVED_AFTER (only for "ordered-by user" list entry), Value == \{\} means that the entry was moved first in the list, otherwise Value is a econfd:key() tuple that identifies the entry it was moved after.
+
+
 ### do_connect/2
 
 ```erlang
@@ -566,6 +455,9 @@ Returns the current case for a choice.
 
 Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
+Retrieves compaction info on Dbfile.
+
+
 ### get_elem/2
 
 ```erlang
@@ -597,6 +489,9 @@ Note, the C interface has separate get functions for different types.
 
 Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
 
+Equivalent to [get_modifications_cli(CDB, Point, 0)](#get_modifications_cli-3).
+
+
 ### get_modifications_cli/3
 
 ```erlang
@@ -611,6 +506,9 @@ Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#er
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [econfd:error\_reason()](econfd.md#error_reason-0)
+
+Return Return a string with the CLI commands that corresponds to the changes that triggered subscription.
+
 
 ### get_object/2
 
@@ -726,6 +624,9 @@ Returns the position (starting at 0) of the list entry in path.
 
 Related types: [econfd:socket()](econfd.md#socket-0)
 
+Initiates a journal compaction on all CDB files.
+
+
 ### initiate_journal_dbfile_compaction/2
 
 ```erlang
@@ -743,16 +644,13 @@ Related types: [econfd:socket()](econfd.md#socket-0)
 
 Related types: [compaction\_dbfile()](#compaction_dbfile-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:socket()](econfd.md#socket-0)
 
+Initiates a journal compaction on Dbfile.
+
+
 ### mk_elem/1
 
 ```erlang
 mk_elem(List)
-```
-
-### mop_2_str/1
-
-```erlang
-mop_2_str(_)
 ```
 
 ### new_session/2
@@ -815,12 +713,6 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [econfd:ikeypath()](
 
 Returns the number of entries in a list.
 
-
-### parse_keystring/1
-
-```erlang
--spec parse_keystring(Str :: string()) -> [term()].
-```
 
 ### parse_keystring0/1
 
@@ -918,13 +810,6 @@ Only for CDB operational data: Write a list of tagged values.
 This function is an alternative to set_object/3, and allows for writing more complex structures (e.g. multiple entries in a list).
 
 
-### skip_ws/1
-
-```erlang
--spec skip_ws(String) -> String
-                 when String :: string(), String :: string().
-```
-
 ### subscribe/3
 
 ```erlang
@@ -937,6 +822,9 @@ This function is an alternative to set_object/3, and allows for writing more com
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
+
+Equivalent to [subscribe(CDB, Prio, '', MatchKeyString)](#subscribe-4).
+
 
 ### subscribe/4
 
@@ -1000,6 +888,9 @@ subscribe() returns a subscription point which is an integer. This integer value
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
 
+Equivalent to [subscribe(CDB, Type, 0, Prio, Ns, MatchKeyString)](#subscribe-6).
+
+
 ### subscribe/6
 
 ```erlang
@@ -1017,6 +908,19 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-0), [sub\_type()](#sub_type-0)
 
+Generalized subscription.
+
+Where Type is one of
+
+* ?CDB_SUB_RUNNING - traditional commit subscription, same as subscribe/4.
+* ?CDB_SUB_RUNNING_TWOPHASE - two phase subscription, i.e. notification will be received for prepare, commit, and possibly abort.
+* ?CDB_SUB_OPERATIONAL - subscription for changes to CDB operational data.
+
+Flags is either 0 or:
+
+* ?CDB_SUB_WANT_ABORT_ON_ABORT - normally if a subscriber is the one to abort a transaction it will not receive an abort notification. This flags means that this subscriber wants an abort notification even if it originated the abort.
+
+
 ### subscribe_done/1
 
 ```erlang
@@ -1024,6 +928,9 @@ Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0), [sub\_ns()](#sub_ns-
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [err()](#err-0)
+
+After a subscriber is done with all subscriptions and ready to receive updates this subscribe_done/1 must be called. Until it is no notifications will be delivered.
+
 
 ### subscribe_session/1
 
@@ -1138,6 +1045,39 @@ Trigger CDB subscribers as if an update in the configuration had been done.
 ```
 
 Related types: [cdb\_sess()](#cdb_sess-0), [subscription\_sync\_type()](#subscription_sync_type-0), [econfd:error\_reason()](econfd.md#error_reason-0), [econfd:transport\_error()](econfd.md#transport_error-0)
+
+Wait for subscription events.
+
+The fun will be given a list of the subscription points that triggered, and in the arity-3 case also Type and Flags for the notification. There can be several points if we have issued several subscriptions at the same priority.
+
+Type is one of:
+
+* ?CDB_SUB_PREPARE - notification for the prepare phase
+* ?CDB_SUB_COMMIT - notification for the commit phase
+* ?CDB_SUB_ABORT - notification for abort when prepare failed
+* ?CDB_SUB_OPER - notification for changes to CDB operational data
+
+Flags is the 'bor' of zero or more of:
+
+* ?CDB_SUB_FLAG_IS_LAST - the last notification of its type for this session
+* ?CDB_SUB_FLAG_TRIGGER - the notification was artificially triggered
+* ?CDB_SUB_FLAG_REVERT - the notification is due to revert of a confirmed commit
+* ?CDB_SUB_FLAG_HA_SYNC - the cause of the subscription notification is initial synchronization of a HA secondary from CDB on the primary.
+* ?CDB_SUB_FLAG_HA_IS_SECONDARY - the system is currently in HA SECONDARY mode.
+
+The fun can return the atom 'close' if we wish to close the socket and return from wait/3. Otherwise there are three different types of synchronization replies the application can use as return values from either the arity-1 or the arity-3 fun:
+
+* ?CDB_DONE_PRIORITY This means that the application has acted on the subscription notification and CDB can continue to deliver further notifications.
+* ?CDB_DONE_SOCKET This means that we are done. But regardless of priority, CDB shall not send any further notifications to us on our socket that are related to the currently executing transaction.
+* ?CDB_DONE_TRANSACTION This means that CDB should not send any further notifications to any subscribers - including ourselves - related to the currently executing transaction.
+* ?CDB_DONE_OPERATIONAL This should be used when a subscription notification for operational data has been read. It is the only type that should be used in this case, since the operational data does not have transactions and the notifications do not have priorities.
+
+Finally the arity-3 fun can, when Type == ?CDB_SUB_PREPARE, return an error either as <tt>\{error, binary()\}</tt> or as <tt>\{error, #confd_error\{\}\}</tt> (\{error, tuple()\} is only for internal ConfD/NCS use). This will cause the commit of the current transaction to be aborted.
+
+CDB is locked for writing while config subscriptions are delivered.
+
+When wait/3 returns <tt>\{error, timeout\}</tt> the connection (and its subscriptions) is still active and the application needs to call wait/3 again. But if wait/3 returns <tt>ok</tt> or <tt>\{error, Reason\}</tt> the connection to ConfD is closed and all subscription points associated with it are cleared.
+
 
 ### wait_start/1
 

@@ -14,27 +14,39 @@ which illustrates the overall architecture from an OTP perspective.
 
 The econfd OTP application consists of the following parts.
 
-### Data provider API (econfd.erl)
+### Data provider API
+
+Module [econfd](econfd.md)
 
 This API consists of a gen_server (econfd_daemon) which needs to get a number of callback functions installed. This API is used when we need to implement an external data provider. Typically statistics data which is part of the data model, but not part of the actual configuration.
 
-### CDB API (econfd_cdb.erl)
+### CDB API
+
+Module [econfd_cdb](econfd_cdb.md)
 
 This API is the CDB database client API. It is used to read (and write) into CDB.
 
-### MAAPI API (econfd_maapi.erl)
+### MAAPI API
+
+Module [econfd_maapi](econfd_maapi.md)
 
 This API is used when we wish to implement proprietary agents. It is also used by user defined validation code which needs to attach to the executing transaction and read the "not yet committed" data in the currently executing transaction.
 
-### Event Notifications API (econfd_notif.erl)
+### Event Notifications API
+
+Module [econfd_notif](econfd_notif.md)
 
 This API is used when we wish to receive notification events from ConfD describing certain events.
 
-### HA API (econfd_ha.erl)
+### HA API
+
+Module [econfd_ha](econfd_ha.md)
 
 This API is used by an optional surrounding HA (High availability) framework which needs to notify ConfD about various HA related events.
 
-### Schema API (econfd_schema.erl)
+### Schema API
+
+Module [econfd_schema](econfd_schema.md)
 
 This API is used to access schema information (i.e. the internal representation of YANG modules), making it possible to navigate the schema trees and obtain and use structure and type information.
 

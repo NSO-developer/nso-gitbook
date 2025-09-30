@@ -7,26 +7,17 @@ This modules implements the Management Agent API. All functions in this module h
 
 ## Types
 
-[confd\_user\_identification/0](#confd_user_identification-0)
-
-[confd\_user\_info/0](#confd_user_info-0)
-
-[dbname/0](#dbname-0) - The DB name can be either
-
-[err/0](#err-0) - Errors can be either
-
-[find\_next\_type/0](#find_next_type-0) - The type is used in `find_next/3` can be either
-
-[maapi\_cursor/0](#maapi_cursor-0)
-
-[proto/0](#proto-0) - The protocol to start user session can be either
-
-[read\_ret/0](#read_ret-0)
-
-[template\_type/0](#template_type-0) - The type is used in `ncs_template_variables/3`
-
-[verbosity/0](#verbosity-0) - The type is used in `start_span_th/7` and can be either
-
+[confd\_user\_identification/0](#confd_user_identification-0)\
+[confd\_user\_info/0](#confd_user_info-0)\
+[dbname/0](#dbname-0)\
+[err/0](#err-0)\
+[find\_next\_type/0](#find_next_type-0)\
+[maapi\_cursor/0](#maapi_cursor-0)\
+[proto/0](#proto-0)\
+[read\_ret/0](#read_ret-0)\
+[template\_type/0](#template_type-0)\
+[trans\_mode/0](#trans_mode-0)\
+[verbosity/0](#verbosity-0)\
 [xpath\_eval\_option/0](#xpath_eval_option-0)
 
 ### confd_user_identification/0
@@ -137,6 +128,12 @@ The type is used in `ncs_template_variables/3`
 * 2 = COMPLIANCE_TEMPLATE - Designates compliance template, compliance template used to verify that the configuration on a device conforms to an expected, predefined configuration, it also means the specific template configuration name under /ncs:compliance/ncs:template
 
 
+### trans_mode/0
+
+```erlang
+-type trans_mode() :: read | read_write.
+```
+
 ### verbosity/0
 
 ```erlang
@@ -168,417 +165,163 @@ Related types: [econfd:ikeypath()](econfd.md#ikeypath-0)
 
 ## Functions
 
-[aaa\_reload(Socket, Synchronous)](#aaa_reload-2) - Tell AAA to reload external AAA data.
-
-
-[abort\_trans(Socket, Tid)](#abort_trans-2) - Abort transaction.
-
-
-[abort\_upgrade(Socket)](#abort_upgrade-1) - Abort in-service upgrade.
-
-
-[aes256\_key(Aes256Key)](#aes256_key-1)
-
-[aes\_key(AesKey, AesIVec)](#aes_key-2)
-
-[all\_keys(Cursor, Acc)](#all_keys-2)
-
-[all\_keys(Socket, Tid, IKeypath)](#all_keys-3) - Utility function. Return all keys in a list.
-
-
-[apply\_trans(Socket, Tid, KeepOpen)](#apply_trans-3) - Equivalent to [apply_trans(Socket, Tid, KeepOpen, 0)](#apply_trans-4).
-
-
-[apply\_trans(Socket, Tid, KeepOpen, Flags)](#apply_trans-4) - Apply all in the transaction.
-
-[attach(Socket, Ns, Tctx)](#attach-3) - Attach to a running transaction.
-
-[attach2(Socket, Ns, USid, Thandle)](#attach2-4) - Attach to a running transaction. Give NameSpace as 0 if it doesn't matter (-1 works too but is deprecated).
-
-
-[attach\_init(Socket)](#attach_init-1) - Attach to the CDB init/upgrade transaction in phase0.
-
-[authenticate(Socket, User, Pass, Groups)](#authenticate-4) - Autenticate a user using ConfD AAA.
-
-
-[authenticate2(Socket, User, Pass, SrcIp, SrcPort, Context, Proto, Groups)](#authenticate2-8) - Autenticate a user using ConfD AAA.
-
-
-[bool2int(\_)](#bool2int-1)
-
-[candidate\_abort\_commit(Socket)](#candidate_abort_commit-1) - Equivalent to [candidate_abort_commit(Socket, <<>>)](#candidate_abort_commit-2).
-
-
-[candidate\_abort\_commit(Socket, PersistId)](#candidate_abort_commit-2) - Cancel persistent confirmed commit.
-
-
-[candidate\_commit(Socket)](#candidate_commit-1) - Equivalent to [candidate_commit_info(Socket, undefined, <<>>, <<>>)](#candidate_commit_info-4).
-
-[candidate\_commit(Socket, PersistId)](#candidate_commit-2) - Equivalent to [candidate_commit_info(Socket, PersistId, <<>>, <<>>)](#candidate_commit_info-4).
-
-[candidate\_commit\_info(Socket, Label, Comment)](#candidate_commit_info-3) - Equivalent to [candidate_commit_info(Socket, undefined, Label, Comment)](#candidate_commit_info-4).
-
-[candidate\_commit\_info(Socket, PersistId, Label, Comment)](#candidate_commit_info-4) - Combines `candidate_commit/2` and `candidate_commit_info/3` \- set "Label" and/or "Comment" when confirming a persistent confirmed commit.
-
-[candidate\_confirmed\_commit(Socket, TimeoutSecs)](#candidate_confirmed_commit-2) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
-
-[candidate\_confirmed\_commit(Socket, TimeoutSecs, Persist, PersistId)](#candidate_confirmed_commit-4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, Persist, PersistId, <<>>, <<>>)](#candidate_confirmed_commit_info-6).
-
-[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Label, Comment)](#candidate_confirmed_commit_info-4) - Equivalent to [candidate_confirmed_commit_info(Socket, TimeoutSecs, undefined, undefined, Label, Comment)](#candidate_confirmed_commit_info-6).
-
-[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Persist, PersistId, Label, Comment)](#candidate_confirmed_commit_info-6) - Combines `candidate_confirmed_commit/4` and `candidate_confirmed_commit_info/4` \- set "Label" and/or "Comment" when starting or extending a persistent confirmed commit.
-
-[candidate\_reset(Socket)](#candidate_reset-1) - Copy running into candidate.
-
-
-[candidate\_validate(Socket)](#candidate_validate-1) - Validate the candidate config.
-
-
-[cli\_prompt(Socket, USid, Prompt, Echo)](#cli_prompt-4) - Prompt CLI user for a reply.
-
-
-[cli\_prompt(Socket, USid, Prompt, Echo, Timeout)](#cli_prompt-5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
-
-
-[cli\_prompt\_oneof(Socket, USid, Prompt, Choice)](#cli_prompt_oneof-4) - Prompt CLI user for a reply.
-
-
-[cli\_prompt\_oneof(Socket, USid, Prompt, Choice, Timeout)](#cli_prompt_oneof-5) - Prompt CLI user for a reply - return error if no reply is received within Timeout seconds.
-
-
-[cli\_read\_eof(Socket, USid, Echo)](#cli_read_eof-3) - Read data from CLI until EOF.
-
-
-[cli\_read\_eof(Socket, USid, Echo, Timeout)](#cli_read_eof-4) - Read data from CLI until EOF - return error if no reply is received within Timeout seconds.
-
-
-[cli\_write(Socket, USid, Message)](#cli_write-3) - Write mesage to the CLI.
-
-
-[close(Socket)](#close-1) - Close socket.
-
-
-[commit\_trans(Socket, Tid)](#commit_trans-2) - Commit a transaction.
-
-
-[commit\_upgrade(Socket)](#commit_upgrade-1) - Commit in-service upgrade.
-
-
-[confirmed\_commit\_in\_progress(Socket)](#confirmed_commit_in_progress-1) - Is a confirmed commit in progress.
-
-
-[connect(Path)](#connect-1) - Connect a maapi socket to ConfD.
-
-
-[connect(Address, Port)](#connect-2) - Connect a maapi socket to ConfD.
-
-
-[copy(Socket, FromTH, ToTH)](#copy-3) - Copy data from one transaction to another.
-
-
-[copy\_running\_to\_startup(Socket)](#copy_running_to_startup-1) - Copy running to startup.
-
-
-[copy\_tree(Socket, Tid, FromIKeypath, ToIKeypath)](#copy_tree-4) - Copy an entire subtree in the configuration from one point to another.
-
-
-[create(Socket, Tid, IKeypath)](#create-3) - Create a new element.
-
-
-[delete(Socket, Tid, IKeypath)](#delete-3) - Delete an element.
-
-
-[delete\_config(Socket, DbName)](#delete_config-2) - Delete all data from a data store.
-
-
-[des\_key(DesKey1, DesKey2, DesKey3, DesIVec)](#des_key-4)
-
-[detach(Socket, Thandle)](#detach-2) - Detach from the transaction.
-
-
-[diff\_iterate(Sock, Tid, Fun, InitState)](#diff_iterate-4) - Equivalent to [diff_iterate(Sock, Tid, Fun, 0, InitState)](#diff_iterate-5).
-
-
-[diff\_iterate(Socket, Tid, Fun, Flags, State)](#diff_iterate-5) - Iterate through a diff.
-
-[do\_connect(SockAddr)](#do_connect-1)
-
-[end\_progress\_span(Socket, SpanId1, Annotation)](#end_progress_span-3)
-
-[end\_user\_session(Socket)](#end_user_session-1) - Ends a user session.
-
-
-[exists(Socket, Tid, IKeypath)](#exists-3) - Check if an element exists.
-
-
-[find\_next(Cursor, Type, Key)](#find_next-3) - find the list entry matching Type and Key.
-
-
-[finish\_trans(Socket, Tid)](#finish_trans-2) - Finish a transaction.
-
-
-[get\_attrs(Socket, Tid, IKeypath, AttrList)](#get_attrs-4) - Get the selected attributes for an element.
-
-[get\_authorization\_info(Socket, USid)](#get_authorization_info-2) - Get authorization info for a user session.
-
-
-[get\_case(Socket, Tid, IKeypath, Choice)](#get_case-4) - Get the current case for a choice.
-
-
-[get\_elem(Socket, Tid, IKeypath)](#get_elem-3) - Read an element.
-
-
-[get\_elem\_no\_defaults(Socket, Tid, IKeypath)](#get_elem_no_defaults-3) - Read an element, but return 'default' instead of the value if the default value is in effect.
-
-
-[get\_my\_user\_session\_id(Socket)](#get_my_user_session_id-1) - Get my user session id.
-
-
-[get\_next(Cursor)](#get_next-1) - iterate through the entries of a list.
-
-
-[get\_object(Socket, Tid, IKeypath)](#get_object-3) - Read all the values in a container or list entry.
-
-
-[get\_objects(Cursor, NumEntries)](#get_objects-2) - Read all the values for NumEntries list entries, starting at the point given by the cursor C.
-
-[get\_rollback\_id(Socket, Tid)](#get_rollback_id-2) - Get rollback id of commited transaction.
-
-
-[get\_running\_db\_status(Socket)](#get_running_db_status-1) - Get the "running status".
-
-
-[get\_user\_session(Socket, USid)](#get_user_session-2) - Get session info for a user session.
-
-
-[get\_user\_sessions(Socket)](#get_user_sessions-1) - Get all user sessions.
-
-
-[get\_values(Socket, Tid, IKeypath, Values)](#get_values-4) - Read the values for the leafs that have the "value" 'not_found' in the Values list.
-
-[hide\_group(Socket, Tid, GroupName)](#hide_group-3) - Do hide a hide group.
-
-[hkeypath2ikeypath(Socket, HKeypath)](#hkeypath2ikeypath-2) - Convert a hkeypath to an ikeypath.
-
-
-[ibool(X)](#ibool-1)
-
-[init\_cursor(Socket, Tid, IKeypath)](#init_cursor-3) - Equivalent to [init_cursor(Socket, Tik, IKeypath, undefined)](#init_cursor-4).
-
-
-[init\_cursor(Socket, Tid, IKeypath, XPath)](#init_cursor-4) - Initalize a get_next() cursor.
-
-
-[init\_upgrade(Socket, TimeoutSecs, Flags)](#init_upgrade-3) - Start in-service upgrade.
-
-
-[insert(Socket, Tid, IKeypath)](#insert-3) - Insert an entry in an integer-keyed list.
-
-
-[install\_crypto\_keys(Socket)](#install_crypto_keys-1) - Fetch keys for the encrypted data types from the server.
-
-[is\_candidate\_modified(Socket)](#is_candidate_modified-1) - Check if candidate has been modified.
-
-
-[is\_lock\_set(Socket, DbName)](#is_lock_set-2) - Check if a db is locked or not.
-
-[is\_running\_modified(Socket)](#is_running_modified-1) - Check if running has been modified since the last copy to startup was done.
-
-
-[iterate(Socket, Tid, IKeypath, Fun, Flags, State)](#iterate-6) - Iterate over all the data in the transaction and the underlying data store.
-
-[iterate\_result(Sock, Fun, \_)](#iterate_result-3)
-
-[keypath\_diff\_iterate(Socket, Tid, IKeypath, Fun, State)](#keypath_diff_iterate-5) - Iterate through a diff.
-
-[keypath\_diff\_iterate(Sock, Tid, IKP, Fun, Flags, InitState)](#keypath_diff_iterate-6)
-
-[kill\_user\_session(Socket, USid)](#kill_user_session-2) - Kill a user session.
-
-
-[lock(Socket, DbName)](#lock-2) - Lock a database.
-
-
-[lock\_partial(Socket, DbName, XPath)](#lock_partial-3) - Request a partial lock on a database.
-
-[mk\_uident(UId)](#mk_uident-1)
-
-[move(Socket, Tid, IKeypath, ToKey)](#move-4) - Move (rename) an entry in a list.
-
-
-[move\_ordered(Socket, Tid, IKeypath, To)](#move_ordered-4) - Move an entry in an "ordered-by user" list.
-
-
-[ncs\_apply\_template(Socket, Tid, TemplateName, RootIKeypath, Variables, Documents, Shared)](#ncs_apply_template-7) - Apply a template that has been loaded into NCS.
-
-[ncs\_apply\_trans\_params(Socket, Tid, KeepOpen, Params)](#ncs_apply_trans_params-4) - Apply transaction with commit parameters.
-
-[ncs\_get\_trans\_params(Socket, Tid)](#ncs_get_trans_params-2) - Get transaction commit parameters.
-
-
-[ncs\_template\_variables(Socket, TemplateName)](#ncs_template_variables-2) - Retrieve the variables used in a template.
-
-
-[ncs\_template\_variables(Socket, TemplateName, Type)](#ncs_template_variables-3) - Retrieve the variables used in a template.
-
-
-[ncs\_templates(Socket)](#ncs_templates-1) - Retrieve a list of the templates currently loaded into NCS.
-
-
-[ncs\_write\_service\_log\_entry(Socket, IKeypath, Message, Type, Level)](#ncs_write_service_log_entry-5) - Write a service log entry.
-
-
-[netconf\_ssh\_call\_home(Socket, Host, Port)](#netconf_ssh_call_home-3)
-
-[netconf\_ssh\_call\_home\_opaque(Socket, Host, Opaque, Port)](#netconf_ssh_call_home_opaque-4)
-
-[num\_instances(Socket, Tid, IKeypath)](#num_instances-3) - Find the number of entries in a list.
-
-
-[perform\_upgrade(Socket, LoadPathList)](#perform_upgrade-2) - Do in-service upgrade.
-
-
-[prepare\_trans(Socket, Tid)](#prepare_trans-2) - Equivalent to [prepare_trans(Socket, Tid, 0)](#prepare_trans-3).
-
-
-[prepare\_trans(Socket, Tid, Flags)](#prepare_trans-3) - Prepare for commit.
-
-
-[prio\_message(Socket, To, Message)](#prio_message-3) - Write priority message.
-
-
-[progress\_info(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info-6)
-
-[progress\_info\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info_th-7)
-
-[reload\_config(Socket)](#reload_config-1) - Tell ConfD daemon to reload its configuration.
-
-
-[request\_action(Socket, Params, IKeypath)](#request_action-3) - Invoke an action defined in the data model.
-
-
-[request\_action\_th(Socket, Tid, Params, IKeypath)](#request_action_th-4) - Invoke an action defined in the data model using the provided transaction.
-
-[reverse(X)](#reverse-1)
-
-[revert(Socket, Tid)](#revert-2) - Remove all changes in the transaction.
-
-
-[set\_attr(Socket, Tid, IKeypath, Attr, Value)](#set_attr-5) - Set the an attribute for an element. Value == undefined means that the attribute should be deleted.
-
-
-[set\_comment(Socket, Tid, Comment)](#set_comment-3) - Set the "Comment" that is stored in the rollback file when a transaction towards running is committed.
-
-
-[set\_delayed\_when(Socket, Tid, Value)](#set_delayed_when-3) - Enable/disable the "delayed when" mode for a transaction.
-
-[set\_elem(Socket, Tid, IKeypath, Value)](#set_elem-4) - Write an element.
-
-
-[set\_elem2(Socket, Tid, IKeypath, BinValue)](#set_elem2-4) - Write an element using the textual value representation.
-
-
-[set\_flags(Socket, Tid, Flags)](#set_flags-3) - Change flag settings for a transaction.
-
-[set\_label(Socket, Tid, Label)](#set_label-3) - Set the "Label" that is stored in the rollback file when a transaction towards running is committed.
-
-
-[set\_object(Socket, Tid, IKeypath, ValueList)](#set_object-4) - Write an entire object, i.e. YANG list entry or container.
-
-
-[set\_readonly\_mode(Socket, Mode)](#set_readonly_mode-2) - Control if we can create rw transactions.
-
-
-[set\_running\_db\_status(Socket, Status)](#set_running_db_status-2) - Set the "running status".
-
-
-[set\_user\_session(Socket, USid)](#set_user_session-2) - Assign a user session.
-
-
-[set\_values(Socket, Tid, IKeypath, ValueList)](#set_values-4) - Write a list of tagged values.
-
-[shared\_create(Socket, Tid, IKeypath)](#shared_create-3) - Create a new element, and also set an attribute indicating how many times this element has been created.
-
-
-[shared\_set\_elem(Socket, Tid, IKeypath, Value)](#shared_set_elem-4) - Write an element from NCS FastMap.
-
-
-[shared\_set\_elem2(Socket, Tid, IKeypath, BinValue)](#shared_set_elem2-4) - Write an element using the textual value representation from NCS fastmap.
-
-
-[shared\_set\_values(Socket, Tid, IKeypath, ValueList)](#shared_set_values-4) - Write a list of tagged values from NCS FastMap.
-
-
-[snmpa\_reload(Socket, Synchronous)](#snmpa_reload-2) - Tell ConfD to reload external SNMP Agent config data.
-
-
-[start\_phase(Socket, Phase, Synchronous)](#start_phase-3) - Tell ConfD to proceed to next start phase.
-
-
-[start\_progress\_span(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span-6)
-
-[start\_progress\_span\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span_th-7)
-
-[start\_trans(Socket, DbName, RwMode)](#start_trans-3) - Start a new transaction.
-
-
-[start\_trans(Socket, DbName, RwMode, USid)](#start_trans-4) - Start a new transaction within an existing user session.
-
-
-[start\_trans(Socket, DbName, RwMode, USid, Flags)](#start_trans-5) - Start a new transaction within an existing user session and/or with flags.
-
-[start\_trans(Sock, DbName, RwMode, Usid, Flags, UId)](#start_trans-6)
-
-[start\_trans\_in\_trans(Socket, RwMode, USid, Tid)](#start_trans_in_trans-4) - Start a new transaction with an existing transaction as backend.
-
-[start\_trans\_in\_trans(Socket, RwMode, USid, Tid, Flags)](#start_trans_in_trans-5) - Start a new transaction with an existing transaction as backend.
-
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, Proto)](#start_user_session-6) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto)](#start_user_session-7).
-
-
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto)](#start_user_session-7) - Equivalent to [start_user_session(Socket, UserName, Context, Groups, SrcIp, 0, Proto, undefined)](#start_user_session-8).
-
-
-[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto, UId)](#start_user_session-8) - Initiate a new maapi user session.
-
-[stop(Socket)](#stop-1) - Equivalent to [stop(Sock, true)](#stop-2).
-
-[stop(Socket, Synchronous)](#stop-2) - Tell ConfD daemon to stop, if Synchronous is true won't return until daemon has come to a halt.
-
-[sys\_message(Socket, To, Message)](#sys_message-3) - Write system message.
-
-
-[unhide\_group(Socket, Tid, GroupName)](#unhide_group-3) - Do unhide a hide group.
-
-[unlock(Socket, DbName)](#unlock-2) - Unlock a database.
-
-
-[unlock\_partial(Socket, LockId)](#unlock_partial-2) - Remove the partial lock identified by LockId.
-
-
-[user\_message(Socket, To, From, Message)](#user_message-4) - Write user message.
-
-
-[validate\_trans(Socket, Tid, UnLock, ForceValidation)](#validate_trans-4) - Validate the transaction.
-
-
-[wait\_start(Socket)](#wait_start-1) - Equivalent to [wait_start(Socket, 2)](#wait_start-2).
-
-[wait\_start(Socket, Phase)](#wait_start-2) - Wait until ConfD daemon has reached a certain start phase.
-
-
-[xpath\_eval(Socket, Tid, Expr, ResultFun, State, Options)](#xpath_eval-6) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
-
-[xpath\_eval(Socket, Tid, Expr, ResultFun, TraceFun, State, Context)](#xpath_eval-7) - Evaluate the XPath expression Expr, invoking ResultFun for each node in the resulting node set.
-
-[xpath\_eval\_expr(Socket, Tid, Expr, Options)](#xpath_eval_expr-4) - Evaluate the XPath expression Expr, returning the result as a string.
-
-
-[xpath\_eval\_expr(Socket, Tid, Expr, TraceFun, Context)](#xpath_eval_expr-5) - Evaluate the XPath expression Expr, returning the result as a string.
-
-
-[xpath\_eval\_expr\_loop(Sock, TraceFun)](#xpath_eval_expr_loop-2)
-
+[aaa\_reload(Socket, Synchronous)](#aaa_reload-2)\
+[abort\_trans(Socket, Tid)](#abort_trans-2)\
+[abort\_upgrade(Socket)](#abort_upgrade-1)\
+[aes256\_key(Aes256Key)](#aes256_key-1)\
+[aes\_key(AesKey, AesIVec)](#aes_key-2)\
+[all\_keys(Cursor, Acc)](#all_keys-2)\
+[all\_keys(Socket, Tid, IKeypath)](#all_keys-3)\
+[apply\_trans(Socket, Tid, KeepOpen)](#apply_trans-3)\
+[apply\_trans(Socket, Tid, KeepOpen, Flags)](#apply_trans-4)\
+[attach(Socket, Ns, Tctx)](#attach-3)\
+[attach2(Socket, Ns, USid, Thandle)](#attach2-4)\
+[attach\_init(Socket)](#attach_init-1)\
+[authenticate(Socket, User, Pass, Groups)](#authenticate-4)\
+[authenticate2(Socket, User, Pass, SrcIp, SrcPort, Context, Proto, Groups)](#authenticate2-8)\
+[bool2int(\_)](#bool2int-1)\
+[candidate\_abort\_commit(Socket)](#candidate_abort_commit-1)\
+[candidate\_abort\_commit(Socket, PersistId)](#candidate_abort_commit-2)\
+[candidate\_commit(Socket)](#candidate_commit-1)\
+[candidate\_commit(Socket, PersistId)](#candidate_commit-2)\
+[candidate\_commit\_info(Socket, Label, Comment)](#candidate_commit_info-3)\
+[candidate\_commit\_info(Socket, PersistId, Label, Comment)](#candidate_commit_info-4)\
+[candidate\_confirmed\_commit(Socket, TimeoutSecs)](#candidate_confirmed_commit-2)\
+[candidate\_confirmed\_commit(Socket, TimeoutSecs, Persist, PersistId)](#candidate_confirmed_commit-4)\
+[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Label, Comment)](#candidate_confirmed_commit_info-4)\
+[candidate\_confirmed\_commit\_info(Socket, TimeoutSecs, Persist, PersistId, Label, Comment)](#candidate_confirmed_commit_info-6)\
+[candidate\_reset(Socket)](#candidate_reset-1)\
+[candidate\_validate(Socket)](#candidate_validate-1)\
+[cli\_prompt(Socket, USid, Prompt, Echo)](#cli_prompt-4)\
+[cli\_prompt(Socket, USid, Prompt, Echo, Timeout)](#cli_prompt-5)\
+[cli\_prompt\_oneof(Socket, USid, Prompt, Choice)](#cli_prompt_oneof-4)\
+[cli\_prompt\_oneof(Socket, USid, Prompt, Choice, Timeout)](#cli_prompt_oneof-5)\
+[cli\_read\_eof(Socket, USid, Echo)](#cli_read_eof-3)\
+[cli\_read\_eof(Socket, USid, Echo, Timeout)](#cli_read_eof-4)\
+[cli\_write(Socket, USid, Message)](#cli_write-3)\
+[close(Socket)](#close-1)\
+[commit\_trans(Socket, Tid)](#commit_trans-2)\
+[commit\_upgrade(Socket)](#commit_upgrade-1)\
+[confirmed\_commit\_in\_progress(Socket)](#confirmed_commit_in_progress-1)\
+[connect(Path)](#connect-1)\
+[connect(Address, Port)](#connect-2)\
+[copy(Socket, FromTH, ToTH)](#copy-3)\
+[copy\_running\_to\_startup(Socket)](#copy_running_to_startup-1)\
+[copy\_tree(Socket, Tid, FromIKeypath, ToIKeypath)](#copy_tree-4)\
+[create(Socket, Tid, IKeypath)](#create-3)\
+[delete(Socket, Tid, IKeypath)](#delete-3)\
+[delete\_config(Socket, DbName)](#delete_config-2)\
+[des\_key(DesKey1, DesKey2, DesKey3, DesIVec)](#des_key-4)\
+[detach(Socket, Thandle)](#detach-2)\
+[diff\_iterate(Sock, Tid, Fun, InitState)](#diff_iterate-4)\
+[diff\_iterate(Socket, Tid, Fun, Flags, State)](#diff_iterate-5)\
+[do\_connect(SockAddr)](#do_connect-1)\
+[end\_progress\_span(Socket, SpanId1, Annotation)](#end_progress_span-3)\
+[end\_user\_session(Socket)](#end_user_session-1)\
+[exists(Socket, Tid, IKeypath)](#exists-3)\
+[find\_next(Cursor, Type, Key)](#find_next-3)\
+[finish\_trans(Socket, Tid)](#finish_trans-2)\
+[get\_attrs(Socket, Tid, IKeypath, AttrList)](#get_attrs-4)\
+[get\_authorization\_info(Socket, USid)](#get_authorization_info-2)\
+[get\_case(Socket, Tid, IKeypath, Choice)](#get_case-4)\
+[get\_elem(Socket, Tid, IKeypath)](#get_elem-3)\
+[get\_elem\_no\_defaults(Socket, Tid, IKeypath)](#get_elem_no_defaults-3)\
+[get\_mode(Socket, Tid)](#get_mode-2)\
+[get\_my\_user\_session\_id(Socket)](#get_my_user_session_id-1)\
+[get\_next(Cursor)](#get_next-1)\
+[get\_object(Socket, Tid, IKeypath)](#get_object-3)\
+[get\_objects(Cursor, NumEntries)](#get_objects-2)\
+[get\_rollback\_id(Socket, Tid)](#get_rollback_id-2)\
+[get\_running\_db\_status(Socket)](#get_running_db_status-1)\
+[get\_user\_session(Socket, USid)](#get_user_session-2)\
+[get\_user\_sessions(Socket)](#get_user_sessions-1)\
+[get\_values(Socket, Tid, IKeypath, Values)](#get_values-4)\
+[hide\_group(Socket, Tid, GroupName)](#hide_group-3)\
+[hkeypath2ikeypath(Socket, HKeypath)](#hkeypath2ikeypath-2)\
+[ibool(X)](#ibool-1)\
+[init\_cursor(Socket, Tid, IKeypath)](#init_cursor-3)\
+[init\_cursor(Socket, Tid, IKeypath, XPath)](#init_cursor-4)\
+[init\_upgrade(Socket, TimeoutSecs, Flags)](#init_upgrade-3)\
+[insert(Socket, Tid, IKeypath)](#insert-3)\
+[install\_crypto\_keys(Socket)](#install_crypto_keys-1)\
+[is\_candidate\_modified(Socket)](#is_candidate_modified-1)\
+[is\_lock\_set(Socket, DbName)](#is_lock_set-2)\
+[is\_running\_modified(Socket)](#is_running_modified-1)\
+[iterate(Socket, Tid, IKeypath, Fun, Flags, State)](#iterate-6)\
+[iterate\_result(Sock, Fun, \_)](#iterate_result-3)\
+[keypath\_diff\_iterate(Socket, Tid, IKeypath, Fun, State)](#keypath_diff_iterate-5)\
+[keypath\_diff\_iterate(Sock, Tid, IKP, Fun, Flags, InitState)](#keypath_diff_iterate-6)\
+[kill\_user\_session(Socket, USid)](#kill_user_session-2)\
+[lock(Socket, DbName)](#lock-2)\
+[lock\_partial(Socket, DbName, XPath)](#lock_partial-3)\
+[mk\_uident(UId)](#mk_uident-1)\
+[move(Socket, Tid, IKeypath, ToKey)](#move-4)\
+[move\_ordered(Socket, Tid, IKeypath, To)](#move_ordered-4)\
+[ncs\_apply\_template(Socket, Tid, TemplateName, RootIKeypath, Variables, Documents, Shared)](#ncs_apply_template-7)\
+[ncs\_apply\_trans\_params(Socket, Tid, KeepOpen, Params)](#ncs_apply_trans_params-4)\
+[ncs\_get\_trans\_params(Socket, Tid)](#ncs_get_trans_params-2)\
+[ncs\_template\_variables(Socket, TemplateName)](#ncs_template_variables-2)\
+[ncs\_template\_variables(Socket, TemplateName, Type)](#ncs_template_variables-3)\
+[ncs\_templates(Socket)](#ncs_templates-1)\
+[ncs\_write\_service\_log\_entry(Socket, IKeypath, Message, Type, Level)](#ncs_write_service_log_entry-5)\
+[netconf\_ssh\_call\_home(Socket, Host, Port)](#netconf_ssh_call_home-3)\
+[netconf\_ssh\_call\_home\_opaque(Socket, Host, Opaque, Port)](#netconf_ssh_call_home_opaque-4)\
+[num\_instances(Socket, Tid, IKeypath)](#num_instances-3)\
+[perform\_upgrade(Socket, LoadPathList)](#perform_upgrade-2)\
+[prepare\_trans(Socket, Tid)](#prepare_trans-2)\
+[prepare\_trans(Socket, Tid, Flags)](#prepare_trans-3)\
+[prio\_message(Socket, To, Message)](#prio_message-3)\
+[progress\_info(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info-6)\
+[progress\_info\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#progress_info_th-7)\
+[reload\_config(Socket)](#reload_config-1)\
+[request\_action(Socket, Params, IKeypath)](#request_action-3)\
+[request\_action\_th(Socket, Tid, Params, IKeypath)](#request_action_th-4)\
+[reverse(X)](#reverse-1)\
+[revert(Socket, Tid)](#revert-2)\
+[set\_attr(Socket, Tid, IKeypath, Attr, Value)](#set_attr-5)\
+[set\_comment(Socket, Tid, Comment)](#set_comment-3)\
+[set\_delayed\_when(Socket, Tid, Value)](#set_delayed_when-3)\
+[set\_elem(Socket, Tid, IKeypath, Value)](#set_elem-4)\
+[set\_elem2(Socket, Tid, IKeypath, BinValue)](#set_elem2-4)\
+[set\_flags(Socket, Tid, Flags)](#set_flags-3)\
+[set\_label(Socket, Tid, Label)](#set_label-3)\
+[set\_object(Socket, Tid, IKeypath, ValueList)](#set_object-4)\
+[set\_readonly\_mode(Socket, Mode)](#set_readonly_mode-2)\
+[set\_running\_db\_status(Socket, Status)](#set_running_db_status-2)\
+[set\_user\_session(Socket, USid)](#set_user_session-2)\
+[set\_values(Socket, Tid, IKeypath, ValueList)](#set_values-4)\
+[shared\_create(Socket, Tid, IKeypath)](#shared_create-3)\
+[shared\_set\_elem(Socket, Tid, IKeypath, Value)](#shared_set_elem-4)\
+[shared\_set\_elem2(Socket, Tid, IKeypath, BinValue)](#shared_set_elem2-4)\
+[shared\_set\_values(Socket, Tid, IKeypath, ValueList)](#shared_set_values-4)\
+[snmpa\_reload(Socket, Synchronous)](#snmpa_reload-2)\
+[start\_phase(Socket, Phase, Synchronous)](#start_phase-3)\
+[start\_progress\_span(Socket, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span-6)\
+[start\_progress\_span\_th(Socket, Tid, Verbosity, Msg, SIKP, Attrs, Links)](#start_progress_span_th-7)\
+[start\_trans(Socket, DbName, RwMode)](#start_trans-3)\
+[start\_trans(Socket, DbName, RwMode, USid)](#start_trans-4)\
+[start\_trans(Socket, DbName, RwMode, USid, Flags)](#start_trans-5)\
+[start\_trans(Sock, DbName, RwMode, Usid, Flags, UId)](#start_trans-6)\
+[start\_trans\_in\_trans(Socket, RwMode, USid, Tid)](#start_trans_in_trans-4)\
+[start\_trans\_in\_trans(Socket, RwMode, USid, Tid, Flags)](#start_trans_in_trans-5)\
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, Proto)](#start_user_session-6)\
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto)](#start_user_session-7)\
+[start\_user\_session(Socket, UserName, Context, Groups, SrcIp, SrcPort, Proto, UId)](#start_user_session-8)\
+[stop(Socket)](#stop-1)\
+[stop(Socket, Synchronous)](#stop-2)\
+[sys\_message(Socket, To, Message)](#sys_message-3)\
+[unhide\_group(Socket, Tid, GroupName)](#unhide_group-3)\
+[unlock(Socket, DbName)](#unlock-2)\
+[unlock\_partial(Socket, LockId)](#unlock_partial-2)\
+[user\_message(Socket, To, From, Message)](#user_message-4)\
+[validate\_trans(Socket, Tid, UnLock, ForceValidation)](#validate_trans-4)\
+[wait\_start(Socket)](#wait_start-1)\
+[wait\_start(Socket, Phase)](#wait_start-2)\
+[xpath\_eval(Socket, Tid, Expr, ResultFun, State, Options)](#xpath_eval-6)\
+[xpath\_eval(Socket, Tid, Expr, ResultFun, TraceFun, State, Context)](#xpath_eval-7)\
+[xpath\_eval\_expr(Socket, Tid, Expr, Options)](#xpath_eval_expr-4)\
+[xpath\_eval\_expr(Socket, Tid, Expr, TraceFun, Context)](#xpath_eval_expr-5)\
+[xpath\_eval\_expr\_loop(Sock, TraceFun)](#xpath_eval_expr_loop-2)\
 [xpath\_eval\_loop(Sock, ResultFun, TraceFun, State)](#xpath_eval_loop-4)
 
 ### aaa_reload/2
@@ -1470,6 +1213,18 @@ Read an element.
 Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0)
 
 Read an element, but return 'default' instead of the value if the default value is in effect.
+
+
+### get_mode/2
+
+```erlang
+-spec get_mode(Socket, Tid) -> {ok, trans_mode() | -1}
+                  when Socket :: econfd:socket(), Tid :: integer().
+```
+
+Related types: [trans\_mode()](#trans_mode-0), [econfd:socket()](econfd.md#socket-0)
+
+Get the mode for the given transaction.
 
 
 ### get_my_user_session_id/1

@@ -5,9 +5,7 @@ An Erlang interface equivalent to the event notifications C-API, (documented in 
 
 ## Types
 
-[notif\_option/0](#notif_option-0) - \-------------------------------------------------------------------- External functions --------------------------------------------------------------------
-
-
+[notif\_option/0](#notif_option-0)\
 [notification/0](#notification-0)
 
 ### notif_option/0
@@ -56,31 +54,17 @@ Related types: [econfd:datetime()](econfd.md#datetime-0)
 
 ## Functions
 
-[close(Socket)](#close-1) - Close the event notification connection.
-
-
-[connect(Path, Mask)](#connect-2)
-
-[connect(Path, Mask, Options)](#connect-3)
-
-[connect(Address, Port, Mask, Options)](#connect-4)
-
-[do\_connect(Address, Mask, Options)](#do_connect-3) - Connect to the notif server.
-
-
-[handle\_notif(Notif)](#handle_notif-1) - Decode the notif message and return corresponding record depending on the type of the message.
-
-[maybe\_element(N, Tuple)](#maybe_element-2)
-
-[notification\_done(Socket, Thandle)](#notification_done-2) - Indicate that we're done with diff processing.
-
-[notification\_done(Socket, Usid, NotifType)](#notification_done-3) - Indicate that we're done with notif processing.
-
-[recv(Socket)](#recv-1) - Equivalent to [recv(Socket, infinity)](#recv-2).
-
-
-[recv(Socket, Timeout)](#recv-2) - Wait for an event notification message and return corresponding record depending on the type of the message.
-
+[close(Socket)](#close-1)\
+[connect(Path, Mask)](#connect-2)\
+[connect(Path, Mask, Options)](#connect-3)\
+[connect(Address, Port, Mask, Options)](#connect-4)\
+[do\_connect(Address, Mask, Options)](#do_connect-3)\
+[handle\_notif(Notif)](#handle_notif-1)\
+[maybe\_element(N, Tuple)](#maybe_element-2)\
+[notification\_done(Socket, Thandle)](#notification_done-2)\
+[notification\_done(Socket, Usid, NotifType)](#notification_done-3)\
+[recv(Socket)](#recv-1)\
+[recv(Socket, Timeout)](#recv-2)\
 [unpack\_ha\_node(\_)](#unpack_ha_node-1)
 
 ### close/1
