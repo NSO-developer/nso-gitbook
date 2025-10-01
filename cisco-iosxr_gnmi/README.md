@@ -555,10 +555,7 @@
 # 4. Sample device configuration
 --------------------------------
 
-  The example below has been successfully verified using a Nokia SRLinux VM running version v22.6.4.
-
-  Note that it was necessary to expclicitly specify a TLS cipher to successfully connect to the device.
-
+  The example below has been successfully verified using a Cisco IOSXR VM running version v24.3.1.
   ```
   devices authgroups group dev-1
     default-map remote-name <user name>
@@ -568,10 +565,8 @@
     address         <address to device>
     port            <port used by gNMI service on device>
     authgroup       dev-1
-    device-type generic ned-id nokia-srlinux_gnmi-gen-1.0
-    ned-settings nokia-srlinux_gnmi connection tls enable true
-    ned-settings nokia-srlinux_gnmi connection tls accept-any true
-    ned-settings nokia-srlinux_gnmi connection tls ciphers [ TLS_RSA_WITH_AES_128_CBC_SHA ]
+    device-type generic ned-id cisco-iosxr_gnmi-gen-1.1
+    ned-settings cisco-iosxr_gnmi connection tls enable false
   !
   ```
 
@@ -1003,34 +998,52 @@
 
   ```
   path <string> - Specify the path to be used for the gNMI GET operation.
-  								This can also be a EOS CLI command in case the optional origin argument is set to 'cli'
+  								This can also be a IOSXR CLI command in case the optional origin argument is set to 'cli'
   ```
 
   ##### Optional arguments
 
   ```
   origin <string> - Specify the gNMI origin to be used for the GET operation.
-  									Cisco IOSXR supports the following predefined origins:
-                                          - cisco_cli    : Used for tunneling CLI commands through gNMI
-                                          - cisco_native : Used for accessing the IOSXR native data models
-  										- openconfig   : Used for accessing the openconfig datamodels
-                                      An empty origin is regarded as 'openconfig' by IOSXR.
 
-  encoding <string> - Specify the gNMI encoding to be used.
-  										The following predefined encodings are supported by IOSXR: JSON_IETF, JSON, ASCII
+  Cisco IOSXR supports the following predefined origins:
+   - cisco_cli    : Used for tunneling CLI commands through gNMI
+   - cisco_native : Used for accessing the IOSXR native data models
+   - openconfig   : Used for accessing the openconfig datamodels
+
+  An empty origin is regarded as 'openconfig' by IOSXR.
+
+  encoding <string> - Specify the gNMI encoding to be used. The following predefined encodings are supported by IOSXR: JSON_IETF, JSON, ASCII
   ```
 
   ##### Example
 
   ```
-  admin@ncs# devices device nokia-srlinux-1 live-status exec any get encoding JSON_IETF path /srl_nokia-system:system/srl_nokia-system-name:name
+  admin@ncs# devices device dev-1 live-status exec any get encoding JSON_IETF path /openconfig-interfaces:interfaces/interface
   response {
-      "srl_nokia-system:system":{
-          "srl_nokia-system-name:name":{
-              "host-name":"nokia-srlinux-1"
-          }
-      }
-  }
+      "interfaces":{
+          "interface":[{
+              "name":"GigabitEthernet0/0/0/0",
+              "openconfig-if-tunnel:tunnel":{
+                  "ipv6":{
+                      "router-advertisement":{
+                          "state":{
+                              "other-config":false,
+                              "managed":false,
+                              "mode":"ALL",
+                              "enable":true
+                          },
+                          "config":{
+                              "other-config":false,
+                              "managed":false,
+                              "mode":"ALL",
+                              "enable":true
+                          }
+                      }
+                  }
+              },
+  ...
+  ...
   ```
 
 
