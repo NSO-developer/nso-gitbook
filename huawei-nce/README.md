@@ -14,36 +14,49 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues
-  9. IP-services-feature
-     9.1 CRUD operations on services like: L3VPN, L2EVPN, VPLS, VLL and QoS
-     9.2 Fetching operational data for network-element and ltps
-     9.3 tailf-actions for IP-services-feature (L3VPN and QoS)
-     9.4 Choosing how the L3VPN configuration is fetched
-     9.5 Partial sync-from support for L3VPN section
-     9.6 Interface management feature
-     9.7 Partial sync-from support for interface management
-     9.8 Partial sync-from support for interface/trunk-members
-     9.9 e-trunk section
-     9.10 Partial sync-from support for e-trunk
-     9.11 Partial sync-from support for ESI
-     9.12 Partial sync-from support for route-policy and tunnel-trail
-     9.13 CRUD operations on ACL service
-     9.14 CRUD operations on DHCP service
-     9.15 tail-f action to query locators by nes
-  10. DWDM-feature
-      10.1 create/delete a 'tunnel' list entry
-      10.2 create/modify/delete a service ('client-svc-instances') list entry
-      10.3 check-sync support
-      10.4 Partial sync-from support
-      10.5 tail-f action for pre-route calculation
-      10.6 tail-f actions to fetch operational data
+  8. How to report NED issues and feature requests
+  9. How to rebuild a NED
+  10. IP-services-feature
+     10.1 CRUD operations on services like: L3VPN, L2EVPN, VPLS, VLL and QoS
+     10.2 Fetching operational data for network-element and ltps
+     10.3 tailf-actions for IP-services-feature (L3VPN and QoS)
+     10.4 Choosing how the L3VPN configuration is fetched
+     10.5 Partial sync-from support for L3VPN section
+     10.6 Interface management feature
+     10.7 Partial sync-from support for interface management
+     10.8 Partial sync-from support for interface/trunk-members
+     10.9 e-trunk section
+     10.10 Partial sync-from support for e-trunk
+     10.11 Partial sync-from support for ESI
+     10.12 Partial sync-from support for route-policy and tunnel-trail
+     10.13 CRUD operations on ACL service
+     10.14 CRUD operations on DHCP service
+     10.15 tail-f action to query locators by nes
+  11. DWDM-feature
+      11.1 create/delete a 'tunnel' list entry
+      11.2 create/modify/delete a service ('client-svc-instances') list entry
+      11.3 check-sync support
+      11.4 Partial sync-from support
+      11.5 tail-f action for pre-route calculation
+      11.6 tail-f actions to fetch operational data
             10.6.1 action to extract tunnels
             10.6.2 action to extract services
             10.6.3 action to extract networks elements
             10.6.4 action to extract nodes for a specific network
             10.6.5 action to extract links for a specific network
-      10.7 Choose how long to wait after a 'client-svc-instance' is going to be created
+      11.7 Choose how long to wait after a 'client-svc-instance' is going to be created
+  12. NCE-FAN feature
+      12.1 Introduction
+      12.2 Add a vlan to a NE(OLT)
+      12.3 Associate a vlan to an OLT port
+      12.4 Disassociate a vlan from OLT port
+      12.5 Create a service-port
+      12.6 Modify a service-port
+      12.7 Delete a service-port
+      12.8 Delete a vlan from an OLT
+      12.9 Partial sync-from support
+      12.10 sync-from using "product-name" filtering
+      12.11 tail-f action to fetch OLTs' status
   ```
 
 
@@ -217,6 +230,12 @@
       package huawei-nce-gen-1.0
       result true
    }
+  ```
+
+  Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
+
+  ```
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/huawei-nce-gen-1.0
   ```
 
 
@@ -441,6 +460,15 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
 
 # 3. Dependencies
 -----------------
@@ -597,6 +625,14 @@
 
   3. If the NED already had trace enabled, clear it in order to submit only relevant information
 
+     Do as follows for NSO 6.4 or newer:
+
+     ```
+     admin@ncs(config)# devices device dev-1 clear-trace
+     ```
+
+     Do as follows for older NSO versions:
+
      ```
      admin@ncs(config)# devices clear-trace
      ```
@@ -640,11 +676,28 @@
      through VPNs, jump servers etc.
 
 
-# 9. IP-services-feature
+# 9. How to rebuild a NED
+--------------------------
+
+  To rebuild the NED do as follows:
+
+  ```
+  > cd $NED_ROOT_DIR/src
+  > make clean all
+  ```
+
+  When the NED has been successfully rebuilt, it is necessary to reload the package into NSO.
+
+  ```
+  admin@ncs# packages reload
+  ```
+
+
+# 10. IP-services-feature
 ------------------------
 
-## 9.1 CRUD operations on services like: L3VPN, L2EVPN, VPLS, VLL and QoS
--------------------------------------------------------------------------
+## 10.1 CRUD operations on services like: L3VPN, L2EVPN, VPLS, VLL and QoS
+--------------------------------------------------------------------------
 
 The complete list of use-cases covered by NED can be seen below:
 
@@ -833,8 +886,8 @@ The complete list of use-cases covered by NED can be seen below:
 Note:
  - 4.3.x.y is the section number as described in the "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf" manual)
 
-## 9.2. Fetching operational data for network-element and ltps
---------------------------------------------------------------
+## 10.2. Fetching operational data for network-element and ltps
+---------------------------------------------------------------
 
 The customer can choose what method should be used to fetch the platform operational data.
 By default the "file" method(reading configuration from file) is used.
@@ -978,8 +1031,8 @@ Example:
    ```
 
 
-## 9.3. tailf-actions for IP-services-feature (L3VPN and QoS)
--------------------------------------------------------------
+## 10.3. tailf-actions for IP-services-feature (L3VPN and QoS)
+--------------------------------------------------------------
 
 The below examples have the same section number to the ones found in the "NCE NBI Developer Guide - for PLDT 2.0-20190731.pdf" manual.
 
@@ -1032,8 +1085,8 @@ Examples:
    ```
 
 
-## 9.4 Choosing how the L3VPN configuration is fetched
-------------------------------------------------------
+## 10.4 Choosing how the L3VPN configuration is fetched
+-------------------------------------------------------
 
 L3VPN configuration can be fetched using APIs or reading the entire L3VPN configuration from a file.
 The user can choose between the 2 methods by setting the "huawei-nce/fetch-l3vpn-method" leaf from the
@@ -1056,7 +1109,7 @@ Possible completions:
 api    L3VPN configuration is fetched using APIs for every L3VPN service
 file   L3VPN configuration is read from a file<default method>
 admin@ncs(config)# devices device dev-1 ned-settings huawei-nce fetch-l3vpn-method api
-admin@ncs(config-device-a-dev-1)# commit
+admin@ncs(config-device-dev-1)# commit
 Commit complete.
 admin@ncs(config-device-dev-1)# config
 admin@ncs(config-config)# disconnect
@@ -1076,8 +1129,8 @@ admin@ncs(config-device-dev-1)# ned-settings huawei-nce timers time-l3vpn-downlo
 Please note that the `disconnect` and `connect` commands are mandatory, so the ned-setting can be taken into account.
 
 
-## 9.5 Partial sync-from support for L3VPN section
---------------------------------------------------
+## 10.5 Partial sync-from support for L3VPN section
+---------------------------------------------------
 
 Starting from the Release 1.0.13, support for the partial sync-from for the L3VPN section has been added. When `abort()/revert()` methods are triggered, partial sync-from is called before them and can reduce the total time of the rollback process.
 
@@ -1085,7 +1138,7 @@ Starting from the Release 1.0.13, support for the partial sync-from for the L3VP
 getTransID() is triggered in multiple places:
  - at sync-from() -> after `show()` method which is called at sync-from(), `getTransID()` is called
  - at `compare-config` -> both `show()` and `getTransID()` are called
- - at `commit()` -> here `getTransID()` is called twice, one before `prepare()` and once after `prepare()`
+ - at `commit()` -> here `getTransID()` is called twice, once before `prepare()` and once after `prepare()`
 
 Normally, `getTransID()` is computed by fetching the entire configuration and applying a hash number on it.  
 This could be very time consuming, in case of generic NEDs when large data configuration is fetched from the device.
@@ -1098,11 +1151,11 @@ The user can disable the `getTransID` computation and can keep the partial sync 
   Commit complete.
 ```
 
-## 9.6 Interface management feature
+## 10.6 Interface management feature
 -----------------------------------
 
 NED has support for the following elements:  
-9.6.1. Create an interface (4.3.15.1 section from the "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf manual")
+10.6.1. Create an interface (4.3.15.1 section from the "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf manual")
    Example:  
 
    ```
@@ -1139,7 +1192,7 @@ NED has support for the following elements:
    }
    ```
 
-9.6.2. Delete an Interface
+10.6.2. Delete an Interface
    Example:
 
    ```
@@ -1148,7 +1201,7 @@ NED has support for the following elements:
    exit
    ```
 
-9.6.3. Modify the NE-side Properties of an Interface
+10.6.3. Modify the NE-side Properties of an Interface
    Example:
 
    ```
@@ -1160,7 +1213,7 @@ NED has support for the following elements:
    exit
    ```
 
-9.6.4. Add a Trunk Member Interface to an Interface
+10.6.4. Add a Trunk Member Interface to an Interface
    Example:
 
    ```
@@ -1174,7 +1227,7 @@ NED has support for the following elements:
    exit
    ```
 
-9.6.5. Delete a Trunk Member Interface from an Interface
+10.6.5. Delete a Trunk Member Interface from an Interface
    Example:
 
    ```
@@ -1185,7 +1238,7 @@ NED has support for the following elements:
    exit
    ```
 
-9.6.6. Add an ESI to an Interface
+10.6.6. Add an ESI to an Interface
    Example:
 
    ```
@@ -1207,7 +1260,7 @@ NED has support for the following elements:
    exit
    ```
 
-9.6.7. Delete an ESI from an Interface
+10.6.7. Delete an ESI from an Interface
    Example:
 
    ```
@@ -1241,7 +1294,7 @@ NED has support for the following elements:
    }
    ```
 
-9.6.8. Modify the Administrative Status of an Interface
+10.6.8. Modify the Administrative Status of an Interface
 
    The "admin-status" field is now ignored in Yang model. It can be used to create an interface and is modified via live-status action.
 
@@ -1254,8 +1307,8 @@ NED has support for the following elements:
    ```
 
 
-## 9.7 Partial sync-from support for interface management
----------------------------------------------------------
+## 10.7 Partial sync-from support for interface management
+----------------------------------------------------------
 
 NED has support for partial sync-from for "Query NE-Side Information About an Interface" (4.3.15.2 section from "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf" manual).
 
@@ -1279,8 +1332,8 @@ Examples:
    ```
 
 
-## 9.8 Partial sync-from support for interface/trunk-members
-------------------------------------------------------------
+## 10.8 Partial sync-from support for interface/trunk-members
+-------------------------------------------------------------
 
 NED has support for partial sync-from support for "Query the Trunk Member Interfaces of an Interface" (4.3.15.5 section from "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf" manual).
 
@@ -1298,8 +1351,8 @@ Examples:
    ```
 
 
-## 9.9 e-trunk section
-----------------------
+## 10.9 e-trunk section
+-----------------------
 
 NED supports  READ, CREATE and DELETE operations of e-trunk section.
 Example:
@@ -1402,8 +1455,8 @@ Example:
    ```
 
 
-## 9.10 Partial sync-from support for etrunk
---------------------------------------------
+## 10.10 Partial sync-from support for etrunk
+---------------------------------------------
 
 NED has support for partial sync-from support for "Query E-Trunk Interface Information" (4.3.16.2 section
 from iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf manual).
@@ -1420,8 +1473,8 @@ Examples:
    ```
 
 
-## 9.11 Partial sync-from support for ESI
------------------------------------------
+## 10.11 Partial sync-from support for ESI
+------------------------------------------
 
 NED has support for partial sync-from support for "Query the ESI Configurations of an Interface" (4.3.15.10 section from "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf" manual).
 
@@ -1444,7 +1497,7 @@ Examples:
    ```
 
 
-## 9.12 Partial sync-from support for route-policy and tunnel-trail
+## 10.12 Partial sync-from support for route-policy and tunnel-trail
 -------------------------------------------------------------------
 
 Examples route-policy:  
@@ -1474,10 +1527,10 @@ Examples tunnel-trail:
    ```
 
 
-## 9.13 CRUD operations on ACL service
+## 10.13 CRUD operations on ACL service
 --------------------------------------
 Examples:  
-9.13.1. Create an ACL service
+10.13.1. Create an ACL service
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
     group 2005
@@ -1486,7 +1539,7 @@ Examples:
    exit
    ```
 
-9.13.2. Create a basic ACL service
+10.13.2. Create a basic ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1501,7 +1554,7 @@ Examples:
     exit
    ```
 
-9.13.3. Update a basic ACL service
+10.13.3. Update a basic ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1514,7 +1567,7 @@ Examples:
    exit
    ```
 
-9.13.4. Create an ACL service
+10.13.4. Create an ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1524,7 +1577,7 @@ Examples:
    exit
    ```
 
-9.13.5. Create an advance ACL service
+10.13.5. Create an advance ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1541,7 +1594,7 @@ Examples:
    exit
    ```
 
-9.13.6. Update an ACL service
+10.13.6. Update an ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1552,7 +1605,7 @@ Examples:
    exit
    ```
 
-9.13.7. Delete an advance rule of an ACL service
+10.13.7. Delete an advance rule of an ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1561,7 +1614,7 @@ Examples:
    exit
    ```
 
-9.13.8. Delete an ACL service
+10.13.8. Delete an ACL service
 
    ```
    device e99d70cf-480f-11ea-a70a-fa163e7f2a27
@@ -1569,11 +1622,11 @@ Examples:
    exit
    ```
 
-## 9.14 CRUD operations on DHCP service
+## 10.14 CRUD operations on DHCP service
 ---------------------------------------
 
 Examples:  
-9.14.1. Create a DHCP service
+10.14.1. Create a DHCP service
 
    ```
    device 4cc09f52-4810-11ea-b783-fa163e0659e8
@@ -1584,7 +1637,7 @@ Examples:
    exit
    ```
 
-9.14.2. Update a DHCP service
+10.14.2. Update a DHCP service
 
    ```
    device 4cc09f52-4810-11ea-b783-fa163e0659e8
@@ -1596,7 +1649,7 @@ Examples:
    exit
    ```
 
-9.14.3. Create an IP pool section
+10.14.3. Create an IP pool section
 
    ```
    device 4cc09f52-4810-11ea-b783-fa163e0659e8
@@ -1609,7 +1662,7 @@ Examples:
    exit
    ```
 
-9.14.4. Delete an IP pool section
+10.14.4. Delete an IP pool section
 
    ```
    device 4cc09f52-4810-11ea-b783-fa163e0659e8
@@ -1619,7 +1672,7 @@ Examples:
    exit
    ```
 
-9.14.5. Delete a DHCP service
+10.14.5. Delete a DHCP service
 
    ```
    device 4cc09f52-4810-11ea-b783-fa163e0659e8
@@ -1627,7 +1680,7 @@ Examples:
    exit
    ```
 
-## 9.15 tail-f action to query locators by nes
+## 10.15 tail-f action to query locators by nes
 ----------------------------------------------
 
 Example:
@@ -1660,10 +1713,10 @@ Example:
  ```
 
 
-# 10. DWDM-feature
+# 11. DWDM-feature
 ------------------
 
-## 10.1 create/delete a 'tunnel' list entry
+## 11.1 create/delete a 'tunnel' list entry
 -------------------------------------------
 
 Example create a tunnel:
@@ -1738,7 +1791,7 @@ NOTE:
  - if a tunnel is linked to a service, then the tunnel and the service must be deleted in the same transaction by the user. In this case, only the "delete" operation for 'client-svc-instance' will be sent to the device by the NED - NCE device will automatically delete the related tunnel as well.
 
 
-## 10.2 create/modify/delete a service
+## 11.2 create/modify/delete a service
 --------------------------------------
 
 Example create a service:
@@ -1822,7 +1875,7 @@ Example:
    ```
 
 
-## 10.3 check-sync support
+## 11.3 check-sync support
 --------------------------
 
 ```
@@ -1831,7 +1884,7 @@ result in-sync
 ```
 
 
-## 10.4 Partial sync-from support
+## 11.4 Partial sync-from support
 ---------------------------------
 
 Example tunnel:  
@@ -1846,7 +1899,7 @@ Example service:
    ```
 
 
-## 10.5 tail-f action for pre-route calculation
+## 11.5 tail-f action for pre-route calculation
 -----------------------------------------------
 
 ```
@@ -1910,10 +1963,10 @@ result {"ietf-trans-client-service:output": {"result": [{
 ```
 
 
-## 10.6 tail-f actions to fetch operational data
+## 11.6 tail-f actions to fetch operational data
 ------------------------------------------------
 
-### 10.6.1 action to extract tunnels
+### 11.6.1 action to extract tunnels
 ------------------------------------
 
 Depending on needs, "all", "none" or particular tunnels can be fetched
@@ -1966,7 +2019,7 @@ admin@ncs# show devices device tunnels tunnel
 ```
 
 
-### 10.6.2 action to extract the services ("client-svc-instances")
+### 11.6.2 action to extract the services ("client-svc-instances")
 ------------------------------------------------------------------
 
 Similar to tunnels, equivalent actions can be used to fetch "all", "none" or specific services.
@@ -1981,10 +2034,10 @@ To display services operational data:
 admin@ncs# show devices device client-svc client-svc-instances
 ```
 
-### 10.6.3 action to extract networks elements
+### 11.6.3 action to extract networks elements
 ---------------------------------------------
 
-10.6.3.1 To extract all networks, the user has 2 modes to do it:
+11.6.3.1 To extract all networks, the user has 2 modes to do it:
 
 Mode 1.
 
@@ -2037,13 +2090,13 @@ Example for mode 2:
 
    Note: At this step the task-id and file names are read from Operational DB and deleted in the end
 
-10.6.3.2 To ignore fetching network elements and delete the existing ones from operational CDB
+11.6.3.2 To ignore fetching network elements and delete the existing ones from operational CDB
 
 ```
 admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-networks-oper-data none
 ```
 
-### 10.6.4 action to extract nodes for a specific network
+### 11.6.4 action to extract nodes for a specific network
 --------------------------------------------------------
 
 A. to extract a single node from a particular network:
@@ -2064,7 +2117,7 @@ C. to extract multiple nodes for a particular network
 admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-networks-NODES-oper-data network-id providerId nodes id1 id2
 ```
 
-### 10.6.5 action to extract links for a specific network
+### 11.6.5 action to extract links for a specific network
 --------------------------------------------------------
 
 A. to extract a single link from a particular network:
@@ -2085,7 +2138,7 @@ C. to extract multiple links for a particular network
 admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-networks-LINKS-oper-data network-id providerId links teNodeId1 teNodeId2
 ```
 
-## 10.7 Choose how long to wait after a 'client-svc-instance' to be created
+## 11.7 Choose how long to wait after a 'client-svc-instance' to be created
 ---------------------------------------------------------------------------
 
 Depending on the device's connection, sometimes creating a "client-svc-instance" can take more or less time.
@@ -2126,3 +2179,588 @@ When `sync-from` or `compare-config` are triggered, the service's status will be
  - if the service was existing in ODB (operational DB), but not present on the device anymore, will be deleted from ODB
  - if the service was created outside NED, it will have status "outside"
  - if service had "timed-out" status when it was created from NED, and in the meantime become "lsp-state-up", it will have "completed" status
+
+
+# 12. NCE-FAN feature
+---------------------
+
+## 12.1 Introduction
+--------------------
+
+A single ned-feature must be enabled at a given time. By default, all ned-features are set on false.  
+To enable the NCE-FAN feature, the user must enable the related ned-setting:
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce features NCE-FAN-feature true
+
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+
+admin@ncs(config-device-dev-1)# config
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# connect
+result true
+```
+
+`getTransID()` is used to know if the NED's CDB and the device are in sync, before applying new configuration.  
+In most cases, `getTransID()` is computed by fetching the entire configuration and applying a hash number on it.  
+This could be very time consuming, in case of generic NEDs where large data configuration is fetched from the device.  
+For instance, at `commit()`, `getTransID()` is called twice, once before `prepare()` and once after `prepare()`, meaning  
+double the time of a `sync-from` command. Since this operation can take hours, the user can disable the `getTransID` computation  
+and can keep the partial sync-from feature, using the following ned-setting:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings use-transaction-id false
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+```
+
+If authentication is done using a certificate, the user can set the following ned-settings:
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce connection ssl certificate "DER format..."
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce connection ssl accept-any true
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+```
+
+As mentioned above, the `sync-from` may take several hours if the device contains a large amount of data.  
+For this case, the NED provides a facility to first fetch only the name of the NE(OLTs), and then the user cand decide,  
+using the partial sync-from feature, which OLT configuration to fetch further (please check section 12.9, calls starting from number 2).  
+In order to be able to call partial sync-from on "vlans-ne" or "service-ports" (which are children list of OLT), the name of the NE must be  
+known(i.e. present into CDB).
+
+
+This can be achieved using the following ned-setting:
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce get-ne-data light
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# config
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# sync-from
+result true
+
+
+admin@ncs(config-config)# show full
+config
+  network-elements OLT1
+  !
+  network-elements OLT2
+  !
+  network-elements OLT3
+  !
+!
+```
+
+Once, the basic sync-from is performed, the user must change the 'get-ne-data' ned-setting to the value: "full".
+Also, if the sync-from filtering option(please check the 12.10 section) is used, then the 'get-ne-data' parameter must be set to the "full" value as well.
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce get-ne-data full
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# config
+admin@ncs(config-config)# disconnect
+admin@ncs(config-device-dev-1)# connect
+```
+
+Note:
+ - since there are cases when hundreds or thousands of OLTs are present on a huawei-nce controller, the user can disable  
+the sync-from operation and use partial sync-from per OLT.
+
+To disable sync-from:
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce sync-from-disabled-olt-feature true
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# disconnect
+admin@ncs(config-device-dev-1)# connect
+result true
+```
+
+If the OLT name is not present into CDB(as part of a "light" sync-from), the only partial sync-from operation allowed  
+in this case is the one that fetches the entire configuration of an OLT:
+
+```
+admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/ ] 
+```
+
+Note:
+ - When the sync-from operation is performed, (with or without filtering enabled, i.e. "enable-olt-filtering" enabled, or "get-ne-data" in "full" or "light" format),  
+ the related OLTs cards information(product-name and slot) are saved to operational DB. To check those, the user can run the following command:
+
+```
+ admin@ncs# show devices device dev-1 platform olt-cards
+```
+
+The user can control which API can be used to fetch the authentication token. Both versions are working fine at this moment.
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce authentication-method ?
+Description: choose what API to be used to fetch the token from the device
+Possible completions:
+  [old] is the default
+  new   new API: /rest/plat/smapp/v1/sessions
+  old   old API: /rest/plat/smapp/v1/oauth/token
+```
+
+Note:
+ - `disconnect/connect` operations are required for the ned-settings to be taken into account
+
+
+## 12.2 Add a vlan to a NE(OLT)
+-------------------------------
+
+Example:  
+The user must provide the following parameters:
+
+```
+admin@ncs(config-vlans-ne-999)# show config
+network-elements OLT9002
+ vlans-ne 999
+  vlanalias    VLANID_999
+  vlantype     MUX
+  uplinkportfn 0
+  uplinkportsn 9
+  uplinkportpn 1
+  protocolprof srvprof-88
+ !
+!
+```
+
+To check how the command that will be send to the device will look like, the user can use the following:
+
+```
+admin@ncs(config-vlans-ne-999)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/add-vlan
+             {
+                 "index":{
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "vlanid":"999",
+                     "vlanalias":"VLANID_999",
+                     "vlantype":"MUX",
+                     "uplinkportfn":"0",
+                     "uplinkportsn":"9",
+                     "uplinkportpn":"1",
+                     "protocolprof":"srvprof-88"
+                 }
+             }
+    }
+}
+```
+
+To commit the changes:
+
+```
+admin@ncs(config-vlans-ne-999)# commit
+Commit complete.
+```
+
+Note:
+ - currently, there is a bug on the huawei-nce device, and the vlan is not visibile after is added to an OLT.
+
+
+## 12.3 Associate a vlan to an OLT port
+---------------------------------------
+
+Example: associate VLAN 999 on OLT9002 port 0/9/1
+
+```
+admin@ncs(config-network-elements-OLT9002)# vlans-ne 999
+admin@ncs(config-vlans-ne-999)# vlan-ports 9 0 1
+
+admin@ncs(config-vlans-ne-999)# show config
+network-elements OLT9002
+ vlans-ne 999
+  vlan-ports 9 0 1
+ !
+!
+
+admin@ncs(config-vlans-ne-999)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/associate-ethportandvlan
+             {
+                 "index":{
+                     "sn":"9",
+                     "fn":"0",
+                     "pn":"1",
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "vlanid":"999"
+                 }
+             }
+    }
+}
+
+
+admin@ncs(config-vlans-ne-999)# commit
+Commit complete.
+```
+
+## 12.4 Disassociate a vlan from OLT port
+-----------------------------------------
+
+Example: disassociate VLAN 999 on OLT9002 port 0/9/1
+
+```
+admin@ncs(config-network-elements-OLT9002)# vlans-ne 999
+admin@ncs(config-vlans-ne-999)# no vlan-ports 9 0 1
+
+
+admin@ncs(config-network-elements-OLT9002)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/disassociate-ethportandvlan
+             {
+                 "index":{
+                     "dev":"OLT9002",
+                     "fn":"0",
+                     "sn":"9",
+                     "pn":"1"
+                 },
+                 "para":{
+                     "vlanid":"999"
+                 }
+             }
+```
+
+## 12.5 Create a service-port
+-----------------------------
+
+Example:
+
+```
+admin@ncs(config-config)# network-elements OLT9002
+admin@ncs(config-network-elements-OLT9002)# service-ports 999 0 13 20 "999/0_13_20/multi-service VLAN/999"
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# uplinkport 0/9/1
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# tagtransform TRANSLATEANDADD
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# uv 999
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# rx "SHAP_Wholesale_P2P_DS"
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# tx "SHAP_Wholesale_P2P_1G_UP"
+admin@ncs(config-service-ports-999/0/13/20/999/0_13_20/multi-service VLAN/999)# unkownmultipolicy transparent
+
+admin@ncs(config-network-elements-OLT9002)# show config
+network-elements OLT9002
+ service-ports 999 0 13 20 "999/0_13_20/multi-service VLAN/999"
+  uplinkport        0/9/1
+  tagtransform      TRANSLATEANDADD
+  uv                999
+  rx                SHAP_Wholesale_P2P_DS
+  tx                SHAP_Wholesale_P2P_1G_UP
+  unkownmultipolicy transparent
+ !
+!
+```
+
+How the payload that will be sent to the device will look like:
+
+```
+admin@ncs(config-network-elements-OLT9002)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/create-serviceport
+             {
+                 "index":{
+                     "fn":"0",
+                     "sn":"13",
+                     "pn":"20",
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "uplinkport":"0/9/1",
+                     "tagtransform":3,
+                     "uv":"999",
+                     "svpid":"999/0_13_20/multi-service VLAN/999",
+                     "rx":"SHAP_Wholesale_P2P_DS",
+                     "tx":"SHAP_Wholesale_P2P_1G_UP",
+                     "unkownmultipolicy":"transparent",
+                     "vlanid":"999"
+                 }
+             }
+    }
+}
+
+admin@ncs(config-network-elements-OLT9002)# timecmd commit no-overwrite
+Commit complete.
+```
+
+## 12.6 Modify a service-port
+-----------------------------
+
+Example:
+
+```
+admin@ncs(config-network-elements-OLT9002)# show config
+network-elements OLT9002
+ service-ports 999 0 13 20 "999/0_13_20/multi-service VLAN/999"
+  uplinkport        0/9/1
+  tagtransform      TRANSPARENT
+  unkownmultipolicy discard
+ !
+!
+```
+
+How the payload that will be sent to the device will look like:
+
+```
+admin@ncs(config-network-elements-OLT9002)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/modify-serviceport
+             {
+                 "index":{
+                     "fn":"0",
+                     "sn":"13",
+                     "pn":"20",
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "tagtransform":1,
+                     "unkownmultipolicy":"discard",
+                     "vlanid":"999",
+                     "name":"999/0_13_20/multi-service VLAN/999"
+                 }
+             }
+    }
+}
+
+admin@ncs(config-network-elements-OLT9002)# timecmd commit no-overwrite
+Commit complete.
+```
+
+
+## 12.7 Delete a service-port
+-----------------------------
+
+Example:
+
+```
+admin@ncs(config-network-elements-OLT9002)# top rollback config
+admin@ncs(config-network-elements-OLT9002)# show config
+network-elements OLT9002
+ no service-ports 999 0 13 20 "999/0_13_20/multi-service VLAN/999"
+!
+
+admin@ncs(config-network-elements-OLT9002)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/delete-serviceport
+             {
+                 "index":{
+                     "fn":"0",
+                     "sn":"13",
+                     "pn":"20",
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "svpid":"999/0_13_20/multi-service VLAN/999",
+                     "uv":"999",
+                     "vlanid":"999"
+                 }
+             }
+    }
+}
+
+admin@ncs(config-network-elements-OLT9002)# commit
+Commit complete.
+```
+
+## 12.8 Delete a vlan from an OLT
+---------------------------------
+
+Example: delete vlan 999 from OLT9002
+
+```
+admin@ncs(config-network-elements-OLT9002)# no vlans-ne 999
+admin@ncs(config-network-elements-OLT9002)# show config
+network-elements OLT9002
+ no vlans-ne 999
+!
+
+admin@ncs(config-network-elements-OLT9002)# commit dry-run outformat native
+native {
+    device {
+        name dev-1
+        data POST https://<IP-address>:<port-number>/rest/v1/resource-activation-configuration/access-legacy/delete-vlan
+             {
+                 "index":{
+                     "dev":"OLT9002"
+                 },
+                 "para":{
+                     "vlanid":"999"
+                 }
+             }
+    }
+}
+```
+
+## 12.9 Partial sync-from support
+---------------------------------
+
+Note:  
+If the filtering operation is enabled, meaning that the "enable-olt-filtering" ned-setting is set on true and the "filter-by-product-name"  
+ned-setting contains a valid "regex", then the partial sync-from operation will be applied only to those entries that meet the above regex pattern.  
+For more details about the filtering operation please check the '12.10 sync-from using "product-name" filtering' section.
+
+
+Examples:
+
+1. fetching the entire configuration of an OLT
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/ ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+When partial-sync from is performed for a specific olt, the related cards are saved(or updated) to the ODB. The user can check the cards using the following command:
+
+```
+admin@ncs# show devices device dev-1 platform olt-cards
+```
+
+2. fetching all the vlans from a specific OLT
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/vlans-ne ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+3. feching a specific vlan from a specific OLT
+
+   ```
+   admin@ncs(config-vlans-ne-4002)# commit no-networking
+   Commit complete.
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/vlans-ne[vlanid=4002]/ ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+4. feching all vlan-ports for a specific vlan from a specific OLT
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/vlans-ne[vlanid=4002]/vlan-ports ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+
+5. feching a vlan-port for a vlan from a specific OLT
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/vlans-ne[vlanid=4002]/vlan-ports[fn=0][sn=10][pn=1]/ ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+6. fetching the service-ports configuration from an OLT
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/service-ports ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+7. fetching a service-port from an OLT
+
+   ```
+   admin@ncs(config-config)#top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/network-elements[name=OLT9002]/service-ports[vlanid=4016][fn=0][sn=13][pn=11][svpid="4016/0_13_11/Multi-Service\ VLAN/4016"] ]
+   sync-result {
+       device dev-1
+       result true
+   }
+   ```
+
+## 12.10 sync-from using "product-name" filtering
+------------------------------------------------
+
+The sync-from operation can take a lot of time when there is a large number of NEs(OLTs) devices present  
+on the huawei-nce device. The user can filter which data to be fetched from the device using a regex  
+for "product-name" field. This field is part of the response of the "v2/data/huawei-nce-resource-inventory:cards" API.
+
+In order to enable the filtering operation the user must enable the following ned-settings:
+
+```
+1. admin@ncs(config-device-dev-1)# ned-settings huawei-nce enable-olt-filtering true  
+2. admin@ncs(config-device-dev-1)# ned-settings huawei-nce filter-by-product-name "regex"
+```
+
+Example:
+
+```
+admin@ncs(config-device-dev-1)# ned-settings huawei-nce filter-by-product-name "H901MPLA.*"
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# disconnect
+```
+
+The NED filters all the entries from "v2/data/huawei-nce-resource-inventory:cards", with the "product-name"  
+that contains the regex above ("H901MPLA.\*") and fetches the related frame-number(fn) and slot-number(sn).  
+Since the .* consumes everything after it, the regex will match the entire line. For instance, if the regex has  
+the following format: "H\d{3}OGHK", the match will occur if the product-name contains that string, no matter if is before or after it.  
+Then, at sync-from, the NED fetches configuration("vlans-ne" and "service-ports") from all OLTs that have a product-name matching the regex.
+
+
+## 12.11 tail-f action to fetch OLTs' status
+---------------------------------------------
+
+For situations where there is a large number of OLTs onboarded on the NCE controller, hundreds or even thousands and only a part of them have been fetched to CDB,  
+the user has the option to check which new OLTs have been added in the controller or which OLTs have been removed from the controller, but still exist in the current CDB.
+
+The user can use the following action:
+
+```
+admin@ncs(config)# devices device dev-1 live-status exec get-olts-status
+result OK. Please check the data from platform/olt-status-action.
+admin@ncs(config)#
+```
+
+To check the output, the user can verify the data below:
+
+```
+admin@ncs# show devices device dev-1 platform olt-status-action
+platform olt-status-action new-olts OLT9003
+platform olt-status-action new-olts OLT9005
+platform olt-status-action removed-olts OLT9010
+platform olt-status-action removed-olts OLT9011
+```
+
+"new-olts" list refers to the OLTS that are not present in the current CDB, but exist in the NCE controller. To fetch a new OLT, the user can call the partial sync-from command  
+as described in the 12.9 section, example 1. fetching the entire configuration of an OLT.
+
+"removed-olts" list refers to the OLTs that exist in the current CDB, but have been removed from the NCE controller. In order to remove an OLT that doesn't exist any more in  
+the NCE controller, the user can issue this command:
+
+```
+admin@ncs(config-config)# no network-elements OLT9010
+admin@ncs(config-config)# commit no-networking
+Commit complete.
+```

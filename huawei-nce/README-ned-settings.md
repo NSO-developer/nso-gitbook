@@ -87,6 +87,40 @@
                     occurs in the meantime, service creation is considered successful.
 
 
+    - huawei-nce authentication-method <enum> (default old)
+
+      choose what API to be used to fetch the token from the device.
+
+      old  - old API: /rest/plat/smapp/v1/oauth/token.
+
+      new  - new API: /rest/plat/smapp/v1/sessions.
+
+
+    - huawei-nce get-ne-data <enum> (default full)
+
+      control how to fetch network-elements data(OLT) for NCE-FAN-feature.
+
+      full   - all data is fetched: vlans, associated vlans, service ports.
+
+      light  - only the OLT names are populated so partial-sync can be used further.
+
+
+    - huawei-nce sync-from-disabled-olt-feature <true|false> (default false)
+
+      if set on true, the 'sync-from' operation cannot be performed anymore.
+
+
+    - huawei-nce enable-olt-filtering <true|false> (default false)
+
+      if this is set on true, please provide what data to fetch by configuring the
+      filter-by-product-name, NCE-FAN feature.
+
+
+    - huawei-nce filter-by-product-name <string>
+
+      filter for product-name from huawei-nce-resource-inventory:cards API.
+
+
 # 2. ned-settings huawei-nce connection
 ---------------------------------------
 
@@ -152,6 +186,9 @@
 
 
     - features DWDM-feature <true|false> (default false)
+
+
+    - features NCE-FAN-feature <true|false> (default false)
 
 
 # 5. ned-settings huawei-nce timers
