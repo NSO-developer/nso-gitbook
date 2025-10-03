@@ -61,7 +61,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.0 2025-09-15](ceragon-ip20/README.md)
+  * [README v1.10.1 2025-10-02](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
@@ -221,7 +221,7 @@
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
-  * [README v1.0.27 2025-06-04](huawei-nce/README.md)
+  * [README v1.0.28 2025-10-02](huawei-nce/README.md)
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)

@@ -189,6 +189,32 @@
       Specify device admin password used to list and modify admin mode config.
 
 
+    - connection terminal width <uint32> (default 200)
+
+      Terminal width reported by SSH/TELNET upon connect.
+
+
+    - connection terminal height <uint32> (default 24)
+
+      Terminal height reported by SSH/TELNET upon connect.
+
+
+    - connection terminal println-mode <enum> (default default)
+
+      This setting controls how the NED feeds lines, i.e. whether to
+      send carriage return and/or newline. Typically you may only need
+      to modify this setting if you are connecting to the device via a
+      terminal server. Four different methods are supported:
+
+      default  - System property line.separator default.
+
+      ocrnl    - Translate carriage return to newline.
+
+      onocr    - Translate newline to carriage return-newline.
+
+      onlret   - Newline performs a carriage return.
+
+
     - connection ssh client <enum>
 
       Configure which SSH client to use. Default is sshj.
@@ -387,7 +413,8 @@
 
     - write commit-options <WORD> (default show-error)
 
-      Option(s) to commit [confirmed] command.
+      Option(s) to commit command. Note: do not include confirmed|label|comment, they are handled
+      internally.
 
 
     - write commit-confirmed-timeout <30-65535> (default 30)
