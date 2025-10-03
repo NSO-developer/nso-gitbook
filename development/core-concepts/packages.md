@@ -95,19 +95,21 @@ $ yanger -f tree tailf-ncs-packages.yang
 submodule: tailf-ncs-packages (belongs-to tailf-ncs)
   +--ro packages
      +--ro package* [name] <-- renamed to "ncs-package" in package-meta-data.xml
-        +--ro name                     string
-        +--ro package-version          version
-        +--ro description?             string
-        +--ro ncs-min-version*         version
-        +--ro ncs-max-version*         version
+        +--ro name                      string
+        +--ro package-version           version
+        +--ro display-name?             string
+        +--ro description?              string
+        +--ro ncs-min-version*          version
+        +--ro ncs-max-version*          version
+        +--ro single-sign-on-url?       string
         +--ro python-package!
         |  +--ro vm-name?           string
         |  +--ro callpoint-model?   enumeration
-        +--ro directory?               string
-        +--ro templates*               string
-        +--ro template-loading-mode?   enumeration
-        +--ro supported-ned-id*        union
-        +--ro supported-ned-id-match*  string
+        +--ro directory?                string
+        +--ro templates*                string
+        +--ro template-loading-mode?    enumeration
+        +--ro supported-ned-id*         union
+        +--ro supported-ned-id-match*   string
         +--ro required-package* [name]
         |  +--ro name           string
         |  +--ro min-version?   version
@@ -132,11 +134,13 @@ submodule: tailf-ncs-packages (belongs-to tailf-ncs)
               |     |  |     +--ro java-class-name    string
               |     |  +--:(generic)
               |     |     +--ro generic
-              |     |        +--ro ned-id             identityref
-              |     |        +--ro java-class-name    string
+              |     |        +--ro ned-id                 identityref
+              |     |        +--ro java-class-name        string
+              |     |        +--ro management-protocol?   string
               |     +--ro device
-              |     |  +--ro vendor            string
-              |     |  +--ro product-family?   string
+              |     |  +--ro vendor              string
+              |     |  +--ro product-family*     string
+              |     |  +--ro operating-system*   string
               |     +--ro option* [name]
               |        +--ro name     string
               |        +--ro value?   string
@@ -151,7 +155,7 @@ submodule: tailf-ncs-packages (belongs-to tailf-ncs)
               |  +--ro callback
               |     +--ro java-class-name*   string
               +--:(application)
-                +--ro application
+                 +--ro application
                     +--ro (type)
                     |  +--:(java)
                     |  |  +--ro java-class-name      string
