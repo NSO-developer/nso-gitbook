@@ -5,9 +5,6 @@ An Erlang interface equivalent to the event notifications C-API, (documented in 
 
 ## Types
 
-[notif\_option/0](#notif_option-0)\
-[notification/0](#notification-0)
-
 ### notif_option/0
 
 ```erlang
@@ -53,19 +50,6 @@ Related types: [econfd:datetime()](econfd.md#datetime-0)
 ```
 
 ## Functions
-
-[close(Socket)](#close-1)\
-[connect(Path, Mask)](#connect-2)\
-[connect(Path, Mask, Options)](#connect-3)\
-[connect(Address, Port, Mask, Options)](#connect-4)\
-[do\_connect(Address, Mask, Options)](#do_connect-3)\
-[handle\_notif(Notif)](#handle_notif-1)\
-[maybe\_element(N, Tuple)](#maybe_element-2)\
-[notification\_done(Socket, Thandle)](#notification_done-2)\
-[notification\_done(Socket, Usid, NotifType)](#notification_done-3)\
-[recv(Socket)](#recv-1)\
-[recv(Socket, Timeout)](#recv-2)\
-[unpack\_ha\_node(\_)](#unpack_ha_node-1)
 
 ### close/1
 

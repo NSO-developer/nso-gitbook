@@ -5,8 +5,6 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
 
 ## Types
 
-[ha\_node/0](#ha_node-0)
-
 ### ha_node/0
 
 ```erlang
@@ -14,20 +12,6 @@ An Erlang interface equivalent to the HA C-API (documented in confd_lib_ha(3)).
 ```
 
 ## Functions
-
-[bemaster(Socket, NodeId)](#bemaster-2)\
-[benone(Socket)](#benone-1)\
-[beprimary(Socket, NodeId)](#beprimary-2)\
-[berelay(Socket)](#berelay-1)\
-[besecondary(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#besecondary-4)\
-[beslave(Socket, NodeId, PrimaryNodeId, WaitReplyBool)](#beslave-4)\
-[close(Socket)](#close-1)\
-[connect(Path, Token)](#connect-2)\
-[connect(Address, Port, Token)](#connect-3)\
-[do\_connect(Address, Token)](#do_connect-2)\
-[getstatus(Socket)](#getstatus-1)\
-[secondary\_dead(Socket, NodeId)](#secondary_dead-2)\
-[slave\_dead(Socket, NodeId)](#slave_dead-2)
 
 ### bemaster/2
 

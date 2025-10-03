@@ -7,11 +7,6 @@ Keeps schema info in a set of ets tables named by the toplevel namespace.
 
 ## Types
 
-[confd\_cs\_choice/0](#confd_cs_choice-0)\
-[confd\_cs\_node/0](#confd_cs_node-0)\
-[confd\_nsinfo/0](#confd_nsinfo-0)\
-[confd\_type\_cbs/0](#confd_type_cbs-0)
-
 ### confd_cs_choice/0
 
 ```erlang
@@ -37,21 +32,6 @@ Keeps schema info in a set of ets tables named by the toplevel namespace.
 ```
 
 ## Functions
-
-[choice\_children(Node)](#choice_children-1)\
-[get\_builtin\_type(\_)](#get_builtin_type-1)\
-[get\_cs(Ns, Tagpath)](#get_cs-2)\
-[get\_nslist()](#get_nslist-0)\
-[get\_type(TypeName)](#get_type-1)\
-[get\_type(Ns, TypeName)](#get_type-2)\
-[ikeypath2cs(IKeypath)](#ikeypath2cs-1)\
-[ikeypath2nstagpath(IKeypath)](#ikeypath2nstagpath-1)\
-[ikeypath2nstagpath(T, Acc)](#ikeypath2nstagpath-2)\
-[load(Path)](#load-1)\
-[load(Address, Port)](#load-2)\
-[register\_type\_cbs(TypeCbs)](#register_type_cbs-1)\
-[str2val(TypeId, Lexical)](#str2val-2)\
-[val2str(TypeId, Value)](#val2str-2)
 
 ### choice_children/1
 

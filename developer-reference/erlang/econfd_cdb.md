@@ -96,15 +96,6 @@ Thus in the list with length N \[Index] is an implicit key during the life of a 
 
 ## Types
 
-[cdb\_sess/0](#cdb_sess-0)\
-[compaction\_dbfile/0](#compaction_dbfile-0)\
-[compaction\_info/0](#compaction_info-0)\
-[dbtype/0](#dbtype-0)\
-[err/0](#err-0)\
-[sub\_ns/0](#sub_ns-0)\
-[sub\_type/0](#sub_type-0)\
-[subscription\_sync\_type/0](#subscription_sync_type-0)
-
 ### cdb_sess/0
 
 ```erlang
@@ -191,65 +182,6 @@ Return value from the fun passed to wait/3, indicating what to do with further n
 
 
 ## Functions
-
-[cd(CDB, IKeypath)](#cd-2)\
-[close(Cdb\_session)](#close-1)\
-[collect\_until(T, Stop, Sofar)](#collect_until-3)\
-[connect()](#connect-0)\
-[connect(Path)](#connect-1)\
-[connect(Path, ClientName)](#connect-2)\
-[connect(Address, Port, ClientName)](#connect-3)\
-[create(CDB, IKeypath)](#create-2)\
-[delete(CDB, IKeypath)](#delete-2)\
-[diff\_iterate(CDB, SubPoint, Fun, Flags, State)](#diff_iterate-5)\
-[do\_connect(Address, ClientName)](#do_connect-2)\
-[end\_session(CDB)](#end_session-1)\
-[exists(CDB, IKeypath)](#exists-2)\
-[get\_case(CDB, IKeypath, Choice)](#get_case-3)\
-[get\_compaction\_info(Socket, Dbfile)](#get_compaction_info-2)\
-[get\_elem(CDB, IKeypath)](#get_elem-2)\
-[get\_modifications\_cli(CDB, SubPoint)](#get_modifications_cli-2)\
-[get\_modifications\_cli(CDB, SubPoint, Flags)](#get_modifications_cli-3)\
-[get\_object(CDB, IKeypath)](#get_object-2)\
-[get\_objects(CDB, IKeypath, StartIndex, NumEntries)](#get_objects-4)\
-[get\_phase(Socket)](#get_phase-1)\
-[get\_txid(Socket)](#get_txid-1)\
-[get\_values(CDB, IKeypath, Values)](#get_values-3)\
-[ibool(X)](#ibool-1)\
-[index(CDB, IKeypath)](#index-2)\
-[initiate\_journal\_compaction(Socket)](#initiate_journal_compaction-1)\
-[initiate\_journal\_dbfile\_compaction(Socket, Dbfile)](#initiate_journal_dbfile_compaction-2)\
-[mk\_elem(List)](#mk_elem-1)\
-[new\_session(Socket, Db)](#new_session-2)\
-[new\_session(Socket, Db, Flags)](#new_session-3)\
-[next\_index(CDB, IKeypath)](#next_index-2)\
-[num\_instances(CDB, IKeypath)](#num_instances-2)\
-[parse\_keystring0(Str)](#parse_keystring0-1)\
-[request(CDB, Op)](#request-2)\
-[request(CDB, Op, Arg)](#request-3)\
-[set\_case(CDB, IKeypath, Choice, Case)](#set_case-4)\
-[set\_elem(CDB, Value, IKeypath)](#set_elem-3)\
-[set\_elem2(CDB, ValueBin, IKeypath)](#set_elem2-3)\
-[set\_object(CDB, ValueList, IKeypath)](#set_object-3)\
-[set\_values(CDB, ValueList, IKeypath)](#set_values-3)\
-[subscribe(CDB, Priority, MatchKeyString)](#subscribe-3)\
-[subscribe(CDB, Priority, Ns, MatchKeyString)](#subscribe-4)\
-[subscribe(CDB, Type, Priority, Ns, MatchKeyString)](#subscribe-5)\
-[subscribe(CDB, Type, Flags, Priority, Ns, MatchKeyString)](#subscribe-6)\
-[subscribe\_done(CDB)](#subscribe_done-1)\
-[subscribe\_session(Socket)](#subscribe_session-1)\
-[sync\_subscription\_socket(CDB, SyncType, TimeOut, Fun)](#sync_subscription_socket-4)\
-[trigger\_oper\_subscriptions(Socket)](#trigger_oper_subscriptions-1)\
-[trigger\_oper\_subscriptions(Socket, SubPoints)](#trigger_oper_subscriptions-2)\
-[trigger\_oper\_subscriptions(Socket, SubPoints, Flags)](#trigger_oper_subscriptions-3)\
-[trigger\_subscriptions(Socket)](#trigger_subscriptions-1)\
-[trigger\_subscriptions(Socket, SubPoints)](#trigger_subscriptions-2)\
-[wait(CDB, TimeOut, Fun)](#wait-3)\
-[wait\_start(Socket)](#wait_start-1)\
-[xx(Str, Acc)](#xx-2)\
-[xx(T, Sofar, Acc)](#xx-3)\
-[yy(Str)](#yy-1)\
-[yy(T, Sofar)](#yy-2)
 
 ### cd/2
 

@@ -2,10 +2,6 @@
 
 ## Types
 
-[logsym/0](#logsym-0)
-
-[logsyms/0](#logsyms-0)
-
 ### logsym/0
 
 ```erlang
@@ -19,18 +15,6 @@
 ```
 
 ## Functions
-
-[array()](#array-0)
-
-[array(Max, \_)](#array-2)
-
-[get\_descr(LogSym)](#get_descr-1)
-
-[get\_logsym(LogSym)](#get_logsym-1)
-
-[get\_logsymstr(LogSym)](#get_logsymstr-1)
-
-[max\_sym()](#max_sym-0)
 
 ### array/0
 
