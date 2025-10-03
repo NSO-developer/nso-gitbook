@@ -603,15 +603,46 @@ But keep in mind that services tend to be modified from time to time, and with a
 
 ### CDB Stores the YANG Model Schema <a href="#d5e8743" id="d5e8743"></a>
 
-In addition to storing instance data, CDB also stores the schema (the YANG models), on disk and reads it into memory on startup. Having a large schema (many or large YANG models) loaded means both disk and RAM will be used, even when starting up an "empty" NSO, i.e., no instance data is stored in CDB.
+In addition to storing instance data, CDB also stores the schema (the YANG models) on disk and reads it into memory on startup. Having a large schema (many or large YANG models) loaded means both disk and RAM will be used, even when starting up an “empty” NSO, i.e., no instance data is stored in CDB.
 
-In particular, device YANG models can be of considerable size. For example, the YANG models in recent versions of Cisco IOS XR have over 750,000 lines. Loading one such NED will consume about 1GB of RAM and slightly less disk space. In a mixed vendor network, you would load NEDs for all or some of these device types. With CDM, you can have multiple XR NEDs loaded to support communicating with different versions of XR and similarly for other devices, further consuming resources.
+In particular, device YANG models can be of considerable size. For example, the YANG models in recent versions of Cisco IOS XR have over 750,000 lines. Loading one such NED will consume about 1 GB of RAM and slightly less disk space. In a mixed vendor network, you would load NEDs for all or some of these device types. With CDM, you can have multiple XR NEDs loaded to support communicating with different versions of XR and similarly for other devices, further consuming resources.
 
-In comparison, most CLI NEDs only model a subset of a device and, are as a result, much smaller, most often under 100,000 lines of YANG.
+In comparison, most CLI NEDs only model a subset of a device and are, as a result, much smaller—most often under 100,000 lines of YANG.
 
 For small NSO systems, the schema will usually consume more resources than the instance data, and NEDs, in particular, are the most significant contributors to resource consumption. As the system grows and more service and device configurations are added, the percentage of the total resource usage used for NED YANG models will decrease.
 
-Note that the schema is memory mapped into shared memory, so even though multiple Python VMs might be started, memory usage will not increase as it shares memory between different clients. The Java VM uses its own copy of the schema, which is also why we can see that the JVM memory consumption follows the size of the loaded YANG schema.
+{% hint style="info" %}
+NEDs with a large schema and many YANG models often include a significant number of YANG models that are unused. If RAM usage is an issue, consider removing unused YANG models from such NEDs.
+{% endhint %}
+
+#### Total Committed Memory Impact with Multiple Python VMs
+
+Note that the schema is memory-mapped into shared memory, so even though multiple Python VMs might be started, resident memory usage will not increase proportionally, as the schema is shared between different clients. However, total committed memory (`Committed_AS`) will increase and may cause issues if the `schema size * number of Python VMs` is significant enough that `CommitLimit` is reached.
+
+If increasing the available RAM is not an option, a workaround can be to have all, or a selected subset, of Python-based packages share a `vm-name` and run in the same Python VM thread.
+
+#### Sharing a Python VM Across Packages
+
+To share a Python VM, set the same `vm-name` in each package’s `package-meta-data.xml` file:
+
+{% code title="package-meta-data.xml vm-name config example" overflow="wrap" %}
+```xml
+<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+  ...
+  <python-package>
+    <vm-name>shared</vm-name>
+    <callpoint-model>threading</callpoint-model>
+  </python-package>
+  ...
+</ncs-package>
+```
+{% endcode %}
+
+See [The package-meta-data.xml File](../core-concepts/packages.md#d5e4962) for more details. See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605) for `Committed_AS` and `CommitLimit` details.
+
+#### Note on the Java VM
+
+The Java VM uses its own copy of the schema, which is also why the JVM memory consumption follows the size of the loaded YANG schema.
 
 ### The Size of CDB <a href="#d5e8750" id="d5e8750"></a>
 
@@ -736,7 +767,7 @@ Using LSA, multiple Resource Facing Service (RFS) nodes can be employed to sprea
 
 For smooth operation of NSO instances consider all of the following:
 
-* Ensure there is enough RAM for NSO to run, with ample headroom.
+* Ensure there is enough RAM for NSO to run, with _**ample**_ headroom.
 * `create()` should normally run in a few hundred milliseconds, perhaps a few seconds for extensive services.
   * Consider splitting into smaller services.
   * Stacked services allow the composition of many smaller services into a larger service. A common best-practice design pattern is to have one Resource Facing Service (RFS) instance map to one device or network element.
@@ -757,7 +788,7 @@ For smooth operation of NSO instances consider all of the following:
 * Ensure there are enough file descriptors available.
   * In many Linux systems, the default limit is 1024.
   * If we, for example, assume that there are 4 northbound interface ports, CLI, RESTCONF, SNMP, JSON-RPC, or similar, plus a few hundred IPC ports, x 1024 == 5120. But one might as well use the next power of two, 8192, to be on the safe side.
-* See [Disable Memory Overcommit](../../administration/installation-and-deployment/system-install.md#disable-memory-overcommit).
+* See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605).
 
 ## Hardware Sizing <a href="#d5e8931" id="d5e8931"></a>
 
@@ -779,6 +810,6 @@ Network management protocols typically consume little network bandwidth. It is o
 
 The in-memory portion of CDB needs to fit in RAM, and NSO needs working memory to process queries. This is a hard requirement. NSO can only function with enough memory. In case of `in-memory-v1` CDB persistence mode, less than the required amount of RAM does not lead to performance degradation - it prevents NSO from working. For example, if CDB consumes 50 GB, ensure you have at least 64 GB of RAM. There needs to be some headroom for RAM to allow temporary usage during, for example, heavy queries.
 
-Swapping is a way to use disk space as RAM, and while it can make it possible to start an NSO instance that otherwise would not fit in RAM, it would lead to terrible performance. See [Disable Memory Overcommit](../../administration/installation-and-deployment/system-install.md#disable-memory-overcommit).
+Swapping is a way to use disk space as RAM, and while it can make it possible to start an NSO instance that otherwise would not fit in RAM, it would lead to terrible performance. See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605) for details.
 
 Provide at least 32GB of RAM and increase with the growth of CDB. As described in [Scaling RAM and Disk](scaling-and-performance-optimization.md#ncs.development.scaling.memory), the consumption of memory and disk resources for devices and services will vary greatly with the type and size of the service or device.

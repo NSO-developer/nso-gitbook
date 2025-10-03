@@ -313,21 +313,119 @@ The default `--health-start-period duration` in health check is set to 60 second
 To disable the health check, use the `--no-healthcheck` command.
 {% endhint %}
 
-### NSO System Dump and Disable Memory Overcommit <a href="#d5e8605" id="d5e8605"></a>
+### NSO System Dump and Enable Strict Overcommit Accounting on the Host <a href="#d5e8605" id="d5e8605"></a>
 
-By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO since the Linux Out Of Memory Killer, or OOM-killer, may terminate NSO without restarting it if the system is critically low on memory.
+By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO since the Linux Out‑Of‑Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory.
 
-Also, when the OOM-killer terminates NSO, NSO will not produce a system dump file, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled with Linux NSO production container hosts with an overcommit ratio of less than 100% (max).
+Also, when the OOM-killer terminates NSO, NSO will not produce a system dump file, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled with Linux NSO production container hosts with an overcommit ratio of less than 100% (max). Use a 5% headroom (overcommit\_ratio≈95 when no swap) or increase if the host runs additional services. Or use vm.overcommit\_kbytes for a fixed CommitLimit.
 
-See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.
-
-{% hint style="info" %}
-By default, NSO writes a system dump to the NSO run-time directory, default `NCS_RUN_DIR=/nso/run`. If the `NCS_RUN_DIR` is not mounted on the host or to give the NSO system dump file a unique name, the `NCS_DUMP="/path/to/mounted/dir/ncs_crash.dump.<my-timestamp>"` variable need to be set.
-{% endhint %}
+See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.&#x20;
 
 {% hint style="info" %}
-The `docker run` command `--memory="[ram]"` and `--memory-swap="[ram+swap]"` option settings can be used to limit Docker container memory usage. The default setting is max, i.e., all of the host memory is used. Suppose the Docker container reaches a memory limit set by the --memory option. In that case, the default Docker setting is to have Docker terminate the container, no NSO system dump will be generated, and the debug information will be lost.
+By default, NSO writes a system dump to the NSO run-time directory, default `NCS_RUN_DIR=/nso/run`. If the `NCS_RUN_DIR` is not pointing to a persistent, host‑mounted volume so dumps survive container restarts or to give the NSO system dump file a unique name, the `NCS_DUMP="/path/to/mounted/dir/ncs_crash.dump.$(date +%Y%m%d-%H%M%S)"` variable needs to be set.
 {% endhint %}
+
+#### Recommended: Host Configured for Strict Overcommit
+
+With the host configured for strict overcommit (`vm.overcommit_memory=2`), containers inherit the host’s CommitLimit behavior. Note that `vm.overcommit_memory`, `vm.overcommit_ratio`, and `vm.overcommit_kbytes` are host‑global and cannot be set per container. These `vm.*` settings are configured on the host and apply to all containers.
+
+* Optionally use the `docker run` command to set memory limits and swap:
+  * Use `--memory=<ram>` to cap the container’s RAM.
+  * Set `--memory-swap=<ram>` equal to `--memory` to effectively disable swap for the container.
+  * If swap must be enabled, use a fast disk, for example, an NVMe SSD.
+
+#### **Alternative: Heuristic Overcommit Mode**
+
+The alternative, using heuristic overcommit mode, can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
+
+As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` configured on the host to allow overcommit of memory and trigger `ncs --debug-dump` when Committed\_AS reaches, for example, 95% of CommitLimit or when the container’s cgroup memory usage reaches, for example, 90% of its cap.
+
+* This approach does not prevent the Linux OOM-killer from killing NSO or the container; it only attempts to capture diagnostic data before memory pressure becomes critical. OOM kills can occur even when Committed\_AS < CommitLimit due to cgroup limits or reclaim failure.
+* The same `docker run` memory and swap options as above can be used.
+* Monitor the Committed\_AS vs CommitLimit and cgroup memory usage vs cap using, for example, a script or an observability tool.
+  * Note that Committed\_AS and CommitLimit from `/proc/meminfo` are host‑wide values. Inside a container, they reflect the host, not the container’s cgroup budget.
+  * cgroup memory.current vs memory.max is the primary predictor for container OOM events; the host CommitLimit is an additional early‑warning signal.
+* Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
+
+{% code title="Simple example of an NSO debug-dump monitor inside a container" overflow="wrap" %}
+```bash
+#!/usr/bin/env bash
+# Simple NSO debug-dump monitor inside a container (vm.overcommit_memory=0 on host).
+# Triggers ncs --debug-dump when Committed_AS reaches 95% of CommitLimit
+# or when the container’s cgroup memory usage reaches 90% of its cap.
+
+THRESHOLD_PCT=95         # CommitLimit threshold (5% headroom).
+CGROUP_THRESHOLD_PCT=90  # Trigger when memory.current >= 90% of memory.max.
+POLL_INTERVAL=5          # Seconds between checks.
+PROCESS_CHECK_INTERVAL=30
+DUMP_COUNT=10
+DUMP_DELAY=10
+DUMP_PREFIX="dump"
+
+command -v ncs >/dev/null 2>&1 || { echo "ncs command not found in PATH."; exit 1; }
+
+find_nso_pid() {
+  pgrep -x ncs.smp | head -n1 || true
+}
+
+read_cgroup_mem_kb() {
+  # Outputs: current_kb max_kb (max_kb=0 if unlimited or not found)
+  if [ -r /sys/fs/cgroup/memory.current ]; then
+    local cur max
+    cur=$(cat /sys/fs/cgroup/memory.current 2>/dev/null)
+    max=$(cat /sys/fs/cgroup/memory.max 2>/dev/null)
+    [ "$max" = "max" ] && max=0
+    echo "$((cur/1024)) $((max/1024))"
+  else
+    echo "0 0"
+  fi
+}
+
+while true; do
+  pid="$(find_nso_pid)"
+  if [ -z "${pid:-}" ]; then
+    echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
+    sleep "$PROCESS_CHECK_INTERVAL"
+    continue
+  fi
+
+  committed="$(awk '/Committed_AS:/ {print $2}' /proc/meminfo)"
+  commit_limit="$(awk '/CommitLimit:/ {print $2}' /proc/meminfo)"
+  if [ -z "$committed" ] || [ -z "$commit_limit" ]; then
+    echo "Unable to read /proc/meminfo; retry in ${POLL_INTERVAL}s..."
+    sleep "$POLL_INTERVAL"
+    continue
+  fi
+
+  threshold=$(( commit_limit * THRESHOLD_PCT / 100 ))
+  read cg_current_kb cg_max_kb < <(read_cgroup_mem_kb)
+  cgroup_trigger=0
+  if [ "${cg_max_kb:-0}" -gt 0 ]; then
+    cgroup_pct=$(( cg_current_kb * 100 / cg_max_kb ))
+    [ "$cgroup_pct" -ge "$CGROUP_THRESHOLD_PCT" ] && cgroup_trigger=1
+    echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; cgroup=${cg_current_kb}kB/${cg_max_kb}kB (${cgroup_pct}%)."
+  else
+    echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; cgroup=unlimited."
+  fi
+
+  if [ "$committed" -ge "$threshold" ] || [ "$cgroup_trigger" -eq 1 ]; then
+    echo "Threshold crossed; collecting ${DUMP_COUNT} debug dumps..."
+    for i in $(seq 1 "$DUMP_COUNT"); do
+      file="${DUMP_PREFIX}.${i}.bin"
+      echo "Dump $i -> ${file}"
+      if ! ncs --debug-dump "$file"; then
+        echo "Debug dump $i failed."
+      fi
+      sleep "$DUMP_DELAY"
+    done
+    echo "All debug dumps completed; exiting."
+    exit 0
+  fi
+
+  sleep "$POLL_INTERVAL"
+done
+```
+{% endcode %}
 
 ### Startup Arguments
 
