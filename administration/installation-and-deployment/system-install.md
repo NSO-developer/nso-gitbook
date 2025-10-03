@@ -259,63 +259,226 @@ For an extensive guide to NSO deployment, refer to [Development to Production De
 
 <details>
 
-<summary>Disable Memory Overcommit</summary>
+<summary>Enable Strict Overcommit Accounting on the Host.</summary>
 
-By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO since the Linux Out Of Memory Killer, or OOM-killer, may terminate NSO without restarting it if the system is critically low on memory. Also, when the OOM-killer terminates NSO, no system dump file will be produced, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled.
+By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO because the Linux Out-Of-Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory. Also, when the OOM killer terminates NSO, no system dump file will be produced, and the debug information will be lost. Thus, it is strongly recommended to enable strict overcommit accounting.
 
-To achieve this with immediate effect, give the command:
+#### **Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
 
+The alternative—using heuristic overcommit mode (see below for best‑effort recommendations)—can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
+
+#### Recommended: Host Configured for Strict Overcommit
+
+* Set `vm.overcommit_memory=2` to enable strict overcommit accounting.
+* Set `vm.overcommit_ratio` so the CommitLimit is approximately equal to physical RAM, with a 5% headroom for the kernel to reduce the risk of system-wide OOM conditions. E.g., 95% of RAM when no swap is present (recommended), or subtract 5 percentage points from the calculated ratio that neutralizes swap. Increase the headroom if the host runs additional services.
+* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.&#x20;
+  * When vm.overcommit\_kbytes > 0, it sets a fixed CommitLimit in kB and ignores ratio and swap in the calculation. Note that HugeTLB is not subtracted when overcommit\_kbytes is used (it’s a fixed value).
+* Strongly discourage swap use at runtime by setting `vm.swappiness=1`.
+* If swap must remain enabled system-wide, prevent NSO from using swap by configuring its cgroup with `memory.swap.max=0` (cgroup v2).
+* If swap must be enabled for NSO use a fast disk, for example, an NVMe SSD.
+
+**Apply Immediately**
+
+{% code title="To apply strict overcommit accounting with immediate effect" %}
 ```bash
-# echo 2 > /proc/sys/vm/overcommit_memory
+echo 2 > /proc/sys/vm/overcommit_memory
 ```
+{% endcode %}
 
-When `overcommit_memory = 2`, the `/proc/sys/vm/overcommit_ratio` parameter defines the percent of the physical RAM + swap space used. The default is "50", or 50%. This setting will underutilize RAM usage if the system has more physical RAM than 50%.
+When `vm.overcommit_memory=2`, the overcommit\_ratio parameter defines the percentage of physical RAM that is available for commit.
 
-Setting the `overcommit_ratio` parameter to `100` will include any swap if present. On-disk memory (swap) gives the advantage of having more memory available in case an application needs more RAM than physically available momentarily. But it is usually slow, and thus best practice is to refrain from using the swap for NSO. To allocate physical RAM only, set the `overcommit_ratio` parameter to 100 \* ((RAM - swap space) / RAM).
+The Linux kernel computes the CommitLimit:
 
-If the system's physical RAM (MemTotal) is less than or equal to the swap space (SwapTotal), using the swap cannot be avoided and the `overcommit_ratio` should be set to `100`.
+CommitLimit = MemTotal × (overcommit\_ratio / 100) + SwapTotal − total\_huge\_TLB
 
-{% code title="Example 1: Physical RAM (MemTotal) > Swap Space (SwapTotal)" %}
+* MemTotal is the total amount of RAM on the system.
+* overcommit\_ratio is the value in `/proc/sys/vm/overcommit_ratio` .
+* SwapTotal is the amount of swap space. Can be 0.
+* total\_huge\_TLB is the amount of memory set aside for huge pages. Can be 0.
+
+The default overcommit\_ratio is 50%. On systems with more than 50% of RAM available, this default can underutilize physical memory.
+
+Do not set `vm.overcommit_ratio=100` as it includes all RAM plus all swap in the CommitLimit and leaves no headroom for the kernel. While swap increases the commit capacity, it is usually slow and should be avoided for NSO.
+
+**Compute overcommit\_ratio to Neutralize Swap**
+
+To allocate physical RAM only in commit accounting and keep a 5-10% headroom for the kernel:
+
+* Compute the base ratio: base\_ratio = 100 × (MemTotal − SwapTotal) / MemTotal.
+* Apply headroom: overcommit\_ratio = floor(base\_ratio) − 5.
+
+Notes:
+
+* overcommit\_ratio is an integer; round down for a bit of extra headroom.
+* Recompute the ratio if RAM or swap changes.
+* If SwapTotal ≥ MemTotal, swap cannot be neutralized via overcommit\_ratio, use overcommit\_kbytes; see Example 3.
+* If the computed value is very low, ensure it still fits your workload requirements.
+
+**Example 1: No Swap, 5% Headroom**
+
+{% code title="Check memory totals" %}
 ```bash
-# cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+MemTotal:    8039352 kB
+SwapTotal:         0 kB
+```
+{% endcode %}
+
+{% code title="Apply settings with immediate effect" %}
+```bash
+echo 2  > /proc/sys/vm/overcommit_memory
+echo 95 > /proc/sys/vm/overcommit_ratio
+echo 1  > /proc/sys/vm/swappiness
+```
+{% endcode %}
+
+Rationale: With no swap, set overcommit\_ratio=95 to allow \~95% of RAM for user-space commit, leaving \~5% headroom for the kernel.
+
+**Example 2: MemTotal > SwapTotal, Neutralize Swap with 5% Headroom**
+
+{% code title="Check memory totals" %}
+```bash
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
 MemTotal:    8039352 kB
 SwapTotal:   1048572 kB
 ```
 {% endcode %}
 
-Calculate the overcommit ratio:
+Calculate the ratio:
 
-```
-100 * ((8039352-1048572)/8039352) = ~86.9%
-```
+* base\_ratio= 100 × ((8039352 − 1048572) / 8039352) ≈ 86.9%.
+* Apply 5% headroom: overcommit\_ratio = floor(86.9) − 5 = 81.
 
-To set both overcommit parameters with immediate effect:
-
+{% code title="Apply" %}
 ```bash
-# echo 2 > /proc/sys/vm/overcommit_memory
-# echo 86.9 > /proc/sys/vm/overcommit_ratio
+echo 2  > /proc/sys/vm/overcommit_memory
+echo 81 > /proc/sys/vm/overcommit_ratio
+echo 1  > /proc/sys/vm/swappiness
 ```
+{% endcode %}
 
-{% code title="Example 2: Physical RAM (MemTotal) == Swap Space (SwapTotal)" %}
+This keeps the CommitLimit safely below physical RAM to provide kernel headroom and neutralizes swap’s contribution to CommitLimit and then applies 5% headroom toward the commit budget.
+
+**Example 3: SwapTotal ≥ MemTotal (Headroom via ratio not applicable, use overcommit\_kbytes)**
+
+{% code title="Check memory totals" %}
 ```bash
-# cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
 MemTotal:    16000000 kB
 SwapTotal:   16000000 kB
 ```
 {% endcode %}
 
-To set both overcommit parameters with immediate effect:
+Compute:
 
+* CommitLimit\_kB = floor(MemTotal × 0.95) = floor(16,000,000 × 0.95) = 15,200,000 kB.
+
+{% code title="Apply" %}
 ```bash
-# echo 2 > /proc/sys/vm/overcommit_memory
-# echo 100 > /proc/sys/vm/overcommit_ratio
+echo 2 > /proc/sys/vm/overcommit_memory
+echo 15200000 > /proc/sys/vm/overcommit_kbytes
+echo 1 > /proc/sys/vm/swappiness
 ```
+{% endcode %}
 
-To ensure the overcommit remains disabled after reboot, adjust the `overcommit_ratio` parameter to match your system memory and add the two lines to the `/etc/sysctl.conf` file. See the Linux [sysctl.conf(5)](https://man7.org/linux/man-pages/man5/sysctl.conf.5.html) manual page for details.
+Note that overcommit\_kbytes sets a fixed CommitLimit that ignores swap; recompute if RAM changes. Also note the HugeTLB subtraction does not apply when using overcommit\_kbytes (fixed commit budget).
 
-Refer to the Linux [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html) manual page for more details on the `overcommit_memory` and `overcommit_ratio` parameters.
+Refer to the Linux [proc\_sys\_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html) manual page for more details on the overcommit\_memory, overcommit\_ratio, and overcommit\_kbytes parameters.
 
-If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
+**Persist Across Reboots**
+
+To ensure the overcommit remains disabled after reboot, add the three lines below to `/etc/sysctl.conf` (or a file under `/etc/sysctl.d/`).
+
+{% code title="Add to /etc/sysctl.conf" %}
+```
+vm.overcommit_memory = 2
+vm.overcommit_ratio = <integer> # if not using overcommit_kbytes
+vm.overcommit_kbytes = <kbytes> # if using a fixed CommitLimit
+vm.swappiness = 1
+```
+{% endcode %}
+
+See the Linux [sysctl.conf(5)](https://man7.org/linux/man-pages/man5/sysctl.conf.5.html) manual page for details.
+
+**NSO Crash Dumps**
+
+If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory that the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
+
+#### **Alternative: Heuristic Overcommit Mode (vm.overcommit\_memory=0) With Committed\_AS Monitoring**
+
+As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` to allow overcommit of memory and monitor the total committed memory (Committed\_AS) versus CommitLimit using, for example, a best effort script or observability tool. When Committed\_AS crosses a threshold, for example, 90% of CommitLimit, proactively trigger a series of NSO debug dumps every few seconds via `ncs --debug-dump`. Optionally, a second critical threshold, for example, 95% of CommitLimit, proactively trigger NSO to produce a system dump and then exit gracefully.
+
+* This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before memory pressure becomes critical and the Linux OOM-killer kills NSO.
+* If swap is enabled, prefer vm.swappiness=1 and consider placing NSO in a cgroup with memory.swap.max=0 to avoid swap I/O for NSO. Requires Linux cgroup v2 and a service-managed cgroup (e.g., systemd) support.
+
+- Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
+- When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
+- If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
+- Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
+- See "NSO Crash Dumps" above for crash dump details.
+
+{% code title="Simple example script NSO debug-dump monitor" overflow="wrap" %}
+```bash
+#!/usr/bin/env bash
+# Simple NSO debug-dump monitor for heuristic overcommit mode (vm.overcommit_memory=0).
+# Triggers ncs --debug-dump when Committed_AS reaches 90% of CommitLimit.
+# Triggers NSO to produce a system dump before exiting using kill -USR1 <ncs.smp PID> when Committed_AS reaches 95% of CommitLimit
+
+THRESHOLD_PCT=90       # Trigger at 90% of CommitLimit (10% headroom).
+CRITICAL_PCT=95        # Trigger at 95% of CommitLimit (5% headroom).
+POLL_INTERVAL=5        # Seconds between checks.
+PROCESS_CHECK_INTERVAL=30
+DUMP_COUNT=10          # Number of dumps to collect.
+DUMP_DELAY=10          # Seconds between dumps.
+DUMP_PREFIX="dump"     # Files like dump.1.bin, dump.2.bin, ...
+
+command -v ncs >/dev/null 2>&1 || { echo "ncs command not found in PATH."; exit 1; }
+
+find_nso_pid() {
+  pgrep -x ncs.smp | head -n1 || true
+}
+
+while true; do
+  pid="$(find_nso_pid)"
+  if [ -z "${pid:-}" ]; then
+    echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
+    sleep "$PROCESS_CHECK_INTERVAL"
+    continue
+  fi
+
+  committed="$(awk '/Committed_AS:/ {print $2}' /proc/meminfo)"
+  commit_limit="$(awk '/CommitLimit:/ {print $2}' /proc/meminfo)"
+  if [ -z "$committed" ] || [ -z "$commit_limit" ]; then
+    echo "Unable to read /proc/meminfo; retry in ${POLL_INTERVAL}s..."
+    sleep "$POLL_INTERVAL"
+    continue
+  fi
+
+  threshold=$(( commit_limit * THRESHOLD_PCT / 100 ))
+  critical=$(( commit_limit * CRITICAL_PCT / 100 ))
+  echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; Critical=${critical}kB."
+  if [ "$committed" -ge "$critical" ]; then
+    echo "Critical threshold crossed; collect a system dump and stop NSO..."
+    kill -USR1 ${pid}
+    exit 0
+  elif [ "$committed" -ge "$threshold" ]; then
+    echo "Threshold crossed; collecting ${DUMP_COUNT} debug dumps..."
+    for i in $(seq 1 "$DUMP_COUNT"); do
+      file="${DUMP_PREFIX}.${i}.bin"
+      echo "Dump $i -> ${file}"
+      if ! ncs --debug-dump "$file"; then
+        echo "Debug dump $i failed."
+      fi
+      sleep "$DUMP_DELAY"
+    done
+    echo "All debug dumps completed; exiting."
+    exit 0
+  fi
+
+  sleep "$POLL_INTERVAL"
+done
+```
+{% endcode %}
 
 </details>
 
