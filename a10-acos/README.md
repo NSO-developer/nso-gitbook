@@ -910,12 +910,12 @@
 # 11. Aflex scripts
 -------------------
 
-In order to activate aflex scripts support, set the following ned-settings:
+In order to activate aflex scripts support, run the following command:
 
 ```
-admin@ncs(config-device-vThunder-10)# ned-settings a10-acos aflex-scripts-support enabled
+admin@ncs(config-config)# config-actions action { action-payload "running-config display aflex" }
 ```
-Note: after setting this ned-settings, it is mandatory to do a sync-from in order to pull aflex scripts.
+Note: after running this command, it is mandatory to do a sync-from, since the device will introduce the aflex section in the running-config
 
 Once the aflex is activated, aflex scripts can be managed.
 Note: since the device aflex scripts are multi-liners, the script payload needs to be properly escaped by replacing newlines - eg '\n' character with '\\n'. Also double quote - eg " needs to be escaped: '"' -> '\"'

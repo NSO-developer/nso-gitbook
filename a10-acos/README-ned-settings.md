@@ -54,6 +54,16 @@
   a10-acos device specific NED settings.
 
 
+    - a10-acos aflex-scripts-support <enum> (default disabled)
+
+      Enable this ned-settings in order to fetch and manage (create/update/delete) aFlex scripts. By
+      default, this feature is disabled.
+
+      enabled   - enabled.
+
+      disabled  - disabled.
+
+
     - a10-acos trans-id-method <enum> (default config-hash)
 
       Configure how the NED shall calculate the transaction id. Typically used after each commit and
