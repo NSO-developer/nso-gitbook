@@ -153,7 +153,7 @@ The parameters that are possible to specify for a report `run` action are:
 * `title`: The title in the resulting report.
 * `from`: The date and time from which the report should start the information gathering. If not set, the oldest available information is implied.
 * `to`: The date and time when the information gathering should stop. If not set, the current date and time are implied. If set, no new check-syncs of devices and/or services will be attempted.
-* `outformat`: One of the formats from `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will be formatted using the DocBook schema. The generated file can be [downloaded](compliance-reporting.md#downloading-compliance-reports) using standard CLI tools like `curl` or `wget` via the URL returned by NSO.
+* `outformat`: One of the formats from `xml`, `html`, `text`, or `sqlite`. If `xml` is specified, the report will be formatted using the DocBook schema. The generated file can be [downloaded](compliance-reporting.md#downloading-compliance-reports), for example, using standard CLI tools like `curl` or using Python requests via the URL returned by NSO.
 
 We will request a report run with a `title` and formatted as `text`.
 
@@ -332,7 +332,7 @@ Device ce3
 
 ### Downloading Compliance Reports
 
-NSO generates a report file and returns a `location` URL pointing to it after running a compliance report using the command `compliance reports <report-name> run outformat <format>` . This URL is a direct HTTP(S) link to the report, which can be downloaded using a standard tool like `curl` or using Python requests. With basic authentication, the tools authenticate with NSO using a username and password, and allow users to retrieve and save the report file locally for further processing, automation, or archiving. You must first establish a JSON-RPC session before downloading the report. If the connection is closed before requesting the file, as is typically done with `curl`, use the returned session cookie to download the report.
+NSO generates a report file and returns a `location` URL pointing to it after running a compliance report using the command `compliance reports <report-name> run outformat <format>` . This URL is a direct HTTP(S) link to the report, which can be downloaded, for example, using a standard tool like `curl` or using Python requests. With basic authentication, the tools authenticate with NSO using a username and password, and allow users to retrieve and save the report file locally for further processing, automation, or archiving. You must first establish a JSON-RPC session before downloading the report. If the connection is closed before requesting the file, as is typically done with `curl`, use the returned session cookie to download the report.
 
 The examples below clarify how to make requests.
 
@@ -346,7 +346,7 @@ The examples below clarify how to make requests.
 $ curl -X POST -H 'Content-Type: application/json' --cookie-jar cookie.txt -d '{"jsonrpc": "2.0", "id": 1, "method": "login", "params": {"user": "admin", "passwd": "admin"}}' http://localhost:8080/jsonrpc
 
 # 2. Use the cookie to identify the session and download the report
-$ curl --cookie cookies.txt --output report.txt "http://localhost:8080/compliance-reports/report_2025-10-09T13:48:32.663282+00:00.txt"
+$ curl --cookie cookie.txt --output report.txt "http://localhost:8080/compliance-reports/report_2025-10-09T13:48:32.663282+00:00.txt"
 ```
 {% endcode %}
 {% endtab %}
