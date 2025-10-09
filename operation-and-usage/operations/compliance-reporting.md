@@ -393,8 +393,6 @@ else:
     print(file_response.text)
 ```
 {% endcode %}
-
-Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
 {% endtab %}
 {% endtabs %}
 
