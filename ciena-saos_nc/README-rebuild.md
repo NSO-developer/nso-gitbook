@@ -6,7 +6,9 @@
     1.2 Using the built-in tool for YANG download
     1.3 Rebuild the NED with the downloaded YANG models
     1.4 Reload the NED package in NSO
-  2. Removing all downloaded YANG models
+  2. Cleaning and resetting the NED package
+    2.1 Removing all downloaded YANG models
+    2.2 Resetting NED package to its original initial state
   3. Using the built-in downloader tool for a custom download
     3.1 Creating a custom download
   4. Alternative download methods
@@ -62,16 +64,18 @@ This list of models will be the base used by the tool when downloading the model
 
 ### Simple Usage
 
-  The downloader tool is pre-configured with following profiles:
+  The downloader tool is pre-configured with set of profiles:
+
+  To check list of pre-configured profiles:
 
   ```
-  all-models-from-device : Download all YANG models with dependencies directly from the device.
+  # devices device dev-1 rpc rpc-list-profiles list-profiles
   ```
 
-  Do as follows in the NSO CLI to download the files using the 'all-models-from-device' profile:
+  Do as follows in the NSO CLI to download the YANG files using the specific profile:
 
   ```
-  # devices device dev-1 rpc rpc-get-modules get-modules profile all-models-from-device
+  # devices device dev-1 rpc rpc-get-modules get-modules profile <profile_name>
   ```
 
   or just:
@@ -79,6 +83,8 @@ This list of models will be the base used by the tool when downloading the model
   ```
   # devices device dev-1 rpc rpc-get-modules get-modules
   ```
+
+NOTE: If a built-in profile is selected and the user provides additional 'module-include-regex' and/or 'module-exclude-regex' via the command line, the tool will merge the profile's regex patterns with those specified on the command line.
 
 For more advanced options using the downloader tool, see chapter 3.
 
@@ -153,12 +159,12 @@ admin@ncs# packages reload force
 
 
 
-# 2. Removing all downloaded YANG models
+# 2. Cleaning and resetting the NED package
+
+
+## 2.1 Removing all downloaded YANG models
 
 If a new set of YANG models is going to be downloaded for an already installed and reloaded NED it is highly recommended to first remove all old device YANG models from the previous download.
-
-
-## 2.1 Clean the NED source directory
 
 Use the following make target to remove all previously downloaded YANG.
 
@@ -173,6 +179,25 @@ admin@ncs# devices device dev-1 rpc rpc-clean-package clean-package
 ```
 > cd $NED_ROOT_DIR/src
 > make distclean
+```
+
+
+## 2.2 Resetting NED package to its original initial state
+
+If you have rebuilt the NED with downloaded YANG files and a custom ned-id, the original default ned-id is no longer available. To reset the NED package to its original initial state, follow the steps below.
+
+### Reset using the built-in tool
+
+```
+admin@ncs# devices device dev-1 rpc rpc-clean-package clean-package (removes downloaded YANG files)
+admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package (without any additional arguments, this resets the ned-id to its original initial state)
+```
+
+### Reset using a separate shell
+
+```
+> cd $NED_ROOT_DIR/src
+> make distclean clean all
 ```
 
 
@@ -278,7 +303,7 @@ Rebuilding with a custom NED-ID can be done in the alternative ways:
    - NED_ID_MAJOR
    - NED_ID_MINOR
 
-The default NED-ID is: ciena-saos_nc-gen-1.0
+The default NED-ID is: ciena-saos_nc-gen-1.1
 
 
 ## 5.1 Rebuild with a custom NED-ID

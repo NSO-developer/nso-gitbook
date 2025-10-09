@@ -304,7 +304,7 @@ Rebuilding with a custom NED-ID can be done in the alternative ways:
    - NED_ID_MAJOR
    - NED_ID_MINOR
 
-The default NED-ID is: huawei-vrp_nc-gen-1.1
+The default NED-ID is: huawei-vrp_nc-gen-1.2
 
 
 ## 5.1 Rebuild with a custom NED-ID

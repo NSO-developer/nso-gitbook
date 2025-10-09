@@ -79,7 +79,7 @@
 * ciena-saos_nc
   * [README-ned-settings](ciena-saos_nc/README-ned-settings.md)
   * [README-rebuild](ciena-saos_nc/README-rebuild.md)
-  * [README v1.0.5 2025-08-11](ciena-saos_nc/README.md)
+  * [README v1.1 2025-10-08](ciena-saos_nc/README.md)
 
 * cisco-aireos
   * [README-ned-settings](cisco-aireos/README-ned-settings.md)
@@ -130,7 +130,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.0.3 2025-08-11](cisco-iosxr_nc/README.md)
+  * [README v1.1 2025-10-08](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v25.2.1 2025-06-30](cisco-iosxr_netconf/README.md)
@@ -230,7 +230,7 @@
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
   * [README-rebuild](huawei-vrp_nc/README-rebuild.md)
-  * [README v1.1.12 2025-09-05](huawei-vrp_nc/README.md)
+  * [README v1.2 2025-10-08](huawei-vrp_nc/README.md)
 
 * infoblox-nios
   * [README-ned-settings](infoblox-nios/README-ned-settings.md)

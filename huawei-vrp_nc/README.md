@@ -31,6 +31,7 @@
      5.17. rpc show-default-local-dir
      5.18. rpc show-loaded-schema
      5.19. rpc verify-get-config
+     5.20. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -891,6 +892,16 @@ admin@ncs(config)# commit
 
         OR:
 
+          - filter trim-schema all-with-status <enum>
+
+            Trim all nodes in the schema annotated with matching 'status' statements.
+
+            deprecated  - Means node is still supported, but usage no longer recommended.
+
+            obsolete    - Means node is not supported anymore, and should not be used.
+
+        OR:
+
           - filter trim-schema nodes-from-file <string> (default /tmp/nedcom-trim-schema-nodes.txt)
 
             Specify a path to a custom file to be used for trimming nodes. The file shall contain
@@ -990,10 +1001,26 @@ admin@ncs(config)# commit
 
         unused  - Display only the config nodes that are not in use.
 
+        rpcs    - Display the rpc nodes defined in the schema.
+
+
+      - with-status <enum>
+
+        Only select nodes annotated with matching 'status' statements.
+
+        deprecated  - Means node is still supported, but usage no longer recommended.
+
+        obsolete    - Means node is not supported anymore, and should not be used.
+
 
       - count <empty>
 
         Count the nodes and return the sum instead of the full list of nodes.
+
+
+      - details <empty>
+
+        Display schema details like must/when expression, leafrefs and leafref targets.
 
 
       - root-paths <string>
@@ -1002,15 +1029,50 @@ admin@ncs(config)# commit
         starting any of the specified roots will then be processed.
 
 
-      - details <empty>
-
-        Display schema details like must/when expression, leafrefs and leafref targets.
-
-
       - config <true|false> (default true)
 
         Set to false to display non config nodes in the schema. Note: scope will in this case be
         'all'.
+
+
+      - output file <string>
+
+
+      - developer generate-schypp-pragmas pragma <enum> (default remove)
+
+        Set pragma type.
+
+        remove   - remove.
+
+        replace  - replace.
+
+
+      - developer generate-schypp-pragmas statement <enum>
+
+        Set the yang statement for the pragma.
+
+        must    - must.
+
+        when    - when.
+
+        unique  - unique.
+
+        type    - type.
+
+
+      - developer generate-schypp-pragmas pattern <string>
+
+        Configure the pattern to search for matching statements. Use ".*" to match any string.
+
+
+      - developer generate-schypp-pragmas replace-with <string>
+
+        For replace pragmas, set replacement for statements matching the pattern.
+
+
+      - developer generate-schypp-pragmas add-comment <empty>
+
+        Prepend extra comment containing info about the statement.
 
 
   ## 5.19. rpc verify-get-config
@@ -1049,6 +1111,25 @@ admin@ncs(config)# commit
       - verbose <empty>
 
         Show verbose output, like 'sync-from verbose'.
+
+
+  ## 5.20. rpc xpath-trace-analyzer
+  ---------------------------------
+
+    A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
+    expressions in third-party YANG files that may negatively impact NSO performance.
+
+      Input arguments:
+
+      - file <string> (default logs/xpath.trace)
+
+        Path to the NSO xpath trace file to use. The xpath trace file used by the current NSO will be
+        used by default.
+
+
+      - number-of-entries <uint8> (default 10)
+
+        Set the number of entries to display in the generated top list.
 
 
 # 6. Built in live-status show
