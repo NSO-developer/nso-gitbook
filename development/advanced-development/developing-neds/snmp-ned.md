@@ -280,7 +280,7 @@ Commit complete.
 ```
 
 ```cli
-admin@ncs(config)# top rollback configuration
+admin@ncs(config)# top rollback-files apply-rollback-file id 0
 ```
 
 ```cli
