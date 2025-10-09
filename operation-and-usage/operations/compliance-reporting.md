@@ -332,61 +332,67 @@ Device ce3
 
 ### Downloading Compliance Reports <a href="#downloading-compliance-reports" id="downloading-compliance-reports"></a>
 
-NSO generates a report file and returns a `location` URL pointing to it after running a compliance report using the command `compliance reports <report-name> run outformat <format>` . This URL is a direct HTTP(S) link to the report, which can be downloaded using a standard tool like `curl` or `wget`. With basic authentication, the tools authenticate with NSO using a username and password, and allow users to retrieve and save the report file locally for further processing, automation, or archiving. If session-based authentication is enforced (in `ncs.conf`), you must first establish a session and use the returned session cookie to download the report, instead of sending credentials with each request.
+NSO generates a report file and returns a `location` URL pointing to it after running a compliance report using the command `compliance reports <report-name> run outformat <format>` . This URL is a direct HTTP(S) link to the report, which can be downloaded using a standard tool like `curl` or using Python requests. With basic authentication, the tools authenticate with NSO using a username and password, and allow users to retrieve and save the report file locally for further processing, automation, or archiving. You must first establish a JSON-RPC session before downloading the report. If the connection is closed before requesting the file, as is typically done with `curl`, use the returned session cookie to download the report.
 
 The examples below clarify how to make requests.
 
 {% tabs %}
 {% tab title="curl" %}
-**Basic Authentication**
+**Session-based authentication using the provided cookie to identify the session**
 
-{% code title="Example" overflow="wrap" %}
-```bash
-$ curl -u admin:your_password "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -o report.<format>
-```
-{% endcode %}
-
-Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
-
-**Session-based Authentication**
-
-{% code title="Example" overflow="wrap" %}
+{% code title="Example" overflow="wrap" fullWidth="false" %}
 ```bash
 # 1. Start a session and save the cookie
-$ curl --cookie-jar cookies.txt -u admin:your_password "http://<nso-host>:<port>/api"
+$ curl -X POST -H 'Content-Type: application/json' --cookie-jar cookie.txt -d '{"jsonrpc": "2.0", "id": 1, "method": "login", "params": {"user": "admin", "passwd": "admin"}}' http://localhost:8080/jsonrpc
 
-# 2. Use the session cookie to download the report
-$ curl --cookie cookies.txt --cookie-jar cookies.txt "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -o report.<format>
+# 2. Use the cookie to identify the session and download the report
+$ curl --cookie cookies.txt --output report.txt "http://localhost:8080/compliance-reports/report_2025-10-09T13:48:32.663282+00:00.txt"
 ```
 {% endcode %}
-
-Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
 {% endtab %}
 
-{% tab title="wget" %}
-**Basic Authentication**
+{% tab title="Python requests" %}
+**Session-based authentication**
 
 {% code title="Example" overflow="wrap" %}
-```bash
-$ wget --user=admin --password=your_password "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -O report.<format>
+```python
+import requests
+
+url = "http://localhost:8080/jsonrpc"
+
+# 1. Start a session
+session = requests.Session()
+headers = {
+    "Content-Type": "application/json"
+}
+data = {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "login",
+    "params": {
+        "user": "admin",
+        "passwd": "admin"
+    }
+}
+
+response = session.post(url, json=data, headers=headers,verify=False)
+print("Status code:", response.status_code)
+print("Response:", response.text)
+file_url = "http://localhost:8080/compliance-reports/report_2025-10-09T13:48:32.663282+00:00.txt"
+filename = file_url.split("/")[-1]
+
+# 2. Use the session to download the report
+file_response = session.get(file_url, stream=True)
+
+if file_response.status_code == 200:
+    with open("report.txt", "wb") as f:
+        for chunk in file_response.iter_content(chunk_size=8192):
+            if chunk:
+                f.write(chunk)
+else:
+    print(file_response.text)
 ```
 {% endcode %}
-
-Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
-
-**Session-based Authentication**
-
-{% code title="Example" overflow="wrap" %}
-```bash
-# 1. Start a session and save cookies
-$ curl --cookie-jar cookies.txt -u admin:your_password "http://<nso-host>:<port>/api"
-
-# 2. Use wget with the saved cookie
-$ wget --load-cookies cookies.txt --save-cookies cookies.txt "http://<nso-host>:<port>/compliance-reports/<report>.<format>" -O report.<format>
-```
-{% endcode %}
-
-Where `<format>` can be one of the following: `html`, `xml`, `text`, or `sqlite`.
 {% endtab %}
 {% endtabs %}
 
