@@ -987,7 +987,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 <summary><mark style="color:green;"><code>show_config</code></mark></summary>
 
-`show_config` - Retrieves configuration and operational data from the provided transaction.
+`show_config` - Retrieves configuration and operational data from the provided transaction. Output can be returned in several formats (CLI, CLI-C, XML, or JSON variants), with optional pagination and filtering to control the breadth and volume of returned data.
 
 **Params**
 
@@ -1008,10 +1008,30 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 ```
 
 ```json
-{"max_size": <"integer", default: 0>}
+{"max_size": <integer, default: 0>}
 ```
 
-The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format; `cli` for CLI curly bracket format, `cli-c` for Cisco CLI style format, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit. The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`.
+```
+{"depth": <integer, default: unbounded>}
+```
+
+```
+{"include": <string, default: undefined>}
+```
+
+```
+{"exclude": <string, default: undefined>}
+```
+
+```
+{"offset": <integer, default -1>}
+```
+
+```
+{"limit": <integer, default: -1>}
+```
+
+The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format; `cli` for CLI curly bracket format, `cli-c` for Cisco CLI style format, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit. The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`. `depth` limits the depth (levels) of the returned subtree below the target `path`. `include` retrieves a subset of nodes below the target `path`, similar to the [RESTCONF fields query parameter](../../core-concepts/northbound-apis/restconf-api.md#d5e1600). `exclude` excludes a subset of nodes below the target `path`, similar to the [RESTCONF exclude query parameter.](../../core-concepts/northbound-apis/restconf-api.md#the-exclude-query-parameter) `offset` controls the number of list elements to skip before returning the requested set of entries. `limit` controls the of list entries to retrieve.&#x20;
 
 **Result**
 
@@ -1021,7 +1041,7 @@ The `result_as` param when set to `cli`, `cli-c`, or `xml` :
 {"config": <string>}
 ```
 
-The `result_as`  param when set to `json` or `json2`:
+The `result_as` param when set to `json` or `json2`:
 
 ```json
 {"data": <json>}
