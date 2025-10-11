@@ -444,7 +444,21 @@ The nodes which currently has the transaction hook attached by default:
       unit/vlan-id-list
 
 
-# 9. Migrating from juniper-junos to the juniper-junos_nc generic NED
+# 9. Forcing rpc-get-interface-information 'alarm-not-present' leaf to have a value
+------------------------------------------------------------------------------------
+Path: /get-interface-information/interface-information/physical-interface/active-alarms/interface-alarms/alarm-not-present
+
+Some Junos OS devices have the alarm-not-present leaf as empty, while others have the alarm-not-present
+leaf with the value none. By default, the `alarm-not-present` leaf type is empty. To force this leaf to have
+a value, set the compile-time option `FORCE_ALARM_NOT_PRESENT_WITH_VALUE` to `True` when building:
+
+
+  ```
+  make FORCE_ALARM_NOT_PRESENT_WITH_VALUE=True clean all
+  ```
+
+
+# 10. Migrating from juniper-junos to the juniper-junos_nc generic NED
 ---------------------------------------------------------------------
 
 NSO has supported Junos devices from early on. The legacy juniper-junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.

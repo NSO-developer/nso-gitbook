@@ -484,7 +484,7 @@ admin@ncs(config)# commit
 
      For instance, create a second Loopback interface that is down:
 
-     admin@ncs(config)# devices device xrdev config
+     admin@ncs(config)# devices device dev-1 config
      admin@ncs(config-config)# interface Loopback 1
      admin@ncs(config-if)# ip address 128.0.0.1 255.0.0.0
      admin@ncs(config-if)# shutdown
@@ -492,7 +492,7 @@ admin@ncs(config)# commit
      See what you are about to commit:
 
      admin@ncs(config-if)# commit dry-run outformat native
-     device xrdev
+     device dev-1
        interface Loopback1
         ip address 128.0.0.1 255.0.0.0
         shutdown
@@ -505,12 +505,12 @@ admin@ncs(config)# commit
 
      Verify that NCS is in-sync with the device:
 
-      admin@ncs(config-if)# devices device xrdev check-sync
+      admin@ncs(config-if)# devices device dev-1 check-sync
       result in-sync
 
      Compare configuration between device and NCS:
 
-      admin@ncs(config-if)# devices device xrdev compare-config
+      admin@ncs(config-if)# devices device dev-1 compare-config
       admin@ncs(config-if)#
 
      Note: if no diff is shown, supported config is the same in
@@ -523,9 +523,9 @@ admin@ncs(config)# commit
      The NED has support for all exec commands in config mode. They can
      be accessed using the 'exec' prefix. For example:
 
-      admin@ncs(config)# devices device asr9k-2 config exec "default int TenGigE0/0/0/9"
+      admin@ncs(config)# devices device dev-1 config exec "default int TenGigE0/0/0/9"
       result
-      RP/0/RSP0/CPU0:asr9k-2(config)#
+      RP/0/RSP0/CPU0:dev-1(config)#
       admin@ncs(config)#
 
      The NED also has support for all operational Cisco IOS XR commands
@@ -534,20 +534,20 @@ admin@ncs(config)# commit
 
      For example:
 
-     admin@ncs# devices device asr9k-2 live-status exec any "show run int TenGigE0/0/0/9"
+     admin@ncs# devices device dev-1 live-status exec any "show run int TenGigE0/0/0/9"
      result
      Thu Sep  6 09:13:34.638 UTC
      interface TenGigE0/0/0/9
       shutdown
      !
-     RP/0/RSP0/CPU0:asr9k-2#
+     RP/0/RSP0/CPU0:dev-1#
      admin@ncs#
 
      To execute multiple commands, separate them with " ; "
      NOTE: Must be a white space on either side of the comma.
      For example:
 
-     admin@ncs# devices device asr9k-2 live-status exec any "show run int TenGigE0/0/0/8 ; show run int TenGigE0/0/0/9"
+     admin@ncs# devices device dev-1 live-status exec any "show run int TenGigE0/0/0/8 ; show run int TenGigE0/0/0/9"
      result
      > show run int TenGigE0/0/0/8
      Thu Sep  6 09:20:16.919 UTC
@@ -555,14 +555,14 @@ admin@ncs(config)# commit
       shutdown
      !
 
-     RP/0/RSP0/CPU0:asr9k-2#
+     RP/0/RSP0/CPU0:dev-1#
      > show run int TenGigE0/0/0/9
      Thu Sep  6 09:20:17.311 UTC
      interface TenGigE0/0/0/9
       shutdown
      !
 
-     RP/0/RSP0/CPU0:asr9k-2#
+     RP/0/RSP0/CPU0:dev-1#
      admin@ncs#
 
      NOTE: To Send CTRL-C send "CTRL-C" or "CTRL-C async" to avoid
@@ -650,7 +650,7 @@ admin@ncs(config)# commit
 
      For example:
 
-     devices device asr9k-2 live-status exec any "reload | prompts no yes"
+     devices device dev-1 live-status exec any "reload | prompts no yes"
 
      The following output of the device triggers the NED to look for the
      answer in | prompts arguments:
@@ -681,13 +681,68 @@ admin@ncs(config)# commit
        return, set "NO" as the answer instead.
 
 
+    There are a number of internal live-status command which may be of
+    use when debugging/developing or performing special operations. An
+    internal live-status command is executed in ncs_cli like this:
+
+      admin@ncs# devices device dev-1 live-status exec any <internal command>
+
+    The following internal live-status commands are available:
+
+    sync-from-file <file>
+
+      Next sync-from will load the config from the file specified by
+      <file> as if the config was synced from a real device. This can
+      be useful to test what config is supported if you get output from
+      show running-config from e.g. a raw trace.
+      Example:
+       admin@ncs# devices device netsim-0 live-status exec any sync-from-file /tmp/config.txt
+       result
+       Next sync-from will use file = /tmp/config.txt
+       admin@ncs# devices device netsim-0 sync-from
+      Note: Always used a NETSIM device with this setting.
+
+
+    check-config-trace <trace>
+
+      Check config from first show run in trace, listing all unknown configuration.
+
+
+    check-config-dir <path>
+
+      Check all cisco-ios trace files for unknown configuration in a directory.
+
+
+    show outformat raw
+
+      Will show the next 'commit dry-run outformat native' unmodified,
+      i.e. with no NED transformations done.
+
+
+    show ned-settings
+
+      Will show all ned-settings for this device
+
+
+    start-onie
+
+      Reboot from XR to ONIE OS, if available
+
+
+    stop-onie
+
+      Reboot from ONIE mode to XR by sending "reboot" command and waiting for XR
+      boot. Note, you may have to reconnect or run a command twice directly after
+      reboot to XR only due to some daemons starting after login process.
+
+
 # 6. Built in live-status show
 ------------------------------
 
   The cisco-iosxr NED supports the following live-status 'show' TTL-based commands:
 
   ```
-  admin@ncs# show devices device asr9k-4 live-status
+  admin@ncs# show devices device dev-1 live-status
   Possible completions:
     cdp                show cdp
     controllers        Interface controller status and configuration
@@ -1076,24 +1131,24 @@ admin@ncs(config)# commit
 
    Step 1: Configure route-policy on device
 
-   RP/0/RSP0/CPU0:asr9k-1(config)#route-policy no-redes-tiws-ipv6
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl)# # description Redes asignables
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl)# if destination in sti-redes-asignables-ipv6 then
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl-if)# pass
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl-if)# # description Redes de tiws
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl-if)# elseif destination in sti-redes-tiws-ipv6 then
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl-elseif)# drop
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl-elseif)# endif
-   RP/0/RSP0/CPU0:asr9k-1(config-rpl)#end-policy
-   RP/0/RSP0/CPU0:asr9k-1(config)#commit
+   RP/0/RSP0/CPU0:dev-1(config)#route-policy no-redes-tiws-ipv6
+   RP/0/RSP0/CPU0:dev-1(config-rpl)# # description Redes asignables
+   RP/0/RSP0/CPU0:dev-1(config-rpl)# if destination in sti-redes-asignables-ipv6 then
+   RP/0/RSP0/CPU0:dev-1(config-rpl-if)# pass
+   RP/0/RSP0/CPU0:dev-1(config-rpl-if)# # description Redes de tiws
+   RP/0/RSP0/CPU0:dev-1(config-rpl-if)# elseif destination in sti-redes-tiws-ipv6 then
+   RP/0/RSP0/CPU0:dev-1(config-rpl-elseif)# drop
+   RP/0/RSP0/CPU0:dev-1(config-rpl-elseif)# endif
+   RP/0/RSP0/CPU0:dev-1(config-rpl)#end-policy
+   RP/0/RSP0/CPU0:dev-1(config)#commit
 
    Step 2: Sync-from to NSO and show how it looks:
 
-   admin@ncs# devices device asr9k-1 sync-from
+   admin@ncs# devices device dev-1 sync-from
    result true
 
-   admin@ncs# show running-config devices device asr9k-1 config route-policy no-redes-tiws-ipv6
-   devices device asr9k-1
+   admin@ncs# show running-config devices device dev-1 config route-policy no-redes-tiws-ipv6
+   devices device dev-1
     config
      route-policy no-redes-tiws-ipv6
        "  # description Redes asignables\r\n  if destination in sti-redes-asignables-ipv6 then\r\n    pass\r\n    # description Redes de tiws\r\n  elseif destination in sti-redes-tiws-ipv6 then\r\n    drop\r\n  endif\r\n"
@@ -1141,14 +1196,14 @@ admin@ncs(config)# commit
 
    Step 4: Test your NSO config by deleting the route-policy on the device:
 
-   RP/0/RSP0/CPU0:asr9k-1(config)#no route-policy no-redes-tiws-ipv6
-   RP/0/RSP0/CPU0:asr9k-1(config)#commit
+   RP/0/RSP0/CPU0:dev-1(config)#no route-policy no-redes-tiws-ipv6
+   RP/0/RSP0/CPU0:dev-1(config)#commit
 
    Step 5: Test the NSO config by sync-to device, restoring route-policy:
 
    admin@ncs# config
    Entering configuration mode terminal
-   admin@ncs(config)# devices device asr9k-1 sync-to dry-run
+   admin@ncs(config)# devices device dev-1 sync-to dry-run
    data
       route-policy no-redes-tiws-ipv6
         # description Redes asignables
@@ -1163,9 +1218,9 @@ admin@ncs(config)# commit
    Note how NSO unpacks the single string to multiple lines, with the
    exact same whitespacing as the device had it. Now let's commit:
 
-   admin@ncs(config)# devices device asr9k-1 sync-to
+   admin@ncs(config)# devices device dev-1 sync-to
    result true
-   admin@ncs(config)# devices device asr9k-1 compare-config
+   admin@ncs(config)# devices device dev-1 compare-config
    admin@ncs(config)#
 
    CAUTION: The number one issue with this config is if white spacing
