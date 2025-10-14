@@ -337,9 +337,7 @@ Known limits:
 
 ### Commands
 
-<details>
-
-<summary><mark style="color:green;"><code>get_cmds</code></mark></summary>
+<mark style="color:green;"><code>get_cmds</code></mark>
 
 Get a list of the session's batch commands.
 
@@ -362,8 +360,6 @@ cmd =
   "started": <boolean>,
   "stopped": <boolean; should be always false>}
 ```
-
-</details>
 
 <details>
 
