@@ -396,3 +396,91 @@ Another way of telling NSO to start a specific Python executable is to configure
 ### Updating the Default Start Command (not recommended) <a href="#d5e1739" id="d5e1739"></a>
 
 Changing the last line of `$NCS_DIR/bin/ncs-start-python-vm` is of course an option but altering any of the installation files of NSO is discouraged.
+
+## Handling Python Dependencies in NSO Packages
+
+### Recommended: Add Dependencies to the `python` Directory
+
+Python package dependencies can be installed in the `packages/<my-package>/python/` directory and loaded when the NSO Python VM is started for the package.
+
+{% code title="Quick Start (Example)" overflow="wrap" %}
+```
+pip install --target packages/<my-package>/python/ -r packages/<my-package>/python/requirements.txt
+```
+{% endcode %}
+
+#### Benefits
+
+Installing the NSO package Python dependencies in the package `python` directory provides several advantages:
+
+* Dependency isolation: Prevents Python package version conflicts between different NSO packages.
+* Portability: Improves reproducibility across environments.
+* System cleanliness: Keeps the host’s Python installation unmodified.
+* High Availability: In NSO HA setups, the `packages ha sync action` can copy the self-contained packages, including their Python dependencies, across the cluster.
+
+{% hint style="warning" %}
+The Python dependencies must be installed using the same Python version, Python package version, and Linux distribution version as used by the test and production environment where the package runs.
+{% endhint %}
+
+#### Best Practices
+
+* Include a `requirements.txt` to document Python dependencies.
+* Place the `requirements.txt` file inside the NSO package to make it self-contained.
+
+### Alternative: NSO Python VM in a Virtual Environment
+
+NSO Python VM instances can run in isolated Python virtual environments using Python’s built-in `venv` module. This allows packages to manage their own Python dependencies without conflicts.
+
+#### How It Works
+
+To enable Python virtual environment support for an NSO package:
+
+1. Create a `use_venv` file in the `packages/<my-package>/python/` directory.
+2. Add the path to your Python virtual environment in this file.
+3. The `$NCS_DIR/bin/ncs-start-python-vm` script will automatically activate the specified virtual environment when starting the Python VM for that package.
+
+{% code title="Example Structure" %}
+```none
+packages/
+└── my-package/
+    └── python/
+        ├── use_venv          # Contains: path/to/my/venv
+        └── my_program.py
+```
+{% endcode %}
+
+{% code title="Quick Start (Example)" overflow="wrap" %}
+```bash
+cd $NCS_RUN_DIR  # Or to the project run-time directory
+python3 -m venv ./pyvenv
+./pyvenv/bin/pip install -r packages/<my-package>/python/requirements.txt
+echo "./pyvenv" > packages/<my-package>/python/use_venv
+```
+{% endcode %}
+
+#### Packages Sharing Python VM Instance
+
+When multiple packages share the same `vm-name` (i.e., Python VM instance) but specify different Python virtual environments, NSO will log an informational message in the developer log. The first Python virtual environment encountered will be used for all packages sharing that `vm-name`. Use unique `vm-name` values for packages requiring different Python virtual environments.
+
+#### Benefits
+
+Using virtual environments with NSO Python packages provides several advantages:
+
+* Dependency isolation: Prevents Python package version conflicts between different NSO packages.
+* Portability: Improves reproducibility across environments.
+* System cleanliness: Keeps the host’s Python installation unmodified.
+* Version flexibility: Enables testing and deployment with different Python versions.
+* Reproducible builds: Ensures consistent dependency versions across development and production environments.
+
+#### Best Practices
+
+* Use paths from the NSO run-time directory to where the Python virtual environment is located.&#x20;
+* Include a `requirements.txt` to document Python dependencies.
+* Use unique `vm-name` values when packages require different Python virtual environments.
+* Ensure the NSO user has read/execute permissions on the venv path.
+* Ensure all nodes in a high availability setup has the same copy of the Python virtual environment.
+* Check the Python VM log, `ncs-python-vm.log`, for activation messages to verify the Python virtual environment used by the NSO package.&#x20;
+
+{% hint style="info" %}
+The [examples.ncs/misc/py-venv-package](https://github.com/NSO-developer/nso-examples/tree/main/misc/py-venv-package) example demonstrates how to either install Python package dependencies in the NSO package `python` directory, or as an alternative, use a Python virtual environment to manage dependencies that automatically activates when the Python VM for a package starts.
+{% endhint %}
