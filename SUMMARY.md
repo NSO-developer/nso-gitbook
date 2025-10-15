@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.24.4 2025-10-06](a10-acos/README.md)
+  * [README v3.25 2025-10-14](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.29.3 2025-09-26](cisco-nx/README.md)
+  * [README v5.30 2025-10-14](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -225,7 +225,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.79 2025-10-01](huawei-vrp/README.md)
+  * [README v6.79.1 2025-10-14](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -346,6 +346,10 @@
 * vecima-eac
   * [README-ned-settings](vecima-eac/README-ned-settings.md)
   * [README v1.0.2 2025-01-07](vecima-eac/README.md)
+
+* vecima-rpd
+  * [README-ned-settings](vecima-rpd/README-ned-settings.md)
+  * [README v1.0.2 2025-10-14](vecima-rpd/README.md)
 
 * viptela-vmanage
   * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
