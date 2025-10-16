@@ -20,11 +20,11 @@ You can search for a device by its name, IP address, or other parameters. Narrow
 
 To add a new device to NSO:
 
-1. Click the **Add device** button.
-2. In the **Add device** pop-up, specify the device name.
-3. Click **Add**.
-4. Configure the specifics of the device in the **Configuration editor**.
-5. Review and commit the changes in the **Commit manager** when done.
+1. Click the **Add device** button. You will be redirected to the **Configuration editor**.
+2. Click the **Add list item** button.
+3. Enter the name of the device.
+4. Click the device name in the list to configure the device further.
+5. Review and commit the changes in the **Commit manager**.
 
 ### **Apply an Action on a Device**
 
