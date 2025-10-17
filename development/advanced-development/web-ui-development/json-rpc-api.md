@@ -2246,7 +2246,7 @@ When receiving a message:
 
 ```json
 {"th": <integer>,
- "path": <string, optional>
+ "path": <string, optional>}
 ```
 
 A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module.
@@ -2255,6 +2255,32 @@ A `path` is a tagpath/keypath pointing into a specific sub-tree of a YANG module
 
 ```json
 {"description": <string>}
+```
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_deps</code></mark></summary>
+
+`get_deps` - Retrieve all dependency instances for a specific node instance. There are four sources of dependencies: `must`, `when`, `tailf:display-when` statements, and the `path` statement of a leafref. Each dependency type will be returned separately in its corresponding field: `must`, `when`, `display_when`, and `ref_node`.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string>}
+```
+
+The `path` param is a keypath pointing to an existing node.
+
+**Result**
+
+```json
+{"must": <array of string>,
+ "when": <array of string>,
+ "display_when": <array of string>,
+ "ref_node": <array of string>}
 ```
 
 </details>
@@ -2499,7 +2525,7 @@ curl \
 
 ```json
 {"th": <integer>,
- "group_name": <string>
+ "group_name": <string>}
 ```
 
 The `group_name` param is as defined by a `hidden` statement in a YANG module.
