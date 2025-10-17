@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view includes utilities that you can use to run specific tasks on your deployment.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Tools View</p></figcaption></figure>
+<figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
 
 The following tools are available:
 
@@ -31,7 +31,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
-<figure><img src="../../images/packages (1).png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
+<figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
 
 ### Add a Package
 
@@ -111,7 +111,7 @@ Perform the handover as follows:
 
 #### Actions on a Node
 
-Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="broken-reference" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.&#x20;
+Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.&#x20;
 
 #### Logs and Certificates
 
@@ -229,7 +229,7 @@ The following tabs are available in this view:
 
 The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
+<figure><img src="../../images/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
 
 #### **Create a Compliance Report**
 
@@ -276,7 +276,7 @@ To run a compliance report:
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Reports Results View</p></figcaption></figure>
+<figure><img src="../../images/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure>
 
 #### View Compliance Report Results
 
@@ -295,7 +295,7 @@ Use the **Export to file** button to export the report results to a downloadable
 
 The **Compliance Templates** tab is used to create new compliance templates and manage existing ones.
 
-<figure><img src="../../images/compliance-templates.png" alt=""><figcaption><p>Compliance Reporting View</p></figcaption></figure>
+<figure><img src="../../images/compliance-templates.png" alt=""><figcaption><p>Compliance Templates View</p></figcaption></figure>
 
 There are two ways to create a compliance template:
 
