@@ -615,31 +615,6 @@ For small NSO systems, the schema will usually consume more resources than the i
 NEDs with a large schema and many YANG models often include a significant number of YANG models that are unused. If RAM usage is an issue, consider removing unused YANG models from such NEDs.
 {% endhint %}
 
-#### Total Committed Memory Impact with Multiple Python VMs
-
-Note that the schema is memory-mapped into shared memory, so even though multiple Python VMs might be started, resident memory usage will not increase proportionally, as the schema is shared between different clients. However, total committed memory (`Committed_AS`) will increase and may cause issues if the `schema size * number of Python VMs` is significant enough that `CommitLimit` is reached.
-
-If increasing the available RAM is not an option, a workaround can be to have all, or a selected subset, of Python-based packages share a `vm-name` and run in the same Python VM thread.
-
-#### Sharing a Python VM Across Packages
-
-To share a Python VM, set the same `vm-name` in each package’s `package-meta-data.xml` file:
-
-{% code title="package-meta-data.xml vm-name config example" overflow="wrap" %}
-```xml
-<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
-  ...
-  <python-package>
-    <vm-name>shared</vm-name>
-    <callpoint-model>threading</callpoint-model>
-  </python-package>
-  ...
-</ncs-package>
-```
-{% endcode %}
-
-See [The package-meta-data.xml File](../core-concepts/packages.md#d5e4962) for more details. See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605) for `Committed_AS` and `CommitLimit` details.
-
 #### Note on the Java VM
 
 The Java VM uses its own copy of the schema, which is also why the JVM memory consumption follows the size of the loaded YANG schema.
