@@ -31,13 +31,13 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
-<figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
+<figure><img src="../../images/packages (1).png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
 
 ### Add a Package
 
-Adding a new package via the Web UI entails uploading the package and then installing it. You can add multiple packages at once.&#x20;
+Adding a new package via the Web UI entails uploading the package and then installing it. You can add multiple packages at once.
 
-A package can be in one of the following states:&#x20;
+A package can be in one of the following states:
 
 * **Up**: Package is installed and operational.
 * **Not installed**: The package is uploaded but not installed.
@@ -83,19 +83,19 @@ The **High Availability** view is used to visualize your HA setup ([Rule-based](
 
 ### Rule-based HA
 
-The Rule-based HA view displays the general information and operational status of your cluster. Actions on the Rule-based cluster can be performed using the **Configuration editor** -> **Actions** tab.&#x20;
+The Rule-based HA view displays the general information and operational status of your cluster. Actions on the Rule-based cluster can be performed using the **Configuration editor** -> **Actions** tab.
 
-Available Rule-based HA actions are described further under [Actions](../../administration/management/high-availability.md#d5e5031). Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).&#x20;
+Available Rule-based HA actions are described further under [Actions](../../administration/management/high-availability.md#d5e5031). Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).
 
-An example cluster of a Rule-based HA setup is shown below.&#x20;
+An example cluster of a Rule-based HA setup is shown below.
 
 <figure><img src="../../images/ha-rule.png" alt=""><figcaption><p>High Availability View (Rule-based)</p></figcaption></figure>
 
 ### Raft HA
 
-The Raft HA view displays overview of your cluster and provides options to manage them.&#x20;
+The Raft HA view displays overview of your cluster and provides options to manage them.
 
-Available Raft HA actions are described further under [Actions](../../administration/management/high-availability.md#ch_ha.raft_actions), and can be run directly in the Web UI. Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).&#x20;
+Available Raft HA actions are described further under [Actions](../../administration/management/high-availability.md#ch_ha.raft_actions), and can be run directly in the Web UI. Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).
 
 <figure><img src="../../images/ha-raft.png" alt=""><figcaption><p>High Availability View (Raft)</p></figcaption></figure>
 
@@ -111,7 +111,7 @@ Perform the handover as follows:
 
 #### Actions on a Node
 
-Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.&#x20;
+Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.
 
 #### Logs and Certificates
 
@@ -303,20 +303,20 @@ There are two ways to create a compliance template:
 * **From config**: Build a new template directly from an existing device configuration.
 
 {% hint style="info" %}
-#### Template Creation using Config Editor
+**Template Creation using Config Editor**
 
-A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.&#x20;
+A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.
 {% endhint %}
 
 {% tabs %}
 {% tab title="From device template" %}
-Use this option to base your new template on an existing [device template](../operations/basic-operations.md#d5e228).&#x20;
+Use this option to base your new template on an existing [device template](../operations/basic-operations.md#d5e228).
 
 To create a compliance template from a device template:
 
 1. In the **Compliance templates** tab, click **Create template**.
 2. In the **Create template** window -> **Source** category, continue with the default option, **From device template**.
-3. Next choose a device template using the **Select device template** drop-down list. A device template should exist prior to this selection.&#x20;
+3. Next choose a device template using the **Select device template** drop-down list. A device template should exist prior to this selection.
 4. Name your compliance template in the **New compliance template name** field (optional). Leaving this blank retains the device template title for the compliance template.
 5. Click **Create**.
 {% endtab %}
@@ -332,7 +332,7 @@ To create a compliance template from config:
 4. In the **Path** field, enter the an XPath to target for extracting config data.
 5. Click **Add to list** to add the path.
 6. **Match rate**: Enter a value between 0 - 100 to determine how often a configuration recurrence must appear in device configurations to be included in the template.
-   * &#x20;A value of **100** means that configuration must be identical across all devices.
+   * A value of **100** means that configuration must be identical across all devices.
    * A lower value allows partial commonality.
 7. **Exclude service config**: Enable this option to ensure that NSO will exclude configurations already managed by services from the template. This option ensures that the service-managed configurations are not duplicated.
 8. **Collapse list keys**: Enable this option to determine how lists in the XPath configuration are collapsed into single entries when keys do not match. The options in this category are:

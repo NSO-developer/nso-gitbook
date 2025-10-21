@@ -9,7 +9,7 @@ The NSO Web UI provides an intuitive northbound interface to your NSO deployment
 
 The main components of the Web UI are shown in the figure below.
 
-<figure><img src="../../images/nsowebui.png" alt=""><figcaption><p>NSO Web UI Overview</p></figcaption></figure>
+<figure><img src="../../images/nsowebui (1).png" alt=""><figcaption><p>NSO Web UI Overview</p></figcaption></figure>
 
 The UI works by auto-rendering the underlying device and service models. This gives the benefit that the Web UI is immediately updated when new devices or services are added to the system. For example, say you have added support for a new device vendor. Then, without any programming requirements, the NSO Web UI provides the capability to configure those devices.
 
@@ -66,7 +66,7 @@ The Commit Manager is accessible at all times from the UI header. A number, corr
 The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../images/ai-assistant.png" alt="" data-size="line">) displayed in the UI header.
 
 {% hint style="info" %}
-#### Administrative Info on Enabling the AI Assistant
+**Administrative Info on Enabling the AI Assistant**
 
 The AI Assistant is enabled by use of a package. After installing the AI Assistant package, configure which backend to use under `/ai-assistant:ai-assistant/config` and enable it by setting `/ai-assistant:ai-assistant/enabled` to `true`. In the Web UI, the setting is accessible from the Config Editor. Once enabled, the AI Assistant button is added to the Web UI header.
 {% endhint %}
