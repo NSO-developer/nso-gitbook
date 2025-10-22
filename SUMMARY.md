@@ -130,7 +130,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1 2025-10-08](cisco-iosxr_nc/README.md)
+  * [README v1.1.1 2025-10-21](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v25.2.1 2025-06-30](cisco-iosxr_netconf/README.md)
@@ -141,7 +141,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.30 2025-10-14](cisco-nx/README.md)
+  * [README v5.30.1 2025-10-21](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.7 2025-09-22](eci-muse/README.md)
+  * [README v1.7.1 2025-10-21](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
