@@ -187,6 +187,18 @@ This, however, brings up another question: what should happen if you redeploy th
 
 Specifying `manage-by-service` not only updates device configuration in the CDB with the out-of-band value, it also adds the value under service instance's out-of-band changes (also called extra operations). NSO takes these changes into account when calculating service configuration after mapping code runs. It allows the service to preserve an out-of-band value during a redeploy. Additionally, it ties the value to the lifecycle of the service; if the service is deleted, so is the out-of-band configuration.
 
+
+It may be desirable to abort out-of-band handling entirely and fail the transaction with an out-of-sync error if certain out-of-band changes are detected on a device. This can be achieved using the `abort` action, for example:
+
+```
+ rule abort-if-mtu-is-set
+  path         ios:interface/GigabitEthernet/mtu
+  at-value-set abort
+ !
+```
+
+The rule above will cause out-of-band handling to be aborted if the `mtu` leaf has been set out-of-band.
+
 ### Rule Behavior Example
 
 Consider a setup from [examples.ncs/service-management/confirm-network-state](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/confirm-network-state), started by `make demo`, with the following out-of-band policy:
