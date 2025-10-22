@@ -173,6 +173,15 @@ Using the type of change allows you to express more complicated policies. For ex
  !
 ```
 
+A rule can specify a default action that is used when no operation-specific action has been specified. If a rule contains both a default action and an operation-specific action, then the operation-specific action takes precedence. The following rule is functionally equivalent to the `allow-mtu` rule in the service policy above:
+
+```
+ rule allow-mtu
+  path           ios:interface/GigabitEthernet/mtu
+  default-action sync-from-device
+ !
+```
+
 ![Out-of-band Policy](../../images/oob-policy.png)
 
 This, however, brings up another question: what should happen if you redeploy the service? Should NSO use the service-provided IP or should the out-of-band configured value be used instead? With the `sync-from-device` policy action, NSO overwrites the out-of-band value with the service-provided one. Instead, if the service should keep the out-of-band value, use the `manage-by-service` policy action, for example:
