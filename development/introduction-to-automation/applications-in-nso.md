@@ -134,7 +134,7 @@ The last thing to note in the above action code definition is the use of the dec
 ## Showcase - Implementing Device Count Action <a href="#d5e1000" id="d5e1000"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/applications-nso) for an example implementation.
+See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/applications-nso) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
