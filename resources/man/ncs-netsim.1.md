@@ -70,14 +70,17 @@ that acts as a NETCONF server, a Cisco CLI engine, or an SNMP agent.
 > network. This command can be given multiple times. The mandatory
 > parameters are the same as for `create-network`.
 >
-> > [!NOTE]
-> > If we have already started NCS with an XML initialization file for
-> > the existing network, an updated initialization file will not take
-> > effect unless we remove the CDB database files, loosing all NCS
-> > configuration. But we can replace the original initialization data
-> > with data for the complete new network when we have run
-> > `add-to-network`, by using `ncs_load` while NCS is running, e.g.
-> > like this:
+> <div class="note">
+>
+> If we have already started NCS with an XML initialization file for the
+> existing network, an updated initialization file will not take effect
+> unless we remove the CDB database files, loosing all NCS
+> configuration. But we can replace the original initialization data
+> with data for the complete new network when we have run
+> `add-to-network`, by using `ncs_load` while NCS is running, e.g. like
+> this:
+>
+> </div>
 >
 > <div class="informalexample">
 >

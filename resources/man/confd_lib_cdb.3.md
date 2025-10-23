@@ -580,11 +580,13 @@ A call to `cdb_connect()` is typically followed by a call to either
 `cdb_start_session()` for a reading session or a call to
 `cdb_subscribe()` for a subscription socket.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -600,11 +602,13 @@ names to be used for different connections from the same application
 process, we can use `cdb_connect_name()` with the wanted name instead of
 `cdb_connect()`.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -632,9 +636,11 @@ one `cdb_subscribe2()` call followed by a `cdb_subscribe_done()` call.
 A call to `cdb_mandatory_subscriber()` is only allowed before the first
 call of `cdb_subscribe2()`.
 
-> **Note**  
->  
-> Only applicable for two-phase subscribers.
+<div class="note">
+
+Only applicable for two-phase subscribers.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -722,10 +728,13 @@ parameter should be one of:
 > further details about working with operational data in CDB, see the
 > `OPERATIONAL DATA` section below.
 >
-> > [!NOTE]
-> > Subscriptions on operational data will not be triggered from a
-> > session created with this function - to trigger operational data
-> > subscriptions, we need to use `cdb_start_session2()`, see below.
+> <div class="note">
+>
+> Subscriptions on operational data will not be triggered from a session
+> created with this function - to trigger operational data
+> subscriptions, we need to use `cdb_start_session2()`, see below.
+>
+> </div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_LOCKED,
 CONFD_ERR_NOEXISTS
@@ -966,12 +975,14 @@ function passed to `cdb_diff_iterate()`), or with a data socket that has
 an active session. The timeout is given in seconds from the point in
 time when the function is called.
 
-> **Note**  
->  
-> The timeout for subscription delivery is common for all the
-> subscribers receiving notifications at a given priority. Thus calling
-> the function during subscription delivery changes the timeout for all
-> the subscribers that are currently processing notifications.
+<div class="note">
+
+The timeout for subscription delivery is common for all the subscribers
+receiving notifications at a given priority. Thus calling the function
+during subscription delivery changes the timeout for all the subscribers
+that are currently processing notifications.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_PROTOUSAGE,
 CONFD_ERR_BADSTATE
@@ -1187,14 +1198,16 @@ several differences from the subscriptions for configuration data:
 - A special synchronization reply must be used when the notifications
   have been read (see `cdb_sync_subscription_socket()` below).
 
-> **Note**  
->  
-> Operational and configuration subscriptions can be done on the same
-> socket, but in that case the notifications may be arbitrarily
-> interleaved, including operational notifications arriving between
-> different configuration notifications for the same transaction. If
-> this is a problem, use separate sockets for operational and
-> configuration subscriptions.
+<div class="note">
+
+Operational and configuration subscriptions can be done on the same
+socket, but in that case the notifications may be arbitrarily
+interleaved, including operational notifications arriving between
+different configuration notifications for the same transaction. If this
+is a problem, use separate sockets for operational and configuration
+subscriptions.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADPATH,
 CONFD_ERR_NOEXISTS
@@ -1262,18 +1275,22 @@ because one of the subscribers that received `CDB_SUB_PREPARE` called
 `cdb_sub_abort_trans()`, but it could also be caused for other reasons,
 for example another data provider (than CDB) can abort the transaction.
 
-> **Note**  
->  
-> Two phase subscriptions are not supported for NCS.
+<div class="note">
 
-> **Note**  
->  
-> Operational and configuration subscriptions can be done on the same
-> socket, but in that case the notifications may be arbitrarily
-> interleaved, including operational notifications arriving between
-> different configuration notifications for the same transaction. If
-> this is a problem, use separate sockets for operational and
-> configuration subscriptions.
+Two phase subscriptions are not supported for NCS.
+
+</div>
+
+<div class="note">
+
+Operational and configuration subscriptions can be done on the same
+socket, but in that case the notifications may be arbitrarily
+interleaved, including operational notifications arriving between
+different configuration notifications for the same transaction. If this
+is a problem, use separate sockets for operational and configuration
+subscriptions.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADPATH,
 CONFD_ERR_NOEXISTS
@@ -1712,13 +1729,15 @@ possible to iterate over a list, and for each list instance fetch the
 changes using `cdb_get_modifications_iter()`, and then return
 `ITER_CONTINUE` to process next instance.
 
-> **Note**  
->  
-> Note: The `CDB_GET_MODS_REVERSE` flag is ignored by
-> `cdb_get_modifications_iter()`. It will instead return a "forward" or
-> "reverse" list of modifications for a `CDB_SUB_ABORT` notification
-> according to whether the `ITER_WANT_REVERSE` flag was included in the
-> `flags` parameter of the `cdb_diff_iterate()` call.
+<div class="note">
+
+Note: The `CDB_GET_MODS_REVERSE` flag is ignored by
+`cdb_get_modifications_iter()`. It will instead return a "forward" or
+"reverse" list of modifications for a `CDB_SUB_ABORT` notification
+according to whether the `ITER_WANT_REVERSE` flag was included in the
+`flags` parameter of the `cdb_diff_iterate()` call.
+
+</div>
 
     int cdb_get_modifications_cli(
     int sock, int subid, int flags, char **str);
@@ -1855,10 +1874,12 @@ not possible to call this function from the `iter()` function passed to
 session, use `maapi_get_user_session()` (see
 [confd_lib_maapi(3)](confd_lib_maapi.3.md)).
 
-> **Note**  
->  
-> Note: When the ConfD High Availability functionality is used, the user
-> session information is not available on secondary nodes.
+<div class="note">
+
+Note: When the ConfD High Availability functionality is used, the user
+session information is not available on secondary nodes.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE,
 CONFD_ERR_NOEXISTS
@@ -1874,16 +1895,20 @@ configuration data has been received on that socket, before
 not possible to call this function from the `iter()` function passed to
 `cdb_diff_iterate()`.
 
-> **Note**  
->  
-> A CDB client is not expected to access the ConfD transaction store
-> directly - this function should only be used for logging or debugging
-> purposes.
+<div class="note">
 
-> **Note**  
->  
-> When the ConfD High Availability functionality is used, the
-> transaction information is not available on secondary nodes.
+A CDB client is not expected to access the ConfD transaction store
+directly - this function should only be used for logging or debugging
+purposes.
+
+</div>
+
+<div class="note">
+
+When the ConfD High Availability functionality is used, the transaction
+information is not available on secondary nodes.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE,
 CONFD_ERR_NOEXISTS
@@ -2392,17 +2417,19 @@ the `confd_value_t` value element is given as follows:
 - As a special case, the "instance integer" can be used to select a list
   entry by using C_CDBBEGIN instead of C_XMLBEGIN (and no key values).
 
-> **Note**  
->  
-> When we use C_PTR, we need to take special care to free any allocated
-> memory. When we use C_NOEXISTS and the value is stored in the array,
-> we can just use `confd_free_value()` regardless of the type, since the
-> `confd_value_t` has the type information. But with C_PTR, only the
-> actual value is stored in the pointed-to variable, just as for
-> `cdb_get_buf()`, `cdb_get_binary()`, etc, and we need to free the
-> memory specifically allocated for the types listed in the description
-> of `cdb_get()` above. See the corresponding `cdb_get_xxx()` functions
-> for the details of how to do this.
+<div class="note">
+
+When we use C_PTR, we need to take special care to free any allocated
+memory. When we use C_NOEXISTS and the value is stored in the array, we
+can just use `confd_free_value()` regardless of the type, since the
+`confd_value_t` has the type information. But with C_PTR, only the
+actual value is stored in the pointed-to variable, just as for
+`cdb_get_buf()`, `cdb_get_binary()`, etc, and we need to free the memory
+specifically allocated for the types listed in the description of
+`cdb_get()` above. See the corresponding `cdb_get_xxx()` functions for
+the details of how to do this.
+
+</div>
 
 All elements have the same position in the array after the call, in
 order to simplify extraction of the values - this means that optional
@@ -2594,11 +2621,13 @@ sockets, or to alternate the use of one socket via `cdb_end_session()`.
 The write functions can never be used in a session for configuration
 data.
 
-> **Note**  
->  
-> In order to trigger subscriptions on operational data, we must obtain
-> a subscription lock via the use of `cdb_start_session2()` instead of
-> `cdb_start_session()`, see above.
+<div class="note">
+
+In order to trigger subscriptions on operational data, we must obtain a
+subscription lock via the use of `cdb_start_session2()` instead of
+`cdb_start_session()`, see above.
+
+</div>
 
 In YANG it is possible to define a list of operational data without any
 keys. For this type of list, we use a single "pseudo" key which is

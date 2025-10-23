@@ -202,9 +202,11 @@ how they relate to each other.
 > client processes that are allowed to connect to the IPC listener
 > sockets.
 
-/ncs-config/enable-shared-memory-schema (boolean) \[true\]  
+/ncs-config/enable-shared-memory-schema (boolean \| c \| java \| python) \[true\]  
+> This parameter may be given multiple times.
+>
 > If set to 'true', then a C program will be started that loads the
-> schema into shared memory (which then can be accessed by e.g Python)
+> schema into a memory mappable file.
 
 /ncs-config/shared-memory-schema-path (string)  
 > Path to the shared memory file holding the schema. If left
@@ -393,7 +395,6 @@ how they relate to each other.
 > searches for initialization files.
 
 /ncs-config/cdb/persistence/format (in-memory-v1 \| on-demand-v1) \[in-memory-v1\]  
-> 
 
 /ncs-config/cdb/persistence/db-statistics (disabled \| enabled) \[disabled\]  
 > If set to 'enabled', underlying database produces internal statistics
@@ -548,7 +549,6 @@ how they relate to each other.
 > which will be used to encrypt any strings.
 
 /ncs-config/encrypted-strings/key-rotation/generation (int16)  
-> 
 
 /ncs-config/encrypted-strings/key-rotation/AESCFB128  
 > In the AESCFB128 case one 128 bits (16 bytes) key and a random initial
@@ -585,7 +585,7 @@ how they relate to each other.
 > of the types ianach:crypt-hash, tailf:sha-256-digest-string, and
 > tailf:sha-512-digest-string.
 
-/ncs-config/crypt-hash/algorithm (md5 \| sha-256 \| sha-512) \[md5\]  
+/ncs-config/crypt-hash/algorithm (md5 \| sha-256 \| sha-512) \[sha-512\]  
 > algorithm can be set to one of the values 'md5', 'sha-256', or
 > 'sha-512', to choose the corresponding hash algorithm for hashing of
 > cleartext input for the ianach:crypt-hash type.
@@ -1033,10 +1033,8 @@ how they relate to each other.
 > rotated. Log filenames are reused when five logs have been exhausted.
 
 /ncs-config/logs/error-log/debug/enabled (boolean) \[false\]  
-> 
 
 /ncs-config/logs/error-log/debug/level (uint16) \[2\]  
-> 
 
 /ncs-config/logs/error-log/debug/tag (string)  
 > This parameter may be given multiple times.
@@ -1058,7 +1056,6 @@ how they relate to each other.
 > The directory path to the location of the progress trace files.
 
 /ncs-config/logs/external/enabled (boolean) \[false\]  
-> 
 
 /ncs-config/logs/external/command (string)  
 > This parameter is mandatory.
@@ -1160,7 +1157,6 @@ how they relate to each other.
 > setting can be smaller than the number of logical processors.
 
 /ncs-config/transaction-limits/scheduling-mode (relaxed \| strict) \[relaxed\]  
-> 
 
 /ncs-config/parser-limits  
 > Parameters for limiting parsing of XML data.
@@ -1752,10 +1748,8 @@ how they relate to each other.
 > machine.
 
 /ncs-config/cli/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/cli/ssh/extra-listen/port (port-number)  
-> 
 
 /ncs-config/cli/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -1766,10 +1760,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/cli/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/cli/ssh/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/cli/top-level-cmds-in-sub-mode (boolean) \[false\]  
 > topLevelCmdsInSubMode is either 'true' or 'false'. If set to 'true'
@@ -2083,7 +2075,6 @@ how they relate to each other.
 > in the ncs.cli file.
 
 /ncs-config/cli/space-completion/enabled (boolean)  
-> 
 
 /ncs-config/cli/ignore-leading-whitespace (boolean)  
 > If 'false' then the CLI will show completion help when the user enters
@@ -2150,6 +2141,11 @@ how they relate to each other.
 > suppressRangeKeyword is either 'true' or 'false'. If 'true' then
 > 'range' keyword is not allowed in C- and I-style for range
 > expressions.
+
+/ncs-config/cli/use-comma-as-range-key-delim (boolean) \[false\]  
+> If 'true' then comma in range expressions will be only be interpreted
+> as a delimiter between keys as key1,key2 or key1-2,key4 and not as
+> part of a range with an integer part as key1-2,4.
 
 /ncs-config/cli/commit-message-format (string) \[ System message at \$(time)... Commit performed by \$(user) via \$(proto) using \$(ctx). \]  
 > The format of the CLI commit messages
@@ -2321,7 +2317,6 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/restconf/custom-headers/header/name (string)  
-> 
 
 /ncs-config/restconf/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2447,10 +2442,8 @@ how they relate to each other.
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/restconf/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/restconf/transport/tcp/extra-listen/port (port-number)  
-> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2461,10 +2454,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/restconf/transport/tcp/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/restconf/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2493,10 +2484,8 @@ how they relate to each other.
 > addresses on the machine.
 
 /ncs-config/restconf/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/restconf/transport/ssl/extra-listen/port (port-number)  
-> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2507,10 +2496,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/restconf/transport/ssl/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/restconf/transport/ssl/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -2667,6 +2654,12 @@ how they relate to each other.
 > enabled is either 'true' or 'false'. If 'true', the Web server is
 > started.
 
+/ncs-config/webui/max-connections (uint64) \[1024\]  
+> The number of concurrent connections allowed to the web server. Note
+> that due to how the server handles new connections, the number may
+> temporarily be higher than the set number, but the actual connections
+> will never be higher than the set number.
+
 /ncs-config/webui/server-name (string) \[localhost\]  
 > The hostname the Web server serves.
 
@@ -2729,7 +2722,6 @@ how they relate to each other.
 > The headers will be part of all HTTP responses.
 
 /ncs-config/webui/custom-headers/header/name (string)  
-> 
 
 /ncs-config/webui/custom-headers/header/value (string)  
 > This parameter is mandatory.
@@ -2887,10 +2879,8 @@ how they relate to each other.
 > the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/webui/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/webui/transport/tcp/extra-listen/port (port-number)  
-> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2901,10 +2891,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/webui/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/webui/transport/tcp/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/webui/transport/ssl  
 > Settings deciding how the Web server SSL (Secure Sockets Layer)
@@ -2956,10 +2944,8 @@ how they relate to each other.
 > on the machine.
 
 /ncs-config/webui/transport/ssl/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/webui/transport/ssl/extra-listen/port (port-number)  
-> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -2970,10 +2956,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/webui/transport/ssl/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/webui/transport/ssl/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/webui/transport/ssl/read-from-db (boolean) \[false\]  
 > If enabled, TLS data (certificate, private key, and CA certificates)
@@ -3322,10 +3306,8 @@ how they relate to each other.
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-north-bound/transport/ssh/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/netconf-north-bound/transport/ssh/extra-listen/port (port-number)  
-> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3336,10 +3318,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/netconf-north-bound/transport/ssh/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/netconf-north-bound/transport/tcp  
 > NETCONF over TCP is not standardized, but it can be useful during
@@ -3373,10 +3353,8 @@ how they relate to each other.
 > on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-north-bound/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/netconf-north-bound/transport/tcp/extra-listen/port (port-number)  
-> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen  
 > When /ncs-config/ha/enable or /ncs-config/ha-raft/enable is set to
@@ -3387,10 +3365,8 @@ how they relate to each other.
 > terminate any ongoing traffic.
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/netconf-north-bound/transport/tcp/ha-primary-listen/port (port-number)  
-> 
 
 /ncs-config/netconf-north-bound/extended-sessions (boolean) \[false\]  
 > If extended-sessions are enabled, all NCS sessions can be terminated
@@ -3552,10 +3528,8 @@ how they relate to each other.
 > listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/netconf-call-home/transport/tcp/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/netconf-call-home/transport/tcp/extra-listen/port (port-number)  
-> 
 
 /ncs-config/netconf-call-home/transport/tcp/dscp (dscp-type)  
 > Support for setting the Differentiated Services Code Point (6 bits)
@@ -3706,10 +3680,8 @@ how they relate to each other.
 > to listen on the port for all IPv4 or IPv6 addresses on the machine.
 
 /ncs-config/ha/extra-listen/ip (ipv4-address \| ipv6-address)  
-> 
 
 /ncs-config/ha/extra-listen/port (port-number)  
-> 
 
 /ncs-config/ha/tick-timeout (xs:duration) \[PT20S\]  
 > Defines the timeout between keepalive ticks sent between HA nodes. The
@@ -3767,7 +3739,6 @@ how they relate to each other.
 > Only applicable if auto-start is 'true'.
 
 /ncs-config/java-vm/run-in-terminal/enabled (boolean) \[false\]  
-> 
 
 /ncs-config/java-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-java-vm -e\]  
 > The command which NCS will run to start the terminal, or the string
@@ -3792,10 +3763,8 @@ how they relate to each other.
 > redeployed.
 
 /ncs-config/java-vm/restart-on-error/count (uint16) \[3\]  
-> 
 
 /ncs-config/java-vm/restart-on-error/duration (xs:duration) \[PT60S\]  
-> 
 
 /ncs-config/python-vm  
 > Configuration parameters to control how and if NCS shall start (and
@@ -3818,7 +3787,6 @@ how they relate to each other.
 > is equivalent to leaving this parameter unset.
 
 /ncs-config/python-vm/run-in-terminal/enabled (boolean) \[false\]  
-> 
 
 /ncs-config/python-vm/run-in-terminal/terminal-command (string) \[xterm -title ncs-python-vm -e\]  
 > The command which NCS will run to start the terminal, or the string

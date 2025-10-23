@@ -1584,6 +1584,41 @@ Returns:
 
 <details>
 
+<summary>get_template_variables(...)</summary>
+
+Method:
+
+```python
+get_template_variables(self, name, type_enum)
+```
+
+Get template variables for specific types.
+
+</details>
+
+<details>
+
+<summary>get_trans_mode(...)</summary>
+
+Method:
+
+```python
+get_trans_mode(self, th)
+```
+
+Get transaction mode for a transaction handle.
+
+Arguments:
+* th -- a transaction handle.
+
+Returns:
+
+* Either READ or READ_WRITE flag (ncs) or -1 (no transaction).
+
+</details>
+
+<details>
+
 <summary>ip</summary>
 
 _Readonly property_
@@ -2392,6 +2427,68 @@ close(self)
 ```
 
 Close the user session.
+
+</details>
+
+### _class_ **TemplateTypes**
+
+Enumeration for template types:
+DEVICE_TEMPLATE     = 0
+SERVICE_TEMPLATE    = 1
+COMPLIANCE_TEMPLATE = 2
+
+```python
+TemplateTypes(*values)
+```
+
+Members:
+
+<details>
+
+<summary>COMPLIANCE_TEMPLATE</summary>
+
+```python
+COMPLIANCE_TEMPLATE = 2
+```
+
+
+</details>
+
+<details>
+
+<summary>DEVICE_TEMPLATE</summary>
+
+```python
+DEVICE_TEMPLATE = 0
+```
+
+
+</details>
+
+<details>
+
+<summary>SERVICE_TEMPLATE</summary>
+
+```python
+SERVICE_TEMPLATE = 1
+```
+
+
+</details>
+
+<details>
+
+<summary>name</summary>
+
+The name of the Enum member.
+
+</details>
+
+<details>
+
+<summary>value</summary>
+
+The value of the Enum member.
 
 </details>
 

@@ -47,11 +47,13 @@ examples collection illustrates subscription and processing for all
 these events, and can also be used standalone in a development
 environment to monitor NSO events.
 
-> **Note**  
->  
-> Any event may allocate memory dynamically inside the
-> `struct confd_notification`, thus we must always call
-> `confd_free_notification()` after receiving and processing an event.
+<div class="note">
+
+Any event may allocate memory dynamically inside the
+`struct confd_notification`, thus we must always call
+`confd_free_notification()` after receiving and processing an event.
+
+</div>
 
 ## Events
 
@@ -380,11 +382,12 @@ some specific `confd_errno` values:
 > The user session id given by `usid` does not identify an existing user
 > session.
 
-> **Note**  
->  
-> If these calls fail (i.e. do not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If these calls fail (i.e. do not return CONFD_OK), the socket descriptor
+must be closed and a new socket created before the call is re-attempted.
+
+</div>
 
     int confd_read_notification(
     int sock, struct confd_notification *n);

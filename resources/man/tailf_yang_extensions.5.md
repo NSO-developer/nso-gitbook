@@ -2338,7 +2338,6 @@ This section describes XPath functions that can be used for example in
 > Tail-f YANG CLI extensions
 
 The NSO User Guide  
-> 
 
 `confdc(1)`  
 > Confdc compiler

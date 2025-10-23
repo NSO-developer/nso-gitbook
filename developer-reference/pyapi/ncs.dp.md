@@ -363,7 +363,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -1232,7 +1232,6 @@ NCS_UNKNOWN_NED_IDS_COMPLIANCE_TEMPLATE = 124
 NCS_UNKNOWN_NED_ID_DEVICE_TEMPLATE = 106
 NCS_XML_PARSE = 11
 NCS_YANGLIB_NO_SCHEMA_FOR_RUNNING = 114
-OPERATION_CASE_EXISTS = 13
 PATCH_FLAG_AAA_CHECKED = 8
 PATCH_FLAG_BUFFER_DAMPENED = 2
 PATCH_FLAG_FILTER = 4

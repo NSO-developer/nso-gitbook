@@ -13,9 +13,12 @@ operations and customizable confirmation prompts. In Cisco style custom
 mode-specific commands can be added by specifying a mount point relating
 to the specified mode.
 
-> [!TIP]
-> In the NSO distribution there is an Emacs mode suitable for clispec
-> editing.
+<div class="tip">
+
+In the NSO distribution there is an Emacs mode suitable for clispec
+editing.
+
+</div>
 
 A clispec file (with a .cli suffix) is to be compiled using the `ncsc`
 compiler into an internal representation (with a .ccl suffix), ready to
