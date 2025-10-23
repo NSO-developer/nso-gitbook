@@ -53,7 +53,7 @@ NSO uses the Java package SNMP4J to parse the SNMP PDUs.
 
 Notification Handlers are user-supplied Java classes that implement the `com.tailf.snmp.snmp4j.NotificationHandler` interface. The `processPDU` method is expected to react on the SNMP4J event, e.g. by mapping the PDU to an NSO alarm. The handlers are registered in the `NotificationReceiver`. The `NotificationReceiver` is the main class that, in addition to maintaining the handlers, also has the responsibility to read the NSO SNMP notification configuration and set up `SNMP4J` listeners accordingly.
 
-An example of a notification handler can be found at [examples.ncs/device-management/snmp-notification-receiver](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-notification-receiver). This example handler receives notifications and sets an alarm text if the notification is an `IF-MIB::linkDown trap`.
+An example of a notification handler can be found at [examples.ncs/device-management/snmp-notification-receiver](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/snmp-notification-receiver). This example handler receives notifications and sets an alarm text if the notification is an `IF-MIB::linkDown trap`.
 
 ```java
 public class ExampleHandler implements NotificationHandler {

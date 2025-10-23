@@ -134,7 +134,7 @@ The last thing to note in the above action code definition is the use of the dec
 ## Showcase - Implementing Device Count Action <a href="#d5e1000" id="d5e1000"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/applications-nso) for an example implementation.
+See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/applications-nso) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
@@ -387,7 +387,7 @@ result 3
 You can use the `show devices list` command to verify that the result is correct. You can alter the address of any device and see how it affects the result. You can even use a hostname, such as `localhost`.
 
 {% hint style="info" %}
-Other examples of action implementations can be found under [examples.ncs/sdk-api](https://github.com/NSO-developer/nso-examples/tree/main/sdk-api).
+Other examples of action implementations can be found under [examples.ncs/sdk-api](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api).
 {% endhint %}
 
 ## Overview of Extension Points
@@ -462,7 +462,7 @@ There are some important points worth noting for action timeout:
 * Implementing your own abort action callback in `cb_abort` allows you to handle actions that are timing out. If `cb_abort` is not defined, NSO cannot trigger the abort action during a timeout, preventing it from unlocking the action for a user session. Consequently, you must wait for the action callback to finish before attempting it again.
 
 {% hint style="info" %}
-See  [examples.ncs/sdk-api/action-abort-py](https://github.com/NSO-developer/nso-examples/tree/main/sdk-api/action-abort-py) for an example of how to implement an abortable Python action that spawns a separate worker process using the multiprocessing library and returns the worker's outcome via a result queue or terminates the worker if the action is aborted.&#x20;
+See  [examples.ncs/sdk-api/action-abort-py](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api/action-abort-py) for an example of how to implement an abortable Python action that spawns a separate worker process using the multiprocessing library and returns the worker's outcome via a result queue or terminates the worker if the action is aborted.&#x20;
 {% endhint %}
 
 For NSO operational data queries, NSO uses `query-timeout` to ensure the data provider return operational data within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.
@@ -477,7 +477,7 @@ As your NSO application evolves, you will create newer versions of your applicat
 
 When you replace a package, NSO must redeploy the application code and potentially replace the package-provided part of the YANG schema. For the latter, NSO can perform the data migration for you, as long as the schema is backward compatible. This process is documented in [Automatic Schema Upgrades and Downgrades](../core-concepts/using-cdb.md#ug.cdb.upgrade) and is automatic when you request a reload of the package with `packages reload` or a similar command.
 
-If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/upgrade-service) example (Java) for details.
+If your schema changes are not backward compatible, you can implement a data migration procedure, which NSO invokes when upgrading the schema. Among other things, this allows you to reuse and migrate the data that is no longer present in the new schema. You can specify the migration procedure as part of the `package-meta-data.xml` file, using a component of the `upgrade` type. See [The Upgrade Component](../core-concepts/nso-virtual-machines/nso-python-vm.md#ncs.development.pythonvm.upgrade) (Python) and [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/upgrade-service) example (Java) for details.
 
 Note that changing the schema in any way requires you to recompile the `.fxs` files in the package, which is typically done by running `make` in the package's `src` folder.
 

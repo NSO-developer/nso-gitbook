@@ -63,7 +63,7 @@ Running NSO with minimal privileges is a fundamental security best practice:
 
     1. `# chown root cmdwrapper`
     2. `# chmod u+s cmdwrapper`
-* The deployment variant referenced in the README file of the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example provides a native and NSO production container based example.
+* The deployment variant referenced in the README file of the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) example provides a native and NSO production container based example.
 
 ## Authentication, Authorization, and Accounting (AAA)
 
@@ -131,7 +131,7 @@ See [Authenticating IPC Access](../../management/aaa-infrastructure.md#authentic
 Secure communication with managed devices:
 
 * Use [Cisco-provided NEDs](../../management/ned-administration.md) when possible.
-* Refer to the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) README, which references a deployment variant of the example for SSH key update patterns using nano services.
+* Refer to the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) README, which references a deployment variant of the example for SSH key update patterns using nano services.
 
 ## Cryptographic Key Management
 

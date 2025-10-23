@@ -4,7 +4,7 @@ description: Understand NSO deployment with an example setup.
 
 # Deployment Example
 
-This section shows examples of a typical deployment for a highly available (HA) setup. A reference to an example implementation of the `tailf-hcc` layer-2 upgrade deployment scenario described here, check the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc). The example covers the following topics:
+This section shows examples of a typical deployment for a highly available (HA) setup. A reference to an example implementation of the `tailf-hcc` layer-2 upgrade deployment scenario described here, check the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/hcc). The example covers the following topics:
 
 * Installation of NSO on all nodes in an HA setup
 * Initial configuration of NSO on all nodes
@@ -175,9 +175,9 @@ The NSO HA, together with the `tailf-hcc` package, provides three features:
 * If the leader/primary fails, a follower/secondary takes over and starts to act as leader/primary. This is how HA Raft works and how the rule-based HA variant of this example is configured to handle failover automatically.
 * At failover, `tailf-hcc` sets up a virtual alias IP address on the leader/primary node only and uses gratuitous ARP packets to update all nodes in the network with the new mapping to the leader/primary node.
 
-Nodes in other networks can be updated using the `tailf-hcc` layer-3 BGP functionality or a load balancer. See the `load-balancer`and `hcc`examples in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability).
+Nodes in other networks can be updated using the `tailf-hcc` layer-3 BGP functionality or a load balancer. See the `load-balancer`and `hcc`examples in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability).
 
-See the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc) for a reference to an HA Raft and rule-based HA `tailf-hcc` Layer 3 BGP examples.
+See the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/hcc) for a reference to an HA Raft and rule-based HA `tailf-hcc` Layer 3 BGP examples.
 
 The HA Raft and rule-based HA upgrade-l2 examples also demonstrate HA failover, upgrading the NSO version on all nodes, and upgrading NSO packages on all nodes.
 
@@ -211,7 +211,7 @@ The NSO system installations performed on the nodes in the HA cluster also insta
 
 ### Syslog <a href="#d5e7948" id="d5e7948"></a>
 
-For the HA Raft and rule-based HA upgrade-l2 examples, see the reference from the `README` in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc) example directory; the examples integrate with `rsyslog` to log the `ncs`, `developer`, `upgrade`, `audit`, `netconf`, `snmp`, and `webui-access` logs to syslog with `facility` set to `daemon` in `ncs.conf`.
+For the HA Raft and rule-based HA upgrade-l2 examples, see the reference from the `README` in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/hcc) example directory; the examples integrate with `rsyslog` to log the `ncs`, `developer`, `upgrade`, `audit`, `netconf`, `snmp`, and `webui-access` logs to syslog with `facility` set to `daemon` in `ncs.conf`.
 
 `rsyslogd` on the nodes in the HA cluster is configured to write the daemon facility logs to `/var/log/daemon.log`, and forward the daemon facility logs with the severity `info` or higher to the manager node's `/var/log/ha-cluster.log` syslog.
 
@@ -345,4 +345,4 @@ $ cat /etc/ncs/ipc_access
 .......
 ```
 
-For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../../management/high-availability.md#ug.ha.raft) for more HA Raft details.
+For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../../management/high-availability.md#ug.ha.raft) for more HA Raft details.
