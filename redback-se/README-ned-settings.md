@@ -51,7 +51,7 @@
   redback-se ned-settings.
 
 
-    - redback-se redback-se-transaction-id-method <enum> (default last-config-change)
+    - redback-se-transaction-id-method <enum> (default last-config-change)
 
       Method of the redback NED to use for calculating a transaction id. Typically used for
       check-sync operations.
@@ -63,7 +63,7 @@
                             (WARNING: may be changed at reboot) (Default).
 
 
-    - redback-se disable-context-configs <true|false> (default false)
+    - disable-context-configs <true|false> (default false)
 
       sync-from can take a lot of time when the device contains a lot of context config.
       If the context config is not used, sync-from would speed up if context was removed from the result.
@@ -84,7 +84,7 @@
       must disconnect and connect again, to re-read ned-settings.
 
 
-    - redback-se extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-nx NED handle CLI parsing (i.e. transform the running-config from the device to
       the model based config tree).
@@ -147,7 +147,7 @@
   There may be few commands NSO not authorized to configure on device,
   or in some scenario if we want to filter/ignore certain configs in sync-from.
 
-    - redback-se remove-sync-from-config <regex>
+    - remove-sync-from-config <regex>
 
       - regex <WORD>
 

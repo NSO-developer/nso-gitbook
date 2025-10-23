@@ -225,7 +225,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.79.1 2025-10-14](huawei-vrp/README.md)
+  * [README v6.79.2 2025-10-22](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -308,7 +308,7 @@
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
-  * [README v1.5.3 2025-01-07](redback-se/README.md)
+  * [README v1.6 2025-10-22](redback-se/README.md)
 
 * redhat-ansible
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)
