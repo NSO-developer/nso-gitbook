@@ -21,7 +21,7 @@ Note that both the NSO software (NCS) and the simulated network devices run on y
 
 To start the simulator:
 
-1. Go to [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/simulated-cisco-ios). First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
+1. Go to [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios). First of all, we will generate a network simulator with three Cisco devices. They will be called `c0`, `c1`, and `c2`.
 
 {% hint style="info" %}
 Most of this section follows the procedure in the `README` file, so it is useful to have it opened as well.
@@ -68,7 +68,7 @@ This shows that the device has some initial configurations.
 
 The previous step started the simulated Cisco devices. It is now time to start NSO.
 
-1. The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/simulated-cisco-ios) directory. (Again, ignore the details for the time being).
+1. The first action is to prepare directories needed for NSO to run and populate NSO with information on the simulated devices. This is all done with the `ncs-setup` command. Make sure that you are in the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) directory. (Again, ignore the details for the time being).
 
 ```bash
 $ ncs-setup --netsim-dir ./netsim --dest .

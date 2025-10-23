@@ -27,7 +27,7 @@ An example is the best method to illustrate how services are created and used in
 Watch a video presentation of this demo on [YouTube](https://www.youtube.com/watch?v=sYuETSuTsrM).
 {% endhint %}
 
-The example [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-java) will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
+The example [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
 
 <figure><img src="../../images/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
 
@@ -635,7 +635,7 @@ To have NSO deploy services across devices, two pieces are needed:
 
 ### Defining the Service Model <a href="#d5e881" id="d5e881"></a>
 
-The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/package-mgmt.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/simulated-cisco-ios) example. Make sure that you have stopped any running NSO and netsim.
+The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/package-mgmt.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example. Make sure that you have stopped any running NSO and netsim.
 
 Navigate to the simulated ios directory and create a new package for the VLAN service model:
 
@@ -750,7 +750,7 @@ This simple VLAN service model says:
 
 The good thing with NSO is that already at this point you could load the service model to NSO and try if it works well in the CLI etc. Nothing would happen to the devices since we have not defined the mapping, but this is normally the way to iterate a model and test the CLI towards the network engineers.
 
-To build this service model `cd` to the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/simulated-cisco-ios) example `/packages/vlan/src` directory and type `make` (assuming you have the `make` build system installed).
+To build this service model `cd` to the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example `/packages/vlan/src` directory and type `make` (assuming you have the `make` build system installed).
 
 ```bash
 $ make
@@ -1162,7 +1162,7 @@ A limitation in the scenarios described so far is that the mapping definition co
 
 Nano services using Reactive FASTMAP handle these scenarios with an executable plan that the system can follow to provision the service. The general idea is to implement the service as several smaller (nano) steps or stages, by using reactive FASTMAP and provide a framework to safely execute actions with side effects.
 
-The [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
+The [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) example implements key generation to files and service deployment of the key to set up network elements and NSO for public key authentication to illustrate this concept. The example is described in more detail in [Develop and Deploy a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
 
 ## Reconciling Existing Services <a href="#d5e1032" id="d5e1032"></a>
 

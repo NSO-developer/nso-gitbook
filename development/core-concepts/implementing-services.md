@@ -109,7 +109,7 @@ Bringing the two XML documents together gives the final `dns/templates/dns-templ
 ```
 {% endcode %}
 
-The service is now ready to use in NSO. Start the [examples.ncs/service-management/implement-a-service/dns-v1](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v1) example to set up a live NSO system with such a service and inspect how it works. Try configuring two different instances of the `dns` service.
+The service is now ready to use in NSO. Start the [examples.ncs/service-management/implement-a-service/dns-v1](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/dns-v1) example to set up a live NSO system with such a service and inspect how it works. Try configuring two different instances of the `dns` service.
 
 ```bash
 $ cd $NCS_DIR/examples.ncs/service-management/implement-a-service/dns-v1
@@ -245,7 +245,7 @@ The remaining statements describe the functionality and input parameters that ar
   }
 ```
 
-Use the [examples.ncs/service-management/implement-a-service/dns-v2](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v2) example to explore how this model works and try to discover what deficiencies it may have.
+Use the [examples.ncs/service-management/implement-a-service/dns-v2](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/dns-v2) example to explore how this model works and try to discover what deficiencies it may have.
 
 ```bash
 $ cd $NCS_DIR/examples.ncs/service-management/implement-a-service/dns-v2
@@ -322,7 +322,7 @@ The following figure captures the relationship between the YANG model and the XM
 
 <figure><img src="../../images/services-template.png" alt="" width="563"><figcaption><p>XML Template and Model Relationship</p></figcaption></figure>
 
-The complete service is available in the [examples.ncs/service-management/implement-a-service/dns-v2.1](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v2.1) example. Feel free to investigate on your own how it differs from the initial, no-validation service.
+The complete service is available in the [examples.ncs/service-management/implement-a-service/dns-v2.1](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/dns-v2.1) example. Feel free to investigate on your own how it differs from the initial, no-validation service.
 
 ```bash
 $ cd $NCS_DIR/examples.ncs/service-management/implement-a-service/dns-v2.1
@@ -518,7 +518,7 @@ You would typically create the service package skeleton with the `ncs-make-packa
   }
 ```
 
-The [examples.ncs/service-management/implement-a-service/iface-v1](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v1) example contains the complete YANG module with this service model in the `packages/iface-v1/src/yang/iface.yang` file, as well as the corresponding service template in `packages/iface-v1/templates/iface-template.xml`.
+The [examples.ncs/service-management/implement-a-service/iface-v1](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v1) example contains the complete YANG module with this service model in the `packages/iface-v1/src/yang/iface.yang` file, as well as the corresponding service template in `packages/iface-v1/templates/iface-template.xml`.
 
 ## FASTMAP and Service Life Cycle <a href="#ch_services.fastmap" id="ch_services.fastmap"></a>
 
@@ -708,7 +708,7 @@ The complete create code for the service is:
         template.apply('iface-template', vars)
 ```
 
-You can test it out in the [examples.ncs/service-management/implement-a-service/iface-v2-py](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v2-py) example.
+You can test it out in the [examples.ncs/service-management/implement-a-service/iface-v2-py](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v2-py) example.
 
 ### Templates and Java Code <a href="#d5e1768" id="d5e1768"></a>
 
@@ -799,7 +799,7 @@ The complete create code for the service is then:
     }
 ```
 
-You can test it out in the [examples.ncs/service-management/implement-a-service/iface-v2-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v2-java) example.
+You can test it out in the [examples.ncs/service-management/implement-a-service/iface-v2-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v2-java) example.
 
 ## Configuring Multiple Devices <a href="#ch_services.devs" id="ch_services.devs"></a>
 
@@ -859,7 +859,7 @@ It performs the same as the one, which loops through the devices explicitly:
 </config-template>
 ```
 
-Being explicit, the latter is usually much easier to understand and maintain for most developers. The [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v3) demonstrates this syntax in the XML template.
+Being explicit, the latter is usually much easier to understand and maintain for most developers. The [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/dns-v3) demonstrates this syntax in the XML template.
 
 ### Supporting Different Device Types <a href="#ch_services.devs_types" id="ch_services.devs_types"></a>
 
@@ -926,7 +926,7 @@ In case you need to further limit what configuration applies where and namespace
 </config-template>
 ```
 
-The preceding template applies configuration for the interface only if the selected device uses the `cisco-ios-cli-3.0` NED-ID. You can find the full code as part of the [examples.ncs/service-management/implement-a-service/iface-v3](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v3) example.
+The preceding template applies configuration for the interface only if the selected device uses the `cisco-ios-cli-3.0` NED-ID. You can find the full code as part of the [examples.ncs/service-management/implement-a-service/iface-v3](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v3) example.
 
 ## Shared Service Settings and Auxiliary Data <a href="#ch_services.data" id="ch_services.data"></a>
 
@@ -1061,7 +1061,7 @@ The following code, which performs the same thing but in a more verbose way, fur
         </ip>
 ```
 
-The complete service is available in the [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/dns-v3) example.
+The complete service is available in the [examples.ncs/service-management/implement-a-service/dns-v3](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/dns-v3) example.
 
 ## Service Actions <a href="#ch_services.actions" id="ch_services.actions"></a>
 
@@ -1154,7 +1154,7 @@ class Main(ncs.application.Application):
         self.register_action('iface-test-enabled', IfaceActions)
 ```
 
-You can test the action in the [examples.ncs/service-management/implement-a-service/iface-v4-py](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v4-py) example.
+You can test the action in the [examples.ncs/service-management/implement-a-service/iface-v4-py](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v4-py) example.
 
 ### Action Code in Java <a href="#d5e1966" id="d5e1966"></a>
 
@@ -1220,7 +1220,7 @@ The complete implementation requires you to supply your own Maapi read transacti
     }
 ```
 
-You can test the action in the [examples.ncs/service-management/implement-a-service/iface-v4-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v4-java) example.
+You can test the action in the [examples.ncs/service-management/implement-a-service/iface-v4-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v4-java) example.
 
 ## Operational Data <a href="#ch_services.oper" id="ch_services.oper"></a>
 
@@ -1383,7 +1383,7 @@ def init_oper_data(state):
     return state
 ```
 
-The [examples.ncs/service-management/implement-a-service/iface-v5-py](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v5-py) example implements such code.
+The [examples.ncs/service-management/implement-a-service/iface-v5-py](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v5-py) example implements such code.
 
 ### Writing Operational Data in Java <a href="#d5e2032" id="d5e2032"></a>
 
@@ -1448,7 +1448,7 @@ Another thing to keep in mind with operational data is that NSO by default does 
 
 You can also register a custom `com.tailf.ncs.ApplicationComponent` class with the service application to populate the data on package load, if you are not using `tailf:persistent`. Please refer to [The Application Component Type](nso-virtual-machines/nso-java-vm.md#d5e1255) for details.
 
-The [examples.ncs/service-management/implement-a-service/iface-v5-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/implement-a-service/iface-v5-java) example implements such code.
+The [examples.ncs/service-management/implement-a-service/iface-v5-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/implement-a-service/iface-v5-java) example implements such code.
 
 ## Nano Services for Provisioning with Side Effects <a href="#ncs.development.reactive_fastmap" id="ncs.development.reactive_fastmap"></a>
 
@@ -1461,7 +1461,7 @@ The services discussed previously in this section were modeled to give all requi
 * Allocating a resource from an external system, such as an IP address, or generating an authentication key file using an external command. It is impossible to do this allocation from within the normal FASTMAP `create()` code since there is no way to deallocate the resource on commit, abort, or failure and when deleting the service. Furthermore, the `create()` code runs within the transaction lock. The time spent in services `create()` code should be as short as possible.
 * The service requires the start of one or more Virtual Machines, Virtual Network Functions. The VMs do not yet exist, and the `create()` code needs to trigger something that starts the VMs, and then later, when the VMs are operational, configure them.
 
-The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](nano-services.md). The example in [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
+The basic concepts of nano services are covered in detail by [Nano Services for Staged Provisioning](nano-services.md). The example in [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) implements SSH public key authentication setup using a nano service. The nano service uses the following steps in a plan that produces the `generated`, `distributed`, and `configured` states:
 
 1. Generates the NSO SSH client authentication key files using the OpenSSH `ssh-keygen` utility from a nano service side-effect action implemented in Python.
 2. Distributes the public key to the netsim (ConfD) network elements to be stored as an authorized key using a Python service `create()` callback.
@@ -1470,7 +1470,7 @@ The basic concepts of nano services are covered in detail by [Nano Services for 
 
 Upon deletion of the service instance, NSO restores the configuration. The only delete step in the plan is the `generated` state side-effect action that deletes the key files. The example is described in more detail in [Developing and Deploying a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md).
 
-The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.5/nano-services) directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
+The `basic-vrouter`, `netsim-vrouter`, and `mpls-vpn-vrouter` examples in the [examples.ncs/nano-services](https://github.com/NSO-developer/nso-examples/tree/6.6/nano-services) directory start, configure, and stop virtual devices. In addition, the `mpls-vpn-vrouter` example manages Layer3 VPNs in a service provider MPLS network consisting of physical and virtual devices. Using a Network Function Virtualization (NFV) setup, the L3VPN nano service instructs a VM manager nano service to start a virtual device in a multi-step process consisting of the following:
 
 1. When the L3VPN nano service `pe-create` state step create or delete a `/vm-manager/start` service configuration instance, the VM manager nano service instructs a VNF-M, called ESC, to start or stop the virtual device.
 2. Wait for the ESC to start or stop the virtual device by monitoring and handling events. Here NETCONF notifications.
@@ -1577,7 +1577,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 
     \
-    Trace ID can also be provided as a commit parameter in your service code, or as a RESTCONF query parameter. See [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/maapi-commit-parameters) for an example.
+    Trace ID can also be provided as a commit parameter in your service code, or as a RESTCONF query parameter. See [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api/maapi-commit-parameters) for an example.
 6.  Measuring the time it takes for specific commands to complete can also give you some hints about what is going on. You can do this by using the `timecmd`, which requires the dev tools to be enabled.
 
     ```bash
