@@ -49,7 +49,7 @@ However, the CDB can't use the YANG files directly. The bundled compiler, `ncsc`
 ## Showcase: Extending the CDB with Packages <a href="#d5e87" id="d5e87"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/cdb-yang) for an example implementation.
+See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/cdb-yang) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
@@ -271,7 +271,7 @@ Combining just these four fundamental YANG node types, you can build a very comp
 ## Showcase: Building and Testing a Model <a href="#d5e195" id="d5e195"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/blob/6.4/getting-started/cdb-yang) for an example implementation.
+See [examples.ncs/getting-started/cdb-yang](https://github.com/NSO-developer/nso-examples/tree/6.4/getting-started/cdb-yang) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
