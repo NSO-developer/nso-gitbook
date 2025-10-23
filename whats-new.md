@@ -40,13 +40,13 @@ Documentation Updates:
 
 <details>
 
-<summary> Filtering JSON-RPC <code>show_config</code> method</summary>
+<summary>Filtering JSON-RPC <code>show_config</code> method</summary>
 
 The `show_config` JSON-RPC method now supports filtering and pagination options for improved user experience when retrieving large list instances.
 
 Documentation Updates:
 
-* Added filtering and pagination parameters to `show_config`  documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
+* Added filtering and pagination parameters to `show_config` documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
 
 </details>
 
@@ -71,7 +71,7 @@ This NSO version introduces multiple quality of life improvements for service de
 * NSO warns if there are unused macros inside XML templates.
 
 - New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
-- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.&#x20;
+- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
 - Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
 - Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
 
@@ -83,9 +83,9 @@ This NSO version introduces multiple quality of life improvements for service de
 
 The NSO Web Server now has a configurable number of simultaneous connections. Additionally, the number of current connections can be monitored through the metrics framework.
 
-&#x20;Documentation Updates:
+Documentation Updates:
 
-* Documented a new `/ncs-config/webui/max-connections` parameter for the `ncs.conf` file.
+* Documented a new `/ncs-config/webui/max-connections` parameter for the [ncs.conf](resources/man/ncs.conf.5.md) file.
 
 </details>
 
@@ -93,7 +93,7 @@ The NSO Web Server now has a configurable number of simultaneous connections. Ad
 
 <summary>Updated Example NEDs</summary>
 
-Network Element Drivers (NEDs) used throughout the [NSO examples](https://github.com/NSO-developer/nso-examples) have been updated to include recent versions of the device models. The new models more closely resemble those in production NEDs, which makes examples more realistic and supports additional real-world scenarios.
+Network Element Drivers (NEDs) used throughout the [NSO examples](https://github.com/NSO-developer/nso-examples/tree/6.6) have been updated to include recent versions of the device models. The new models more closely resemble those in production NEDs, which makes examples more realistic and supports additional real-world scenarios.
 
 Note that these NEDs are still example NEDs and are not designed for production use.
 
