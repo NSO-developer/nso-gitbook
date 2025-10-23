@@ -345,4 +345,4 @@ $ cat /etc/ncs/ipc_access
 .......
 ```
 
-For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../../management/high-availability.md#ug.ha.raft) for more HA Raft details.
+For an HA setup, HA Raft is based on the Raft consensus algorithm and provides the best fault tolerance, performance, and security. It is therefore recommended over the legacy rule-based HA variant. The `raft-upgrade-l2` project, referenced from the NSO example set under [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc), together with this Deployment Example section, describes a reference implementation. See [NSO HA Raft](../../management/high-availability.md#ug.ha.raft) for more HA Raft details.

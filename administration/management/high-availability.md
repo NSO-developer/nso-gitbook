@@ -36,7 +36,7 @@ Raft achieves robustness by requiring at least three nodes in the HA cluster. Th
 
 You can start a sample HA Raft cluster using the [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/raft-cluster) example to test it out. The scripts in the example show various aspects of cluster setup and operation, which are further described in the rest of this section.
 
-Optionally, examples using separate containers for each HA Raft cluster member with NSO system installations are available and referenced in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/blob/6.4/high-availability/hcc) example in the NSO example set.
+Optionally, examples using separate containers for each HA Raft cluster member with NSO system installations are available and referenced in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/hcc) example in the NSO example set.
 
 ### Overview of Raft Operation <a href="#d5e4526" id="d5e4526"></a>
 
