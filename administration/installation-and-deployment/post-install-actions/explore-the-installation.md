@@ -41,7 +41,7 @@ Run `index.html` in your browser to explore further.
 
 ### Examples <a href="#d5e560" id="d5e560"></a>
 
-Local Install comes with a rich set of [examples](https://github.com/NSO-developer/nso-examples/tree/6.5) to start using NSO.
+Local Install comes with a rich set of [examples](https://github.com/NSO-developer/nso-examples/tree/6.6) to start using NSO.
 
 ```bash
 $ ls -1 examples.ncs/
@@ -81,7 +81,7 @@ juniper-junos-nc-3.0
 ```
 
 {% hint style="info" %}
-The example NEDs included in the installer are intended for evaluation, demonstration, and use with the [examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.5) examples. These are not the latest versions available and often do not have all the features available in production NEDs.
+The example NEDs included in the installer are intended for evaluation, demonstration, and use with the [examples.ncs](https://github.com/NSO-developer/nso-examples/tree/6.6) examples. These are not the latest versions available and often do not have all the features available in production NEDs.
 {% endhint %}
 
 #### **Install New NEDs**

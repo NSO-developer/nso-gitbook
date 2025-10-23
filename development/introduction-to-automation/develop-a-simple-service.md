@@ -140,7 +140,7 @@ Finally, your Python script can read the supplied values inside the `cb_create()
 ## Showcase - A Simple DNS Configuration Service <a href="#d5e620" id="d5e620"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/develop-service) for an example implementation.
+See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/develop-service) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
@@ -151,7 +151,7 @@ See [examples.ncs/getting-started/develop-service](https://github.com/NSO-develo
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e635" id="d5e635"></a>
 
-The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
+The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
 
 First, copy the package and files to your `NSO_RUNDIR`:
 
@@ -456,7 +456,7 @@ Likewise, you can use the same XPath in a template of a Python service. Then you
 ## Showcase - DNS Configuration Service with Templates <a href="#d5e780" id="d5e780"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/develop-service) for an example implementation.
+See [examples.ncs/getting-started/develop-service](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/develop-service) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
@@ -467,7 +467,7 @@ See [examples.ncs/getting-started/develop-service](https://github.com/NSO-develo
 
 ### Step 1 - Prepare Simulated Routers <a href="#d5e795" id="d5e795"></a>
 
-The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
+The [examples.ncs/getting-started/develop-service/init](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/develop-service/init) holds a package, Makefile, and an XML initialization file you can use for this scenario to start the routers and connect them to your NSO instance.
 
 First, copy the package and files to your `NSO_RUNDIR`:
 
