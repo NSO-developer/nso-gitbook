@@ -97,9 +97,9 @@ Finally, if the two-layer approach proves to be insufficient due to requirements
 
 ### Greenfield LSA Application
 
-This section describes a small LSA application, which exists as a running example in the [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-single-version-deployment) directory.
+This section describes a small LSA application, which exists as a running example in the [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-single-version-deployment) directory.
 
-The application is a slight variation on the [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/rfs-service) example where the YANG code has been split up into an upper-layer and a lower-layer implementation. The example topology (based on netsim for the managed devices, and NSO for the upper/lower layer NSO instances) looks like the following:
+The application is a slight variation on the [examples.ncs/service-management/rfs-service](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/rfs-service) example where the YANG code has been split up into an upper-layer and a lower-layer implementation. The example topology (based on netsim for the managed devices, and NSO for the upper/lower layer NSO instances) looks like the following:
 
 <figure><img src="../../images/lsa-example-22.png" alt="" width="563"><figcaption><p>Example LSA architecture</p></figcaption></figure>
 
@@ -425,7 +425,7 @@ To conclude this section, the final remark here is that to design a good LSA app
 
 ### Greenfield LSA Application Designed for Easy Scaling <a href="#d5e148" id="d5e148"></a>
 
-In this section, we'll describe a lightly modified version of the example in the previous section. The application we describe here exists as a running example under [examples.ncs/layered-services-architecture/lsa-scaling](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-scaling).
+In this section, we'll describe a lightly modified version of the example in the previous section. The application we describe here exists as a running example under [examples.ncs/layered-services-architecture/lsa-scaling](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-scaling).
 
 Sometimes it is desirable to be able to easily move devices from one lower LSA node to another. This makes it possible to easily expand or shrink the number of lower LSA nodes. Additionally, it is sometimes desirable to avoid HA pairs for replication but instead use a common store for all lower LSA devices, such as a distributed database, or a common file system.
 
@@ -531,7 +531,7 @@ If we do not have the luxury of designing our NSO service application from scrat
 
 Usually, the reasons for re-architecting an existing application are performance-related.
 
-In the NSO example collection, two popular examples are the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.5/service-management/mpls-vpn-python) examples. Those example contains an almost "real" VPN provisioning example whereby VPNs are provisioned in a network of CPEs, PEs, and P routers according to this picture:
+In the NSO example collection, two popular examples are the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-python) examples. Those example contains an almost "real" VPN provisioning example whereby VPNs are provisioned in a network of CPEs, PEs, and P routers according to this picture:
 
 <figure><img src="../../images/network.jpg" alt=""><figcaption><p>VPN network</p></figcaption></figure>
 
@@ -592,7 +592,7 @@ By far the easiest way to change an existing monolithic NSO application into the
 
 In this example, the topology information is stored in a separate container `share-data` and propagated to the LSA nodes by means of service code.
 
-The example [examples.ncs/layered-services-architecture/mpls-vpn-lsa](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/mpls-vpn-lsa) example does exactly this, the upper layer data model in `upper-nso/packages/l3vpn/src/yang/l3vpn.yang` now looks as:
+The example [examples.ncs/layered-services-architecture/mpls-vpn-lsa](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/mpls-vpn-lsa) example does exactly this, the upper layer data model in `upper-nso/packages/l3vpn/src/yang/l3vpn.yang` now looks as:
 
 ```yang
    list l3vpn {
@@ -765,7 +765,7 @@ Deployment of an LSA cluster where all the nodes have the same major version of 
 
 The choice between the two deployment options depends on your functional needs. The single version is easier to maintain and is a good starting point but is less flexible. While it is possible to migrate from one to the other, the migration from a single version to a multi-version is typically easier than the other way around. Still, every migration requires some effort, so it is best to pick one approach and stick to it.
 
-You can find working examples of both deployment types in the [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-single-version-deployment) and [examples.ncs/layered-services-architecture/lsa-multi-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-multi-version-deployment) folders, respectively.
+You can find working examples of both deployment types in the [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-single-version-deployment) and [examples.ncs/layered-services-architecture/lsa-multi-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-multi-version-deployment) folders, respectively.
 
 ### RFS Nodes Setup <a href="#d5e320" id="d5e320"></a>
 
@@ -912,7 +912,7 @@ Once you have both, the CFS and device-compiled RFS service packages are ready; 
 
 ### Example Walkthrough <a href="#d5e425" id="d5e425"></a>
 
-You can see all the required setup steps for a single version deployment performed in the example [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-single-version-deployment) and the [examples.ncs/layered-services-architecture/lsa-multi-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture/lsa-multi-version-deployment) has the steps for the multi-version one. The two are quite similar but the multi-version deployment has additional steps, so it is the one described here.
+You can see all the required setup steps for a single version deployment performed in the example [examples.ncs/layered-services-architecture/lsa-single-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-single-version-deployment) and the [examples.ncs/layered-services-architecture/lsa-multi-version-deployment](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture/lsa-multi-version-deployment) has the steps for the multi-version one. The two are quite similar but the multi-version deployment has additional steps, so it is the one described here.
 
 First, build the example for manual setup.
 
@@ -1172,7 +1172,7 @@ Likewise, you can return to the Single-Version Deployment, by upgrading the RFS 
 
 All these `ned-id` changes stem from the fact that the upper-layer CFS node treats the lower-layer RFS node as a managed device, requiring the correct model, just like it does for any other device type. For the same reason, maintenance (bug fix or patch) NSO upgrades do not result in a changed `ned-id`, so for those, no migration is necessary.
 
-The [NSO example set](https://github.com/NSO-developer/nso-examples/tree/6.5/layered-services-architecture) illustrates different aspects of LSA deployment including working with single- and multi-version deployments.
+The [NSO example set](https://github.com/NSO-developer/nso-examples/tree/6.6/layered-services-architecture) illustrates different aspects of LSA deployment including working with single- and multi-version deployments.
 
 ### User Authorization Passthrough
 

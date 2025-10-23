@@ -106,7 +106,7 @@ All devices have a `admin-state` with default value `southbound-locked`. This me
 
 ### CLI NEDs <a href="#d5e543" id="d5e543"></a>
 
-(See also [examples.ncs/device-management/real-device-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/real-device-cisco-ios)). Straightforward, adding a new device on a specific address, standard SSH port:
+(See also [examples.ncs/device-management/real-device-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/real-device-cisco-ios)). Straightforward, adding a new device on a specific address, standard SSH port:
 
 ```cli
 admin@ncs(config)# devices device c7 address 1.2.3.4 port 22 \
@@ -121,7 +121,7 @@ admin@ncs(config-device-c7)# commit
 
 ### NETCONF NEDs, JunOS <a href="#d5e554" id="d5e554"></a>
 
-See also [examples.ncs/device-management/real-device-juniper](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/real-device-juniper). Make sure that NETCONF over SSH is enabled on the JunOS device:
+See also [examples.ncs/device-management/real-device-juniper](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/real-device-juniper). Make sure that NETCONF over SSH is enabled on the JunOS device:
 
 ```
 junos1% show system services
@@ -146,7 +146,7 @@ admin@ncs(config-device-junos1)# commit
 
 ### SNMP NEDs <a href="#d5e566" id="d5e566"></a>
 
-(See also [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-ned).) First of all, let's explain SNMP NEDs a bit. By default all read-only objects are mapped to operational data in NSO and read-write objects are mapped to configuration data. This means that a sync-from operation will load read-write objects into NSO. How can you reach read-only objects? Note the following is true for all NED types that have modeled operational data. The device configuration exists at `devices device config` and has a copy in CDB. NSO can speak live to the device to fetch for example counters by using the path `devices device live-status`:
+(See also [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/snmp-ned).) First of all, let's explain SNMP NEDs a bit. By default all read-only objects are mapped to operational data in NSO and read-write objects are mapped to configuration data. This means that a sync-from operation will load read-write objects into NSO. How can you reach read-only objects? Note the following is true for all NED types that have modeled operational data. The device configuration exists at `devices device config` and has a copy in CDB. NSO can speak live to the device to fetch for example counters by using the path `devices device live-status`:
 
 ```cli
 admin@ncs# show devices device r1 live-status SNMPv2-MIB

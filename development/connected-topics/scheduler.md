@@ -67,7 +67,7 @@ The following list describes the legal special characters and how you can use th
 
 ### Scheduling Periodic Compaction <a href="#ug.sc.compaction" id="ug.sc.compaction"></a>
 
-[Compaction](../../administration/advanced-topics/cdb-persistence.md#compaction) in NSO can take a considerable amount of time, during which transactions could be blocked. To avoid disruption, it might be advantageous to schedule compaction during times of low NSO utilization. This can be done using the NSO scheduler and a service. See [examples.ncs/misc/periodic-compaction](https://github.com/NSO-developer/nso-examples/tree/6.5/misc/periodic-compaction) for an example that demonstrates how to create a periodic compaction service that can be scheduled using the NSO scheduler.
+[Compaction](../../administration/advanced-topics/cdb-persistence.md#compaction) in NSO can take a considerable amount of time, during which transactions could be blocked. To avoid disruption, it might be advantageous to schedule compaction during times of low NSO utilization. This can be done using the NSO scheduler and a service. See [examples.ncs/misc/periodic-compaction](https://github.com/NSO-developer/nso-examples/tree/6.6/misc/periodic-compaction) for an example that demonstrates how to create a periodic compaction service that can be scheduled using the NSO scheduler.
 
 ## Scheduling Non-recurring Work <a href="#d5e9418" id="d5e9418"></a>
 

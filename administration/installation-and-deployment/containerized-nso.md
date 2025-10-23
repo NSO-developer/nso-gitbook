@@ -48,7 +48,7 @@ Consult the [Installation](./) documentation for information on installing NSO o
 {% hint style="info" %}
 See [Developing and Deploying a Nano Service](deployment/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
-The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
+The README in the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) example provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
 
 ### Build Image
@@ -195,7 +195,7 @@ If you need to perform operations before or after the `ncs` process is started i
 
 NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
-When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) for an example.
+When migrating from container versions where NSO has `root` privilege, ensure the `nso` user owns or has access rights to the required files and directories. Examples include application directories, SSH host keys, SSH keys used to authenticate with devices, etc. See the deployment example variant referenced by the [examples.ncs/getting-started/netsim-sshkey/README.md](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) for an example.
 
 The NSO container runs a script called `take-ownership.sh` as part of its startup, which takes ownership of all the directories that NSO needs. The script will be one of the first things to run. The script can be overridden to take ownership of even more directories, such as mounted volumes or bind mounts.
 
@@ -625,7 +625,7 @@ This example covers the necessary information to manifest the use of NSO images 
 
 #### **Packages**
 
-The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.5/getting-started/netsim-sshkey) example:
+The packages used in this example are taken from the [examples.ncs/getting-started/netsim-sshkey](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/netsim-sshkey) example:
 
 * `distkey`: A simple Python + template service package that automates the setup of SSH public key authentication between netsim (ConfD) devices and NSO using a nano service.
 * `ne`: A NETCONF NED package representing a netsim network element that implements a configuration subscriber Python application that adds or removes the configured public key, which the netsim (ConfD) network element checks when authenticating public key authentication clients.

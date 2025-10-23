@@ -27,7 +27,7 @@ The public keys that are authorized for authentication of a given user must be p
 
 ## NSO as SSH Client <a href="#ug.ssh_keys.client" id="ug.ssh_keys.client"></a>
 
-NSO can act as an SSH client for connections to managed devices that use SSH (this is always the case for devices accessed via NETCONF, typically also for devices accessed via CLI), and for connections to other nodes in an NSO cluster. In all cases, a built-in SSH client is used. The [examples.ncs/aaa/ssh-keys](https://github.com/NSO-developer/nso-examples/tree/6.5/aaa/ssh-keys) example in the NSO example collection has a detailed walk-through of the NSO functionality that is described in this section.
+NSO can act as an SSH client for connections to managed devices that use SSH (this is always the case for devices accessed via NETCONF, typically also for devices accessed via CLI), and for connections to other nodes in an NSO cluster. In all cases, a built-in SSH client is used. The [examples.ncs/aaa/ssh-keys](https://github.com/NSO-developer/nso-examples/tree/6.6/aaa/ssh-keys) example in the NSO example collection has a detailed walk-through of the NSO functionality that is described in this section.
 
 ### Host Key Verification <a href="#ug.ssh_keys.client.host_keys" id="ug.ssh_keys.client.host_keys"></a>
 
