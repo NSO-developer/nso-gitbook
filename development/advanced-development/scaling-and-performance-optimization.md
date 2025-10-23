@@ -278,9 +278,9 @@ Suppose a service creates a significant amount of configuration data for devices
 
 #### **Running the `perf-bulkcreate` Example Using a Single Call to MAAPI `shared_set_values()`**
 
-The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python with a configuration template, `create()` and `set()` calls, Python `shared_set_values()` and `load_config_cmds()`, or Java `sharedSetValues()` and `loadConfigCmds()` to write the configuration in XML format.
+The [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.5/scaling-performance/perf-bulkcreate) example writes configuration to an access control list and a route list of a Cisco Adaptive Security Appliance (ASA) device. It uses either MAAPI Python with a configuration template, `create()` and `set()` calls, Python `shared_set_values()` and `load_config_cmds()`, or Java `sharedSetValues()` and `loadConfigCmds()` to write the configuration in XML format.
 
-To run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
+To run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.5/scaling-performance/perf-bulkcreate) example using MAAPI Python `create()` and `set()` calls to create 3000 rules and 3000 routes on one device:
 
 ```bash
 cd $NCS_DIR/examples.ncs/scaling-performance/perf-bulkcreate
@@ -291,7 +291,7 @@ The commit uses the `no-networking` parameter to skip pushing the configuration 
 
 <figure><img src="../../images/service-create-progress.png" alt=""><figcaption></figcaption></figure>
 
-Next, run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
+Next, run the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.5/scaling-performance/perf-bulkcreate) example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
 
 ```
 ./measure.sh -r 3000 -t py_setvals_xml -n true
@@ -390,7 +390,7 @@ Stop NSO and the netsim devices:
 make stop
 ```
 
-Running the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/blob/main/scaling-performance/perf-bulkcreate) example with two devices and commit queues enabled will produce a similar result.
+Running the [examples.ncs/scaling-performance/perf-bulkcreate](https://github.com/NSO-developer/nso-examples/tree/6.5/scaling-performance/perf-bulkcreate) example with two devices and commit queues enabled will produce a similar result.
 
 ### Simplify the Per-Device Concurrent Transaction Creation Using a Nano Service <a href="#ncs.development.scaling.throughput.nano" id="ncs.development.scaling.throughput.nano"></a>
 
