@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (4.2.11)
+# Resource Manager (4.2.12)
 
 The NSO Resource Manager package contains both an API for generic resource pool handling called the `resource allocator`, and the two applications ([`id-allocator`](./#nso-id-allocator-deployment) and[`ipaddress-allocator`](./#nso-ip-address-allocator-deployment)) utilizing the API. The applications are explained separately in the following sections below:
 
@@ -11,7 +11,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 * [NSO IP Address Allocator Deployment](./#nso-ip-address-allocator-deployment)
 
 {% hint style="info" %}
-The latest version of NSO Resource Manager is 4.2.11. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+The latest version of NSO Resource Manager is 4.2.12. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
@@ -30,7 +30,7 @@ The YANG model of the resource allocator (`resource-allocator.yang`) can be augm
 
 Since the allocation request may fail the response container contains a choice where one case is for error and one for success.
 
-Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated.
+Each allocation list entry also contains an `allocating-service` leaf-list. These are instance identifiers that point to the services that requested the resource. These are the services that will be redeployed when the resource has been allocated. By default, these details are hidden and the user must run the command `unhide debug` to view the details of the `allocating-service` for the respective allocation.
 
 The resource allocation packages should subscribe to several points in this `resource-pool` tree. First, they must detect when a new resource pool is created or deleted. Secondly, they must detect when an allocation request is created or deleted. A package may also augment the pool definition with additional parameters, for example, an IP address allocator may wish to add configuration parameters for defining the available subnets to allocate from, in which case it must also subscribe to changes to these settings.
 
@@ -64,8 +64,13 @@ The API of the resource allocator is defined in this YANG data model:
       }
 
       leaf-list allocating-service {
-        tailf:info "Instance identifiers of service that own resource";
-        type instance-identifier;
+        tailf:hidden debug;
+        type instance-identifier {
+          require-instance false;
+        }
+        description
+          "Points to the services that own the resource.";
+        tailf:info "Instance identifiers of services that own resource";
       }
 
       container request {
@@ -416,6 +421,13 @@ admin@ncs# resource-pools ip-address-pool pool1 subnet 10.0.0.0 24
 admin@ncs# resource-pools ip-address-pool pool1 range 192.168.0.0 192.168.255.255
 ```
 
+The user can set the preferred allocation method on the pool while creating the pool or update the allocation method later by selecting the allocation method value as `firstfree` or `sequential`.
+
+The default value is `firstfree`. If `firstfree` is used, released subnets can be reused immediately. If `sequential` is used, released IPs will be used once the available pool is exhausted.
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
+```
+
 </details>
 
 <details>
@@ -426,6 +438,36 @@ Since we have already populated one of our pools, we can now start creating allo
 
 ```
 admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
+myuser request subnet-size 30
+```
+
+</details>
+
+<details>
+
+<summary>Create an Allocation Method</summary>
+
+The IP Pool supports two ways of IP allocation: `firstfree` and `sequential`. If we set allocation method of the pool to `firstfree`, which is also the default allocation method, then the released IP can be reused immediately, but if we set the value to `sequential`, then the released IP will not be used immediately. Once the requested IP allocation is not possible from the available pool, released IPs can be allocated.
+
+We can create an IP pool and set the allocation method to `firstfree`, and then create an allocation request `a1`. If we release the allocation `a1` and again request the allocation `a2` with the same subnet size, then the same IP will get allocated.
+
+We can create an IP pool and set the allocation method to `sequential`, and then create an allocation request `a1`. If we release the allocation, `a1` and again request the allocation `a2` with the same subnet size, then a different IP will get allocated.
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation-method firstfree
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
+myuser request subnet-size 30
+admin@ncs# delete resource-pools ip-address-pool pool1 allocation a1
+admin@ncs# resource-pools ip-address-pool pool1 allocation a2 username \
+myuser request subnet-size 30
+```
+
+```
+admin@ncs# resource-pools ip-address-pool pool1 allocation-method sequential
+admin@ncs# resource-pools ip-address-pool pool1 allocation a1 username \
+myuser request subnet-size 30
+admin@ncs# delete resource-pools ip-address-pool pool1 allocation a1
+admin@ncs# resource-pools ip-address-pool pool1 allocation a2 username \
 myuser request subnet-size 30
 ```
 
