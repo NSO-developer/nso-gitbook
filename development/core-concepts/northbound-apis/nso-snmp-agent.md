@@ -27,7 +27,7 @@ The usmHMACMD5AuthProtocol authentication protocol and the usmDESPrivProtocol pr
 
 The SNMP agent is configured through any of the normal NSO northbound interfaces. It is possible to control most aspects of the agent through for example the CLI.
 
-The YANG models describing all configuration capabilities of the SNMP agent reside under `$NCS_DIR/src/ncs/snmp/snmp-agent-config/*.yang` in the NSO distribution.
+The YANG models describing all configuration capabilities of the SNMP agent reside under `$NCS_DIR/src/ncs/snmp/snmp-agent-cfg/*.yang` in the NSO distribution.
 
 An example session configuring the SNMP agent through the CLI may look like:
 
