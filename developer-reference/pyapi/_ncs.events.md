@@ -11,7 +11,7 @@ collection illustrates subscription and processing for all these events,
 and can also be used standalone in a development environment to monitor
 NCS events.
 
-This documentation should be read together with the [confd_lib_events(3)](../man/confd_lib_events.3.md) man page.
+This documentation should be read together with the [confd_lib_events(3)](../../resources/man/confd_lib_events.3.md) man page.
 
 ## Functions
 

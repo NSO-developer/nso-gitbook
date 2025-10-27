@@ -17,7 +17,7 @@ about callpoints in tailf_yang_extensions(5). Read more about how to use
 the module in the User Guide chapters on Operational data and External
 data.
 
-This documentation should be read together with the [confd_lib_dp(3)](../man/confd_lib_dp.3.md) man page.
+This documentation should be read together with the [confd_lib_dp(3)](../../resources/man/confd_lib_dp.3.md) man page.
 
 ## Functions
 
@@ -2066,6 +2066,7 @@ MISC_APPLICATION_INTERNAL = 20
 MISC_BAD_PERSIST_ID = 16
 MISC_CANDIDATE_ABORT_BAD_USID = 17
 MISC_CDB_OPER_UNAVAILABLE = 37
+MISC_CONF_LOAD_NOT_ALLOWED = 59
 MISC_DATA_MISSING = 44
 MISC_EXTERNAL = 22
 MISC_EXTERNAL_TIMEOUT = 45
