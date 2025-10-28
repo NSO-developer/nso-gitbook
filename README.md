@@ -2,21 +2,7 @@
 description: Supplementary documentation and resources for your NSO deployment.
 icon: paper-plane
 cover: .gitbook/assets/gb-cover-final.png
-coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+coverY: -32.46361044417767
 ---
 
 # Overview
