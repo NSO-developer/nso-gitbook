@@ -39,24 +39,25 @@
      2.1. ssl
   3. proxy
   4. proxy2
-  5. logger
-  6. auto-prompts
-  7. system-interface-defaults
-  8. live-status
-  9. api
-  10. read
-     10.1. replace-config
-  11. write
-     11.1. config-dependency
-     11.2. inject-command
-  12. transaction
-     12.1. config-abort-warning
-     12.2. config-ignore-error
-     12.3. inject-on-enter-exit-mode
-  13. persistence
-  14. behaviours
-  15. developer
-     15.1. simulate-show
+  5. file-transfer
+  6. logger
+  7. auto-prompts
+  8. system-interface-defaults
+  9. live-status
+  10. api
+  11. read
+     11.1. replace-config
+  12. write
+     12.1. config-dependency
+     12.2. inject-command
+  13. transaction
+     13.1. config-abort-warning
+     13.2. config-ignore-error
+     13.3. inject-on-enter-exit-mode
+  14. persistence
+  15. behaviours
+  16. developer
+     16.1. simulate-show
   ```
 
 
@@ -94,7 +95,7 @@
   Cisco Nexus connection configuration.
 
 
-    - connection populate-smart-license <true|false> (default true)
+    - connection populate-smart-license <true|false> (default false)
 
       Enable or disable population of smart license information.
 
@@ -181,6 +182,12 @@
 
       To make interaction with CLI robust (e.g. to avoid matching config as a prompt), an echo cmd
       is used as delimiter.
+
+
+    - connection platform-prefer-cdb <true|false> (default true)
+
+      Prefer CDB cache for platform information retrieval. Set to false if want to retrieve at each
+      (re)connect.
 
 
 ## 2.1. ned-settings cisco-nx connection ssl
@@ -438,7 +445,53 @@
       Additional arguments used to establish proxy2 connection (appended to end of ssh cmd line).
 
 
-# 5. ned-settings cisco-nx logger
+# 5. ned-settings cisco-nx file-transfer
+----------------------------------------
+
+  file-transfer configuration for scp|sftp|bash write methods.
+
+
+    - file-transfer threshold <0-2147483647> (default 0)
+
+      The minimum threshold in bytes when to transfer config changes to device using file upload.
+
+
+    - file-transfer directory <WORD> (default bootflash)
+
+      Directory name to use for running-config file transfer from/to device.
+
+
+    - file-transfer file <WORD> (default nso-commit.cfg)
+
+      Temporary config file name used to copy from/to running-config.
+
+
+    - file-transfer cli-fallback <enum> (default disabled)
+
+      Fallback to use CLI if file upload fails for this transaction (default disabled).
+
+      enabled   - enabled, fallback to CLI if file upload fails due to I/O error only.
+
+      disabled  - disabled, do not fallback to CLI if file upload fails.
+
+
+    - file-transfer file-temp-delete <true|false> (default false)
+
+      Delete temporary file used to copy from/to running-config.
+
+
+    - file-transfer client-close <true|false> (default false)
+
+      Close SCP and SFTP client when closing session. By default disabled due to NX version 10.x SSH
+      bug.
+
+
+    - file-transfer debug <true|false> (default false)
+
+      Enable file-transfer debugging.
+
+
+# 6. ned-settings cisco-nx logger
 ---------------------------------
 
   Settings for controlling logs generated.
@@ -462,7 +515,7 @@
       Toggle logs to be added to ncs-java-vm.log.
 
 
-# 6. ned-settings cisco-nx auto-prompts
+# 7. ned-settings cisco-nx auto-prompts
 ---------------------------------------
 
   When using 'live-status exec any' or 'config exec' one can pass a sequence of responses to the
@@ -494,7 +547,7 @@
         Answer to device question.
 
 
-# 7. ned-settings cisco-nx system-interface-defaults
+# 8. ned-settings cisco-nx system-interface-defaults
 ----------------------------------------------------
 
   Settings to handle dynamic defaults of interfaces (corresponding to the setting of 'system default
@@ -508,7 +561,7 @@
       disable   - Disable the handling of dynamic interface defaults.
 
       auto      - Inspect how system default is set on device to automatically determine
-                  switchport/shutdown, NOTE: Currenly only works with CLI, not NXAPI.
+                  switchport/shutdown.
 
       explicit  - Explicitly set defaults to use (must be set under 'explicit').
 
@@ -538,7 +591,7 @@
       hence can't be used to determine default).
 
 
-# 8. ned-settings cisco-nx live-status
+# 9. ned-settings cisco-nx live-status
 --------------------------------------
 
   Configure NED settings related to live-status.
@@ -549,8 +602,8 @@
       Define time-to-live for data fetched from the device via live-status.(default 50).
 
 
-# 9. ned-settings cisco-nx api
-------------------------------
+# 10. ned-settings cisco-nx api
+-------------------------------
 
   Configure API (new API features/changes).
 
@@ -561,13 +614,13 @@
       disable (default).
 
 
-# 10. ned-settings cisco-nx read
+# 11. ned-settings cisco-nx read
 --------------------------------
 
   Settings used when reading from device.
 
 
-## 10.1. ned-settings cisco-nx read replace-config
+## 11.1. ned-settings cisco-nx read replace-config
 --------------------------------------------------
 
   Replace (or filter) config when reading from device.
@@ -587,11 +640,36 @@
         The string which would replace all found matches. May use groups from regex.
 
 
-# 11. ned-settings cisco-nx write
+# 12. ned-settings cisco-nx write
 ---------------------------------
 
+  Settings used when writing to device.
 
-## 11.1. ned-settings cisco-nx write config-dependency
+
+    - write method <enum> (default cli)
+
+      Select method to write config data in a commit to the device.
+
+      cli   - Use the NX CLI to send line by line.
+
+      scp   - Use SCP client to upload the config data to the device and then copy (merge) it to
+              running-config.
+
+      sftp  - Use SFTP client to upload the config data to the device and then copy (merge) it to
+              running-config.
+
+      bash  - Upload the config data to the device in CLI bash shell, create a file and then copy
+              (merge) it to running-config.
+
+
+    - write number-of-lines-to-send-in-chunk <1-1000> (default 1)
+
+      [EXPERIMENTAL] Number of commands lines in a chunk sent by the NED to the device. A higher
+      number normally result in better performance but may also have a negative impact on the error
+      handling.
+
+
+## 12.1. ned-settings cisco-nx write config-dependency
 ------------------------------------------------------
 
   - write config-dependency <id> <mode> <move> <action> <stay>
@@ -618,7 +696,7 @@
    before|after action.
 
 
-## 11.2. ned-settings cisco-nx write inject-command
+## 12.2. ned-settings cisco-nx write inject-command
 ---------------------------------------------------
 
   - write inject-command <id> <config-line> <command> <where>
@@ -688,7 +766,7 @@
   which is (\\d+).
 
 
-# 12. ned-settings cisco-nx transaction
+# 13. ned-settings cisco-nx transaction
 ---------------------------------------
 
   Cisco Nexus transaction configuration.
@@ -707,7 +785,7 @@
                         trans-id-cmd).
 
 
-    - transaction trans-id-cmd <string> (default delete volatile:///ncstransconf.tmp no-prompt ; show running-config | exclude Time: > volatile:///ncstransconf.tmp ; show file volatile:///ncstransconf.tmp md5sum ; delete volatile:///ncstransconf.tmp no-prompt)
+    - transaction trans-id-cmd <string> (default delete volatile:///ncstransconf.tmp no-prompt ; show running-config | begin version > volatile:///ncstransconf.tmp ; show file volatile:///ncstransconf.tmp md5sum ; delete volatile:///ncstransconf.tmp no-prompt)
 
       To avoid the overhead of 'show running-config' in each transaction, especially with large
       device configurations this method by default let's the device calculate an md5-hash of the
@@ -781,7 +859,7 @@
       refreshed immmediately.
 
 
-## 12.1. ned-settings cisco-nx transaction config-abort-warning
+## 13.1. ned-settings cisco-nx transaction config-abort-warning
 ---------------------------------------------------------------
 
   Configure additional device warnings that shall be treated as errors and trigger an abort in the
@@ -795,7 +873,7 @@
         exist.*$'.
 
 
-## 12.2. ned-settings cisco-nx transaction config-ignore-error
+## 13.2. ned-settings cisco-nx transaction config-ignore-error
 --------------------------------------------------------------
 
   Configure additional device errors that shall be treated as warnings (i.e. to be ignored, not
@@ -808,7 +886,7 @@
         Error regular expression (will be matched MULTILINE), e.g. '^.*password not.*$'.
 
 
-## 12.3. ned-settings cisco-nx transaction inject-on-enter-exit-mode
+## 13.3. ned-settings cisco-nx transaction inject-on-enter-exit-mode
 --------------------------------------------------------------------
 
   Use to inject extra lines at enter/exit of mode in diff to send to device (optionally giving key
@@ -852,7 +930,7 @@
           done per 'mode' in the schema.
 
 
-# 13. ned-settings cisco-nx persistence
+# 14. ned-settings cisco-nx persistence
 ---------------------------------------
 
   Cisco Nexus persistence configuration, i.e. if/how the NED persists configuration to the
@@ -909,7 +987,7 @@
         ned-settings cisco-nx persistence schedule time 5
 
 
-# 14. ned-settings cisco-nx behaviours
+# 15. ned-settings cisco-nx behaviours
 --------------------------------------
 
   Cisco Nexus NED behaviours, the settings in this section can be set to either enable, disable, or
@@ -972,7 +1050,12 @@
     - behaviours show-class-map-all <union> (default disable)
 
       Enable this to use 'show running-config all | sec class-map' to also get default (hidden)
-      class-maps into CDB. (NOTE: only works in CLI mode, not NXAPI.
+      class-maps into CDB. (NOTE: only works in CLI mode, not NXAPI).
+
+
+    - behaviours show-vpc-all <union> (default enable)
+
+      Enable this to use 'show running-config vpc all | sec vpc domain'.
 
 
     - behaviours use-show-diff <union> (default disable)
@@ -1035,7 +1118,7 @@
 
     - behaviours default-qos-ns-buffer-profile-mesh <union> (default disable)
 
-      When enabled, 'mesh' is the default (i.e. trimmed) valuefor 'hardware qos ns-buffer-profile',
+      When enabled, 'mesh' is the default (i.e. trimmed) value for 'hardware qos ns-buffer-profile',
       otherwise burst is considered default.
 
 
@@ -1056,7 +1139,7 @@
 
     - behaviours no-logging-event-link-status-default <union> (default <7.0)
 
-      When enabled, the default value of 'logging event link-status default' is off, (i.e. the
+      When enabled, the default value of 'logging event link-stat us default' is off, (i.e. the
       trimmed value).
 
 
@@ -1197,15 +1280,15 @@
       Enable this setting to be able to configure ipv6 snooping policies.
 
 
-    - behaviours have-intersight <union> (default >10.1)
+    - behaviours have-intersight <union> (default disable)
 
-      This setting selects if device has the intersight feature (by default availble in NXOS >=
+      This setting selects if device has the intersight feature (by default available in NXOS >=
       10.2), since the feature is by default enabled but 'hidden', i.e. a trimmed default, the NED
       needs to do a 'show running-config all | inc "feature intersight" to discover when it's
-      enabled to stay in sync. If this is not desired, disable this setting.
+      enabled to stay in sync. If this is desired, enable this setting.
 
 
-# 15. ned-settings cisco-nx developer
+# 16. ned-settings cisco-nx developer
 -------------------------------------
 
   Contains settings used by the NED developers.
@@ -1256,7 +1339,7 @@
       be part of transaction, and will be sent to device. Use with care, and do proper testing to understand behaviour.
 
 
-## 15.1. ned-settings cisco-nx developer simulate-show
+## 16.1. ned-settings cisco-nx developer simulate-show
 ------------------------------------------------------
 
   Used with live-status to inject simualted output for a show command.
