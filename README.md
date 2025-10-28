@@ -2,7 +2,7 @@
 description: Get started with the Cisco Crosswork NSO documentation.
 icon: hands-clapping
 cover: .gitbook/assets/gb-cover-final.png
-coverY: 0
+coverY: -33.251425570228086
 layout:
   width: default
   cover:
