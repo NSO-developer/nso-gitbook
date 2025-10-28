@@ -1,0 +1,2 @@
+# nokia-srlinux\_gnmi
+

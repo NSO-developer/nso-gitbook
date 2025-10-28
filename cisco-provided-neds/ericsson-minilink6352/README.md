@@ -1,0 +1,2 @@
+# ericsson-minilink6352
+
