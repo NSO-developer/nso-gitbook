@@ -1,2 +1,0 @@
-# vmware-vsphere
-

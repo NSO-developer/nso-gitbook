@@ -1,2 +1,0 @@
-# pica8-picos
-

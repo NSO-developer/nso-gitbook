@@ -1,2 +1,0 @@
-# fortinet-fortios
-

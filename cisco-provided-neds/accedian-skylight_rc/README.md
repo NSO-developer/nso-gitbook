@@ -1,2 +1,0 @@
-# accedian-skylight\_rc
-

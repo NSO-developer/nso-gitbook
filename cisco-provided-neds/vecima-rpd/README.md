@@ -1,2 +1,0 @@
-# vecima-rpd
-

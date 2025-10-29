@@ -1,2 +1,0 @@
-# oneaccess-oneos
-

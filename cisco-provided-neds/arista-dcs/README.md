@@ -1,2 +1,0 @@
-# arista-dcs
-

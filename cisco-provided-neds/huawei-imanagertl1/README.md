@@ -1,2 +1,0 @@
-# huawei-imanagertl1
-

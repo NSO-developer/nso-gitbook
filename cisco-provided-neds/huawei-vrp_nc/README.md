@@ -1,2 +1,0 @@
-# huawei-vrp\_nc
-

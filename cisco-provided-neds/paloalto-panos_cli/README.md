@@ -1,2 +1,0 @@
-# paloalto-panos\_cli
-
