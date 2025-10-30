@@ -125,8 +125,8 @@
 
     - connection number-of-retries <0-255> (default 0)
 
-      Configure max number of extra retries the NED will try to
-      connect to the device before giving up.
+      Configure max number of extra retries the NED will try to connect to the device before giving
+      up.
 
 
     - connection time-between-retry <1-255> (default 1)
@@ -233,7 +233,7 @@
       version causing the sshj client to fail file transfers.
 
 
-    - connection populate-smart-license <true|false> (default true)
+    - connection populate-smart-license <true|false> (default false)
 
       Enable or disable population of smart license information.
 
