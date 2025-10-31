@@ -18,6 +18,7 @@
   9. How to rebuild a NED
   10. Configure the NED to use ssh multi factor authentication
   11. How to execute native operational or config command on device
+  12. NED Secrets - Securing your Secrets
   ```
 
 
@@ -902,4 +903,139 @@ getting packet distribution statistics...
 
 host-Default (root) #
 admin@ncs(root)#
+```
+
+
+# 12. NED Secrets - Securing your Secrets
+-----------------------------------------
+
+    It is best practice to avoid storing your secrets (e.g. passwords and
+    shared keys) in plain-text, either on NSO or on the device. In NSO we
+    support multiple encrypted datatypes that are encrypted using a local
+    key, similarly many devices such as Fortinet FortiOS supports automatically
+    encrypting all passwords stored on the device.
+
+    Naturally, for security reasons, NSO in general has no way of
+    encrypting/decrypting passwords with the secret key on the
+    device.
+
+    --- Increasing security with NSO-side encryption
+
+    We have two alternatives, either we can manually encrypt our values using
+    one of the NSO-encrypted types (e.g `aes-256-cfb-128-encrypted-string`) and
+    set them to the tree, or we can recompile the NED to always encrypt secrets.
+
+    --- Setting encrypted value
+
+    Let us say we know that the NSO-encrypted string
+      `$8$DVhpuxMJgeYTkPAu3kcb3vcGA9zdPUmme1n0ZtmPU+s=` (`admin`), we
+    can then set it in the device tree as normal
+
+```
+      admin@ncs(config)# devices device dev-1 config
+      admin@ncs(config-config)# global
+      admin@ncs(global)# system admin
+      admin@ncs(admin)# test-enc
+      admin@ncs(config-admin-test-enc)# accprofile prof_admin
+      admin@ncs(config-admin-test-enc)# vdom root
+      admin@ncs(config-admin-test-enc)# password $8$DVhpuxMJgeYTkPAu3kcb3vcGA9zdPUmme1n0ZtmPU+s=
+      admin@ncs(config-admin-test-enc)# commit dry-run outformat native
+      native {
+          device {
+              name dev-1
+              data config global
+                   config system admin
+                   edit "test-enc"
+                   set accprofile prof_admin
+                   set vdom root
+                   set password $8$DVhpuxMJgeYTkPAu3kcb3vcGA9zdPUmme1n0ZtmPU+s=
+                   end
+                   end
+          }
+      }
+      admin@ncs(config-admin-test-enc)# commit
+```
+
+    when commiting this value it will be decrypted and the plaintext will be written to the device.
+    The plaintext value is not visible in the device tree:
+
+```
+      admin@ncs# show running-config devices device dev-1 config global system admin test-enc
+      devices device dev-1
+       config
+      config global
+      config system admin
+          edit test-enc
+           accprofile prof_admin
+           vdom root
+           password $8$DVhpuxMJgeYTkPAu3kcb3vcGA9zdPUmme1n0ZtmPU+s=
+          exit
+         !
+        !
+       !
+      !
+      admin@ncs#
+```
+
+    On the device side this plaintext value is of course encrypted
+    with the device key.
+
+    --- Auto-encrypting passwords in NSO
+
+    To avoid having to pre-encrypt your passwords you can rebuild your NED in your OS
+    command shell specifying an encrypted type for secrets using a command like:
+
+    yourhost:~/fortinet-fortios-cli-x.y$ NEDCOM_SECRET_TYPE="tailf:aes-cfb-128-encrypted-string" make -C src/ clean all
+
+    Or by adding the line `NED_EXTRA_BUILDFLAGS ?= NEDCOM_SECRET_TYPE=tailf:aes-cfb-128-encrypted-string`
+    in top of the `Makefile` located in <fortinet-fortios-cli-x.y>/src directory.
+
+    Doing this means that even if the input to a password is a plaintext string, NSO will always
+    encrypt it, and you will never see plain text secrets in the device tree.
+
+    If we reload our example with the new NED, all of the secrets are now encrypted:
+
+```
+      admin@ncs# show running-config devices device dev-1 config global system admin test-plain
+      devices device dev-1
+       config
+      config global
+      config system admin
+          edit test-plain
+           accprofile prof_admin
+           vdom root
+           password $8$N/ZpdEhC3SQl2/X7rPjvvmZzkZsw70Xc1fzIMprMh7M=
+          exit
+         !
+        !
+       !
+      !
+      admin@ncs#
+```
+
+    and if we create yet another user we get the desired result:
+
+```
+      admin@ncs(config)# devices device dev-1 config
+      admin@ncs(config-config)# global
+      admin@ncs(global)# system admin
+      admin@ncs(admin)# test
+      admin@ncs(config-admin-test)# accprofile prof_admin
+      admin@ncs(config-admin-test)# vdom root
+      admin@ncs(config-admin-test)# password admin
+      admin@ncs(config-admin-test)# commit dry-run outformat native
+      native {
+          device {
+              name dev-1
+              data config global
+                   config system admin
+                   edit "test"
+                   set accprofile prof_admin
+                   set vdom root
+                   set password $8$JwHd9mgOAi1xNdCEWijMyVW3NpHaEV8sSPXkoPdCfug=
+                   end
+                   end
+          }
+      }
+      admin@ncs(config-admin-test)# commit
 ```

@@ -45,7 +45,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.30.5 2025-10-17](arista-dcs/README.md)
+  * [README v5.30.6 2025-10-30](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.7.1 2025-10-21](eci-muse/README.md)
+  * [README v1.7.2 2025-10-30](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -193,11 +193,11 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.39 2025-07-11](fortinet-fmg/README.md)
+  * [README v4.3.39.2 2025-10-24](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.25 2025-07-25](fortinet-fortios/README.md)
+  * [README v5.11.26 2025-10-30](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)

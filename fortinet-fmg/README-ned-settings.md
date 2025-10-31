@@ -62,10 +62,10 @@
       Specify adom names to fetch from device.
 
       Example-1:
-      # devices device <device-name> ned-settings fortinet-fmg specific-adom-sync-from [ root ]
+      # devices device dev-1 ned-settings fortinet-fmg specific-adom-sync-from [ root ]
 
       Example-2:
-      # devices device <device-name> ned-settings fortinet-fmg specific-adom-sync-from [ root other ]
+      # devices device dev-1 ned-settings fortinet-fmg specific-adom-sync-from [ root other ]
 
       NOTE: only configured adoms will be fetched during sync-from/check-sync.
 
@@ -153,6 +153,11 @@
       enable   - Enable ha status check during device connection.
 
 
+    - connection platform-prefer-cdb <true|false> (default true)
+
+      Prefer CDB cache for platform information retrieval.
+
+
 # 3. ned-settings fortinet-fmg logger
 -------------------------------------
 
@@ -190,6 +195,52 @@
       disable  - disable.
 
       enable   - enable.
+
+
+    - read parallelism-level <uint16> (default 1)
+
+      Parallelism level for I/O-bound API calls (default: CPU * 2, minimum: CPU * 1).
+
+      The parallelism level controls the target number of parallel HTTP API calls
+      to FortiManager when parallel-api-calls is enabled. This uses a ForkJoinPool
+      with work-stealing for efficient I/O-bound operations.
+
+      Default Behavior (value = 1 or not set):
+        - Auto-calculates as: CPU_COUNT * 2 (conservative)
+        - Example: 10-core system = 20 parallelism level
+
+      User-Configured Values (value >= CPU_COUNT * 1):
+        - Uses your exact specified value
+        - Allows overriding beyond default if needed
+        - Example: set 10, 20, or any value >= 10
+
+      Minimum Enforcement (value < CPU_COUNT):
+        - Automatically enforced to CPU_COUNT (CPU * 1) for performance safety
+        - Example: On 10-core system, minimum = 10
+
+      Note:
+        This is a parallelism level, not a hard thread limit. The ForkJoinPool
+        may create additional threads when tasks block on I/O operations, which
+        is expected and beneficial for I/O-bound HTTP API calls.
+
+      Configuration Examples:
+        ```
+        # Auto (default) - 20 on 10-core system (conservative)
+
+        # 30 parallelism
+        # devices device dev-1 ned-settings fortinet-fmg read parallelism-level 30
+
+        # Example below minimum (will be enforced to 10 on 10-core)
+        # devices device dev-1 ned-settings fortinet-fmg read parallelism-level 5
+        ```
+
+      Performance Note (Best-Effort):
+        The parallelism-level setting is best-effort and provides limited scalability
+        beyond a certain threshold. Increasing or decreasing the value may not always
+        result in proportional performance changes due to NSOs maapi.loadConfigCmds()
+        being a synchronized, single-threaded operation that processes configuration
+        sequentially. This creates a bottleneck where multiple parallel threads must
+        queue and wait, limiting the benefits of very high parallelism levels.
 
 
     - read transaction-id-provisional <true|false> (default true)
