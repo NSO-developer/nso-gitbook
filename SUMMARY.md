@@ -41,11 +41,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.65 2025-10-24](alu-sr/README.md)
+  * [README v8.65.1 2025-10-31](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.30.6 2025-10-30](arista-dcs/README.md)
+  * [README v5.30.7 2025-10-31](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -149,7 +149,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.57.3 2025-08-08](cisco-staros/README.md)
+  * [README v5.57.4 2025-10-31](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -193,7 +193,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.39.2 2025-10-24](fortinet-fmg/README.md)
+  * [README v4.3.40 2025-10-31](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -209,7 +209,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.8 2025-10-24](huawei-ias/README.md)
+  * [README v2.8.1 2025-10-31](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
