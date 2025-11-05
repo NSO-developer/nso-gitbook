@@ -116,7 +116,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.110.3 2025-10-29](cisco-ios/README.md)
+  * [README v6.110.4 2025-11-04](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
@@ -157,7 +157,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.7.2 2025-10-30](eci-muse/README.md)
+  * [README v1.7.3 2025-11-04](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -242,7 +242,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.26 2025-09-19](juniper-junos_nc/README.md)
+  * [README v1.1.27 2025-11-04](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)

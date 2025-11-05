@@ -1176,6 +1176,8 @@ admin@ncs(config)# commit
 
         unique  - unique.
 
+        type    - type.
+
 
       - developer generate-schypp-pragmas pattern <string>
 
@@ -2065,4 +2067,4 @@ By downloading the YANG modules using juniper-junos_nc NED tools and rebuilding 
 
 The guide in below link describes how to replace the legacy juniper-junos NED and migrate NSO applications to the juniper-junos_nc generic NED.
 
-Junos NED Migration Guide: https://cisco-tailf.gitbook.io/nso-docs/development/advanced-development/developing-neds#migrating-to-the-juniper-junos_nc-ned
+Junos NED Migration Guide: https://nso-docs.cisco.com/guides/administration/management/ned-administration#migrating-from-legacy-to-third-party-ned
