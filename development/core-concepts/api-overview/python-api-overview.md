@@ -1221,3 +1221,75 @@ Functions and methods that accept the `load_schemas` argument:
 * `ncs.maapi.Maapi() constructor`
 * `ncs.maapi.single_read_trans()`
 * `ncs.maapi.single_write_trans()`
+
+### The way of using `multiprocessing.Process`
+When using multiprocessing in NSO, the default start method is now `spawn` instead of `fork`.
+With the `spawn` method, a new Python interpreter process is started, and all arguments passed to `multiprocessing.Process` must be picklable.
+
+If you pass Python objects that reference low-level C structures (for example `_ncs.dp.DaemonCtxRef` or `_ncs.UserInfo`), Python will raise an error like:
+
+```python
+TypeError: cannot pickle '<object>' object
+```
+
+{% code title="Example: using multiprocessing.Process" %}
+```python
+import ncs
+import _ncs
+from ncs.dp import Action
+from multiprocessing import Process
+import multiprocessing
+
+def child(uinfo, self):
+    print(f"uinfo: {uinfo}, self: {self}")
+
+class DoAction(Action):
+    @Action.action
+    def cb_action(self, uinfo, name, kp, input, output, trans):
+          t1 = multiprocessing.Process(target=child, args=(uinfo, self))
+          t1.start()
+
+class Main(ncs.application.Application):
+    def setup(self):
+        self.log.info('Main RUNNING')
+        self.register_action('sleep', DoAction)
+
+    def teardown(self):
+        self.log.info('Main FINISHED')
+```
+{% endcode %}
+
+This happens because `self` and `uinfo` contain low-level C references that cannot be serialized (pickled) and sent to the child process.
+
+To fix this, avoid passing entire objects such as `self` or `uinfo` to the process.
+Instead, pass only simple or primitive data types (like strings, integers, or dictionaries) that can be pickled.
+
+{% code title="Example: using multiprocessing.Process with primitive data" %}
+```python
+import ncs
+import _ncs
+from ncs.dp import Action
+from multiprocessing import Process
+import multiprocessing
+
+def child(usid, th, action_point):
+    print(f"uinfo: {usid}, th: {th}, action_point: {action_point}")
+
+class DoAction(Action):
+    @Action.action
+    def cb_action(self, uinfo, name, kp, input, output, trans):
+          usid = uinfo.usid
+          th = uinfo.actx_thandle
+          action_point = self.actionpoint
+          t1 = multiprocessing.Process(target=child, args=(usid,th,action_point,))
+          t1.start()
+
+class Main(ncs.application.Application):
+    def setup(self):
+        self.log.info('Main RUNNING')
+        self.register_action('sleep', DoAction)
+
+    def teardown(self):
+        self.log.info('Main FINISHED')
+```
+{% endcode %}
