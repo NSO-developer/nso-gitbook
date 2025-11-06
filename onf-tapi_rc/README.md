@@ -1209,6 +1209,8 @@
 
         unique  - unique.
 
+        type    - type.
+
 
       - developer generate-schypp-pragmas pattern <string>
 

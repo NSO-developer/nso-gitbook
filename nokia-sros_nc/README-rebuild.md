@@ -698,7 +698,7 @@ replace <schema-path>::<stmt-match>::<YANG-stmt(s)>
 **Example:**
 
 ```
-replace /configuration/chassis/fpc/pic/name::type::type string; 
+replace /configuration/chassis/fpc/pic/name::type::type string;
 ```
 
 
@@ -2037,7 +2037,6 @@ Since the auto-config filter leverages YANG deviations, it does not impact the r
 
 
 
-
 # 9. Advanced: Issues Solvable with Schema Customization
 
 This chapter addresses various issues and problems, all of which can be resolved using the schema customization techniques detailed in the preceding chapters. Each of these listed issues stems from real-world support cases, involving a range of different devices and third-party YANG NEDs.
@@ -2063,14 +2062,14 @@ First, ensure the NED is fully operational with its complete schema by following
 1. **Use the** `show-loaded-schema` **tool to list all RPCs currently installed in the NED package:**
 
    ```
-   admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema scope rpcs output { file /tmp/rpcs-to-trim } 
+   admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema scope rpcs output { file /tmp/rpcs-to-trim }
    ```
 
-   This command will generate a file containing the schema paths for each defined RPC. 
+   This command will generate a file containing the schema paths for each defined RPC.
 
-   
 
-2. **Open and edit this generated file**. 
+
+2. **Open and edit this generated file**.
 
    Comment out (by adding a # at the beginning of the line) the RPCs you wish to **keep**, as shown in the example below:
 
@@ -2087,7 +2086,7 @@ First, ensure the NED is fully operational with its complete schema by following
    ..
    ```
 
-   
+
 
 3. **Rebuild the NED package using the trim-filter feature**:
 
@@ -2095,7 +2094,7 @@ First, ensure the NED is fully operational with its complete schema by following
    devices device dev-1 rpc rpc-rebuild-package rebuild-package filter { trim-schema { nodes-from-file /tmp/rpcs-to-trim } }
    ```
 
-   
+
 
 4. **Finally, after rebuilding the package, reload it to apply the changes**:
 
@@ -2130,7 +2129,7 @@ Currently, the NSO YANG compiler (`yanger`) does not provide a built-in method t
 
    If the tool returns a number greater than zero, the schema contains nodes with the specified statuses.
 
-   
+
 
 2. **Rebuild the NED with the trim filter:**
 
@@ -2138,7 +2137,7 @@ Currently, the NSO YANG compiler (`yanger`) does not provide a built-in method t
    devices device dev-1 rpc rpc-rebuild-package rebuild-package filter { trim-schema { all-with-status [ deprecated obsolete ] } }
    ```
 
-   
+
 
 ## 9.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
 
@@ -2160,12 +2159,12 @@ A delete operation of an interface instance led to unresponsiveness in the NSO C
 admin@ncs# devtools true
 admin@ncs# config
 admin@ncs(config-config)# timecmd no devices device dev-1 config ifm interfaces interface Eth-Trunk44.123456 Command executed in 238.26 sec
-admin@ncs(config-config)# timecmd commit                                          
+admin@ncs(config-config)# timecmd commit
 Commit complete.
 Command executed in 2545.09 sec
 ```
 
-When this kind of unresponsiveness occurs, it is often due to NSO having to evaluate poorly designed xpath expressions. 
+When this kind of unresponsiveness occurs, it is often due to NSO having to evaluate poorly designed xpath expressions.
 
 In this case, even the "no operation" during an open transaction took an unacceptably long time, suggesting that xpath calculations were involved-likely due to inefficient `when` statements. NSO verifies when expressions every time changes are made in an open transaction.
 
@@ -2177,7 +2176,7 @@ During the commit phase, NSO performs even more thorough verification of all dep
 
 Here is a process to identify problematic xpath expressions when performance issues are suspected:
 
-1. **Enable the NSO xpath tracer**: 
+1. **Enable the NSO xpath tracer**:
 
    Enabling the xpath tracer is essential for identifying xpath-related issues. Note that the tracer is disabled by default due to its significant impact on NSO performance. Operations like the simple delete above can take up to 10 times longer with the tracer enabled.
 
@@ -2190,7 +2189,7 @@ Here is a process to identify problematic xpath expressions when performance iss
    </xpath-trace-log>
    ```
 
-   
+
 
    **Restart NSO** for the changes to take effect:
 
@@ -2198,34 +2197,34 @@ Here is a process to identify problematic xpath expressions when performance iss
    $ (cd <NSO_RUNTIME_DIR>; ncs --stop; ncs)
    ```
 
-   
 
-2. **Trigger the problematic operation**: 
+
+2. **Trigger the problematic operation**:
 
    Reproduce the operation that causes performance issues. In our example, perform the delete operation again (skipping the commit for now to focus on identifying the initial bottleneck)
 
    ```
    admin@ncs# config
-   admin@ncs(config-config)# no devices device dev-1 config ifm interfaces interface Eth-Trunk44.123456 
-   admin@ncs(config-config)# abort                                        
+   admin@ncs(config-config)# no devices device dev-1 config ifm interfaces interface Eth-Trunk44.123456
+   admin@ncs(config-config)# abort
    admin@ncs#
    ```
 
    This command will take considerable longer time to finish this time, due to the xpath tracing.
 
-   
 
-3. **Run the xpath trace analyzer tool**: 
+
+3. **Run the xpath trace analyzer tool**:
 
    After enabling the xpath tracer and reproducing the problematic operation, an xpath trace file should now be available for analysis. This file is not intended to be read manually, as it is typically very large and in a raw format (for example, this simple case produced a 2 GB trace file).
 
    To simplify analysis, a new tool is included in the third-party YANG NED toolbox, the `xpath-trace-analyzer`:
 
    ```
-    devices device dev-0 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer 
+    devices device dev-0 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer
    ```
 
-   
+
 
    **Command Options**
 
@@ -2233,7 +2232,7 @@ Here is a process to identify problematic xpath expressions when performance iss
 
    ​	**•	number-of-entries**: Sets the number of entries to display in the generated top list (default 10).
 
-   
+
 
    Execute it like below:
 
@@ -2241,9 +2240,9 @@ Here is a process to identify problematic xpath expressions when performance iss
    admin@ncs# devices device dev-0 rpc rpc-xpath-trace-analyzer xpath-trace-analyzer number-of-entries 5
    ```
 
-   
 
-4. **Analyze the output**: 
+
+4. **Analyze the output**:
 
    The tool generates two top lists:
 
@@ -2251,69 +2250,69 @@ Here is a process to identify problematic xpath expressions when performance iss
 
    ​	**•**	The most time-consuming xpath expressions.
 
-   
+
 
    **Example output**:
 
    ```
    Top 5 most frequently occurring evaluated expressions:
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/ethernet:ethernet/l3-sub-interface
      Expression:   ../../ifm:class='sub-interface'
      Occurrences:  1012418
      Total time:   133.039000 s
      Average time: 0.000131 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface
      Expression:   ifm:type='Eth-Trunk' or ifm:type='Ip-Trunk'
      Occurrences:  982920
      Total time:   149.002000 s
      Average time: 0.000152 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-group6s/nd-send-simple
      Expression:   /ifm:ifm/ifm:interfaces/ifm:interface/ethernet:ethernet/ethernet:l3-sub-interface/ethernet:qinq-termination
      Occurrences:  711
      Total time:   192.415000 s
      Average time: 0.270626 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/arp:arp-entry
      Expression:   not(/ifm:ifm/ifm:interfaces/ifm:interface/ifm-trunk:trunk/ifm-trunk:members/ifm-trunk:member[ifm-trunk:name=current()/../ifm:name])
      Occurrences:  711
      Total time:   218.064000 s
      Average time: 0.306700 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-groups/arpsend-simple
      Expression:   /ifm:ifm/ifm:interfaces/ifm:interface/ethernet:ethernet/ethernet:l3-sub-interface/ethernet:qinq-termination
      Occurrences:  711
      Total time:   191.862000 s
      Average time: 0.269848 s
-   
+
    Top 5 most time-consuming evaluate operations:
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/arp:arp-entry
      Expression:   not(/ifm:ifm/ifm:interfaces/ifm:interface/ifm-trunk:trunk/ifm-trunk:members/ifm-trunk:member[ifm-trunk:name=current()/../ifm:name])
      Occurrences:  711
      Total time:   218.064000 s
      Average time: 0.306700 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/ethernet:ethernet/main-interface/fim-ethernet:fim-main
      Expression:   not((../../../ifm:name) = (/ifm:ifm/ifm:interfaces/ifm:interface/ifm-trunk:trunk/ifm-trunk:members/ifm-trunk:member/ifm-trunk:name)) and ../../../ifm:type!='FlexE-200GE' and ../../../ifm:type!='FlexE-50G' and ../../../ifm:type!='FlexE-100G' and ../../../ifm:type!='FlexE-10G' and ../../../ifm:type!='FlexE-400G' and ../../../ifm:type!='FlexE-50|100G' and ../../../ifm:type!='Virtual-Ethernet' and ../../../ifm:type!='Tunnel' and ../../../ifm:type!='NULL' and ../../../ifm:type!='LoopBack' and ../../../ifm:type!='Global-VE' and ../../../ifm:type!='Nve' and ../../../ifm:type!='Vbdif' and ../../../ifm:type!='Vlanif' and ../../../ifm:type!='PW-VE'
      Occurrences:  711
      Total time:   194.174000 s
      Average time: 0.273100 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-group6s/nd-send-simple
      Expression:   /ifm:ifm/ifm:interfaces/ifm:interface/ethernet:ethernet/ethernet:l3-sub-interface/ethernet:qinq-termination
      Occurrences:  711
      Total time:   192.415000 s
      Average time: 0.270626 s
-   
+
      Schema path:  /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-groups/arpsend-simple
      Expression:   /ifm:ifm/ifm:interfaces/ifm:interface/ethernet:ethernet/ethernet:l3-sub-interface/ethernet:qinq-termination
      Occurrences:  711
      Total time:   191.862000 s
      Average time: 0.269848 s
-   
+
      Schema path:  /bd:bd/instances/instance/ims:igmp-snooping/static-router-ports
      Expression:   /mc:multicast/ims:igmp-snooping/ims:global-enable or /ni:network-instance/ni:instances/ni:instance/igmp-mld:igmp/igmp-mld:interfaces/igmp-mld:interface[igmp-mld:enable='true'][igmp-mld:name=/ifm:ifm/ifm:interfaces/ifm:interface[ifm:type='Vbdif'][ifm:number=string(current()/../../bd:id)]/ifm:name]
      Occurrences:  1
@@ -2321,7 +2320,7 @@ Here is a process to identify problematic xpath expressions when performance iss
      Average time: 0.122000 s
    ```
 
-   
+
 
    When reviewing the top lists generated by the xpath trace analyzer, the first thing to look for is xpath expressions that use absolute paths. Absolute paths often indicate poorly designed expressions, which can significantly impact performance.
 
@@ -2329,29 +2328,29 @@ Here is a process to identify problematic xpath expressions when performance iss
 
    ```
    not(/ifm:ifm/ifm:interfaces/ifm:interface/ifm-trunk:trunk/ifm-trunk:members/ifm-trunk:member[ifm-trunk:name=current()/../ifm:name])
-   
+
    not((../../../ifm:name) = (/ifm:ifm/ifm:interfaces/ifm:interface/ifm-trunk:trunk/ifm-trunk:members/ifm-trunk:member/ifm-trunk:name)) and ../../../ifm:type!='FlexE-200GE' and ../../../ifm:type!='FlexE-50G' and ../../../ifm:type!='FlexE-100G' and ../../../ifm:type!='FlexE-10G' and ../../../ifm:type!='FlexE-400G' and ../../../ifm:type!='FlexE-50|100G' and ../../../ifm:type!='Virtual-Ethernet' and ../../../ifm:type!='Tunnel' and ../../../ifm:type!='NULL' and ../../../ifm:type!='LoopBack' and ../../../ifm:type!='Global-VE' and ../../../ifm:type!='Nve' and ../../../ifm:type!='Vbdif' and ../../../ifm:type!='Vlanif' and ../../../ifm:type!='PW-VE'
-   
+
    /ifm:ifm/ifm:interfaces/ifm:interface/ethernet:ethernet/ethernet:l3-sub-interface/ethernet:qinq-termination
    ```
 
-   
 
-5. **Identify the YANG statement using a specific xpath expression**: 
+
+5. **Identify the YANG statement using a specific xpath expression**:
 
    The xpath tracer does not indicate exactly which YANG statement (such as `when` or `must`) is using a particular xpath expression. However, the top lists from the trace analyzer do include the schema path for each node associated with an xpath expression.
 
-   To determine which YANG statement is using a specific xpath expression, you can use the `show-loaded-schema` tool. 
+   To determine which YANG statement is using a specific xpath expression, you can use the `show-loaded-schema` tool.
 
-   
+
 
    By referencing the schema path from the top list, it becomes straightforward to locate the relevant YANG statement:
 
    ```
-   admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema root-paths [ /ifm:ifm/interfaces/interface/arp:arp-entry /ifm:ifm/interfaces/interface/ethernet:ethernet/main-interface/fim-ethernet:fim-main /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-group6s/nd-send-simple /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-groups/arpsend-simple ] details 
+   admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema root-paths [ /ifm:ifm/interfaces/interface/arp:arp-entry /ifm:ifm/interfaces/interface/ethernet:ethernet/main-interface/fim-ethernet:fim-main /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-group6s/nd-send-simple /ifm:ifm/interfaces/interface/vrrp:vrrp/backup-groups/arpsend-simple ] details
    ```
 
-   
+
 
    This will output the information we are interrested in:
 
@@ -2371,11 +2370,11 @@ Here is a process to identify problematic xpath expressions when performance iss
 
    The output shows that all the problematic xpath expressions are used by `when` expressions.
 
-   
 
-6. **Create YANG recipes to remove problematic xpath expressions**: 
 
-   You can trim the schema of problematic `must` and `when` statements by adding new YANG recipes and then rebuilding the NED. 
+6. **Create YANG recipes to remove problematic xpath expressions**:
+
+   You can trim the schema of problematic `must` and `when` statements by adding new YANG recipes and then rebuilding the NED.
 
    In this scenario, you need to add specific pragmas to the `schypp` YANG pre-processor. These pragmas will automatically modify the schema before the YANG files are compiled.
 
@@ -2388,11 +2387,11 @@ Here is a process to identify problematic xpath expressions when performance iss
    remove /ifm:ifm/ifm:interfaces/ifm:interface/arp-entry::when
    ```
 
-   The pragmas above should be self-explanatory. 
+   The pragmas above should be self-explanatory.
 
    In some cases it might be preferred to correct the when expressions instead of removing them. Then use the `replace` pragma instead of `remove`. Check chapter **7.2.1** for further information about the `schypp` tool.
 
-   
+
 
 7. **Rebuild the NED package and reload it**:
 
@@ -2401,17 +2400,17 @@ Here is a process to identify problematic xpath expressions when performance iss
    admin@ncs# packages reload
    ```
 
-   
 
-8. **Disable xpath tracing and restart NSO**: 
+
+8. **Disable xpath tracing and restart NSO**:
 
    Finally, verify that the performance issue is solved.
 
-   
+
 
 ### Why are Absolute Paths Problematic in XPath Expressions?
 
-Absolute paths in xpath expressions can easily expand the scope of verification in unintended ways. 
+Absolute paths in xpath expressions can easily expand the scope of verification in unintended ways.
 
 In the examples above, all the absolute paths reference the interfaces section of the schema-specifically, the node `/ifm:ifm/ifm:interfaces/ifm:interface`, which represents a list of interfaces.
 
@@ -2445,7 +2444,7 @@ module demo-schema {
   yang-version 1.1;
   namespace urn:cisco.com:demo:test:conf;
   prefix conf;
-  
+
   container common-settings {
   	list master {
   		key name;
@@ -2532,7 +2531,7 @@ For NETCONF, the partial-show operation in the previous example would typically 
             </configure>
         </filter>
     </get-config>
-</rpc> 
+</rpc>
 ```
 
 
@@ -2555,7 +2554,7 @@ And a typical NETCONF device would respond with an error similar to this:
             <bad-element>device-type-B-settings</bad-element>
         </error-info>
     </rpc-error>
-</rpc-reply> 
+</rpc-reply>
 ```
 
 
@@ -2579,8 +2578,8 @@ This example is based on a real support case involving the third-party YANG NED 
 The problem was triggered by a seemingly straightforward delete operation for a single list entry: `association 123`
 
 ```
-admin@ncs# config                                                                                             
-admin@ncs(config)# no devices device dev-1 config configure eth-cfm domain 12355 association 123 
+admin@ncs# config
+admin@ncs(config)# no devices device dev-1 config configure eth-cfm domain 12355 association 123
 admin@ncs(config)# commit confirm-network-state
 Aborted: External error in the NED implementation for device nokia-sros-1: RPC error: error unknown-element: MINOR: MGMT_CORE #2201: Unknown element (error-path: /a:configure/a:service/a:test-oam/a:service-activation-testhead)
 ```
@@ -2591,7 +2590,7 @@ The commit failed, and the device reported an error related to a seemingly unrel
 
 Let's examine the NED trace to understand why. The additional read operation required by the `confirm-network-state` feature appears as follows:
 
-``` 
+```
 <rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
 <get-config><source><running/></source><filter>
  <configure xmlns="urn:nokia.com:sros:ns:yang:sr:conf">
@@ -2693,7 +2692,7 @@ admin@ncs# packages reload
 To verify the removal of the `/conf:configure/test-oam/service-activation-testhead` node, execute the following command:
 
 ```
-admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema root-paths [ /conf:configure/eth-cfm/domain/association ] details 
+admin@ncs# devices device dev-1 rpc rpc-show-loaded-schema show-loaded-schema root-paths [ /conf:configure/eth-cfm/domain/association ] details
 ```
 
 
@@ -2728,11 +2727,13 @@ The `ma-admin-name` is no longer referenced from the path beginning with `/conf:
 Finally, confirm that the delete operation is now successful:
 
 ```
-admin@ncs# config                                                                                             
-admin@ncs(config)# no devices device dev-1 config configure eth-cfm domain 12355 association 123 
+admin@ncs# config
+admin@ncs(config)# no devices device dev-1 config configure eth-cfm domain 12355 association 123
 admin@ncs(config)# commit confirm-network-state
 Commit complete.
-admin@ncs(config)# 
+admin@ncs(config)#
 ```
 
 In some cases, it might be necessary to repeat this procedure until the commit finally succeeds. In this specific example, there are potentially 16 additional nodes that might also require trimming.
+
+
