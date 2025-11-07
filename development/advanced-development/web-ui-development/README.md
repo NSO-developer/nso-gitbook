@@ -4,65 +4,58 @@ description: NSO Web UI development information.
 
 # Web UI Development
 
-Web UI development is thought to be in the hands of the customer's front-end developers. They know best the requirements and how to fulfill those requirements in terms of aesthetics, functionality, and toolchain (frameworks, libraries, external data sources, and services).
+The [NSO Web UI](/operation-and-usage/webui/README.md) provides a comprehensive baseline interface designed to cover common network management needs with a focus on usability and core functionality. It serves as a reliable starting point for customers who want immediate access to essential features without additional development effort.
 
-NSO comes with a northbound interface in the shape of a [JSON-RPC API](json-rpc-api.md). This API is designed with Web UI applications in mind, and it complies with the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification) while using HTTP/S as the transport mechanism.
+For customers with specialized requirements—such as unique workflows, custom aesthetics, or integration with external systems—the NSO platform offers flexibility to build tailored Web UIs. This enables teams to create user experiences that precisely match their operational needs and branding guidelines.
+
+At the core of NSO’s Web UI capabilities is the northbound [JSON-RPC API](json-rpc-api.md) which adheres to the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification) and uses HTTP/S as the transport protocol
 
 The JSON-RPC API contains a handful of methods with well-defined input `method` and `params`, along with the output `result`.
 
 In addition, the API also implements a Comet model, as long polling, to allow the client to subscribe to different server events and receive event notifications about those events in near real-time.
 
-You can call these from a browser via:
+You can call these from a browser the modern [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API:
 
-* AJAX (e.g., XMLHTTPRequest, [jQuery \[https://jquery.com/\]](https://jquery.com/))
-* Or from the command line (e.g., [curl \[https://github.com/bagder/curl\]](https://github.com/bagder/curl), [httpie \[https://github.com/jkbr/httpie\]](https://github.com/jkbr/httpie))
-
-{% code title="With JQuery" %}
-```json5
-      // with jQuery
-      $.ajax({
-        type: 'post',
-        url: '/jsonrpc',
-        contentType: 'application/json',
-        data: JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'login',
-        params: {
-          'user': 'joe',
-          'passwd': 'SWkkasE32'
-        }
-        }),
-        dataType: 'json'
-      })
-      .done(function(data) {
-        if (data.result)
-        alert(data.result);
-        else
-        alert(data.error.type);
-        });
+{% code title="With fetch" %}
+``` javascript
+fetch('http://127.0.0.1:8080/jsonrpc', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    jsonrpc: '2.0',
+    id: 1,
+    method: 'login',
+    params: {
+      user: 'admin',
+      passwd: 'admin'
+    }
+  })
+})
+.then(response => response.json())
+.then(data => {
+  if (data.result) {
+    console.log(data.result);
+  } else {
+    console.log(data.error.type);
+  }
+});
 ```
 {% endcode %}
 
-{% code title="With Curl" %}
-```json5
-      # with curl
-      curl \
-      -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"jsonrpc": "2.0", "id": 1,
-           "method": "login",
-           "params": {"user": "joe",
-                      "passwd": "SWkkasE32"}}' \
-      http://127.0.0.1:8008/jsonrpc
+Or from the command line using [curl](https://curl.se):
 
-      # with httpie
-      http POST http://127.0.0.1:8008/jsonrpc \
-      jsonrpc=2.0 id:=1 \
-      method=login \
-      params:='{"user": "joe", "passwd": "SWkkasE32"}'
+{% code title="With curl" %}
+``` bash
+curl \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1, "method": "login", "params": {"user": "admin", "passwd": "admin"}}' \
+    http://127.0.0.1:8080/jsonrpc
 ```
 {% endcode %}
+
 
 ## Example of a Common Flow <a href="#d5e55" id="d5e55"></a>
 
