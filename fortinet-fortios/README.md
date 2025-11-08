@@ -987,7 +987,7 @@ admin@ncs(root)#
 
     yourhost:~/fortinet-fortios-cli-x.y$ NEDCOM_SECRET_TYPE="tailf:aes-cfb-128-encrypted-string" make -C src/ clean all
 
-    Or by adding the line `NED_EXTRA_BUILDFLAGS ?= NEDCOM_SECRET_TYPE=tailf:aes-cfb-128-encrypted-string`
+    Or by adding the line `NEDCOM_SECRET_TYPE=tailf:aes-cfb-128-encrypted-string`
     in top of the `Makefile` located in <fortinet-fortios-cli-x.y>/src directory.
 
     Doing this means that even if the input to a password is a plaintext string, NSO will always
