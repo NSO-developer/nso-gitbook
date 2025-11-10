@@ -76,7 +76,7 @@ A secondary example is also provided that demonstrates the use and implementatio
 3. Commit a change to trigger a comet notification.
 4. Stop and cleanup the comet.
 
-For a complete working example with a web UI, see the `webui-basic-example` NSO package in `${NCS_DIR}/var/ncs/webui/example`. This package demonstrates basic JSON-RPC API usage and 
+For a complete working example with a web UI, see the `webui-basic-example` NSO package in `${NCS_DIR}/examples.ncs/northbound-interfaces/webui`. This package demonstrates basic JSON-RPC API usage and 
 can be run with `make demo`.
 
 {% code title="index.js" overflow="wrap" lineNumbers="true" %}
