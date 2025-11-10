@@ -533,7 +533,7 @@ Usually, the reasons for re-architecting an existing application are performance
 
 In the NSO example collection, two popular examples are the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) and [examples.ncs/service-management/mpls-vpn-python](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-python) examples. Those example contains an almost "real" VPN provisioning example whereby VPNs are provisioned in a network of CPEs, PEs, and P routers according to this picture:
 
-<figure><img src="../../images/network.jpg" alt=""><figcaption><p>VPN network</p></figcaption></figure>
+<figure><img src="../../images/network.png" alt=""><figcaption><p>VPN network</p></figcaption></figure>
 
 The service model in this example roughly looks like this:
 
