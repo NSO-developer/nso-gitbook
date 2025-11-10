@@ -182,7 +182,7 @@ cisco-ios vlan
 
 This creates a package with the following structure:
 
-<figure><img src="../../../images/pkg-structure.png" alt=""><figcaption><p>Package Structure</p></figcaption></figure>
+<figure><img src="../../../images/pkg-structure.png" alt="" width="375"><figcaption><p>Package Structure</p></figcaption></figure>
 
 During the rest of this section, we will work with the `vlan/src/yang/vlan.yang` and `vlan/src/java/src/com/example/vlan/vlanRFS.java` files.
 
@@ -590,7 +590,7 @@ The above `create` method is all that is needed for create, read, update, and de
 
 The mapping strategy using only Java is illustrated in the following figure.
 
-<figure><img src="../../../images/mapping1.png" alt="" width="563"><figcaption><p>Flat Mapping with Java</p></figcaption></figure>
+<figure><img src="../../../images/mapping1.png" alt="" width="375"><figcaption><p>Flat Mapping with Java</p></figcaption></figure>
 
 This strategy has some drawbacks:
 
@@ -599,7 +599,7 @@ This strategy has some drawbacks:
 
 Java and templates can be combined:
 
-<figure><img src="../../../images/mapping2.png" alt="" width="563"><figcaption><p>Two Layered Mapping using Feature Templates</p></figcaption></figure>
+<figure><img src="../../../images/mapping2.png" alt="" width="375"><figcaption><p>Two Layered Mapping using Feature Templates</p></figcaption></figure>
 
 In this model, the Java layer focuses on required logic, but it never touches concrete device models from various vendors. The vendor-specific details are abstracted away using feature templates. The templates take variables as input from the service logic, and the templates in turn transform these into concrete device configuration. The introduction of a new device type does not affect the Java mapping.
 
@@ -704,7 +704,7 @@ MPLS VPNs are a type of Virtual Private Network (VPN) that achieves segmentation
 
 The figure below illustrates an example configuration for one leg of the VPN. Configuration items in bold are variables that are generated from the service inputs.
 
-<figure><img src="../../../images/deviceconfig.png" alt="" width="563"><figcaption><p>Example L3 VPN Device Configuration</p></figcaption></figure>
+<figure><img src="../../../images/deviceconfig.png" alt=""><figcaption><p>Example L3 VPN Device Configuration</p></figcaption></figure>
 
 ### Auxiliary Service Data
 
@@ -730,11 +730,11 @@ It is highly desirable to not introduce unneeded dependencies towards network to
 
 To illustrate this, let's look at a Layer 3 MPLS VPN service. A logical overview of an MPLS VPN with three endpoints could look something like this. CE routers connecting to PE routers, that are connected to an MPLS core network. In the MPLS core network, there are a number of P routers.
 
-<figure><img src="../../../images/topo1.png" alt="" width="563"><figcaption><p>Simple MPLS VPN Topology</p></figcaption></figure>
+<figure><img src="../../../images/topo1.png" alt=""><figcaption><p>Simple MPLS VPN Topology</p></figcaption></figure>
 
 In the service model, you only want to configure the CE devices to use as endpoints. In this case, topology information could be used to sort out what PE router each CE router is connected to. However, what type of topology do you need? Lets look at a more detailed picture of what the L1 and L2 topology could look like for one side of the picture above.
 
-<figure><img src="../../../images/topo2.png" alt="" width="563"><figcaption><p>L1-L2 Topology</p></figcaption></figure>
+<figure><img src="../../../images/topo2.png" alt=""><figcaption><p>L1-L2 Topology</p></figcaption></figure>
 
 In pretty much all networks there is an access network between the CE and PE router. In the picture above the CE routers are connected to local Ethernet switches connected to a local Ethernet access network, connected through optical equipment. The local Ethernet access network is connected to a regional Ethernet access network, connected to the PE router. Most likely the physical connections between the devices in this picture have been simplified, in the real world redundant cabling would be used. The example above is of course only one example of how an access network could look like and it is very likely that a service provider have different access technologies. For example Ethernet, ATM, or a DSL-based access network.
 
@@ -757,7 +757,7 @@ The goal of the NSO service is to set up an MPLS Layer3 VPN on a number of CE ro
 
 In the example network, we can also assume that the MPLS core network already exists and is configured.
 
-<figure><img src="../../../images/topo4.png" alt="" width="563"><figcaption><p>The MPLS VPN Example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/network.png" alt=""><figcaption><p>The MPLS VPN Example</p></figcaption></figure>
 
 #### **YANG Service Model Design**
 

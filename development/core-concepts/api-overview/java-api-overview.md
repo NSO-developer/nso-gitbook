@@ -354,7 +354,7 @@ A transaction has a number of phases, the external data provider gets called in 
 
 The following picture illustrates the conceptual state machine an NSO transaction goes through.
 
-<figure><img src="../../../images/trans_state.png" alt="" width="375"><figcaption><p>NSO Transaction State Machine</p></figcaption></figure>
+<figure><img src="../../../images/trans_state.png" alt="" width="563"><figcaption><p>NSO Transaction State Machine</p></figcaption></figure>
 
 All callback methods are optional. If a callback method is not implemented, it is the same as having an empty callback which simply returns.
 
@@ -762,29 +762,17 @@ The transaction validation callbacks are:
 * `init()`: This callback is invoked when the validation phase starts. It will typically attach to the current transaction:
 
 {% code title="Example: Attach Maapi to the Current Transaction" %}
-````
 ```
-    public class SimpleValidator implements DpTransValidateCallback{
-      ...
-      @TransValidateCallback(callType=TransValidateCBType.INIT)
-      public void init(DpTrans trans) throws DpCallbackException{
-        try {
-          th = trans.thandle;
-          maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid);
-          ..
-        } catch(Exception e) {
-          throw new DpCallbackException("failed to attach via maapi: "+
-                                       e.getMessage());
-        }
-      }
-    }
 ```
-````
 {% endcode %}
 
-```
-\
-```
+\`\`\`\` \`\`\` public class SimpleValidator implements DpTransValidateCallback{ ... @TransValidateCallback(callType=TransValidateCBType.INIT) public void init(DpTrans trans) throws DpCallbackException{ try { th = trans.thandle; maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid); .. } catch(Exception e) { throw new DpCallbackException("failed to attach via maapi: "+ e.getMessage()); } } } \`\`\` \`\`\`\` \{% endcode %\}
+
+\`
+
+\`\` \\
+
+````
 
 * `stop()`: This callback is invoked when the validation phase ends. If `init()` attached to the transaction, `stop()` should detach from it.
 
@@ -843,14 +831,14 @@ If data has to be written, the Navu transaction has to be started differently de
 
 When navigating using NAVU we always start by creating a `NavuContainer` and passing in the `NavuContext` instance, this is a base container from which navigation can be started. Furthermore, we need to create a root `NavuContainer` which is the top of the YANG module in which to navigate down. This is done by using the `NavuContainer.container(int hash)` method. Here the argument is the hash value for the module namespace.
 
-{% code title="Example: NSO Module" %}
+<div data-gb-custom-block data-tag="code" data-title='Example: NSO Module'>
+
 ```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
 }
-```
-{% endcode %}
+````
 
 {% code title="Example: NSO NavuContainer Instance" %}
 ```

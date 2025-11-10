@@ -1023,7 +1023,7 @@ The process of identifying services and importing them into NSO is called Servic
 
 Ultimately, the problem that service discovery addresses is one of referencing or linking configuration to services. Since the network already contains target configuration, a new service instance in NSO produces no changes in the network. This means the new service in NSO by default does not own the network configuration. One side effect is that removing a service will not remove the corresponding device configuration, which is likely to interfere with service modification as well.
 
-<figure><img src="../../../images/deepdive-reconcile.png" alt="" width="563"><figcaption><p>Service Reconciliation</p></figcaption></figure>
+<figure><img src="../../../images/deepdive-reconcile.png" alt=""><figcaption><p>Service Reconciliation</p></figcaption></figure>
 
 Some of the steps in the process can be automated, while others are mostly manual. The amount of work differs a lot depending on how structured and consistent the original deployment is.
 

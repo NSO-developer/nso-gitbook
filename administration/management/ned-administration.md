@@ -22,7 +22,7 @@ It's important to understand the functionality of a NED and the capabilities it 
 
 <summary>YANG Data Model</summary>
 
-The NED provides a YANG data model of the device to NSO and services, enabling standardized configuration management. This applies only to NEDs where Cisco creates and maintains the device data model—commonly referred to as classic NEDs, which includes both the CLI-based and Generic NEDs—and excludes third-party YANG (3PY) NEDs, where the model is provided externally. \
+The NED provides a YANG data model of the device to NSO and services, enabling standardized configuration management. This applies only to NEDs where Cisco creates and maintains the device data model—commonly referred to as classic NEDs, which includes both the CLI-based and Generic NEDs—and excludes third-party YANG (3PY) NEDs, where the model is provided externally.\
 \
 Note that for classic NEDs, the device model is typically implemented as a superset, covering multiple versions or variants of a given device type. This approach allows a single NED package to support a broad range of software versions or hardware flavors. The benefit is simplified deployment and upgrade handling across similar devices. However, a side effect is that certain parts of the model may not apply to the specific device instance in use.
 
@@ -120,7 +120,7 @@ A NED package must provide a device YANG model as well as define means (protocol
 
 Cisco provides and supports a number of such NEDs. With these Cisco-provided NEDs, a major category are CLI NEDs which communicate with a device through its CLI instead of a dedicated API.
 
-<figure><img src="../../images/ned_types.png" alt="" width="563"><figcaption><p>NED Package Types</p></figcaption></figure>
+<figure><img src="../../images/ned_types.png" alt=""><figcaption><p>NED Package Types</p></figcaption></figure>
 
 ### NED Types Summary Table
 
@@ -172,7 +172,7 @@ This category of NEDs has some special characteristics that set them apart from 
 * Delivered from the software.cisco.com portal without any device YANG models included. There are several reasons for this, such as legal restrictions that prevent Cisco from re-distributing YANG models from other vendors, or the availability of several different version bundles for open-source YANG, like OpenConfig. The version used by the NED must match the version used by the targeted device.
 * The NEDs can be bundled with various fixes to solve shortcomings in the YANG models, the download sources, and/or in the device. These fixes are referred to as recipes.
 
-<figure><img src="../../images/thirdparty_neds.png" alt="" width="563"><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
+<figure><img src="../../images/thirdparty_neds.png" alt=""><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
 
 Since the third-party NEDs are delivered without any device YANG models, there are additional steps required to make this category of NEDs operational:
 
@@ -272,11 +272,11 @@ When a newer maintenance release with the same major/minor version replaces a NE
 
 However, when a NED is replaced by a new major/minor release, it becomes a NED migration. These migrations are complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly.
 
-<figure><img src="../../images/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
+<figure><img src="../../images/ned-versions.png" alt=""><figcaption><p>NED Version Scheme</p></figcaption></figure>
 
 ## Installing a NED in NSO <a href="#sec.ned_installation_nso" id="sec.ned_installation_nso"></a>
 
-This section describes the NED installation in NSO for Local and System installs.&#x20;
+This section describes the NED installation in NSO for Local and System installs.
 
 {% tabs %}
 {% tab title="NED Installation on Local Install" %}
@@ -286,12 +286,12 @@ This procedure below broadly outlines the steps needed to install a NED package 
 
 General instructions to install a NED package:
 
-1. Download the latest production-grade version of the NED from [software.cisco.com](https://software.cisco.com) using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO VERSION>-<NED NAME>-<NED VERSION>.signed.bin`.&#x20;
-2. Place the NED package in the `/tmp/ned-package-store` directory and configure the environment variable `NSO_RUNDIR`  to point to the NSO runtime directory.
+1. Download the latest production-grade version of the NED from [software.cisco.com](https://software.cisco.com) using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO VERSION>-<NED NAME>-<NED VERSION>.signed.bin`.
+2. Place the NED package in the `/tmp/ned-package-store` directory and configure the environment variable `NSO_RUNDIR` to point to the NSO runtime directory.
 3. Unpack the NED package and verify its signature. The result of the unpacking is a `tar.gz` file with the same name as the `.bin` file.
 4. Untar the `.tar.gz` file. The result is a subdirectory named like `<NED NAME>-<NED MAJOR VERSION DIGIT>.<NED MINOR VERSION DIGIT>`.
 5. Install the NED on NSO, using the `ncs-setup` tool.
-6. Finally, open an NSO CLI session and load the new NED package.               &#x20;
+6. Finally, open an NSO CLI session and load the new NED package.
 {% endtab %}
 
 {% tab title="NED Installation on System Install" %}
@@ -301,7 +301,7 @@ This procedure below broadly outlines the steps needed to install a NED package 
 
 General instructions to install a NED package:
 
-1. Download the latest production-grade version of the NED from [software.cisco.com](https://software.cisco.com) using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO VERSION>-<NED NAME>-<NED VERSION>.signed.bin`.&#x20;
+1. Download the latest production-grade version of the NED from [software.cisco.com](https://software.cisco.com) using the URLs provided on your NED license certificates. All NED packages are files with the `.signed.bin` extension named using the following rule: `ncs-<NSO VERSION>-<NED NAME>-<NED VERSION>.signed.bin`.
 2. Place the NED package in the `/tmp/ned-package-store` directory.
 3. Unpack the NED package and verify its signature. The result of the unpacking is a `.tar.gz` file with the same name as the `.bin` file.
 4. Perform an NSO backup before installing the new NED package.
@@ -346,12 +346,12 @@ If you upgrade a managed device (such as installing a new firmware), the device 
 When the changes in the NED are not backward compatible, the NED is assigned a new ned-id to avoid breaking existing code. On the plus side, this allows you to use both versions of the NED at the same time, so some devices can use the new version and some can use the old one. As a result, there is no need to upgrade all devices at the same time. The downside is, NSO doesn't know the two NEDs are related and will not perform any upgrade on its own due to different ned-ids. Instead, you must manually change the NED of a managed device through a NED migration.
 
 {% hint style="info" %}
-For third-party NEDs, the end user is required to configure the NED ID and also be aware of the backward incompatibilities.&#x20;
+For third-party NEDs, the end user is required to configure the NED ID and also be aware of the backward incompatibilities.
 {% endhint %}
 
 Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same ned-id and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some third-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the ned-id values to see whether migration is needed.
 
-<figure><img src="../../images/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
+<figure><img src="../../images/sample-ned-versions.png" alt=""><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
 
 A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options of migration tooling for identifying the paths and service instances that may be impacted. Therefore, ensure that all the other packages are compatible with the new NED before you start migrating devices.
 
@@ -382,7 +382,7 @@ Depending on what changes are introduced by the migration and how these impact t
 ## Migrating from Legacy to Third-party NED
 
 {% hint style="info" %}
-This section uses `juniper-junos_nc` as an example third-party NED. The process is generally same and  applicable to other third-party NEDs.
+This section uses `juniper-junos_nc` as an example third-party NED. The process is generally same and applicable to other third-party NEDs.
 {% endhint %}
 
 NSO has supported Junos devices from early on. The legacy Junos NED is NETCONF-based, but as Junos devices did not provide YANG modules in the past, complex NSO machinery translated Juniper's XML Schema Description (XSD) files into a single YANG module. This was an attempt to aggregate several Juniper device modules/versions.

@@ -10,7 +10,7 @@ The classes, and other resources, are structured in `jar` files and the specific
 
 When the `NcsMain` thread starts it establishes a socket connection towards NSO. This is called the NSO Java VM control socket. It is the responsibility of `NcsMain` to respond to command requests from NSO and pass these commands as events to the underlying finite state machine (FSM). The `NcsMain` FSM will execute all actions as requested by NSO. This includes class loading and instantiation as well as registration and start of services, NEDs, etc.
 
-<figure><img src="../../../images/ncs_javavm_overview.png" alt="" width="563"><figcaption><p>NSO Service Manager</p></figcaption></figure>
+<figure><img src="../../../images/ncs_javavm_overview.png" alt=""><figcaption><p>NSO Service Manager</p></figcaption></figure>
 
 When NSO detects the control socket connection from the NSO Java VM, it starts an initialization process:
 
@@ -103,7 +103,7 @@ In some situations, several NSO packages are expected to use the same code base,
 
 Inside the NSO Java VM, each component type has a specific Component Manager. The responsibility of these Managers is to manage a set of component classes for each NSO package. The Component Manager acts as an FSM that controls when a component should be registered, started, stopped, etc.
 
-<figure><img src="../../../images/ncs_javavm_managers.png" alt="" width="563"><figcaption><p>Component Managers</p></figcaption></figure>
+<figure><img src="../../../images/ncs_javavm_managers.png" alt=""><figcaption><p>Component Managers</p></figcaption></figure>
 
 For instance, the `DpMuxManager` controls all callback implementations (services, actions, data providers, etc). It can load, register, start, and stop such callback implementations.
 

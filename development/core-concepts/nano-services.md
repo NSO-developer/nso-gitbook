@@ -18,7 +18,7 @@ Services ideally perform the configuration all at once, with all the benefits of
 
 This is most evident with, for example, virtual machine (VM) provisioning, during virtual network function (VNF) orchestration. Consider a service that deploys and configures a router in a VM. When the service is first instantiated, it starts provisioning a router VM. However, it will likely take some time before the router has booted up and is ready to accept a new configuration. In turn, the service cannot configure the router just yet. The service must wait for the router to become ready. That is the event that triggers a re-deploy and the service can finish configuring the router, as the following figure illustrates:
 
-<figure><img src="../../images/nano-steps.png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Steps</p></figcaption></figure>
+<figure><img src="../../images/nano-steps.png" alt=""><figcaption><p>Virtual Router Provisioning Steps</p></figcaption></figure>
 
 While each step of provisioning happens inside a transaction and is still atomic, the whole service is not. Instead of a simple fully-provisioned or not-provisioned-at-all status, a nano service can be in a number of other _states_, depending on how far in the provisioning process it is.
 
@@ -292,7 +292,7 @@ A nano service abandons the single reverse diff-set by introducing `nano-plan-da
 
 This is illustrated in the following figure:
 
-<figure><img src="../../images/nano-fastmap.png" alt="" width="563"><figcaption><p>Per-state FASTMAP with nano services</p></figcaption></figure>
+<figure><img src="../../images/nano-fastmap.png" alt=""><figcaption><p>Per-state FASTMAP with nano services</p></figcaption></figure>
 
 You can still use the service `get-modifications` action to visualize all data changes performed by the service as an aggregate. In addition, each state also has its own `get-modifications` action that visualizes the data changes for that particular state. It allows you to more easily identify the state and, by extension, the code that produced those changes.
 
@@ -308,7 +308,7 @@ Another example is the management of a web server VM for a web application. Here
 
 Both examples require two distinct steps for de-provisioning. Can nano services be of help in this case? Certainly. In addition to the state-by-state provisioning of the defined components, the nano service system in NSO is responsible for back-tracking during their removal. This process traverses all reached states in the reverse order, removing the changes previously done for each state one by one.
 
-<figure><img src="../../images/nano-backtrack.png" alt="" width="563"><figcaption><p>Staged Delete with Backtracking</p></figcaption></figure>
+<figure><img src="../../images/nano-backtrack.png" alt=""><figcaption><p>Staged Delete with Backtracking</p></figcaption></figure>
 
 In doing so, the back-tracking process checks for a 'delete pre-condition' of a state. A delete pre-condition is similar to the create pre-condition, but only relevant when back-tracking. If the condition is not fulfilled, the back-tracking process stops and waits until it becomes satisfied. Behind the scenes, a kicker is configured to restart the process when that happens.
 
@@ -936,13 +936,13 @@ There is just one type of execution node:
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
-<figure><img src="../../images/behave-simple.png" alt="" width="563"><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
+<figure><img src="../../images/behave-simple.png" alt=""><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
 
 Having a selector on root implies that all plan-components are created if they don't have any pre-conditions, or for which the pre-conditions are satisfied.
 
 An example of a more elaborated behavior tree is the following:
 
-<figure><img src="../../images/behave-elaborate.png" alt="" width="563"><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
+<figure><img src="../../images/behave-elaborate.png" alt=""><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
 
 This behavior tree has a selector node as the root. It will always synthesize the "base-config" plan component and then evaluate then pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 
