@@ -761,18 +761,23 @@ The transaction validation callbacks are:
 
 * `init()`: This callback is invoked when the validation phase starts. It will typically attach to the current transaction:
 
-{% code title="Example: Attach Maapi to the Current Transaction" %}
-```
+{% code title="Example: Attach MAAPI to the Current Transaction" overflow="wrap" %}
+```java
+public class SimpleValidator implements DpTransValidateCallback { 
+    ... 
+    @TransValidateCallback(callType=TransValidateCBType.INIT) 
+    public void init(DpTrans trans) throws DpCallbackException{ 
+        try { 
+            th = trans.thandle; 
+            maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid); 
+            .. 
+            } catch(Exception e) { 
+            throw new DpCallbackException("failed to attach via maapi: "+ e.getMessage()); 
+            } 
+        } 
+    }
 ```
 {% endcode %}
-
-\`\`\`\` \`\`\` public class SimpleValidator implements DpTransValidateCallback{ ... @TransValidateCallback(callType=TransValidateCBType.INIT) public void init(DpTrans trans) throws DpCallbackException{ try { th = trans.thandle; maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid); .. } catch(Exception e) { throw new DpCallbackException("failed to attach via maapi: "+ e.getMessage()); } } } \`\`\` \`\`\`\` \{% endcode %\}
-
-\`
-
-\`\` \\
-
-````
 
 * `stop()`: This callback is invoked when the validation phase ends. If `init()` attached to the transaction, `stop()` should detach from it.
 
@@ -780,7 +785,7 @@ The actual validation logic is implemented in a validation callback:
 
 * `validate()`: This callback is invoked for a specific validation point.
 
-### Transforms <a href="#d5e3794" id="d5e3794"></a>
+#### Transforms <a href="#d5e3794" id="d5e3794"></a>
 
 Transforms implement a mapping between one part of the data model - the front-end of the transform - and another part - the back-end of the transform. Typically the front-end is visible to northbound interfaces, while the back-end is not, but for operational data (`config false` in the data model), a transform may implement a different view (e.g. aggregation) of data that is also visible without going through the transform.
 
@@ -788,19 +793,19 @@ The implementation of a transform uses techniques already described in this sect
 
 To specify that the front-end data is provided by a transform, the data model uses the `tailf:callpoint` statement with a `tailf:transform true` substatement. Since transforms do not participate in the two-phase commit protocol, they only need to register the `init()` and `finish()` transaction callbacks. The `init()` callback attaches to the transaction and `finish()` detaches from it. Also, a transform for operational data only needs to register the data callbacks that read data, i.e. `getElem()`, `existsOptional()`, etc.
 
-### Hooks <a href="#d5e3808" id="d5e3808"></a>
+#### Hooks <a href="#d5e3808" id="d5e3808"></a>
 
 Hooks make it possible to have changes to the configuration trigger additional changes. In general, this should only be done when the data that is written by the hook is not visible to northbound interfaces since otherwise, the additional changes will make it difficult e.g. EMS or NMS systems to manage the configuration - the complete configuration resulting from a given change cannot be predicted. However, one use case in NSO for hooks that trigger visible changes is precisely to model-managed devices that have this behavior: hooks in the device model can emulate what the device does on certain configuration changes, and thus the device configuration in NSO remains in sync with the actual device configuration.
 
 The implementation technique for a hook is very similar to that for a transform. Transaction and data callbacks are registered, and the MAAPI API is used to attach to the current transaction and write the additional changes into the transaction. As for transforms, only the `init()` and `finish()` transaction callbacks need to be registered, to do the MAAPI attach and detach. However only data callbacks that write data, i.e. `setElem()`, `create()`, etc need to be registered, and depending on which changes should trigger the hook invocation, it is possible to register only a subset of those. For example, if the hook is registered for a leaf in the data model, and only changes to the value of that leaf should trigger invocation of the hook, it is sufficient to register `setElem()`.
 
-To specify that changes to some part of the configuration should trigger a hook invocation, the data model uses the `tailf:callpoint` statement with a `tailf:set-hook` or `tailf:transaction-hook` substatement. A set-hook is invoked immediately when a northbound agent requests a write operation on the data, while a transaction-hook is invoked when the transaction is committed. For the NSO-specific use case mentioned above, a `set-hook` should be used. The `tailf:set-hook` and `tailf:transaction-hook` statements take an argument specifying the extent of the data model the hook applies to.
+To specify that changes to some part of the configuration should trigger a hook invocation, the data model uses the `tailf:callpoint` statement with a `tailf:set-hook` or `tailf:transaction-hook` sub-statement. A set-hook is invoked immediately when a northbound agent requests a write operation on the data, while a transaction-hook is invoked when the transaction is committed. For the NSO-specific use case mentioned above, a `set-hook` should be used. The `tailf:set-hook` and `tailf:transaction-hook` statements take an argument specifying the extent of the data model the hook applies to.
 
-## NED API <a href="#d5e3823" id="d5e3823"></a>
+### NED API <a href="#d5e3823" id="d5e3823"></a>
 
-NSO can speak southbound to an arbitrary management interface. This is of course not entirely automatic like with NETCONF or SNMP, and depending on the type of interface the device has for configuration, this may involve some programming. Devices with a Cisco-style CLI can however be managed by writing YANG models describing the data in the CLI, and a relatively thin layer of Java code to handle the communication to the devices. Refer to [Network Element Drivers (NEDs)](../../advanced-development/developing-neds/) for more information.
+NSO can speak southbound to an arbitrary management interface. This is of course not entirely automatic like with NETCONF or SNMP, and depending on the type of interface the device has for configuration, this may involve some programming. Devices with a Cisco-style CLI can however be managed by writing YANG models describing the data in the CLI, and a relatively thin layer of Java code to handle the communication to the devices. Refer to Network Element Drivers (NEDs) for more information.
 
-## NAVU API <a href="#ug.java_api_overview.navu" id="ug.java_api_overview.navu"></a>
+### NAVU API <a href="#ug.java_api_overview.navu" id="ug.java_api_overview.navu"></a>
 
 The NAVU API provides a DOM-driven approach to navigate the NSO service and device models. The main features of the NAVU API are dynamic schema loading at start-up and lazy loading of instance data. The navigation model is based on the YANG language structure. In addition to navigation and reading of values, NAVU also provides methods to modify the data model. Furthermore, it supports the execution of actions modeled in the service model.
 
@@ -809,8 +814,6 @@ By using NAVU, it is easy to drill down through tree structures with minimal eff
 NAVU requires all models i.e. the complete NSO service model with all its augmented sub-models. This is loaded at runtime from NSO. NSO has in turn acquired these from loaded `.fxs` files. The `.fxs` files are a product from the `ncsc` tool with compiles these from the `.yang` files.
 
 The `ncsc` tool can also generate Java classes from the .yang files. These files, extending the `ConfNamespace` base class, are the Java representation of the models and contain all defined nametags and their corresponding hash values. These Java classes can, optionally, be used as help classes in the service applications to make NAVU navigation type-safe, e.g. eliminating errors from misspelled model container names.
-
-<figure><img src="../../../images/navu_design_support.png" alt="" width="563"><figcaption><p>NAVU Design Support</p></figcaption></figure>
 
 The service models are loaded at start-up and are always the latest version. The models are always traversed in a lazy fashion i.e. data is only loaded when it is needed. This is to minimize the amount of data transferred between NSO and the service applications.
 
@@ -821,7 +824,7 @@ The most important classes of NAVU are the classes implementing the YANG node ty
 * `NavuListEntry`: list node entry.
 * `NavuLeaf`: the NavuLeaf represents a YANG leaf node.
 
-<figure><img src="../../../images/navu_mapping.png" alt="" width="563"><figcaption><p>NAVU YANG Structure</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/navu_mapping.png" alt="" width="563"><figcaption><p>NAVU YANG Structure</p></figcaption></figure>
 
 The remaining part of this section will guide us through the most useful features of the NAVU. Should further information be required, please refer to the corresponding Javadoc pages.
 
@@ -831,17 +834,17 @@ If data has to be written, the Navu transaction has to be started differently de
 
 When navigating using NAVU we always start by creating a `NavuContainer` and passing in the `NavuContext` instance, this is a base container from which navigation can be started. Furthermore, we need to create a root `NavuContainer` which is the top of the YANG module in which to navigate down. This is done by using the `NavuContainer.container(int hash)` method. Here the argument is the hash value for the module namespace.
 
-<div data-gb-custom-block data-tag="code" data-title='Example: NSO Module'>
-
+{% code title="Example: NSO Module" %}
 ```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
 }
-````
+```
+{% endcode %}
 
 {% code title="Example: NSO NavuContainer Instance" %}
-```
+```java
     .....
       NavuContext context = new NavuContext(maapi);
       context.startRunningTrans(Conf.MODE_READ);
@@ -888,7 +891,7 @@ submodule tailf-ncs-devices {
 If the purpose is to directly access a list node, we would typically do a direct navigation to the list element using the NAVU primitives.
 
 {% code title="Example: NAVU List Direct Element Access" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -908,7 +911,7 @@ If the purpose is to directly access a list node, we would typically do a direct
 Or if we want to iterate over all elements of a list we could do as follows.
 
 {% code title="Example: NAVU List Element Iterating" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -931,7 +934,7 @@ The above example uses the `select()` which uses a recursive regexp match agains
 Alternatively, if the purpose is to drill down deep into a structure we should use `select()`. The `select()` offers a wild card-based search. The search is relative and can be performed from any node in the structure.
 
 {% code title="Example: NAVU Leaf Access" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -953,7 +956,7 @@ All of the above are valid ways of traversing the lists depending on the purpose
 An alternative method is to use the `xPathSelect()` where an XPath query could be issued instead.
 
 {% code title="Example: NAVU Leaf Access" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -1006,7 +1009,7 @@ module tailf-ncs {
 To read and update a leaf, we simply navigate to the leaf and request the value. And in the same manner, we can update the value.
 
 {% code title="Example: NAVU List Element Iterating" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -1082,7 +1085,7 @@ module interfaces {
 To execute the action below we need to access a device with this module loaded. This is done in a similar way to non-action nodes.
 
 {% code title="Example: NAVU Action Execution (1)" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
@@ -1128,7 +1131,7 @@ To execute the action below we need to access a device with this module loaded. 
 Or, we could do it with `xPathSelect()`.
 
 {% code title="Example: NAVU Action Execution (2)" %}
-```
+```java
     .....
     NavuContext context = new NavuContext(maapi);
     context.startRunningTrans(Conf.MODE_READ);
