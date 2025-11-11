@@ -12,6 +12,7 @@ The NSO Resource Manager package contains both an API for generic resource pool 
 
 {% hint style="info" %}
 The latest version of NSO Resource Manager is 4.2.12. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+We recommend taking an NSO backup (ncs-backup) prior to upgrading the Resource Manager. This provides an extra layer of assurance and makes recovery straightforward, should it be required as RM uses upgrade script.
 {% endhint %}
 
 ## Background <a href="#d5e17" id="d5e17"></a>
@@ -362,6 +363,7 @@ Since the Resource Manager's version 4.0.0, the operational data model is not co
 
 {% hint style="warning" %}
 After running the script manually to update CDB, the user must request `package reload` or `restart ncs` to reload new CBD data into the ID Pool java object in memory. For example, in the NSO CLI console: `admin@ncs> request packages reload force`.
+We recommend taking an NSO backup (ncs-backup) prior to upgrading the Resource Manager. This provides an extra layer of assurance and makes recovery straightforward, should it be required as RM uses upgrade script.
 {% endhint %}
 
 ### The `id-allocator-tool` Action
