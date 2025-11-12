@@ -19,11 +19,7 @@ Cisco Crosswork Network Services Orchestrator (NSO) enabled by Tail-f is an indu
 
 <figure><img src=".gitbook/assets/op1d.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/op1.png" alt="" width="563"><figcaption></figcaption></figure>
-
 <figure><img src=".gitbook/assets/op2d.png" alt="" width="563"><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/op2l.png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The terms 'ncs' and 'tail-f' are used extensively in file names, command-line command names, YANG models, application programming interfaces (API), etc. Throughout this documentation, we use NSO to mean the product.
