@@ -1,6 +1,6 @@
 ---
-icon: magnifying-glass-chart
 description: Export observability data to InfluxDB.
+icon: magnifying-glass-chart
 ---
 
 # Observability Exporter
@@ -121,10 +121,9 @@ This example shows how to use the Jaeger software ([https://www.jaegertracing.io
 
     <figure><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/jaeger_trace_search.png#developer.cisco.com" alt=""><figcaption></figcaption></figure>
 
-    Clicking on one of the traces will bring you to the trace view, such as the following one.\
+    Clicking on one of the traces will bring you to the trace view, such as the following one.\\
 
-
-    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimal Metrics Example with InfluxDB <a href="#minimal-metrics-example-with-influxdb" id="minimal-metrics-example-with-influxdb"></a>
 
