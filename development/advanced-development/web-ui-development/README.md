@@ -14,7 +14,7 @@ The JSON-RPC API contains a handful of methods with well-defined input `method` 
 
 In addition, the API also implements a Comet model, as long polling, to allow the client to subscribe to different server events and receive event notifications about those events in near real-time.
 
-You can call these from a browser the modern [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API:
+You can call these from a browser using the modern [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API:
 
 {% code title="With fetch" %}
 ``` javascript
@@ -74,7 +74,7 @@ A secondary example is also provided that demonstrates the use and implementatio
 1. Log in.
 2. Initialize comet channel subscription.
 3. Commit a change to trigger a comet notification.
-4. Stop and cleanup the comet.
+4. Stop and clean up the comet.
 
 For a complete working example with a web UI, see the `webui-basic-example` NSO package in `${NCS_DIR}/examples.ncs/northbound-interfaces/webui`. This package demonstrates basic JSON-RPC API usage and 
 can be run with `make demo`.
