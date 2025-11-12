@@ -10,7 +10,7 @@ The **Devices** view provides options to manage devices and device groups in the
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
-<figure><img src="../../.gitbook/assets/test-navu-1.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+<figure><img src="../../images/navu-1 (1).png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
 
 ### **Search**
 
@@ -141,7 +141,7 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. Concepts and settings involved in the setup of authentication groups are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+The **Authgroups** view displays the existing device and SNMP authentication groups and provides ways to manage them. Concepts and settings involved in the setup of authentication groups are discussed in [NSO Device Management](../operations/nso-device-manager.md#user_guide.devicemanager.authgroups).
 
 This view is further partitioned into the following two tabs:
 
@@ -171,12 +171,11 @@ If a default map is desired for unknown/unmapped users, use the **Set default-ma
      * **remote-user**: Choose between **same-user** or **remote-name** options.
      * **remote-auth**: Choose between **same-pass**, **remote-password**, or **public-key** options.
      * **remote-secondary-auth** (optional): Choose between **same-secondary-password** or **remote-secondary-password** options.
-   * Callback:  If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
+   * Callback: If a callback type authentication is desired to retrieve login credentials, specify the **local-user**, set the **Use callback** flag, and configure the following settings:
      * **callback-node**
      * **action-name**
 2. Click **Add**. This will add the newly-created user to the group and display it in the list.
-
-4. Click **Create** **authgroup** to finish creating the group.
+3. Click **Create** **authgroup** to finish creating the group.
 
 #### View/Edit Authgroup Details
 

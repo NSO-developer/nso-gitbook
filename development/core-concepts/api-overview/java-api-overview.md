@@ -762,29 +762,17 @@ The transaction validation callbacks are:
 * `init()`: This callback is invoked when the validation phase starts. It will typically attach to the current transaction:
 
 {% code title="Example: Attach Maapi to the Current Transaction" %}
-````
 ```
-    public class SimpleValidator implements DpTransValidateCallback{
-      ...
-      @TransValidateCallback(callType=TransValidateCBType.INIT)
-      public void init(DpTrans trans) throws DpCallbackException{
-        try {
-          th = trans.thandle;
-          maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid);
-          ..
-        } catch(Exception e) {
-          throw new DpCallbackException("failed to attach via maapi: "+
-                                       e.getMessage());
-        }
-      }
-    }
 ```
-````
 {% endcode %}
 
-```
-\
-```
+\`\`\`\` \`\`\` public class SimpleValidator implements DpTransValidateCallback{ ... @TransValidateCallback(callType=TransValidateCBType.INIT) public void init(DpTrans trans) throws DpCallbackException{ try { th = trans.thandle; maapi.attach(th, new MyNamesapce().hash(), trans.uinfo.usid); .. } catch(Exception e) { throw new DpCallbackException("failed to attach via maapi: "+ e.getMessage()); } } } \`\`\` \`\`\`\` \{% endcode %\}
+
+\`
+
+\`\` \\
+
+````
 
 * `stop()`: This callback is invoked when the validation phase ends. If `init()` attached to the transaction, `stop()` should detach from it.
 
@@ -843,14 +831,14 @@ If data has to be written, the Navu transaction has to be started differently de
 
 When navigating using NAVU we always start by creating a `NavuContainer` and passing in the `NavuContext` instance, this is a base container from which navigation can be started. Furthermore, we need to create a root `NavuContainer` which is the top of the YANG module in which to navigate down. This is done by using the `NavuContainer.container(int hash)` method. Here the argument is the hash value for the module namespace.
 
-{% code title="Example: NSO Module" %}
+<div data-gb-custom-block data-tag="code" data-title='Example: NSO Module'>
+
 ```yang
 module tailf-ncs {
   namespace "http://tail-f.com/ns/ncs";
   ...
 }
-```
-{% endcode %}
+````
 
 {% code title="Example: NSO NavuContainer Instance" %}
 ```
@@ -1205,11 +1193,7 @@ For situations where alarm subscription outside of the NSO Java VM is desired, s
     source.start();
 ```
 
-To retrieve alarms from the `AlarmSource` listener,
-either a blocking `takeAlarm()` or a timeout based
-`pollAlarm()` can be used.
-The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it,
-or the `AlarmSource` can be used in a try-with-resources statement.
+To retrieve alarms from the `AlarmSource` listener, either a blocking `takeAlarm()` or a timeout based `pollAlarm()` can be used. The first method will wait indefinitely for new alarms to arrive while the second will timeout if an alarm has not arrived in the stipulated time. When a listener no longer is needed then a `stopListening()` call should be issued to deactivate it, or the `AlarmSource` can be used in a try-with-resources statement.
 
 {% code title="Consuming alarms inside NSO Java VM" %}
 ```
@@ -1294,9 +1278,7 @@ However, this case requires that the `AlarmSinkCentral` is started prior to the 
        sinkCentral.start();
 ```
 
-The alarm sink can then be started with the
-`AlarmSink(AlarmSinkCentral central)` constructor,
-i.e.:
+The alarm sink can then be started with the `AlarmSink(AlarmSinkCentral central)` constructor, i.e.:
 
 ```
        AlarmSink sink = new AlarmSink(sinkCentral);

@@ -17,6 +17,14 @@ On this page, you'll find a brief introduction to NSO to help you learn the basi
 
 Cisco Crosswork Network Services Orchestrator (NSO) enabled by Tail-f is an industry-leading orchestration platform for hybrid networks. As a Linux application, it allows fine-grained control of physical and virtual network devices and can powerfully orchestrate the configuration life cycle of networks they live in. It provides comprehensive lifecycle service automation to enable you to design and deliver high-quality services faster and easily. Figure below.
 
+<figure><img src=".gitbook/assets/op1d.png" alt="" width="563"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/op1.png" alt="" width="563"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/op2d.png" alt="" width="563"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/op2l.png" alt="" width="563"><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 The terms 'ncs' and 'tail-f' are used extensively in file names, command-line command names, YANG models, application programming interfaces (API), etc. Throughout this documentation, we use NSO to mean the product.
 {% endhint %}

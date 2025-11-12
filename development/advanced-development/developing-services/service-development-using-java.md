@@ -506,7 +506,7 @@ The `service` node can be used to fetch the values of the VLAN service instance:
 
 The first snippet that iterates the service model and prints to the console looks like below:
 
-<figure><img src="../../../images/navu-1.png" alt=""><figcaption><p>The first Example</p></figcaption></figure>
+<figure><img src="../../../images/navu-1 (1).png" alt=""><figcaption><p>The first Example</p></figcaption></figure>
 
 The `com.tailf.conf` package contains Java Classes representing the YANG types like `ConfUInt32`.
 
