@@ -29,7 +29,7 @@ Watch a video presentation of this demo on [YouTube](https://www.youtube.com/wat
 
 The example [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
 
-<figure><img src="../../images/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/network.png" alt="" width="563"><figcaption><p>A L3 VPN Example</p></figcaption></figure></div>
 
 The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.
 
@@ -119,7 +119,7 @@ Run the example as follows:
 1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.
 
     ```
-    Copy$ 
+    Copy$
     ```
 
     \
@@ -127,7 +127,7 @@ Run the example as follows:
 2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).
 
     ```
-    Copyncs# 
+    Copyncs#
     ```
 3.  Add another VPN.
 
@@ -336,7 +336,7 @@ result true
 Then they can restore the service:
 
 ```cli
-ncs# vpn l3vpn volvo re-deploy dry-run { outformat native } 
+ncs# vpn l3vpn volvo re-deploy dry-run { outformat native }
 native {
     device {
         name ce0

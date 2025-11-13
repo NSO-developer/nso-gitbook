@@ -6,7 +6,7 @@ description: Create and manage service deployment.
 
 The **Services** view is used to view, create, and manage services in your NSO deployment. The default **Services** view displays the existing services.
 
-<figure><img src="../../images/service-view.png" alt=""><figcaption><p>Services View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/service-view.png" alt=""><figcaption><p>Services View</p></figcaption></figure></div>
 
 ## Search <a href="#d5e6128" id="d5e6128"></a>
 

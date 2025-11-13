@@ -135,7 +135,7 @@ The prepare stage sends out the changes to the network through the Device Manage
 
 If all systems took the new configuration successfully, enter the commit phase, marking the new NSO configuration as active and activating or committing the staged configuration on remote devices. Otherwise, enter the abort phase, discarding changes, and ask NEDs to revert activated changes on devices that do not support transactions (e.g. without candidate data store).
 
-<figure><img src="../../../images/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure></div>
 
 There are also two types of locks involved with the transaction that are of interest to the service developer; the service write lock and the transaction lock. The latter is a global lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../scaling-and-performance-optimization.md) for more details and their impact on performance.
 
@@ -157,7 +157,7 @@ Next, NSO runs transaction hooks and performs the necessary transforms, which al
 
 After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/operations/basic-operations.md#d5e319) in Operation and Usage).
 
-<figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure></div>
 
 Throughout the phase, the transaction engine makes checkpoints, so it can restart the transaction faster in case of concurrency conflicts. The check for conflicts happens at the end of this first phase when NSO also takes the global transaction lock. Concurrency is further discussed in [NSO Concurrency Model](../../core-concepts/nso-concurrency-model.md).
 
@@ -496,7 +496,7 @@ admin@ncs(config-device-CE-1)# exit
 admin@ncs(config-python-service-test)# device CE-2 number-of-interfaces 10
 admin@ncs(config-device-CE-2)# exit
 admin@ncs(config-python-service-test)# device PE-1 number-of-interfaces 10
-admin@ncs(config-device-PE-1)# 
+admin@ncs(config-device-PE-1)#
 ```
 
 The two key events we need to focus on are the create event for the service, which provides the execution time of the create callback, and the "saving reverse diff-set and applying changes" event, which shows how long NSO took to calculate the reverse diff-set.
@@ -527,7 +527,7 @@ Let’s capture the same data for 100 and 1000 interfaces to compare the results
 We can observe that the time scales proportionally with the workload in the create callback as well as the size of the diffset. To demonstrate that the time remains consistent regardless of the size of the modification, we add one more interface to the 1000 interfaces already configured.
 
 ```bash
-admin@ncs(config)# commit dry-run 
+admin@ncs(config)# commit dry-run
 cli {
     local-node {
         data  devices {
@@ -606,7 +606,7 @@ list lower-python-service {
   leaf device {
     type leafref {
       path "/ncs:devices/ncs:device/ncs:name";
-    }  
+    }
   }
 
   uses ncs:service-data;
@@ -654,7 +654,7 @@ admin@ncs(config-device-CE-1)# top
 admin@ncs(config)# upper-python-service test device CE-2 number-of-interfaces 1000
 admin@ncs(config-device-CE-2)# top
 admin@ncs(config)# upper-python-service test device PE-1 number-of-interfaces 1000
-admin@ncs(config-device-PE-1)# commit 
+admin@ncs(config-device-PE-1)# commit
 ```
 
 The execution time of the `upper-python-service` turned out to be relatively low, as expected. This is because it only involves a loop with three iterations, where data is passed from the input of the `upper-python-service` to each corresponding `lower-python-service`.
@@ -689,7 +689,7 @@ So, what’s the advantage of stacking services like this? The real benefit beco
 
 ```bash
 admin@ncs(config)# upper-python-service test device CE-1 number-of-interfaces 1001
-admin@ncs(config-device-CE-1)# commit dry-run 
+admin@ncs(config-device-CE-1)# commit dry-run
 cli {
     local-node {
         data  upper-python-service test {
@@ -738,7 +738,7 @@ Focusing on a single device per service also provides significant advantages in 
 The lower service we created uses the device name as its key. The primary reason for this is to ensure a clear separation of service instances based on the devices they are deployed on. One key benefit of this approach is the ability to easily identify all services deployed on a specific device by simply filtering for that device. For example, after adding a few more services, you could list all services associated with a particular device using a `show` command similar to the following.
 
 ```bash
-admin@ncs(config)# show full-configuration lower-python-service CE-1 
+admin@ncs(config)# show full-configuration lower-python-service CE-1
 lower-python-service CE-1 another-instance
  number-of-interfaces 1
 !
@@ -753,7 +753,7 @@ lower-python-service CE-1 yet-another-instance
 While the complete distribution of the service looks like this:
 
 ```bash
-admin@ncs(config)# show full-configuration lower-python-service 
+admin@ncs(config)# show full-configuration lower-python-service
 lower-python-service CE-1 another-instance
  number-of-interfaces 1
 !
@@ -859,7 +859,7 @@ Each element in this list will represent a device and all the services deployed 
 We deploy an L3VPN to our network with two CE endpoints by creating the following `l3vpn` customer-facing service.
 
 ```bash
-admin@ncs(config)# show full-configuration vpn 
+admin@ncs(config)# show full-configuration vpn
 vpn l3vpn volvo
  endpoint c1
   as-number 65001
@@ -895,7 +895,7 @@ vpn l3vpn volvo
 After deploying our service, we can quickly gain an overview of the services deployed on a device without needing to analyze or reverse-engineer its configurations. For example, we can see that the device `PE-1` is acting as a PE for two different endpoints within a VPN.
 
 ```bash
-admin@ncs(config)# show full-configuration resource-facing-services device PE-1 
+admin@ncs(config)# show full-configuration resource-facing-services device PE-1
 resource-facing-services device PE-1
  l3vpn-rfs volvo c1
   role      pe
@@ -1023,7 +1023,7 @@ The process of identifying services and importing them into NSO is called Servic
 
 Ultimately, the problem that service discovery addresses is one of referencing or linking configuration to services. Since the network already contains target configuration, a new service instance in NSO produces no changes in the network. This means the new service in NSO by default does not own the network configuration. One side effect is that removing a service will not remove the corresponding device configuration, which is likely to interfere with service modification as well.
 
-<figure><img src="../../../images/deepdive-reconcile.png" alt="" width="563"><figcaption><p>Service Reconciliation</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/deepdive-reconcile.png" alt="" width="563"><figcaption><p>Service Reconciliation</p></figcaption></figure></div>
 
 Some of the steps in the process can be automated, while others are mostly manual. The amount of work differs a lot depending on how structured and consistent the original deployment is.
 

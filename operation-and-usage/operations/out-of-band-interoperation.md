@@ -15,7 +15,7 @@ The preferred way of making changes in the network is to perform all changes thr
 
 However, in some situations, such setup is undesirable or not possible due to historic, organizational, or other reasons. While an organization may decide to forgo most of these benefits by managing the network through multiple systems, it is essential for NSO provisioning code to work with current data.
 
-![Out-of-band Changes](../../images/oob-change.png)
+<div data-with-frame="true"><img src="../../images/oob-change.png" alt="Out-of-band Changes" width="375"></div>
 
 To better allow coexistence with other systems and processes that manage the same devices, NSO 6.5 introduces an innovative, patent-pending approach to the so-called "out-of-band" changes. Out-of-band changes are changes to NSO-managed devices not done through NSO. From a high-level perspective, this approach consists of:
 
@@ -25,7 +25,7 @@ To better allow coexistence with other systems and processes that manage the sam
 
 It now becomes possible to manage a network device by never doing a sync-from/sync-to operation (in practice the first sync-from may still be desirable to allow reading from NSO). At the same time, special-purpose pre-provisioning checks become unnecessary for the majority of cases, as NSO verifies the correctness of data used in the transaction.
 
-![Handling Out-of-band Changes](../../images/oob-handling.png)
+<div data-with-frame="true"><img src="../../images/oob-handling.png" alt="Handling Out-of-band Changes" width="375"></div>
 
 Such an approach allows NSO to use targeted correctness checks that have another benefit when used with devices which have huge configurations, such as various controllers. If only small parts of the configuration are relevant to NSO, the checks can be optimized. Limiting the checks to only the required parts allows the system to scale with the extent of the change, not the size or time-complexity of producing the full device configurations.
 
@@ -55,7 +55,7 @@ admin@ncs(config)# devices global-settings confirm-network-state enabled-by-defa
 
 Commit and other operations then no longer require using the`confirm-network-state` option explicitly; it is enabled automatically for those devices.
 
-Once NSO uses `confirm-network-state` for a device change, it no longer checks device sync status, so the commit may go through even if parts of device configuration are out-of-sync. To find out if the device configuration is out-of-sync before committing, use `dry-run` together with `confirm-network-state`.&#x20;
+Once NSO uses `confirm-network-state` for a device change, it no longer checks device sync status, so the commit may go through even if parts of device configuration are out-of-sync. To find out if the device configuration is out-of-sync before committing, use `dry-run` together with `confirm-network-state`.
 
 NSO keeps track of all reads in a given transaction and then verifies that these values (which were presumably used to influence the provisioning decisions) remain the same on the device. Behind the scenes, this mechanism uses the same transaction read-set that is also used for [concurrency checks](../../development/core-concepts/nso-concurrency-model.md).
 
@@ -173,7 +173,7 @@ Using the type of change allows you to express more complicated policies. For ex
  !
 ```
 
-![Out-of-band Policy](../../images/oob-policy.png)
+<div data-with-frame="true"><img src="../../images/oob-policy.png" alt="Out-of-band Policy" width="563"></div>
 
 This, however, brings up another question: what should happen if you redeploy the service? Should NSO use the service-provided IP or should the out-of-band configured value be used instead? With the `sync-from-device` policy action, NSO overwrites the out-of-band value with the service-provided one. Instead, if the service should keep the out-of-band value, use the `manage-by-service` policy action, for example:
 
@@ -186,6 +186,17 @@ This, however, brings up another question: what should happen if you redeploy th
 ```
 
 Specifying `manage-by-service` not only updates device configuration in the CDB with the out-of-band value, it also adds the value under service instance's out-of-band changes (also called extra operations). NSO takes these changes into account when calculating service configuration after mapping code runs. It allows the service to preserve an out-of-band value during a redeploy. Additionally, it ties the value to the lifecycle of the service; if the service is deleted, so is the out-of-band configuration.
+
+It may be desirable to abort out-of-band handling entirely and fail the transaction with an out-of-sync error if certain out-of-band changes are detected on a device. This can be achieved using the `abort` action, for example:
+
+```
+ rule abort-if-mtu-is-set
+  path         ios:interface/GigabitEthernet/mtu
+  at-value-set abort
+ !
+```
+
+The rule above will cause out-of-band handling to be aborted if the `mtu` leaf has been set out-of-band.
 
 ### Rule Behavior Example
 

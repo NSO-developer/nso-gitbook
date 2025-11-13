@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view includes utilities that you can use to run specific tasks on your deployment.
 
-<figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure></div>
 
 The following tools are available:
 
@@ -31,7 +31,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
-<figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure></div>
 
 ### Add a Package
 
@@ -89,7 +89,7 @@ Available Rule-based HA actions are described further under [Actions](../../admi
 
 An example cluster of a Rule-based HA setup is shown below.&#x20;
 
-<figure><img src="../../images/ha-rule.png" alt=""><figcaption><p>High Availability View (Rule-based)</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ha-rule.png" alt=""><figcaption><p>High Availability View (Rule-based)</p></figcaption></figure></div>
 
 ### Raft HA
 
@@ -97,7 +97,7 @@ The Raft HA view displays overview of your cluster and provides options to manag
 
 Available Raft HA actions are described further under [Actions](../../administration/management/high-availability.md#ch_ha.raft_actions), and can be run directly in the Web UI. Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).&#x20;
 
-<figure><img src="../../images/ha-raft.png" alt=""><figcaption><p>High Availability View (Raft)</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ha-raft.png" alt=""><figcaption><p>High Availability View (Raft)</p></figcaption></figure></div>
 
 #### Handover Cluster Leadership <a href="#d5e6565" id="d5e6565"></a>
 
@@ -131,7 +131,7 @@ The **Logs** and **Certificates** tabs provide detailed insights into the state 
 
 The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
 
-<figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure></div>
 
 An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
 
@@ -229,7 +229,7 @@ The following tabs are available in this view:
 
 The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
 
-<figure><img src="../../images/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure></div>
 
 #### **Create a Compliance Report**
 
@@ -276,7 +276,7 @@ To run a compliance report:
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
 
-<figure><img src="../../images/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure></div>
 
 #### View Compliance Report Results
 
@@ -295,7 +295,7 @@ Use the **Export to file** button to export the report results to a downloadable
 
 The **Compliance Templates** tab is used to create new compliance templates and manage existing ones.
 
-<figure><img src="../../images/compliance-templates.png" alt=""><figcaption><p>Compliance Templates View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/compliance-templates.png" alt=""><figcaption><p>Compliance Templates View</p></figcaption></figure></div>
 
 There are two ways to create a compliance template:
 
