@@ -354,7 +354,7 @@ A transaction has a number of phases, the external data provider gets called in 
 
 The following picture illustrates the conceptual state machine an NSO transaction goes through.
 
-<figure><img src="../../../images/trans_state.png" alt="" width="563"><figcaption><p>NSO Transaction State Machine</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/trans_state.png" alt="" width="375"><figcaption><p>NSO Transaction State Machine</p></figcaption></figure></div>
 
 All callback methods are optional. If a callback method is not implemented, it is the same as having an empty callback which simply returns.
 
@@ -815,7 +815,7 @@ NAVU requires all models i.e. the complete NSO service model with all its augmen
 
 The `ncsc` tool can also generate Java classes from the .yang files. These files, extending the `ConfNamespace` base class, are the Java representation of the models and contain all defined nametags and their corresponding hash values. These Java classes can, optionally, be used as help classes in the service applications to make NAVU navigation type-safe, e.g. eliminating errors from misspelled model container names.
 
-<figure><img src="../../../images/navu_design_support.png" alt="" width="563"><figcaption><p>NAVU Design Support</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/navu_design_support.png" alt="" width="563"><figcaption><p>NAVU Design Support</p></figcaption></figure></div>
 
 The service models are loaded at start-up and are always the latest version. The models are always traversed in a lazy fashion i.e. data is only loaded when it is needed. This is to minimize the amount of data transferred between NSO and the service applications.
 
@@ -826,7 +826,7 @@ The most important classes of NAVU are the classes implementing the YANG node ty
 * `NavuListEntry`: list node entry.
 * `NavuLeaf`: the NavuLeaf represents a YANG leaf node.
 
-<figure><img src="../../../images/navu_mapping.png" alt="" width="563"><figcaption><p>NAVU YANG Structure</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/navu_mapping.png" alt="" width="563"><figcaption><p>NAVU YANG Structure</p></figcaption></figure></div>
 
 The remaining part of this section will guide us through the most useful features of the NAVU. Should further information be required, please refer to the corresponding Javadoc pages.
 

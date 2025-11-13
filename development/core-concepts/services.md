@@ -18,7 +18,7 @@ Much like you can bake many cakes using a single cake recipe, you can create man
 
 A network engineer on the CLI, or an API call from a northbound system, provides the values for input parameters when requesting a new service instance, and NSO uses the service recipe, called a 'service mapping', to configure the network.
 
-<figure><img src="../../images/services-intro.png" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/services-intro.png" alt="" width="375"><figcaption><p>A High-level View of Services in NSO</p></figcaption></figure></div>
 
 A similar process takes place when deleting the service instance or modifying the input parameters. The main task of a service is therefore: from a given set of input parameters, calculate the minimal set of device operations to achieve the desired service change. Here, it is very important that the service supports any change; create, delete, and update of any service parameter.
 
@@ -46,7 +46,7 @@ Who writes the models?
 
 A service application then has two primary artifacts: a YANG service model and a mapping definition to the device YANG, as illustrated in the following figure.
 
-<figure><img src="../../images/services-mapping.png" alt="" width="375"><figcaption><p>Service Model and Mapping</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/services-mapping.png" alt="" width="188"><figcaption><p>Service Model and Mapping</p></figcaption></figure></div>
 
 To reiterate:
 

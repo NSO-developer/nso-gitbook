@@ -10,7 +10,7 @@ The **Devices** view provides options to manage devices, device groups, and auth
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
-<figure><img src="../../images/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure></div>
 
 ### **Search**
 
@@ -97,7 +97,7 @@ The other two tabs, i.e., **Config** and **Operdata** can be respectively used t
 
 The **Device groups** view lists all the available groups and devices belonging to them. You can add new device groups in this view as well as carry out actions on devices belonging to a group.
 
-<figure><img src="../../images/device-groups.png" alt=""><figcaption><p>Device Groups View</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/device-groups.png" alt=""><figcaption><p>Device Groups View</p></figcaption></figure></div>
 
 ### **Create a Device Group**
 
@@ -152,7 +152,7 @@ This view is further partitioned into the following two tabs for different devic
 
 The **Group** tab is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
 
-<figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure></div>
 
 #### Create an Authgroup
 
@@ -196,7 +196,7 @@ Proceed with caution as the changes are applied immediately.
 
 The **SNMP Group** tab is used to view, search, and manage device authentication groups for SNMP-managed devices.
 
-<figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure></div>
 
 #### Create an SNMP Group
 

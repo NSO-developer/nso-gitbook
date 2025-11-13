@@ -29,9 +29,10 @@ These parameters specify security-related information that is used for auditing,
 
 As transactions use up resources, it is important to clean up after you are done using them. Using a Python `with` code block will ensure that cleanup is automatically performed after a transaction goes out of scope. For example:
 
-<pre><code><strong>with ncs.maapi.single_read_trans('admin', 'python') as t:
-</strong>    ...
-</code></pre>
+```
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    ...
+```
 
 In this case, the variable `t` stores the reference to a newly started transaction. Before you can actually access the data, you also need a reference to the root element in the data tree for this transaction. That is, the top element, under which all of the data is located. The `ncs.maagic.get_root()` function, with transaction `t` as a parameter, achieves this goal.
 
@@ -126,7 +127,7 @@ See [examples.ncs/getting-started/basic-automation](https://github.com/NSO-devel
 
 Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management) set of examples contains three simulated routers that you can configure.
 
-<figure><img src="../../images/ex-routers.png" alt="" width="563"><figcaption><p>The Lab Topology</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ex-routers.png" alt="" width="375"><figcaption><p>The Lab Topology</p></figcaption></figure></div>
 
 1.  Navigate to the [router-network](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/router-network) directory with the following command.
 

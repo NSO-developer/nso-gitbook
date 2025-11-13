@@ -12,9 +12,9 @@ Operational data in the CDB may be replicated or not based on the `tailf:persist
 
 Replication is supported in several different architectural setups. For example, two-node active/standby designs as well as multi-node clusters with runtime software upgrade.
 
-<figure><img src="../../images/primary_secondary.png" alt="" width="375"><figcaption><p>Primary - Secondary Configuration</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/primary_secondary.png" alt="" width="375"><figcaption><p>Primary - Secondary Configuration</p></figcaption></figure></div>
 
-<figure><img src="../../images/host_n.png" alt="" width="375"><figcaption><p>One Primary - Several Secondaries</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/host_n.png" alt="" width="375"><figcaption><p>One Primary - Several Secondaries</p></figcaption></figure></div>
 
 This feature is independent of but compatible with the [Layered Service Architecture (LSA)](../advanced-topics/layered-service-architecture.md), which also configures multiple NSO nodes to provide additional scalability. When the following text simply refers to a cluster, it identifies the set of NSO nodes participating in the same HA group, not an LSA cluster, which is a separate concept.
 
@@ -1041,13 +1041,13 @@ The HCC data model can be found in the HCC package (`tailf-hcc.yang`).
 
 As an alternative to the HCC package, NSO built-in HA, either rule-based or HA Raft, can also be used in conjunction with a load balancer device in a reverse proxy configuration. Instead of managing the virtual IP address directly as HCC does, this setup relies on an external load balancer to route traffic to the currently active primary node.
 
-<figure><img src="../../images/ha-load-balancer.png" alt="" width="375"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ha-load-balancer.png" alt="" width="375"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure></div>
 
 The load balancer uses HTTP health checks to determine which node is currently the active primary. The example, found in the [examples.ncs/high-availability/load-balancer](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/load-balancer) directory uses HTTP status codes on the health check endpoint to easily distinguish whether the node is currently primary or not.
 
 In the example, freely available HAProxy software is used as a load balancer to demonstrate the functionality. It is configured to steer connections on localhost to either of the TCP port 2024 (SSH CLI) and TCP port 8080 (web UI and RESTCONF) to the active node in a 2-node HA cluster. The HAProxy software is required if you wish to run this example yourself.
 
-<figure><img src="../../images/ha-load-balancer-hc.png" alt="" width="375"><figcaption><p>Load Balancer Uses Health Checks to Determine the Currently Active Primary Node</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ha-load-balancer-hc.png" alt="" width="375"><figcaption><p>Load Balancer Uses Health Checks to Determine the Currently Active Primary Node</p></figcaption></figure></div>
 
 You can start all the components in the example by running the `make build start` command. At the beginning, the first node `n1` is the active primary. Connecting to the localhost port 2024 will establish a connection to this node:
 
