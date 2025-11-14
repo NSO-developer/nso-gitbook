@@ -103,7 +103,7 @@ In some situations, several NSO packages are expected to use the same code base,
 
 Inside the NSO Java VM, each component type has a specific Component Manager. The responsibility of these Managers is to manage a set of component classes for each NSO package. The Component Manager acts as an FSM that controls when a component should be registered, started, stopped, etc.
 
-<figure><img src="../../../images/ncs_javavm_managers.png" alt=""><figcaption><p>Component Managers</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/ncs_javavm_managers.png" alt="" width="563"><figcaption><p>Component Managers</p></figcaption></figure></div>
 
 For instance, the `DpMuxManager` controls all callback implementations (services, actions, data providers, etc). It can load, register, start, and stop such callback implementations.
 

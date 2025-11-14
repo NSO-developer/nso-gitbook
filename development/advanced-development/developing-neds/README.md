@@ -432,7 +432,7 @@ In order to be able to invoke a callback an instance of the NED object needs to 
 
 The following state diagram displays NED states specific to the dry-run scenario.
 
-<figure><img src="../../../images/ned-dry.png" alt="" width="563"><figcaption><p>NED Dry-run States</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../../images/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure></div>
 
 ## NED Identification <a href="#ncs.development.ned.identification" id="ncs.development.ned.identification"></a>
 

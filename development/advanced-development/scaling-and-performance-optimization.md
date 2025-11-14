@@ -260,7 +260,7 @@ Close to full utilization of every CPU core when running under maximal load, for
 
 One transaction per RFS instance and device will allow each NSO transaction to run on a separate core concurrently. Multiple concurrent RESTCONF or NETCONF edits, CLI commits, MAAPI `apply()`, nano service re-deploy, etc. Keep the number of running concurrent transactions equal to or below the number of cores available in the multi-core processor to avoid performance degradation due to increased contention on system internals and resources. NSO helps by limiting the number of transactions applying changes in parallel to, by default, the number of logical processors (e.g., CPU cores). See [ncs.conf(5)](../../resources/man/ncs.conf.5.md) in Manual Pages under `/ncs-config/transaction-limits/max-transactions` for details.
 
-<figure><img src="../../images/concurrent-trans.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/concurrent-trans.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### Design to Minimize Conflicts <a href="#ncs.development.scaling.throughput.conflicts" id="ncs.development.scaling.throughput.conflicts"></a>
 
@@ -353,7 +353,7 @@ The concept of a network-wide transaction requires NSO to wait for the managed d
 
 Writing to a commit queue instead of the device moves the device configuration push outside of the critical region, and the transaction lock can instead be released when the change has been written to the commit queue.
 
-<figure><img src="../../images/commit-queues.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue).
 
@@ -402,7 +402,7 @@ To simplify the NSO manager application, a resource-facing nano service (RFS) ca
 
 The nano service can be straightforward, for example, using a single `t3:configured` state to invoke a service template or a `create()` callback. If validation code is required, it can run in a nano service post-action, `t3:validated` state, instead of a validation point callback to keep the validation code in the process created by the nano service.
 
-<figure><img src="../../images/concurrent-nano.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../../administration/installation-and-deployment/deployment/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
@@ -418,7 +418,7 @@ Furthermore, the time spent calculating the diff-set, as seen with the `saving r
 
 The [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.6/scaling-performance/perf-stack) example showcases how a CFS on top of a simple resource-facing nano service can be implemented with the [examples.ncs/scaling-performance/perf-trans](https://github.com/NSO-developer/nso-examples/tree/6.6/scaling-performance/perf-trans) example by modifying the existing t3 RFS and adding a CFS. Instead of multiple RESTCONF transactions, the example uses a single CLI CFS service commit that updates the desired number of service instances. The commit configures multiple service instances in a single transaction where the nano service runs each service instance in a separate process to allow multiple cores to be used concurrently.
 
-<figure><img src="../../images/cfs-nano.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/cfs-nano.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 Run as below to start two transactions with a 1-second CPU time workload per transaction in both the service and validation callbacks, each transaction pushing the device configuration to one device, each using a synchronous commit queue, where each device simulates taking 1 second to make the configuration changes to the device:
 
@@ -498,13 +498,13 @@ Before considering taking on the complexity of a multi-NSO node LSA setup, make 
 Migrating to an LSA setup should only be considered after checking all boxes for the above items.
 {% endhint %}
 
-<div data-with-frame="true"><figure><img src="../../images/lsa-design.png" alt=""><figcaption></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../images/lsa-design.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### Running the LSA-enabled `perf-lsa` Example <a href="#d5e8680" id="d5e8680"></a>
 
 The [examples.ncs/scaling-performance/perf-lsa](https://github.com/NSO-developer/nso-examples/tree/6.6/scaling-performance/perf-lsa) example builds on the [examples.ncs/scaling-performance/perf-stack](https://github.com/NSO-developer/nso-examples/tree/6.6/scaling-performance/perf-stack) example and showcases an LSA setup using two RFS NSO instances, `lower-nso-1` and `lower-nso-2`, with a CFS NSO instance, `upper-nso`.
 
-<figure><img src="../../images/lsa-transaction.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/lsa-transaction.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 You can imagine adding more RFS NSO instances, `lower-nso-3`, `lower-nso-4`, etc., to the existing two as the number of devices increases. One NSO instance per multi-core processor and at least one CPU core per device (network element) is likely the most performant setup for this simulated work example. See [LSA Overview](../../administration/advanced-topics/layered-service-architecture.md) in Layered Service Architecture for more.
 

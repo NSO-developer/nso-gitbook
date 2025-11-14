@@ -152,7 +152,7 @@ This command takes into account the current time and can be used during troubles
 
 ### Actions <a href="#ch_ha.raft_actions" id="ch_ha.raft_actions"></a>
 
-NSO HA Raft can be controlled through several actions. All actions are found under `/ha-raft/`. In the best-case scenario, you will only need the `create-cluster` action to initialize the cluster and the `read-only` and `create-cluster` actions when upgrading the NSO version.&#x20;
+NSO HA Raft can be controlled through several actions. All actions are found under `/ha-raft/`. In the best-case scenario, you will only need the `create-cluster` action to initialize the cluster and the `read-only` and `create-cluster` actions when upgrading the NSO version.
 
 The available actions are listed below:
 
@@ -392,7 +392,7 @@ TLS (Transport Layer Security) provides Authentication and Privacy by only allow
 
 Please ensure the CA key is kept in a safe place since it can be used to generate new certificates and key pairs for peers.
 
-Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/do../../resources/man/epmd.html)) service. Once resolved, the NSO nodes communicate directly.
+Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/resources/man/epmd.html)) service. Once resolved, the NSO nodes communicate directly.
 
 The ports `epmd` and the NSO nodes listen to can be found in [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports). `epmd` binds the wildcard IPv4 address `0.0.0.0` and the IPv6 address `::`.
 
@@ -1047,7 +1047,7 @@ The load balancer uses HTTP health checks to determine which node is currently t
 
 In the example, freely available HAProxy software is used as a load balancer to demonstrate the functionality. It is configured to steer connections on localhost to either of the TCP port 2024 (SSH CLI) and TCP port 8080 (web UI and RESTCONF) to the active node in a 2-node HA cluster. The HAProxy software is required if you wish to run this example yourself.
 
-<figure><img src="../../images/ha-load-balancer-hc.png" alt="" width="375"><figcaption><p>Load Balancer Uses Health Checks to Determine the Currently Active Primary Node</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/ha-load-balancer-hc.png" alt="" width="375"><figcaption><p>Load Balancer Uses Health Checks to Determine the Currently Active Primary Node</p></figcaption></figure></div>
 
 You can start all the components in the example by running the `make build start` command. At the beginning, the first node `n1` is the active primary. Connecting to the localhost port 2024 will establish a connection to this node:
 

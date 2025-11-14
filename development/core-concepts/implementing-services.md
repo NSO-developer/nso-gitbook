@@ -431,7 +431,7 @@ The corresponding template then becomes:
 
 Having completed the template, you can add all the parameters, three in this case, to the service model.
 
-<figure><img src="../../images/services-extract-model2.png" alt="" width="375"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/services-extract-model2.png" alt="" width="375"><figcaption><p>Extracting Service Model from Template in a Bottom-up Approach</p></figcaption></figure></div>
 
 The partially completed model is now:
 
@@ -534,13 +534,13 @@ It is therefore very important that the service create code produces the same de
 
 If the service instance is deleted, NSO applies the reverse diff of the service, effectively removing all configuration changes the service did on the devices.
 
-<figure><img src="../../images/fastmap_create.png" alt=""><figcaption><p>FASTMAP Create a Service</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/fastmap_create.png" alt="" width="563"><figcaption><p>FASTMAP Create a Service</p></figcaption></figure></div>
 
 Assume we have a service model that defines a service with attributes X, Y, and Z. The mapping logic calculates that attributes A, B, and C must be set on the devices. When the service is instantiated, the previous values of the corresponding device attributes A, B, and C are stored with the service instance in the CDB. This allows NSO to bring the network back to the state before the service was instantiated.
 
 Now let us see what happens if one service attribute is changed. Perhaps the service attribute Z is changed. NSO will execute the mapping as if the service was created from scratch. The resulting device configurations are then compared with the actual configuration and the minimal diff is sent to the devices. Note that this is managed automatically, there is no code to handle the specific "change Z" operation.
 
-<figure><img src="../../images/fastmap_change_service.png" alt=""><figcaption><p>FASTMAP Change a Service</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/fastmap_change_service.png" alt="" width="563"><figcaption><p>FASTMAP Change a Service</p></figcaption></figure></div>
 
 When a user deletes a service instance, NSO retrieves the stored device configuration from the moment before the service was created and reverts to it.
 
@@ -562,7 +562,7 @@ Suppose you want to extend the template-based ethernet interface addressing serv
 
 Such a service will ultimately contain three parts: the service YANG model, the translation code, and the XML template. The model and the template serve the same purpose as before, while custom code provides fine-grained control over how templates are applied and the data available to them.
 
-<figure><img src="../../images/services-code-template.png" alt="" width="563"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../images/services-code-template.png" alt="" width="375"><figcaption><p>Code and Template Service Compared to Template-only Service</p></figcaption></figure></div>
 
 Since the service is based on the previous interface addressing service, you can save yourself a lot of work by starting with the existing YANG model and XML template.
 
