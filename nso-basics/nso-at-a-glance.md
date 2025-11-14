@@ -1,6 +1,6 @@
 ---
-icon: glasses
 description: A brief product overview of NSO, its architecture, and core concepts.
+icon: glasses
 ---
 
 # NSO at a Glance
@@ -72,7 +72,7 @@ The typical workflow when using the NSO CLI is as follows:
 
 NSO has two main layers, the Device Manager and the Service Manager. They serve different purposes but are tightly integrated with a transactional engine and database.
 
-<figure><img src="../.gitbook/assets/nwe_ncs.png" alt="" width="563"><figcaption><p>NSO Architecture</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/nwe_ncs.png" alt="" width="563"><figcaption><p>NSO Architecture</p></figcaption></figure></div>
 
 NSO uses a dedicated built-in storage Configuration Database (CDB) for all configuration data. NSO keeps the CDB in sync with the real network device configurations. Audit, to ensure configuration consistency, and reconciliation, to synchronize configuration with the devices, functions are supported. It also maintains the runtime relationships between service instances and the corresponding device configurations.
 
@@ -135,7 +135,7 @@ For large networks, the network devices can be clustered across NSO systems. Say
 
 These are some of the core concepts that make NSO special. The following picture gives a high-level view of the components involved.
 
-<figure><img src="../.gitbook/assets/system-overview.png" alt="" width="563"><figcaption><p>NSO Components</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/system-overview.png" alt="" width="563"><figcaption><p>NSO Components</p></figcaption></figure></div>
 
 ### NETCONF/YANG <a href="#netconfyang" id="netconfyang"></a>
 
@@ -166,7 +166,7 @@ FASTMAP covers the complete service life-cycle: creating, changing, and deleting
 
 FASTMAP is based on generating changes from an initial 'create'. When the service instance is created the reverse of the resulting device configuration is stored together with the service instance. If an NSO user later changes the service instance, NSO first applies (in a transaction) the reverse diff of the service, effectively undoing the previous results of the service creation code. Then it runs the logic to create the service again and finally executes a diff to the current configuration. This diff is then sent to the devices.
 
-<figure><img src="../.gitbook/assets/fastmap.png" alt="" width="563"><figcaption><p>The Service Algorithm - FastMap</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/fastmap_change_service.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### Accessing the Network (NEDs) <a href="#accessing-the-network-neds" id="accessing-the-network-neds"></a>
 

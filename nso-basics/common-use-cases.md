@@ -1,17 +1,6 @@
 ---
-icon: hive
 description: Common use cases for NSO.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+icon: hive
 ---
 
 # Common Use Cases
