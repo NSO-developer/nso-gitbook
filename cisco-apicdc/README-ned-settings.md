@@ -61,6 +61,12 @@
       This is used together with config-path to define the location of config file;
 
 
+    - cisco-apicdc sync-from-dump-enable <true|false> (default false)
+
+      Set to TRUE to enable dumping the final config into a local file. 
+      The file name is 'current time'.xml, a new file is created afte each sync-from
+
+
     - cisco-apicdc config-path <string>
 
       Specify the directory for configuration;.
