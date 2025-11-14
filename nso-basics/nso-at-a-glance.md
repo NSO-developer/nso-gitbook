@@ -135,7 +135,7 @@ For large networks, the network devices can be clustered across NSO systems. Say
 
 These are some of the core concepts that make NSO special. The following picture gives a high-level view of the components involved.
 
-<div data-with-frame="true"><figure><img src="../.gitbook/assets/system-overview.png" alt="" width="563"><figcaption><p>NSO Components</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/system-overview.png" alt="" width="500"><figcaption><p>NSO Components</p></figcaption></figure></div>
 
 ### NETCONF/YANG <a href="#netconfyang" id="netconfyang"></a>
 
@@ -166,7 +166,7 @@ FASTMAP covers the complete service life-cycle: creating, changing, and deleting
 
 FASTMAP is based on generating changes from an initial 'create'. When the service instance is created the reverse of the resulting device configuration is stored together with the service instance. If an NSO user later changes the service instance, NSO first applies (in a transaction) the reverse diff of the service, effectively undoing the previous results of the service creation code. Then it runs the logic to create the service again and finally executes a diff to the current configuration. This diff is then sent to the devices.
 
-<div data-with-frame="true"><figure><img src="../.gitbook/assets/fastmap_change_service.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/fastmap_change_service.png" alt="" width="563"><figcaption>The Service Algorithm - FastMap</figcaption></figure></div>
 
 ### Accessing the Network (NEDs) <a href="#accessing-the-network-neds" id="accessing-the-network-neds"></a>
 
