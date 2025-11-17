@@ -345,6 +345,10 @@ If the `dry-run` option is used, the action simply reports (in different formats
 
 Use the option `reconcile` if the service should reconcile original data, i.e., take control of that data. This option acknowledges other services controlling the same data. All data that existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree that data is kept unless the option `discard-non-service-config` is used.
 
+To control which configurations are to be reconciled, use option `include` / `exclude` together with option `reconcile`. Both options `include` and `exclude` will accept a list of instance identifiers as parameters.
+* Option `include` will specify which configurations are to be reconciled in the scope of the redeployed service.
+* Option `exclude` will specify which configurations are to be ignored during reconciliation. Note that `exclude` option can only be used with configuration subtrees whose root is not a child of any node created by the same service. This restriction ensures that when the service is removed, the parent of the excluded subtree is not deleted, which would otherwise result in the unintended removal of all child nodes, including those in the excluded subtree.
+
 **Note**: The action is idempotent. If no configuration diff exists, then nothing needs to be done.
 
 **Note**: The NSO general principle of minimum change applies.
