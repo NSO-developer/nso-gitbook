@@ -757,7 +757,7 @@ The goal of the NSO service is to set up an MPLS Layer3 VPN on a number of CE ro
 
 In the example network, we can also assume that the MPLS core network already exists and is configured.
 
-<div data-with-frame="true"><figure><img src="../../../.gitbook/assets/network.jpg" alt="" width="563"><figcaption><p>The MPLS VPN Example</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../../.gitbook/assets/network.png" alt="" width="563"><figcaption><p>The MPLS VPN Example</p></figcaption></figure></div>
 
 #### **YANG Service Model Design**
 
