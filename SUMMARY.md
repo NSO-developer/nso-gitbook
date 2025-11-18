@@ -32,6 +32,10 @@
   * [README-ned-settings](adva-825/README-ned-settings.md)
   * [README v4.1.22 2025-07-02](adva-825/README.md)
 
+* aethra-atos
+  * [README-ned-settings](aethra-atos/README-ned-settings.md)
+  * [README v1.3.3 2025-11-17](aethra-atos/README.md)
+
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
   * [README v1.5.2 2025-11-11](alu-isam/README.md)
