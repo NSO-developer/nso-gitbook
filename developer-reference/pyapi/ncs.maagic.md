@@ -6,6 +6,21 @@ This module implements classes and function for easy access to the data store.
 There is no need to manually instantiate any of the classes herein. The only
 functions that should be used are cd(), get_node() and get_root().
 
+Node Comparison in NSO 6.1.17+ (May 2025-):
+------------------------------------------
+
+In NSO 6.1.17, 6.2.12, 6.3.9, 6.4.5, 6.5.1 and 6.6 node object caching changed,
+due to excessive memory usage. This change broke services that use
+node == comparisons. Use get_node_path() for reliable node identification:
+
+    from ncs.maagic import get_node_path
+
+    # Instead of: device1 == device2
+    # Use:        get_node_path(device1) == get_node_path(device2)
+
+    # Dictionary keys:
+    device_cache = {get_node_path(device): data}
+
 ## Functions
 
 ### as_pyval
@@ -136,6 +151,27 @@ Arguments:
 Example use:
 
     node = ncs.maagic.get_node(t, '/ncs:devices/device{ce0}')
+
+### get_node_path
+
+```python
+get_node_path(node)
+```
+
+Get the keypath of a maagic node.
+
+Provides reliable node identification across NSO versions where object
+caching behavior has changed.
+
+Arguments:
+* node -- the maagic node (maagic.Node)
+
+Returns:
+* keypath of the node as a string (str or None)
+
+Example:
+    if get_node_path(device1) == get_node_path(device2):
+        print("Same device")
 
 ### get_root
 

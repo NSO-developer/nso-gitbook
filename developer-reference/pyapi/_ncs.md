@@ -1,29 +1,33 @@
-# \_ncs Module
+# Python _ncs Module
 
 NCS Python low level module.
 
-This module and its submodules provide Python bindings for the C APIs, described by the [confd\_lib(3)](../../resources/man/confd_lib.3.md) man page.
+This module and its submodules provide Python bindings for the C APIs,
+described by the [confd_lib(3)](../../resources/man/confd_lib.3.md) man page.
 
-The companion high level module, ncs, provides an abstraction layer on top of this module and may be easier to use.
+The companion high level module, ncs, provides an abstraction layer on top of
+this module and may be easier to use.
 
 ## Submodules
 
-* [\_ncs.cdb](_ncs.cdb.md): Low level module for connecting to NCS built-in XML database (CDB).
-* [\_ncs.dp](_ncs.dp.md): Low level callback module for connecting data providers to NCS.
-* [\_ncs.error](_ncs.error.md): This module defines new NCS Python API exception classes.
-* [\_ncs.events](_ncs.events.md): Low level module for subscribing to NCS event notifications.
-* [\_ncs.ha](_ncs.ha.md): Low level module for connecting to NCS HA subsystem.
-* [\_ncs.maapi](_ncs.maapi.md): Low level module for connecting to NCS with a read/write interface inside transactions.
+- [_ncs.cdb](_ncs.cdb.md): Low level module for connecting to NCS built-in XML database (CDB).
+- [_ncs.dp](_ncs.dp.md): Low level callback module for connecting data providers to NCS.
+- [_ncs.error](_ncs.error.md): This module defines new NCS Python API exception classes.
+- [_ncs.events](_ncs.events.md): Low level module for subscribing to NCS event notifications.
+- [_ncs.ha](_ncs.ha.md): Low level module for connecting to NCS HA subsystem.
+- [_ncs.maapi](_ncs.maapi.md): Low level module for connecting to NCS with a read/write interface
+inside transactions.
 
 ## Functions
 
-### cs\_node\_cd
+### cs_node_cd
 
 ```python
 cs_node_cd(start, path) -> Union[CsNode, None]
 ```
 
-Utility function which finds the resulting CsNode given an (optional) starting node and a (relative or absolute) string keypath.
+Utility function which finds the resulting CsNode given an (optional)
+starting node and a (relative or absolute) string keypath.
 
 Keyword arguments:
 
@@ -36,23 +40,28 @@ Keyword arguments:
 decrypt(ciphertext) -> str
 ```
 
-When data is read over the CDB interface, the MAAPI interface or received in event notifications, the data for the builtin types tailf:aes-cfb-128-encrypted-string and tailf:aes-256-cfb-128-encrypted-string is encrypted. This function decrypts ciphertext and returns the clear text as a string.
+When data is read over the CDB interface, the MAAPI interface or received
+in event notifications, the data for the builtin types
+tailf:aes-cfb-128-encrypted-string and
+tailf:aes-256-cfb-128-encrypted-string is encrypted.
+This function decrypts ciphertext and returns the clear text as
+a string.
 
 Keyword arguments:
 
 * ciphertext -- encrypted string
 
-### expr\_op2str
+### expr_op2str
 
 ```python
 expr_op2str(op) -> str
 ```
 
-Convert confd\_expr\_op value to a string.
+Convert confd_expr_op value to a string.
 
 Keyword arguments:
 
-* op -- confd\_expr\_op integer value
+* op -- confd_expr_op integer value
 
 ### fatal
 
@@ -60,84 +69,104 @@ Keyword arguments:
 fatal(str) -> None
 ```
 
-Utility function which formats a string, prints it to stderr and exits with exit code 1. This function will never return.
+Utility function which formats a string, prints it to stderr and exits with
+exit code 1. This function will never return.
 
 Keyword arguments:
 
 * str -- a message string
 
-### find\_cs\_node
+### find_cs_node
 
 ```python
 find_cs_node(hkeypath, len) -> Union[CsNode, None]
 ```
 
-Utility function which finds the CsNode corresponding to the len first elements of the hashed keypath. To make the search consider the full keypath leave out the len parameter.
+Utility function which finds the CsNode corresponding to the len first
+elements of the hashed keypath. To make the search consider the full
+keypath leave out the len parameter.
 
 Keyword arguments:
 
 * hkeypath -- a HKeypathRef instance
 * len -- number of elements to return (optional)
 
-### find\_cs\_node\_child
+### find_cs_node_child
 
 ```python
 find_cs_node_child(parent, xmltag) -> Union[CsNode, None]
 ```
 
-Utility function which finds the CsNode corresponding to the child node given as xmltag.
+Utility function which finds the CsNode corresponding to the child node
+given as xmltag.
 
-See confd\_find\_cs\_node\_child() in [confd\_lib\_lib(3)](../../resources/man/confd_lib_lib.3.md).
+See confd_find_cs_node_child() in [confd_lib_lib(3)](../../resources/man/confd_lib_lib.3.md).
 
 Keyword arguments:
 
 * parent -- the parent CsNode
 * xmltag -- the child node
 
-### find\_cs\_root
+### find_cs_root
 
 ```python
 find_cs_root(ns) -> Union[CsNode, None]
 ```
 
-When schema information is available to the library, this function returns the root of the tree representaton of the namespace given by ns for the (first) toplevel node. For namespaces that are augmented into other namespaces such that they do not have a toplevel node, this function returns None - the nodes of such a namespace are found below the augment target node(s) in other tree(s).
+When schema information is available to the library, this function returns
+the root of the tree representaton of the namespace given by ns for the
+(first) toplevel node. For namespaces that are augmented into other
+namespaces such that they do not have a toplevel node, this function returns
+None - the nodes of such a namespace are found below the augment target
+node(s) in other tree(s).
 
 Keyword arguments:
 
 * ns -- the namespace id
 
-### find\_ns\_type
+### find_ns_type
 
 ```python
 find_ns_type(nshash, name) -> Union[CsType, None]
 ```
 
-Returns a CsType type definition for the type named name, which is defined in the namespace identified by nshash, or None if the type could not be found. If nshash is 0, the type name will be looked up among the built-in types (i.e. the YANG built-in types, the types defined in the YANG "tailf-common" module, and the types defined in the "confd" and "xs" namespaces).
+Returns a CsType type definition for the type named name, which is defined
+in the namespace identified by nshash, or None if the type could not be
+found. If nshash is 0, the type name will be looked up among the built-in
+types (i.e. the YANG built-in types, the types defined in the YANG
+"tailf-common" module, and the types defined in the "confd" and "xs"
+namespaces).
 
 Keyword arguments:
 
 * nshash -- a namespace hash or 0 (0 searches for built-in types)
 * name -- the name of the type
 
-### get\_leaf\_list\_type
+### get_leaf_list_type
 
 ```python
 get_leaf_list_type(node) -> CsType
 ```
 
-For a leaf-list node, the type() method in the CsNodeInfo identifies a "list type" for the leaf-list "itself". This function returns the type of the elements in the leaf-list, i.e. corresponding to the type substatement for the leaf-list in the YANG module.
+For a leaf-list node, the type() method in the CsNodeInfo identifies a
+"list type" for the leaf-list "itself". This function returns the type
+of the elements in the leaf-list, i.e. corresponding to the type
+substatement for the leaf-list in the YANG module.
 
 Keyword arguments:
 
 * node -- The CsNode of the leaf-list
 
-### get\_nslist
+### get_nslist
 
 ```python
 get_nslist() -> list
 ```
 
-Provides a list of the namespaces known to the library as a list of five-tuples. Each tuple contains the the namespace hash (int), the prefix (string), the namespace uri (string), the revision (string), and the module name (string).
+Provides a list of the namespaces known to the library as a list of
+five-tuples. Each tuple contains the the namespace hash (int), the prefix
+(string), the namespace uri (string), the revision (string), and the
+module name (string).
 
 If schemas are not loaded an empty list will be returned.
 
@@ -147,13 +176,15 @@ If schemas are not loaded an empty list will be returned.
 hash2str(hash) -> Union[str, None]
 ```
 
-Returns a string representing the node name given by hash, or None if the hash value is not found. Requires that schema information has been loaded from the NCS daemon into the library - otherwise it always returns None.
+Returns a string representing the node name given by hash, or None if the
+hash value is not found. Requires that schema information has been loaded
+from the NCS daemon into the library - otherwise it always returns None.
 
 Keyword arguments:
 
 * hash -- a hash
 
-### hkeypath\_dup
+### hkeypath_dup
 
 ```python
 hkeypath_dup(hkeypath) -> HKeypathRef
@@ -165,7 +196,7 @@ Keyword arguments:
 
 * hkeypath -- a HKeypathRef instance
 
-### hkeypath\_dup\_len
+### hkeypath_dup_len
 
 ```python
 hkeypath_dup_len(hkeypath, len) -> HKeypathRef
@@ -178,26 +209,31 @@ Keyword arguments:
 * hkeypath -- a HKeypathRef instance
 * len -- number of elements to include in the copy
 
-### hkp\_prefix\_tagmatch
+### hkp_prefix_tagmatch
 
 ```python
 hkp_prefix_tagmatch(hkeypath, tags) -> bool
 ```
 
-A simplified version of hkp\_tagmatch() - it returns True if the tagpath matches a prefix of the hkeypath, i.e. it is equivalent to calling hkp\_tagmatch() and checking if the return value includes CONFD\_HKP\_MATCH\_TAGS.
+A simplified version of hkp_tagmatch() - it returns True if the tagpath
+matches a prefix of the hkeypath, i.e. it is equivalent to calling
+hkp_tagmatch() and checking if the return value includes CONFD_HKP_MATCH_TAGS.
 
 Keyword arguments:
 
 * hkeypath -- a HKeypathRef instance
 * tags -- a list of XmlTag instances
 
-### hkp\_tagmatch
+### hkp_tagmatch
 
 ```python
 hkp_tagmatch(hkeypath, tags) -> int
 ```
 
-When checking the hkeypaths that get passed into each iteration in e.g. cdb\_diff\_iterate() we can either explicitly check the paths, or use this function to do the job. The tags list (typically statically initialized) specifies a tagpath to match against the hkeypath. See cdb\_diff\_match().
+When checking the hkeypaths that get passed into each iteration in e.g.
+cdb_diff_iterate() we can either explicitly check the paths, or use this
+function to do the job. The tags list (typically statically initialized)
+specifies a tagpath to match against the hkeypath. See cdb_diff_match().
 
 Keyword arguments:
 
@@ -210,7 +246,9 @@ Keyword arguments:
 init(name, file, level) -> None
 ```
 
-Initializes the ConfD library. Must be called before any other NCS API functions are called. There should be no need to call this function directly. It is called internally when the Python module is loaded.
+Initializes the ConfD library. Must be called before any other NCS API
+functions are called. There should be no need to call this function
+directly. It is called internally when the Python module is loaded.
 
 Keyword arguments:
 
@@ -218,7 +256,7 @@ Keyword arguments:
 * file -- (optional)
 * level -- (optional)
 
-### internal\_connect
+### internal_connect
 
 ```python
 internal_connect(id, sock, ip, port, path) -> None
@@ -226,55 +264,67 @@ internal_connect(id, sock, ip, port, path) -> None
 
 Internal function used by NCS Python VM.
 
-### list\_filter\_type2str
+### list_filter_type2str
 
 ```python
 list_filter_type2str(op) -> str
 ```
 
-Convert confd\_list\_filter\_type value to a string.
+Convert confd_list_filter_type value to a string.
 
 Keyword arguments:
 
-* type -- confd\_list\_filter\_type integer value
+* type -- confd_list_filter_type integer value
 
-### max\_object\_size
+### max_object_size
 
 ```python
 max_object_size(object) -> int
 ```
 
-Utility function which returns the maximum size (i.e. the needed length of the confd\_value\_t array) for an "object" retrieved by cdb\_get\_object(), maapi\_get\_object(), and corresponding multi-object functions.
+Utility function which returns the maximum size (i.e. the needed length of
+the confd_value_t array) for an "object" retrieved by cdb_get_object(),
+maapi_get_object(), and corresponding multi-object functions.
 
 Keyword arguments:
 
 * object -- the CsNode
 
-### mmap\_schemas
+### mmap_schemas
 
 ```python
 mmap_schemas(filename) -> None
 ```
 
-If shared memory schema support has been enabled, this function will will map a shared memory segment into the current process address space and make it ready for use.
+If shared memory schema support has been enabled, this function will
+will map a shared memory segment into the current process address space
+and make it ready for use.
 
-The filename can be obtained by using the get\_schema\_file\_path() function
+The filename can be obtained by using the get_schema_file_path() function
 
-The filename argument specifies the pathname of the file that is used as backing store.
+The filename argument specifies the pathname of the file that is used as
+backing store.
 
 Keyword arguments:
 
 * filename -- a filename string
 
-### next\_object\_node
+### next_object_node
 
 ```python
 next_object_node(object, cur, value) -> Union[CsNode, None]
 ```
 
-Utility function to allow navigation of the confd\_cs\_node schema tree in parallel with the confd\_value\_t array populated by cdb\_get\_object(), maapi\_get\_object(), and corresponding multi-object functions.
+Utility function to allow navigation of the confd_cs_node schema tree in
+parallel with the confd_value_t array populated by cdb_get_object(),
+maapi_get_object(), and corresponding multi-object functions.
 
-The cur parameter is the CsNode for the current value, and the value parameter is the current value in the array. The function returns a CsNode for the next value in the array, or None when the complete object has been traversed. In the initial call for a given traversal, we must pass self.children() for the cur parameter - this always points to the CsNode for the first value in the array.
+The cur parameter is the CsNode for the current value, and the value
+parameter is the current value in the array. The function returns a CsNode
+for the next value in the array, or None when the complete object has been
+traversed. In the initial call for a given traversal, we must pass
+self.children() for the cur parameter - this always points to the CsNode
+for the first value in the array.
 
 Keyword arguments:
 
@@ -288,38 +338,42 @@ Keyword arguments:
 ns2prefix(ns) -> Union[str, None]
 ```
 
-Returns a string giving the namespace prefix for the namespace ns, if the namespace is known to the library - otherwise it returns None.
+Returns a string giving the namespace prefix for the namespace ns, if the
+namespace is known to the library - otherwise it returns None.
 
 Keyword arguments:
 
 * ns -- a namespace hash
 
-### pp\_kpath
+### pp_kpath
 
 ```python
 pp_kpath(hkeypath) -> str
 ```
 
-Utility function which pretty prints a string representation of the path hkeypath. This will use the NCS curly brace notation, i.e. "/servers/server{www}/ip". Requires that schema information is available to the library.
+Utility function which pretty prints a string representation of the path
+hkeypath. This will use the NCS curly brace notation, i.e.
+"/servers/server{www}/ip". Requires that schema information is available
+to the library.
 
 Keyword arguments:
 
 * hkeypath -- a HKeypathRef instance
 
-### pp\_kpath\_len
+### pp_kpath_len
 
 ```python
 pp_kpath_len(hkeypath, len) -> str
 ```
 
-A variant of pp\_kpath() that prints only the first len elements of hkeypath.
+A variant of pp_kpath() that prints only the first len elements of hkeypath.
 
 Keyword arguments:
 
-* hkeypath -- a \_lib.HKeypathRef instance
+* hkeypath -- a _lib.HKeypathRef instance
 * len -- number of elements to print
 
-### set\_debug
+### set_debug
 
 ```python
 set_debug(level, file) -> None
@@ -332,13 +386,14 @@ Keyword arguments:
 * file -- (optional)
 * level -- (optional)
 
-### set\_kill\_child\_on\_parent\_exit
+### set_kill_child_on_parent_exit
 
 ```python
 set_kill_child_on_parent_exit() -> bool
 ```
 
-Instruct the operating system to kill this process if the parent process exits.
+Instruct the operating system to kill this process if the parent process
+exits.
 
 ### str2hash
 
@@ -346,13 +401,15 @@ Instruct the operating system to kill this process if the parent process exits.
 str2hash(str) -> int
 ```
 
-Returns the hash value representing the node name given by str, or 0 if the string is not found. Requires that schema information has been loaded from the NCS daemon into the library - otherwise it always returns 0.
+Returns the hash value representing the node name given by str, or 0 if the
+string is not found.  Requires that schema information has been loaded from
+the NCS daemon into the library - otherwise it always returns 0.
 
 Keyword arguments:
 
 * str -- a name string
 
-### stream\_connect
+### stream_connect
 
 ```python
 stream_connect(sock, id, flags, ip, port, path) -> None
@@ -365,27 +422,31 @@ Keyword arguments:
 * sock -- a Python socket instance
 * id -- id
 * flags -- flags
-* ip -- ip address - if sock family is AF\_INET or AF\_INET6 (optional)
-* port -- port - if sock family is AF\_INET or AF\_INET6 (optional)
-* path -- a filename - if sock family is AF\_UNIX (optional)
+* ip -- ip address - if sock family is AF_INET or AF_INET6 (optional)
+* port -- port - if sock family is AF_INET or AF_INET6 (optional)
+* path -- a filename - if sock family is AF_UNIX (optional)
 
-### xpath\_pp\_kpath
+### xpath_pp_kpath
 
 ```python
 xpath_pp_kpath(hkeypath) -> str
 ```
 
-Utility function which pretty prints a string representation of the path hkeypath. This will format the path as an XPath, i.e. "/servers/server\[name="www"']/ip". Requires that schema information is available to the library.
+Utility function which pretty prints a string representation of the path
+hkeypath. This will format the path as an XPath, i.e.
+"/servers/server[name="www"']/ip". Requires that schema information is
+available to the library.
 
 Keyword arguments:
 
 * hkeypath -- a HKeypathRef instance
 
+
 ## Classes
 
 ### _class_ **AttrValue**
 
-This type represents the c-type confd\_attr\_value\_t.
+This type represents the c-type confd_attr_value_t.
 
 The contructor for this type has the following signature:
 
@@ -416,7 +477,7 @@ attribute value (Value)
 
 ### _class_ **AuthorizationInfo**
 
-This type represents the c-type struct confd\_authorization\_info.
+This type represents the c-type struct confd_authorization_info.
 
 AuthorizationInfo cannot be directly instantiated from Python.
 
@@ -432,7 +493,7 @@ authorization groups (list of strings)
 
 ### _class_ **CsCase**
 
-This type represents the c-type struct confd\_cs\_case.
+This type represents the c-type struct confd_cs_case.
 
 CsCase cannot be directly instantiated from Python.
 
@@ -538,7 +599,7 @@ Returns the CsCase tag hash.
 
 ### _class_ **CsChoice**
 
-This type represents the c-type struct confd\_cs\_choice.
+This type represents the c-type struct confd_cs_choice.
 
 CsChoice cannot be directly instantiated from Python.
 
@@ -658,7 +719,7 @@ Returns the CsChoice tag hash.
 
 ### _class_ **CsNode**
 
-This type represents the c-type struct confd\_cs\_node.
+This type represents the c-type struct confd_cs_node.
 
 CsNode cannot be directly instantiated from Python.
 
@@ -1044,7 +1105,7 @@ Returns the tag value.
 
 ### _class_ **CsNodeInfo**
 
-This type represents the c-type struct confd\_cs\_node\_info.
+This type represents the c-type struct confd_cs_node_info.
 
 CsNodeInfo cannot be directly instantiated from Python.
 
@@ -1130,7 +1191,7 @@ Method:
 max_occurs() -> int
 ```
 
-Returns CsNodeInfo max\_occurs.
+Returns CsNodeInfo max_occurs.
 
 </details>
 
@@ -1144,7 +1205,7 @@ Method:
 meta_data() -> Union[Dict, None]
 ```
 
-Returns CsNodeInfo meta\_data.
+Returns CsNodeInfo meta_data.
 
 </details>
 
@@ -1158,7 +1219,7 @@ Method:
 min_occurs() -> int
 ```
 
-Returns CsNodeInfo min\_occurs.
+Returns CsNodeInfo min_occurs.
 
 </details>
 
@@ -1172,7 +1233,7 @@ Method:
 shallow_type() -> int
 ```
 
-Returns CsNodeInfo shallow\_type.
+Returns CsNodeInfo shallow_type.
 
 </details>
 
@@ -1192,7 +1253,7 @@ Returns CsNodeInfo type.
 
 ### _class_ **CsType**
 
-This type represents the c-type struct confd\_type.
+This type represents the c-type struct confd_type.
 
 CsType cannot be directly instantiated from Python.
 
@@ -1208,7 +1269,10 @@ Method:
 bitbig_size() -> int
 ```
 
-Returns the maximum size needed for the byte array for the BITBIG value when a YANG bits type has a highest position above 63. If this is not a BITBIG value or if the highest position is 63 or less, this function will return 0.
+Returns the maximum size needed for the byte array for the BITBIG value
+when a YANG bits type has a highest position above 63. If this is not a
+BITBIG value or if the highest position is 63 or less, this function will
+return 0.
 
 </details>
 
@@ -1242,11 +1306,12 @@ Returns the CsType parent.
 
 ### _class_ **DateTime**
 
-This type represents the c-type struct confd\_datetime.
+This type represents the c-type struct confd_datetime.
 
 The contructor for this type has the following signature:
 
-DateTime(year, month, day, hour, min, sec, micro, timezone, timezone\_minutes) -> object
+DateTime(year, month, day, hour, min, sec, micro, timezone,
+         timezone_minutes) -> object
 
 Keyword arguments:
 
@@ -1258,7 +1323,7 @@ Keyword arguments:
 * sec -- seconds (int)
 * micro -- micro seconds (int)
 * timezone -- the timezone (int)
-* timezone\_minutes -- number of timezone\_minutes (int)
+* timezone_minutes -- number of timezone_minutes (int)
 
 Members:
 
@@ -1336,27 +1401,33 @@ the year
 
 ### _class_ **HKeypathRef**
 
-This type represents the c-type confd\_hkeypath\_t.
+This type represents the c-type confd_hkeypath_t.
 
-HKeypathRef implements some sequence methods which enables indexing, iteration and length checking. There is also support for slicing, e.g:
+HKeypathRef implements some sequence methods which enables indexing,
+iteration and length checking. There is also support for slicing, e.g:
 
-Lets say the variable hkp is a valid hkeypath pointing to '/foo/bar{a}/baz' and we slice that object like this:
+Lets say the variable hkp is a valid hkeypath pointing to '/foo/bar{a}/baz'
+and we slice that object like this:
 
-```
-newhkp = hkp[1:]
-```
+    newhkp = hkp[1:]
 
-In this case newhkp will be a new hkeypath pointing to '/foo/bar{a}'. Note that the last element must always be included, so trying to create a slice with hkp\[1:2] will fail.
+In this case newhkp will be a new hkeypath pointing to '/foo/bar{a}'.
+Note that the last element must always be included, so trying to create
+a slice with hkp[1:2] will fail.
 
-The example above could also be written using the dup\_len() method:
+The example above could also be written using the dup_len() method:
 
-```
-newhkp = hkp.dup_len(3)
-```
+    newhkp = hkp.dup_len(3)
 
-Retrieving an element of the HKeypathRef when the underlying Value is of type C\_XMLTAG returns a XmlTag instance. In all other cases a tuple of Values is returned.
+Retrieving an element of the HKeypathRef when the underlying Value is of
+type C_XMLTAG returns a XmlTag instance. In all other cases a tuple of
+Values is returned.
 
-When receiving an HKeypathRef object as on argument in a callback method, the underlying object is only borrowed, so this particular instance is only valid inside that callback method. If one, for some reason, would like to keep the HKeypathRef object 'alive' for any longer than that, use dup() or dup\_len() to get a copy of it. Slicing also creates a copy.
+When receiving an HKeypathRef object as on argument in a callback method,
+the underlying object is only borrowed, so this particular instance is only
+valid inside that callback method. If one, for some reason, would like
+to keep the HKeypathRef object 'alive' for any longer than that, use
+dup() or dup_len() to get a copy of it. Slicing also creates a copy.
 
 HKeypathRef cannot be directly instantiated from Python.
 
@@ -1396,7 +1467,7 @@ Keyword arguments:
 
 ### _class_ **ProgressLink**
 
-This type represents the c-type struct confd\_progress\_link.
+This type represents the c-type struct confd_progress_link.
 
 confdProgressLink cannot be directly instantiated from Python.
 
@@ -1420,9 +1491,10 @@ trace id (string)
 
 ### _class_ **QueryResult**
 
-This type represents the c-type struct confd\_query\_result.
+This type represents the c-type struct confd_query_result.
 
-QueryResult implements some sequence methods which enables indexing, iteration and length checking.
+QueryResult implements some sequence methods which enables indexing,
+iteration and length checking.
 
 QueryResult cannot be directly instantiated from Python.
 
@@ -1462,7 +1534,7 @@ the query result type (int)
 
 ### _class_ **SnmpVarbind**
 
-This type represents the c-type struct confd\_snmp\_varbind.
+This type represents the c-type struct confd_snmp_varbind.
 
 The contructor for this type has the following signature:
 
@@ -1470,14 +1542,15 @@ SnmpVarbind(type, val, vartype, name, oid, cr) -> object
 
 Keyword arguments:
 
-* type -- SNMP\_VARIABLE, SNMP\_OID or SNMP\_COL\_ROW (int)
+* type -- SNMP_VARIABLE, SNMP_OID or SNMP_COL_ROW (int)
 * val -- value (Value)
 * vartype -- snmp type (optional)
-* name -- mandatory if type is SNMP\_VARIABLE (string)
-* oid -- mandatory if type is SNMP\_OID (list of integers)
-* cr -- mandatory if type is SNMP\_COL\_ROW (described below)
+* name -- mandatory if type is SNMP_VARIABLE (string)
+* oid -- mandatory if type is SNMP_OID (list of integers)
+* cr -- mandatory if type is SNMP_COL_ROW (described below)
 
-When type is SNMP\_COL\_ROW the cr argument must be provided. It is built up as a 2-tuple like this: tuple(string, list(int)).
+When type is SNMP_COL_ROW the cr argument must be provided. It is built up
+as a 2-tuple like this: tuple(string, list(int)).
 
 The first element of the 2-tuple is the column name.
 
@@ -1495,15 +1568,18 @@ the SnmpVarbind type
 
 ### _class_ **TagValue**
 
-This type represents the c-type confd\_tag\_value\_t.
+This type represents the c-type confd_tag_value_t.
 
-In addition to the 'ns' and 'tag' attributes there is an additional attribute 'v' which containes the Value object.
+In addition to the 'ns' and 'tag' attributes there is an additional
+attribute 'v' which containes the Value object.
 
 The contructor for this type has the following signature:
 
 TagValue(xmltag, v, tag, ns) -> object
 
-There are two ways to contruct this object. The first one requires that both xmltag and v are specified. The second one requires that both tag and ns are specified.
+There are two ways to contruct this object. The first one requires that both
+xmltag and v are specified. The second one requires that both tag and ns are
+specified.
 
 Keyword arguments:
 
@@ -1532,18 +1608,20 @@ tag hash
 
 ### _class_ **TransCtxRef**
 
-This type represents the c-type struct confd\_trans\_ctx.
+This type represents the c-type struct confd_trans_ctx.
 
 Available attributes:
 
 * fd -- worker socket (int)
 * th -- transaction handle (int)
-* secondary\_index -- secondary index number for list traversal (int)
+* secondary_index -- secondary index number for list traversal (int)
 * username -- from user session (string) DEPRECATED, see uinfo
 * context -- from user session (string) DEPRECATED, see uinfo
 * uinfo -- user session (UserInfo)
-* accumulated -- if the data provider is using the accumulate functionality this attribute will contain the first dp.TrItemRef object in the linked list, otherwise if will be None
-* traversal\_id -- unique id for the get\_next\* invocation
+* accumulated -- if the data provider is using the accumulate functionality
+                 this attribute will contain the first dp.TrItemRef object
+                 in the linked list, otherwise if will be None
+* traversal_id -- unique id for the get_next* invocation
 
 TransCtxRef cannot be directly instantiated from Python.
 
@@ -1553,7 +1631,7 @@ _None_
 
 ### _class_ **UserInfo**
 
-This type represents the c-type struct confd\_user\_info.
+This type represents the c-type struct confd_user_info.
 
 UserInfo cannot be directly instantiated from Python.
 
@@ -1563,7 +1641,7 @@ Members:
 
 <summary>actx_thandle</summary>
 
-actx\_thandle -- action context transaction handle
+actx_thandle -- action context transaction handle
 
 </details>
 
@@ -1579,7 +1657,7 @@ addr -- ip address (string)
 
 <summary>af</summary>
 
-af -- address family AF\_INIT or AF\_INET6 (int)
+af -- address family AF_INIT or AF_INET6 (int)
 
 </details>
 
@@ -1603,7 +1681,7 @@ context -- the context (string)
 
 <summary>flags</summary>
 
-flags -- CONFD\_USESS\_FLAG\_... (int)
+flags -- CONFD_USESS_FLAG_... (int)
 
 </details>
 
@@ -1643,7 +1721,7 @@ proto -- protocol (int)
 
 <summary>snmp_v3_ctx</summary>
 
-snmp\_v3\_ctx -- SNMP context (string)
+snmp_v3_ctx -- SNMP context (string)
 
 </details>
 
@@ -1665,38 +1743,44 @@ usid -- user session id (int)
 
 ### _class_ **Value**
 
-This type represents the c-type confd\_value\_t.
+This type represents the c-type confd_value_t.
 
 The contructor for this type has the following signature:
 
 Value(init, type) -> object
 
-If type is not provided it will be automatically set by inspecting the type of argument init according to this table:
+If type is not provided it will be automatically set by inspecting the type
+of argument init according to this table:
 
-| Python type | Value type |
-| ----------- | ---------- |
-| bool        | C\_BOOL    |
-| int         | C\_INT32   |
-| long        | C\_INT64   |
-| float       | C\_DOUBLE  |
-| string      | C\_BUF     |
+Python type      |  Value type
+-----------------|------------
+bool             |  C_BOOL
+int              |  C_INT32
+long             |  C_INT64
+float            |  C_DOUBLE
+string           |  C_BUF
 
-If any other type is provided for the init argument, the type will be set to C\_BUF and the value will be the string representation of init.
+If any other type is provided for the init argument, the type will be set to
+C_BUF and the value will be the string representation of init.
 
-For types C\_XMLTAG, C\_XMLBEGIN and C\_XMLEND the init argument must be a 2-tuple which specifies the ns and tag values like this: (ns, tag).
+For types C_XMLTAG, C_XMLBEGIN and C_XMLEND the init argument must be a
+2-tuple which specifies the ns and tag values like this: (ns, tag).
 
-For type C\_IDENTITYREF the init argument must be a 2-tuple which specifies the ns and id values like this: (ns, id).
+For type C_IDENTITYREF the init argument must be a
+2-tuple which specifies the ns and id values like this: (ns, id).
 
-For types C\_IPV4, C\_IPV6, C\_DATETIME, C\_DATE, C\_TIME, C\_DURATION, C\_OID, C\_IPV4PREFIX and C\_IPV6PREFIX, the init argument must be a string.
+For types C_IPV4, C_IPV6, C_DATETIME, C_DATE, C_TIME, C_DURATION, C_OID,
+C_IPV4PREFIX and C_IPV6PREFIX, the init argument must be a string.
 
-For type C\_DECIMAL64 the init argument must be a string, or a 2-tuple which specifies value and fraction digits like this: (value, fraction\_digits).
+For type C_DECIMAL64 the init argument must be a string, or a 2-tuple which
+specifies value and fraction digits like this: (value, fraction_digits).
 
-For type C\_BINARY the init argument must be a bytes instance.
+For type C_BINARY the init argument must be a bytes instance.
 
 Keyword arguments:
 
 * init -- the initial value
-* type -- type (optional, see confd\_types(3))
+* type -- type (optional, see confd_types(3))
 
 Members:
 
@@ -1710,7 +1794,8 @@ Method:
 as_decimal64() -> Tuple[int, int]
 ```
 
-Returns a tuple containing (value, fraction\_digits) if this value is of type C\_DECIMAL64.
+Returns a tuple containing (value, fraction_digits) if this value is of
+type C_DECIMAL64.
 
 </details>
 
@@ -1724,7 +1809,7 @@ Method:
 as_list() -> list
 ```
 
-Returns a list of Value's if this value is of type C\_LIST.
+Returns a list of Value's if this value is of type C_LIST.
 
 </details>
 
@@ -1738,11 +1823,15 @@ Method:
 as_pyval() -> Any
 ```
 
-Tries to convert a Value to a native Python type. If possible the object returned will be of the same type as used when initializing a Value object. If the type cannot be represented as something useful in Python a string will be returned. Note that not all Value types are supported.
+Tries to convert a Value to a native Python type. If possible the object
+returned will be of the same type as used when initializing a Value object.
+If the type cannot be represented as something useful in Python a string
+will be returned. Note that not all Value types are supported.
 
-E.g. assuming you already have a value object, this should be possible in most cases:
+E.g. assuming you already have a value object, this should be possible
+in most cases:
 
-newvalue = Value(value.as\_pyval(), value.confd\_type())
+  newvalue = Value(value.as_pyval(), value.confd_type())
 
 </details>
 
@@ -1756,7 +1845,7 @@ Method:
 as_xmltag() -> XmlTag
 ```
 
-Returns a XmlTag instance if this value is of type C\_XMLTAG.
+Returns a XmlTag instance if this value is of type C_XMLTAG.
 
 </details>
 
@@ -1799,12 +1888,14 @@ str2val(value, schema_type) -> Value
 (class method)
 ```
 
-Create and return a Value from a string. The schema\_type argument must be either a 2-tuple with namespace and keypath, a CsNode instance or a CsType instance.
+Create and return a Value from a string. The schema_type argument must be
+either a 2-tuple with namespace and keypath, a CsNode instance or a CsType
+instance.
 
 Keyword arguments:
 
 * value -- string value
-* schema\_type -- either (ns, keypath), a CsNode or a CsType
+* schema_type -- either (ns, keypath), a CsNode or a CsType
 
 </details>
 
@@ -1818,17 +1909,19 @@ Method:
 val2str(schema_type) -> str
 ```
 
-Return a string representation of Value. The schema\_type argument must be either a 2-tuple with namespace and keypath, a CsNode instance or a CsType instance.
+Return a string representation of Value. The schema_type argument must be
+either a 2-tuple with namespace and keypath, a CsNode instance or a CsType
+instance.
 
 Keyword arguments:
 
-* schema\_type -- either (ns, keypath), a CsNode or a CsType
+* schema_type -- either (ns, keypath), a CsNode or a CsType
 
 </details>
 
 ### _class_ **XmlTag**
 
-This type represent the c-type struct xml\_tag.
+This type represent the c-type struct xml_tag.
 
 The contructor for this type has the following signature:
 
@@ -2084,8 +2177,8 @@ LIB_API_VSN = 134545664
 LIB_API_VSN_STR = '08050100'
 LIB_PROTO_VSN = 85
 LIB_PROTO_VSN_STR = '85'
-LIB_VSN = 134546176
-LIB_VSN_STR = '08050300'
+LIB_VSN = 134546944
+LIB_VSN_STR = '08050600'
 LISTENER_CLI = 8
 LISTENER_IPC = 1
 LISTENER_NETCONF = 2
