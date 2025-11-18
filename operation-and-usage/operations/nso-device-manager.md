@@ -23,7 +23,7 @@ The NEDs will publish YANG data models even for non-NETCONF devices. In the case
 
 Throughout this section, we will use the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/network.png" alt="" width="563"><figcaption><p>NSO Example Network</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../images/network.png" alt="" width="563"><figcaption><p>NSO Example Network</p></figcaption></figure></div>
 
 ## Managed Device Tree <a href="#user_guide.devicemanager.device-tree" id="user_guide.devicemanager.device-tree"></a>
 
