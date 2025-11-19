@@ -263,7 +263,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.15 2025-08-15](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.16 2025-11-18](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
@@ -312,7 +312,7 @@
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
-  * [README v1.6 2025-10-22](redback-se/README.md)
+  * [README v1.7 2025-11-18](redback-se/README.md)
 
 * redhat-ansible
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)

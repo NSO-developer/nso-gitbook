@@ -768,6 +768,11 @@
         Print the full build output also for successful executions (otherwise only printed on errors).
 
 
+      - build-namespace-classes <empty>
+
+        Generate Python and Java namespace classes for each YANG file.
+
+
       - profile <string>
 
         Apply a certain build profile.
