@@ -408,7 +408,7 @@ See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) a
 
 ### Simplify Using a CFS and Minimize Diff-set Calculation Time <a href="#d5e8621" id="d5e8621"></a>
 
-A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS instance per device can simplify the service that is exposed to the NSO northbound interfaces so that a single NSO northbound interface transaction spawns multiple transactions, for example, one transaction per RFS instance when using the `converge-on-re-deploy` YANG extension with the nano service behavior tree.
+A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS instance per device can simplify the service that is exposed to the NSO northbound interfaces so that a single NSO northbound interface transaction spawns multiple transactions, for example, one transaction per RFS instance.
 
 <div data-with-frame="true"><figure><img src="../../images/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
