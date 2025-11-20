@@ -235,6 +235,28 @@
       Default limit in ms for waiting for command response.
 
 
+    - connection ssh client <enum>
+
+      Select SSH client library used by NED.
+
+      default  - default.
+
+      sshj     - sshj.
+
+      ganymed  - ganymed.
+
+
+    - connection ssh keyboard-interactive <true|false> (default false)
+
+      Enable this when the ssh connection is done via Duo push or similar keyboard
+      interactive methods
+
+
+    - connection ssh keep-alive-interval <0-4294967295> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0.
+
+
 # 5. ned-settings huawei-ias console
 ------------------------------------
 

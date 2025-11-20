@@ -91,7 +91,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.4 2025-11-13](cisco-apicdc/README.md)
+  * [README v3.21.5 2025-11-19](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
