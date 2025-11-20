@@ -1355,6 +1355,20 @@ You can find the complete `iface` service as part of the [examples.ncs/service-m
 
 Since there were only two service instances to reconcile, the process is now complete. In practice, you are likely to encounter multiple variants and many more service instances, requiring you to make additional iterations. But you can follow the iterative process shown here.
 
+## Partial Reconcile <a href="#ch_svcref.partialreconcile" id="ch_svcref.partialreconcile"></a>
+
+In some scenarios, you may want to control which parts of a service configuration are reconciled.
+
+A common use case is when working with stacked services. Reconciling the entire top-level service could unintentionally modify parameters managed by lower-level services. However, you may want to avoid changing the lower-level service settings during reconciliation.
+
+To address this, you can use the `include` and `exclude` options together with `reconcile` option:
+* The `include` option allows you to specify a list of service configuration paths that should be reconciled.
+* The `exclude` option allows you to specify a list of service configuration paths to be omitted from reconciliation.
+
+In this scenario, you can use `include` to reconcile only the top-level service configuration, and `exclude` to prevent changes to lower-level service configurations.
+
+It is important to note that the `exclude` option can only be used with configuration subtrees whose root is not a child of any node created by the same service. This restriction ensures that when the service is removed, the parent of the excluded subtree is not deleted, which would otherwise result in the unintended removal of all child nodes, including those in the excluded subtree.
+
 ## Partial Sync <a href="#ch_svcref.partialsync" id="ch_svcref.partialsync"></a>
 
 In some cases a service may need to rely on the actual device configurations to compute the changeset. It is often a requirement to pull the current device configurations from the network before executing such service. Doing a full `sync-from` on a number of devices is an expensive task, especially if it needs to be performed often. The alternative way in this case is using `partial-sync-from`.
