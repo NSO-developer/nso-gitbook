@@ -3527,7 +3527,7 @@ Same as for the `validate_trans` method.
 ```
 
 ```json
-{"release_locks": <boolean, defailt: true>}
+{"release_locks": <boolean, default: true>}
 ```
 
 ```json
@@ -3560,6 +3560,9 @@ The `flags` param is a list of flags that can change the commit behavior:
 - `no-out-of-sync-check` - Continue with the transaction even if NSO detects that a device's configuration is out of sync. It can't be used with no-overwrite.
 - `no-deploy` - Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
 - `reconcile=OPTION` - Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree, that data is kept unless the option `discard-non-service-config` is used.
+- `{"reconcile-paths": <array of RECONCILE_PATHS>}` - Control which parts of service configuration are reconciled. `RECONCILE_PATHS` object has the structure:
+    * `{"include": <array of xpath expressions>}` - only the specified service configuration paths will be included in the reconciliation process.
+    * `{"exclude": <array of xpath expressions>}` - the specified service configuration paths will be omitted or ignored during reconciliation.
 - `use-lsa` - Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
 - `no-lsa` - Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
 - `commit-queue=MODE` - Where MODE is: `async`, `sync`, or `bypass`. Commit the transaction data to the commit queue.
