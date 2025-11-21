@@ -12,7 +12,7 @@ Make sure that you have installed NSO and that you have sourced the `ncsrc` file
 
 We will use the NSO network simulator to simulate three Cisco IOS routers. NSO will talk Cisco CLI to those devices. You will use the NSO CLI and Web UI to perform the tasks. Sometimes you will use the native Cisco device CLI to inspect configuration or do out-of-band changes.
 
-<div data-with-frame="true"><figure><img src="../../images/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure></div>
 
 \
 Note that both the NSO software (NCS) and the simulated network devices run on your local machine.
@@ -172,7 +172,7 @@ The above incorrect (or not necessary) sequence stems from the assumption that t
 
 The one exception to the above are devices that change their own configuration. For example, you only configure A but also B appears in the device configuration. These are so-called "auto-configs". In this case, the NED needs to implement special code to handle each such scenario individually. If the NED does not fully cover all of these device quirks, the device may get out of sync when you make configuration changes through NSO.
 
-<div data-with-frame="true"><figure><img src="../../images/ncs_nwe_transaction.png" alt="" width="375"><figcaption><p>Device Transaction</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/ncs_nwe_transaction.png" alt="" width="375"><figcaption><p>Device Transaction</p></figcaption></figure></div>
 
 View the configuration of the `c0` device using the command:
 
@@ -795,7 +795,7 @@ Validation scripts can also be defined in Python, see more about that in [Plug-a
 
 In reality, network engineers might still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this.
 
-&#x20;The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
+The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
 
 From the UNIX shell, start a CLI session towards `c0`.
 
@@ -953,7 +953,7 @@ devices device c0
 !
 ```
 
-To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to`  or `sync-from`  explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
+To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to` or `sync-from` explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
 
 There is also an option to override the out-of-sync check but beware that this could result in NSO inadvertently overwriting some device configuration:
 

@@ -11,7 +11,7 @@ A package is a directory where the package name is the same as the directory nam
 * `package-name`: should use letters, and digits and may include underscores (`_`) or dashes (`-`), but no additional punctuation, and digits can not follow underscores or dashes immediately.
 * `package-version`: should use numbers and dot (`.`).
 
-<div data-with-frame="true"><figure><img src="../../images/dm-packages.png" alt="" width="563"><figcaption><p>Package Model</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/dm-packages.png" alt="" width="563"><figcaption><p>Package Model</p></figcaption></figure></div>
 
 Packages are composed of components. The following types of components are defined: NED, Application, and Callback.
 
