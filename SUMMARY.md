@@ -45,7 +45,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.65.3 2025-11-13](alu-sr/README.md)
+  * [README v8.65.4 2025-11-20](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -124,7 +124,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.74.6 2025-11-13](cisco-iosxr/README.md)
+  * [README v7.74.7 2025-11-20](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -169,7 +169,7 @@
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
-  * [README v1.1.1 2025-07-15](ericsson-enm/README.md)
+  * [README v1.1.2 2025-11-20](ericsson-enm/README.md)
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)

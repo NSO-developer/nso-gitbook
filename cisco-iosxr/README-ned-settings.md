@@ -37,19 +37,20 @@
   1. ned-settings cisco-iosxr
   2. logger
   3. connection
-  4. proxy
-  5. read
-     5.1. replace-config
-  6. write
-     6.1. config-warning
-     6.2. inject-command
-     6.3. config-dependency
-  7. live-status
-     7.1. auto-prompts
-  8. api
-  9. auto
-  10. developer
-     10.1. simulate-command
+  4. onie
+  5. proxy
+  6. read
+     6.1. replace-config
+  7. write
+     7.1. config-warning
+     7.2. inject-command
+     7.3. config-dependency
+  8. live-status
+     8.1. auto-prompts
+  9. api
+  10. auto
+  11. developer
+     11.1. simulate-command
   ```
 
 
@@ -238,7 +239,23 @@
       Enable or disable population of smart license information.
 
 
-# 4. ned-settings cisco-iosxr proxy
+# 4. ned-settings cisco-iosxr onie
+----------------------------------
+
+  Options to grub when rebooting to ONIE boot loader.
+
+
+    - onie root <WORD> (default (hd1,gpt1))
+
+      grub> set root=<string>.
+
+
+    - onie chainloader <WORD> (default /EFI/onie/grubx64.efi)
+
+      grub> chainloader <string>.
+
+
+# 5. ned-settings cisco-iosxr proxy
 -----------------------------------
 
   See sections 9 and 10 in README.md for information on proxy ned-settings
@@ -249,7 +266,7 @@
         'ned-settings cisco-iosxr proxy2' ned-settings.
 
 
-# 5. ned-settings cisco-iosxr read
+# 6. ned-settings cisco-iosxr read
 ----------------------------------
 
   Settings used when reading from device.
@@ -355,7 +372,7 @@
       on device.
 
 
-## 5.1. ned-settings cisco-iosxr read replace-config
+## 6.1. ned-settings cisco-iosxr read replace-config
 ----------------------------------------------------
 
   Replace (or filter) config when reading from device.
@@ -393,7 +410,7 @@
     difficulties modifying this config.
 
 
-# 6. ned-settings cisco-iosxr write
+# 7. ned-settings cisco-iosxr write
 -----------------------------------
 
   Settings used when writing to device.
@@ -498,7 +515,7 @@
       certain errors which may be solved by retrying.
 
 
-## 6.1. ned-settings cisco-iosxr write config-warning
+## 7.1. ned-settings cisco-iosxr write config-warning
 -----------------------------------------------------
 
   List specifying device warnings to ignore.
@@ -547,7 +564,7 @@
     must disconnect and connect again, to re-read ned-settings.
 
 
-## 6.2. ned-settings cisco-iosxr write inject-command
+## 7.2. ned-settings cisco-iosxr write inject-command
 -----------------------------------------------------
 
   Inject command (before or after) specified config-line upon commit.
@@ -590,7 +607,7 @@
     Note2: It is also possible to use $1-$9 to insert catch groups from the config regexp.
 
 
-## 6.3. ned-settings cisco-iosxr write config-dependency
+## 7.3. ned-settings cisco-iosxr write config-dependency
 --------------------------------------------------------
 
   Add a dynamic diff dependency to solve unsolved dependencies in the NED before next release.
@@ -628,7 +645,7 @@
         Optional rule option(s).
 
 
-# 7. ned-settings cisco-iosxr live-status
+# 8. ned-settings cisco-iosxr live-status
 -----------------------------------------
 
   Configure NED settings related to live-status.
@@ -666,7 +683,7 @@
       Default false.
 
 
-## 7.1. ned-settings cisco-iosxr live-status auto-prompts
+## 8.1. ned-settings cisco-iosxr live-status auto-prompts
 ---------------------------------------------------------
 
   Pre-stored answers to device prompting questions.
@@ -688,7 +705,7 @@
     See section 5 for detailed information on this ned-setting.
 
 
-# 8. ned-settings cisco-iosxr api
+# 9. ned-settings cisco-iosxr api
 ---------------------------------
 
   Configure API (new API features/changes).
@@ -752,8 +769,8 @@
       provision clear text secret.
 
 
-# 9. ned-settings cisco-iosxr auto
-----------------------------------
+# 10. ned-settings cisco-iosxr auto
+-----------------------------------
 
   Configure auto (dynamic behaviour).
 
@@ -807,7 +824,7 @@
       new commit.
 
 
-# 10. ned-settings cisco-iosxr developer
+# 11. ned-settings cisco-iosxr developer
 ----------------------------------------
 
   Developer settings used for debugging only.
@@ -873,7 +890,7 @@
       be part of transaction, and will be sent to device. Use with care, and do proper testing to understand behaviour.
 
 
-## 10.1. ned-settings cisco-iosxr developer simulate-command
+## 11.1. ned-settings cisco-iosxr developer simulate-command
 ------------------------------------------------------------
 
   Used for debugging to simulate a device response to a live-status command.
