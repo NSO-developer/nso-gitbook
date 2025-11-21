@@ -18,7 +18,7 @@ The second way to make configuration changes is through services. Here, the Serv
 
 The following figure illustrates the difference between the two approaches.
 
-<div data-with-frame="true"><figure><img src="../../images/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure></div>
 
 The Device Manager and the Service Manager are tightly integrated into one transactional engine, using the CDB to store data. Another thing the two managers have in common is packages. Like Device Manager uses NED packages to support specific devices, Service Manager relies on service packages to provide an application-specific mapping for each service type.
 
@@ -28,7 +28,7 @@ However, a network application can consist of more than just a configuration rec
 
 NSO allows augmenting the base functionality of the system by delegating certain functions to applications. As the communication must happen on demand, NSO implements a system of callbacks. Usually, the application code registers the required callbacks on start-up, and then NSO can invoke each callback as needed. A prime example is a Python service, which registers the `cb_create()` function as a service callback that NSO uses to construct the actual configuration.
 
-<div data-with-frame="true"><figure><img src="../../images/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure></div>
 
 In a Python service skeleton, callback registration happens inside a class `Main`, found in `main.py`:
 
