@@ -29,7 +29,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 * [Production Image](containerized-nso.md#production-image)
 * [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="false"><thead><tr><th>Intended Use</th><th>Develop NSO Packages</th><th>Build NSO Packages</th><th>Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Intended Use</th><th>Develop NSO Packages</th><th>Build NSO Packages</th><th>Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -90,11 +90,8 @@ To run the images, make sure that your system meets the following requirements:
 * A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
 *   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.5` is the image you want to check):
 
-    {% code title="Example: Check Java and Python Versions of Container" %}
-    ```bash
-    docker run --rm cisco-nso-prod:6.5 sh -c "java -version && python --version"
-    ```
-    {% endcode %}
+    <pre class="language-bash" data-title="Example: Check Java and Python Versions of Container"><code class="lang-bash">docker run --rm cisco-nso-prod:6.5 sh -c "java -version &#x26;&#x26; python --version"
+    </code></pre>
 
 {% hint style="info" %}
 Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.

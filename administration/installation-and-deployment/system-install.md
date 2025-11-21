@@ -484,18 +484,17 @@ See the Linux [sysctl.conf(5)](https://man7.org/linux/man-pages/man5/sysctl.conf
 
 If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory that the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
 
-#### **Alternative: Heuristic Overcommit Mode (vm.overcommit\_memory=0) With Committed\_AS Monitoring**
+#### **Alternative: Heuristic Overcommit Mode**
 
 As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` to allow overcommit of memory and monitor the total committed memory (Committed\_AS) versus CommitLimit using, for example, a best effort script or observability tool. When Committed\_AS crosses a threshold, for example, 90% of CommitLimit, proactively trigger a series of NSO debug dumps every few seconds via `ncs --debug-dump`. Optionally, a second critical threshold, for example, 95% of CommitLimit, proactively trigger NSO to produce a system dump and then exit gracefully.
 
 * This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before memory pressure becomes critical and the Linux OOM-killer kills NSO.
 * If swap is enabled, prefer vm.swappiness=1 and consider placing NSO in a cgroup with memory.swap.max=0 to avoid swap I/O for NSO. Requires Linux cgroup v2 and a service-managed cgroup (e.g., systemd) support.
-
-- Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
-- When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
-- If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
-- Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
-- See "NSO Crash Dumps" above for crash dump details.
+* Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
+* When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
+* If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
+* Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
+* See "NSO Crash Dumps" above for crash dump details.
 
 {% code title="Simple example script NSO debug-dump monitor" overflow="wrap" %}
 ```bash
@@ -814,3 +813,4 @@ The easiest way is to uninstall the System install using `ncs-uninstall --all` a
 No.
 
 </details>
+
