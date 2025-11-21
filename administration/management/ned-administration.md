@@ -18,7 +18,7 @@ A NED package must provide a device YANG model as well as define means (protocol
 
 Cisco provides and supports a number of such NEDs. With these Cisco-provided NEDs, a major category are CLI NEDs which communicate with a device through its CLI instead of a dedicated API.
 
-<figure><img src="../../images/ned_types.png" alt="" width="563"><figcaption><p>NED Package Types</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ned_types.png" alt="" width="563"><figcaption><p>NED Package Types</p></figcaption></figure>
 
 ### CLI NED <a href="#d5e8910" id="d5e8910"></a>
 
@@ -32,7 +32,7 @@ The driver element in a CLI NED implemented by the Cisco NSO NED team typically 
 
 The YANG models in a CLI NED are developed and maintained by the Cisco NSO NED team. Usually, the models for a CLI NED are structured to mimic the CLI command hierarchy on the device.
 
-<figure><img src="../../images/cli_ned.png" alt="" width="375"><figcaption><p>CLI NED</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cli_ned.png" alt="" width="375"><figcaption><p>CLI NED</p></figcaption></figure>
 
 ### Generic NED <a href="#d5e8927" id="d5e8927"></a>
 
@@ -52,7 +52,7 @@ There are two types of Generic NEDs maintained by the Cisco NSO NED team:
 
 Generic NEDs belonging to the first category typically handle devices that are model-driven. For instance, devices using proprietary protocols based on REST, SOAP, Corba, etc. The YANG models for such NEDs are usually structured to mimic the messages used by the proprietary protocol of the device.
 
-<figure><img src="../../images/generic_ned.png" alt="" width="375"><figcaption><p>Generic NED</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/generic_ned.png" alt="" width="375"><figcaption><p>Generic NED</p></figcaption></figure>
 
 ### **Third-party YANG NEDs**
 
@@ -64,7 +64,7 @@ This category of NEDs has some special characteristics that set them apart from 
 * Delivered from the software.cisco.com portal without any device YANG models included. There are several reasons for this, such as legal restrictions that prevent Cisco from re-distributing YANG models from other vendors, or the availability of several different version bundles for open-source YANG, like OpenConfig. The version used by the NED must match the version used by the targeted device.
 * The NEDs can be bundled with various fixes to solve shortcomings in the YANG models, the download sources, and/or in the device. These fixes are referred to as recipes.
 
-<figure><img src="../../images/thirdparty_neds.png" alt="" width="563"><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/thirdparty_neds.png" alt="" width="563"><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
 
 Since the third-party NEDs are delivered without any device YANG models, there are additional steps required to make this category of NEDs operational:
 
@@ -154,7 +154,7 @@ When a newer maintenance release with the same major/minor version replaces a NE
 
 However, when a NED is replaced by a new major/minor release, it becomes a NED migration. These migrations are complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly.
 
-<figure><img src="../../images/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
 
 ## NED Installation in NSO <a href="#sec.ned_installation_nso" id="sec.ned_installation_nso"></a>
 
@@ -863,7 +863,7 @@ For third-party NEDs, the end user is required to configure the NED ID and also 
 
 Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same ned-id and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some third-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the ned-id values to see whether migration is needed.
 
-<figure><img src="../../images/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
 
 A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options of migration tooling for identifying the paths and service instances that may be impacted. Therefore, ensure that all the other packages are compatible with the new NED before you start migrating devices.
 
