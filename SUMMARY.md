@@ -49,7 +49,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.30.7 2025-10-31](arista-dcs/README.md)
+  * [README v5.30.8 2025-11-21](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -91,7 +91,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.5 2025-11-19](cisco-apicdc/README.md)
+  * [README v3.21.6 2025-11-21](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -120,7 +120,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.110.4 2025-11-04](cisco-ios/README.md)
+  * [README v6.110.5 2025-11-21](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
@@ -207,13 +207,17 @@
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
   * [README v2.0.5 2025-08-22](furukawa-fx1/README.md)
 
+* helm-k8s
+  * [README-ned-settings](helm-k8s/README-ned-settings.md)
+  * [README v1.0.0 2025-07-28](helm-k8s/README.md)
+
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
   * [README v1.2.7.1 2024-09-02](hpe-ihss/README.md)
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9 2025-11-07](huawei-ias/README.md)
+  * [README v2.9.1 2025-11-21](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
@@ -241,7 +245,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.28 2025-11-14](juniper-junos/README.md)
+  * [README v4.18.29 2025-11-21](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -312,7 +316,7 @@
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
-  * [README v1.7 2025-11-18](redback-se/README.md)
+  * [README v1.7.1 2025-11-21](redback-se/README.md)
 
 * redhat-ansible
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)
