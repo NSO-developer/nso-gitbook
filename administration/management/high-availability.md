@@ -388,7 +388,7 @@ TLS (Transport Layer Security) provides Authentication and Privacy by only allow
 
 Please ensure the CA key is kept in a safe place since it can be used to generate new certificates and key pairs for peers.
 
-Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/do../../resources/man/epmd.html)) service. Once resolved, the NSO nodes communicate directly.
+Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/doc/apps/erts/epmd_cmd.html)) service. Once resolved, the NSO nodes communicate directly.
 
 The ports `epmd` and the NSO nodes listen to can be found in [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports). `epmd` binds the wildcard IPv4 address `0.0.0.0` and the IPv6 address `::`.
 
