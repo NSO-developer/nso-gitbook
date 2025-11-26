@@ -31,7 +31,7 @@ There are a number of examples and showcases in this guide. We encourage you to 
 To run the examples, you will need access to an NSO instance. A development instance described in this chapter is the perfect option for running locally. See [Running NSO Examples](../../administration/installation-and-deployment/post-install-actions/running-nso-examples.md).
 
 {% hint style="success" %}
-Cisco also provides an online sandbox and containerized environments, such as a [Learning Lab](https://developer.cisco.com/learning/labs/nso-examples) or [NSO Sandbox](https://developer.cisco.com/catalogs/sandbox/nso), designed for this purpose. Refer to the [NSO Docs Home](https://developer.cisco.com/docs/nso/) site for additional resources.
+Cisco also provides an online sandbox and containerized environments, such as a [Learning Lab](https://developer.cisco.com/learning/labs/nso-examples) or [NSO Sandbox](https://developer.cisco.com/catalogs/sandbox/nso), designed for this purpose. Refer to the [NSO documentation](https://nso-docs.cisco.com/learn-nso/learning-paths) for additional resources.
 {% endhint %}
 
 ## IDE <a href="#ch_devenv.ide" id="ch_devenv.ide"></a>
