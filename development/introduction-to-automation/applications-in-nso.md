@@ -18,8 +18,6 @@ The second way to make configuration changes is through services. Here, the Serv
 
 The following figure illustrates the difference between the two approaches.
 
-<figure><img src="../../.gitbook/assets/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure>
-
 The Device Manager and the Service Manager are tightly integrated into one transactional engine, using the CDB to store data. Another thing the two managers have in common is packages. Like Device Manager uses NED packages to support specific devices, Service Manager relies on service packages to provide an application-specific mapping for each service type.
 
 However, a network application can consist of more than just a configuration recipe. For example, an integrated service test action can verify the initial provisioning and simplify troubleshooting if issues arise. A simple test might run the `ping` command to verify connectivity. Or an application could only monitor the network and not produce any configuration at all. That is why NSO actually uses an approach where an application chooses what custom code to execute for specific NSO events.
@@ -27,8 +25,6 @@ However, a network application can consist of more than just a configuration rec
 ## Callbacks as an Extension Mechanism <a href="#d5e921" id="d5e921"></a>
 
 NSO allows augmenting the base functionality of the system by delegating certain functions to applications. As the communication must happen on demand, NSO implements a system of callbacks. Usually, the application code registers the required callbacks on start-up, and then NSO can invoke each callback as needed. A prime example is a Python service, which registers the `cb_create()` function as a service callback that NSO uses to construct the actual configuration.
-
-<figure><img src="../../.gitbook/assets/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure>
 
 In a Python service skeleton, callback registration happens inside a class `Main`, found in `main.py`:
 
@@ -462,7 +458,7 @@ There are some important points worth noting for action timeout:
 * Implementing your own abort action callback in `cb_abort` allows you to handle actions that are timing out. If `cb_abort` is not defined, NSO cannot trigger the abort action during a timeout, preventing it from unlocking the action for a user session. Consequently, you must wait for the action callback to finish before attempting it again.
 
 {% hint style="info" %}
-See  [examples.ncs/sdk-api/action-abort-py](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/action-abort-py) for an example of how to implement an abortable Python action that spawns a separate worker process using the multiprocessing library and returns the worker's outcome via a result queue or terminates the worker if the action is aborted.
+See [examples.ncs/sdk-api/action-abort-py](https://github.com/NSO-developer/nso-examples/tree/6.5/sdk-api/action-abort-py) for an example of how to implement an abortable Python action that spawns a separate worker process using the multiprocessing library and returns the worker's outcome via a result queue or terminates the worker if the action is aborted.
 {% endhint %}
 
 For NSO operational data queries, NSO uses `query-timeout` to ensure the data provider return operational data within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.

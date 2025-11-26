@@ -6,8 +6,6 @@ description: Create and manage service deployment.
 
 The **Services** view is used to view, create, and manage services in your NSO deployment. The default **Services** view displays the existing services.
 
-<figure><img src="../../.gitbook/assets/service-view.png" alt=""><figcaption><p>Services View</p></figcaption></figure>
-
 ## Search <a href="#d5e6128" id="d5e6128"></a>
 
 If you have several services configured, you can use the **Search** to filter down results to the service of your choice. The search filter matches the entered characters to the service name and shows the results accordingly. Results are shown only for the service point that you have selected.
@@ -24,7 +22,7 @@ To create and deploy a service:
 
 1. In the **Select service type** drop-down, select the service point.
 2. Click the **Add service** button. You will be redirected to the **Configuration editor** view.
-3. Click the plus <img src="../../.gitbook/assets/add-action.png" alt="" data-size="line"> button.
+3. Click the plus  button.
 4. In the **Add new list item** pop-up, enter the required information, which in this case is the name of the service.
 5. Confirm the intent.
 6. Configure additional service data in the **Configuration editor** view.
@@ -67,7 +65,7 @@ Start by selecting the service point to populate all services under it and then 
 {% tab title="From the Services View" %}
 To apply an action on a service:
 
-1. On the desired service in the list, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
+1. On the desired service in the list, click the more options  button.
 2. Choose the preferred action from the list, i.e., **Re-deploy**, **Un-deploy**, **Check sync**, **Deep check sync**, or **get modifications**.
 
 {% hint style="info" %}
@@ -95,7 +93,7 @@ Additional actions are applied to an individual service. Use this option if you 
 5. Run the action.
 
 {% hint style="info" %}
-Fetch the action information by clicking the info <img src="../../.gitbook/assets/actions-info.png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
+Fetch the action information by clicking the info  icon in the **Configuration editor** -> **Actions** tab.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**

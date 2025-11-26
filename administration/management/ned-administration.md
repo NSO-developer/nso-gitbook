@@ -120,8 +120,6 @@ A NED package must provide a device YANG model as well as define means (protocol
 
 Cisco provides and supports a number of such NEDs. With these Cisco-provided NEDs, a major category are CLI NEDs which communicate with a device through its CLI instead of a dedicated API.
 
-<figure><img src="../../.gitbook/assets/ned_types.png" alt="" width="563"><figcaption><p>NED Package Types</p></figcaption></figure>
-
 ### NED Types Summary Table
 
 <table><thead><tr><th width="144.1484375" valign="top">NED Category</th><th width="193.3515625" valign="top">Purpose</th><th valign="top">Provider</th><th width="192.66015625" valign="top">YANG Model Provider</th><th width="198.25390625" valign="top">YANG Models Included?</th><th width="173.2890625" valign="top">Device Interface</th><th width="181.953125" valign="top">Protocols Supported</th><th width="275.9375">Key Characteristics</th></tr></thead><tbody><tr><td valign="top"><strong>CLI NED</strong>*</td><td valign="top">Designed for devices with a CLI-based interface. The NED parses CLI commands and translates data to/from YANG.</td><td valign="top">Cisco</td><td valign="top">Cisco NSO NED Team</td><td valign="top">Yes</td><td valign="top">CLI (Command Line Interface)</td><td valign="top">SSH, Telnet</td><td><ul><li>Mimics CLI command hierarchy</li><li>Turbo parser for CLI parsing</li><li>Transform engines for data conversion</li><li>Targets devices using CLI as config interface</li></ul></td></tr><tr><td valign="top"><strong>Generic NED - Cisco YANG Models</strong>*</td><td valign="top">Built for API-based devices (e.g., REST, SOAP, TL1), using custom parsers and data transformation logic maintained by Cisco.</td><td valign="top">Cisco</td><td valign="top">Cisco NSO NED Team</td><td valign="top">Yes</td><td valign="top">Non-CLI (API-based)</td><td valign="top">REST, TL1, CORBA, SOAP, RESTCONF, gNMI, NETCONF</td><td><ul><li>Model-driven devices</li><li>YANG models mimic proprietary protocol messages</li><li>JSON/XML transformers</li><li>Custom protocol implementations</li></ul></td></tr><tr><td valign="top"><strong>Third-party YANG NED</strong></td><td valign="top">Cisco-supplied generic NED packages that do not include any device models.</td><td valign="top">Cisco</td><td valign="top">Third-party Vendors/Organizations (IETF, IEEE, ONF, OpenConfig)</td><td valign="top">No - Must be downloaded separately</td><td valign="top">Model-driven protocols</td><td valign="top">NETCONF, RESTCONF, gNMI</td><td><ul><li>Delivered without YANG models</li><li>Requires download and rebuild process</li><li>Includes recipes for YANG/device fixes</li><li>Legal restrictions prevent Cisco redistribution</li></ul></td></tr></tbody></table>
@@ -139,8 +137,6 @@ The driver element in a CLI NED implemented by the Cisco NSO NED team typically 
 * Various transform engines capable of converting data between NSO and device formats.
 
 The YANG models in a CLI NED are developed and maintained by the Cisco NSO NED team. Usually, the models for a CLI NED are structured to mimic the CLI command hierarchy on the device.
-
-<figure><img src="../../.gitbook/assets/cli_ned.png" alt="" width="375"><figcaption><p>CLI NED</p></figcaption></figure>
 
 ### Generic NED <a href="#d5e8927" id="d5e8927"></a>
 
@@ -160,8 +156,6 @@ There are two types of Generic NEDs maintained by the Cisco NSO NED team:
 
 Generic NEDs belonging to the first category typically handle devices that are not model-driven. For instance, devices using proprietary protocols based on REST, SOAP, Corba, etc. The YANG models for such NEDs are usually structured to mimic the messages used by the proprietary protocol of the device.
 
-<figure><img src="../../.gitbook/assets/generic_ned.png" alt="" width="375"><figcaption><p>Generic NED</p></figcaption></figure>
-
 ### **Third-party YANG NEDs**
 
 As the name implies, this NED category is used for cases where the device YANG models are not implemented, maintained, or owned by the Cisco NSO NED team. Instead, the YANG models are typically provided by the device vendor itself, or by organizations like IETF, IEEE, ONF, or OpenConfig.
@@ -171,8 +165,6 @@ This category of NEDs has some special characteristics that set them apart from 
 * Targeted for devices supporting model-driven protocols like NETCONF, RESTCONF, and gNMI.
 * Delivered from the software.cisco.com portal without any device YANG models included. There are several reasons for this, such as legal restrictions that prevent Cisco from re-distributing YANG models from other vendors, or the availability of several different version bundles for open-source YANG, like OpenConfig. The version used by the NED must match the version used by the targeted device.
 * The NEDs can be bundled with various fixes to solve shortcomings in the YANG models, the download sources, and/or in the device. These fixes are referred to as recipes.
-
-<figure><img src="../../.gitbook/assets/thirdparty_neds.png" alt="" width="563"><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
 
 Since the third-party NEDs are delivered without any device YANG models, there are additional steps required to make this category of NEDs operational:
 
@@ -272,8 +264,6 @@ When a newer maintenance release with the same major/minor version replaces a NE
 
 However, when a NED is replaced by a new major/minor release, it becomes a NED migration. These migrations are complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly.
 
-<figure><img src="../../.gitbook/assets/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
-
 ## Installing a NED in NSO <a href="#sec.ned_installation_nso" id="sec.ned_installation_nso"></a>
 
 This section describes the NED installation in NSO for Local and System installs.
@@ -350,8 +340,6 @@ For third-party NEDs, the end user is required to configure the NED ID and also 
 {% endhint %}
 
 Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same ned-id and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some third-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the ned-id values to see whether migration is needed.
-
-<figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
 
 A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options of migration tooling for identifying the paths and service instances that may be impacted. Therefore, ensure that all the other packages are compatible with the new NED before you start migrating devices.
 
@@ -741,8 +729,6 @@ admin@ncs# devices device pe2 sync-from
 ### **Update the MPLS VPN Service**
 
 The service must be updated to handle the difference between the Junos device's non-compliant and compliant configuration. The NSO service uses Python code to configure the Junos device using a service template. One way to find the required updates to the template and code is to check the difference between the non-compliant and compliant configurations for the parts covered by the template.
-
-<figure><img src="../../.gitbook/assets/junos-side.png" alt=""><figcaption><p>Side by Side, Running Config on the Left, Template on the Right.</p></figcaption></figure>
 
 Checking the `packages/l3vpn/templates/l3vpn-pe.xml` service template Junos device part under the legacy `http://xml.juniper.net/xnm/1.1/xnm` namespace, you can observe that it configures `interfaces`, `routing-instances`, `policy-options`, and `class-of-service`.
 

@@ -20,53 +20,27 @@ Visit [Cisco Cisco Software Central](https://software.cisco.com/) to learn about
 
 The creation of a new Smart Account is a one-time event, and subsequent management of users is a capability provided through the tool. To request a Smart Account, visit [Cisco Cisco Software Central](https://software.cisco.com/) and take the following steps:
 
-1.  After logging in, select **Request a Smart Account** in the Administration section.
-
-    <figure><img src="../../../.gitbook/assets/request_smart_account1.png" alt="" width="375"><figcaption></figcaption></figure>
-2.  Select the type of Smart Account to create. There are two options: (a) Individual Smart Account requiring agreement to represent your company. By creating this Smart Account, you agree to authorization to create and manage product and service entitlements, users, and roles on behalf of your organization. (b) Create the account on behalf of someone else.
-
-    <figure><img src="../../../.gitbook/assets/request_smart_account2.png" alt="" width="563"><figcaption></figcaption></figure>
-3.  Provide the required domain identifier and the preferred account name.
-
-    <figure><img src="../../../.gitbook/assets/request_smart_account3.png" alt="" width="563"><figcaption></figcaption></figure>
-4.  The account request will be pending approval of the Account Domain Identifier. A subsequent email will be sent to the requester to complete the setup process.
-
-    <figure><img src="../../../.gitbook/assets/request_smart_account4.png" alt="" width="563"><figcaption></figcaption></figure>
+1. After logging in, select **Request a Smart Account** in the Administration section.
+2. Select the type of Smart Account to create. There are two options: (a) Individual Smart Account requiring agreement to represent your company. By creating this Smart Account, you agree to authorization to create and manage product and service entitlements, users, and roles on behalf of your organization. (b) Create the account on behalf of someone else.
+3. Provide the required domain identifier and the preferred account name.
+4. The account request will be pending approval of the Account Domain Identifier. A subsequent email will be sent to the requester to complete the setup process.
 
 ### Adding Users to a Smart Account <a href="#d5e2905" id="d5e2905"></a>
 
 Smart Account user management is available in the **Administration** section of [Cisco Cisco Software Central](https://software.cisco.com/). Take the following steps to add a new user to a Smart Account:
 
-1.  After logging in Select **Manage Smart Account** in the **Administration** section.
-
-    <figure><img src="../../../.gitbook/assets/request_smart_account1.png" alt="" width="375"><figcaption></figcaption></figure>
-2.  Choose the **Users** tab.
-
-    <figure><img src="../../../.gitbook/assets/adding_users_to_smart_account2.png" alt="" width="375"><figcaption></figcaption></figure>
-3.  Select **New User** and follow the instructions in the wizard to add a new user.
-
-    <figure><img src="../../../.gitbook/assets/adding_users_to_smart_account3.png" alt="" width="563"><figcaption></figcaption></figure>
+1. After logging in Select **Manage Smart Account** in the **Administration** section.
+2. Choose the **Users** tab.
+3. Select **New User** and follow the instructions in the wizard to add a new user.
 
 ### Create a License Registration Token <a href="#d5e2927" id="d5e2927"></a>
 
-1.  To create a new token, log into CSSM and select the appropriate Virtual Account.
-
-    <figure><img src="../../../.gitbook/assets/device_register1a.png" alt="" width="563"><figcaption></figcaption></figure>
-2.  Click on the **Smart Licenses** link to enter CSSM.
-
-    <figure><img src="../../../.gitbook/assets/device_register1b.png" alt="" width="563"><figcaption></figcaption></figure>
-3.  In CSSM click on **New Token**.
-
-    <figure><img src="../../../.gitbook/assets/device_register1c.png" alt="" width="563"><figcaption></figcaption></figure>
-4.  Follow the dialog to provide a description, expiration, and export compliance applicability before accepting the terms and responsibilities. Click on **Create Token** to continue.
-
-    <figure><img src="../../../.gitbook/assets/device_register1d.png" alt="" width="563"><figcaption></figcaption></figure>
-5.  Click on the new token.
-
-    <figure><img src="../../../.gitbook/assets/device_register1e.png" alt="" width="563"><figcaption></figcaption></figure>
-6.  Copy the token from the dialogue window into your clipboard.
-
-    <figure><img src="../../../.gitbook/assets/device_register1f.png" alt=""><figcaption></figcaption></figure>
+1. To create a new token, log into CSSM and select the appropriate Virtual Account.
+2. Click on the **Smart Licenses** link to enter CSSM.
+3. In CSSM click on **New Token**.
+4. Follow the dialog to provide a description, expiration, and export compliance applicability before accepting the terms and responsibilities. Click on **Create Token** to continue.
+5. Click on the new token.
+6. Copy the token from the dialogue window into your clipboard.
 7.  Go to the NSO CLI and provide the token to the `license smart register idtoken` command:
 
     ```cli
