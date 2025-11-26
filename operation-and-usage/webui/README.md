@@ -45,7 +45,7 @@ Access the help options by clicking the help options icon in the UI banner. The 
 
 In the Web UI, supplementary help text, whenever applicable, is available on the configuration fields and can be accessed by clicking the info icons.
 
-## Dirty State&#x20;
+## Dirty State
 
 Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state", with the following meanings:
 

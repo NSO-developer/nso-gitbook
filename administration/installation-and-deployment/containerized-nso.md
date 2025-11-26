@@ -300,7 +300,7 @@ By default, the Linux kernel allows overcommit of memory. However, memory overco
 
 Also, when the OOM-killer terminates NSO, NSO will not produce a system dump file, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled with Linux NSO production container hosts with an overcommit ratio of less than 100% (max). Use a 5% headroom (overcommit\_ratio≈95 when no swap) or increase if the host runs additional services. Or use vm.overcommit\_kbytes for a fixed CommitLimit.
 
-See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.&#x20;
+See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.
 
 {% hint style="info" %}
 By default, NSO writes a system dump to the NSO run-time directory, default `NCS_RUN_DIR=/nso/run`. If the `NCS_RUN_DIR` is not pointing to a persistent, host‑mounted volume so dumps survive container restarts or to give the NSO system dump file a unique name, the `NCS_DUMP="/path/to/mounted/dir/ncs_crash.dump.$(date +%Y%m%d-%H%M%S)"` variable needs to be set.
