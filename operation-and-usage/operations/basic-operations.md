@@ -12,7 +12,7 @@ Make sure that you have installed NSO and that you have sourced the `ncsrc` file
 
 We will use the NSO network simulator to simulate three Cisco IOS routers. NSO will talk Cisco CLI to those devices. You will use the NSO CLI and Web UI to perform the tasks. Sometimes you will use the native Cisco device CLI to inspect configuration or do out-of-band changes.
 
-<figure><img src="../../images/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
 
 \
 Note that both the NSO software (NCS) and the simulated network devices run on your local machine.
@@ -172,7 +172,7 @@ The above incorrect (or not necessary) sequence stems from the assumption that t
 
 The one exception to the above are devices that change their own configuration. For example, you only configure A but also B appears in the device configuration. These are so-called "auto-configs". In this case, the NED needs to implement special code to handle each such scenario individually. If the NED does not fully cover all of these device quirks, the device may get out of sync when you make configuration changes through NSO.
 
-<figure><img src="../../images/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
 
 View the configuration of the `c0` device using the command:
 
