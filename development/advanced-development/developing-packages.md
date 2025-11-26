@@ -380,7 +380,7 @@ The `selftest()` implementation is expected to do some diagnosis of the service.
 
 ## Tracing Within the NSO Service Manager
 
-The NSO Java VM logging functionality is provided using LOG4J. The logging is composed of a configuration file (`log4j2.xml`) where static settings are made i.e. all settings that could be done for LOG4J (see [https://logging.apache.org/log4j/2.x](https://logging.apache.org/log4j/2.x) for more comprehensive log settings). There are also dynamically configurable log settings under `/java-vm/java-logging`.
+The NSO Java VM logging functionality is provided using LOG4J. The logging is composed of a configuration file (`log4j2.xml`) where static settings are made i.e. all settings that could be done for LOG4J (see [https://logging.apache.org/log4j/2.x](https://logging.apache.org/log4j/2.x/) for more comprehensive log settings). There are also dynamically configurable log settings under `/java-vm/java-logging`.
 
 When we start the NSO Java VM in `main()` the `log4j2.xml` log file is parsed by the LOG4J framework and it applies the static settings to the NSO Java VM environment. The file is searched for in the Java CLASSPATH.
 
