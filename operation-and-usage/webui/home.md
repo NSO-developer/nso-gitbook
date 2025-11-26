@@ -6,7 +6,7 @@ description: Home page of NSO Web UI.
 
 The **Home** view is the default view after logging in. It provides shortcuts to **Devices**, **Services**, **Config editor**, and **Tools**.
 
-<div data-with-frame="true"><figure><img src="../../images/home-view.png" alt=""><figcaption><p>Home View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/home-view.png" alt=""><figcaption><p>Home View</p></figcaption></figure></div>
 
 ## Web UI Extension Packages
 

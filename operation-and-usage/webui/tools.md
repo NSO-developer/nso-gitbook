@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view includes utilities that you can use to run specific tasks on your deployment.
 
-<div data-with-frame="true"><figure><img src="../../images/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure></div>
 
 The following tools are available:
 
@@ -31,7 +31,7 @@ The **Insights** view collects and displays the following types of operational i
 
 In the **Packages** view, you can upload, install, and view the operational state of custom packages in NSO.
 
-<div data-with-frame="true"><figure><img src="../../images/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/packages.png" alt=""><figcaption><p>Packages View</p></figcaption></figure></div>
 
 ### Add a Package
 
@@ -75,7 +75,7 @@ To reload the packages:
 
 To deinstall a package:
 
-* Go to the package details view and click the **Deinstall** button, or use the more options <img src="../../images/more-options.png" alt="" data-size="line"> button in the packages list.
+* Go to the package details view and click the **Deinstall** button, or use the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button in the packages list.
 
 ## High Availability <a href="#d5e6538" id="d5e6538"></a>
 
@@ -89,7 +89,7 @@ Available Rule-based HA actions are described further under [Actions](../../admi
 
 An example cluster of a Rule-based HA setup is shown below.
 
-<div data-with-frame="true"><figure><img src="../../images/ha-rule.png" alt=""><figcaption><p>High Availability View (Rule-based)</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/ha-rule.png" alt=""><figcaption><p>High Availability View (Rule-based)</p></figcaption></figure></div>
 
 ### Raft HA
 
@@ -97,7 +97,7 @@ The Raft HA view displays overview of your cluster and provides options to manag
 
 Available Raft HA actions are described further under [Actions](../../administration/management/high-availability.md#ch_ha.raft_actions), and can be run directly in the Web UI. Specific parameters and field definitions shown in the view are covered in detail in the rest of the [HA documentation](../../administration/management/high-availability.md).
 
-<div data-with-frame="true"><figure><img src="../../images/ha-raft.png" alt=""><figcaption><p>High Availability View (Raft)</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/ha-raft.png" alt=""><figcaption><p>High Availability View (Raft)</p></figcaption></figure></div>
 
 #### Handover Cluster Leadership <a href="#d5e6565" id="d5e6565"></a>
 
@@ -111,7 +111,7 @@ Perform the handover as follows:
 
 #### Actions on a Node
 
-Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.
+Actions on a node, such as **Add node**, **Remove node**, **Disconnect**, etc., are available by accessing the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on a node. Most of the actions in Raft HA can only be executed from the leader node.
 
 #### Logs and Certificates
 
@@ -131,7 +131,7 @@ The **Logs** and **Certificates** tabs provide detailed insights into the state 
 
 The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
 
-<div data-with-frame="true"><figure><img src="../../images/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure></div>
 
 An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
 
@@ -161,7 +161,7 @@ Alarm handling refers to attending to an alarm. This usually entails reviewing t
 
 To set an alarm handling state:
 
-1. In the **Alarms** main view, click the more options <img src="../../images/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
+1. In the **Alarms** main view, click the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the desired alarm and click **Set alarm handling state**.
 2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
 3. Enter a description (optional).
 4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
@@ -182,13 +182,13 @@ Any network-wide configuration change can be picked up as a rollback file. The r
 
 To review a configuration change:
 
-1. Access the Commit Manager by clicking its icon <img src="../../images/commit-manager.png" alt="" data-size="line"> in the banner.
+1. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
 2. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
 3. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
 
 {% hint style="info" %}
-In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="../../images/more-node-options.png" alt="" data-size="line"> and clicking the info <img src="../../images/info-button.png" alt="" data-size="line"> button.
+In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="../../.gitbook/assets/more-node-options.png" alt="" data-size="line"> and clicking the info <img src="../../.gitbook/assets/info-button.png" alt="" data-size="line"> button.
 {% endhint %}
 
 #### **Load/Save Configuration Data**
@@ -229,7 +229,7 @@ The following tabs are available in this view:
 
 The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
 
-<div data-with-frame="true"><figure><img src="../../images/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure></div>
 
 #### **Create a Compliance Report**
 
@@ -254,7 +254,7 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../images/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
@@ -276,7 +276,7 @@ To run a compliance report:
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
 
-<div data-with-frame="true"><figure><img src="../../images/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure></div>
 
 #### View Compliance Report Results
 
@@ -295,7 +295,7 @@ Use the **Export to file** button to export the report results to a downloadable
 
 The **Compliance Templates** tab is used to create new compliance templates and manage existing ones.
 
-<div data-with-frame="true"><figure><img src="../../images/compliance-templates.png" alt=""><figcaption><p>Compliance Templates View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/compliance-templates.png" alt=""><figcaption><p>Compliance Templates View</p></figcaption></figure></div>
 
 There are two ways to create a compliance template:
 
@@ -303,7 +303,7 @@ There are two ways to create a compliance template:
 * **From config**: Build a new template directly from an existing device configuration.
 
 {% hint style="info" %}
-#### Template Creation using Config Editor
+**Template Creation using Config Editor**
 
 A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.
 {% endhint %}
