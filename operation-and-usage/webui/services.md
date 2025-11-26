@@ -6,19 +6,19 @@ description: Create and manage service deployment.
 
 The **Service manager** view is where you create, deploy, and manage services in your NSO deployment. Available services are displayed in this view by default.
 
-<figure><img src="../../images/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-view.png" alt=""><figcaption><p>Service Manager View</p></figcaption></figure>
 
 {% hint style="info" %}
 **Columns in the Services List**
 
 * **name**: The name of the service.
 * **plan**: Shows the service plan.
-* **devices**: Shows the number of devices associated with the service. Use the refresh <img src="../../images/refresh.png" alt="" data-size="line"> button to reload the devices list.
+* **devices**: Shows the number of devices associated with the service. Use the refresh <img src="../../.gitbook/assets/refresh.png" alt="" data-size="line"> button to reload the devices list.
 * **check-sync**, **re-deploy**, and **re-deploy dry-run** denote the actions that you can perform on a service.
 {% endhint %}
 
 {% hint style="success" %}
-Hide and display the columns of your choice by using the column selection <img src="../../images/col-select.png" alt="" data-size="line"> icon.
+Hide and display the columns of your choice by using the column selection <img src="../../.gitbook/assets/col-select.png" alt="" data-size="line"> icon.
 {% endhint %}
 
 ## Search Filter <a href="#d5e6128" id="d5e6128"></a>
@@ -34,7 +34,7 @@ To filter the service list:
 ## Create a Service <a href="#d5e6142" id="d5e6142"></a>
 
 1. In the **Select service point** drop-down list, select a service point.
-2. Click the add <img src="../../images/add-action.png" alt="" data-size="line"> button.
+2. Click the add <img src="../../.gitbook/assets/add-action.png" alt="" data-size="line"> button.
 3. In the **Create service** pop-up, enter the name of the service.
 4. Confirm the intent.
 5. Review and commit the service to NSO in the **Commit manager**.
@@ -56,7 +56,7 @@ To apply an action on a service:
 To apply an action on multiple services:
 
 1. Select the desired services from the list.
-2. Using the **run action** <img src="../../images/run-action.png" alt="" data-size="line"> button, select the desired service action.
+2. Using the **run action** <img src="../../.gitbook/assets/run-action.png" alt="" data-size="line"> button, select the desired service action.
 3. Confirm the intent.
 
 **Actions Possible in the Service Manager View**
@@ -89,7 +89,7 @@ Additional actions are applied per individual service. Use this option if you wa
 5. Run the action.
 
 {% hint style="info" %}
-Fetch the action information by clicking the info <img src="../../images/actions-info.png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
+Fetch the action information by clicking the info <img src="../../.gitbook/assets/actions-info.png" alt="" data-size="line"> icon in the **Configuration editor** -> **Actions** tab.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
@@ -124,5 +124,5 @@ The other two tabs, i.e., **Config** and **Operdata** can be respectively used t
 ## Delete a Service <a href="#d5e6324" id="d5e6324"></a>
 
 1. In the services list, click the service that you want to delete. You can select multiple services.
-2. Click the remove <img src="../../images/remove-action.png" alt="" data-size="line"> button.
+2. Click the remove <img src="../../.gitbook/assets/remove-action.png" alt="" data-size="line"> button.
 3. Review and commit the change in the **Commit manager**.

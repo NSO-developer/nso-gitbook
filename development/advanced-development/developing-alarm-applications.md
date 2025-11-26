@@ -14,7 +14,7 @@ The consumer part provides an Alarm Source. The alarm source lets you listen to 
 
 The diagram below shows a high-level view of the flow of alarms in and out of the system. Alarms are received, e.g. as SNMP notifications, and fed into the NSO Alarm List. At the other end, you subscribe for the alarm changes.
 
-<figure><img src="../../images/alarm-flow.png" alt="" width="563"><figcaption><p>The Alarm Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/alarm-flow.png" alt="" width="563"><figcaption><p>The Alarm Flow</p></figcaption></figure>
 
 ## Using the Alarm Sink
 
