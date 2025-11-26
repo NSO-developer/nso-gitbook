@@ -23,8 +23,6 @@ The NEDs will publish YANG data models even for non-NETCONF devices. In the case
 
 Throughout this section, we will use the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
 
-<figure><img src="../../.gitbook/assets/network.jpg" alt=""><figcaption><p>NSO Example Network</p></figcaption></figure>
-
 ## Managed Device Tree <a href="#user_guide.devicemanager.device-tree" id="user_guide.devicemanager.device-tree"></a>
 
 The central part of the NSO YANG model, in the file `tailf-ncs-devices.yang`, has the following structure:
@@ -3076,31 +3074,20 @@ As the error option in a cluster environment will originate on the upper node, a
 
 When NSO is recovering from a failed commit, the rollback data of the failed queue items in the cluster is applied and committed through the commit queue. In the rollback, the no-networking flag will be set on the commits towards the failed lower nodes or devices to get CDB consistent with the network. Towards the successful nodes or devices, the commit is done as before. This is what the `rollback` action in `/ncs:devices/commit-queue/completed/queue-item` does.
 
-<figure><img src="../../.gitbook/assets/dm-cq-error-recovery-single-node1.png" alt="" width="563"><figcaption><p>Error Recovery in a Single Node Deployment</p></figcaption></figure>
-
 1. TR1; service `s1` creates `ce0:a` and `ce1:b`. The nodes `a` and `b` are created in CDB. In the changes of the queue item, `CQ1`, `a` and `b` are created.
 2. TR2; service `s2` creates `ce1:c` and `ce2:d`. The nodes `c` and `d` are created in CDB. In the changes of the queue item, `CQ2`, `c`_,_ and `d` are created.
 3. The queue item from `TR1`, `CQ1`, starts to execute. The node `a` cannot be created on the device. The node `b` was created on the device but that change is reverted as `a` failed to be created.
-
-<figure><img src="../../.gitbook/assets/dm-cq-error-recovery-single-node2.png" alt="" width="563"><figcaption></figcaption></figure>
-
 4. The reverse of `TR1`, the rollback of `CQ1`, `TR3`, is committed.
 5. `TR3`; service `s1` is applied with the old parameters. Thus the effect of `TR1` is reverted. Nothing needs to be pushed towards the network, so no queue item is created.
 6. `TR2`; as the queue item from `TR2`, `CQ2`, is not the same service instance and has no overlapping data on the `ce1` device, this queue item executes as normal.
-
-<figure><img src="../../.gitbook/assets/dm-cq-error-recovery-lsa1.png" alt="" width="563"><figcaption><p>Error Recovery in an LSA Cluster</p></figcaption></figure>
-
-1. `NSO1`:`TR1`; service `s1` dispatches the service to `NSO2` and `NSO3` through the queue item `NSO1`:`CQ1`. In the changes of `NSO1`:`CQ1`, `NSO2:s1` and `NSO3:s1` are created.
-2. `NSO1`:`TR2`; service `s2` dispatches the service to `NSO2` through the queue item `NSO1`:`CQ2`. In the changes of `NSO1`:`CQ2`, `NSO2:s2` is created.
-3. The queue item from `NSO2`:`TR1`, `NSO2`:`CQ1`, starts to execute. The node `a` cannot be created on the device. The node `b` was created on the device, but that change is reverted as `a` failed to be created.
-4. The queue item from `NSO3`:`TR1`, `NSO3`:`CQ1`, starts to execute. The changes in the queue item are committed successfully to the network.
-
-<figure><img src="../../.gitbook/assets/dm-cq-error-recovery-lsa2.png" alt="" width="563"><figcaption></figcaption></figure>
-
-5. The reverse of `TR1`, rollback of `CQ1`, `TR3`, is committed on all nodes part of `TR1` that failed.
-6. `NSO2`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO2`:`TR1` is reverted. Nothing needs to be pushed towards the network, so no queue item is created.
-7. `NSO1`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO1`:`TR1` is reverted. A queue item is created to push the transaction changes to the lower nodes that didn't fail.
-8. `NSO3`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO3`:`TR1` is reverted. Since the changes in the queue item `NSO3`:`CQ1` was successfully committed to the network a new queue item `NSO3`:`CQ3` is created to revert those changes.
+7. `NSO1`:`TR1`; service `s1` dispatches the service to `NSO2` and `NSO3` through the queue item `NSO1`:`CQ1`. In the changes of `NSO1`:`CQ1`, `NSO2:s1` and `NSO3:s1` are created.
+8. `NSO1`:`TR2`; service `s2` dispatches the service to `NSO2` through the queue item `NSO1`:`CQ2`. In the changes of `NSO1`:`CQ2`, `NSO2:s2` is created.
+9. The queue item from `NSO2`:`TR1`, `NSO2`:`CQ1`, starts to execute. The node `a` cannot be created on the device. The node `b` was created on the device, but that change is reverted as `a` failed to be created.
+10. The queue item from `NSO3`:`TR1`, `NSO3`:`CQ1`, starts to execute. The changes in the queue item are committed successfully to the network.
+11. The reverse of `TR1`, rollback of `CQ1`, `TR3`, is committed on all nodes part of `TR1` that failed.
+12. `NSO2`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO2`:`TR1` is reverted. Nothing needs to be pushed towards the network, so no queue item is created.
+13. `NSO1`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO1`:`TR1` is reverted. A queue item is created to push the transaction changes to the lower nodes that didn't fail.
+14. `NSO3`:`TR3`; service `s1` is applied with the old parameters. Thus the effect of `NSO3`:`TR1` is reverted. Since the changes in the queue item `NSO3`:`CQ1` was successfully committed to the network a new queue item `NSO3`:`CQ3` is created to revert those changes.
 
 If for some reason the rollback transaction fails there are, depending on the failure, different techniques to reconcile the services involved:
 

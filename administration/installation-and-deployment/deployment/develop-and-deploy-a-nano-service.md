@@ -8,8 +8,6 @@ This section shows how to develop and deploy a simple NSO nano service for manag
 
 ## Development <a href="#d5e1323" id="d5e1323"></a>
 
-<figure><img src="../../../.gitbook/assets/ex-development.png" alt="" width="563"><figcaption><p>The Development Host Topology</p></figcaption></figure>
-
 After installing NSO with the [Local Install](../local-install.md) option, development often begins with either retrieving an existing YANG model representing what the managed network element (a virtual or physical device, such as a router) can do or constructing a new YANG model that at least covers the configuration of interest to an NSO service. To enable NSO service development, the network element's YANG model can be used with NSO's netsim tool that uses ConfD (Configuration Daemon) to simulate the network elements and their management interfaces like NETCONF. Read more about netsim in [Network Simulator](../../../operation-and-usage/operations/network-simulator-netsim.md).
 
 The simple network element YANG model used for this example is available under `packages/ne/src/yang/ssh-authkey.yang`. The `ssh-authkey.yang` model implements a list of SSH public keys for identifying a user. The list of keys augments a list of users in the ConfD built-in `tailf-aaa.yang` module that ConfD uses to authenticate users.
@@ -399,8 +397,6 @@ The `ncs_cli` program identifies itself with NSO as the `admin` user without aut
 ## Deployment <a href="#d5e1474" id="d5e1474"></a>
 
 See the `README` in the `netsim-sshkey` example's directory for a reference to an NSO system installation in a container deployment variant.
-
-<figure><img src="../../../.gitbook/assets/ex-deployment.png" alt=""><figcaption><p>The Deployment Container Topology</p></figcaption></figure>
 
 The deployment variant differs from the development example by:
 

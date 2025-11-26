@@ -6,8 +6,6 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view includes utilities that you can use to run specific tasks on your deployment, such as running compliance reports, etc.
 
-<figure><img src="../../.gitbook/assets/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure>
-
 The following tools are available:
 
 * [**Insights**](tools.md#d5e6470): Gathers and displays useful statistics of your deployment.
@@ -15,7 +13,7 @@ The following tools are available:
 * [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
 * [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
-* [**Compliance reports**](tools.md#sec.webui\_compliance): Used to run compliance checks on your NSO network.
+* [**Compliance reports**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
 
@@ -59,7 +57,7 @@ Actions can be performed on the cluster using the **Configuration editor** -> **
 
 The **Alarm manager** view displays current alarms in the system. The alarms are categorized as **criticals**, **majors**, and **minors** and can be filtered by the device.
 
-You can run actions on an alarm by selecting it and using the **run action** <img src="../../.gitbook/assets/run-action.png" alt="" data-size="line"> button.
+You can run actions on an alarm by selecting it and using the **run action**  button.
 
 ## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
 
@@ -77,13 +75,13 @@ Any network-wide configuration change can be picked up as a rollback file. The r
 
 To review a configuration change:
 
-1. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
+1. Access the Commit Manager by clicking its icon  in the banner.
 2. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
 3. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
 
 {% hint style="info" %}
-In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="../../.gitbook/assets/more-node-options.png" alt="" data-size="line"> and clicking the info <img src="../../.gitbook/assets/info-button.png" alt="" data-size="line"> button.
+In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options**  and clicking the info  button.
 {% endhint %}
 
 #### **Load/Save Configuration Data**
@@ -104,7 +102,7 @@ In the **Commit manager** view, the following tabs are shown.
 * **warnings** tab, to list the warnings encountered while doing changes.
 * **config** tab, to list the configuration changes associated with the change.
 * **native config** tab, to list the device configuration data in the native config.
-* **commit queue** tab, to manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user\_guide.devicemanager.commit-queue) for more information.
+* **commit queue** tab, to manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for more information.
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -122,8 +120,6 @@ The following tabs are available in this view:
 ### Compliance Reports
 
 The **Compliance reports** tab is used to view, create, run, and manage the existing compliance reports.
-
-<figure><img src="../../.gitbook/assets/compliance-reports.png" alt=""><figcaption><p>Compliance Reports View</p></figcaption></figure>
 
 #### **Create a Compliance Report**
 
@@ -146,7 +142,7 @@ To create a new compliance report:
 4. Click **Create report** when the report setup is complete. The changes are saved and applied immediately.
 
 {% hint style="info" %}
-In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
+In the **Compliance reports** tab, you can apply the following actions on the report by selecting it using the checkbox and using the more options  button.
 
 * **Copy as new report**: Copy an existing report as a new report.
 * **Run**: Run the report.
@@ -167,8 +163,6 @@ To run a compliance report:
 ### Report Results
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
-
-<figure><img src="../../.gitbook/assets/compliance-reports-results.png" alt=""><figcaption><p>Report Results View</p></figcaption></figure>
 
 #### View Compliance Report Results
 

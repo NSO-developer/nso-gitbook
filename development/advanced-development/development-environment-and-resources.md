@@ -47,8 +47,6 @@ Modern IDEs offer many features on top of advanced file editing support, such as
 
 The Remote - SSH extension is especially useful when you must work with a system through an SSH session. Once you connect to the remote host by clicking the `><` button (typically found in the bottom-left corner of the VS Code window), you can open and edit remote files with ease. If you also want language support (syntax highlighting and alike), you may need to install VS Code extensions remotely. That is, install the extensions after you have connected to the remote host; otherwise, the extension installation screen might not show the option for installation on the connected host.
 
-<figure><img src="../../.gitbook/assets/vscode-remotessh.png" alt="" width="563"><figcaption><p>Using the Remote - SSH extension in VS Code</p></figcaption></figure>
-
 You will also benefit greatly from setting up SSH certificate authentication if you are using an SSH session for your work.
 
 ## Automating Instance Setup <a href="#ch_devenv.automate" id="ch_devenv.automate"></a>
