@@ -24,6 +24,11 @@
   * [README-ned-settings](actelis-ead/README-ned-settings.md)
   * [README v1.0.8 2025-01-16](actelis-ead/README.md)
 
+* adtran-aos_nc
+  * [README-ned-settings](adtran-aos_nc/README-ned-settings.md)
+  * [README-rebuild](adtran-aos_nc/README-rebuild.md)
+  * [README v1.0.0 2025-11-25](adtran-aos_nc/README.md)
+
 * adtran-dpoe
   * [README-ned-settings](adtran-dpoe/README-ned-settings.md)
   * [README v1.0.2 2025-08-11](adtran-dpoe/README.md)
@@ -209,7 +214,7 @@
 
 * helm-k8s
   * [README-ned-settings](helm-k8s/README-ned-settings.md)
-  * [README v1.0.0 2025-07-28](helm-k8s/README.md)
+  * [README v1.0.1 2025-11-25](helm-k8s/README.md)
 
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
