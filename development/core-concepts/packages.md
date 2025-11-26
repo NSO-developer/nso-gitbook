@@ -11,8 +11,6 @@ A package is a directory where the package name is the same as the directory nam
 * `package-name`: should use letters, and digits and may include underscores (`_`) or dashes (`-`), but no additional punctuation, and digits can not follow underscores or dashes immediately.
 * `package-version`: should use numbers and dot (`.`).
 
-<figure><img src="../../.gitbook/assets/dm-packages.png" alt="" width="563"><figcaption><p>Package Model</p></figcaption></figure>
-
 Packages are composed of components. The following types of components are defined: NED, Application, and Callback.
 
 The file layout of a package is:
@@ -322,7 +320,7 @@ If we look at the components in the `stats` package above, we have:
   </component>
 ```
 
-The `Stats` class here implements a read-only data provider. See [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp).
+The `Stats` class here implements a read-only data provider. See [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp).
 
 The `callback` type of component is used for a wide range of callback-type Java applications, where one of the most important are the Service Callbacks. The following list of Java callback annotations applies to callback components.
 

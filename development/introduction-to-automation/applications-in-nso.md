@@ -18,8 +18,6 @@ The second way to make configuration changes is through services. Here, the Serv
 
 The following figure illustrates the difference between the two approaches.
 
-<figure><img src="../../.gitbook/assets/apps-service.png" alt="" width="375"><figcaption><p>Device and Service Manager</p></figcaption></figure>
-
 The Device Manager and the Service Manager are tightly integrated into one transactional engine, using the CDB to store data. Another thing the two managers have in common is packages. Like Device Manager uses NED packages to support specific devices, Service Manager relies on service packages to provide an application-specific mapping for each service type.
 
 However, a network application can consist of more than just a configuration recipe. For example, an integrated service test action can verify the initial provisioning and simplify troubleshooting if issues arise. A simple test might run the `ping` command to verify connectivity. Or an application could only monitor the network and not produce any configuration at all. That is why NSO actually uses an approach where an application chooses what custom code to execute for specific NSO events.
@@ -27,8 +25,6 @@ However, a network application can consist of more than just a configuration rec
 ## Callbacks as an Extension Mechanism <a href="#d5e921" id="d5e921"></a>
 
 NSO allows augmenting the base functionality of the system by delegating certain functions to applications. As the communication must happen on demand, NSO implements a system of callbacks. Usually, the application code registers the required callbacks on start-up, and then NSO can invoke each callback as needed. A prime example is a Python service, which registers the `cb_create()` function as a service callback that NSO uses to construct the actual configuration.
-
-<figure><img src="../../.gitbook/assets/apps-callback.png" alt="" width="375"><figcaption><p>Service Callback</p></figcaption></figure>
 
 In a Python service skeleton, callback registration happens inside a class `Main`, found in `main.py`:
 
@@ -62,7 +58,7 @@ list my-svc {
 
 Service point therefore links the definition in the model with custom code. Some methods in the code will have names starting with `cb_`, for instance, the `cb_create()` method, letting you know quickly that they are an implementation of a callback.
 
-NSO implements additional callbacks for each service point, that may be required in some specific circumstances. Most of these callbacks perform work outside of the automatic change tracking, so you need to consider that before using them. The section [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch\_svcref.cbs) offers more details.
+NSO implements additional callbacks for each service point, that may be required in some specific circumstances. Most of these callbacks perform work outside of the automatic change tracking, so you need to consider that before using them. The section [Service Callbacks](../advanced-development/developing-services/services-deep-dive.md#ch_svcref.cbs) offers more details.
 
 As well as services, other extensibility options in NSO also rely on callbacks and `callpoints`, a generalized version of a service point. Two notable examples are validation callbacks, to implement additional validation logic to that supported by YANG, and custom actions. The section [Overview of Extension Points](applications-in-nso.md#overview-of-extension-points) provides a comprehensive list and an overview of when to use each.
 
@@ -422,7 +418,7 @@ When starting the package, NSO reads the class name from `package-meta-data.xml`
 
 The communication between the application process and NSO happens through a dedicated control socket, as described in the section called [IPC Ports](../../administration/advanced-topics/ipc-ports.md) in Administration. This setup prevents a faulty application from bringing down the whole system along with it and enables NSO to support different application environments.
 
-In fact, NSO can manage applications written in Java or Erlang in addition to those in Python. If you replace the `python-class-name` element of a component with `java-class-name` in the `package-meta-data.xml` file, NSO will instead try to run the specified Java class in the managed Java VM. If you wanted to, you could implement all of the same services and actions in Java, too. For example, see [Service Actions](../core-concepts/implementing-services.md#ch\_services.actions) to compare Python and Java code.
+In fact, NSO can manage applications written in Java or Erlang in addition to those in Python. If you replace the `python-class-name` element of a component with `java-class-name` in the `package-meta-data.xml` file, NSO will instead try to run the specified Java class in the managed Java VM. If you wanted to, you could implement all of the same services and actions in Java, too. For example, see [Service Actions](../core-concepts/implementing-services.md#ch_services.actions) to compare Python and Java code.
 
 Regardless of the programming language you use, the high-level approach to automation with NSO does not change, registering and implementing callbacks as part of your network application. Of course, the actual function calls (the API) and other specifics differ for each language. The [NSO Python VM](../core-concepts/nso-virtual-machines/nso-python-vm.md), [NSO Java VM](../core-concepts/nso-virtual-machines/nso-java-vm.md), and [Embedded Erlang Applications](../core-concepts/nso-virtual-machines/embedded-erlang-applications.md) cover the details. Even so, the concepts of actions, services, and YANG modeling remain the same.
 

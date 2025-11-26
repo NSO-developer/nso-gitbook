@@ -16,13 +16,9 @@ Optimistic concurrency, on the other hand, allows transactions to run in paralle
 
 Such a model makes sense because a lot of the time concurrent transactions deal with separate sets of data. Even if multiple transactions share some data in a read-only fashion, it is fine as they still produce the same result.
 
-<figure><img src="../../.gitbook/assets/transaction-no-conflict.png" alt="" width="563"><figcaption><p>Nonconflicting Concurrent Transactions</p></figcaption></figure>
-
 In the figure, `svc1` in the `T1` transaction and `svc2` in the `T2` transaction both read (but do not change) the same, shared piece of data and can proceed as usual, unperturbed.
 
 On the other hand, a conflict is when a piece of data, that has been read by one transaction, is changed by another transaction before the first transaction is committed. In this case, at the moment the first transaction completes, it is already working with stale data and must be rejected, as the following figure shows.
-
-<figure><img src="../../.gitbook/assets/transaction-conflict.png" alt="" width="563"><figcaption><p>Conflicting Concurrent Transactions</p></figcaption></figure>
 
 In the figure, the transaction `T1` reads `dns-server` to use in the provisioning of `svc1` but transaction `T2` changes `dns-server` value in the meantime. The two transactions conflict and `T1` is rejected because `T2` completed first.
 
@@ -40,8 +36,6 @@ It is extremely important that you do not mix multiple transactions, because it 
 {% endhint %}
 
 While the optimistic concurrency model allows transactions to run concurrently most of the time, ultimately some synchronization (a global lock) is still required to perform the conflict checks and serialize data writes to the CDB and devices. The following figure shows everything that happens after a client tries to apply a configuration change, including acquiring and releasing the lock. This process takes place, for example, when you enter the **commit** command on the NSO CLI or when a PUT request of the RESTCONF API is processed.
-
-<figure><img src="../../.gitbook/assets/transaction-stages.png" alt="" width="563"><figcaption><p>Stages of a Transaction Commit</p></figcaption></figure>
 
 As the figure shows (and you can also observe it in the progress trace output), service mapping, validation, and transforms all happen in the transaction before taking a (global) transaction lock.
 
