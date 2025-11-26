@@ -443,7 +443,7 @@ Here are some examples of different combinations of `tags` with `child-tags` and
           <description>Link to PE</description>
           ...
     ```
-*   &#x20;`tags="create" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `create` behavior while its children nodes on all the sub-levels  `<name>`, `<description>`, `<manually-set>`, `<presence-container>` and `<dummy>` (except `<state>`) will have `nocreate` behavior due to `child-tags="nocreate"` which affects subtree of the current node (until a new `tags="merge"` is introduced on the sub-node `state` of which it will have a new operation `merge`).
+*   `tags="create" child-tags="nocreate"`: The parent node `<GigabitEthernet>` will have `create` behavior while its children nodes on all the sub-levels  `<name>`, `<description>`, `<manually-set>`, `<presence-container>` and `<dummy>` (except `<state>`) will have `nocreate` behavior due to `child-tags="nocreate"` which affects subtree of the current node (until a new `tags="merge"` is introduced on the sub-node `state` of which it will have a new operation `merge`).
 
     ```xml
         <GigabitEthernet tags="create" child-tags="nocreate">
