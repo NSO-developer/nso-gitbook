@@ -40,13 +40,13 @@ Documentation Updates:
 
 <details>
 
-<summary>Filtering JSON-RPC <code>show_config</code> method</summary>
+<summary> Filtering JSON-RPC <code>show_config</code> method</summary>
 
 The `show_config` JSON-RPC method now supports filtering and pagination options for improved user experience when retrieving large list instances.
 
 Documentation Updates:
 
-* Added filtering and pagination parameters to `show_config` documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
+* Added filtering and pagination parameters to `show_config`  documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
 
 </details>
 
@@ -65,12 +65,15 @@ NSO 6.6 comes with improvements to the way YANG schema is stored and loaded, red
 This NSO version introduces multiple quality of life improvements for service development:
 
 * A device template can be converted to a service with the `/services/create-template` action.
-* New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
+
+- New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
+
 * NSO warns if there are unused macros inside XML templates.
-* New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
-* New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
-* Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
-* Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
+
+- New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
+- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
+- Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
+- Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
 
 </details>
 
@@ -135,17 +138,5 @@ Documentation Updates:
 <summary>Consistent User Preferences in the Web UI</summary>
 
 The Web UI keeps track of selected table display preferences across page refreshes, such as column sort order and the number of rows per page.
-
-</details>
-
-<details>
-
-<summary>Partial Service Reconciliation</summary>
-
-Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.&#x20;
-
-Documentation Updates:
-
-* Added a [Partial Reconcile](development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialreconcile) section to the Services Deep Dive chapter.
 
 </details>
