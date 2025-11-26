@@ -140,3 +140,15 @@ Documentation Updates:
 The Web UI keeps track of selected table display preferences across page refreshes, such as column sort order and the number of rows per page.
 
 </details>
+
+<details>
+
+<summary>Partial Service Reconciliation</summary>
+
+Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.&#x20;
+
+Documentation Updates:
+
+* Added a [Partial Reconcile](development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialreconcile) section to the Services Deep Dive chapter.
+
+</details>
