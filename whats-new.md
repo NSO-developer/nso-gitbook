@@ -124,7 +124,7 @@ NSO now provides Phased Provisioning as a support tool to schedule provisioning 
 
 Documentation Updates:
 
-* Updated the NSO [Platform Tools](https://developer.cisco.com/docs/nso/#!phased-provisioning) documentation to include Cisco NSO Phased Provisioning.
+* Updated the NSO [Platform Tools](https://nso-docs.cisco.com/resources) documentation to include Cisco NSO Phased Provisioning.
 
 </details>
 
@@ -136,6 +136,6 @@ NSO Observability Exporter package allows Cisco NSO to export observability-rela
 
 Documentation Updates:
 
-* Updated the NSO [Platform Tools](https://developer.cisco.com/docs/nso/#!observability-exporter) documentation to include Cisco NSO Observability Exporter.
+* Updated the NSO [Platform Tools](https://nso-docs.cisco.com/resources) documentation to include Cisco NSO Observability Exporter.
 
 </details>
