@@ -1054,7 +1054,7 @@ The HCC data model can be found in the HCC package (`tailf-hcc.yang`).
 
 As an alternative to the HCC package, NSO built-in HA, either rule-based or HA Raft, can also be used in conjunction with a load balancer device in a reverse proxy configuration. Instead of managing the virtual IP address directly as HCC does, this setup relies on an external load balancer to route traffic to the currently active primary node.
 
-<figure><img src="../../images/ha-load-balancer.jpg" alt="" width="563"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure>
+<figure><img src="../../images/ha-load-balancer.png" alt="" width="563"><figcaption><p>Load Balancer Routes Connections to the Appropriate NSO Node</p></figcaption></figure>
 
 The load balancer uses HTTP health checks to determine which node is currently the active primary. The example, found in the [examples.ncs/high-availability/load-balancer](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/load-balancer) directory uses HTTP status codes on the health check endpoint to easily distinguish whether the node is currently primary or not.
 
