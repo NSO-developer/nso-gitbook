@@ -8,11 +8,11 @@ The `econfd` application is the Erlang API towards the ConfD daemon. It is deliv
 
 This is the equivalent of libconfd.so for C programmers.
 
-The interface towards ConfD is a socket based IPC interface, thus this application, econfd, executes in a different address space than ConfD itself. The protocol between econfd and ConfD is almost the same regardless of whether econfd (erlang API) or libconfd.so (C API) is used.
+The interface towards ConfD is a socket based IPC interface, thus this application, econfd, executes in a different address space than ConfD itself. The protocol between econfd and ConfD is almost the same regardless of whether econfd (Erlang API) or libconfd.so (C API) is used.
 
 Thus the architecture is according to the following picture:
 
-<div data-with-frame="true"><figure><img src="pics/arch.png" alt="" width="563"><figcaption><p>Architecture</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/arch.png" alt="" width="563"><figcaption><p>Architecture</p></figcaption></figure></div>
 
 which illustrates the overall architecture from an OTP perspective.
 
