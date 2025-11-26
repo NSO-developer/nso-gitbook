@@ -142,7 +142,7 @@ The Web UI keeps track of selected table display preferences across page refresh
 
 <summary>Partial Service Reconciliation</summary>
 
-Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.&#x20;
+Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.
 
 Documentation Updates:
 
