@@ -488,7 +488,7 @@ The `packages ha sync and-reload` command has the following known limitations an
 * The `primary` node is set to `read-only` mode before the upgrade starts, and it is set back to its previous mode if the upgrade is successfully upgraded. However, the node will always be in read-write mode if an error occurs during the upgrade. It is up to the user to set the node back to the desired mode by using the `high-availability read-only mode` command.
 * As a best practice, you should create a backup of all nodes before upgrading. This action creates no backups, you must do that explicitly.
 
-Example implementations that use scripts to upgrade a 2- and 3-node setup using CLI/MAAPI or RESTCONF are available in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availabilit).
+Example implementations that use scripts to upgrade a 2- and 3-node setup using CLI/MAAPI or RESTCONF are available in the NSO example set under [examples.ncs/high-availability](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability).
 
 We have been using a two-node HCC layer 2 upgrade reference example elsewhere in the documentation to demonstrate installing NSO and adding the initial configuration. The `upgrade-l2` example referenced in [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.5/high-availability/hcc) implements shell and Python scripted steps to upgrade the `primary` `paris` package versions and sync the packages to the `secondary` `london` using `ssh` to the Linux shell and the NSO CLI or Python Requests RESTCONF for accessing the `paris` and `london` nodes. See the example for details.
 
