@@ -55,7 +55,7 @@ admin@ncs(config)# devices global-settings confirm-network-state enabled-by-defa
 
 Commit and other operations then no longer require using the`confirm-network-state` option explicitly; it is enabled automatically for those devices.
 
-Once NSO uses `confirm-network-state` for a device change, it no longer checks device sync status, so the commit may go through even if parts of device configuration are out-of-sync. To find out if the device configuration is out-of-sync before committing, use `dry-run` together with `confirm-network-state`.&#x20;
+Once NSO uses `confirm-network-state` for a device change, it no longer checks device sync status, so the commit may go through even if parts of device configuration are out-of-sync. To find out if the device configuration is out-of-sync before committing, use `dry-run` together with `confirm-network-state`.
 
 NSO keeps track of all reads in a given transaction and then verifies that these values (which were presumably used to influence the provisioning decisions) remain the same on the device. Behind the scenes, this mechanism uses the same transaction read-set that is also used for [concurrency checks](../../development/core-concepts/nso-concurrency-model.md).
 

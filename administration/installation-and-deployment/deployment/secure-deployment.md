@@ -102,7 +102,7 @@ See [Authentication](../../management/aaa-infrastructure.md#ug.aaa.authenticatio
 
 ## Securing IPC Access
 
-Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).&#x20;
+Inter-Process Communication (IPC) security is crucial for safeguarding NSO's extensibility SDK API communications. Since the IPC socket allows full control of the system, it is important to ensure that only trusted or authorized clients can connect. See [Restricting Access to the IPC Socket](../../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket).
 
 Examples of programs that connect using IPC sockets:
 

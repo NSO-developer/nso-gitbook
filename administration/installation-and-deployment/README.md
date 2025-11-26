@@ -16,7 +16,7 @@ Choose this way if you want to install NSO on a system. Before proceeding with t
 
 #### Install Types
 
-The installation of NSO comes in two variants.&#x20;
+The installation of NSO comes in two variants.
 
 {% hint style="info" %}
 Both variants can be installed in **standard mode** or in [**FIPS**](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips)**-compliant** mode. See the detailed installation instructions for more information.

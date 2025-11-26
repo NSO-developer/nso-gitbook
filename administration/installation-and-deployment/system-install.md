@@ -351,7 +351,7 @@ The alternative—using heuristic overcommit mode (see below for best‑effort r
 
 * Set `vm.overcommit_memory=2` to enable strict overcommit accounting.
 * Set `vm.overcommit_ratio` so the CommitLimit is approximately equal to physical RAM, with a 5% headroom for the kernel to reduce the risk of system-wide OOM conditions. E.g., 95% of RAM when no swap is present (recommended), or subtract 5 percentage points from the calculated ratio that neutralizes swap. Increase the headroom if the host runs additional services.
-* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.&#x20;
+* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.
   * When vm.overcommit\_kbytes > 0, it sets a fixed CommitLimit in kB and ignores ratio and swap in the calculation. Note that HugeTLB is not subtracted when overcommit\_kbytes is used (it’s a fixed value).
 * Strongly discourage swap use at runtime by setting `vm.swappiness=1`.
 * If swap must remain enabled system-wide, prevent NSO from using swap by configuring its cgroup with `memory.swap.max=0` (cgroup v2).

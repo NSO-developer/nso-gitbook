@@ -1130,13 +1130,13 @@ autowizard true
 When enabled, the CLI will display dry-run output of the configuration changes and prompt the user to confirm before the commit operation or actions using the ncs-commit-params grouping. This setting is effective on the following actions.
 
 * Service actions
-  * `re-deploy`&#x20;
-  * `un-deploy`&#x20;
+  * `re-deploy`
+  * `un-deploy`
 * Device actions
-  * `sync-to`&#x20;
-  * `partial-sync-to`&#x20;
-  * `migrate`&#x20;
-  * `rollback`&#x20;
+  * `sync-to`
+  * `partial-sync-to`
+  * `migrate`
+  * `rollback`
 
 For example with commit:
 

@@ -576,13 +576,13 @@ The fields `challengeid` and response are base64 encoded when passed to the scri
 
 NSO communicates with clients (Python and Java client libraries, `ncs_cli`, `netconf-subsys`, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
 
-By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.&#x20;
+By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.
 
 ```bash
 ncs_cli --user admin
 ```
 
-&#x20;The same is possible for the group. This unauthenticated access is currently the default.
+The same is possible for the group. This unauthenticated access is currently the default.
 
 The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 

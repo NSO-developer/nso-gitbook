@@ -795,7 +795,7 @@ Validation scripts can also be defined in Python, see more about that in [Plug-a
 
 In reality, network engineers might still modify configurations using other tools like out-of-band CLI or other management interfaces. It is important to understand how NSO manages this.
 
-&#x20;The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
+The NSO network simulator supports CLI towards the devices. For example, we can use the IOS CLI on say `c0` and delete a `permit-list`.
 
 From the UNIX shell, start a CLI session towards `c0`.
 
