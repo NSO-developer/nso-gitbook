@@ -150,7 +150,7 @@ show-tag  interface
 
 So the above command shows that NSO currently has one package, the NED for Cisco IOS.
 
-NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/blob/6.4/device-management/simulated-cisco-ios) example to demonstrate:
+NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios) example to demonstrate:
 
 ```bash
 $ pwd

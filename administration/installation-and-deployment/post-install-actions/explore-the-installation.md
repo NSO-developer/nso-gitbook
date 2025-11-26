@@ -27,7 +27,7 @@ The installation directory includes the following contents:
 
 ### Documentation <a href="#d5e552" id="d5e552"></a>
 
-Along with the binaries, NSO installs a full set of documentation available in the `doc/` folder in the Installation Directory. There is also an online version of the documentation available from [DevNet](https://developer.cisco.com/docs/nso/nso-fundamentals/).
+Along with the binaries, NSO installs a full set of documentation available in the `doc/` folder in the Installation Directory. There is also an [online version](https://nso-docs.cisco.com/guides).
 
 ```bash
 ls -l doc/
