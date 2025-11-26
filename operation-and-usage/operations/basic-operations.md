@@ -953,7 +953,7 @@ devices device c0
 !
 ```
 
-To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to`  or `sync-from`  explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
+To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to` or `sync-from` explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
 
 There is also an option to override the out-of-sync check but beware that this could result in NSO inadvertently overwriting some device configuration:
 

@@ -66,7 +66,7 @@ The Commit Manager is accessible at all times from the UI header. A number, corr
 The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line">) displayed in the UI header.
 
 {% hint style="info" %}
-#### Administrative Info on Enabling the AI Assistant
+**Administrative Info on Enabling the AI Assistant**
 
 The AI Assistant is enabled by use of a package. After installing the AI Assistant package, configure which backend to use under `/ai-assistant:ai-assistant/config` and enable it by setting `/ai-assistant:ai-assistant/enabled` to `true`. In the Web UI, the setting is accessible from the Config Editor. Once enabled, the AI Assistant button is added to the Web UI header.
 {% endhint %}

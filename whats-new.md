@@ -65,15 +65,12 @@ NSO 6.6 comes with improvements to the way YANG schema is stored and loaded, red
 This NSO version introduces multiple quality of life improvements for service development:
 
 * A device template can be converted to a service with the `/services/create-template` action.
-
-- New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
-
+* New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
 * NSO warns if there are unused macros inside XML templates.
-
-- New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
-- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
-- Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
-- Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
+* New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
+* New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
+* Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
+* Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
 
 </details>
 

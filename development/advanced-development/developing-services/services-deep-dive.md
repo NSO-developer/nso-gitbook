@@ -1362,6 +1362,7 @@ In some scenarios, you may want to control which parts of a service configuratio
 A common use case is when working with stacked services. Reconciling the entire top-level service could unintentionally modify parameters managed by lower-level services. However, you may want to avoid changing the lower-level service settings during reconciliation.
 
 To address this, you can use the `include` and `exclude` options together with `reconcile` option:
+
 * The `include` option allows you to specify a list of service configuration paths that should be reconciled.
 * The `exclude` option allows you to specify a list of service configuration paths to be omitted from reconciliation.
 

@@ -303,7 +303,7 @@ There are two ways to create a compliance template:
 * **From config**: Build a new template directly from an existing device configuration.
 
 {% hint style="info" %}
-#### Template Creation using Config Editor
+**Template Creation using Config Editor**
 
 A third way to create a compliance template from scratch is by using the Config Editor. With this option, you will need to manually type in your desired configuration model to create a compliance template.
 {% endhint %}

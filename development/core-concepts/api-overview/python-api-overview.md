@@ -1230,8 +1230,8 @@ Functions and methods that accept the `load_schemas` argument:
 * `ncs.maapi.single_write_trans()`
 
 ### The way of using `multiprocessing.Process`
-When using multiprocessing in NSO, the default start method is now `spawn` instead of `fork`.
-With the `spawn` method, a new Python interpreter process is started, and all arguments passed to `multiprocessing.Process` must be picklable.
+
+When using multiprocessing in NSO, the default start method is now `spawn` instead of `fork`. With the `spawn` method, a new Python interpreter process is started, and all arguments passed to `multiprocessing.Process` must be picklable.
 
 If you pass Python objects that reference low-level C structures (for example `_ncs.dp.DaemonCtxRef` or `_ncs.UserInfo`), Python will raise an error like:
 
@@ -1268,8 +1268,7 @@ class Main(ncs.application.Application):
 
 This happens because `self` and `uinfo` contain low-level C references that cannot be serialized (pickled) and sent to the child process.
 
-To fix this, avoid passing entire objects such as `self` or `uinfo` to the process.
-Instead, pass only simple or primitive data types (like strings, integers, or dictionaries) that can be pickled.
+To fix this, avoid passing entire objects such as `self` or `uinfo` to the process. Instead, pass only simple or primitive data types (like strings, integers, or dictionaries) that can be pickled.
 
 {% code title="Example: using multiprocessing.Process with primitive data" %}
 ```python
