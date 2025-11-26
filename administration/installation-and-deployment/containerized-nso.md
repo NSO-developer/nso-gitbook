@@ -29,7 +29,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 * [Production Image](containerized-nso.md#production-image)
 * [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="false"><thead><tr><th valign="top">Intended Use</th><th valign="top">Develop NSO Packages</th><th valign="top">Build NSO Packages</th><th valign="top">Run NSO</th><th valign="top">NSO Install Type</th></tr></thead><tbody><tr><td valign="top">Development Host</td><td valign="top"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top">None or Local Install</td></tr><tr><td valign="top">Build Image</td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top">System Install</td></tr><tr><td valign="top">Production Image</td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="top">System Install</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th valign="top">Intended Use</th><th valign="top">Develop NSO Packages</th><th valign="top">Build NSO Packages</th><th valign="top">Run NSO</th><th valign="top">NSO Install Type</th></tr></thead><tbody><tr><td valign="top">Development Host</td><td valign="top"><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top">None or Local Install</td></tr><tr><td valign="top">Build Image</td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top">System Install</td></tr><tr><td valign="top">Production Image</td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td valign="top">System Install</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -90,13 +90,11 @@ To run the images, make sure that your system meets the following requirements:
 * A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
 *   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.4` is the image you want to check):
 
-    \{% code title="Example: Check Java and Python Versions of Container" %\}
-
+    {% code title="Example: Check Java and Python Versions of Container" %}
     ```bash
     docker run --rm cisco-nso-prod:6.4 sh -c "java -version && python --version"
     ```
-
-    \{% endcode %\}
+    {% endcode %}
 
 {% hint style="info" %}
 Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.
@@ -302,7 +300,7 @@ By default, the Linux kernel allows overcommit of memory. However, memory overco
 
 Also, when the OOM-killer terminates NSO, NSO will not produce a system dump file, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled with Linux NSO production container hosts with an overcommit ratio of less than 100% (max). Use a 5% headroom (overcommit\_ratio≈95 when no swap) or increase if the host runs additional services. Or use vm.overcommit\_kbytes for a fixed CommitLimit.
 
-See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.
+See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.&#x20;
 
 {% hint style="info" %}
 By default, NSO writes a system dump to the NSO run-time directory, default `NCS_RUN_DIR=/nso/run`. If the `NCS_RUN_DIR` is not pointing to a persistent, host‑mounted volume so dumps survive container restarts or to give the NSO system dump file a unique name, the `NCS_DUMP="/path/to/mounted/dir/ncs_crash.dump.$(date +%Y%m%d-%H%M%S)"` variable needs to be set.

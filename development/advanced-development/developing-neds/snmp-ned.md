@@ -45,7 +45,7 @@ The compilation steps performed by the `ncsc --ncs-compile-mib-bundle` are elabo
 
 These steps are illustrated in the figure below:
 
-<figure><img src="../../../.gitbook/assets/ned-compile.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
+<figure><img src="../../../images/ned-compile.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
 
 Finally make sure that the NSO configuration file points to the correct device model directory:
 

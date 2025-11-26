@@ -29,7 +29,7 @@ Watch a video presentation of this demo on [YouTube](https://www.youtube.com/wat
 
 The example [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
 
-<figure><img src="../../.gitbook/assets/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
+<figure><img src="../../images/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
 
 The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.
 

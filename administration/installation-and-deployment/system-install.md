@@ -263,15 +263,15 @@ For an extensive guide to NSO deployment, refer to [Development to Production De
 
 By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO because the Linux Out-Of-Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory. Also, when the OOM killer terminates NSO, no system dump file will be produced, and the debug information will be lost. Thus, it is strongly recommended to enable strict overcommit accounting.
 
-**Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
+#### **Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
 
 The alternative—using heuristic overcommit mode (see below for best‑effort recommendations)—can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
 
-**Recommended: Host Configured for Strict Overcommit**
+#### Recommended: Host Configured for Strict Overcommit
 
 * Set `vm.overcommit_memory=2` to enable strict overcommit accounting.
 * Set `vm.overcommit_ratio` so the CommitLimit is approximately equal to physical RAM, with a 5% headroom for the kernel to reduce the risk of system-wide OOM conditions. E.g., 95% of RAM when no swap is present (recommended), or subtract 5 percentage points from the calculated ratio that neutralizes swap. Increase the headroom if the host runs additional services.
-* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.
+* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.&#x20;
   * When vm.overcommit\_kbytes > 0, it sets a fixed CommitLimit in kB and ignores ratio and swap in the calculation. Note that HugeTLB is not subtracted when overcommit\_kbytes is used (it’s a fixed value).
 * Strongly discourage swap use at runtime by setting `vm.swappiness=1`.
 * If swap must remain enabled system-wide, prevent NSO from using swap by configuring its cgroup with `memory.swap.max=0` (cgroup v2).
@@ -404,17 +404,18 @@ See the Linux [sysctl.conf(5)](https://man7.org/linux/man-pages/man5/sysctl.conf
 
 If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory that the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
 
-**Alternative: Heuristic Overcommit Mode**
+#### **Alternative: Heuristic Overcommit Mode (vm.overcommit\_memory=0) With Committed\_AS Monitoring**
 
 As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` to allow overcommit of memory and monitor the total committed memory (Committed\_AS) versus CommitLimit using, for example, a best effort script or observability tool. When Committed\_AS crosses a threshold, for example, 90% of CommitLimit, proactively trigger a series of NSO debug dumps every few seconds via `ncs --debug-dump`. Optionally, a second critical threshold, for example, 95% of CommitLimit, proactively trigger NSO to produce a system dump and then exit gracefully.
 
 * This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before memory pressure becomes critical and the Linux OOM-killer kills NSO.
 * If swap is enabled, prefer vm.swappiness=1 and consider placing NSO in a cgroup with memory.swap.max=0 to avoid swap I/O for NSO. Requires Linux cgroup v2 and a service-managed cgroup (e.g., systemd) support.
-* Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
-* When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
-* If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
-* Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
-* See "NSO Crash Dumps" above for crash dump details.
+
+- Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
+- When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
+- If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
+- Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
+- See "NSO Crash Dumps" above for crash dump details.
 
 {% code title="Simple example script NSO debug-dump monitor" overflow="wrap" %}
 ```bash

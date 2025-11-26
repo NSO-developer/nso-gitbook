@@ -6,7 +6,7 @@ description: Configure NSO to receive SNMP notifications.
 
 NSO can act as an SNMP notification receiver (v1, v2c, v3) for its managed devices. The application can register notification handlers and react to the notifications, for example by mapping SNMP notifications to NSO alarms.
 
-<figure><img src="../../.gitbook/assets/snmp-notif.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
+<figure><img src="../../images/snmp-notif.png" alt="" width="375"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure>
 
 The notification receiver is started in the Java VM by application code, as described below. The application code registers the handlers, which are invoked when a notification is received from a managed device. The NSO operator can enable and disable the notification receiver as needed. The notification receiver is configured in the `/snmp-notification-receiver` subtree.
 

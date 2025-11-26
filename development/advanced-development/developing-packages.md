@@ -18,7 +18,7 @@ In this section, we will develop an MPLS service for a network of provider edge 
 
 We first want to create a simulation environment where ConfD is used as a NETCONF server to simulate the routers in our network. We plan to create a network that looks like this:
 
-<figure><img src="../../.gitbook/assets/mplsnetwork.png" alt="" width="563"><figcaption><p>MPLS Network</p></figcaption></figure>
+<figure><img src="../../images/mplsnetwork.png" alt="" width="563"><figcaption><p>MPLS Network</p></figcaption></figure>
 
 To create the simulation network, the first thing we need to do is create NSO packages for the two router models. The packages are also exactly what NSO needs to manage the routers.
 
