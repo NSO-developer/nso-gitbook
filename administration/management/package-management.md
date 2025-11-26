@@ -114,7 +114,7 @@ When the changes in the NED are not backward compatible, the NED is assigned a n
 
 Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform the NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same NED ID and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some 3rd-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the NED ID values to see whether migration is needed.
 
-<figure><img src="../../images/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED package versioning</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED package versioning</p></figcaption></figure>
 
 A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options to migration tooling for identifying the paths and service instances that may be impacted. So, please ensure all the other packages are compatible with the new NED before you start migrating devices.
 

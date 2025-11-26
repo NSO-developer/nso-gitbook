@@ -128,7 +128,7 @@ That is why modern, performant code in NSO should use the kicker mechanism inste
 
 The time it takes to complete a transaction is certainly an important performance metric. However, after a certain point, it gets increasingly hard or even impossible to get meaningful improvement from optimizing each individual transaction. As it turns out, on a busy system, there are usually multiple outstanding requests. So, instead of trying to process each as fast as possible one after another, the system might process them in parallel.
 
-<figure><img src="../../images/transaction-parallel.png" alt="" width="563"><figcaption><p>Running Transactions Sequentially and in Parallel</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/transaction-parallel.png" alt="" width="563"><figcaption><p>Running Transactions Sequentially and in Parallel</p></figcaption></figure>
 
 In practice and as the figure shows, some parts must still be processed sequentially to ensure transactional properties. However, there is a significant gain in the overall time it takes to process all transactions in a busy system, even though each might take a little longer individually due to the concurrency overhead.
 
@@ -178,7 +178,7 @@ Besides making sure the system hardware capabilities and network bandwidth are n
 * Using commit queues to exclude the time to push configuration changes to devices from inside the transaction lock.
 * Simplify using nano and stacked services. If the processor where NSO with a stacked service runs becomes a severe bottleneck, the added complexity of migrating the stacked service to an LSA setup can be motivated. LSA helps expose only a single service instance when scaling up the number of devices by increasing the number of available CPU cores beyond a single processor.
 
-<figure><img src="../../images/transaction-throughput.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/transaction-throughput.png" alt=""><figcaption></figcaption></figure>
 
 ### Measuring Transaction Throughput <a href="#ncs.development.scaling.throughput.measure" id="ncs.development.scaling.throughput.measure"></a>
 
@@ -186,7 +186,7 @@ Measuring transaction performance includes measuring the total wall-clock time f
 
 The picture below shows a visualization of the NSO progress trace when running a single transaction for two service instances configuring a device each:
 
-<figure><img src="../../images/trans-progress.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/trans-progress.png" alt=""><figcaption></figcaption></figure>
 
 The total RESTCONF edit took \~5 seconds, and the service mapping (“creating service” event) and validation (“run validation ...” event) were done sequentially for the service instances and took 2 seconds each. The configuration push to the devices was done concurrently in 1 second.
 
@@ -280,13 +280,13 @@ Close to full utilization of every CPU core when running under maximal load, for
 
 One transaction per RFS instance and device will allow each NSO transaction to run on a separate core concurrently. Multiple concurrent RESTCONF or NETCONF edits, CLI commits, MAAPI `apply()`, nano service re-deploy, etc. Keep the number of running concurrent transactions equal to or below the number of cores available in the multi-core processor to avoid performance degradation due to increased contention on system internals and resources. NSO helps by limiting the number of transactions applying changes in parallel to, by default, the number of logical processors (e.g., CPU cores). See [ncs.conf(5)](../../man/section5.md#ncs.conf) in Manual Pages under `/ncs-config/transaction-limits/max-transactions` for details.
 
-<figure><img src="../../images/concurrent-trans.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/concurrent-trans.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Design to Minimize Conflicts <a href="#ncs.development.scaling.throughput.conflicts" id="ncs.development.scaling.throughput.conflicts"></a>
 
 Conflicts between transactions and how to avoid them are described in [Minimizing Concurrency Conflicts](scaling-and-performance-optimization.md#ncs.development.scaling.conflicts) and in detail by the [NSO Concurrency Model](../core-concepts/nso-concurrency-model.md). While NSO can handle transaction conflicts gracefully with retries, retries affect transaction throughput performance. A simple but effective design pattern to avoid conflicts is to update one device with one Resource Facing Service (RFS) instance where service instances do not read each other's configuration changes.
 
-<figure><img src="../../images/rfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/rfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Design to Minimize Service and Validation Processing Time <a href="#d5e8544" id="d5e8544"></a>
 
@@ -309,7 +309,7 @@ cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-setvals
 
 The commit uses the `no-networking` parameter to skip pushing the configuration to the simulated and un-proportionally slow Cisco ASA netsim device. The resulting NSO progress trace:
 
-<figure><img src="../../images/service-create-progress.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-create-progress.png" alt=""><figcaption></figcaption></figure>
 
 Next, run the `perf-setvals` example using a single MAAPI Python `shared_set_values()` call to create 3000 rules and 3000 routes on one device:
 
@@ -319,7 +319,7 @@ Next, run the `perf-setvals` example using a single MAAPI Python `shared_set_val
 
 The resulting NSO progress trace:
 
-<figure><img src="../../images/service-setvals-progress.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-setvals-progress.png" alt=""><figcaption></figcaption></figure>
 
 Using the MAAPI `shared_set_values()` function, the service `create` callback is, for this example, \~5x faster than using the MAAPI `create()` and `set()` functions. The total wall-clock time for the transaction is more than 2x faster, and the difference will increase for larger transactions.
 
@@ -350,7 +350,7 @@ python3 ../common/simple_progress_trace_viewer.py $(ls logs/*.csv)
 
 The resulting NSO progress trace:
 
-<figure><img src="../../images/concurrent-progress.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/concurrent-progress.png" alt=""><figcaption></figcaption></figure>
 
 A sequence diagram with transactions `t1` and `t2` deploying service configuration to two devices using RESTCONF `patch` requests to NSO with NSO configuring the netsim devices using NETCONF:
 
@@ -373,7 +373,7 @@ The concept of a network-wide transaction requires NSO to wait for the managed d
 
 Writing to a commit queue instead of the device moves the device configuration push outside of the critical region, and the transaction lock can instead be released when the change has been written to the commit queue.
 
-<figure><img src="../../images/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/commit-queues.png" alt="" width="563"><figcaption></figcaption></figure>
 
 For commit queue documentation, see [Commit Queue](../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue).
 
@@ -389,7 +389,7 @@ python3 ../common/simple_progress_trace_viewer.py $(ls logs/*.csv)
 
 The resulting NSO progress trace:
 
-<figure><img src="../../images/cq-progress.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cq-progress.png" alt=""><figcaption></figcaption></figure>
 
 A sequence diagram with transactions `t1` and `t2` deploying service configuration to two devices using RESTCONF `patch` requests to NSO with NSO configuring the netsim devices using NETCONF:
 
@@ -418,11 +418,11 @@ The `perf-trans` example service uses one transaction per service instance where
 
 To simplify the NSO manager application, a resource-facing nano service (RFS) can start a process per service instance. The NSO manager application or user can then use a single transaction, e.g., CLI or RESTCONF, to configure multiple service instances where the NSO nano service divides the service instances into transactions running concurrently in separate processes.
 
-<figure><img src="../../images/nano-rfs.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/nano-rfs.png" alt="" width="563"><figcaption></figcaption></figure>
 
 The nano service can be straightforward, for example, using a single `t3:configured` state to invoke a service template or a `create()` callback. If validation code is required, it can run in a nano service post-action, `t3:validated` state, instead of a validation point callback to keep the validation code in the process created by the nano service.
 
-<figure><img src="../../images/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/concurrent-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
 See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) and [Develop and Deploy a Nano Service](../introduction-to-automation/develop-and-deploy-a-nano-service.md) for Nano service documentation.
 
@@ -430,7 +430,7 @@ See [Nano Services for Staged Provisioning](../core-concepts/nano-services.md) a
 
 A Customer Facing Service (CFS) that is stacked with the RFS and maps to one RFS instance per device can simplify the service that is exposed to the NSO northbound interfaces so that a single NSO northbound interface transaction spawns multiple transactions, for example, one transaction per RFS instance when using the `converge-on-re-deploy` YANG extension with the nano service behavior tree.
 
-<figure><img src="../../images/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cfs-design.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Furthermore, the time spent calculating the diff-set, as seen with the `saving reverse diff-set and applying changes` event in the[ perf-setvals example](scaling-and-performance-optimization.md#running-the-perf-setvals-example-using-a-single-call-to-maapi-shared_set_values), can be [optimized using a stacked service design](developing-services/services-deep-dive.md#stacked-service-design).
 
@@ -438,7 +438,7 @@ Furthermore, the time spent calculating the diff-set, as seen with the `saving r
 
 The `perf-stack` example showcases how a CFS on top of a simple resource-facing nano service can be implemented with the `perf-trans` example by modifying the existing t3 RFS and adding a CFS. Instead of multiple RESTCONF transactions, the example uses a single CLI CFS service commit that updates the desired number of service instances. The commit configures multiple service instances in a single transaction where the nano service runs each service instance in a separate process to allow multiple cores to be used concurrently.
 
-<figure><img src="../../images/cfs-nano.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cfs-nano.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Run as below to start two transactions with a 1-second CPU time workload per transaction in both the service and validation callbacks, each transaction pushing the device configuration to one device, each using a synchronous commit queue, where each device simulates taking 1 second to make the configuration changes to the device:
 
@@ -447,7 +447,7 @@ cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-stack
 ./showcase.sh -d 2 -t 2 -w 1 -r 1 -q 'True' -y 1
 ```
 
-<figure><img src="../../images/transaction-stacked.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/transaction-stacked.png" alt=""><figcaption></figcaption></figure>
 
 The above progress trace visualization is truncated to fit, but notice how the `t3:validated` state action callbacks, `t3:configured` state service creation callbacks and configuration push from the commit queues are running concurrently (on separate CPU cores) when initiating the service deployment with a single transaction started by the CLI commit.
 
@@ -518,13 +518,13 @@ Before considering taking on the complexity of a multi-NSO node LSA setup, make 
 Migrating to an LSA setup should only be considered after checking all boxes for the above items.
 {% endhint %}
 
-<figure><img src="../../images/lsa-design.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lsa-design.png" alt=""><figcaption></figcaption></figure>
 
 ### Running the LSA-enabled `perf-lsa` Example <a href="#d5e8680" id="d5e8680"></a>
 
 The `perf-lsa` example builds on the `perf-stack` example and showcases an LSA setup using two RFS NSO instances, `lower-nso-1` and `lower-nso-2`, with a CFS NSO instance, `upper-nso`.
 
-<figure><img src="../../images/lsa-transaction.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lsa-transaction.png" alt="" width="563"><figcaption></figcaption></figure>
 
 You can imagine adding more RFS NSO instances, `lower-nso-3`, `lower-nso-4`, etc., to the existing two as the number of devices increases. One NSO instance per multi-core processor and at least one CPU core per device (network element) is likely the most performant setup for this simulated work example. See [LSA Overview](../../administration/advanced-topics/layered-service-architecture.md) in Layered Service Architecture for more.
 
@@ -537,11 +537,11 @@ cd $NCS_DIR/examples.ncs/development-guide/concurrency-model/perf-lsa
 
 The three NSO progress trace visualizations show NSO on the CFS and the two RFS nodes. Notice how the CLI commit starts a transaction on the CFS node and configures four service instances with two transactions on each RFS node to push the resulting configuration to four devices.
 
-<figure><img src="../../images/cfs-progress.png" alt=""><figcaption><p>NSO CFS Node</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cfs-progress.png" alt=""><figcaption><p>NSO CFS Node</p></figcaption></figure>
 
-<figure><img src="../../images/rfs1-progress.png" alt=""><figcaption><p>NSO RFS Node 1 (Truncated to Fit)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/rfs1-progress.png" alt=""><figcaption><p>NSO RFS Node 1 (Truncated to Fit)</p></figcaption></figure>
 
-<figure><img src="../../images/rfs2-progress.png" alt=""><figcaption><p>NSO RFS Node 2 (Truncated to Fit)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/rfs2-progress.png" alt=""><figcaption><p>NSO RFS Node 2 (Truncated to Fit)</p></figcaption></figure>
 
 A sequence diagram describing the transactions on RFS 1 `t1` `t2` and RFS 2 `t1` `t2`. The transactions deploy service configuration to the devices using the NSO CLI:
 
@@ -666,7 +666,7 @@ Compared to the size of CDB before we added the device, we can deduce that the d
 The wildcard expansion in the request `devices device * sync-from` is processed by the CLI, which will iterate over the devices sequentially. This is inefficient and can be sped up by using `devices sync-from` which instead processes the devices concurrently. The sequential mode better produces a graph that better illustrates how this scales, which is why it is used here.
 {% endhint %}
 
-<figure><img src="../../images/1000-small-nxos-devices.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1000-small-nxos-devices.png" alt=""><figcaption></figcaption></figure>
 
 A device with a larger configuration will consume more space. With a single Juniper MX device that has a configuration with close to half a million lines of configuration, there's a substantial increase:
 
@@ -679,7 +679,7 @@ running  4.59 MiB  33.97 MiB
 
 Similarly, adding more such devices allows monitoring of how it scales linearly. In the end, with 100 devices, CDB consumes 3.35 GB of RAM and 450 MB of disk, or \~33.5 MiB of RAM and \~4.5 MiB disk space per device.
 
-<figure><img src="../../images/100-large-mx-devices.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/100-large-mx-devices.png" alt=""><figcaption></figcaption></figure>
 
 Thus, you must do more than dimension your NSO installation based on the number of devices. You must also understand roughly how much resources each device will consume.
 

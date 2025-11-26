@@ -12,7 +12,7 @@ Make sure that you have installed NSO and that you have sourced the `ncsrc` file
 
 We will use the NSO network simulator to simulate three Cisco IOS routers. NSO will talk Cisco CLI to those devices. You will use the NSO CLI and Web UI to perform the tasks. Sometimes you will use the native Cisco device CLI to inspect configuration or do out-of-band changes.
 
-<figure><img src="../../images/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
 
 \
 Note that both the NSO software (NCS) and the simulated network devices run on your local machine.
@@ -177,7 +177,7 @@ NSO only needs to be synchronized with the devices in the event of a change bein
 
 The above incorrect (or not necessary) sequence stems from the assumption that the NSO CLI talks directly to the devices. This is not the case; the northbound interfaces in NSO modify the configuration in the NSO data store, NSO calculates a minimum difference between the current configuration and the new configuration, giving only the changes to the configuration to the NEDS that runs the commands to the devices. All this as one single change-set.
 
-<figure><img src="../../images/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
 
 View the configuration of the `c0` device using the command:
 
