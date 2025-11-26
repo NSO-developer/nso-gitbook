@@ -71,7 +71,7 @@ This NSO version introduces multiple quality of life improvements for service de
 * NSO warns if there are unused macros inside XML templates.
 
 - New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
-- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.&#x20;
+- New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
 - Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
 - Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
 
@@ -83,7 +83,7 @@ This NSO version introduces multiple quality of life improvements for service de
 
 The NSO Web Server now has a configurable number of simultaneous connections. Additionally, the number of current connections can be monitored through the metrics framework.
 
-&#x20;Documentation Updates:
+Documentation Updates:
 
 * Documented a new `/ncs-config/webui/max-connections` parameter for the `ncs.conf` file.
 
