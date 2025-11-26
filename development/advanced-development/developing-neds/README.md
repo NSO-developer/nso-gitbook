@@ -65,7 +65,7 @@ The table below displays the device types:
 
 The following state diagram depicts the different states the NED code goes through in the life of a transaction.
 
-<figure><img src="../../../images/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
 
 ## Statistics <a href="#ncs.development.ned.stats" id="ncs.development.ned.stats"></a>
 
@@ -430,7 +430,7 @@ In order to be able to invoke a callback an instance of the NED object needs to 
 
 The following state diagram displays NED states specific to the dry-run scenario.
 
-<figure><img src="../../../images/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
 
 ## NED Identification <a href="#ncs.development.ned.identification" id="ncs.development.ned.identification"></a>
 
@@ -862,7 +862,7 @@ admin@ncs# devices device pe2 sync-from
 
 The service must be updated to handle the difference between the Junos device's non-compliant and compliant configuration. The NSO service uses Python code to configure the Junos device using a service template. One way to find the required updates to the template and code is to check the difference between the non-compliant and compliant configurations for the parts covered by the template.
 
-<figure><img src="../../../images/junos-side.png" alt=""><figcaption><p>Side by Side, Running Config on the Left, Template on the Right.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/junos-side.png" alt=""><figcaption><p>Side by Side, Running Config on the Left, Template on the Right.</p></figcaption></figure>
 
 Checking the `packages/l3vpn/templates/l3vpn-pe.xml` service template Junos device part under the legacy `http://xml.juniper.net/xnm/1.1/xnm` namespace, you can observe that it configures `interfaces`, `routing-instances`, `policy-options`, and `class-of-service`.
 

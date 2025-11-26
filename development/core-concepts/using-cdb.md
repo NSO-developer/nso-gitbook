@@ -11,7 +11,7 @@ When using CDB to store the configuration data, the applications need to be able
 
 The figure below illustrates the architecture of when the CDB is used. The Application components read configuration data and subscribe to changes to the database using a simple RPC-based API. The API is part of the Java library and is fully documented in the Javadoc for CDB.
 
-<figure><img src="../../images/cdbarch.png" alt="" width="563"><figcaption><p>NSO CDB Architecture Scenario</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cdbarch.png" alt="" width="563"><figcaption><p>NSO CDB Architecture Scenario</p></figcaption></figure>
 
 While CDB is the default data store for configuration data in NSO, it is possible to use an external database, if needed. See the example [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-db) for details.
 
@@ -1148,11 +1148,11 @@ As with any package component type, the `upgrade` component has to be defined in
 
 Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package\_mgmt.loading).
 
-<figure><img src="../../images/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
 
 So in preparation for a package upgrade, the new packages replace the old ones in the load path. In our scenario, the YANG model changes are such that the automatic schema upgrade that CDB performs is not sufficient, therefore the new packages also contain `upgrade` components. At this point, NSO is still running with the old package definitions.
 
-<figure><img src="../../images/upg_pack_2.png" alt="" width="563"><figcaption><p>NSO Package at Reload</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/upg_pack_2.png" alt="" width="563"><figcaption><p>NSO Package at Reload</p></figcaption></figure>
 
 When the package reload is requested, the packages in the load path are copied to the state directory. The old state directory is scratched, so that packages that no longer exist in the load path are removed and new packages are added. Unchanged packages will be unchanged. Automatic schema CDB upgrades will be performed, and afterward, for all packages that have an upgrade component and for which at least one YANG model was changed, this upgrade component will be executed. Also for added packages that have an upgrade component, this component will be executed. Hence the upgrade component needs to be programmed in such a way that care is taken for both the `new` and `upgrade` package scenarios.
 
@@ -1386,7 +1386,7 @@ At the end of the program, the sockets are closed. Important to note is that no 
         s2.close();
 ```
 
-<figure><img src="../../images/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
 
 In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example, this more complicated scenario is illustrated with the `tunnel` package. See the `tunnel-py` package for a Python variant. The `tunnel` package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
 
