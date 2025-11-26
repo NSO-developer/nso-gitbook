@@ -135,7 +135,7 @@ The prepare stage sends out the changes to the network through the Device Manage
 
 If all systems took the new configuration successfully, enter the commit phase, marking the new NSO configuration as active and activating or committing the staged configuration on remote devices. Otherwise, enter the abort phase, discarding changes, and ask NEDs to revert activated changes on devices that do not support transactions (e.g. without candidate data store).
 
-<figure><img src="../../../.gitbook/assets/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure>
+<figure><img src="../../../images/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure>
 
 There are also two types of locks involved with the transaction that are of interest to the service developer; the service write lock and the transaction lock. The latter is a global lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../scaling-and-performance-optimization.md) for more details and their impact on performance.
 
@@ -157,7 +157,7 @@ Next, NSO runs transaction hooks and performs the necessary transforms, which al
 
 After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/operations/basic-operations.md#d5e319) in Operation and Usage).
 
-<figure><img src="../../../.gitbook/assets/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
+<figure><img src="../../../images/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure>
 
 Throughout the phase, the transaction engine makes checkpoints, so it can restart the transaction faster in case of concurrency conflicts. The check for conflicts happens at the end of this first phase when NSO also takes the global transaction lock. Concurrency is further discussed in [NSO Concurrency Model](../../core-concepts/nso-concurrency-model.md).
 
@@ -1025,7 +1025,7 @@ The process of identifying services and importing them into NSO is called Servic
 
 Ultimately, the problem that service discovery addresses is one of referencing or linking configuration to services. Since the network already contains target configuration, a new service instance in NSO produces no changes in the network. This means the new service in NSO by default does not own the network configuration. One side effect is that removing a service will not remove the corresponding device configuration, which is likely to interfere with service modification as well.
 
-<figure><img src="../../../.gitbook/assets/deepdive-reconcile.png" alt="" width="563"><figcaption><p>Service Reconciliation</p></figcaption></figure>
+<figure><img src="../../../images/deepdive-reconcile.png" alt="" width="563"><figcaption><p>Service Reconciliation</p></figcaption></figure>
 
 Some of the steps in the process can be automated, while others are mostly manual. The amount of work differs a lot depending on how structured and consistent the original deployment is.
 

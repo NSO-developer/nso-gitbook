@@ -65,7 +65,7 @@ The table below displays the device types:
 
 The following state diagram depicts the different states the NED code goes through in the life of a transaction.
 
-<figure><img src="../../../.gitbook/assets/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
+<figure><img src="../../../images/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
 
 ## Statistics <a href="#ncs.development.ned.stats" id="ncs.development.ned.stats"></a>
 
@@ -432,7 +432,7 @@ In order to be able to invoke a callback an instance of the NED object needs to 
 
 The following state diagram displays NED states specific to the dry-run scenario.
 
-<figure><img src="../../../.gitbook/assets/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
+<figure><img src="../../../images/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
 
 ## NED Identification <a href="#ncs.development.ned.identification" id="ncs.development.ned.identification"></a>
 

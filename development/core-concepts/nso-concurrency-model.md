@@ -16,13 +16,13 @@ Optimistic concurrency, on the other hand, allows transactions to run in paralle
 
 Such a model makes sense because a lot of the time concurrent transactions deal with separate sets of data. Even if multiple transactions share some data in a read-only fashion, it is fine as they still produce the same result.
 
-<figure><img src="../../.gitbook/assets/transaction-no-conflict.png" alt="" width="563"><figcaption><p>Nonconflicting Concurrent Transactions</p></figcaption></figure>
+<figure><img src="../../images/transaction-no-conflict.png" alt="" width="563"><figcaption><p>Nonconflicting Concurrent Transactions</p></figcaption></figure>
 
 In the figure, `svc1` in the `T1` transaction and `svc2` in the `T2` transaction both read (but do not change) the same, shared piece of data and can proceed as usual, unperturbed.
 
 On the other hand, a conflict is when a piece of data, that has been read by one transaction, is changed by another transaction before the first transaction is committed. In this case, at the moment the first transaction completes, it is already working with stale data and must be rejected, as the following figure shows.
 
-<figure><img src="../../.gitbook/assets/transaction-conflict.png" alt="" width="563"><figcaption><p>Conflicting Concurrent Transactions</p></figcaption></figure>
+<figure><img src="../../images/transaction-conflict.png" alt="" width="563"><figcaption><p>Conflicting Concurrent Transactions</p></figcaption></figure>
 
 In the figure, the transaction `T1` reads `dns-server` to use in the provisioning of `svc1` but transaction `T2` changes `dns-server` value in the meantime. The two transactions conflict and `T1` is rejected because `T2` completed first.
 
@@ -41,7 +41,7 @@ It is extremely important that you do not mix multiple transactions, because it 
 
 While the optimistic concurrency model allows transactions to run concurrently most of the time, ultimately some synchronization (a global lock) is still required to perform the conflict checks and serialize data writes to the CDB and devices. The following figure shows everything that happens after a client tries to apply a configuration change, including acquiring and releasing the lock. This process takes place, for example, when you enter the **commit** command on the NSO CLI or when a PUT request of the RESTCONF API is processed.
 
-<figure><img src="../../.gitbook/assets/transaction-stages.png" alt="" width="563"><figcaption><p>Stages of a Transaction Commit</p></figcaption></figure>
+<figure><img src="../../images/transaction-stages.png" alt="" width="563"><figcaption><p>Stages of a Transaction Commit</p></figcaption></figure>
 
 As the figure shows (and you can also observe it in the progress trace output), service mapping, validation, and transforms all happen in the transaction before taking a (global) transaction lock.
 
@@ -125,7 +125,7 @@ The read-set and write-set size limits that NSO uses for transaction checkpoints
 * /ncs-config/checkpoint/max-write-set-size
 * /ncs-config/checkpoint/total-size-limit
 
-See [ncs.conf(5) ](../../resources/man/#section-5-file-formats-and-syntax)for details.
+See [ncs.conf(5) ](../../resources/man/README.md#section-5-file-formats-and-syntax)for details.
 
 A transaction checkpoint reaching a size limit will result in a log entry:
 
@@ -454,6 +454,6 @@ The `no-overwrite` commit parameter mechanism prevents NSO from applying configu
 
 You can choose from the following three `compare` scopes:
 
-<table><thead><tr><th valign="top">Scope</th><th valign="top">Description</th><th valign="top">Use Case and Considerations</th></tr></thead><tbody><tr><td valign="top"><code>write-set-only</code></td><td valign="top">Only modified data is checked (pre-6-4 behavior).</td><td valign="top"><p>Minimizes the amount of data fetched from the device, thus, reducing overhead.</p><p>Suitable for scenarios where performance is critical, and the device is trusted to validate its own configuration constraints.<br><br>Use this scope for devices with simple YANG models or when minimal validation is sufficient.</p></td></tr><tr><td valign="top"><code>write-and-full-read-set</code></td><td valign="top">Both modified and read data are checked (introduced in NSO 6.4).</td><td valign="top"><p>Provides the highest level of consistency by ensuring that all dependent data matches NSO’s CDB. Recommended for critical devices or complex configurations where data integrity is paramount.</p><p>Can be resource-intensive, especially for devices with third-party YANG models containing extensive dependencies (<code>when</code>, <code>must</code>, or <code>leafref</code> expressions).<br><br>Use this scope for devices requiring strict configuration alignment with NSO’s CDB.</p></td></tr><tr><td valign="top"><code>write-and-service-read-set</code></td><td valign="top">Checks only modified data and reads during the transform phase (new default introduced in 6.4).</td><td valign="top"><p>Offers improved performance over <code>write-and-full-read-set</code> by limiting the scope to service-related reads, while still ensuring consistency for service-driven configurations.</p><p>Avoids performance penalties from validation-phase reads in complex device models.<br><br>Balances performance and accuracy for devices with complex YANG models, such as those used in 3PY NEDs, where validation-phase reads can significantly increase the read-set size.<br><br>Use this scope for multi-vendor environments with third-party devices where services drive configuration changes.</p></td></tr></tbody></table>
+<table><thead><tr><th valign="top">Scope</th><th valign="top">Description</th><th valign="top">Use Case and Considerations</th></tr></thead><tbody><tr><td valign="top"><code>write-set-only</code></td><td valign="top">Only modified data is checked (pre-6-4 behavior).</td><td valign="top"><p>Minimizes the amount of data fetched from the device, thus, reducing overhead. </p><p></p><p>Suitable for scenarios where performance is critical, and the device is trusted to validate its own configuration constraints.<br><br>Use this scope for devices with simple YANG models or when minimal validation is sufficient.</p></td></tr><tr><td valign="top"><code>write-and-full-read-set</code></td><td valign="top">Both modified and read data are checked (introduced in NSO 6.4).</td><td valign="top"><p>Provides the highest level of consistency by ensuring that all dependent data matches NSO’s CDB. Recommended for critical devices or complex configurations where data integrity is paramount.</p><p></p><p>Can be resource-intensive, especially for devices with third-party YANG models containing extensive dependencies (<code>when</code>, <code>must</code>, or <code>leafref</code> expressions).<br><br>Use this scope for devices requiring strict configuration alignment with NSO’s CDB.</p></td></tr><tr><td valign="top"><code>write-and-service-read-set</code></td><td valign="top">Checks only modified data and reads during the transform phase (new default introduced in 6.4).</td><td valign="top"><p>Offers improved performance over <code>write-and-full-read-set</code> by limiting the scope to service-related reads, while still ensuring consistency for service-driven configurations.</p><p></p><p>Avoids performance penalties from validation-phase reads in complex device models.<br><br>Balances performance and accuracy for devices with complex YANG models, such as those used in 3PY NEDs, where validation-phase reads can significantly increase the read-set size.<br><br>Use this scope for multi-vendor environments with third-party devices where services drive configuration changes.</p></td></tr></tbody></table>
 
 These compare scopes are critical when designing for concurrency, as they determine the risk of conflicting changes and impact service transaction performance.
