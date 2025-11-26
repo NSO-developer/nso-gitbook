@@ -18,6 +18,8 @@ Can you still use the same script in this case? Most likely not, since you need 
 
 The following figure illustrates this process, where a simple script first configures the IP address 192.0.2.1 (“.1”) as the DNS server, then later configures 192.0.2.8 (“.8”), resulting in a leftover old entry (“.1”).
 
+<figure><img src="../../.gitbook/assets/service-intro-dns.png" alt="" width="563"><figcaption><p>DNS Configuration with a Simple Script</p></figcaption></figure>
+
 In such a situation, the script could perhaps simply replace the existing configuration, by removing all existing DNS server entries before adding the new one. But is this a reliable practice? What if a device requires an additional DNS server that an administrator configured manually? It would be overwritten and lost.
 
 In general, the safest approach is to keep track of the previous changes and only replace the parts that have changed. This, however, is a lot of work and nontrivial to implement yourself. Fortunately, NSO provides such functionality through the FASTMAP algorithm, which is used when deploying services.
@@ -40,6 +42,8 @@ The package contains the two most important parts of the service:
 * the service provisioning code also called the mapping logic.
 
 Let's first look at the provisioning part. This is the code that performs the network configuration necessary for your service. The code often includes some parameters, for example, the DNS server IP address or addresses to use if your service is in charge of DNS configuration. So, we say that the code maps the service parameters into the device parameters, which is where the term mapping logic originates from. NSO, with the help of the NED, then translates the device parameters to the actual configuration. This simple tree-to-tree mapping describes how to create the service and NSO automatically infers how to update, remove, or re-deploy the service, hence the name FASTMAP.
+
+<figure><img src="../../.gitbook/assets/service-mapping-logic.png" alt="" width="563"><figcaption><p>Transformation of Service Parameters into Device Configurations</p></figcaption></figure>
 
 How do you create the provisioning code and where do you place it? Is it similar to a stand-alone Python script? Indeed, the code is mostly the same. The main difference is that now you don't have to create a session and a transaction yourself because NSO already provides you with one. Through this transaction, the system tracks the changes to the configuration made by your code.
 

@@ -182,6 +182,8 @@ cisco-ios vlan
 
 This creates a package with the following structure:
 
+<figure><img src="../../../.gitbook/assets/pkg-structure.png" alt=""><figcaption><p>Package Structure</p></figcaption></figure>
+
 During the rest of this section, we will work with the `vlan/src/yang/vlan.yang` and `vlan/src/java/src/com/example/vlan/vlanRFS.java` files.
 
 ### The Service Model <a href="#d5e8361" id="d5e8361"></a>
@@ -307,7 +309,11 @@ For more details on the Java VM settings, see [NSO Java VM](../../core-concepts/
 
 The service model and the corresponding Java callback are bound by the servicepoint name. Look at the service model in `packages/vlan/src/yang`:
 
+<figure><img src="../../../.gitbook/assets/servicepoint.png" alt="" width="375"><figcaption><p>VLAN Service Model Service Point</p></figcaption></figure>
+
 The corresponding generated Java skeleton, (one print 'Hello World!' statement added):
+
+<figure><img src="../../../.gitbook/assets/java1.png" alt=""><figcaption><p>Java Service Create Callback</p></figcaption></figure>
 
 Modify the generated code to include the print "Hello World!" statement in the same way. Re-build the package:
 
@@ -375,6 +381,8 @@ This will generate two files, `.classpath` and `.project`. If we add this direct
 
 We are immediately ready to run this code in Eclipse.
 
+<figure><img src="../../../.gitbook/assets/eclipse-new.png" alt=""><figcaption><p>Creating the Project in Eclipse</p></figcaption></figure>
+
 All we need to do is choose the `main()` routine in the `NcsJVMLauncher` class. The Eclipse debugger works now as usual, and we can, at will, start and stop the Java code.
 
 {% hint style="warning" %}
@@ -421,9 +429,13 @@ packages package vlan
 
 Create a new project and start the launcher `main` in Eclipse:
 
+<figure><img src="../../../.gitbook/assets/eclipse-start.png" alt=""><figcaption><p>Starting the NSO JVM from Eclipse</p></figcaption></figure>
+
 You can start and stop the Java VM from Eclipse. Note well that this is not needed since the change cycle is: modify the Java code, `make` in the `src` directory, and then reload the package. All while NSO and the JVM are running.
 
 Change the VLAN service and see the console output in Eclipse:
+
+<figure><img src="../../../.gitbook/assets/eclipse-hello.png" alt=""><figcaption><p>Console Output in Eclipse</p></figcaption></figure>
 
 Another option is to have Eclipse connect to the running VM. Start the VM manually with the `-d` option.
 
@@ -436,11 +448,19 @@ NCS JVM STARTING
 
 Then you can set up Eclipse to connect to the NSO Java VM:
 
+<figure><img src="../../../.gitbook/assets/eclipse-remote-proj.png" alt=""><figcaption><p>Connecting to NSO Java VM Remote with Eclipse</p></figcaption></figure>
+
 In order for Eclipse to show the NSO code when debugging, add the NSO Source Jars (add external Jar in Eclipse):
+
+<figure><img src="../../../.gitbook/assets/eclipse-conf-1.png" alt=""><figcaption><p>Adding the NSO Source Jars</p></figcaption></figure>
 
 Navigate to the service `create` for the VLAN service and add a breakpoint:
 
+<figure><img src="../../../.gitbook/assets/eclipse-src.png" alt=""><figcaption><p>Setting a break-point in Eclipse</p></figcaption></figure>
+
 Commit a change of a VLAN service instance and Eclipse will stop at the breakpoint:
+
+<figure><img src="../../../.gitbook/assets/eclipse-breakpoint.png" alt=""><figcaption><p>Service Create breakpoint</p></figcaption></figure>
 
 ### Writing the Service Code
 
@@ -490,6 +510,8 @@ The `service` node can be used to fetch the values of the VLAN service instance:
 
 The first snippet that iterates the service model and prints to the console looks like below:
 
+<figure><img src="../../../.gitbook/assets/navu-1.png" alt=""><figcaption><p>The first Example</p></figcaption></figure>
+
 The `com.tailf.conf` package contains Java Classes representing the YANG types like `ConfUInt32`.
 
 Try it out in the following sequence:
@@ -500,6 +522,8 @@ Try it out in the following sequence:
 
 #### **Mapping Service Attributes to Device Configuration**
 
+<figure><img src="../../../.gitbook/assets/vlan-java-1.png" alt=""><figcaption><p>Fetching Values from the Service Instance</p></figcaption></figure>
+
 Remember the `service` attribute is passed as a parameter to the create method. As a starting point, look at the first three lines:
 
 1. To reach a specific leaf in the model use the NAVU leaf method with the name of the leaf as a parameter. This leaf then has various methods like getting the value as a string.
@@ -507,6 +531,8 @@ Remember the `service` attribute is passed as a parameter to the create method. 
 3. Line 3 shows an example of casting between types. In this case, we prepare the VLAN ID as a 16 unsigned int for later use.
 
 The next step is to iterate over the devices and interfaces. The NAVU `elements()` returns the elements of a NAVU list.
+
+<figure><img src="../../../.gitbook/assets/vlan-java-1b.png" alt=""><figcaption><p>Iterating a List in the Service Model</p></figcaption></figure>
 
 In order to write the mapping code, make sure you have an understanding of the device model. One good way of doing that is to create a corresponding configuration on one device and then display that with the pipe target `display xpath`. Below is a CLI output that shows the model paths for `FastEthernet 1/0`:
 
@@ -529,7 +555,11 @@ $ pyang -f jstree tailf-ned-cisco-ios.yang -o ios.html
 
 This can then be opened in a Web browser and model paths are shown to the right:
 
+<figure><img src="../../../.gitbook/assets/ios-model.png" alt=""><figcaption><p>The Cisco IOS Model</p></figcaption></figure>
+
 Now, we replace the print statements with setting real configuration on the devices.
+
+<figure><img src="../../../.gitbook/assets/vlan-java-2.png" alt=""><figcaption><p>Setting the VLAN List</p></figcaption></figure>
 
 Let us walk through the above code line by line. The `device-name` is a `leafref`. The `deref` method returns the object that the `leafref` refers to. The `getParent()` might surprise the reader. Look at the path for a leafref: `/device/name/config/ios:interface/name`. The `name` leafref is the key that identifies a specific interface. The `deref` returns that key, while we want to have a reference to the interface, (`/device/name/config/ios:interface`), that is the reason for the `getParent()`.
 
@@ -564,12 +594,16 @@ The above `create` method is all that is needed for create, read, update, and de
 
 The mapping strategy using only Java is illustrated in the following figure.
 
+<figure><img src="../../../.gitbook/assets/mapping1.png" alt="" width="563"><figcaption><p>Flat Mapping with Java</p></figcaption></figure>
+
 This strategy has some drawbacks:
 
 * Managing different device vendors. If we would introduce more vendors in the network this would need to be handled by the Java code. Of course, this can be factored into separate classes in order to keep the general logic clean and just pass the device details to specific vendor classes, but this gets complex and will always require Java programmers to introduce new device types.
 * No clear separation of concerns, domain expertise. The general business logic for a service is one thing, detailed configuration knowledge of device types is something else. The latter requires network engineers and the first category is normally separated into a separate team that deals with OSS integration.
 
 Java and templates can be combined:
+
+<figure><img src="../../../.gitbook/assets/mapping2.png" alt="" width="563"><figcaption><p>Two Layered Mapping using Feature Templates</p></figcaption></figure>
 
 In this model, the Java layer focuses on required logic, but it never touches concrete device models from various vendors. The vendor-specific details are abstracted away using feature templates. The templates take variables as input from the service logic, and the templates in turn transform these into concrete device configuration. The introduction of a new device type does not affect the Java mapping.
 
@@ -645,6 +679,8 @@ Nodes set with a template variable evaluating to the empty string are ignored, e
 
 The Java mapping logic for applying the template is shown below:
 
+<figure><img src="../../../.gitbook/assets/apply-template.png" alt=""><figcaption><p>Mapping Logic using a Template</p></figcaption></figure>
+
 Note that the Java code has no clue about the underlying device type, it just passes the feature variables to the template. At run-time, you can update the template with mapping to other device types. The Java code stays untouched, if you modify an existing VLAN service instance to refer to the new device type the `commit` will generate the corresponding configuration for that device.
 
 The smart reader will complain, "Why do we have the Java layer at all?", this could have been done as a pure template solution. That is true, but now this simple Java layer gives room for arbitrary complex service logic before applying the template.
@@ -672,6 +708,8 @@ MPLS VPNs are a type of Virtual Private Network (VPN) that achieves segmentation
 
 The figure below illustrates an example configuration for one leg of the VPN. Configuration items in bold are variables that are generated from the service inputs.
 
+<figure><img src="../../../.gitbook/assets/deviceconfig.png" alt="" width="563"><figcaption><p>Example L3 VPN Device Configuration</p></figcaption></figure>
+
 ### Auxiliary Service Data
 
 Sometimes the input parameters are enough to generate the corresponding device configurations. But in many cases, this is not enough. The service mapping logic may need to reach out to other data in order to generate the device configuration. This is common in the following scenarios:
@@ -696,13 +734,19 @@ It is highly desirable to not introduce unneeded dependencies towards network to
 
 To illustrate this, let's look at a Layer 3 MPLS VPN service. A logical overview of an MPLS VPN with three endpoints could look something like this. CE routers connecting to PE routers, that are connected to an MPLS core network. In the MPLS core network, there are a number of P routers.
 
+<figure><img src="../../../.gitbook/assets/topo1.png" alt="" width="563"><figcaption><p>Simple MPLS VPN Topology</p></figcaption></figure>
+
 In the service model, you only want to configure the CE devices to use as endpoints. In this case, topology information could be used to sort out what PE router each CE router is connected to. However, what type of topology do you need? Lets look at a more detailed picture of what the L1 and L2 topology could look like for one side of the picture above.
+
+<figure><img src="../../../.gitbook/assets/topo2.png" alt="" width="563"><figcaption><p>L1-L2 Topology</p></figcaption></figure>
 
 In pretty much all networks there is an access network between the CE and PE router. In the picture above the CE routers are connected to local Ethernet switches connected to a local Ethernet access network, connected through optical equipment. The local Ethernet access network is connected to a regional Ethernet access network, connected to the PE router. Most likely the physical connections between the devices in this picture have been simplified, in the real world redundant cabling would be used. The example above is of course only one example of how an access network could look like and it is very likely that a service provider have different access technologies. For example Ethernet, ATM, or a DSL-based access network.
 
 Depending on how you design the L3VPN service, the physical cabling or the exact traffic path taken in the layer 2 Ethernet access network might not be that interesting, just like we don't make any assumptions or care about how traffic is transported over the MPLS core network. In both these cases we trust the underlying protocols handling state in the network, spanning tree in the Ethernet access network, and routing protocols like BGP in the MPLS cloud. Instead in this case, it could make more sense to have a separate NSO service for the access network, both so it can be reused for both for example L3VPNs and L2VPN but also to not tightly couple to the access network with the L3VPN service since it can be different (Ethernet or ATM etc.).
 
 Looking at the topology again from the L3VPN service perspective, if services assume that the access network is already provisioned or taken care of by another service, it could look like this.
+
+<figure><img src="../../../.gitbook/assets/topo3.png" alt="" width="563"><figcaption><p>Black-box Topology</p></figcaption></figure>
 
 The information needed to sort out what PE router a CE router is connected to as well as configuring both CE and PE routers is:
 
@@ -716,6 +760,8 @@ This section describes the creation of an MPLS L3VPN service in a multi-vendor e
 The goal of the NSO service is to set up an MPLS Layer3 VPN on a number of CE router endpoints using BGP as the CE-PE routing protocol. Connectivity between the CE and PE routers is done through a Layer2 Ethernet access network, which is out of the scope of this service. In a real-world scenario, the access network could for example be handled by another service.
 
 In the example network, we can also assume that the MPLS core network already exists and is configured.
+
+<figure><img src="../../../.gitbook/assets/topo4.png" alt="" width="563"><figcaption><p>The MPLS VPN Example</p></figcaption></figure>
 
 #### **YANG Service Model Design**
 
@@ -919,6 +965,8 @@ With this service mapping approach, it makes sense to modularize the service map
 This is both to make services easier to maintain and create but also to create components that are reusable from different services. This can of course be even more detailed with templates with for example BGP or interface configuration if needed.
 
 Since the configuration templates are decoupled from the service logic it is also possible to create and add additional templates in a running NSO system. You can for example add a CE router from a new vendor to the layer3 VPN service by only creating a new configuration template, using the set of parameters from the service logic, to a running NSO system without changing anything in the other logical layers.
+
+<figure><img src="../../../.gitbook/assets/feature-templates.png" alt="" width="375"><figcaption><p>The MPLS VPN Example</p></figcaption></figure>
 
 #### **The Java Code**
 

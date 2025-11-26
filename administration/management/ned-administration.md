@@ -8,7 +8,7 @@ This section provides necessary information on NED (Network Element Driver) admi
 
 NED represents a key NSO component that makes it possible for the NSO core system to communicate southbound with network devices in most deployments. NSO has a built-in client that can be used to communicate southbound with NETCONF-enabled devices. Many network devices are, however, not NETCONF-enabled, and there exist a wide variety of methods and protocols for configuring network devices, ranging from simple CLI to HTTP/REST-enabled devices. For such cases, it is necessary to use a NED to allow NSO communicate southbound with the network device.
 
-Even for NETCONF-enabled devices, it is possible that the NSO's built-in NETCONF client cannot be used, for instance, if the devices do not strictly follow the specification for the NETCONF protocol. In such cases, one must also use a NED to seamlessly communicate with the device. See [Managing Cisco-provided third Party YANG NEDs](ned-administration.md#sec.managing_thirdparty_neds) for more information on third-party YANG NEDs.
+Even for NETCONF-enabled devices, it is possible that the NSO's built-in NETCONF client cannot be used, for instance, if the devices do not strictly follow the specification for the NETCONF protocol. In such cases, one must also use a NED to seamlessly communicate with the device. See [Managing Cisco-provided third Party YANG NEDs](ned-administration.md#sec.managing\_thirdparty\_neds) for more information on third-party YANG NEDs.
 
 ## Types of NED Packages <a href="#d5e8900" id="d5e8900"></a>
 
@@ -17,6 +17,8 @@ A NED package is a package that NSO uses to manage a particular type of device. 
 A NED package must provide a device YANG model as well as define means (protocol) to communicate with the device. The latter can either leverage the NSO built-in NETCONF and SNMP support or use a custom implementation. When a package provides custom protocol implementation, typically written in Java, it is called a CLI NED or a Generic NED.
 
 Cisco provides and supports a number of such NEDs. With these Cisco-provided NEDs, a major category are CLI NEDs which communicate with a device through its CLI instead of a dedicated API.
+
+<figure><img src="../../.gitbook/assets/ned_types.png" alt="" width="563"><figcaption><p>NED Package Types</p></figcaption></figure>
 
 ### CLI NED <a href="#d5e8910" id="d5e8910"></a>
 
@@ -29,6 +31,8 @@ The driver element in a CLI NED implemented by the Cisco NSO NED team typically 
 * Various transform engines capable of converting data between NSO and device formats.
 
 The YANG models in a CLI NED are developed and maintained by the Cisco NSO NED team. Usually, the models for a CLI NED are structured to mimic the CLI command hierarchy on the device.
+
+<figure><img src="../../.gitbook/assets/cli_ned.png" alt="" width="375"><figcaption><p>CLI NED</p></figcaption></figure>
 
 ### Generic NED <a href="#d5e8927" id="d5e8927"></a>
 
@@ -48,6 +52,8 @@ There are two types of Generic NEDs maintained by the Cisco NSO NED team:
 
 Generic NEDs belonging to the first category typically handle devices that are model-driven. For instance, devices using proprietary protocols based on REST, SOAP, Corba, etc. The YANG models for such NEDs are usually structured to mimic the messages used by the proprietary protocol of the device.
 
+<figure><img src="../../.gitbook/assets/generic_ned.png" alt="" width="375"><figcaption><p>Generic NED</p></figcaption></figure>
+
 ### **Third-party YANG NEDs**
 
 As the name implies, this NED category is used for cases where the device YANG models are not implemented, maintained, or owned by the Cisco NSO NED team. Instead, the YANG models are typically provided by the device vendor itself, or by organizations like IETF, IEEE, ONF, or OpenConfig.
@@ -58,12 +64,14 @@ This category of NEDs has some special characteristics that set them apart from 
 * Delivered from the software.cisco.com portal without any device YANG models included. There are several reasons for this, such as legal restrictions that prevent Cisco from re-distributing YANG models from other vendors, or the availability of several different version bundles for open-source YANG, like OpenConfig. The version used by the NED must match the version used by the targeted device.
 * The NEDs can be bundled with various fixes to solve shortcomings in the YANG models, the download sources, and/or in the device. These fixes are referred to as recipes.
 
+<figure><img src="../../.gitbook/assets/thirdparty_neds.png" alt="" width="563"><figcaption><p>Third-Party YANG NEDs</p></figcaption></figure>
+
 Since the third-party NEDs are delivered without any device YANG models, there are additional steps required to make this category of NEDs operational:
 
 1. The device models need to be downloaded and copied into the NED package source tree. This can be done by using a special (optional) downloader tool bundled with each third-party YANG NED, or in any custom way.
 2. The NED must be rebuilt with the downloaded YANG models.
 
-This procedure is thoroughly described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing_thirdparty_neds).
+This procedure is thoroughly described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing\_thirdparty\_neds).
 
 **Recipes**
 
@@ -89,7 +97,7 @@ Another important question is what YANG models and what versions to download. To
 
 **YANG Recipes (YR)**
 
-Third-party YANG files can often contain various types of errors, ranging from real bugs that cause compilation errors to certain YANG constructs that are known to cause runtime issues in NSO. To ensure that the files can be built correctly, the third-party NEDs can be bundled with YANG recipes. These recipes patch the downloaded YANG files before they are built by the NSO compiler. This procedure is performed automatically by the `make` system when the NED is rebuilt after downloading the device YANG files. For more information, refer to [Rebuilding the NED with a Unique NED ID](ned-administration.md#sec.rebuilding_ned).
+Third-party YANG files can often contain various types of errors, ranging from real bugs that cause compilation errors to certain YANG constructs that are known to cause runtime issues in NSO. To ensure that the files can be built correctly, the third-party NEDs can be bundled with YANG recipes. These recipes patch the downloaded YANG files before they are built by the NSO compiler. This procedure is performed automatically by the `make` system when the NED is rebuilt after downloading the device YANG files. For more information, refer to [Rebuilding the NED with a Unique NED ID](ned-administration.md#sec.rebuilding\_ned).
 
 **Runtime Recipes (RR)**
 
@@ -121,7 +129,7 @@ Most NEDs are instrumented with a large number of NED settings that can be used 
 
 Each managed device in NSO has a device type that informs NSO how to communicate with the device. When managing NEDs, the device type is either `cli` or `generic`. The other two device types, `netconf` and `snmp`, are used in NETCONF and SNMP packages and are further described in this guide.
 
-In addition, a special NED ID identifier is needed. Simply put, this identifier is a handle in NSO pointing to the NED package. NSO uses the identifier when it is about to invoke the driver in a NED package. The identifier ensures that the driver of the correct NED package is called for a given device instance. For more information on how to set up a new device instance, see [Configuring a device with the new Cisco-provided NED](ned-administration.md#sec.config_device.with.ciscoid).
+In addition, a special NED ID identifier is needed. Simply put, this identifier is a handle in NSO pointing to the NED package. NSO uses the identifier when it is about to invoke the driver in a NED package. The identifier ensures that the driver of the correct NED package is called for a given device instance. For more information on how to set up a new device instance, see [Configuring a device with the new Cisco-provided NED](ned-administration.md#sec.config\_device.with.ciscoid).
 
 Each NED package has a NED ID, which is mandatory. The NED ID is a simple string that can have any format. For NEDs developed by the Cisco NSO NED team, the NED ID is formatted as `<NED NAME>-<gen | cli>-<NED VERSION MAJOR>.<NED VERSION MINOR>`.
 
@@ -132,9 +140,9 @@ Each NED package has a NED ID, which is mandatory. The NED ID is a simple string
 
 The NED ID for a certain NED package stays the same from one version to another, as long as no backward incompatible changes have been done to the YANG models. Upgrading a NED from one version to another, where the NED ID is the same, is simple as it only requires replacing the old NED package with the new one in NSO and then reloading all packages.
 
-Upgrading a NED package from one version to another, where the NED ID is not the same (typically indicated by a change of major or minor number in the NED version), requires additional steps. The new NED package first needs to be installed side-by-side with the old one. Then, a NED migration needs to be performed. This procedure is thoroughly described in [NED Migration](ned-administration.md#sec.ned_migration).
+Upgrading a NED package from one version to another, where the NED ID is not the same (typically indicated by a change of major or minor number in the NED version), requires additional steps. The new NED package first needs to be installed side-by-side with the old one. Then, a NED migration needs to be performed. This procedure is thoroughly described in [NED Migration](ned-administration.md#sec.ned\_migration).
 
-The Cisco NSO NED team ensures that our CLI NEDs, as well as Generic NEDs with Cisco-owned models, have version numbers and NED ID that indicate any possible backward incompatible YANG model changes. When a NED with such an incompatible change is released, the minor digit in the version is always incremented. The case is a bit different for our third-party YANG NEDs since it is up to the end user to select the NED ID to be used. This is further described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing_thirdparty_neds).
+The Cisco NSO NED team ensures that our CLI NEDs, as well as Generic NEDs with Cisco-owned models, have version numbers and NED ID that indicate any possible backward incompatible YANG model changes. When a NED with such an incompatible change is released, the minor digit in the version is always incremented. The case is a bit different for our third-party YANG NEDs since it is up to the end user to select the NED ID to be used. This is further described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing\_thirdparty\_neds).
 
 ### NED Versioning Scheme <a href="#sec.ned_migration_version-scheme" id="sec.ned_migration_version-scheme"></a>
 
@@ -145,6 +153,8 @@ For example, the number 5.8.1 indicates a maintenance release (1) for the minor 
 When a newer maintenance release with the same major/minor version replaces a NED release, NSO can perform a simple data model upgrade to handle stored instance data in the CDB (Configuration Database). This type of upgrade does not pose a risk of data loss.
 
 However, when a NED is replaced by a new major/minor release, it becomes a NED migration. These migrations are complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly.
+
+<figure><img src="../../.gitbook/assets/ned-versions.png" alt="" width="375"><figcaption><p>NED Version Scheme</p></figcaption></figure>
 
 ## NED Installation in NSO <a href="#sec.ned_installation_nso" id="sec.ned_installation_nso"></a>
 
@@ -403,8 +413,8 @@ A third-party YANG NED package is delivered from the software.cisco.com portal w
 
 This section gives a brief instruction on how to download the device YANG models using the special downloader tool that is bundled with each third-party YANG NED. Each specific NED can contain specific requirements regarding downloading/rebuilding. Before proceeding, check the file `README-rebuild.md` bundled with the NED package. Furthermore, it is recommended to use a non-production NSO environment for this task.
 
-1. Download and install the third-party YANG NED package into NSO, see [Local Install of NED in NSO](ned-administration.md#sec.local_install_ned_nso).
-2. Configure a device instance using as usual. See [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco_generic_ned_setup) for more information. The device name `dev-1` will be used in this example.
+1. Download and install the third-party YANG NED package into NSO, see [Local Install of NED in NSO](ned-administration.md#sec.local\_install\_ned\_nso).
+2. Configure a device instance using as usual. See [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco\_generic\_ned\_setup) for more information. The device name `dev-1` will be used in this example.
 3.  Open an NCS CLI session (non-configure mode).
 
     ```cli
@@ -438,7 +448,7 @@ This section gives a brief instruction on how to download the device YANG models
     admin@ncs#
     ```
 
-    This RPC will throw an error if the NED package was installed directly using the `tar.gz` file. See [NED Installation in NSO](ned-administration.md#sec.ned_installation_nso) for more information.
+    This RPC will throw an error if the NED package was installed directly using the `tar.gz` file. See [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso) for more information.
 
     ```cli
     admin@ncs# devices device dev-1 rpc rpc-show-default-local-dir show-default-local-dir
@@ -579,7 +589,7 @@ Adapting the YANG build recipes is a continuous process. If new issues are found
 It is strongly recommended that end users report newly found YANG build issues to the Cisco NSO NED team through a support request.
 {% endhint %}
 
-Before rebuilding the NED, it is important to know the path to the target directory used for the downloaded YANG files. This is the same as the local directory if the built-in NED downloader tool was used, see [Downloading with the NED Built-in Download Tool](ned-administration.md#sec.ned_download_tool).
+Before rebuilding the NED, it is important to know the path to the target directory used for the downloaded YANG files. This is the same as the local directory if the built-in NED downloader tool was used, see [Downloading with the NED Built-in Download Tool](ned-administration.md#sec.ned\_download\_tool).
 
 This example uses the environment variable `NED_YANG_TARGET_DIR` to represent the target directory.
 
@@ -640,7 +650,7 @@ reload-result {
 admin@ncs#
 ```
 
-If another target directory was used for the YANG file download, it is necessary to first do a proper re-install of the NED package. See [NED Installation in NSO](ned-administration.md#sec.ned_installation_nso).
+If another target directory was used for the YANG file download, it is necessary to first do a proper re-install of the NED package. See [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso).
 
 ### Rebuilding the NED with a Unique NED ID <a href="#sec.rebuilding_ned" id="sec.rebuilding_ned"></a>
 
@@ -661,7 +671,7 @@ The NED build system allows for a customized NED ID by setting one or several of
 
 Do as follows to build each flavor of the third-party YANG NED. Do it in iterations, one at a time:
 
-1. Unpack the empty NED package as described in [NED Installation in NSO](ned-administration.md#sec.ned_installation_nso).
+1. Unpack the empty NED package as described in [NED Installation in NSO](ned-administration.md#sec.ned\_installation\_nso).
 2.  Unpack the NED package again in a separate location. Rename the NED directory to something unique.
 
     ```cli
@@ -673,15 +683,15 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
     onf-tapi_rc-2.0
     > mv onf-tapi_rc-2.0 onf-tapi_rc-2.0-variant-1
     ```
-3. Configure a device instance using the installed NED, as described in [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco_generic_ned_setup). Configure it to connect to the first variant of the device.
-4.  Follow the instructions in [Downloading with the NED Built-in Download Tool](ned-administration.md#sec.ned_download_tool) to download the YANG files. Configure `local-dir` to point to the location configured in [Rebuilding NED with Downloaded YANG Files](ned-administration.md#sec.rebuilding_ned_with_downloaded_yang).
+3. Configure a device instance using the installed NED, as described in [Cisco-provided Generic NED Setup](ned-administration.md#sec.cisco\_generic\_ned\_setup). Configure it to connect to the first variant of the device.
+4.  Follow the instructions in [Downloading with the NED Built-in Download Tool](ned-administration.md#sec.ned\_download\_tool) to download the YANG files. Configure `local-dir` to point to the location configured in [Rebuilding NED with Downloaded YANG Files](ned-administration.md#sec.rebuilding\_ned\_with\_downloaded\_yang).
 
     ```cli
     > ncs_cli -C -u admin
     admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile
     onf-tapi-from-device local-dir /tmp/ned-package-store/onf-tapi_rc-2.0-variant-1/src/yang
     ```
-5.  Rebuild a NED package from the location configured in [Rebuilding NED with Downloaded YANG Files](ned-administration.md#sec.rebuilding_ned_with_downloaded_yang). Use a suitable combination of the `NED_ID_SUFFIX`, `NED_ID_MAJOR`, `NED_ID_MINOR`.
+5.  Rebuild a NED package from the location configured in [Rebuilding NED with Downloaded YANG Files](ned-administration.md#sec.rebuilding\_ned\_with\_downloaded\_yang). Use a suitable combination of the `NED_ID_SUFFIX`, `NED_ID_MAJOR`, `NED_ID_MINOR`.
 
     \
     Example 1:
@@ -702,7 +712,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
 
     \
     This will result in the NED ID: `onf-tapi_rc-gen-2.1.3`.
-6.  Install the newly built NED package into NSO, side-by-side with the original NED package. See [Configuring a Device with the New Cisco-provided NED](ned-administration.md#sec.config_device.with.ciscoid) for further information.
+6.  Install the newly built NED package into NSO, side-by-side with the original NED package. See [Configuring a Device with the New Cisco-provided NED](ned-administration.md#sec.config\_device.with.ciscoid) for further information.
 
     \
     Example:
@@ -722,7 +732,7 @@ Do as follows to build each flavor of the third-party YANG NED. Do it in iterati
 The NSO procedure to upgrade a NED package to a newer version uses the following approach:
 
 * If there are no backward incompatible changes in the schemas (YANG models) of respective NEDs, simply replace the old NED with the new one and reload all packages in NSO.
-* In case there are backwards incompatible changes present in the schemas, some administration is required: the new NED needs to be installed side-by-side with the old NED, after which a NED migration must be performed to properly update the data in CDB using the new schemas. More information about NED migration is available in [NED Migration](ned-administration.md#sec.ned_migration).
+* In case there are backwards incompatible changes present in the schemas, some administration is required: the new NED needs to be installed side-by-side with the old NED, after which a NED migration must be performed to properly update the data in CDB using the new schemas. More information about NED migration is available in [NED Migration](ned-administration.md#sec.ned\_migration).
 
 Whether or not there are backward incompatible differences present between two versions of the same NED, is determined by the NED ID. If the versions have the same NED ID, they are fully compatible; otherwise, the NED IDs will differ, typically indicated by the major and/or minor number in the NED ID.
 
@@ -848,10 +858,12 @@ If you upgrade a managed device (such as installing a new firmware), the device 
 When the changes in the NED are not backward compatible, the NED is assigned a new ned-id to avoid breaking existing code. On the plus side, this allows you to use both versions of the NED at the same time, so some devices can use the new version and some can use the old one. As a result, there is no need to upgrade all devices at the same time. The downside is, NSO doesn't know the two NEDs are related and will not perform any upgrade on its own due to different ned-ids. Instead, you must manually change the NED of a managed device through a NED migration.
 
 {% hint style="info" %}
-For third-party NEDs, the end user is required to configure the NED ID and also be aware of the backward incompatibilities. See [Upgrading a Cisco-provided Third Party YANG NED to a Newer Version](ned-administration.md#sec.ned_mgmt.third_party) for an example.
+For third-party NEDs, the end user is required to configure the NED ID and also be aware of the backward incompatibilities. See [Upgrading a Cisco-provided Third Party YANG NED to a Newer Version](ned-administration.md#sec.ned\_mgmt.third\_party) for an example.
 {% endhint %}
 
 Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same ned-id and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some third-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the ned-id values to see whether migration is needed.
+
+<figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt="" width="563"><figcaption><p>Sample NED Package Versioning</p></figcaption></figure>
 
 A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options of migration tooling for identifying the paths and service instances that may be impacted. Therefore, ensure that all the other packages are compatible with the new NED before you start migrating devices.
 

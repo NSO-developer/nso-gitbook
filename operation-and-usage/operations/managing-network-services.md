@@ -29,11 +29,14 @@ Watch a video presentation of this demo on [YouTube](https://www.youtube.com/wat
 
 The example `examples.ncs/service-provider/mpls-vpn` will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
 
+<figure><img src="../../.gitbook/assets/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
+
 The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.
 
 The topology information has two parts:
 
-*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\\
+*   The first part lists connections in the network and is used by the service mapping logic to find out which PE router to configure for an endpoint. The snippets below show the configuration output in the Cisco-style NSO CLI.\
+
 
     ```
      topology connection c0
@@ -47,7 +50,8 @@ The topology information has two parts:
      link-vlan 77
     !
     ```
-*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\\
+*   The second part lists devices for each role in the network and is in this example only used to dynamically render a network map in the Web UI.\
+
 
     ```
     topology role ce
@@ -114,7 +118,8 @@ qos qos-class MISSION-CRITICAL
 
 Run the example as follows:
 
-1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\\
+1.  Make sure that you start clean, i.e. no old configuration data is present. If you have been running this or some other example before, make sure to stop any NSO or simulated network nodes (ncs-netsim) that you may have running. Output like 'connection refused (stop)' means no previous NSO was running and 'DEVICE ce0 connection refused (stop)...' no simulated network was running, which is good.\
+
 
     ```
     Copy$ 
@@ -122,12 +127,14 @@ Run the example as follows:
 
     \
     This will set up the environment and start the simulated network.
-2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\\
+2.  Before creating a new L3VPN service, we must sync the configuration from all network devices and then enter config mode. (A hint for this complete section is to have the `README` file from the example and cut and paste the CLI commands).\
+
 
     ```
     Copyncs# 
     ```
-3.  Add another VPN.\\
+3.  Add another VPN.\
+
 
     ```
     top
@@ -509,7 +516,7 @@ The reference counter above makes sure that NSO will not delete shared resources
 
 ### Using Commit Queues <a href="#d5e833" id="d5e833"></a>
 
-As described in [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue), the commit queue can be used to increase the transaction throughput. When the commit queue is for service activation, the services will have states reflecting outstanding commit queue items.
+As described in [Commit Queue](nso-device-manager.md#user\_guide.devicemanager.commit-queue), the commit queue can be used to increase the transaction throughput. When the commit queue is for service activation, the services will have states reflecting outstanding commit queue items.
 
 {% hint style="info" %}
 When committing a service using the commit queue in _async_ mode the northbound system can not rely on the service being fully activated in the network when the activation requests return.

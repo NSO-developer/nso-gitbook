@@ -136,6 +136,8 @@ The NSO SNMP alarm MIB is designed for ease of use in alarm systems. It defines 
 * **ITU-ALARM-TC-MIB.mib**\
   Import of IETF mapping of X.733 parameters.
 
+<figure><img src="../../../.gitbook/assets/alarm-mib.png" alt=""><figcaption><p>The NSO Alarm MIB</p></figcaption></figure>
+
 The alarm table has the following columns:
 
 * **tfAlarmIndex**\
