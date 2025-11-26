@@ -14,6 +14,8 @@ The consumer part provides an Alarm Source. The alarm source lets you listen to 
 
 The diagram below shows a high-level view of the flow of alarms in and out of the system. Alarms are received, e.g. as SNMP notifications, and fed into the NSO Alarm List. At the other end, you subscribe for the alarm changes.
 
+<figure><img src="../../.gitbook/assets/alarm-flow.png" alt="" width="563"><figcaption><p>The Alarm Flow</p></figcaption></figure>
+
 ## Using the Alarm Sink
 
 The producer part of the Alarm API can be used in the following modes:
@@ -43,7 +45,9 @@ The centralized alarm sink can then be retrieved using the default constructor i
 ```
 {% endcode %}
 
-For applications outside the NSO Java VM, the `AlarmSinkCentral` needs to be supplied when constructing the alarm sink.
+For applications outside the NSO Java VM, the
+`AlarmSinkCentral` needs to be supplied when constructing
+the alarm sink.
 
 {% code title="Retrieving AlarmSink outside NSO Java VM" %}
 ```
@@ -51,7 +55,9 @@ For applications outside the NSO Java VM, the `AlarmSinkCentral` needs to be sup
 ```
 {% endcode %}
 
-When submitting an alarm using the local mode, you need a Maapi socket and a `Maapi` instance. The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
+When submitting an alarm using the local mode, you need a
+Maapi socket and a `Maapi` instance.
+The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
 
 {% code title="Retrieving AlarmSink using Local Mode" %}
 ```

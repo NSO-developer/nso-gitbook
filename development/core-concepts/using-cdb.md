@@ -11,6 +11,8 @@ When using CDB to store the configuration data, the applications need to be able
 
 The figure below illustrates the architecture of when the CDB is used. The Application components read configuration data and subscribe to changes to the database using a simple RPC-based API. The API is part of the Java library and is fully documented in the Javadoc for CDB.
 
+<figure><img src="../../.gitbook/assets/cdbarch.png" alt="" width="563"><figcaption><p>NSO CDB Architecture Scenario</p></figcaption></figure>
+
 While CDB is the default data store for configuration data in NSO, it is possible to use an external database, if needed. See the example [examples.ncs/sdk-api/external-db](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/external-db) for details.
 
 In the following, we will use the files in [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) as a source for our examples. Refer to `README` in that directory for additional details.
@@ -230,7 +232,7 @@ Given the YANG model in the example above (L3 VPN YANG Extract), the initial dat
 
 Another example of using these features is when initializing the AAA database. This is described in [AAA infrastructure](../../administration/management/aaa-infrastructure.md).
 
-All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys_mgmt.starting_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
+All files ending in `.xml` will be loaded (in an undefined order) and committed in a single transaction when CDB enters start phase 1 (see [Starting NSO](../../administration/management/system-management/#ug.sys\_mgmt.starting\_ncs) for more details on start phases). The format of the init files is rather lax in that it is not required that a complete instance document following the data model is present, much like the NETCONF `edit-config` operation. It is also possible to wrap multiple top-level tags in the file with a surrounding config tag, as shown in the example below (Wrapper for Multiple Top-Level Tags) like this:
 
 {% code title="Example: Wrapper for Multiple Top-Level Tags" %}
 ```xml
@@ -699,7 +701,7 @@ We will look once again at the YANG model for the CDB package in the [examples.n
 ```
 {% endcode %}
 
-Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java_api_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
+Note the list `stats-item` has the substatement `config false;` and below it, we find a `tailf:cdb-oper;` statement. A standard way to implement operational data is to define a callpoint in the YANG model and write instrumentation callback methods for retrieval of the operational data (see more on data callbacks in [DP API](api-overview/java-api-overview.md#ug.java\_api\_overview.dp)). Here on the other hand we use the `tailf:cdb-oper;` statement which implies that these instrumentation callbacks are automatically provided internally by NSO. The downside is that we must populate this operational data in CDB from the outside.
 
 An example of Java code that creates operational data using the Navu API is shown in the example below (Creating Operational Data using Navu API)).
 
@@ -856,7 +858,7 @@ public class OperCdbSub implements ApplicationComponent, CdbDiffIterate {
 
 Notice that the `CdbOperSubscriber` is very similar to the `CdbConfigSubscriber` described earlier.
 
-In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py) and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
+In the [examples.ncs/sdk-api/cdb-py](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-py)  and [examples.ncs/sdk-api/cdb-java](https://github.com/NSO-developer/nso-examples/tree/6.4/sdk-api/cdb-java) examples, there are two shell scripts `setoper` and `deloper` that will execute the above `CreateEntry()` and `DeleteEntry()` respectively. We can use these to populate the operational data in CDB for the `test.yang` YANG model (see the example below (Populating Operational Data)).
 
 {% code title="Example: Populating Operational Data" %}
 ```bash
@@ -960,7 +962,7 @@ CDB can automatically handle the following changes to the schema:
   \
   Thus an application can be developed using CDB in the first development cycle. When the external database component is ready it can easily replace CDB without changing the schema.
 
-Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs_sys_mgmt.disaster)).
+Should the automatic upgrade fail, exit codes and log entries will indicate the reason (see [Disaster Management](../../administration/management/system-management/#ug.ncs\_sys\_mgmt.disaster)).
 
 ## Using Initialization Files for Upgrade <a href="#d5e3066" id="d5e3066"></a>
 
@@ -1144,9 +1146,13 @@ As with any package component type, the `upgrade` component has to be defined in
 ```
 {% endcode %}
 
-Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package_mgmt.loading).
+Let's recapitulate how packages are loaded and reloaded. NSO can search the `/ncs-config/load-path` for packages to run and will copy these to a private directory tree under `/ncs-config/state-dir` with root directory `packages-in-use.cur`. However, NSO will only do this search when `packages-in-use.cur` is empty or when a `reload` is requested. This scheme makes package upgrades controlled and predictable, for more on this, see [Loading Packages](../../administration/management/package-mgmt.md#ug.package\_mgmt.loading).
+
+<figure><img src="../../.gitbook/assets/upg_pack_1.png" alt="" width="563"><figcaption><p>NSO Package before Reload</p></figcaption></figure>
 
 So in preparation for a package upgrade, the new packages replace the old ones in the load path. In our scenario, the YANG model changes are such that the automatic schema upgrade that CDB performs is not sufficient, therefore the new packages also contain `upgrade` components. At this point, NSO is still running with the old package definitions.
+
+<figure><img src="../../.gitbook/assets/upg_pack_2.png" alt="" width="563"><figcaption><p>NSO Package at Reload</p></figcaption></figure>
 
 When the package reload is requested, the packages in the load path are copied to the state directory. The old state directory is scratched, so that packages that no longer exist in the load path are removed and new packages are added. Unchanged packages will be unchanged. Automatic schema CDB upgrades will be performed, and afterward, for all packages that have an upgrade component and for which at least one YANG model was changed, this upgrade component will be executed. Also for added packages that have an upgrade component, this component will be executed. Hence the upgrade component needs to be programmed in such a way that care is taken for both the `new` and `upgrade` package scenarios.
 
@@ -1379,6 +1385,8 @@ At the end of the program, the sockets are closed. Important to note is that no 
         s1.close();
         s2.close();
 ```
+
+<figure><img src="../../.gitbook/assets/upg_service.png" alt="" width="563"><figcaption><p>NSO Advanced Service Upgrade</p></figcaption></figure>
 
 In the [examples.ncs/service-management/upgrade-service](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/upgrade-service) example, this more complicated scenario is illustrated with the `tunnel` package. See the `tunnel-py` package for a Python variant. The `tunnel` package YANG model maps the `vlan_v2` package one-to-one but is a complete rename of the model containers and all leafs:
 

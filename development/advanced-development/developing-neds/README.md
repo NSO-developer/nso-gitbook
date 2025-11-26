@@ -65,6 +65,8 @@ The table below displays the device types:
 
 The following state diagram depicts the different states the NED code goes through in the life of a transaction.
 
+<figure><img src="../../../.gitbook/assets/ned-states.png" alt="" width="563"><figcaption><p>NED Transaction States</p></figcaption></figure>
+
 ## Statistics <a href="#ncs.development.ned.stats" id="ncs.development.ned.stats"></a>
 
 NED devices have runtime data and statistics. The first part of being able to collect non-configuration data from a NED device is to model the statistics data we wish to gather. In normal YANG files, it is common to have the runtime data nested inside the configuration data. In gathering runtime data for NED devices we have chosen to separate configuration data and runtime data. In the case of the archetypical CLI device, the `show running-config ...` and friends are used to display the running configuration of the device whereas other different `show ...` commands are used to display runtime data, for example `show interfaces`, `show routes`. Different commands for different types of routers/switches and in particular, different tabular output format for different device types.
@@ -427,6 +429,8 @@ In order to be able to invoke a callback an instance of the NED object needs to 
 * Optional `initNoConnect()` callback that tells the NED to create an instance that would not need to communicate with the device, and hence must not establish a connection or otherwise communicate with the device. This instance will only be used to calculate dry-run output. It is possible for a NED to reject the `initNoConnect()` request if it is not able to calculate the dry-run output without establishing a connection to the device, for example, if a NED is capable of managing devices with different flavors of syntax and it is not known at the moment which syntax is used by this particular device.
 
 The following state diagram displays NED states specific to the dry-run scenario.
+
+<figure><img src="../../../.gitbook/assets/ned-dry.png" alt="" width="375"><figcaption><p>NED Dry-run States</p></figcaption></figure>
 
 ## NED Identification <a href="#ncs.development.ned.identification" id="ncs.development.ned.identification"></a>
 
@@ -857,6 +861,8 @@ admin@ncs# devices device pe2 sync-from
 ### **Update the MPLS VPN Service**
 
 The service must be updated to handle the difference between the Junos device's non-compliant and compliant configuration. The NSO service uses Python code to configure the Junos device using a service template. One way to find the required updates to the template and code is to check the difference between the non-compliant and compliant configurations for the parts covered by the template.
+
+<figure><img src="../../../.gitbook/assets/junos-side.png" alt=""><figcaption><p>Side by Side, Running Config on the Left, Template on the Right.</p></figcaption></figure>
 
 Checking the `packages/l3vpn/templates/l3vpn-pe.xml` service template Junos device part under the legacy `http://xml.juniper.net/xnm/1.1/xnm` namespace, you can observe that it configures `interfaces`, `routing-instances`, `policy-options`, and `class-of-service`.
 

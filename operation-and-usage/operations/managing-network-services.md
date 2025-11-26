@@ -29,6 +29,8 @@ Watch a video presentation of this demo on [YouTube](https://www.youtube.com/wat
 
 The example [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.4/service-management/mpls-vpn-java) will be used to explain NSO Service Management features. This example illustrates Layer-3 VPNs in a service provider MPLS network. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers. The Layer-3 VPN service configures the CE/PE routers for all endpoints in the VPN with BGP as the CE/PE routing protocol. The layer-2 connectivity between CE and PE routers is expected to be done through a Layer-2 ethernet access network, which is out of scope for this example. The Layer-3 VPN service includes VPN connectivity as well as bandwidth and QOS parameters.
 
+<figure><img src="../../.gitbook/assets/network.jpg" alt=""><figcaption><p>A L3 VPN Example</p></figcaption></figure>
+
 The service configuration only has references to CE devices for the end-points in the VPN. The service mapping logic reads from a simple topology model that is configuration data in NSO, outside the actual service model and derives what other network devices to configure.
 
 The topology information has two parts:
@@ -1176,7 +1178,7 @@ With the pre-existing services list, we also need to define the service YANG mod
 
 In contrast with service reconciliation, where the end goal is to manage the network services through NSO by incorporating existing configurations, there are also situations where NSO service activation solution is deployed in parallel with other solutions and these solutions must coexist in the network. By default, NSO expects to manage the full device configuration and can thus conflict with the configuration rendered from the other solutions.
 
-For such situations NSO supports the `commit no-overwrite` operation. This commit flag restricts the device configuration to not overwrite data that NSO did not create. Since NSO 6.4, it also includes additional functionality for verifying device values that are required to compute the changes in the transaction (the values from the so-called transaction read-set) have not changed. This means `commit no-overwrite` in newer versions of NSO provides guarantees about correctness in the face of device changes that were not made through NSO.
+For such situations NSO supports the `commit no-overwrite`  operation. This commit flag restricts the device configuration to not overwrite data that NSO did not create. Since NSO 6.4, it also includes additional functionality for verifying device values that are required to compute the changes in the transaction (the values from the so-called transaction read-set) have not changed. This means `commit no-overwrite` in newer versions of NSO provides guarantees about correctness in the face of device changes that were not made through NSO.
 
 ## Advanced Services Orchestration <a href="#d5e1057" id="d5e1057"></a>
 
