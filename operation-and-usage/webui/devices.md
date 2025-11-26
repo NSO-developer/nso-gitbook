@@ -10,6 +10,8 @@ The **Devices** view provides options to manage devices, device groups, and auth
 
 The **Device management** view lists the devices in the network and provides options to manage them.
 
+<figure><img src="../../.gitbook/assets/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure>
+
 ### **Search**
 
 You can search for a device by its name, IP address, or other parameters. Narrow down the results by using the **Select device group** filter.
@@ -36,7 +38,7 @@ An action can be applied to a single or multiple devices at once.
 2. Using the **Choose actions** button, select the desired action. The result of the action is returned momentarily.
 
 {% hint style="info" %}
-In the **Device management** view, you can also apply actions on a device using the more options  button.
+In the **Device management** view, you can also apply actions on a device using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Management View**
@@ -44,7 +46,7 @@ In the **Device management** view, you can also apply actions on a device using 
 Available actions include **Connect**, **Ping**, **Sync from**, **Sync to**, **Check sync**, **Compare config**, **Fetch ssh host keys**, and **Apply template**, and. See [Lifecycle Operations](../operations/lifecycle-operations.md) for the details of these actions.
 
 {% hint style="info" %}
-The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options  button on the device row.
+The **Modify in Config Editor** and **Delete** are GUI-specific operations accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on the device row.
 {% endhint %}
 {% endtab %}
 
@@ -60,7 +62,7 @@ Additional actions are applied to an individual device. Use this option if you w
 5. Run the action.
 
 {% hint style="info" %}
-To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info  icon.
+To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info <img src="../../.gitbook/assets/actions-info.png" alt="" data-size="line"> icon.
 {% endhint %}
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
@@ -95,6 +97,8 @@ The other two tabs, i.e., **Config** and **Operdata** can be respectively used t
 
 The **Device groups** view lists all the available groups and devices belonging to them. You can add new device groups in this view as well as carry out actions on devices belonging to a group.
 
+<figure><img src="../../.gitbook/assets/device-groups.png" alt=""><figcaption><p>Device Groups View</p></figcaption></figure>
+
 ### **Create a Device Group**
 
 Device groups allow for the grouping and collective management of devices.
@@ -124,7 +128,7 @@ Device group actions let you perform an action on all the devices belonging to a
 2. Choose the desired action from the **Choose actions** button.
 
 {% hint style="info" %}
-In the **Device groups** view, you can also apply actions on a device group using the more options  button.
+In the **Device groups** view, you can also apply actions on a device group using the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button.
 {% endhint %}
 
 **Actions Possible in the Device Groups View**
@@ -132,7 +136,7 @@ In the **Device groups** view, you can also apply actions on a device group usin
 The available group actions are the same as in the section called [Apply an Action on a Device](devices.md#apply-an-action-on-a-device) (e.g., **Connect**, **Sync from**, **Sync to**, etc.) and are described in [Lifecycle Operations](../operations/lifecycle-operations.md).
 
 {% hint style="info" %}
-The **Modify in Config editor** option is accessible by clicking the more options  button on a device group.
+The **Modify in Config editor** option is accessible by clicking the more options <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> button on a device group.
 {% endhint %}
 
 ## Authgroups
@@ -147,6 +151,8 @@ This view is further partitioned into the following two tabs for different devic
 ### Groups
 
 The **Group** tab is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
+
+<figure><img src="../../.gitbook/assets/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure>
 
 #### Create an Authgroup
 
@@ -189,6 +195,8 @@ Proceed with caution as the changes are applied immediately.
 ### SNMP Groups
 
 The **SNMP Group** tab is used to view, search, and manage device authentication groups for SNMP-managed devices.
+
+<figure><img src="../../.gitbook/assets/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure>
 
 #### Create an SNMP Group
 

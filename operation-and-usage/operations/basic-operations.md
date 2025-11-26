@@ -12,6 +12,8 @@ Make sure that you have installed NSO and that you have sourced the `ncsrc` file
 
 We will use the NSO network simulator to simulate three Cisco IOS routers. NSO will talk Cisco CLI to those devices. You will use the NSO CLI and Web UI to perform the tasks. Sometimes you will use the native Cisco device CLI to inspect configuration or do out-of-band changes.
 
+<figure><img src="../../.gitbook/assets/c7200-example.png" alt="" width="375"><figcaption><p>The First Example</p></figcaption></figure>
+
 \
 Note that both the NSO software (NCS) and the simulated network devices run on your local machine.
 
@@ -169,6 +171,8 @@ NSO only needs to be synchronized with the devices in the event of a change bein
 The above incorrect (or not necessary) sequence stems from the assumption that the NSO CLI talks directly to the devices. This is not the case; the northbound interfaces in NSO modify the configuration in the NSO data store, NSO calculates a minimum difference between the current configuration and the new configuration, giving only the changes to the configuration to the NEDs that runs the commands to the devices. All this is done as one single change-set.
 
 The one exception to the above are devices that change their own configuration. For example, you only configure A but also B appears in the device configuration. These are so-called "auto-configs". In this case, the NED needs to implement special code to handle each such scenario individually. If the NED does not fully cover all of these device quirks, the device may get out of sync when you make configuration changes through NSO.
+
+<figure><img src="../../.gitbook/assets/ncs_nwe_transaction.png" alt="" width="563"><figcaption><p>Device Transaction</p></figcaption></figure>
 
 View the configuration of the `c0` device using the command:
 
@@ -949,7 +953,7 @@ devices device c0
 !
 ```
 
-To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to` or `sync-from` explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
+To resolve this, you can choose to synchronize the configuration between the devices and the CDB before committing. In setups where it is normal for engineers or other systems to make out-of-band changes, you may want to configure NSO to automatically bring in these changes, so you can avoid performing `sync-to`  or `sync-from`  explicitly. See [Out-of-band Interoperation](out-of-band-interoperation.md) section for details.
 
 There is also an option to override the out-of-sync check but beware that this could result in NSO inadvertently overwriting some device configuration:
 

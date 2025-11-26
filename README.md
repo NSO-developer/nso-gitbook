@@ -4,23 +4,6 @@ icon: power-off
 cover: >-
   https://github.com/NSO-developer/nso-gitbook/blob/main/images/gb-cover-final.png?raw=true
 coverY: -33.63970588235294
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Start

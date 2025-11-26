@@ -12,6 +12,8 @@ The Alarm Manager has three main components:
 * **Alarm Model**: For each alarm type, you can configure the mapping to for example X.733 alarm standard parameters that are sent as notifications northbound.
 * **Operator Actions**: Actions to set operator states on alarms such as acknowledgement, and also actions to administratively manage the alarm list such as deleting alarms.
 
+<figure><img src="../../.gitbook/assets/alarmmanager.png" alt="" width="375"><figcaption><p>The Alarm Manager</p></figcaption></figure>
+
 The alarm manager is accessible over all northbound interfaces. A read-only view including an SNMP alarm table and alarm notifications is available in an SNMP Alarm MIB. This MIB is suitable for integration with SNMP-based alarm systems.
 
 To populate the alarm list there is a dedicated Java API. This API lets a developer add alarms, change states on alarms, etc. A common usage pattern is to use the SNMP notification receiver to map a subset of the device traps into alarms.
@@ -31,6 +33,8 @@ Imagine a system with general digital inputs. A MIB might specify traps called `
 At installation, some detectors report "fire-alarm" and some "door-open" alarms. This is configured at the device and sent as free text in the SNMP var-binds. This is then managed by using the specific problem field of the NSO alarm manager to separate these different alarm types.
 
 The data model for the alarm manager is outlined below.
+
+<figure><img src="../../.gitbook/assets/dm-alarms.png" alt="" width="563"><figcaption><p>Alarm Model</p></figcaption></figure>
 
 This means that we have a list with key: (managed device, managed object, alarm type, specific problem). In the example above, we might have the following different alarms:
 

@@ -18,6 +18,8 @@ Services ideally perform the configuration all at once, with all the benefits of
 
 This is most evident with, for example, virtual machine (VM) provisioning, during virtual network function (VNF) orchestration. Consider a service that deploys and configures a router in a VM. When the service is first instantiated, it starts provisioning a router VM. However, it will likely take some time before the router has booted up and is ready to accept a new configuration. In turn, the service cannot configure the router just yet. The service must wait for the router to become ready. That is the event that triggers a re-deploy and the service can finish configuring the router, as the following figure illustrates:
 
+<figure><img src="../../.gitbook/assets/nano-steps.png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Steps</p></figcaption></figure>
+
 While each step of provisioning happens inside a transaction and is still atomic, the whole service is not. Instead of a simple fully-provisioned or not-provisioned-at-all status, a nano service can be in a number of other _states_, depending on how far in the provisioning process it is.
 
 The figure shows that the router VM goes through multiple states internally, however, only two states are important for the service. These two are shown as arrows, in the lower part of the figure. When a new service is configured, it requests a new VM deployment. Having completed this first step, it enters the “VM is requested but still provisioning” state. In the following step, the VM is configured and so enters the second state, where the router VM is deployed and fully configured. The states obviously follow individual provisioning steps and are used to report progress. What is more, each state tracks if an error occurred during provisioning.
@@ -178,6 +180,8 @@ This behavior tree always creates a single `“vrouter”` component for the ser
 
 The following figure visualizes the resulting service plan and its states.
 
+<figure><img src="../../.gitbook/assets/nano-states.png" alt="" width="563"><figcaption><p>Virtual Router Provisioning Plan</p></figcaption></figure>
+
 Along with the behavior tree, a nano service also relies on the `ncs:nano-plan-data` grouping in its service model. It is responsible for storing state and other provisioning details for each service instance. Other than that, the nano service model follows the standard YANG definition of a service:
 
 ```yang
@@ -288,6 +292,8 @@ A nano service abandons the single reverse diff-set by introducing `nano-plan-da
 
 This is illustrated in the following figure:
 
+<figure><img src="../../.gitbook/assets/nano-fastmap.png" alt="" width="563"><figcaption><p>Per-state FASTMAP with nano services</p></figcaption></figure>
+
 You can still use the service `get-modifications` action to visualize all data changes performed by the service as an aggregate. In addition, each state also has its own `get-modifications` action that visualizes the data changes for that particular state. It allows you to more easily identify the state and, by extension, the code that produced those changes.
 
 Before nano services became available, RFM services could only be implemented by creating a CDB subscriber. With the subscriber approach, the service can still leverage the plan-data grouping, which `nano-plan-data` is based on, to report the progress of the service under the resulting `plan` container. But the `create()` callback becomes responsible for creating the plan components, their states, and setting the status of the individual states as the service creation progresses.
@@ -302,6 +308,8 @@ Another example is the management of a web server VM for a web application. Here
 
 Both examples require two distinct steps for de-provisioning. Can nano services be of help in this case? Certainly. In addition to the state-by-state provisioning of the defined components, the nano service system in NSO is responsible for back-tracking during their removal. This process traverses all reached states in the reverse order, removing the changes previously done for each state one by one.
 
+<figure><img src="../../.gitbook/assets/nano-backtrack.png" alt="" width="563"><figcaption><p>Staged Delete with Backtracking</p></figcaption></figure>
+
 In doing so, the back-tracking process checks for a 'delete pre-condition' of a state. A delete pre-condition is similar to the create pre-condition, but only relevant when back-tracking. If the condition is not fulfilled, the back-tracking process stops and waits until it becomes satisfied. Behind the scenes, a kicker is configured to restart the process when that happens.
 
 If the state's delete pre-condition is fulfilled, back-tracking first removes the state's 'create' changes recorded by FASTMAP and then invokes the nano `delete()` callback, if defined. The main use of the callback is to override or veto the default status calculation for a back-tracking state. That is why you can't implement the `delete()` callback with a template, for example. Very importantly, `delete()` changes are not kept in a service's reverse diff-set and may stay even after the service is completely removed. In general, you are advised to avoid writing any configuration data because this callback is called under a removal phase of a plan component where new configuration is seldom expected.
@@ -309,6 +317,8 @@ If the state's delete pre-condition is fulfilled, back-tracking first removes th
 Since the 'create' configuration is automatically removed, without the need for a separate `delete()` callback, these callbacks are used only in specific cases and are not very common. Regardless, the `delete()` callback may run as part of the `commit dry-run` command, so it must not invoke further actions or cause side effects.
 
 Backtracking is invoked when a component of a nano service is removed, such as when deleting a service. It is also invoked when evaluating a plan and a reached state's 'create' pre-condition is no longer satisfied. In this case, the affected component is temporarily set to a back-tracking mode for as long as it contains such nonconforming states. It allows the service to recover and return to a well-defined state.
+
+<figure><img src="../../.gitbook/assets/nano-backtrack-precondition.png" alt="" width="563"><figcaption><p>Backtracking on no longer satisfied pre-condition</p></figcaption></figure>
 
 To implement the delete pre-condition or the `delete()` callback, you must add the `ncs:delete` statement to the relevant state in the plan outline. Applying it to the web server example above, you might have:
 
@@ -357,6 +367,8 @@ Moreover, post actions can be run either asynchronously (default) or synchronous
 The exception to this setting is when a component switches to a backtracking mode. In that case, the system will not wait for any create post action to complete (synchronous or not) but will start executing backtracking right away. It means a delete callback or a delete post action for a state may run before its synchronous create post action has finished executing.
 
 The side-effect-queue and a corresponding kicker are responsible for invoking the actions on behalf of the nano service and reporting the result in the respective state's post-action-status leaf. The following figure shows an entry is made in the side-effect-queue (2) after the state is reached (1) and its post-action status is updated (3) once the action finishes executing.
+
+<figure><img src="../../.gitbook/assets/nano-service-side-effect.png" alt="" width="563"><figcaption><p>Post-action Execution Through side-effect-queue</p></figcaption></figure>
 
 You can use the `show side-effect-queue` command to inspect the queue. The queue will run multiple actions in parallel and keep the failed ones for you to inspect. Please note that High Availability (HA) setups require special consideration: the side effect queue is disabled when High Availability is enabled and the High Availability mode is `NONE`. See [Mode of Operation](../../administration/management/high-availability.md#ha.moo) for more details.
 
@@ -853,23 +865,41 @@ Back-tracking is completely automatic and occurs in the following scenarios:
 
 For each RFM loop, NSO traverses each component and state in order. For each non-satisfied create pre-condition, a kicker is started that monitors and triggers when the pre-condition becomes satisfied.
 
+<figure><img src="../../.gitbook/assets/back-state.png" alt="" width="563"><figcaption></figcaption></figure>
+
 While traversing the states, a `create` pre-condition that was previously satisfied may become unsatisfied. If there are subsequent reached states that contain reverse diff-sets, then the component must be set to back-tracking mode. The back-tracking mode has as its goal to revert all changes up to the state that originally failed to satisfy its `create` pre-condition. While back-tracking, the delete pre-condition for each state is evaluated, if it exists. If the delete pre-condition is satisfied, the state's reverse diff-set is applied, and the next state is considered. If the delete pre-condition is not satisfied, a kicker is created to monitor this delete pre-condition. When the kicker triggers, a `reactive-re-deploy` is called and the back-tracking will continue until the goal is reached.
+
+<figure><img src="../../.gitbook/assets/back-state1.png" alt="" width="563"><figcaption></figcaption></figure>
 
 When the back-tracking plan component has reached its goal state, the component is set to normal mode again. The state's create pre-condition is evaluated and if it is satisfied the state is entered or otherwise a kicker is created as described above.
 
+<figure><img src="../../.gitbook/assets/back-state2.png" alt="" width="563"><figcaption></figcaption></figure>
+
 In some circumstances, a complete plan component is removed (for example, if the service input parameters are changed). If this happens, the plan component is checked if it contains reached states that contain reverse diff-sets.
+
+<figure><img src="../../.gitbook/assets/back-component.png" alt="" width="563"><figcaption></figcaption></figure>
 
 If the removed component contains reached states with reverse diff-sets, the deletion of the component is deferred and the component is set to back-tracking mode.
 
+<figure><img src="../../.gitbook/assets/back-component1.png" alt="" width="563"><figcaption></figcaption></figure>
+
 In this case, there is no specified goal state for the back-tracking. This means that when all the states have been reverted, the component is automatically deleted.
+
+<figure><img src="../../.gitbook/assets/back-component2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 If a service is deleted, all components are set to back-tracking mode. The service becomes a zombie, storing away its plan states so that the service configuration can be removed.
 
 All components of a deleted service are set in backtracking mode.
 
+<figure><img src="../../.gitbook/assets/back-delete.png" alt="" width="563"><figcaption></figcaption></figure>
+
 When a component becomes completely back-tracked, it is removed.
 
+<figure><img src="../../.gitbook/assets/back-delete1.png" alt="" width="563"><figcaption></figcaption></figure>
+
 When all components in the plan are deleted, the service is removed.
+
+<figure><img src="../../.gitbook/assets/back-delete2.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Behavior Tree <a href="#d5e10173" id="d5e10173"></a>
 
@@ -906,13 +936,19 @@ There is just one type of execution node:
 
 It is recommended to keep the behavior tree as flat as possible. The most trivial case is when the behavior tree creates a static nano-plan, that is, all the plan-components are defined and never removed. The following is an example of such a behavior tree:
 
+<figure><img src="../../.gitbook/assets/behave-simple.png" alt="" width="563"><figcaption><p>Behavior Tree with a Static nano-plan</p></figcaption></figure>
+
 Having a selector on root implies that all plan-components are created if they don't have any pre-conditions, or for which the pre-conditions are satisfied.
 
 An example of a more elaborated behavior tree is the following:
 
+<figure><img src="../../.gitbook/assets/behave-elaborate.png" alt="" width="563"><figcaption><p>Elaborated Behavior Tree</p></figcaption></figure>
+
 This behavior tree has a selector node as the root. It will always synthesize the "base-config" plan component and then evaluate then pre-condition for the selector child. If that pre-condition is satisfied, it then creates four other plan-components.
 
 The multiplier control flow node is used when a plan component of a certain type should be cloned into several copies depending on some service input parameters. For this reason, the multiplier node defines a `foreach`, a `when`, and a `variable`. The `foreach` is evaluated and for each node in the nodeset that satisfies the `when`, the `variable` is evaluated as the outcome. The value is used for parameter substitution to a unique name for a duplicated plan component.
+
+<figure><img src="../../.gitbook/assets/behave-multiplier.png" alt=""><figcaption></figcaption></figure>
 
 The value is also added to the nano service opaque which enables the individual state nano service `create()` callbacks to retrieve the value.
 
@@ -1023,6 +1059,8 @@ The nano service can have several callback registrations, one for each plan comp
 The drawback with this flexible callback registration is that there must be a way for the NSO Service Manager to know if all expected nano service callbacks have been registered. For this reason, all nano service plan component states that require callbacks are marked with this information. When the plan is executed and the callback markings in the plan mismatch with the actual registrations, this results in an error.
 
 All callback registrations in NSO require a daemon to be instantiated, such as a Python or Java process. For nano services, it is allowed to have many daemons where each daemon is responsible for a subset of the plan state callback registrations. The neat thing here is that it becomes possible to mix different callback types (Template/Python/Java) for different plan states.
+
+<figure><img src="../../.gitbook/assets/nano-service-impl.png" alt=""><figcaption></figcaption></figure>
 
 The mixed callback feature caters to the case where most of the callbacks are templates and only some are Java or Python. This works well because nano services try to resolve the template parameters using the nano service opaque when applying a template. This is a unique functionality for nano services that makes Java or Python apply-template callbacks unnecessary.
 
