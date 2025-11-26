@@ -4,7 +4,7 @@ description: Description of SNMP agent.
 
 # NSO SNMP Agent
 
-&#x20;The SNMP agent in NSO is used mainly for monitoring and notifications. It supports SNMPv1, SNMPv2c, and SNMPv3.
+The SNMP agent in NSO is used mainly for monitoring and notifications. It supports SNMPv1, SNMPv2c, and SNMPv3.
 
 The following standard MIBs are supported by the SNMP agent:
 
