@@ -1093,6 +1093,34 @@ Set dry-run outformat
 
 <details>
 
+<summary>set_reconcile_exclude_paths(...)</summary>
+
+Method:
+
+```python
+set_reconcile_exclude_paths(self, xpaths)
+```
+
+Set paths to be excluded during reconciliation.
+
+</details>
+
+<details>
+
+<summary>set_reconcile_include_paths(...)</summary>
+
+Method:
+
+```python
+set_reconcile_include_paths(self, xpaths)
+```
+
+Set paths to be included during reconciliation.
+
+</details>
+
+<details>
+
 <summary>trace_id(...)</summary>
 
 Method:
