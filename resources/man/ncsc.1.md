@@ -4,7 +4,7 @@
 
 ## Synopsis
 
-`ncsc -c [-a | --annotate YangAnnotationFile] [--deviation DeviationFile] [--skip-deviation-fxs] [-o FxsFile] [--verbose] [--fail-on-warnings] [-E | --error ErrorCode...] [-W | --warning ErrorCode...] [--allow-interop-issues] [-w | --no-warning ErrorCode...] [--strict-yang] [--no-yang-source] [--include-doc] [--use-description [always]] [[--no-features] | [-F | --feature Features...]] [-C | --conformance [modulename:]implement | [modulename:]import...] [--datastore operational] [--ignore-unknown-features] [--max-status current | deprecated | obsolete] [-p | --prefix Prefix] [--yangpath YangDir] [--export Agent [-f FxsFileOrDir...]...] -- YangFile`
+`ncsc -c [-a | --annotate YangAnnotationFile] [--deviation DeviationFile] [--skip-deviation-fxs] [-o FxsFile] [--verbose] [--fail-on-warnings] [-E | --error ErrorCode...] [-W | --warning ErrorCode...] [--allow-interop-issues] [-w | --no-warning ErrorCode...] [--strict-yang] [--no-yang-source] [--include-doc] [--use-description [always]] [[--no-features] | [-F | --feature Features...] | [--no-feature Features...]] [-C | --conformance [modulename:]implement | [modulename:]import...] [--datastore operational] [--ignore-unknown-features] [--max-status current | deprecated | obsolete] [-p | --prefix Prefix] [--yangpath YangDir] [--export Agent [-f FxsFileOrDir...]...] -- YangFile`
 
 `ncsc --strip-yang-source FxsFile`
 
@@ -148,6 +148,24 @@ Take a look at the EXAMPLE section for a crash course.
 > If the module uses a feature defined in an imported YANG module, it
 > must be given as \<modulename:feature\>.
 
+`--no-feature`\<features\>  
+> Indicates that support for the YANG *features* should be excluded
+> from the fxs file. \<features\> is a string on the form
+> \<modulename\>:\[\<feature\>(,\<feature\>)\*\]
+>
+> This option is used to prune the data model by removing all nodes in
+> all modules that are defined with an "if-feature" that is listed as
+> \<feature\>. Therefore, if this option is given, all features in all
+> modules that should be excluded, must be listed explicitly; features
+> not listed remain supported.
+>
+> If this option is not given, nothing is pruned, i.e., it works as if
+> no features were explicitly excluded.
+>
+> This option can be given multiple times.
+>
+> Note: `--feature` and `--no-feature` cannot be given together.
+
 `--no-yang-source`  
 > By default, the YANG module and submodules source is included in the
 > fxs file, so that a NETCONF or RESTCONF client can download the module
@@ -157,6 +175,9 @@ Take a look at the EXAMPLE section for a crash course.
 
 `--no-features`  
 > Indicates that no YANG features from the given module are supported.
+>
+> Note: This option cannot be used in combination with `--feature`
+> and/or `--no-feature`.
 
 `--ignore-unknown-features`  
 > Instructs the compiler to not give an error if an unknown feature is
