@@ -651,6 +651,11 @@
   Configure NED settings related to live-status.
 
 
+    - live-status expect-char-by-char <true|false> (default false)
+
+      Expect character by character in live-status actions when matching device echo.
+
+
     - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.
