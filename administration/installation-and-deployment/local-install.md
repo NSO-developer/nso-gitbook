@@ -347,6 +347,20 @@ Additionally, note that:
 * As certain algorithms typically available with CiscoSSL are not included in the FIPS 140-3 validated module (and therefore disabled in FIPS mode), you need to configure NSO to use only the algorithms and cryptographic suites available through the CiscoSSL FIPS 140-3 object module.
 * With FIPS, NSO signals the NEDs to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components, ensuring compliance with FIPS 140-3. To support this, NED packages may also require upgrading, as older versions — particularly SSH-based NEDs — often lack the necessary FIPS signaling or Bouncy Castle support required for cryptographic compliance.
 * Configure SSH keys in `ncs.conf` and `init.xml`.
+
+Note the following part is only applied for RHEL (Red Hat Enterprise Linux) kernel system, skip below part if the system is not RHEL kernel.
+
+4. There are list keys exchange algorithms allowed under FIPS on RHEL kernel:
+`ecdh-sha2-nistp256`, `ecdh-sha2-nistp384`, `ecdh-sha2-nistp521`,`diffie-hellman-group14-sha1` and `diffie-hellman-group-exchange-sha256`.
+
+Set the key exchange of `/ncs-config/ssh/algorithm/kex` in `ncs.conf` and of device `devices/device/<NAME>/ssh-algorithms/kex` to above list keys.
+
+5. Comment out the relevant `HostKey /etc/ssh/ssh_host_ed25519_key` line in `/etc/ssh/sshd_config` file to disallow Ed25519 host keys and restart `sshd` service.
+
+```xml
+Note: The Ed25519 algorithm is not FIPS-140-compliant, and OpenSSH does not work with Ed25519 keys in FIPS mode.
+```
+
 {% endhint %}
 {% endtab %}
 {% endtabs %}
