@@ -268,44 +268,72 @@ $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
 {% endtab %}
 
 {% tab title="FIPS System Install" %}
-FIPS mode creates a FIPS-compliant NSO install.
 
-FIPS mode should only be used for deployments that are subject to strict compliance regulations as the cryptographic functions are then confined to the CiscoSSL FIPS 140-3 module library.
+FIPS mode restricts cryptographic operations to those provided by the CiscoSSL FIPS 140-3 validated module. **This mode should only be enabled for deployments subject to strict regulatory compliance requirements**, as it limits the available cryptographic functions to those certified under FIPS 140-3 standards.
 
-For FIPS-compliant NSO install, run the command with the additional `--fips-install` flag. Afterwards, verify FIPS in `ncs.conf`.
+**Installation Procedure**
+
+To perform a FIPS-compliant NSO installation, execute the installer with the `--fips-install` flag:
 
 ```bash
 $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install --fips-install
 ```
 
-{% code title="Example: FIPS System Install" %}
-```bash
-$ sudo sh nso-6.5.linux.x86_64.installer.bin --system-install --fips-install
-```
-{% endcode %}
-
-{% hint style="info" %}
 **NSO Configuration for FIPS**
 
-Note the following as part of FIPS-specific configuration/install:
+During FIPS installation, the following configurations are automatically applied:
 
-1. The `ncs.conf` file is automatically configured to enable FIPS by setting the following flag:
+1. **FIPS Mode Enablement**\
+   The `ncs.conf` file is configured with the FIPS mode flag:
+   ```xml
+   <fips-mode>
+       <enabled>true</enabled>
+   </fips-mode>
+   ```
 
-```xml
-<fips-mode>
-    <enabled>true</enabled>
-</fips-mode>
-```
+2. **Environment Variables**\
+   The `ncsrc` file is updated with FIPS-compliant environment variables:
+   - `NCS_OPENSSL_CONF_INCLUDE`
+   - `NCS_OPENSSL_CONF`
+   - `NCS_OPENSSL_MODULES`
 
-2. Additional environment variables (`NCS_OPENSSL_CONF_INCLUDE`, `NCS_OPENSSL_CONF`, `NCS_OPENSSL_MODULES`) are configured in `ncsrc` for FIPS compliance.
-3. The default `crypto.so` is overwritten at install for FIPS compliance.
+3. **Cryptographic Library**\
+   The default `crypto.so` library is replaced with the FIPS-compliant version during installation.
 
-Additionally, note that:
+**Cryptographic Algorithm Restrictions**
 
-* As certain algorithms typically available with CiscoSSL are not included in the FIPS 140-3 validated module (and therefore disabled in FIPS mode), you need to configure NSO to use only the algorithms and cryptographic suites available through the CiscoSSL FIPS 140-3 object module.
-* With FIPS, NSO signals the NEDs to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components, ensuring compliance with FIPS 140-3. To support this, NED packages may also require upgrading, as older versions — particularly SSH-based NEDs — often lack the necessary FIPS signaling or Bouncy Castle support required for cryptographic compliance.
-* Configure SSH keys in `ncs.conf` and `init.xml`.
+The CiscoSSL FIPS 140-3 validated module supports a limited subset of cryptographic algorithms compared to standard CiscoSSL. **You must configure NSO to use only FIPS-approved algorithms and cryptographic suites.**
+
+Key configuration requirements include:
+- Configuring approved algorithms in `/ncs-config/ssh/algorithm/kex` within `ncs.conf`
+- Configuring device-specific algorithms in `/devices/device/ssh-algorithms/kex` within CDB
+
+{% hint style="info" %}
+The Ed25519 algorithm is **not FIPS 140-3 compliant** and must not be used in FIPS mode.
 {% endhint %}
+
+**FIPS-Approved Key Exchange Algorithms**
+
+The following key exchange algorithms are FIPS-approved:
+- `ecdh-sha2-nistp256`
+- `ecdh-sha2-nistp384`
+- `ecdh-sha2-nistp521`
+- `diffie-hellman-group14-sha1`
+- `diffie-hellman-group-exchange-sha256`
+
+{% hint style="info" %}
+Ensure that SSH keys of the correct type are configured in both `ncs.conf` and `init.xml` files.
+{% endhint %}
+
+**NED Package Compatibility**
+
+NSO signals Network Element Drivers (NEDs) to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components. **NED packages may require upgrading to support FIPS mode**, as older versions—particularly SSH-based NEDs—often lack:
+- FIPS mode signaling capability
+- Bouncy Castle FIPS library support
+- Required cryptographic compliance features
+
+Consult the NED documentation and verify compatibility before deploying in FIPS mode.
+
 {% endtab %}
 {% endtabs %}
 
