@@ -50,7 +50,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.65.4 2025-11-20](alu-sr/README.md)
+  * [README v8.65.5 2025-11-28](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -142,7 +142,7 @@
   * [README v1.1.1 2025-10-21](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v25.2.1 2025-06-30](cisco-iosxr_netconf/README.md)
+  * [README v25.3.1 2025-11-28](cisco-iosxr_netconf/README.md)
 
 * cisco-ise
   * [README-ned-settings](cisco-ise/README-ned-settings.md)
@@ -158,7 +158,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.57.5 2025-11-07](cisco-staros/README.md)
+  * [README v5.57.6 2025-11-28](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -222,7 +222,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.1 2025-11-21](huawei-ias/README.md)
+  * [README v2.9.2 2025-11-28](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)

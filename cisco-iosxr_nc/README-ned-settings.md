@@ -40,6 +40,8 @@
      2.2. extra-get-config-paths
      2.3. exclude-namespaces
      2.4. inject-meta-data
+     2.5. inbound
+     2.6. outbound
   3. connection
      3.1. capabilities
           3.1.1. regex-exclude
@@ -261,6 +263,14 @@
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
+    - transaction accept-module-as-prefix <true|false> (default false)
+
+      Configures the NED config transform engines to accept XPaths and related references using the
+      module name as the prefix instead of the prefix specified in the corresponding YANG file. This
+      option is relevant only if the NED package was rebuilt using the 'use-module-as-prefix' option
+      in the built-in NED rebuild tool.
+
+
     - transaction nmda get-data enable <true|false> (default false)
 
       Use get-data rpc for data retrieval, if device supports it.
@@ -367,6 +377,31 @@
 
         Argument to tailf:meta-value as it would appear in yang (can be left out if no meta-value
         sub-statement needed).
+
+
+## 2.5. ned-settings cisco-iosxr_nc transaction config-replace-patterns inbound
+-------------------------------------------------------------------------------
+
+  Specify replace patterns to be applied to inbound XML data before it is parsed and forwarded to
+  NSO.
+
+    - transaction config-replace-patterns inbound <pattern> <replace>
+
+      - pattern <string>
+
+      - replace <string>
+
+
+## 2.6. ned-settings cisco-iosxr_nc transaction config-replace-patterns outbound
+--------------------------------------------------------------------------------
+
+  Specify replace patterns to be applied to outbound XML data before it is sent to the device.
+
+    - transaction config-replace-patterns outbound <pattern> <replace>
+
+      - pattern <string>
+
+      - replace <string>
 
 
 # 3. ned-settings cisco-iosxr_nc connection
