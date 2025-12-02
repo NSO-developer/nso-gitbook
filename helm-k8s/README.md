@@ -33,7 +33,7 @@
 
   When creating a deployment from a specific chart, the NED (and helm) will inherit the default values from the targeted chart. Chart values can be further customised in the NED configuration using the yang model (please check Configuration samples chapter for details).
 
-  Note that chart creation or deletion is not allowed in the helm-k8s NED, as they are deemed out of the scope of the NED. Only deployments creation/deletion is allowed.
+  Note that chart creation or deletion is not allowed in the helm-k8s NED, as they are deemed out of the scope of the NED. Only deployments creation/deletion/updates is allowed.
 
   Before commiting changes (eg install deployments), it is possible to do a helm dry-run of the change, by running the following command from the NED:
 
@@ -478,8 +478,7 @@
 # 7. Limitations
 ----------------
 
-  Chart creation or deletion is not allowed in the helm-k8s NED, as they are deemed out of the scope of the NED. Only deployments creation/deletion is allowed.
-  Only deployments creation/deletion is allowed in the helm-k8s NED.
+  Chart creation or deletion is not allowed in the helm-k8s NED, as they are deemed out of the scope of the NED.
 
 
 # 8. How to report NED issues and feature requests

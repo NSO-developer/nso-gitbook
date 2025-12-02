@@ -257,6 +257,17 @@
       that can be used, see section 9.12 in the README.md.
 
 
+    - transaction enable-config-caching <true|false> (default false)
+
+      Enable this option to allow the NED to handle configuration nodes that may disappear
+      unexpectedly when other configuration changes are made on the device. If such nodes are
+      removed spontaneously, it can cause NSO to become out of sync with the actual device
+      configuration. When this setting is enabled, the NED will cache the affected configuration
+      nodes and reinject them during all subsequent read operations, ensuring NSO remains
+      synchronized with the device. Note: This feature requires the relevant schema nodes to be
+      annotated with 'cache-parent-on' for it to function properly.
+
+
     - transaction force-revert-diff <true|false> (default false)
 
       Enable this setting to force the use of an NSO calculated diff to apply when doing revert on device.
