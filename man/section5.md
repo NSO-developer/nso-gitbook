@@ -8594,6 +8594,12 @@ tailf:cli-compact-syntax annotation. Otherwise the output from 'show
 running-config' will not be correct, and the sequence 'save xx' 'load
 override xx' will not work.
 
+It is important to remember that this extension when set on a container
+affects all children within that container but it is not inherited down
+to any new container wherein. In case the sequence needs to be
+maintained for these then a new annotation needs to be set at that
+location.
+
 Used in I- and C-style CLIs.
 
 The *cli-sequence-commands* statement can be used in: *list*,
