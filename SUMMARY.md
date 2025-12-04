@@ -150,7 +150,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.31 2025-10-28](cisco-nx/README.md)
+  * [README v5.32 2025-12-03](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -238,7 +238,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.82 2025-11-26](huawei-vrp/README.md)
+  * [README v6.82.1 2025-12-03](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -330,6 +330,10 @@
 * redhat-dir389
   * [README-ned-settings](redhat-dir389/README-ned-settings.md)
   * [README v1.2.6 2025-01-07](redhat-dir389/README.md)
+
+* redhat-openshift-k8s
+  * [README-ned-settings](redhat-openshift-k8s/README-ned-settings.md)
+  * [README v1.0.0 2025-12-03](redhat-openshift-k8s/README.md)
 
 * riverbed-steelhead
   * [README-ned-settings](riverbed-steelhead/README-ned-settings.md)

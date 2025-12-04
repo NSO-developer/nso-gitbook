@@ -466,6 +466,11 @@
       Temporary config file name used to copy from/to running-config.
 
 
+    - file-transfer two-stage-commit <true|false> (default false)
+
+      Enable Two-stage Configuration Commit when copying to running-config.
+
+
     - file-transfer cli-fallback <enum> (default disabled)
 
       Fallback to use CLI if file upload fails for this transaction (default disabled).
@@ -1337,6 +1342,12 @@
       Enable this setting to use 'remove' instead of 'delete' when sending delete operations to NSO. This is useful when
       doing delete commands for data that might not be present in CDB. Please note that deletes for missing data will still
       be part of transaction, and will be sent to device. Use with care, and do proper testing to understand behaviour.
+
+
+    - developer disable-config-locks <true|false> (default false)
+
+      Disable config locks. WARNING: Some commits must be split into two commits with locks
+      disabled.
 
 
 ## 16.1. ned-settings cisco-nx developer simulate-show

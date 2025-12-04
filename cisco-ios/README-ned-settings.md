@@ -205,6 +205,21 @@
       Configure SSH client keep alive interval in seconds, default 0.
 
 
+    - connection ssh auth keyboard-interactive <true|false> (default false)
+
+      Enable keyboard-interactive auth method, e.g for Duo push or (OTP) password.
+
+
+    - connection ssh auth request prompt <string>
+
+      WORD;;SSH server keyboard-interactive prompt, e.g. 'Password:'.
+
+
+    - connection ssh auth request response <string>
+
+      WORD;;Response to the prompt, e.g. 'MySecretPw'.
+
+
     - connection populate-smart-license <true|false> (default true)
 
       Enable or disable population of smart license information.
