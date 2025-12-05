@@ -290,7 +290,7 @@
   - Optionally set the ssl to accept-any 
 
     ```
-    admin@ncs(config)# devices device dev-1 ned-settings cisco-fmc-connection ssl accept-any
+    admin@ncs(config)# devices device dev-1 ned-settings cisco-apicdc ssl accept-any
     ```
 
   - Optionally specify a list of objects that are controlled by the NED.
