@@ -46,12 +46,12 @@
 ----------------------------
 
 
-    - huawei-nce debugFlag <true|false> (default false)
+    - debugFlag <true|false> (default false)
 
       Enabled extra debugging in NED.
 
 
-    - huawei-nce fetch-l3vpn-method <enum> (default file)
+    - fetch-l3vpn-method <enum> (default file)
 
       method used to fetch the L3VPN services (via APIs or downloading a file with configuration).
 
@@ -60,7 +60,13 @@
       api   - L3VPN configuration is fetched using APIs for every L3VPN service.
 
 
-    - huawei-nce fetch-platform-oper-data <enum> (default file)
+    - no-threads-interface-fetch <uint32> (default 10)
+
+      number of threads used to fetch data for:
+      'restconf/v1/data/huawei-nce-ip-ifm:devices/device/id/interfaces/interface/id' API.
+
+
+    - fetch-platform-oper-data <enum> (default file)
 
       choose a method to fetch network-elements and LTPS (platform operational data).
 
@@ -69,13 +75,13 @@
       api   - 'network-elements' and 'ltp' are fetched using APIs.
 
 
-    - huawei-nce enable-vpn-node-count-check <true|false> (default true)
+    - enable-vpn-node-count-check <true|false> (default true)
 
       flag used to check the 'vpn-node-count' parameter, so NED decides if 1 or 2 APIs are needed to
       fetch a specific L3VPN entry.
 
 
-    - huawei-nce client-svc-instance-completed-method <enum> (default old-method)
+    - client-svc-instance-completed-method <enum> (default old-method)
 
       choose if 'client-svc-instance' creation should be completed during
       'time-provisioning-service-DWDM' timer or not.
@@ -87,7 +93,7 @@
                     occurs in the meantime, service creation is considered successful.
 
 
-    - huawei-nce authentication-method <enum> (default old)
+    - authentication-method <enum> (default old)
 
       choose what API to be used to fetch the token from the device.
 
@@ -96,7 +102,7 @@
       new  - new API: /rest/plat/smapp/v1/sessions.
 
 
-    - huawei-nce get-ne-data <enum> (default full)
+    - get-ne-data <enum> (default full)
 
       control how to fetch network-elements data(OLT) for NCE-FAN-feature.
 
@@ -105,18 +111,18 @@
       light  - only the OLT names are populated so partial-sync can be used further.
 
 
-    - huawei-nce sync-from-disabled-olt-feature <true|false> (default false)
+    - sync-from-disabled-olt-feature <true|false> (default false)
 
       if set on true, the 'sync-from' operation cannot be performed anymore.
 
 
-    - huawei-nce enable-olt-filtering <true|false> (default false)
+    - enable-olt-filtering <true|false> (default false)
 
       if this is set on true, please provide what data to fetch by configuring the
       filter-by-product-name, NCE-FAN feature.
 
 
-    - huawei-nce filter-by-product-name <string>
+    - filter-by-product-name <string>
 
       filter for product-name from huawei-nce-resource-inventory:cards API.
 

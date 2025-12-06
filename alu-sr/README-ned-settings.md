@@ -460,7 +460,8 @@ Note, this method is always used when connected to a NETSIM
 
     - developer platform model <string>
 
-      Override device model name/number.
+      Override device model name/number. Note: if emulating thoward a netsim device, append (NETSIM)
+      to the model - eg '7250(NETSIM)'.
 
 
     - developer platform name <string>

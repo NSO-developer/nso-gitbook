@@ -265,6 +265,33 @@
       disable  - disable.
 
 
+    - install-config-to-fortigate install-dependency-objects-update <true|false> (default false)
+
+      Install dependency objects update to fortigate device.
+
+      When this setting is set to true, NED automatically identifies firewall dependency objects
+      that have been updated in the transaction and triggers necessary policy package
+      installations to affected FortiGate devices.
+
+      NED scans through all prepare nodes and identifies updated firewall objects that may
+      be referenced in policy packages, including:
+        - IPv4/IPv6 addresses and address groups
+        - VIPs (Virtual IP addresses)
+        - Custom services
+        - IP pools
+        - Application lists
+        - Security profiles (antivirus, IPS, SSL/SSH, webfilter, protocol options)
+        - User AD groups
+
+      When these objects are modified, any policy packages that reference them will be automatically
+      identified and reinstalled to FortiGate devices, ensuring that the configuration changes
+      take effect properly across the network.
+
+      NOTE: This feature requires NED to query all policy packages and firewall policies
+      in the NSO CDB to determine object references. This may increase commit time depending
+      on the number and size of policy packages and firewall policies in your deployment.
+
+
     - install-config-to-fortigate install-status-check-max-retries <NUM> (default 5)
 
       Max number of retries, when checking status.
