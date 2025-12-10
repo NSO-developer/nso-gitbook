@@ -6341,6 +6341,12 @@ how they relate to each other.
 > Timeout for each Python VM to start and initialize registered classes
 > after it has been started by NCS.
 
+/ncs-config/python-vm/enable-node-equality (boolean) \[false\]  
+> Set to true to enable path-based equality comparison for maagic Node
+> objects. When enabled, nodes with the same path are considered equal.
+> Set to false to use Python default behavior, where only identical
+> Python objects are considered equal.
+
 /ncs-config/smart-license  
 > This section provides the possibility to override parameters in the
 > tailf-ncs-smart-license.yang submodule, thus preventing setting of
