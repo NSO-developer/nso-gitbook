@@ -58,7 +58,7 @@
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
-  * [README v1.10.11 2025-08-26](arris-cmts/README.md)
+  * [README v1.10.12 2025-12-09](arris-cmts/README.md)
 
 * brocade-ironware
   * [README-ned-settings](brocade-ironware/README-ned-settings.md)
@@ -234,7 +234,7 @@
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
-  * [README v1.0.28 2025-10-02](huawei-nce/README.md)
+  * [README v1.0.29 2025-12-09](huawei-nce/README.md)
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
