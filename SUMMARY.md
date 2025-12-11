@@ -382,5 +382,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.2.6 2025-07-07](zte-zxros/README.md)
+  * [README v1.3 2025-12-10](zte-zxros/README.md)
 
