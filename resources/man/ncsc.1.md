@@ -6,6 +6,10 @@
 
 `ncsc -c [-a | --annotate YangAnnotationFile] [--deviation DeviationFile] [--skip-deviation-fxs] [-o FxsFile] [--verbose] [--fail-on-warnings] [-E | --error ErrorCode...] [-W | --warning ErrorCode...] [--allow-interop-issues] [-w | --no-warning ErrorCode...] [--strict-yang] [--no-yang-source] [--include-doc] [--use-description [always]] [[--no-features] | [-F | --feature Features...] | [--no-feature Features...]] [-C | --conformance [modulename:]implement | [modulename:]import...] [--datastore operational] [--ignore-unknown-features] [--max-status current | deprecated | obsolete] [-p | --prefix Prefix] [--yangpath YangDir] [--export Agent [-f FxsFileOrDir...]...] -- YangFile`
 
+`ncsc --extract-yang-source Dir FxsFile...`
+
+`ncsc --attach-yang-source Dir FxsFile...`
+
 `ncsc --strip-yang-source FxsFile`
 
 `ncsc --list-errors`
@@ -722,6 +726,19 @@ IdentityName is the name of an identity in the YANG module ModName.
 
 ### Misc options
 
+`--extract-yang-source` \<Dir\> \<FxsFile\>...  
+> Extract the included YANG source from the fxs file to the specified
+> directory. The YANG source must not have been stripped from the fxs
+> file using `--strip-yang-source`, and the fxs file must not have
+> been compiled with `--no-yang-source`.
+
+`--attach-yang-source` \<Dir\> \<FxsFile\>...  
+> Attach YANG source from the specified directory to the fxs file. The
+> fxs file must have had its YANG source stripped using
+> `--strip-yang-source` or must not have been compiled with
+> `--no-yang-source`. Additionally, the directory must include all
+> required YANG source files for the fxs file.
+
 `--strip-yang-source` \<FxsFile\>  
 > Removes included YANG source from the fxs file. This makes the file
 > smaller, but it means that the YANG module and submodules cannot be
@@ -809,7 +826,7 @@ Finally we show how to compile a clispec into a loadable format:
 On success exit status is 0. On failure 1. Any error message is printed
 to stderr.
 
-## Yang 1.1
+## YANG 1.1
 
 NCS supports YANG 1.1, as defined in RFC 7950, with the following
 exceptions:
