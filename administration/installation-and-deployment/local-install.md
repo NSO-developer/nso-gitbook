@@ -41,7 +41,8 @@ Primary requirements to do a Local Install include:
 
 * A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
 * GNU libc 2.24 or higher.
-* Java JRE 17 or higher. Used by Cisco Smart Licensing.
+* Java JRE 21 or higher. Used by Cisco Smart Licensing.
+* Python 3.10 or higher (3.12 recommended).
 * Required and included with many Linux/macOS distributions:
   * `tar` command. Unpack the installer.
   * `gzip` command. Unpack the installer.
@@ -61,9 +62,8 @@ Primary requirements to do a Local Install include:
 
 Additional requirements to, for example, build and run NSO examples/services include:
 
-* Java JDK 17 or higher.
+* Java JDK 21 or higher.
 * Ant 1.9.8 or higher.
-* Python 3.10 or higher.
 * Python Setuptools is required to build the Python API.
 * Often installed using the Python package installer pip:
   * Python Paramiko 2.2 or higher. To use netconf-console.
@@ -185,9 +185,8 @@ Since NSO version 6.3, a few additional NSO packages are included. They contain 
 
 * HCC
 * Observability Exporter
-
-- Phased Provisioning
-- Resource Manager
+* Phased Provisioning
+* Resource Manager
 
 For platform tools documentation, refer to the individual package's `README` file or to the [online documentation](https://nso-docs.cisco.com/resources).
 
@@ -199,7 +198,7 @@ Fetch the latest production-grade NEDs from [Cisco Software Download](https://so
 
 **Manual pages**
 
-The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../resources/man/README.md) in Manual Pages.
+The installation program unpacks the NSO manual pages from the documentation archive in `$NCS_DIR/man`. `ncsrc` makes an addition to `$MANPATH`, allowing you to use the `man` command to view them. The manual pages are available in PDF format and from the online documentation located on [NCS man-pages, Volume 1](../../resources/man/) in Manual Pages.
 
 Following is a list of a few of the installed manual pages:
 
@@ -316,7 +315,6 @@ INFO  NCS installation complete
 {% endtab %}
 
 {% tab title="FIPS Local Install" %}
-
 FIPS mode restricts cryptographic operations to those provided by the CiscoSSL FIPS 140-3 validated module. **This mode should only be enabled for deployments subject to strict regulatory compliance requirements**, as it limits the available cryptographic functions to those certified under FIPS 140-3 standards.
 
 **Installation Procedure**
@@ -331,20 +329,19 @@ $ sh nso-VERSION.OS.ARCH.installer.bin $HOME/ncs-VERSION --local-install --fips-
 
 During FIPS installation, the following configurations are automatically applied:
 
-1. **FIPS Mode Enablement**\
-   The `ncs.conf` file is configured with the FIPS mode flag:
-   ```xml
-   <fips-mode>
-       <enabled>true</enabled>
-   </fips-mode>
-   ```
+1.  **FIPS Mode Enablement**\
+    The `ncs.conf` file is configured with the FIPS mode flag:
 
+    ```xml
+    <fips-mode>
+        <enabled>true</enabled>
+    </fips-mode>
+    ```
 2. **Environment Variables**\
    The `ncsrc` file is updated with FIPS-compliant environment variables:
-   - `NCS_OPENSSL_CONF_INCLUDE`
-   - `NCS_OPENSSL_CONF`
-   - `NCS_OPENSSL_MODULES`
-
+   * `NCS_OPENSSL_CONF_INCLUDE`
+   * `NCS_OPENSSL_CONF`
+   * `NCS_OPENSSL_MODULES`
 3. **Cryptographic Library**\
    The default `crypto.so` library is replaced with the FIPS-compliant version during installation.
 
@@ -353,8 +350,9 @@ During FIPS installation, the following configurations are automatically applied
 The CiscoSSL FIPS 140-3 validated module supports a limited subset of cryptographic algorithms compared to standard CiscoSSL. **You must configure NSO to use only FIPS-approved algorithms and cryptographic suites.**
 
 Key configuration requirements include:
-- Configuring approved algorithms in `/ncs-config/ssh/algorithm/kex` within `ncs.conf`
-- Configuring device-specific algorithms in `/devices/device/ssh-algorithms/kex` within CDB
+
+* Configuring approved algorithms in `/ncs-config/ssh/algorithm/kex` within `ncs.conf`
+* Configuring device-specific algorithms in `/devices/device/ssh-algorithms/kex` within CDB
 
 {% hint style="info" %}
 The Ed25519 algorithm is **not FIPS 140-3 compliant** and must not be used in FIPS mode.
@@ -363,11 +361,12 @@ The Ed25519 algorithm is **not FIPS 140-3 compliant** and must not be used in FI
 **FIPS-Approved Key Exchange Algorithms**
 
 The following key exchange algorithms are FIPS-approved:
-- `ecdh-sha2-nistp256`
-- `ecdh-sha2-nistp384`
-- `ecdh-sha2-nistp521`
-- `diffie-hellman-group14-sha1`
-- `diffie-hellman-group-exchange-sha256`
+
+* `ecdh-sha2-nistp256`
+* `ecdh-sha2-nistp384`
+* `ecdh-sha2-nistp521`
+* `diffie-hellman-group14-sha1`
+* `diffie-hellman-group-exchange-sha256`
 
 {% hint style="info" %}
 Ensure that SSH keys of the correct type are configured in both `ncs.conf` and `init.xml` files.
@@ -376,12 +375,12 @@ Ensure that SSH keys of the correct type are configured in both `ncs.conf` and `
 **NED Package Compatibility**
 
 NSO signals Network Element Drivers (NEDs) to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components. **NED packages may require upgrading to support FIPS mode**, as older versions—particularly SSH-based NEDs—often lack:
-- FIPS mode signaling capability
-- Bouncy Castle FIPS library support
-- Required cryptographic compliance features
+
+* FIPS mode signaling capability
+* Bouncy Castle FIPS library support
+* Required cryptographic compliance features
 
 Consult the NED documentation and verify compatibility before deploying in FIPS mode.
-
 {% endtab %}
 {% endtabs %}
 
