@@ -1110,6 +1110,11 @@
       Switch to use multi-line format for class-map / match dscp|precedence statements.
 
 
+    - api ip-nat-forced-delete <true|false> (default false)
+
+      Enable forced delete of ip nat entries. Note: only set for devices which actually support it.
+
+
 # 9. ned-settings cisco-ios live-status
 ---------------------------------------
 
