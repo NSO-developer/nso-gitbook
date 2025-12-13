@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.26 2025-11-12](a10-acos/README.md)
+  * [README v3.26.1 2025-12-12](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -50,7 +50,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.65.6 2025-12-05](alu-sr/README.md)
+  * [README v8.65.7 2025-12-12](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
-  * [README v4.5.12 2025-02-21](citrix-netscaler/README.md)
+  * [README v4.5.13 2025-12-12](citrix-netscaler/README.md)
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
@@ -250,7 +250,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.29 2025-11-21](juniper-junos/README.md)
+  * [README v4.18.30 2025-12-12](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
