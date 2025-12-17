@@ -118,6 +118,11 @@
       interactive methods
 
 
+    - connection ssh keep-alive-interval <0-4294967295> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0.
+
+
     - connection disable-pagination-with-config <string>
 
       Will change screen-length in device config to 0 during connection.

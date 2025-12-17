@@ -41,6 +41,7 @@
   5. transaction
   6. sfp-ports
   7. developer
+  8. live-status
   ```
 
 
@@ -79,18 +80,18 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - number-of-retries <uint8> (default 0)
+    - connection number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
       Default 0.
 
 
-    - time-between-retry <uint8> (default 1)
+    - connection time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
-    - connector <WORD>
+    - connection connector <WORD>
 
       Change the default connector, e.g. 'ned-connector-default.json'.
 
@@ -101,7 +102,7 @@
   Deprecated ned-settings.
 
 
-    - connection legacy-mode <enum> (default disabled)
+    - deprecated connection legacy-mode <enum> (default disabled)
 
       enabled   - enabled.
 
@@ -114,7 +115,7 @@
   Settings for controlling logs generated.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -127,7 +128,7 @@
       debug    - debug.
 
 
-    - java <true|false> (default true)
+    - logger java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -138,7 +139,7 @@
   Transaction specific settings.
 
 
-    - trans-id-method <enum> (default modeled-config)
+    - transaction trans-id-method <enum> (default modeled-config)
 
       Select the method for calculating transaction-id.
 
@@ -169,7 +170,7 @@
   Contains settings used for debugging (intended for NED developers).
 
 
-    - progress-verbosity <enum> (default debug)
+    - developer progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level which will get written in devel.log file.
 
@@ -182,5 +183,16 @@
       very-verbose  - very-verbose.
 
       debug         - debug.
+
+
+# 8. ned-settings accedian-nid live-status
+------------------------------------------
+
+  Configure NED settings related to live-status.
+
+
+    - live-status time-to-live <int32> (default 50)
+
+      Define time-to-live for data fetched from the device via live-status.(default 50).
 
 

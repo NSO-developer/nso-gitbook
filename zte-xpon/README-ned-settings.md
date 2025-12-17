@@ -58,25 +58,24 @@
 
     - extended-parser <enum> (default auto)
 
-      Make the NED enable extensions to ease the task of the NSO CLI command parser. A common
-      problem with this parser is that it can easily get lost when trying to parse configuration not
-      supported by the YANG model. In particular it is very sensitive for unsupported config that
-      generates a mode switch.
+      Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
+      model based config tree).
 
       auto            - Uses turbo-mode when available, will use fastest availablemethod to load
-                        data to NSO. If NSO doesn't support data-loading from CLI NED, robust-mode
-                        is used.
-
-      robust-mode     - The configuration dump is run through a pre-parser which is cleaning it from
-                        all elements currently not supported in the YANG model (default).
+                        data to NSO.
 
       turbo-mode      - The NED executes the whole command parsing by itself, completely bypassing
-                        the NSO CLI parser. The configuration dump is transferred to NSO using a
-                        Maapi SetValues() call.
+                        the NSO CLI parser. The configuration dump is transferred to NSO using maapi
+                        setvalues call.
 
       turbo-xml-mode  - The NED executes the whole command parsing by itself, completely bypassing
                         the NSO CLI parser. The configuration dump is transferred to NSO in XML
                         format.
+
+
+    - internal-xml-transfer-timeout <uint32> (default 2147483647)
+
+      Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
 
 
     - use-write <true|false> (default true)
@@ -111,6 +110,38 @@
   Configure settings specific to the connection between NED and device.
 
 
+    - connection ssh client <enum>
+
+      Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
+
+      ganymed  - The legacy SSH client. Used on all older versions of NSO.
+
+      sshj     - The new SSH client with support for the latest crypto features. This is the default
+                 when using the NED on NSO 5.6 or later.
+
+
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
+
+
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
+
+
     - connection number-of-retries <uint8> (default 0)
 
       Configure max number of retries the NED will try to connect to the device before giving up.
@@ -120,6 +151,41 @@
     - connection time-between-retry <uint8> (default 1)
 
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
+
+
+    - connection character-set <string> (default UTF-8)
+
+      Character set to use for telnet session.
+
+
+    - connection commands meta-data <WORD>
+
+      Change the default connector. Default 'ned-connector.json'.
+
+
+    - connection commands initial-action <union>
+
+      Interactor action used to initialize a connection.
+
+
+    - connection commands awaken-console <string>
+
+      Command sent to awaken console during connection.
+
+
+    - connection commands send-delay <uint32> (default 0)
+
+      Delay in ms before sending a command during connection.
+
+
+    - connection commands expect-timeout <uint32> (default 60000)
+
+      Default limit in ms for waiting for command response.
+
+
+    - connection logger silent <true|false> (default false)
+
+      Toggle detailed logs to only written to store.
 
 
     - connection terminal server-echo <true|false> (default false)
