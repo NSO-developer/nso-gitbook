@@ -92,7 +92,7 @@
 
 * cisco-aireos
   * [README-ned-settings](cisco-aireos/README-ned-settings.md)
-  * [README v3.9.26 2025-08-15](cisco-aireos/README.md)
+  * [README v3.9.26.1 2025-12-17](cisco-aireos/README.md)
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
@@ -139,10 +139,10 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1.1 2025-10-21](cisco-iosxr_nc/README.md)
+  * [README v1.1.2 2025-12-17](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v25.3.1 2025-11-28](cisco-iosxr_netconf/README.md)
+  * [README v25.3.1.1 2025-12-17](cisco-iosxr_netconf/README.md)
 
 * cisco-ise
   * [README-ned-settings](cisco-ise/README-ned-settings.md)
