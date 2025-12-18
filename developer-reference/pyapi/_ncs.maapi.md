@@ -597,6 +597,91 @@ Keyword arguments:
     ECHO shows the input, NOECHO does not
 * size -- maximum response size (optional, default 1024)
 
+### cli_prompt_oneof
+
+```python
+cli_prompt_oneof(sock, usessid, prompt, choices) -> str
+```
+
+Prompt user for one of the strings given in the choice-parameter.
+
+The user can enter a unique prefix of the choice but the
+value returned in buf will always be one of the strings provided in
+the choices-parameter or an empty string if
+the user hits the enter key without entering any value.
+If the user enters a value not in choices they will be re-prompted.
+
+Keyword arguments:
+
+* sock    -- a python socket instance
+* usessid -- the MAAPI session id
+* prompt  -- string to show the user
+* choices -- list of options
+
+### cli_prompt_oneof2
+
+```python
+cli_prompt_oneof2(sock, usessid, prompt, choices, timeout) -> str
+```
+
+This function does the same as cli_prompt_oneof but also takes a
+non-negative timeout parameter, which controls how long (in seconds)
+to wait for input before aborting.
+
+Keyword arguments:
+
+* sock    -- a python socket instance
+* usessid -- the MAAPI session id
+* prompt  -- string to show the user
+* choices -- list of options
+* timeout -- timeout for input (in seconds)
+
+### cli_read_eof
+
+```python
+cli_read_eof(sock, usessid, echo) -> str
+```
+
+Read a multi line string from the CLI.
+
+The user has to end the input using ctrl-D.
+The entered characters will be returned.
+The echo-parameter controls if the entered characters
+should be echoed or not. If set to ECHO they will be visible and
+if set to NOECHO stars will be echoed instead.
+
+This function is intended to be called from inside an action
+callback when invoked from the CLI.
+
+Keyword arguments:
+
+* sock    -- a python socket instance
+* usessid -- the MAAPI session id
+* echo    -- whether or not to ECHO / NOECHO
+* size    -- maximum response size (optional, default 1024)
+
+Errors: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
+
+### cli_read_eof2
+
+```python
+cli_read_eof2(sock, usessid, echo, timeout) -> str
+```
+
+This function does the same as cli_read_eof but also takes a
+non-negative timeout parameter, which controls how long (in seconds)
+to wait for input before aborting.
+
+Keyword arguments:
+
+* sock    -- a python socket instance
+* usessid -- the MAAPI session id
+* echo    -- whether or not to ECHO / NOECHO
+* timeout -- timeout for input (in seconds)
+* size    -- maximum response size (optional, default 1024)
+
+Errors: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
+
 ### cli_set
 
 ```python

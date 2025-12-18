@@ -82,12 +82,15 @@ add(self, name, value)
 
 Add a value for the variable 'name'.
 
-The value will be quoted before adding it to the internal list.
+The value will be normalized and quoted as a valid XPath string literal
+before adding it to the internal list.
 
-Quoting works like this:
-    If value contains ' all occurrences of " will be replaced by ' and
-    the final value will be quoted with ". Otherwise, the final value
-    will be quoted with '.
+Quoting rules:
+- No quotes in value: wrapped in single quotes ('value')
+- Single quotes only: wrapped in double quotes ("it's")
+- Double quotes only: wrapped in single quotes ('say "hello"')
+- Both quote types: uses XPath concat() to combine safely quoted
+    segments, e.g. concat('A',"'","'",'B','"') for A'B"
 
 Arguments:
 

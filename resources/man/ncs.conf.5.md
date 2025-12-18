@@ -166,6 +166,16 @@ how they relate to each other.
 > '0.0.0.0' or '::' addresses in order to never expose the NCS IPC to
 > certain interfaces.
 
+/ncs-config/ncs-ipc-listen-backlog (int32) \[128\]  
+> The maximum length to which the queue of pending connections for the
+> IPC sockets may grow (see the OS manual page for listen(2)). If a very
+> large number of applications connect to NSO more or less
+> simultaneously at startup, this value may need to be raised to avoid
+> connection failures. Note that the OS may restrict the length to a
+> lower value, e.g. on Linux it is silently truncated to the value in
+> /proc/sys/net/core/somaxconn - i.e. this value may also need to be
+> raised.
+
 /ncs-config/ncs-local-ipc  
 > NCS can be configured to use Unix domain socket instead of TCP for
 > communication with NCS client libraries, such as CDB, MAAPI, the CLI,
