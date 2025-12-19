@@ -96,7 +96,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.7 2025-12-11](cisco-apicdc/README.md)
+  * [README v3.21.8 2025-12-18](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -125,11 +125,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.111.1 2025-12-11](cisco-ios/README.md)
+  * [README v6.112 2025-12-18](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.74.11 2025-12-15](cisco-iosxr/README.md)
+  * [README v7.74.12 2025-12-18](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -158,7 +158,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.58 2025-12-05](cisco-staros/README.md)
+  * [README v5.58.1 2025-12-18](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -277,7 +277,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.29 2025-11-05](nokia-sros_nc/README.md)
+  * [README v1.0.30 2025-12-18](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)

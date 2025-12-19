@@ -135,6 +135,7 @@ admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package
 - **verbose**: Prints the full output returned from gnu make. By default, output is shown only if errors occur.
 - **profile**: Applies a specified build profile during the rebuild process.
 - **ned-id**: Parameters for customizing the NED ID. For more information, see Chapter **5**.
+- **create-namespace-files:** Builds Python and Java namespace files representing the nodes in the rebuilt schema.
 
 
 
@@ -1976,7 +1977,7 @@ admin@ncs(config)# abort
 Now, save the current running configuration to the file: `/tmp/auto-config/before.xml`.
 
 ```
-admin@ncs# show running-config devices device dev-1 config | outformat xml | save overwrite /tmp/auto-config/before.xml
+admin@ncs# show running-config devices device dev-1 config | display xml | save overwrite /tmp/auto-config/before.xml
 ```
 
 Optionally, you can perform a compare-config at this stage. This action should generate a diff, indicating that the device indeed has automatically configured certain elements..
@@ -1994,7 +1995,7 @@ admin@ncs# devices device dev-1 sync-from
 After the sync-from, save the new running configuration to the file: `/tmp/auto-config/after.xml`.
 
 ```
-admin@ncs# show running-config devices device dev-1 config | outformat xml | save overwrite /tmp/auto-config/after.xml
+admin@ncs# show running-config devices device dev-1 config | display xml | save overwrite /tmp/auto-config/after.xml
 ```
 
 Optionally, you may choose to restore the device to its previous state. To do this, first identify the commit ID associated with the label '1' by viewing the rollback files:

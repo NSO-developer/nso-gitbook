@@ -262,6 +262,14 @@
       For example to be able to use the 'delayed-commit' feature, this is necessary.
 
 
+    - transaction accept-module-as-prefix <true|false> (default false)
+
+      Configures the NED config transform engines to accept XPaths and related references using the
+      module name as the prefix instead of the prefix specified in the corresponding YANG file. This
+      option is relevant only if the NED package was rebuilt using the 'use-module-as-prefix' option
+      in the built-in NED rebuild tool.
+
+
     - transaction nmda get-data enable <true|false> (default false)
 
       Use get-data rpc for data retrieval, if device supports it.
