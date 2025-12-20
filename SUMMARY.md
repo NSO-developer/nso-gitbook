@@ -50,7 +50,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.65.7 2025-12-12](alu-sr/README.md)
+  * [README v8.65.8 2025-12-19](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
