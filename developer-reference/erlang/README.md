@@ -1,7 +1,8 @@
 ---
 icon: square-e
 ---
-# ConfD Erlang API
+
+# Erlang API Reference
 
 The `econfd` application is the Erlang API towards the ConfD daemon. It is delivered as an OTP application, which must be started by the system which wishes to interface to ConfD. As an alternative, the supervisor `econfd_sup` can be started directly.
 
@@ -11,7 +12,7 @@ The interface towards ConfD is a socket based IPC interface, thus this applicati
 
 Thus the architecture is according to the following picture:
 
-![Architecture](pics/arch.png)
+![Architecture](<../../.gitbook/assets/arch (1).png>)
 
 which illustrates the overall architecture from an OTP perspective.
 
@@ -21,35 +22,35 @@ The econfd OTP application consists of the following parts.
 
 Module [econfd](econfd.md)
 
-This API consists of a gen_server (econfd_daemon) which needs to get a number of callback functions installed. This API is used when we need to implement an external data provider. Typically statistics data which is part of the data model, but not part of the actual configuration.
+This API consists of a gen\_server (econfd\_daemon) which needs to get a number of callback functions installed. This API is used when we need to implement an external data provider. Typically statistics data which is part of the data model, but not part of the actual configuration.
 
 ### CDB API
 
-Module [econfd_cdb](econfd_cdb.md)
+Module [econfd\_cdb](econfd_cdb.md)
 
 This API is the CDB database client API. It is used to read (and write) into CDB.
 
 ### MAAPI API
 
-Module [econfd_maapi](econfd_maapi.md)
+Module [econfd\_maapi](econfd_maapi.md)
 
 This API is used when we wish to implement proprietary agents. It is also used by user defined validation code which needs to attach to the executing transaction and read the "not yet committed" data in the currently executing transaction.
 
 ### Event Notifications API
 
-Module [econfd_notif](econfd_notif.md)
+Module [econfd\_notif](econfd_notif.md)
 
 This API is used when we wish to receive notification events from ConfD describing certain events.
 
 ### HA API
 
-Module [econfd_ha](econfd_ha.md)
+Module [econfd\_ha](econfd_ha.md)
 
 This API is used by an optional surrounding HA (High availability) framework which needs to notify ConfD about various HA related events.
 
 ### Schema API
 
-Module [econfd_schema](econfd_schema.md)
+Module [econfd\_schema](econfd_schema.md)
 
 This API is used to access schema information (i.e. the internal representation of YANG modules), making it possible to navigate the schema trees and obtain and use structure and type information.
 
