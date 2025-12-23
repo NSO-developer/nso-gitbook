@@ -119,11 +119,11 @@ This example shows how to use the Jaeger software ([https://www.jaegertracing.io
     ```
 4.  Now you can connect to the Jaeger UI at [http://localhost:16686](http://localhost:16686/) to explore the data. In the **Search** pane, select "NSO" service and click **Find Traces**.
 
-    <figure><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/jaeger_trace_search.png#developer.cisco.com" alt=""><figcaption></figcaption></figure>
+    <div data-with-frame="true"><figure><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/jaeger_trace_search.png#developer.cisco.com" alt=""><figcaption></figcaption></figure></div>
 
     Clicking on one of the traces will bring you to the trace view, such as the following one.\\
 
-    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <div data-with-frame="true"><figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ## Minimal Metrics Example with InfluxDB <a href="#minimal-metrics-example-with-influxdb" id="minimal-metrics-example-with-influxdb"></a>
 
@@ -175,7 +175,7 @@ This example shows you how to store and do basic processing and visualization of
     \
     For example, select the `nso` bucket, `span` measurement, and `duration` as a field filter. Keeping other settings at their default values, it will graph the average (mean) times that various parts of the transaction take. If you wish, you can further configure another filter for `name`, to only show the values for the selected part.
 
-    ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/influx_graph.png#developer.cisco.com)
+    <div data-with-frame="true"><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/influx_graph.png#developer.cisco.com" alt=""></div>
 
     Note that the above image shows data for multiple transactions over a span of time. If there is only a single transaction, the graph will look empty and will instead show a single data point when you hover over it.
 
@@ -253,16 +253,16 @@ This example shows integrating the Observability Exporter with Grafana to monito
     \
     Below are the panels showing metrics related to the transactions, such as transaction throughput, longest transactions, transaction locks held, and queue length.
 
-    ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_transactions.png#developer.cisco.com)
+    <div data-with-frame="true"><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_transactions.png#developer.cisco.com" alt=""></div>
 
     Below are the panels showing metrics related to the services, such as mean/max duration for `create service`, mean duration for `run service`, and the service's longest spans.
 
-    ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_services.png#developer.cisco.com)
+    <div data-with-frame="true"><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_services.png#developer.cisco.com" alt=""></div>
 
     \
     Below are the panels showing metrics related to the devices, such as device locks held, longest device connection, longest device sync-from, and concurrent device operations.
 
-    ![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_devices.png#developer.cisco.com)
+    <div data-with-frame="true"><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/grafana_nso_devices.png#developer.cisco.com" alt=""></div>
 
 ## Observability Exporter Docker multi-container setup example <a href="#observability-exporter-docker-multi-container-setup-example" id="observability-exporter-docker-multi-container-setup-example"></a>
 
@@ -272,7 +272,7 @@ To facilitate bringing up the containers and the interconnectivity of databases 
 
 This diagram shows an overview of the containers that Compose creates and starts and how they are connected.
 
-![](https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/docker_setup_layout.png#developer.cisco.com)
+<div data-with-frame="true"><img src="https://pubhub.devnetcloud.com/media/nso/docs/addons/observability-exporter/docker_setup_layout.png#developer.cisco.com" alt=""></div>
 
 To create the Docker environment described above, follow these steps:
 

@@ -31,7 +31,7 @@ When a service makes multiple resource allocations from a single pool, the optio
 
 Resource allocation can be synchronous or asynchronous.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="560"><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/image.png" alt="" width="560"><figcaption></figcaption></figure></div>
 
 The synchronized allocation API request uses Reactive FastMap to allocate resources while ensuring the interface appears synchronous. This means that as you create an allocation request from northbound, you can see the allocation results, such as the requested IP subnet or ID in the same transaction. If a northbound is making an allocation request and, in the same transaction, a configuration is being applied to a specific device, the `commit dry-run` receives the request response which is processed by the Resource Manager. The configurations are then pushed to the device in the same transaction. Thus, the northbound user can see the `get-modifications` in the `commit dry-run`.
 
