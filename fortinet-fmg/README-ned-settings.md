@@ -274,22 +274,67 @@
       installations to affected FortiGate devices.
 
       NED scans through all prepare nodes and identifies updated firewall objects that may
-      be referenced in policy packages, including:
-        - IPv4/IPv6 addresses and address groups
-        - VIPs (Virtual IP addresses)
-        - Custom services
-        - IP pools
-        - Application lists
-        - Security profiles (antivirus, IPS, SSL/SSH, webfilter, protocol options)
-        - User AD groups
+      be referenced in policy packages. The NED supports multiple dependency object types with
+      three types of reference patterns:
 
-      When these objects are modified, any policy packages that reference them will be automatically
-      identified and reinstalled to FortiGate devices, ensuring that the configuration changes
-      take effect properly across the network.
+      DIRECT references only:
+        - firewall-addrgrp, firewall-addrgrp6 (firewall-policy/srcaddr, firewall-policy/dstaddr, firewall-policy/srcaddr6, firewall-policy/dstaddr6)
+        - firewall-service-group (firewall-policy/service)
+        - firewall-vip (firewall-policy/dstaddr)
+        - firewall-ippool (firewall-policy/poolname)
+        - application-list (firewall-policy/application-list)
+        - antivirus-profile (firewall-policy/av-profile)
+        - ips-sensor (firewall-policy/ips-sensor)
+        - firewall-ssl-ssh-profile (firewall-policy/ssl-ssh-profile)
+        - webfilter-profile (firewall-policy/webfilter-profile)
+        - firewall-profile-protocol-options (firewall-policy/profile-protocol-options)
+        - user-adgrp (firewall-policy/fsso-groups)
 
-      NOTE: This feature requires NED to query all policy packages and firewall policies
-      in the NSO CDB to determine object references. This may increase commit time depending
-      on the number and size of policy packages and firewall policies in your deployment.
+      HYBRID references (both direct AND indirect):
+        - firewall-address: firewall-policy/srcaddr, firewall-policy/dstaddr OR firewall-addrgrp/member -> firewall-policy/srcaddr, firewall-policy/dstaddr
+        - firewall-address6: firewall-policy/srcaddr6, firewall-policy/dstaddr6 OR firewall-addrgrp6/member -> firewall-policy/srcaddr6, firewall-policy/dstaddr6
+        - firewall-service-custom: firewall-policy/service OR firewall-service-group/member -> firewall-policy/service
+
+      INDIRECT references only:
+        - webfilter-urlfilter: webfilter-profile/web/urlfilter-table -> firewall-policy/webfilter-profile
+        - webfilter-content: webfilter-profile/web/bword-table -> firewall-policy/webfilter-profile
+        - webfilter-content-header: webfilter-profile/web/content-header-list -> firewall-policy/webfilter-profile
+        - ips-custom: ips-sensor/entries/rule (using rule-id) -> firewall-policy/ips-sensor
+
+      For indirect references, NED performs two-step resolution:
+        1. Find intermediate objects that reference the updated object
+        2. Find policies that reference those intermediate objects
+
+      When these objects are modified, any policy packages that reference them (directly or through
+      intermediate objects) will be automatically identified and reinstalled to FortiGate devices,
+      ensuring that configuration changes take effect properly across the network.
+
+      NOTE: This feature requires NED to query policy packages, firewall policies, and intermediate
+      objects in the NSO CDB to determine object references. This may increase commit time depending
+      on the number and size of policy packages, firewall policies, and intermediate objects in your
+      deployment.
+
+      Performance Consideration:
+      If you notice the NED taking more time to query the CDB to find dependency references, this
+      cannot be avoided within the NED. The NED must query the CDB to find dependency references,
+      and the time spent on queries is proportional to the amount of configuration data in the CDB
+      (i.e., more CDB configuration results in more time spent on querying). It is not possible to
+      reduce this query time within the NED.
+
+      Alternative Approach:
+      As an alternative, users can consider using the live-status exec action to install packages
+      for better timing performance. The NED supports "live-status exec any", allowing users to
+      execute /securityconsole/install/package via a service when dependency objects are modified.
+      Therefore, we recommend disabling "install-config-to-fortigate/install-dependency-objects-update"
+      and instead using the "live-status exec any" option via a service for scenarios where query
+      time is a concern.
+
+      Example:
+      ```
+      admin@ncs# devices device dev-1 live-status fortimanager-stats:exec any json-input \
+        \"{"method":"exec","params":[{"url":"/securityconsole/install/package",\
+        "data":{"adom":"name_of_adom","pkg":"name_of_pkg"}}],"session":"session-id","id":1}\"
+      ```
 
 
     - install-config-to-fortigate install-status-check-max-retries <NUM> (default 5)
