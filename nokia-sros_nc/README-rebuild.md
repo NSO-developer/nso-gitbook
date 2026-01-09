@@ -37,6 +37,7 @@
   10. Advanced: How to Determine When a NED Upgrade is Required
     10.1 Example
     10.2 Analysing the Incompatibilities
+    10.3 Suppressing Alarms for YANG Revision Mismatches
 ```
 
 
@@ -2788,7 +2789,7 @@ The new YANG files are now stored in the `src/yang` directory of the NED package
 #### Step 2: Compare the schemas
 
 ```
-admin@ncs# devices device dev-1 rpc rpc-compare-loaded-schema compare-loaded-schema out-format text
+admin@ncs# devices device dev-1 rpc rpc-compare-loaded-schema compare-loaded-schema outformat text
 ```
 
 The tool will output a report similar to the following:
@@ -2903,23 +2904,35 @@ The list below provides general guidance on how to analyze different types of in
 
 - **Structural changes:** The schema structure has changed, for example a node that is a `leaf` in the loaded schema is a `container` the new schema. These changes are typically always backwards incompatible.
   A rebuild of the NED is required.
-
 - **Data type:** The data type of a node has changed. 
   Some type changes are compatible, such as widening integer types or introducing unions. If a node type is replaced with a leafref pointing to the same type, it may also be compatible.Most type changes are however not backwards compatible.
   A rebuild of the NED is recommended.
-
 - **Configurability:** The node´s configuration state has changed from either `config true`to  `config false`or vice versa.
   Nodes changing from config true to config false will no longer be configurable, making the change backwards incompatible.
-
 - **Must, when and pattern expressions:** The tool detects changes in `must`, `when`, and `pattern` expressions, but does not deeply analyze the nature of these changes. Manual review is necessary..
   As a rule of thumb, if the new expression is more relaxed than the old one, it is likely to be backwards compatible
-
 - **Ranges and lengths**: Changes to ranges or lengths are generally backwards compatible if the new range is wider than the old one. If the new range is narrower, it is important to analyze which values services are using during configuration. As long as the values are within the new range or length, compatibility is maintained.
-
 - **Mandatory:** If the `mandatory` attribute changes from `true` to `false`, the change is backwards compatible. Otherwise, it is not.
-
 - **Default values:** Introducing new default values may be backwards compatible. However, removed or changed default values are not. In all cases, default value changes can lead to out-of-sync issues unless the NED is rebuilt with the new schema.  
-
 - **Min-elements and max-elements:** Changes to `min-elements` or `max-elements` are usually backwards compatible if the new range is wider. If the range is narrower, you must analyze the values used by services during configuration. As long as the values comply with the new minimum or maximum requirements, compatibility is preserved.
 
-  
+
+## 10.3 Suppressing Alarms for YANG Revision Mismatches
+
+After upgrading a device's firmware, it is common for some advertised YANG models to have revision stamps newer than those included in the current NED package.
+
+When using a NED with older revisions on an upgraded device, NSO will likely generate alarms similar to the following:
+
+```
+*** ALARM revision-error: The device has YANG module revisions not supported by NCS. Use the /devices/device/check-yang-modules action to check which modules that are not compatible.
+```
+
+To prevent these alarms, you can configure the NED to suppress reporting YANG revisions to NSO during device interactions.
+
+Configure the following NED setting to make the NED ignore the YANG revisions reported by the device:
+
+```
+# devices device simul-1 ned-settings nokia-sros_nc connection capabilities strict-model-revision-check false 
+# commit
+```
+

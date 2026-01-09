@@ -34,6 +34,10 @@
     9.2 Removing Deprecated Nodes from the Schema
     9.3 Identifying Problematic XPath Expressions Causing Performance Degradation in NSO
     9.4 Solving Issues Related to the NSO Brownfield Feature
+  10. Advanced: How to Determine When a NED Upgrade is Required
+    10.1 Example
+    10.2 Analysing the Incompatibilities
+    10.3 Suppressing Alarms for YANG Revision Mismatches
 ```
 
 
@@ -2781,4 +2785,198 @@ admin@ncs(config)#
 
 In some cases, it might be necessary to repeat this procedure until the commit finally succeeds. In this specific example, there are potentially 16 additional nodes that might also require trimming.
 
+
+
+# 10. Advanced: How to Determine When a NED Upgrade is Required
+
+For devices that use third-party YANG models, a firmware upgrade often means the corresponding YANG files have also changed. From a 3PY NED perspective, this typically requires rebuilding the NED package with the updated YANG files to ensure compatibility with the device. As a result, migrating from the old NED to the new one becomes necessary.
+
+Both preparing and rebuilding a NED with new YANG models, as well as performing the migration, are usually time-consuming tasks.
+
+However, after a firmware upgrade - even if the YANG models have changed - it may not always be necessary to upgrade the NED. The need for a NED upgrade depends on the following factors:
+
+- Are the modified YANG modules included in the existing NED?
+
+- Are the changed elements within those YANG modules populated in the CDB and/or referenced by services running in NSO?
+
+  
+
+If the answer to both questions is "no", there is a good chance that the current NED will continue to work with the upgraded device without requiring further changes.
+
+Since third-party YANG files are often very large, manually answering these questions is difficult. Comparing YANG files and analyzing the differences can be very challenging.
+
+To address this, all 3PY NEDs include the `compare-loaded-schema` tool, which can perform this kind of schema comparison automatically.
+
+This tool compares the NED device schema currently loaded in NSO with the schema represented by the new YANG models downloaded from the device. It automatically applies the same build filters to the new schema as were used for the currently loaded schema. For example, if a scope filter limiting the included namespaces was applied previously, the same filter will be used on the new YANG files before comparison. The same applies to trim filters and any YANG recipes applied to the loaded schema.
+
+The tool analyzes the differences between the currently loaded schema and the newly downloaded schema, focusing on what is actually populated in the CDB. Finally, it generates a report that indicates compatibility status based on the detected differences and whether the changed elements are present in the CDB.
+
+
+
+## 10.1 Example:
+
+This example uses the YANG models for Cisco IOS XR. Initially, the NED package is built with YANG models for IOS XR version *x*. After a device upgrade to version *y*, it is assumed that all schema nodes relevant to the services running in NSO are already populated in the CDB.
+
+
+
+#### Step 1: Download the New YANG files
+
+```
+admin@ncs# devices device dev-1 rpc rpc-clean-package clean-package
+admin@ncs# devices device dev-1 rpc rpc-get-modules get-modules profile native-um  
+```
+
+The new YANG files are now stored in the `src/yang` directory of the NED packages in NSO. Importantly, this action does not affect the currently loaded NED schema in NSO.
+
+
+
+#### Step 2: Compare the schemas
+
+```
+admin@ncs# devices device dev-1 rpc rpc-compare-loaded-schema compare-loaded-schema outformat text
+```
+
+The tool will output a report similar to the following:
+
+```
+COMPARISON REPORT
+=================
+
+This tool compares the currently loaded device schema with the recently downloaded schema,
+analyzing their compatibility with the device configuration stored in CDB.
+
+Summary:
+ Number of modules in loaded schema:      259
+ Number of nodes in loaded schema:        56684
+
+ Number of modules in downloaded schema:  259
+ Number of nodes in downloaded schema:    56114
+
+ Number of schema nodes populated in CDB: 84
+
+ Schema changes:
+  - New nodes:     321
+  - Removed nodes: 622
+  - Changed nodes: 1293
+
+Comparison result: INCOMPATIBLE
+
+Description:
+The schema changes in the downloaded schema affect nodes that are currently populated in the CDB.
+This indicates that the current NED may not be fully compatible with devices using the downloaded schema,
+potentially leading to issues when interacting with such devices. It is recommended to review the affected
+ nodes in detail and consider rebuilding and upgrading the NED to ensure compatibility with the new schema.
+Consult the README-rebuild.md for guidance on how to analyze the affected nodes and rebuild the NED.
+The following currently populated nodes are incompatible in the new schema:
+
+ - node: /um-aaa-cfg:aaa/authentication/login/authentication-list/local
+   change : must statement changed from "not(../line or ../groups/group-1/tacacs or ../groups/group-1/radius or ../groups/group-1/server-group-name)" to "not(../line or ../groups/group-1/tacacs or ../groups/group-1/radius or ../groups/group-1/server-group-name)"
+
+ - node: /um-aaa-cfg:aaa/authorization/exec/authorization-list
+   change : must statement changed from "local or none or groups/group-1/tacacs or groups/group-1/radius or groups/group-1/server-group-name" to "local or none or groups/group-1/tacacs or groups/group-1/radius or groups/group-1/server-group-name"
+
+ - node: /um-aaa-cfg:aaa/authorization/exec/authorization-list/local
+   change : must statement changed from "not(../none or ../groups/group-1/tacacs or ../groups/group-1/radius or ../groups/group-1/server-group-name)" to "not(../none or ../groups/group-1/tacacs or ../groups/group-1/radius or ../groups/group-1/server-group-name)"
+
+ - node: /um-grpc-cfg:grpc/port
+   change : range changed from "1024..65535" to "10000..57999"
+
+ - node: /um-grpc-cfg:grpc/no-tls
+   change : structure changed from leaf to container
+
+ - node: /um-policymap-classmap-cfg:policy-map/type/qos/class
+   change : must statement changed from "admit or bandwidth or bandwidth-remaining or fragment or pause or police or priority or queue-limits or random-detect-ecn or service-fragment or service-policy or set or shape or random-detect-default or random-detect or compress or encap-sequence" to "admit or bandwidth or bandwidth-remaining or fragment or pause or police or priority or queue-limits or random-detect-ecn or service-fragment or service-policy or set or shape or random-detect-default or random-detect or compress or encap-sequence"
+```
+
+The comparison reveals significant differences between the schemas. Several changed nodes detected are also populated in the CDB, including updates to some `must` expressions and value `ranges`, as well as one structural change in the schema.
+
+Therefore, the initial result is **INCOMPATIBLE**. To reach a definitive conclusion, it is necessary to manually analyze each reported incompatibility in detail.
+
+
+
+The tool also supports an additional argument, `details`. When this argument is provided, the output includes a comprehensive list of all detected changes-not only those affecting the CDB data. 
+
+For example:
+
+```
+COMPARISON DETAILS:
+===================
+
+NEW NODES:
+==========
+ - node:   /um-location-cfg:locations/location/um-ncs-hw-module-osa-cfg:hw-module
+
+ - node:   /um-location-cfg:locations/location/um-frequency-synchronization-cfg:clock-interface
+
+REMOVED NODES:
+==============
+ - node:   /um-netconf-yang-cfg:netconf-yang/agent/netconf1.0
+
+ - node:   /um-route-policy-cfg:routing-policy/sets/extended-community-evpn-bandwidth-sets
+
+ - node:   /um-ptp-cfg:ptp/phase-difference-threshold-breach
+
+CHANGED NODES:
+==============
+
+BACKWARDS COMPATIBLE CHANGES:
+-----------------------------
+ - node:   /um-mpls-ldp-cfg:mpls/ldp/mldp/vrfs/vrf/address-families/address-family/af-name
+   change: number of enum values changed from 1 to 2
+
+ - node:   /um-ptp-cfg:ptp/profiles/profile/subordinate/ipv4s/ipv4-non-negotiated
+   change: must statement deleted
+
+ BACKWARDS INCOMPATIBLE CHANGES:
+-------------------------------
+  - node:   /um-interface-cfg:interfaces/interface-preconfigure/ipv4/um-if-dhcp-client-options-cfg:address/dhcp-client-options/option/user-class-id-option-77
+   change: must statement changed from "not(../vendor-id-option-60 or ../client-id-option-61)" to "not(../vendor-id-option-60 or ../client-id-option-61)"
+
+ - node:   /um-interface-cfg:interfaces/interface-preconfigure/ipv6/um-if-access-group-cfg:access-group/ingress/compress-level
+   change: range changed from "0..4" to "0..3"
+```
+
+This detailed report helps identify all schema changes, distinguishing between backwards compatible and incompatible modifications. 
+
+
+
+## 10.2 Analysing the Incompatibilities
+
+The tool can identify nodes that are potentially incompatible. However, whether these nodes are truly incompatible depends on the specific use case. Each situation should be evaluated individually.
+
+The list below provides general guidance on how to analyze different types of incompatibilities:
+
+- **Structural changes:** The schema structure has changed, for example a node that is a `leaf` in the loaded schema is a `container` the new schema. These changes are typically always backwards incompatible.
+  A rebuild of the NED is required.
+- **Data type:** The data type of a node has changed. 
+  Some type changes are compatible, such as widening integer types or introducing unions. If a node type is replaced with a leafref pointing to the same type, it may also be compatible.Most type changes are however not backwards compatible.
+  A rebuild of the NED is recommended.
+- **Configurability:** The node´s configuration state has changed from either `config true`to  `config false`or vice versa.
+  Nodes changing from config true to config false will no longer be configurable, making the change backwards incompatible.
+- **Must, when and pattern expressions:** The tool detects changes in `must`, `when`, and `pattern` expressions, but does not deeply analyze the nature of these changes. Manual review is necessary..
+  As a rule of thumb, if the new expression is more relaxed than the old one, it is likely to be backwards compatible
+- **Ranges and lengths**: Changes to ranges or lengths are generally backwards compatible if the new range is wider than the old one. If the new range is narrower, it is important to analyze which values services are using during configuration. As long as the values are within the new range or length, compatibility is maintained.
+- **Mandatory:** If the `mandatory` attribute changes from `true` to `false`, the change is backwards compatible. Otherwise, it is not.
+- **Default values:** Introducing new default values may be backwards compatible. However, removed or changed default values are not. In all cases, default value changes can lead to out-of-sync issues unless the NED is rebuilt with the new schema.  
+- **Min-elements and max-elements:** Changes to `min-elements` or `max-elements` are usually backwards compatible if the new range is wider. If the range is narrower, you must analyze the values used by services during configuration. As long as the values comply with the new minimum or maximum requirements, compatibility is preserved.
+
+
+## 10.3 Suppressing Alarms for YANG Revision Mismatches
+
+After upgrading a device's firmware, it is common for some advertised YANG models to have revision stamps newer than those included in the current NED package.
+
+When using a NED with older revisions on an upgraded device, NSO will likely generate alarms similar to the following:
+
+```
+*** ALARM revision-error: The device has YANG module revisions not supported by NCS. Use the /devices/device/check-yang-modules action to check which modules that are not compatible.
+```
+
+To prevent these alarms, you can configure the NED to suppress reporting YANG revisions to NSO during device interactions.
+
+Configure the following NED setting to make the NED ignore the YANG revisions reported by the device:
+
+```
+# devices device simul-1 ned-settings nokia-sros_nc connection capabilities strict-model-revision-check false 
+# commit
+```
 

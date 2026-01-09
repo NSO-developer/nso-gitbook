@@ -1027,6 +1027,19 @@
         Print the full build output also for successful builds (otherwise only printed on errors).
 
 
+      - build-namespace-classes <empty>
+
+        Generate Python and Java namespace classes for each YANG file.
+
+
+      - use-module-as-prefix <empty>
+
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix, instead of the
+        prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
+        option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
+        APIs.
+
+
       - profile <union>
 
         Apply a certain build profile.
