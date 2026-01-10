@@ -206,7 +206,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.27 2025-11-07](fortinet-fortios/README.md)
+  * [README v5.11.28 2026-01-09](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
