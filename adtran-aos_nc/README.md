@@ -17,21 +17,22 @@
      5.3. rpc clear-cached-capabilities
      5.4. rpc clear-filter-paths
      5.5. rpc compare-config
-     5.6. rpc compile-modules
-     5.7. rpc export-package
-     5.8. rpc get-modules
-     5.9. rpc import-filter-paths
-     5.10. rpc list-filter-paths
-     5.11. rpc list-module-sets
-     5.12. rpc list-modules
-     5.13. rpc list-profiles
-     5.14. rpc patch-modules
-     5.15. rpc rebuild-package
-     5.16. rpc remove-filter-path
-     5.17. rpc show-default-local-dir
-     5.18. rpc show-loaded-schema
-     5.19. rpc verify-get-config
-     5.20. rpc xpath-trace-analyzer
+     5.6. rpc compare-loaded-schema
+     5.7. rpc compile-modules
+     5.8. rpc export-package
+     5.9. rpc get-modules
+     5.10. rpc import-filter-paths
+     5.11. rpc list-filter-paths
+     5.12. rpc list-module-sets
+     5.13. rpc list-modules
+     5.14. rpc list-profiles
+     5.15. rpc patch-modules
+     5.16. rpc rebuild-package
+     5.17. rpc remove-filter-path
+     5.18. rpc show-default-local-dir
+     5.19. rpc show-loaded-schema
+     5.20. rpc verify-get-config
+     5.21. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
@@ -585,7 +586,38 @@ admin@ncs(config)# commit
         xml      - Show diff as netconf edit-config XML.
 
 
-  ## 5.6. rpc compile-modules
+  ## 5.6. rpc compare-loaded-schema
+  ---------------------------------
+
+    Compare the currently loaded schema with the newly downloaded YANG modules. This tool generates a
+    report indicating whether the schemas are compatible within the scope of the current device
+    configuration stored in the CDB.
+
+      Input arguments:
+
+      - details <empty>
+
+        Display detailed results of the schema comparison, including all detected differences and
+        their compatibility status.
+
+
+      - skip-yang-pre-processing <empty>
+
+        Skip applying the same pre-processor fixes and build filters to newly downloaded YANG files as
+        were applied to the loaded schema before comparison. If set, it will likely generate a
+        significant number of false positives in the comparison results.
+
+
+      - outformat <enum> (default structured)
+
+        Select the format of the generated report.
+
+        structured  - structured.
+
+        text        - text.
+
+
+  ## 5.7. rpc compile-modules
   ---------------------------
 
     Compile YANG modules, showing all non-fatal warnings found.
@@ -607,7 +639,7 @@ admin@ncs(config)# commit
         Ignore errors while compiling, i.e. which would normally cause compilation to abort.
 
 
-  ## 5.7. rpc export-package
+  ## 5.8. rpc export-package
   --------------------------
 
     Export the customized and rebuilt NED. The exported archive file can then be used to install the
@@ -626,7 +658,7 @@ admin@ncs(config)# commit
         Configure a customized suffix to the name of the archive file.
 
 
-  ## 5.8. rpc get-modules
+  ## 5.9. rpc get-modules
   -----------------------
 
     Fetch the YANG modules from the device.
@@ -725,8 +757,8 @@ admin@ncs(config)# commit
             is relative to the git root directory.
 
 
-  ## 5.9. rpc import-filter-paths
-  -------------------------------
+  ## 5.10. rpc import-filter-paths
+  --------------------------------
 
     Import filter-paths from file, will be merged with currently loaded.
 
@@ -737,7 +769,7 @@ admin@ncs(config)# commit
         File containing filter-paths, one on each line: <include|exclude> <schema-path>.
 
 
-  ## 5.10. rpc list-filter-paths
+  ## 5.11. rpc list-filter-paths
   ------------------------------
 
     List currently loaded/generated filter-paths.
@@ -755,7 +787,7 @@ admin@ncs(config)# commit
         generate in src/yang.
 
 
-  ## 5.11. rpc list-module-sets
+  ## 5.12. rpc list-module-sets
   -----------------------------
 
     List the yang-library module-sets advertised by the device, if device supports it.
@@ -763,7 +795,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.12. rpc list-modules
+  ## 5.13. rpc list-modules
   -------------------------
 
     List the YANG modules advertised by the device. Including revision tag.
@@ -811,7 +843,7 @@ admin@ncs(config)# commit
         Use a download profile to match a predefined subset of matching YANG files.
 
 
-  ## 5.13. rpc list-profiles
+  ## 5.14. rpc list-profiles
   --------------------------
 
     List all predefined download profiles bundled with the NED. Including a short description of each.
@@ -819,7 +851,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.14. rpc patch-modules
+  ## 5.15. rpc patch-modules
   --------------------------
 
     Patch YANG modules, to remove non-fatal warnings found.
@@ -842,7 +874,7 @@ admin@ncs(config)# commit
         package), existing files will be renamed to <name>.yang.orig.
 
 
-  ## 5.15. rpc rebuild-package
+  ## 5.16. rpc rebuild-package
   ----------------------------
 
     Rebuild the NED package directly from within NSO. This invokes the gnu make internally.
@@ -857,6 +889,17 @@ admin@ncs(config)# commit
       - build-namespace-classes <empty>
 
         Generate Python and Java namespace classes for each YANG file.
+
+
+      - use-module-as-prefix <empty>
+
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix instead of the
+        prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
+        option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
+        APIs. Use this option with caution, as it may cause unexpected side effects. The primary use
+        case is migrating from an older NED schema that used module names as prefixes. Note that the
+        NED setting transaction/accept-module-as-prefix must also be enabled in the rebuilt NED to
+        make it function properly.
 
 
       - profile <string>
@@ -958,7 +1001,7 @@ admin@ncs(config)# commit
         Additional arguments to pass to build(make) commands.
 
 
-  ## 5.16. rpc remove-filter-path
+  ## 5.17. rpc remove-filter-path
   -------------------------------
 
     Remove a path from filter-paths.
@@ -977,7 +1020,7 @@ admin@ncs(config)# commit
       - path <string>
 
 
-  ## 5.17. rpc show-default-local-dir
+  ## 5.18. rpc show-default-local-dir
   -----------------------------------
 
     Show the path to the default directory where the YANG files are to be copied. I.e <path to current
@@ -986,7 +1029,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.18. rpc show-loaded-schema
+  ## 5.19. rpc show-loaded-schema
   -------------------------------
 
     Display the schema currently built into the NED package. Each node will by default be listed with
@@ -1078,7 +1121,7 @@ admin@ncs(config)# commit
         Prepend extra comment containing info about the statement.
 
 
-  ## 5.19. rpc verify-get-config
+  ## 5.20. rpc verify-get-config
   ------------------------------
 
     Verify XML contents of config, either from device or file, to validate
@@ -1116,7 +1159,7 @@ admin@ncs(config)# commit
         Show verbose output, like 'sync-from verbose'.
 
 
-  ## 5.20. rpc xpath-trace-analyzer
+  ## 5.21. rpc xpath-trace-analyzer
   ---------------------------------
 
     A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath

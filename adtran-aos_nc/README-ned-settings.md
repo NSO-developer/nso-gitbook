@@ -257,10 +257,29 @@
       that can be used, see section 9.12 in the README.md.
 
 
+    - transaction enable-config-caching <true|false> (default false)
+
+      Enable this option to allow the NED to handle configuration nodes that may disappear
+      unexpectedly when other configuration changes are made on the device. If such nodes are
+      removed spontaneously, it can cause NSO to become out of sync with the actual device
+      configuration. When this setting is enabled, the NED will cache the affected configuration
+      nodes and reinject them during all subsequent read operations, ensuring NSO remains
+      synchronized with the device. Note: This feature requires the relevant schema nodes to be
+      annotated with 'cache-parent-on' for it to function properly.
+
+
     - transaction force-revert-diff <true|false> (default false)
 
       Enable this setting to force the use of an NSO calculated diff to apply when doing revert on device.
       For example to be able to use the 'delayed-commit' feature, this is necessary.
+
+
+    - transaction accept-module-as-prefix <true|false> (default false)
+
+      Configures the NED config transform engines to accept XPaths and related references using the
+      module name as the prefix instead of the prefix specified in the corresponding YANG file. This
+      option is relevant only if the NED package was rebuilt using the 'use-module-as-prefix' option
+      in the built-in NED rebuild tool.
 
 
     - transaction nmda get-data enable <true|false> (default false)
@@ -407,6 +426,14 @@
 ----------------------------------------------------------
 
   Settings related the netconf capablities, and the discovery of supported yang modules.
+
+
+    - capabilities strict-model-revision-check <true|false> (default true)
+
+      When enabled, the NED performs a strict revision check of the models published by the device.
+      The advertised revision must exactly match the version built into the NED. If there is a
+      mismatch, NSO will not support the model, and it will not be possible to read or write
+      configuration using that model.
 
 
     - capabilities defaults-mode-override <enum>

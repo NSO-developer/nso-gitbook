@@ -27,7 +27,7 @@
 * adtran-aos_nc
   * [README-ned-settings](adtran-aos_nc/README-ned-settings.md)
   * [README-rebuild](adtran-aos_nc/README-rebuild.md)
-  * [README v1.0.0 2025-11-25](adtran-aos_nc/README.md)
+  * [README v1.0.1 2026-01-12](adtran-aos_nc/README.md)
 
 * adtran-dpoe
   * [README-ned-settings](adtran-dpoe/README-ned-settings.md)
@@ -43,7 +43,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.4 2025-12-15](alu-isam/README.md)
+  * [README v1.5.5 2026-01-12](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -142,7 +142,7 @@
   * [README v1.1.2 2025-12-17](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
-  * [README v25.3.1.1 2025-12-17](cisco-iosxr_netconf/README.md)
+  * [README v25.4.1 2026-01-12](cisco-iosxr_netconf/README.md)
 
 * cisco-ise
   * [README-ned-settings](cisco-ise/README-ned-settings.md)
