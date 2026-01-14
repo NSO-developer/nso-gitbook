@@ -971,7 +971,7 @@ Here is an example of the usage of the attributes `traceparent` and `tracestate`
 ```
 {% endcode %}
 
-NSO implements Trace Context alongside the legacy way of handling trace-id found in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896). The support of Trace Context covers the same scenarios as the legacy `trace-id` functionality, except for the scenario where both `trace-id` and Trace Context are absent in a request, in which case legacy `trace-id` is generated. The two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. Read about `trace-id` legacy functionality in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896).
+NSO implements Trace Context alongside the legacy way of handling trace-id found in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896). The support of Trace Context covers the same scenarios as the legacy `trace-id` functionality. The two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. If both `trace-id` and Trace Context are absent in a request, a Trace Context will be generated internally in NSO. Read about `trace-id` legacy functionality in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896).
 
 NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. For NSO to consider the attributes of Trace Context in a NETCONF request, the `trace-id` element in the configuration file must be enabled. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../../advanced-development/progress-trace.md).
 
