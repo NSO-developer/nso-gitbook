@@ -41,6 +41,7 @@
      4.1. keep-alive
      4.2. tls
           4.2.1. mutual-tls
+     4.3. ssh
   5. gnmi
      5.1. origin
      5.2. inbound
@@ -208,6 +209,55 @@
     - mutual-tls client key-password <string>
 
       Configure password for the client key, if encrypted.
+
+
+## 4.3. ned-settings nokia-srlinux_gnmi connection ssh
+------------------------------------------------------
+
+  SCP and SFTP provide alternative methods for downloading YANG files from devices that store these files locally but do not support gNOI file transfer or similar options.
+  Please note that the SSH connection used for this transfer is subject to certain limitations. In particular, it does not have access to the key store in NSO.
+  As a result, special measures must be taken to ensure that the SSH host key of the device is accepted.
+
+  You can choose one of the following three options:
+  1. Ensure the host key is already present in the OpenSSH known_hosts file on the NSO host (by default, `<NSO HOME DIR>/.ssh/known_hosts`).
+  This path can also be set using the NED setting `host-key/known-hosts-file`.
+  2. Configure the NED setting `host-key/public-key-file` with the device's host key.
+  3. Use the NED setting `host-key/accept-any` to completely bypass host key verification.
+
+  Additionally, only public-key and password authentication methods are supported for this connection.
+
+
+    - ssh remote-port <uint32> (default 22)
+
+      Port used by the SCP/SFTP server on the device.
+
+
+    - ssh remote-dir <string>
+
+      Specifies the path to the directory on the device where the YANG files are stored. This path
+      is used during SCP/SFTP transfers.
+
+
+      Either of:
+
+        - devices device ned-settings nokia-srlinux_gnmi connection ssh host-key known-hosts-file <string>
+
+          Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+        - devices device ned-settings nokia-srlinux_gnmi connection ssh host-key public-key-file <string>
+
+          Path to openssh formatted public (.pub) host key file.
+
+      OR:
+
+        - devices device ned-settings nokia-srlinux_gnmi connection ssh host-key accept-any <true|false> (default false)
+
+          Accept any host key, i.e. no host key checking is performed.
+
+
+    - ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device.
 
 
 # 5. ned-settings nokia-srlinux_gnmi gnmi

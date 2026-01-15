@@ -711,6 +711,22 @@
             Optional extra include paths to be used when searching for YANG files. Each include path
             is relative to the git root directory.
 
+        OR:
+
+          - remote scp <empty>
+
+            Enables SCP as the transport method for transfer of YANG files from the device itself.
+            Before using this option, ensure that the necessary NED settings under connection/ssh are
+            properly configured.
+
+        OR:
+
+          - remote sftp <empty>
+
+            Enables SFTP as the transport method for transfer of YANG files from the device itself.
+            Before using this option, ensure that the necessary NED settings under connection/ssh are
+            properly configured.
+
 
   ## 5.4. rpc list-modules
   ------------------------
@@ -781,6 +797,14 @@
       - build-namespace-classes <empty>
 
         Generate Python and Java namespace classes for each YANG file.
+
+
+      - use-module-as-prefix <empty>
+
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix, instead of the
+        prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
+        option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
+        APIs.
 
 
       - profile <union>
