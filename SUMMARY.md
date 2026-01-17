@@ -125,11 +125,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.113.1 2026-01-14](cisco-ios/README.md)
+  * [README v6.113.2 2026-01-16](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.2 2026-01-13](cisco-iosxr/README.md)
+  * [README v7.75.3 2026-01-16](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -255,7 +255,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.27 2025-11-04](juniper-junos_nc/README.md)
+  * [README v1.1.28 2026-01-16](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
