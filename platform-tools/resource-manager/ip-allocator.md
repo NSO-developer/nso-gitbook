@@ -115,12 +115,10 @@ If you wish to allocate a specific value (if it is still available), you need to
 IpAllocation my_value_request = rm_allocator.ip("192.0.2.1/32");
 ```
 
-You must also select at least one resource pool to assign the value from:
+You must also select a resource pool to assign the value from:
 
 ```java
-IdAllocation my_value_request = rm_allocator.id().pool("some-pool");
-// or
-IdAllocation my_value_request = rm_allocator.id().pool(List.of("some-pool"));
+IdAllocation my_value_request = rm_allocator.ip().pool("some-pool");
 ```
 
 Finally, allocate an actual value by calling `allocate()` with the allocation name:
