@@ -150,7 +150,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.32 2025-12-03](cisco-nx/README.md)
+  * [README v5.32.1 2026-01-18](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
