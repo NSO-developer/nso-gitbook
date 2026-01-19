@@ -17,7 +17,29 @@ At the same time, the internal data model has also changed but the upgrade compo
 
 ## Upgrade Procedure
 
-Further, we recommend to minimize package changes during migration, focusing solely on Resource Manager-related updates.
+Due to NSO [validation limitations](https://nso-docs.cisco.com/guides/nso-6.5/development/core-concepts/using-cdb#cdb.upgrade-add-vp), upgrade from Resource Manager 4.x must use a specific procedure, either with the `--ignore-initial-validation` switch or the `upgrade-helper-rm` package. We also strongly recommend to minimize other package changes during migration, focusing solely on Resource Manager-related updates.
+
+In cases where a start switch can be easily provided to the `ncs` daemon, such as local installs or NSO versions supporting `NCS_EXTRA_ARGS` in system install, the `--ignore-initial-validation` switch may be used:
+
+1. Create a backup copy of the NSO installation with the `ncs-backup` command.
+2. Replace the old Resource Manager package (4.x) with the new one (5.x). Make sure that Resource Manager is the only package that is changed.
+3. Restart NSO with the `--with-package-reload-force` and `--ignore-initial-validation` flags:
+   * For **local install**: `ncs --stop; ncs --ignore-initial-validation --with-package-reload-force`&#x20;
+   * For **system install**:
+     1. Edit `/etc/ncs/ncs.systemd.conf` to set `NCS_RELOAD_PACKAGES=force` and `NCS_EXTRA_ARGS=--ignore-initial-validation`.
+     2. Restart the service, e.g. `systemctl restart ncs`.
+     3. Edit `/etc/ncs/ncs.systemd.conf` and remove the `NCS_RELOAD_PACKAGES` and `NCS_EXTRA_ARGS` values.&#x20;
+4. Replace/upgrade other (service) packages.
+
+Alternatively, you may use the `upgrade-helper-rm` package that is part of the Resource Manager release binary and does not require restarting NSO:
+
+1. Create a backup copy of the NSO installation with the `ncs-backup` command.
+2. Add the `upgrade-helper-rm` package to the NSO (`packages` directory).
+3. Invoke `packages reload`.
+4. Replace the Resource Manager 4 package with the Resource Manager 5 package.
+5. Remove the `upgrade-helper-rm` package from the NSO (`packages` directory).
+6. Invoke `packages reload force`.
+7. Replace/upgrade other (service) packages.
 
 ## Suggested Code Updates
 
