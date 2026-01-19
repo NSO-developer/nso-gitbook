@@ -7,4 +7,4 @@ icon: chart-mixed
 
 Visit the link below to learn more.
 
-{% embed url="https://cisco-tailf.gitbook.io/nso-docs/guides/development/advanced-development/scaling-and-performance-optimization" %}
+{% embed url="https://nso-docs.cisco.com/guides/development/advanced-development/scaling-and-performance-optimization" %}

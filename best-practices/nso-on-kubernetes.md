@@ -8,7 +8,7 @@ description: Best practice guidelines for deploying NSO on Kubernetes.
 Deploying Cisco NSO on Kubernetes offers numerous advantages, including consistent deployments, self-healing capabilities, and better version control. This document outlines best practices for deploying NSO on Kubernetes to ensure optimal performance, security, and maintainability.
 
 {% hint style="success" %}
-See also the documentation for the Cisco-provided [Containerized NSO](https://cisco-tailf.gitbook.io/nso-docs/guides/administration/installation-and-deployment/containerized-nso) images.
+See also the documentation for the Cisco-provided [Containerized NSO](https://nso-docs.cisco.com/guides/administration/installation-and-deployment/containerized-nso) images.
 {% endhint %}
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
