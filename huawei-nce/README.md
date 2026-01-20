@@ -65,8 +65,8 @@
 
   This document describes the huawei-nce NED.
 
-  The NED covers 2 features: `IP_services_feature` and `DWDM_feature` and only one can be enabled at a time (under the ned-settings section).  
-  By default, both features are disabled and before starting to use the NED, the first setting that must be done by the user is to enable one of the 2 features, as below:
+  The NED covers 3 features: `IP_services_feature`, `DWDM_feature` and `NCE-FAN-feature` and only one can be enabled at a time (under the ned-settings section).  
+  By default, all 3 features are disabled and before starting to use the NED, the first setting that must be done by the user is to enable one of the 3 features, as below:
 
    - enable `IP-services-feature`
 
@@ -77,6 +77,8 @@
      admin@ncs(config-device-dev-1)# disconnect
      admin@ncs(config-device-dev-1)# connect
      ```
+
+
    - enable `DWDM-feature`
 
      ```
@@ -87,8 +89,19 @@
      admin@ncs(config-device-dev-1)# connect
      ```
 
+
+   - enable `NCE-FAN-feature`
+
+     ```
+     admin@ncs(config)# devices device dev-1 ned-settings huawei-nce features NCE-FAN-feature true
+     admin@ncs(config-dev-1)# commit
+     Commit complete.
+     admin@ncs(config-device-dev-1)# disconnect
+     admin@ncs(config-device-dev-1)# connect
+     ```
+
   Note:
-   - in case one of the features is enabled and the user wants to enable the other feature, then the current feature must be set of false
+   - in case one of the features is enabled and the user wants to enable other feature, then the current feature must be set of false
 
   Additional README files bundled with this NED package
   ```
@@ -551,7 +564,7 @@ admin@ncs(config)# commit
 # 5. Built in live-status actions
 ---------------------------------
 
-  The huawei-nce NED contains lots of actions, for both IP-services-feature and DWDM-feature.
+  The huawei-nce NED contains lots of actions for IP-services-feature and DWDM-feature.
 
   Examples:  
   1. fetching operational platform-data for IP-services-feature
@@ -564,14 +577,17 @@ admin@ncs(config)# commit
 
   2. fetching specific tunnels for DWDM-feature
 
-  ```
-  admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-tunnels-oper-data tunnel1 tunnel2
-  ```
+      ```
+      admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-tunnels-oper-data tunnel1 tunnel2
+      ```
 
-  For more details regarding the tail-f actions for IP-services feature, please check 9.2, 9.3 and 9.15 sections from the README.md file.
+  For more details regarding the tail-f actions for IP-services feature, please check 10.2, 10.3 and 10.15 sections from the README.md file.
 
 
-  For more tail-f actions related to the DWDM-feature, please check 10.5 and 10.6 sections from the README.md file.
+  For more tail-f actions related to the DWDM-feature, please check 11.5 and 11.6 sections from the README.md file.
+
+
+  There is an action for the NCE-FAN feature as well. Please find details at 12.11 tail-f action to fetch OLTs' status section.
 
 
 # 6. Built in live-status show
