@@ -12,7 +12,7 @@ The interface towards ConfD is a socket based IPC interface, thus this applicati
 
 Thus the architecture is according to the following picture:&#x20;
 
-![Architecture](../../.gitbook/assets/cdbarch.png)
+![Architecture](../../.gitbook/assets/arch.png)
 
 which illustrates the overall architecture from an OTP perspective.
 
