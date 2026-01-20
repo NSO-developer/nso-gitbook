@@ -305,7 +305,7 @@ There are four different types of NEDs:
 
     The example [examples.ncs/device-management/snmp-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/snmp-ned) has a package that has an SNMP NED component.
 * **CLI**: used for CLI devices. The [examples.ncs/device-management/cli-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/cli-ned) example has a package called `router-cli-1.0` that defines a NED component of type CLI.
-* **Generic**: used for generic NED devices. The example [examples.ncs/device-management/](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/xmlrpc-device)[generic-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/generic-ned) has a package called `xml-rpc` which defines a NED component of type generic.
+* **Generic**: used for generic NED devices. The example [examples.ncs/device-management/generic-xmlrpc-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/generic-xmlrpc-ned) has a package called `xml-rpc` which defines a NED component of type generic.
 
 A CLI NED and a generic NED component must also come with additional user-written Java code, whereas a NETCONF NED and an SNMP NED have no Java code.
 
@@ -421,7 +421,7 @@ Assuming we have a set of MIB files in `./mibs`, we can generate a package for a
 
 ### Creating a CLI NED Package or a Generic NED Package <a href="#d5e5199" id="d5e5199"></a>
 
-For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is the [examples.ncs/device-management/cli-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/cli-ned) and a good starting point for a Generic NED is the example [examples.ncs/device-management/generic-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/generic-ned).
+For CLI NEDs and Generic NEDs, we cannot (yet) generate the package. Probably the best option for such packages is to start with one of the examples. A good starting point for a CLI NED is the [examples.ncs/device-management/cli-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/cli-ned) and a good starting point for a Generic NED is the example [examples.ncs/device-management/generic-xmlrpc-ned](https://github.com/NSO-developer/nso-examples/tree/6.5/device-management/generic-xmlrpc-ned).
 
 ### Creating a Service Package or a Data Provider Package <a href="#d5e5204" id="d5e5204"></a>
 
