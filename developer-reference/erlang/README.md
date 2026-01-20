@@ -10,7 +10,7 @@ This is the equivalent of libconfd.so for C programmers.
 
 The interface towards ConfD is a socket based IPC interface, thus this application, econfd, executes in a different address space than ConfD itself. The protocol between econfd and ConfD is almost the same regardless of whether econfd (erlang API) or libconfd.so (C API) is used.
 
-Thus the architecture is according to the following picture:&#x20;
+Thus the architecture is according to the following image:
 
 ![Architecture](../../.gitbook/assets/arch.png)
 
