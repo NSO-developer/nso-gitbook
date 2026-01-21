@@ -81,9 +81,9 @@ Regardless of the device, we must always write a YANG model that describes the d
 
 Often a useful technique with generic NEDs can be to write a pyang plugin to generate code for the generic NED. Again, depending on the device it may be possible to generate Java code from a pyang plugin that covers most or all aspects of mapping an array of `NedEditOp` objects into the equivalent reconfiguration commands for the device.
 
-Pyang is an extensible and open-source YANG parser (written by Tail-f) available at `http://www.yang-central.org`. pyang is also part of the NSO release. A number of plugins are shipped in the NSO release, for example `$NCS_DIR/lib/pyang/pyang/plugins/tree.py` is a good plugin to start with if we wish to write our own plugin.
+Pyang is an extensible open-source YANG parser and validator available from `https://github.com/mbj4668/pyang/` and `https://pypi.org/project/pyang/`. The `pyang/plugins/tree.py` plugin is a good starting point for writing a custom plugin.
 
-The [examples.ncs/device-management/generic-xmlrpc-ned](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/generic-xmlrpc-ned) example is a good example to start with if we wish to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
+The [examples.ncs/device-management/generic-xmlrpc-ned](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/generic-xmlrpc-ned) example shows how to write a generic NED. It manages a set of devices over the XML-RPC protocol. In this example, we have:
 
 * Defined a fictitious YANG model for the device.
 * Implemented an XML-RPC server exporting a set of RPCs to manipulate that fictitious data model. The XML-RPC server runs the Apache `org.apache.xmlrpc.server.XmlRpcServer` Java package.
