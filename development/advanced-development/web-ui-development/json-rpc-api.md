@@ -1031,7 +1031,35 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 {"limit": <integer, default: -1>}
 ```
 
+```json
+{"with_service_meta_data": <boolean, default: false>}
+```
+
 The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format; `cli` for CLI curly bracket format, `cli-c` for Cisco CLI style format, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit. The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`. `depth` limits the depth (levels) of the returned subtree below the target `path`. `include` retrieves a subset of nodes below the target `path`, similar to the [RESTCONF fields query parameter](../../core-concepts/northbound-apis/restconf-api.md#d5e1600). `exclude` excludes a subset of nodes below the target `path`, similar to the [RESTCONF exclude query parameter.](../../core-concepts/northbound-apis/restconf-api.md#the-exclude-query-parameter) `offset` controls the number of list elements to skip before returning the requested set of entries. `limit` controls the of list entries to retrieve.
+
+**Attributes**
+
+By default, any attributes are also included in the JSON result. Note that the attributes do not have any standardized handling in JSON. This information is prefixed with the `@` symbol and the name of the node where this attribute exists. The actual attribute also carries a prefix `tailf_netconf`. This notion is used to be compatible with attribute handling in RESTCONF and NETCONF. Example:
+
+```json
+{
+"@foo": {
+  "tailf_netconf:annotation": "test",
+  "tailf_netconf:tags": [
+    "test"
+  ]
+},
+"foo": 12345
+}
+```
+
+This would be equivalent to this XML:
+
+```xml
+<foo annotation="test" tags="test">12345</foo>
+```
+
+The parameter `with_service_meta_data` allows the specific service metadata attributes to be included in the resulting JSON object. By default, this is not the case as they are considered information that most standard users does not need to examine.
 
 **Result**
 
