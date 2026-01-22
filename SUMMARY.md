@@ -43,7 +43,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.5 2026-01-12](alu-isam/README.md)
+  * [README v1.5.6 2026-01-21](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
