@@ -4,7 +4,7 @@ description: Select the optimal CDB persistence mode for your use case.
 
 # CDB Persistence
 
-The Configuration Database (CDB) is a built-in datastore for NSO, specifically designed for network automation use cases and backed by the YANG schema. Since NSO 6.4, the CDB can be configured to operate in one of the two distinct modes: `in-memory-v1` and `on-demand-v1`.
+The Configuration Database (CDB) is a built-in datastore for NSO, specifically designed for network automation use cases and backed by the YANG schema. Since NSO 6.4, the CDB can be configured to operate in one of the two distinct modes: `in-memory-v1` and `on-demand-v1`. From NSO 6.7, the default mode for CDB persistence is `on-demand-v1` and the previous default mode `in-memory-v1` has been deprecated. When upgrading to NSO 6.7, if the `/ncs-config/cdb/persistence/format` leaf is not specified in the `ncs.conf` file, an automatic conversion of the CDB persistence layer occurs to transition to the `on-demand-v1` mode.
 
 The `in-memory-v1` mode keeps all the configuration data in RAM for the fastest access time. New data is persisted to disk in the form of journal (WAL) files, which the system uses on every restart to reconstruct the RAM database. But the amount of RAM needed is proportional to the number of managed devices and services. When NSO is used to manage a large network, the amount of needed RAM can be quite large. This is the only CDB persistence mode available before NSO 6.4.
 
@@ -29,7 +29,7 @@ As a rule of thumb, we recommend the `on-demand-v1` mode, as it has typical perf
 
 ## Configuring Persistence Mode
 
-The CDB persistence is configured under `/ncs-config/cdb/persistence` in the `ncs.conf` file. The `format` leaf selects the desired persistence mode, either `on-demand-v1` or `in-memory-v1` (default `in-memory-v1`), and the system automatically migrates the data on the next start if needed. Note that the system will not be available for the migration duration.
+The CDB persistence is configured under `/ncs-config/cdb/persistence` in the `ncs.conf` file. The `format` leaf selects the desired persistence mode, either `on-demand-v1` or `in-memory-v1` (default `on-demand-v1` from NSO 6.7), and the system automatically migrates the data on the next start, if needed. Note that the system will not be available for the migration duration.
 
 With the `on-demand-v1` mode, additional offloading configuration under `offload` container becomes relevant (`in-memory-v1` keeps all data in RAM and does not perform any offloading). The `offload/interval` specifies how often the system checks its memory consumption and starts the offload process if required.
 
