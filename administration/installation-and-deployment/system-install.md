@@ -8,7 +8,7 @@ description: Install NSO for production use in a system-wide deployment.
 
 Complete the following activities in the given order to perform a System Install of NSO.
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="system-install.md#step-1-fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="system-install.md#si.download.the.installer">2. Download Installer/NEDs</a><br><a href="system-install.md#si.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="system-install.md#si.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="system-install.md#si.setup.user.access">5. Set up User Access</a><br><a href="system-install.md#si.set.env.variables">6. Set Environment Variables</a><br><a href="system-install.md#si.runtime.directory.creation">7. Runtime Directory Creation</a><br><a href="system-install.md#si.generate.license.token">8. Generate License Token</a></td><td></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Prepare</strong></td><td><a href="system-install.md#step-1-fulfill-system-requirements">1. Fulfill System Requirements</a><br><a href="system-install.md#si.download.the.installer">2. Download Installer/NEDs</a><br><a href="system-install.md#si.unpack.the.installer">3. Unpack the Installer</a></td><td></td></tr><tr><td><strong>Install</strong></td><td><a href="system-install.md#si.run.the.installer">4. Run the Installer</a></td><td></td></tr><tr><td><strong>Finalize</strong></td><td><a href="system-install.md#si.setup.user.access">5. Set up User Access</a><br><a href="system-install.md#si.set.env.variables">6. Review Server Configuration</a><br><a href="system-install.md#si.runtime.directory.creation">7. Start Server</a><br><a href="system-install.md#si.generate.license.token">8. Generate License Token</a></td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
 **Mode of Install**
@@ -615,38 +615,52 @@ To set up user access:
     # usermod -a -G 'groupname' 'username'
     ```
 
-### Step 6 - Set Environment Variables <a href="#si.set.env.variables" id="si.set.env.variables"></a>
+### Step 6 - Review Server Configuration <a href="#si.set.env.variables" id="si.set.env.variables"></a>
 
-To set environment variables:
+Open the `/etc/ncs/ncs.conf` daemon configuration file in a text editor and review its contents. At the least, you should decide which northbound management interfaces to enable (if any). Refer to [System Management (ncs.conf)](../management/system-management/#ncs.conf-file) for details.
+
+For example, to enable the WebUI over HTTPS, find the `webui/transport/ssl` section and set `enabled` to `true`:
+
+{% code title="Example: Enable Web UI Access" %}
+```xml
+  <webui>
+    <!-- ... -->
+    <transport>
+      <!-- ... -->
+      <ssl>
+        <enabled>true</enabled>
+```
+{% endcode %}
+
+Note that in the default configuration, all northbound interfaces are disabled unless enabled by a specific environment variable, such as `NCS_WEBUI_TRANSPORT_SSL`.
+
+### Step 7 - Start Server <a href="#si.runtime.directory.creation" id="si.runtime.directory.creation"></a>
+
+In a System Install, NSO runs as a system daemon that starts and stops with the operating system. However, right after installation, the server must be started manually.
 
 1.  Change to Super User privileges.
 
     ```bash
     $ sudo -s
     ```
-2.  The installation program creates a shell script file in each NSO installation which sets the environment variables needed to run NSO. With the `--system-install` option, by default, these settings are set on the shell. To explicitly set the variables, source `ncs.sh` or `ncs.csh` depending on your shell type.
-
-    ```bash
-    # source /etc/profile.d/ncs.sh
-    ```
-3.  Start NSO.
+2.  Start NSO.
 
     ```bash
     # systemctl daemon-reload
     # systemctl start ncs
     ```
 
-    NSO starts at boot going forward.
+    The Runtime Directory for System Install is set up automatically; you do not need to create it. From now on, the NSO daemon `ncs` is automatically started at boot time.
+3.  The installation program creates a shell script file which sets the environment variables needed to run NSO. With the `--system-install` option, by default, these variables are set on shell startup. To explicitly set the variables, source `ncs.sh` or `ncs.csh` depending on your shell type.
 
-    Once you log on with the user that belongs to `ncsadmin` or `ncsoper`, you can directly access the CLI as shown below:
+    ```bash
+    # source /etc/profile.d/ncs.sh
+    ```
+4.  Once you log on with the user that belongs to the `ncsadmin` or `ncsoper` group, you can directly access the CLI as shown below:
 
     ```bash
     $ ncs_cli -C
     ```
-
-### Step 7 - Runtime Directory Creation <a href="#si.runtime.directory.creation" id="si.runtime.directory.creation"></a>
-
-As part of the System Install, the NSO daemon `ncs` is automatically started at boot time. You do not need to create a Runtime Directory for System Install.
 
 ### Step 8 - Generate License Registration Token <a href="#si.generate.license.token" id="si.generate.license.token"></a>
 
@@ -841,3 +855,11 @@ The easiest way is to uninstall the System install using `ncs-uninstall --all` a
 No.
 
 </details>
+
+***
+
+**Next Steps**
+
+{% content-ref url="../management/system-management/" %}
+[system-management](../management/system-management/)
+{% endcontent-ref %}
