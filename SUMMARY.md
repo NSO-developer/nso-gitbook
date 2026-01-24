@@ -125,11 +125,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.113.2 2026-01-16](cisco-ios/README.md)
+  * [README v6.113.3 2026-01-23](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.3 2026-01-16](cisco-iosxr/README.md)
+  * [README v7.75.4 2026-01-23](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -206,7 +206,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.28 2026-01-09](fortinet-fortios/README.md)
+  * [README v5.11.29 2026-01-22](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -222,7 +222,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.2 2025-11-28](huawei-ias/README.md)
+  * [README v2.9.3 2026-01-23](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)

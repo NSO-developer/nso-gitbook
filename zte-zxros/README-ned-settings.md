@@ -47,8 +47,7 @@
           6.4.1. state
   7. logger
   8. developer
-  9. live-status
-  10. write
+  9. write
   ```
 
 
@@ -501,19 +500,8 @@
       Override device version.
 
 
-# 9. ned-settings zte-zxros live-status
----------------------------------------
-
-  Settings related to live-status feature.
-
-
-    - live-status chain-separator <string> (default ;)
-
-      Set the separator used when constructing chained commands.
-
-
-# 10. ned-settings zte-zxros write
-----------------------------------
+# 9. ned-settings zte-zxros write
+---------------------------------
 
   Settings used when writing to device.
 
