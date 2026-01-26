@@ -268,11 +268,11 @@ This command is useful for both verifying that the HA Raft cluster is set up cor
 
 </details>
 
-In case you get an error, such as the `Error: NSO can't reach member node 'ncsd@ADDRESS'.`, please verify all of the following:
+In case you get an error, such as the `Error: NSO can't reach member node 'ncsd@ADDRESS'.`, verify all of the following:
 
 * The node at the `ADDRESS` is reachable. You can use the `ping` `ADDRESS` command, for example.
 * The problematic node has the correct `ncs.conf` configuration, especially `cluster-name` and `node-address`. The latter should match the `ADDRESS` and should contain at least one dot.
-* Nodes use compatible configuration. For example, make sure the `ncs.crypto_keys` file (if used) or the `encrypted-strings` configuration in `ncs.conf` is identical across nodes.
+* Nodes use compatible configuration. For example, make sure that the `ncs.crypto_keys` file (if used) or the `encrypted-strings` configuration in `ncs.conf` is identical across all nodes in the cluster. In case the encrypted keys (e.g., the `ncs.crypto_keys` file or the key-generation in `ncs.conf`) become mismatched and are subsequently corrected, you must issue a `ha-raft reset` on the affected node(s) to fully re-establish RAFT state. Without a reset, the node may remain disabled or out of sync due to inconsistencies in its persisted RAFT state. Additionally, when a node enters the `disabled` state for any reason (for example, configuration mismatch, unrecoverable RAFT state corruption, or safety-rule violations), RAFT will not automatically recover. Because `disabled` is the terminal state of the RAFT state machine, the operator must manually issue `ha-raft reset` after resolving the underlying cause to return the node to normal operation.
 * HA Raft is enabled, using the `show ha-raft` command on the unreachable node.
 * The firewall configuration on the OS and on the network level permits traffic on the required ports (see [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports)).
 * The node uses a certificate that the CA can validate. For example, copy the certificates to the same location and run `openssl verify -CAfile CA_CERT NODE_CERT` to verify this.
