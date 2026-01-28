@@ -4,7 +4,7 @@ description: Automate non-configuration tasks with NSO.
 
 # Actions
 
-The most common way to implement non-configuration automation in NSO is using actions. An action represents a task or an operation that a user of the system can invoke on demand, such as downloading a file, resetting a device, or performing some test.
+The most common way to implement non-configuration automation in NSO is using actions. An action represents a task or an operation that a user of the system can invoke on demand, such as downloading a file, resetting a device, or performing a test.
 
 Like configuration elements, actions must also be defined in the YANG model. Each action is described by the `action` YANG statement that specifies what are its inputs and outputs, if any. Inputs allow a user of the action to provide additional information to the action invocation, while outputs provide information to the caller. Actions are a form of a Remote Procedure Call (RPC) and have historically evolved from NETCONF RPCs. It's therefore unsurprising that with NSO you implement both in a similar manner.
 
@@ -26,7 +26,7 @@ action my-test {
 }
 ```
 
-The first thing to notice in the code is that, just like services use a service point, actions use an `actionpoint`. It is denoted by the `tailf:actionpoint` statement and tells NSO to execute a callback registered to this name. As discussed, the callback mechanism allows you to provide custom action implementation.
+The first thing to notice in the code is that, just like services use a service point, actions use an `actionpoint`. It is denoted by the `tailf:actionpoint` statement and tells NSO to execute a callback registered to this name. The callback mechanism allows you to provide custom action implementation.
 
 Correspondingly, your code needs to register a callback to this action point, by calling the `register_action()`, as demonstrated here:
 
