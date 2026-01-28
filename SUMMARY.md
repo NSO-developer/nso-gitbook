@@ -166,7 +166,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.7.3 2025-11-04](eci-muse/README.md)
+  * [README v1.7.4 2026-01-27](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -202,7 +202,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.43 2026-01-15](fortinet-fmg/README.md)
+  * [README v4.3.44 2026-01-27](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -250,7 +250,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.31 2026-01-15](juniper-junos/README.md)
+  * [README v4.18.32 2026-01-27](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
@@ -287,6 +287,10 @@
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
   * [README v2.0.51 2025-11-05](onf-tapi_rc/README.md)
+
+* opengear-cm
+  * [README-ned-settings](opengear-cm/README-ned-settings.md)
+  * [README v1.0.0 2026-01-09](opengear-cm/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
@@ -382,5 +386,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.3 2025-12-10](zte-zxros/README.md)
+  * [README v1.3.1 2026-01-27](zte-zxros/README.md)
 

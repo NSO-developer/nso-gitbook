@@ -19,6 +19,7 @@
   10. Configure the NED to use ssh multi factor authentication
   11. Aflex scripts
   12. NED Secrets - Securing your Secrets
+  13. Device HA configuration considerations
   ```
 
 
@@ -446,6 +447,15 @@
   Java logging does not use any IPC messages sent to NSO. Consequently, NSO performance is not
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
+
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
 
 
 # 3. Dependencies
@@ -1107,3 +1117,163 @@ admin@ncs(config-config)# config-actions action { action-payload "no running-con
            member administrative
           !
           password $2y$10$7ova9fF/bRe9B9GUtjVpA.w5mfeXJXRHyV0KsSfg4XWE9j3Fcq3Qi
+
+
+
+# 13. Device HA configuration considerations
+------------------------------------------
+A10-ACOS devices implements native support for high availability (HA) nodes by configuring one primary device as the active device and 1 to 8 passive devices to mirror the active device configuration and to take over the traffic when the active node becomes unavailable for some reasons.
+The HA on the targeted devices is configured by properly setting the VRRP-A (A10-ACOS proprietary VRRP protocol) and VCS settings, defining the HA cluster.
+
+In theory, it is possible to fully configure the HA cluster from NSO. However, impacted devices configurations suffer significant changes after HA activation.
+This means that once the HA is active, the CDB configuration of all involved devices becomes out-of-sync.
+Moreover, if the passive devices were also configured through NSO, those devices should not be used for future changes, as passive devices in a HA cluster are not allowed to change configuration via its management interface anymore - their configuration is maintained by the active device arbiter.
+
+Here are some examples of configuration changes that will take effect as soon as the HA becomes active:
+
+- interfaces numbering - before HA, interfaces look like this:
+```
+interface ethernet 1
+ enable
+exit
+interface ethernet 2
+ enable
+exit
+...............
+interface ve 4096
+exit
+```
+
+- after HA activation, all interfaces are renamed, adding the device-id before the interface id:
+```
+interface ethernet 1/1
+ enable
+exit
+interface ethernet 1/2
+ enable
+exit
+...........................
+interface ethernet 2/1
+ enable
+exit
+interface ethernet 2/2
+ enable
+exit
+..........................
+interface ve 1/4096
+exit
+interface ve 2/4096
+exit
+```
+
+In order to controll certain configuration parts on the nodes of the HA, A10-ACOS devices provides 'device-context' command that allows to switch to a certain device configuration. 
+For instance, it is expected that all the devices have a management interface, each device with its own id. The management interface config would look like this:
+
+```
+device-context 1
+  interface management
+    ip address 11.11.11.11 255.255.255.0
+    ip default-gateway 11.11.11.1
+  exit
+exit
+.......
+device-context 2
+  interface management
+    ip address 11.11.11.12 255.255.255.0
+    ip default-gateway 11.11.11.11
+  exit
+exit
+```
+
+It is worth noting that not all the A10-ACOS commands belong in a device-context, but there are certain comands that they will be automatically routed by the device in the appropriate device-context, even if the device-context is not explicitly given.
+Since the NED is a best-effort implementation of the device behavior, there are certain configuration considerations that have to be taken into account here, otherwise the NED can end up in a compare-config scenario.
+
+For example: 'interface ethernet x' command - although this command can be executed from any device-context, this will directly affect the root configuration of the active device.
+
+- on a real device:
+```
+vThunder-1-vMaster[1/1](config:1)(NOLICENSE)#device-context 2
+All the following configuration will go to device 2
+vThunder-1-vMaster[1/1](config:2)(NOLICENSE)#interface ethernet 1/1
+vThunder-1-vMaster[1/1](config:1-if:ethernet:1/1)(NOLICENSE)#name test
+vThunder-1-vMaster[1/1](config:1-if:ethernet:1/1)(NOLICENSE)#show runn
+
+................
+interface ethernet 1/1
+  name test
+................
+vThunder-1-vMaster[1/1](config:1-if:ethernet:1/1)(NOLICENSE)#
+```
+In the above example, even if the device-context 2 was activated, the interface ethernet config was routed to root device configuration.
+This kind of behavior needs to be taken into account in the NED: for instance, a correct configuration of the 'interface ethernet 1/1' would be done in the root device configuration and not in the 'device-context 2' as in the example above. 
+
+A similar example (but the other way around) is with the interface management configuration: although it is possible to configure the interface management from root config, the device will route the configuration to the device-context node.
+For instance, if we configure the following in the NED:
+
+```
+admin@ncs(config-config)# access-list 103 permit tcp any any
+admin@ncs(config-config)# interface management
+admin@ncs(config-management)# access-list 103 in
+admin@ncs(config-management)# commit dry-run outformat native
+native {
+    device {
+        name vThunder-1
+        data access-list 103 permit tcp any any
+             interface management
+              access-list 103 in
+             exit
+    }
+}
+admin@ncs(config-config)# commit
+Commit complete.
+```
+Although the device accepts the interface management change, the device will process the change in the device-context. This can be seen by the following compare-config:
+```
+admin@ncs(config-config)# compare
+diff
+ devices {
+     device vThunder-1 {
+         config {
+             interface {
+                 management {
+                     access-list {
+-                        id 103;
+-                        in;
+                     }
+                 }
+             }
+             device-context 1 {
+                 interface {
+                     management {
+                         access-list {
++                            id 103;
++                            in;
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }
+```
+Note: to avoid such a compare-config, one should properly configure the interface management under device-context 1 in the NED. For instance, the following NED config would be a correct commit:
+```
+admin@ncs(config-config)# device-context 1
+admin@ncs(config-device-context-1)# interface management
+admin@ncs(config-management)# access-list 103 in
+admin@ncs(config-management)# commit dry-run outformat native
+native {
+    device {
+        name vThunder-1
+        data device-context 1
+              interface management
+               access-list 103 in
+              exit
+             device-context 1
+    }
+}
+admin@ncs(config-management)#
+```
+
+In conclusion, when HA is enabled, special care needs to be taken when configuring the targeted device. As the NED is implemented as a best-effort device support, it is possible to end up in compare-config issues if the configuration is improperly managed from the NED stand point of view.
+However, with the proper care for the HA configuration, the NED should be able to cover all the HA use-cases.
