@@ -1104,7 +1104,7 @@ Typically, such actions are defined per service instance, so you model them unde
 
 The action needs no special inputs; because it is defined on the service instance, it can find the relevant interface to query. The output has a single leaf, called `status`, which uses an `enumeration` type for explicitly defining all the possible values it can take (`up`, `down`, or `unknown`).
 
-Note that using the `action` statement requires you to also use the `yang-version 1.1` statement in the YANG module header (see [Actions](../introduction-to-automation/applications-in-nso.md#d5e959)).
+Note that using the `action` statement requires you to also use the `yang-version 1.1` statement in the YANG module header (see [Actions](../introduction-to-automation/actions.md)).
 
 ### Action Code in Python <a href="#d5e1944" id="d5e1944"></a>
 
