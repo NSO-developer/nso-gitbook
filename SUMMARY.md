@@ -290,7 +290,7 @@
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)
-  * [README v1.0.0 2026-01-09](opengear-cm/README.md)
+  * [README v1.0.0 2026-01-28](opengear-cm/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
