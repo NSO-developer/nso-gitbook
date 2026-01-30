@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.26.1 2025-12-12](a10-acos/README.md)
+  * [README v3.27 2026-01-29](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -50,7 +50,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.67 2026-01-22](alu-sr/README.md)
+  * [README v8.68 2026-01-29](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -129,7 +129,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.5 2026-01-26](cisco-iosxr/README.md)
+  * [README v7.75.6 2026-01-29](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -238,7 +238,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.83.1 2026-01-22](huawei-vrp/README.md)
+  * [README v6.83.2 2026-01-29](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -290,7 +290,7 @@
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)
-  * [README v1.0.0 2026-01-28](opengear-cm/README.md)
+  * [README v1.1.0 2026-01-29](opengear-cm/README.md)
 
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
@@ -386,5 +386,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.3.1 2026-01-27](zte-zxros/README.md)
+  * [README v1.3.2 2026-01-29](zte-zxros/README.md)
 

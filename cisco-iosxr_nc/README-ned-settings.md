@@ -428,6 +428,14 @@
   Settings related the netconf capablities, and the discovery of supported yang modules.
 
 
+    - capabilities strict-model-revision-check <true|false> (default true)
+
+      When enabled, the NED performs a strict revision check of the models published by the device.
+      The advertised revision must exactly match the version built into the NED. If there is a
+      mismatch, NSO will not support the model, and it will not be possible to read or write
+      configuration using that model.
+
+
     - capabilities defaults-mode-override <enum>
 
       Use this setting to override/force the 'with-defaults' handling reported to NSO,

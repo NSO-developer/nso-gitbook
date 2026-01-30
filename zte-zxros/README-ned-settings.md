@@ -528,3 +528,10 @@
       disabled    - Disable saving the applied config to persistent memory.
 
 
+    - write config service-policy optimize-apply <true|false> (default false)
+
+      If enabled, when changing the service‑policy bound to an interface, the NED will: 1) Remove
+      the existing service‑policy from the interface. 2) Apply the new service‑policy to the same
+      interface.
+
+
