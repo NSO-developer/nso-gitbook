@@ -139,7 +139,7 @@
 * cisco-iosxr_nc
   * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
   * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1.2 2025-12-17](cisco-iosxr_nc/README.md)
+  * [README v1.1.3 2026-01-30](cisco-iosxr_nc/README.md)
 
 * cisco-iosxr_netconf
   * [README v25.4.1 2026-01-12](cisco-iosxr_netconf/README.md)
@@ -206,7 +206,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.29 2026-01-22](fortinet-fortios/README.md)
+  * [README v5.11.30 2026-01-30](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -382,7 +382,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.4.6 2025-12-16](zte-xpon/README.md)
+  * [README v4.4.7 2026-01-30](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
