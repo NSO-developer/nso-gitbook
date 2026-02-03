@@ -808,6 +808,37 @@ admin@ncs# show running-config hosts | display keypath
 /hosts/host{host2}/numberOfServers 0
 ```
 
+The `ignore-display-when` pipe command is intended to expose data nodes that have been hidden by the `tailf:display-when` expression. This pipe command can also be used in combination with various display targets.
+
+The following example is for a leaf `hidden-empty-leaf` that has a `tailf:display-when` expression that evaluates to `false` but can still be forced to get exposed in the CLI by use of the `ignore-display-when` pipe command:
+
+```bash
+admin@ncs(config)# show configuration
+devices device foo0
+ config
+  bar
+ !
+!
+
+admin@ncs(config)# show configuration | ignore-display-when
+devices device foo0
+ config
+  bar hidden-empty-leaf
+ !
+!
+
+admin@ncs(config)# show configuration | ignore-display-when | display curly-braces
+ devices {
+     device foo0 {
+         config {
++            bar {
++                hidden-empty-leaf;
++            }
+         }
+     }
+ }
+```
+
 ## Range Expressions <a href="#d5e1612" id="d5e1612"></a>
 
 To modify a range of instances, at the same time, use range expressions or display a specific range of instances.
