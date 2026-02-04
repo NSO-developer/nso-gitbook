@@ -25,6 +25,40 @@
 
   This document describes the opengear-cm NED.
 
+
+  Opengear Console Manager CLI NED for Cisco NSO
+  ------------------------------------------------
+
+  This Network Element Driver (NED) enables Cisco NSO to manage Opengear Console Manager appliances (OM1208, OM2200, etc.) using the `ogcli` command-line interface. 
+  It provides configuration, monitoring, and management support for Opengear serial console servers via a YANG-based data model.
+
+  **Key Features:**
+  - Supports all major Opengear Console Manager models (v25.07.0+)
+  - Entity-based configuration mapping (services, users, network, serial ports, etc.)
+  - Secure handling of secrets (passwords, keys, SNMP communities)
+  - YANG model with Tail-f extensions for secrets and device metadata
+  - Robust error handling and transaction support
+
+  **ogcli Operations Supported:**
+  - Generic operataion examples that could be supported:
+    - get, create, update, delete (entity-based, on demand)
+    - Modules supported on release 1.1.0 onwards:
+      - all below endpoints will be synced;
+
+      - additonally, initial support will partially cover:
+
+        - services/snmpd : 
+          * update operations for container parameters
+
+        - services/snmp_alert_manager: 
+          * create and delete operations for list entries
+
+        - lighthouse_enrollment: 
+          * create and delete operations for list entries
+
+        - system/admin_info : 
+          * update operations for container parameters
+
   Additional README files bundled with this NED package
   ```
   +---------------------------+------------------------------------------------------------------------------+
@@ -268,6 +302,21 @@
      admin@ncs(config)# devices device dev-1 ssh fetch-host-keys
      ```
 
+
+
+  ### For enabling full java vm and trace logging:
+
+  devices device <devicename>
+   trace           raw
+   ned-settings opengear-cm developer trace-enable true
+   ned-settings opengear-cm developer trace-connection true
+   ned-settings opengear-cm developer progress-verbosity debug
+   ned-settings opengear-cm logger level debug
+   ned-settings opengear-cm logger java true
+  !
+
+  commit
+
   - Finally commit the configuration
 
     ```
@@ -435,19 +484,932 @@ admin@ncs(config)# commit
 # 4. Sample device configuration
 --------------------------------
 
-  NONE
+  # Opengear Console Manager NED – Sample Configuration Reference
+  ---
+
+  This document provides some annotated configuration examples for the Opengear Console Manager NED (opengear-cm), organized by top-level configuration nodes. 
+  Each section includes real-world configuration and operational variations as seen in NSO CLI and device syncs. 
+  Use these as a starting reference for modeling, troubleshooting, and understanding the NED's behavior.
+
+  ---
+
+  ## Device Definition and Connection
+    Relying on the SSH connection for OGCLI CLI specific communication with the devices targeted, it requires SSH access and specific configurations. 
+
+
+  ### Example configuration with full logging enabled:
+
+    - Below snippet exemplifies a starting point configuration for 1.1.0 NED version with full logging enabled under ned-settings and java-vm logging:
+
+  ```
+  devices device <deviceName>
+   address         <lab-fqdn.domain>
+   port            12345
+   authgroup       opengear-authgrp
+   device-type cli ned-id opengear-cm-cli-1.1
+   device-type cli protocol ssh
+   connect-timeout 3000
+   read-timeout    3000
+   write-timeout   3000
+   trace           raw
+   ned-settings opengear-cm developer trace-enable true
+   ned-settings opengear-cm developer trace-connection true
+   ned-settings opengear-cm developer progress-verbosity debug
+   ned-settings opengear-cm logger level debug
+   ned-settings opengear-cm logger java true
+   state admin-state unlocked
+  ```
+
+  - **Purpose:** Defines the Opengear device, connection parameters, and NED-specific settings.
+  - **Variations:**
+    - Port changes (e.g., `port 12345`)
+    - Device state transitions > unlocked to be usable
+    - SSH host key fetch and fingerprint display
+      - Run `admin@ncs(config)# devices device opengear-device1 ssh fetch-host-keys`
+
+
+  ---
+
+  ## Check Device SSH Host Keys correctly fetched:
+
+
+  ```
+  admin@ncs(config)# devices device <deviceName> ssh fetch-host-keys 
+  result unchanged
+  fingerprint {
+      algorithm ssh-ed25519
+      value ea:6d:e6:....:01:b2
+  }
+  fingerprint {
+      algorithm ecdsa-256
+      value 19:63:...:50:fa
+  }
+  fingerprint {
+      algorithm ssh-rsa
+      value 6c:0e:...:8f:2e
+  }
+  ```
+
+  - **Purpose:** Stores device SSH public keys for secure management.
+  - **Notes:** Key data may be multi-line or single-line.
+
+  ## Save any configs and run connect and sync-from; then check configuration fetched into NSO CDB:
+
+  ### Commit any definitions and ned-settings to NSO CDB:
+
+  `
+  admin@ncs(config-device-deviceName)# commit
+  Commit complete.
+  `
+
+  ### Test connectivity and sync-from:
+
+  `
+  admin@ncs(config-device-deviceName)# connect
+  result true
+  info (admin) Connected to deviceName - <device-ip-address>:<device-port>
+  admin@ncs(config-device-deviceName)# sync-from
+  result true
+  `
+
+
+  ---
+
+  ## 4.1 Opengear CM NED configuration tree
+
+   - Version 1.1.0 YANG TREE:
+   - Many elements are dynamically generated/hidden by the device based on the configuration flavors chosen. 
+   - The tree below adresses required configuration so far:
+
+  ```
+  module: tailf-ned-opengear-cm
+    +--rw services
+    |  +--rw snmpd
+    |  |  +--rw enabled?                  type_bool_str
+    |  |  +--rw port?                     uint16
+    |  |  +--rw enable_legacy_versions?   boolean
+    |  |  +--rw protocol?                 enumeration
+    |  |  +--rw enable_secure_snmp?       boolean
+    |  |  +--rw security_name?            string
+    |  |  +--rw security_level?           enumeration
+    |  |  +--rw auth_password?            string
+    |  |  +--rw auth_protocol?            enumeration
+    |  |  +--rw auth_use_plaintext?       boolean
+    |  |  +--rw priv_password?            string
+    |  |  +--rw priv_protocol?            enumeration
+    |  |  +--rw priv_use_plaintext?       boolean
+    |  |  +--rw rocommunity?              string
+    |  +--rw snmp_alert_manager* [address port protocol]
+    |     +--rw address             inet:ip-address
+    |     +--rw name?               string
+    |     +--rw port                uint16
+    |     +--rw protocol            enumeration
+    |     +--rw version?            enumeration
+    |     +--rw msg_type?           enumeration
+    |     +--rw security_level?     enumeration
+    |     +--rw username?           string
+    |     +--rw auth_protocol?      enumeration
+    |     +--rw auth_password?      string
+    |     +--rw privacy_protocol?   enumeration
+    |     +--rw privacy_password?   string
+    +--rw lighthouse_enrollment* [address]
+    |  +--rw address    string
+    |  +--rw bundle?    string
+    |  +--rw port?      uint16
+    |  +--rw token?     string
+    +--rw system
+       +--rw admin_info
+          +--rw contact?    string
+          +--rw hostname?   string
+          +--rw location?   string
+  ```
+
+
+  ## 4.2 Services – SNMP Daemon (`services snmpd`)
+
+  - OpenGear CM SNMP Daemon entity:
+
+    - Simple Network Management Protocol (SNMP) is an Internet Standard protocol for collecting and organizing information about managed devices on IP networks and for modifying that information to change device behaviour. This entity allows configuration of the SNMP service.
+
+  ### 4.2.1 Top level NSO config options for services/snmpd:
+
+  - NSO CLI syntax examples: 
+
+      ```
+      admin@ncs# config
+      Entering configuration mode terminal
+      admin@ncs(config)# devices device deviceName1      
+      admin@ncs(config-device-deviceName1)# config
+      admin@ncs(config-config)# ?
+      Possible completions:
+        lighthouse_enrollment   Lighthouse Enrollment Configuration
+        services                OpenGear internal Services Configuration
+        system                  OpenGear System Configuration
+        ---            
+      ```
+
+      ```
+      admin@ncs(config-config)# services ?
+      Possible completions:
+        snmp_alert_manager   SNMP TRAPS : Alert Manager Configuration
+        snmpd                SNMP Daemon Configuration
+      ```
+
+      ```
+      admin@ncs(config-config)# services snmpd ?
+      Possible completions:
+        auth_password            SNMP Authentication Password
+        auth_protocol            The encryption algorithm to use for authentication with SNMPv3
+        auth_use_plaintext       Use Plaintext for Authentication Password
+        enable_legacy_versions   Enable Legacy SNMP Versions (v1/v2c)
+        enable_secure_snmp       Enable Secure SNMP (v3)
+        enabled                  Enable SNMP Daemon
+        port                     SNMP Daemon Port; default 161
+        priv_password            SNMP Privacy Password
+        priv_protocol            The encryption algorithm to use for privacy with SNMPv3
+        priv_use_plaintext       Use Plaintext for Privacy Password
+        protocol                 SNMP Protocol (UDP/TCP); default UDP
+        rocommunity              SNMP Read-Only Community String
+        security_level           SNMP Security Level - user-based security model; default noauth
+        security_name            SNMP Security Name
+        <cr>   
+        ```
+
+  - Data is stored in NSO CDB in below syntax format (Cisco Style):
+      ```
+      services snmpd
+      enabled                true|false
+      port                   <int>
+      enable_legacy_versions true|false
+      protocol               UDP|TCP
+      enable_secure_snmp     true|false
+      security_name          <string>
+      security_level         noauth|auth|priv
+      auth_use_plaintext     true|false
+      priv_use_plaintext     true|false
+      rocommunity            <string>
+      priv_password          <string>
+      priv_protocol          AES|AES-192|AES-256|DES
+      ...
+      END
+      ```
+
+  - **Purpose:** Configures SNMP daemon, including security, protocol, and legacy support.
+  - **Variations:**
+    - Enable/disable SNMP
+    - Change protocol (UDP/TCP)
+    - Security level and password/protocol changes
+    - Legacy version toggling
+
+
+  ### 4.2.2 Example parameter updates on services/snmpd:
+
+  - Considering initial config starting point example after a given sync-from, we would have:
+
+    - NSO CLI C-style syntax content:
+
+      ```
+      admin@ncs(config-config)# services snmpd 
+      admin@ncs(config-snmpd)# show full
+      devices device deviceName1
+      config
+        services snmpd
+        enabled                false
+        port                   161
+        enable_legacy_versions true
+        protocol               UDP
+        enable_secure_snmp     true
+        security_name          sec-name-updated
+        security_level         noauth
+        auth_use_plaintext     false
+        priv_use_plaintext     false
+        rocommunity            StringCommunity-123
+        END
+      !
+      !
+      ```
+
+    - NSO XML tree if needed:
+      ```
+      admin@ncs(config-snmpd)# show full | display xml
+      <config xmlns="http://tail-f.com/ns/config/1.0">
+        <devices xmlns="http://tail-f.com/ns/ncs">
+          <device>
+            <name>deviceName1</name>
+            <config>
+              <services xmlns="http://tail-f.com/ned/opengear-cm">
+                <snmpd>
+                  <enabled>false</enabled>
+                  <port>161</port>
+                  <enable_legacy_versions>false</enable_legacy_versions>
+                  <protocol>UDP</protocol>
+                  <enable_secure_snmp>true</enable_secure_snmp>
+                  <security_name>test-remode-ned-updated</security_name>
+                  <security_level>noauth</security_level>
+                  <auth_use_plaintext>false</auth_use_plaintext>
+                  <priv_use_plaintext>false</priv_use_plaintext>
+                  <rocommunity>StringCommunity-123</rocommunity>
+                </snmpd>
+              </services>
+            </config>
+          </device>
+        </devices>
+      </config>
+      ```
+
+  #### Update any parameter and commit dry run example:
+
+      ```
+      admin@ncs(config-snmpd)# enable_legacy_versions false 
+      admin@ncs(config-snmpd)# commit dry-run 
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                                services {
+                                    snmpd {
+                  -                    enable_legacy_versions true;
+                  +                    enable_legacy_versions false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  #### Commit dry-run outformat native to prepare native device command equivalent:
+      ```
+      admin@ncs(config-snmpd)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli update services/snmpd << 'END'
+                  enable_legacy_versions=false
+                  END
+          }
+      }
+      ```
+
+  - Commit and check device configuration further. 
+
+
+  ## 4.3 Services – SNMP Alert Manager (`services snmp_alert_manager`)
+
+  - Retrieve, create or delete specific SNMP Alert Managers.
+
+    -*Parameter editing after creation is not supported yet.*
+
+  ### 4.3.1 Top level NSO config options for service/snmp_alert_manager
+
+  - NSO CLI syntax examples: 
+
+      ```
+      admin@ncs# config
+      Entering configuration mode terminal
+      admin@ncs(config)# devices device deviceName1      
+      admin@ncs(config-device-deviceName1)# config
+      admin@ncs(config-config)# ?
+      Possible completions:
+        lighthouse_enrollment   Lighthouse Enrollment Configuration
+        services                OpenGear internal Services Configuration
+        system                  OpenGear System Configuration
+        ---            
+      ```
+
+      ```
+      admin@ncs(config-config)# services ?
+      Possible completions:
+        snmp_alert_manager   SNMP TRAPS : Alert Manager Configuration
+        snmpd                SNMP Daemon Configuration
+
+      admin@ncs(config-config)# services snmp_alert_manager?
+      Possible completions:
+        snmp_alert_manager   SNMP TRAPS : Alert Manager Configuration
+      ```
+
+  #### Please note services/snmp_alert_manager is a list with 3 keys
+
+  **- Formatting of the keys matches the multiline identifier composed on the OpenGear side after create**
+      - CLI structure: `<address>:<port>/<protocol>`
+
+      - Initial configuration expects an ip address, then port and protocol separated by the special character exemplified above and below:
+      ```
+      admin@ncs(config-config)# services snmp_alert_manager ?   
+      This line has a valid range expression.
+      Possible completions:
+        SNMP Alert Manager IP Address  range
+
+      admin@ncs(config-config)# services snmp_alert_manager 192.168.10.11:?
+      Possible completions:
+        SNMP Alert Manager Port
+
+      admin@ncs(config-config)# services snmp_alert_manager 192.168.10.11:162?
+      This line has a valid range expression.
+      Possible completions:
+        192.168.10.11:162
+
+      admin@ncs(config-config)# services snmp_alert_manager 192.168.10.11:162/?
+      Possible completions:
+        TCP   Use TCP Protocol
+        UDP   Use UDP Protocol
+      ```
+
+      - Once list entry key is propely given, all parameters visible as per current design will be visible for selection:
+      ```
+      admin@ncs(config-config)# services snmp_alert_manager 192.168.10.11:162/TCP ?
+      Possible completions:
+        auth_password      SNMP Alert Manager Authentication Password
+        auth_protocol      The encryption algorithm to use for authentication with SNMPv3
+        msg_type           SNMP Alert Manager Message Type; default trap
+        name               SNMP Alert Manager Name
+        privacy_password   SNMP Alert Manager Privacy Password
+        privacy_protocol   The encryption algorithm to use for privacy with SNMPv3
+        security_level     SNMP Alert Manager Security Level - user-based security model; default noAuthNoPriv
+        username           SNMP Alert Manager Username
+        version            SNMP Alert Manager Version - default v2c
+        <cr>      
+      ```
+
+  - Data is stored in NSO CDB in below syntax format (Cisco Style):
+
+      ```
+      services snmp_alert_manager <address>:<port>/<protocol>
+      name             <string>
+      version          v3
+      security_level   authPriv
+      username         <string>
+      auth_protocol    SHA
+      auth_password    <string>
+      privacy_protocol AES
+      privacy_password <string>
+      END
+      ```
+
+  - Example configuration syntax: 
+      ```
+      admin@ncs(config-snmp_alert_manager-192.168.10.11:162/UDP)# show full
+      devices device deviceName1
+      config
+        services snmp_alert_manager 192.168.10.11:162/UDP
+        name             Trap_name_1
+        version          v3
+        msg_type         TRAP
+        security_level   authPriv
+        username         $user_name_str
+        auth_protocol    SHA
+        auth_password    <String>
+        privacy_protocol AES
+        privacy_password <String>
+        END
+      !
+      !
+      ```
+
+  - Example xml formatted config structure:
+      ```
+      admin@ncs(config-snmp_alert_manager-192.168.10.11:162/UDP)# show full | display xml
+      <config xmlns="http://tail-f.com/ns/config/1.0">
+        <devices xmlns="http://tail-f.com/ns/ncs">
+          <device>
+            <name>deviceName1</name>
+            <config>
+              <services xmlns="http://tail-f.com/ned/opengear-cm">
+                <snmp_alert_manager>
+                  <address>192.168.10.11</address>
+                  <port>162</port>
+                  <protocol>UDP</protocol>
+                  <name>Trap_name_1</name>
+                  <version>v3</version>
+                  <msg_type>TRAP</msg_type>
+                  <security_level>authPriv</security_level>
+                  <username>$user_name_str</username>
+                  <auth_protocol>SHA</auth_protocol>
+                  <auth_password>$String_value$</auth_password>
+                  <privacy_protocol>AES</privacy_protocol>
+                  <privacy_password>$String_value$</privacy_password>
+                </snmp_alert_manager>
+              </services>
+            </config>
+          </device>
+        </devices>
+      </config>
+      ```
+
+  - **Purpose:** Defines SNMP trap/alert destinations with full SNMPv3 security.
+  - **Variations:**
+    - Multiple alert managers with different addresses, ports, and protocols
+    - Username and password updates
+    - Deletion and recreation of alert managers
+
+  ---
+
+  ### 4.3.2 Create new TRAP alert under services/snmp_alert_manager:
+
+  - Create a new TRAP entry config like in the example below:
+
+      ```
+      admin@ncs(config-snmp_alert_manager-192.168.10.11:162/UDP)# show full
+      devices device deviceName1
+      config
+        services snmp_alert_manager 192.168.10.11:162/UDP
+        name             Trap_name_1
+        version          v3
+        msg_type         TRAP
+        security_level   authPriv
+        username         $user_name_str
+        auth_protocol    SHA
+        auth_password    <String>
+        privacy_protocol AES
+        privacy_password <String>
+        END
+      !
+      !
+      ```
+
+  - Commit dry run output:
+      ```
+      admin@ncs(config-config)# commit dry-run 
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                                services {
+                  +                snmp_alert_manager 192.168.10.11:162/UDP {
+                  +                    name Trap_name_1;
+                  +                    version v3;
+                  +                    msg_type TRAP;
+                  +                    security_level authPriv;
+                  +                    username $user_name_str;
+                  +                    auth_protocol SHA;
+                  +                    auth_password $String_value$;
+                  +                    privacy_protocol AES;
+                  +                    privacy_password $String_value$;
+                  +                }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  - Commit dry run outformat native to generate native device syntax of the equivalent operation:
+
+      ```
+      admin@ncs(config-config)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli create services/snmp_alert_manager << 'END'
+                  address="192.168.10.11"
+                  port=162
+                  protocol="UDP"
+                  name="Trap_name_1"
+                  version="v3"
+                  msg_type="TRAP"
+                  security_level="authPriv"
+                  username="$user_name_str"
+                  auth_protocol="SHA"
+                  auth_password="$pass_string$"
+                  privacy_protocol="AES"
+                  privacy_password="$pass_string$"
+                  END
+          }
+      }
+      ```
+
+  - Then commit the pending operation:
+      ```
+      admin@ncs(config-config)# commit
+      Commit complete.
+      ```
+
+  ### 4.3.3 Deleting existing TRAP alerts under services/snmp_snmp_alert_manager endpoint:
+
+  - Considering existing configuration below:
+
+      ```
+      admin@ncs(config-snmp_alert_manager-192.168.10.11:162/UDP)# show full
+      devices device deviceName1
+      config
+        services snmp_alert_manager 192.168.10.11:162/UDP
+        name             Trap_name_1
+        version          v3
+        msg_type         TRAP
+        security_level   authPriv
+        username         $user_name_str
+        auth_protocol    SHA
+        auth_password    $pass_string$
+        privacy_protocol AES
+        privacy_password $pass_string$
+        END
+      !
+      !
+      ```
+
+  - Delete list entry:
+      ````
+      admin@ncs(config-config)# no services snmp_alert_manager 192.168.10.11:162/UDP
+      ```
+
+  - Commit dry run:
+      ```
+      admin@ncs(config-config)# commit dry-run 
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                                services {
+                  -                snmp_alert_manager 192.168.10.11:162/UDP {
+                  -                    name Trap_name_1;
+                  -                    version v3;
+                  -                    msg_type TRAP;
+                  -                    security_level authPriv;
+                  -                    username $user_name_str;
+                  -                    auth_protocol SHA;
+                  -                    auth_password $pass_string$;
+                  -                    privacy_protocol AES;
+                  -                    privacy_password $pass_string$;
+                  -                }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      admin@ncs(config-config)# 
+      ```
+
+  - Commit dry run outformat native:
+      ```
+      admin@ncs(config-config)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli delete services/snmp_alert_manager "192.168.10.11:162/UDP"
+          }
+      }
+      ```
+
+  - Commit to proceed with the deletion on the device as well;
+      ```
+      admin@ncs(config-config)# commit
+      Commit complete.
+      ```
+
+
+  ##  4.4 Lighthouse Enrollment
+
+  - Retrieve, create or remove configuration for a specific Lighthouse enrollment.
+
+    -*Parameter editing after creation is not supported yet.*
+
+
+  ### NOTE: This endpoint has dynamic behavior!
+  ### Upon creation we have a mandatory parameter `token` that is not visible at get/show afterwards. It is a one way set parameter that is mandatory though at creation but not visible anymore at show/get. 
+
+  - As a consequence, we have ignore-compare-config annotations on it which means that after creation, the CDB will ignore any deviation from the last known value or state. 
+
+  ### 4.4.1 Top level NSO config options for lighthouse_enrollment:
+
+  - NSO CLI syntax examples and structure: 
+
+  ```
+  lighthouse_enrollment address <IPv6|IPv4>
+   bundle   <string>
+   port     <int>
+   token    <oneWayString>
+   END
+  ```
+
+  - **Purpose:** Configures enrollment with Opengear Lighthouse (cloud management).
+  - **Variations:**
+    - IPv6 and IPv4 addresses
+    - Add/remove enrollment
+
+  ---
+
+      ```
+      admin@ncs(config-config)# lighthouse_enrollment ?
+      Possible completions:
+        address   Lighthouse Enrollment Address (IP or FQDN)
+        range     
+      ```
+
+      ```
+      admin@ncs(config-config)# lighthouse_enrollment address 192.168.100.100
+
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# ?
+      Possible completions:
+        bundle     Lighthouse Enrollment Bundle Name
+        port       Lighthouse Enrollment Port; defaiult 8443
+        token      Lighthouse Enrollment token
+      ```
+
+      - Sample config pre-commit:
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# show full              
+      devices device deviceName1
+      config
+        lighthouse_enrollment address 192.168.100.100
+        bundle bundle-name-1
+        port   123
+        token  set-and-forget-token
+        END
+      !
+      !
+      ```
+
+      - Sample config after sync-from:
+        - TOKEN is not present anymore:
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# show full              
+      devices device deviceName1
+      config
+        lighthouse_enrollment address 192.168.100.100
+        bundle bundle-name-1
+        port   123
+        END
+      !
+      !
+      ```
+
+      - Sample config xml structure including token (for lighthouse_enrollment create operation):
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# show full | display xml                                 
+      <config xmlns="http://tail-f.com/ns/config/1.0">
+        <devices xmlns="http://tail-f.com/ns/ncs">
+          <device>
+            <name>deviceName1</name>
+            <config>
+              <lighthouse_enrollment xmlns="http://tail-f.com/ned/opengear-cm">
+                <address>192.168.100.100</address>
+                <bundle>bundle-name-1</bundle>
+                <port>123</port>
+                <token>set-and-forget-token</token>
+              </lighthouse_enrollment>
+            </config>
+          </device>
+        </devices>
+      </config>
+      ```
+
+
+  ### 4.4.2 Create new lighthouse_enrollment:
+
+  - Set all needed parameters and keys for lighthouse_enrollment list entry:
+
+      ```
+      admin@ncs(config-config)# lighthouse_enrollment address 192.168.100.100
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# bundle bundle-name-1 port 123 token set-and-forget-token
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# show full
+      devices device deviceName1
+      config
+        lighthouse_enrollment address 192.168.100.100
+        bundle bundle-name-1
+        port   123
+        token  set-and-forget-token
+        END
+      !
+      !
+      ```
+
+  - Commit dry run to show NSO CDB changes pending:
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# commit dry-run 
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                  +            lighthouse_enrollment 192.168.100.100 {
+                  +                bundle bundle-name-1;
+                  +                port 123;
+                  +                token set-and-forget-token;
+                  +            }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  - Commit dry run native to show native device command equivalent:
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli create lighthouse_enrollment << 'END'
+                  address="192.168.100.100"
+                  bundle="bundle-name-1"
+                  port=123
+                  token="set-and-forget-token"
+                  END
+          }
+      }
+      ```
+
+
+  ### 4.4.2 Delete existing lighthouse_enrollment:
+
+  - Considering below starting point configuration:
+      ```
+      admin@ncs(config-lighthouse_enrollment-192.168.100.100)# show full
+      devices device deviceName1
+      config
+        lighthouse_enrollment address 192.168.100.100
+        bundle bundle-name-1
+        port   123
+        END
+      !
+      !
+      ```
+
+  - Run delete and commit dry run command:
+      ```
+      admin@ncs(config-config)# no lighthouse_enrollment address 192.168.100.100 
+      admin@ncs(config-config)# commit dry-run  
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                  -            lighthouse_enrollment 192.168.100.100 {
+                  -                bundle bundle-name-1;
+                  -                port 123;
+                  -                token set-and-forget-token;
+                  -            }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+
+  - Run commit dry run outformat native command to generate equivalent native device commands:
+      ```
+      admin@ncs(config-config)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli delete lighthouse_enrollment "192.168.100.100"
+          }
+      }
+      ```
+
+  - Commit to delete the enrollment
+
+
+
+  ## 4.5 System Admin Info
+
+  Configure system admin information 
+
+  Only update is possible, no delete/create. Parameters are always present. 
+
+
+  ### 4.5.1 Top level NSO config options for system/admin_info:
+
+      ```
+      system admin_info
+      contact  <email>
+      hostname <string>
+      location <string>
+      END
+      ```
+
+  - **Purpose:** Sets system-level admin information.
+  - **Variations:**
+    - Hostname changes and rollback
+    - Location and contact updates
+
+  ---
+
+
+  - NSO CLI syntax examples: 
+      ```
+      admin@ncs(config-config)# system ?
+      Possible completions:
+        admin_info   System Admin Information
+
+      admin@ncs(config-config)# system admin_info ?
+      Possible completions:
+        contact    Admin Contact
+        hostname   System Hostname
+        location   System Location
+        <cr>  
+      ```
+
+
+  ### 4.5.2 Updating system/admin_info
+
+  - Update targeted parameter:
+      ```
+      admin@ncs(config-admin_info)# hostname "update-hostname-1"
+      ```
+
+  - Commit dry run:
+      ```
+      admin@ncs(config-admin_info)# commit dry-run 
+      cli {
+          local-node {
+              data  devices {
+                        device deviceName1 {
+                            config {
+                                system {
+                                    admin_info {
+                  -                    hostname update-hostname3;
+                  +                    hostname update-hostname-1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  - Commit dry run outformat native to see device native equivalent:
+      ```
+      admin@ncs(config-admin_info)# commit dry-run outformat native 
+      native {
+          device {
+              name deviceName1
+              data ogcli update system/admin_info << 'END'
+                  hostname="update-hostname-1"
+                  END
+          }
+      }
+      ```
+
+  - Commit changes to the device:
+      ```
+      admin@ncs(config-admin_info)# commit 
+      Commit complete.
+      ```
+  ---
 
 
 # 5. Built in live-status actions
 ---------------------------------
 
-  NONE
+
+  ### No live-status actions implemented yet.
 
 
 # 6. Built in live-status show
 ------------------------------
 
-  NONE
+
+
+  ### No live-status show commands implemented yet.
 
 
 # 7. Limitations

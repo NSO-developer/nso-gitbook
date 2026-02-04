@@ -659,6 +659,11 @@ Perform `<action=[get-birth-certificate]>` (by `<service-id>`):
 rpc rpc-service-<action> service-<action> <service-id>
 ```
 
+Perform `vpn-network-accesses-delete` (by `<service-id>` and `vpn-network-access-<uuid>s`):
+```
+rpc rpc-vpn-network-accesses-delete vpn-network-accesses-delete <service-id> uuids [ <uuid1> <uuid2> ... ]
+```
+
 
 # 12. Request
 -------------

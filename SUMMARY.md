@@ -43,7 +43,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.6 2026-01-21](alu-isam/README.md)
+  * [README v1.5.7 2026-02-03](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
@@ -166,7 +166,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.7.4 2026-01-27](eci-muse/README.md)
+  * [README v1.8 2026-02-03](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -250,7 +250,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.32 2026-01-27](juniper-junos/README.md)
+  * [README v4.18.33 2026-02-03](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
