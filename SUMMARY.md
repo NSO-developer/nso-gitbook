@@ -123,6 +123,10 @@
   * [README-ned-settings](cisco-fxos/README-ned-settings.md)
   * [README v1.1.13 2025-09-26](cisco-fxos/README.md)
 
+* cisco-intersight
+  * [README-ned-settings](cisco-intersight/README-ned-settings.md)
+  * [README v1.0.0 2026-02-04](cisco-intersight/README.md)
+
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
   * [README v6.113.3 2026-01-23](cisco-ios/README.md)
@@ -277,7 +281,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.30 2025-12-18](nokia-sros_nc/README.md)
+  * [README v1.0.31 2026-02-04](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)
