@@ -1,59 +1,90 @@
 ---
-description: Get started with the Cisco Crosswork NSO documentation guides.
-icon: power-off
-cover: .gitbook/assets/gb-cover-final.png
-coverY: -33.22891656662665
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
+description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
-# Start
-
-Use this page to navigate your way through the NSO documentation and access the resources most relevant to your role.
-
-## NSO Roles
-
-An NSO deployment typically consists of the following roles:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td></tr></tbody></table>
-
-## Learn NSO
-
-For users new to NSO or wanting to explore it further.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>NSO at a Glance</strong></td><td>A 20,000-foot view of NSO components and concepts.</td><td><a href="https://nso-docs.cisco.com/nso-basics/nso-at-a-glance">https://nso-docs.cisco.com/nso-basics/nso-at-a-glance</a></td><td></td></tr><tr><td><strong>Solution Overview</strong></td><td>NSO overview &#x26; how it meets automation needs.</td><td><a href="https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html">https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html</a></td><td></td></tr><tr><td><strong>Learning Labs</strong></td><td>Deep dive into NSO with hands-on learning modules.</td><td><a href="https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore">https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore</a></td><td></td></tr></tbody></table>
+# What's New
 
 {% hint style="info" %}
-A more comprehensive list of learning resources and associated material is available on the [Learning Paths](https://nso-docs.cisco.com/learn-nso/learning-paths) page.
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.5\&to=6.6).
 {% endhint %}
 
-## Work with NSO <a href="#admin" id="admin"></a>
+## Release Highlights
 
-For users working in a production-wide NSO deployment.
+This release includes major enhancements in the following areas:
 
-### Administration
+<details>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Installation &#x26; Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#installation-and-deployment">#installation-and-deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Delve into advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
+<summary> Filtering JSON-RPC <code>show_config</code> method</summary>
 
-### Operation and Usage
+The `show_config` JSON-RPC method now supports filtering and pagination options for improved user experience when retrieving large list instances.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; interact with NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operations</strong></td><td>Perform different NSO operations.</td><td><a href="operation-and-usage/get-started.md#operations">#operations</a></td><td></td></tr></tbody></table>
+Documentation Updates:
 
-### Development
+* Added filtering and pagination parameters to `show_config`  documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development.</td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
+</details>
+
+<details>
+
+<summary>Service Improvements</summary>
+
+This NSO version introduces multiple quality of life improvements for service development:
+
+* A device template can be converted to a service with the `/services/create-template` action.
+* New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
+* NSO warns if there are unused macros inside XML templates.
+* New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
+* New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.&#x20;
+* Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
+* Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
+
+</details>
+
+<details>
+
+<summary>Web Server Connection Limits</summary>
+
+The NSO Web Server now has a configurable number of simultaneous connections. Additionally, the number of current connections can be monitored through the metrics framework.
+
+&#x20;Documentation Updates:
+
+* Documented a new `/ncs-config/webui/max-connections` parameter for the `ncs.conf` file.
+
+</details>
+
+<details>
+
+<summary>Partial Service Reconciliation</summary>
+
+Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.
+
+Documentation Updates:
+
+* Added a [Partial Reconcile](development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialreconcile) section to the Services Deep Dive chapter.
+
+</details>
+
+<details>
+
+<summary>Changes to CDB Persistence Mode</summary>
+
+From NSO 6.7, the default CDB persistence mode has been set to `on-demand-v1`, instead of the `in-memory-v1` mode, which has also been deprecated. If you're upgrading to NSO 6.7, the `on-demand-v1` mode will become the new default. Read more about the change in the documentation.
+
+Documentation Updates:
+
+* Updated the [CDB Persistence](administration/advanced-topics/cdb-persistence.md) section to reflect the new changes in the CDB persistence mode.
+
+</details>
+
+<details>
+
+<summary>Updates to Multi-Factor Authentication Handling</summary>
+
+MFA handling is now tied directly to the authentication method being attempted. When a method issues a challenge, NSO invokes the challenge handler associated with that method only. Package-based MFA is the preferred approach. The configuration option `/ncs-config/aaa/challenge-order` is deprecated and ignored at runtime; authentication flow is controlled solely by `/ncs-config/aaa/auth-order`.
+
+Documentation Updates
+
+* Updated the [Multi-Factor Authentication](administration/management/aaa-infrastructure.md#ug.aaa.external_challenge) documentation in [AAA Infrastructure](administration/management/aaa-infrastructure.md) to cover new changes.
+
+</details>
