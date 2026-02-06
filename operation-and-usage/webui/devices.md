@@ -141,7 +141,7 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user\_guide.devicemanager.authgroups).
+The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user_guide.devicemanager.authgroups).
 
 This view is further partitioned into the following two tabs for different device types:
 
@@ -162,9 +162,7 @@ To create a new group:
 2. Enter the **Authgroup name** and click **Continue**.
 3.  In the group details page, add users to the newly created group:
 
-    {% hint style="info" %}
-    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
-    {% endhint %}
+    \{% hint style="info" %\} If a default map is desired for unknown/unmapped users, use the **Set default-map** option. \{% endhint %\}
 
     1. Click the **Add user** button to bring up the **Add user** overlay window. Here, you have the option to add the user with the authentication type set to 'remote mapping' or 'callback':
        * Remote mapping: If remote mapping is desired, specify the **local-user** that is to be mapped to remote authentication credentials and configure the following settings:
@@ -212,9 +210,7 @@ To add a new group:
 2. Enter the **SNMP group name** and click **Continue**.
 3.  In the group details page, add users to the newly created group:
 
-    {% hint style="info" %}
-    If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
-    {% endhint %}
+    \{% hint style="info" %\} If a default map is desired for unknown/unmapped users, use the **Set default-map** option. \{% endhint %\}
 
     1. Click the **Add user** button to bring up the **Add user** overlay window.
     2. Specify the **local-user** and configure the following settings:

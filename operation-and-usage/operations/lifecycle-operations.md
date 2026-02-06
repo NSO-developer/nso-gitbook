@@ -33,24 +33,17 @@ Some of the more important flags are:
   * The `native` format displays only changes under `/devices/device/config`. The changes will be displayed in native device format. The `native` format can be used with the `reverse` option to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data, the `reverse` device commands returned are invalid.
 *   `no-networking`: Validate the configuration changes, and update the CDB but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked, then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.
 
-    {% hint style="danger" %}
-    If the commit implies changes, it will make the device out-of-sync.
+    \{% hint style="danger" %\} If the commit implies changes, it will make the device out-of-sync.
 
-    The `sync-to` command can then be used to push the change to the network.
-    {% endhint %}
+    The `sync-to` command can then be used to push the change to the network. \{% endhint %\}
 *   `no-out-of-sync-check`: Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action `sync-from` first. Verify the result by using the action `compare-config`.
 
-    {% hint style="danger" %}
-    The device's sync state is assumed to be unknown after such a commit and the stored `last-transaction-id` value is cleared.
-    {% endhint %}
+    \{% hint style="danger" %\} The device's sync state is assumed to be unknown after such a commit and the stored `last-transaction-id` value is cleared. \{% endhint %\}
 *   `no-overwrite`: NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. This is a fine-grained sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted.\
     \
     This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.
 
-    {% hint style="danger" %}
-    The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared.
-    {% endhint %}
-* `no-revision-drop`: Fail if one or more devices have obsolete device models. When NSO connects to a managed device, the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device.
+    \{% hint style="danger" %\} The device's sync state is assumed to be unknown after such commit and the stored `last-transaction-id` value is cleared. \{% endhint %\}\* `no-revision-drop`: Fail if one or more devices have obsolete device models. When NSO connects to a managed device, the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device.
 * `no-deploy`: Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
 * `reconcile`: Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed before the service. If manually configured data exists below in the configuration tree, that data is kept unless the option `discard-non-service-config` is used.
 * `use-lsa`: Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are: `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
