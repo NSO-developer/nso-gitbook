@@ -1,60 +1,140 @@
 ---
-description: Get started with the Cisco Crosswork NSO documentation guides.
-icon: power-off
-cover: >-
-  https://nso-docs.cisco.com/~gitbook/image?url=https%3A%2F%2F4221922451-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F5sGobqBgzBZdPw7o9VHq%252Fuploads%252Fgit-blob-fe762ffcbe2fb417bf1e4daa9a540142a7b088f5%252Fgb-cover-final.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=fbd03546&sv=2
-coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
+description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
-# Start
-
-Use this page to navigate your way through the NSO documentation and access the resources most relevant to your role.
-
-## NSO Roles
-
-An NSO deployment typically consists of the following roles:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td><td></td></tr></tbody></table>
-
-## Learn NSO
-
-For users new to NSO or wanting to explore it further.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>NSO at a Glance</strong></td><td>A 20,000-foot view of NSO components and concepts.</td><td><a href="https://nso-docs.cisco.com/nso-basics/nso-at-a-glance">https://nso-docs.cisco.com/nso-basics/nso-at-a-glance</a></td><td></td></tr><tr><td><strong>Solution Overview</strong></td><td>NSO overview &#x26; how it meets automation needs.</td><td><a href="https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html">https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html</a></td><td></td></tr><tr><td><strong>Learning Labs</strong></td><td>Deep dive into NSO with hands-on learning modules.</td><td><a href="https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore">https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore</a></td><td></td></tr></tbody></table>
+# What's New
 
 {% hint style="info" %}
-A more comprehensive list of learning resources and associated material is available on the [Learning Paths](https://nso-docs.cisco.com/learn-nso/learning-paths) page.
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/).
 {% endhint %}
 
-## Work with NSO <a href="#admin" id="admin"></a>
+## Release Highlights
 
-For users working in a production-wide NSO deployment.
+This release includes major enhancements in the following areas:
 
-### Administration
+<details>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Installation &#x26; Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#installation-and-deployment">#installation-and-deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Delve into advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
+<summary>HA Raft</summary>
 
-### Operation and Usage
+Introduced HA Raft, a consensus-based high-availability solution. HA Raft is based on the Raft algorithm and provides secure and durable state replication with robust automatic cluster management.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; interact with NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operations</strong></td><td>Perform different NSO operations.</td><td><a href="operation-and-usage/get-started.md#operations">#operations</a></td><td></td></tr></tbody></table>
+Documentation Updates:
 
-### Development
+* Added a new section [NSO HA Raft](administration/management/high-availability.md#ug.ha.raft) with comprehensive documentation on this new feature.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development.</td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
+</details>
+
+<details>
+
+<summary>CDB Compaction</summary>
+
+Compaction improvements have been made to schedule periodic compaction and disable compaction on start.
+
+Documentation Updates:
+
+* Added a new section [Compaction](administration/advanced-topics/compaction.md) to describe automatic and manual compaction. A new `ncs` command option `--disable-compaction-on-start` added to disable compaction on start.
+* Added a new section [Periodic Compaction](development/connected-topics/scheduler.md#ug.sc.compaction) to include scheduling of NSO compaction during low utilization periods.
+* Updated the Manual Pages, [NCS man-pages Volume 5](man/section5.md) to add a new configuration parameter `ncs-config/compaction/delayed-compaction-timeout`.
+
+</details>
+
+<details>
+
+<summary>Containerized NSO</summary>
+
+It is now possible to run NSO in a container runtime, such as Docker. A pre-built image is available for download from software.cisco.com.
+
+Documentation Updates:
+
+* Added a new guide [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) describing how to run NSO in a containerized environment, such as Docker.
+
+</details>
+
+<details>
+
+<summary>NED Packages</summary>
+
+NED packages can now be added to the system without triggering a package reload/service outage.
+
+Documentation Updates:
+
+* Added a new section [Adding NED Packages](administration/management/package-management.md#ug.package_mgmt.ned_package_add) to guide how to add new NED packages without triggering a service outage. Updated also the [NED Migration](administration/management/package-management.md#ug.package_mgmt.ned_migration) and [Upgrade](administration/installation-and-deployment/upgrade-nso.md) sections.
+
+</details>
+
+<details>
+
+<summary>AAA</summary>
+
+NSO authentication mechanism has been improved to include Single Sign-on and package authentication.
+
+Documentation Updates:
+
+* Added a new section [Package Authentication](administration/management/aaa-infrastructure.md#ug.aaa.packageauth) to describe the NSO package authentication mechanism.
+* Added a new section [Single Sign-on](development/advanced-development/web-ui-development/#single-sign-on-sso) to describe the NSO package authentication mechanism.
+
+</details>
+
+<details>
+
+<summary>Compliance Reporting</summary>
+
+The device, service, and template checks now run in parallel across the CPU cores in the system while utilizing less memory by streaming the report to disk instead of building the report in memory. Compliance templates can check devices for compliance. In addition, strict mode checks that the template configuration is the only configuration on the device. Reports can now be generated in `sqlite` format, which will produce an SQLite database file as the output of a report run.
+
+Documentation Updates:
+
+* Added a new section called [Additional Configuration Checks](operation-and-usage/operations/compliance-reporting.md#additional-configuration-checks).
+
+</details>
+
+<details>
+
+<summary>Deprecating RFM in Favor of Nano Services</summary>
+
+Updates in documentation to promote using nano services over Reactive FastMAP.
+
+Documentation Updates:
+
+* Updated the section [Developing NSO Services](development/core-concepts/implementing-services.md) to include new content and an example to promote using nano services to implement Reactive FASTMAP (RFM) based applications. Also updated the [Kicker](development/advanced-development/kicker.md) section.
+
+</details>
+
+<details>
+
+<summary>Progress Trace</summary>
+
+The progress trace framework has been improved to add the concepts of spans and links.
+
+* A span represents a unit of work or operation that occurs over a span of time.
+* A link is a reference to another span event and can be used to find related events.
+
+Documentation Updates:
+
+* Updated the section [Progress Trace](development/advanced-development/progress-trace.md).
+
+</details>
+
+<details>
+
+<summary>Phased Provisioning</summary>
+
+NSO now provides Phased Provisioning as a support tool to schedule provisioning tasks. Phased Provisioning gives you more fine-grained control over how and when changes are introduced into the network.
+
+Documentation Updates:
+
+* Updated the NSO [Platform Tools](https://nso-docs.cisco.com/resources) documentation to include Cisco NSO Phased Provisioning.
+
+</details>
+
+<details>
+
+<summary>Observability Exporter</summary>
+
+NSO Observability Exporter package allows Cisco NSO to export observability-related data using software-industry-standard formats and protocols, such as the OpenTelemetry protocol (OTLP).
+
+Documentation Updates:
+
+* Updated the NSO [Platform Tools](https://nso-docs.cisco.com/resources) documentation to include Cisco NSO Observability Exporter.
+
+</details>

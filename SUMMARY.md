@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Start](README.md)
-* [What's New](whats-new.md)
+* [What's New](README.md)
 
 ## Administration
 
