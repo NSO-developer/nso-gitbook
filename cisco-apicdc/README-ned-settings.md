@@ -40,6 +40,7 @@
   4. nso-controlled-dns-list
   5. deviceBehaviourWorkaround
   6. ssl
+  7. live-status
   ```
 
 
@@ -47,7 +48,7 @@
 ------------------------------
 
 
-    - cisco-apicdc sync-from-file-enable <true|false> (default false)
+    - sync-from-file-enable <true|false> (default false)
 
       If this is enabled, then NO apic config export will be triggered at sync-from;
       The config file would need to be placed manually at the location defined by:
@@ -55,24 +56,24 @@
       Use this when the same static config needs to be loaded on multiple NEDs
 
 
-    - cisco-apicdc sync-from-fileName <string>
+    - sync-from-fileName <string>
 
       Config file name used if sync-from-file-enable == true;
       This is used together with config-path to define the location of config file;
 
 
-    - cisco-apicdc sync-from-dump-enable <true|false> (default false)
+    - sync-from-dump-enable <true|false> (default false)
 
       Set to TRUE to enable dumping the final config into a local file. 
       The file name is 'current time'.xml, a new file is created afte each sync-from
 
 
-    - cisco-apicdc config-path <string>
+    - config-path <string>
 
       Specify the directory for configuration;.
 
 
-    - cisco-apicdc local-host <true|false> (default true)
+    - local-host <true|false> (default true)
 
       If true the config file will be stored on localhost.
       In this case please note that the user under which NSO is running
@@ -81,27 +82,27 @@
       and <config-path> fields are in the context of the remote <host>
 
 
-    - cisco-apicdc host <string>
+    - host <string>
 
       Specify the host;.
 
 
-    - cisco-apicdc user-name <string>
+    - user-name <string>
 
       Specify the user name;.
 
 
-    - cisco-apicdc user-password <string>
+    - user-password <string>
 
       Specify the user password;.
 
 
-    - cisco-apicdc port <string> (default 22)
+    - port <string> (default 22)
 
       Port number. scp,sftp:22, ftp:21.
 
 
-    - cisco-apicdc protocol <enum> (default sftp)
+    - protocol <enum> (default sftp)
 
       ftp, sftp or scp;
       The APIC-DC device will use <protocol> to copy the config archive on
@@ -116,7 +117,7 @@
       scp   - scp.
 
 
-    - cisco-apicdc management-EPG <enum>
+    - management-EPG <enum>
 
       Management EPG in or out of band, do not set if not using management EPG.
       If set, adds
@@ -132,7 +133,7 @@
       out-of-band  - out-of-band.
 
 
-    - cisco-apicdc cfgDownloadTimeout <uint32> (default 1200)
+    - cfgDownloadTimeout <uint32> (default 1200)
 
       This timeout is used to trigger an exception when
       downloading the APIC configuration archive takes too much;
@@ -145,7 +146,7 @@
       In both a) and b) cfg-download-timeout is used.
 
 
-    - cisco-apicdc commit-fully-fit-only <true|false> (default false)
+    - commit-fully-fit-only <true|false> (default false)
 
       Set this field to enable if you want to enable the following health check:
       APIC has a field, "health" field, to indicate its health state if APIC is available to accept the configuration changes/updates. 
@@ -154,7 +155,7 @@
       If the "health" field on the APIC shows other state than "fully-fit" the NED needs to inspect another alternative host (if configured) and check it is available to use.
 
 
-    - cisco-apicdc disable-check-sync <true|false> (default false)
+    - disable-check-sync <true|false> (default false)
 
       When set to true, check-sync function will be disabled and
       commits will be accepted even if the ned is out of sync with
@@ -162,7 +163,7 @@
       Used to speed up the commit procedure when the check sync feature is not mandatory.
 
 
-    - cisco-apicdc check-sync-filter <string>
+    - check-sync-filter <string>
 
       This list is used to define operational data objects that
       will be filtered out when computing the check-sync operation.
@@ -171,7 +172,7 @@
       when performing the check-sync operation
 
 
-    - cisco-apicdc dataTransferTimeOut <uint32> (default 0)
+    - dataTransferTimeOut <uint32> (default 0)
 
       This time-out value will affect the REST operations;
       This will change the default socket timeout (SO_TIMEOUT)
@@ -180,7 +181,7 @@
       The default value is 0: wait forever;
 
 
-    - cisco-apicdc ignore-passwords <true|false> (default false)
+    - ignore-passwords <true|false> (default false)
 
       If this is false (default), the NED will read the password fields(from the config)
       from NSO configuration database when executing sync-from and compare-config.
@@ -220,7 +221,7 @@
   The NED has the ability to connect to alternative devices in the APIC cluster if the main APIC is down. 
   If the connection fails to the main APIC the NED will try one by one the hosts in the alternative-hosts list.
 
-    - cisco-apicdc alternative-hosts <hosts>
+    - alternative-hosts <hosts>
 
       - hosts <union>
 
@@ -242,7 +243,7 @@
   Objects further down in the tree is not possible to specify
   in this list.
 
-    - cisco-apicdc nso-controlled-dns-list <dns>
+    - nso-controlled-dns-list <dns>
 
       - dns <string>
 
@@ -302,5 +303,16 @@
 
       An easy way to get the PEM of a server:
       openssl s_client -connect HOST:PORT
+
+
+# 7. ned-settings cisco-apicdc live-status
+------------------------------------------
+
+  Configure NED settings related to live-status.
+
+
+    - live-status time-to-live <int32> (default 50)
+
+      Define time-to-live for data fetched from the device via live-status.(default 50).
 
 

@@ -96,7 +96,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.21.9 2026-01-15](cisco-apicdc/README.md)
+  * [README v3.22 2026-02-05](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.58.1 2025-12-18](cisco-staros/README.md)
+  * [README v5.58.2 2026-02-05](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -206,7 +206,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.44 2026-01-27](fortinet-fmg/README.md)
+  * [README v4.3.45 2026-02-05](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -242,7 +242,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.83.2 2026-01-29](huawei-vrp/README.md)
+  * [README v6.83.3 2026-02-05](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
