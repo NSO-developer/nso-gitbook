@@ -1,59 +1,151 @@
 ---
-description: Get started with the Cisco Crosswork NSO documentation guides.
-icon: power-off
-cover: .gitbook/assets/gb-cover-final.png
-coverY: -32.31167466986795
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
+description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
-# Start
-
-Use this page to navigate your way through the NSO documentation and access the resources most relevant to your role.
-
-## NSO Roles
-
-An NSO deployment typically consists of the following roles:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td></tr></tbody></table>
-
-## Learn NSO
-
-For users new to NSO or wanting to explore it further.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>NSO at a Glance</strong></td><td>A 20,000-foot view of NSO components and concepts.</td><td><a href="https://nso-docs.cisco.com/nso-basics/nso-at-a-glance">https://nso-docs.cisco.com/nso-basics/nso-at-a-glance</a></td><td></td></tr><tr><td><strong>Solution Overview</strong></td><td>NSO overview &#x26; how it meets automation needs.</td><td><a href="https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html">https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html</a></td><td></td></tr><tr><td><strong>Learning Labs</strong></td><td>Deep dive into NSO with hands-on learning modules.</td><td><a href="https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore">https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore</a></td><td></td></tr></tbody></table>
+# What's New
 
 {% hint style="info" %}
-A more comprehensive list of learning resources and associated material is available on the [Learning Paths](https://nso-docs.cisco.com/learn-nso/learning-paths) page.
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.5\&to=6.6).
 {% endhint %}
 
-## Work with NSO <a href="#admin" id="admin"></a>
+## Release Highlights
 
-For users working in a production-wide NSO deployment.
+This release includes major enhancements in the following areas:
 
-### Administration
+<details>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Installation &#x26; Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#installation-and-deployment">#installation-and-deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Delve into advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
+<summary>High Availability and Compliance Reporting Updates in Web UI</summary>
 
-### Operation and Usage
+NSO 6.6 features a redesigned and extended High Availability (HA) Web UI component. The new component makes it easier to access HA cluster status and perform cluster maintenance operations for either HA Raft or rule-based HA. NSO 6.6 also brings new improvements in the Compliance Reporting tool to manage creation of compliance templates.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; interact with NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operations</strong></td><td>Perform different NSO operations.</td><td><a href="operation-and-usage/get-started.md#operations">#operations</a></td><td></td></tr></tbody></table>
+Documentation Updates:
 
-### Development
+* Updated and extended the [High Availability](operation-and-usage/webui/tools.md#d5e6538) section of [Web UI Tools](operation-and-usage/webui/tools.md).
+* Updated the [Compliance Reporting](operation-and-usage/webui/tools.md#sec.webui_compliance) section of [Web UI Tools](operation-and-usage/webui/tools.md).
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development.</td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
+</details>
+
+<details>
+
+<summary>Python Virtual Environment Support</summary>
+
+It is now possible to define virtual environment (venv) for a Python-based package, in order to isolate Python package dependencies, simplifying NSO package upgrades.
+
+Documentation Updates:
+
+* Added a Virtual Environment section to [NSO Python VM](development/core-concepts/nso-virtual-machines/nso-python-vm.md).
+
+</details>
+
+<details>
+
+<summary>Filtering JSON-RPC <code>show_config</code> method</summary>
+
+The `show_config` JSON-RPC method now supports filtering and pagination options for improved user experience when retrieving large list instances.
+
+Documentation Updates:
+
+* Added filtering and pagination parameters to `show_config` documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
+
+</details>
+
+<details>
+
+<summary>Improved YANG Schema Management</summary>
+
+NSO 6.6 comes with improvements to the way YANG schema is stored and loaded, reducing load time and memory footprint with deduplication and parallel loading. The Java API also takes advantage of the new schema format, which allows loading schema data from a local memory-mapped file.
+
+</details>
+
+<details>
+
+<summary>Service Improvements</summary>
+
+This NSO version introduces multiple quality of life improvements for service development:
+
+* A device template can be converted to a service with the `/services/create-template` action.
+* New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
+* NSO warns if there are unused macros inside XML templates.
+* New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
+* New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.
+* Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
+* Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
+
+</details>
+
+<details>
+
+<summary>Web Server Connection Limits</summary>
+
+The NSO Web Server now has a configurable number of simultaneous connections. Additionally, the number of current connections can be monitored through the metrics framework.
+
+Documentation Updates:
+
+* Documented a new `/ncs-config/webui/max-connections` parameter for the [ncs.conf](resources/man/ncs.conf.5.md) file.
+
+</details>
+
+<details>
+
+<summary>Updated Example NEDs</summary>
+
+Network Element Drivers (NEDs) used throughout the [NSO examples](https://github.com/NSO-developer/nso-examples/tree/6.6) have been updated to include recent versions of the device models. The new models more closely resemble those in production NEDs, which makes examples more realistic and supports additional real-world scenarios.
+
+Note that these NEDs are still example NEDs and are not designed for production use.
+
+</details>
+
+<details>
+
+<summary>Improved Rule-based HA Package Sync</summary>
+
+The `/ha/packages/sync` action, which ensures the packages are distributed to HA secondaries, has been optimized to only distribute the parts that are missing on the secondaries. The new implementation also preserves symbolic links and folder structure in the filesystem.
+
+</details>
+
+<details>
+
+<summary>Improved NACM Authorization for Stacked Reactive/Nano Services</summary>
+
+NSO can now expose only a top-level service in a stacked services scenario, while keeping the lower-level services internal, no longer requiring additional NACM rules that would expose the lower-level services as well.
+
+Documentation Updates:
+
+* Added additional information about the effect of NACM rules on services in the [NACM Rules and Services](administration/management/aaa-infrastructure.md#d5e6693) section.
+
+</details>
+
+<details>
+
+<summary>Support Service Metadata Checks</summary>
+
+The service check-sync action by default checks whether the configuration required by the service exists on the managed devices but does not check if the configuration is owned by the service (the configuration might have been there before). The new `with-service-meta-data` parameter can now be used to also consider service metadata when determining if the service is in sync.
+
+In addition, this new parameter is also available for the `commit`, `re-deploy`, and `un-deploy` commands to include any service metadata changes in the dry-run diff output.
+
+Documentation Updates:
+
+* Updated [Commit Flags](operation-and-usage/operations/lifecycle-operations.md#d5e5048) and [Service Actions](operation-and-usage/operations/lifecycle-operations.md#d5e5403) in [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md) with a description of the new parameter.
+
+</details>
+
+<details>
+
+<summary>Consistent User Preferences in the Web UI</summary>
+
+The Web UI keeps track of selected table display preferences across page refreshes, such as column sort order and the number of rows per page.
+
+</details>
+
+<details>
+
+<summary>Partial Service Reconciliation</summary>
+
+Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.
+
+Documentation Updates:
+
+* Added a [Partial Reconcile](development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialreconcile) section to the Services Deep Dive chapter.
+
+</details>
