@@ -521,7 +521,7 @@ Thus the format of the output from a `packageauth` program when authentication i
 
 Where:
 
-* `$USER` is the user derived during the execution of the "packageauth" program.
+* `$USER` is the user derived during the execution of the "packageauth" program. Base64 encoded.
 * `$groups` is a space-separated list of the group names the user is a member of.
 * `$uid` is the UNIX integer user ID NSO should use as a default when executing commands for this user.
 * `$gid` is the UNIX integer group ID NSO should use as a default when executing commands for this user.
