@@ -79,8 +79,12 @@ Documentation Updates:
 
 <details>
 
-<summary>...</summary>
+<summary>Updates to Multi-Factor Authentication Handling</summary>
 
+MFA handling is now tied directly to the authentication method being attempted. When a method issues a challenge, NSO invokes the challenge handler associated with that method only. Package-based MFA is the preferred approach. The configuration option `/ncs-config/aaa/challenge-order` is deprecated and ignored at runtime; authentication flow is controlled solely by `/ncs-config/aaa/auth-order`.
 
+Documentation Updates
+
+* Updated the [Multi-Factor Authentication](administration/management/aaa-infrastructure.md#ug.aaa.external_challenge) documentation in [AAA Infrastructure](administration/management/aaa-infrastructure.md) to cover new changes.
 
 </details>

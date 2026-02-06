@@ -399,17 +399,93 @@ The challenge prompt may be multi-line, why it must be base64 encoded.
 
 For more information on multi-factor authentication, see [External Multi-Factor Authentication](aaa-infrastructure.md#ug.aaa.external_challenge).
 
-### External Multi-Factor Authentication <a href="#ug.aaa.external_challenge" id="ug.aaa.external_challenge"></a>
+### Multi-Factor Authentication <a href="#ug.aaa.external_challenge" id="ug.aaa.external_challenge"></a>
 
-When username, password, or token authentication is not enough, a challenge may be sent from any of the external authentication mechanisms to the user. A challenge consists of a challenge ID and a base64 encoded challenge prompt, and a user is supposed to send a response to the challenge. Currently, only JSONRPC and CLI over SSH support multi-factor authentication. Responses to challenges of multi-factor authentication have the same output as the token authentication mechanism.
+When authentication requires MFA, NSO issues a challenge as part of that authentication method. A challenge consists of a challenge ID and a base64 encoded challenge prompt, and a user is supposed to send a response to the challenge. Currently, only JSONRPC and CLI over SSH support multi-factor authentication. Responses to challenges of multi-factor authentication have the same output as the token authentication mechanism.
 
-If this feature is configured, NSO will invoke the executable configured in `/ncs-config/aaa/external-challenge/executable` in `ncs.conf` , and pass the challenge ID and response on `stdin` using the string notation: `"[challenge-id;response;]\n"`.
+MFA is supported by External and Package Authentication (preferred). To configure Package Multi-Factor Authentication, refer to the section [Package Challenges](aaa-infrastructure.md#package-challenges).
 
-For example, a user `bob` has received a challenge from external authentication, external validation, or external challenge and then attempts to log in over JSON-RPC with a response to the challenge using challenge ID `"22efa",response:"ae457b"`. The external challenge mechanism is enabled, NSO will invoke the configured executable and write `"[22efa;ae457b;]\n"` on the `stdin` stream for the executable.
+When an authentication method responds with a challenge and user provides a response, NSO invokes the challenge script associated with that authentication method.
+
+{% hint style="info" %}
+#### Deprecated Configuration
+
+The configuration option `/ncs-config/aaa/challenge-order` is deprecated and, if present, will be ignored at runtime. Challenge handling is instead tied directly to the authentication method being attempted. NSO does not select or order challenge mechanisms independently of authentication method.
+{% endhint %}
+
+The challenge script must write one of the following responses to standard output:
+
+* `accept`: The challenge succeeds and authentication completes successfully.
+* `reject`: The challenge fails for the current authentication method. NSO proceeds with the next authentication method configured in `/ncs-config/aaa/auth-order`, if any. In case of package authentication with multiple packages configured, a `reject` will lead to invoking challenge of the next package.
+* `abort`: The challenge fails and authentication terminates immediately. No further authentication methods are attempted.
+
+Note that `reject` and `abort` affect authentication flow only. They do not influence which challenge mechanism is invoked.
+
+**Example Authentication Flow**
+
+Suppose both authentication methods are configured:
+
+* Package authentication invokes the package-provided challenge handler.
+* External authentication invokes the external challenge executable.
+
+{% code title="Example: Authentication and Challenge Flow" overflow="wrap" expandable="true" %}
+```
+Assume the following authentication order:
+
+<auth-order>package-authentication external-authentication</auth-order>
+
+1. Package authentication is attempted.
+   - The package authentication script returns "challenge".
+   - NSO invokes the package challenge handler.
+   - The package challenge handler returns "reject".
+
+   Result: NSO proceeds to the next authentication method.
+
+2. External authentication is attempted.
+   - The external authentication script returns "challenge".
+   - NSO invokes the external challenge executable configured under 
+     /ncs-config/aaa/external-challenge/executable.
+   - The external challenge returns "accept".
+
+   Result: Authentication completes successfully.
+
+This example demonstrates that the challenge mechanism invoked is determined by the authentication method currently being attempted.
+
+In particular, when external authentication is used, the package challenge handler is not invoked. Conversely, when package authentication is used, the package challenge handler is invoked as expected.
+
+The deprecated /ncs-config/aaa/challenge-order configuration has no effect on this behavior.
+```
+{% endcode %}
+
+{% hint style="info" %}
+While not common practice, it is possible to set up multiple authentication packages. If multiple authentication packages are configured, and the challenge of the first package fails, the challenge handler of the second package will be tried.
+{% endhint %}
+
+Supported by some northbound APIs, such as JSON-RPC and CLI over SSH, the challenge script may also choose to issue a new challenge:
+
+`"challenge $challenge-id $challenge-prompt\n"`
+
+{% hint style="info" %}
+The challenge prompt may be multi-line, so it must be base64 encoded.
+{% endhint %}
+
+{% hint style="info" %}
+Note that when using challenges with the CLI over SSH, the `/ncs-config/cli/ssh/use-keyboard-interactive>` need to be set to true for the challenges to be sent correctly to the client.
+{% endhint %}
+
+{% hint style="info" %}
+The configuration of the SSH client used may need to be given the option to allow a higher number of allowed number of password prompts, e.g. `-o NumberOfPasswordPrompts`, else the default number may introduce an unexpected behavior when the client is presented with multiple challenges.
+{% endhint %}
+
+#### External Multi-Factor Authentication
+
+If external authentication is configured, NSO will invoke the executable configured in `/ncs-config/aaa/external-challenge/executable` in `ncs.conf` , and pass the challenge ID and response on `stdin` using the string notation: `"[challenge-id;response;]\n"`.
+
+For example, a user `bob` has received a challenge during external authentication and attempts to log in over JSON-RPC with a response to the challenge using challenge ID `"22efa"`  with response `"ae457b"`. The external challenge mechanism is enabled and NSO invokes the configured executable, writing `"[22efa;ae457b;]\n"` on the `stdin` stream for the executable.
 
 The task of the executable is then to validate the challenge ID, and response combination, thereby authenticating the user and also establishing the username and username-to-groups mapping.
 
-For example, the executable could be a RADIUS client which utilizes some proprietary vendor attributes to retrieve the username and groups of the user from the RADIUS server. If challenge ID, response validation is successful, the program should write `"accept "` followed by a space-separated list of groups the user is a member of, and additional information as described below. Again, assuming that `bob`'s challenge ID, the response combination indeed was `"22efa", "ae457b"` and that `bob` is a member of the `admin` and the `lamers` groups, the program should write `"accept admin lamers $uid $gid $supplementary_gids $HOME $USER\n"` on its standard output and then exit.
+For example, the executable could be a RADIUS client which utilizes some proprietary vendor attributes to retrieve the username and groups of the user from the RADIUS server. If challenge ID+response validation is successful, the program should write `"accept "` followed by a space-separated list of groups the user is a member of, and additional information as described below. Again, assuming that `bob`'s challenge ID+response combination indeed was `"22efa", "ae457b"`, and that `bob` is a member of the `admin` and the `lamers` groups, the program should write `"accept admin lamers $uid $gid $supplementary_gids $HOME $USER\n"` on its standard output and then exit.
 
 {% hint style="info" %}
 There is a general limit of 16000 bytes of output from the `externalchallenge` program.
@@ -452,29 +528,15 @@ Where:
 
 * `$warning` is an appropriate warning message. The message will be processed by NSO according to the setting of `/ncs-config/aaa/expiration-warning` in `ncs.conf`.
 
-There is also support for token variations of `"accept_info"` and `"accept_warning"` namely `"accept_token_info"` and `"accept_token_warning"`. Both `"accept_token_info"` and `"accept_token_warning"` expects the external program to output exactly the same as described above with the addition of a token after `$USER`:
+There is also support for token variations of `"accept_info"` and `"accept_warning"` namely `"accept_token_info"` and `"accept_token_warning"`. Both `"accept_token_info"` and `"accept_token_warning"` expect the external program to output exactly the same as described above with the addition of a token after `$USER`:
 
 `"accept_token_info $groups $uid $gid $supplementary_gids $HOME $USER $token $info\n"`
 
 `"accept_token_warning $groups $uid $gid $supplementary_gids $HOME $USER $token $warning\n"`
 
-If authentication fails, the program should write `"reject"` or `"abort"`, possibly followed by a reason for the rejection and a trailing newline. For example `"reject Bad challenge response\n"` or just `"abort\n"`. The difference between `"reject"` and `"abort"` is that with `"reject"`, NSO will try subsequent mechanisms configured for `/ncs-config/aaa/challenge-order` in `ncs.conf` (if any), while with `"abort"`, the challenge-response authentication fails immediately. Thus `"abort"` can prevent subsequent mechanisms from being tried. Currently, the only available challenge-response authentication mechanism is the external one.
+If authentication fails, the program should write `"reject"` or `"abort"`, possibly followed by a reason for the rejection and a trailing newline. For example `"reject Bad challenge response\n"` or just `"abort\n"`.
 
-Supported by some northbound APIs, such as JSON-RPC and CLI over SSH, the external challenge may also choose to issue a new challenge:
-
-`"challenge $challenge-id $challenge-prompt\n"`
-
-{% hint style="info" %}
-The challenge prompt may be multi-line, so it must be base64 encoded.
-{% endhint %}
-
-{% hint style="info" %}
-Note that when using challenges with the CLI over SSH, the `/ncs-config/cli/ssh/use-keyboard-interactive>` need to be set to true for the challenges to be sent correctly to the client.
-{% endhint %}
-
-{% hint style="info" %}
-The configuration of the SSH client used may need to be given the option to allow a higher number of allowed number of password prompts, e.g. `-o NumberOfPasswordPrompts`, else the default number may introduce an unexpected behavior when the client is presented with multiple challenges.
-{% endhint %}
+The difference between `"reject"` and `"abort"` is that with `"reject"`, NSO proceeds with the next authentication method configured in `/ncs-config/aaa/auth-order`  (if any), while with `"abort"`, the challenge-response authentication fails immediately. Thus, `"abort"` can prevent subsequent mechanisms from being tried.
 
 ### Package Authentication <a href="#ug.aaa.packageauth" id="ug.aaa.packageauth"></a>
 
@@ -566,10 +628,10 @@ When serving a username/password request, script output other than accept, chall
 
 ### **Package Challenges**
 
-When this is enabled, `/ncs-config/aaa/package-authentication/package-challenge/enabled` is set to true, packages will also be used to try to resolve challenges sent to the server and are only supported by CLI over SSH. The script `script/challenge` will be invoked passing challenge ID, response, client source IP, client source port, northbound API context, and protocol on `stdin` using the string notation: `"[challengeid;response;src-ip;src-port;ctx;proto;]\n"` . The output should follow that of the authenticate script.
+When `/ncs-config/aaa/package-authentication/package-challenge/enabled` is set to true, packages will also be used to try to resolve challenges sent to the server and are only supported by CLI over SSH. The script `script/challenge` will be invoked passing challenge ID, response, client source IP, client source port, northbound API context, and protocol on `stdin` using the string notation: `"[challengeid;response;src-ip;src-port;ctx;proto;]\n"` . The output should follow that of the authenticate script.
 
 {% hint style="info" %}
-The fields `challengeid` and response are base64 encoded when passed to the script.
+The fields `challengeid` and `response` are base64 encoded when passed to the script.
 {% endhint %}
 
 ## Authenticating IPC Access
