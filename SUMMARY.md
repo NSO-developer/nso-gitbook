@@ -1,10 +1,8 @@
 # Table of contents
 
-* [Overview](README.md)
-
 ## Platform Tools
 
-* [Observability Exporter](platform-tools/observability-exporter.md)
+* [Observability Exporter](README.md)
 * [Phased Provisioning](platform-tools/phased-provisioning.md)
 * [Resource Manager (5.0)](platform-tools/resource-manager/README.md)
   * [ID Allocator](platform-tools/resource-manager/id-allocator.md)
