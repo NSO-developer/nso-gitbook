@@ -1,59 +1,125 @@
 ---
-description: Get started with the Cisco Crosswork NSO documentation guides.
-icon: power-off
-cover: .gitbook/assets/gb-cover-final.png
-coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
+description: Latest features and enhancements added in this release.
+icon: sparkles
 ---
 
-# Start
-
-Use this page to navigate your way through the NSO documentation and access the resources most relevant to your role.
-
-## NSO Roles
-
-An NSO deployment typically consists of the following roles:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Administrators</strong></td><td>Personnel who deploy &#x26; manage an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Operators</strong></td><td>Personnel who use &#x26; operate an NSO deployment.</td><td></td><td></td></tr><tr><td><strong>Developers</strong></td><td>Personnel who develop NSO services, packages, &#x26; more.</td><td></td><td></td></tr></tbody></table>
-
-## Learn NSO
-
-For users new to NSO or wanting to explore it further.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>NSO at a Glance</strong></td><td>A 20,000-foot view of NSO components and concepts.</td><td><a href="https://nso-docs.cisco.com/nso-basics/nso-at-a-glance">https://nso-docs.cisco.com/nso-basics/nso-at-a-glance</a></td><td></td></tr><tr><td><strong>Solution Overview</strong></td><td>NSO overview &#x26; how it meets automation needs.</td><td><a href="https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html">https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html</a></td><td></td></tr><tr><td><strong>Learning Labs</strong></td><td>Deep dive into NSO with hands-on learning modules.</td><td><a href="https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore">https://developer.cisco.com/learning/search/?contentType=track,module,lab&#x26;keyword=nso&#x26;sortBy=luceneScore</a></td><td></td></tr></tbody></table>
+# What's New
 
 {% hint style="info" %}
-A more comprehensive list of learning resources and associated material is available on the [Learning Paths](https://nso-docs.cisco.com/learn-nso/learning-paths) page.
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.2\&to=6.3).
 {% endhint %}
 
-## Work with NSO <a href="#admin" id="admin"></a>
+## Release Highlights <a href="#d5e42" id="d5e42"></a>
 
-For users working in a production-wide NSO deployment.
+This release includes major enhancements in the following areas:
 
-### Administration
+<details>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Installation &#x26; Deployment</strong></td><td>Plan, install, and upgrade your NSO deployment.</td><td><a href="administration/get-started.md#installation-and-deployment">#installation-and-deployment</a></td><td></td></tr><tr><td><strong>Management</strong></td><td>Administrate and manage your NSO deployment.</td><td><a href="administration/get-started.md#management">#management</a></td><td></td></tr><tr><td><strong>Advanced Topics</strong></td><td>Delve into advanced NSO topics.</td><td><a href="administration/get-started.md#advanced-topics">#advanced-topics</a></td><td></td></tr></tbody></table>
+<summary>Web UI Improvements</summary>
 
-### Operation and Usage
+The web-based management interface has been improved to streamline user experience with a modernized look and feel. Also, usability improvements have been made in certain areas, such as device management.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>CLI</strong></td><td>Get started with the NSO CLI and base concepts.</td><td><a href="operation-and-usage/get-started.md#cli">#cli</a></td><td></td></tr><tr><td><strong>Web UI</strong></td><td>Operate &#x26; interact with NSO using the Web UI.</td><td><a href="operation-and-usage/get-started.md#web-ui">#web-ui</a></td><td></td></tr><tr><td><strong>Operations</strong></td><td>Perform different NSO operations.</td><td><a href="operation-and-usage/get-started.md#operations">#operations</a></td><td></td></tr></tbody></table>
+Documentation Updates:
 
-### Development
+* Expanded and improved the [Web UI](operation-and-usage/webui/) documentation to cover usage instructions.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Introduction to Automation</strong></td><td>Develop basic NSO automation understanding.</td><td><a href="development/get-started.md#introduction-to-automation">#introduction-to-automation</a></td><td></td></tr><tr><td><strong>Core Concepts</strong></td><td>Main concepts in NSO development.</td><td><a href="development/get-started.md#core-concepts">#core-concepts</a></td><td></td></tr><tr><td><strong>Advanced Development</strong></td><td>Deep dive into advanced development topics.</td><td><a href="development/get-started.md#advanced-development">#advanced-development</a></td><td></td></tr><tr><td><strong>Connected Topics</strong></td><td>Topics connected to NSO development.</td><td><a href="development/get-started.md#connected-topics">#connected-topics</a></td><td></td></tr></tbody></table>
+</details>
+
+<details>
+
+<summary>Device Management Improvements</summary>
+
+Devices now support `auto-configure` and `rename` actions to assist with the initial onboarding as well as the renaming of devices. Additionally, the listing of services, that have modified a device, has been improved and now includes Nano service zombies using a new `/devices/device/services/service` list.
+
+Documentation Updates:
+
+* Added new sections [Auto-configuring Devices in NSO](operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.auto-configuring-devices) and [Renaming Devices in NSO](operation-and-usage/operations/nso-device-manager.md#renaming-devices-in-nso).
+
+</details>
+
+<details>
+
+<summary>Support for Linux/arm64 Platform</summary>
+
+Binaries for the Linux OS on the arm64 architecture are now available for download from the Cisco [Software Download](https://software.cisco.com/download/home) site.
+
+Documentation Updates:
+
+* Updated system requirements in the Installation ([Local Install](administration/installation-and-deployment/local-install.md), [System Install](administration/installation-and-deployment/system-install.md)) and [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) sections.
+
+</details>
+
+<details>
+
+<summary>Platform Tools Packages</summary>
+
+A number of additional packages are now bundled with the NSO installer binary. These are optional packages that can be added to the NSO instance and were previously distributed separately.
+
+Documentation Updates:
+
+* Expanded the [Installation](administration/installation-and-deployment/) section with information on additional bundled packages.
+
+</details>
+
+<details>
+
+<summary>Improved Services Documentation</summary>
+
+The service development documentation has been improved and expanded, allowing for a more gradual introduction to service concepts.
+
+Documentation Updates:
+
+* Replaced the old Services section with a new [Implementing Services](development/core-concepts/implementing-services.md) section, which builds on top of [Developing a Simple Service](development/introduction-to-automation/creating-a-service.md) with additional fundamental service functionality.
+* Replaced the old Services section with a new [Services Deep Dive](development/advanced-development/developing-services/services-deep-dive.md) section, which serves as a service development reference, including best practices, known limitations, and an in-depth explanation of specific FASTMAP features.
+* Substantially revised and improved the [Templates](development/core-concepts/templates.md) section.
+
+</details>
+
+<details>
+
+<summary>Observability Improvements for Distributed Deployments</summary>
+
+NETCONF and RESTCONF APIs now support the propagation of standards-based Trace Context to aid distributed tracing.
+
+Documentation Updates:
+
+* For NETCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis/#trace-context) in Northbound APIs.
+* For RESTCONF, added documentation on [Trace Context](development/core-concepts/northbound-apis/#trace-context-1) in Northbound APIs.
+
+</details>
+
+<details>
+
+<summary>JSON Metadata Support</summary>
+
+NSO now supports RFC-7952-encoded metadata, as well as setting metadata when using JSON data encoding.
+
+Documentation Updates:
+
+* Expanded the [RESTCONF API](development/core-concepts/northbound-apis/#the-restconf-api) in Northbound APIs with details on metadata handling.
+
+</details>
+
+<details>
+
+<summary>RESTCONF Data Filtering</summary>
+
+Added the `exclude` query parameter support to the GET RESTCONF method that excludes a subtree from the returned output.
+
+Documentation Updates:
+
+* Expanded the section [Query Parameters](development/core-concepts/northbound-apis/#ncs.northbound.restconf.query_params) in Northbound APIs with details and an example of `exclude` usage.
+
+</details>
+
+<details>
+
+<summary>Other Notable Highlights</summary>
+
+* Improved YANG 1.1 support: Allow type `empty` in list keys and unions, as well as improve the handling of unions of enumerations.
+* Implement alarms for certificate expiry: The functionality now covers all certificates in use by NSO.
+* Automatic migration of templates: Migrating a device to a new NED ID will trigger a copy of the device and compliance templates for the old NED ID to the new NED ID (unless the template already contains configuration for the new NED ID).
+* Faster upgrades: The performance of the CDB upgrade process has been significantly improved by utilizing more parallelization.
+* `ncs.conf` management: `ncs.conf` file can now use environment variable references and parts of the file can be placed in separate configuration files in the `ncs.conf.d` sub-directory, next to the `ncs.conf` file.
+
+</details>
