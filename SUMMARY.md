@@ -50,11 +50,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.68 2026-01-29](alu-sr/README.md)
+  * [README v8.68.1 2026-02-06](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.31 2026-01-26](arista-dcs/README.md)
+  * [README v5.31.1 2026-02-06](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -154,7 +154,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.32.1 2026-01-18](cisco-nx/README.md)
+  * [README v5.32.2 2026-02-06](cisco-nx/README.md)
 
 * cisco-sma
   * [README-ned-settings](cisco-sma/README-ned-settings.md)
@@ -254,7 +254,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.33 2026-02-03](juniper-junos/README.md)
+  * [README v4.18.34 2026-02-06](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
