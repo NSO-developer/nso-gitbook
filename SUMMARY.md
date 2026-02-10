@@ -18,7 +18,7 @@
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
-  * [README v1.7 2025-07-23](accedian-spp/README.md)
+  * [README v1.7.1 2026-02-09](accedian-spp/README.md)
 
 * actelis-ead
   * [README-ned-settings](actelis-ead/README-ned-settings.md)
@@ -43,7 +43,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.7 2026-02-03](alu-isam/README.md)
+  * [README v1.5.8 2026-02-09](alu-isam/README.md)
 
 * alu-omniswitch-6k
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
