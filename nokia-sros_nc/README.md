@@ -38,7 +38,8 @@
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
   10. Configure the NED to use ssh multi factor authentication
-  11. Run arbitrary commands on device
+  11. Run Arbitrary Commands on Device
+  12. Display Dry-Run Commit Output in Nokia MD-CLI Format
   ```
 
 
@@ -1512,7 +1513,7 @@ admin@ncs(config)# commit
   ERROR: external mfa executable failed <....>
   ```
 
-# 11. Run arbitrary commands on device
+# 11. Run Arbitrary Commands on Device
 --------------------------------------
 
   Some commands that are available to a user logged in to an interactive CLI
@@ -1539,3 +1540,62 @@ admin@ncs(config)# commit
 
   Note that when using ncs_cli, the command-line given might need to be quoted
   if it contains characters that are interpreted by the ncs_cli itself.
+
+# 12. Display Dry-Run Commit Output in Nokia MD-CLI Format
+----------------------------------------------------------
+When you run `commit dry-run outformat native` in NSO, this NED will, by default, return a NETCONF XML representation
+of the configuration that would be applied to the device.
+
+You can configure the NED to also generate the same configuration in Nokia MD-CLI format (as a best-effort conversion).
+This feature is intended to make the configuration output more human-readable, which can be useful for auditing and
+reviewing changes.
+
+<u>Important:</u>
+The MD-CLI format is only shown during dry-run operations. When you perform an actual commit,
+only the NETCONF XML is sent to the device.
+
+To enable MD-CLI dry-run output, configure the following NED setting:
+  ```
+  admin@ncs# devices device dev-1 ned-settings nokia-sros_nc transaction dry-run-output-format netconf-and-md-cli
+  admin@ncs# commit
+  ```
+
+ Example output:
+ ```
+ admin@ncs# devices device dev-1 config configure port 1/1/1 description EXAMPLE
+ admin@ncs# commit dry-run outformat native
+ native {
+    device {
+        name dev-1
+        data #118
+             <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="7">
+               <lock>
+                 <target>
+                   <candidate/>
+                 </target>
+               </lock>
+             </rpc>
+             ##
+             #404
+             <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="8">
+               <edit-config>
+                 <target>
+                   <candidate/>
+                 </target>
+                 <test-option>test-then-set</test-option>
+                 <error-option>rollback-on-error</error-option>
+                 <config>
+                   <configure xmlns="urn:nokia.com:sros:ns:yang:sr:conf">
+                     <port>
+                       <port-id>1/1/1</port-id>
+                       <description>EXAMPLE</description>
+                     </port>
+                   </configure>
+                 </config>
+               </edit-config>
+             </rpc>
+             ##
+             Corresponding operations in MD-CLI format:
+                 /configure port 1/1/1 description EXAMPLE
+    }
+}
