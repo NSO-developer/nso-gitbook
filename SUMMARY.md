@@ -54,7 +54,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.31.1 2026-02-06](arista-dcs/README.md)
+  * [README v5.31.2 2026-02-13](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.58.2 2026-02-05](cisco-staros/README.md)
+  * [README v5.59 2026-02-13](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -210,7 +210,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.30 2026-01-30](fortinet-fortios/README.md)
+  * [README v5.11.31 2026-02-13](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -281,7 +281,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.31 2026-02-04](nokia-sros_nc/README.md)
+  * [README v1.0.32 2026-02-13](nokia-sros_nc/README.md)
 
 * oneaccess-oneos
   * [README-ned-settings](oneaccess-oneos/README-ned-settings.md)
