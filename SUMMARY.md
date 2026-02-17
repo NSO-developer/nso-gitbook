@@ -70,7 +70,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.1 2025-10-02](ceragon-ip20/README.md)
+  * [README v1.10.2 2026-02-16](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
