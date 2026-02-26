@@ -560,11 +560,15 @@ Take a look at the EXAMPLE section for a crash course.
 ### NCS device module import options
 
 These options are used to import device modules into NCS. The import is
-done as a source code transformation of the yang modules (MIBs) that
+done as a source code transformation of the YANG modules (MIBs) that
 define the managed device. By default, the imported modules (MIBs) will
-be augmented three times. Once under `/devices/device/config`, once
-under `/devices/template/config` and once under
-`/devices/device/live-status`.
+be augmented in these paths:
+
+- /devices/device/config
+- /devices/device/live-status
+- /devices/template/ned-id/config
+- /compliance/template/ned-id/config
+- /compliance/template/ned-id/live-status (optionally)
 
 The `ncsc` commands to import device modules can take the following
 options:

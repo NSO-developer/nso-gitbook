@@ -1863,7 +1863,7 @@ devices device ce10
 
 This section shows how device templates can be used to create and change device configurations. See [Introduction](../../development/core-concepts/templates.md#introduction) in Templates for other ways of using templates.
 
-Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
+Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/ned-id/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 
 The [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example comes with a pre-populated template for SNMP settings.
 
