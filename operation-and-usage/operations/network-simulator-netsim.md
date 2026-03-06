@@ -6,7 +6,7 @@ description: Use NSO's network simulator to simulate your network and test funct
 
 The `ncs-netsim` program is a useful tool to simulate a network of devices to be managed by NSO. It makes it easy to test NSO packages towards simulated devices. All you need is the NSO NED packages for the devices that you need to simulate. The devices are simulated with the Tail-f ConfD product.
 
-All the NSO examples use `ncs-netsim` to simulate the devices. A good way to learn how to use `ncs-netsim` is to study them.
+Many NSO examples use `ncs-netsim` to simulate the devices. A good way to learn how to use `ncs-netsim` is to study them.
 
 ## Using Netsim <a href="#ug.netsim.using" id="ug.netsim.using"></a>
 
@@ -159,3 +159,6 @@ $ NCS_IPC_PORT=5010 ncs_load -m -l *.xml
 ### Learn More <a href="#ug.netsim.learnmore" id="ug.netsim.learnmore"></a>
 
 The README file in [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/router-network) example gives a good introduction on how to use `ncs-netsim`.
+
+The&#x20;
+

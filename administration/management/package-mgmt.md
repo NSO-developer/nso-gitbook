@@ -1,5 +1,6 @@
 ---
 description: Perform package management tasks.
+icon: box-isometric
 ---
 
 # Package Management
