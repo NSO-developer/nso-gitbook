@@ -495,7 +495,7 @@ If the package tailf-hcc with a version less than 5.0 is loaded, NSO rule-based 
 
 ### HA Member Configuration <a href="#d5e4830" id="d5e4830"></a>
 
-All HA group members are defined under `/high-availability/ha-node`. Each configured node must have a unique IP address configured and a unique HA ID. Additionally, nominal roles and fail-over settings may be configured on a per-node basis.
+All HA group members are defined under `/high-availability/ha-node`. Each configured node must have a unique `/high-availability/ha-node/address` (IP address or host name) configured and a unique HA ID. Additionally, nominal roles and fail-over settings may be configured on a per-node basis.
 
 The HA Node ID is a unique identifier used to identify NSO instances in an HA group. The HA ID of the local node - relevant amongst others when an action is called - is determined by matching configured HA node IP addresses against IP addresses assigned to the host machine of the NSO instance. As the HA ID is crucial to NSO HA, NSO rule-based HA will not function if the local node cannot be identified.
 
