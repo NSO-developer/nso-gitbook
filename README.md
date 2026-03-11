@@ -3,23 +3,6 @@ description: Get started with the Cisco Crosswork NSO documentation.
 icon: hands-clapping
 cover: .gitbook/assets/gb-cover-final.png
 coverY: -6.8595670175965076
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: false
-  outline:
-    visible: false
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Welcome
