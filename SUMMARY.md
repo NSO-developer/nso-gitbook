@@ -129,11 +129,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.113.5 2026-03-05](cisco-ios/README.md)
+  * [README v6.113.6 2026-03-12](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.7 2026-02-19](cisco-iosxr/README.md)
+  * [README v7.75.8 2026-03-12](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
