@@ -206,7 +206,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.46 2026-02-20](fortinet-fmg/README.md)
+  * [README v4.3.47 2026-03-13](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -226,7 +226,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.4 2026-02-25](huawei-ias/README.md)
+  * [README v2.9.5 2026-03-13](huawei-ias/README.md)
 
 * huawei-imanager
   * [README-ned-settings](huawei-imanager/README-ned-settings.md)
@@ -254,7 +254,7 @@
   * [README v4.0.11 2024-10-01](infoblox-nios/README.md)
 
 * juniper-junos
-  * [README v4.18.35 2026-03-06](juniper-junos/README.md)
+  * [README v4.19 2026-03-13](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)

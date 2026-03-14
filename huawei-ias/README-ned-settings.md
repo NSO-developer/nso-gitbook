@@ -90,11 +90,6 @@
       NETSIM targets.
 
 
-    - developer model <string>
-
-      Simulate a model number. Include 'NETSIM' for netsim.
-
-
     - developer progress-verbosity <enum> (default debug)
 
       Maximum NED verbosity level which will be reported.
