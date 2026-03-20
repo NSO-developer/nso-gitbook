@@ -244,11 +244,6 @@
       debug         - debug.
 
 
-    - developer model <string>
-
-      Simulate a model number.
-
-
     - developer version <string>
 
       Simulate a version number.

@@ -340,16 +340,6 @@
       NETSIM targets.
 
 
-    - developer model <uint32>
-
-      Simulate a model number.
-
-
-    - developer version <uint8>
-
-      Simulate a version number.
-
-
     - developer device-type <enum> (default netsim)
 
       Real or simulated device.

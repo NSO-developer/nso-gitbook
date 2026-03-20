@@ -50,7 +50,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.69.2 2026-03-05](alu-sr/README.md)
+  * [README v8.69.3 2026-03-19](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -100,16 +100,12 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.29 2025-08-27](cisco-asa/README.md)
+  * [README v6.18.30 2026-03-19](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
   * [README-rebuild](cisco-cnc_rc/README-rebuild.md)
   * [README v1.0.13 2026-03-06](cisco-cnc_rc/README.md)
-
-* cisco-esa
-  * [README-ned-settings](cisco-esa/README-ned-settings.md)
-  * [README v2.0.12 2025-08-13](cisco-esa/README.md)
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
@@ -129,11 +125,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.113.6 2026-03-12](cisco-ios/README.md)
+  * [README v6.113.7 2026-03-19](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.8 2026-03-12](cisco-iosxr/README.md)
+  * [README v7.75.9 2026-03-19](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -154,11 +150,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.32.2 2026-02-06](cisco-nx/README.md)
-
-* cisco-sma
-  * [README-ned-settings](cisco-sma/README-ned-settings.md)
-  * [README v2.1.2 2025-08-13](cisco-sma/README.md)
+  * [README v5.32.3 2026-03-19](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -242,7 +234,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.85.1 2026-03-05](huawei-vrp/README.md)
+  * [README v6.85.2 2026-03-19](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)

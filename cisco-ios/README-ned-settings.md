@@ -50,12 +50,13 @@
      6.4. replace-commit
      6.5. inject-answer
      6.6. config-archive
-  7. auto
-  8. api
-  9. live-status
-     9.1. auto-prompts
-  10. developer
-     10.1. simulate-show
+  7. file-transfer
+  8. auto
+  9. api
+  10. live-status
+     10.1. auto-prompts
+  11. developer
+     11.1. simulate-show
   ```
 
 
@@ -482,6 +483,16 @@
   Settings used when writing to device.
 
 
+    - write method <enum> (default cli)
+
+      Select method to upload and write config in a commit to the device.
+
+      cli  - Use the IOS CLI to send lines.
+
+      scp  - Use SCP client to upload config to the device and then copy (merge) it to
+             running-config.
+
+
     - write memory-method <WORD> (default write memory)
 
       Change method to write config to memory.
@@ -852,7 +863,47 @@
       will lead to removal of ios image and startup configuraiton files.
 
 
-# 7. ned-settings cisco-ios auto
+# 7. ned-settings cisco-ios file-transfer
+-----------------------------------------
+
+  File transfer configuration.
+
+
+    - file-transfer threshold <0-2147483647> (default 0)
+
+      The minimum threshold in bytes when to transfer config changes to device using file upload.
+
+
+    - file-transfer directory <WORD> (default bootflash:/)
+
+      Path to temporary config file used to copy from/to running-config.
+
+
+    - file-transfer file <WORD> (default nso-commit.cfg)
+
+      Temporary config file name used to copy from/to running-config.
+
+
+    - file-transfer cli-fallback <enum> (default disabled)
+
+      Fallback to use CLI if file-transfer upload/download fails for this transaction.
+
+      enabled   - enabled, fallback to CLI if file transfer fails.
+
+      disabled  - disabled, do not fallback to CLI if file transfer fails.
+
+
+    - file-transfer file-temp-delete <true|false> (default true)
+
+      Delete temporary file used to copy from/to running-config.
+
+
+    - file-transfer debug <true|false> (default false)
+
+      Enable file-transfer debugging.
+
+
+# 8. ned-settings cisco-ios auto
 --------------------------------
 
   Configure auto (dynamic behaviour) when reading or writing from|to device.
@@ -961,7 +1012,7 @@
       Disable interface service-policy config locks (warning: IOS version specific).
 
 
-# 8. ned-settings cisco-ios api
+# 9. ned-settings cisco-ios api
 -------------------------------
 
   Configure API (new API features/changes).
@@ -1121,8 +1172,14 @@
       leaf-list due to NSO performance issues.
 
 
-# 9. ned-settings cisco-ios live-status
----------------------------------------
+    - api trim-if-no-switchport <true|false> (default false)
+
+      Trim interface * / no switchport sent when no switchport to delete on interface, i.e. ignore
+      the cli-show-no annotation.
+
+
+# 10. ned-settings cisco-ios live-status
+----------------------------------------
 
   Configure NED settings related to live-status.
 
@@ -1173,14 +1230,14 @@
       shown.
 
 
-## 9.1. ned-settings cisco-ios live-status auto-prompts
--------------------------------------------------------
+## 10.1. ned-settings cisco-ios live-status auto-prompts
+--------------------------------------------------------
 
   See section 5. Built in live-status actions in README.md for information
   on how to use this ned-setting.
 
 
-# 10. ned-settings cisco-ios developer
+# 11. ned-settings cisco-ios developer
 --------------------------------------
 
   Contains settings used by the NED developers.
@@ -1269,7 +1326,7 @@
       device. Use with care, and do proper testing to understand behaviour.
 
 
-## 10.1. ned-settings cisco-ios developer simulate-show
+## 11.1. ned-settings cisco-ios developer simulate-show
 -------------------------------------------------------
 
   Used with live-status to inject simualted output for a show command.
