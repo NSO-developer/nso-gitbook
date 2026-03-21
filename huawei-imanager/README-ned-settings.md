@@ -45,27 +45,27 @@
 ---------------------------------
 
 
-    - huawei-imanager certificate_path <string> (default )
+    - certificate_path <string> (default )
 
       path to the client certificate, leave empty if not used.
 
 
-    - huawei-imanager certificate_password <string> (default )
+    - certificate_password <string> (default )
 
       password for the client certificate.
 
 
-    - huawei-imanager certificate_alias <string> (default )
+    - certificate_alias <string> (default )
 
       certificate alias.
 
 
-    - huawei-imanager fdfr_chunk_size <uint32> (default 2000)
+    - fdfr_chunk_size <uint32> (default 2000)
 
       determines how many FDFR's are fetched in one request, during fdfrCache refresh.
 
 
-    - huawei-imanager device_md <string> (default Huawei/U2000)
+    - device_md <string> (default Huawei/U2000)
 
       Value of the MD field.
 

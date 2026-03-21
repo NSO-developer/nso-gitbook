@@ -48,7 +48,7 @@
 ------------------------------------
 
 
-    - huawei-imanagertl1 extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
       model based config tree).
@@ -71,7 +71,7 @@
                         (which potentially can cause following config to be skipped).
 
 
-    - huawei-imanagertl1 commandToCommandDelay <uint32> (default 0)
+    - commandToCommandDelay <uint32> (default 0)
 
       set a delay between consecutive commands, in ms.
 
@@ -214,7 +214,7 @@
 # 5. ned-settings huawei-imanagertl1 dev_filter
 -----------------------------------------------
 
-    - huawei-imanagertl1 dev_filter <name>
+    - dev_filter <name>
 
       - name <string>
 
@@ -226,7 +226,7 @@
 
   extra VLAN entries, formatted as FN-SN-PN (numbers separated by '-').
 
-    - huawei-imanagertl1 ETHANDVLANEXTRA <entry>
+    - ETHANDVLANEXTRA <entry>
 
       - entry <string>
 

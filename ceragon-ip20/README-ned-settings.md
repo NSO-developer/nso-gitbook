@@ -71,6 +71,12 @@
                         format.
 
 
+    - banner-dry-run <string>
+
+      Set custom banner displayed at dry-run native transactions. It will be marked with C-style cli
+      comments and does not apply to commit operations.
+
+
 # 2. ned-settings ceragon-ip20 developer
 ----------------------------------------
 

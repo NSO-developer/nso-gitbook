@@ -53,7 +53,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - arris-cmts extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
       model based config tree).
@@ -76,18 +76,18 @@
                         (which potentially can cause following config to be skipped).
 
 
-    - arris-cmts persist <true|false> (default true)
+    - persist <true|false> (default true)
 
       this option will disable the 'copy running config to start up config' command that's issued
       after commit.
 
 
-    - arris-cmts confFromFileEnable <true|false> (default false)
+    - confFromFileEnable <true|false> (default false)
 
       choose if a config file should be used instead of a real device.
 
 
-    - arris-cmts confFromFileName <string>
+    - confFromFileName <string>
 
       Specify a file to be used for sync-from, instead of a real device.
 
@@ -333,7 +333,7 @@
 
   Add a list of valid error messages, or part of them.
 
-    - arris-cmts ignore-error-messages <id>
+    - ignore-error-messages <id>
 
       - id <string>
 

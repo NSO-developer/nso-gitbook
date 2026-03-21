@@ -46,6 +46,7 @@
   * [README v1.5.9 2026-03-17](alu-isam/README.md)
 
 * alu-omniswitch-6k
+  * [README-ned-settings](alu-omniswitch-6k/README-ned-settings.md)
   * [README v2.5.7 2024-10-03](alu-omniswitch-6k/README.md)
 
 * alu-sr
@@ -54,7 +55,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.31.3 2026-03-05](arista-dcs/README.md)
+  * [README v5.31.4 2026-03-20](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -70,7 +71,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.2 2026-02-16](ceragon-ip20/README.md)
+  * [README v1.10.3 2026-03-20](ceragon-ip20/README.md)
 
 * checkpoint-gaiaos_rest
   * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
@@ -154,15 +155,15 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59 2026-02-13](cisco-staros/README.md)
+  * [README v5.59.1 2026-03-20](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
-  * [README v4.5.13 2025-12-12](citrix-netscaler/README.md)
+  * [README v4.5.14 2026-03-20](citrix-netscaler/README.md)
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.8 2026-02-03](eci-muse/README.md)
+  * [README v1.9 2026-03-20](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -184,10 +185,6 @@
   * [README-ned-settings](etsi-sol003/README-ned-settings.md)
   * [README v1.13.21 2026-03-02](etsi-sol003/README.md)
 
-* extreme-xos
-  * [README-ned-settings](extreme-xos/README-ned-settings.md)
-  * [README v1.5.5 2024-08-29](extreme-xos/README.md)
-
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
   * [README v3.24.5 2025-08-28](f5-bigip/README.md)
@@ -202,7 +199,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.33 2026-03-05](fortinet-fortios/README.md)
+  * [README v5.11.34 2026-03-20](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)

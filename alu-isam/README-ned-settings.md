@@ -54,7 +54,7 @@
 --------------------------
 
 
-    - alu-isam extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the alu-isam NED enable extensions to ease the task of the NCS/NSO CLI command parser. A
       common problem with the alu-isam NED is that can get out of sync when trying to parse config
@@ -87,7 +87,7 @@ The number of lines in the
                          is used. (default).
 
 
-    - alu-isam trans-id-method <enum> (default set-log-entry-sequence-number)
+    - trans-id-method <enum> (default set-log-entry-sequence-number)
 
       Configure how the NED shall calculate the transaction id. Typically used after each commit and
       for check-sync operations.
@@ -99,7 +99,7 @@ The number of lines in the
                                        transaction set log for calculation.
 
 
-    - alu-isam disable-interface-admin-state <true|false> (default false)
+    - disable-interface-admin-state <true|false> (default false)
 
       This ned-setting can be used to disable all equipment/ont/interface/admin-state yang nodes.
       You can use this ned-settings, to skip admin-state during commit and compare-config/sync-from
@@ -271,7 +271,7 @@ The number of lines in the
 
   This section describes how device output (warnings/errors) can be filtered.
 
-    - alu-isam alu-isam-config-warning <warning>
+    - alu-isam-config-warning <warning>
 
       - warning <WORD>
 
@@ -312,7 +312,7 @@ The number of lines in the
 
   This section describes device messages that must be handled as errors.
 
-    - alu-isam alu-isam-extra-errors <message>
+    - alu-isam-extra-errors <message>
 
       - message <string>
 

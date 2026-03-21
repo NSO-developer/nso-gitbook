@@ -57,6 +57,11 @@
       Disable pagination even if the device is unlicensed.
 
 
+    - private-data-encryption-key <string>
+
+      Please type your private data encryption key (32 hexadecimal numbers):.
+
+
     - extended-parser <enum> (default auto)
 
       Make the fortinet-fortios NED handle CLI parsing (i.e. transform the running-config from the

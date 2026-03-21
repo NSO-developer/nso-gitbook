@@ -48,17 +48,17 @@
   infoblox ned-settings.
 
 
-    - infoblox-nios infoblox-max-result <uint32> (default 1000)
+    - infoblox-max-result <uint32> (default 1000)
 
       Maximum number of objects to be returned.
 
 
-    - infoblox-nios wapi-version <string> (default 2.3.1)
+    - wapi-version <string> (default 2.3.1)
 
       The API version on device to be used.
 
 
-    - infoblox-nios protocol <enum>
+    - protocol <enum>
 
       Protocol to be used for communication.
 
@@ -67,17 +67,17 @@
       https  - https.
 
 
-    - infoblox-nios use-perl-for-pool-object <true|false>
+    - use-perl-for-pool-object <true|false>
 
       set to true to use perl api for pool objects(default is false).
 
 
-    - infoblox-nios escape-special-char <true|false>
+    - escape-special-char <true|false>
 
       Escape special char.
 
 
-    - infoblox-nios log-verbose <true|false> (default false)
+    - log-verbose <true|false> (default false)
 
       Enabled extra verbose logging in NED (for debugging).
 
@@ -87,7 +87,7 @@
 
   Set return fields for objects.
 
-    - infoblox-nios infoblox-return-fields <object> <return-fields>
+    - infoblox-return-fields <object> <return-fields>
 
       - object <string>
 
@@ -201,7 +201,7 @@ admin@ncs% request devices device <device-name> disconnect
 admin@ncs% request devices device <device-name> connect
 ```
 
-# 6. wapi-version ned-settings (optional)
+# 7. wapi-version ned-settings (optional)
 
 Following setting can be used to set infoblox REST API version.
 This setting can be configured globally, per device profile or per single device.
@@ -238,7 +238,7 @@ admin@ncs% request devices device <device-name> disconnect
 admin@ncs% request devices device <device-name> connect
 ```
 
-# 6. infoblox-return-fields ned-settings (optional)
+# 8. infoblox-return-fields ned-settings (optional)
 
 Following setting can be used to set return fields for objects.
 This setting can be configured globally, per device profile or per single device.
@@ -253,7 +253,7 @@ admin@ncs% request devices device <device-name> connect
 
 Note: in order for the above settings to take effect, you must disconnect and connect again.
 
-# 7. use-perl-for-pool-object ned-settings (optional)
+# 9. use-perl-for-pool-object ned-settings (optional)
 
 Following setting can be used to get pool configurations using perl script.
 NED uses perl script to get pool configurations if use-perl-for-pool-object set to true(default false)
@@ -269,7 +269,7 @@ admin@ncs% request devices device <device-name> connect
 
 Note: in order for the above settings to take effect, you must disconnect and connect again.
 
-# 8. protocol ned-settings (optional)
+# 10. protocol ned-settings (optional)
 
 Following setting can be used set the Hypertext Transfer Protocol to either http or https.
 Default is https.
@@ -286,7 +286,7 @@ admin@ncs% request devices device <device-name> connect
 
 Note: in order for the above settings to take effect, you must disconnect and connect again.
 
-# 9. escape-special-char
+# 11. escape-special-char
 
 There are some issue with hadnling special characters \r and \n. Check section 9.1 for more info.
 If you want to send escape all \r and \n use following ned-settings. Default is false.

@@ -53,13 +53,13 @@
 ---------------------------
 
 
-    - casa-ccap persist <true|false> (default true)
+    - persist <true|false> (default true)
 
       this option will disable the 'copy running config to start up config' command that's issued
       after commit.
 
 
-    - casa-ccap trans-id-method <enum> (default config-hash)
+    - trans-id-method <enum> (default config-hash)
 
       Configure how the NED shall calculate the transaction id. Typically used after each commit and
       for check-sync operations.
@@ -77,7 +77,7 @@
                                  for calculation. Note, this method is not reliable. See README.
 
 
-    - casa-ccap candidate-commit <enum> (default disabled)
+    - candidate-commit <enum> (default disabled)
 
       Make the NED use the candidate commit feature available on some ALU devices.
 
@@ -87,7 +87,7 @@
                   be enabled on the device.
 
 
-    - casa-ccap extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the cisco-aireos NED handle CLI parsing (i.e. transform the running-config from the
       device to the model based config tree).
@@ -112,7 +112,7 @@
                         is used.
 
 
-    - casa-ccap number-of-lines-to-send-in-chunk <uint8> (default 100)
+    - number-of-lines-to-send-in-chunk <uint8> (default 100)
 
       Number of commands lines in a chunk sent by the casa-ccap NED to the device. Default is 100. A
       higher number normally result in better performance but will also have negative impact on the
@@ -120,7 +120,7 @@
       mode.
 
 
-    - casa-ccap partial-show-method <enum> (default bulk-mode)
+    - partial-show-method <enum> (default bulk-mode)
 
       Method to use when executing a partial show on the device (for instance when doing a 'commit
       no-overwrite').
@@ -255,11 +255,6 @@ Note this method is always used when connected to a NETSIM device.
 
       Make the NED load a file containing raw device config when doing sync-from. Does only work on
       NETSIM targets.
-
-
-    - developer model <uint32>
-
-      Simulate a model number.
 
 
     - developer version <uint8>

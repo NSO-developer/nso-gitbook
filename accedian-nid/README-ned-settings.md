@@ -185,6 +185,21 @@
       debug         - debug.
 
 
+    - developer platform model <string>
+
+      Override device model name/number.
+
+
+    - developer platform name <string>
+
+      Override device name.
+
+
+    - developer platform version <string>
+
+      Override device version.
+
+
 # 8. ned-settings accedian-nid live-status
 ------------------------------------------
 
