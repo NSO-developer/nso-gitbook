@@ -314,6 +314,7 @@
   * [README v1.18.16 2025-01-24](rad-vx/README.md)
 
 * radware-cc
+  * [README-ned-settings](radware-cc/README-ned-settings.md)
   * [README v1.0.0.1 2025-09-26](radware-cc/README.md)
 
 * redback-se
