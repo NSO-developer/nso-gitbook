@@ -49,7 +49,7 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - rad-vx extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the NED handle CLI parsing (i.e. transform the running-config from the device to the
       model based config tree).
@@ -72,7 +72,7 @@
                         (which potentially can cause following config to be skipped).
 
 
-    - rad-vx save_delay <uint32> (default 10)
+    - save_delay <uint32> (default 10)
 
       this will add a delay after the save command.
 

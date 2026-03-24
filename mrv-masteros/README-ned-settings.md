@@ -52,12 +52,12 @@
   Control usage of NED-settings.
 
 
-    - mrv-masteros persist-to-startup-config <true|false> (default false)
+    - persist-to-startup-config <true|false> (default false)
 
       Specify if the configuration data should be persisted to startup config.
 
 
-    - mrv-masteros extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       disabled        - Load configuration the standard way.
 
@@ -91,7 +91,7 @@
 
   List of default values for port media-select.
 
-    - mrv-masteros media-select-default-value <port> <default_mode>
+    - media-select-default-value <port> <default_mode>
 
       - port <uint32>
 

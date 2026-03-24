@@ -51,7 +51,7 @@
 --------------------------
 
 
-    - adva-825 extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       disabled        - Load configuration the standard way.
 

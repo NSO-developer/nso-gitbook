@@ -14,8 +14,9 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues
-  9. ned-settings nokia-apc connection skip-errors and soap-read-timeout
+  8. How to report NED issues and feature requests
+  9. How to rebuild a NED
+  10. ned-settings nokia-apc connection skip-errors and soap-read-timeout
   ```
 
 
@@ -162,6 +163,12 @@
       package nokia-apc-gen-1.0
       result true
    }
+  ```
+
+  Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
+
+  ```
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/nokia-apc-gen-1.0
   ```
 
 
@@ -386,6 +393,15 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
 
 # 3. Dependencies
 -----------------
@@ -531,7 +547,24 @@
      through VPNs, jump servers etc.
 
 
-# 9. ned-settings nokia-apc connection skip-errors and soap-read-timeout
+# 9. How to rebuild a NED
+--------------------------
+
+  To rebuild the NED do as follows:
+
+  ```
+  > cd $NED_ROOT_DIR/src
+  > make clean all
+  ```
+
+  When the NED has been successfully rebuilt, it is necessary to reload the package into NSO.
+
+  ```
+  admin@ncs# packages reload
+  ```
+
+
+# 10. ned-settings nokia-apc connection skip-errors and soap-read-timeout
 ------------------------------------------------------------------------
 
   In some specific circumstances the Nokia-Apc device can randomly fail to respond to read commands.

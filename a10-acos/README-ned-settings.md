@@ -54,7 +54,7 @@
   a10-acos device specific NED settings.
 
 
-    - a10-acos aflex-scripts-support <enum> (default disabled)
+    - aflex-scripts-support <enum> (default disabled)
 
       Enable this ned-settings in order to fetch and manage (create/update/delete) aFlex scripts. By
       default, this feature is disabled.
@@ -64,7 +64,7 @@
       disabled  - disabled.
 
 
-    - a10-acos trans-id-method <enum> (default config-hash)
+    - trans-id-method <enum> (default config-hash)
 
       Configure how the NED shall calculate the transaction id. Typically used after each commit and
       for check-sync operations.
@@ -79,22 +79,22 @@
                                  calculation. Note, this method is not reliable. See README.
 
 
-    - a10-acos a10-active-partition <string>
+    - a10-active-partition <string>
 
       Active partition.
 
 
-    - a10-acos a10-abort-when-config-session-exist <true|false> (default false)
+    - a10-abort-when-config-session-exist <true|false> (default false)
 
       Active partition.
 
 
-    - a10-acos a10-write-memory-all-partitions <true|false> (default true)
+    - a10-write-memory-all-partitions <true|false> (default true)
 
       Set to true if the device supports write memory all-partitions.
 
 
-    - a10-acos extended-parser <enum> (default auto)
+    - extended-parser <enum> (default auto)
 
       Make the a10-acos NED handle CLI parsing (i.e. transform the running-config from the device to
       the model based config tree).
@@ -123,7 +123,7 @@ The number of lines in the
                          is used.
 
 
-    - a10-acos partial-show-method <enum> (default full-config)
+    - partial-show-method <enum> (default full-config)
 
       Configure partial show method execution.
 
@@ -135,7 +135,7 @@ The number of lines in the
                         the config.
 
 
-    - a10-acos shared-partition-mode <enum> (default in-config)
+    - shared-partition-mode <enum> (default in-config)
 
       Set the shared partition location: directly under config or under partition-config.
 
@@ -335,7 +335,7 @@ The number of lines in the
 
   List of device errors. The NED will throw error when it encounter a message from this list.
 
-    - a10-acos dynamic-errors <error>
+    - dynamic-errors <error>
 
       - error <string>
 
