@@ -48,12 +48,12 @@
   Openstack COS ned-settings.
 
 
-    - openstack-cos admin-project-name <string> (default admin)
+    - admin-project-name <string> (default admin)
 
       deprecated;;use connection/project-scope-name setting.
 
 
-    - openstack-cos live-status time-to-live <int32> (default 50)
+    - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
 

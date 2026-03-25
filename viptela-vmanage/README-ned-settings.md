@@ -48,7 +48,7 @@
   vManage NED configuration.
 
 
-    - viptela-vmanage check-status-timeout <seconds> (default 90)
+    - check-status-timeout <seconds> (default 90)
 
       The timeout in seconds used when checking status for a success after successfully starting a
       task.

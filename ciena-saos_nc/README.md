@@ -17,40 +17,28 @@
      5.3. rpc clear-cached-capabilities
      5.4. rpc clear-filter-paths
      5.5. rpc compare-config
-     5.6. rpc compile-modules
-     5.7. rpc export-package
-     5.8. rpc get-modules
-     5.9. rpc import-filter-paths
-     5.10. rpc list-filter-paths
-     5.11. rpc list-module-sets
-     5.12. rpc list-modules
-     5.13. rpc list-profiles
-     5.14. rpc patch-modules
-     5.15. rpc rebuild-package
-     5.16. rpc remove-filter-path
-     5.17. rpc show-default-local-dir
-     5.18. rpc show-loaded-schema
-     5.19. rpc verify-get-config
-     5.20. rpc xpath-trace-analyzer
+     5.6. rpc compare-loaded-schema
+     5.7. rpc compile-modules
+     5.8. rpc export-package
+     5.9. rpc get-modules
+     5.10. rpc import-filter-paths
+     5.11. rpc list-filter-paths
+     5.12. rpc list-module-sets
+     5.13. rpc list-modules
+     5.14. rpc list-profiles
+     5.15. rpc patch-modules
+     5.16. rpc rebuild-package
+     5.17. rpc remove-filter-path
+     5.18. rpc show-default-local-dir
+     5.19. rpc show-loaded-schema
+     5.20. rpc verify-get-config
+     5.21. rpc xpath-trace-analyzer
   6. Built in live-status show
   7. Limitations
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
   10. Configure the NED to use ssh multi factor authentication
-  11. Custom XML transforms
-      11.1 filter-exclude-config
-      11.2 filter-by-version
-      11.3 filter-leaf
-      11.4 reorder-keys
-      11.5 edit-full-delete
-      11.6 edit-op
-      11.7 hidden-config
-      11.8 redeploy-on-edit
-      11.9 remove-before-edit
-      11.10 redeploy-parent-on-edit + redeploy-point
-      11.11 replace-all-leaf-list|long-obu-diff-leaf-list
-      11.12 diff-set|delete-before|after
-  12. Run arbitrary commands on device
+  11. Run arbitrary commands on device
   ```
 
 
@@ -586,7 +574,38 @@ admin@ncs(config)# commit
         xml      - Show diff as netconf edit-config XML.
 
 
-  ## 5.6. rpc compile-modules
+  ## 5.6. rpc compare-loaded-schema
+  ---------------------------------
+
+    Compare the currently loaded schema with the newly downloaded YANG modules. This tool generates a
+    report indicating whether the schemas are compatible within the scope of the current device
+    configuration stored in the CDB.
+
+      Input arguments:
+
+      - details <empty>
+
+        Display detailed results of the schema comparison, including all detected differences and
+        their compatibility status.
+
+
+      - skip-yang-pre-processing <empty>
+
+        Skip applying the same pre-processor fixes and build filters to newly downloaded YANG files as
+        were applied to the loaded schema before comparison. If set, it will likely generate a
+        significant number of false positives in the comparison results.
+
+
+      - outformat <enum> (default structured)
+
+        Select the format of the generated report.
+
+        structured  - structured.
+
+        text        - text.
+
+
+  ## 5.7. rpc compile-modules
   ---------------------------
 
     Compile YANG modules, showing all non-fatal warnings found.
@@ -608,7 +627,7 @@ admin@ncs(config)# commit
         Ignore errors while compiling, i.e. which would normally cause compilation to abort.
 
 
-  ## 5.7. rpc export-package
+  ## 5.8. rpc export-package
   --------------------------
 
     Export the customized and rebuilt NED. The exported archive file can then be used to install the
@@ -627,7 +646,7 @@ admin@ncs(config)# commit
         Configure a customized suffix to the name of the archive file.
 
 
-  ## 5.8. rpc get-modules
+  ## 5.9. rpc get-modules
   -----------------------
 
     Fetch the YANG modules from the device.
@@ -726,8 +745,8 @@ admin@ncs(config)# commit
             is relative to the git root directory.
 
 
-  ## 5.9. rpc import-filter-paths
-  -------------------------------
+  ## 5.10. rpc import-filter-paths
+  --------------------------------
 
     Import filter-paths from file, will be merged with currently loaded.
 
@@ -738,7 +757,7 @@ admin@ncs(config)# commit
         File containing filter-paths, one on each line: <include|exclude> <schema-path>.
 
 
-  ## 5.10. rpc list-filter-paths
+  ## 5.11. rpc list-filter-paths
   ------------------------------
 
     List currently loaded/generated filter-paths.
@@ -756,7 +775,7 @@ admin@ncs(config)# commit
         generate in src/yang.
 
 
-  ## 5.11. rpc list-module-sets
+  ## 5.12. rpc list-module-sets
   -----------------------------
 
     List the yang-library module-sets advertised by the device, if device supports it.
@@ -764,7 +783,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.12. rpc list-modules
+  ## 5.13. rpc list-modules
   -------------------------
 
     List the YANG modules advertised by the device. Including revision tag.
@@ -812,7 +831,7 @@ admin@ncs(config)# commit
         Use a download profile to match a predefined subset of matching YANG files.
 
 
-  ## 5.13. rpc list-profiles
+  ## 5.14. rpc list-profiles
   --------------------------
 
     List all predefined download profiles bundled with the NED. Including a short description of each.
@@ -820,7 +839,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.14. rpc patch-modules
+  ## 5.15. rpc patch-modules
   --------------------------
 
     Patch YANG modules, to remove non-fatal warnings found.
@@ -843,7 +862,7 @@ admin@ncs(config)# commit
         package), existing files will be renamed to <name>.yang.orig.
 
 
-  ## 5.15. rpc rebuild-package
+  ## 5.16. rpc rebuild-package
   ----------------------------
 
     Rebuild the NED package directly from within NSO. This invokes the gnu make internally.
@@ -853,6 +872,22 @@ admin@ncs(config)# commit
       - verbose <empty>
 
         Print the full build output also for successful builds (otherwise only printed on errors).
+
+
+      - build-namespace-classes <empty>
+
+        Generate Python and Java namespace classes for each YANG file.
+
+
+      - use-module-as-prefix <empty>
+
+        Instructs the NSO YANG compiler to use the YANG module name as the prefix instead of the
+        prefix declared in the YANG file. By default, the declared prefix is used. Enabling this
+        option changes how schema nodes are referenced in NSO, including through the Maagic and Maapi
+        APIs. Use this option with caution, as it may cause unexpected side effects. The primary use
+        case is migrating from an older NED schema that used module names as prefixes. Note that the
+        NED setting transaction/accept-module-as-prefix must also be enabled in the rebuilt NED to
+        make it function properly.
 
 
       - profile <string>
@@ -954,7 +989,7 @@ admin@ncs(config)# commit
         Additional arguments to pass to build(make) commands.
 
 
-  ## 5.16. rpc remove-filter-path
+  ## 5.17. rpc remove-filter-path
   -------------------------------
 
     Remove a path from filter-paths.
@@ -973,7 +1008,7 @@ admin@ncs(config)# commit
       - path <string>
 
 
-  ## 5.17. rpc show-default-local-dir
+  ## 5.18. rpc show-default-local-dir
   -----------------------------------
 
     Show the path to the default directory where the YANG files are to be copied. I.e <path to current
@@ -982,7 +1017,7 @@ admin@ncs(config)# commit
       No input arguments
 
 
-  ## 5.18. rpc show-loaded-schema
+  ## 5.19. rpc show-loaded-schema
   -------------------------------
 
     Display the schema currently built into the NED package. Each node will by default be listed with
@@ -1074,7 +1109,7 @@ admin@ncs(config)# commit
         Prepend extra comment containing info about the statement.
 
 
-  ## 5.19. rpc verify-get-config
+  ## 5.20. rpc verify-get-config
   ------------------------------
 
     Verify XML contents of config, either from device or file, to validate
@@ -1112,7 +1147,7 @@ admin@ncs(config)# commit
         Show verbose output, like 'sync-from verbose'.
 
 
-  ## 5.20. rpc xpath-trace-analyzer
+  ## 5.21. rpc xpath-trace-analyzer
   ---------------------------------
 
     A tool for analyzing NSO XPath traces, designed to identify inefficient or problematic XPath
@@ -1382,261 +1417,7 @@ admin@ncs(config)# commit
   ERROR: external mfa executable failed <....>
   ```
 
-# 11. Custom XML transforms
----------------------------
-
-  One useful feature present in the NED package is the ability to have java code
-  manipulate the contents of netconf XML before sent to NSO, or when applying
-  edits, before being sent to the device. This feature is implemented as custom
-  XML transform methods which can be referred in the yang schema, either
-  statically at compile time, or dynamically at run-time. In the case of
-  run-time referral, it can even be done on a per key-path level,
-  i.e. transforms can be called for specific key-paths in data.
-
-  While the implementation of these transforms is out of scope for this document
-  and for normal usage of the NED, the application of built-in transforms is a
-  very powerful additional tool which can be used to overcome some issues
-  commonly found in various devices.
-
-  To refer the transforms from yang, the custom tailf extension meta-data is
-  used. Since editing the original yang is discouraged, the meta-data extension
-  can be either added at compile-time through the schema customization mechanism
-  described in section 'Advanced: repairing YANG modules' in the README-rebuild.md,
-  or at run-time through the ned-setting 'transaction inject-meta-data'
-  (which can take key-paths).
-
-  The built-in transforms that can be referred are listed below. Note that each
-  transform is declared to work under certain constraints, regarding 'direction'
-  (i.e. to or from device), what type of yang node it can operate on, and so on.
-
-
-## 11.1 filter-exclude-config
------------------------------
-
-  This transform filters out config, by default in both directions, i.e. it will
-  act the same as if an exclude filter-path is added at the given node in the
-  schema. It can be applied on all types of nodes, for container and list nodes,
-  all children will also be filtered out. If a meta-value argument with either
-  value 'from-device' or 'to-device' is added, the filtering will only occur in
-  the given direction (NOTE: this means that NSO and the device might get
-  out-of-sync, use with care).
-
-  Since meta-data can be injected on key-path level, it's even possible to
-  filter out a certain instance from a list in the configuration such as this:
-
-    transaction inject-meta-data 1 path /ni:network-instance/ni:instances/ni:instance{_public_}/mpls:mpls/mpls:common meta-data filter-exclude-config
-
-
-## 11.2 filter-by-version
--------------------------
-
-  This transform acts similarly to 'filter-exclude-config', however, it always
-  applies in both directions. It takes a mandatory meta-value whose format is
-  described below. It is used together with the ned-setting
-  transaction/filter-config-by-version which provides a version used for
-  comparison, or when that ned-setting has the value 'auto', a device version
-  which is supplied through a ned-specific implementation calling the method
-  setDeviceVersion().
-
-  The meta-value describes a range for the version to compare to, and if valid,
-  will let the config pass, i.e. filtering out config for which the meta-value
-  is false. The format of the meta-value is best described using an example
-  value:
-
-      The following meta-value:
-
-      1.0 < VERSION <= 2.0
-
-      Means to include config marked with filter-by-version, only if the version
-      provided through the transaction/filter-config-by-version ned-setting is
-      greater than 1.0 and less than or equal to 2.0. To clarify, at run-time,
-      the token VERSION in the meta-value is substituted with the version
-      provided by the ned-setting (or the NED) and then the expression is
-      evaluated. The upper or lower bound of the range can be left out to make
-      it 'open' in one end, like this:
-
-      VERSION <= 2.0
-
-      1.0 < VERSION
-
-  NOTE: The version format can also be three digits, e.g. 7.3.1. The version can
-  contain one, two or three digits, which can be freely mixed in expressions.
-
-
-## 11.3 filter-leaf
--------------------
-
-  This transform can filter out leaf values which are either invalid, or has the
-  default value declared in the yang module. It works as a combination of the
-  ned-settings transaction/filter-invalid-values=true and the
-  capabilities/defaults-mode-override=trim but only for the leaf node where this
-  meta-data is applied. The mandatory meta-value can be either of:
-
-      filter-invalid              Will filter invalid values
-      trim-default                Will filter default values
-      filter-invalid,trim-default Will filter both invalid and default values
-
-
-## 11.4 reorder-keys
---------------------
-
-  This transform can be used where a device gives data in a non-compliant format
-  where list keys are either out-of-order or not the first elements in the XML,
-  i.e. where the XML needs to be re-ordered before being validated against the
-  yang schema. It takes no meta-value and should be placed on the problematic
-  list node(s) in the schema.
-
-
-## 11.5 edit-full-delete
-------------------------
-
-  This transform can be used when a device acts in a non-compliant way, where a
-  container needs to be deleted instead of its contents. It can be needed where
-  a device doesn't want a reachable default value set back instead of it being
-  deleted, which is how NSO normally 'clears' a value which is to be deleted,
-  and which has a default value declared.
-
-
-## 11.6 edit-op
----------------
-
-  This transform can be used to set the netconf operation to use when the node
-  in question is to be deleted or edited. By default nodes are deleted with the
-  operation 'delete'. With this transform, one can instead use 'remove' (or any
-  proprietary keyword) to do the delete instead. It can also be used to reverse
-  the effect of the ned-setting transaction/delete-with-remove is enabled,
-  i.e. to force 'delete' for selected node(s), for a given node. Also, the
-  edit-op can be set to 'replace' (or any proprietary keyword) to force that
-  netconf operation whenever the node is present in edit-config (i.e. if not
-  deleted).
-
-
-## 11.7 hidden-config
----------------------
-
-  This transform can be used if device contains config that can be set, but
-  which is not reflected in the running configuration. It can be used on leaf
-  and leaf-list nodes. When the annotated node is set from NSO, it is always
-  echoed back from the NED to NSO as if the device contains the value. It works
-  like the annotation tailf:ned-ignore-compare-config, but can also be used on
-  leaf-list nodes. The only difference is that from NSO perspective the data
-  looks as if it is actually present on device.
-
-
-## 11.8 redeploy-on-edit
-------------------------
-
-  With this transform added on a node in the schema, the node and its children
-  will be redeployed in full when edited (i.e. as if the whole content doesn't
-  exist on device). This means that if the node is present in the edit-config,
-  its contents in the edit-config will be replaced with the full content in the
-  to-transaction. This is useful if the device has the non-compliant behaviour
-  as if 'replace' is implied on the node, i.e. the device resets all the node's
-  content to only include the contents in the edit-config, which results in NSO
-  becoming out-of-sync if not all contents are redeployed in the edit.
-
-
-## 11.9 remove-before-edit
---------------------------
-
-  This transform will inject a delete of the annotated node when it appears in
-  an edit-config. This can be useful if the device has the non-compliant
-  behaviour that the contents of a node can not be edited if not first cleared
-  in the same edit.
-
-  This annotation can also take the meta-value argument 'delayed-commit', see
-  'redeploy-point' for more info on this.
-
-## 11.10 redeploy-parent-on-edit + redeploy-point
--------------------------------------------------
-
-  The transform 'redeploy-parent-on-edit' will redeploy the parent annotated with 'redeploy-point', whenever this node is edited. The parent will also first be deleted.
-  an edit-config. This can be useful if the device has the non-compliant
-  behaviour that the contents of a node can not be edited if not first cleared
-  in the same edit.
-
-  For example, if a device can't edit the pw-id and peer-ip inside the pw list
-  within an l2vpn instance, but instead actually needs the full instance to be
-  deleted and redeployed in the same edit, the below injects could be used in
-  customize-schmea.schypp:
-
-    add /l2vpn/instances/instance::tailf:meta-data redeploy-point;
-    add /l2vpn/instances/instance/vpws-ldp/pws/pw/pw-id::tailf:meta-data redeploy-parent-on-edit;
-    add /l2vpn/instances/instance/vpws-ldp/pws/pw/peer-ip::tailf:meta-data redeploy-parent-on-edit;
-
-  The meta-value argument 'delayed-commit' can be used in 'redeploy-point' (and
-  in 'remove-before-edit' as mentioned above) to force a split of the
-  edit-config, so that the delete will happen in first edit-config sent
-  (together with the rest of the edit), after which a commit is sent. Then there
-  will be an additional edit-config/commit containing the new config to be
-  set. This can work in some use-cases, however, since this behaviour indicates
-  a serious deviation from standard netconf transactionality in the device, it
-  must be used with great care, and is not guaranteed to work.
-
-  NOTE: If using 'delayed-commit', the ned-setting 'transaction
-  force-revert-diff' must be enabled to ensure that config is rolled back
-  correctly to compensate for the intermediate commit done.
-
-
-## 11.11 replace-all-leaf-list|long-obu-diff-leaf-list
-------------------------------------------------------
-
-  In some devices it has been observed that leaf-list nodes doesn't behave
-  according to netconf standard. Two annotations exists which can be used to
-  mitigate two problems found.
-
-  The first is 'replace-all-leaf-list' which indicates that the semantics of the
-  leaf-list is that all its content must re-added when edited, i.e. members not
-  present in edit-config are reset on device (which causes NSO to be
-  out-of-sync). Hence, editing the leaf-list always includes all members present
-  after the transaction (i.e. no explicit delete operation is needed). This can
-  potentially result in a very large edit-config of course, if the leaf-list has
-  many members.
-
-  The other annotation, 'long-obu-diff-leaf-list' can be used when the leaf-list
-  has the semantics of an 'ordered-by user' leaf-list, but is not editable as
-  such (i.e. the normal netconf move can not be used). Instead, it will be
-  edited by adding/deleting members, hence the resulting edit for a re-order
-  will first remove all elements from the first inserted element, then the rest
-  of the elements will be added in correct order, as if being added for the
-  first time. As with 'replace-all-leaf-list', this can potentially also result
-  in a very large edit-config.
-
-
-## 11.12 diff-set|delete-before|after
--------------------------------------
-
-  Some devices have non-compliant behaviour such that in certain use-cases, the
-  order of the contents in edit-config matters. In these cases this might be
-  solved by adding re-ordering meta-data annotations. These annotations are then
-  used to force a re-order when specific nodes appears in the edit-config.
-
-  NOTE: To be able to use these annotations, the ned-setting
-  'transaction enable-diff-dependencies' must be set to true.
-
-  The annotation is added to the node to be re-ordered, relative to another
-  (target) node, when both are present. The path to the target node is given by
-  appending ':<path-to-target>' to the chosen re-order variant.
-
-    The four annotation variants available are:
-
-    diff-set-before:<path-to-target>
-    diff-set-after:<path-to-target>
-    diff-delete-before:<path-to-target>
-    diff-delete-after:<path-to-target>
-
-  For example if the schema has a node 'scheduler' which needs to be set before
-  it's sibling queue-group, present in schema in parent node
-  /mef-egress-qos:egress-qos, the below annotation injection can be used in the
-  customize-schema.schypp file to achieve the needed re-ordering:
-
-    add /mef-egress-qos:egress-qos/scheduler::tailf:meta-data "diff-set-before:../queue-group";
-
-  This will have the effect that whenever both scheduler and queue-group are
-  present in an edit-config, scheduler will be set before queue-group.
-
-
-# 12. Run arbitrary commands on device
+# 11. Run arbitrary commands on device
 --------------------------------------
 
   Some commands that are available to a user logged in to an interactive CLI

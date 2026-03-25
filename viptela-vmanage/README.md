@@ -14,13 +14,14 @@
   5. Built in live-status actions
   6. Built in live-status show
   7. Limitations
-  8. How to report NED issues
-  9. Additional NED features
-   9.1 Administration - LicenseManagement
-   9.2 Administration - Settings - Statistics Settings
-   9.3 Feature templates/device templates/vars
-   9.4 Policies structure and organization (localized policy, centralized policy, security policy)
-   9.5 Localized policies: vedgeRoute and ACL lists sequence IDs
+  8. How to report NED issues and feature requests
+  9. How to rebuild a NED
+  10. Additional NED features
+   10.1 Administration - LicenseManagement
+   10.2 Administration - Settings - Statistics Settings
+   10.3 Feature templates/device templates/vars
+   10.4 Policies structure and organization (localized policy, centralized policy, security policy)
+   10.5 Localized policies: vedgeRoute and ACL lists sequence IDs
   ```
 
 
@@ -174,6 +175,12 @@
       package viptela-vmanage-gen-1.0
       result true
    }
+  ```
+
+  Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
+
+  ```
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/viptela-vmanage-gen-1.0
   ```
 
 
@@ -397,6 +404,15 @@
   Java logging does not use any IPC messages sent to NSO. Consequently, NSO performance is not
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
+
+  **SSHJ DEBUG LOGGING**
+  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
+  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+
+```
+admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
 
 
 # 3. Dependencies
@@ -655,18 +671,35 @@
      through VPNs, jump servers etc.
 
 
-# 9. Additional NED features
+# 9. How to rebuild a NED
+--------------------------
+
+  To rebuild the NED do as follows:
+
+  ```
+  > cd $NED_ROOT_DIR/src
+  > make clean all
+  ```
+
+  When the NED has been successfully rebuilt, it is necessary to reload the package into NSO.
+
+  ```
+  admin@ncs# packages reload
+  ```
+
+
+# 10. Additional NED features
 --------------------------------------------------
 
 This section describes in more detail some of the NED features/specific implementation/behavior details.
 Summary:
- - 9.1 Administration - LicenseManagement
- - 9.2 Administration - Settings - Statistics Settings
- - 9.3 Feature templates/device templates/vars
- - 9.4 Policies structure and organization (localized policy, centralized policy, security policy)
- - 9.5 Localized policies: vedgeRoute and ACL lists sequence IDs
+ - 10.1 Administration - LicenseManagement
+ - 10.2 Administration - Settings - Statistics Settings
+ - 10.3 Feature templates/device templates/vars
+ - 10.4 Policies structure and organization (localized policy, centralized policy, security policy)
+ - 10.5 Localized policies: vedgeRoute and ACL lists sequence IDs
 
-## 9.1 Administration - LicenseManagement
+## 10.1 Administration - LicenseManagement
 **added in v1.6.14**
 
 This feature covers the 'vManage -> Administration -> License Management' configuration menu, which can be used to assign subscription licences to vManage devices/edges.
@@ -713,7 +746,7 @@ The 'authentication' section can be skipped if the authentication is done throug
 - the licensing information is updated at a slow rate on the CSSM; the NED will not call the licenses sync (between the vManage and the CSSM service) at each NED sync-from for performance reasons
 - the vManage UI allows for multiple virtual accounts to be configured; the NED currently only supports one virtual account per configuration
 
-## 9.2 Administration - Settings - Statistics Settings
+## 10.2 Administration - Settings - Statistics Settings
 **added in v1.6.14**
 
 This feature covers the ```vManage -> Administration -> Settings -> Statistics setting``` configuration in the vManage UI.
@@ -742,7 +775,7 @@ settings
 - when all the available devices are added in the ```devicelist```, the vManage GUI will change the ```status``` to 'disabled' (instead of custom + full devicelist). The NED cannot handle this behavior (even if it did - there would be compare-config diffs)
 - each entry has a ```displayName``` leaf; these leaves are in the model to allow building the vManage request payloads, but they should be trated as read-only (should not be changed or deleted)
 
-## 9.3 Feature templates/device templates/vars
+## 10.3 Feature templates/device templates/vars
 
 ### Device templates
 
@@ -911,7 +944,7 @@ Currently optional variables are only available for the 'tree' components.
 - similarly with the first point, the list of vars can be obtained from the NED after a sync-from (after the device template has been attached)
 - as long as a device template is not changed (nor any variable components are added/removed to any of its feature templates), then its vars list will remain the same for any attached device
 
-## 9.4 Policies structure and organization (localized policy, centralized policy, security policy)
+## 10.4 Policies structure and organization (localized policy, centralized policy, security policy)
 
 Policies are composed of different sub-elements, which are coming in two categories:
 - definitions (/system/template/policy/definition/<definition type>), ex: Firewall, DNSSecurity, VedgeRoute, ACLv4, etc
@@ -971,7 +1004,7 @@ Notes:
 - centralized policies are currently only supported as 'CLI'
 - localized policies/definitions might reference DataPrefix/DataPrefixFQDN list entries which are modeled in 'system/template/security/lists/' (they were modeled initially as part of the security policies sub-lists)
 
-## 9.5 Localized policies: vedgeRoute and ACL lists sequence IDs
+## 10.5 Localized policies: vedgeRoute and ACL lists sequence IDs
 
 The vedgeroute and the ACLs (ACL v4, ACL v6, Device Access V4, Device Access V6) share a similar structure in the vManage UI, here one entry has a list of routes, and each route has a sub-list of rules (or sequences). Both the rules and the sequences re ordered by the user.
 
