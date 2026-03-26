@@ -65,7 +65,7 @@
   Settings for controlling logs generated.
 
 
-    - level <enum> (default info)
+    - logger level <enum> (default info)
 
       Set level of logging.
 
@@ -78,7 +78,7 @@
       debug    - debug.
 
 
-    - java <true|false> (default true)
+    - logger java <true|false> (default true)
 
       Toggle logs to be added to ncs-java-vm.log.
 
@@ -89,14 +89,14 @@
   Configure settings specific to the connection between NED and device.
 
 
-    - remote-protocol <enum>
+    - connection remote-protocol <enum>
 
       http   - http.
 
       https  - https.
 
 
-    - ssh client <enum>
+    - connection ssh client <enum>
 
       Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
 
@@ -106,56 +106,56 @@
                  when using the NED on NSO 5.6 or later.
 
 
-    - ssh host-key known-hosts-file <string>
+    - connection ssh host-key known-hosts-file <string>
 
       Path to openssh formatted 'known_hosts' file containing valid host keys.
 
 
-    - ssh host-key public-key-file <string>
+    - connection ssh host-key public-key-file <string>
 
       Path to openssh formatted public (.pub) host key file.
 
 
-    - ssh auth-key private-key-file <string>
+    - connection ssh auth-key private-key-file <string>
 
       Path to openssh formatted private key file.
 
 
-    - api-address <string>
+    - connection api-address <string>
 
       API address for device REST API.
 
 
-    - api-base-url <string> (default /nbi/soap)
+    - connection api-base-url <string> (default /nbi/soap)
 
       API base URL for device REST API.
 
 
-    - api-auth method <enum> (default headers)
+    - connection api-auth method <enum> (default headers)
 
       headers  - headers.
 
 
-    - api-auth credentials username <string>
+    - connection api-auth credentials username <string>
 
 
-    - api-auth credentials password <string>
+    - connection api-auth credentials password <string>
 
 
-    - api-auth headers username <string> (default Username)
+    - connection api-auth headers username <string> (default Username)
 
 
-    - api-auth headers password <string> (default Password)
+    - connection api-auth headers password <string> (default Password)
 
 
-    - ssl accept-any <true|false>
+    - connection ssl accept-any <true|false>
 
       Accept any SSL certificate presented by the device.
       Warning! This enables Man in the Middle attacks and
       should only be used for testing and troubleshooting.
 
 
-    - ssl certificate <binary>
+    - connection ssl certificate <binary>
 
       SSL certificate stored in DER format but since it is entered
       as Base64 it is very similar to PEM but without banners like
@@ -168,7 +168,7 @@
       openssl s_client -connect HOST:PORT
 
 
-    - logger silent <true|false> (default false)
+    - connection logger silent <true|false> (default false)
 
       Toggle detailed logs to only written to store.
 
@@ -179,20 +179,20 @@
   Configure settings specific to the interaction between NED and device API.
 
 
-    - web-service type <enum> (default soap)
+    - api web-service type <enum> (default soap)
 
       soap  - soap.
 
 
-    - request page-size <uint32> (default 50000)
+    - api request page-size <uint32> (default 50000)
 
       Page size.
 
 
-    - sync config actions commit sortable-services default disabled <true|false> (default true)
+    - api sync config actions commit sortable-services default disabled <true|false> (default true)
 
 
-    - sync devices actions send-signal payload type <enum> (default contact)
+    - api sync devices actions send-signal payload type <enum> (default contact)
 
       contact  - contact.
 
@@ -201,13 +201,13 @@
       reset    - reset.
 
 
-    - sync devices actions send-signal payload timeout <uint32> (default 10000)
+    - api sync devices actions send-signal payload timeout <uint32> (default 10000)
 
 
-    - sync devices actions send-signal disabled <true|false> (default false)
+    - api sync devices actions send-signal disabled <true|false> (default false)
 
 
-    - sync devices meta key-info <enum> (default uid)
+    - api sync devices meta key-info <enum> (default uid)
 
       Which device info to be used as key. Device info must be enabled.
 
@@ -216,7 +216,7 @@
       mac  - mac.
 
 
-    - sync devices filters filter-by <enum> (default query)
+    - api sync devices filters filter-by <enum> (default query)
 
       Select which filters to be used for searching Devices.
 
@@ -231,27 +231,27 @@
       query   - query.
 
 
-    - sync devices filters values uid <string>
+    - api sync devices filters values uid <string>
 
       Set "uid" filter values.
 
 
-    - sync devices filters values oui <string>
+    - api sync devices filters values oui <string>
 
       Set "oui" filter values.
 
 
-    - sync devices filters values serial <string>
+    - api sync devices filters values serial <string>
 
       Set "serial" filter values.
 
 
-    - sync devices filters values mac <string>
+    - api sync devices filters values mac <string>
 
       Set "mac" filter values.
 
 
-    - sync devices filters values query operator <enum> (default AND)
+    - api sync devices filters values query operator <enum> (default AND)
 
       Set the logical operator to be used
       between info based filters and generic queries.
@@ -264,7 +264,7 @@
       OR   - OR.
 
 
-    - sync devices filters values query statements <string> (default uid:*)
+    - api sync devices filters values query statements <string> (default uid:*)
 
       Set generic queries:
       * List of '[-]key:value' pairs; Use "-" before a key to negate the criterion.
@@ -279,12 +279,12 @@
       *                4. lastcontacttime:*;*  :- example ['lastcontacttime':*;*] this will count all devices.
 
 
-    - owner enabled <true|false> (default false)
+    - api owner enabled <true|false> (default false)
 
       Enable NSO Service Ownership.
 
 
-    - owner is <string>
+    - api owner is <string>
 
       Default Service Name.
 
@@ -294,7 +294,7 @@
 
   Configure which Device info to be retrieved from the API.
 
-    - sync devices info <name> <enabled>
+    - api sync devices info <name> <enabled>
 
       - name <enum>
 
@@ -312,7 +312,7 @@
 ## 4.2. ned-settings tilgin-tgem api owner of device
 ----------------------------------------------------
 
-    - owner of device <uid> <is>
+    - api owner of device <uid> <is>
 
       - uid <string>
 
@@ -329,32 +329,32 @@
   Contains settings used by the NED developers.
 
 
-    - trace-enable <true|false> (default false)
+    - developer trace-enable <true|false> (default false)
 
       Enable developer tracing. WARNING: may choke NSO with large commits|systems.
 
 
-    - trace-connection <true|false> (default false)
+    - developer trace-connection <true|false> (default false)
 
       Enable connection tracing. WARNING: may choke NSO with IPC messages.
 
 
-    - trace-timestamp <true|false> (default false)
+    - developer trace-timestamp <true|false> (default false)
 
       Add timestamp from NED instance in trace messages for debug purpose.
 
 
-    - platform model <string>
+    - developer platform model <string>
 
       Override device model name/number.
 
 
-    - platform name <string>
+    - developer platform name <string>
 
       Override device name.
 
 
-    - platform version <string>
+    - developer platform version <string>
 
       Override device version.
 

@@ -47,12 +47,12 @@
   Settings for the vCenter NED.
 
 
-    - vmware-vsphere file-path <string> (default ~)
+    - file-path <string> (default ~)
 
       Path to the OVA/OVF files (full absolute path).
 
 
-    - vmware-vsphere device-flavor <enum> (default legacy)
+    - device-flavor <enum> (default legacy)
 
       Sets the device flavor.
 
@@ -63,12 +63,12 @@
       netsim         - netsim.
 
 
-    - vmware-vsphere iso-folder <string>
+    - iso-folder <string>
 
       ISO folder path.
 
 
-    - vmware-vsphere ignore-vm-host-datastore-transid <true|false> (default false)
+    - ignore-vm-host-datastore-transid <true|false> (default false)
 
       Set this flag to true to ignore host / datastore info on trans-id computation.
 
