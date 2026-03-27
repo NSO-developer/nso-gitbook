@@ -422,14 +422,23 @@
 
     - config get-method <enum> (default default)
 
-      Configure NED behaviour when fetching config from the device when doing sync-from etc.
+      Configure NED behavior when retrieving configuration from the device during sync-from
+      operations.
 
-      default                    - A full depth RESTCONF GET call is issued on each top node in the
-                                   config tree.
+      default                      - A full-depth RESTCONF GET call is issued for each top-level
+                                     node in the configuration tree.
 
-      use-custom-get-callpoints  - Configure custom call points in the schema model. These will used
-                                   as paths when reading operational data. See chapter 'Configuring
-                                   Custom Call Points' for more information.
+      use-custom-get-callpoints    - Use custom call points defined in the data model as paths for
+                                     reading operational data.
+
+      from-root                    - A single full-depth RESTCONF GET call is issued on the root
+                                     path ('/'). Requires device support for root-level GET
+                                     operations.
+
+      from-root-with-fields-query  - A single full-depth RESTCONF GET call is issued on the root
+                                     path ('/') using a fields query for relevant top-level
+                                     nodes.Requires device support for root-level GET operations and
+                                     fields queries.
 
 
     - config device-requires-consecutive-gets <true|false> (default true)

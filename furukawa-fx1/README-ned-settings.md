@@ -282,11 +282,6 @@
       sync-from.Does only work on NETSIM targets
 
 
-    - developer model <uint32>
-
-      Simulate a model number.
-
-
     - developer version <uint8>
 
       Simulate a version number.
@@ -299,5 +294,20 @@
       netsim  - netsim.
 
       device  - device.
+
+
+    - developer platform model <string>
+
+      Override device model name/number.
+
+
+    - developer platform name <string>
+
+      Override device name.
+
+
+    - developer platform version <string>
+
+      Override device version.
 
 
