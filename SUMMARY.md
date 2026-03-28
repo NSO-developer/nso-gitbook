@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.2 2026-03-24](a10-acos/README.md)
+  * [README v3.27.3 2026-03-27](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -18,7 +18,7 @@
 
 * accedian-spp
   * [README-ned-settings](accedian-spp/README-ned-settings.md)
-  * [README v1.7.2 2026-03-26](accedian-spp/README.md)
+  * [README v1.7.3 2026-03-27](accedian-spp/README.md)
 
 * actelis-ead
   * [README-ned-settings](actelis-ead/README-ned-settings.md)
@@ -32,10 +32,6 @@
 * adtran-dpoe
   * [README-ned-settings](adtran-dpoe/README-ned-settings.md)
   * [README v1.0.3 2026-03-26](adtran-dpoe/README.md)
-
-* adva-825
-  * [README-ned-settings](adva-825/README-ned-settings.md)
-  * [README v4.1.23 2026-03-23](adva-825/README.md)
 
 * aethra-atos
   * [README-ned-settings](aethra-atos/README-ned-settings.md)
@@ -51,19 +47,15 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.69.3 2026-03-19](alu-sr/README.md)
+  * [README v8.69.4 2026-03-27](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.31.4 2026-03-20](arista-dcs/README.md)
+  * [README v5.31.5 2026-03-27](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
   * [README v1.11.1 2026-03-23](arris-cmts/README.md)
-
-* brocade-ironware
-  * [README-ned-settings](brocade-ironware/README-ned-settings.md)
-  * [README v4.2.5 2026-03-23](brocade-ironware/README.md)
 
 * casa-ccap
   * [README-ned-settings](casa-ccap/README-ned-settings.md)
@@ -72,10 +64,6 @@
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
   * [README v1.10.3 2026-03-20](ceragon-ip20/README.md)
-
-* checkpoint-gaiaos_rest
-  * [README-ned-settings](checkpoint-gaiaos_rest/README-ned-settings.md)
-  * [README v1.11.4 2025-04-04](checkpoint-gaiaos_rest/README.md)
 
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
@@ -110,7 +98,7 @@
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
-  * [README v1.7.4 2025-12-01](cisco-fmc/README.md)
+  * [README v1.7.5 2026-03-27](cisco-fmc/README.md)
 
 * cisco-ftd
   * [README-ned-settings](cisco-ftd/README-ned-settings.md)
@@ -144,10 +132,6 @@
 
 * cisco-iosxr_netconf
   * [README v25.4.1 2026-01-12](cisco-iosxr_netconf/README.md)
-
-* cisco-ise
-  * [README-ned-settings](cisco-ise/README-ned-settings.md)
-  * [README v1.1.3 2026-03-22](cisco-ise/README.md)
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
@@ -183,7 +167,7 @@
 
 * etsi-sol003
   * [README-ned-settings](etsi-sol003/README-ned-settings.md)
-  * [README v1.13.21 2026-03-02](etsi-sol003/README.md)
+  * [README v1.13.22 2026-03-27](etsi-sol003/README.md)
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
@@ -199,11 +183,11 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.11.34 2026-03-20](fortinet-fortios/README.md)
+  * [README v5.12 2026-03-27](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
-  * [README v2.0.5 2025-08-22](furukawa-fx1/README.md)
+  * [README v2.0.6 2026-03-27](furukawa-fx1/README.md)
 
 * helm-k8s
   * [README-ned-settings](helm-k8s/README-ned-settings.md)
@@ -211,7 +195,7 @@
 
 * hpe-ihss
   * [README-ned-settings](hpe-ihss/README-ned-settings.md)
-  * [README v1.2.7.1 2024-09-02](hpe-ihss/README.md)
+  * [README v1.2.8 2026-03-27](hpe-ihss/README.md)
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
@@ -248,7 +232,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.28 2026-01-16](juniper-junos_nc/README.md)
+  * [README v1.1.29 2026-03-27](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -257,10 +241,6 @@
 * nec-ipasolink-vr
   * [README-ned-settings](nec-ipasolink-vr/README-ned-settings.md)
   * [README v1.0.1 2026-03-26](nec-ipasolink-vr/README.md)
-
-* nokia-apc
-  * [README-ned-settings](nokia-apc/README-ned-settings.md)
-  * [README v1.0.11 2026-03-23](nokia-apc/README.md)
 
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
@@ -295,7 +275,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.18 2026-03-25](paloalto-panos_cli/README.md)
+  * [README v4.11.19 2026-03-27](paloalto-panos_cli/README.md)
 
 * pica8-picos
   * [README-ned-settings](pica8-picos/README-ned-settings.md)
@@ -319,11 +299,11 @@
 
 * redback-se
   * [README-ned-settings](redback-se/README-ned-settings.md)
-  * [README v1.7.1 2025-11-21](redback-se/README.md)
+  * [README v1.7.2 2026-03-27](redback-se/README.md)
 
 * redhat-ansible
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)
-  * [README v1.0.15 2026-02-23](redhat-ansible/README.md)
+  * [README v1.0.16 2026-03-27](redhat-ansible/README.md)
 
 * redhat-dir389
   * [README-ned-settings](redhat-dir389/README-ned-settings.md)
@@ -346,13 +326,9 @@
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
   * [README v1.0.16 2025-07-02](siae-smdc_rc/README.md)
 
-* tejas-nms5500
-  * [README-ned-settings](tejas-nms5500/README-ned-settings.md)
-  * [README v1.0.8 2026-03-23](tejas-nms5500/README.md)
-
 * tilgin-tgem
   * [README-ned-settings](tilgin-tgem/README-ned-settings.md)
-  * [README v1.0.1 2025-04-17](tilgin-tgem/README.md)
+  * [README v1.0.2 2026-03-27](tilgin-tgem/README.md)
 
 * unix-bind
   * [README-ned-settings](unix-bind/README-ned-settings.md)
@@ -370,15 +346,11 @@
   * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
   * [README v1.6.29 2026-03-24](viptela-vmanage/README.md)
 
-* vmware-vsphere
-  * [README-ned-settings](vmware-vsphere/README-ned-settings.md)
-  * [README v3.3.21 2026-03-25](vmware-vsphere/README.md)
-
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
   * [README v4.4.7 2026-01-30](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.3.3 2026-03-02](zte-zxros/README.md)
+  * [README v1.3.4 2026-03-27](zte-zxros/README.md)
 
