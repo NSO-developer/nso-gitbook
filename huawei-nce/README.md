@@ -32,6 +32,7 @@
      10.13 CRUD operations on ACL service
      10.14 CRUD operations on DHCP service
      10.15 tail-f action to query locators by nes
+     10.16 tail-f action to send CLI confugration to a target device(Northbound Transparent Transmission)
   11. DWDM-feature
       11.1 create/delete a 'tunnel' list entry
       11.2 create/modify/delete a service ('client-svc-instances') list entry
@@ -1697,36 +1698,99 @@ Examples:
    ```
 
 ## 10.15 tail-f action to query locators by nes
-----------------------------------------------
+-----------------------------------------------
 
-Example:
+Example:  
+One or more ne-ids can be fetched at the same time, separated by space.
 
  ```
- admin@ncs(config)# devices device dev-1 live-status exec query-locators-by-nes ne-id 55a47820-4810-11ea-bb04-fa163e497c23
+ admin@ncs(config)# devices device dev-1 live-status exec query-locators-by-nes ne-id ca3ffb36-08cc-43d2-8de3-f182d7921af3 792792fe-efb4-4aff-8d10-5c09e7df21eb
  result
- Done query locators by nes: 55a47820-4810-11ea-bb04-fa163e497c23
+ Done query locators by nes: ca3ffb36-08cc-43d2-8de3-f182d7921af3 792792fe-efb4-4aff-8d10-5c09e7df21eb
  {
-  "huawei-nce-segment-routing-ipv6:output":{
-      "ne-locators":{
-          "ne-locator":[{
-              "locators":{
-                  "locators":[{
-                      "locator-name":"SRV6",
-                      "ipv6-prefix":"2505::",
-                      "mask":64,
-                      "static-flag":true,
-                      "static-length":8,
-                      "args-flag":true,
-                      "args-length":16,
-                      "flex-algo":null
-                  }]
-              },
-              "ne-id":"55a47820-4810-11ea-bb04-fa163e497c23"
-          }]
-      }
-   }
+     "huawei-nce-segment-routing-ipv6:output":{
+         "ne-locators":{
+             "ne-locator":[{
+                 "locators":{
+                     "locators":[{
+                         "locator-name":"AG1-USID-algo128",
+                         "ipv6-prefix":"FC00:A01C:2001::",
+                         "mask":48,
+                         "static-flag":true,
+                         "static-length":32,
+                         "args-flag":true,
+                         "args-length":16,
+                         "flex-algo":128
+                     }]
+                 },
+                 "ne-id":"ca3ffb36-08cc-43d2-8de3-f182d7921af3"
+             },{
+                 "locators":{
+                     "locators":[{
+                         "locator-name":"CSR",
+                         "ipv6-prefix":"FC00:A006:100::",
+                         "mask":48,
+                         "static-flag":true,
+                         "static-length":32,
+                         "args-flag":true,
+                         "args-length":16,
+                         "flex-algo":0
+                     }]
+                 },
+                 "ne-id":"792792fe-efb4-4aff-8d10-5c09e7df21eb"
+             }]
+         }
+     }
  }
  ```
+
+## 10.16 tail-f action to send CLI confugration to a target device(Northbound Transparent Transmission)
+-------------------------------------------------------------------------------------------------------
+
+The user can use the 'set-or-read-cli-config' tail-f action to send CLI configuration to a device managed by the huawei-nce controller.  
+There are 2 options to use the tail-f action:  
+ - providing the raw payload: the user just insert/paste the payload in ncs_cli and, at the end, exist from Multiline mode by pressing ctrl-D.
+ - providing the values for each field: command-list, device-id, device-ip, time-out and show-all-replys.  
+ The last 2 parameters could be missed, since they have default values '1000' and 'true', which will be automatically added to the payload.
+
+Examples:
+
+1. raw payload - Create
+```
+
+admin@ncs(config)# devices device dev-1 live-status exec set-or-read-cli-config raw-payload
+Value for 'raw-payload' (<string>):
+[Multiline mode, exit with ctrl-D.]
+> {
+>     "huawei-nce-cli-northbound:input": {
+>         "command-list": [
+>             "system-view",
+>             "ip extcommunity-filter basic RT123025 index 10 permit rt 24208:123025",
+>             "commit"
+>         ],
+>         "device-id": "ca3ffb77-08cc-43d2-8de3-f182d5551af3",
+>         "device-ip": "10.123.60.8",
+>         "time-out": 1000,
+>         "show-all-replys": true
+>     }
+> }
+> (The user must press ctrl-D here)
+result
+Done executing the CLI command. The result is:
+ {"huawei-nce-cli-northbound:output":{"query-result":"system-view\r\nEnter system view, return user view with return command.\r\n[~AG1]ip extcommunity-filter basic RT123025 index 10 permit rt 24208:123025\r\n[~AG1]commit\r\n[~AG1]"}}
+ ```
+
+2. provide values for each parameter - Create (equivalent format from Example1)
+
+```
+admin@ncs(config)# devices device dev-1 live-status exec set-or-read-cli-config command-list [ system-view "ip extcommunity-filter basic RT123025 index 10 permit rt 24208:123025" commit ] device-id ca3ffb36-08cc-43d2-8de3-f182d7921af3 device-ip 10.165.60.4
+result
+Done executing the CLI command. The result is:
+ {"huawei-nce-cli-northbound:output":{"query-result":"system-view\r\nEnter system view, return user view with return command.\r\n[~AG1]ip extcommunity-filter basic RT123025 index 10 permit rt 24208:123025\r\n[*AG1]commit\r\n[~AG1]"}}
+```
+
+Note:
+ - time-out and show-all-replys are not provided, but their default values(time-out=1000 and show-all-replys=true) are part of the payload. If other values are needed, the user must provide them.
 
 
 # 11. DWDM-feature

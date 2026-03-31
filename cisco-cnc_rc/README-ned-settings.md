@@ -320,7 +320,7 @@
       replace  - Update using YANG-PATCH replace.
 
 
-    - config get-method <enum> (default default)
+    - config get-method <enum> (default from-root-with-fields-query)
 
       Configure NED behavior when retrieving configuration from the device during sync-from
       operations.

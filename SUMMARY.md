@@ -35,7 +35,7 @@
 
 * aethra-atos
   * [README-ned-settings](aethra-atos/README-ned-settings.md)
-  * [README v1.3.4 2026-03-23](aethra-atos/README.md)
+  * [README v1.4 2026-03-30](aethra-atos/README.md)
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
@@ -94,7 +94,7 @@
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
   * [README-rebuild](cisco-cnc_rc/README-rebuild.md)
-  * [README v1.0.13 2026-03-06](cisco-cnc_rc/README.md)
+  * [README v1.0.14 2026-03-30](cisco-cnc_rc/README.md)
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
@@ -211,7 +211,7 @@
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
-  * [README v1.0.29 2025-12-09](huawei-nce/README.md)
+  * [README v1.0.30 2026-03-30](huawei-nce/README.md)
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
