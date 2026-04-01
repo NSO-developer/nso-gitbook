@@ -386,3 +386,59 @@ By using the action `touch`, several re-deploys can be performed in the same tra
 Undo the effects of the service instance but keep the service itself. The service can later be re-deployed. This is a means to deactivate a service while keeping it in the system.
 
 </details>
+
+## Bulk Service Actions
+
+Service actions are performed on the multiple service instances filtered by services type (service callpoint).
+
+<details>
+
+<summary><code>re-deploy</code></summary>
+
+This is a tailored `re-deploy` intended to be used on multiple services. This action takes the same input parameters as `re-deploy` service instance action.
+
+There are 3 choices of service filter that can be used as input. 
+* Use `service-type` to filter on services of a certain type. 
+* Use `service-id` to filter on specific service instances. 
+* Use `select-services` to filter on services evaluated by an XPath expression.
+
+The output of this action is a list of service ids and the results of action `re-deploy`.
+
+Use the option `suppress-positive-result` to suppress results with empty diffs.
+
+</details>
+
+<details>
+
+<summary><code>un-deploy</code></summary>
+
+
+This is a tailored `un-deploy` intended to be used on multiple services. This action takes the same input parameters as `un-deploy` service instance action.
+
+There are 3 choices of service filter can be used as input. 
+* Use `service-type` to filter on services of a certain type. 
+* Use `service-id` to filter on specific services instances. 
+* Use `select-services` to filter on services evaluated by an XPath expression.
+
+The output of this action is a list of service ids and the results of action `un-deploy`.
+
+Use the option `suppress-positive-result` to suppress results with empty diffs.
+
+</details>
+
+<details>
+
+<summary><code>check-sync</code></summary>
+
+This is a tailored `check-sync` intended to be used on multiple services. This action takes the same input parameters as `check-sync` service instance action.
+
+There are 3 choices of service filter that can be used as input. 
+* Use `service-type` to filter on services of a certain type. 
+* Use `service-id` to filter on specific service instances. 
+* Use `select-services` to filter on services evaluated by an XPath expression.
+
+The output of this action is a list of service ids and the results of action `check-sync`.
+
+Use the option `suppress-positive-result` to suppress results with empty diffs.
+
+</details>

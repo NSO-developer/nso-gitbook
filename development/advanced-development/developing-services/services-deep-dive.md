@@ -1351,7 +1351,7 @@ admin@ncs# iface instance2 re-deploy reconcile
 
 Nevertheless, keep in mind that the discard-non-service-config reconcile operation only considers parts of the device configuration under nodes that are created with the service mapping. Even if all data there is covered in the mapping, there could still be other parts that belong to the service but reside in an entirely different section of the device configuration (say DNS configuration under `ip name-server`, which is outside the `interface GigabitEthernet` part) or even a different device. That kind of configuration the `discard-non-service-config` option cannot find on its own and you must add manually.
 
-You can find the complete `iface` service as part of the [examples.ncs/service-management/discovery](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/discovery) example.
+You can find the complete `iface` service as part of the [examples.ncs/service-management/discovery](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/discovery) example. Additionally, you can make use of bulk service actions. See [Bulk Service Actions](../../../operation-and-usage/operations/managing-network-services.md#bulk-service-actions).
 
 Since there were only two service instances to reconcile, the process is now complete. In practice, you are likely to encounter multiple variants and many more service instances, requiring you to make additional iterations. But you can follow the iterative process shown here.
 

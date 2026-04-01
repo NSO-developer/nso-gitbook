@@ -19,3 +19,5 @@ By using the `/ncs:devices/device/migrate` action, you can change the NED major/
 Additionally, the example [examples.ncs/device-management/ned-migration](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/ned-migration) in the NSO examples collection illustrates how to migrate devices between different NED versions using the `migrate` action.
 
 What makes it particularly useful to a service developer is that the action reports what paths have been modified and the service instances affected by those changes. This information can then be used to prepare the service code to handle the new NED version. If the `verbose` option is used, all service instances are reported instead of just the service points. If the `dry-run` option is used, the action simply reports what it would do. This gives you the chance to analyze before any actual change is performed.
+
+NSO also provides bulk service actions which could aid the NED migration where the NED upgrade touches the same paths that services manage. See [Bulk Service Actions](../../../operation-and-usage/operations/managing-network-services.md#bulk-service-actions)
