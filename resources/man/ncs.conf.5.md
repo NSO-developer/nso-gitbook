@@ -136,10 +136,11 @@ how they relate to each other.
 > </div>
 
 /ncs-config/ncs-ipc-address  
-> NCS listens by default on 127.0.0.1:4569 for incoming TCP connections
-> from NCS client libraries, such as CDB, MAAPI, the CLI, the external
-> database API, as well as commands from the ncs script (such as 'ncs
-> --reload').
+> When TCP IPC is enabled (i.e. when `/ncs-config/ncs-local-ipc/enabled`
+> is set to `false`), NCS listens on 127.0.0.1 by default for incoming
+> TCP connections from NCS client libraries, such as CDB, MAAPI, the
+> CLI, the external database API, as well as commands from the ncs
+> script (such as 'ncs --reload').
 >
 > The IP address and port can be changed. If they are changed all
 > clients using MAAPI, CDB et.c. must be re-compiled to handle this. See
@@ -149,6 +150,8 @@ how they relate to each other.
 > instructed to bind(2) to anything but localhost. Read more about this
 > in the NCS IPC section in the System Managent Topics section of the
 > User Guide.
+>
+> These settings are not used when Local IPC is enabled (the default).
 
 /ncs-config/ncs-ipc-address/ip (ipv4-address \| ipv6-address) \[127.0.0.1\]  
 > The IP address which NCS listens on for incoming connections from the
@@ -167,16 +170,16 @@ how they relate to each other.
 > certain interfaces.
 
 /ncs-config/ncs-local-ipc  
-> NCS can be configured to use Unix domain socket instead of TCP for
-> communication with NCS client libraries, such as CDB, MAAPI, the CLI,
-> the external database API, as well as commands from the ncs script
-> (such as 'ncs --reload').
+> NCS uses a Unix domain socket by default for communication with NCS
+> client libraries, such as CDB, MAAPI, the CLI, the external database
+> API, as well as commands from the ncs script (such as 'ncs --reload').
 >
 > The default path to the Unix domain socket is /tmp/nso/nso-ipc, the
 > value can be changed.
 
-/ncs-config/ncs-local-ipc/enabled (boolean) \[false\]  
-> If set to 'true', IPC over Unix domain socket is enabled.
+/ncs-config/ncs-local-ipc/enabled (boolean) \[true\]  
+> If set to 'true', IPC over Unix domain socket is enabled. This is the
+> default.
 >
 > Note that when enabled, supported clients need to use this method to
 > connect to NCS as other methods will not be available and the values

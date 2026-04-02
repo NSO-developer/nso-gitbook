@@ -327,7 +327,7 @@ The default `aaa_init.xml` file must not be used as-is before reviewing and veri
 
 For a detailed discussion of the configuration of authorization rules through NACM, see [AAA infrastructure](../../management/aaa-infrastructure.md), particularly the section [Authorization](../../management/aaa-infrastructure.md#ug.aaa.authorization).
 
-A considerably more complex scenario is when users require shell access to the host but are either untrusted or should not have any access to NSO at all. NSO listens to a so-called IPC socket configured through `/ncs-config/ncs-ipc-address`. This socket is typically limited to local connections and defaults to `127.0.0.1:4569` for security. The socket multiplexes several different access methods to NSO.
+A considerably more complex scenario is when users require shell access to the host but are either untrusted or should not have any access to NSO at all. NSO listens on an IPC socket, which by default is a Unix domain socket (Local IPC) configured through `/ncs-config/ncs-local-ipc`. Alternatively, NSO can be configured to use a TCP socket through `/ncs-config/ncs-ipc-address`. In either case, the socket is typically limited to local connections for security. The socket multiplexes several different access methods to NSO.
 
 The main security-related point is that no AAA checks are performed on this socket. If you have access to the socket, you also have complete access to all of NSO.
 

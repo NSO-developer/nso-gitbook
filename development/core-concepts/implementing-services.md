@@ -1190,12 +1190,7 @@ The complete implementation requires you to supply your own Maapi read transacti
     public ConfXMLParam[] test_enabled(DpActionTrans trans, ConfTag name,
                                        ConfObject[] kp, ConfXMLParam[] params)
     throws DpCallbackException {
-        int port = NcsMain.getInstance().getNcsPort();
-
-        // Ensure socket gets closed on errors, also ending any ongoing
-        // session and transaction
-        try (Socket socket = new Socket("localhost", port)) {
-            Maapi maapi = new Maapi(socket);
+        try (Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH))) {
             maapi.startUserSession("admin", "system");
 
             NavuContext context = new NavuContext(maapi);
@@ -1318,8 +1313,8 @@ Unlike configuration data, which always requires a transaction, you can write op
 If you avoid transactions and write data directly, you must use the low-level CDB API, which requires manual connection management and does not support Maagic API for data model navigation.
 
 ```python
-with contextlib.closing(socket.socket()) as s:
-    _ncs.cdb.connect(s, _ncs.cdb.DATA_SOCKET, ip='127.0.0.1', port=_ncs.PORT)
+with contextlib.closing(socket.socket(family=socket.AF_UNIX)) as s:
+    _ncs.cdb.connect(s, _ncs.cdb.DATA_SOCKET, path=_ncs.PATH)
     _ncs.cdb.start_session(s, _ncs.cdb.OPERATIONAL)
     _ncs.cdb.set_elem(s, 'up', '/iface{test-instance1}/last-test-status')
 ```
@@ -1392,11 +1387,8 @@ Unlike configuration data, which always requires a transaction, you can write op
 If you avoid transactions and write data directly, you must use the low-level CDB API, which does not support NAVU for data model navigation.
 
 ```java
-int port = NcsMain.getInstance().getNcsPort();
-
-// Ensure socket gets closed on errors, also ending any ongoing session/lock
-try (Socket socket = new Socket("localhost", port)) {
-    Cdb cdb = new Cdb("IfaceServiceOperWrite", socket);
+SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
+Cdb cdb = new Cdb("IfaceServiceOperWrite", address);
     CdbSession session = cdb.startSession(CdbDBType.CDB_OPERATIONAL);
 
     String status = "up";
@@ -1404,19 +1396,13 @@ try (Socket socket = new Socket("localhost", port)) {
         "test-instance1");
     session.setElem(ConfEnumeration.getEnumByLabel(path, status), path);
 
-    session.endSession();
-}
+session.endSession();
 ```
 
 The alternative, transaction-based approach uses high-level MAAPI and NAVU objects:
 
 ```java
-int port = NcsMain.getInstance().getNcsPort();
-
-// Ensure socket gets closed on errors, also ending any ongoing
-// session and transaction
-try (Socket socket = new Socket("localhost", port)) {
-    Maapi maapi = new Maapi(socket);
+try (Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH))) {
     maapi.startUserSession("admin", "system");
 
     NavuContext context = new NavuContext(maapi);
