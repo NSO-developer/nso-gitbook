@@ -196,7 +196,7 @@ Custom actionpoint stop triggered when Python VM shuts down.
 Manage a data provider connection towards ConfD/NCS.
 
 ```python
-Daemon(name, log=None, ip='127.0.0.1', port=4569, path=None, state_mgr=None)
+Daemon(name, log=None, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', state_mgr=None)
 ```
 
 Initialize a Daemon object.

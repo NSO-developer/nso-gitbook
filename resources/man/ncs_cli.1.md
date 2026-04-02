@@ -14,6 +14,10 @@ The ncs_cli program is a C frontend to the NSO CLI engine. The `ncs_cli`
 program connects to NSO and basically passes data back and forth from
 the user to NSO.
 
+For local connections, `ncs_cli` uses Local IPC by default. Use `-S` or
+`NCS_IPC_PATH` to select a specific socket path, or `-A` and `-P` to
+connect over TCP.
+
 ncs_cli can be invoked from the command line. If so, no authentication
 is done. The archetypical usage of ncs_cli is to use it as a login shell
 in /etc/passwd, in which case authentication is done by the login
@@ -30,14 +34,14 @@ program.
 > is used in the CLI prompt.
 
 `-A`; `--address` \<Address\>  
-> CLI address to connect to. The default is 127.0.0.1. This can be
-> controlled by either this flag, or the UNIX environment variable
-> `NCS_IPC_ADDR`. The `-A` flag takes precedence.
+> TCP address to connect to. When TCP IPC is used, the default is
+> 127.0.0.1. This can be controlled by either this flag, or the UNIX
+> environment variable `NCS_IPC_ADDR`. The `-A` flag takes precedence.
 
 `-P`; `--port` \<PortNumber\>  
-> CLI port to connect to. The default is the NSO IPC port, which is 4569
-> This can be controlled by either this flag, or the UNIX environment
-> variable `NCS_IPC_PORT`. The `-P` flag takes precedence.
+> CLI port to connect to when using TCP IPC. This can be controlled by
+> either this flag, or the UNIX environment variable `NCS_IPC_PORT`. The
+> `-P` flag takes precedence.
 
 `-S`; `--socket-path` \<Path\>  
 > Path of the UNIX domain socket to connect to, used in place of TCP

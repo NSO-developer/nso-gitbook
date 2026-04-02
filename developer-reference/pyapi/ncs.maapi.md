@@ -39,7 +39,7 @@ Finally, a really compact way of doing this:
 ### connect
 
 ```python
-connect(ip='127.0.0.1', port=4569, path=None)
+connect(ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Convenience function for connecting to ConfD/NCS.
@@ -90,7 +90,7 @@ Arguments:
 ### single_read_trans
 
 ```python
-single_read_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
+single_read_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
 ```
 
 Context manager for a single READ transaction.
@@ -141,7 +141,7 @@ Returns:
 ### single_write_trans
 
 ```python
-single_write_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
+single_write_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
 ```
 
 Context manager for a single READ/WRITE transaction.
@@ -1228,7 +1228,7 @@ _None_
 Class encapsulating a MAAPI connection.
 
 ```python
-Maapi(ip='127.0.0.1', port=4569, path=None, load_schemas=True, msock=None)
+Maapi(ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', load_schemas=True, msock=None)
 ```
 
 Create a Maapi instance.

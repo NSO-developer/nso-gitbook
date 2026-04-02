@@ -15,7 +15,7 @@ Use this class when subscribing on operational data. In all other means
 the behavior is the same as for Subscriber().
 
 ```python
-OperSubscriber(app=None, log=None, host='127.0.0.1', port=4569, path=None)
+OperSubscriber(app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Initialize an OperSubscriber.
@@ -369,7 +369,7 @@ calls for all subscription points, and finally a single call to
 post_iterate().
 
 ```python
-Subscriber(app=None, log=None, host='127.0.0.1', port=4569, subtype=1, name='', path=None)
+Subscriber(app=None, log=None, host='127.0.0.1', port=None, subtype=1, name='', path='/tmp/nso/nso-ipc')
 ```
 
 Initialize a Subscriber.
@@ -692,7 +692,7 @@ Methods are called in the following order:
 3. should_iterate -> abort, if transaction is aborted by other subscriber
 
 ```python
-TwoPhaseSubscriber(name, app=None, log=None, host='127.0.0.1', port=4569, path=None)
+TwoPhaseSubscriber(name, app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Members:
