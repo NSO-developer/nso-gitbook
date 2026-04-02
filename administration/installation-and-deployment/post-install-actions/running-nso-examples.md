@@ -110,7 +110,7 @@ You already have another instance of NSO running (or the same with netsim):
 
 ```bash
 $ ncs
-Cannot bind to internal socket 127.0.0.1:4569 : address already in use
+Cannot bind to internal socket /tmp/nso/nso-ipc : address already in use
 Daemon died status=20
 $ ncs-netsim start
 DEVICE c0 Cannot bind to internal socket 127.0.0.1:5010 : \

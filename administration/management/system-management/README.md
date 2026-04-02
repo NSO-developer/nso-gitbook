@@ -59,7 +59,7 @@ In this section, some of the important configuration settings will be described 
 
 ### Exposed Interfaces
 
-NSO allows access through a number of different interfaces, depending on the use case. In the default configuration, clients can access the system locally through an unauthenticated IPC socket (with the `ncs*` family of commands, port 4569) and plain (non-HTTPS) HTTP web server (port 8080). Additionally, the system enables remote access through SSH-secured NETCONF and CLI (ports 2022 and 2024).
+NSO allows access through a number of different interfaces, depending on the use case. In the default configuration, clients can access the system locally through an unauthenticated IPC socket (with the `ncs*` family of commands, using Local IPC over a Unix domain socket) and plain (non-HTTPS) HTTP web server (port 8080). Additionally, the system enables remote access through SSH-secured NETCONF and CLI (ports 2022 and 2024).
 
 We strongly encourage you to review and customize the exposed interfaces to your needs in the `ncs.conf` configuration file. In particular, set:
 

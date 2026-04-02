@@ -287,18 +287,17 @@ Suppose you have some code in Java, such as the following:
 ```java
 public class MyProgram {
     public static void main(String[] arg) throws Exception {
-        Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("admin", "system");
-        NavuContext context = new NavuContext(maapi);
-        int tid = context.startRunningTrans(Conf.MODE_READ_WRITE);
+        try (Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH))) {
+            maapi.startUserSession("admin", "system");
+            NavuContext context = new NavuContext(maapi);
+            int tid = context.startRunningTrans(Conf.MODE_READ_WRITE);
 
-        // Your code here that reads and writes data.
+            // Your code here that reads and writes data.
 
-        // Finally, call apply.
-        context.applyClearTrans();
-        maapi.endUserSession();
-        socket.close();
+            // Finally, call apply.
+            context.applyClearTrans();
+            maapi.endUserSession();
+        }
     }
 }
 ```
@@ -334,15 +333,14 @@ If the code requires some extra parameters when called, you can also define addi
 ```java
 public class MyProgram {
     public static void main(String[] arg) throws Exception {
-        Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("admin", "system");
-        // Deletegate work to MyProvisioningOp, with retry.
-        maapi.ncsRunWithRetry(new MyProvisioningOp());
-        // No more calling applyClearTrans() or friends,
-        // ncsRunWithRetry() does that for you.
-        maapi.endUserSession();
-        socket.close();
+        try (Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH))) {
+            maapi.startUserSession("admin", "system");
+            // Deletegate work to MyProvisioningOp, with retry.
+            maapi.ncsRunWithRetry(new MyProvisioningOp());
+            // No more calling applyClearTrans() or friends,
+            // ncsRunWithRetry() does that for you.
+            maapi.endUserSession();
+        }
     }
 }
 ```

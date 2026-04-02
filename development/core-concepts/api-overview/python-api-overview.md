@@ -1029,11 +1029,10 @@ The following example is a script to read and de-crypt a password using the Pyth
 import _ncs
 from _ncs import maapi
 
-sock_maapi = socket.socket()
+sock_maapi = socket.socket(family=socket.AF_UNIX)
 
 maapi.connect(sock_maapi,
-              ip='127.0.0.1',
-              port=_ncs.NCS_PORT)
+              path=_ncs.PATH)
 
 maapi.load_schemas(sock_maapi)
 
@@ -1070,11 +1069,10 @@ import socket
 import _ncs
 from _ncs import maapi
 
-sock_maapi = socket.socket()
+sock_maapi = socket.socket(family=socket.AF_UNIX)
 
 maapi.connect(sock_maapi,
-              ip='127.0.0.1',
-              port=_ncs.NCS_PORT)
+              path=_ncs.PATH)
 
 maapi.load_schemas(sock_maapi)
 
@@ -1121,13 +1119,12 @@ import socket
 import _ncs
 from _ncs import cdb
 
-sock_cdb = socket.socket()
+sock_cdb = socket.socket(family=socket.AF_UNIX)
 
 cdb.connect(
     sock_cdb,
     type=cdb.DATA_SOCKET,
-    ip='127.0.0.1',
-    port=_ncs.NCS_PORT)
+    path=_ncs.PATH)
 
 cdb.start_session2(sock_cdb, cdb.OPERATIONAL, cdb.LOCK_WAIT | cdb.LOCK_REQUEST)
 
@@ -1162,8 +1159,8 @@ Take for example the following program that connects to two different NSO nodes 
             import ncs
 
 
-            def print_ned_ids(port):
-                with ncs.maapi.single_read_trans('admin', 'system', db=ncs.OPERATIONAL, port=port) as t:
+            def print_ned_ids(path):
+                with ncs.maapi.single_read_trans('admin', 'system', db=ncs.OPERATIONAL, path=path) as t:
                 dev_ned_id = ncs.maagic.get_node(t, '/devices/ned-ids/ned-id')
                 for id in dev_ned_id.keys():
                     print(id)
@@ -1171,9 +1168,9 @@ Take for example the following program that connects to two different NSO nodes 
 
             if __name__ == '__main__':
                 print('=== lsa-1 ===')
-                print_ned_ids(4569)
+                print_ned_ids('/tmp/nso-lsa-1/nso-ipc')
                 print('=== lsa-2 ===')
-                print_ned_ids(4570)
+                print_ned_ids('/tmp/nso-lsa-2/nso-ipc')
 ```
 {% endcode %}
 

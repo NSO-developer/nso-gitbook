@@ -115,7 +115,7 @@ Examples of programs that connect using IPC sockets:
 ### Default Security
 
 * Only local connections to IPC sockets are allowed by default.
-* TCP sockets with no authentication.
+* Unix domain sockets (Local IPC) are used by default, relying on filesystem permissions for access control.
 
 ### Best Practices
 

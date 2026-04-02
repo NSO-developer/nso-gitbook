@@ -717,33 +717,32 @@ An example of Java code that creates operational data using the Navu API is show
     public static void createEntry(String key)
             throws  IOException, ConfException {
 
-        Socket socket = new Socket("127.0.0.1", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(socket);
-        maapi.startUserSession("system", InetAddress.getByName(null),
-                               "system", new String[]{},
-                               MaapiUserSessionFlag.PROTO_TCP);
-        NavuContext operContext = new NavuContext(maapi);
-        int th = operContext.startOperationalTrans(Conf.MODE_READ_WRITE);
-        NavuContainer mroot = new NavuContainer(operContext);
-        LOGGER.debug("ROOT --> " + mroot);
+        try (Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH))) {
+            maapi.startUserSession("system", InetAddress.getByName(null),
+                                   "system", new String[]{},
+                                   MaapiUserSessionFlag.PROTO_TCP);
+            NavuContext operContext = new NavuContext(maapi);
+            int th = operContext.startOperationalTrans(Conf.MODE_READ_WRITE);
+            NavuContainer mroot = new NavuContainer(operContext);
+            LOGGER.debug("ROOT --> " + mroot);
 
-        ConfNamespace ns = new test();
-        NavuContainer testModule = mroot.container(ns.hash());
-        NavuList list =  testModule.container("test").list("stats-item");
-        LOGGER.debug("LIST: --> " + list);
+            ConfNamespace ns = new test();
+            NavuContainer testModule = mroot.container(ns.hash());
+            NavuList list =  testModule.container("test").list("stats-item");
+            LOGGER.debug("LIST: --> " + list);
 
-        List<ConfXMLParam> param = new ArrayList<>();
-        param.add(new ConfXMLParamValue(ns, "skey", new ConfBuf(key)));
-        param.add(new ConfXMLParamValue(ns, "i",
-                new ConfInt32(key.hashCode())));
-        param.add(new ConfXMLParamStart(ns, "inner"));
-        param.add(new ConfXMLParamValue(ns, "l", new ConfBuf("test-" + key)));
-        param.add(new ConfXMLParamStop(ns, "inner"));
-        list.setValues(param.toArray(new ConfXMLParam[0]));
-        maapi.applyTrans(th, false);
-        maapi.finishTrans(th);
-        maapi.endUserSession();
-        socket.close();
+            List<ConfXMLParam> param = new ArrayList<>();
+            param.add(new ConfXMLParamValue(ns, "skey", new ConfBuf(key)));
+            param.add(new ConfXMLParamValue(ns, "i",
+                    new ConfInt32(key.hashCode())));
+            param.add(new ConfXMLParamStart(ns, "inner"));
+            param.add(new ConfXMLParamValue(ns, "l", new ConfBuf("test-" + key)));
+            param.add(new ConfXMLParamStop(ns, "inner"));
+            list.setValues(param.toArray(new ConfXMLParam[0]));
+            maapi.applyTrans(th, false);
+            maapi.finishTrans(th);
+            maapi.endUserSession();
+        }
     }
 ```
 {% endcode %}
@@ -754,8 +753,7 @@ An example of Java code that deletes operational data using the CDB API is shown
 ```java
     public static void deleteEntry(String key)
             throws IOException, ConfException {
-        Socket s = new Socket("127.0.0.1", Conf.NCS_PORT);
-        Cdb c = new Cdb("writer", s);
+        Cdb c = new Cdb("writer", UnixDomainSocketAddress.of(Conf.NCS_PATH));
 
         CdbSession sess = c.startSession(CdbDBType.CDB_OPERATIONAL,
                                          EnumSet.of(CdbLockType.LOCK_REQUEST,
@@ -764,7 +762,6 @@ An example of Java code that deletes operational data using the CDB API is shown
                                      new ConfKey(new ConfBuf(key)));
         sess.delete(path);
         sess.endSession();
-        s.close();
     }
 ```
 {% endcode %}
@@ -1284,8 +1281,8 @@ public class UpgradeService {
     }
 
     public static void main(String[] args) throws Exception {
-        Socket s1 = new Socket("localhost", Conf.NCS_PORT);
-        Cdb cdb = new Cdb("cdb-upgrade-sock", s1);
+        SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
+        Cdb cdb = new Cdb("cdb-upgrade-sock", address);
         cdb.setUseForCdbUpgrade();
         CdbUpgradeSession cdbsess =
             cdb.startUpgradeSession(
@@ -1294,8 +1291,7 @@ public class UpgradeService {
                                CdbLockType.LOCK_WAIT));
 
 
-        Socket s2 = new Socket("localhost", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(s2);
+        Maapi maapi = new Maapi(address);
         int th = maapi.attachInit();
 
         int no = cdbsess.getNumberOfInstances("/services/vlan");
@@ -1322,19 +1318,17 @@ public class UpgradeService {
             maapi.setElem(th, new ConfBuf(globId), gidpath);
         }
 
-        s1.close();
-        s2.close();
     }
 }
 ```
 {% endcode %}
 
-Let's go through the code and point out the different aspects of writing an `upgrade` component. First (see the example below (Upgrade Init)) we open a socket and connect to NSO. We pass this socket to a Java API `Cdb` instance and call `Cdb.setUseForCdbUpgrade()`. This method will prepare `cdb` sessions for reading old data from the CDB database, and it should only be called in this context. At the end of this first code fragment, we start the CDB upgrade session:
+Let's go through the code and point out the different aspects of writing an `upgrade` component. First (see the example below (Upgrade Init)) we create a Java API `Cdb` connection to NSO over Local IPC and call `Cdb.setUseForCdbUpgrade()`. This method will prepare `cdb` sessions for reading old data from the CDB database, and it should only be called in this context. At the end of this first code fragment, we start the CDB upgrade session:
 
 {% code title="Example: Upgrade Init" %}
 ```java
-        Socket s1 = new Socket("localhost", Conf.NCS_PORT);
-        Cdb cdb = new Cdb("cdb-upgrade-sock", s1);
+        SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
+        Cdb cdb = new Cdb("cdb-upgrade-sock", address);
         cdb.setUseForCdbUpgrade();
         CdbUpgradeSession cdbsess =
             cdb.startUpgradeSession(
@@ -1344,12 +1338,11 @@ Let's go through the code and point out the different aspects of writing an `upg
 ```
 {% endcode %}
 
-We then open and connect a second socket to NSO and pass this to a Java API Maapi instance. We call the `Maapi.attachInit()` method to get the init transaction (see the example below (Upgrade Get Transaction)).
+We then create a Java API Maapi connection to NSO and call the `Maapi.attachInit()` method to get the init transaction (see the example below (Upgrade Get Transaction)).
 
 {% code title="Example: Upgrade Get Transaction" %}
 ```java
-        Socket s2 = new Socket("localhost", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(s2);
+        Maapi maapi = new Maapi(address);
         int th = maapi.attachInit();
 ```
 {% endcode %}
@@ -1483,8 +1476,8 @@ public class UpgradeService {
     public static void main(String[] args) throws Exception {
         ArrayList<ConfNamespace> nsList = new ArrayList<ConfNamespace>();
         nsList.add(new vlanService());
-        Socket s1 = new Socket("localhost", Conf.NCS_PORT);
-        Cdb cdb = new Cdb("cdb-upgrade-sock", s1);
+        SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
+        Cdb cdb = new Cdb("cdb-upgrade-sock", address);
         cdb.setUseForCdbUpgrade(nsList);
         CdbUpgradeSession cdbsess =
             cdb.startUpgradeSession(
@@ -1493,8 +1486,7 @@ public class UpgradeService {
                                CdbLockType.LOCK_WAIT));
 
 
-        Socket s2 = new Socket("localhost", Conf.NCS_PORT);
-        Maapi maapi = new Maapi(s2);
+        Maapi maapi = new Maapi(address);
         int th = maapi.attachInit();
 
         int no = cdbsess.getNumberOfInstances("/services/vlan");
@@ -1532,8 +1524,6 @@ public class UpgradeService {
             maapi.ncsMovePrivateData(th, oldPath, newPath);
         }
 
-        s1.close();
-        s2.close();
     }
 }
 ```
@@ -1544,8 +1534,8 @@ We will walk through this code also and point out the aspects that differ from t
 ```java
         ArrayList<ConfNamespace> nsList = new ArrayList<ConfNamespace>();
         nsList.add(new vlanService());
-        Socket s1 = new Socket("localhost", Conf.NCS_PORT);
-        Cdb cdb = new Cdb("cdb-upgrade-sock", s1);
+        SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
+        Cdb cdb = new Cdb("cdb-upgrade-sock", address);
         cdb.setUseForCdbUpgrade(nsList);
         CdbUpgradeSession cdbsess =
             cdb.startUpgradeSession(
