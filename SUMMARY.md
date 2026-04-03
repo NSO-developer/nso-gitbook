@@ -39,7 +39,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.31.6 2026-04-01](arista-dcs/README.md)
+  * [README v5.31.7 2026-04-02](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -81,11 +81,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.114 2026-03-25](cisco-ios/README.md)
+  * [README v6.114.1 2026-04-02](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.75.10 2026-03-26](cisco-iosxr/README.md)
+  * [README v7.76 2026-04-02](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.32.3 2026-03-19](cisco-nx/README.md)
+  * [README v5.32.4 2026-04-02](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
