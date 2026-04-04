@@ -35,7 +35,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.69.4 2026-03-27](alu-sr/README.md)
+  * [README v8.70 2026-04-03](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -222,7 +222,7 @@
 
 * redhat-ansible
   * [README-ned-settings](redhat-ansible/README-ned-settings.md)
-  * [README v1.0.16 2026-03-27](redhat-ansible/README.md)
+  * [README v1.0.17 2026-04-03](redhat-ansible/README.md)
 
 * redhat-openshift-k8s
   * [README-ned-settings](redhat-openshift-k8s/README-ned-settings.md)
