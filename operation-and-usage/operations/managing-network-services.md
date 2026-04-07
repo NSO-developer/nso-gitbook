@@ -1242,3 +1242,242 @@ NAME  POLICY         START TIME           JEOPARDY TIME        RESULT    VIOLATI
 ---------------------------------------------------------------------------------------------------------------------------
 self  service-ready  2016-04-08T09:22:40  2016-04-08T09:22:40  -         2016-04-08T09:22:40  -          running  -
 ```
+
+## Bulk Service Actions
+
+In some scenarios, you may need to execute an action on multiple service instances at once. A typical example is after a NED migration where the NED upgrade touches the same paths that services manage. In such cases, all affected service instances must be re-deployed to reconcile the service view with the updated device model.
+
+NSO provides the following actions:
+* `/ncs:services/re-deploy`: `re-deploy` multiple service instances in a single operation. 
+* `/ncs:services/un-deploy`: `un-deploy` multiple service instances in a single operation.
+* `/ncs:services/check-sync`: `check-sync` multiple service instances in a single operation.
+
+You can filter by service type (service callpoint) and/or specify individual service instances using your choice of service filters. There are 3 types of service filter:
+
+* `service-type`: filter on all services of a given type
+* `service-id`: filter on specfic instances
+* `select-services`: filter on services selected by an XPath expression.
+
+The following is an illustration of excuting an action on mutiple service instances:
+
+### Filtering on All Services of a Given Type
+
+```cli
+ncs# services re-deploy service-type [ /l3vpn:vpn/l3vpn:l3vpn ] dry-run { outformat native }
+result {
+    service-id /vpn/l3vpn[name='ford']
+    native {
+        device {
+            name ce7
+            data interface GigabitEthernet 0/1.103
+                   description Link to PE / pe0 - GigabitEthernet0/0/0/5
+                  !
+
+        }
+        device {
+            name pe0
+            data policy-map ford-ce7
+                   class class-default
+                    shape average 4500000 bps
+                   !
+                  !
+                  interface GigabitEthernet 0/0/0/5.103
+                   description Link to CE / ce7 - GigabitEthernet0/1
+                   encapsulation dot1q 103
+                   service-policy output ford-ce7
+                   vrf ford
+                   ipv4 address 192.168.1.26 255.255.255.252
+                  !
+                  router bgp 100
+                   vrf ford
+                    neighbor 192.168.1.25
+                     remote-as 65204
+                     address-family ipv4 unicast
+                      route-policy ford in
+                      route-policy ford out
+                      as-override
+                     !
+                    !
+                   !
+                  !
+
+        }
+        device {
+            name pe1
+            data no policy-map ford-ce7
+                  no interface GigabitEthernet 0/0/0/5.103
+                  router bgp 100
+                   vrf ford
+                    no neighbor 192.168.1.25
+                   !
+                  !
+
+        }
+    }
+}
+result {
+    service-id /vpn/l3vpn[name='volvo']
+    native {
+        device {
+            name ce8
+            data interface GigabitEthernet 0/1.104
+                   description Link to PE / pe0 - GigabitEthernet0/0/0/5
+                  !
+
+        }
+        device {
+            name pe0
+            data policy-map volvo-ce8
+                   class class-default
+                    shape average 4500000 bps
+                   !
+                  !
+                  interface GigabitEthernet 0/0/0/5.104
+                   description Link to CE / ce8 - GigabitEthernet0/1
+                   encapsulation dot1q 104
+                   service-policy output volvo-ce8
+                   vrf volvo
+                   ipv4 address 192.168.1.30 255.255.255.252
+                  !
+                  router bgp 100
+                   vrf volvo
+                    neighbor 192.168.1.29
+                     remote-as 65104
+                     address-family ipv4 unicast
+                      route-policy volvo in
+                      route-policy volvo out
+                      as-override
+                     !
+                    !
+                   !
+                  !
+
+        }
+        device {
+            name pe1
+            data no vrf volvo
+                  no policy-map volvo-ce8
+                  no interface GigabitEthernet 0/0/0/5.104
+                  no route-policy volvo
+                  router bgp 100
+                   no vrf volvo
+                  !
+
+        }
+    }
+}
+```
+
+### Filtering on Specific Service Instances
+
+```cli
+ncs# services re-deploy service-id [ /vpn/l3vpn[name='volvo'] ] dry-run { outformat native }
+result {
+    service-id /vpn/l3vpn[name='volvo']
+    native {
+        device {
+            name ce8
+            data interface GigabitEthernet 0/1.104
+                   description Link to PE / pe0 - GigabitEthernet0/0/0/5
+                  !
+
+        }
+        device {
+            name pe0
+            data policy-map volvo-ce8
+                   class class-default
+                    shape average 4500000 bps
+                   !
+                  !
+                  interface GigabitEthernet 0/0/0/5.104
+                   description Link to CE / ce8 - GigabitEthernet0/1
+                   encapsulation dot1q 104
+                   service-policy output volvo-ce8
+                   vrf volvo
+                   ipv4 address 192.168.1.30 255.255.255.252
+                  !
+                  router bgp 100
+                   vrf volvo
+                    neighbor 192.168.1.29
+                     remote-as 65104
+                     address-family ipv4 unicast
+                      route-policy volvo in
+                      route-policy volvo out
+                      as-override
+                     !
+                    !
+                   !
+                  !
+
+        }
+        device {
+            name pe1
+            data no vrf volvo
+                  no policy-map volvo-ce8
+                  no interface GigabitEthernet 0/0/0/5.104
+                  no route-policy volvo
+                  router bgp 100
+                   no vrf volvo
+                  !
+
+        }
+    }
+}
+```
+
+### Filtering on Services Evaluated by XPath Expression
+
+```cli
+ncs# services re-deploy select-services /vpn/l3vpn[name='ford'] dry-run { outformat native }
+result {
+    service-id /vpn/l3vpn[name='ford']
+    native {
+        device {
+            name ce7
+            data interface GigabitEthernet 0/1.103
+                   description Link to PE / pe0 - GigabitEthernet0/0/0/5
+                  !
+
+        }
+        device {
+            name pe0
+            data policy-map ford-ce7
+                   class class-default
+                    shape average 4500000 bps
+                   !
+                  !
+                  interface GigabitEthernet 0/0/0/5.103
+                   description Link to CE / ce7 - GigabitEthernet0/1
+                   encapsulation dot1q 103
+                   service-policy output ford-ce7
+                   vrf ford
+                   ipv4 address 192.168.1.26 255.255.255.252
+                  !
+                  router bgp 100
+                   vrf ford
+                    neighbor 192.168.1.25
+                     remote-as 65204
+                     address-family ipv4 unicast
+                      route-policy ford in
+                      route-policy ford out
+                      as-override
+                     !
+                    !
+                   !
+                  !
+
+        }
+        device {
+            name pe1
+            data no policy-map ford-ce7
+                  no interface GigabitEthernet 0/0/0/5.103
+                  router bgp 100
+                   vrf ford
+                    no neighbor 192.168.1.25
+                   !
+                  !
+
+        }
+    }
+}
+```
