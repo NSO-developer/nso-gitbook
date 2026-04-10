@@ -11,7 +11,12 @@ Network Element Drivers (NEDs) are also packages. Each NED allows NSO to manage 
 
 When NSO starts, it searches for packages to load. The `ncs.conf` parameter `/ncs-config/load-path` defines a list of directories. At initial startup, NSO searches these directories for packages and copies the packages to a private directory tree in the directory defined by the `/ncs-config/state-dir` parameter in `ncs.conf`, and loads and starts all the packages found. On subsequent startups, NSO will by default only load and start the copied packages. The purpose of this procedure is to make it possible to reliably load new or updated packages while NSO is running, with a fallback to the previously existing version of the packages if the reload should fail.
 
-In a System Install of NSO, packages are always installed (normally through symbolic links) in the `packages` subdirectory of the run directory, i.e. by default `/var/opt/ncs/packages`, and the private directory tree is created in the `state` subdirectory, i.e. by default `/var/opt/ncs/state`.
+The package management workflow depends on the NSO installation type:
+
+* In a [Local Install](../installation-and-deployment/local-install.md), used for development, evaluation, and examples, you manage packages directly in one of the configured load-path directories, often the runtime `packages` directory. In this environment it is normal to edit package directories in place, copy directories, or create and remove symbolic links, and then use `packages reload`, `packages add`, or `packages package <name> redeploy`.
+* In a [System Install](../installation-and-deployment/system-install.md), used for production, you manage pre-built packages with the `software packages` actions. These actions stage packages under `/opt/ncs/packages` and install or deinstall the active package set in `/var/opt/ncs/packages`. Symbolic links may exist there, but they are managed by NSO as part of this workflow and should not be created or changed manually as the normal package management procedure.
+
+In a System Install of NSO, the active packages are available in the `packages` subdirectory of the run directory, i.e. by default `/var/opt/ncs/packages`, and the private directory tree is created in the `state` subdirectory, i.e. by default `/var/opt/ncs/state`.
 
 ## Loading Packages <a href="#ug.package_mgmt.loading" id="ug.package_mgmt.loading"></a>
 
@@ -108,9 +113,13 @@ The command returns `true` if the package's resulting status after deployment is
 In a high-availability setup, you can perform this same operation on all the nodes in the cluster with a single `packages ha sync and-add` command.
 {% endhint %}
 
-## Managing Packages <a href="#ug.package_mgmt.managing" id="ug.package_mgmt.managing"></a>
+## Managing Packages on System Install <a href="#ug.package_mgmt.managing" id="ug.package_mgmt.managing"></a>
 
-In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
+{% hint style="warning" %}
+Applies to System Install. In production, manage pre-built packages with the `software packages` actions. Do not create or remove symbolic links manually in `/var/opt/ncs/packages`; that directory is managed by NSO as part of the `software packages` workflow.
+{% endhint %}
+
+In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. The supported workflow is to make the package available under `/opt/ncs/packages`, install or deinstall it with the `software packages` actions, and then activate the change with `packages reload` or, in a high-availability setup, `packages ha sync and-reload`. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
 
 ### Actions
 
@@ -121,9 +130,46 @@ Actions are provided to list local packages, to fetch packages from the file sys
 * `software packages install package <package-name> [...]`: Install a package, making it available for loading via the `packages reload` action, or via a system restart with package reload. The action ensures that only one version of the package is installed - if any version of the package is installed already, the `replace-existing` option can be used to deinstall it before proceeding with the installation.
 * `software packages deinstall package <package-name>`: Deinstall a package, i.e. remove it from the set of packages available for loading.
 
-There is also an `upload` action that can be used via NETCONF or REST to upload a package from the local host to the NSO host, making it installable there. It is not feasible to use in the CLI or Web UI, since the actual package file contents is a parameter for the action. It is also not suitable for very large (more than a few megabytes) packages, since the processing of action parameters is not designed to deal with very large values, and there is a significant memory overhead in the processing of such values.
+There is also an `upload` action that can be used via NETCONF or RESTCONF to upload a package from the local host to the NSO host, making it installable there. It is not feasible to use in the CLI or Web UI, since the actual package file contents is a parameter for the action. It is also not suitable for very large (more than a few megabytes) packages, since the processing of action parameters is not designed to deal with very large values, and there is a significant memory overhead in the processing of such values.
 
-## More on Package Management <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
+The states reported by `software packages list` are:
+
+* `installable`: The package is present in `/opt/ncs/packages` and can be installed, but it is not yet part of the active package set.
+* `installed`: The package is present in `/var/opt/ncs/packages`, but it is not currently loaded by the running NSO process.
+* `loaded`: The package is currently loaded by NSO.
+
+For a single-node System Install, the normal package workflow is:
+
+1. Copy or build the package on the NSO host, typically as a `.tar.gz` file.
+2. Make it installable with `software packages fetch`, or use `upload` over NETCONF or RESTCONF.
+3. Install it with `software packages install`, using `replace-existing` when replacing an already installed version.
+4. Activate the change with `packages reload`.
+
+For example:
+
+```bash
+admin@ncs# software packages fetch package-from-file /tmp/package-store/router-nc-1.0.2.tar.gz
+admin@ncs# software packages install package router-nc-1.0.2 replace-existing
+admin@ncs# packages reload
+```
+
+In a high-availability System Install, first manage the package set on the primary node with the `software packages` actions and then synchronize and activate it on the other nodes with `packages ha sync and-reload`. For example:
+
+```bash
+primary@node1# software packages fetch package-from-file /tmp/package-store/dummy-1.1.tar.gz
+primary@node1# software packages install package dummy-1.1 replace-existing
+primary@node1# packages ha sync and-reload { wait-commit-queue-empty }
+```
+
+If the change only adds new NED packages, `packages ha sync and-add` can be used instead of `and-reload`, as described in [Adding NED Packages](package-mgmt.md#ug.package_mgmt.ned_package_add).
+
+Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
+
+## Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
+
+{% hint style="info" %}
+Applies to Local Install. The following example manages packages directly in a runtime `packages` directory. That is appropriate for Local Install development and example environments. On System Install, use the `software packages` actions described above instead of manually managing symbolic links in `$NCS_RUN_DIR/packages`.
+{% endhint %}
 
 NSO Packages contain data models and code for a specific function. It might be NED for a specific device, a service application like MPLS VPN, a WebUI customization package, etc. Packages can be added, removed, and upgraded in run-time. A common task is to add a package to NSO to support a new device type or upgrade an existing package when the device is upgraded.
 
@@ -132,14 +178,14 @@ NSO Packages contain data models and code for a specific function. It might be N
 ```bash
 admin@ncs# show packages
 packages package cisco-ios
- package-version 3.0
+ package-version 1.0
  description     "NED package for Cisco IOS"
- ncs-min-version [ 3.0.2 ]
- directory       ./state/packages-in-use/1/cisco-ios-cli-3.0
+ ncs-min-version [ 6.4 ]
+ directory       ./state/packages-in-use/1/cisco-ios-netsim-cli-1.0
  component upgrade-ned-id
   upgrade java-class-name com.tailf.packages.ned.ios.UpgradeNedId
  component cisco-ios
-  ned cli ned-id  cisco-ios-cli-3.0
+  ned cli ned-id  cisco-ios-netsim-cli-1.0
   ned cli java-class-name com.tailf.packages.ned.ios.IOSNedCli
   ned device vendor Cisco
 NAME      VALUE
@@ -151,15 +197,15 @@ show-tag  interface
 
 So the above command shows that NSO currently has one package, the NED for Cisco IOS.
 
-NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. By default, it tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example to demonstrate:
+NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. In this Local Install example, the configuration tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example to demonstrate:
 
 ```bash
 $ pwd
 examples.ncs/device-management/simulated-cisco-ios
 $ NONINTERACTIVE=1 ./demo.sh
 $ ls packages/
-cisco-ios-cli-3.0
-$ ls packages/cisco-ios-cli-3.0
+cisco-ios-netsim-cli-1.0
+$ ls packages/cisco-ios-netsim-cli-1.0
 doc
 load-dir
 netsim
@@ -171,9 +217,9 @@ src
 
 As seen above a package is a defined file structure with data models, code, and documentation. NSO comes with a few ready-made example packages: `$NCS_DIR/packages/`. Also, there is a library of packages available from Tail-f, especially for supporting specific devices.
 
-### Adding and Upgrading a Package <a href="#d5e7809" id="d5e7809"></a>
+### Adding and Upgrading a Package on Local Install <a href="#d5e7809" id="d5e7809"></a>
 
-Assume you would like to add support for Nexus devices to the example. Nexus devices have different data models and another CLI flavor. There is a package for that in `$NCS_DIR/packages/neds/nexus`.
+Assume you would like to add support for Nexus devices to the example. Nexus devices have different data models and another CLI flavor. There is an example NED package for that in `$NCS_DIR/examples.ncs/common/packages/cisco-nx-netsim-cli-1.0`.
 
 We can keep NSO running all the time, but we will stop the network simulator to add the Nexus devices to the simulator.
 
@@ -181,14 +227,14 @@ We can keep NSO running all the time, but we will stop the network simulator to 
 $ ncs-netsim stop
 ```
 
-Add the nexus package to the NSO runtime directory by creating a symbolic link:
+Because this is a Local Install example, add the Nexus package to the runtime `packages` directory by creating a symbolic link (or copy):
 
 ```bash
 $ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/packages
-$ ln -s $NCS_DIR/packages/neds/cisco-nx-cli-3.0 cisco-nx-cli-3.0
+$ ln -s $NCS_DIR/examples.ncs/common/packages/cisco-nx-netsim-cli-1.0 cisco-nx-netsim-cli-1.0
 $ ls -l
 ...
-cisco-nx-cli-3.0 -> $NCS_DIR/packages/neds/cisco-nx-cli-3.0
+cisco-nx-netsim-cli-1.0 -> $NCS_DIR/examples.ncs/common/packages/cisco-nx-netsim-cli-1.0
 ```
 
 The package is now in place, but until we tell NSO to look for package changes nothing happens:
@@ -217,7 +263,7 @@ So after the `packages reload` operation NSO also knows about Nexus devices. The
 ### Simulating the New Device <a href="#d5e7826" id="d5e7826"></a>
 
 ```bash
-$ ncs-netsim add-to-network cisco-nx-cli-3.0 2 n
+$ ncs-netsim add-to-network cisco-nx-netsim-cli-1.0 2 n
 $ ncs-netsim list
 ncs-netsim list for examples.ncs/device-management/simulated-cisco-ios/netsim
 
@@ -254,7 +300,7 @@ nexus:vlan 1
 We can now add these Nexus devices to NSO according to the below sequence:
 
 ```bash
-admin@ncs(config)# devices device n0 device-type cli ned-id cisco-nx-cli-3.0
+admin@ncs(config)# devices device n0 device-type cli ned-id cisco-nx-netsim-cli-1.0
 admin@ncs(config-device-n0)# port 10025
 admin@ncs(config-device-n0)# address 127.0.0.1
 admin@ncs(config-device-n0)# authgroup default
