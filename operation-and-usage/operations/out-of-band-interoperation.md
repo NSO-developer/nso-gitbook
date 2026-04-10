@@ -33,6 +33,10 @@ Such an approach allows NSO to use targeted correctness checks that have another
 
 Handling out-of-band changes requires NSO to make additional checks and perform additional processing when provisioning network changes, so this functionality is opt-in. The first option to invoke the out-of-band processing machinery is to use the `commit confirm-network-state` commit variant, which takes effect for the current commit only.
 
+{% hint style="info" %}
+`confirm-network-state` validates device state during commit and therefore requires device reachability. NSO must be able to discover the device capabilities (either already known, or fetched by connecting to the device as part of the operation). A prior `sync-from` is not required, but in brownfield deployments it is recommended (full or partial) to seed CDB with baseline data and reduce excessive/false out-of-band markings.
+{% endhint %}
+
 This option is great for testing out different scenarios and getting familiar with the out-of-band features of NSO. In addition to `commit`, there are other commands that can also be `confirm-network-state` enabled, such as device`sync-from` and service `re-deploy`.
 
 However, the recommended way for normal, day-to-day use is to enable`confirm-network-state` for a set of devices through device settings. For example:
