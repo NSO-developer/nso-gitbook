@@ -420,12 +420,17 @@
 
       Commit method to use for commit/rollback behaviour.
 
-      confirmed  - Use 'commit confirmed' along with a confirming 'commit' when transaction is done,
-                   utilizing the implict device rollback if network connectivity is lost.
+      confirmed      - Use 'commit confirmed' along with a confirming 'commit' when transaction is
+                       done, utilizing the implict device rollback if network connectivity is lost.
 
-      direct     - When using this method, the NED follows the NCS flow by doing 'commit' when NCS
-                   commits the transaction. If transaction is reverted, the NED calls 'rollback
-                   configuration last 1' to rollback the commit.
+      direct         - When using this method, the NED follows the NCS flow by doing 'commit' when
+                       NCS commits the transaction. If transaction is reverted, the NED calls
+                       'rollback configuration last 1' to rollback the commit.
+
+      direct-sticky  - When using this method the NED does not leave config exklusive mode during
+                       the connection. Transaction-id's are incremented without verifying on device.
+                       Only when session ends is config mode exited and transaction id's once again
+                       read from device.
 
 
     - write commit-options <WORD> (default show-error)
