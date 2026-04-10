@@ -333,26 +333,33 @@ With the host configured for strict overcommit (`vm.overcommit_memory=2`), conta
 
 #### **Alternative: Heuristic Overcommit Mode**
 
-The alternative, using heuristic overcommit mode, can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
+The alternative, using heuristic overcommit mode, can be useful if the NSO host has severe memory limitations and you need a best effort way to capture diagnostics before the container hits its cgroup memory limit. In a container, the practical trigger for `ncs --debug-dump` is based on the container’s own cgroup memory signals..
 
-As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` configured on the host to allow overcommit of memory and trigger `ncs --debug-dump` when Committed\_AS reaches, for example, 95% of CommitLimit or when the container’s cgroup memory usage reaches, for example, 90% of its cap.
+As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` configured on the host and trigger `ncs --debug-dump` when the container’s `memory.current / memory.max` stays high, memory pressure from `memory.pressure` indicates sustained reclaim stalls, and `memory.events` shows that the cgroup is hitting reclaim or limit boundaries.
 
-* This approach does not prevent the Linux OOM-killer from killing NSO or the container; it only attempts to capture diagnostic data before memory pressure becomes critical. OOM kills can occur even when Committed\_AS < CommitLimit due to cgroup limits or reclaim failure.
+* This approach does not prevent the Linux OOM-killer from killing NSO or the container; it only attempts to capture diagnostic data before cgroup memory pressure becomes critical.
 * The same `docker run` memory and swap options as above can be used.
-* Monitor the Committed\_AS vs CommitLimit and cgroup memory usage vs cap using, for example, a script or an observability tool.
-  * Note that Committed\_AS and CommitLimit from `/proc/meminfo` are host‑wide values. Inside a container, they reflect the host, not the container’s cgroup budget.
-  * cgroup memory.current vs memory.max is the primary predictor for container OOM events; the host CommitLimit is an additional early‑warning signal.
+* For container OOM risk, use the cgroup’s own memory signals as the primary trigger.
+  * `memory.current` versus `memory.max` is the main headroom signal.
+  * `memory.pressure` confirms that the cgroup is experiencing sustained reclaim pressure rather than a short-lived spike.
+  * `memory.events` provides useful corroboration, especially increasing `high`, `max`, or `oom` counters.
+* Tune the example thresholds for your workload. The values below are intentionally conservative starting points for cgroup v2-based production containers and should be validated under load.
 * Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
 
 {% code title="Simple example of an NSO debug-dump monitor inside a container" overflow="wrap" %}
 ```bash
 #!/usr/bin/env bash
-# Simple NSO debug-dump monitor inside a container (vm.overcommit_memory=0 on host).
-# Triggers ncs --debug-dump when Committed_AS reaches 95% of CommitLimit
-# or when the container’s cgroup memory usage reaches 90% of its cap.
+# Simple NSO debug-dump monitor inside a container.
+# Triggers ncs --debug-dump when all of the following are true for a sustained
+# period:
+#   1. memory.current is above a configured percentage of memory.max.
+#   2. memory.pressure indicates sustained reclaim pressure.
+#   3. memory.events shows recent high/max/oom activity.
 
-THRESHOLD_PCT=95         # CommitLimit threshold (5% headroom).
 CGROUP_THRESHOLD_PCT=90  # Trigger when memory.current >= 90% of memory.max.
+PSI_SOME_AVG10=1.00      # Trigger when memory pressure some avg10 exceeds this value.
+PSI_FULL_AVG10=0.10      # Trigger when memory pressure full avg10 exceeds this value.
+SUSTAIN_COUNT=3          # Number of consecutive polls before collecting dumps.
 POLL_INTERVAL=5          # Seconds between checks.
 PROCESS_CHECK_INTERVAL=30
 DUMP_COUNT=10
@@ -365,48 +372,117 @@ find_nso_pid() {
   pgrep -x ncs.smp | head -n1 || true
 }
 
-read_cgroup_mem_kb() {
-  # Outputs: current_kb max_kb (max_kb=0 if unlimited or not found)
-  if [ -r /sys/fs/cgroup/memory.current ]; then
-    local cur max
-    cur=$(cat /sys/fs/cgroup/memory.current 2>/dev/null)
-    max=$(cat /sys/fs/cgroup/memory.max 2>/dev/null)
-    [ "$max" = "max" ] && max=0
-    echo "$((cur/1024)) $((max/1024))"
-  else
-    echo "0 0"
+read_cgroup_mem() {
+  if [ ! -r /sys/fs/cgroup/memory.current ] || [ ! -r /sys/fs/cgroup/memory.max ]; then
+    return 1
   fi
+
+  local cur max
+  cur=$(cat /sys/fs/cgroup/memory.current 2>/dev/null)
+  max=$(cat /sys/fs/cgroup/memory.max 2>/dev/null)
+  [ "$max" = "max" ] && max=0
+  echo "$cur $max"
 }
+
+read_memory_psi_avg10() {
+  if [ ! -r /sys/fs/cgroup/memory.pressure ]; then
+    return 1
+  fi
+
+  awk -v kind="$1" '
+    $1 == kind {
+      for (i = 2; i <= NF; i++) {
+        if ($i ~ /^avg10=/) {
+          split($i, a, "=")
+          print a[2]
+          exit
+        }
+      }
+    }
+  ' /sys/fs/cgroup/memory.pressure
+}
+
+read_memory_events() {
+  if [ ! -r /sys/fs/cgroup/memory.events ]; then
+    return 1
+  fi
+
+  awk '
+    $1 == "high" { high = $2 }
+    $1 == "max"  { max = $2 }
+    $1 == "oom"  { oom = $2 }
+    END { printf "%s %s %s\n", high + 0, max + 0, oom + 0 }
+  ' /sys/fs/cgroup/memory.events
+}
+
+prev_high=0
+prev_max=0
+prev_oom=0
+sustain_hits=0
 
 while true; do
   pid="$(find_nso_pid)"
   if [ -z "${pid:-}" ]; then
     echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
+    prev_high=0
+    prev_max=0
+    prev_oom=0
+    sustain_hits=0
     sleep "$PROCESS_CHECK_INTERVAL"
     continue
   fi
 
-  committed="$(awk '/Committed_AS:/ {print $2}' /proc/meminfo)"
-  commit_limit="$(awk '/CommitLimit:/ {print $2}' /proc/meminfo)"
-  if [ -z "$committed" ] || [ -z "$commit_limit" ]; then
-    echo "Unable to read /proc/meminfo; retry in ${POLL_INTERVAL}s..."
+  if ! read cur_bytes max_bytes < <(read_cgroup_mem); then
+    echo "Unable to read cgroup memory.current/memory.max; retry in ${POLL_INTERVAL}s..."
     sleep "$POLL_INTERVAL"
     continue
   fi
 
-  threshold=$(( commit_limit * THRESHOLD_PCT / 100 ))
-  read cg_current_kb cg_max_kb < <(read_cgroup_mem_kb)
-  cgroup_trigger=0
-  if [ "${cg_max_kb:-0}" -gt 0 ]; then
-    cgroup_pct=$(( cg_current_kb * 100 / cg_max_kb ))
-    [ "$cgroup_pct" -ge "$CGROUP_THRESHOLD_PCT" ] && cgroup_trigger=1
-    echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; cgroup=${cg_current_kb}kB/${cg_max_kb}kB (${cgroup_pct}%)."
-  else
-    echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; cgroup=unlimited."
+  if [ "${max_bytes:-0}" -le 0 ]; then
+    echo "cgroup memory.max is unlimited; retry in ${POLL_INTERVAL}s..."
+    sleep "$POLL_INTERVAL"
+    continue
   fi
 
-  if [ "$committed" -ge "$threshold" ] || [ "$cgroup_trigger" -eq 1 ]; then
-    echo "Threshold crossed; collecting ${DUMP_COUNT} debug dumps..."
+  psi_some_avg10="$(read_memory_psi_avg10 some 2>/dev/null || true)"
+  psi_full_avg10="$(read_memory_psi_avg10 full 2>/dev/null || true)"
+  read high_count max_count oom_count < <(read_memory_events 2>/dev/null || echo "0 0 0")
+
+  if [ -z "$psi_some_avg10" ] || [ -z "$psi_full_avg10" ]; then
+    echo "Unable to read cgroup memory.pressure; retry in ${POLL_INTERVAL}s..."
+    sleep "$POLL_INTERVAL"
+    continue
+  fi
+
+  usage_pct=$(( cur_bytes * 100 / max_bytes ))
+  mem_high=0
+  psi_high=0
+  events_active=0
+
+  if [ "$usage_pct" -ge "$CGROUP_THRESHOLD_PCT" ]; then
+    mem_high=1
+  fi
+
+  if awk -v some="$psi_some_avg10" -v full="$psi_full_avg10" \
+         -v some_th="$PSI_SOME_AVG10" -v full_th="$PSI_FULL_AVG10" \
+         'BEGIN { exit !((some + 0.0 >= some_th + 0.0) || (full + 0.0 >= full_th + 0.0)) }'; then
+    psi_high=1
+  fi
+
+  if [ "$high_count" -gt "$prev_high" ] || [ "$max_count" -gt "$prev_max" ] || [ "$oom_count" -gt "$prev_oom" ]; then
+    events_active=1
+  fi
+
+  echo "PID=${pid} cgroup=${cur_bytes}/${max_bytes} bytes (${usage_pct}%); PSI some avg10=${psi_some_avg10}; PSI full avg10=${psi_full_avg10}; events high=${high_count} max=${max_count} oom=${oom_count}; sustain_hits=${sustain_hits}."
+
+  if [ "$mem_high" -eq 1 ] && [ "$psi_high" -eq 1 ] && [ "$events_active" -eq 1 ]; then
+    sustain_hits=$(( sustain_hits + 1 ))
+  else
+    sustain_hits=0
+  fi
+
+  if [ "$sustain_hits" -ge "$SUSTAIN_COUNT" ]; then
+    echo "Trigger conditions sustained; collecting ${DUMP_COUNT} debug dumps..."
     for i in $(seq 1 "$DUMP_COUNT"); do
       file="${DUMP_PREFIX}.${i}.bin"
       echo "Dump $i -> ${file}"
@@ -419,6 +495,9 @@ while true; do
     exit 0
   fi
 
+  prev_high="$high_count"
+  prev_max="$max_count"
+  prev_oom="$oom_count"
   sleep "$POLL_INTERVAL"
 done
 ```

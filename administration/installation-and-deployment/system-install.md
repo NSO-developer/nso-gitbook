@@ -514,25 +514,35 @@ If NSO aborts due to failure to allocate memory, NSO will produce a system dump 
 
 **Alternative: Heuristic Overcommit Mode**
 
-As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` to allow overcommit of memory and monitor the total committed memory (Committed\_AS) versus CommitLimit using, for example, a best effort script or observability tool. When Committed\_AS crosses a threshold, for example, 90% of CommitLimit, proactively trigger a series of NSO debug dumps every few seconds via `ncs --debug-dump`. Optionally, a second critical threshold, for example, 95% of CommitLimit, proactively trigger NSO to produce a system dump and then exit gracefully.
+As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` on bare metal and use a best effort monitor to trigger NSO debug dumps before host-level memory pressure becomes critical. In heuristic overcommit mode, the most practical trigger for NSO debug dumps is a combination of low `MemAvailable`, sustained memory PSI pressure, and an elevated or clearly rising NSO `oom_score`.
 
-* This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before memory pressure becomes critical and the Linux OOM-killer kills NSO.
-* If swap is enabled, prefer vm.swappiness=1 and consider placing NSO in a cgroup with memory.swap.max=0 to avoid swap I/O for NSO. Requires Linux cgroup v2 and a service-managed cgroup (e.g., systemd) support.
-* Committed\_AS versus CommitLimit is a more meaningful early‑warning signal than Committed\_AS versus MemTotal, because CommitLimit reflects the kernel’s current overcommit policy, swap availability, and huge page reservations—MemTotal does not.
-* When in Heuristic mode (vm.overcommit\_memory=0): CommitLimit is informative, not enforced. It’s still better than MemTotal for early warning, but OOM can occur before or after you reach it.
-* If necessary for your use-case, complement with MemAvailable, swap activity (vmstat or /proc/vmstat), PSI memory pressure (/proc/pressure/memory), and per‑process/cgroup RSS to catch imminent pressure that Committed\_AS alone may miss.
+* This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before host memory pressure becomes critical and the Linux OOM-killer kills NSO.
+* Prefer low `MemAvailable` over `MemFree`, because `MemAvailable` is a better estimate of how much memory the host can still provide without heavy reclaim or swapping.
+* Use sustained PSI memory pressure from `/proc/pressure/memory` to confirm that the host is actively stalling on memory reclaim rather than reacting to a short-lived dip in available memory.
+* Use the NSO process `oom_score` from `/proc/<pid>/oom_score` to confirm that NSO is becoming a plausible OOM-killer victim. A high or clearly rising `oom_score` is more actionable than host memory metrics alone.
+* If swap is enabled, prefer `vm.swappiness=1` and optionally include swap activity as additional context, but keep `MemAvailable`, memory PSI, and NSO `oom_score` as the primary debug dump trigger.
+* Tune the example thresholds for your workload. The values below are intentionally conservative starting points for bare-metal systems and should be validated under load.
 * Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
-* See "NSO Crash Dumps" above for crash dump details.
 
-{% code title="Simple example script NSO debug-dump monitor" overflow="wrap" %}
+This recommendation also applies when NSO runs inside a Linux virtual machine. `MemAvailable`, memory PSI, and NSO `oom_score` remain the right guest-visible signals for predicting Linux OOM risk inside the VM. However, they reflect memory pressure seen by the guest OS and do not capture all hypervisor-level memory contention. If the virtualization platform reclaims memory from the guest or the host is overcommitted, guest performance can degrade due to host pressure even when the guest-side trigger has not yet fired. For production NSO virtual machines, avoid hypervisor-level memory overcommit for the VM when possible and monitor the virtualization platform's own memory reclamation signals in addition to the guest-side trigger.
+
+{% code title="Simple example script NSO debug-dump monitor (bare metal heuristic mode)" overflow="wrap" %}
 ```bash
 #!/usr/bin/env bash
-# Simple NSO debug-dump monitor for heuristic overcommit mode (vm.overcommit_memory=0).
-# Triggers ncs --debug-dump when Committed_AS reaches 90% of CommitLimit.
-# Triggers NSO to produce a system dump before exiting using kill -USR1 <ncs.smp PID> when Committed_AS reaches 95% of CommitLimit
+# Simple NSO debug-dump monitor for bare-metal heuristic overcommit mode
+# (vm.overcommit_memory=0).
+# Triggers ncs --debug-dump when all of the following are true for a sustained
+# period:
+#   1. MemAvailable is below a configured percentage of MemTotal.
+#   2. Memory PSI indicates sustained reclaim pressure.
+#   3. NSO oom_score is elevated or rising.
 
-THRESHOLD_PCT=90       # Trigger at 90% of CommitLimit (10% headroom).
-CRITICAL_PCT=95        # Trigger at 95% of CommitLimit (5% headroom).
+MEMAVAILABLE_PCT=8     # Trigger below 8% available memory.
+PSI_SOME_AVG10=1.00    # Trigger when memory PSI some avg10 exceeds this value.
+PSI_FULL_AVG10=0.10    # Trigger when memory PSI full avg10 exceeds this value.
+OOM_SCORE_MIN=500      # Treat NSO as a plausible victim at or above this score.
+OOM_SCORE_RISE=100     # Or trigger if oom_score rises by at least this much.
+SUSTAIN_COUNT=3        # Number of consecutive polls before collecting dumps.
 POLL_INTERVAL=5        # Seconds between checks.
 PROCESS_CHECK_INTERVAL=30
 DUMP_COUNT=10          # Number of dumps to collect.
@@ -545,31 +555,86 @@ find_nso_pid() {
   pgrep -x ncs.smp | head -n1 || true
 }
 
+read_meminfo_kb() {
+  awk -v key="$1" '$1 == key":" { print $2 }' /proc/meminfo
+}
+
+read_memory_psi_avg10() {
+  awk -v kind="$1" '
+    $1 == kind {
+      for (i = 2; i <= NF; i++) {
+        if ($i ~ /^avg10=/) {
+          split($i, a, "=")
+          print a[2]
+          exit
+        }
+      }
+    }
+  ' /proc/pressure/memory
+}
+
+prev_oom_score=""
+sustain_hits=0
+
 while true; do
   pid="$(find_nso_pid)"
   if [ -z "${pid:-}" ]; then
     echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
+    prev_oom_score=""
+    sustain_hits=0
     sleep "$PROCESS_CHECK_INTERVAL"
     continue
   fi
 
-  committed="$(awk '/Committed_AS:/ {print $2}' /proc/meminfo)"
-  commit_limit="$(awk '/CommitLimit:/ {print $2}' /proc/meminfo)"
-  if [ -z "$committed" ] || [ -z "$commit_limit" ]; then
-    echo "Unable to read /proc/meminfo; retry in ${POLL_INTERVAL}s..."
+  mem_total="$(read_meminfo_kb MemTotal)"
+  mem_available="$(read_meminfo_kb MemAvailable)"
+  psi_some_avg10="$(read_memory_psi_avg10 some)"
+  psi_full_avg10="$(read_memory_psi_avg10 full)"
+  oom_score="$(cat "/proc/${pid}/oom_score" 2>/dev/null || true)"
+
+  if [ -z "$mem_total" ] || [ -z "$mem_available" ] || \
+     [ -z "$psi_some_avg10" ] || [ -z "$psi_full_avg10" ] || \
+     [ -z "$oom_score" ]; then
+    echo "Unable to read required host or process metrics; retry in ${POLL_INTERVAL}s..."
     sleep "$POLL_INTERVAL"
     continue
   fi
 
-  threshold=$(( commit_limit * THRESHOLD_PCT / 100 ))
-  critical=$(( commit_limit * CRITICAL_PCT / 100 ))
-  echo "PID=${pid} Committed_AS=${committed}kB; CommitLimit=${commit_limit}kB; Threshold=${threshold}kB; Critical=${critical}kB."
-  if [ "$committed" -ge "$critical" ]; then
-    echo "Critical threshold crossed; collect a system dump and stop NSO..."
-    kill -USR1 ${pid}
-    exit 0
-  elif [ "$committed" -ge "$threshold" ]; then
-    echo "Threshold crossed; collecting ${DUMP_COUNT} debug dumps..."
+  mem_threshold=$(( mem_total * MEMAVAILABLE_PCT / 100 ))
+  mem_low=0
+  psi_high=0
+  oom_elevated=0
+  oom_rising=0
+
+  if [ "$mem_available" -le "$mem_threshold" ]; then
+    mem_low=1
+  fi
+
+  if awk -v some="$psi_some_avg10" -v full="$psi_full_avg10" \
+         -v some_th="$PSI_SOME_AVG10" -v full_th="$PSI_FULL_AVG10" \
+         'BEGIN { exit !((some + 0.0 >= some_th + 0.0) || (full + 0.0 >= full_th + 0.0)) }'; then
+    psi_high=1
+  fi
+
+  if [ "$oom_score" -ge "$OOM_SCORE_MIN" ]; then
+    oom_elevated=1
+  fi
+
+  if [ -n "$prev_oom_score" ] && [ $(( oom_score - prev_oom_score )) -ge "$OOM_SCORE_RISE" ]; then
+    oom_rising=1
+  fi
+
+  echo "PID=${pid} MemAvailable=${mem_available}kB/${mem_total}kB; PSI some avg10=${psi_some_avg10}; PSI full avg10=${psi_full_avg10}; oom_score=${oom_score}; sustain_hits=${sustain_hits}."
+
+  if [ "$mem_low" -eq 1 ] && [ "$psi_high" -eq 1 ] && \
+     { [ "$oom_elevated" -eq 1 ] || [ "$oom_rising" -eq 1 ]; }; then
+    sustain_hits=$(( sustain_hits + 1 ))
+  else
+    sustain_hits=0
+  fi
+
+  if [ "$sustain_hits" -ge "$SUSTAIN_COUNT" ]; then
+    echo "Trigger conditions sustained; collecting ${DUMP_COUNT} debug dumps..."
     for i in $(seq 1 "$DUMP_COUNT"); do
       file="${DUMP_PREFIX}.${i}.bin"
       echo "Dump $i -> ${file}"
@@ -582,6 +647,7 @@ while true; do
     exit 0
   fi
 
+  prev_oom_score="$oom_score"
   sleep "$POLL_INTERVAL"
 done
 ```
