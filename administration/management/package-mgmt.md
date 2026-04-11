@@ -1,6 +1,5 @@
 ---
 description: Perform package management tasks.
-icon: box-isometric
 ---
 
 # Package Management
@@ -163,7 +162,11 @@ primary@node1# packages ha sync and-reload { wait-commit-queue-empty }
 
 If the change only adds new NED packages, `packages ha sync and-add` can be used instead of `and-reload`, as described in [Adding NED Packages](package-mgmt.md#ug.package_mgmt.ned_package_add).
 
+<<<<<<< HEAD
 Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
+=======
+Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
+>>>>>>> 7f1ec15 (GITBOOK-365: ENG-39629)
 
 ## Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
 
