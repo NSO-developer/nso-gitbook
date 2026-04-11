@@ -4,6 +4,8 @@ description: Perform package management tasks.
 
 # Package Management
 
+## Package Management
+
 All user code that needs to run in NSO must be part of a package. A package is basically a directory of files with a fixed file structure or a tar archive with the same directory layout. A package consists of code, YANG modules, etc., that are needed to add an application or function to NSO. Packages are a controlled way to manage loading and versions of custom applications.
 
 Network Element Drivers (NEDs) are also packages. Each NED allows NSO to manage a network device of a specific type. Except for third-party YANG NED packages which do not contain a YANG device model by default (and must be downloaded and fixed before adding to the package), a NED typically contains a device YANG model and the code, specifying how NSO should connect to the device. For NETCONF devices, NSO includes built-in tools to help you build a NED, as described in [NED Administration](ned-administration.md), that you can use if needed. Otherwise, a third-party YANG NED, if available, should be used instead. Vendors, in some cases, provide the required YANG device models but not the entire NED. In practice, all NSO instances use at least one NED. The set of used NED packages depends on the number of different device types the NSO manages.
@@ -17,7 +19,7 @@ The package management workflow depends on the NSO installation type:
 
 In a System Install of NSO, the active packages are available in the `packages` subdirectory of the run directory, i.e. by default `/var/opt/ncs/packages`, and the private directory tree is created in the `state` subdirectory, i.e. by default `/var/opt/ncs/state`.
 
-## Loading Packages <a href="#ug.package_mgmt.loading" id="ug.package_mgmt.loading"></a>
+### Loading Packages <a href="#ug.package_mgmt.loading" id="ug.package_mgmt.loading"></a>
 
 Loading of new or updated packages (as well as removal of packages that should no longer be used) can be requested via the `reload` action - from the NSO CLI:
 
@@ -67,7 +69,7 @@ In some cases, we may want NSO to do the same operation as the `reload` action a
 
 Always use one of these methods when upgrading to a new version of NSO in an existing directory structure, to make sure that new packages are loaded together with the other parts of the new system.
 
-## Redeploying Packages <a href="#ug.package_mgmt.redeploying" id="ug.package_mgmt.redeploying"></a>
+### Redeploying Packages <a href="#ug.package_mgmt.redeploying" id="ug.package_mgmt.redeploying"></a>
 
 If it is known in advance that there were no data model changes, i.e. none of the `.fxs` or `.ccl` files changed, and none of the shared JARs changed in a Java package, and the declaration of the components in the `package-meta-data.xml` is unchanged, then it is possible to do a lightweight package upgrade, called package redeploy. Package redeploy only loads the specified package, unlike packages reload which loads all of the packages found in the load-path.
 
@@ -86,7 +88,7 @@ oper-status file-load-error
 oper-status error-info "template3.xml:2 Unknown servicepoint: templ42-servicepoint"
 ```
 
-## Adding NED Packages <a href="#ug.package_mgmt.ned_package_add" id="ug.package_mgmt.ned_package_add"></a>
+### Adding NED Packages <a href="#ug.package_mgmt.ned_package_add" id="ug.package_mgmt.ned_package_add"></a>
 
 Unlike a full `packages reload` operation, new NED packages can be loaded into the system without disrupting existing transactions. This is only possible for new packages, since these packages don't yet have any instance data.
 
@@ -112,7 +114,7 @@ The command returns `true` if the package's resulting status after deployment is
 In a high-availability setup, you can perform this same operation on all the nodes in the cluster with a single `packages ha sync and-add` command.
 {% endhint %}
 
-## Managing Packages on System Install <a href="#ug.package_mgmt.managing" id="ug.package_mgmt.managing"></a>
+### Managing Packages on System Install <a href="#ug.package_mgmt.managing" id="ug.package_mgmt.managing"></a>
 
 {% hint style="warning" %}
 Applies to System Install. In production, manage pre-built packages with the `software packages` actions. Do not create or remove symbolic links manually in `/var/opt/ncs/packages`; that directory is managed by NSO as part of the `software packages` workflow.
@@ -120,7 +122,7 @@ Applies to System Install. In production, manage pre-built packages with the `so
 
 In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. The supported workflow is to make the package available under `/opt/ncs/packages`, install or deinstall it with the `software packages` actions, and then activate the change with `packages reload` or, in a high-availability setup, `packages ha sync and-reload`. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
 
-### Actions
+#### Actions
 
 Actions are provided to list local packages, to fetch packages from the file system, and to install or deinstall packages:
 
@@ -162,13 +164,9 @@ primary@node1# packages ha sync and-reload { wait-commit-queue-empty }
 
 If the change only adds new NED packages, `packages ha sync and-add` can be used instead of `and-reload`, as described in [Adding NED Packages](package-mgmt.md#ug.package_mgmt.ned_package_add).
 
-<<<<<<< HEAD
-Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
-=======
-Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
->>>>>>> 7f1ec15 (GITBOOK-365: ENG-39629)
+Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.4/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
 
-## Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
+### Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
 
 {% hint style="info" %}
 Applies to Local Install. The following example manages packages directly in a runtime `packages` directory. That is appropriate for Local Install development and example environments. On System Install, use the `software packages` actions described above instead of manually managing symbolic links in `$NCS_RUN_DIR/packages`.
@@ -220,7 +218,7 @@ src
 
 As seen above a package is a defined file structure with data models, code, and documentation. NSO comes with a few ready-made example packages: `$NCS_DIR/packages/`. Also, there is a library of packages available from Tail-f, especially for supporting specific devices.
 
-### Adding and Upgrading a Package on Local Install <a href="#d5e7809" id="d5e7809"></a>
+#### Adding and Upgrading a Package on Local Install <a href="#d5e7809" id="d5e7809"></a>
 
 Assume you would like to add support for Nexus devices to the example. Nexus devices have different data models and another CLI flavor. There is an example NED package for that in `$NCS_DIR/examples.ncs/common/packages/cisco-nx-netsim-cli-1.0`.
 
@@ -263,7 +261,7 @@ reload-result {
 
 So after the `packages reload` operation NSO also knows about Nexus devices. The reload operation also takes any changes to existing packages into account. The data store is automatically upgraded to cater to any changes like added attributes to existing configuration data.
 
-### Simulating the New Device <a href="#d5e7826" id="d5e7826"></a>
+#### Simulating the New Device <a href="#d5e7826" id="d5e7826"></a>
 
 ```bash
 $ ncs-netsim add-to-network cisco-nx-netsim-cli-1.0 2 n
@@ -298,7 +296,7 @@ nexus:vlan 1
 ...
 ```
 
-### Adding the New Devices to NSO <a href="#d5e7835" id="d5e7835"></a>
+#### Adding the New Devices to NSO <a href="#d5e7835" id="d5e7835"></a>
 
 We can now add these Nexus devices to NSO according to the below sequence:
 
