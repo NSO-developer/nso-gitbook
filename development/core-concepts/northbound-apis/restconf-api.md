@@ -1292,7 +1292,7 @@ The actual XPath query to run is specified by the `foreach` element. The example
 ```
 
 {% hint style="info" %}
-Note that the `foreach`  element, specifying an XPath, expects nodes qualified with YANG module prefix, not YANG module name as is customary elsewhere in RESTCONF.
+Note that the `foreach` element, specifying an XPath, expects nodes qualified with YANG module prefix, not YANG module name as is customary elsewhere in RESTCONF.
 {% endhint %}
 
 Now we need to define what we want to have returned from the node set by using one or more `select` sections. What to actually return is defined by the XPath `expression`.
@@ -1518,11 +1518,15 @@ It is also possible to set meta-data objects in JSON format, except for setting 
 
 ## Authentication Cache <a href="#d5e2282" id="d5e2282"></a>
 
-The RESTCONF server maintains an authentication cache. When authenticating an incoming request for a particular `User:Password`, it is first checked if the User exists in the cache and if so, the request is processed. This makes it possible to avoid the, potentially time-consuming, login procedure that will take place in case of a cache miss.
+The RESTCONF server maintains an authentication cache. When authenticating an incoming request for a particular `User:Password`, it is first checked if the user exists in the cache and if so, the request is processed. This makes it possible to avoid the, potentially time-consuming, login procedure that will take place in case of a cache miss.
 
 Cache entries have a maximum Time-To-Live (TTL) and upon expiry, a cache entry is removed which will cause the next request for that User to perform the normal login procedure. The TTL value is configurable via the `auth-cache-ttl` parameter, as shown in the example. Note that, by setting the TTL value to `PT0S` (zero), the cache is effectively turned off.
 
-It is also possible to combine the client's IP address with the User name as a key into the cache. This behavior is disabled by default. It can be enabled by setting the `enable-auth-cache-client-ip` parameter to `true`. With this enabled, only a client coming from the same IP address may get a hit in the authentication cache.
+It is also possible to combine the client's IP address with the user name as a key into the cache. This behavior is disabled by default. It can be enabled by setting the `enable-auth-cache-client-ip` parameter to `true`. With this enabled, only a client coming from the same IP address may get a hit in the authentication cache.
+
+{% hint style="info" %}
+For considerations specific to RESTCONF deployments that use AAA package authentication, including high-frequency request patterns, see [Package Authentication](../../../administration/management/aaa-infrastructure.md#ug.aaa.packageauth).
+{% endhint %}
 
 {% code title="Example: NSO Configuration of the Authentication Cache TTL" %}
 ```xml
