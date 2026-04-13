@@ -268,7 +268,6 @@ $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
 {% endtab %}
 
 {% tab title="FIPS System Install" %}
-
 FIPS mode restricts cryptographic operations to those provided by the CiscoSSL FIPS 140-3 validated module. **This mode should only be enabled for deployments subject to strict regulatory compliance requirements**, as it limits the available cryptographic functions to those certified under FIPS 140-3 standards.
 
 **Installation Procedure**
@@ -283,20 +282,19 @@ $ sudo sh nso-VERSION.OS.ARCH.installer.bin --system-install --fips-install
 
 During FIPS installation, the following configurations are automatically applied:
 
-1. **FIPS Mode Enablement**\
-   The `ncs.conf` file is configured with the FIPS mode flag:
-   ```xml
-   <fips-mode>
-       <enabled>true</enabled>
-   </fips-mode>
-   ```
+1.  **FIPS Mode Enablement**\
+    The `ncs.conf` file is configured with the FIPS mode flag:
 
+    ```xml
+    <fips-mode>
+        <enabled>true</enabled>
+    </fips-mode>
+    ```
 2. **Environment Variables**\
    The `ncsrc` file is updated with FIPS-compliant environment variables:
-   - `NCS_OPENSSL_CONF_INCLUDE`
-   - `NCS_OPENSSL_CONF`
-   - `NCS_OPENSSL_MODULES`
-
+   * `NCS_OPENSSL_CONF_INCLUDE`
+   * `NCS_OPENSSL_CONF`
+   * `NCS_OPENSSL_MODULES`
 3. **Cryptographic Library**\
    The default `crypto.so` library is replaced with the FIPS-compliant version during installation.
 
@@ -305,8 +303,9 @@ During FIPS installation, the following configurations are automatically applied
 The CiscoSSL FIPS 140-3 validated module supports a limited subset of cryptographic algorithms compared to standard CiscoSSL. **You must configure NSO to use only FIPS-approved algorithms and cryptographic suites.**
 
 Key configuration requirements include:
-- Configuring approved algorithms in `/ncs-config/ssh/algorithm/kex` within `ncs.conf`
-- Configuring device-specific algorithms in `/devices/device/ssh-algorithms/kex` within CDB
+
+* Configuring approved algorithms in `/ncs-config/ssh/algorithm/kex` within `ncs.conf`
+* Configuring device-specific algorithms in `/devices/device/ssh-algorithms/kex` within CDB
 
 {% hint style="info" %}
 The Ed25519 algorithm is **not FIPS 140-3 compliant** and must not be used in FIPS mode.
@@ -315,11 +314,12 @@ The Ed25519 algorithm is **not FIPS 140-3 compliant** and must not be used in FI
 **FIPS-Approved Key Exchange Algorithms**
 
 The following key exchange algorithms are FIPS-approved:
-- `ecdh-sha2-nistp256`
-- `ecdh-sha2-nistp384`
-- `ecdh-sha2-nistp521`
-- `diffie-hellman-group14-sha1`
-- `diffie-hellman-group-exchange-sha256`
+
+* `ecdh-sha2-nistp256`
+* `ecdh-sha2-nistp384`
+* `ecdh-sha2-nistp521`
+* `diffie-hellman-group14-sha1`
+* `diffie-hellman-group-exchange-sha256`
 
 {% hint style="info" %}
 Ensure that SSH keys of the correct type are configured in both `ncs.conf` and `init.xml` files.
@@ -328,12 +328,12 @@ Ensure that SSH keys of the correct type are configured in both `ncs.conf` and `
 **NED Package Compatibility**
 
 NSO signals Network Element Drivers (NEDs) to operate in FIPS mode using Bouncy Castle FIPS libraries for Java-based components. **NED packages may require upgrading to support FIPS mode**, as older versions—particularly SSH-based NEDs—often lack:
-- FIPS mode signaling capability
-- Bouncy Castle FIPS library support
-- Required cryptographic compliance features
+
+* FIPS mode signaling capability
+* Bouncy Castle FIPS library support
+* Required cryptographic compliance features
 
 Consult the NED documentation and verify compatibility before deploying in FIPS mode.
-
 {% endtab %}
 {% endtabs %}
 
@@ -371,11 +371,11 @@ For an extensive guide to NSO deployment, refer to [Development to Production De
 
 By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO because the Linux Out-Of-Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory. Also, when the OOM killer terminates NSO, no system dump file will be produced, and the debug information will be lost. Thus, it is strongly recommended to enable strict overcommit accounting.
 
-#### **Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
+**Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
 
 The alternative—using heuristic overcommit mode (see below for best‑effort recommendations)—can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
 
-#### Recommended: Host Configured for Strict Overcommit
+**Recommended: Host Configured for Strict Overcommit**
 
 * Set `vm.overcommit_memory=2` to enable strict overcommit accounting.
 * Set `vm.overcommit_ratio` so the CommitLimit is approximately equal to physical RAM, with a 5% headroom for the kernel to reduce the risk of system-wide OOM conditions. E.g., 95% of RAM when no swap is present (recommended), or subtract 5 percentage points from the calculated ratio that neutralizes swap. Increase the headroom if the host runs additional services.
@@ -690,7 +690,7 @@ To set environment variables:
 
 If NSO was installed with `--run-as-user` and the host has SELinux enabled, starting the service may fail with an error similar to `/bin/su: Permission denied` due to missing SELinux permissions. Consider updating the SELinux policy for NSO or starting NSO unconfined. You may verify the SELinux mode with the command `getenforce`.
 
-If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.&#x20;
+If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.
 {% endhint %}
 
 1.  Change to Super User privileges.
@@ -721,6 +721,14 @@ If the issue persists, you may consider disabling SELinux on the host before sta
 ### Step 7 - Runtime Directory Creation <a href="#si.runtime.directory.creation" id="si.runtime.directory.creation"></a>
 
 As part of the System Install, the NSO daemon `ncs` is automatically started at boot time. You do not need to create a Runtime Directory for System Install.
+
+{% hint style="info" %}
+**Non-root Startup on SELinux**
+
+If NSO was installed with `--run-as-user` and the host has SELinux enabled, starting the service may fail with an error similar to `/bin/su: Permission denied` due to missing SELinux permissions. Consider updating the SELinux policy for NSO or starting NSO unconfined. You may verify the SELinux mode with the command `getenforce`.
+
+If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.
+{% endhint %}
 
 ### Step 8 - Generate License Registration Token <a href="#si.generate.license.token" id="si.generate.license.token"></a>
 
@@ -915,4 +923,3 @@ The easiest way is to uninstall the System install using `ncs-uninstall --all` a
 No.
 
 </details>
-
