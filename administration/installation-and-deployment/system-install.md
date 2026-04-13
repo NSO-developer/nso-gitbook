@@ -685,6 +685,14 @@ To set up user access:
 
 To set environment variables:
 
+{% hint style="info" %}
+**Non-root Startup on SELinux**
+
+If NSO was installed with `--run-as-user` and the host has SELinux enabled, starting the service may fail with an error similar to `/bin/su: Permission denied` due to missing SELinux permissions. Consider updating the SELinux policy for NSO or starting NSO unconfined. You may verify the SELinux mode with the command `getenforce`.
+
+If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.&#x20;
+{% endhint %}
+
 1.  Change to Super User privileges.
 
     ```bash
