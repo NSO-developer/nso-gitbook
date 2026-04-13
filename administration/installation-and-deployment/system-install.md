@@ -211,7 +211,429 @@ To run the installer:
     For example:
 
     ```bash
-    $ sudo sh nso-6.0.linux.x86_64.installer.bin --system-install
+    $ sudo sh nso-6.1.linux.x86_64.installer.bin --system-install
+    ```
+
+<details>
+
+<summary>Default Directories</summary>
+
+The System Install by default creates the following directories:
+
+* The Installation Directory is created in `/opt/ncs`, where the distribution is available.
+* The Configuration Directory is created in `/etc/ncs`, where the `ncs.conf` file, SSH keys, and WebUI certificates are created.
+* The Running Directory is created in `/var/opt/ncs`, where runtime state files, CDB database, and packages are created.
+* The Log Directory is created in `/var/log/ncs`, where the log files are populated. Also, init scripts are created in `/etc/init.d/ncs` and system-wide environment variables are created in `/etc/profile.d/ncs.sh`.
+
+For the `--system-install` option, you can also choose a user-defined (non-default) Installation Directory, Configuration Directory, Running Directory, and Log Directory with `--install-dir`, `--config-dir`, `--run-dir` and `--log-dir` parameters, and specify that NSO should run as a different user than root with the `--run-as-user` parameter.
+
+If you choose a non-default Installation Directory by using `--install-dir`, you need to specify `--install-dir` for subsequent installs and also for backup and restore.
+
+For more information on `ncs-installer`, see the [ncs-installer(1)](https://nso-docs.cisco.com/guides/nso-6.1/resources/index/section1#ncs-installer) man page.
+
+For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
+
+</details>
+
+<details>
+
+<summary>Enable Strict Overcommit Accounting on the Host</summary>
+
+By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO because the Linux Out-Of-Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory. Also, when the OOM killer terminates NSO, no system dump file will be produced, and the debug information will be lost. Thus, it is strongly recommended to enable strict overcommit accounting.
+
+**Heuristic Overcommit Mode as an Alternative to Strict Overcommit**
+
+The alternative—using heuristic overcommit mode (see below for best‑effort recommendations)—can be useful if the NSO host has severe memory limitations. For example, if RAM sizing for the NSO host did not take into account that the schema (from YANG models) is loaded into memory by NSO Python and Java packages affecting total committed memory (Committed\_AS) and after considering the recommendations in [CDB Stores the YANG Model Schema](../../development/advanced-development/scaling-and-performance-optimization.md#d5e8743).
+
+**Recommended: Host Configured for Strict Overcommit**
+
+* Set `vm.overcommit_memory=2` to enable strict overcommit accounting.
+* Set `vm.overcommit_ratio` so the CommitLimit is approximately equal to physical RAM, with a 5% headroom for the kernel to reduce the risk of system-wide OOM conditions. E.g., 95% of RAM when no swap is present (recommended), or subtract 5 percentage points from the calculated ratio that neutralizes swap. Increase the headroom if the host runs additional services.
+* Alternatively, set `vm.overcommit_kbytes` which takes precedence; `vm.overcommit_ratio` is ignored while `vm.overcommit_kbytes > 0`.
+  * When vm.overcommit\_kbytes > 0, it sets a fixed CommitLimit in kB and ignores ratio and swap in the calculation. Note that HugeTLB is not subtracted when overcommit\_kbytes is used (it’s a fixed value).
+* Strongly discourage swap use at runtime by setting `vm.swappiness=1`.
+* If swap must remain enabled system-wide, prevent NSO from using swap by configuring its cgroup with `memory.swap.max=0` (cgroup v2).
+* If swap must be enabled for NSO use a fast disk, for example, an NVMe SSD.
+
+**Apply Immediately**
+
+{% code title="To apply strict overcommit accounting with immediate effect" %}
+```bash
+echo 2 > /proc/sys/vm/overcommit_memory
+```
+{% endcode %}
+
+When `vm.overcommit_memory=2`, the overcommit\_ratio parameter defines the percentage of physical RAM that is available for commit.
+
+The Linux kernel computes the CommitLimit:
+
+CommitLimit = MemTotal × (overcommit\_ratio / 100) + SwapTotal − total\_huge\_TLB
+
+* MemTotal is the total amount of RAM on the system.
+* overcommit\_ratio is the value in `/proc/sys/vm/overcommit_ratio` .
+* SwapTotal is the amount of swap space. Can be 0.
+* total\_huge\_TLB is the amount of memory set aside for huge pages. Can be 0.
+
+The default overcommit\_ratio is 50%. On systems with more than 50% of RAM available, this default can underutilize physical memory.
+
+Do not set `vm.overcommit_ratio=100` as it includes all RAM plus all swap in the CommitLimit and leaves no headroom for the kernel. While swap increases the commit capacity, it is usually slow and should be avoided for NSO.
+
+**Compute overcommit\_ratio to Neutralize Swap**
+
+To allocate physical RAM only in commit accounting and keep a 5-10% headroom for the kernel:
+
+* Compute the base ratio: base\_ratio = 100 × (MemTotal − SwapTotal) / MemTotal.
+* Apply headroom: overcommit\_ratio = floor(base\_ratio) − 5.
+
+Notes:
+
+* overcommit\_ratio is an integer; round down for a bit of extra headroom.
+* Recompute the ratio if RAM or swap changes.
+* If SwapTotal ≥ MemTotal, swap cannot be neutralized via overcommit\_ratio, use overcommit\_kbytes; see Example 3.
+* If the computed value is very low, ensure it still fits your workload requirements.
+
+**Example 1: No Swap, 5% Headroom**
+
+{% code title="Check memory totals" %}
+```bash
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+MemTotal:    8039352 kB
+SwapTotal:         0 kB
+```
+{% endcode %}
+
+{% code title="Apply settings with immediate effect" %}
+```bash
+echo 2  > /proc/sys/vm/overcommit_memory
+echo 95 > /proc/sys/vm/overcommit_ratio
+echo 1  > /proc/sys/vm/swappiness
+```
+{% endcode %}
+
+Rationale: With no swap, set overcommit\_ratio=95 to allow \~95% of RAM for user-space commit, leaving \~5% headroom for the kernel.
+
+**Example 2: MemTotal > SwapTotal, Neutralize Swap with 5% Headroom**
+
+{% code title="Check memory totals" %}
+```bash
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+MemTotal:    8039352 kB
+SwapTotal:   1048572 kB
+```
+{% endcode %}
+
+Calculate the ratio:
+
+* base\_ratio= 100 × ((8039352 − 1048572) / 8039352) ≈ 86.9%.
+* Apply 5% headroom: overcommit\_ratio = floor(86.9) − 5 = 81.
+
+{% code title="Apply" %}
+```bash
+echo 2  > /proc/sys/vm/overcommit_memory
+echo 81 > /proc/sys/vm/overcommit_ratio
+echo 1  > /proc/sys/vm/swappiness
+```
+{% endcode %}
+
+This keeps the CommitLimit safely below physical RAM to provide kernel headroom and neutralizes swap’s contribution to CommitLimit and then applies 5% headroom toward the commit budget.
+
+**Example 3: SwapTotal ≥ MemTotal (Headroom via ratio not applicable, use overcommit\_kbytes)**
+
+{% code title="Check memory totals" %}
+```bash
+cat /proc/meminfo | grep "MemTotal\|SwapTotal"
+MemTotal:    16000000 kB
+SwapTotal:   16000000 kB
+```
+{% endcode %}
+
+Compute:
+
+* CommitLimit\_kB = floor(MemTotal × 0.95) = floor(16,000,000 × 0.95) = 15,200,000 kB.
+
+{% code title="Apply" %}
+```bash
+echo 2 > /proc/sys/vm/overcommit_memory
+echo 15200000 > /proc/sys/vm/overcommit_kbytes
+echo 1 > /proc/sys/vm/swappiness
+```
+{% endcode %}
+
+Note that overcommit\_kbytes sets a fixed CommitLimit that ignores swap; recompute if RAM changes. Also note the HugeTLB subtraction does not apply when using overcommit\_kbytes (fixed commit budget).
+
+Refer to the Linux [proc\_sys\_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html) manual page for more details on the overcommit\_memory, overcommit\_ratio, and overcommit\_kbytes parameters.
+
+**Persist Across Reboots**
+
+To ensure the overcommit remains disabled after reboot, add the three lines below to `/etc/sysctl.conf` (or a file under `/etc/sysctl.d/`).
+
+{% code title="Add to /etc/sysctl.conf" %}
+```
+vm.overcommit_memory = 2
+vm.overcommit_ratio = <integer> # if not using overcommit_kbytes
+vm.overcommit_kbytes = <kbytes> # if using a fixed CommitLimit
+vm.swappiness = 1
+```
+{% endcode %}
+
+See the Linux [sysctl.conf(5)](https://man7.org/linux/man-pages/man5/sysctl.conf.5.html) manual page for details.
+
+**NSO Crash Dumps**
+
+If NSO aborts due to failure to allocate memory, NSO will produce a system dump by default before aborting. When starting NSO from a non-root user, set the `NCS_DUMP` environment variable to point to a filename in a directory that the non-root user can access. The default setting is `NCS_DUMP=ncs_crash.dump`, where the file is written to the NSO run-time directory, typically `NCS_RUN_DIR=/var/opt/ncs`. If the user running NSO cannot write to the directory that the `NCS_DUMP` environment variable points to, generating the system dump file will fail, and the debug information will be lost.
+
+**Alternative: Heuristic Overcommit Mode**
+
+As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` on bare metal and use a best effort monitor to trigger NSO debug dumps before host-level memory pressure becomes critical. In heuristic overcommit mode, the most practical trigger for NSO debug dumps is a combination of low `MemAvailable`, sustained memory PSI pressure, and an elevated or clearly rising NSO `oom_score`.
+
+* This approach does not prevent NSO from getting killed; it attempts to capture diagnostic data before host memory pressure becomes critical and the Linux OOM-killer kills NSO.
+* Prefer low `MemAvailable` over `MemFree`, because `MemAvailable` is a better estimate of how much memory the host can still provide without heavy reclaim or swapping.
+* Use sustained PSI memory pressure from `/proc/pressure/memory` to confirm that the host is actively stalling on memory reclaim rather than reacting to a short-lived dip in available memory.
+* Use the NSO process `oom_score` from `/proc/<pid>/oom_score` to confirm that NSO is becoming a plausible OOM-killer victim. A high or clearly rising `oom_score` is more actionable than host memory metrics alone.
+* If swap is enabled, prefer `vm.swappiness=1` and optionally include swap activity as additional context, but keep `MemAvailable`, memory PSI, and NSO `oom_score` as the primary debug dump trigger.
+* Tune the example thresholds for your workload. The values below are intentionally conservative starting points for bare-metal systems and should be validated under load.
+* Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
+
+This recommendation also applies when NSO runs inside a Linux virtual machine. `MemAvailable`, memory PSI, and NSO `oom_score` remain the right guest-visible signals for predicting Linux OOM risk inside the VM. However, they reflect memory pressure seen by the guest OS and do not capture all hypervisor-level memory contention. If the virtualization platform reclaims memory from the guest or the host is overcommitted, guest performance can degrade due to host pressure even when the guest-side trigger has not yet fired. For production NSO virtual machines, avoid hypervisor-level memory overcommit for the VM when possible and monitor the virtualization platform's own memory reclamation signals in addition to the guest-side trigger.
+
+{% code title="Simple example script NSO debug-dump monitor (bare metal heuristic mode)" overflow="wrap" %}
+```bash
+#!/usr/bin/env bash
+# Simple NSO debug-dump monitor for bare-metal heuristic overcommit mode
+# (vm.overcommit_memory=0).
+# Triggers ncs --debug-dump when all of the following are true for a sustained
+# period:
+#   1. MemAvailable is below a configured percentage of MemTotal.
+#   2. Memory PSI indicates sustained reclaim pressure.
+#   3. NSO oom_score is elevated or rising.
+
+MEMAVAILABLE_PCT=8     # Trigger below 8% available memory.
+PSI_SOME_AVG10=1.00    # Trigger when memory PSI some avg10 exceeds this value.
+PSI_FULL_AVG10=0.10    # Trigger when memory PSI full avg10 exceeds this value.
+OOM_SCORE_MIN=500      # Treat NSO as a plausible victim at or above this score.
+OOM_SCORE_RISE=100     # Or trigger if oom_score rises by at least this much.
+SUSTAIN_COUNT=3        # Number of consecutive polls before collecting dumps.
+POLL_INTERVAL=5        # Seconds between checks.
+PROCESS_CHECK_INTERVAL=30
+DUMP_COUNT=10          # Number of dumps to collect.
+DUMP_DELAY=10          # Seconds between dumps.
+DUMP_PREFIX="dump"     # Files like dump.1.bin, dump.2.bin, ...
+
+command -v ncs >/dev/null 2>&1 || { echo "ncs command not found in PATH."; exit 1; }
+
+find_nso_pid() {
+  pgrep -x ncs.smp | head -n1 || true
+}
+
+read_meminfo_kb() {
+  awk -v key="$1" '$1 == key":" { print $2 }' /proc/meminfo
+}
+
+read_memory_psi_avg10() {
+  awk -v kind="$1" '
+    $1 == kind {
+      for (i = 2; i <= NF; i++) {
+        if ($i ~ /^avg10=/) {
+          split($i, a, "=")
+          print a[2]
+          exit
+        }
+      }
+    }
+  ' /proc/pressure/memory
+}
+
+prev_oom_score=""
+sustain_hits=0
+
+while true; do
+  pid="$(find_nso_pid)"
+  if [ -z "${pid:-}" ]; then
+    echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
+    prev_oom_score=""
+    sustain_hits=0
+    sleep "$PROCESS_CHECK_INTERVAL"
+    continue
+  fi
+
+  mem_total="$(read_meminfo_kb MemTotal)"
+  mem_available="$(read_meminfo_kb MemAvailable)"
+  psi_some_avg10="$(read_memory_psi_avg10 some)"
+  psi_full_avg10="$(read_memory_psi_avg10 full)"
+  oom_score="$(cat "/proc/${pid}/oom_score" 2>/dev/null || true)"
+
+  if [ -z "$mem_total" ] || [ -z "$mem_available" ] || \
+     [ -z "$psi_some_avg10" ] || [ -z "$psi_full_avg10" ] || \
+     [ -z "$oom_score" ]; then
+    echo "Unable to read required host or process metrics; retry in ${POLL_INTERVAL}s..."
+    sleep "$POLL_INTERVAL"
+    continue
+  fi
+
+  mem_threshold=$(( mem_total * MEMAVAILABLE_PCT / 100 ))
+  mem_low=0
+  psi_high=0
+  oom_elevated=0
+  oom_rising=0
+
+  if [ "$mem_available" -le "$mem_threshold" ]; then
+    mem_low=1
+  fi
+
+  if awk -v some="$psi_some_avg10" -v full="$psi_full_avg10" \
+         -v some_th="$PSI_SOME_AVG10" -v full_th="$PSI_FULL_AVG10" \
+         'BEGIN { exit !((some + 0.0 >= some_th + 0.0) || (full + 0.0 >= full_th + 0.0)) }'; then
+    psi_high=1
+  fi
+
+  if [ "$oom_score" -ge "$OOM_SCORE_MIN" ]; then
+    oom_elevated=1
+  fi
+
+  if [ -n "$prev_oom_score" ] && [ $(( oom_score - prev_oom_score )) -ge "$OOM_SCORE_RISE" ]; then
+    oom_rising=1
+  fi
+
+  echo "PID=${pid} MemAvailable=${mem_available}kB/${mem_total}kB; PSI some avg10=${psi_some_avg10}; PSI full avg10=${psi_full_avg10}; oom_score=${oom_score}; sustain_hits=${sustain_hits}."
+
+  if [ "$mem_low" -eq 1 ] && [ "$psi_high" -eq 1 ] && \
+     { [ "$oom_elevated" -eq 1 ] || [ "$oom_rising" -eq 1 ]; }; then
+    sustain_hits=$(( sustain_hits + 1 ))
+  else
+    sustain_hits=0
+  fi
+
+  if [ "$sustain_hits" -ge "$SUSTAIN_COUNT" ]; then
+    echo "Trigger conditions sustained; collecting ${DUMP_COUNT} debug dumps..."
+    for i in $(seq 1 "$DUMP_COUNT"); do
+      file="${DUMP_PREFIX}.${i}.bin"
+      echo "Dump $i -> ${file}"
+      if ! ncs --debug-dump "$file"; then
+        echo "Debug dump $i failed."
+      fi
+      sleep "$DUMP_DELAY"
+    done
+    echo "All debug dumps completed; exiting."
+    exit 0
+  fi
+
+  prev_oom_score="$oom_score"
+  sleep "$POLL_INTERVAL"
+done
+```
+{% endcode %}
+
+</details>
+
+{% hint style="info" %}
+Some older NSO releases expect the `/etc/init.d/` folder to exist in the host operating system. If the folder does not exist, the installer may fail to successfully install NSO. A workaround that allows the installer to proceed is to create the folder manually, but the NSO process will not automatically start at boot.
+{% endhint %}
+
+### Step 5 - Set Up User Access <a href="#si.setup.user.access" id="si.setup.user.access"></a>
+
+The installation is configured for PAM authentication, with group assignment based on the OS group database (e.g. `/etc/group` file). Users that need access to NSO must belong to either the `ncsadmin` group (for unlimited access rights) or the `ncsoper` group (for minimal access rights).
+
+To set up user access:
+
+1.  To create the `ncsadmin` group, use the OS shell command:
+
+    ```bash
+    # groupadd ncsadmin
+    ```
+2.  To create the `ncsoper` group, use the OS shell command:
+
+    ```bash
+    # groupadd ncsoper
+    ```
+3.  To add an existing user to one of these groups, use the OS shell command:
+
+    ```bash
+    # usermod -a -G 'groupname' 'username'
+    ```
+
+### Step 6 - Set Environment Variables <a href="#si.set.env.variables" id="si.set.env.variables"></a>
+
+To set environment variables:
+
+1.  Change to Super User privileges.
+
+    ```bash
+    $ sudo -s
+    ```
+2.  The installation program creates a shell script file in each NSO installation which sets the environment variables needed to run NSO. With the `--system-install` option, by default, these settings are set on the shell. To explicitly set the variables, source `ncs.sh` or `ncs.csh` depending on your shell type.
+
+    ```bash
+    # source /etc/profile.d/ncs.sh
+    ```
+3.  Start NSO.
+
+    ```bash
+    # /etc/init.d/ncs start
+    ```
+
+    Once you log on with the user that belongs to `ncsadmin` or `ncsoper`, you can directly access the CLI as shown below:
+
+    ```bash
+    $ ncs_cli -C
+    ```
+
+### Step 7 - Runtime Directory Creation <a href="#si.runtime.directory.creation" id="si.runtime.directory.creation"></a>
+
+As part of the System Install, the NSO daemon `ncs` is automatically started at boot time. You do not need to create a Runtime Directory for System Install.
+
+{% hint style="info" %}
+**Non-root Startup on SELinux**
+
+If NSO was installed with `--run-as-user` and the host has SELinux enabled, starting the service may fail with an error similar to `/bin/su: Permission denied` due to missing SELinux permissions. Consider updating the SELinux policy for NSO or starting NSO unconfined. You may verify the SELinux mode with the command `getenforce`.
+
+If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.
+{% endhint %}
+
+### Step 8 - Generate License Registration Token <a href="#si.generate.license.token" id="si.generate.license.token"></a>
+
+To conclude the NSO installation, a license registration token must be created using a (CSSM) account. This is because NSO uses [Cisco Smart Licensing](../management/system-management/cisco-smart-licensing.md) to make it easy to deploy and manage NSO license entitlements. Login credentials to the [Cisco Smart Software Manager](https://www.cisco.com/c/en/us/buy/smart-accounts/software-manager.html) (CSSM) account are provided by your Cisco contact and detailed instructions on how to [create a registration token](../management/system-management/cisco-smart-licensing.md#d5e2927) can be found in the Cisco Smart Licensing. General licensing information covering licensing models, how licensing works, usage compliance, etc., is covered in the [Cisco Software Licensing Guide](https://www.cisco.com/c/en/us/buy/licensing/licensing-guide.html).
+
+To generate a license registration token:
+
+1.  When you have a token, start a Cisco CLI towards NSO and enter the token, for example:
+
+    ```cli
+    $ ncs_cli -Cu admin
+    admin@ncs# license smart register idtoken
+    YzIzMDM3MTgtZTRkNC00YjkxLTk2ODQtOGEzMTM3OTg5MG
+
+    Registration process in progress.
+    Use the 'show license status' command to check the progress and result.
+    ```
+
+    \
+    Upon successful registration, NSO automatically requests a license entitlement for its own instance and for the number of devices it orchestrates and their NED types. If development mode has been enabled, only development entitlement for the NSO instance itself is requested.
+2.  Inspect the requested entitlements using the command `show license all` (or by inspecting the NSO daemon log). An example output is shown below.
+
+    ```cli
+    admin@ncs# show license all
+    ...
+    <INFO> 21-Apr-2016::11:29:18.022 miosaterm confd[8226]:
+    Smart Licensing Global Notification:
+    type = "notifyRegisterSuccess",
+    agentID = "sa1",
+    enforceMode = "notApplicable",
+    allowRestricted = false,
+    failReasonCode = "success",
+    failMessage = "Successful."
+    <INFO> 21-Apr-2016::11:29:23.029 miosaterm confd[8226]:
+    Smart Licensing Entitlement Notification: type = "notifyEnforcementMode",
+    agentID = "sa1",
+    notificationTime = "Apr 21 11:29:20 2016",
+    version = "1.0",
+    displayName = "regid.2015-10.com.cisco.NSO-network-element",
+    requestedDate = "Apr 21 11:26:19 2016",
+    tag = "regid.2015-10.com.cisco.NSO-network-element",
+    enforceMode = "inCompliance",
+    daysLeft = 90,
+    expiryDate = "Jul 20 11:26:19 2016",
+    requestedCount = 8
+    ...
     ```
 
 <details>
@@ -524,6 +946,8 @@ done
 {% endcode %}
 
 </details>
+
+<details>
 
 <summary>Evaluation Period</summary>
 
