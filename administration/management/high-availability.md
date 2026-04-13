@@ -24,6 +24,8 @@ NSO supports the following options for implementing an HA setup to cater to the 
 * [**Rule-based HA**](high-availability.md#ug.ha.builtin): A less sophisticated solution that allows you to influence the primary selection but may require occasional manual operator action.
 * [**External HA**](high-availability.md#ferret): NSO only provides data replication; all other functions, such as primary selection and group membership management, are performed by an external application, using the HA framework (HAFW).
 
+All of these options rely on a secure transport for communication, which uses TLS and host certificates. See [Managing Certificates](#managing-certificates) for details.
+
 In addition to data replication, having a fixed address to connect to the current primary in an HA group greatly simplifies access for operators, users, and other systems alike. Use [Tail-f HCC Package](high-availability.md#ug.ha.hcc) or an [external load balancer](high-availability.md#ug.ha.lb) to manage it.
 
 ## NSO HA Raft <a href="#ug.ha.raft" id="ug.ha.raft"></a>
@@ -54,31 +56,15 @@ Additionally, the NSO node can also be in the stalled state, if HA Raft is enabl
 
 ### Node Names and Certificates <a href="#ch_ha.raft_names" id="ch_ha.raft_names"></a>
 
-Each node in an HA Raft cluster needs a unique name. Names are usually in the `ADDRESS` format, where `ADDRESS` identifies a network host where the NSO process is running, such as a fully qualified domain name (FQDN) or an IPv4 address.
+Each node in an HA Raft cluster needs a unique name. Names are composed of multiple parts but are usually configured in the format of a simple `ADDRESS`, which identifies a network host where the NSO process is running, such as a fully qualified domain name (FQDN) or an IPv4 address.
 
-Other nodes in the cluster must be able to resolve and reach the `ADDRESS`, which creates a dependency on the DNS if you use domain names instead of IP addresses.
+Other nodes in the cluster must be able to resolve and reach the `ADDRESS`, which creates a dependency on the DNS if you use domain names instead of IP addresses. `ADDRESS` also cannot be a simple short name (without a dot), even if the system is able to resolve such a name using `hosts` file or a similar mechanism.
 
-Limitations of the underlying platform place a constraint on the format of `ADDRESS`, which can't be a simple short name (without a dot), even if the system is able to resolve such a name using `hosts` file or a similar mechanism.
+The full node name contains node id and port in the format of `ID@ADDRESS:PORT`, such as `ncsd@192.0.2.1:4570`.
 
-You specify the node address in the `ncs.conf` file as the value for `node-address`, under the `listen` container. You can also use the full node name (with the “@” character), however, that is usually unnecessary as the system prepends `ncsd@` as-needed.
+You specify the node address in the `ncs.conf` file as the value for `node-address`, under the `listen` container. You can also use the node name (with the "@" character), however, that is usually unnecessary as the system prepends `ncsd@` as-needed. The non-default port value can also be specified in the `ncs.conf`.
 
 Another aspect in which `ADDRESS` plays a role is authentication. The HA system uses mutual TLS to secure communication between cluster nodes. This requires you to configure a trusted Certificate Authority (CA) and a key/certificate pair for each node. When nodes connect, they check that the certificate of the peer validates against the CA and matches the `ADDRESS` of the peer.
-
-{% hint style="info" %}
-Consider that TLS not only verifies that the certificate/key pair comes from a trusted source (certificate is signed by a trusted CA), it also checks that the certificate matches the host you are connecting to. Host A may have a valid certificate and key, signed by a trusted CA, however, if the certificate is for another host, say host B, the authentication will fail.
-{% endhint %}
-
-In most cases, this means the `ADDRESS` must appear in the node certificate's Subject Alternative Name (SAN) extension, as `dNSName` (see [RFC2459](https://datatracker.ietf.org/doc/html/rfc2459)).
-
-Create and use a self-signed CA to secure the NSO HA Raft cluster. A self-signed CA is the only secure option. The CA should only be used to sign the certificates of the member nodes in one NSO HA Raft cluster. It is critical for security that the CA is not used to sign any other certificates. Any certificate signed by the CA can be used to gain complete control of the NSO HA Raft cluster.
-
-See the [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/raft-cluster) example for one way to set up a self-signed CA and provision individual node certificates. The example uses a shell script `gen_tls_certs.sh` that invokes the `openssl` command. Consult the section [Recipe for a Self-signed CA](high-availability.md#recipe-for-a-self-signed-ca) for using it independently of the example.
-
-Examples using separate containers for each HA Raft cluster member with NSO system installations that use a variant of the `gen_tls_certs.sh` script are available and referenced in the [examples.ncs/high-availability/hcc](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/hcc) example in the NSO example set.
-
-{% hint style="info" %}
-When using an IP address instead of a DNS name for node's `ADDRESS`, you must add the IP address to the certificate's dNSName SAN field (adding it to iPAddress field only is insufficient). This is a known limitation in the current version.
-{% endhint %}
 
 The following is a HA Raft configuration snippet for `ncs.conf` that includes certificate settings and a sample `ADDRESS`:
 
@@ -96,59 +82,7 @@ The following is a HA Raft configuration snippet for `ncs.conf` that includes ce
   </ha-raft>
 ```
 
-### Recipe for a Self-signed CA
-
-HA Raft uses a standard TLS protocol with public key cryptography for securing cross-node communication, where each node requires a separate public/private key pair and a corresponding certificate. Key and certificate management is a broad topic and is critical to the overall security of the system.
-
-The following text provides a recipe for generating certificates using a self-signed CA. It uses strong cryptography and algorithms that are deemed suitable for production use. However, it makes a few assumptions that may not be appropriate for all environments. Always consider how they affect your own deployment and consult a security professional if in doubt.
-
-The recipe makes the following assumptions:
-
-* You use a secured workstation or server to run these commands and handle the generated keys with care. In particular, you must copy the generated keys to NSO nodes in a secure fashion, such as using `scp`.
-* The CA is used solely for a single NSO HA Raft cluster, with certificates valid for 10 years, and provides no CRL. If a single key or host is compromised, a new CA and all key/certificate pairs must be recreated and reprovisioned in the cluster.
-* Keys and signatures based on ecdsa-with-sha384/P-384 are sufficiently secure for the vast majority of environments. However, if your organization has specific requirements, be sure to follow those.
-
-To use this recipe:
-
-* First prepare a working environment on a secure host by creating a new directory and copying the `gen_tls_certs.sh` script from [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/raft-cluster) into it. Additionally, ensure that the `openssl` command, version 1.1 or later, is available and the system time is set correctly. Supposing that you have a cluster named `lower-west`, you might run:
-
-```bash
-$ mkdir raft-ca-lower-west
-$ cd raft-ca-lower-west
-$ cp $NCS_DIR/examples.ncs/high-availability/raft-cluster/gen_tls_certs.sh .
-$ openssl version
-$ date
-```
-
-{% hint style="info" %}
-Including cluster name in the directory name helps distinguish certificates of one HA cluster from another, such as when using an LSA deployment in an HA configuration.
-{% endhint %}
-
-The recipe relies on the `gen_tls_certs.sh` script to generate individual certificates. For clusters using FQDN node addresses, invoke the script with full hostnames of all the participating nodes. For example:
-
-```bash
-$ ./gen_tls_certs.sh node1.example.org node2.example.org node3.example.org
-```
-
-{% hint style="info" %}
-Using only hostnames, e.g. `node1`, will not work.
-{% endhint %}
-
-If your HA cluster is using IP addresses instead, add the `-a` option to the command and list the IPs:
-
-```bash
-$ ./gen_tls_certs.sh -a 192.0.2.1 192.0.2.2 192.0.2.3
-```
-
-The script outputs the location of the relevant files and you should securely transfer each set of files to the corresponding NSO node. For each node, transfer only the three files: `ca.crt`, _`host`_`.crt`, and _`host`_`.key`.
-
-* Once the certificates are deployed, you can check their validity with the `openssl verify` command:
-
-```bash
-$ openssl verify -CAfile ssl/certs/ca.crt ssl/certs/node1.example.org.crt
-```
-
-This command takes into account the current time and can be used during troubleshooting. It can also display information contained in the certificate if you use the `openssl x509 -text -in ssl/certs/`_`node1.example.org`_`.crt -noout` variant. The latter form allows you to inspect the incorporated hostname/IP address and certificate validity dates.
+See [Managing Certificates](#managing-certificates) for more information on creating TLS X509 certificates.
 
 ### Actions <a href="#ch_ha.raft_actions" id="ch_ha.raft_actions"></a>
 
@@ -164,10 +98,7 @@ Additionally, the `/ncs-state/set-read-only` action can be used to toggle admini
 
 In addition to the network connectivity required for the normal operation of a standalone NSO node, nodes in the HA Raft cluster must be able to initiate TCP connections from a random ephemeral client port to the following ports on other nodes:
 
-* Port 4369
-* Ports in the range 4370-4399 (configurable)
-
-You can change the ports in the second listed range from the default of 4370-4399. Use the `min-port` and `max-port` settings of the `ha-raft/listen` container.
+* Port 4570 (the default HA communication port, configurable)
 
 The Raft implementation does not impose any other hard limits on the network but you should keep in mind that consensus requires communication with other nodes in the cluster. A high round-trip latency between cluster nodes is likely to negatively impact the transaction throughput of the system.
 
@@ -388,19 +319,13 @@ It is recommended but not necessary that you set the seed nodes in `ncs.conf` to
 
 ### Security Considerations <a href="#ch_ha.raft_security" id="ch_ha.raft_security"></a>
 
-Communication between the NSO nodes in an HA Raft cluster takes place over Distributed Erlang, an RPC protocol transported over TLS (unless explicitly disabled by setting `/ncs-config/ha-raft/ssl/enabled` to 'false').
+Communication between the NSO nodes in an HA Raft cluster relies on an RPC protocol transported over TLS (unless explicitly disabled by setting `/ncs-config/ha-raft/ssl/enabled` to 'false').
 
-TLS (Transport Layer Security) provides Authentication and Privacy by only allowing NSO nodes to connect using certificates and keys issued from the same Certificate Authority (CA). Distributed Erlang is transported over TLS 1.2. Access to a host can be revoked by the CA through the means of a CRL (Certificate Revocation List). To enforce certificate revocation within an HA Raft cluster, invoke the action /ha-raft/disconnect to terminate the pre-existing connection. A connection to the node can re-establish once the node's certificate is valid.
+TLS (Transport Layer Security) provides Authentication and Privacy by only allowing NSO nodes to connect using certificates and keys issued from the same Certificate Authority (CA). It is _paramount_ to security that TLS is always used.
 
-Please ensure the CA key is kept in a safe place since it can be used to generate new certificates and key pairs for peers.
+Access to a host can be revoked by the CA through the means of a CRL (Certificate Revocation List). To enforce certificate revocation within an HA Raft cluster, invoke the action /ha-raft/disconnect to terminate the pre-existing connection. A connection to the node can re-establish once the node's certificate is valid.
 
-Distributed Erlang supports for multiple NSO nodes to run on the same host and the node addresses are resolved by the `epmd` ([Erlang Port Mapper Daemon](https://www.erlang.org/doc/apps/erts/epmd_cmd.html)) service. Once resolved, the NSO nodes communicate directly.
-
-The ports `epmd` and the NSO nodes listen to can be found in [Network and `ncs.conf` Prerequisites](high-availability.md#ch_ha.raft_ports). `epmd` binds the wildcard IPv4 address `0.0.0.0` and the IPv6 address `::`.
-
-In case `epmd` is exposed to a DoS attack, the HA Raft members may be unable to resolve addresses and communication could be disrupted. Please ensure traffic on these ports are only accepted between the HA Raft members by using firewall rules or other means.
-
-Two NSO nodes can only establish a connection if a shared secret "cookie" matches. The cookie is optionally configured from `/ncs-config/ha-raft/cluster-name`. Please note the cookie is not a security feature but a way to isolate HA Raft clusters and to avoid accidental misuse.
+Also ensure the node keys are kept safe by the correct filesystem permissions and keep the CA key in a safe place since it can be used to generate new certificates and key pairs for peers.
 
 ### Packages Upgrades in Raft Cluster
 
@@ -467,7 +392,8 @@ Rule-based HA allows administrators to:
 * Assign roles, join HA group, enable/disable rule-based HA through actions
 * View the state of the current HA setup
 
-NSO rule-based HA is defined in `tailf-ncs-high-availability.yang`, with data residing under the `/high-availability/` container.
+NSO rule-based HA is defined in `tailf-ncs-high-availability.yang`, with data residing under the `/high-availability/` container. Since NSO 6.7, the HA transport uses TLS and host certificates to secure node communication. See [Managing Certificates](#managing-certificates) for details and recipes.
+
 
 {% hint style="info" %}
 In environments with high NETCONF traffic, particularly when using `ncs_device_notifs`, it's recommended to enable read-only mode on the designated primary node before performing HA activation or sync. This prevents `app_sync` from being blocked by notification processing.
@@ -615,6 +541,71 @@ NSO rule-based HA can be controlled through several actions. All actions are fou
 ### Status Check <a href="#d5e5077" id="d5e5077"></a>
 
 The current state of NSO rule-based HA can be monitored by observing `/high-availability/status/`. Information can be found about the current active HA mode and the current assigned role. For nodes with active mode primary, a list of connected nodes and their source IP addresses is shown. For nodes with assigned role secondary the latest result of the be-secondary operation is listed. All NSO rule-based HA status information is non-replicated operational data - the result here will differ between nodes connected in an HA setup.
+
+## Managing Certificates
+
+Secure communication between NSO nodes in an HA setup (rule-based or Raft) relies on Transport Layer Security (TLS). TLS uses public key cryptography, where each node requires a separate public/private key pair and a corresponding certificate. Key and certificate management is a broad topic and is critical to the overall security of the system.
+
+Certificates are used to authenticate each node in the cluster. The TLS protocol not only verifies that the certificate/key pair comes from a trusted source (certificate is signed by a trusted CA), it also checks that the certificate matches the host you are connecting to. This means host A may have a valid certificate and key, signed by a trusted CA; however, if the certificate is for another host, say host B, the authentication will fail. Typically, this means the host address must appear in the node certificate's Subject Alternative Name (SAN) extension, as `dNSName` or `iPAddress` (see [RFC2459](https://datatracker.ietf.org/doc/html/rfc2459)).
+
+It is important that you create and use a self-signed CA to provision the node certificates and that the CA is used only to sign the certificates of the member nodes in one NSO HA cluster. Do not sign any other certificate with this CA - any certificate signed by the CA can be used to authenticate with and control the cluster.
+
+{% hint style="danger" %}
+Never disable TLS. Without TLS, anyone with access to the HA port can gain complete control of the NSO cluster.
+{% endhint %}
+
+NSO uses standard PEM-encoded X509 certificates for TLS, which you can generate with any compatible tool, such as the `openssl` command-line utility. Note that certificates have an expiry date and should be rotated regularly.
+
+For your convenience, NSO contains a set of scripts for certificate management as part of the example set, located in [examples.ncs/high-availability/ca](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/ca). These scripts call out to `openssl` and produce certificates with algorithms and key strength that are considered production-grade in many environments. However, always vet the scripts and the produced certificates before use.
+
+The example set also contains examples for setting up Raft- and rule-based HA clusters using certificate management scripts, such as [examples.ncs/high-availability/raft-cluster](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/raft-cluster) and [examples.ncs/high-availability/rule-based-basic](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/rule-based-basic).
+
+### Using Certificate Management Scripts
+
+The scripts provided in `examples.ncs/high-availability/ca` are designed to simplify common certificate operations. You can use them to quickly provision node certificates for test and development clusters or as a base for your own scripts. Before using them for production, audit the scripts and ensure they match your requirements, such as generated certificate lifetime.
+
+The scripts are part of the example set, which may need to be installed separately for an NSO system install. They depend on the system `openssl` command and are tested with versions 1.1 and 3.0 of `openssl`, but newer versions likely work as well. You can verify the version you have installed with the `openssl version` command. You should also verify the system time is set correctly, e.g. by running `date`, since certificates are time-bound.
+
+Before you start, it is highly recommended that you create a new, separate directory to hold certificate data for each cluster. Including the cluster name in the directory name helps distinguish certificates of one HA cluster from another, such as when using an LSA deployment in an HA configuration. You may also want to create a symlink to the `$NCS_DIR/examples.ncs/high-availability/ca` to save you some typing.
+
+```bash
+$ mkdir ~/nso-cluster1-certs
+$ cd ~/nso-cluster1-certs
+$ ln -s "$NCS_DIR/examples.ncs/high-availability/ca" ./bin
+```
+
+To create a new certificate for a cluster node (here called `n1`):
+
+```bash
+$ bin/create-cert n1 192.0.2.1 n1.example.com
+```
+
+where `192.0.2.1` and `n1.example.com` are the IP address and hostname of the node; you can specify only one if you wish. The use of the first argument, `n1`, is not strictly necessary but gives the certificate a short name to make it easy to refer to.
+
+Since the CA certificate does not exist yet, one is created and you must enter the CA key passphrase multiple times (to set it, then for verification and signing). You will need this passphrase for practically all certificate operations.
+
+You can create more certificates, say for another node `n2`:
+
+```bash
+$ bin/create-cert n2 192.0.2.2 n2.example.com
+```
+
+Naturally, the certificates for one cluster must be created (signed) by the same CA, so create as many certificates as there are cluster nodes. You can check the existing certificates with the `list-certs` command.
+
+To use the certificates with NSO, invoke `export-cert` for each certificate, specifying the folder where you want to save the files. If the filesystem of a node is directly accessible (via NFS or container bind mount for example), you can save the files directly next to the node's `ncs.conf`, in a folder named `tls` or similar. Otherwise, export to a temporary folder and securely transfer it to the node, e.g. using `scp`.
+
+```bash
+$ bin/export-cert n1 n1/tls
+$ scp -r n1/tls n1.example.com:/etc/ncs/
+```
+
+Since certificates are valid for a limited time, you can check the validity with the `verify-cert` command, which takes into account the CRL if present:
+
+```bash
+$ bin/verify-cert n2
+```
+
+Executing these commands creates a directory named `ca-...` that holds all the certificate and auxiliary data, allowing you to renew or export certificates again. There are a number of other operations available too, see [$NCS_DIR/examples.ncs/high-availability/ca/README.md](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/ca/README.md) for details.
 
 ## Tail-f HCC Package <a href="#ug.ha.hcc" id="ug.ha.hcc"></a>
 
