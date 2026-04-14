@@ -1575,3 +1575,28 @@ As an option, several APIs e.g. MAAPI can set the default namespace which will b
 
     ConfValue val = maapi.getElem(th, "/devices/device{d1}/address");
 ```
+
+## Advanced Topics
+
+### Fetch bulk live-status via MAAPI
+
+In MAAPI, when reading live-status data with `getElem`, `getCase`, `getValues`, and similar calls, each read call may trigger its own request to the device. To improve fetch performance, you can use `setReadIntent` to fetch live-status data in bulk.
+
+{% code title="Example: Fetch bulk live-status via MAAPI" %}
+```java
+    Socket s = new Socket("localhost", Conf.NCS_PORT);
+    Maapi maapi = new Maapi(s);
+    int th =  maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ);
+
+    maapi.setReadIntent(th, Arrays.asList(
+                                "/ncs:devices/device/live-status/foo:foo",
+                                "/ncs:devices/device/live-status/bar:bar"
+                            ));
+    maapi.getElem(th, "/ncs:devices/device{dev0}/live-status/foo:foo/a");
+    maapi.getElem(th, "/ncs:devices/device{dev0}/live-status/foo:foo/b");
+
+    maapi.getElem(th, "/ncs:devices/device{dev0}/live-status/bar:bar/baz");
+```
+{% endcode %}
+
+With `setReadIntent`, it only requires one read request to get all the live-status data under `foo:foo` and `bar:bar`, and the data will be cached for later usage. To check the current read-intent, use `getReadIntent`, and `clearReadIntent` to clear it.

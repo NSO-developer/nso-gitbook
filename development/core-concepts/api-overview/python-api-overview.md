@@ -1299,3 +1299,24 @@ class Main(ncs.application.Application):
         self.log.info('Main FINISHED')
 ```
 {% endcode %}
+
+### Fetch bulk live-status via MAAPI
+
+In MAAPI, when reading live-status data with `get_elem`, `get_case`, `get_values`, and similar calls, each read call may trigger its own request to the device. To improve fetch performance, you can use `set_read_intent` to fetch live-status data in bulk.
+
+{% code title="Example: Fetch bulk live-status via MAAPI" %}
+```python
+import ncs
+
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    t.set_read_intent(["/ncs:devices/device/live-status/foo:foo",
+                       "/ncs:devices/device/live-status/bar:bar"])
+
+    t.get_elem("/ncs:devices/device{dev0}/live-status/foo:foo/a")
+    t.get_elem("/ncs:devices/device{dev0}/live-status/foo:foo/b")
+
+    t.get_elem("/ncs:devices/device{dev0}/live-status/bar:bar/baz")
+```
+{% endcode %}
+
+With `set_read_intent`, it only requires one read request to get all the live-status data under `foo:foo` and `bar:bar`, and the data will be cached for later usage. To check the current read-intent, use `get_read_intent`, and `clear_read_intent` to clear it.
