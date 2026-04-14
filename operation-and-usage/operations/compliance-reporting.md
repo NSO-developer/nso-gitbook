@@ -743,3 +743,55 @@ check-result {
 
 }
 ```
+
+## Re-run existing compliance report results
+
+When a compliance report result includes violations, you typically want to run that compliance report again after fixing the violations. What if you could run only the violating items from the old report results again, skipping everything else?
+
+Re-running only the violating items is possible by using the `/compliance/report-results/report/re-run` action.
+
+### Example of re-run
+
+First, we produce a compliance report result. This example assumes that you already know how to create compliance reports. Here, we use a compliance report called `scale-test`.
+
+```bash
+ncs(config)# compliance reports report scale-test run outformat text
+time 2026-04-09T20:42:45.019012+00:00
+compliance-status violations
+info Checking 4 devices and 4 services
+```
+
+We now inspect this compliance report result and find what causes these violations. Maybe some leaf values are incorrectly configured, maybe services are out of sync. There are six violations in this run, on two devices and four services.
+
+We re-run the report result and notice that only the devices and services involved in violations are now part of the new re-run report result.
+
+```bash
+ncs(config)# compliance report-results report 2026-04-09T20:42:45.019012+00:00 re-run outformat text
+time 2026-04-09T20:44:45.019012+00:00
+compliance-status violations
+info Checking 2 devices and 4 services
+```
+
+We fix these violations, and re-run the compliance report based on the new report result.
+
+```bash
+ncs(config)# compliance report-results report 2026-04-09T20:44:45.019012+00:00 re-run outformat text
+time 2026-04-09T20:46:48.019012+00:00
+compliance-status no-violation
+info Checking 2 devices and 4 services
+```
+
+Note that `compliance-status` is now `no-violation`. We have managed to fix all violations and we did not need to re-run the full compliance report in order to achieve this. This saves time and makes the resulting report smaller and easier to read.
+
+If we re-run the successful report result, we see that this final re-run does not include any devices nor any services.
+
+```bash
+ncs(config)# compliance report-results report 2026-04-09T20:46:48.019012+00:00 re-run outformat text
+time 2026-04-09T20:49:48.019012+00:00
+compliance-status no-violation
+info Checking no devices and no services
+```
+
+### Renamed devices and removed services
+
+The `/compliance/report-results/report/re-run` action will ignore any renamed devices and removed services, these will be dropped from the resulting new compliance report result.
