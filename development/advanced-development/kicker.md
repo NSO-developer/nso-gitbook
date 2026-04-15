@@ -4,7 +4,7 @@ description: Trigger actions on events using Kicker.
 
 # Kicker
 
-Kickers constitute a declarative notification mechanism for triggering actions on certain stimuli like a database change or a received notification. These different stimuli and their kickers are defined separately as data kicker and notification kicker respectively.
+Kickers constitute a declarative notification mechanism for triggering actions on certain stimuli like a database change or a received notification. These different stimuli and their kickers are defined separately as data, notification, and telemetry kicker respectively.
 
 Common to all types of kickers is that they are declarative. Kickers are modeled in YANG and Kicker instances are stored as configuration data in CDB.
 
@@ -477,22 +477,10 @@ admin@ncs(config)#
 In the example above, `PATH` is defined and referred to by the `monitor` expression by using the expression `$PATH`.
 
 {% hint style="info" %}
-A monitor expression is not evaluated by the XPath engine. Hence no trace of the evaluation can be found in the the XPath log.
+A selector expression is not evaluated by the XPath engine. Hence no trace of the evaluation can be found in the the XPath log.
 
-Monitor expressions are expanded and installed in an internal data structure at kicker creation/compile time. XPath may be used while defining kickers by referring to a named XPath expression.
+Selector expressions are expanded and installed in an internal data structure at kicker creation/compile time. XPath may be used while defining kickers by referring to a named XPath expression.
 {% endhint %}
-
-### Serializer and Priority Values <a href="#d5e9243" id="d5e9243"></a>
-
-These values are used to ensure the order of kicker execution. Priority orders kickers for the same notification event, while serializer orders kickers chronologically for different notification events. By default, when no serializer or priority value is given, kickers may be triggered in any order and in parallel. However, some situations may require stricter ordering, and setting serializer and priority in kicker configuration allows you to achieve it.
-
-If priority for a set of kickers is specified, for each individual notification event, the kickers that match are executed in order, going from priority 0 to 255. For example, kicker `K1` with priority 5 is executed before the kicker `K2` with priority 8, which triggered for the same notification.
-
-Parallel execution of kickers can also result in a situation where a kicker for a notification is executed after the kicker for a later notification. That is, even though the trigger for the first kicker came first, this kicker might have a priority set and must wait for other kickers to execute first, while the kicker for the next notification can execute right away. If there is a dependency between these two kickers, serializer value can ensure chronological ordering.
-
-A serializer is a simple integer value between 0 and 255. Notification kickers configured with the same value will be executed in the order in which they were triggered, relative to each other. For example, suppose there are three kickers configured: `T1` and `T2` with serializer set to 10, and `T3` with serializer of 20. NSO receives two notifications, the first triggering `T1` and `T3`, and the second triggering `T2`. Because of the serializer, NSO guarantees `T1` will be invoked before `T2`. But `T2`, even though it came in later, could potentially be invoked before `T3` because they are not serialized (have different serializer value).
-
-When using both, serializer and priority, only kickers with the same serializer value are priority ordered, that is, serializer value takes precedence. For example, the kicker `Q1` with serializer 10 and priority 15 may execute before or after the kicker `Q2` with serializer 20 and priority 4. The reason is `Q1` may need to wait for other kickers with serializer 10 from previous events. The same is true for `Q2` and previous kickers with serializer 20.
 
 ### A Simple Notification Kicker Example <a href="#ug.kicker.simple_notif_example" id="ug.kicker.simple_notif_example"></a>
 
@@ -591,6 +579,141 @@ admin@ncs(config)# no kickers notification-kicker
 admin@ncs(config)# no devices device www0 notifications subscription
 admin@ncs(config)# commit
 ```
+
+## Telemetry Kicker Concepts
+
+For a telemetry kicker, the following principles hold:
+
+* Telemetry Kickers are triggered by the arrival of telemetry data, e.g. YANG Push, from any device subscription. These subscriptions are defined under the `/devices/device/telemetry/subscription` path.
+* Storing the received telemetry data in CDB is optional and not part of the telemetry kicker functionality.
+* The ordering of kicker invocations is generally not guaranteed. That is, a kicker triggered at a later time might execute before a kicker that was triggered earlier, and kickers triggered for the same subscription may execute in any order. A `priority` and a `serializer` value can be used to modify this behavior.
+
+### Telemetry Selector Expression
+
+The telemetry kicker is defined using a mandatory `selector-expr` which is an XPATH 1.0 expression. When the telemetry data is received a synthetic transaction is started and the telemetry data is written under the path `/devices/device/config` or `/devices/device/live-status` (depending on the subscribed datastore).
+
+There are three predefined variable bindings used when evaluating this expression:
+
+* `DEVICE`: The name of the device emitting the current telemetry data.
+* `SUBSCRIPTION_NAME`: The name of the current subscription from which the telemetry data was received.
+* `KICKER_ID`: The name of the current telemetry kicker.
+
+The `selector-expr` technique for defining the telemetry kickers is very flexible. For instance, a kicker can be defined to:
+
+* Handle all telemetry data for a device.
+* Handle all telemetry data of a certain type for any device.
+* Handle a subset of telemetry data of a subset of devices by the use of specific subscriptions with the same name in several devices.
+
+In addition to this usage of the predefined variable bindings, it is possible to further drill down into the specific telemetry data to trigger on certain leafs in the received datastore update.
+
+### Variable Bindings <a href="#ug.telemetry.kicker.named_xpath" id="ug.telemetry.kicker.named_xpath"></a>
+
+In addition to the three variable bindings mentioned above, a telemetry kicker may also be provided with a list of variables (named values). Each variable binding consists of a name and an XPath expression. The XPath expression is evaluated when the selector-expr is run.
+
+```cli
+            admin@ncs(config)# set kickers telemetry-kicker k4
+            selector-expr "$SUBSCRIPTION_NAME=linkChange and /devices/device[name=$DEVICE]/live-status/address[ip=$IP]"
+            kick-node /x/y[id='n1']
+            action-name kick-me
+            variable IP value '192.168.128.55'
+admin@ncs(config)#
+```
+
+### A Simple Telemetry Kicker Example
+
+The [examples.ncs/service-management/implement-a-service/iface-v6](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/implement-a-service/iface-v6) example uses a telemetry kicker to update service status when a device interface state changes.
+
+Telemetry kicker and subscription are configured when a service instance is provisioned. The example starts with `instance1` of the `iface` service preprovisioned.
+
+The service configured a YANG Push telemetry subscription for the interface of interest on the device:
+
+```
+admin@ncs# show running-config devices device r0 telemetry
+devices device r0
+ telemetry subscription iface-instance1
+  datastore  operational
+  xpath      /r:sys/interfaces/interface[name='eth0']/status
+  on-change
+  local-user admin
+ !
+!
+admin@ncs# show devices device r0 telemetry
+telemetry subscription iface-instance1
+ status running id 1
+```
+
+Device will now send updated operational data to NSO via YANG Push messages, such as:
+
+```xml
+<notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0">
+  <eventTime>2026-04-15T10:34:45.600633+00:00</eventTime>
+  <push-change-update xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-push">
+    <id>2</id>
+    <datastore-changes>
+      <yang-patch>
+        <patch-id>s2-p1</patch-id>
+        <edit>
+          <edit-id>edit1</edit-id>
+          <operation>merge</operation>
+          <target>/router:sys/interfaces/interface=eth0/status/link</target>
+          <value>
+            <link xmlns="http://example.com/router">up</link>
+          </value>
+        </edit>
+      </yang-patch>
+    </datastore-changes>
+  </push-change-update>
+</notification>
+```
+
+The service also configured a telemetry kicker that matches these updates (through `selector-expr`) and invokes the service `update-status` action:
+
+```
+admin@ncs# show running-config kickers telemetry-kicker
+kickers telemetry-kicker iface-instance1
+ selector-expr /devices/device[name='r0']/live-status/r:sys/interfaces/interface[name='eth0']/status/link
+ kick-node     /iface[name='instance1']
+ action-name   update-status
+!
+```
+
+The `update-status` action uses an extended set of inputs, as defined in `iface.yang`:
+
+```yang
+  import tailf-ncs-kicker-extension {
+    prefix ncs-kicker;
+  }
+
+  action update-status {
+    tailf:actionpoint iface-update-status;
+    input {
+      uses ncs-kicker:telemetry-action-input-params;
+    }
+    // ...
+  }
+```
+
+This allows the action to access the synthetic transaction that contains the data in the push message. Note that this data is not automatically saved or cached in the NSO. The `update-status` action reads the data by attaching to the transaction:
+
+```
+with trans.maapi.attach(input.tid) as dt:
+    diff_root = ncs.maagic.get_root(dt)
+    ...
+```
+
+It is also possible for the action to read `/devices/device/live-status` data from a different transaction. However, in this case, NSO will make another request for data towards the device.
+
+## Serializer and Priority Values
+
+These values are used to ensure the order of kicker execution. Priority orders kickers for the same notification event, while serializer orders kickers chronologically for different notification events. By default, when no serializer or priority value is given, kickers may be triggered in any order and in parallel. However, some situations may require stricter ordering, and setting serializer and priority in kicker configuration allows you to achieve it.
+
+If priority for a set of kickers is specified, for each individual notification event, the kickers that match are executed in order, going from priority 0 to 255. For example, kicker `K1` with priority 5 is executed before the kicker `K2` with priority 8, which triggered for the same notification.
+
+Parallel execution of kickers can also result in a situation where a kicker for a notification is executed after the kicker for a later notification. That is, even though the trigger for the first kicker came first, this kicker might have a priority set and must wait for other kickers to execute first, while the kicker for the next notification can execute right away. If there is a dependency between these two kickers, serializer value can ensure chronological ordering.
+
+A serializer is a simple integer value between 0 and 255. Notification kickers configured with the same value will be executed in the order in which they were triggered, relative to each other. For example, suppose there are three kickers configured: `T1` and `T2` with serializer set to 10, and `T3` with serializer of 20. NSO receives two notifications, the first triggering `T1` and `T3`, and the second triggering `T2`. Because of the serializer, NSO guarantees `T1` will be invoked before `T2`. But `T2`, even though it came in later, could potentially be invoked before `T3` because they are not serialized (have different serializer value).
+
+When using both, serializer and priority, only kickers with the same serializer value are priority ordered, that is, serializer value takes precedence. For example, the kicker `Q1` with serializer 10 and priority 15 may execute before or after the kicker `Q2` with serializer 20 and priority 4. The reason is `Q1` may need to wait for other kickers with serializer 10 from previous events. The same is true for `Q2` and previous kickers with serializer 20.
 
 ## Nano Services Reactive FastMap with Kicker <a href="#ug.kicker.rfm" id="ug.kicker.rfm"></a>
 
