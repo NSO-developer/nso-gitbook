@@ -15,6 +15,22 @@ This release includes major enhancements in the following areas:
 
 <details>
 
+<summary>Telemetry: Subscribing to Device Datastore Updates</summary>
+
+Protocols, such as YANG-Push (RFC 8641), define a mechanism for applications to receive continuous updates of the target datastore, avoiding the need to frequently poll the remote system for latest data.
+
+NSO 6.7 introduces native support for consuming NETCONF-based YANG-Push streams on managed devices, as well as the more general framework for managing and consuming subscribed updates. The latter allows NEDs to implement and expose the same kind of data updates by using other protocols, such as gRPC.
+
+Documentation Updates:
+
+* Added the [Telemetry](operation-and-usage/operations/nso-device-manager.md#telemetry) section documenting the new feature and potential use cases.
+* Added the [Telemetry Kicker Concepts](development/advanced-development/kicker.md#telemetry-kicker-concepts) section on consuming telemetry data.
+* Added an [example service](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/implement-a-service/iface-v6) making use of the YANG-Push to dynamically update service status.
+
+</details>
+
+<details>
+
 <summary>Improved HA Transport</summary>
 
 Raft- and rule-based HA now use a unified TLS transport for improved security and additional features:
