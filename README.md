@@ -6,12 +6,29 @@ icon: sparkles
 # What's New
 
 {% hint style="info" %}
-Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.5\&to=6.6).
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.6\&to=6.7).
 {% endhint %}
 
 ## Release Highlights
 
 This release includes major enhancements in the following areas:
+
+<details>
+
+<summary>Improved HA Transport</summary>
+
+Raft- and rule-based HA now use a unified TLS transport for improved security and additional features:
+
+* Rule-based HA deployment uses TLS certificates for authentication and encryption of communication between nodes, same as HA Raft.
+* HA Raft leader monitors quorum and relinquishes the leader role if quorum is lost, aborting the hanging ongoing transactions. The leader also generates an alarm and releases resources, such as a shared VIP address or primary-listen ports.
+* HA Raft now requires only a single listening port to be open for communication, port 4570 by default, same as rule-based HA. The port can be changed in the configuration if required.
+
+Documentation Updates:
+
+* Described the new transport requirements in [#ug.ha.raft](administration/management/high-availability.md#ug.ha.raft "mention") and [#ug.ha.builtin](administration/management/high-availability.md#ug.ha.builtin "mention").
+* Added a section on provisioning TLS certificates with the help of example scripts in [high-availability.md](administration/management/high-availability.md "mention").
+
+</details>
 
 <details>
 
