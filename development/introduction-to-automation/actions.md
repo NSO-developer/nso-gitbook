@@ -62,7 +62,7 @@ The last thing to note in the above action code definition is the use of the dec
 ## Showcase - Implementing Device Count Action <a href="#d5e1000" id="d5e1000"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/applications-nso) for an example implementation.
+See [examples.ncs/getting-started/applications-nso](https://github.com/NSO-developer/nso-examples/tree/6.7/getting-started/applications-nso) for an example implementation.
 {% endhint %}
 
 ### Prerequisites
@@ -315,5 +315,5 @@ result 3
 You can use the `show devices list` command to verify that the result is correct. You can alter the address of any device and see how it affects the result. You can even use a hostname, such as `localhost`.
 
 {% hint style="info" %}
-Other examples of action implementations can be found under [examples.ncs/sdk-api](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api).
+Other examples of action implementations can be found under [examples.ncs/sdk-api](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api).
 {% endhint %}

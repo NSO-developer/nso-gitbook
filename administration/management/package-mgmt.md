@@ -162,7 +162,7 @@ primary@node1# packages ha sync and-reload { wait-commit-queue-empty }
 
 If the change only adds new NED packages, `packages ha sync and-add` can be used instead of `and-reload`, as described in [Adding NED Packages](package-mgmt.md#ug.package_mgmt.ned_package_add).
 
-Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
+Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade\_pkgs\_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
 
 ## Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
 
@@ -196,7 +196,7 @@ show-tag  interface
 
 So the above command shows that NSO currently has one package, the NED for Cisco IOS.
 
-NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. In this Local Install example, the configuration tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example to demonstrate:
+NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. In this Local Install example, the configuration tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/simulated-cisco-ios) example to demonstrate:
 
 ```bash
 $ pwd
