@@ -628,7 +628,7 @@ Tail-f HCC version 5.x is non-backward compatible with previous versions of Tail
 
 ### Dependencies <a href="#ug.ha.hcc.deps" id="ug.ha.hcc.deps"></a>
 
-Both the HCC layer-2 VIP and layer-3 BGP functionality depend on `iproute2` utilities and `awk`. An optional dependency is `arping` (either from `iputils` or Thomas Habets `arping` implementation) which allows HCC to announce the VIP to MAC mapping to all nodes in the network by sending gratuitous ARP requests.
+Both the HCC layer-2 VIP and layer-3 BGP functionality depend on `iproute2` utilities and `awk`. An optional dependency is `arping` (either from `iputils` or Thomas Habets `arping` implementation) which allows HCC to announce the VIP to MAC mapping to all nodes in the network by sending Gratuitous ARP (GARP) requests for IPv4 addresses. For IPv6 VIP addresses, the optional `ndsend` tool (from the `ndisc6` package) enables HCC to send unsolicited Neighbor Advertisements to update NDP caches on the local link, providing equivalent functionality to GARP for IPv6.
 
 The HCC layer-3 BGP functionality depends on the [`GoBGP`](https://osrg.github.io/gobgp/) daemon version 2.x being installed on each NSO host that is configured to run HCC in BGP mode.
 
@@ -638,35 +638,56 @@ The HCC layer-3 DNS Update functionality depends on the command line utility `ns
 
 Tools Dependencies are listed below:
 
-<table><thead><tr><th width="192" valign="top">Tool</th><th width="164" valign="top">Package</th><th width="128" valign="top">Required</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>ip</code></td><td valign="top"><code>iproute2</code></td><td valign="top">yes</td><td valign="top">Adds and deletes the virtual IP from the network interface.</td></tr><tr><td valign="top"><code>awk</code></td><td valign="top"><code>mawk</code> or <code>gawk</code></td><td valign="top">yes</td><td valign="top">Installed with most Linux distributions.</td></tr><tr><td valign="top"><code>sed</code></td><td valign="top"><code>sed</code></td><td valign="top">yes</td><td valign="top">Installed with most Linux distributions.</td></tr><tr><td valign="top"><code>arping</code></td><td valign="top"><code>iputils</code> or <code>arping</code></td><td valign="top">optional</td><td valign="top">Installation recommended. Will reduce the propagation of changes to the virtual IP for layer-2 configurations.</td></tr><tr><td valign="top"><code>gobgpd</code> and <code>gobgp</code></td><td valign="top"><code>GoBGP 2.x</code></td><td valign="top">optional</td><td valign="top">Required for layer-3 configurations. gobgpd is started by the HCC package and advertises the virtual IP using BGP. gobgp is used to get advertised routes.</td></tr><tr><td valign="top"><code>nsupdate</code></td><td valign="top"><code>bind-tools</code> or <code>knot-dnsutils</code></td><td valign="top">optional</td><td valign="top">Required for layer-3 DNS update functionality and is used to submit Dynamic DNS Update requests to a name server.</td></tr></tbody></table>
+<table><thead><tr><th width="192">Tool</th><th width="164">Package</th><th width="128">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>ip</code></td><td><code>iproute2</code></td><td>yes</td><td>Adds and deletes the virtual IP from the network interface.</td></tr><tr><td><code>awk</code></td><td><code>mawk</code> or <code>gawk</code></td><td>yes</td><td>Installed with most Linux distributions.</td></tr><tr><td><code>sed</code></td><td><code>sed</code></td><td>yes</td><td>Installed with most Linux distributions.</td></tr><tr><td><code>arping</code></td><td><code>iputils</code> or <code>arping</code></td><td>optional</td><td>Recommended for IPv4 VIP configurations. Sends Gratuitous ARP requests to update ARP caches on the local network when a VIP moves between nodes.</td></tr><tr><td><code>ndsend</code></td><td><code>ndisc6</code></td><td>optional</td><td>Recommended for IPv6 VIP configurations. Sends unsolicited Neighbor Advertisements to update NDP caches on the local link when a VIP moves between nodes (IPv6 equivalent of Gratuitous ARP).</td></tr><tr><td><code>gobgpd</code> and <code>gobgp</code></td><td><code>GoBGP 2.x</code></td><td>optional</td><td>Required for layer-3 configurations. gobgpd is started by the HCC package and advertises the virtual IP using BGP. gobgp is used to get advertised routes.</td></tr><tr><td><code>nsupdate</code></td><td><code>bind-tools</code> or <code>knot-dnsutils</code></td><td>optional</td><td>Required for layer-3 DNS update functionality and is used to submit Dynamic DNS Update requests to a name server.</td></tr></tbody></table>
 
 Same as with built-in HA functionality, all NSO instances must be configured to run in HA mode. See the [following instructions](high-availability.md#ha.moo) on how to enable HA on NSO instances.
 
 ### Running the HCC Package with NSO as a Non-Root User <a href="#ug.ha.hcc.nonroot" id="ug.ha.hcc.nonroot"></a>
 
-GoBGP uses TCP port 179 for its communications and binds to it at startup. As port 179 is considered a privileged port it is normally required to run gobgpd as root.
+By default, GoBGP binds to TCP port 179 at startup. Since port 179 is a privileged port (below 1024), it requires root privileges. When NSO runs as a non-root user, GoBGP runs as the same user and cannot bind to port 179.
 
-When NSO is running as a non-root user the gobgpd command will be executed as the same user as NSO and will prevent gobgpd from binding to port 179.
+There are several ways to handle this:
 
-There a multiple ways of handling this and two are listed here.
+1.  **Configure an alternative port or disable the listener** (recommended when applicable). The `port` parameter under `/hcc/bgp/node{id}` controls which TCP port GoBGP listens on. Disabling the listener can work when HCC/GoBGP is configured to actively initiate sessions to its neighbors and those peers are listening for and allow inbound TCP connections from HCC. In deployments where the peer is expected to initiate the session, or where policy/firewall rules do not allow the peer to accept the connection, keep a listener enabled.
 
-1.  Set capability `CAP_NET_BIND_SERVICE` on the `gobgpd` file. May not be supported by all Linux distributions.
+    To disable the listener entirely:
+
+    ```cli
+    admin@ncs(config)# hcc bgp node paris port disabled
+    admin@ncs(config)# commit
+    ```
+
+    To use a non-privileged port (e.g., 1790):
+
+    ```cli
+    admin@ncs(config)# hcc bgp node paris port 1790
+    admin@ncs(config)# commit
+    ```
+
+2.  Set capability `CAP_NET_BIND_SERVICE` on the `gobgpd` file. This allows GoBGP to bind port 179 without full root privileges. May not be supported by all Linux distributions.
 
     ```bash
     $ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/gobgpd
     ```
-2.  Set the owner to `root` and the `setuid` bit of the `gobgpd` file. Works on all Linux distributions.
+
+3.  Set the owner to `root` and the `setuid` bit of the `gobgpd` file. Works on all Linux distributions but grants broader privileges than option 2.
 
     ```bash
     $ sudo chown root /usr/bin/gobgpd
     $ sudo chmod u+s /usr/bin/gobgpd
     ```
-3.  The `vipctl` script, included in the HCC package, uses `sudo` to run the `ip` and `arping` commands when NSO is not running as root. If `sudo` is used, you must ensure it does not require password input. For example, if NSO runs as `admin` user, the `sudoers` file can be edited similarly to the following:
+
+4.  The `vipctl` script, included in the HCC package, uses `sudo` to run the `ip`, `arping`, and `ndsend` commands when NSO is not running as root. If `sudo` is used, you must ensure it does not require password input. For example, if NSO runs as `admin` user, the `sudoers` file can be edited similarly to the following:
 
     ```bash
     $ sudo echo "admin ALL = (root) NOPASSWD: /bin/ip" >> /etc/sudoers
     $ sudo echo "admin ALL = (root) NOPASSWD: /path/to/arping" >> /etc/sudoers
+    $ sudo echo "admin ALL = (root) NOPASSWD: /path/to/ndsend" >> /etc/sudoers
     ```
+
+{% hint style="info" %}
+Options 2 and 3 are only needed if GoBGP must accept incoming BGP connections on port 179. Option 4 applies to the VIP management functionality and is independent of the BGP port setting.
+{% endhint %}
 
 ### Tail-f HCC Compared with HCC Version 4.x and Older <a href="#ug.ha.hcc.compared" id="ug.ha.hcc.compared"></a>
 
@@ -692,7 +713,7 @@ A reference to upgrade examples can be found in the README under [examples.ncs/h
 
 The purpose of the HCC layer-2 functionality is to ensure that the configured VIP addresses are bound in the Linux kernel of the NSO primary node only. This ensures that the primary node (and only the primary node) will accept traffic directed toward the VIP addresses.
 
-HCC also notifies the local layer-2 network when VIP addresses are bound by sending Gratuitous ARP (GARP) packets. Upon receiving the Gratuitous ARP, all the nodes in the network update their ARP tables with the new mapping so they can continue to send traffic to the non-failed, now primary node.
+HCC also notifies the local layer-2 network when VIP addresses are bound. For IPv4 addresses, HCC sends Gratuitous ARP (GARP) packets via `arping`. For IPv6 addresses, HCC sends unsolicited Neighbor Advertisements via `ndsend` (if installed). In both cases, nodes on the network update their address resolution caches (ARP for IPv4, NDP for IPv6) with the new mapping so they can continue to send traffic to the non-failed, now primary node.
 
 #### **Operational Details**
 
@@ -762,7 +783,7 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="194" valign="top">Parameters</th><th width="190" valign="top">Type</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>node-id</code></td><td valign="top"><code>string</code></td><td valign="top">Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td valign="top"><code>enabled</code></td><td valign="top"><code>boolean</code></td><td valign="top">If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td valign="top"><code>as</code></td><td valign="top"><code>inet:as-number</code></td><td valign="top">The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td valign="top"><code>router-id</code></td><td valign="top"><code>inet:ip-address</code></td><td valign="top">The router ID for the local BGP daemon.</td></tr></tbody></table>
+<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr><tr><td><code>port</code></td><td><code>union (enumeration | int32)</code></td><td>The TCP port GoBGP listens on. Default is <code>179</code>. Set to <code>disabled</code> to turn off the listener entirely, which avoids binding to privileged port <code>179</code> and allows running GoBGP without root privileges when peers accept outbound-only connections. Alternatively, set to a non-privileged port (e.g., <code>1790</code>). See <a href="high-availability.md#ug.ha.hcc.nonroot">Running as Non-Root User</a>.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
