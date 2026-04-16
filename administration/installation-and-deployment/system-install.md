@@ -229,7 +229,7 @@ For the `--system-install` option, you can also choose a user-defined (non-defau
 
 If you choose a non-default Installation Directory by using `--install-dir`, you need to specify `--install-dir` for subsequent installs and also for backup and restore.
 
-For more information on `ncs-installer`, see the [ncs-installer(1)](https://nso-docs.cisco.com/guides/nso-6.1/resources/index/section1#ncs-installer) man page.
+For more information on `ncs-installer`, see the [ncs-installer(1)](../../man/section1.md#ncs-installer) man page.
 
 For an extensive guide to NSO deployment, refer to [Deployment Example](deployment-example.md)_._
 
