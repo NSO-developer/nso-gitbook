@@ -977,60 +977,9 @@ NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA n
 
 ## NETCONF Extensions in NSO <a href="#d5e896" id="d5e896"></a>
 
-The YANG module `tailf-netconf-ncs` augments some NETCONF operations with additional parameters to control the behavior in NSO over NETCONF. See that YANG module for all the details. In this section, the options are summarized.
+The YANG module `tailf-netconf-ncs.yang` augments NETCONF operations with commit parameters and results that are defined in the shared `tailf-ncs-commit-params.yang` module. The parameter semantics are documented centrally in [Commit Parameters](../../../operation-and-usage/operations/lifecycle-operations.md#d5e5048).
 
-To control the commit behavior of NSO the following input parameters are available:
-
-* `label`\
-  Sets a user-defined label that is visible in rollback files, compliance reports, notifications, and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.
-* `comment`\
-  Sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.
-* `confirm-network-state`\
-  NSO will check network state as part of the commit. This includes checking device configurations for out-of-band changes and processing such changes according to the out-of-band policy.
-* `confirm-network-state/re-evaluate-policies`\
-  In addition to processing the newly found out-of-band device changes, NSO will process again the out-of-band policies for the services that the commit is touching.
-* `no-revision-drop`\
-  NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
-* `no-overwrite`\
-  NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data.
-* `no-networking`\
-  Do not send any data to the devices. This is a way to manipulate CDB in NSO without generating any southbound traffic.
-* `no-out-of-sync-check`\
-  Continue with the transaction even if NSO detects that a device's configuration is out of sync.
-* `no-deploy`\
-  Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
-* `reconcile/keep-non-service-config`\
-  Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree that data is kept.
-* `reconcile/discard-non-service-config`\
-  Reconcile the service data but do not keep manually configured data that exists below in the configuration tree.
-* `use-lsa`\
-  Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
-* `no-lsa`\
-  Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
-* `commit-queue/async`\
-  Commit the transaction data to the commit queue. The operation returns successfully if the transaction data has been successfully placed in the queue.
-* `commit-queue/sync/timeout`\
-  Commit the transaction data to the commit queue. The operation does not return until the transaction data has been sent to all devices, or a timeout occurs. The timeout value specifies a maximum number of seconds to wait for the completion.
-* `commit-queue/sync/infinity`\
-  Commit the transaction data to the commit queue. The operation does not return until the transaction data has been sent to all devices.
-* `commit-queue/bypass`\
-  If `/devices/global-settings/commit-queue/enabled-by-default` is _true_ the data in this transaction will bypass the commit queue. The data will be written directly to the devices.
-* `commit-queue/atomic`\
-  Sets the atomic behavior of the resulting queue item. Possible values are: `true` and `false`. If this is set to `false`, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to `true`, the atomic integrity of the queue item is preserved.
-* `commit-queue/block-others`\
-  The resulting queue item will block subsequent queue items, which use any of the devices in this queue item, from being queued.
-* `commit-queue/lock`\
-  Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions **unlock** and **lock** in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
-* `commit-queue/tag`\
-  The value is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.\
-  **Note**: `commit-queue/tag` is deprecated from NSO version 6.5. The `label` commit parameter can be used instead.
-* `commit-queue/error-option`\
-  The error option to use. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked the data will be removed. Possible values are: `continue-on-error`, `rollback-on-error`, and `stop-on-error`. The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created. The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback. The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.\
-  \
-  Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
-* `trace-id`\
-  Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO will generate and assign a trace ID to the processing.\
-  **Note**: `trace-id` within NETCONF extensions is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [Trace Context](nso-netconf-server.md#trace-context).
+The shared commit-parameter model is augmented into the following NETCONF operations:
 
 These optional input parameters are augmented into the following NETCONF operations:
 
@@ -1039,13 +988,17 @@ These optional input parameters are augmented into the following NETCONF operati
 * `copy-config`
 * `prepare-transaction`
 
-The operation `prepare-transaction` is also augmented with an optional parameter `dry-run`, which can be used to show the effects that would have taken place, but not actually commit anything to the datastore or to the devices. `dry-run` takes an optional parameter `outformat`, which can be used to select in which format the result is returned. Possible formats are `xml` (default), `cli`_,_ and `native`. The optional `reverse` parameter can be used together with the `native` format to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.
+In particular, the `prepare-transaction` operation is augmented with the shared `dry-run` parameters and result model from `tailf-ncs-commit-params.yang`, so the same `outformat`, `reverse`, and `with-service-meta-data` leaves are available there as well.
+
+The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example includes a NETCONF walkthrough in `demo_nc.py` that uses the standard RFC 6241 `edit-config` operation with the shared commit-parameter model.
 
 FASTMAP attributes such as back pointers and reference counters are typically internal to NSO and are not shown by default. The optional parameter `with-service-meta-data` can be used to include these in the NETCONF reply. The parameter is augmented into the following NETCONF operations:
 
 * `get`
 * `get-config`
 * `get-data`
+
+The legacy `trace-id` NETCONF commit parameter is still present for backward compatibility, but Trace Context is the recommended mechanism going forward.
 
 ## The Query API <a href="#d5e1063" id="d5e1063"></a>
 

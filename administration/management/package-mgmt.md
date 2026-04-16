@@ -121,6 +121,8 @@ Applies to System Install. In production, manage pre-built packages with the `so
 
 In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. The supported workflow is to make the package available under `/opt/ncs/packages`, install or deinstall it with the `software packages` actions, and then activate the change with `packages reload` or, in a high-availability setup, `packages ha sync and-reload`. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
 
+For the full production package upgrade procedure on System Install, including backup recommendations, single-node upgrades, and high-availability upgrades with `packages ha sync and-reload`, see [Package Upgrade](../installation-and-deployment/upgrade-nso.md#d5e7083).
+
 ### Actions
 
 Actions are provided to list local packages, to fetch packages from the file system, and to install or deinstall packages:
@@ -163,7 +165,7 @@ primary@node1# packages ha sync and-reload { wait-commit-queue-empty }
 
 If the change only adds new NED packages, `packages ha sync and-add` can be used instead of `and-reload`, as described in [Adding NED Packages](package-mgmt.md#ug.package_mgmt.ned_package_add).
 
-Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
+Example implementations of this System Install workflow are provided in [examples.ncs/high-availability/upgrade-basic/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-basic/upgrade_pkgs_sys.sh) and [examples.ncs/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh](https://github.com/NSO-developer/nso-examples/tree/6.6/high-availability/upgrade-cluster/upgrade_pkgs_sys.sh).
 
 ## Local Install Example <a href="#ncsnwe.admin.packages" id="ncsnwe.admin.packages"></a>
 

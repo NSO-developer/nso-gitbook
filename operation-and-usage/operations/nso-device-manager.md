@@ -3095,7 +3095,7 @@ ncs(config)# devices commit-queue completed queue-item 9494446997 rollback
 ```
 {% endcode %}
 
-The error option can also be given as a commit parameter.
+The error option can also be given as a commit parameter through the shared `commit-queue/error-option` model described in [Commit Parameters](lifecycle-operations.md#d5e5048).
 
 {% hint style="info" %}
 To guarantee service integrity NSO checks for overlapping service or device modifications against the items in the commit queue and returns an error if such exists. If a service instance does a shared set on the same data as a service instance in the queue actually changed, the reference count will be increased but no actual change is pushed to the device(s). This will give a false positive that the change is actually deployed in the network. The `rollback-on-error` and `stop-on-error` error options will automatically create a queue lock on the involved services and devices to prevent such a case.

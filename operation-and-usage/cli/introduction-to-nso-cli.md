@@ -293,7 +293,7 @@ admin@ncs(config)# commit
 Commit complete.
 ```
 
-Note the availability of commit flags.
+Note the availability of commit flags. These CLI flags correspond to the shared commit-parameter model described in [Commit Parameters](../operations/lifecycle-operations.md#d5e5048). See also the [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example for an end-to-end CLI and RESTCONF walkthrough.
 
 Any failure on any device will make the whole transaction fail. It is also possible to perform a manual rollback, a rollback is the undoing of a commit.
 
