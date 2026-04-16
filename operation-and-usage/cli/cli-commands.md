@@ -287,22 +287,24 @@ Example:
 
 ```bash
 admin@ncs# show cli
-autowizard            false
-complete-on-space     true
-display-level         99999999
-history               100
-idle-timeout          1800
-ignore-leading-space  false
-output-file           terminal
-paginate              true
-prompt1               \h\M#
-prompt2               \h(\m)#
-screen-length         71
-screen-width          80
-service prompt config true
-show-defaults         false
-terminal              xterm-256color
-timestamp             disable
+autowizard                   false
+complete-on-space            true
+display-level                99999999
+dry-run-drift-detection      false;
+dry-run-drift-detection-mode warn;
+history                      100
+idle-timeout                 1800
+ignore-leading-space         false
+output-file                  terminal
+paginate                     true
+prompt1                      \h\M#
+prompt2                      \h(\m)#
+screen-length                71
+screen-width                 80
+service prompt config        true
+show-defaults                false
+terminal                     xterm-256color
+timestamp                    disable
 ```
 
 </details>

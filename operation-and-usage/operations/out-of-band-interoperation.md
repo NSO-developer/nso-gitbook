@@ -213,7 +213,7 @@ The rule above will cause out-of-band handling to be aborted if the `mtu` leaf h
 
 ### Rule Behavior Example
 
-Consider a setup from [examples.ncs/service-management/confirm-network-state](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/confirm-network-state), started by `make demo`, with the following out-of-band policy:
+Consider a setup from [examples.ncs/service-management/confirm-network-state](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/confirm-network-state), started by `make demo`, with the following out-of-band policy:
 
 ```
 services out-of-band policy iface-servicepoint

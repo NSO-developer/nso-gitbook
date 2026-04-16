@@ -6,7 +6,7 @@ icon: sparkles
 # What's New
 
 {% hint style="info" %}
-Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.5\&to=6.6).
+Only significant new updates are listed here. To see the complete list of changes, refer to the [NSO Changelog Explorer](https://developer.cisco.com/docs/nso/changelog-explorer/?from=6.6\&to=6.7).
 {% endhint %}
 
 ## Release Highlights
@@ -15,53 +15,18 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary> Filtering JSON-RPC <code>show_config</code> method</summary>
+<summary>Improved HA Transport</summary>
 
-The `show_config` JSON-RPC method now supports filtering and pagination options for improved user experience when retrieving large list instances.
+Raft- and rule-based HA now use a unified TLS transport for improved security and additional features:
 
-Documentation Updates:
-
-* Added filtering and pagination parameters to `show_config`  documentation in [JSON-RPC API Data](development/advanced-development/web-ui-development/json-rpc-api.md#data).
-
-</details>
-
-<details>
-
-<summary>Service Improvements</summary>
-
-This NSO version introduces multiple quality of life improvements for service development:
-
-* A device template can be converted to a service with the `/services/create-template` action.
-* New `child-tags` and `inherit` XML template attributes simplify template operations, further described in [Template Operations](development/core-concepts/templates.md#ch_templates.operations).
-* NSO warns if there are unused macros inside XML templates.
-* New MAAPI call (`get_template_variables` / `ncsGetTemplateVariables`) enumerates variables in device, service, or compliance template.
-* New MAAPI call (`get_trans_mode` / `getTransactionMode`) returns mode of the transaction, allowing, for example, easier reuse of existing transaction in an action.&#x20;
-* Similar to Python API, Java API action callback now always provides an open transaction. If there is no existing transaction, a new read-only transaction is started automatically.
-* Data kickers can now kick for the same transaction where they are defined when configured with a new `kick-on-creation` leaf.
-
-</details>
-
-<details>
-
-<summary>Web Server Connection Limits</summary>
-
-The NSO Web Server now has a configurable number of simultaneous connections. Additionally, the number of current connections can be monitored through the metrics framework.
-
-&#x20;Documentation Updates:
-
-* Documented a new `/ncs-config/webui/max-connections` parameter for the `ncs.conf` file.
-
-</details>
-
-<details>
-
-<summary>Partial Service Reconciliation</summary>
-
-Added support for reconciling only specific parts of a device configuration during service reconciliation using the new `include` and `exclude` parameters.
+* Rule-based HA deployment uses TLS certificates for authentication and encryption of communication between nodes, same as HA Raft.
+* HA Raft leader monitors quorum and relinquishes the leader role if quorum is lost, aborting the hanging ongoing transactions. The leader also generates an alarm and releases resources, such as a shared VIP address or primary-listen ports.
+* HA Raft now requires only a single listening port to be open for communication, port 4570 by default, same as rule-based HA. The port can be changed in the configuration if required.
 
 Documentation Updates:
 
-* Added a [Partial Reconcile](development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialreconcile) section to the Services Deep Dive chapter.
+* Described the new transport requirements in [HA Raft](administration/management/high-availability.md#ug.ha.raft) and [Rule-based HA](administration/management/high-availability.md#ug.ha.builtin).
+* Added a section on provisioning TLS certificates with the help of example scripts to [High Availability](administration/management/high-availability.md).
 
 </details>
 

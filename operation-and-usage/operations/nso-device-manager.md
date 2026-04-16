@@ -21,7 +21,7 @@ To understand the main idea behind the NSO device manager it is necessary to und
 
 The NEDs will publish YANG data models even for non-NETCONF devices. In the case of SNMP the YANG models are generated from the MIBs. For JunOS devices the JunOS NED generates a YANG from the JunOS XML Schema. For Schema-less devices like CLI devices, the NED developer writes YANG models corresponding to the CLI structure. The result of this is the device manager and NSO CDB has YANG data models for all devices independent of the underlying protocol.
 
-Throughout this section, we will use the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
+Throughout this section, we will use the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/mpls-vpn-java) example. The example network consists of Cisco ASR 9k and Juniper core routers (P and PE) and Cisco IOS-based CE routers.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/network.png" alt="" width="563"><figcaption><p>NSO Example Network</p></figcaption></figure></div>
 
@@ -317,7 +317,7 @@ NSO provides the ability to synchronize the configuration to or from the device.
 
 In the normal case, the configuration on the device and the copy of the configuration inside NSO should be identical.
 
-In a cold start situation like in the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example, where NSO is empty and there are network devices to talk to, it makes sense to synchronize from the devices. You can choose to synchronize from one device at a time or from all devices at once. Here is a CLI session to illustrate this.
+In a cold start situation like in the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/mpls-vpn-java) example, where NSO is empty and there are network devices to talk to, it makes sense to synchronize from the devices. You can choose to synchronize from one device at a time or from all devices at once. Here is a CLI session to illustrate this.
 
 {% code title="Example: Synchronize From Devices" %}
 ```cli
@@ -507,7 +507,7 @@ This makes it possible to investigate the changes before they are transmitted to
 
 ### Partial `sync-from` <a href="#d5e2872" id="d5e2872"></a>
 
-It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/router-network) example.
+It is possible to synchronize a part of the configuration (a certain subtree) from the device using the `partial-sync-from` action located under /devices. While it is primarily intended to be used by service developers as described in [Partial Sync](../../development/advanced-development/developing-services/services-deep-dive.md#ch_svcref.partialsync), it is also possible to use directly from the NSO CLI (or any other northbound interface). The example below (Example of Running partial-sync-from Action via CLI) illustrates using this action via CLI, using a router device from the [examples.ncs/device-management/router-network](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/router-network) example.
 
 {% code title="Example: Example of Running partial-sync-from Action via CLI" %}
 ```bash
@@ -1865,7 +1865,7 @@ This section shows how device templates can be used to create and change device 
 
 Device templates are part of the NSO configuration. Device templates are created and changed in the tree `/devices/template/ned-id/config` the same way as any other configuration data and are affected by rollbacks and upgrades. Device templates can only manipulate configuration data in the `/devices/device/config` tree i.e., only device data.
 
-The [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example comes with a pre-populated template for SNMP settings.
+The [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/mpls-vpn-java) example comes with a pre-populated template for SNMP settings.
 
 ```cli
 ncs(config)# show full-configuration devices template
@@ -2577,7 +2577,7 @@ ncs(config)# devices device pe2 rpc \
 rpc-get-software-information get-software-information brief
 ```
 
-In the simulated environment of the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.6/service-management/mpls-vpn-java) example, these RPCs might not have been implemented.
+In the simulated environment of the [examples.ncs/service-management/mpls-vpn-java](https://github.com/NSO-developer/nso-examples/tree/6.7/service-management/mpls-vpn-java) example, these RPCs might not have been implemented.
 
 ## Device Groups <a href="#user_guide.devicemanager.device_groups" id="user_guide.devicemanager.device_groups"></a>
 
@@ -3144,13 +3144,14 @@ If for some reason the rollback transaction fails there are, depending on the fa
 
 ### Commit Queue Tuning <a href="#d5e3976" id="d5e3976"></a>
 
-As the goal of the commit queue is to increase the transactional throughput of NSO it means that we need to calculate the configuration change towards the device(s) outside of the transaction lock. To calculate a configuration change NSO needs a pre-commit running and a running view of the database. The key enabler to support this in the commit queue is to allow different views of the database to live beyond the commit. In NSO, this is implemented by keeping a snapshot database of the configuration tree for devices and storing configuration changes towards this snapshot database on a per-device basis. The snapshot database is updated when a device in the queue has been processed. This snapshot database is stored on disk for persistence (the `S.cdb` file in the `ncs-cdb` directory).
+As the goal of the commit queue is to increase the transactional throughput of NSO, it means that we need to calculate the configuration change towards the device(s) outside of the transaction lock. To calculate a configuration change, NSO needs a pre-commit running and a running view of the database. The key enabler to support this in the commit queue is to allow different views of the database to live beyond the commit. In NSO, this is implemented by keeping a snapshot database of the configuration tree for devices and storing configuration changes towards this snapshot database on a per-device basis. The snapshot database is updated when a device in the queue has been processed. This snapshot database is stored on disk for persistence (the `S.cdb` file in the `ncs-cdb` directory).
 
-The snapshot database could be populated in two ways. This is controlled by the `/ncs-config/cdb/snapshot/pre-populate` setting in the `ncs.conf` file. The parameter controls whether the snapshot database should be pre-populated during the upgrade or not. Switching this on or off implies different trade-offs.
+The snapshot database can be populated either eagerly or lazily. This is controlled by the `/ncs-config/cdb/snapshot/pre-populate` setting in `ncs.conf`.
 
-If set to `false`, NSO is optimized for the default transaction behavior. The snapshot database is populated in a lazy manner (when a device is committed through the commit queue for the first time after an upgrade). The drawback is that this commit will suffer performance-wise, which is especially true for devices with large configurations. Subsequent commits on the same device will not have the same penalty.
+* When `pre-populate` is `true`, NSO pre-populates the snapshot during CDB upgrade. This mode is optimized for systems that use the commit queue extensively. The benefit is better commit queue performance with no extra first-commit penalty per device. The trade-offs are longer upgrade time and almost twofold memory consumption.
+* When `pre-populate` is `false`, NSO is optimized for the default transaction behavior and uses lazy population. If there is no existing snapshot, each device snapshot is created when that device is committed through the commit queue for the first time. That first commit can be noticeably slower, especially for large device configurations. Subsequent commit queue commits on the same device do not have this penalty.
 
-If `true`, NSO is optimized for systems using the commit queue extensively. This will lead to better performance when committing using the commit queue with no additional penalty for first-time commits. The drawbacks are that the time to do upgrades will increase and also an almost twofold increase in NSO memory consumption.
+After a snapshot has been populated, NSO does not re-populate it on every startup or commit. Re-population is done only when there is no existing snapshot, for example if `S.cdb` has been removed or re-initialized. If the snapshot is missing, NSO falls back to populating it on demand when a device is committed through the commit queue.
 
 ## NETCONF Call Home <a href="#d5e3986" id="d5e3986"></a>
 
@@ -3166,7 +3167,7 @@ NETCONF Call Home is enabled and configured under `/ncs-config/netconf-call-home
 
 A device can be connected through the NETCONF Call Home client only if `/devices/device/state/admin-state` is set to `call-home`. This state prevents any southbound communication to the device unless the connection has already been established through the NETCONF Call Home client protocol.
 
-See [examples.ncs/device-management/netconf-call-home](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/netconf-call-home) for an example.
+See [examples.ncs/device-management/netconf-call-home](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/netconf-call-home) for an example.
 
 ## Notifications <a href="#d5e4000" id="d5e4000"></a>
 
@@ -3192,7 +3193,7 @@ Notifications must be defined at the top level of a YANG module. NSO does curren
 
 ### An Example Session <a href="#d5e4020" id="d5e4020"></a>
 
-In this section, we will use the [examples.ncs/device-management/web-server-basic](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/web-server-basic) example.
+In this section, we will use the [examples.ncs/device-management/web-server-basic](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/web-server-basic) example.
 
 Let's dive into an example session with the NSO CLI. In the NSO example collection, the webserver publishes two NETCONF notification structures, indicating what they intend to send to any interested listeners. They all have the YANG module:
 

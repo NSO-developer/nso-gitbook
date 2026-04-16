@@ -518,3 +518,330 @@ The output of this action is a list of service ids and the results of action `ch
 Use the option `suppress-positive-result` to suppress results with empty diffs.
 
 </details>
+
+## Dry-run Drift Detection
+
+Dry-run drift detection compares the changeset from a dry-run with the changeset at commit time to determine whether anything has changed in between. This helps prevent users from accidentally committing unintended changes. When a dry-run is performed, a checksum of the changeset is saved. During commit, a new checksum is calculated from the current changeset and compared with the saved checksum. Both checksums are calculated after the validation phase and before the prepare phase. If no dry-run has been performed in the transaction, no comparison is made. This feature applies to the CLI, JSON-RPC, and Web UI.
+
+This behavior is configured through the `dry-run-drift-detection` container in `tailf-ncs-aaa.yang`, which has two leaves: `enabled` and `mode`. The `mode` leaf can be set to `warn` or `strict`. In `warn` mode, the user receives a validation warning if the changeset differs between dry-run and commit, and can choose whether to continue. This is handled the same way as other validation warnings. In `strict` mode, an error is returned instead, the transaction is aborted, and a new dry-run is required before the commit can proceed. In `tailf-ncs-aaa.yang`, `enabled` defaults to `false` and `mode` defaults to `warn`. However, `enabled` is set to `true` in `ncs_defaults.xml.in`, so the feature is enabled by default for new NSO deployments. The setting can be configured globally by setting the `dry-run-drift-detection` leaves in `tailf-ncs-aaa.yang`, for example in the CLI:
+
+```cli
+admin@ncs% set session dry-run-drift-detection enabled
+admin@ncs% set session dry-run-drift-detection disabled
+admin@ncs% set session dry-run-drift-detection mode strict
+admin@ncs% set session dry-run-drift-detection mode warn
+```
+
+It can also be set per user, for example:
+
+```cli
+admin@ncs% set user admin session dry-run-drift-detection enabled
+admin@ncs% set user admin session dry-run-drift-detection disabled
+admin@ncs% set user admin session dry-run-drift-detection mode strict
+admin@ncs% set user admin session dry-run-drift-detection mode warn
+```
+
+In the CLI, it is also possible to set this per session in operational mode:
+
+```cli
+admin@ncs> dry-run-drift-detection true
+admin@ncs> dry-run-drift-detection false
+admin@ncs> dry-run-drift-detection mode warn
+admin@ncs> dry-run-drift-detection mode strict
+```
+
+This does not require a commit and will only last for this CLI session, meaning the changes are not persistent. This works in the same way as the existing commit-prompt setting.
+
+### Examples
+
+Consider this small service model:
+
+```yang
+module topology-service {
+  namespace "http://example.com/topology-service";
+  prefix topo;
+
+  container topology {
+    list connection {
+      key "name";
+      leaf name {
+        type string;
+      }
+      leaf endpoint-1 {
+        type leafref {
+          path "/ncs:devices/ncs:device/ncs:name";
+        }
+      }
+      leaf endpoint-2 {
+        type leafref {
+          path "/ncs:devices/ncs:device/ncs:name";
+        }
+      }
+      leaf link-type {
+        type enumeration {
+          enum ethernet;
+        }
+        default ethernet;
+      }
+    }
+  }
+
+  augment "/ncs:services" {
+    list link-config {
+      key id;
+      uses ncs:service-data;
+      ncs:servicepoint link-config-servicepoint;
+      leaf connection-name {
+        type leafref {
+          path "/topo:topology/topo:connection/topo:name";
+        }
+        mandatory true;
+      }
+      leaf timeout {
+        type uint32; default 60;
+      }
+      leaf description {
+        type string;
+      }
+    }
+  }
+}
+```
+
+#### Example A - create a changeset mismatch scenario with two transactions
+
+Transaction A sets up the topology connections and then creates a service that depends on this topology, and then performs a dry-run:
+
+```cli
+admin@ncs% set topology connection link1 endpoint-1 ex0 endpoint-2 ex1 link-type ethernet
+admin@ncs% commit
+admin@ncs% set services link-config svc1 connection-name link1 timeout 10
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  devices {
+                  device ex0 {
+                      config {
+                          sys {
+                              dns {
+                                  options {
+             +                        timeout 10;
+             +                        attempts 3;
+                                  }
+                              }
+                          }
+                      }
+                  }
+                  device ex1 {
+                      config {
+                          sys {
+                              dns {
+                                  options {
+             +                        timeout 10;
+             +                        attempts 3;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+              services {
+             +    link-config svc1 {
+             +        connection-name link1;
+             +        timeout 10;
+             +    }
+              }
+    }
+}
+```
+
+Another transaction, transaction B, then changes endpoint-2 to point to ex2 instead of ex1 before transaction A commits:
+
+```cli
+admin@ncs% set topology connection link1 endpoint-2 ex2
+admin@ncs% commit
+Commit complete.
+```
+
+Transaction A then tries to commit its changes:
+
+```cli
+admin@ncs% commit
+The following warnings were generated:
+  Commit changeset does not match dry-run changeset
+Proceed? [yes,no] no
+Aborted: by user
+```
+
+When committing transaction A, validation runs again and the service re-evaluates against the updated topology, so the resulting transaction changeset is no longer the same as the one that was saved at dry-run. Because the changeset of transaction A was changed by the changes committed by transaction B, the dry-run-drift-detection validation warning is returned and the user can choose to continue or abort. If the user aborts, a new dry-run has to be performed to commit:
+
+```cli
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  devices {
+                  device ex0 {
+                      config {
+                          sys {
+                              dns {
+                                  options {
+             +                        timeout 10;
+             +                        attempts 3;
+                                  }
+                              }
+                          }
+                      }
+                  }
+                  device ex2 {
+                      config {
+                          sys {
+                              dns {
+                                  options {
+             +                        timeout 10;
+             +                        attempts 3;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+              services {
+             +    link-config svc1 {
+             +        connection-name link1;
+             +        timeout 10;
+             +    }
+              }
+    }
+}
+admin@ncs% commit
+Commit complete.
+```
+
+The new dry-run output demonstrates that the original commit would have updated ex0 and ex1, but after the commit made by transaction B, transaction A would have actually updated ex0 and ex2, which would have been unintentional if the user was not aware of the changes made in transaction B.
+
+#### Example B
+
+This example demonstrates a scenario that does not cause a mismatch. Two transactions edit topology only, so no service is consuming topology in the open transaction. The transaction changeset of transaction A is not changed by the changes made in transaction B.
+
+Transaction A:
+
+```cli
+admin@ncs% set topology connection link1 endpoint-2 ex1
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  topology {
+                  connection link1 {
+             -        endpoint-2 ex2;
+             +        endpoint-2 ex1;
+                  }
+              }
+    }
+}
+```
+
+Transaction B:
+
+```cli
+admin@ncs% set topology connection link1 endpoint-2 ex0
+admin@ncs% commit
+Commit complete.
+```
+
+Transaction A:
+
+```cli
+admin@ncs% commit
+Commit complete.
+```
+
+No warning appears. If a new dry-run had been made in transaction A after the commit of transaction B, it would have displayed the following output:
+
+```cli
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  topology {
+                  connection link1 {
+             -        endpoint-2 ex0;
+             +        endpoint-2 ex1;
+                  }
+              }
+    }
+}
+```
+
+The difference between the two dry-run outputs show that instead of changing endpoint-2 from ex2 to ex1, it was changed from ex0 to ex1 because of the change by transaction B. However, this does not affect the changeset of transaction A or the final result of the commit, which is that endpoint 2 now points to ex1. So even though the dry-run output differs, the intent of the commit is the same.
+
+#### Example C
+
+This example demonstrates a mismatch occurring when a change has been made in the same transaction. This also demonstrates "strict" mode
+
+```cli
+admin@ncs% set topology connection link1 endpoint-1 ex1
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  topology {
+                  connection link1 {
+             -        endpoint-1 ex0;
+             +        endpoint-1 ex1;
+                  }
+              }
+    }
+}
+admin@ncs% set topology connection link1 endpoint-1 ex2
+admin@ncs% commit
+Aborted: Commit changeset does not match dry-run changeset
+admin@ncs% commit dry-run
+cli {
+    local-node {
+        data  topology {
+                  connection link1 {
+             -        endpoint-1 ex0;
+             +        endpoint-1 ex2;
+                  }
+              }
+    }
+}
+admin@ncs% commit
+Commit complete.
+```
+
+In this scenario, transaction A first updated endpoint-1 to point to ex1 and performed a dry-run. Then transaction A updates endpoint-1 again to point to ex2 instead and tries to commit. The commit is aborted because this change in the same transaction has caused the transaction changeset to be updated, and dry-run-drift-detection is now in strict mode.
+
+### Interaction with commit-prompt
+
+Commit-prompt is a CLI behavior where each ordinary commit first runs an automatic dry-run and then prompts the user on whether or not to continue before the commit actually proceeds. This reduces the risk of committing unintended changes that dry-run drift detection is meant to catch. It is still possible to use commit-prompt with dry-run-drift-detection though. When used with dry-run-drift-detection, the changeset will be saved during the automatic dry-run, just as with any other dry-run. Then, if another transaction makes changes that affect the first transaction's changeset while the user is still at the prompt, a warning/error will be returned if the user confirms the commit with "yes", since confirming with "yes" runs validation again. So dry-run drift detection applies in the usual way if the changeset at commit time (after confirming the commit) differs from the one that was checksummed at the automatic dry-run.
+
+### Known limitations
+
+In some nano-service situations, NSO does not compare the dry-run and commit changeset checksums. This is during deletion of a nano-service as well as when a nano-service is created with converge-on-re-deploy. Instead, it emits a dedicated validation warning that explains why the comparison was skipped. The reasoning behind this warning is that the transaction might contain several other changes as well, and the user might want to have the comparison done for these changes. So when the warning appears, the user can choose to either continue with the commit with no comparison, or do a new commit that excludes the changes that cannot be compared, and later do those in a separate commit. The message is shown as a normal validation warning.
+
+#### Nano-service delete
+
+If the transaction deletes one or more nano-services, NSO skips the dry-run versus commit changeset comparison for that commit. This is the warning that will be returned during commit in the CLI:
+
+```cli
+The following warnings were generated:
+  Cannot perform changeset comparison for this commit because service(s) were deleted: my-nano-servicepoint
+Proceed? [yes,no]
+```
+
+If several service points are involved, their names appear separated by commas.
+
+The changeset comparison is not possible in this case because the delete paths are different for a dry-run and a commit. When a nano-service is removed, NSO cannot run the full, multi-step teardown that a real delete performs. Internally, dry-run therefore follows a shortened delete path — essentially unwinding planned nano changes in a way that produces a useful preview without executing a complete delete. A real commit, however, uses the full nano delete path, which includes zombie handling etc. Because of this, the changesets will often differ between a dry-run and commit even without other changes being made, and therefore performing a comparison adds no value.
+
+#### Nano-services using "converge-on-re-deploy"
+
+For a nano-service declared with converge-on-re-deploy, NSO does not fully converge the service inside the same transaction where the service instance is created. Instead, in that creation commit NSO records the service intent, establishes the plan as required for this mode, and schedules a reactive re-deploy so the heavy convergence runs after that commit. During a dry-run however, NSO simulates what updates the nano-service would apply if it converged in that pass, so it executes the convergence path so that the dry-run can display a preview. Because of this, the changesets that are created during dry-run and commit will be different even if no other changes have been made in the transaction, so performing a comparison of the changesets has no purpose.
+
+If the transaction involves nano-service work under a service point that has converge-on-re-deploy set, NSO skips the dry-run versus commit changeset checksum comparison for that commit and emits the warning below.
+
+```cli
+The following warnings were generated:
+  Cannot perform changeset comparison for this commit because service(s) my-servicepoint use converge-on-re-deploy.
+Proceed? [yes,no]
+```
+
+If several service points are involved, their names appear separated by commas.

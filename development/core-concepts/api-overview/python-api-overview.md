@@ -1147,7 +1147,7 @@ print("/operdata/value is now %s" % new_value)
 
 The Python `_ncs.events` low-level module provides an API for subscribing to and processing NSO event notifications. Typically, the event notification API is used by applications that manage NSO using the SDK API using, for example, MAAPI or for debug purposes. In addition to subscribing to the various events, streams available over other northbound interfaces, such as NETCONF, RESTCONF, etc., can be subscribed to as well.
 
-See [`examples.ncs/sdk-api/event-notifications`](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api/event-notifications) for an example. The [`examples.ncs/common/event_notifications.py`](https://github.com/NSO-developer/nso-examples/tree/6.6/common/event_notifications.py) Python script used by the example can also be used as a standalone application to, for example, debug any NSO instance.
+See [`examples.ncs/sdk-api/event-notifications`](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api/event-notifications) for an example. The [`examples.ncs/common/event_notifications.py`](https://github.com/NSO-developer/nso-examples/tree/6.7/common/event_notifications.py) Python script used by the example can also be used as a standalone application to, for example, debug any NSO instance.
 
 ## Advanced Topics
 
@@ -1299,3 +1299,24 @@ class Main(ncs.application.Application):
         self.log.info('Main FINISHED')
 ```
 {% endcode %}
+
+### Fetch bulk live-status via MAAPI
+
+In MAAPI, when reading live-status data with `get_elem`, `get_case`, `get_values`, and similar calls, each read call may trigger its own request to the device. To improve fetch performance, you can use `set_read_intent` to fetch live-status data in bulk.
+
+{% code title="Example: Fetch bulk live-status via MAAPI" %}
+```python
+import ncs
+
+with ncs.maapi.single_read_trans('admin', 'python') as t:
+    t.set_read_intent(["/ncs:devices/device/live-status/foo:foo",
+                       "/ncs:devices/device/live-status/bar:bar"])
+
+    t.get_elem("/ncs:devices/device{dev0}/live-status/foo:foo/a")
+    t.get_elem("/ncs:devices/device{dev0}/live-status/foo:foo/b")
+
+    t.get_elem("/ncs:devices/device{dev0}/live-status/bar:bar/baz")
+```
+{% endcode %}
+
+With `set_read_intent`, it only requires one read request to get all the live-status data under `foo:foo` and `bar:bar`, and the data will be cached for later usage. To check the current read-intent, use `get_read_intent`, and `clear_read_intent` to clear it.

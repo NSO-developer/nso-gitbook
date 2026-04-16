@@ -552,6 +552,12 @@ Package authentication is supported for Single Sign-On (see [Single Sign-On](../
 
 Package authentication is enabled by setting the `ncs.conf` options `/ncs-config/aaa/package-authentication/enabled` to true, and adding the package by name in the `/ncs-config/aaa/package-authentication/packages` list. The order of the configured packages is the order that the packages will be used when attempting to authenticate a user. See [ncs.conf(5)](../../resources/man/ncs.conf.5.md) in Manual Pages for details.
 
+{% hint style="info" %}
+When package authentication is used for RESTCONF, each authentication attempt requires NSO to invoke an external program through an Erlang port. This adds non-trivial processing overhead and can become a bottleneck in high-frequency request scenarios.
+
+Northbound applications that send bursts of RESTCONF requests may therefore experience increased latency or reduced throughput when package authentication is enabled.
+{% endhint %}
+
 If this feature is configured in `ncs.conf`, NSO will for each configured package invoke `script/authenticate`, and pass username, password, and original HTTP request (i.e. the user-supplied `next` query parameter), HTTP request, HTTP headers, HTTP body, client source IP, client source port, northbound API context, and protocol on `stdin` using the string notation: `"[user;password;orig_request;request;headers;body;src-ip;src-port;ctx;proto;]\n"`.
 
 {% hint style="info" %}
@@ -671,7 +677,7 @@ NSO will skip this access check in case the euid of the connecting process is 0 
 
 If using Unix socket IPC, clients and client libraries must now specify the path that identifies the socket. The path must match the one set under `ncs-local-ipc/path` in `ncs.conf`. Clients may expose a client-specific way to set it, such as the `-S` option of the `ncs_cli` command. Alternatively, you can use the `NCS_IPC_PATH` environment variable to specify the socket path independently of the used client.
 
-See [examples.ncs/aaa/ipc](https://github.com/NSO-developer/nso-examples/tree/6.6/aaa/ipc) for a working example.
+See [examples.ncs/aaa/ipc](https://github.com/NSO-developer/nso-examples/tree/6.7/aaa/ipc) for a working example.
 
 ## Group Membership <a href="#ug.aaa.groups" id="ug.aaa.groups"></a>
 

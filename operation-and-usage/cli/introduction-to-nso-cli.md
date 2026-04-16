@@ -1101,25 +1101,27 @@ There are a number of session variables in the CLI. They are only used during th
 
 ```bash
 admin@ncs# show cli
-autowizard            false
-commit-prompt         false
-complete-on-space     true
-devtools              false
-display-level         99999999
-dry-run-duration      0
-dry-run-outformat     cli
-history               100
-idle-timeout          1800
-ignore-leading-space  false
-output-file           terminal
-paginate              true
-prompt1               \h\M#
-prompt2               \h(\m)#
-screen-length         71
-screen-width          80
-service prompt config true
-show-defaults         false
-terminal              xterm-256color
+autowizard                   false
+commit-prompt                false
+complete-on-space            true
+devtools                     false
+display-level                99999999
+dry-run-drift-detection      false;
+dry-run-drift-detection-mode warn;
+dry-run-duration             0
+dry-run-outformat            cli
+history                      100
+idle-timeout                 1800
+ignore-leading-space         false
+output-file                  terminal
+paginate                     true
+prompt1                      \h\M#
+prompt2                      \h(\m)#
+screen-length                71
+screen-width                 80
+service prompt config        true
+show-defaults                false
+terminal                     xterm-256color
 ...
 ```
 
@@ -1233,6 +1235,38 @@ Controls if command completion should be attempted when `<space>` is entered. En
 <summary><code>devtools (true | false)</code></summary>
 
 Controls if certain commands that are useful for developers should be enabled. The command `xpath` and `timecmd` are examples of such a command.
+
+</details>
+
+<details>
+
+<summary><code>dry-run-drift-detection (true | false)</code></summary>
+
+When enabled, the user is notified during commit if the transaction’s changeset has changed since their last dry-run, helping prevent unintended changes from being committed. This setting is available in `warn` and `strict` modes; see below.
+
+</details>
+
+<details>
+
+<summary><code>dry-run-drift-detection-mode (warn | strict)</code></summary>
+
+This is the mode for the `dry-run-drift-detection` setting. In `warn` mode, the CLI warns if the changeset differs between dry-run and commit, and prompts the user whether to proceed. In `strict` mode, the commit is aborted, and the user must perform a new dry-run before committing.
+
+For example ("warn" mode):
+
+```bash
+admin@ncs(config)# commit
+The following warnings were generated:
+  Commit changeset does not match dry-run changeset
+Proceed? [yes,no]
+```
+
+"strict" mode will instead give the following error:
+
+```bash
+admin@ncs(config)# commit
+Aborted: Commit changeset does not match dry-run changeset
+```
 
 </details>
 

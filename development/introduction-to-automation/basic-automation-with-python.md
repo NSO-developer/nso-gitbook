@@ -116,7 +116,7 @@ Now let's see how you can use this knowledge for network automation.
 ## Showcase - Configuring DNS with Python <a href="#d5e399" id="d5e399"></a>
 
 {% hint style="info" %}
-See [examples.ncs/getting-started/basic-automation](https://github.com/NSO-developer/nso-examples/tree/6.6/getting-started/basic-automation) for an example implementation.
+See [examples.ncs/getting-started/basic-automation](https://github.com/NSO-developer/nso-examples/tree/6.7/getting-started/basic-automation) for an example implementation.
 {% endhint %}
 
 ### **Prerequisites**
@@ -125,11 +125,11 @@ See [examples.ncs/getting-started/basic-automation](https://github.com/NSO-devel
 
 ### Step 1 - Start the Routers <a href="#d5e407" id="d5e407"></a>
 
-Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management) set of examples contains three simulated routers that you can configure.
+Leveraging one of the examples included with the NSO installation allows you to quickly gain access to an NSO instance with a few devices already onboarded. The [examples.ncs/device-management](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management) set of examples contains three simulated routers that you can configure.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/ex-routers.png" alt="" width="375"><figcaption><p>The Lab Topology</p></figcaption></figure></div>
 
-1.  Navigate to the [router-network](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/router-network) directory with the following command.
+1.  Navigate to the [router-network](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/router-network) directory with the following command.
 
     ```bash
     $ cd $NCS_DIR/examples.ncs/device-management/router-network
