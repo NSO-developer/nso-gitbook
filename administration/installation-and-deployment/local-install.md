@@ -449,7 +449,7 @@ Since the Runtime Directory is self-contained, this is also the way to move betw
   $ cd path/to/nso-6.4.1/examples.ncs/service-management/datacenter-qinq
   $ ncs
   $ ncs --stop
-  $ cd path/to/nso-6.4.1/examples.ncs/device-management/simulated-cisco-ios
+  $ cd path/to/nso-6.4.1/examples.ncs/device-management/simulated-devices
   $ ncs
   $ ncs --stop
 ```

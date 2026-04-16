@@ -511,12 +511,12 @@ If the `admin` then loads this script:
 
 ```bash
 admin@ncs# script reload debug
-$NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/scripts:
+$NCS_DIR/examples.ncs/device-management/simulated-devices/scripts:
 ok
     post-commit:
         mail_admin.sh: new
 --- Output from
-$NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/scripts/post-commit/mail_admin.sh
+$NCS_DIR/examples.ncs/device-management/simulated-devices/scripts/post-commit/mail_admin.sh
 --post-commit ---
 1: begin post-commit
 2: end
