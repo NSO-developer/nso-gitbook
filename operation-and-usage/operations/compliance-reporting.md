@@ -744,6 +744,168 @@ check-result {
 }
 ```
 
+## XML Compliance Templates
+
+In addition to CDB-based compliance templates (configured under `/compliance/template`), NSO supports **XML compliance templates**: standalone `.xml` files that are loaded from the file system at startup, in the same way service templates are loaded. This makes it possible to version-control compliance checks alongside service templates and ship them as part of a package.
+
+### XML Template File Format
+
+An XML compliance template is an `.xml` file whose root element is `<compliance-template>` with the namespace `http://tail-f.com/ns/config/1.0`. The `name` attribute gives the template its unique name:
+
+```xml
+<compliance-template xmlns="http://tail-f.com/ns/config/1.0"
+                     name="my-template">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>{$DEVICE}</name>
+      <config>
+        <!-- device configuration to verify against, values as regexes -->
+      </config>
+    </device>
+  </devices>
+</compliance-template>
+```
+
+Values in the template are treated as regular expressions, and variables use the `{$VAR_NAME}` syntax and are substituted at check time.
+
+### Loading XML Compliance Templates
+
+**Via `ncs.conf` (file-system directories)**
+
+Add one or more directory paths to `/ncs-config/load-path/templates-dir/compliance` in `ncs.conf`:
+
+```xml
+<load-path>
+  <templates-dir>
+    <compliance>/opt/ncs/compliance-templates</compliance>
+    <compliance>/etc/ncs/site-compliance</compliance>
+  </templates-dir>
+</load-path>
+```
+
+NSO scans each configured directory recursively for `.xml` files at startup and loads them as compliance templates.
+
+**Via packages**
+
+XML compliance templates can be placed in the `templates/` subdirectory of a package alongside service templates. NSO automatically discovers and loads compliance templates from packages when they are loaded. Templates provided by a package are listed under `/packages/package/compliance-templates`.
+
+### Processing Instructions
+
+XML compliance templates support all processing instructions available for [service templates](../../development/core-concepts/templates.md), **except** `for`, `foreach`, and `copy-tree`. The supported instructions are:
+
+| Instruction | Description |
+|---|---|
+| `<?if {xpath-expr}?>` … `<?else?>` … `<?end?>` | Conditionally check parts of the template |
+| `<?set var = {xpath-expr}?>` | Assign a variable |
+| `<?if-ned-id ned-id?>` … `<?end?>` | Conditionally check based on the NED ID |
+| `<?macro name args?>` … `<?endmacro?>` | Define a reusable template fragment |
+| `<?expand macro-name args?>` | Expand a macro |
+
+#### `<?assert?>` Processing Instruction
+
+The `assert` instruction is new and specific to XML compliance templates. It evaluates an XPath boolean expression and, if the expression evaluates to false, records a failure with the provided error message. Failed assertions are returned in the output of the `check` action.
+
+Syntax:
+
+```xml
+<?assert {xpath-boolean-expression} error message text?>
+```
+
+For example, to assert that exactly two ethernet interfaces exist on a device:
+
+```xml
+<?set num = {count(./interface[starts-with(name, 'eth')])}?>
+...
+<?assert {$num = 2}
+ Expected 2 interfaces starting with 'eth' - found {$num}?>
+```
+
+When an assertion fails, the `check` action output includes a `failed-assertions` list containing the `location`, `context`, and `message` of each failure.
+
+### Inspecting Loaded XML Compliance Templates
+
+All loaded XML compliance templates are visible under `/compliance/xml-templates/template`:
+
+```
+ncs# show compliance xml-templates template
+NAME         FILENAME                                   PACKAGE  VARIABLES
+----------------------------------------------------------------------------
+compliance1  /opt/ncs/compliance-templates/comp1.xml    -        [DEVICE]
+dns_check    packages/dns/templates/dns_compliance.xml  dns      [DEVICE]
+```
+
+Each entry shows the template `name`, `filename` (path on disk), `package` (empty for templates loaded from the load-path rather than a package), and the list of `variables` used in the template.
+
+Any loading errors — such as duplicate template names, malformed XML, or unsupported processing instructions — are reported in `/compliance/xml-templates/error-info`:
+
+```
+ncs# show compliance xml-templates error-info
+compliance xml-templates error-info "wrong_assert.xml:10 failed to compile: 'foo()' reason: Undefined function foo/0"
+compliance xml-templates error-info "pi_for.xml:9 The processing instruction 'for' is unsupported."
+```
+
+### Running a Compliance Check Against an XML Template
+
+Use the `check` action under `/compliance/xml-templates`, supplying the template name and the target devices:
+
+```
+ncs# compliance xml-templates check template-name dns_check \
+     device [ router0 router1 ]
+check-result {
+    device router0
+    result no-violation
+}
+check-result {
+    device router1
+    result violations
+    diff devices device router1
+ config
+  no sys dns options timeout 30
+  no sys dns options attempts 2
+ !
+!
+}
+```
+
+You can also target all devices or a device group:
+
+```
+ncs# compliance xml-templates check template-name dns_check all-devices
+ncs# compliance xml-templates check template-name dns_check device-group core-routers
+```
+
+When the template uses `assert` instructions, any failures appear in a `failed-assertions` list within the check result:
+
+```
+check-result {
+    device core-rtr-1
+    result violations
+    failed-assertions {
+        location ./templates/interface-check.xml:10
+        context /devices/device[name='core-rtr-1']/config/r:sys/interfaces
+        message Expected 2 interfaces starting with 'eth' - found 1
+    }
+}
+```
+
+### Reloading XML Compliance Templates
+
+To reload all templates (both from the load-path and from packages), use:
+
+```
+ncs# packages reload
+```
+
+To reload only the templates loaded from the load-path (i.e., not from packages), use the dedicated reload action:
+
+```
+ncs# compliance xml-templates reload
+```
+
+{% hint style="info" %}
+As of NSO 6.7, XML compliance templates cannot be configured in compliance reports. Support for referencing XML templates from compliance report definitions (via `device-check/xml-template`) is planned for the next maintenance release.
+{% endhint %}
+
 ## Re-run existing compliance report results
 
 When a compliance report result includes violations, you typically want to run that compliance report again after fixing the violations. What if you could run only the violating items from the old report results again, skipping everything else?
