@@ -25,8 +25,8 @@ Raft- and rule-based HA now use a unified TLS transport for improved security an
 
 Documentation Updates:
 
-* Described the new transport requirements in [#ug.ha.raft](administration/management/high-availability.md#ug.ha.raft "mention") and [#ug.ha.builtin](administration/management/high-availability.md#ug.ha.builtin "mention").
-* Added a section on provisioning TLS certificates with the help of example scripts in [high-availability.md](administration/management/high-availability.md "mention").
+* Described the new transport requirements in [HA Raft](administration/management/high-availability.md#ug.ha.raft) and [Rule-based HA](administration/management/high-availability.md#ug.ha.builtin).
+* Added a section on provisioning TLS certificates with the help of example scripts to [High Availability](administration/management/high-availability.md).
 
 </details>
 
