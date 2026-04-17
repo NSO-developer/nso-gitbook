@@ -427,10 +427,10 @@
                        NCS commits the transaction. If transaction is reverted, the NED calls
                        'rollback configuration last 1' to rollback the commit.
 
-      direct-sticky  - When using this method the NED does not leave config exklusive mode during
-                       the connection. Transaction-id's are incremented without verifying on device.
+      direct-sticky  - When using this method the NED does not leave config mode during the
+                       connection. Transaction-id's are incremented without verifying with device.
                        Only when session ends is config mode exited and transaction id's once again
-                       read from device.
+                       derived from the device.
 
 
     - write commit-options <WORD> (default show-error)

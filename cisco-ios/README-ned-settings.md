@@ -1169,7 +1169,7 @@
     - api vlan-leaf-list-as-string <true|false> (default false)
 
       Switch to alternate YANG model where some vlan config is modeled as a string instead of
-      leaf-list due to NSO performance issues.
+      (leaf-)list due to NSO performance issues.
 
 
     - api trim-if-no-switchport <true|false> (default false)
