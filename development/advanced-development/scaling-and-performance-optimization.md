@@ -763,7 +763,7 @@ For smooth operation of NSO instances consider all of the following:
 * Ensure there are enough file descriptors available.
   * In many Linux systems, the default limit is 1024.
   * If we, for example, assume that there are 4 northbound interface ports, CLI, RESTCONF, SNMP, JSON-RPC, or similar, plus a few hundred IPC ports, x 1024 == 5120. But one might as well use the next power of two, 8192, to be on the safe side.
-* See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605).
+* See [Memory Pressure Guidance](../../administration/installation-and-deployment/system-install.md#use-nso-memory-monitoring-to-capture-debug-dumps-before-an-oom-kill) or [Container Memory Pressure Guidance](../../administration/installation-and-deployment/containerized-nso.md#d5e8605).
 
 ## Hardware Sizing <a href="#d5e8931" id="d5e8931"></a>
 
@@ -785,6 +785,6 @@ Network management protocols typically consume little network bandwidth. It is o
 
 The in-memory portion of CDB needs to fit in RAM, and NSO needs working memory to process queries. This is a hard requirement. NSO can only function with enough memory. In case of `in-memory-v1` CDB persistence mode, less than the required amount of RAM does not lead to performance degradation - it prevents NSO from working. For example, if CDB consumes 50 GB, ensure you have at least 64 GB of RAM. There needs to be some headroom for RAM to allow temporary usage during, for example, heavy queries.
 
-Swapping is a way to use disk space as RAM, and while it can make it possible to start an NSO instance that otherwise would not fit in RAM, it would lead to terrible performance. See [Enable Strict Overcommit Accounting](../../administration/installation-and-deployment/system-install.md#enable-strict-overcommit-accounting-on-the-host) or [Overcommit Inside a Container](../../administration/installation-and-deployment/containerized-nso.md#d5e8605) for details.
+Swapping is a way to use disk space as RAM, and while it can make it possible to start an NSO instance that otherwise would not fit in RAM, it would lead to terrible performance. See [Memory Pressure Guidance](../../administration/installation-and-deployment/system-install.md#use-nso-memory-monitoring-to-capture-debug-dumps-before-an-oom-kill) or [Container Memory Pressure Guidance](../../administration/installation-and-deployment/containerized-nso.md#d5e8605) for details.
 
 Provide at least 32GB of RAM and increase with the growth of CDB. As described in [Scaling RAM and Disk](scaling-and-performance-optimization.md#ncs.development.scaling.memory), the consumption of memory and disk resources for devices and services will vary greatly with the type and size of the service or device.

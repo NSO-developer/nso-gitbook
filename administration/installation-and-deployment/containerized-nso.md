@@ -310,198 +310,85 @@ The default `--health-start-period duration` in health check is set to 60 second
 To disable the health check, use the `--no-healthcheck` command.
 {% endhint %}
 
-### NSO System Dump and Enable Strict Overcommit Accounting on the Host <a href="#d5e8605" id="d5e8605"></a>
+### Use NSO Memory Monitoring to Capture Debug Dumps Before a Container OOM Kill <a href="#d5e8605" id="d5e8605"></a>
 
-By default, the Linux kernel allows overcommit of memory. However, memory overcommit produces an unexpected and unreliable environment for NSO since the Linux Out‑Of‑Memory (OOM) killer may terminate NSO without restarting it if the system is critically low on memory.
+NSO can monitor memory through the `/ncs-config/memory-management` section in `ncs.conf`. In containerized deployments, configure it to trigger one or more debug dumps before memory pressure reaches the point where the container or the NSO process might be OOM-killed without leaving useful diagnostics.
 
-Also, when the OOM-killer terminates NSO, NSO will not produce a system dump file, and the debug information will be lost. Thus, it is strongly recommended that overcommit is disabled with Linux NSO production container hosts with an overcommit ratio of less than 100% (max). Use a 5% headroom (overcommit\_ratio≈95 when no swap) or increase if the host runs additional services. Or use vm.overcommit\_kbytes for a fixed CommitLimit.
+This feature can be used while leaving the host in Linux's default heuristic overcommit mode (`vm.overcommit_memory=0`); see [proc_sys_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html). Host overcommit settings remain host-global and cannot be configured per container, but NSO can still use cgroup memory information to trigger debug dumps proactively.
 
-See [Step - 4. Run the Installer](system-install.md#si.run.the.installer) in System Install for information on memory overcommit recommendations for a Linux system hosting NSO production containers.
+* When NSO runs in a container with a configured memory limit, NSO uses the container cgroup memory limit and current usage instead of host-wide memory values.
+* If you need host-based guidance instead, see [Use NSO Memory Monitoring to Capture Debug Dumps Before an OOM Kill](system-install.md#use-nso-memory-monitoring-to-capture-debug-dumps-before-an-oom-kill).
 
-{% hint style="info" %}
-By default, NSO writes a system dump to the NSO run-time directory, default `NCS_RUN_DIR=/nso/run`. If the `NCS_RUN_DIR` is not pointing to a persistent, host‑mounted volume so dumps survive container restarts or to give the NSO system dump file a unique name, the `NCS_DUMP="/path/to/mounted/dir/ncs_crash.dump.$(date +%Y%m%d-%H%M%S)"` variable needs to be set.
-{% endhint %}
+Each `action` under `/ncs-config/memory-management/actions` defines:
 
-#### Recommended: Host Configured for Strict Overcommit
+* One threshold, either `used-memory-threshold-percentage` or `free-memory-threshold-bytes`.
+* One compensating action, currently `debug-dump`.
+* A required absolute dump `directory`.
+* Optional rate limiting with `count` (default `5`) and `cooldown-period` (default `PT60M`).
 
-With the host configured for strict overcommit (`vm.overcommit_memory=2`), containers inherit the host’s CommitLimit behavior. Note that `vm.overcommit_memory`, `vm.overcommit_ratio`, and `vm.overcommit_kbytes` are host‑global and cannot be set per container. These `vm.*` settings are configured on the host and apply to all containers.
+When a threshold is crossed, NSO writes a timestamped debug dump such as `debug_dump_2026-04-17T09:12:34.567Z`, logs that it is creating the dump, and raises the `memory-management-action-triggered` alarm.
 
-* Optionally use the `docker run` command to set memory limits and swap:
-  * Use `--memory=<ram>` to cap the container’s RAM.
-  * Set `--memory-swap=<ram>` equal to `--memory` to effectively disable swap for the container.
-  * If swap must be enabled, use a fast disk, for example, an NVMe SSD.
+**Recommended Usage**
 
-#### **Alternative: Heuristic Overcommit Mode**
+* Configure the feature in the `ncs.conf` used by the container before starting NSO, or reload the configuration with `ncs --reload` after updating `ncs.conf`.
+* Run the container with an explicit memory limit, for example `docker run --memory=<ram>` or an equivalent limit in your container platform.
+* If swap should effectively be disabled for the container, set `--memory-swap=<ram>` equal to `--memory`.
+* Use a mounted persistent volume that the NSO user can write to for the debug-dump directory, typically under `NCS_RUN_DIR=/nso/run`, for example `/nso/run/debug-dumps`.
+* Set the threshold early enough that NSO still has time to finish the dump. A good starting point is `90` for `used-memory-threshold-percentage`, or a `free-memory-threshold-bytes` value that leaves a few GiB of headroom on larger systems.
+* Define more than one action if you want an early snapshot and then additional snapshots closer to the limit.
+* Keep `NCS_DUMP` configured as well. Point it to a writable persistent location, typically under `NCS_RUN_DIR=/nso/run`. A proactive debug dump helps when the Linux OOM-killer would otherwise terminate NSO without producing a system dump.
 
-The alternative, using heuristic overcommit mode, can be useful if the NSO host has severe memory limitations and you need a best effort way to capture diagnostics before the container hits its cgroup memory limit. In a container, the practical trigger for `ncs --debug-dump` is based on the container’s own cgroup memory signals..
+**Example Configuration**
 
-As an alternative to the recommended strict mode, `vm.overcommit_memory=2`, you can keep `vm.overcommit_memory=0` configured on the host and trigger `ncs --debug-dump` when the container’s `memory.current / memory.max` stays high, memory pressure from `memory.pressure` indicates sustained reclaim stalls, and `memory.events` shows that the cgroup is hitting reclaim or limit boundaries.
+Add the following under the top-level `<ncs-config>` element in the `ncs.conf` used by the container:
 
-* This approach does not prevent the Linux OOM-killer from killing NSO or the container; it only attempts to capture diagnostic data before cgroup memory pressure becomes critical.
-* The same `docker run` memory and swap options as above can be used.
-* For container OOM risk, use the cgroup’s own memory signals as the primary trigger.
-  * `memory.current` versus `memory.max` is the main headroom signal.
-  * `memory.pressure` confirms that the cgroup is experiencing sustained reclaim pressure rather than a short-lived spike.
-  * `memory.events` provides useful corroboration, especially increasing `high`, `max`, or `oom` counters.
-* Tune the example thresholds for your workload. The values below are intentionally conservative starting points for cgroup v2-based production containers and should be validated under load.
-* Ensure the user running the monitor has permission to execute `ncs --debug-dump` and write to the chosen dump directory.
-
-{% code title="Simple example of an NSO debug-dump monitor inside a container" overflow="wrap" %}
-```bash
-#!/usr/bin/env bash
-# Simple NSO debug-dump monitor inside a container.
-# Triggers ncs --debug-dump when all of the following are true for a sustained
-# period:
-#   1. memory.current is above a configured percentage of memory.max.
-#   2. memory.pressure indicates sustained reclaim pressure.
-#   3. memory.events shows recent high/max/oom activity.
-
-CGROUP_THRESHOLD_PCT=90  # Trigger when memory.current >= 90% of memory.max.
-PSI_SOME_AVG10=1.00      # Trigger when memory pressure some avg10 exceeds this value.
-PSI_FULL_AVG10=0.10      # Trigger when memory pressure full avg10 exceeds this value.
-SUSTAIN_COUNT=3          # Number of consecutive polls before collecting dumps.
-POLL_INTERVAL=5          # Seconds between checks.
-PROCESS_CHECK_INTERVAL=30
-DUMP_COUNT=10
-DUMP_DELAY=10
-DUMP_PREFIX="dump"
-
-command -v ncs >/dev/null 2>&1 || { echo "ncs command not found in PATH."; exit 1; }
-
-find_nso_pid() {
-  pgrep -x ncs.smp | head -n1 || true
-}
-
-read_cgroup_mem() {
-  if [ ! -r /sys/fs/cgroup/memory.current ] || [ ! -r /sys/fs/cgroup/memory.max ]; then
-    return 1
-  fi
-
-  local cur max
-  cur=$(cat /sys/fs/cgroup/memory.current 2>/dev/null)
-  max=$(cat /sys/fs/cgroup/memory.max 2>/dev/null)
-  [ "$max" = "max" ] && max=0
-  echo "$cur $max"
-}
-
-read_memory_psi_avg10() {
-  if [ ! -r /sys/fs/cgroup/memory.pressure ]; then
-    return 1
-  fi
-
-  awk -v kind="$1" '
-    $1 == kind {
-      for (i = 2; i <= NF; i++) {
-        if ($i ~ /^avg10=/) {
-          split($i, a, "=")
-          print a[2]
-          exit
-        }
-      }
-    }
-  ' /sys/fs/cgroup/memory.pressure
-}
-
-read_memory_events() {
-  if [ ! -r /sys/fs/cgroup/memory.events ]; then
-    return 1
-  fi
-
-  awk '
-    $1 == "high" { high = $2 }
-    $1 == "max"  { max = $2 }
-    $1 == "oom"  { oom = $2 }
-    END { printf "%s %s %s\n", high + 0, max + 0, oom + 0 }
-  ' /sys/fs/cgroup/memory.events
-}
-
-prev_high=0
-prev_max=0
-prev_oom=0
-sustain_hits=0
-
-while true; do
-  pid="$(find_nso_pid)"
-  if [ -z "${pid:-}" ]; then
-    echo "NSO not running; retry in ${PROCESS_CHECK_INTERVAL}s..."
-    prev_high=0
-    prev_max=0
-    prev_oom=0
-    sustain_hits=0
-    sleep "$PROCESS_CHECK_INTERVAL"
-    continue
-  fi
-
-  if ! read cur_bytes max_bytes < <(read_cgroup_mem); then
-    echo "Unable to read cgroup memory.current/memory.max; retry in ${POLL_INTERVAL}s..."
-    sleep "$POLL_INTERVAL"
-    continue
-  fi
-
-  if [ "${max_bytes:-0}" -le 0 ]; then
-    echo "cgroup memory.max is unlimited; retry in ${POLL_INTERVAL}s..."
-    sleep "$POLL_INTERVAL"
-    continue
-  fi
-
-  psi_some_avg10="$(read_memory_psi_avg10 some 2>/dev/null || true)"
-  psi_full_avg10="$(read_memory_psi_avg10 full 2>/dev/null || true)"
-  read high_count max_count oom_count < <(read_memory_events 2>/dev/null || echo "0 0 0")
-
-  if [ -z "$psi_some_avg10" ] || [ -z "$psi_full_avg10" ]; then
-    echo "Unable to read cgroup memory.pressure; retry in ${POLL_INTERVAL}s..."
-    sleep "$POLL_INTERVAL"
-    continue
-  fi
-
-  usage_pct=$(( cur_bytes * 100 / max_bytes ))
-  mem_high=0
-  psi_high=0
-  events_active=0
-
-  if [ "$usage_pct" -ge "$CGROUP_THRESHOLD_PCT" ]; then
-    mem_high=1
-  fi
-
-  if awk -v some="$psi_some_avg10" -v full="$psi_full_avg10" \
-         -v some_th="$PSI_SOME_AVG10" -v full_th="$PSI_FULL_AVG10" \
-         'BEGIN { exit !((some + 0.0 >= some_th + 0.0) || (full + 0.0 >= full_th + 0.0)) }'; then
-    psi_high=1
-  fi
-
-  if [ "$high_count" -gt "$prev_high" ] || [ "$max_count" -gt "$prev_max" ] || [ "$oom_count" -gt "$prev_oom" ]; then
-    events_active=1
-  fi
-
-  echo "PID=${pid} cgroup=${cur_bytes}/${max_bytes} bytes (${usage_pct}%); PSI some avg10=${psi_some_avg10}; PSI full avg10=${psi_full_avg10}; events high=${high_count} max=${max_count} oom=${oom_count}; sustain_hits=${sustain_hits}."
-
-  if [ "$mem_high" -eq 1 ] && [ "$psi_high" -eq 1 ] && [ "$events_active" -eq 1 ]; then
-    sustain_hits=$(( sustain_hits + 1 ))
-  else
-    sustain_hits=0
-  fi
-
-  if [ "$sustain_hits" -ge "$SUSTAIN_COUNT" ]; then
-    echo "Trigger conditions sustained; collecting ${DUMP_COUNT} debug dumps..."
-    for i in $(seq 1 "$DUMP_COUNT"); do
-      file="${DUMP_PREFIX}.${i}.bin"
-      echo "Dump $i -> ${file}"
-      if ! ncs --debug-dump "$file"; then
-        echo "Debug dump $i failed."
-      fi
-      sleep "$DUMP_DELAY"
-    done
-    echo "All debug dumps completed; exiting."
-    exit 0
-  fi
-
-  prev_high="$high_count"
-  prev_max="$max_count"
-  prev_oom="$oom_count"
-  sleep "$POLL_INTERVAL"
-done
+{% code title="ncs.conf memory-management example for a container" %}
+```xml
+<memory-management>
+  <actions>
+    <action>
+      <name>early-warning</name>
+      <used-memory-threshold-percentage>90</used-memory-threshold-percentage>
+      <debug-dump>
+        <count>3</count>
+        <cooldown-period>PT5M</cooldown-period>
+        <directory>/nso/run/debug-dumps</directory>
+      </debug-dump>
+    </action>
+    <action>
+      <name>critical-free-memory</name>
+      <free-memory-threshold-bytes>2147483648</free-memory-threshold-bytes>
+      <debug-dump>
+        <count>2</count>
+        <cooldown-period>PT1M</cooldown-period>
+        <directory>/nso/run/debug-dumps</directory>
+      </debug-dump>
+    </action>
+  </actions>
+</memory-management>
 ```
 {% endcode %}
+
+In the example above, the first action triggers when memory usage reaches 90% of the configured container memory limit. The second action triggers when less than 2 GiB remain available within that limit. Use either one threshold type or both, depending on how you size and operate the container.
+
+**Verification**
+
+After starting NSO or reloading the configuration:
+
+* Check that the dump directory exists and is writable by the NSO user inside the container.
+* When a threshold is crossed, look for `creating debug dump` in `ncs.log`.
+* Confirm that a new file appears in the configured directory.
+* Check `show alarms alarm-list` for the `memory-management-action-triggered` alarm.
+
+{% hint style="info" %}
+This feature does not stop the Linux OOM-killer by itself, but it prevents an OOM situation from leaving you without a debug dump from NSO.
+{% endhint %}
+
+{% hint style="warning" %}
+Ensure that both the `/ncs-config/memory-management/actions/action/debug-dump/directory` path and the directory used for `NCS_DUMP` exist and are writable by the NSO user.
+
+By default, NSO writes a system dump to the NSO run-time directory, typically `NCS_RUN_DIR=/nso/run` in a container. If that directory is not backed by a persistent mounted volume or another suitable writable persistent location, dumps can be lost across container restarts. Set `NCS_DUMP` to a dump file path in a suitable mounted directory, for example `NCS_DUMP="/nso/run/ncs_crash.dump.$(date +%Y%m%d-%H%M%S)"`.
+{% endhint %}
 
 ### Startup Arguments
 
