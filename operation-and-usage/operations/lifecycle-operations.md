@@ -6,25 +6,98 @@ description: Manipulate and manage existing services and devices.
 
 Devices and services are the most important entities in NSO. Once created, they may be manipulated in several different ways. The three main categories of operations that affect the state of services and devices are:
 
-* **Commit Flags:** Commit flags modify the transaction semantics.
+* **Commit Parameters:** Commit parameters modify the transaction semantics. In the CLI they are exposed as commit flags.
 * **Device Actions:** Explicit actions that modify the devices.
 * **Service Actions:** Explicit actions that modify the services.
 
-The purpose of this section is more of a quick reference guide, an enumeration of commonly used commands. The context in which these commands should be used is found in other parts of the documentation.
+The purpose of this section is more of a quick reference guide, an enumeration of available commands. The context in which these commands should be used is found in other parts of the documentation.
 
-## Commit Flags <a href="#d5e5048" id="d5e5048"></a>
+## Commit Parameters <a href="#d5e5048" id="d5e5048"></a>
 
-Commit flags may be present when issuing a `commit` command:
+NSO uses the shared YANG module `tailf-ncs-commit-params.yang` to define commit parameters, dry-run parameters, and commit results for northbound interfaces and SDK APIs. The groupings and `sx:structure` definitions in this module are reused by NSO modules such as `tailf-netconf-ncs.yang`, `tailf-restconf-ncs.yang`, `tailf-yang-patch-ncs.yang`, `tailf-ncs-rollback.yang`, `tailf-ncs-services.yang`, and `tailf-ncs-devices.yang`.
 
+In the CLI, these parameters are exposed as commit flags:
+
+```cli
+commit label nightly-batch no-networking
 ```
-commit <flag>
+
+The same shared model is used by the main northbound interfaces:
+
+* JSON-RPC passes a structured `params` object that matches `tailf-ncs-commit-params:commit-params`.
+* RESTCONF passes the same structure as base64-encoded JSON in the `params` query parameter or the `X-Cisco-NSO-Commit-Params` header. The header form is an alternative to the `params` query parameter when the client prefers not to place the often long, URL-encoded base64 commit-parameter payload in the request URI, for example when other query parameters are also used.
+* NETCONF augments `commit`, `edit-config`, `copy-config`, and `prepare-transaction` with the same parameters.
+* MAAPI and the language SDKs expose helpers for the built-in parameters and generic tagged-value or XML access for augmented parameters.
+
+Some of these parameters may be configured to apply globally for all commits under `/devices/global-settings`, or per device profile under `/devices/profiles`.
+
+The shared commit parameters are:
+
+* `label`, `comment`: Add user-defined metadata to the transaction. The data is visible in rollback files, compliance reports, notifications, and events. If supported, it is also propagated to participating devices.
+* `dry-run`: Validate and return the resulting changes without updating CDB or devices.
+  The `outformat` leaf selects `xml`, `cli`, `native`, or `cli-c`.
+  The `reverse` leaf can be used with `native` or `cli-c` output to show the commands needed to return to the current running state.
+  The `with-service-meta-data` leaf includes FASTMAP service metadata in the diff.
+* `confirm-network-state`: Check device state as part of the commit and process out-of-band changes according to policy.
+  The `re-evaluate-policies` leaf also reprocesses out-of-band policies for services touched by the commit.
+* `no-networking`: Update CDB but do not send configuration southbound. The affected devices become out of sync until the change is pushed later, for example with `sync-to`.
+* `no-out-of-sync-check`: Continue even if NSO detects that a device is out of sync.
+* `no-overwrite`: Perform a fine-grained check that the data NSO is about to modify has not changed on the device compared to NSO's view.
+* `no-revision-drop`: Fail instead of silently dropping configuration that is not supported by an older device model revision.
+* `no-deploy`: Write service data without invoking the service create callback.
+* `reconcile`: Reconcile service ownership for existing configuration.
+  The `keep-non-service-config`, `discard-non-service-config`, `attach-non-service-config`, and `detach-non-service-config` leafs control how non-service-owned data is handled.
+  The `include` and `exclude` leaf-lists limit reconciliation to selected service configuration paths.
+* `use-lsa`, `no-lsa`: Control whether LSA nodes are handled as LSA nodes or as ordinary devices.
+* `commit-queue`: Commit through the commit queue instead of pushing configuration transactionally in the same operation.
+  The `async`, `sync`, and `bypass` leafs select the queue behavior.
+  The `sync` container accepts either `timeout` or `infinity`.
+  The `lock`, `block-others`, `atomic`, and `error-option` leafs control the resulting queue item.
+  See [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue) for details and error-recovery behavior.
+* `trace-id`: Legacy trace identifier support as a commit parameter.
+  Prefer Trace Context where available.
+
+Some combinations of parameters are not allowed. For example, `dry-run` cannot be combined with `no-overwrite`, `no-out-of-sync-check`, or `commit-queue`, and `use-lsa` cannot be combined with `no-lsa`.
+
+The CLI also has local commit modifiers such as `check` and `and-quit`. These affect CLI behavior but are not part of `tailf-ncs-commit-params.yang`.
+
+### Augmenting Commit Parameters
+
+Developers can augment the `sx:structure commit-params` structure in `tailf-ncs-commit-params.yang` with their own parameters. Once augmented, the new parameters become available wherever the shared commit-parameter model is used, including propagation to lower LSA nodes.
+
+```yang
+module example-commit-params {
+  yang-version 1.1;
+  namespace "http://example.com/example-commit-params";
+  prefix ecp;
+
+  import ietf-yang-structure-ext {
+    prefix sx;
+  }
+  import tailf-ncs-commit-params {
+    prefix ncp;
+  }
+
+  sx:augment-structure "/ncp:commit-params" {
+    container audit-context {
+      presence "Attach extra audit information to the commit";
+      leaf ticket-id {
+        type string;
+      }
+    }
+  }
+}
 ```
 
-Some of these flags may be configured to apply globally for all commits, under `/devices/global-settings`, or per device profile, under `/devices/profiles`.
+### Accessing From User Code
 
-Some of the more important flags are:
+Augmented commit parameters are accessible through MAAPI together with the built-in ones:
 
-<table data-full-width="true"><thead><tr><th valign="top">Flag</th><th valign="top">Description</th><th valign="top">Sub-options</th></tr></thead><tbody><tr><td valign="top"><code>and-quit</code></td><td valign="top">Exit to (CLI operational mode) after commit.</td><td valign="top">-</td></tr><tr><td valign="top"><code>check</code></td><td valign="top">Validate the pending configuration changes. Equivalent to <code>validate</code> command (see <a href="../cli/introduction-to-nso-cli.md">NSO CLI</a>).</td><td valign="top">-</td></tr><tr><td valign="top"><code>label</code></td><td valign="top">The <code>label</code> option sets a user-defined label that is visible in rollback files, compliance reports, notifications, and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.</td><td valign="top">-</td></tr><tr><td valign="top"><code>comment</code></td><td valign="top">The <code>comment</code> option sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.</td><td valign="top">-</td></tr><tr><td valign="top"><code>dry-run</code></td><td valign="top">Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place are shown in the returned output. The output format can be set with the <code>outformat</code> option. Possible output formats are: <code>xml</code>, <code>cli</code>, and <code>native</code>.</td><td valign="top"><ul><li>The <code>xml</code> format displays all changes in the whole data model. The changes will be displayed in NETCONF XML edit-config format, i.e., the edit-config that would be applied locally (at NCS) to get a config that is equal to that of the managed device.</li><li>The <code>cli</code> format displays all changes in the whole data model. The changes will be displayed in CLI curly bracket format.</li><li>The <code>native</code> format displays only changes under <code>/devices/device/config</code>. The changes will be displayed in native device format. The <code>native</code> format can be used with the <code>reverse</code> option to display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data, the <code>reverse</code> device commands returned are invalid.</li><li>With the <code>with-service-meta-data</code> option, any changes to service meta-data will be displayed in the diff output.</li></ul></td></tr><tr><td valign="top"><code>confirm-network-state</code></td><td valign="top">Check network state as part of the commit. This includes checking device configurations for out-of-band changes and processing such changes according to the out-of-band policy.<br><strong>Note</strong>: Requires device reachability/capabilities. A prior <code>sync-from</code> is optional, but recommended in brownfield deployments (full or partial) to seed CDB and reduce excessive out-of-band markings.</td><td valign="top"><ul><li>With the <code>re-evaluate-policies</code> option, in addition to processing the newly found out-of-band device changes, NSO will process again the out-of-band policies for the services that the commit is touching.</li></ul></td></tr><tr><td valign="top"><code>no-networking</code></td><td valign="top">Validate the configuration changes and update the CDB, but do not update the actual devices. This is equivalent to first setting the admin state to southbound locked and then issuing a standard commit. In both cases, the configuration changes are prevented from being sent to the actual devices.<br><br>Note: If the commit implies changes, it will make the device out of sync.<br><br>The <code>sync-to</code> command can then be used to push the change to the network.</td><td valign="top"><strong>-</strong></td></tr><tr><td valign="top"><code>no-out-of-sync-check</code></td><td valign="top">Commit even if the device is out of sync. This can be used in scenarios where you know that the change you are doing is not in conflict with what is on the device and do not want to perform the action <code>sync-from</code> first. Verify the result by using the action <code>compare-config</code>.<br><br>Note: The device's sync state is assumed to be unknown after such a commit, and the stored <code>last-transaction-id</code> value is cleared.</td><td valign="top">-</td></tr><tr><td valign="top"><code>no-overwrite</code></td><td valign="top">NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. This is a fine-grained sync check; NSO verifies that NSO and the device are in sync regarding the data that will be modified. If they are not in sync, the transaction is aborted.<br><br>This parameter is particularly useful in brownfield scenarios where the device is always out of sync due to being directly modified by operators or other management systems.<br><br>Note: The device's sync state is assumed to be unknown after such a commit, and the stored <code>last-transaction-id</code> value is cleared.</td><td valign="top">-</td></tr><tr><td valign="top"><code>no-revision-drop</code></td><td valign="top">Fail if one or more devices have obsolete device models. When NSO connects to a managed device, the version of the device data model is discovered. Different devices in the network might have different versions. When NSO is requested to send configuration to devices, NSO defaults to drop any configuration that only exists in later models than the device supports. This flag forces NSO to never silently drop any data set operations towards a device.</td><td valign="top">-</td></tr><tr><td valign="top"><code>no-deploy</code></td><td valign="top">Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.</td><td valign="top">-</td></tr><tr><td valign="top"><code>reconcile</code></td><td valign="top">Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed, that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed before the service. If manually configured data exists below in the configuration tree, that data is kept unless the option <code>discard-non-service-config</code> is used.</td><td valign="top">-</td></tr><tr><td valign="top"><code>use-lsa</code></td><td valign="top">Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are: <code>dry-run</code>, <code>no-networking</code>, <code>no-out-of-sync-check</code>, <code>no-overwrite</code> and <code>no-revision-drop</code>.</td><td valign="top">-</td></tr><tr><td valign="top"><code>no-lsa</code></td><td valign="top">Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.</td><td valign="top">-</td></tr><tr><td valign="top"><code>commit-queue</code></td><td valign="top">Commit through the commit queue (see <a href="nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a>). While the configuration change is committed to CDB immediately, it is not committed to the actual device but rather queued for eventual commit to increase transaction throughput. This enables the use of the commit queue feature for individual <code>commit</code> commands without enabling it by default. Possible operation modes are: <code>async</code>, <code>sync</code>, and <code>bypass</code>.</td><td valign="top"><ul><li>If the <code>async</code> mode is set, the operation returns successfully if the transaction data has been successfully placed in the queue.</li><li>The <code>sync</code> mode will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs. If the timeout occurs, the transaction data stays in the queue, and the operation returns successfully. The timeout value can be specified with the <code>timeout</code> or <code>infinity</code> option. By default, the timeout value is determined by what is configured in <code>/devices/global-settings/commit-queue/sync</code>.</li><li>The <code>bypass</code> mode means that if <code>/devices/global-settings/commit-queue/enabled-by-default</code> is <code>true</code>, the data in this transaction will bypass the commit queue. The data will be written directly to the devices. The operation will still fail if the commit queue contains one or more entries affecting the same device(s) as the transaction to be committed.<br><br>In addition, the <code>commit-queue</code> flag has a number of other useful options that affect the resulting queue item:</li><li>The <code>block-others</code> option will cause the resulting queue item to block subsequent queue items that use any of the devices in this queue item from being queued.</li><li>The <code>lock</code> option will place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked; see the actions <code>unlock</code> and <code>lock</code> in <code>/devices/commit-queue/queue-item</code>. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.</li><li>The <code>atomic</code> option sets the atomic behavior of the resulting queue item. If this is set to <code>false</code>, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to <code>true</code>, the atomic integrity of the queue item is preserved.</li><li><p>Depending on the selected <code>error-option</code>, NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the <code>/devices/commit-queue/completed</code> tree from where it can be viewed and invoked with the <code>rollback</code> action. When invoked, the data will be removed. Possible values are: <code>continue-on-error</code>, <code>rollback-on-error</code>, and <code>stop-on-error</code>.</p><ul><li>The <code>continue-on-error</code> value means that the commit queue will continue on errors. No rollback data will be created.</li><li>The <code>rollback-on-error</code> value means that the commit queue item will roll back on errors. The commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The <code>rollback</code> action will then automatically be invoked when the queue item has finished its execution. The lock will be removed as part of the rollback.</li><li>The <code>stop-on-error</code> means that the commit queue will place a lock on the failed queue item, thus blocking other queue items with overlapping devices from being executed. The lock must then either manually be released when the error is fixed, or the <code>rollback</code> action under <code>/devices/commit-queue/completed</code> be invoked.<br><br>Read about error recovery in <a href="nso-device-manager.md#user_guide.devicemanager.commit-queue">Commit Queue</a> for a more detailed explanation.</li></ul></li></ul></td></tr><tr><td valign="top"><ul><li><code>trace-id</code></li></ul></td><td valign="top">Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.</td><td valign="top">-</td></tr></tbody></table>
+* Python: Use `trans.get_params()` or `trans.get_trans_params()`. Built-in parameters have helper methods on `CommitParams`, while augmented parameters can be read through `CommitParams.root` or `CommitParams.get_tagvalues()`.
+* Java: Use `maapi.getTransParams(th)`. Built-in parameters have helper methods on `CommitParams`, while augmented parameters can be inspected through `CommitParams.getConfXMLParam()`.
+* Lower-level MAAPI APIs expose the same data as tagged values or XML parameter arrays.
+
+The [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api/maapi-commit-parameters) example shows how to augment the shared commit-parameter model, how to access built-in commit parameters from Python and Java user code, and how to access augmented parameters from Python and Java user code. The Java package also illustrates the lower-level `CommitParams.getConfXMLParam()` access pattern for augmented parameters. A northbound example covering CLI, RESTCONF, NETCONF, and JSON-RPC is available in [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters).
 
 All commands in NSO can also have pipe commands. A useful pipe command for commit is `details`:
 

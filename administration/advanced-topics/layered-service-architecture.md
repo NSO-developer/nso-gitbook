@@ -757,7 +757,7 @@ Thus, we end up with three distinct packages from the original one:
 
 ## Deploying LSA
 
-The purpose of the upper CFS node is to manage all CFS services and to push the resulting service mappings to the RFS services. The lower RFS nodes are configured as devices in the device tree of the upper CFS node and the RFS services are created under the `/devices/device/config` accordingly. This is almost identical to the relation between a normal NSO node and the normal devices. However, there are differences when it comes to commit parameters and the commit queue, as well as some other LSA-specific features.
+The purpose of the upper CFS node is to manage all CFS services and to push the resulting service mappings to the RFS services. The lower RFS nodes are configured as devices in the device tree of the upper CFS node and the RFS services are created under the `/devices/device/config` accordingly. This is almost identical to the relation between a normal NSO node and the normal devices. However, there are differences when it comes to commit parameters and the commit queue, as well as some other LSA-specific features. For the shared commit-parameter model used by northbound interfaces and SDK APIs, see [Commit Parameters](../../operation-and-usage/operations/lifecycle-operations.md#d5e5048).
 
 Such a design allows you to decide whether you will run the same version of NSO on all nodes or not. Since some differences arise between the two options, this document distinguishes a single-version deployment from a multi-version one.
 
@@ -788,7 +788,9 @@ The only LSA-specific requirement is that these nodes enable NETCONF communicati
   </netconf-north-bound>
 ```
 
-One thing to note is that you do not need to explicitly enable the commit queue on the RFS nodes, even if you intend to use LSA with the commit queue feature. The upper CFS node is aware of the LSA setup and will propagate the relevant commit flags to the lower RFS nodes automatically.
+One thing to note is that you do not need to explicitly enable the commit queue on the RFS nodes, even if you intend to use LSA with the commit queue feature. The upper CFS node is aware of the LSA setup and will propagate the relevant shared commit parameters to the lower RFS nodes automatically.
+
+This also applies to developer-defined commit parameters added by augmenting the shared `tailf-ncs-commit-params` structure. Such augmented parameters can be forwarded to lower RFS nodes together with the built-in parameters.
 
 If you wish to enable the commit queue by default, that is, even for transactions originating on the RFS node (non-LSA), you are strongly encouraged to enable it globally, through the `/devices/global-settings/commit-queue/enabled-by-default` setting on all the RFS nodes and, importantly, the upper CFS node too. Otherwise, you may end up in a situation where only a part of the transaction runs through the commit queue. In that case, the `rollback-on-error` commit queue error option will not work correctly, as it can't roll back the full original transaction but just the part that went through the commit queue. This can result in an inconsistent network state.
 

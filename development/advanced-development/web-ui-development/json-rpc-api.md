@@ -96,7 +96,7 @@ tracestate: key1=value1,key2=value2
 
 Where, a value may contain space characters but not end with a space.
 
-NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the request generates an error response.
+NSO implements Trace Context alongside the legacy way of handling `trace-id` as a commit parameter to `validate_commit`. These two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response.
 
 NSO will consider the headers of Trace Context in JSON-RPC requests if the element `<trace-id>true</trace-id>` is set in the logs section of the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
 
@@ -3489,8 +3489,7 @@ debug_flags = <"service" | "template" | "xpath" | "kicker" | "subscriber">
 ```
 
 ```json
-{"flags": <flags, default: []>}
-flags = <array of string>
+{"params": <object, default: {}>}
 ```
 
 The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the `validate_commit` operation. The same `comet_id` can also be used to get the progress trace for any coming commit operations. In order to get progress tracing for commit operations, these three parameters have to be provided with the `validate_commit` operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
@@ -3499,9 +3498,9 @@ The `debug` param can be used the same way as the `details` param to get debug t
 
 The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
-See the `commit` method for available flags.
+See the `commit` method for available commit parameters.
 
-**Note**: If you intend to pass `flags` to the `commit` method, it is recommended to pass the same `flags` to `validate_commit` since they may have an effect during the validate step.
+**Note**: If you intend to pass commit parameters to the `commit` method, it is recommended to pass the same `params` object to `validate_commit` since commit parameters may also affect the validate step.
 
 **Result**
 
@@ -3559,58 +3558,33 @@ Same as for the `validate_trans` method.
 ```
 
 ```json
-{"rollback-id": <boolean, default: true>}
+{"rollback-id": <boolean, default: false>}
 ```
 
 ```json
-{"flags": <flags, default: []>}
-flags = <array of string>
+{"params": <object, default: {}>}
 ```
 
 If `rollback-id` is set to `true`, the response will include the ID of the rollback file created during the commit if any.
 
-Commit behavior can be changed via an extra `flags` param:
+Commit behavior should be supplied through the structured `params` object, which follows the `tailf-ncs-commit-params:commit-params` model described in [Commit Parameters](../../../operation-and-usage/operations/lifecycle-operations.md#d5e5048).
 
-The `flags` param is a list of flags that can change the commit behavior:
+Example:
 
-* `label=LABEL` - Sets a user-defined label that is visible in rollback files, compliance reports, notifications, and events referencing the transaction and resulting commit queue items. If supported, the label will also be propagated down to the devices participating in the transaction.
-* `comment=COMMENT` - Sets a comment visible in rollback files and compliance reports. If supported, the comment will also be propagated down to the devices participating in the transaction.
-* `dry-run=FORMAT` - Where FORMAT is the desired output format: `xml`, `cli`, or `native`. Validate and display the configuration changes but do not perform the actual commit. Neither CDB nor the devices are affected. Instead, the effects that would have taken place is shown in the returned output.
-* `dry-run-reverse` - Used with the dry-run=native flag this will display the device commands for getting back to the current running state in the network if the commit is successfully executed. Beware that if any changes are done later on the same data the reverse device commands returned are invalid.
-* `confirm-network-state`\
-  NSO will check network state as part of the commit. This includes checking device configurations for out-of-band changes and processing such changes according to the out-of-band policy.
-* `confirm-network-state=re-evaluate-policies`\
-  In addition to processing the newly found out-of-band device changes, NSO will process again the out-of-band policies for the services that the commit is touching.
+```json
+{
+  "params": {
+    "label": "nightly-batch",
+    "dry-run": {
+      "outformat": "cli-c"
+    }
+  }
+}
+```
 
-- `no-revision-drop` - NSO will not run its data model revision algorithm, which requires all participating managed devices to have all parts of the data models for all data contained in this transaction. Thus, this flag forces NSO to never silently drop any data set operations towards a device.
-- `no-overwrite` - NSO will check that the modified data and the data read when computing the device modifications have not changed on the device compared to NSO's view of the data. Can't be used with no-out-of-sync-check.
-- `no-networking` - Do not send data to the devices; this is a way to manipulate CDB in NSO without generating any southbound traffic.
-- `no-out-of-sync-check` - Continue with the transaction even if NSO detects that a device's configuration is out of sync. It can't be used with no-overwrite.
-- `no-deploy` - Commit without invoking the service create method, i.e., write the service instance data without activating the service(s). The service(s) can later be redeployed to write the changes of the service(s) to the network.
-- `reconcile=OPTION` - Reconcile the service data. All data which existed before the service was created will now be owned by the service. When the service is removed that data will also be removed. In technical terms, the reference count will be decreased by one for everything that existed prior to the service. If manually configured data exists below in the configuration tree, that data is kept unless the option `discard-non-service-config` is used.
-- `{"reconcile-paths": <array of RECONCILE_PATHS>}` - Control which parts of service configuration are reconciled. `RECONCILE_PATHS` object has the structure:
-    * `{"include": <array of xpath expressions>}` - only the specified service configuration paths will be included in the reconciliation process.
-    * `{"exclude": <array of xpath expressions>}` - the specified service configuration paths will be omitted or ignored during reconciliation.
-- `use-lsa` - Force handling of the LSA nodes as such. This flag tells NSO to propagate applicable commit flags and actions to the LSA nodes without applying them on the upper NSO node itself. The commit flags affected are `dry-run`, `no-networking`, `no-out-of-sync-check`, `no-overwrite` and `no-revision-drop`.
-- `no-lsa` - Do not handle any of the LSA nodes as such. These nodes will be handled as any other device.
-- `commit-queue=MODE` - Where MODE is: `async`, `sync`, or `bypass`. Commit the transaction data to the commit queue.
-  * If the `async` value is set, the operation returns successfully if the transaction data has been successfully placed in the queue.
-  * The `sync` value will cause the operation to not return until the transaction data has been sent to all devices, or a timeout occurs.
-  * The `bypass` value means that if `/devices/global-settings/commit-queue/enabled-by-default` is `true`, the data in this transaction will bypass the commit queue. The data will be written directly to the devices.
-- `commit-queue-atomic=ATOMIC` - Where `ATOMIC` is: `true` or `false`. Sets the atomic behavior of the resulting queue item. If `ATOMIC` is set to `false`, the devices contained in the resulting queue item can start executing if the same devices in other non-atomic queue items ahead of it in the queue are completed. If set to `true`, the atomic integrity of the queue item is preserved.
-- `commit-queue-block-others` - The resulting queue item will block subsequent queue items, that use any of the devices in this queue item, from being queued.
-- `commit-queue-lock` - Place a lock on the resulting queue item. The queue item will not be processed until it has been unlocked, see the actions `unlock` and `lock` in `/devices/commit-queue/queue-item`. No following queue items, using the same devices, will be allowed to execute as long as the lock is in place.
-- `commit-queue-tag=TAG` - Where `TAG` is a user-defined opaque tag. The tag is present in all notifications and events sent referencing the specific queue item.\
-  **Note**: `commit-queue-tag` is deprecated from NSO version 6.5. The `label` flag can be used instead.
-- `commit-queue-timeout=TIMEOUT` - Where `TIMEOUT` is infinity or a positive integer. Specifies a maximum number of seconds to wait for the transaction to be committed. If the timer expires, the transaction data is kept in the commit queue, and the operation returns successfully. If the timeout is not set, the operation waits until completion indefinitely.
-- `commit-queue-error-option=OPTION` - Where `OPTION` is: `continue-on-error`, `rollback-on-error` or `stop-on-error`. Depending on the selected error option NSO will store the reverse of the original transaction to be able to undo the transaction changes and get back to the previous state. This data is stored in the `/devices/commit-queue/completed` tree from where it can be viewed and invoked with the `rollback` action. When invoked, the data will be removed.
-  * The `continue-on-error` value means that the commit queue will continue on errors. No rollback data will be created.
-  * The `rollback-on-error` value means that the commit queue item will roll back on errors. The commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The `rollback` action will then automatically be invoked when the queue item has finished its execution. The lock is removed as part of the rollback.
-  *   The `stop-on-error` means that the commit queue will place a lock with `block-others` on the devices and services in the failed queue item. The lock must then either manually be released when the error is fixed or the `rollback` action under `/devices/commit-queue/completed` be invoked.
+The `params` object corresponds to the contents of `/ncp:commit-params`, without the top-level `ncp:commit-params` wrapper.
 
-      **Note**: Read about error recovery in [Commit Queue](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for a more detailed explanation.
-- `trace-id=TRACE_ID` - Use the provided trace ID as part of the log messages emitted while processing. If no trace ID is given, NSO is going to generate and assign a trace ID to the processing.\
-  **Note**: `trace-id` is deprecated from NSO version 6.3. Capabilities within Trace Context will provide support for `trace-id`, see the section [TraceContext](json-rpc-api.md#trace-context).
+The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example includes a JSON-RPC walkthrough in `demo_jrpc.py` that uses Python `requests` to pass structured commit parameters to `validate_commit` and `commit`.
 
 **Note**: Must be preceded by a call to `validate_commit`_._
 
@@ -3678,8 +3652,7 @@ debug_flags = <"service" | "template" | "xpath" | "kicker" | "subscriber">
 ```
 
 ```json
-{"flags": <flags, default: []>}
-flags = <array of string>
+{"params": <object, default: {}>}
 ```
 
 The `comet_id`, `handle`, and `details` params can be given together in order to get progress tracing for the operation. The `details` parameter specifies the verbosity of the progress trace. After the operation has been invoked, the `comet` method can be used to get the progress trace for the operation.
@@ -3688,7 +3661,7 @@ The `debug` param can be used the same way as the `details` param to get debug t
 
 The `debug_service_name` and `debug_template_name` params can be used to specify a service or template name respectively for which to display debug events.
 
-See the `commit` method for available flags.
+See the `commit` method for available commit parameters.
 
 **Result**
 

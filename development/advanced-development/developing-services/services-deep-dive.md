@@ -34,7 +34,7 @@ The deep variant also retrieves the latest configuration from all the affected d
 
 <summary><code>re-deploy</code>, <code>reactive-re-deploy</code> actions</summary>
 
-Re-run the service mapping logic and deploy any changes from the current configuration. The non-reactive variant supports commit parameters, such as dry-run.
+Re-run the service mapping logic and deploy any changes from the current configuration. The non-reactive variant supports the shared commit parameters, such as `dry-run`; see [Commit Parameters](../../../operation-and-usage/operations/lifecycle-operations.md#d5e5048).
 
 The reactive variant performs an asynchronous re-deploy as the user of the original commit and uses the commit parameters from the latest commit of this service. It is often used with nano services, such as restarting a failed nano service.
 
