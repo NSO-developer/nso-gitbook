@@ -8,7 +8,7 @@ The NSO Java library contains a variety of APIs for different purposes. In this 
 
 For convenience, the Java build tool Apache ant ([https://ant.apache.org/](https://ant.apache.org/)) is used to run all of the examples. However, this tool is not a requirement for NSO.
 
-General for all APIs is that they communicate with NSO using TCP sockets. This makes it possible to use all APIs from a remote location.
+For same-host applications, Java APIs should use Local IPC by default. TCP is still available for applications that need to connect to NSO remotely.
 
 The following APIs are included in the library:
 
@@ -25,12 +25,11 @@ The Management Agent API (MAAPI) provides an interface to the Transaction engine
 * We could access data inside a not yet committed transaction, e.g. as validation logic where our Java code can attach itself to a running transaction and read through the not yet committed transaction, and validate the proposed configuration change.
 * During database upgrade we can access and write data to a special upgrade transaction.
 
-The first step of a typical sequence of MAAPI API calls when writing a management application would be to create a user session. Creating a user session is the equivalent of establishing an SSH connection from a NETCONF manager. It is up to the MAAPI application to authenticate users. The TCP connection between MAAPI and NSO is neither encrypted, nor authenticated. The MAAPI Java package does however include an `authenticate()` method that can be used by the application to hook into the AAA framework of NSO and let NSO authenticate the user.
+The first step of a typical sequence of MAAPI API calls when writing a management application would be to create a user session. Creating a user session is the equivalent of establishing an SSH connection from a NETCONF manager. It is up to the MAAPI application to authenticate users. When TCP is used, the connection between MAAPI and NSO is neither encrypted, nor authenticated. The Maapi Java package does however include an `authenticate()` method that can be used by the application to hook into the AAA framework of NSO and let NSO authenticate the user.
 
 {% code title="Example: Establish a MAAPI Connection" %}
 ```
-    Socket socket = new Socket("localhost",Conf.NCS_PORT);
-    Maapi maapi = new Maapi(socket);
+    Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
 ```
 {% endcode %}
 
@@ -146,8 +145,7 @@ To initialize the CDB API a CDB socket has to be created and passed into the API
 
 {% code title="Example: Establish a Connection to CDB" %}
 ```
-    Socket socket = new Socket("localhost", Conf.NCS_PORT);
-    Cdb cdb = new Cdb("MyCdbSock",socket);
+    Cdb cdb = new Cdb("MyCdbSock", UnixDomainSocketAddress.of(Conf.NCS_PATH));
 ```
 {% endcode %}
 
@@ -1186,12 +1184,11 @@ For more information see [Alarm Manager](../../../operation-and-usage/operations
 
 The `com.tailf.ncs.alarmman.consumer.AlarmSource` class is used to subscribe to alarms. This class establishes a listener towards an alarm subscription server called `com.tailf.ncs.alarmman.consumer.AlarmSourceCentral`. The `AlarmSourceCentral` needs to be instantiated and started prior to the instantiation of the `AlarmSource` listener. The NSO Java VM takes care of starting the `AlarmSourceCentral` so any use of the ALARM API inside the NSO Java VM can expect this server to be running.
 
-For situations where alarm subscription outside of the NSO Java VM is desired, starting the `AlarmSourceCentral` is performed by opening a `Cdb` socket, passing this `Cdb` to the `AlarmSourceCentral` class, and then calling the `start()` method.
+For situations where alarm subscription outside of the NSO Java VM is desired, starting the `AlarmSourceCentral` is performed by creating a `Cdb` connection, passing this `Cdb` to the `AlarmSourceCentral` class, and then calling the `start()` method.
 
 ```
-    // Set up a CDB socket
-    Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-    Cdb cdb = new Cdb("my-alarm-source-socket", socket);
+    Cdb cdb = new Cdb("my-alarm-source-socket",
+                      UnixDomainSocketAddress.of(Conf.NCS_PATH));
 
     // Get and start alarm source - this must only be done once per JVM
     AlarmSourceCentral source = new AlarmSourceCentral(10000, cdb);
@@ -1253,11 +1250,7 @@ The `com.tailf.ncs.alarmman.producer.AlarmSink` is used to persistently store al
 To directly store alarms an AlarmSink instance is created using the `AlarmSink(Maapi maapi)` constructor.
 
 ```
-        //
-        // Maapi socket used to write alarms directly.
-        //
-        Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-        Maapi maapi = new Maapi(socket);
+        Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
         maapi.startUserSession("system", "system");
 
         AlarmSink sink = new AlarmSink(maapi);
@@ -1272,11 +1265,7 @@ On the other hand, if the alarms are to be stored using the `AlarmSinkCentral` t
 However, this case requires that the `AlarmSinkCentral` is started prior to the instantiation of the `AlarmSink`. The NSO Java VM will take care of starting this server so any use of the ALARM API inside the Java VM can expect this server to be running. If it is desired to store alarms in an application outside of the NSO java VM, the `AlarmSinkCentral` needs to be started like the following example:
 
 ```
-       //
-       // You will need a Maapi socket to write you alarms.
-       //
-       Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-       Maapi maapi = new Maapi(socket);
+       Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
        maapi.startUserSession("system", "system");
 
        AlarmSinkCentral sinkCentral = new AlarmSinkCentral(1000, maapi);
@@ -1361,20 +1350,20 @@ Applications can subscribe to certain events generated by NSO. The event types a
 To receive events from the NSO the application opens a socket and passes it to the notification base class `com.tailf.notif.Notif` together with an EnumSet of NotificationType for all types of notifications that should be received. Looping over the `Notif.read()` method will read and deliver notifications which are all subclasses of the `com.tailf.notif.Notification` base class.
 
 ```
-    Socket sock = new Socket("localhost", Conf.NCS_PORT);
+    SocketAddress address = UnixDomainSocketAddress.of(Conf.NCS_PATH);
     EnumSet notifSet = EnumSet.of(NotificationType.NOTIF_COMMIT_SIMPLE,
                                   NotificationType.NOTIF_AUDIT);
-    Notif notif = new Notif(sock, notifSet);
+    try (Notif notif = new Notif(address, notifSet)) {
+        while (true) {
+            Notification n = notif.read();
 
-    while (true) {
-        Notification n = notif.read();
-
-        if (n instanceof CommitNotification) {
-            // handle NOTIF_COMMIT_SIMPLE case
-            .....
-        } else if (n instanceof AuditNotification) {
-            // handle NOTIF_AUDIT case
-            .....
+            if (n instanceof CommitNotification) {
+                // handle NOTIF_COMMIT_SIMPLE case
+                .....
+            } else if (n instanceof AuditNotification) {
+                 // handle NOTIF_AUDIT case
+                .....
+            }
         }
     }
 ```
@@ -1392,6 +1381,10 @@ The following example configures three nodes in a HA cluster. One is set as prim
   Socket s0 = new Socket("host1", Conf.NCS_PORT);
   Socket s1 = new Socket("host2", Conf.NCS_PORT);
   Socket s2 = new Socket("host3", Conf.NCS_PORT);
+
+  // For local IPC (only works on the same host) use:
+  // SocketAddress node1 = UnixDomainSocketAddress.of("/tmp/nso/nso-ipc1");
+  // Socket s0 = SocketFactory.getSocket(node1);
 
   Ha ha0 = new Ha(s0, "clus0");
   Ha ha1 = new Ha(s1, "clus0");
@@ -1546,8 +1539,7 @@ ncsc --java-disable-prefix --java-package \
 Runtime namespace classes are created by calling `Maapi.loadschema()`. That's it, the rest is dynamic. All namespaces known by NSO are downloaded and runtime namespace classes are created. these can be retrieved by calling `Maapi.getAutoNsList()`.
 
 ```
-    Socket s = new Socket("localhost", Conf.NCS_PORT);
-    Maapi maapi = new Maapi(s);
+    Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
     maapi.loadSchemas();
 
     ArrayList<ConfNamespace> nsList = maapi.getAutoNsList();
@@ -1564,8 +1556,7 @@ With all schemas loaded, the Java engine can make mappings between hash codes an
 As an option, several APIs e.g. MAAPI can set the default namespace which will be the expected namespace for paths without prefixes. For example, if the namespace class `smp` is generated with the legal path `/smp:servers/server` an option in MAAPI could be the following:
 
 ```
-    Socket s = new Socket("localhost", Conf.NCS_PORT);
-    Maapi maapi = new Maapi(s);
+    Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
     int th =  maapi.startTrans(Conf.DB_CANDIDATE,
                                Conf.MODE_READ_WRITE);
 
@@ -1584,8 +1575,7 @@ In MAAPI, when reading live-status data with `getElem`, `getCase`, `getValues`, 
 
 {% code title="Example: Fetch bulk live-status via MAAPI" %}
 ```java
-    Socket s = new Socket("localhost", Conf.NCS_PORT);
-    Maapi maapi = new Maapi(s);
+    Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
     int th =  maapi.startTrans(Conf.DB_RUNNING, Conf.MODE_READ);
 
     maapi.setReadIntent(th, Arrays.asList(

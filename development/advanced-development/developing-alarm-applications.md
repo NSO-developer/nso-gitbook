@@ -29,8 +29,7 @@ The difference between the two modes is manifested by the way you retrieve the `
 
 {% code title="Retrieving and Starting an AlarmSinkCentral" %}
 ```
-  Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-  Maapi maapi = new Maapi(socket);
+  Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
 
   AlarmSinkCentral sinkCentral = new AlarmSinkCentral(1000, maapi);
   sinkCentral.start();
@@ -53,12 +52,11 @@ For applications outside the NSO Java VM, the `AlarmSinkCentral` needs to be sup
 ```
 {% endcode %}
 
-When submitting an alarm using the local mode, you need a Maapi socket and a `Maapi` instance. The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
+When submitting an alarm using the local mode, you need a `Maapi` instance. The local mode alarm sink needs the `Maapi` instance to write alarm info to CDB. The local alarm sink is retrieved using a constructor with a `Maapi` instance as an argument.
 
 {% code title="Retrieving AlarmSink using Local Mode" %}
 ```
-  Socket socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-  Maapi maapi = new Maapi(socket);
+  Maapi maapi = new Maapi(UnixDomainSocketAddress.of(Conf.NCS_PATH));
 
   AlarmSink sink = AlarmSink(maapi);
 ```
@@ -166,8 +164,7 @@ You typically set up a central alarm source if you have a stand-alone applicatio
 
 {% code title="Setting up an Alarm Source Central" %}
 ```
-  socket = new Socket("127.0.0.1",Conf.NCS_PORT);
-  cdb = new Cdb("MySourceCentral", socket);
+  cdb = new Cdb("MySourceCentral", UnixDomainSocketAddress.of(Conf.NCS_PATH));
 
   source = new AlarmSourceCentral(MAX_QUEUE_CAPACITY, cdb);
   source.start();
