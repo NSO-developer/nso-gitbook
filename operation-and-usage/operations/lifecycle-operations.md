@@ -57,7 +57,7 @@ The shared commit parameters are:
 * `trace-id`: Legacy trace identifier support as a commit parameter.
   Prefer Trace Context where available.
 
-The model enforces parameter combinations. For example, `dry-run` cannot be combined with `no-overwrite`, `no-out-of-sync-check`, or `commit-queue`, and `use-lsa` cannot be combined with `no-lsa`.
+Some combinations of parameters are not allowed. For example, `dry-run` cannot be combined with `no-overwrite`, `no-out-of-sync-check`, or `commit-queue`, and `use-lsa` cannot be combined with `no-lsa`.
 
 The CLI also has local commit modifiers such as `check` and `and-quit`. These affect CLI behavior but are not part of `tailf-ncs-commit-params.yang`.
 
