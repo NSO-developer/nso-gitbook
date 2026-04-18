@@ -263,7 +263,7 @@ All large-scale deployments employ monitoring systems. There are plenty of good 
 
 ### Alarms <a href="#d5e8046" id="d5e8046"></a>
 
-RESTCONF can be used to view the NSO alarm table and subscribe to alarm notifications. NSO alarms are not events. Whenever an NSO alarm is created, a RESTCONF notification and SNMP trap are also sent, assuming that you have a RESTCONF client registered with the alarm stream or configured a proper SNMP target. Some alarms, like the rule-based HA `ha-secondary-down` alarm, require the intervention of an operator. Thus, a monitoring tool should also fetch the NSO alarm list.
+RESTCONF can be used to view the NSO alarm table and subscribe to alarm notifications. NSO alarms are not events. Whenever an NSO alarm is created, a RESTCONF notification and SNMP trap are also sent, assuming that you have a RESTCONF client registered with the alarm stream or configured a proper SNMP target, unless the alarm type is filtered through `/alarms/control/filter-types`. Some alarms, like the rule-based HA `ha-secondary-down` alarm, require the intervention of an operator. Thus, a monitoring tool should also fetch the NSO alarm list.
 
 ```bash
 $ curl -ik -H "X-Auth-Token: TsZTNwJZoYWBYhOPuOaMC6l41CyX1+oDaasYqQZqqok=" \

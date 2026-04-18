@@ -67,6 +67,40 @@ We also support some alarm list administrative actions:
 
 Alarms can be forwarded over NSO northbound interfaces. In many telecom environments, alarms need to be mapped to X.733 parameters. We provide an alarm model where every alarm type is mapped to the corresponding X.733 parameters such as event type and probable cause. In this way, it is easy to integrate NSO alarms into whatever X.733 enumerated values the upper fault management system requires.
 
+### Filtering Outgoing Alarm Notifications by Type
+
+The configuration leaf-list `/alarms/control/filter-types` suppresses outbound alarm notifications for selected alarm types. For each generated alarm notification, NSO compares the alarm’s type with the configured filter-types entries. If the alarm type exactly matches a configured entry, NSO does not emit the corresponding SNMP trap, NETCONF alarm notification, or RESTCONF alarm notification.
+
+This feature filters notification delivery only. The alarm is still created and maintained in the NSO alarm list, where it can be viewed, acknowledged, cleared, and otherwise handled using the normal alarm management workflows.
+
+This means `filter-types` is useful when some alarm types should remain visible inside NSO but should not be forwarded to external monitoring systems. A common use case is reducing noise from known or operationally uninteresting alarm types.
+
+Note that this mechanism filters by alarm type, not by severity level. Also note that the filtering takes effect for notifications generated after the configuration is applied; it does not retroactively remove existing alarms or old log entries.
+
+For example, if `tailf-ncs-alarms:connection-failure` is added to `/alarms/control/filter-types`, NSO still stores `connection-failure` alarms in the alarm list, but it does not send matching SNMP, NETCONF, or RESTCONF alarm notifications.
+
+#### Configuration Example
+
+Configure `/alarms/control/filter-types` with one or more alarm types for which outbound alarm notifications should be suppressed. Each entry is an alarm type identity, for example `tailf-ncs-alarms:connection-failure`.
+
+{% code title="Example: Configure Alarm Notification Filtering" overflow="wrap" %}
+```bash
+admin@ncs# configure
+admin@ncs(config)# set alarms control filter-types tailf-ncs-alarms:connection-failure
+admin@ncs(config)# commit
+```
+{% endcode %}
+
+The filtering takes effect for notifications generated after the configuration is committed.
+
+If `tailf-ncs-alarms:connection-failure` is configured under `/alarms/control/filter-types`, NSO still creates and maintains `connection-failure` alarms in `/alarms/alarm-list`:
+
+{% code overflow="wrap" %}
+```bash
+admin@ncs# show alarms alarm-list
+```
+{% endcode %}
+
 ## The Alarm Model <a href="#ug.alarmmgr.model" id="ug.alarmmgr.model"></a>
 
 The central part of the YANG Alarm model `tailf-ncs-alarms.yang` has the following structure.

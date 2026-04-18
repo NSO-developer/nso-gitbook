@@ -369,7 +369,7 @@ The NSO alarm manager also presents a northbound SNMP view, alarms can be retrie
 
 This is also documented in the example [examples.ncs/northbound-interfaces/snmp-alarm](https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/snmp-alarm).
 
-Alarms are described on the link below:
+Alarms are described on the link below and information on alarm management is available under [Alarm Manager](../../../operation-and-usage/operations/alarm-manager.md).
 
 {% content-ref url="alarms.md" %}
 [alarms.md](alarms.md)
@@ -557,14 +557,11 @@ Some noteworthy issues are covered here.
     tar: Skipping to next header
     gzip: stdin: invalid compressed data--format violated
     ```
-
-- **Impact**\
+* **Impact**\
   The resulting installation is incomplete.
-
 * **Cause**\
   This happens if the installation program has been damaged, most likely because it has been downloaded in ASCII mode.
-
-- **Resolution**\
+* **Resolution**\
   Remove the installation directory. Download a new copy of NSO from our servers. Make sure you use binary transfer mode every step of the way.
 
 </details>
@@ -580,14 +577,11 @@ Some noteworthy issues are covered here.
     `GLIBC_2.3.4' not found (required by
     .../lib/ncs/priv/util/syst_drv.so)
     ```
-
-- **Impact**\
+* **Impact**\
   NSO terminates immediately with a message similar to the one above.
-
 * **Cause**\
   This happens if you are running on a very old Linux version. The GNU libc (GLIBC) version is older than 2.3.4, which was released in 2004.
-
-- **Resolution**\
+* **Resolution**\
   Use a newer Linux system, or upgrade the GLIBC installation.
 
 </details>
@@ -598,14 +592,11 @@ Some noteworthy issues are covered here.
 
 * **Error**\
   You must install the Python SSH implementation Paramiko in order to use SSH.
-
-- **Impact**\
+* **Impact**\
   Sending NETCONF commands and queries with `netconf-console` fails, while it works using `netconf-console-tcp`.
-
 * **Cause**\
   The `netconf-console` command is implemented using the Python programming language. It depends on the Python SSHv2 implementation Paramiko. Since you are seeing this message, your operating system doesn't have the Python module Paramiko installed.
-
--   **Resolution**\
+*   **Resolution**\
     Install Paramiko using the instructions from [https://www.paramiko.org](https://www.paramiko.org/).\
     \
     When properly installed, you will be able to import the Paramiko module without error messages.
@@ -619,7 +610,6 @@ Some noteworthy issues are covered here.
 
     \
     Exit the Python interpreter with Ctrl+D.
-
 * **Workaround**\
   A workaround is to use `netconf-console-tcp`. It uses TCP instead of SSH and doesn't require Paramiko. Note that TCP traffic is not encrypted.
 

@@ -53,3 +53,16 @@ Documentation Updates
 * Updated the [Multi-Factor Authentication](administration/management/aaa-infrastructure.md#ug.aaa.external_challenge) documentation in [AAA Infrastructure](administration/management/aaa-infrastructure.md) to cover new changes.
 
 </details>
+
+<details>
+
+<summary>Alarm Notification Filtering by Type</summary>
+
+NSO 6.7 introduces `/alarms/control/filter-types` for suppressing outbound alarm notifications for selected alarm types. Matching alarms remain available in the NSO alarm list, but NSO no longer emits matching SNMP, NETCONF, or RESTCONF alarm notifications for them.
+
+Documentation Updates:
+
+* Updated [Alarm Manager](operation-and-usage/operations/alarm-manager.md).
+* Updated [System Management](administration/management/system-management/).
+
+</details>
