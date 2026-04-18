@@ -16,6 +16,29 @@
   7. Limitations
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
+  10. Limitations and Workarounds
+   10.1 LTM Rule Limitations
+   10.2 Net Self Allow-Service Limitations
+   10.3 VLAN Auto-Configuration
+   10.4 SNMP User Password Limitations
+   10.5 Encrypted Password Rollback Issues
+   10.6 Device Discovery Limitations
+   10.7 Crypto CRL/SSL-CRL Limitations
+   10.8 LTM Rule Creation
+   10.9 Port Representation Mismatches
+   10.10 Multi-partition Configuration
+   10.11 IMISH Shell Limitations
+   10.12 CM Device Unicast-Address
+   10.13 File Download Buffer Size
+   10.14 Net/FDB Deletion
+  11. Advanced Configuration handling and customizing NED Settings
+   11.1 Auth Partition and Route Domain Dependency:
+   11.2 Dynamic Routing Protocol Dependencies:
+   11.3 Sporadic Out-of-Sync Issues:
+   11.4 Multi-partition Combinations:
+   11.5 Single partition sync - for non-default /Common partition :
+   11.6 Auto-config Handling:
+   11.7 Performance Considerations
   ```
 
 
@@ -317,6 +340,87 @@
    state admin-state unlocked
   !
   ```
+
+
+  ## 1.4 Getting Started Quick Guide
+
+    **NSO Environment Setup:**
+
+    Always source the ncsrc before starting:
+    ```bash
+    source $HOME/ncs-VERSION/ncsrc
+    # Example: source $HOME/ncs-6.0/ncsrc
+    ```
+
+    **Setting up NSO for the NED:**
+
+    ```bash
+    # Set up the environment
+    export DIR=/tmp/ncs-f5-bigip  # Change DIR to something suitable
+    ncs-setup --ned-package $NCS_DIR/packages/neds/f5-bigip-gen-1.0 --dest $DIR
+    cd $DIR
+
+    # Stop any existing NCS instance
+    ncs --stop
+
+    # Start NCS (make sure you're in the NCS directory)
+    ncs
+
+    # Start NCS CLI
+    ncs_cli -u admin
+    ```
+
+    **Basic Device Configuration:**
+
+    In the CLI configure the device. Enter configuration mode:
+    ```
+    admin@ncs# configure
+    ```
+
+    Set the required configuration:
+    ```
+    admin@ncs(config)# devices device <device-name> device-type generic ned-id f5-bigip-gen-1.0
+    admin@ncs(config)# devices device <device-name> address <ip-address>
+    admin@ncs(config)# devices device <device-name> port <port>
+    admin@ncs(config)# devices device <device-name> state admin-state unlocked
+    admin@ncs(config)# devices authgroups group <group-name> default-map remote-name <remote-name>
+    admin@ncs(config)# devices authgroups group <group-name> default-map remote-password <remote-password>
+    admin@ncs(config)# devices device <device-name> authgroup <group-name>
+    admin@ncs(config)# commit
+    ```
+
+    **Optional - Enable Debug Tracing:**
+
+    Make the NED dump all messages sent to/from the F5 device:
+    ```
+    admin@ncs(config)# devices global-settings trace raw
+    admin@ncs(config)# commit
+    ```
+
+    Make the NED print debug log messages:
+    ```
+    admin@ncs(config)# java-vm java-logging logger com.tailf.packages.ned.bigip level level-debug
+    admin@ncs(config)# commit
+    ```
+
+    **Fetch SSH Host Keys and Connect:**
+
+    ```
+    admin@ncs(config)# request devices fetch-ssh-host-keys device [ <device-name> ]
+    admin@ncs(config)# request devices device <device-name> connect
+    ```
+
+    **Read Configuration from Device:**
+
+    ```
+    admin@ncs(config)# request devices device <device-name> sync-from
+    ```
+
+    **View Configuration:**
+
+    ```
+    admin@ncs(config)# show configuration devices device <device-name> config
+    ```
 
   - Finally commit the configuration
 
@@ -869,6 +973,7 @@ admin@ncs(config)# commit
 
 # 7. Limitations
 ----------------
+
 
   ## 7.1 ltm / rule *
   ---
@@ -1600,3 +1705,318 @@ admin@ncs(config)# commit
   admin@ncs# packages reload
   ```
 
+
+
+# 10. Limitations and Workarounds
+
+## 10.1 LTM Rule Limitations
+
+    **Issue:** Rules in a subdirectory (e.g., "RuleDir/aRule") are not shown in NSO.
+
+    **Cause:** F5 BigIP device doesn't list those rules when doing "list ltm rule" in tmsh.
+
+    **Workaround:** Use flat rule naming convention without subdirectories.
+
+## 10.2 Net Self Allow-Service Limitations
+
+    **Issue:** Device automatically replaces all allow-service values with "all" when using `modify net self * { allow-service all }`.
+
+    **Workaround:** 
+    ```
+    # Delete all values first, then add "all"
+    admin@ncs(config)# delete devices device <device-name> config bigip:net self * allow-service
+    admin@ncs(config)# set devices device <device-name> config bigip:net self * allow-service all
+    admin@ncs(config)# commit
+
+    # To add other values when "all" is present, delete "all" first
+    admin@ncs(config)# delete devices device <device-name> config bigip:net self * allow-service
+    admin@ncs(config)# set devices device <device-name> config bigip:net self * allow-service tcp:ssh
+    admin@ncs(config)# set devices device <device-name> config bigip:net self * allow-service tcp:snmp
+    admin@ncs(config)# commit
+    ```
+
+## 10.3 VLAN Auto-Configuration
+
+    **Issue:** Creating/deleting `/net/vlan` objects may automatically modify `/net/stp/vlans` and `/net/route-domain/vlans`.
+
+    **Workaround:** Manually add/remove VLAN names from STP and route-domain configurations:
+    ```
+    # When creating VLAN
+    admin@ncs(config)# set devices device <device-name> config bigip:net vlan VLAN tag 55
+    admin@ncs(config)# set devices device <device-name> config bigip:net stp cist vlans VLAN  
+    admin@ncs(config)# set devices device <device-name> config bigip:net route-domain 0 vlans VLAN
+    admin@ncs(config)# commit
+
+    # When deleting VLAN
+    admin@ncs(config)# delete devices device <device-name> config bigip:net vlan VLAN
+    admin@ncs(config)# delete devices device <device-name> config bigip:net stp cist vlans VLAN
+    admin@ncs(config)# delete devices device <device-name> config bigip:net route-domain 0 vlans VLAN
+    admin@ncs(config)# commit
+    ```
+
+## 10.4 SNMP User Password Limitations
+
+    **Issue:** SNMP password fields change values on every listing, causing compare-config diffs.
+
+    **Fields Affected:**
+    - `sys snmp users * auth-password-encrypted`
+    - `sys snmp users * privacy-password-encrypted`
+
+    **Workaround:** These diffs are handled in NSO 4.4+. For older versions, perform sync-from to resolve.
+
+## 10.5 Encrypted Password Rollback Issues
+
+    **Issue:** Rollback of `/sys/snmp/user` deletions may fail sporadically due to device-side character interpretation issues.
+
+    **Symptoms:** Error message "Rollback failed. See README 'Encrypted-password rollback' for details: edit error"
+
+    **Workaround:** This is a known device-side issue. Retry the operation if it fails.
+
+## 10.6 Device Discovery Limitations
+
+    **Issue:** Device discovery in `/cm/trust-domain` using IP addresses causes auto-config.
+
+    **Supported Method:** 
+    1. Add device in `/cm/device`
+    2. Add that device in `/cm/trust-domain`
+
+     **Workaround:** Use live-status actions for device discovery if needed.
+
+## 10.7 Crypto CRL/SSL-CRL Limitations
+
+    **Issue:** Deleting `sys crypto crl` and `sys file ssl-crl` objects requires specific handling.
+
+    **Workaround:** NED only sends delete command for ssl-crl, which automatically removes both objects.
+
+## 10.8 LTM Rule Creation
+
+    **Requirements:**
+    - Use semicolon `;` for separating lines
+    - Escape special characters: `"` becomes `\\"`, `$` becomes `\\$`, `\n` becomes `\\n`, `\r` becomes `\\r`
+
+    **Examples:**
+    ```
+    # Unescaped (works in some NSO versions)
+    set devices device <device-name> config bigip:ltm rule TEST rule "when HTTP_REQUEST { HTTP::redirect https://[getfield [HTTP::host] : 1111][HTTP::uri] }"
+
+    # Escaped (universal compatibility) 
+    set devices device <device-name> config bigip:ltm rule TEST rule "when HTTP_REQUEST {\\n\\t\\tHTTP::redirect https://[getfield [HTTP::host] : 1111][HTTP::uri]\\n\\t}"
+    ```
+
+## 10.9 Port Representation Mismatches
+
+    **Issue:** Device can represent ports numerically (443) or alphabetically (https), causing compare-config diffs.
+
+    **Solution:** Configure consistent representation:
+    ```
+    # For numerical representation
+    tmsh modify sys db bigpipe.displayservicenames value false
+    tmsh modify cli global-settings service number
+
+    # For alphabetical representation  
+    tmsh modify sys db bigpipe.displayservicenames value true
+    tmsh modify cli global-settings service name
+    ```
+
+## 10.10 Multi-partition Configuration
+
+    **Requirements:**
+    1. Enable all-partitions sync: `sync-from-all-partitions true`
+    2. Specify partition prefix in config names: `/Common/object-name` or `/PartitionA/object-name`
+    3. May need to exclude certain paths from partition prefixing
+
+    **Tested Configurations:**
+    - `/ltm/node`
+    - `/ltm/policy` 
+    - `/ltm/profile`
+    - `/ltm/virtual-address`
+    - `/net/self`
+    - `/net/vlan`
+
+## 10.11 IMISH Shell Limitations
+
+    **Requirements:**
+    - Route domain must have dynamic routing enabled (`routing-protocol BGP`)
+    - Must create corresponding imish instance for each route-domain
+    - Protocol daemon delay may be needed (default: 10 seconds)
+
+    **Disabled Configurations:** When imish is enabled, these paths are disabled:
+    - `/net/routing/bgp`
+    - `/net/routing/route-map` 
+    - `/net/routing/prefix-list`
+
+## 10.12 CM Device Unicast-Address
+
+    **Requirement:** Must follow device listing order for keys:
+    1. effective-ip
+    2. effective-port  
+    3. ip
+    4. port
+
+    **Auto-configuration behavior:**
+    - `ip` → auto-configures `effective-ip`, `effective-port`
+    - `port` → auto-configures `effective-port`
+    - `effective-ip` → auto-configures `effective-port`
+
+## 10.13 File Download Buffer Size
+
+    **Default:** Buffer size 1 (slowest but most reliable)
+    **Recommendation:** Don't exceed 32 to avoid md5sum mismatches
+    **Behavior:** NED retries downloads up to 5 times on md5sum failures
+
+## 10.14 Net/FDB Deletion
+
+    **Limitation:** NED will not issue delete commands for `net/fdb` as it's not possible on device.
+    **Special Handling:** When deleting `net fdb vlan X` with records, NED sends `modify /net fdb vlan X { records none }` first.
+
+
+# 11. Advanced Configuration handling and customizing NED Settings
+
+    **Dependencies Not Fully Handled by NSO:**
+    There are many dynamic components or dynamic behaviors that are hard or sometimes even impossible by design to adapt in NSO. 
+    Below there are exemplified a few workarounds for some (few) such scenarios.
+
+
+## 11.1 Auth Partition and Route Domain Dependency:
+     ```
+     /auth/partition/default-route-domain depends on
+     /net/route-domain/name depends on  
+     /auth/partition/name
+     ```
+
+     When creating both in same transaction, must set default-route-domain separately:
+     ```
+     # Correct order:
+     data create /auth partition P
+          create /net route-domain /P/1  
+          modify /auth partition P { default-route-domain 1 }
+     ```
+
+## 11.2 Dynamic Routing Protocol Dependencies:
+
+     ### Enable BGP routing protocol
+     `modify /net route-domain 0 routing-protocol add { BGP }`
+
+     ### Enable tmrouted for prefix-list support
+     `tmsh modify sys db tmrouted.tmos.routing value enable`
+
+
+## 11.3 Sporadic Out-of-Sync Issues:
+
+    Can occur due to multiple device specific factors, from throttling to dynamic behaviors or uncovered corner cases.
+
+    ### Use exclude settings to handle device-generated config changes
+    ### Example to exclude sys snmp config that changes sporadically:
+    - On some bigip versions, the configuration output for snmp is inconsistent at show commands:
+    ```
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings exclude-check-sync-config "sys snmp" config-name ".*"
+    ```
+
+## 11.4 Multi-partition Combinations:
+
+    ### By design and becuse of the generic partition handling in BigIp/TMSH, the initial intent was to collect at least Common partition and eventually include other partitions data as needed or not. 
+    ### Starting with NED version f5-bigip v3.24.6, a combination of syncing ONLY a specific partition can be attempted. Refer to section 11.5 for more details keeping in mind the legacy sync-from is kept.
+
+    ## Other details to keep in mind:
+        Config objects don't need partition prefix if:
+        1. The object can only exist in /Common
+        2. The object can exist in partitions other than /Common, but modification in one partition leads to auto-modification in all partitions
+
+        **Partition Configuration Examples:**
+
+
+        # Configurable through partition prefix
+        `admin@ncs(config)# devices device <device-name> config bigip:ltm node /Common/test description test1`
+
+        # Not configurable through partition prefix  
+        `admin@ncs(config)# devices device <device-name> config bigip:auth partition Common description test1`
+
+
+    ### Enable multi-partition check-sync
+    ```
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings multi-partition-check-sync true
+    ```
+
+    ### Exclude problematic paths from partition prefixes
+    ```
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings exclude-partition-prefix ".*auth/partition.*"
+    ```
+    ### Or explicitly sync-from all partitions:
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings sync-from-all-partitions true`
+
+## 11.5 Single partition sync - for non-default /Common partition :
+    ### To synchronize a specific partition only, different to /Common, the following combination of ned-settings must be set:
+
+    - `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip partition <partition-name>`
+    - `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings sync-from-all-partitions false`
+    - `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings multi-partition-check-sync false`
+
+    Legacy behavior for transaction id computation at check-sync is achieved by running command 
+    `list /sys db configsync.localconfigtime`, which shows the last time when `save sys config` has been used. 
+    This data however is relevant for the global configuration, including Common and all /any other partitions exsting at the time. 
+
+    Enabling the above ned-settings, changes this behavior fundamentally, in the sense that system db localconfigtime will be ignored when 
+    this combination is set, and explicit partition running conifguration output is hashed and becomes the new transaction id. 
+
+    Enabling the above ned-settings implies a sync-from after committing them to achieve/retrieve the configured partition specifics.
+    Enabling this behavior however doesn't skip the Common data visible from the explicit partition configured, neither the way sync-from is performed, so the modules looked up stay the same, and if there is any data available for the configured partition, they shall be reflected in the cdb as per the schema modeled at the time. 
+
+
+## 11.6 Auto-config Handling:
+
+    When device automatically creates/modifies/deletes configuration:
+
+    ### Create corresponding auto-config in same transaction
+    ```
+    admin@ncs(config)# devices device <device-name> config bigip:test auto config value
+    admin@ncs(config)# devices device <device-name> config bigip:test generic config
+    admin@ncs(config)# commit
+    ```
+
+## 11.7. Performance Considerations
+
+    **Trace File Management:**
+
+    ## Disable tracing in production
+    `admin@ncs(config)# no devices device <device-name> trace`
+
+    ## Disable logging or set to lower debug level to lower or higher as needed
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip logger java false`
+    ### or set to level info for less information:
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip logger level info`
+
+    ### Default logging level is `info`. Use `debug` for most verbose output.
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip logger java true`
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip logger level debug`
+
+    **Hardware Data Optimization:**
+
+    ### Minimize hardware data calls
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings reuse-hardware-data true`
+
+    **Selective Sync:**
+
+    ### Only fetch listable modules
+    `admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings selective-sync-from true`
+
+    **Recursive Sync:**
+
+    Specify components that should use "recursive" keyword when listing:
+
+    ```
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings sync-with-recursive "ltm virtual"
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip developer-settings sync-with-recursive "ltm virtual-address"
+    admin@ncs(config)# commit
+    ```
+    **Note:** Do not use recursive when using explicit partition config only as shown at 11.5. 
+
+    **File Download Buffer Size**
+
+    Set buffer size for file downloads (default: 1):
+
+    ```
+    admin@ncs(config)# devices device <device-name> ned-settings f5-bigip file-download-buffer-size 32
+    admin@ncs(config)# commit
+    ```
+
+    **Note:** Buffer sizes higher than 32 may increase the risk of md5sum mismatches requiring redownloads.
