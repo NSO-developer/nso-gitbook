@@ -29,7 +29,7 @@ By default, the Web UI is accessible on port 8080 of the NSO server for an NSO L
 
 ### **Log In**
 
-Log in to the NSO Web UI by using the username and password provided by your administrator. SSO SAML login is available if set up by your administrator. If applicable, use the SSO option to log in.
+Log in to the NSO Web UI by using the username and password provided by your administrator. SSO SAML or OIDC login is available if set up by your administrator. If applicable, use the SSO option to log in.
 
 ### **Log Out**
 

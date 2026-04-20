@@ -4,7 +4,7 @@ description: NSO Web UI development information.
 
 # Web UI Development
 
-The [NSO Web UI](/operation-and-usage/webui/README.md) provides a comprehensive baseline interface designed to cover common network management needs with a focus on usability and core functionality. It serves as a reliable starting point for customers who want immediate access to essential features without additional development effort.
+The [NSO Web UI](../../../operation-and-usage/webui/) provides a comprehensive baseline interface designed to cover common network management needs with a focus on usability and core functionality. It serves as a reliable starting point for customers who want immediate access to essential features without additional development effort.
 
 For customers with specialized requirements—such as unique workflows, custom aesthetics, or integration with external systems—the NSO platform offers flexibility to build tailored Web UIs. This enables teams to create user experiences that precisely match their operational needs and branding guidelines.
 
@@ -17,7 +17,7 @@ In addition, the API also implements a Comet model, as long polling, to allow th
 You can call these from a browser using the modern [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API:
 
 {% code title="With fetch" %}
-``` javascript
+```javascript
 fetch('http://127.0.0.1:8080/jsonrpc', {
   method: 'POST',
   headers: {
@@ -47,7 +47,7 @@ fetch('http://127.0.0.1:8080/jsonrpc', {
 Or from the command line using [curl](https://curl.se):
 
 {% code title="With curl" %}
-``` bash
+```bash
 curl \
     -X POST \
     -H 'Content-Type: application/json' \
@@ -55,7 +55,6 @@ curl \
     http://127.0.0.1:8080/jsonrpc
 ```
 {% endcode %}
-
 
 ## Example of a Common Flow <a href="#d5e55" id="d5e55"></a>
 
@@ -76,11 +75,9 @@ A secondary example is also provided that demonstrates the use and implementatio
 3. Commit a change to trigger a comet notification.
 4. Stop and clean up the comet.
 
-For a complete working example with a web UI, see the `webui-basic-example` NSO package in `${NCS_DIR}/examples.ncs/northbound-interfaces/webui`. This package demonstrates basic JSON-RPC API usage and 
-can be run with `make demo`.
+For a complete working example with a web UI, see the `webui-basic-example` NSO package in `${NCS_DIR}/examples.ncs/northbound-interfaces/webui`. This package demonstrates basic JSON-RPC API usage and can be run with `make demo`.
 
 {% code title="index.js" overflow="wrap" lineNumbers="true" %}
-
 ```javascript
 // The following code is purely for example purposes.
 // The code has inline comments for a better understanding.
@@ -432,10 +429,9 @@ const cometExample = async () => {
 ```
 {% endcode %}
 
-
 ## Single Sign-on (SSO)
 
-The Single Sign-On functionality enables users to log in via HTTP-based northbound APIs with a single sign-on authentication scheme, such as SAMLv2. Currently, it is only supported for the JSON-RPC northbound interface.
+The Single Sign-On functionality enables users to log in via HTTP-based northbound APIs with a single sign-on authentication scheme, such as SAMLv2 or OIDC. Currently, it is only supported for the JSON-RPC northbound interface.
 
 {% hint style="info" %}
 For Single Sign-On to work, the Package Authentication needs to be enabled, see [Package Authentication](../../../administration/management/aaa-infrastructure.md#ug.aaa.packageauth)).

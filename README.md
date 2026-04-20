@@ -66,3 +66,16 @@ Documentation Updates:
 * Updated [System Management](administration/management/system-management/).
 
 </details>
+
+<details>
+
+<summary>OpenID Connect Support for Single Sign-On</summary>
+
+The `cisco-nso-oidc-auth` package is now available as part of the NSO distribution, implementing OpenID Connect (OIDC) as an authentication protocol for Single Sign-On (SSO).
+
+Documentation Updates:
+
+* Documented the new authentication package in `$NCS_DIR/packages/auth/cisco-nso-oidc-auth/README.md`
+* Added the [examples.ncs/aaa/oidc-auth](https://github.com/NSO-developer/nso-examples/tree/6.7/aaa/oidc-auth) example.
+
+</details>
