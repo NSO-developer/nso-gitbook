@@ -192,9 +192,8 @@ To add a new group:
 3. In the group details page, add users to the newly created group. If a default map is desired for unknown/unmapped users, use the **Set default-map** option.
    1. Click the **Add user** button to bring up the **Add user** overlay window.
    2. Specify the **local-user** and configure the following settings:
-      * **community** (optional): Choose between **community-name** or **community-binary-name**.
       * **remote-user**: Choose between **same-user** or **remote-name** options.
-      * **security-level**: Choose between **no-auth-no-priv**, **auth-no-priv**, or **auth-priv** options. Depending on the **security-level** selection, specify further the required SNMP authentication and privacy parameters, which include the authentication/privacy protocol, key type, and remote password.
+      * **security-level**: Use **auth-priv**. Then configure SHA as the authentication protocol and AES as the privacy protocol, together with the required remote passwords.
    3. Click **Add**. This adds the newly created user to the group and displays it in the list.
 4. Click **Create** **SNMP** **group** to save and finish creating the group.
 

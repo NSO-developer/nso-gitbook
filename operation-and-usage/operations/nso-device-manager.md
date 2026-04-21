@@ -921,12 +921,11 @@ devices authgroups group default
  !
 !
 devices authgroups snmp-group default
- default-map community-name public
  umap admin
   usm remote-name admin
   usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm auth sha remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv aes remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
  !
 !
 ```
@@ -956,12 +955,11 @@ devices authgroups group default
  !
 !
 devices authgroups snmp-group default
- default-map community-name public
  umap admin
   usm remote-name admin
   usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm auth sha remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv aes remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
  !
 !
 ```
@@ -1050,12 +1048,11 @@ devices authgroups group default
  !
 !
 devices authgroups snmp-group default
- default-map community-name public
  umap admin
   usm remote-name admin
   usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm auth sha remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv aes remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
  !
 !
 ```
@@ -3507,7 +3504,7 @@ www2  mysub  admin  running  -        -
 
 ## SNMP Notifications <a href="#d5e4074" id="d5e4074"></a>
 
-SNMP Notifications (v1, v2c, v3) can be received by NSO and acted upon. The SNMP receiver is a stand-alone process and by default, all notifications are ignored. IP addresses must be opted in and a handler must be defined to take actions on certain notifications. This can be used to for example listen to configuration change notifications and trigger a log action or a resync for example
+SNMPv3 `auth-priv` notifications can be received by NSO and acted upon. The SNMP receiver is a stand-alone process and by default, all notifications are ignored. IP addresses must be opted in and a handler must be defined to take actions on certain notifications. This can be used to for example listen to configuration change notifications and trigger a log action or a resync for example
 
 These actions are programmed in Java, see the [SNMP Notification Receiver](../../development/connected-topics/snmp-notification-receiver.md) for how to do this.
 

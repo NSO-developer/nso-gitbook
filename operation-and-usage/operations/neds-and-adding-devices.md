@@ -75,12 +75,11 @@ devices authgroups group default
  !
 !
 devices authgroups snmp-group default
- default-map community-name public
  umap admin
   usm remote-name admin
   usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm auth sha remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv aes remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
  !
 !
 ```
@@ -94,9 +93,7 @@ admin@ncs(config-umap-joe)# commit
 
 This auth group will pass on `joe`'s credentials to the device.
 
-There is a similar structure for SNMP `devices authgroups snmp-group` that supports SNMPv1/v2c, and SNMPv3 authentication.
-
-The SNMP auth group above has a default auth group for non-mapped users.
+There is a similar structure for SNMP `devices authgroups snmp-group` that, in the examples, is used with SNMPv3 `auth-priv`, SHA authentication, and AES privacy.
 
 ## Connecting Devices for Different NED Types <a href="#d5e537" id="d5e537"></a>
 
@@ -180,7 +177,7 @@ admin@ncs(config)# show full-configuration devices device r1
 devices device r1
  address 127.0.0.1
  port    11023
- device-type snmp version v2c
+ device-type snmp version v3
  device-type snmp snmp-authgroup default
  state admin-state unlocked
 !
@@ -230,7 +227,7 @@ Assume that you have a Cisco device that you would like NSO to configure over CL
 
 ```cli
 admin@ncs(config)# devices device c0 live-status-protocol snmp \
-                                device-type snmp version v1 \
+                                device-type snmp version v3 \
                                 snmp-authgroup default mib-group [ snmp ]
 admin@ncs(config-live-status-protocol-snmp)# commit
 
@@ -243,7 +240,7 @@ devices device c0
  authgroup default
  device-type cli ned-id cisco-ios
  live-status-protocol snmp
-  device-type snmp version v1
+  device-type snmp version v3
   device-type snmp snmp-authgroup default
   device-type snmp mib-group [ snmp ]
  !
@@ -266,7 +263,20 @@ devices {
     authgroups {
         snmp-group g1 {
             umap admin {
-                community-name public;
+                usm {
+                    remote-name    admin;
+                    security-level auth-priv;
+                    auth {
+                        sha {
+                            remote-password $4$wIo7Yd068FRwhYYI0d4IDw==;
+                        }
+                    }
+                    priv {
+                        aes {
+                            remote-password $4$wIo7Yd068FRwhYYI0d4IDw==;
+                        }
+                    }
+                }
             }
         }
     }
@@ -278,7 +288,7 @@ devices {
             port 4001;
             device-type {
                 snmp {
-                    version        v2c;
+                    version        v3;
                     snmp-authgroup g1;
                     mib-group      [ m1 ];
                 }

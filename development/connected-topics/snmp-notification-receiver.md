@@ -4,7 +4,7 @@ description: Configure NSO to receive SNMP notifications.
 
 # SNMP Notification Receiver
 
-NSO can act as an SNMP notification receiver (v1, v2c, v3) for its managed devices. The application can register notification handlers and react to the notifications, for example, by mapping SNMP notifications to NSO alarms.
+NSO can act as an SNMP notification receiver for its managed devices. The examples use SNMPv3 `auth-priv` notifications with SHA authentication and AES privacy. The application can register notification handlers and react to the notifications, for example, by mapping SNMP notifications to NSO alarms.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/snmp-notif.png" alt="" width="563"><figcaption><p>SNMP NED Compile Steps</p></figcaption></figure></div>
 
@@ -29,6 +29,8 @@ The NSO operator must enable the SNMP notification receiver and configure the ad
 The notification reception can be turned on and off using the enabled lead. NSO will listen to notifications at the end points configured in `listen`. There is no need to manually configure the NSO `engine-id`. NSO will do this automatically using the algorithm described in RFC 3411. However, it can be assigned an `engine-id` manually by setting this leaf.
 
 The managed devices must also be configured to send notifications to the NSO addresses.
+
+Configure the sending devices to use SNMPv3 USM with `auth-priv`, SHA authentication, and AES privacy when sending traps or informs to NSO.
 
 NSO silently ignores any notification received from unknown devices. By default, NSO uses the `/devices/device/address` leaf, but this can be overridden by setting `/devices/device/snmp-notification-address`.
 
