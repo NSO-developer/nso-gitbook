@@ -79,7 +79,7 @@ A generic NED always requires more work than a CLI NED. The generic NED needs to
 
 Regardless of the device, we must always write a YANG model that describes the device. The array of `NedEditOp` objects that the generic NED code gets exposed to is relative the YANG model that we have written for the device. Again, this model doesn't necessarily have to cover all aspects of the device.
 
-Often a useful technique with generic NEDs can be to write a pyang plugin to generate code for the generic NED. Again, depending on the device it may be possible to generate Java code from a pyang plugin that covers most or all aspects of mapping an array of `NedEditOp` objects into the equivalent reconfiguration commands for the device.
+Often a useful technique with generic NEDs can be to write a `pyang` plugin to generate code for the generic NED. Again, depending on the device it may be possible to generate Java code from a `pyang` plugin that covers most or all aspects of mapping an array of `NedEditOp` objects into the equivalent reconfiguration commands for the device.
 
 Pyang is an extensible open-source YANG parser and validator available from `https://github.com/mbj4668/pyang/` and `https://pypi.org/project/pyang/`. The `pyang/plugins/tree.py` plugin is a good starting point for writing a custom plugin.
 
