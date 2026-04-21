@@ -546,7 +546,7 @@ admin@ncs% show devices device c0 config ios:interface
 Another useful tool is to render a tree view of the model:
 
 ```bash
-$ pyang -f jstree tailf-ned-cisco-ios.yang -o ios.html
+$ yanger -f jstree tailf-ned-cisco-ios.yang -o ios.html
 ```
 
 This can then be opened in a Web browser and model paths are shown to the right:
