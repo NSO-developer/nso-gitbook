@@ -635,15 +635,15 @@ To have NSO deploy services across devices, two pieces are needed:
 
 ### Defining the Service Model <a href="#d5e881" id="d5e881"></a>
 
-The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/package-mgmt.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example. Make sure that you have stopped any running NSO and netsim.
+The first step is to generate a skeleton package for a service (for details, see [Packages](../../administration/management/package-mgmt.md)). Create a directory under, for example, `~/my-sim-ios`similar to how it is done for the [examples.ncs/device-management/simulated-devices](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-devices) example. Make sure that you have stopped any running NSO and netsim.
 
 Navigate to the simulated ios directory and create a new package for the VLAN service model:
 
 ```bash
-$ cd examples.ncs/device-management/simulated-cisco-ios/packages
+$ cd examples.ncs/device-management/simulated-devices/packages
 ```
 
-If the `packages` folder does not exist yet, such as when you have not run this example before, you will need to invoke the `ncs-setup` and `ncs-netsim create-network` commands as described in the `simulated-cisco-ios` `README` file.
+If the `packages` folder does not exist yet, such as when you have not run this example before, you will need to invoke the `ncs-setup` and `ncs-netsim create-network` commands as described in the `simulated-devices` `README` file.
 
 The next step is to create the template skeleton by using the `ncs-make-package` utility:
 
@@ -750,7 +750,7 @@ This simple VLAN service model says:
 
 The good thing with NSO is that already at this point you could load the service model to NSO and try if it works well in the CLI etc. Nothing would happen to the devices since we have not defined the mapping, but this is normally the way to iterate a model and test the CLI towards the network engineers.
 
-To build this service model `cd` to the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-cisco-ios) example `/packages/vlan/src` directory and type `make` (assuming you have the `make` build system installed).
+To build this service model `cd` to the [examples.ncs/device-management/simulated-devices](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/simulated-devices) example `/packages/vlan/src` directory and type `make` (assuming you have the `make` build system installed).
 
 ```bash
 $ make
@@ -759,7 +759,7 @@ $ make
 Go to the root directory of the `simulated-ios` example:
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
+$ cd $NCS_DIR/examples.ncs/device-management/simulated-devices
 ```
 
 Start netsim, NSO, and the CLI:
