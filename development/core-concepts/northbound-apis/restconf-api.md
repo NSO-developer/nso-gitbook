@@ -661,7 +661,7 @@ Example request using the header:
 X-Cisco-NSO-Commit-Params: eyJsYWJlbCI6ICJyZXN0Y29uZi1kZW1vIiwgImRyeS1ydW4iOiB7Im91dGZvcm1hdCI6ICJjbGktYyJ9fQ==
 ```
 
-See the [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example for end-to-end requests using both the query parameter and the header form, together with the equivalent CLI commit flags.
+See the [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/commit-parameters) example for end-to-end requests using both the query parameter and the header form, together with the equivalent CLI commit flags.
 
 Other NSO-specific query parameters are listed below.
 

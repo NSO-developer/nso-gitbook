@@ -74,7 +74,7 @@ admin@ncs> shutdown timeout 10s message reboot options { \
 
 Abort or confirm a pending confirming commit. A pending confirming commit will also be aborted if the CLI session is terminated without doing `commit confirm`. The default is confirm.
 
-For the general CLI commit parameters available with `commit ?`, see [Commit Parameters](../operations/lifecycle-operations.md#d5e5048) and the [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example.
+For the general CLI commit parameters available with `commit ?`, see [Commit Parameters](../operations/lifecycle-operations.md#d5e5048) and the [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/commit-parameters) example.
 
 Example:
 

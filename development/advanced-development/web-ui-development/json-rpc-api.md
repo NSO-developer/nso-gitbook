@@ -3658,7 +3658,7 @@ Example:
 
 The `params` object corresponds to the contents of `/ncp:commit-params`, without the top-level `ncp:commit-params` wrapper.
 
-The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example includes a JSON-RPC walkthrough in `demo_jrpc.py` that uses Python `requests` to pass structured commit parameters to `validate_commit` and `commit`.
+The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/commit-parameters) example includes a JSON-RPC walkthrough in `demo_jrpc.py` that uses Python `requests` to pass structured commit parameters to `validate_commit` and `commit`.
 
 **Note**: Must be preceded by a call to `validate_commit`_._
 

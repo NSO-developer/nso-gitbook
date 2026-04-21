@@ -990,7 +990,7 @@ These optional input parameters are augmented into the following NETCONF operati
 
 In particular, the `prepare-transaction` operation is augmented with the shared `dry-run` parameters and result model from `tailf-ncs-commit-params.yang`, so the same `outformat`, `reverse`, and `with-service-meta-data` leaves are available there as well.
 
-The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/northbound-interfaces/commit-parameters) example includes a NETCONF walkthrough in `demo_nc.py` that uses the standard RFC 6241 `edit-config` operation with the shared commit-parameter model.
+The [examples.ncs/northbound-interfaces/commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/northbound-interfaces/commit-parameters) example includes a NETCONF walkthrough in `demo_nc.py` that uses the standard RFC 6241 `edit-config` operation with the shared commit-parameter model.
 
 FASTMAP attributes such as back pointers and reference counters are typically internal to NSO and are not shown by default. The optional parameter `with-service-meta-data` can be used to include these in the NETCONF reply. The parameter is augmented into the following NETCONF operations:
 

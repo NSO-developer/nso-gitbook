@@ -1564,7 +1564,7 @@ You can use these general steps to give you a high-level idea of how to approach
     ```
 
     \
-    Trace ID can also be provided as a commit parameter in your service code. See [Commit Parameters](../../operation-and-usage/operations/lifecycle-operations.md#d5e5048) for the shared model and [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.6/sdk-api/maapi-commit-parameters) for an example.
+    Trace ID can also be provided as a commit parameter in your service code. See [Commit Parameters](../../operation-and-usage/operations/lifecycle-operations.md#d5e5048) for the shared model and [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api/maapi-commit-parameters) for an example.
 6.  Measuring the time it takes for specific commands to complete can also give you some hints about what is going on. You can do this by using the `timecmd`, which requires the dev tools to be enabled.
 
     ```bash
