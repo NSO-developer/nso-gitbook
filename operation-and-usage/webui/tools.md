@@ -6,7 +6,7 @@ description: Tools to view NSO status and perform specialized tasks.
 
 The **Tools** view includes utilities that you can use to run specific tasks on your deployment.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/tools-view.png" alt=""><figcaption><p>Tools View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/tools.png" alt=""><figcaption><p>Tools View</p></figcaption></figure></div>
 
 The following tools are available:
 
@@ -14,7 +14,6 @@ The following tools are available:
 * [**Packages**](tools.md#d5e6487): Used to perform upgrades to the packages running in NSO.
 * [**High availability**](tools.md#d5e6538): Used to manage a High Availability (HA) setup in your deployment.
 * [**Alarms**](tools.md#d5e6565): Shows current alarms/events in your deployment and provides options to manage them.
-* [**Commit manager**](tools.md#d5e6582): Shortcut to the Commit Manager.
 * [**Compliance reporting**](tools.md#sec.webui_compliance): Used to run compliance checks on your NSO network.
 
 ## Insights <a href="#d5e6470" id="d5e6470"></a>
@@ -131,7 +130,7 @@ The **Logs** and **Certificates** tabs provide detailed insights into the state 
 
 The **Alarms** view displays alerts in the system for your NSO-managed objects and provides options to manage them.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/alarms-view.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/alarms.png" alt=""><figcaption><p>Alarms View</p></figcaption></figure></div>
 
 An alarm is raised when an NSO object undergoes a state change that requires attention. The alarms, depending on their severity, are categorized as **Critical**, **Major**, **Minor**, **Warning**, and **Indeterminate**. Detailed alarm management concepts are covered in [Alarm Manager](../operations/alarm-manager.md) and different alarm types are described in [Alarm Types](../../administration/management/system-management/alarms.md).
 
@@ -165,51 +164,14 @@ To set an alarm handling state:
 2. Set the alarm state to one of the following: **None**, **Acknowledged**, **Investigation**, **Observation**, and **Closed**.
 3. Enter a description (optional).
 4. Click **Set state**. This sets the alarm handling state as well as records the state change under the **Alarm handling** tab in alarm details.
-
-## Commit Manager <a href="#d5e6582" id="d5e6582"></a>
-
-The **Commit manager** displays notifications about commits pending to be approved. Any time a change (a transaction) is made in NSO, the Commit Manager displays a notification to review the change. You can then choose to confirm or revert the commit.
-
-{% hint style="warning" %}
-**Transactions and Commits**
-
-Take special note of the Commit Manager. Whenever a transaction has started, the active configuration data changes can be inspected and evaluated before they are committed and pushed to the network. The data is saved to the NSO datastore and pushed to the network when a user presses **Commit**.
-
-Any network-wide configuration change can be picked up as a rollback file. The rollback can then be applied to undo whatever happened to the network.
-{% endhint %}
-
-### **Review a Configuration Change**
-
-To review a configuration change:
-
-1. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
-2. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
-3. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
+5. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
+6. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
+7. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described centrally in [Commit Parameters](../operations/lifecycle-operations.md#d5e5048).
-
-{% hint style="info" %}
-In the **Commit manager** view, you can fetch additional information about the leaf by enabling **more node options** <img src="../../.gitbook/assets/more-node-options.png" alt="" data-size="line"> and clicking the info <img src="../../.gitbook/assets/info-button.png" alt="" data-size="line"> button.
-{% endhint %}
-
-#### **Load/Save Configuration Data**
-
-Start a transaction to load or save configuration data using the **Load/Save** option, which you can then review for commit. The following tabs are available:
-
-* **Rollback**: To load data that reverts an earlier change.
-* **Files**: To load data from a local file on your disk.
-* **Paste**: To load data by pasting it in.
-* **Save**: To save loaded data to a file on your local disk.
-
-#### **Commit Manager Tabs**
-
-In the **Commit manager** view, the following tabs are shown.
-
-* **changes** tab: To list the changes and actions done in the system, e.g., deleting a device or changing its properties.
-* **errors** tab: To list the errors encountered while making changes. You can review the errors, make changes, and revalidate the error using the **Re-validate** option.
-* **warnings** tab: To list the warnings encountered while making changes.
-* **config** tab: To list the configuration changes associated with the change.
-* **native config** tab: To list the device configuration data in the native config.
-* **commit queue** tab: To manage commit queues. See [Commit Queue](../operations/nso-device-manager.md#user_guide.devicemanager.commit-queue) for more information.
+8. Access the Commit Manager by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
+9. Review the available changes appearing as **Current transaction**. If there are errors in the change, the Commit Manager alerts you and suggests possible corrections. You can then fix them and press **Re-validate** to clear the errors.
+10. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
+    * **Commit Options**: When committing a transaction, you have the possibility to choose **Commit options** and perform a commit with the specified commit option(s). Examples of commit options are: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
 
 ## Compliance Reporting <a href="#sec.webui_compliance" id="sec.webui_compliance"></a>
 
@@ -276,7 +238,7 @@ To run a compliance report:
 
 The **Reports results** tab is used to view the status and results of the compliance reports that have been run.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/compliance-reports-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/compliance-report-results.png" alt=""><figcaption><p>Reports Results View</p></figcaption></figure></div>
 
 #### View Compliance Report Results
 

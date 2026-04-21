@@ -53,6 +53,7 @@
   * [Devices](operation-and-usage/webui/devices.md)
   * [Services](operation-and-usage/webui/services.md)
   * [Config Editor](operation-and-usage/webui/config-editor.md)
+  * [Transactions](operation-and-usage/webui/transactions.md)
   * [Tools](operation-and-usage/webui/tools.md)
 * [Operations](operation-and-usage/operations/README.md)
   * [Basic Operations](operation-and-usage/operations/basic-operations.md)

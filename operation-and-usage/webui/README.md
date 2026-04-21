@@ -14,7 +14,7 @@ The main components of the Web UI are shown in the figure below.
 The UI works by auto-rendering the underlying device and service models. This gives the benefit that the Web UI is immediately updated when new devices or services are added to the system. For example, say you have added support for a new device vendor. Then, without any programming requirements, the NSO Web UI provides the capability to configure those devices.
 
 {% hint style="info" %}
-It's important to realize that the bulk of concepts and configuration options in Web UI are shared with the NSO CLI. The rest of the documentation covers these in detail. You need to be familiar with the fundamental concepts to work with the Web UI.
+It's important to understand that the bulk of concepts and configuration options in Web UI are shared with the NSO CLI. The rest of the documentation covers these in detail. You need to be familiar with the fundamental concepts to work with the Web UI.
 {% endhint %}
 
 ## Browser Requirements <a href="#d5e5676" id="d5e5676"></a>
@@ -44,7 +44,7 @@ Apply a theme for the user interface by clicking your username and selecting fro
 Access the help options by clicking the help options icon in the UI banner. The following options are available:
 
 * **Online documentation**: Access the Web UI's online help.
-* **Manage hidden groups**: Administer hidden groups, e.g., for debugging. Read more about hide groups in [NSO CLI](../cli/introduction-to-nso-cli.md).
+* **Manage hidden groups**: Administer hidden groups, e.g., for debugging. Read more about hide groups in [CLI Commands](../cli/cli-commands.md).
 * **NSO version**: Information about the version of NSO you are running.
 
 In the Web UI, supplementary help text, whenever applicable, is available on the configuration fields and can be accessed by clicking the info icons.
@@ -53,13 +53,30 @@ In the Web UI, supplementary help text, whenever applicable, is available on the
 
 Anytime a configuration is changed in the Web UI (such as a device or service configuration change), the UI reflects the change with a so-called color-coded "dirty state" with the following meanings:
 
-* <mark style="color:blue;">Blue</mark> color: An addition was made.
+* <mark style="color:blue;">Blue</mark> color: An addition or a modification to an already-committed list element was made.
 * <mark style="color:red;">Red</mark> color: A deletion was made.
-* <mark style="color:green;">Green</mark> color: A modification was made to an already-committed list element.
 
-## Commit Manager <a href="#d5e5718" id="d5e5718"></a>
+## Commit Management <a href="#d5e5718" id="d5e5718"></a>
 
-The Commit Manager is accessible at all times from the UI header. A number, corresponding to the number of changes in a transaction, is displayed next to the Commit Manager icon when changes are available for review. For certain action, it is possible to skip the Commit Manager review and apply the changes directly. Working with the Commit Manager is described further in [Tools](tools.md).
+Commit options are accessible at all times from the UI header. A number, corresponding to the number of changes in a transaction, is displayed next to the <img src="../../.gitbook/assets/image.png" alt="" data-size="line"> icon when changes are available for review. These changes can be reviewed in the **Transactions** view. For certain actions, it is possible to skip the commit review and apply the changes directly.
+
+{% hint style="warning" %}
+**Transactions and Commits**
+
+Take special note of commit management. Whenever a transaction has started, the active configuration data changes can be inspected and evaluated before they are committed and pushed to the network. The data is saved to the NSO datastore and pushed to the network when a user presses **Commit**.
+
+Any network-wide configuration change can be picked up as a rollback file. The rollback can then be applied to undo whatever happened to the network.
+{% endhint %}
+
+### **Review a Configuration Change**
+
+To review available configuration changes:
+
+1. Access commit management by clicking its icon <img src="../../.gitbook/assets/commit-manager.png" alt="" data-size="line"> in the banner.
+2. Review the available changes by clicking the **Changes** or **Transactions** option. This action redirects you to the **Transactions** view.
+3. Press **Validate** to check for errors. All changes must be validated before they can be committed.
+4. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
+5. If you are committing a change, **Commit Settings** are shown after pressing **Commit**. Examples of commit settings include: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
 
 ## AI Assistant
 

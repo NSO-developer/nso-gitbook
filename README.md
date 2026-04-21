@@ -64,7 +64,7 @@ Documentation Updates:
 
 MFA handling is now tied directly to the authentication method being attempted. When a method issues a challenge, NSO invokes the challenge handler associated with that method only. Package-based MFA is the preferred approach. The configuration option `/ncs-config/aaa/challenge-order` is deprecated and ignored at runtime; authentication flow is controlled solely by `/ncs-config/aaa/auth-order`.
 
-Documentation Updates
+Documentation Updates:
 
 * Updated the [Multi-Factor Authentication](administration/management/aaa-infrastructure.md#ug.aaa.external_challenge) documentation in [AAA Infrastructure](administration/management/aaa-infrastructure.md) to cover new changes.
 
@@ -93,5 +93,19 @@ Documentation Updates:
 
 * Documented the new authentication package in `$NCS_DIR/packages/auth/cisco-nso-oidc-auth/README.md`
 * Added the [examples.ncs/aaa/oidc-auth](https://github.com/NSO-developer/nso-examples/tree/6.7/aaa/oidc-auth) example.
+
+</details>
+
+<details>
+
+<summary>Web UI Redesign and Enhancements</summary>
+
+This release introduces a new **Transactions** view in the NSO Web UI, along with a redesigned **Configuration Editor** for a more streamlined configuration experience. It also includes general updates across the Web UI and documentation.\
+\
+Documentation Updates:
+
+* Added a new [**Transactions**](operation-and-usage/webui/transactions.md) page to the Web UI documentation.
+* Updated the [**Config Editor**](operation-and-usage/webui/config-editor.md) page to align with new changes.
+* Updated the Web UI documentation for general improvements.
 
 </details>

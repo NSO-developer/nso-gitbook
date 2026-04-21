@@ -4,17 +4,17 @@ description: Manage devices, device groups, and authgroups in your NSO deploymen
 
 # Devices
 
-The **Devices** view provides options to manage devices, device groups, and authgroups in the NSO network.
+The **Devices** section provides options to manage devices, device groups, and authgroups in the NSO network.&#x20;
 
 ## Device Management <a href="#d5e5752" id="d5e5752"></a>
 
-The **Device management** view lists the devices in the network and provides options to manage them.
+The **Device management** view lists the devices in the network and provides options to manage them. Expand a device in the list to view more details about it.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/device-management.png" alt=""><figcaption><p>Device Management View</p></figcaption></figure></div>
 
-### **Search**
+### **Search and Filter Devices**
 
-You can search for a device by its name, IP address, or other parameters. Narrow down the results by using the **Select device group** filter.
+You can search for a device by its name, IP address, or other parameters. You can also narrow down the results by using the **Select device group** filter.
 
 ### **Add a Device**
 
@@ -24,11 +24,11 @@ To add a new device to NSO:
 2. Click the **Add list item** button.
 3. Enter the name of the device.
 4. Click the device name in the list to configure the device further.
-5. Review and commit the changes in the **Commit manager**.
+5. Review and commit the changes in the **Transactions** view.
 
 ### **Apply an Action on a Device**
 
-Actions can be applied on a device from the **Device management** view or the **Configuration editor** -> **Actions** tab.
+Actions can be applied on a device from the **Device management** view or the **Configuration editor**.
 
 {% tabs %}
 {% tab title="From the Device Management View" %}
@@ -50,20 +50,14 @@ The **Modify in Config Editor** and **Delete** are GUI-specific operations acces
 {% endhint %}
 {% endtab %}
 
-{% tab title="From the Configuration Editor -> Actions Tab" %}
+{% tab title="From the Configuration Editor" %}
 Additional actions are applied to an individual device. Use this option if you want to run an action with additional parameters.
 
 1. Click the device name in the list. You will be redirected to the **Configuration editor** view.
-2. Access the **Actions** tab in the **Configuration editor**.
+2. Click the **Actions** button.
 3. Click the desired action in the list.
-4.  At this point, you can configure different parameters.
-
-    (To reset all the parameters to their default value, use the **Reset action parameters** option).
-5. Run the action.
-
-{% hint style="info" %}
-To fetch information about an action in the **Configuration editor** -> **Actions** tab, click the info <img src="../../.gitbook/assets/actions-info.png" alt="" data-size="line"> icon.
-{% endhint %}
+4. At this point, you can configure different parameters.
+5. Click **Run** to initiate the action.
 
 **Actions Possible in the Configuration Editor -> Actions Tab**
 
@@ -77,21 +71,12 @@ See [Lifecycle Operations](../operations/lifecycle-operations.md) for the detail
 
 ### **Edit Device Configuration**
 
-To edit the device configuration of an existing device:
+To edit the configuration of an existing device:
 
-1. In the **Devices** view, click the desired device from the list.
-2. In the **Configuration editor**, click the **Edit config** tab.
-3.  Make the desired changes.
-
-    (Press **Enter** to save the changes. An uncommitted change in a field's value is marked by a green color, and is referred to as a 'dirty state').
-4. Review and commit the change in the **Commit manager**.
-
-{% hint style="info" %}
-The other two tabs, i.e., **Config** and **Operdata** can be respectively used to:
-
-* View the device configuration, and,
-* View the device's operational data.
-{% endhint %}
+1. In the **Devices** view, locate the desired device.
+2. Open the device in the **Configuration editor** by either clicking the device name in the list and then enabling **Edit mode**, or by clicking the more options button <img src="../../.gitbook/assets/more-options.png" alt="" data-size="line"> on the device row and selecting **Modify in Config Editor**, which opens the device with edit mode already enabled.
+3. Make the desired changes. Depending on the field type, changes are applied automatically when you update the value or when you leave the field.
+4. Review and commit the change in the **Transactions** view.
 
 ## Device Groups <a href="#d5e5978" id="d5e5978"></a>
 
@@ -141,16 +126,16 @@ The **Modify in Config editor** option is accessible by clicking the more option
 
 ## Authgroups
 
-The **Authgroups** view displays device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user_guide.devicemanager.authgroups).
+The **Authgroups** view display device authentication groups and provides ways to manage them. Concepts and settings involved in the authentication groups setup are discussed in [NSO Device Management](../operations/nso-device-manager.md#user_guide.devicemanager.authgroups).
 
-This view is further partitioned into the following two tabs for different device types:
+The **Authgroups** views include:
 
-* The **Group** tab
-* The **SNMP Group** tab
+* The **Authgroups** - **group** view
+* The **Authgroups** - **SNMP group** view
 
-### Groups
+### Authgroups - group
 
-The **Group** tab is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
+The **Authgroups** - **group** view is used to view, search, and manage device authentication groups for CLI and NETCONF-managed devices.
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/device-authgroups.png" alt=""><figcaption><p>Authgroups View (Group)</p></figcaption></figure></div>
 
@@ -192,11 +177,11 @@ Proceed with caution as the changes are applied immediately.
 2. Click **Delete**.
 3. Confirm the intent by pressing **Delete** in the pop-up.
 
-### SNMP Groups
+### Authgroups - SNMP group
 
-The **SNMP Group** tab is used to view, search, and manage device authentication groups for SNMP-managed devices.
+The **Authgroups** **-** **SNMP group** view is used to view, search, and manage device authentication groups for SNMP-managed devices.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/device-snmpgroups.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/device-snmpgroup.png" alt=""><figcaption><p>Authgroups View (SNMP Group)</p></figcaption></figure></div>
 
 #### Create an SNMP Group
 
