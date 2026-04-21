@@ -3357,6 +3357,80 @@ curl \
 
 <details>
 
+<summary><mark style="color:green;"><code>revert</code></mark></summary>
+
+`revert` - Reverts changes in a transaction.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "path": <string, optional>}
+```
+
+The `th` param identifies the transaction to revert.
+
+The optional `path` param is a keypath identifying the subtree to revert. When `path` is omitted, all changes in the transaction are reverted. When `path` is provided, only changes under that subtree are reverted and changes in other parts of the transaction are preserved.
+
+**Result**
+
+```json
+{}
+```
+
+**Errors (specific)**
+
+```json
+{"type": "rpc.method.invalid_params", "data": {"param": "path"}}
+```
+
+Returned if the `path` is invalid.
+
+**Example**
+
+{% code title="Example: Method revert (entire transaction)" %}
+```bash
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+         "method": "revert",
+         "params": {"th": 2}}' \
+    http://127.0.0.1:8008/jsonrpc
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {}
+}
+```
+{% endcode %}
+
+{% code title="Example: Method revert (subtree)" %}
+```bash
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+         "method": "revert",
+         "params": {"th": 2,
+                    "path": "/dhcp:dhcp/max-lease-time"}}' \
+    http://127.0.0.1:8008/jsonrpc
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {}
+}
+```
+{% endcode %}
+
+</details>
+
+<details>
+
 <summary><mark style="color:green;"><code>validate_trans</code></mark></summary>
 
 `validate_trans` - Validates a transaction.

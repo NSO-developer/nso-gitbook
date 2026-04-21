@@ -664,9 +664,15 @@ Rename an instance.
 
 <details>
 
-<summary><code>revert</code></summary>
+<summary><code>revert [no-confirm] [&#x3C;path>]</code></summary>
 
-Copy the running configuration into the current configuration, e.g., remove all uncommitted changes.
+Copy the running configuration into the current configuration. Without a path, this removes all uncommitted changes in the current transaction.
+
+If a path is provided, only changes under that path are reverted. The path is resolved relative to the current CLI sub-mode. For example, from the top level, `revert foo bar` reverts changes below `/foo/bar`, while from inside a `foo a` sub-mode, `revert no-confirm baz` reverts only the changes below that `baz` child in the current transaction.
+
+The `no-confirm` option suppresses the confirmation prompt and can be used both with and without a path, for example `revert no-confirm foo bar`.
+
+Contextual subtree revert is supported in private configuration mode. In shared or exclusive mode, use `revert` without a path to discard the whole transaction.
 
 </details>
 
