@@ -55,7 +55,7 @@ Finally make sure that the NSO configuration file points to the correct device m
 
 ## Configuring NSO to Speak SNMP Southbound <a href="#d5e120" id="d5e120"></a>
 
-Each managed device is configured with a name, IP address, and port (161 by default), and the SNMP version to use (v1, v2c, or v3).
+Each managed device is configured with a name, IP address, and port (161 by default), and uses SNMPv3 with `auth-priv`.
 
 ```cli
 admin@host# show running-config devices device r3
@@ -66,23 +66,22 @@ device-type snmp version v3 snmp-authgroup my-authgroup
 state admin-state unlocked
 ```
 
-To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. An SNMP authgroup contains community strings for SNMP v1 and v2c and USM parameters for SNMP v3.
+To minimize the necessary configuration, the authentication group concept (see [Authentication Groups](../../../operation-and-usage/operations/nso-device-manager.md#user_guide.devicemanager.authgroups)) is used also for SNMP. A configured managed device of the type `snmp` refers to an SNMP authgroup. The SNMP authgroup contains only SNMPv3 USM parameters with `auth-priv`, SHA, and AES.
 
 ```cli
 admin@host# show running-config devices authgroups snmp-group my-authgroup
 
 devices authgroups snmp-group my-authgroup
- default-map community-name public
  umap admin
   usm remote-name admin
   usm security-level auth-priv
-  usm auth md5 remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
-  usm priv des remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm auth sha remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
+  usm priv aes remote-password $4$wIo7Yd068FRwhYYI0d4IDw==
  !
 !
 ```
 
-In the example above, when NSO needs to speak to the device `r3`, it sees that the device is of type `snmp`, and that SNMP v3 should be used with authentication parameters from the SNMP authgroup `my-authgroup`. This authgroup maps the local NSO user `admin` to the USM user `admin`, with explicit remote passwords given. These passwords will be localized for each SNMP engine that NSO communicates with. While the passwords above are shown encrypted, when you enter them in the CLI you write them in clear text. Note also that the remote engine ID is not configured; NSO performs a discovery process to find it automatically.
+In the example above, when NSO needs to speak to the device `r3`, it sees that the device is of type `snmp`, and that SNMPv3 `auth-priv` should be used with authentication parameters from the SNMP authgroup `my-authgroup`. This authgroup maps the local NSO user `admin` to the USM user `admin`, with explicit remote passwords given. These passwords will be localized for each SNMP engine that NSO communicates with. While the passwords above are shown encrypted, when you enter them in the CLI you write them in clear text. Note also that the remote engine ID is not configured; NSO performs a discovery process to find it automatically.
 
 No NSO user other than `admin` is mapped by the `authgroup my-authgroup` for SNMP v3.
 

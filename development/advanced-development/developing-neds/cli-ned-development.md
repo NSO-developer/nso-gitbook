@@ -583,7 +583,7 @@ list community {
         tailf:info "read only community";
         type string {
             length "1..31";
-            tailf:info "WORD<length:1-31>;;SNMPv1/v2c community string";
+            tailf:info "WORD<length:1-31>;;SNMP access string";
         }
     }
     leaf remote {
