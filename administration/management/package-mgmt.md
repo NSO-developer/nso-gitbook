@@ -198,11 +198,11 @@ show-tag  interface
 
 So the above command shows that NSO currently has one package, the NED for Cisco IOS.
 
-NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. In this Local Install example, the configuration tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-cisco-ios](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-cisco-ios) example to demonstrate:
+NSO reads global configuration parameters from `ncs.conf`. More on NSO configuration later in this guide. In this Local Install example, the configuration tells NSO to look for packages in a `packages` directory where NSO was started. Using the [examples.ncs/device-management/simulated-devices](https://github.com/NSO-developer/nso-examples/tree/6.4/device-management/simulated-devices) example to demonstrate:
 
 ```bash
 $ pwd
-examples.ncs/device-management/simulated-cisco-ios
+examples.ncs/device-management/simulated-devices
 $ NONINTERACTIVE=1 ./demo.sh
 $ ls packages/
 cisco-ios-netsim-cli-1.0
@@ -231,7 +231,7 @@ $ ncs-netsim stop
 Because this is a Local Install example, add the Nexus package to the runtime `packages` directory by creating a symbolic link (or copy):
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios/packages
+$ cd $NCS_DIR/examples.ncs/device-management/simulated-devices/packages
 $ ln -s $NCS_DIR/examples.ncs/common/packages/cisco-nx-netsim-cli-1.0 cisco-nx-netsim-cli-1.0
 $ ls -l
 ...
@@ -266,7 +266,7 @@ So after the `packages reload` operation NSO also knows about Nexus devices. The
 ```bash
 $ ncs-netsim add-to-network cisco-nx-netsim-cli-1.0 2 n
 $ ncs-netsim list
-ncs-netsim list for examples.ncs/device-management/simulated-cisco-ios/netsim
+ncs-netsim list for examples.ncs/device-management/simulated-devices/netsim
 
 name=c0 ...
 name=c1 ...

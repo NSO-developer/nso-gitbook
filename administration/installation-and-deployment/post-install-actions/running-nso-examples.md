@@ -25,7 +25,7 @@ This section references the examples located in [$NCS_DIR/examples.ncs](https://
 3.  Proceed to the example directory:
 
     ```bash
-    $ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
+    $ cd $NCS_DIR/examples.ncs/device-management/simulated-devices
     ```
 4. Follow the instructions in the `README` files that are located in the example directories.
 
@@ -60,7 +60,7 @@ Every example directory is a complete NSO run-time directory. The README file an
 It is important to make sure that you stop `ncs` and `ncs-netsim` when moving between examples using the `stop` option of the `netsim` and the `--stop` option of the `ncs`.
 
 ```bash
-$ cd $NCS_DIR/examples.ncs/device-management/simulated-cisco-ios
+$ cd $NCS_DIR/examples.ncs/device-management/simulated-devices
 $ ncs-netsim start
 $ ncs
 $ ncs-netsim stop
