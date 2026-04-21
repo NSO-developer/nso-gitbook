@@ -643,7 +643,7 @@ Navigate to the simulated ios directory and create a new package for the VLAN se
 $ cd examples.ncs/device-management/simulated-devices/packages
 ```
 
-If the `packages` folder does not exist yet, such as when you have not run this example before, you will need to invoke the `ncs-setup` and `ncs-netsim create-network` commands as described in the `simulated-cisco-ios` `README` file.
+If the `packages` folder does not exist yet, such as when you have not run this example before, you will need to invoke the `ncs-setup` and `ncs-netsim create-network` commands as described in the `simulated-devices` `README` file.
 
 The next step is to create the template skeleton by using the `ncs-make-package` utility:
 
