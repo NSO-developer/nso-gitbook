@@ -23,7 +23,7 @@
 * adtran-aos_nc
   * [README-ned-settings](adtran-aos_nc/README-ned-settings.md)
   * [README-rebuild](adtran-aos_nc/README-rebuild.md)
-  * [README v1.0.2 2026-03-25](adtran-aos_nc/README.md)
+  * [README v1.0.3 2026-04-21](adtran-aos_nc/README.md)
 
 * aethra-atos
   * [README-ned-settings](aethra-atos/README-ned-settings.md)
@@ -154,7 +154,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.5 2026-03-13](huawei-ias/README.md)
+  * [README v2.9.6 2026-04-21](huawei-ias/README.md)
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
@@ -243,7 +243,7 @@
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
-  * [README v4.4.7 2026-01-30](zte-xpon/README.md)
+  * [README v4.4.8 2026-04-21](zte-xpon/README.md)
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
