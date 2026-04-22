@@ -242,6 +242,37 @@ To address this, HA Raft provides the `/ncs-config/ha-raft/passive` setting. Whe
 
 Note that the `passive` parameter is local to the node, meaning other nodes in the cluster are unaware that a particular follower is passive. Consequently, it is possible to initiate a handover action targeting the passive node, but the handover will ultimately fail at a later stage, allowing the current leader to retain its position.
 
+### Three-Node Example with HCC VIP <a href="#ch_ha.raft.threenode" id="ch_ha.raft.threenode"></a>
+
+The following example summarizes a common three-node HA Raft deployment together with HCC layer-2 VIP management. In this setup, the cluster consists of one current leader and two followers:
+
+<table><thead><tr><th width="133" valign="top">Node</th><th width="195" valign="top">Address</th><th valign="top">Notes</th></tr></thead><tbody><tr><td valign="top"><code>nso-a</code></td><td valign="top"><code>nso-a.example.org</code></td><td valign="top">Initial leader when <code>create-cluster</code> is invoked on this node.</td></tr><tr><td valign="top"><code>nso-b</code></td><td valign="top"><code>nso-b.example.org</code></td><td valign="top">Follower.</td></tr><tr><td valign="top"><code>nso-c</code></td><td valign="top"><code>nso-c.example.org</code></td><td valign="top">Follower.</td></tr></tbody></table>
+
+Each node uses the same `cluster-name` and seed-node list, but a different `node-address` and certificate/key pair. After the nodes are started, initialize the cluster on the node that should become the initial leader and then configure HCC on the leader:
+
+```bash
+admin@ncs# ha-raft create-cluster member [ nso-b.example.org nso-c.example.org ]
+admin@ncs# show ha-raft
+ha-raft status role leader
+ha-raft status leader nso-a.example.org
+ha-raft status member [ nso-a.example.org nso-b.example.org nso-c.example.org ]
+ha-raft status connected-node [ nso-b.example.org nso-c.example.org ]
+...
+admin@ncs(config)# hcc enabled
+admin@ncs(config)# hcc vip 192.0.2.100
+admin@ncs(config)# commit
+```
+
+In steady state, the expected status is:
+
+<table><thead><tr><th width="127" valign="top">Node</th><th width="286" valign="top">State</th><th valign="top">VIP state</th></tr></thead><tbody><tr><td valign="top"><code>nso-a</code></td><td valign="top"><code>role leader</code></td><td valign="top">HCC binds the VIP on the leader.</td></tr><tr><td valign="top"><code>nso-b</code></td><td valign="top"><code>role follower</code></td><td valign="top">No VIP is bound on the follower.</td></tr><tr><td valign="top"><code>nso-c</code></td><td valign="top"><code>role follower</code></td><td valign="top">No VIP is bound on the follower.</td></tr></tbody></table>
+
+#### **HA Events in a Three-Node HA Raft Cluster**
+
+<table><thead><tr><th width="184" valign="top">HA event</th><th width="286" valign="top">State change</th><th width="147" valign="top">VIP state</th><th valign="top">Manual action</th></tr></thead><tbody><tr><td valign="top">One follower is shut down or loses connectivity</td><td valign="top">The cluster still has quorum.<br>The leader raises <code>ha-secondary-down</code> for the lost follower and remains <code>leader</code> while the remaining peer stays <code>follower</code>.<br>The down node is absent from <code>connected-node</code>.</td><td valign="top">The VIP remains bound on the current leader.</td><td valign="top">No action required.</td></tr><tr><td valign="top">The stopped or disconnected follower returns</td><td valign="top">The previous <code>ha-secondary-down</code> alarm clears when connectivity is restored.<br>The returning node rejoins as <code>follower</code> and catches up automatically from the leader.</td><td valign="top">The VIP remains bound on the current leader.</td><td valign="top">No action required.</td></tr><tr><td valign="top">The leader is shut down or loses connectivity, but the two remaining nodes can still reach each other</td><td valign="top">The remaining quorum elects a new <code>leader</code> and the other surviving node becomes or remains <code>follower</code>.<br>One of the surviving nodes raises <code>ha-primary-down</code> for the lost leader.<br>Writes continue on the new leader.</td><td valign="top">The VIP moves to the newly elected leader.</td><td valign="top">No action required.</td></tr><tr><td valign="top">The former leader returns after failover</td><td valign="top">Any earlier <code>ha-primary-down</code> alarm clears when connectivity to the former leader is restored.<br>The old leader rejoins as <code>follower</code> and catches up automatically.<br>The current leader remains <code>leader</code>.</td><td valign="top">The VIP remains bound on the current leader.</td><td valign="top">No action required.</td></tr><tr><td valign="top">One node is isolated from the other two by a network partition</td><td valign="top">The two-node side still has quorum and keeps or elects a leader.<br>If the isolated node was a follower, the leader on the majority side raises <code>ha-secondary-down</code>.<br>If the isolated node was the leader, one of the surviving nodes raises <code>ha-primary-down</code> before or during leader re-election.<br>The isolated node cannot make durable progress and rejoins as a <code>follower</code> once it learns of the higher term after connectivity is restored.</td><td valign="top">The VIP follows the leader on the majority side.</td><td valign="top">No action required if connectivity is restored cleanly.</td></tr><tr><td valign="top">The leader loses quorum because both other members are unavailable or unreachable</td><td valign="top">The cluster cannot commit new writes without a majority.<br>On the isolated leader, write attempts will block or fail, <code>ha-raft-quorum-lost</code> is raised, and the node transition to <code>disabled</code>.<br>Once enough members reconnect, one node can become leader again.</td><td valign="top">Do not rely on the VIP for write traffic until quorum is restored and a stable leader exists again.</td><td valign="top">Restore quorum first. If a node remains <code>disabled</code>, inspect <code>/ha-raft/status/disable-reason</code> and invoke <code>/ha-raft/reset</code> after resolving the underlying cause.</td></tr></tbody></table>
+
+As in HA Raft generally, leader election among the surviving quorum members is not deterministic. If you want the cluster to return to a preferred leader after recovery, use `ha-raft handover` once the cluster is healthy again.
+
 ### Migrating From Existing Rule-based HA <a href="#d5e4714" id="d5e4714"></a>
 
 If you have an existing HA cluster using the rule-based built-in HA, you can migrate it to use HA Raft instead. This procedure is performed in four distinct high-level steps:
@@ -607,6 +638,51 @@ $ bin/verify-cert n2
 
 Executing these commands creates a directory named `ca-...` that holds all the certificate and auxiliary data, allowing you to renew or export certificates again. There are a number of other operations available too, see [$NCS_DIR/examples.ncs/high-availability/ca/README.md](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/ca/README.md) for details.
 
+### Two-Node Example with HCC VIP <a href="#ug.ha.builtin.twonode" id="ug.ha.builtin.twonode"></a>
+
+The following example summarizes a common two-node rule-based HA deployment together with HCC layer-2 VIP management. It applies to one nominal primary node and one nominal secondary node configured as `failover-primary`.
+
+The two nodes must also share the same HA token. The example below uses generic addresses and a single VIP:
+
+```bash
+high-availability token <same-token-on-both-nodes>
+high-availability ha-node nso-a
+ address 192.0.2.10
+ nominal-role primary
+!
+high-availability ha-node nso-b
+ address 192.0.2.11
+ nominal-role secondary
+ failover-primary true
+!
+high-availability settings enable-failover true
+high-availability settings reconnect-secondaries true
+high-availability settings start-up assume-nominal-role true
+high-availability settings start-up join-ha true
+high-availability settings reconnect-interval 5
+high-availability settings reconnect-attempts 3
+hcc enabled
+hcc vip-address [ 192.0.2.100 ]
+```
+
+For the consensus-enabled cases in the first table, set `/high-availability/settings/consensus/enabled` to `true` and `/high-availability/settings/consensus/algorithm` to `ncs:rule-based`. For the consensus-disabled cases in the second table, set `/high-availability/settings/consensus/enabled` to `false`.
+
+In steady state, the expected status is:
+
+<table><thead><tr><th width="127" valign="top">Node</th><th width="276" valign="top">State</th><th valign="top">VIP state</th></tr></thead><tbody><tr><td valign="top"><code>nso-a</code></td><td valign="top"><code>mode primary</code>, <code>assigned-role primary</code>, <code>read-only-mode false</code></td><td valign="top">HCC binds the VIP on <code>nso-a</code>.</td></tr><tr><td valign="top"><code>nso-b</code></td><td valign="top"><code>mode secondary</code>, <code>assigned-role secondary</code>, <code>read-only-mode false</code></td><td valign="top">No VIP is bound on <code>nso-b</code>.</td></tr></tbody></table>
+
+#### **HA Events with Consensus Enabled**
+
+With consensus enabled, some two-node failure cases deliberately reduce availability in order to avoid split brain and protect data consistency.
+
+<table><thead><tr><th width="175" valign="top">HA event</th><th width="281" valign="top">State change</th><th width="154" valign="top">VIP state</th><th valign="top">Manual action</th></tr></thead><tbody><tr><td valign="top">Secondary node is shut down or lost</td><td valign="top"><code>nso-a</code> raises <code>ha-secondary-down</code> and changes from <code>primary</code> to <code>none</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> is unavailable.</td><td valign="top">No node has the VIP bound because there is no current primary.</td><td valign="top">If service must continue before <code>nso-b</code> returns, promote <code>nso-a</code> with <code>/high-availability/be-primary</code>.</td></tr><tr><td valign="top">Secondary node returns while no node is primary</td><td valign="top">The previous <code>ha-secondary-down</code> alarm clears when connectivity is restored.<br><code>nso-a</code> stays in <code>none</code>.<br><code>nso-b</code> retries according to the reconnect settings and then also settles in <code>none</code>.</td><td valign="top">The VIP remains unbound.</td><td valign="top">Select one node to become primary with <code>/high-availability/be-primary</code>, then use <code>/high-availability/be-secondary-to</code> on the other node.</td></tr><tr><td valign="top">Secondary node returns after the surviving node has been promoted back to primary</td><td valign="top">The previous <code>ha-secondary-down</code> alarm clears.<br><code>nso-a</code> remains <code>primary</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> joins as <code>secondary</code>.</td><td valign="top">The VIP is bound on <code>nso-a</code>.</td><td valign="top">No action required.</td></tr><tr><td valign="top">Primary node is shut down or lost</td><td valign="top"><code>nso-a</code> is unavailable.<br><code>nso-b</code> raises <code>ha-primary-down</code>, retries, and then becomes <code>primary</code> with <code>read-only-mode true</code>.</td><td valign="top">The VIP moves to <code>nso-b</code>.</td><td valign="top">If write access must resume before another secondary joins, clear the administrator-configured read-only mode with <code>/ncs-state/set-read-only mode false</code>.</td></tr><tr><td valign="top">Network partition between the nodes</td><td valign="top">No split brain occurs.<br><code>nso-a</code> raises <code>ha-secondary-down</code> and changes to <code>none</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> raises <code>ha-primary-down</code> and becomes <code>primary</code> with <code>read-only-mode true</code>.</td><td valign="top">The VIP is bound on <code>nso-b</code>.</td><td valign="top">Pick the node that should remain primary, promote it if needed, clear administrator-configured read-only mode if needed, and rejoin the other node with <code>/high-availability/be-secondary-to</code>.</td></tr></tbody></table>
+
+#### **HA Events with Consensus Disabled**
+
+With consensus disabled, the two-node setup favors availability during ordinary failover, but a network partition can lead to split brain.
+
+<table><thead><tr><th width="175" valign="top">HA event</th><th width="281" valign="top">State change</th><th width="154" valign="top">VIP state</th><th valign="top">Manual action</th></tr></thead><tbody><tr><td valign="top">Primary node is shut down or lost</td><td valign="top"><code>nso-a</code> is unavailable.<br><code>nso-b</code> raises <code>ha-primary-down</code>, retries, and then becomes <code>primary</code> with <code>read-only-mode false</code>.</td><td valign="top">The VIP moves to <code>nso-b</code>.</td><td valign="top">No action required.</td></tr><tr><td valign="top">Former primary returns after failover</td><td valign="top">The previous <code>ha-primary-down</code> alarm clears.<br><code>nso-a</code> looks for the current primary and rejoins as <code>secondary</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> remains <code>primary</code>.</td><td valign="top">The VIP remains bound on <code>nso-b</code>.</td><td valign="top">No action required.</td></tr><tr><td valign="top">Secondary node is shut down or lost while the primary remains available</td><td valign="top"><code>nso-a</code> raises <code>ha-secondary-down</code> and stays <code>primary</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> is unavailable.</td><td valign="top">The VIP remains bound on <code>nso-a</code>.</td><td valign="top">No action required.</td></tr><tr><td valign="top">Secondary node returns</td><td valign="top">The previous <code>ha-secondary-down</code> alarm clears.<br><code>nso-a</code> stays <code>primary</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> reconnects and becomes <code>secondary</code> with <code>read-only-mode false</code>.</td><td valign="top">The VIP remains bound on <code>nso-a</code>.</td><td valign="top">No action required.</td></tr><tr><td valign="top">Network partition between the nodes</td><td valign="top">Split brain occurs.<br><code>nso-a</code> raises <code>ha-secondary-down</code> and remains <code>primary</code> with <code>read-only-mode false</code>.<br><code>nso-b</code> raises <code>ha-primary-down</code> and also becomes <code>primary</code> with <code>read-only-mode false</code>.</td><td valign="top">Both nodes can bind the same VIP until the split brain is resolved.</td><td valign="top">Manual recovery is required. Choose the authoritative primary, avoid further writes on the other node, and reconnect that node as a secondary with <code>/high-availability/be-secondary-to</code>.</td></tr></tbody></table>
+
 ## Tail-f HCC Package <a href="#ug.ha.hcc" id="ug.ha.hcc"></a>
 
 The Tail-f HCC package extends the built-in HA functionality by providing virtual IP addresses (VIPs) that can be used to connect to the NSO HA group primary node. HCC ensures that the VIP addresses are always bound by the HA group primary and never bound by a secondary. Each time a node transitions between primary and secondary states HCC reacts by binding (primary) or unbinding (secondary) the VIP addresses.
@@ -736,6 +812,28 @@ admin@ncs(config)# hcc vip 192.168.123.22
 admin@ncs(config)# hcc vip 2001:db8::10
 admin@ncs(config)# commit
 ```
+#### **VIP Behavior in Three-Node Raft-based HA**
+
+In the three-node HA Raft example in [NSO HA Raft](high-availability.md#ch_ha.raft.threenode), HCC layer-2 VIP ownership follows the node that currently has <code>role leader</code>:
+
+* Steady state: the VIP is bound on the current leader only.
+* One follower down or returning: the VIP stays on the same leader.
+* Leader failover with the remaining two nodes still connected: the VIP moves to the newly elected leader.
+* One node isolated from the other two: the VIP follows the leader on the majority side, while the isolated node eventually rejoins as a follower.
+* Complete quorum loss: do not rely on the VIP for writes until quorum is restored and the cluster has a stable leader again.
+* If a follower briefly disconnects and the same node remains leader, HCC keeps the VIP on that same leader.
+
+If a failover leaves leadership on a different node than you prefer, use `ha-raft handover` after the cluster has recovered to move the VIP back together with leadership.
+
+#### **VIP Behavior in Two-Node Rule-based HA**
+
+In the two-node rule-based HA example in [NSO Rule-based HA](high-availability.md#ug.ha.builtin.twonode), HCC layer-2 VIP ownership follows the node that currently has <code>mode primary</code>:
+
+* Steady state: the VIP is bound on the nominal primary only.
+* Consensus enabled, nominal primary changes to <code>none</code>: no node owns the VIP, so HCC unbinds it.
+* Consensus enabled, failover-primary takes over: the VIP moves to the failover-primary node, which may still be administrator-configured read-only.
+* Consensus disabled, ordinary failover: the VIP moves to the surviving primary and stays there when the failed node returns as a secondary.
+* Consensus disabled, network partition: both nodes may end up in <code>primary</code> mode and both may bind the same VIP until the split brain is manually resolved.
 
 ### Layer-3 BGP <a href="#ug.ha.hcc.layer3" id="ug.ha.hcc.layer3"></a>
 
