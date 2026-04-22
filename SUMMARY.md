@@ -99,6 +99,7 @@
     * [NSO NETCONF Server](development/core-concepts/northbound-apis/nso-netconf-server.md)
     * [RESTCONF API](development/core-concepts/northbound-apis/restconf-api.md)
     * [NSO SNMP Agent](development/core-concepts/northbound-apis/nso-snmp-agent.md)
+    * [NSO MCP Server](development/core-concepts/northbound-apis/nso-mcp-server.md)
 * [Advanced Development](development/advanced-development/README.md)
   * [Development Environment and Resources](development/advanced-development/development-environment-and-resources.md)
   * [Developing Services](development/advanced-development/developing-services/README.md)

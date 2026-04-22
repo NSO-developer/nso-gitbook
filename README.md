@@ -189,3 +189,15 @@ Documentation Updates:
 * Updated the Web UI documentation for general improvements.
 
 </details>
+
+<details>
+
+<summary>Adaptive MCP Server</summary>
+
+NSO now includes the Cisco NSO Adaptive MCP Server, delivered as an NSO package. The MCP server provides a standard way for MCP-compatible AI assistants and clients to interact with NSO by exposing selected NSO data and operations through MCP resources, tools, and prompts.
+
+Documentation Updates
+
+* Added new [NSO MCP Server](development/core-concepts/northbound-apis/nso-mcp-server.md) guide under Northbound APIs.
+
+</details>
