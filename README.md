@@ -43,7 +43,7 @@ A quick look at NSO and how it fits into the Cisco Crosswork suite:
 
 ### Explore What's New in NSO
 
-{% embed url="https://nso-docs.cisco.com/guides/whats-new" %}
+{% embed url="https://nso-docs.cisco.com/guides" %}
 
 ### Start Exploring NSO
 
