@@ -4,7 +4,7 @@ icon: hands-clapping
 cover: .gitbook/assets/gb-cover-final.png
 coverY: -6.8595670175965076
 layout:
-  width: wide
+  width: default
   cover:
     visible: true
     size: hero
@@ -26,8 +26,7 @@ layout:
 
 # Welcome
 
-| [**Cisco Crosswork NSO**](https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html) is a premier orchestration tool for hybrid networks. As a Linux-based application, it allows detailed control of network devices and can manage the configuration of both physical and virtual networks. It automates lifecycle services to help you create and deliver quality services more quickly. |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+[**Cisco Crosswork NSO**](https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/network-services-orchestrator/network-orchestrator-so.html) is a premier orchestration tool for hybrid networks. As a Linux-based application, it allows detailed control of network devices and can manage the configuration of both physical and virtual networks. It automates lifecycle services to help you create and deliver quality services more quickly.
 
 <details>
 
