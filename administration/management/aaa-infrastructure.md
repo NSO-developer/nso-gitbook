@@ -408,7 +408,7 @@ MFA is supported by External and Package Authentication (preferred). To configur
 When an authentication method responds with a challenge and user provides a response, NSO invokes the challenge script associated with that authentication method.
 
 {% hint style="info" %}
-#### Deprecated Configuration
+**Deprecated Configuration**
 
 The configuration option `/ncs-config/aaa/challenge-order` is deprecated and, if present, will be ignored at runtime. Challenge handling is instead tied directly to the authentication method being attempted. NSO does not select or order challenge mechanisms independently of authentication method.
 {% endhint %}
@@ -481,7 +481,7 @@ The configuration of the SSH client used may need to be given the option to allo
 
 If external authentication is configured, NSO will invoke the executable configured in `/ncs-config/aaa/external-challenge/executable` in `ncs.conf` , and pass the challenge ID and response on `stdin` using the string notation: `"[challenge-id;response;]\n"`.
 
-For example, a user `bob` has received a challenge during external authentication and attempts to log in over JSON-RPC with a response to the challenge using challenge ID `"22efa"`  with response `"ae457b"`. The external challenge mechanism is enabled and NSO invokes the configured executable, writing `"[22efa;ae457b;]\n"` on the `stdin` stream for the executable.
+For example, a user `bob` has received a challenge during external authentication and attempts to log in over JSON-RPC with a response to the challenge using challenge ID `"22efa"` with response `"ae457b"`. The external challenge mechanism is enabled and NSO invokes the configured executable, writing `"[22efa;ae457b;]\n"` on the `stdin` stream for the executable.
 
 The task of the executable is then to validate the challenge ID, and response combination, thereby authenticating the user and also establishing the username and username-to-groups mapping.
 
@@ -536,7 +536,7 @@ There is also support for token variations of `"accept_info"` and `"accept_warni
 
 If authentication fails, the program should write `"reject"` or `"abort"`, possibly followed by a reason for the rejection and a trailing newline. For example `"reject Bad challenge response\n"` or just `"abort\n"`.
 
-The difference between `"reject"` and `"abort"` is that with `"reject"`, NSO proceeds with the next authentication method configured in `/ncs-config/aaa/auth-order`  (if any), while with `"abort"`, the challenge-response authentication fails immediately. Thus, `"abort"` can prevent subsequent mechanisms from being tried.
+The difference between `"reject"` and `"abort"` is that with `"reject"`, NSO proceeds with the next authentication method configured in `/ncs-config/aaa/auth-order` (if any), while with `"abort"`, the challenge-response authentication fails immediately. Thus, `"abort"` can prevent subsequent mechanisms from being tried.
 
 ### Package Authentication <a href="#ug.aaa.packageauth" id="ug.aaa.packageauth"></a>
 
@@ -642,17 +642,13 @@ The fields `challengeid` and `response` are base64 encoded when passed to the sc
 
 ## Authenticating IPC Access
 
-NSO communicates with clients (Python and Java client libraries, `ncs_cli`, `netconf-subsys`, and others) using the NSO IPC socket. The protocol used allows the client to provide user and group information to use for authorization in NSO, effectively delegating authentication to the client.
+NSO communicates with clients (Python and Java client libraries, `ncs_cli`, `netconf-subsys`, and others) using the NSO IPC socket. By default, only local connections to the IPC socket are allowed and clients are authenticated based on their Unix UID.
 
-By default, only local connections to the IPC socket are allowed. If all local clients are considered trusted, the socket can provide unauthenticated access, with the client-supplied user name. This is what the `--user` option of `ncs_cli` does. For example, the following connects to NSO as user `admin`.
+If the client is trusted (the UID-based authentication is not used), the IPC protocol allows the client to supply user and group information to use for authorization in NSO. Effectively, this delegates the authentication to the client and enables the `ncs_cli` and similar commands to support the `--user` and `--groups` options. For example, the following command connects to NSO as user `admin` when it is run as the same Unix user as NSO:
 
 ```bash
 ncs_cli --user admin
 ```
-
-The same is possible for the group. This unauthenticated access is currently the default.
-
-The main condition here is that all clients connecting to the socket are trusted to use the correct user and group information. That is often not the case, such as untrusted users having shell access to the host to run `ncs_cli` or otherwise initiate local connections to the IPC socket. Then access to the socket must be restricted.
 
 In general, authenticating access to the IPC socket is a security best practice and should always be used. NSO uses Unix domain sockets for IPC by default, and authenticates the client based on the UID of the other end of the socket connection. Alternatively, the system can be configured to use TCP sockets. In this case, the system should be configured to use an access check, where every IPC client must prove that it has access to a pre-shared key. See [Restricting Access to the IPC Socket](../advanced-topics/ipc-connection.md#restricting-access-to-the-ipc-socket) on how to enable it.
 

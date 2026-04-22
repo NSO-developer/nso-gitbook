@@ -16,9 +16,9 @@ To run more than one instance of NSO on the same host (which can be useful in de
 
 ## Restricting Access to the IPC Socket
 
-By default, clients connecting to the IPC socket are considered trusted, i.e., there is no authentication required. Since NSO uses Local IPC by default, the system relies on Unix filesystem permissions on the socket path to prevent unauthorized access. In case this is not sufficient, such as when untrusted users have shell access on the system where NSO runs, it is possible to further restrict the access to the IPC socket.
+By default, NSO uses Local IPC (Unix domain sockets) and relies on Unix filesystem permissions on the socket path to prevent unauthorized access. In case this is not sufficient, such as when using TCP IPC or untrusted users have shell access on the system where NSO runs, it is possible to further restrict the access to the IPC socket.
 
-When using Unix domain sockets (Local IPC), you can leverage Unix filesystem permissions for the socket path to limit which OS users and groups can initiate connections to the socket. NSO may also perform additional authentication of the connecting users based on their UID; see [Authenticating IPC Access](../management/aaa-infrastructure.md#authenticating-ipc-access).
+For Local IPC, you can leverage Unix filesystem permissions for the socket path to limit which OS users and groups can initiate connections to the socket. NSO may also perform additional authentication of the connecting users based on their UID; see [Authenticating IPC Access](../management/aaa-infrastructure.md#authenticating-ipc-access).
 
 For TCP sockets, you can enable an access check by setting the `ncs.conf` element `/ncs-config/ncs-ipc-access-check/enabled` to `true`, and specifying a filename for `/ncs-config/ncs-ipc-access-check/filename`. The file should contain a shared secret, i.e., a random (printable ASCII) character string. Clients connecting to the IPC socket will then be required to prove that they have knowledge of the secret through a challenge handshake before they are allowed access to the NSO functions provided via the IPC socket.
 

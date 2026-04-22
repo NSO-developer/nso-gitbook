@@ -48,6 +48,20 @@ Documentation Updates:
 
 <details>
 
+<summary>Compliance XML Templates</summary>
+
+A new type of compliance template is introduced: compliance template specified as an XML file, that lives as part of a package or individually, under a dedicated load-directory.
+
+The new template has enhanced flexibility by the use of processing instructions, similar to a service template. It supports more sophisticated use cases by allowing for easier integration with multiple NED-IDs and incorporating conditional if-else statements.
+
+Documentation Updates:
+
+* Added a new section [XML Compliance Templates](operation-and-usage/operations/compliance-reporting.md#xml-compliance-templates) to [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md).
+
+</details>
+
+<details>
+
 <summary>Changes to CDB Persistence Mode</summary>
 
 From NSO 6.7, the default CDB persistence mode has been set to `on-demand-v1`, instead of the `in-memory-v1` mode, which has also been deprecated. If you're upgrading to NSO 6.7, the `on-demand-v1` mode will become the new default. Read more about the change in the documentation.
@@ -67,6 +81,21 @@ MFA handling is now tied directly to the authentication method being attempted. 
 Documentation Updates:
 
 * Updated the [Multi-Factor Authentication](administration/management/aaa-infrastructure.md#ug.aaa.external_challenge) documentation in [AAA Infrastructure](administration/management/aaa-infrastructure.md) to cover new changes.
+
+</details>
+
+<details>
+
+<summary>Secure Local IPC</summary>
+
+NSO now uses a more secure, Unix-domain-sockets-based IPC by default. It is used for internal communication between NSO server components.
+
+Built-in components use this IPC mechanism automatically but Java and Python code in custom packages might need an update, depending on the SDK functions used for establishing connection to the NSO. See e.g. [Java API Overview](development/core-concepts/api-overview/java-api-overview.md) for example code using local IPC for connections.
+
+Documentation Updates:
+
+* Updated [IPC Connection](administration/advanced-topics/ipc-connection.md) and [Authenticating IPC Access](administration/management/aaa-infrastructure.md#authenticating-ipc-access) with the new default.
+* Updated code snippets throughout the documentation to use the new IPC mechanism where applicable.
 
 </details>
 
