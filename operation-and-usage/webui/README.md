@@ -77,13 +77,3 @@ To review available configuration changes:
 3. Press **Validate** to check for errors. All changes must be validated before they can be committed.
 4. Click **Revert** to undo or **Commit** to confirm the changes in the transaction.
 5. If you are committing a change, **Commit Settings** are shown after pressing **Commit**. Examples of commit settings include: **No revision drop**, **No deploy**, **No networking**, etc. Commit options are described in detail in the JSON-RPC API documentation under [Methods - transaction - commit changes](../../development/advanced-development/web-ui-development/json-rpc-api.md#methods-transaction-commit-changes).
-
-## AI Assistant
-
-The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line">) displayed in the UI header.
-
-{% hint style="info" %}
-**Administrative Info on Enabling the AI Assistant**
-
-The AI Assistant is enabled by use of a package. After installing the AI Assistant package, configure which backend to use under `/ai-assistant:ai-assistant/config` and enable it by setting `/ai-assistant:ai-assistant/enabled` to `true`. In the Web UI, the setting is accessible from the Config Editor. Once enabled, the AI Assistant button is added to the Web UI header.
-{% endhint %}
