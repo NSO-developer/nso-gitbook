@@ -54,6 +54,8 @@ A new type of compliance template is introduced: compliance template specified a
 
 The new template has enhanced flexibility by the use of processing instructions, similar to a service template. It supports more sophisticated use cases by allowing for easier integration with multiple NED-IDs and incorporating conditional if-else statements.
 
+Additionally, compliance reports can now re-check the violating items when used with the `re-run` action.
+
 Documentation Updates:
 
 * Added a new section [XML Compliance Templates](operation-and-usage/operations/compliance-reporting.md#xml-compliance-templates) to [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md).
@@ -114,6 +116,43 @@ Documentation Updates:
 
 <details>
 
+<summary>Service Bulk Actions</summary>
+
+To facilitate operation at scale, with many service instances of differing type, bulk `check-sync`, `re-deploy`, and `un-deploy` actions were added under `/services`. These action invoke the corresponding service-management action on a number of service instances, such as all services of a given type or matching an XPath expression.
+
+Documentation Updates:
+
+* Added section [Bulk Service Actions](operation-and-usage/operations/managing-network-services.md#bulk-service-actions) in [Manage Network Services](operation-and-usage/operations/managing-network-services.md).
+* Added section [Bulk Service Actions](operation-and-usage/operations/lifecycle-operations.md#bulk-service-actions) in [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md).
+
+</details>
+
+<details>
+
+<summary>Dry-run Drift Detection</summary>
+
+The new feature helps prevent unintended changes from being committed. If there are additional changes introduced between `commit dry-run` and the final `commit`, the system warns and prompts the user on how to proceed. Dry-run drift detection is available in NSO CLI and JSON-RPC.
+
+Documentation Updates:
+
+* Added section [Dry-run Drift Detection](operation-and-usage/operations/lifecycle-operations.md#dry-run-drift-detection) in [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md).
+
+</details>
+
+<details>
+
+<summary>Memory Monitoring</summary>
+
+NSO 6.7 tracks additional memory metrics, which can be used to detect memory trends or take corrective action, such as a debug dump or raising an alarm.
+
+Documentation Updates:
+
+* Updated [Containerized NSO](administration/installation-and-deployment/containerized-nso.md) and [System Install](administration/installation-and-deployment/system-install.md) with the recommended Memory Monitoring setup.
+
+</details>
+
+<details>
+
 <summary>OpenID Connect Support for Single Sign-On</summary>
 
 The `cisco-nso-oidc-auth` package is now available as part of the NSO distribution, implementing OpenID Connect (OIDC) as an authentication protocol for Single Sign-On (SSO).
@@ -122,6 +161,18 @@ Documentation Updates:
 
 * Documented the new authentication package in `$NCS_DIR/packages/auth/cisco-nso-oidc-auth/README.md`
 * Added the [examples.ncs/aaa/oidc-auth](https://github.com/NSO-developer/nso-examples/tree/6.7/aaa/oidc-auth) example.
+
+</details>
+
+<details>
+
+<summary>Improve <code>live-status</code> Reads with Read Intent</summary>
+
+Reading device's `live-status` data can trigger individual requests to the device when requested data is not cached. The new read-intent set of functions gives a MAAPI user an option to announce the need for required data before-hand, allowing NSO to optimize device roundtrips.
+
+Documentation Updates:
+
+* Added Fetch bulk live-status via MAAPI to [Java API Overview](development/core-concepts/api-overview/java-api-overview.md) and [Python API Overview](development/core-concepts/api-overview/python-api-overview.md).
 
 </details>
 
