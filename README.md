@@ -15,7 +15,7 @@ This release includes major enhancements in the following areas:
 
 <details>
 
-<summary>Telemetry: Subscribing to Device Datastore Updates</summary>
+<summary>Southbound Datastore Subscriptions</summary>
 
 Protocols, such as YANG-Push (RFC 8641), define a mechanism for applications to receive continuous updates of the target datastore, avoiding the need to frequently poll the remote system for latest data.
 
