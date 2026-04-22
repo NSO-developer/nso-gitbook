@@ -60,5 +60,3 @@ Anytime a configuration is changed in the Web UI (such as a device or service co
 ## Commit Manager <a href="#d5e5718" id="d5e5718"></a>
 
 The Commit Manager is accessible at all times from the UI header. A number, corresponding to the number of changes in a transaction, is displayed next to the Commit Manager icon when changes are available for review. For certain action, it is possible to skip the Commit Manager review and apply the changes directly. Working with the Commit Manager is described further in [Tools](tools.md).
-
-The WebUI integrates an AI Assistant to enhance your interaction and experience of NSO. The availability of the AI Assistant is controlled by your administrator and indicated by the AI Assistant icon (<img src="../../.gitbook/assets/ai-assistant.png" alt="" data-size="line">) displayed in the UI header.
