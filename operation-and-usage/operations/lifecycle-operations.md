@@ -54,8 +54,6 @@ The shared commit parameters are:
   The `sync` container accepts either `timeout` or `infinity`.
   The `lock`, `block-others`, `atomic`, and `error-option` leafs control the resulting queue item.
   See [Commit Queue](nso-device-manager.md#user_guide.devicemanager.commit-queue) for details and error-recovery behavior.
-* `trace-id`: Legacy trace identifier support as a commit parameter.
-  Prefer Trace Context where available.
 
 Some combinations of parameters are not allowed. For example, `dry-run` cannot be combined with `no-overwrite`, `no-out-of-sync-check`, or `commit-queue`, and `use-lsa` cannot be combined with `no-lsa`.
 
