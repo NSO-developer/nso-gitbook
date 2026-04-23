@@ -96,9 +96,7 @@ tracestate: key1=value1,key2=value2
 
 Where, a value may contain space characters but not end with a space.
 
-NSO implements Trace Context alongside the legacy way of handling `trace-id` as a commit parameter to `validate_commit`. These two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response.
-
-NSO will consider the headers of Trace Context in JSON-RPC requests if the element `<trace-id>true</trace-id>` is set in the logs section of the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
+Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
 
 The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
 
