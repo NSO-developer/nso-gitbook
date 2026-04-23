@@ -4,7 +4,7 @@ description: Migrate from Resource Manager 4.x to 5.
 
 # Upgrade from 4.x
 
-Resource Manager 5.0 introduces the `find-id` and `find-ip` actions and thus no longer requires committing the allocation request before a resource is assigned. This approach makes the allocation process fully synchronous, greatly simplifying operation and integration with application code.
+Resource Manager 5 introduces the `find-id` and `find-ip` actions and thus no longer requires committing the allocation request before a resource is assigned. This approach makes the allocation process fully synchronous, greatly simplifying operation and integration with application code.
 
 However, this change is not backward compatible with existing application/service code:
 

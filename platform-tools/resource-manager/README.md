@@ -3,7 +3,7 @@ description: Manage resource allocation in NSO.
 icon: scanner-touchscreen
 ---
 
-# Resource Manager (5.0)
+# Resource Manager (5.1)
 
 The NSO Resource Manager implements assignment of individual resources, such as VLAN numbers or IP addresses, from a pool of values defined in NSO. Since the implementation and pool definitions live in NSO, it presents a simple, lightweight alternative to integrating with external purpose-built systems.
 
@@ -13,7 +13,7 @@ The package provides support for management of two types of resources out of the
 * [ip-allocator.md](ip-allocator.md "mention") for managing IP addresses and prefixes.
 
 {% hint style="info" %}
-The latest version of NSO Resource Manager is 5.0. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
+The latest version of NSO Resource Manager is 5.1. It is recommended to always upgrade to the latest version of the package to access new features and stay up to date with security updates.
 {% endhint %}
 
 ## Introduction <a href="#d5e17" id="d5e17"></a>
@@ -138,7 +138,7 @@ resource-pools id-pool vlans
 
 The Resource Manager is designed to be safe for use in High Availability NSO setups.
 
-Since version 5.0, it uses a purely synchronous interface, allowing for simple usage directly from service create callbacks.
+Since version 5, it uses a purely synchronous interface, allowing for simple usage directly from service create callbacks.
 
 Using the programmatic API requires that a service package references the Resource Manager code. This is achieved by specifying the Resource Manager as a required package in the `package-meta-data.xml` file:
 

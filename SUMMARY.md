@@ -4,10 +4,11 @@
 
 * [Observability Exporter](README.md)
 * [Phased Provisioning](platform-tools/phased-provisioning.md)
-* [Resource Manager (5.0)](platform-tools/resource-manager/README.md)
+* [Resource Manager (5.1)](platform-tools/resource-manager/README.md)
   * [ID Allocator](platform-tools/resource-manager/id-allocator.md)
   * [IP Address Allocator](platform-tools/resource-manager/ip-allocator.md)
   * [Upgrade from 4.x](platform-tools/resource-manager/upgrade-from-4x.md)
+  * [Errata (5.1)](platform-tools/resource-manager/errata-5.1.md)
 * [Resource Manager (4.x)](platform-tools/resource-manager-4/README.md)
   * [Resource Manager API Guide (4.x)](platform-tools/resource-manager-4/resource-manager-api-guide.md)
 * [NSO Developer Studio](platform-tools/nso-developer-studio.md)
