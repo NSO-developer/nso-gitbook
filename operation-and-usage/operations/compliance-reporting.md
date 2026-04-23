@@ -447,6 +447,8 @@ check-result {
 
 To simplify template creation, NSO features the `/compliance/create-template` action that can initiate a compliance template from a set of device configurations or an existing device template. The resulting template can be used as-is or as a starting point for further refinement. For example:
 
+In addition to extracting patterns from configuration already present in NSO or from an existing device template, the action can also consume configuration snippets directly. Snippets can be supplied either from a file on the NSO server filesystem or as inline payload data. Supported formats are NETCONF-style XML wrapped in a `<config>` element, Cisco XR style CLI (`cli-c`), Juniper curly-brace CLI (`cli-j`), and Juniper set commands (`cli-j-cmd`). Delete operations in the input, such as Cisco-style `no` commands or XML `operation="remove"` attributes, are translated into `absent` tags in the generated compliance template.
+
 {% code overflow="wrap" %}
 ```bash
 admin@ncs(config)# show full-configuration devices template use-internal-dns
