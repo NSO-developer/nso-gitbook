@@ -187,11 +187,11 @@ The MCP server is configured through the `cisco-nso-mcp` YANG module under the `
 
 Key configuration parameters include:
 
-| Parameter                 | Type        | Default      | Description                                      |
-| ------------------------- | ----------- | ------------ | ------------------------------------------------ |
-| `enabled`                 | boolean     | `true`       | Enable or disable the MCP server                 |
-| `logging/level`           | enumeration | `info`       | Log level                                        |
-| `policies/default-action` | enumeration | `restricted` | Behavior when no rule matches                    |
+| Parameter                 | Type        | Default      | Description                                       |
+| ------------------------- | ----------- | ------------ | ------------------------------------------------- |
+| `enabled`                 | boolean     | `true`       | Enable or disable the MCP server                  |
+| `logging/level`           | enumeration | `info`       | Log level                                         |
+| `policies/default-action` | enumeration | `restricted` | Behavior when no rule matches                     |
 | `policies/rule`           | list        | none         | Ordered permit or deny rules by path or namespace |
 
 ## Policy Rules
@@ -260,9 +260,10 @@ A typical setup flow is:
 2. Place the package in the NSO packages directory if required by your deployment workflow.
 3. Build and load the package.
 4. Reload NSO packages, for example by using the NSO CLI command `packages reload`.
-5. Verify that the package is operational.
-6. Review and adjust `mcp-server` configuration as needed.
-7. Connect an MCP-compatible client to the `/mcp` endpoint by using NSO authentication.
+5. Restart NSO with the `--with-package-reload` option.
+6. Verify that the package is operational.
+7. Review and adjust `mcp-server` configuration as needed.
+8. Connect an MCP-compatible client to the `/mcp` endpoint by using NSO authentication.
 
 ## Connecting an MCP Client
 
