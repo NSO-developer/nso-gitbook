@@ -64,6 +64,20 @@ Documentation Updates:
 
 <details>
 
+<summary>Template Creation from Configuration Snippets</summary>
+
+The `create-template` actions under `/devices`, `/services`, and `/compliance` can now consume configuration snippets directly, in addition to extracting templates from configuration already present in NSO. Snippets can be supplied either from a file on the NSO server filesystem or as inline payload data, using NETCONF-style XML wrapped in a `<config>` element, Cisco XR style CLI (`cli-c`), Juniper curly-brace CLI (`cli-j`), or Juniper set commands (`cli-j-cmd`).
+
+Delete operations in the input, such as Cisco-style `no` commands or XML `operation="remove"` attributes, are preserved in the generated output. NSO translates them into `delete` tags in device and service templates, and into `absent` tags in compliance templates. This makes it easier to turn existing golden configurations, hardening snippets, and similar configuration samples into reusable templates.
+
+Documentation Updates:
+
+* Updated [Templates](development/core-concepts/templates.md), [NSO Device Manager](operation-and-usage/operations/nso-device-manager.md), and [Compliance Reporting](operation-and-usage/operations/compliance-reporting.md) to describe snippet-based template generation.
+
+</details>
+
+<details>
+
 <summary>Changes to CDB Persistence Mode</summary>
 
 From NSO 6.7, the default CDB persistence mode has been set to `on-demand-v1`, instead of the `in-memory-v1` mode, which has also been deprecated. If you're upgrading to NSO 6.7, the `on-demand-v1` mode will become the new default. Read more about the change in the documentation.
@@ -124,6 +138,21 @@ Documentation Updates:
 
 * Added section [Bulk Service Actions](operation-and-usage/operations/managing-network-services.md#bulk-service-actions) in [Manage Network Services](operation-and-usage/operations/managing-network-services.md).
 * Added section [Bulk Service Actions](operation-and-usage/operations/lifecycle-operations.md#bulk-service-actions) in [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md).
+
+</details>
+
+<details>
+
+<summary>Out-of-Band Change Handling Controls</summary>
+
+NSO 6.7 adds more precise control over how out-of-band changes are handled during `confirm-network-state` operations. Broad service re-deployment is no longer implicit when out-of-band data is discovered. Instead, re-deploying all affected services is now opt-in through the new `re-deploy-all` option. In addition, out-of-band policy rules now support an `abort` action, allowing a transaction to fail immediately with an out-of-sync error when specific out-of-band changes are detected. Policy rules can also define a `default-action`, which NSO uses when no operation-specific action has been specified with `at-create`, `at-delete`, or `at-value-set`.
+
+These changes reduce unintended blast radius during out-of-band processing while making it easier to enforce strict handling for configuration changes that must not be accepted or reconciled automatically, and simpler to define common rule behavior without repeating the same action for every operation type.
+
+Documentation Updates:
+
+* Updated [Out-of-band Interoperation](operation-and-usage/operations/out-of-band-interoperation.md) with the new `re-deploy-all` behavior and policy rule actions, including `abort` and `default-action`.
+* Updated [Lifecycle Operations](operation-and-usage/operations/lifecycle-operations.md) to include the `re-deploy-all` option under `confirm-network-state`.
 
 </details>
 

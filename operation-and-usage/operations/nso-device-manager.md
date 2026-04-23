@@ -1989,6 +1989,8 @@ Operation 'merge' on non-existing node:
 
 To simplify template creation, NSO features the `/devices/create-template` action that can initiate a template from a set of device configurations by finding common structural patterns. The resulting template can be used as as-is or as a starting point for further refinement.
 
+In addition to extracting patterns from configuration already present in NSO, the action can also consume configuration snippets directly. Snippets can be supplied either from a file on the NSO server filesystem or as inline payload data. Supported formats are NETCONF-style XML wrapped in a `<config>` element, Cisco XR style CLI (`cli-c`), Juniper curly-brace CLI (`cli-j`), and Juniper set commands (`cli-j-cmd`). Delete operations in the input, such as Cisco-style `no` commands or XML `operation="remove"` attributes, are translated into `delete` tags in the generated device template.
+
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized. For example:
 
 {% code overflow="wrap" %}

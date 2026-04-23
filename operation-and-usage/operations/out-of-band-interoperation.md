@@ -59,6 +59,8 @@ admin@ncs(config)# devices global-settings confirm-network-state enabled-by-defa
 
 Commit and other operations then no longer require using the`confirm-network-state` option explicitly; it is enabled automatically for those devices.
 
+By default, `confirm-network-state` now keeps the resulting service impact scoped to the current transaction. If NSO discovers out-of-band data that affects other services, those additional services are not re-deployed automatically unless you opt in with `re-deploy-all`. You can use `re-deploy-all` as part of the commit parameters, configure it under device `confirm-network-state` settings to make it the default for selected devices, or pass it to `confirm-network-state`-enabled device actions such as `sync-from` and `partial-sync-from`.
+
 Once NSO uses `confirm-network-state` for a device change, it no longer checks device sync status, so the commit may go through even if parts of device configuration are out-of-sync. To find out if the device configuration is out-of-sync before committing, use `dry-run` together with `confirm-network-state`.
 
 NSO keeps track of all reads in a given transaction and then verifies that these values (which were presumably used to influence the provisioning decisions) remain the same on the device. Behind the scenes, this mechanism uses the same transaction read-set that is also used for [concurrency checks](../../development/core-concepts/nso-concurrency-model.md).

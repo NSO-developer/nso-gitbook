@@ -40,6 +40,7 @@ The shared commit parameters are:
   The `with-service-meta-data` leaf includes FASTMAP service metadata in the diff.
 * `confirm-network-state`: Check device state as part of the commit and process out-of-band changes according to policy.
   The `re-evaluate-policies` leaf also reprocesses out-of-band policies for services touched by the commit.
+  The `re-deploy-all` leaf expands the operation to also re-deploy all services affected by discovered out-of-band data; without it, the impact stays scoped to the original transaction.
 * `no-networking`: Update CDB but do not send configuration southbound. The affected devices become out of sync until the change is pushed later, for example with `sync-to`.
 * `no-out-of-sync-check`: Continue even if NSO detects that a device is out of sync.
 * `no-overwrite`: Perform a fine-grained check that the data NSO is about to modify has not changed on the device compared to NSO's view.

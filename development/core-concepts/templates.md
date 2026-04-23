@@ -76,6 +76,8 @@ Finally, every XML template has a name. The name of the template is the file pat
 
 To simplify template creation, NSO features the `/services/create-template` action that can find common structural patterns in a set of device configurations and create a configuration template and the corresponding service YANG model based on it.
 
+In addition to extracting patterns from configuration already present in NSO, the action can also consume configuration snippets directly. Snippets can be supplied either from a file on the NSO server filesystem or as inline payload data. Supported formats are NETCONF-style XML wrapped in a `<config>` element, Cisco XR style CLI (`cli-c`), Juniper curly-brace CLI (`cli-j`), and Juniper set commands (`cli-j-cmd`). Delete operations in the input, such as Cisco-style `no` commands or XML `operation="remove"` attributes, are translated into `delete` tags in the generated service template.
+
 The algorithm works by traversing the data depth-first, keeping track of the rate of occurrence of configuration nodes, and any values that compare equal. Values that do not compare equal are parameterized and service input parameters are created for these paths in the YANG model. For example:
 
 {% code overflow="wrap" %}
