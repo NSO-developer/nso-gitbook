@@ -971,9 +971,9 @@ Here is an example of the usage of the attributes `traceparent` and `tracestate`
 ```
 {% endcode %}
 
-NSO implements Trace Context alongside the legacy way of handling trace-id found in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896). The support of Trace Context covers the same scenarios as the legacy `trace-id` functionality. The two different ways of handling `trace-id` cannot be used at the same time. If both are used, the request generates an error response. If both `trace-id` and Trace Context are absent in a request, a Trace Context will be generated internally in NSO. Read about `trace-id` legacy functionality in [NETCONF Extensions in NSO](nso-netconf-server.md#d5e896).
+If Trace Context is absent in a request, a Trace Context will be generated internally in NSO.
 
-NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. For NSO to consider the attributes of Trace Context in a NETCONF request, the `trace-id` element in the configuration file must be enabled. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../../advanced-development/progress-trace.md).
+NETCONF also lets LSA clusters to be part of Trace Context handling. A top LSA node will pass down the Trace Context to all LSA nodes beneath. As Trace Context is handled by the progress trace functionality, see also [Progress Trace](../../advanced-development/progress-trace.md).
 
 ## NETCONF Extensions in NSO <a href="#d5e896" id="d5e896"></a>
 
@@ -997,8 +997,6 @@ FASTMAP attributes such as back pointers and reference counters are typically in
 * `get`
 * `get-config`
 * `get-data`
-
-The legacy `trace-id` NETCONF commit parameter is still present for backward compatibility, but Trace Context is the recommended mechanism going forward.
 
 ## The Query API <a href="#d5e1063" id="d5e1063"></a>
 
