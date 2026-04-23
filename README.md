@@ -118,7 +118,7 @@ Documentation Updates:
 
 <summary>Service Bulk Actions</summary>
 
-To facilitate operation at scale, with many service instances of differing type, bulk `check-sync`, `re-deploy`, and `un-deploy` actions were added under `/services`. These action invoke the corresponding service-management action on a number of service instances, such as all services of a given type or matching an XPath expression.
+To facilitate operation at scale, with many service instances of differing type, bulk `re-deploy`, and `un-deploy` actions were added under `/services`. These actions invoke the corresponding service-management action on a number of service instances, such as all services of a given type or matching an XPath expression.
 
 Documentation Updates:
 
