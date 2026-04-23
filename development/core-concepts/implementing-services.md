@@ -1556,15 +1556,21 @@ You can use these general steps to give you a high-level idea of how to approach
 5.  Inspect NSO logs for hints. NSO features extensive logging functionality for different components, where you can see everything from user interactions with the system to low-level communications with managed devices. For best results, set the logging level to DEBUG or lower. To learn what types of logs there are and how to enable them, consult [Logging](../../administration/management/system-management/#ug.ncs_sys_mgmt.logging) in Administration.
 
     \
-    Another useful option is to append a custom trace ID to your service commits. The trace ID can be used to follow the request in logs from its creation all the way to the configuration changes that get pushed to the device. In case no trace ID is specified, NSO will generate a random one, but custom trace IDs are useful for focused troubleshooting sessions.
+    Another useful option is to append `| details` to your service commits, which shows the relevant [Progress Trace](../advanced-development/progress-trace.md).
 
     ```cli
-    admin@ncs(config)# commit trace-id myTrace1
+    admin@ncs(config)# commit | details
+    ... lots of logs ...
     Commit complete.
     ```
 
     \
-    Trace ID can also be provided as a commit parameter in your service code. See [Commit Parameters](../../operation-and-usage/operations/lifecycle-operations.md#d5e5048) for the shared model and [examples.ncs/sdk-api/maapi-commit-parameters](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api/maapi-commit-parameters) for an example.
+    Alternatively, you can append a custom label to your service commits. The label can be used to correlate events from a commit in logs and notifications during focused troubleshooting sessions. It is provided as a [commit parameter](../../operation-and-usage/operations/lifecycle-operations.md#d5e5048), e.g. via CLI:
+
+    ```cli
+    admin@ncs(config)# commit label myServiceCommit
+    Commit complete.
+    ```
 6.  Measuring the time it takes for specific commands to complete can also give you some hints about what is going on. You can do this by using the `timecmd`, which requires the dev tools to be enabled.
 
     ```bash
