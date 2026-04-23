@@ -3357,6 +3357,48 @@ curl \
 
 <details>
 
+<summary><mark style="color:green;"><code>get_trans_diff</code></mark></summary>
+
+`get_trans_diff` - Returns the configuration changes in the transaction compared to the running datastore, in XML format. This method can be called even if the transaction validation has failed.
+
+**Params**
+
+```json
+{"th": <integer>}
+```
+
+**Result**
+
+```json
+{"diff": <string>}
+```
+
+The `diff` param is the configuration diff as a single-line XML string.
+
+**Example**
+
+{% code title="Example: Method get_trans_diff" %}
+```bash
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+        "method": "get_trans_diff",
+        "params": {"th": 2}}' \
+    http://127.0.0.1:8008/jsonrpc
+
+{"jsonrpc": "2.0",
+ "id":1,
+ "result":
+ {"diff": "<my-container xmlns=\"http://com/example/mypackage\"><leaf2>test-value</leaf2></my-container>"}}
+```
+{% endcode %}
+
+</details>
+
+<details>
+
 <summary><mark style="color:green;"><code>revert</code></mark></summary>
 
 `revert` - Reverts changes in a transaction.
