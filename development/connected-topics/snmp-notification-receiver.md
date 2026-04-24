@@ -26,7 +26,7 @@ The NSO operator must enable the SNMP notification receiver and configure the ad
   +--rw engine-id?    snmp-engine-id
 ```
 
-The notification reception can be turned on and off using the enabled lead. NSO will listen to notifications at the end points configured in `listen`. There is no need to manually configure the NSO `engine-id`. NSO will do this automatically using the algorithm described in RFC 3411. However, it can be assigned an `engine-id` manually by setting this leaf.
+The notification reception can be turned on and off using the enabled leaf. NSO will listen to notifications at the end points configured in `listen`. There is no need to manually configure the NSO `engine-id`. NSO will do this automatically using the algorithm described in RFC 3411. However, it can be assigned an `engine-id` manually by setting this leaf.
 
 The managed devices must also be configured to send notifications to the NSO addresses.
 
