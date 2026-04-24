@@ -22,7 +22,7 @@ NSO supports the following options for implementing an HA setup to cater to the 
 
 * [**HA Raft**](high-availability.md#ug.ha.raft): Using a modern, consensus-based algorithm, it offers a robust, hands-off solution that works best in the majority of cases.
 * [**Rule-based HA**](high-availability.md#ug.ha.builtin): A less sophisticated solution that allows you to influence the primary selection but may require occasional manual operator action.
-* [**External HA**](high-availability.md#ferret): NSO only provides data replication; all other functions, such as primary selection and group membership management, are performed by an external application, using the HA framework (HAFW).
+* [**External HA**](high-availability.md#read-only-state): NSO only provides data replication; all other functions, such as primary selection and group membership management, are performed by an external application, using the HA framework (HAFW).
 
 All of these options rely on a secure transport for communication, which uses TLS and host certificates. See [Managing Certificates](#managing-certificates) for details.
 
@@ -92,7 +92,7 @@ The available actions are listed below:
 
 <table><thead><tr><th width="240" valign="top">Action</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>create-cluster</code></td><td valign="top">Initialize an HA Raft cluster. This action should only be invoked once to form a new cluster when no HA Raft log exists.<br>The members of the HA Raft cluster consist of the NCS node where the <code>/ha-raft/create-cluster</code>action is invoked, which will become the leader of the cluster; and the members specified by the <code>member</code> parameter.</td></tr><tr><td valign="top"><code>adjust-membership</code></td><td valign="top">Add or remove an HA node from the HA Raft cluster.</td></tr><tr><td valign="top"><code>disconnect</code></td><td valign="top">Disconnect an HA node from all remaining nodes. In the event of revoking a TLS certificate, invoke this action to disconnect the already established connections to the node with the revoked certificate. A disconnected node with a valid TLS certificate may re-establish the connection.</td></tr><tr><td valign="top"><code>reset</code></td><td valign="top">Reset the (disabled) local node to make the leader perform a full sync to this local node if an HA Raft cluster exists. If reset is performed on the leader node, the node will step down from leadership and it will be synced by the next leader node.<br>An HA Raft member will change role to <code>disabled</code> if <code>ncs.conf</code> has incompatible changes to the <code>ncs.conf</code> on the leader; a member will also change role to <code>disabled</code> if there are non-recoverable failures upon opening a snapshot.<br>See the <code>/ha-raft/status/disable-reason</code> leaf for the reason.<br>Set force to <code>true</code> to override reset when <code>/ha-raft/status/role</code> is not set to <code>disabled</code>.</td></tr><tr><td valign="top"><code>handover</code></td><td valign="top">Handover leadership to another member of the HA Raft cluster or step down from leadership and start a new election.</td></tr></tbody></table>
 
-Additionally, the `/ncs-state/set-read-only` action can be used to toggle administrator-configured read-only mode. See [#ferret](high-availability.md#ferret "mention").
+Additionally, the `/ncs-state/set-read-only` action can be used to toggle administrator-configured read-only mode. See [Read-only State](high-availability.md#read-only-state).
 
 ### Network and `ncs.conf` Prerequisites <a href="#ch_ha.raft_ports" id="ch_ha.raft_ports"></a>
 
@@ -472,7 +472,7 @@ Also, note that the `ncs.crypto_keys` file is highly sensitive. The file contain
 
 ### HA Roles <a href="#d5e4846" id="d5e4846"></a>
 
-NSO can assume HA roles `primary`, `secondary` and `none`. Roles can be assigned directly through actions, or at startup or failover. See [HA Framework Requirements](high-availability.md#ferret) for the definition of these roles.
+NSO can assume HA roles `primary`, `secondary` and `none`. Roles can be assigned directly through actions, or at startup or failover. See [HA Framework Requirements](high-availability.md#ha-framework-requirements) for the definition of these roles.
 
 {% hint style="info" %}
 NSO rule-based HA does not support relay-secondaries.
@@ -1239,7 +1239,7 @@ When the following configuration is added to `ncs.conf`, then the primary HA nod
 
 A similar configuration can be added for other NB interfaces, see the ha-primary-listen list under `/ncs-config/{restconf,webui,cli}`.
 
-## Read-only State <a href="#ferret" id="ferret"></a>
+## Read-only State
 
 Administrators can explicitly configure read-only mode on any NSO node (primary or secondary) using either `/ncs-state/set-read-only` action or `maapi_set_readonly_mode()` MAAPI function, which disables further configuration changes and may be required, for example, during cluster maintenance. This is called _administrator-configured_ read-only mode and can be verified by querying the `/ncs-state/admin-configured-read-only-mode`  leaf.
 
