@@ -477,7 +477,7 @@ admin@ncs(config)#
 In the example above, `PATH` is defined and referred to by the `monitor` expression by using the expression `$PATH`.
 
 {% hint style="info" %}
-A selector expression is not evaluated by the XPath engine. Hence no trace of the evaluation can be found in the the XPath log.
+A selector expression is not evaluated by the XPath engine. Hence no trace of the evaluation can be found in the XPath log.
 
 Selector expressions are expanded and installed in an internal data structure at kicker creation/compile time. XPath may be used while defining kickers by referring to a named XPath expression.
 {% endhint %}

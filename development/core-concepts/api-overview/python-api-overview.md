@@ -1156,21 +1156,21 @@ Take for example the following program that connects to two different NSO nodes 
 
 {% code title="Example: Reading NED-IDs (read_nedids.py)" %}
 ```python
-            import ncs
+import ncs
 
 
-            def print_ned_ids(path):
-                with ncs.maapi.single_read_trans('admin', 'system', db=ncs.OPERATIONAL, path=path) as t:
-                dev_ned_id = ncs.maagic.get_node(t, '/devices/ned-ids/ned-id')
-                for id in dev_ned_id.keys():
-                    print(id)
+def print_ned_ids(path):
+    with ncs.maapi.single_read_trans('admin', 'system', db=ncs.OPERATIONAL, path=path) as t:
+        dev_ned_id = ncs.maagic.get_node(t, '/devices/ned-ids/ned-id')
+        for id in dev_ned_id.keys():
+            print(id)
 
 
-            if __name__ == '__main__':
-                print('=== lsa-1 ===')
-                print_ned_ids('/tmp/nso-lsa-1/nso-ipc')
-                print('=== lsa-2 ===')
-                print_ned_ids('/tmp/nso-lsa-2/nso-ipc')
+if __name__ == '__main__':
+    print('=== lsa-1 ===')
+    print_ned_ids('/tmp/nso-lsa-1/nso-ipc')
+    print('=== lsa-2 ===')
+    print_ned_ids('/tmp/nso-lsa-2/nso-ipc')
 ```
 {% endcode %}
 
