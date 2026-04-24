@@ -1245,7 +1245,7 @@ Administrators can explicitly configure read-only mode on any NSO node (primary 
 
 However, an NSO node may also become read-only due to its HA state. The overall read-only state is therefore governed by:
 
-* **Administrator-configured read-only mode**: Explicitly set by an administrator as described above (or invoked by [#ug.ha.builtin](high-availability.md#ug.ha.builtin "mention") in certain situations).
+* **Administrator-configured read-only mode**: Explicitly set by an administrator as described above (or invoked by [NSO Rule-based HA](high-availability.md#ug.ha.builtin) in certain situations).
 * &#x20;**Read-only mode imposed by HA operational state**: Automatically set based on the node's HA role, e.g. when secondary or follower.
 
 The node will enter a read-only state, as shown in `/ncs-state/read-only-mode`, and reject write transactions when either of these conditions is true. This separation allows administrators to place a node in read-only mode for maintenance or upgrade scenarios, independent of the HA configuration.
