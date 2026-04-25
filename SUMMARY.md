@@ -35,7 +35,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.70.2 2026-04-15](alu-sr/README.md)
+  * [README v8.70.3 2026-04-24](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -138,7 +138,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.49 2026-03-26](fortinet-fmg/README.md)
+  * [README v4.3.50 2026-04-24](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -154,7 +154,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.6 2026-04-21](huawei-ias/README.md)
+  * [README v2.9.7 2026-04-24](huawei-ias/README.md)
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
@@ -184,7 +184,7 @@
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
-  * [README v1.2.17 2026-03-04](nokia-srlinux_gnmi/README.md)
+  * [README v1.2.18 2026-04-24](nokia-srlinux_gnmi/README.md)
 
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
@@ -194,7 +194,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.52 2026-03-31](onf-tapi_rc/README.md)
+  * [README v2.0.53 2026-04-24](onf-tapi_rc/README.md)
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)
@@ -210,7 +210,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.19 2026-03-27](paloalto-panos_cli/README.md)
+  * [README v4.11.20 2026-04-24](paloalto-panos_cli/README.md)
 
 * radware-cc
   * [README-ned-settings](radware-cc/README-ned-settings.md)

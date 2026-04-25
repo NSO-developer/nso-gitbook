@@ -1434,6 +1434,8 @@ admin@ncs(config)# commit
   ERROR: external mfa executable failed <....>
   ```
 
+
+
 # 11. Tips and Tricks for Resolving Common Issues with IOS XR Devices
 ---------------------------------------------------------------------
  This chapter serves as a reference archive, providing suggestions for troubleshooting

@@ -27,7 +27,8 @@
   7. Limitations
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
-  10. Using the NED feature load-native-config
+  10. Using the NED for Telemetry
+  11. Using the NED feature load-native-config
   ```
 
 
@@ -1367,7 +1368,354 @@
   Check the README-rebuild.md file, chapter 1.3, for more information.
 
 
-# 10. Using the NED feature load-native-config
+
+# 10. Using the NED for Telemetry
+
+## Introduction
+
+This NED supports subscribing to telemetry events using the telemetry feature introduced in NSO 6.7. With this capability, NSO can act as a telemetry subscriber towards managed devices, enabling powerful automation patterns at the service layer — such as feedback loops that provision configuration on a device and then automatically react when that configuration becomes active.
+
+### Prerequisites
+
+- The NED is used together with **NSO 6.7** or newer.
+- The managed device supports **gNMI Telemetry**.
+
+### Background: gNMI Telemetry
+
+**gNMI (gRPC Network Management Interface)** is a network management protocol developed by the [OpenConfig](https://www.openconfig.net/) working group. It uses [gRPC](https://grpc.io/) as the transport layer and Protocol Buffers for message encoding, providing a high-performance, modern alternative to traditional management interfaces like NETCONF and SNMP.
+
+A central feature of gNMI is its **Subscribe RPC**, which allows a client to establish long-lived telemetry subscriptions towards a device. Instead of repeatedly polling the device for state, the client opens a subscription stream and the device pushes updates as they occur or at defined intervals.
+
+gNMI supports three subscription modes:
+
+| Mode                  | Behavior                                                     |
+| :-------------------- | :----------------------------------------------------------- |
+| **ON_CHANGE**         | The device sends an update only when the value of a subscribed path changes. Ideal for configuration state, protocol status, and other data where changes are discrete events. Not all paths on a device may support this mode. |
+| **SAMPLE** (Periodic) | The device sends a snapshot of the subscribed data at a fixed interval. Suitable for counters, statistics, and any data that changes frequently and continuously. |
+| **TARGET_DEFINED**    | The device chooses the most appropriate mode (on-change or periodic) for each path based on its own internal classification. This mode offers flexibility but means the behavior may vary across paths and device platforms. Currently not supported by the NSO telemetry feature. |
+
+Key characteristics of gNMI telemetry include:
+
+- **Path-based subscriptions** — Subscriptions target specific paths in the device's YANG schema, giving precise control over what data is streamed.
+- **Efficient transport** — gRPC provides HTTP/2-based streaming with low overhead, making it well suited for high-frequency telemetry data.
+- **Structured encoding** — Updates are encoded using Protocol Buffers or JSON, ensuring a compact and well-defined message format.
+- **Initial synchronization** — When a subscription is established, the device can send a full snapshot of the current state before switching to incremental updates, ensuring the subscriber starts with a known baseline.
+- **Heartbeat intervals** — A heartbeat can be configured to let the device send periodic keep-alive messages even when no data has changed, allowing the subscriber to detect a silent connection failure.
+- **Redundancy suppression** — The device can be instructed to suppress updates that carry the same value as the previously sent update, reducing unnecessary traffic.
+
+By leveraging gNMI telemetry through this NED, NSO gains a real-time, event-driven view of device state — a foundation for building closed-loop automation and reactive service logic.
+
+## How It Works
+
+NSO does not have native support for parsing gNMI messages. Instead, this NED transforms received gNMI telemetry messages into a corresponding YANG-Push format that NSO can parse and process. This translation is transparent to the service layer — services interact with the telemetry data using the same NSO APIs regardless of whether the underlying protocol is gNMI or YANG-Push.
+
+------
+
+## Configuring a Telemetry Subscription
+
+Telemetry subscriptions are configured under each device's `telemetry` container:
+
+```none
+/devices/device/<name>/telemetry/subscription/<name>
+```
+
+You can set up one or more subscriptions per device. Each subscription must specify, at a minimum, a **subscription mode** (`periodic` or `on-change`) and a set of **paths** (in XPath format) pointing to the locations of interest in the device schema.
+
+### General Subscription Settings
+
+The telemetry subscription model in NSO is designed around YANG-Push concepts. When using a gNMI NED, some of these settings are not applicable since gNMI uses its own subscription semantics. The table below indicates which settings are used and which are not relevant for gNMI-based subscriptions.
+
+| Setting                      | Description                                                  |
+| :--------------------------- | :----------------------------------------------------------- |
+| `name`                       | Subscription name (used as the list key).                    |
+| `local-user`                 | The NSO user whose authentication credentials are used when connecting to the device for the telemetry session. |
+| `datastore`                  | Not used for gNMI NEDs.                                      |
+| `xpaths`                     | XPath filter pointing to the paths of interest in the device schema. |
+| `subtree`                    | Not used for gNMI NEDs.                                      |
+| `periodic`                   | Enables **periodic** (SAMPLE) mode. The device sends a full snapshot of data under the subscribed path at regular intervals. |
+| `periodic/period`            | Update interval in centiseconds. Mandatory when using periodic mode. |
+| `periodic/anchor-time`       | Not used for gNMI NEDs.                                      |
+| `on-change`                  | Enables **on-change** (ON_CHANGE) mode. The device sends an update only when a node under the subscribed path has changed. Note that on-change may only be supported for certain parts of the device schema. |
+| `on-change/dampening-period` | Not used for gNMI NEDs.                                      |
+| `on-change/sync-on-start`    | Not used for gNMI NEDs.                                      |
+| `on-change/excluded-change`  | Not used for gNMI NEDs.                                      |
+| `reconnect-interval`         | How often (in seconds) to retry a failed subscription. Default: `60`. |
+| `setting`                    | A list of key/value pairs for NED-specific settings (see below). |
+
+### NED-Specific Settings
+
+The following settings are configured in the `setting` list. Because this list accepts arbitrary key/value string pairs, it is important that both keys and values are spelled **exactly** as shown below.
+
+| Key                            | Description                                                  |
+| :----------------------------- | :----------------------------------------------------------- |
+| `allow-aggregation`            | When set to `true`, the NED signals to the device that it is allowed to aggregate multiple subscription updates into a single gNMI message. This can improve efficiency when many paths are changing simultaneously but may increase message latency. Default: `false`. |
+| `force-raw`                    | When set to `true`, `yang-push`, or `gnmi`, the NED delivers telemetry events to NSO as raw, unparsed messages instead of model-driven data. By default, telemetry events are parsed by NSO and populated into a synthetic transaction, which allows services to perform standard operations such as diff iteration using the `Maagic` API. In some cases it may be preferable to receive the raw data and handle parsing in the service itself. When raw mode is active, the data is made available at: `/devices/device/<name>/telemetry/subscription/<name>/raw-telemetry`.  <br />Valid values: <br />`true` or `yang-push` — the events are first transformed to YANG-Push format by the NED before they are passed to NSO as raw data. <br />`gnmi` — the events are passed as raw JSON-serialized gNMI messages to NSO.<br />Disabled by default. |
+| `gather-updates`               | Some gNMI devices send `periodic` telemetry events as an array of smaller messages, each typically containing an snapshot of a single node. These arrays can contain a large number of messages. <br />When set to `true`, the NED gathers and consolidates such array-based gNMI update messages before forwarding the event to NSO. This can help reduce the number of synthetic transactions created in NSO. Default: `false`. |
+| `heartbeat-interval`           | Heartbeat interval in centiseconds. When set, the device is requested to send periodic heartbeat messages even when no data has changed. This allows the NED to detect a silent connection failure and trigger a reconnection. Disabled by default. |
+| `rate-limit-drop-log-interval` | Controls how often dropped telemetry events are logged when rate limiting is active. Default: `50`. |
+| `rate-limit-period`            | Rate-limit period in centiseconds. When set, the NED ensures that telemetry messages are not forwarded to NSO more frequently than this interval. This is intended as a safeguard against excessively high-frequency updates (e.g., from a misbehaving device). Disabled by default. |
+| `suppress-redundant`           | When set to `true`, the NED instructs the device to suppress updates that carry the same value as the previously sent update. This reduces unnecessary traffic for paths whose values remain stable over time. Default: `false`. |
+| `updates-only`                 | When set to `true`, the device is instructed to skip the initial synchronization snapshot and only send subsequent updates. This is useful when the subscriber does not need the full current state at subscription startup. Default: `false`. |
+
+------
+
+## Examples
+
+The following examples show how to configure telemetry subscriptions through the NSO CLI.
+
+### Example 1: On-Change Subscription with Rate Limiting
+
+This subscription monitors the interfaces subtree and applies a rate limiter to prevent excessive updates.
+
+```shell
+ncs(config)# devices device dev0 telemetry subscription intf-changes \
+    local-user admin \
+    xpath /oc-if:interfaces \
+    on-change \
+    setting rate-limit-period value 20
+ncs(config-subscription-intf-changes)# commit
+```
+
+### Example 2: Periodic Subscription with Raw Delivery
+
+This subscription polls the interfaces subtree every 10 seconds (1000 centiseconds) and delivers the data as raw gNMI messages.
+
+```shell
+ncs(config)# devices device dev0 telemetry subscription intf-poll \
+    local-user admin \
+    xpath /oc-if:interfaces \
+    periodic period 1000 \
+    setting force-raw value gnmi
+ncs(config-subscription-intf-poll)# commit
+```
+
+------
+
+## Using Telemetry in Service Applications
+
+This section provides an overview of how telemetry can be integrated into service applications to assist with provisioning and monitoring. For full details, refer to the NSO documentation.
+
+### Toolkit Components
+
+The service developer's toolkit for working with telemetry consists of two main components:
+
+1. **Synthetic Telemetry Transactions**
+   - For **model-driven** telemetry events, NSO fully populates the received data into a synthetic transaction. This means you can use standard NSO API operations — such as diff iteration and the Python `Maagic` API — to inspect and react to the data.
+   - For **raw** telemetry events, the unparsed data can be read from the synthetic transaction at: `/devices/device/<name>/telemetry/subscription/<name>/raw-telemetry`
+2. **Telemetry Kickers**
+   - The `telemetry-kicker` (configured under `/kickers`) lets you trigger an action whenever a telemetry event is received that matches a selector expression. This is the primary mechanism for wiring telemetry events into your service logic.
+
+Together, these components enable patterns such as:
+
+- **Feedback-loop provisioning** — Push configuration to a device, then automatically detect when it has taken effect.
+- **Alarm propagation** — React to operational state changes on the device and propagate them northbound.
+
+### Example: Feedback-Loop Based BGP Provisioning
+
+The following example demonstrates a simple service application that provisions a BGP neighbor on a device and uses telemetry to detect when that neighbor reaches the `ESTABLISHED` state. When the telemetry event is received, the service automatically updates an operational leaf, which in turn can notify northbound systems (for instance, via a northbound YANG-Push subscription from NSO).
+
+#### Service YANG Model
+
+```yang
+module closed-loop-demo {
+  yang-version 1.1;
+  namespace "http://example.com/closed-loop-demo";
+  prefix cld;
+
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+  import tailf-ncs-kicker-extension {
+    prefix kicker;
+  }
+  revision 2026-02-01 {
+    description
+      "Initial revision.";
+  }
+
+  list autonomous-bgp-router {
+    key "device local-as-number";
+    uses ncs:service-data;
+    ncs:servicepoint closed-loop-demo-servicepoint;
+    leaf device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+    leaf local-as-number {
+      type uint32;
+    }
+    leaf peer-as-number {
+      type uint32;
+      mandatory true;
+    }
+    leaf peer-ip-address {
+      type string;
+      mandatory true;
+    }
+    leaf operational-state {
+      type enumeration {
+        enum UNKNOWN;
+        enum ESTABLISHED;
+        enum TIMEOUT;
+      }
+      default UNKNOWN;
+      config false;
+      tailf:cdb-oper {
+        tailf:persistent true;
+      }
+    }
+    tailf:action handle-autonomous-bgp-notification {
+      tailf:actionpoint handle-autonomous-bgp-notification;
+      input {
+        uses kicker:telemetry-action-input-params;
+      }
+      output {
+      }
+    }
+  }
+}
+```
+
+#### Service Python Module
+
+```python
+# -*- mode: python; python-indent: 4 -*-
+import ncs
+import json
+from ncs.application import Service
+from ncs.cdb import OperSubscriber
+from ncs.dp import Action
+from ncs.maapi import Maapi
+_ncs = __import__('_ncs')  # pylint: disable=invalid-name
+
+
+class ClosedLoopDemo(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        self.log.info(
+            'Service start autonomous BGP on device {0}, '
+            'local-as-number: {1}, peer-as-number: {2}, '
+            'peer-ip-address {3}'.format(
+                service.device,
+                service.local_as_number,
+                service.peer_as_number,
+                service.peer_ip_address))
+
+        name = 'autonomous-bgp-monitor-{0}-{1}'.format(
+            service.device, service.local_as_number)
+
+        # 1. Setup a telemetry kicker
+        kicker = root.kicker__kickers.telemetry_kicker.create(name)
+        kicker.selector_expr = \
+            "$SUBSCRIPTION_NAME = '{0}'".format(name)
+        kicker.kick_node = \
+            "/autonomous-bgp-router[device='{0}']" \
+            "[local-as-number='{1}']".format(
+                service.device, service.local_as_number)
+        kicker.action_name = 'handle-autonomous-bgp-notification'
+
+        # 2. Setup telemetry subscription (on-change mode)
+        device = root.devices.device[service.device]
+        entry = device.telemetry.subscription.create(name)
+        entry.datastore = 'operational'
+        entry.xpath = \
+            "/configuration/protocols/bgp/" \
+            "group[name='EBGP-PEER-GROUP-65001']"
+        entry.local_user = 'admin'
+        entry.on_change.create()
+        entry.on_change.sync_on_start = False
+
+        # 3. Apply device template
+        template = ncs.template.Template(service)
+        template.apply('closed-loop-demo', None)
+
+
+class HandleBgpNotification(Action):
+
+    def stop_monitoring(self, kp, kicker_id):
+        """Stop the telemetry subscription and kicker, then update
+        the operational state to ESTABLISHED."""
+        with ncs.maapi.single_write_trans(
+                'admin', 'python', db=_ncs.RUNNING) as edit_th:
+            self.log.info("Stopping monitor")
+            root = ncs.maagic.get_root(edit_th)
+            service_node = ncs.maagic.get_node(edit_th, kp)
+            del root.kicker__kickers.telemetry_kicker[kicker_id]
+            del root.devices.device[
+                service_node.device].telemetry.subscription[kicker_id]
+            edit_th.apply()
+
+        with ncs.maapi.single_write_trans(
+                'admin', 'python', db=_ncs.OPERATIONAL) as oper_th:
+            self.log.info("Setting operational state to ESTABLISHED")
+            service_node = ncs.maagic.get_node(oper_th, kp)
+            service_node.operational_state = "ESTABLISHED"
+            oper_th.apply()
+
+    @Action.action
+    def cb_action(self, uinfo, name, kp, input, output, trans):
+        self.log.info(
+            "Kicker triggered by: {0}".format(input.kicker_id))
+
+        with ncs.maapi.Maapi() as m:
+            with ncs.maapi.single_read_trans(
+                    'admin', 'python', db=_ncs.RUNNING) as th:
+                service = ncs.maagic.get_node(th, kp)
+
+                with m.attach(input.tid) as kicker_th:
+                    root = ncs.maagic.get_root(kicker_th)
+                    group = (root.devices
+                             .device[service.device]
+                             .live_status
+                             .jc__configuration
+                             .jc_protocols__protocols
+                             .bgp.group)
+
+                    if 'EBGP-PEER-GROUP-65001' not in group:
+                        return
+                    neighbor = group['EBGP-PEER-GROUP-65001'].neighbor
+                    if '192.168.0.2' not in neighbor:
+                        return
+
+                    val = neighbor['192.168.0.2'].description
+                    self.log.info(
+                        "Operational state is: {0}".format(val))
+                    if val and str(val).lower() == "established":
+                        self.stop_monitoring(kp, input.kicker_id)
+
+
+# ---------------------------------------------------
+# COMPONENT THREAD THAT WILL BE STARTED BY NCS
+# ---------------------------------------------------
+class Main(ncs.application.Application):
+
+    def setup(self):
+        self.log.info('Main RUNNING')
+        self.register_service(
+            'closed-loop-demo-servicepoint', ClosedLoopDemo)
+        self.register_action(
+            'handle-autonomous-bgp-notification',
+            HandleBgpNotification)
+
+    def teardown(self):
+        self.log.info('Main FINISHED')
+```
+
+#### How It Works
+
+1. When the service is created, it configures a **telemetry kicker** and an **on-change telemetry subscription** targeting the BGP group on the device.
+2. As the device detects a change in the subscribed BGP group, it pushes an update to NSO via gNMI, which the NED translates into YANG-Push format.
+3. The telemetry kicker fires and invokes the `handle-autonomous-bgp-notification` action.
+4. The action inspects the synthetic transaction to check whether the BGP neighbor has reached the `ESTABLISHED` state.
+5. If so, the action removes the subscription and kicker (cleanup) and sets the service's `operational-state` leaf to `ESTABLISHED`.
+6. Northbound systems subscribed to NSO can then be notified of this state change automatically.
+
+
+# 11. Using the NED feature load-native-config
 
 This NED has support for the load-native-config feature, meaning that you can load config directly from a file formatted in native device format. Since it is a gNMI NED it is required that the file is formatted as a gNMI SetRequest message, as specified here:  https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#341-the-setrequest-message
 

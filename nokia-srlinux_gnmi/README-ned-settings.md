@@ -375,7 +375,8 @@
 ## 5.4. ned-settings nokia-srlinux_gnmi gnmi notif
 --------------------------------------------------
 
-  Configure notification streams available on the device.
+  Configure notification streams available on the device. This feature is deprecated. Use the new
+  telemetry feature in NSO 6.7 or later if possible.
 
 
     - notif encoding <enum> (default JSON)
