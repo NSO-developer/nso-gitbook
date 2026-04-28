@@ -1260,17 +1260,18 @@ description below.
 The choice of `confd_vtype` to use for the value representation can be
 whatever suits the actual data values best, with one exception:
 
-> **Note**  
->  
-> The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
-> key in a YANG list. The "normal" C_LIST usage is only for
-> representation of leaf-lists, and a leaf-list can of course not be a
-> key. Thus the ConfD code is not prepared to handle this kind of
-> "value" for a key. It is a strong recommendation to *never* use C_LIST
-> for a user-defined type, since even if the type is not initially used
-> for key leafs, subsequent development may see a need for this, at
-> which point it may be cumbersome to change to a different
-> representation.
+<div class="note">
+
+The C_LIST `confd_vtype` value can *not* be used for a leaf that is a
+key in a YANG list. The "normal" C_LIST usage is only for representation
+of leaf-lists, and a leaf-list can of course not be a key. Thus the
+ConfD code is not prepared to handle this kind of "value" for a key. It
+is a strong recommendation to *never* use C_LIST for a user-defined
+type, since even if the type is not initially used for key leafs,
+subsequent development may see a need for this, at which point it may be
+cumbersome to change to a different representation.
+
+</div>
 
 The example uses C_INT32, C_IPV4PREFIX, and C_IPV6PREFIX for the value
 representation of the respective types, but in many cases the opaque
@@ -1313,6 +1314,14 @@ callback functions that are defined in the `struct confd_type`:
 
 ``` c
 struct confd_type {
+    /* primitive type */
+    enum confd_type_id id;
+
+    /* namespace of the type*/
+    uint32_t ns;
+    /* name of the type */
+    char *name;
+
     /* If a derived type point at the parent */
     struct confd_type *parent;
 
@@ -1387,12 +1396,14 @@ auxiliary (static) data needed by the functions (on invocation they can
 reference it as self-\>opaque). The `parent` and `defval` elements are
 not used in this context, and should be NULL.
 
-> **Note**  
->  
-> The `str_to_val()` function *must* allocate space (using e.g.
-> malloc(3)) for the actual data value for those confd_value_t types
-> that are listed as having allocated data above, i.e. C_BUF, C_QNAME,
-> C_LIST, C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
+<div class="note">
+
+The `str_to_val()` function *must* allocate space (using e.g. malloc(3))
+for the actual data value for those confd_value_t types that are listed
+as having allocated data above, i.e. C_BUF, C_QNAME, C_LIST,
+C_OBJECTREF, C_OID, C_BINARY, and C_HEXSTR.
+
+</div>
 
 We make the implementation available to ConfD by creating one or more
 shared objects (.so files) containing the above callback functions. Each
@@ -1426,26 +1437,29 @@ These structures are then used by ConfD to locate the implementation of
 a given type, by searching for a `typepoint` string that matches the
 `tailf:typepoint` argument in the YANG data model.
 
-> **Note**  
->  
-> Since our callbacks are executed directly by the ConfD daemon, it is
-> critically important that they do not have a negative impact on the
-> daemon. No other processing can be done by ConfD while the callbacks
-> are executed, and e.g. a NULL pointer dereference in one of the
-> callbacks will cause ConfD to crash. Thus they should be simple,
-> purely algorithmic functions, never referencing any external
-> resources.
+<div class="note">
 
-> **Note**  
->  
-> When user-defined types are present, the ConfD daemon also needs to
-> load the libconfd.so shared library, otherwise used only by
-> applications. This means that either this library must be in one of
-> the system directories that are searched by the OS runtime loader
-> (typically /lib and /usr/lib), or its location must be given by
-> setting the LD_LIBRARY_PATH environment variable before starting
-> ConfD, or the default location \$CONFD_DIR/lib is used, where
-> \$CONFD_DIR is the installation directory of ConfD.
+Since our callbacks are executed directly by the ConfD daemon, it is
+critically important that they do not have a negative impact on the
+daemon. No other processing can be done by ConfD while the callbacks are
+executed, and e.g. a NULL pointer dereference in one of the callbacks
+will cause ConfD to crash. Thus they should be simple, purely
+algorithmic functions, never referencing any external resources.
+
+</div>
+
+<div class="note">
+
+When user-defined types are present, the ConfD daemon also needs to load
+the libconfd.so shared library, otherwise used only by applications.
+This means that either this library must be in one of the system
+directories that are searched by the OS runtime loader (typically /lib
+and /usr/lib), or its location must be given by setting the
+LD_LIBRARY_PATH environment variable before starting ConfD, or the
+default location \$CONFD_DIR/lib is used, where \$CONFD_DIR is the
+installation directory of ConfD.
+
+</div>
 
 The above is enough for ConfD to use the types that we have defined, but
 the libconfd library can also do local string\<-\>value translation if
@@ -1541,24 +1555,37 @@ There is one tree for each namespace that has toplevel elements.
 <div class="informalexample">
 
     /* flag bits in confd_cs_node_info */
-    #define CS_NODE_IS_LIST             (1 << 0)
-    #define CS_NODE_IS_WRITE            (1 << 1)
-    #define CS_NODE_IS_CDB              (1 << 2)
-    #define CS_NODE_IS_ACTION           (1 << 3)
-    #define CS_NODE_IS_PARAM            (1 << 4)
-    #define CS_NODE_IS_RESULT           (1 << 5)
-    #define CS_NODE_IS_NOTIF            (1 << 6)
-    #define CS_NODE_IS_CASE             (1 << 7)
-    #define CS_NODE_IS_CONTAINER        (1 << 8)
-    #define CS_NODE_HAS_WHEN            (1 << 9)
-    #define CS_NODE_HAS_DISPLAY_WHEN    (1 << 10)
-    #define CS_NODE_HAS_META_DATA       (1 << 11)
-    #define CS_NODE_IS_WRITE_ALL        (1 << 12)
-    #define CS_NODE_IS_LEAF_LIST        (1 << 13)
-    #define CS_NODE_IS_LEAFREF          (1 << 14)
-    #define CS_NODE_HAS_MOUNT_POINT     (1 << 15)
-    #define CS_NODE_IS_STRING_AS_BINARY (1 << 16)
+    #define CS_NODE_IS_LIST               (1 << 0)
+    #define CS_NODE_IS_WRITE              (1 << 1)
+    #define CS_NODE_IS_CDB                (1 << 2)
+    #define CS_NODE_IS_ACTION             (1 << 3)
+    #define CS_NODE_IS_PARAM              (1 << 4)
+    #define CS_NODE_IS_RESULT             (1 << 5)
+    #define CS_NODE_IS_NOTIF              (1 << 6)
+    #define CS_NODE_IS_CASE               (1 << 7)
+    #define CS_NODE_IS_CONTAINER          (1 << 8)
+    #define CS_NODE_HAS_WHEN              (1 << 9)
+    #define CS_NODE_HAS_DISPLAY_WHEN      (1 << 10)
+    #define CS_NODE_HAS_META_DATA         (1 << 11)
+    #define CS_NODE_IS_WRITE_ALL          (1 << 12)
+    #define CS_NODE_IS_LEAF_LIST          (1 << 13)
+    #define CS_NODE_IS_LEAFREF            (1 << 14)
+    #define CS_NODE_HAS_MOUNT_POINT       (1 << 15)
+    #define CS_NODE_IS_STRING_AS_BINARY   (1 << 16)
+    #define CS_NODE_HAS_PROMPT            (1 << 17)
+    #define CS_NODE_HAS_SERVICEPOINT      (1 << 18)
+    #define CS_NODE_HAS_CHILD_ACTION      (1 << 19)
+    #define CS_NODE_HAS_CHILD_OPER_ACTION (1 << 20)
+    #define CS_NODE_HAS_CHILD_CONF_ACTION (1 << 21)
+    #define CS_NODE_HAS_CHILD_READ_ONLY   (1 << 22)
+    #define CS_NODE_HAS_CHILD_READ_WRITE  (1 << 23)
+    #define CS_NODE_HAS_DOC_DESCRIPTION   (1 << 24)
     #define CS_NODE_IS_DYN CS_NODE_IS_LIST /* backwards compat */
+
+    /* DocData InfoType constants - used in the IPC protocol to identify
+       documentation string types sent from server in the node tuple */
+    #define CS_DOC_PROMPT      1
+    #define CS_DOC_DESCRIPTION 2
 
     /* cmp values in confd_cs_node_info */
     #define CS_NODE_CMP_NORMAL        0
@@ -1566,6 +1593,8 @@ There is one tree for each namespace that has toplevel elements.
     #define CS_NODE_CMP_SNMP_IMPLIED  2
     #define CS_NODE_CMP_USER          3
     #define CS_NODE_CMP_UNSORTED      4
+
+    typedef struct xml_tag mount_id_t;
 
     struct confd_cs_node_info {
         uint32_t *keys;
@@ -1578,6 +1607,12 @@ There is one tree for each namespace that has toplevel elements.
         int flags;
         uint8_t cmp;
         struct confd_cs_meta_data *meta_data;
+        /* not hiding under CONFD_C_PRODUCT_CONFD/CONFD_C_PRODUCT_NSO to avoid
+           issues in mixed compilation enviroments where libconfd.a is used for
+           both ConfD and NSO */
+        mount_id_t mount_id;
+        char *prompt;
+        char *doc_description;
     };
 
     struct confd_cs_meta_data {
@@ -2308,9 +2343,12 @@ types. They are defined in the
 > An SNMP OBJECT IDENTIFIER (OID). This is a sequence of integers which
 > identifies an object instance for example "1.3.6.1.4.1.24961.1".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in integer elements
-> > for `object-identifier` and `object-identifier-128`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in integer elements
+> for `object-identifier` and `object-identifier-128`.
+>
+> </div>
 >
 > - `value.type` = C_OID
 >
@@ -2362,9 +2400,12 @@ types. They are defined in the
 > sequence octets, each octet represented by two hexadecimal digits.
 > Octets are separated by colons.
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `phys-address`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `phys-address`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -2402,9 +2443,12 @@ types. They are defined in the
 > A hexadecimal string with octets represented as hex digits separated
 > by colons.
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `hex-string`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `hex-string`.
+>
+> </div>
 >
 > - `value.type` = C_HEXSTR
 >
@@ -2692,9 +2736,12 @@ ConfD.
 `tailf:octet-list`  
 > A list of dot-separated octets for example "192.168.255.1.0".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in number of octets
-> > for `octet-list`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in number of octets
+> for `octet-list`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -2708,9 +2755,12 @@ ConfD.
 > A list of colon-separated hexa-decimal octets for example
 > "4F:4C:41:71".
 >
-> > [!NOTE]
-> > The `tailf:value-length` restriction is measured in octets of binary
-> > data for `hex-list`.
+> <div class="note">
+>
+> The `tailf:value-length` restriction is measured in octets of binary
+> data for `hex-list`.
+>
+> </div>
 >
 > - `value.type` = C_BINARY
 >
@@ -2762,8 +2812,11 @@ ConfD.
 > encrypting passwords for various UNIX systems, e.g.
 > <http://www.freebsd.org/cgi/cvsweb.cgi/~checkout~/src/lib/libcrypt/crypt.c?rev=1.5&content-type=text/plain>
 >
-> > [!NOTE]
-> > The `pattern` restriction can not be used with this type.
+> <div class="note">
+>
+> The `pattern` restriction can not be used with this type.
+>
+> </div>
 >
 > - `value.type` = C_BUF
 >
@@ -2899,8 +2952,11 @@ ConfD.
 > string. For details, see the description of the encryptedStrings
 > configurable in the [confd.conf(5)](ncs.conf.5.md) manual page.
 >
-> > [!NOTE]
-> > The `pattern` restriction can not be used with this type.
+> <div class="note">
+>
+> The `pattern` restriction can not be used with this type.
+>
+> </div>
 >
 > - `value.type` = C_BUF
 >

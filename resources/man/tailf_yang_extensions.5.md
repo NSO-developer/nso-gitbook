@@ -98,6 +98,8 @@
 
 `tailf:path-filters`
 
+`tailf:prompt`
+
 `tailf:secondary-index`
 
 `tailf:snmp-delete-value`
@@ -339,8 +341,8 @@ The *alt-name* statement can be used in: *rpc*, *action*, *leaf*,
 Annotates an existing statement with a 'tailf' statement or a validation
 statement. This is useful in order to add tailf statements to a module
 without touching the module source. Annotation statements can be put in
-a separate annotation module, and then passed to 'confdc' or 'ncsc' (or
-'pyang') when the original module is compiled.
+a separate annotation module, and then passed to 'confdc' or 'ncsc' when
+the original module is compiled.
 
 Any 'tailf' statement, except 'action' can be annotated. The statement
 'action' modifies the data model, and are thus not allowed.
@@ -390,8 +392,8 @@ The following substatements can be used:
 Annotates an existing module or submodule statement with a 'tailf'
 statement. This is useful in order to add tailf statements to a module
 without touching the module source. Annotation statements can be put in
-a separate annotation module, and then passed to 'confdc' or 'ncsc' (or
-'pyang') when the original module is compiled.
+a separate annotation module, and then passed to 'confdc' or 'ncsc' when
+the original module is compiled.
 
 'tailf:annotate-module' can occur on the top-level in a module, and is
 used to add 'tailf' statements to the module statement itself.
@@ -420,8 +422,8 @@ The following substatements can be used:
 'tailf' statement, a validation statement, or a type restriction
 statement. This is useful in order to add tailf statements to a module
 without touching the module source. Annotation statements can be put in
-a separate annotation module, and then passed to 'confdc' or 'ncsc' (or
-'pyang') when the original module is compiled.
+a separate annotation module, and then passed to 'confdc' or 'ncsc' when
+the original module is compiled.
 
 Any 'tailf' statement, except 'action' can be annotated. The statement
 'action' modifies the data model, and are thus not allowed.
@@ -1386,6 +1388,17 @@ The following substatements can be used:
 
 *tailf:no-subtree-match* See tailf:path-filters.
 
+### tailf:prompt *text*
+
+This statement provides contextual information optimized for Large
+Language Models (LLMs). Annotate nodes intended for consumption by AI
+agents and provide details improving the LLM instructions. Read the
+additional information from the schema in the agent package.
+
+The *prompt* statement can be used in: *leaf*, *leaf-list*, *list*,
+*container*, *rpc*, *action*, *refine*, *action*, *tailf:action*, and
+*tailf:cli-exit-command*.
+
 ### tailf:secondary-index *name*
 
 This statement creates a secondary index with a given name in the parent
@@ -2338,7 +2351,6 @@ This section describes XPath functions that can be used for example in
 > Tail-f YANG CLI extensions
 
 The NSO User Guide  
-> 
 
 `confdc(1)`  
 > Confdc compiler

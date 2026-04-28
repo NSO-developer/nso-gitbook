@@ -6,9 +6,9 @@
 
 `ncsc -c [-a | --annotate YangAnnotationFile] [--deviation DeviationFile] [--skip-deviation-fxs] [-o FxsFile] [--verbose] [--fail-on-warnings] [-E | --error ErrorCode...] [-W | --warning ErrorCode...] [--allow-interop-issues] [-w | --no-warning ErrorCode...] [--strict-yang] [--no-yang-source] [--include-doc] [--use-description [always]] [[--no-features] | [-F | --feature Features...] | [--no-feature Features...]] [-C | --conformance [modulename:]implement | [modulename:]import...] [--datastore operational] [--ignore-unknown-features] [--max-status current | deprecated | obsolete] [-p | --prefix Prefix] [--yangpath YangDir] [--export Agent [-f FxsFileOrDir...]...] -- YangFile`
 
-`ncsc --extract-yang-source Dir FxsFile...`
+`ncsc --extract-yang-source Dir FxsFile`
 
-`ncsc --attach-yang-source Dir FxsFile...`
+`ncsc --attach-yang-source Dir FxsFile`
 
 `ncsc --strip-yang-source FxsFile`
 
@@ -22,7 +22,7 @@
 
 `ncsc -c [-o BinFile] [--read-only] [--verbose] [-I Dir] [--include-file BinFile] [--fail-on-warnings] [--warn-on-type-errors ] [--warn-on-access-mismatch ] [--mib-annotation MibA] [-f FxsFileOrDir...] -- MibFile FxsFile`
 
-`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] [--max-status current | deprecated | obsolete] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
+`ncsc --ncs-compile-bundle Directory [--yangpath YangDir] [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] [--lax-revsion-merge] [--ncs-depend-package PackDir] [--ncs-apply-deviations] [--ncs-no-apply-deviations] [--allow-interop-issues] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-ned-id ModName:IdentityName --ncs-device-dir Directory`
 
 `ncsc --ncs-compile-mib-bundle Directory [--fail-on-warnings] [--ncs-skip-template] [--ncs-skip-statistics] [--ncs-skip-config] --ncs-device-type netconf | snmp-ned | generic-ned | cli-ned --ncs-device-dir Directory`
 
@@ -151,16 +151,19 @@ Take a look at the EXAMPLE section for a crash course.
 >
 > If the module uses a feature defined in an imported YANG module, it
 > must be given as \<modulename:feature\>.
+>
+> Cannot be used together with `--no-feature` or `--no-features`
+> options.
 
 `--no-feature`\<features\>  
-> Indicates that support for the YANG *features* should be excluded
-> from the fxs file. \<features\> is a string on the form
+> Indicates that support for the YANG *features* should be excluded from
+> the fxs file. \<features\> is a string of the form
 > \<modulename\>:\[\<feature\>(,\<feature\>)\*\]
 >
 > This option is used to prune the data model by removing all nodes in
 > all modules that are defined with an "if-feature" that is listed as
 > \<feature\>. Therefore, if this option is given, all features in all
-> modules that should be excluded, must be listed explicitly; features
+> modules that should be excluded must be listed explicitly; features
 > not listed remain supported.
 >
 > If this option is not given, nothing is pruned, i.e., it works as if
@@ -168,7 +171,7 @@ Take a look at the EXAMPLE section for a crash course.
 >
 > This option can be given multiple times.
 >
-> Note: `--feature` and `--no-feature` cannot be given together.
+> Cannot be used together with `--feature` or `--no-features` options.
 
 `--no-yang-source`  
 > By default, the YANG module and submodules source is included in the
@@ -180,8 +183,7 @@ Take a look at the EXAMPLE section for a crash course.
 `--no-features`  
 > Indicates that no YANG features from the given module are supported.
 >
-> Note: This option cannot be used in combination with `--feature`
-> and/or `--no-feature`.
+> Cannot be used together with `--feature` or `--no-feature` options.
 
 `--ignore-unknown-features`  
 > Instructs the compiler to not give an error if an unknown feature is
@@ -564,11 +566,15 @@ done as a source code transformation of the YANG modules (MIBs) that
 define the managed device. By default, the imported modules (MIBs) will
 be augmented in these paths:
 
-- /devices/device/config
-- /devices/device/live-status
-- /devices/template/ned-id/config
-- /compliance/template/ned-id/config
-- /compliance/template/ned-id/live-status (optionally)
+- `/devices/device/config`
+
+- `/devices/device/live-status`
+
+- `/devices/template/ned-id/config`
+
+- `/compliance/template/ned-id/config`
+
+- `/compliance/template/ned-id/live-status (optionally)`
 
 The `ncsc` commands to import device modules can take the following
 options:
@@ -730,17 +736,17 @@ IdentityName is the name of an identity in the YANG module ModName.
 
 ### Misc options
 
-`--extract-yang-source` \<Dir\> \<FxsFile\>...  
+`--extract-yang-source` \<Dir\> \<FxsFile...\>  
 > Extract the included YANG source from the fxs file to the specified
 > directory. The YANG source must not have been stripped from the fxs
-> file using `--strip-yang-source`, and the fxs file must not have
-> been compiled with `--no-yang-source`.
+> file using *--strip-yang-source*, and the fxs file must not have been
+> compiled with *--no-yang-source*.
 
-`--attach-yang-source` \<Dir\> \<FxsFile\>...  
+`--attach-yang-source` \<Dir\> \<FxsFile...\>  
 > Attach YANG source from the specified directory to the fxs file. The
 > fxs file must have had its YANG source stripped using
-> `--strip-yang-source` or must not have been compiled with
-> `--no-yang-source`. Additionally, the directory must include all
+> *--strip-yang-source* or must not have been compiled with
+> *--no-yang-source*. Additionally, the directory must include all
 > required YANG source files for the fxs file.
 
 `--strip-yang-source` \<FxsFile\>  
@@ -830,7 +836,7 @@ Finally we show how to compile a clispec into a loadable format:
 On success exit status is 0. On failure 1. Any error message is printed
 to stderr.
 
-## YANG 1.1
+## Yang 1.1
 
 NCS supports YANG 1.1, as defined in RFC 7950, with the following
 exceptions:
@@ -855,7 +861,6 @@ exceptions:
 ## See Also
 
 The NCS User Guide  
-> 
 
 `ncs(1)`  
 > command to start and control the NCS daemon

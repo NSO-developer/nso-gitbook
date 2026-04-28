@@ -39,18 +39,20 @@ Finally, a really compact way of doing this:
 ### connect
 
 ```python
-connect(ip='127.0.0.1', port=4569, path=None)
+connect(ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Convenience function for connecting to ConfD/NCS.
 
-The 'ip' and 'port' arguments are ignored if path is specified.
+If 'port' is provided the connection uses TCP (with 'ip' defaulting
+to the value of NCS_IPC_ADDR / '127.0.0.1').
+Otherwise, if 'path' is provided, Local IPC is used.
 
 Arguments:
 
 * ip -- ConfD/NCS instance ip address (str)
 * port -- ConfD/NCS instance port (int)
-* path -- ConfD/NCS instance location path (str)
+* path -- ConfD/NCS instance socket path (str)
 
 Returns:
 
@@ -90,7 +92,7 @@ Arguments:
 ### single_read_trans
 
 ```python
-single_read_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
+single_read_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
 ```
 
 Context manager for a single READ transaction.
@@ -141,7 +143,7 @@ Returns:
 ### single_write_trans
 
 ```python
-single_write_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=4569, path=None, src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
+single_write_trans(user, context, groups=[], db=2, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, load_schemas=True, flags=0)
 ```
 
 Context manager for a single READ/WRITE transaction.
@@ -335,23 +337,6 @@ Set commit queue synchronous mode of operation.
 
 <details>
 
-<summary>commit_queue_tag(...)</summary>
-
-Method:
-
-```python
-commit_queue_tag(self, tag)
-```
-
-Set commit-queue tag. Implicitly enabled commit queue commit.
-
-This function is deprecated and will be removed in a future release.
-Use label() instead.
-
-</details>
-
-<details>
-
 <summary>confirm_network_state(...)</summary>
 
 Method:
@@ -363,6 +348,35 @@ confirm_network_state(self)
 Check that the parts of the device configuration read and/or
 modified are up-to-date in CDB before pushing the configuration
 change to the device.
+
+</details>
+
+<details>
+
+<summary>confirm_network_state_mode(...)</summary>
+
+Method:
+
+```python
+confirm_network_state_mode(self, mode)
+```
+
+Set the mode for confirm-network-state.
+
+</details>
+
+<details>
+
+<summary>confirm_network_state_re_deploy_all(...)</summary>
+
+Method:
+
+```python
+confirm_network_state_re_deploy_all(self)
+```
+
+Re-deploy all services affected by discovered out-of-band data
+        
 
 </details>
 
@@ -380,6 +394,23 @@ Check that the parts of the device configuration read and/or
 modified are up-to-date in CDB before pushing the configuration
 change to the device and re-evaluate policies of effected
 services.
+
+This function is deprecated and will be removed in a future release.
+Use confirm_network_state_mode() instead.
+
+</details>
+
+<details>
+
+<summary>confirm_network_state_scope(...)</summary>
+
+Method:
+
+```python
+confirm_network_state_scope(self, scope)
+```
+
+Set the scope for confirm-network-state.
 
 </details>
 
@@ -511,17 +542,29 @@ Get commit queue synchronous mode of operation timeout.
 
 <details>
 
-<summary>get_commit_queue_tag(...)</summary>
+<summary>get_confirm_network_state_mode(...)</summary>
 
 Method:
 
 ```python
-get_commit_queue_tag(self)
+get_confirm_network_state_mode(self)
 ```
 
-Get commit-queue tag.
+Get the mode for confirm-network-state.
 
-This function is deprecated and will be removed in a future release.
+</details>
+
+<details>
+
+<summary>get_confirm_network_state_scope(...)</summary>
+
+Method:
+
+```python
+get_confirm_network_state_scope(self)
+```
+
+Get the scope for confirm-network-state.
 
 </details>
 
@@ -564,6 +607,20 @@ get_no_overwrite_scope(self)
 ```
 
 Get no-overwrite scope
+
+</details>
+
+<details>
+
+<summary>get_tagvalues(...)</summary>
+
+Method:
+
+```python
+get_tagvalues(self)
+```
+
+Get commit parameters as a list of TagValue's.
 
 </details>
 
@@ -699,6 +756,20 @@ configuration change to the device.
 
 <details>
 
+<summary>is_confirm_network_state_re_deploy_all(...)</summary>
+
+Method:
+
+```python
+is_confirm_network_state_re_deploy_all(self)
+```
+
+Is confirm-network-state with re-deploy-all enabled.
+
+</details>
+
+<details>
+
 <summary>is_confirm_network_state_re_evaluate_policies(...)</summary>
 
 Method:
@@ -708,6 +779,9 @@ is_confirm_network_state_re_evaluate_policies(self)
 ```
 
 Is confirm-network-state with re-evaluate-policies enabled.
+
+This function is deprecated and will be removed in a future release.
+Use get_confirm_network_state_mode() instead.
 
 </details>
 
@@ -1093,6 +1167,34 @@ Set dry-run outformat
 
 <details>
 
+<summary>set_reconcile_exclude_paths(...)</summary>
+
+Method:
+
+```python
+set_reconcile_exclude_paths(self, xpaths)
+```
+
+Set paths to be excluded during reconciliation.
+
+</details>
+
+<details>
+
+<summary>set_reconcile_include_paths(...)</summary>
+
+Method:
+
+```python
+set_reconcile_include_paths(self, xpaths)
+```
+
+Set paths to be included during reconciliation.
+
+</details>
+
+<details>
+
 <summary>trace_id(...)</summary>
 
 Method:
@@ -1130,6 +1232,106 @@ with_service_meta_data(self)
 ```
 
 Set with-service-meta-data commit parameter.
+
+</details>
+
+### _class_ **ConfirmNetworkStateMode**
+
+Enumeration for confirm network state modes:
+NORMAL = 1
+RE_EVALUATE_POLICIES = 2
+
+```python
+ConfirmNetworkStateMode(*values)
+```
+
+Members:
+
+<details>
+
+<summary>NORMAL</summary>
+
+```python
+NORMAL = 1
+```
+
+
+</details>
+
+<details>
+
+<summary>RE_EVALUATE_POLICIES</summary>
+
+```python
+RE_EVALUATE_POLICIES = 2
+```
+
+
+</details>
+
+<details>
+
+<summary>name</summary>
+
+The name of the Enum member.
+
+</details>
+
+<details>
+
+<summary>value</summary>
+
+The value of the Enum member.
+
+</details>
+
+### _class_ **ConfirmNetworkStateScope**
+
+Enumeration for confirm network state scopes:
+WRITE_AND_FULL_READ_SET    = 1
+WRITE_AND_SERVICE_READ_SET = 2
+
+```python
+ConfirmNetworkStateScope(*values)
+```
+
+Members:
+
+<details>
+
+<summary>WRITE_AND_FULL_READ_SET</summary>
+
+```python
+WRITE_AND_FULL_READ_SET = 1
+```
+
+
+</details>
+
+<details>
+
+<summary>WRITE_AND_SERVICE_READ_SET</summary>
+
+```python
+WRITE_AND_SERVICE_READ_SET = 2
+```
+
+
+</details>
+
+<details>
+
+<summary>name</summary>
+
+The name of the Enum member.
+
+</details>
+
+<details>
+
+<summary>value</summary>
+
+The value of the Enum member.
 
 </details>
 
@@ -1228,7 +1430,7 @@ _None_
 Class encapsulating a MAAPI connection.
 
 ```python
-Maapi(ip='127.0.0.1', port=4569, path=None, load_schemas=True, msock=None)
+Maapi(ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', load_schemas=True, msock=None)
 ```
 
 Create a Maapi instance.
@@ -1347,6 +1549,28 @@ Arguments:
 Returns:
 
 * status (int or tuple)
+
+</details>
+
+<details>
+
+<summary>clear_read_intent(...)</summary>
+
+Method:
+
+```python
+clear_read_intent(self, th)
+```
+
+Clear the read intent for the transaction.
+
+This function clears the read intent for the given XPath in the
+transaction, which can be used for optimization purposes by
+the ConfD/NCS system.
+
+Arguments:
+
+* th -- transaction handle
 
 </details>
 
@@ -1563,6 +1787,32 @@ Returns:
 
 <details>
 
+<summary>get_read_intent(...)</summary>
+
+Method:
+
+```python
+get_read_intent(self, th)
+```
+
+Get the read intent for the transaction.
+
+This function gets the read intents for the transaction,
+which can be used for optimization purposes by
+the ConfD/NCS system.
+
+Arguments:
+
+* th -- transaction handle
+
+Returns:
+
+* list of path read intent (list)
+
+</details>
+
+<details>
+
 <summary>get_running_db_status(...)</summary>
 
 Method:
@@ -1579,6 +1829,41 @@ False otherwise.
 Returns:
 
 * boolean
+
+</details>
+
+<details>
+
+<summary>get_template_variables(...)</summary>
+
+Method:
+
+```python
+get_template_variables(self, name, type_enum)
+```
+
+Get template variables for specific types.
+
+</details>
+
+<details>
+
+<summary>get_trans_mode(...)</summary>
+
+Method:
+
+```python
+get_trans_mode(self, th)
+```
+
+Get transaction mode for a transaction handle.
+
+Arguments:
+* th -- a transaction handle.
+
+Returns:
+
+* Either READ or READ_WRITE flag (ncs) or -1 (no transaction).
 
 </details>
 
@@ -1982,6 +2267,29 @@ Arguments:
 
 <details>
 
+<summary>set_read_intent(...)</summary>
+
+Method:
+
+```python
+set_read_intent(self, th, xpath_or_xpaths)
+```
+
+Set a read intent for the transaction.
+
+This function sets a read intent for the given XPath in the
+transaction, which can be used for optimization purposes by
+the ConfD/NCS system.
+
+Arguments:
+
+* th -- transaction handle
+* xpath_or_xpaths -- A single XPath or a list of xpaths (str or list)
+
+</details>
+
+<details>
+
 <summary>shared_apply_template(...)</summary>
 
 Method:
@@ -2210,7 +2518,7 @@ Returns:
 Method:
 
 ```python
-start_user_session(self, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path=None)
+start_user_session(self, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path='/tmp/nso/nso-ipc')
 ```
 
 Start a new user session.
@@ -2369,7 +2677,7 @@ For example:
                     t.apply()
 
 ```python
-Session(maapi, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path=None)
+Session(maapi, user, context, groups=[], src_ip='127.0.0.1', src_port=0, proto=1, vendor=None, product=None, version=None, client_id=None, path='/tmp/nso/nso-ipc')
 ```
 
 Initialize a Session object via start_user_session().
@@ -2392,6 +2700,68 @@ close(self)
 ```
 
 Close the user session.
+
+</details>
+
+### _class_ **TemplateTypes**
+
+Enumeration for template types:
+DEVICE_TEMPLATE     = 0
+SERVICE_TEMPLATE    = 1
+COMPLIANCE_TEMPLATE = 2
+
+```python
+TemplateTypes(*values)
+```
+
+Members:
+
+<details>
+
+<summary>COMPLIANCE_TEMPLATE</summary>
+
+```python
+COMPLIANCE_TEMPLATE = 2
+```
+
+
+</details>
+
+<details>
+
+<summary>DEVICE_TEMPLATE</summary>
+
+```python
+DEVICE_TEMPLATE = 0
+```
+
+
+</details>
+
+<details>
+
+<summary>SERVICE_TEMPLATE</summary>
+
+```python
+SERVICE_TEMPLATE = 1
+```
+
+
+</details>
+
+<details>
+
+<summary>name</summary>
+
+The name of the Enum member.
+
+</details>
+
+<details>
+
+<summary>value</summary>
+
+The value of the Enum member.
 
 </details>
 
@@ -2487,6 +2857,7 @@ Flags (maapi):
 * COMMIT_NCS_RECONCILE_DETACH_NON_SERVICE_CONFIG
 * COMMIT_NCS_CONFIRM_NETWORK_STATE
 * COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_EVALUATE_POLICIES
+* COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_DEPLOY_ALL
 
 </details>
 
@@ -2661,6 +3032,7 @@ Flags (maapi):
 * COMMIT_NCS_RECONCILE_DETACH_NON_SERVICE_CONFIG
 * COMMIT_NCS_CONFIRM_NETWORK_STATE
 * COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_EVALUATE_POLICIES
+* COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_DEPLOY_ALL
 
 </details>
 
@@ -2802,13 +3174,17 @@ CMD_NO_HIDDEN = 2
 COMMIT_NCS_ASYNC_COMMIT_QUEUE = 256
 COMMIT_NCS_BYPASS_COMMIT_QUEUE = 64
 COMMIT_NCS_CONFIRM_NETWORK_STATE = 268435456
+COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_DEPLOY_ALL = 8589934592
 COMMIT_NCS_CONFIRM_NETWORK_STATE_RE_EVALUATE_POLICIES = 536870912
+COMMIT_NCS_CONFIRM_NETWORK_STATE_WRITE_AND_SERVICE_READ_SET = 4294967296
 COMMIT_NCS_NO_DEPLOY = 8
 COMMIT_NCS_NO_FASTMAP = 8
 COMMIT_NCS_NO_LSA = 1048576
 COMMIT_NCS_NO_NETWORKING = 16
 COMMIT_NCS_NO_OUT_OF_SYNC_CHECK = 32
 COMMIT_NCS_NO_OVERWRITE = 1024
+COMMIT_NCS_NO_OVERWRITE_WRITE_AND_FULL_READ_SET = 1073741824
+COMMIT_NCS_NO_OVERWRITE_WRITE_AND_SERVICE_READ_SET = 2147483648
 COMMIT_NCS_NO_REVISION_DROP = 4
 COMMIT_NCS_RECONCILE_ATTACH_NON_SERVICE_CONFIG = 67108864
 COMMIT_NCS_RECONCILE_DETACH_NON_SERVICE_CONFIG = 134217728
@@ -2849,11 +3225,13 @@ FLAG_CONFIG_CACHE_ONLY = 32
 FLAG_CONFIG_ONLY = 4
 FLAG_DELAYED_WHEN = 64
 FLAG_DELETE = 2
+FLAG_DIFFSTYLE = 2
 FLAG_EMIT_PARENTS = 1
 FLAG_HIDE_ALL_HIDEGROUPS = 256
 FLAG_HIDE_INACTIVE = 8
 FLAG_HINT_BULK = 1
 FLAG_NON_RECURSIVE = 4
+FLAG_NO_BRIEF = 1
 FLAG_NO_CONFIG_CACHE = 16
 FLAG_NO_DEFAULTS = 2
 FLAG_SKIP_SUBSCRIBERS = 512

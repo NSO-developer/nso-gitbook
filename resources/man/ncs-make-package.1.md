@@ -114,9 +114,9 @@ with correct meta data.
 
 ## Netconf Ned Specific Options
 
-`--pyang-sanitize`  
-> Sanitize the device's YANG files. This will invoke pyang --sanitize on
-> the device YANG files.
+`--yanger-sanitize`  
+> Sanitize the device's YANG files. This will invoke yanger --sanitize
+> on the device YANG files.
 
 `--confd-netsim-db-mode` candidate \| startup \| running-only  
 > Control which datastore netsim should use when simulating the device.

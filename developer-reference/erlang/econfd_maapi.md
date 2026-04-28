@@ -554,6 +554,20 @@ Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
 Validate the candidate config.
 
 
+### clear_read_intent/2
+
+```erlang
+-spec clear_read_intent(Socket, Tid) -> ok | err()
+                           when
+                               Socket :: econfd:socket(),
+                               Tid :: integer().
+```
+
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Clear the read intent for the transaction.
+
+
 ### cli_prompt/4
 
 ```erlang
@@ -1118,6 +1132,19 @@ Related types: [err()](#err-0), [maapi\_cursor()](#maapi_cursor-0)
 Read all the values for NumEntries list entries, starting at the point given by the cursor C.
 
 The return value has one Erlang list for each YANG list entry, i.e. it is a list of at most NumEntries lists. If we reached the end of the YANG list, \{done, Values\} is returned, and there will be fewer than NumEntries lists in Values - otherwise \{ok, C2, Values\} is returned, where C2 can be used to continue the traversal.
+
+
+### get_read_intent/2
+
+```erlang
+-spec get_read_intent(Socket, Tid) -> {ok, ReadIntents} | err()
+                         when
+                             Socket :: econfd:socket(), Tid :: integer().
+```
+
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Get the read intent for the transaction.
 
 
 ### get_rollback_id/2
@@ -1952,6 +1979,21 @@ Set the "Label" that is stored in the rollback file when a transaction towards r
 Related types: [err()](#err-0), [econfd:ikeypath()](econfd.md#ikeypath-0), [econfd:socket()](econfd.md#socket-0), [econfd:value()](econfd.md#value-0)
 
 Write an entire object, i.e. YANG list entry or container.
+
+
+### set_read_intent/3
+
+```erlang
+-spec set_read_intent(Socket, Tid, XPathOrXPaths) -> ok | err()
+                         when
+                             Socket :: econfd:socket(),
+                             Tid :: integer(),
+                             XPathOrXPaths :: binary() | [binary()].
+```
+
+Related types: [err()](#err-0), [econfd:socket()](econfd.md#socket-0)
+
+Set a read intent for the transaction.
 
 
 ### set_readonly_mode/2

@@ -1004,11 +1004,11 @@ The fun can return the atom 'close' if we wish to close the socket and return fr
 * ?CDB_DONE_TRANSACTION This means that CDB should not send any further notifications to any subscribers - including ourselves - related to the currently executing transaction.
 * ?CDB_DONE_OPERATIONAL This should be used when a subscription notification for operational data has been read. It is the only type that should be used in this case, since the operational data does not have transactions and the notifications do not have priorities.
 
-Finally the arity-3 fun can, when Type == ?CDB_SUB_PREPARE, return an error either as <tt>\{error, binary()\}</tt> or as <tt>\{error, #confd_error\{\}\}</tt> (\{error, tuple()\} is only for internal ConfD/NCS use). This will cause the commit of the current transaction to be aborted.
+Finally the arity-3 fun can, when Type == ?CDB_SUB_PREPARE, return an error either as `{error, binary()}` or as `{error, #confd_error{}}` (\{error, tuple()\} is only for internal ConfD/NCS use). This will cause the commit of the current transaction to be aborted.
 
 CDB is locked for writing while config subscriptions are delivered.
 
-When wait/3 returns <tt>\{error, timeout\}</tt> the connection (and its subscriptions) is still active and the application needs to call wait/3 again. But if wait/3 returns <tt>ok</tt> or <tt>\{error, Reason\}</tt> the connection to ConfD is closed and all subscription points associated with it are cleared.
+When wait/3 returns `{error, timeout}` the connection (and its subscriptions) is still active and the application needs to call wait/3 again. But if wait/3 returns `ok` or `{error, Reason}` the connection to ConfD is closed and all subscription points associated with it are cleared.
 
 
 ### wait_start/1

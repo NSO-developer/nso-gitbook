@@ -15,7 +15,7 @@ Use this class when subscribing on operational data. In all other means
 the behavior is the same as for Subscriber().
 
 ```python
-OperSubscriber(app=None, log=None, host='127.0.0.1', port=4569, path=None)
+OperSubscriber(app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Initialize an OperSubscriber.
@@ -135,7 +135,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -369,7 +369,7 @@ calls for all subscription points, and finally a single call to
 post_iterate().
 
 ```python
-Subscriber(app=None, log=None, host='127.0.0.1', port=4569, subtype=1, name='', path=None)
+Subscriber(app=None, log=None, host='127.0.0.1', port=None, subtype=1, name='', path='/tmp/nso/nso-ipc')
 ```
 
 Initialize a Subscriber.
@@ -489,7 +489,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -692,7 +692,7 @@ Methods are called in the following order:
 3. should_iterate -> abort, if transaction is aborted by other subscriber
 
 ```python
-TwoPhaseSubscriber(name, app=None, log=None, host='127.0.0.1', port=4569, path=None)
+TwoPhaseSubscriber(name, app=None, log=None, host='127.0.0.1', port=None, path='/tmp/nso/nso-ipc')
 ```
 
 Members:
@@ -810,7 +810,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.

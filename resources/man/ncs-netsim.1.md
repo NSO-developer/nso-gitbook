@@ -18,6 +18,8 @@
 
 `ncs-netsim netconf-console Devicename [XPathFilter] [--dir NetsimDir]`
 
+`ncs-netsim cmd | load Devicename arg`
+
 `ncs-netsim -w | --window cli | cli-c | cli-i Devicename [--dir NetsimDir]`
 
 `ncs-netsim get-port Devicename [ipc | netconf | cli | snmp] [--dir NetsimDir]`
@@ -70,14 +72,17 @@ that acts as a NETCONF server, a Cisco CLI engine, or an SNMP agent.
 > network. This command can be given multiple times. The mandatory
 > parameters are the same as for `create-network`.
 >
-> > [!NOTE]
-> > If we have already started NCS with an XML initialization file for
-> > the existing network, an updated initialization file will not take
-> > effect unless we remove the CDB database files, loosing all NCS
-> > configuration. But we can replace the original initialization data
-> > with data for the complete new network when we have run
-> > `add-to-network`, by using `ncs_load` while NCS is running, e.g.
-> > like this:
+> <div class="note">
+>
+> If we have already started NCS with an XML initialization file for the
+> existing network, an updated initialization file will not take effect
+> unless we remove the CDB database files, loosing all NCS
+> configuration. But we can replace the original initialization data
+> with data for the complete new network when we have run
+> `add-to-network`, by using `ncs_load` while NCS is running, e.g. like
+> this:
+>
+> </div>
 >
 > <div class="informalexample">
 >
@@ -156,6 +161,21 @@ that acts as a NETCONF server, a Cisco CLI engine, or an SNMP agent.
 > Invokes the `netconf-console` NETCONF client program towards the
 > device called `DeviceName`. This is an easy way to get the
 > configuration from a simulated device in XML format.
+
+`cmd` \<DeviceName\> \<arg...\>  
+> Invokes the equivalent of `ncs_cmd` against the device called
+> `DeviceName`, allowing for easier scripting of device operations.
+>
+> See [ncs_cmd(1)](confd_cmd.1.md) for a list of available commands
+> and arguments.
+
+`load` \<DeviceName\> \<arg...\>  
+> Invokes the equivalent of `ncs_load` against the device called
+> `DeviceName`, allowing for easier access and modification of device
+> configuration from scripts.
+>
+> See [ncs_load(1)](confd_load.1.md) for a list of available options
+> and arguments.
 
 `get-port` \<DeviceName\> `[ipc | netconf | cli | snmp]`  
 > Prints the port number that the device called `DeviceName` is
