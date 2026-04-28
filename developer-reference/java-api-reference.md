@@ -7,4 +7,4 @@ icon: square-j
 
 Visit the link below to learn more.
 
-{% embed url="https://developer.cisco.com/docs/nso-api-6.5/api-overview/" %}
+{% embed url="https://developer.cisco.com/docs/nso-api-6.7/api-overview/" %}
