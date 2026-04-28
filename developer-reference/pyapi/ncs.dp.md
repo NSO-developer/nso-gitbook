@@ -196,7 +196,7 @@ Custom actionpoint stop triggered when Python VM shuts down.
 Manage a data provider connection towards ConfD/NCS.
 
 ```python
-Daemon(name, log=None, ip='127.0.0.1', port=4569, path=None, state_mgr=None)
+Daemon(name, log=None, ip='127.0.0.1', port=None, path='/tmp/nso/nso-ipc', state_mgr=None)
 ```
 
 Initialize a Daemon object.
@@ -363,7 +363,7 @@ called terminates -- either normally or through an unhandled exception
 or until the optional timeout occurs.
 
 When the timeout argument is present and not None, it should be a
-floating point number specifying a timeout for the operation in seconds
+floating-point number specifying a timeout for the operation in seconds
 (or fractions thereof). As join() always returns None, you must call
 is_alive() after join() to decide whether a timeout happened -- if the
 thread is still alive, the join() call timed out.
@@ -1052,6 +1052,7 @@ MISC_APPLICATION_INTERNAL = 20
 MISC_BAD_PERSIST_ID = 16
 MISC_CANDIDATE_ABORT_BAD_USID = 17
 MISC_CDB_OPER_UNAVAILABLE = 37
+MISC_CONF_LOAD_NOT_ALLOWED = 59
 MISC_DATA_MISSING = 44
 MISC_EXTERNAL = 22
 MISC_EXTERNAL_TIMEOUT = 45
@@ -1119,6 +1120,7 @@ NCS_CQ_REMOTE_NOT_ENABLED = 22
 NCS_DEV_AUTH_FAILED = 1
 NCS_DEV_IN_USE = 81
 NCS_HOST_LOOKUP = 12
+NCS_INVALID_RECONCILE_EXCLUDE_PATH = 131
 NCS_LOCKED = 3
 NCS_NCS_ACTION_NO_TRANSACTION = 67
 NCS_NCS_ALREADY_EXISTS = 82
@@ -1159,6 +1161,7 @@ NCS_NCS_LOAD_TEMPLATE_UNMATCHED_PI = 87
 NCS_NCS_LOAD_TEMPLATE_UNSUPPORTED_NED_ID_AT_TAG_XML = 101
 NCS_NCS_LOAD_TEMPLATE_UNSUPPORTED_NED_ID_XML = 100
 NCS_NCS_LOAD_TEMPLATE_UNSUPPORTED_NETCONF_YANG_ATTRIBUTES = 126
+NCS_NCS_LOAD_TEMPLATE_UNSUPPORTED_PI = 133
 NCS_NCS_MISSING_CLUSTER_AUTH = 73
 NCS_NCS_MISSING_VARIABLES = 52
 NCS_NCS_NED_MULTI_ERROR = 76
@@ -1219,7 +1222,9 @@ NCS_NO_YANG_MODULES = 16
 NCS_NS_SUPPORT = 13
 NCS_OVERLAPPING_PRESENCE_AND_ABSENCE_ASSERTION_COMPLIANCE_TEMPLATE = 127
 NCS_OVERLAPPING_STRICT_ASSERTION_COMPLIANCE_TEMPLATE = 129
+NCS_PARTIAL_RECONCILE_NOT_SUPPORTED = 130
 NCS_PLAN_LOCATION = 120
+NCS_REBASE_SCHEMA_ERROR = 132
 NCS_REVDROP = 17
 NCS_RPC_ERROR = 9
 NCS_SERVICE_CREATE = 0
@@ -1232,7 +1237,6 @@ NCS_UNKNOWN_NED_IDS_COMPLIANCE_TEMPLATE = 124
 NCS_UNKNOWN_NED_ID_DEVICE_TEMPLATE = 106
 NCS_XML_PARSE = 11
 NCS_YANGLIB_NO_SCHEMA_FOR_RUNNING = 114
-OPERATION_CASE_EXISTS = 13
 PATCH_FLAG_AAA_CHECKED = 8
 PATCH_FLAG_BUFFER_DAMPENED = 2
 PATCH_FLAG_FILTER = 4

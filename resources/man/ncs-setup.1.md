@@ -25,13 +25,15 @@ created. Using the `--netsim-dir` and `--package` options, initial
 environments for using NCS towards simulated devices, real devices, or a
 combination thereof can be created.
 
-> **Note**  
->  
-> This command is not included by default in a "system install" of NCS
-> (see [ncs-installer(1)](ncs-installer.1.md)), since it is not usable
-> in such an installation. The (single) execution environment is created
-> by the NCS installer when it is invoked with the `--system-install`
-> option.
+<div class="note">
+
+This command is not included by default in a "system install" of NCS
+(see [ncs-installer(1)](ncs-installer.1.md)), since it is not usable
+in such an installation. The (single) execution environment is created
+by the NCS installer when it is invoked with the `--system-install`
+option.
+
+</div>
 
 ## Options
 
@@ -71,10 +73,13 @@ combination thereof can be created.
 > are found under \$NCS_DIR/packages/neds we can just provide the name
 > of the NED. We can also give the path to a NED package.
 >
-> > [!NOTE]
-> > The script also accepts the alias `--ned-package` (to be backwards
-> > compatible). Both options do the same thing, create links to your
-> > package regardless of what kind of package it is.
+> <div class="note">
+>
+> The script also accepts the alias `--ned-package` (to be backwards
+> compatible). Both options do the same thing, create links to your
+> package regardless of what kind of package it is.
+>
+> </div>
 >
 > To setup NCS to manage Juniper and Cisco routers we execute:
 >

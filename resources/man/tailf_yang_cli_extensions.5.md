@@ -645,8 +645,8 @@ The *cli-delayed-auto-commit* statement can be used in: *container*,
 
 ### tailf:cli-delete-container-on-delete
 
-Specifies that the parent container should be deleted when . this leaf
-is deleted.
+Specifies that the parent container should be deleted when this leaf is
+deleted.
 
 The *cli-delete-container-on-delete* statement can be used in: *leaf*
 and *refine*.
@@ -1863,10 +1863,13 @@ The *cli-replace-all* statement can be used in: *leaf-list*,
 
 ### tailf:cli-reset-container
 
-Specifies that all sibling leaves in the container should be reset when
-this element is set.
+Specifies that all sibling leafs in the container should be removed when
+this element is set. If setting multiple leafs in a single command, only
+the remaining sibling leafs are removed.
 
-When used on a container its content is cleared when set.
+When this extension is used on a container, its child leafs will inherit
+the extension. Additionally, performing set on the container will clear
+all of its contents.
 
 The *cli-reset-container* statement can be used in: *leaf*, *list*,
 *container*, and *refine*.
@@ -1964,6 +1967,11 @@ In almost all cases this annotation should be accompanied by the
 tailf:cli-compact-syntax annotation. Otherwise the output from 'show
 running-config' will not be correct, and the sequence 'save xx' 'load
 override xx' will not work.
+
+When set on a node, this extension affects all children within that node
+but is not inherited down to nested nodes. In case the sequence needs to
+be maintained for nested nodes then this annotation must be used in
+these nodes too.
 
 Used in I- and C-style CLIs.
 
@@ -2827,7 +2835,6 @@ For example:
 ## See Also
 
 The User Guide  
-> 
 
 `ncsc(1)`  
 > NCS Yang compiler

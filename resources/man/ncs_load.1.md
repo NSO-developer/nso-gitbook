@@ -80,11 +80,14 @@ success and non-zero otherwise.
 > the `system` context, which implies that AAA rules will *not* be
 > applied at all.
 >
-> > [!NOTE]
-> > If the environment variables `NCS_MAAPI_USID` and
-> > `NCS_MAAPI_THANDLE` are set (see the ENVIRONMENT section), or if the
-> > `-i` option is used, these options are silently ignored, since
-> > `ncs_load` will attach to an existing transaction.
+> <div class="note">
+>
+> If the environment variables `NCS_MAAPI_USID` and `NCS_MAAPI_THANDLE`
+> are set (see the ENVIRONMENT section), or if the `-i` option is used,
+> these options are silently ignored, since `ncs_load` will attach to an
+> existing transaction.
+>
+> </div>
 
 `-i`  
 > Instead of starting a new user session and transaction, `ncs_load`

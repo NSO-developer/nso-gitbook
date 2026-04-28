@@ -127,7 +127,7 @@ Example of how to specify packages to be included in the bundle, in the
         <package>
           <name>resource-manager</name>
           <git>
-            <repo>ssh://git@stash.tail-f.com/pkg/resource-manager.git</repo>
+            <repo>https://github.com/tailf-pkg/resource-manager.git</repo>
             <tag>1.2</tag>
           </git>
         </package>

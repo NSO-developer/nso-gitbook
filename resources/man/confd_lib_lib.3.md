@@ -19,12 +19,16 @@ to NSO
     int confd_load_schemas(
     const struct sockaddr* srv, int srv_sz);
 
+    int confd_load_schemas_mmap(
+    const struct sockaddr *srv, int srv_sz, void *shm_addr, size_t shm_size, 
+    const char *file_path, int shm_flags);
+
     int confd_load_schemas_list(
     const struct sockaddr* srv, int srv_sz, int flags, const uint32_t *nshash, 
     const int *nsflags, int num_ns);
 
     int confd_mmap_schemas_setup(
-    void *addr, size_t size, const char *filename, int flags);
+    void *addr, size_t size, const char *filename, int flags, const struct confd_schema_stats *stats);
 
     int confd_mmap_schemas(
     const char *filename);
@@ -68,8 +72,20 @@ to NSO
     char *confd_hash2str(
     uint32_t hash);
 
+    size_t confd_hash2str_size(
+    void);
+
+    void confd_hash2str_iterate(
+    void(cb)(uint32_t, void *opaque);
+
     uint32_t confd_str2hash(
     const char *str);
+
+    size_t confd_str2hash_size(
+    void);
+
+    void confd_str2hash_iterate(
+    void(cb)(uint32_t, void *opaque);
 
     struct confd_cs_node *confd_find_cs_root(
     uint32_t ns);
@@ -83,6 +99,19 @@ to NSO
     struct confd_cs_node *confd_cs_node_cd(
     const struct confd_cs_node *start, const char *fmt, ...);
 
+    int confd_num_mns_maps(
+    void);
+
+    void confd_mns_maps_iterate(
+    void *opaque);
+
+    int confd_mns_map_size(
+    const mount_id_t *mount_id);
+
+    int confd_mns_map_iterate(
+    const mount_id_t *mount_id, void(cb)(uint32_t nshash, const char *ns, 
+    const char *prefix, const char *xmlns, const char *modname, void *opaque);
+
     enum confd_vtype confd_get_base_type(
     struct confd_cs_node *node);
 
@@ -94,6 +123,13 @@ to NSO
 
     struct confd_type *confd_find_ns_type(
     uint32_t nshash, const char *name);
+
+    unsigned int confd_ns_type_num(
+    uint32_t nshash);
+
+    void confd_ns_type_iterate(
+    uint32_t nshash, void(cb)(uint32_t nshash, const char *name, struct confd_type *type, 
+    void *opaque, void *opaque);
 
     struct confd_type *confd_get_leaf_list_type(
     struct confd_cs_node *node);
@@ -274,8 +310,23 @@ over how the socket communicating with NSO is created. We recommend
 calling `maapi_load_schemas_list()` directly (see
 [confd_lib_maapi(3)](confd_lib_maapi.3.md)).
 
+    int confd_load_schemas_mmap(
+    const struct sockaddr *srv, int srv_sz, void *shm_addr, size_t shm_size, 
+    const char *file_path, int shm_flags);
+
+Utility function that uses `maapi_get_schema_stats()`,
+`confd_mmap_schemas_setup()` and `maapi_load_schemas()` (see
+[confd_lib_maapi(3)](confd_lib_maapi.3.md)) to load schema information
+from NSO into a file that can later be used for memory mapping the
+schema.
+
+Use of this utility function is typically not needed as enabling
+/ncs-config/enable-shared-memory-schema in
+[ncs.conf(5)](ncs.conf.5.md) will maintain a file to be used for
+memory mapping of the schema data.
+
     int confd_mmap_schemas_setup(
-    void *addr, size_t size, const char *filename, int flags);
+    void *addr, size_t size, const char *filename, int flags, const struct confd_schema_stats *stats);
 
 This function sets up for a subsequent call of one of the schema-loading
 functions (`confd_load_schemas()` etc) to load the schema information
@@ -453,6 +504,8 @@ struct confd_nsinfo {
     uint32_t hash;
     const char *revision;
     const char *module;
+    uint32_t *nsdeps;
+    int num_nsdeps;
 };
 ```
 
@@ -637,13 +690,14 @@ this case `maapi_xpath2kpath_th()` must be used to translate the string
 into a `confd_hkeypath_t`, which can then be used with
 `CONFD_SET_OBJECTREF()` to create the `confd_value_t` value.
 
-> **Note**  
->  
-> When the resulting value is of one of the C_BUF, C_BINARY, C_LIST,
-> C_OBJECTREF, C_OID, C_QNAME, C_HEXSTR, or C_BITBIG `confd_value_t`
-> types, the library has allocated memory to hold the value. It is up to
-> the user of this function to free the memory using
-> `confd_free_value()`.
+<div class="note">
+
+When the resulting value is of one of the C_BUF, C_BINARY, C_LIST,
+C_OBJECTREF, C_OID, C_QNAME, C_HEXSTR, or C_BITBIG `confd_value_t`
+types, the library has allocated memory to hold the value. It is up to
+the user of this function to free the memory using `confd_free_value()`.
+
+</div>
 
     char *confd_val2str_ptr(
     struct confd_type *type, const confd_value_t *val);
@@ -741,13 +795,15 @@ possible internal pointers inside the struct. Typically we use
 If the held value is of fixed size, e.g. integers, xmltags etc, the
 `confd_free_value()` function does nothing.
 
-> **Note**  
->  
-> Memory for values received as parameters to callback functions is
-> always managed by the library - the application must *not* call
-> `confd_free_value()` for those (on the other hand values of the types
-> listed above that are received as parameters to a callback function
-> must be copied if they are to persist beyond the callback invocation).
+<div class="note">
+
+Memory for values received as parameters to callback functions is always
+managed by the library - the application must *not* call
+`confd_free_value()` for those (on the other hand values of the types
+listed above that are received as parameters to a callback function must
+be copied if they are to persist beyond the callback invocation).
+
+</div>
 
     confd_value_t *confd_value_dup_to(
     const confd_value_t *v, confd_value_t *newv);
@@ -817,11 +873,13 @@ This function decrypts `len` bytes of data from `ciphertext` and writes
 the clear text to the `output` pointer. The `output` pointer must point
 to an area that is at least `len` bytes long.
 
-> **Note**  
->  
-> One of the functions `confd_install_crypto_keys()` and
-> `maapi_install_crypto_keys()` must have been called before
-> `confd_decrypt()` can be used.
+<div class="note">
+
+One of the functions `confd_install_crypto_keys()` and
+`maapi_install_crypto_keys()` must have been called before
+`confd_decrypt()` can be used.
+
+</div>
 
 ## User-Defined Types
 
@@ -867,11 +925,13 @@ Connects a stream socket to NSO. The `id` and the `flags` take different
 values depending on the usage scenario. This is indicated for each
 individual function that makes use of a stream socket.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 ## Marshalling
 
@@ -1168,13 +1228,14 @@ A call of `confd_trans_seterr_extended_info()` to populate the
 
 </div>
 
-> **Note**  
->  
-> The toplevel elements in the `confd_tag_value_t` array *must* have the
-> `ns` element of the `struct xml_tag` set. The
-> `CONFD_SET_TAG_XMLBEGIN()` macro will set this element, but for
-> toplevel leaf elements the `CONFD_SET_TAG_NS()` macro needs to be
-> used, as shown above.
+<div class="note">
+
+The toplevel elements in the `confd_tag_value_t` array *must* have the
+`ns` element of the `struct xml_tag` set. The `CONFD_SET_TAG_XMLBEGIN()`
+macro will set this element, but for toplevel leaf elements the
+`CONFD_SET_TAG_NS()` macro needs to be used, as shown above.
+
+</div>
 
 The \<error-info\> section resulting from the above would look like
 this:

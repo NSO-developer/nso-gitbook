@@ -38,6 +38,12 @@ connecting to NCS
     int maapi_get_schema_file_path(
     int sock, char **buf);
 
+    int maapi_get_schema_file_path2(
+    int sock, char **buf);
+
+    int maapi_get_schema_stats(
+    int sock, const uint32_t *nshash, const int *nsflags, int num_ns, struct confd_schema_stats *stats);
+
     int maapi_close(
     int sock);
 
@@ -160,7 +166,7 @@ connecting to NCS
     int sock, int thandle);
 
     int maapi_prepare_trans_flags(
-    int sock, int thandle, int flags);
+    int sock, int thandle, int64_t flags);
 
     int maapi_commit_trans(
     int sock, int thandle);
@@ -172,7 +178,7 @@ connecting to NCS
     int sock, int thandle, int keepopen);
 
     int maapi_apply_trans_flags(
-    int sock, int thandle, int keepopen, int flags);
+    int sock, int thandle, int keepopen, int64_t flags);
 
     int maapi_ncs_apply_trans_params(
     int sock, int thandle, int keepopen, confd_tag_value_t *params, int nparams, 
@@ -413,6 +419,18 @@ connecting to NCS
     int maapi_set_comment(
     int sock, int thandle, const char *comment);
 
+    int maapi_ncs_set_read_intent(
+    int sock, int thandle, const char *xpaths[], int nxpaths);
+
+    int maapi_ncs_clear_read_intent(
+    int sock, int thandle);
+
+    int maapi_ncs_get_read_intent(
+    int sock, int thandle, int *npath, char ***paths);
+
+    void maapi_ncs_free_read_intent(
+    int npath, char ***paths);
+
     int maapi_copy(
     int sock, int from_thandle, int to_thandle);
 
@@ -467,6 +485,9 @@ connecting to NCS
     int maapi_ncs_write_service_log_entry(
     int sock, const char *msg, confd_value_t *type, confd_value_t *level, 
     const char *fmt, ...);
+
+    int maapi_ncs_get_template_variables(
+    int sock, const char *template_name, int type, int *num_variables, char ***variables);
 
     int maapi_report_progress(
     int sock, int thandle, enum confd_progress_verbosity verbosity, const char *msg);
@@ -814,6 +835,9 @@ connecting to NCS
     int maapi_reopen_logs(
     int sock);
 
+    int maapi_upgrade_vm(
+    int sock);
+
     int maapi_stop(
     int sock, int synchronous);
 
@@ -881,11 +905,13 @@ closed.
 
 The application has to connect to NCS before it can interact with NCS.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS
 
@@ -978,6 +1004,16 @@ called, the call will block until the creation has completed. If shared
 memory schema support has not been enabled, or if the creation of the
 schema file failed, the function returns CONFD_ERR with `confd_errno`
 set to CONFD_ERR_NOEXISTS.
+
+*Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
+
+    int maapi_get_schema_stats(
+    int sock, const uint32_t *nshash, const int *nsflags, int num_ns, struct confd_schema_stats *stats);
+
+This function will get schema information for the shared memory mapping
+file, which can then be passed to `confd_mmap_schemas_setup()` (see
+[confd_lib_lib(3)](confd_lib_lib.3.md)). If the call is successful,
+`stats` is filled with schema information else its state is undefined.
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
 
@@ -1371,12 +1407,14 @@ the candidate is committed to running. To set only the "Label", give
 If both `label` and `comment` are NULL, the function does exactly the
 same as `maapi_candidate_confirmed_commit_persistent()`.
 
-> **Note**  
->  
-> To ensure that the "Label" and/or "Comment" are stored in the rollback
-> file in all cases when doing a confirmed commit, they must be given
-> both with the confirmed commit (using this function) and with the
-> confirming commit (using `maapi_candidate_commit_info()`).
+<div class="note">
+
+To ensure that the "Label" and/or "Comment" are stored in the rollback
+file in all cases when doing a confirmed commit, they must be given both
+with the confirmed commit (using this function) and with the confirming
+commit (using `maapi_candidate_commit_info()`).
+
+</div>
 
 If `confd_errno` is CONFD_ERR_NOEXISTS it means that there is an ongoing
 persistent confirmed commit, but `persist_id` didn't give the right
@@ -1409,13 +1447,15 @@ only the "Label", give `comment` as NULL, and to set only the "Comment",
 give `label` as NULL. If both `label` and `comment` are NULL, the
 function does exactly the same as `maapi_candidate_commit_persistent()`.
 
-> **Note**  
->  
-> To ensure that the "Label" and/or "Comment" are stored in the rollback
-> file in all cases when doing a confirmed commit, they must be given
-> both with the confirmed commit (using
-> `maapi_candidate_confirmed_commit_info()`) and with the confirming
-> commit (using this function).
+<div class="note">
+
+To ensure that the "Label" and/or "Comment" are stored in the rollback
+file in all cases when doing a confirmed commit, they must be given both
+with the confirmed commit (using
+`maapi_candidate_confirmed_commit_info()`) and with the confirming
+commit (using this function).
+
+</div>
 
 If `confd_errno` is CONFD_ERR_NOEXISTS it means that there is an ongoing
 persistent confirmed commit, but `persist_id` didn't give the right
@@ -1712,14 +1752,16 @@ eventually commits or aborts.
 A call to `maapi_apply_trans()` must also eventually be followed by a
 call to `maapi_finish_trans()` which will terminate the transaction.
 
-> **Note**  
->  
-> For a readonly transaction, i.e. one started with `readwrite` ==
-> `CONFD_READ`, or for a read-write transaction where we haven't
-> actually done any writes, we do not need to call any of the
-> validate/prepare/commit/abort or apply functions, since there is
-> nothing for them to do. Calling `maapi_finish_trans()` to terminate
-> the transaction is sufficient.
+<div class="note">
+
+For a readonly transaction, i.e. one started with `readwrite` ==
+`CONFD_READ`, or for a read-write transaction where we haven't actually
+done any writes, we do not need to call any of the
+validate/prepare/commit/abort or apply functions, since there is nothing
+for them to do. Calling `maapi_finish_trans()` to terminate the
+transaction is sufficient.
+
+</div>
 
 The parameter `keepopen` can optionally be set to `1`, then the changes
 to the transaction are not discarded if validation fails. This feature
@@ -2132,10 +2174,12 @@ before any call to `maapi_get_next()`, `maapi_get_objects()` or
 `maapi_find_next()`. In this case, `secondary_index` must point to a
 NUL-terminated string that is valid throughout the iteration.
 
-> **Note**  
->  
-> ConfD will not sort the uncommitted rows. In this particular case,
-> setting the `secondary_index` element will not work.
+<div class="note">
+
+ConfD will not sort the uncommitted rows. In this particular case,
+setting the `secondary_index` element will not work.
+
+</div>
 
 The list can be filtered by setting the `xpath_expr` field of the
 `struct maapi_cursor` to an XPath expression - this must be done after
@@ -2426,19 +2470,21 @@ the `confd_value_t` value element is given as follows:
 
 - Keys to select list entries can be given with their values.
 
-> **Note**  
->  
-> When we use C_PTR, we need to take special care to free any allocated
-> memory. When we use C_NOEXISTS and the value is stored in the array,
-> we can just use `confd_free_value()` regardless of the type, since the
-> `confd_value_t` has the type information. But with C_PTR, only the
-> actual value is stored in the pointed-to variable, just as for
-> `maapi_get_buf_elem()`, `maapi_get_binary_elem()`, etc, and we need to
-> free the memory specifically allocated for the types listed in the
-> description of `maapi_get_elem()` above. The details of how to do this
-> are not given for the `maapi_get_xxx_elem()` functions here, but it is
-> the same as for the corresponding `cdb_get_xxx()` functions, see
-> [confd_lib_cdb(3)](confd_lib_cdb.3.md).
+<div class="note">
+
+When we use C_PTR, we need to take special care to free any allocated
+memory. When we use C_NOEXISTS and the value is stored in the array, we
+can just use `confd_free_value()` regardless of the type, since the
+`confd_value_t` has the type information. But with C_PTR, only the
+actual value is stored in the pointed-to variable, just as for
+`maapi_get_buf_elem()`, `maapi_get_binary_elem()`, etc, and we need to
+free the memory specifically allocated for the types listed in the
+description of `maapi_get_elem()` above. The details of how to do this
+are not given for the `maapi_get_xxx_elem()` functions here, but it is
+the same as for the corresponding `cdb_get_xxx()` functions, see
+[confd_lib_cdb(3)](confd_lib_cdb.3.md).
+
+</div>
 
 All elements have the same position in the array after the call, in
 order to simplify extraction of the values - this means that optional
@@ -2449,11 +2495,13 @@ only indication of a non-existing value is that the destination variable
 has not been modified - it's up to the application to set it to some
 "impossible" value before the call when optional leafs are read.
 
-> **Note**  
->  
-> Selection of a list entry by its "instance integer", which can be done
-> with `cdb_get_values()` by using C_CDBBEGIN, can *not* be done with
-> `maapi_get_values()`
+<div class="note">
+
+Selection of a list entry by its "instance integer", which can be done
+with `cdb_get_values()` by using C_CDBBEGIN, can *not* be done with
+`maapi_get_values()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_BADPATH, CONFD_ERR_BADTYPE, CONFD_ERR_NOEXISTS,
@@ -2841,11 +2889,13 @@ struct ncs_name_value {
 
 The `flags` parameter is currently unused and should be given as 0.
 
-> **Note**  
->  
-> If this function is called under FASTMAP it will have the same
-> behavior as the corresponding FASTMAP function
-> `maapi_shared_ncs_apply_template()`.
+<div class="note">
+
+If this function is called under FASTMAP it will have the same behavior
+as the corresponding FASTMAP function
+`maapi_shared_ncs_apply_template()`.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_ACCESS_DENIED, CONFD_ERR_NOT_WRITABLE, CONFD_ERR_BADPATH,
@@ -2966,29 +3016,30 @@ entry. The `from` path must be pre-formatted, e.g. using
 `confd_format_keypath()`, whereas the destination path is formatted by
 this function.
 
-> **Note**  
->  
-> The data models for the source and destination trees must match - i.e.
-> they must either be identical, or the data model for the source tree
-> must be a proper subset of the data model for the destination tree.
-> This is always fulfilled when copying from one entry to another in a
-> list, or if both source and destination tree have been defined via
-> YANG `uses` statements referencing the same `grouping` definition. If
-> a data model mismatch is detected, e.g. an existing data node in the
-> source tree does not exist in the destination data model, or an
-> existing leaf in the source tree has a value that is incompatible with
-> the type of the leaf in the destination data model,
-> `maapi_copy_tree()` will return CONFD_ERR with `confd_errno` set to
-> CONFD_ERR_BADPATH.
->
-> To provide further explanation, a tree is a proper subset of another
-> tree if it has less information than the other. For example, a tree
-> with the leaves a,b,c is a proper subset of a tree with the leaves
-> a,b,c,d,e. It is important to note that it is less information and not
-> different information. Therefore, a tree with different default values
-> than another tree is not a proper subset, or, a tree with an
-> non-presence container can not be a proper subset of a tree with a
-> presence container.
+<div class="note">
+
+The data models for the source and destination trees must match - i.e.
+they must either be identical, or the data model for the source tree
+must be a proper subset of the data model for the destination tree. This
+is always fulfilled when copying from one entry to another in a list, or
+if both source and destination tree have been defined via YANG `uses`
+statements referencing the same `grouping` definition. If a data model
+mismatch is detected, e.g. an existing data node in the source tree does
+not exist in the destination data model, or an existing leaf in the
+source tree has a value that is incompatible with the type of the leaf
+in the destination data model, `maapi_copy_tree()` will return CONFD_ERR
+with `confd_errno` set to CONFD_ERR_BADPATH.
+
+To provide further explanation, a tree is a proper subset of another
+tree if it has less information than the other. For example, a tree with
+the leaves a,b,c is a proper subset of a tree with the leaves a,b,c,d,e.
+It is important to note that it is less information and not different
+information. Therefore, a tree with different default values than
+another tree is not a proper subset, or, a tree with an non-presence
+container can not be a proper subset of a tree with a presence
+container.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOSESSION,
 CONFD_ERR_ACCESS_DENIED, CONFD_ERR_NOT_WRITABLE, CONFD_ERR_BADPATH
@@ -4099,12 +4150,26 @@ It can also be interesting in upgrade scenarios where we are interested
 in making sure that no configuration changes can occur during some
 interval.
 
-This function toggles the readonly mode of a ConfD instance. If the
-`flag` parameter is non-zero, ConfD will be set in readonly mode, if it
-is zero, ConfD will be taken out of readonly mode. It is also worth to
-note that when a ConfD HA node is a secondary as instructed by the
-application, no write transactions can occur regardless of the value of
-the flag set by this function.
+This function controls the administrator-configured read-only mode of a
+ConfD instance. If the `flag` parameter is non-zero, ConfD will be set
+in administrator-configured read-only mode; if it is zero, ConfD will be
+taken out of administrator-configured read-only mode.
+
+Note that a ConfD instance can also be in read-only mode due to its
+operational state in a high-availability configuration. When a ConfD HA
+node is a secondary (as instructed by the application), no write
+transactions can occur regardless of the administrator-configured
+setting. The overall read-only state is the logical OR of the
+administrator-configured read-only mode and the read-only mode imposed
+by HA operational state.
+
+The current state can be observed through the monitoring leafs:
+`/confd-state/admin-configured-read-only-mode` shows the
+administrator-configured state, while `/confd-state/read-only-mode`
+shows the overall read-only state (which may be set by either
+administrator configuration or HA operational state). Alternatively, the
+`/confd-state/set-read-only` action can be used to control the
+administrator-configured read-only mode.
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
 
@@ -4128,11 +4193,13 @@ as a string, and the socket is a maapi socket obtained using
 `maapi_connect()`. On success, the function returns the number of
 connections that were closed.
 
-> **Note**  
->  
-> ConfD will close all its sockets with remote address `address`,
-> *except* HA connections. For HA use `confd_ha_secondary_dead()` or an
-> HA state transition.
+<div class="note">
+
+ConfD will close all its sockets with remote address `address`, *except*
+HA connections. For HA use `confd_ha_secondary_dead()` or an HA state
+transition.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_UNAVAILABLE
@@ -4310,15 +4377,17 @@ the function `maapi_save_config_result()`.
 The stream socket must be connected within 10 seconds after the id is
 received.
 
-> **Note**  
->  
-> The `maapi_save_config()` function can not be used with an attached
-> transaction in a data callback (see
-> [confd_lib_dp(3)](confd_lib_dp.3.md)), since it requires active
-> participation by the transaction manager, which is blocked waiting for
-> the callback to return. However it is possible to use it with a
-> transaction started via `maapi_start_trans_in_trans()` with the
-> attached transaction as backend.
+<div class="note">
+
+The `maapi_save_config()` function can not be used with an attached
+transaction in a data callback (see
+[confd_lib_dp(3)](confd_lib_dp.3.md)), since it requires active
+participation by the transaction manager, which is blocked waiting for
+the callback to return. However it is possible to use it with a
+transaction started via `maapi_start_trans_in_trans()` with the attached
+transaction as backend.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BAD_TYPE
 
@@ -4349,11 +4418,13 @@ meanings as for `maapi_save_config()`. If the name of the file ends in
 .gz (or .Z) then the file is assumed to be gzipped, and will be
 uncompressed as it is loaded.
 
-> **Note**  
->  
-> If you use a relative pathname for `filename`, it is taken as relative
-> to the working directory of the ConfD daemon, i.e. the directory where
-> the daemon was started.
+<div class="note">
+
+If you use a relative pathname for `filename`, it is taken as relative
+to the working directory of the ConfD daemon, i.e. the directory where
+the daemon was started.
+
+</div>
 
 By default the complete configuration (as allowed by the user of the
 current transaction) is deleted before the file is loaded. To merge the
@@ -4406,17 +4477,18 @@ The other `flags` parameters are the same as for `maapi_save_config()`,
 however the flags `MAAPI_CONFIG_WITH_SERVICE_META`,
 `MAAPI_CONFIG_NO_PARENTS`, and `MAAPI_CONFIG_CDB_ONLY` are ignored.
 
-> **Note**  
->  
-> The `maapi_load_config()` function can not be used with an attached
-> transaction in a data callback (see
-> [confd_lib_dp(3)](confd_lib_dp.3.md)), since it requires active
-> participation by the transaction manager, which is blocked waiting for
-> the callback to return. However it is possible to use it with a
-> transaction started via `maapi_start_trans_in_trans()` with the
-> attached transaction as backend, writing the changes to the attached
-> transaction by invoking `maapi_apply_trans()` for the
-> "trans-in-trans".
+<div class="note">
+
+The `maapi_load_config()` function can not be used with an attached
+transaction in a data callback (see
+[confd_lib_dp(3)](confd_lib_dp.3.md)), since it requires active
+participation by the transaction manager, which is blocked waiting for
+the callback to return. However it is possible to use it with a
+transaction started via `maapi_start_trans_in_trans()` with the attached
+transaction as backend, writing the changes to the attached transaction
+by invoking `maapi_apply_trans()` for the "trans-in-trans".
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_BADPATH, CONFD_ERR_BAD_CONFIG, CONFD_ERR_ACCESS_DENIED,
@@ -4432,11 +4504,13 @@ The `th` and `flags` parameters are the same as for
 
 An optional `chroot` path can be given.
 
-> **Note**  
->  
-> The same restriction as for `maapi_load_config()` regarding an
-> attached transaction in a data callback applies also to
-> `maapi_load_config_cmds()`
+<div class="note">
+
+The same restriction as for `maapi_load_config()` regarding an attached
+transaction in a data callback applies also to
+`maapi_load_config_cmds()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_BADPATH, CONFD_ERR_BAD_CONFIG, CONFD_ERR_ACCESS_DENIED,
@@ -4485,11 +4559,13 @@ configuration load was successful we use the function
 The stream socket must be connected within 10 seconds after the id is
 received.
 
-> **Note**  
->  
-> The same restriction as for `maapi_load_config()` regarding an
-> attached transaction in a data callback applies also to
-> `maapi_load_config_stream()`
+<div class="note">
+
+The same restriction as for `maapi_load_config()` regarding an attached
+transaction in a data callback applies also to
+`maapi_load_config_stream()`
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADTYPE,
 CONFD_ERR_PROTOUSAGE, CONFD_ERR_EXTERNAL
@@ -4618,14 +4694,15 @@ function.
 
 </div>
 
-> **Note**  
->  
-> A call to `maapi_get_stream_progress()` does not return until the
-> number of bytes read has increased from the previous call (or if there
-> is an error). This means that the above code does not imply
-> busy-looping, but also that if the code was to call
-> `maapi_get_stream_progress()` when `n_read` == `n_written`, the result
-> would be a deadlock.
+<div class="note">
+
+A call to `maapi_get_stream_progress()` does not return until the number
+of bytes read has increased from the previous call (or if there is an
+error). This means that the above code does not imply busy-looping, but
+also that if the code was to call `maapi_get_stream_progress()` when
+`n_read` == `n_written`, the result would be a deadlock.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_NOEXISTS
 
@@ -5012,11 +5089,13 @@ CONFD_ERR_STALE_INSTANCE, CONFD_ERR_BADTYPE, CONFD_ERR_EXTERNAL
 Calling this function at any point before the call of
 `maapi_commit_upgrade()` will abort the upgrade.
 
-> **Note**  
->  
-> `maapi_abort_upgrade()` should *not* be called if any of the three
-> previous functions fail - in that case, ConfD will do an internal
-> abort of the upgrade.
+<div class="note">
+
+`maapi_abort_upgrade()` should *not* be called if any of the three
+previous functions fail - in that case, ConfD will do an internal abort
+of the upgrade.
+
+</div>
 
 ## Confd Daemon Control
 
@@ -5146,12 +5225,14 @@ together if more than one:
 
 </div>
 
-> **Note**  
->  
-> It is not possible to rebind sockets for northbound listeners during
-> the transition from start phase 1 to start phase 2. If this is
-> attempted, the call will fail (and do nothing) with `confd_errno` set
-> to CONFD_ERR_BADSTATE.
+<div class="note">
+
+It is not possible to rebind sockets for northbound listeners during the
+transition from start phase 1 to start phase 2. If this is attempted,
+the call will fail (and do nothing) with `confd_errno` set to
+CONFD_ERR_BADSTATE.
+
+</div>
 
 *Errors*: CONFD_ERR_MALLOC, CONFD_ERR_OS, CONFD_ERR_BADSTATE
 

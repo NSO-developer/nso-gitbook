@@ -46,7 +46,7 @@ Related types: [econfd:datetime()](econfd.md#datetime-0)
           #econfd_notif_ncs_cq_progress{} |
           #econfd_notif_ncs_audit_network{} |
           confd_heartbeat | confd_health_check | confd_reopen_logs |
-          ncs_package_reload.
+          ncs_package_reload | confd_system_going_down.
 ```
 
 ## Functions
@@ -200,7 +200,7 @@ Wait for an event notification message and return corresponding record depending
 
 The logno element in the record is an integer. These integers can be used as an index to the function `econfd_logsyms:get_logsym/1` in order to get a textual description for the event.
 
-When recv/2 returns <tt>\{error, timeout\}</tt> the connection (and its event subscriptions) is still active and the application needs to call recv/2 again. But if recv/2 returns <tt>\{error, Reason\}</tt> the connection to ConfD is closed and all event subscriptions associated with it are cleared.
+When recv/2 returns `{error, timeout}` the connection (and its event subscriptions) is still active and the application needs to call recv/2 again. But if recv/2 returns `{error, Reason}` the connection to ConfD is closed and all event subscriptions associated with it are cleared.
 
 
 ### unpack_ha_node/1

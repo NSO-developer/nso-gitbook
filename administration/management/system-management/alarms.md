@@ -8,6 +8,8 @@ alarm-type
         ha-node-down-alarm
             ha-primary-down
             ha-secondary-down
+    ha-raft-quorum-lost
+    memory-management-action-triggered
     ncs-cluster-alarm
         cluster-subscriber-failure
     ncs-dev-manager-alarm
@@ -396,6 +398,32 @@ for the specific node down alarms are used in the alarms.
 
 <details>
 
+<summary>ha-raft-quorum-lost</summary>
+
+<code>ha-raft-quorum-lost</code>
+
+* **Initial Perceived Severity**  
+  critical
+* **Description**  
+  HA Raft leader has lost quorum and cannot reach a majority of
+cluster nodes. The HA Raft subsystem will be restarted, which
+will demote the leader and the node will be disabled until
+quorum can be established again.
+* **Recommended Action**  
+  Urgently investigate cluster connectivity. Check if cluster
+  nodes are running and are reachable. Verify network connectivity
+  between nodes. Review '/ha-raft/status' for details on which
+  nodes are unreachable.
+* **Clear Condition(s)**  
+  This alarm is never automatically cleared and has to be cleared
+  manually when the HA cluster has been restored.
+* **Alarm Message(s)**  
+  * `HA Raft quorum lost: Leader cannot reach majority of nodes.`
+
+</details>
+
+<details>
+
 <summary>ha-secondary-down</summary>
 
 <code>ha-secondary-down</code>
@@ -413,6 +441,27 @@ for the specific node down alarms are used in the alarms.
   to the HA cluster.
 * **Alarm Message(s)**  
   * `Lost connection to secondary`
+
+</details>
+
+<details>
+
+<summary>memory-management-action-triggered</summary>
+
+<code>memory-management-action-triggered</code>
+
+* **Initial Perceived Severity**  
+  critical
+* **Description**  
+  A memory management action has triggered. The memory conditions have
+reached the threshold set in the memory management action, triggering it.
+* **Recommended Action**  
+  A memory actions threshold being reached suggests high memory usage.
+* **Clear Condition(s)**  
+  This alarm is cleared when the memory conditions go back below the
+  threshold set in the memory management action.
+* **Alarm Message(s)**  
+  * `Memory Management action triggered.`
 
 </details>
 

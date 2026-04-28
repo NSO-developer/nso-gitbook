@@ -51,11 +51,13 @@ cluster. There can only be one HA socket towards NSO, a new call to
 `confd_ha_connect()` makes NSO close the previous connection and reset
 the token to the new value. Returns CONFD_OK or CONFD_ERR.
 
-> **Note**  
->  
-> If this call fails (i.e. does not return CONFD_OK), the socket
-> descriptor must be closed and a new socket created before the call is
-> re-attempted.
+<div class="note">
+
+If this call fails (i.e. does not return CONFD_OK), the socket
+descriptor must be closed and a new socket created before the call is
+re-attempted.
+
+</div>
 
     int confd_ha_beprimary(
     int sock, confd_value_t *mynodeid);
@@ -92,13 +94,7 @@ CONFD_ERR_HA_CLOSED, CONFD_ERR_BADSTATE, CONFD_ERR_HA_BADCONFIG
     int confd_ha_berelay(
     int sock);
 
-Instruct an established HA secondary node to be a relay for other
-secondaries. This can be useful in certain deployment scenarios, but
-makes the management of the cluster more complex. Returns CONFD_OK or
-CONFD_ERR.
-
-*Errors:* CONFD_ERR_HA_BIND if we cannot bind the TCP socket,
-CONFD_ERR_BADSTATE if the node is not already a secondary.
+No longer supported since version 6.7.
 
     int confd_ha_benone(
     int sock);
