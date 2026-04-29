@@ -32,7 +32,7 @@
      10.13 CRUD operations on ACL service
      10.14 CRUD operations on DHCP service
      10.15 tail-f action to query locators by nes
-     10.16 tail-f action to send CLI confugration to a target device(Northbound Transparent Transmission)
+     10.16 tail-f action to send CLI configuration to a target device(Northbound Transparent Transmission)
   11. DWDM-feature
       11.1 create/delete a 'tunnel' list entry
       11.2 create/modify/delete a service ('client-svc-instances') list entry
@@ -1744,7 +1744,7 @@ One or more ne-ids can be fetched at the same time, separated by space.
  }
  ```
 
-## 10.16 tail-f action to send CLI confugration to a target device(Northbound Transparent Transmission)
+## 10.16 tail-f action to send CLI configuration to a target device(Northbound Transparent Transmission)
 -------------------------------------------------------------------------------------------------------
 
 The user can use the 'set-or-read-cli-config' tail-f action to send CLI configuration to a device managed by the huawei-nce controller.  

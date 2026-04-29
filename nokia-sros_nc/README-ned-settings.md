@@ -41,6 +41,7 @@
      2.3. exclude-namespaces
      2.4. inject-meta-data
      2.5. bof-settings
+     2.6. with-defaults-retrieval
   3. connection
      3.1. capabilities
           3.1.1. regex-exclude
@@ -423,6 +424,35 @@
       namespace. However, it seems that older versions of SROS cannot handle extra namespaces. This
       applies to versions up to SROS 23. For SROS version 23 or newer it is required to set this
       setting to true.
+
+
+## 2.6. ned-settings nokia-sros_nc transaction with-defaults-retrieval
+----------------------------------------------------------------------
+
+  Nokia SR OS typically omits system-default values and list entries from standard NETCONF RPC
+  responses. This setting enables targeted retrieval of these hidden defaults using the
+  'with-defaults=report-all' capability. To optimize performance, retrieval is limited to the
+  specific paths defined by subtree or XPath filters.
+
+
+    - with-defaults-retrieval enable <true|false> (default false)
+
+      When enabled, the NED performs an additional fetch operation during sync-from, compare-config,
+      and partial-sync-from operations to retrieve default data. Note: For 'partial-sync-from'
+      operations, this additional fetch is performed regardless of whether the requested paths fall
+      within the scope of the configured filters.
+
+
+    - with-defaults-retrieval subtree-filter <string>
+
+      Specify paths in XML subtree format. Keep filters as narrow as possible to minimize the size
+      of the returned configuration payload.
+
+
+    - with-defaults-retrieval xpath-filter <string>
+
+      Specify paths in XPath format. Keep filters as narrow as possible to minimize the size of the
+      returned configuration payload.
 
 
 # 3. ned-settings nokia-sros_nc connection

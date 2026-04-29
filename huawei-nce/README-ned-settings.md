@@ -221,3 +221,9 @@
       'provisioning-state' become 'lsp-state-up'.
 
 
+    - timers time-wait-l2evpn-before-interface <time in seconds> (default 5)
+
+      after an l2evpn service is created, it takes some time for its devices/interfaces to be
+      visible.
+
+

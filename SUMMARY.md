@@ -60,7 +60,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.22.1 2026-03-23](cisco-apicdc/README.md)
+  * [README v3.22.2 2026-04-28](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -158,7 +158,7 @@
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
-  * [README v1.0.30 2026-03-30](huawei-nce/README.md)
+  * [README v1.0.31 2026-04-28](huawei-nce/README.md)
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
@@ -189,7 +189,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.32 2026-02-13](nokia-sros_nc/README.md)
+  * [README v1.0.33 2026-04-28](nokia-sros_nc/README.md)
 
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
@@ -211,6 +211,10 @@
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
   * [README v4.11.20 2026-04-24](paloalto-panos_cli/README.md)
+
+* rad-vx
+  * [README-ned-settings](rad-vx/README-ned-settings.md)
+  * [README v1.18.18 2026-04-28](rad-vx/README.md)
 
 * radware-cc
   * [README-ned-settings](radware-cc/README-ned-settings.md)
