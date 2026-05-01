@@ -138,7 +138,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.50 2026-04-24](fortinet-fmg/README.md)
+  * [README v4.3.51 2026-04-30](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.85.6 2026-04-23](huawei-vrp/README.md)
+  * [README v6.85.7 2026-04-30](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -251,5 +251,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.3.4 2026-03-27](zte-zxros/README.md)
+  * [README v1.4 2026-04-30](zte-zxros/README.md)
 
