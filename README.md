@@ -19,7 +19,7 @@ This release includes major enhancements in the following areas:
 
 Protocols, such as YANG-Push (RFC 8641), define a mechanism for applications to receive continuous updates of the target datastore, avoiding the need to frequently poll the remote system for latest data.
 
-NSO 6.7 introduces native support for consuming NETCONF-based YANG-Push streams on managed devices, as well as the more general framework for managing and consuming subscribed updates. The latter allows NEDs to implement and expose the same kind of data updates by using other protocols, such as gRPC.
+NSO 6.7 introduces native support for consuming NETCONF-based YANG-Push streams on managed devices, as well as the more general framework for managing and consuming subscribed updates. The latter allows NEDs to implement and expose the same kind of data updates by using other protocols, such as gNMI.
 
 Documentation Updates:
 
