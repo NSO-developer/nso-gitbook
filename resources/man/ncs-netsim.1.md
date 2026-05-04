@@ -166,7 +166,7 @@ that acts as a NETCONF server, a Cisco CLI engine, or an SNMP agent.
 > Invokes the equivalent of `ncs_cmd` against the device called
 > `DeviceName`, allowing for easier scripting of device operations.
 >
-> See [ncs_cmd(1)](confd_cmd.1.md) for a list of available commands
+> See [ncs_cmd(1)](ncs_cmd.1.md) for a list of available commands
 > and arguments.
 
 `load` \<DeviceName\> \<arg...\>  
@@ -174,7 +174,7 @@ that acts as a NETCONF server, a Cisco CLI engine, or an SNMP agent.
 > `DeviceName`, allowing for easier access and modification of device
 > configuration from scripts.
 >
-> See [ncs_load(1)](confd_load.1.md) for a list of available options
+> See [ncs_load(1)](ncs_load.1.md) for a list of available options
 > and arguments.
 
 `get-port` \<DeviceName\> `[ipc | netconf | cli | snmp]`  
