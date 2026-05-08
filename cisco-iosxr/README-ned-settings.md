@@ -75,6 +75,11 @@
       auto            - Set to auto to use fastest available method to load data to NSO.
 
 
+    - garbage-collect-after-transfer <true|false> (default false)
+
+      Trigger Java garbage collect after transferring running-config from device to NSO.
+
+
     - internal-xml-transfer-timeout <uint32> (default 2147483647)
 
       Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
@@ -370,6 +375,12 @@
 
       Enable to use show running-config | xml for retrieving some config. YANG agent must be enabled
       on device.
+
+
+    - read internal-transfer-max-lines <uint32> (default 0)
+
+      This setting is used to split input in multiple smaller blocks to avoid exhausting Java heap
+      space. 0 = no limit.
 
 
 ## 6.1. ned-settings cisco-iosxr read replace-config
