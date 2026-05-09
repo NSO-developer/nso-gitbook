@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.3 2026-03-27](a10-acos/README.md)
+  * [README v3.27.4 2026-05-08](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -35,11 +35,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.70.3 2026-04-24](alu-sr/README.md)
+  * [README v8.70.4 2026-05-08](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.32.1 2026-05-01](arista-dcs/README.md)
+  * [README v5.32.2 2026-05-08](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.32.6 2026-04-29](cisco-nx/README.md)
+  * [README v5.33 2026-05-08](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -138,7 +138,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.51 2026-04-30](fortinet-fmg/README.md)
+  * [README v4.3.52 2026-05-08](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
@@ -170,7 +170,7 @@
   * [README v1.2.1 2026-03-26](huawei-vrp_nc/README.md)
 
 * juniper-junos
-  * [README v4.19.2 2026-04-10](juniper-junos/README.md)
+  * [README v4.19.3 2026-05-08](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)

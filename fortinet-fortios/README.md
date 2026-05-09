@@ -829,6 +829,8 @@ admin@ncs(config)# commit
   ERROR: external mfa executable failed <....>
   ```
 
+
+
 # 11. How to execute native operational or config command on device
 ------------------------------------------------------------------
 
