@@ -85,6 +85,11 @@
                         is used.
 
 
+    - garbage-collect-after-transfer <true|false> (default false)
+
+      Trigger Java garbage collect after transferring running-config from device to NSO.
+
+
 # 2. ned-settings cisco-asa logger
 ----------------------------------
 
