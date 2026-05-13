@@ -946,6 +946,8 @@ admin@ncs(config)# commit
   ```
 
 
+
+
 # 10. Openstack IDs store in NED
 -------------------------------
 

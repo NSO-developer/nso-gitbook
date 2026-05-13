@@ -64,7 +64,7 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.30 2026-03-19](cisco-asa/README.md)
+  * [README v6.18.31 2026-05-12](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
