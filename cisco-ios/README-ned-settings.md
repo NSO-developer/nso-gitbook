@@ -91,6 +91,11 @@
                         is used.
 
 
+    - garbage-collect-after-transfer <true|false> (default false)
+
+      Trigger Java garbage collect after transferring running-config from device to NSO.
+
+
     - internal-xml-transfer-timeout <uint32> (default 2147483647)
 
       Configure maximum time in milliseconds allowed for transferring XML from NED to NSO.
