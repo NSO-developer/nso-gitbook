@@ -35,7 +35,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.70.4 2026-05-08](alu-sr/README.md)
+  * [README v8.70.5 2026-05-14](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -251,5 +251,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.4 2026-04-30](zte-zxros/README.md)
+  * [README v1.4.1 2026-05-14](zte-zxros/README.md)
 
