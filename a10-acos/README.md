@@ -20,6 +20,7 @@
   11. Aflex scripts
   12. NED Secrets - Securing your Secrets
   13. Device HA configuration considerations
+  14. Encrypted secrets and sync-from considerations
   ```
 
 
@@ -917,6 +918,8 @@ admin@ncs(config)# commit
   ERROR: external mfa executable failed <....>
   ```
 
+
+
 # 11. Aflex scripts
 -------------------
 
@@ -1277,3 +1280,72 @@ admin@ncs(config-management)#
 
 In conclusion, when HA is enabled, special care needs to be taken when configuring the targeted device. As the NED is implemented as a best-effort device support, it is possible to end up in compare-config issues if the configuration is improperly managed from the NED stand point of view.
 However, with the proper care for the HA configuration, the NED should be able to cover all the HA use-cases.
+
+
+# 14. Encrypted secrets and sync-from considerations
+----------------------------------------------------
+Starting with ACOS 5.2.1-P11, the device re-salts encrypted secrets on every
+read, so the ciphertext returned in `show running-config` differs from one
+display to the next even when the underlying cleartext is unchanged. This
+affects every leaf that stores a device-encrypted value, for example:
+
+- `router bgp ... neighbor password`
+- `harmony-controller profile password`
+- `health monitor method http password` and `... tacplus secret`
+- `radius-server host secret cleartext` and `... secret-encrypted`
+- `slb template client-ssl` / `server-ssl` `pass-phrase-value`
+- `snmp-server SNMPv1-v2c user community read`
+- `snmp-server SNMPv3 user auth password` and `... priv passphrase`
+- `tacacs-server host secret`
+
+Because the ciphertext is non-deterministic, the NED annotates these leaves
+with `tailf:ned-ignore-compare-config` so that `compare-config` and
+`check-sync` do not report a spurious out-of-sync condition each time the
+device is polled.
+
+`sync-from`, however, ignores `tailf:ned-ignore-compare-config` by design and
+will silently commit whatever the device returns. Without additional handling
+this means every `sync-from` would overwrite the CDB ciphertext with a freshly
+re-salted value, producing noisy CDB commits and breaking any downstream
+consumer that compares the stored ciphertext (for example, audit tooling or
+replication to another NSO instance).
+
+To address this, the NED applies a NED-specific YANG extension,
+`a10-acos:preserve-on-sync-from`, to the affected leaves. During `sync-from`
+the associated Java callback runs after the value is parsed from the device
+and:
+
+- If the leaf already has a value in CDB, the device value is replaced with
+  the existing CDB value. The CDB ciphertext is therefore preserved across
+  successive `sync-from` operations and is never overwritten by a freshly
+  re-salted display.
+- If the leaf has no value in CDB, the device value is dropped from the
+  sync-from payload. The secret is **not** captured from the device.
+
+### Operational implications
+
+- **Secrets must be configured through NSO.** A `sync-from` cannot be used to
+  bootstrap a device-only secret into CDB; the leaf will simply be absent
+  after the sync. Configure the secret through the NED (which pushes the
+  cleartext or pre-encrypted value to the device) so that the CDB has the
+  authoritative value going forward.
+- **No silent CDB churn.** Once the secret is configured through NSO, the
+  CDB value is stable and `sync-from` will no longer commit a changed
+  ciphertext on every run.
+- **`compare-config` / `check-sync` remain in-sync** for these leaves
+  regardless of how often the device re-salts the ciphertext, thanks to the
+  existing `tailf:ned-ignore-compare-config` annotation.
+- **Out-of-band changes on the device are not detected** for these leaves.
+  If an operator changes a secret directly on the device, NSO will not learn
+  about it through `sync-from`; the change must be re-applied through NSO to
+  bring CDB in line with the device.
+- **First-time onboarding.** When onboarding a device that already has
+  secrets configured out-of-band, the recommended flow is:
+    1. Run `sync-from` to capture the rest of the configuration (the
+       affected secret leaves will be empty in CDB).
+    2. Set each secret through NSO so that CDB holds the authoritative
+       value.
+  After this, subsequent `sync-from` operations are stable.
+- **Scope.** The extension only affects `sync-from`. It does not change how
+  values are pushed to the device, how `compare-config` / `check-sync`
+  behave.
