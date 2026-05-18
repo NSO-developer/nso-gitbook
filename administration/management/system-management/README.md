@@ -397,13 +397,13 @@ This section describes a number of disaster scenarios and recommends various act
 
 ### NSO Fails to Start <a href="#d5e2642" id="d5e2642"></a>
 
-CDB keeps its data in four files `A.cdb`, `C.cdb`, `O.cdb` and `S.cdb`. If NSO is stopped, these four files can be copied, and the copy is then a full backup of CDB.
+CDB keeps its data in a set of data files (`A` - configuration, `C` - schema, `O` - operational, and `S` - snapshot). If NSO is stopped, these four sets of files can be copied, and the copy is then a full backup of CDB.
 
 Furthermore, if neither files exist in the configured CDB directory, CDB will attempt to initialize from all files in the CDB directory with the suffix `.xml`.
 
 Thus, there exist two different ways to re-initiate CDB from a previously known good state, either from `.xml` files or from a CDB backup. The `.xml` files would typically be used to reinstall factory defaults whereas a CDB backup could be used in more complex scenarios.
 
-If the `S.cdb` file has become inconsistent or has been removed, all commit queue items will be removed, and devices not yet processed out of sync. For such an event, appropriate alarms will be raised on the devices and any service instance that has unprocessed device changes will be set in the failed state.
+If the `S` data files become inconsistent or have been removed, all commit queue items will be removed, and devices not yet processed out of sync. For such an event, appropriate alarms will be raised on the devices and any service instance that has unprocessed device changes will be set in the failed state.
 
 When NSO starts and fails to initialize, the following exit codes can occur:
 
@@ -413,7 +413,7 @@ When NSO starts and fails to initialize, the following exit codes can occur:
 * Exit code 11 means that the CDB configuration was changed in an unsupported way. This will only happen when an existing database is detected, which was created with another configuration than the current in `ncs.conf`.
 * Exit code 13 means that the schema change caused an upgrade, but for some reason, the upgrade failed. Details are in the log. The way to recover from this situation is either to correct the problem or to re-install the old schema (`fxs`) files.
 * Exit code 14 means that the schema change caused an upgrade, but for some reason the upgrade failed, corrupting the database in the process. This is rare and usually caused by a bug. To recover, either start from an empty database with the new schema, or re-install the old schema files and apply a backup.
-* Exit code 15 means that `A.cdb` or `C.cdb` is corrupt in a non-recoverable way. Remove the files and re-start using a backup or init files.
+* Exit code 15 means that `A` or `C` data is corrupt in a non-recoverable way. Remove the files and re-start using a backup or init files.
 * Exit code 16 means that CDB ran into an unrecoverable file error (such as running out of space on the device while performing journal compaction).
 * Exit code 20 means that NSO failed to bind a socket.
 * Exit code 21 means that some NSO configuration file is faulty. More information is in the logs.

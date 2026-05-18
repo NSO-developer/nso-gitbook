@@ -700,7 +700,7 @@ It's also possible to dynamically, from the CLI control the level of logging as 
    Commit complete.
 ```
 
-Now, considerably less log data will come. If we want these settings to always be there, even if we restart NSO from scratch with an empty database (no `.cdb` file in `./ncs-cdb`) we can save these settings as XML, and put that XML inside the `ncs-cdb` directory, that way `ncs` will use this data as initialization data on a fresh restart. We do:
+Now, considerably less log data will come. If we want these settings to always be there, even if we restart NSO from scratch with an empty database (no data files in `./ncs-cdb`) we can save these settings as XML, and put that XML inside the `ncs-cdb` directory, that way `ncs` will use this data as initialization data on a fresh restart. We do:
 
 ```bash
    $ ncs_load -F p -p /ncs:java-vm/java-logging > ./ncs-cdb/loglevels.xml
