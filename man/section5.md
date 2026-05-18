@@ -2121,11 +2121,18 @@ enters ctrl-c in the CLI. Possible values are:
 > The command is sent the ctrl-c character which is interpreted by the
 > pty.
 
-#### `/clispec/$MODE/cmd/callback/exec/options/ignoreExitValue`(xs:boolean) \[false\]
+#### `/clispec/$MODE/cmd/callback/exec/options/ignoreExitValue`(xs:token)
 
 The "ignoreExitValue" element specifies if the CLI engine should ignore
 the fact that the command returns a non-zero value. Normally it signals
 an error on stdout if a non-zero value is returned.
+
+#### `/clispec/$MODE/cmd/callback/exec/options/suppressUserGroupWarnings`(xs:token)
+
+The "suppressUserGroupWarnings" element specifies that the CLI engine
+should suppress user- and/or group-warnings. Normally it signals a
+warning on stderr if user or group resolution fails. This is useful when
+running confd as a non-root user.
 
 #### `/clispec/$MODE/cmd/callback/execStop`
 
@@ -3059,6 +3066,16 @@ how they relate to each other.
 > A list of additional IPs to which we wish to bind the NCS IPC
 > listener. This is useful if we don't want to use the wildcard 0.0.0.0
 > address in order to never expose the NCS IPC to certain interfaces.
+
+/ncs-config/ncs-ipc-listen-backlog (int32) \[128\]  
+> The maximum length to which the queue of pending connections for the
+> IPC sockets may grow (see the OS manual page for listen(2)). If a very
+> large number of applications connect to NSO more or less
+> simultaneously at startup, this value may need to be raised to avoid
+> connection failures. Note that the OS may restrict the length to a
+> lower value, e.g. on Linux it is silently truncated to the value in
+> /proc/sys/net/core/somaxconn - i.e. this value may also need to be
+> raised.
 
 /ncs-config/ncs-local-ipc  
 > NCS can be configured to use Unix domain socket instead of TCP for
@@ -8712,6 +8729,12 @@ In almost all cases this annotation should be accompanied by the
 tailf:cli-compact-syntax annotation. Otherwise the output from 'show
 running-config' will not be correct, and the sequence 'save xx' 'load
 override xx' will not work.
+
+It is important to remember that this extension when set on a container
+affects all children within that container but it is not inherited down
+to any new container wherein. In case the sequence needs to be
+maintained for these then a new annotation needs to be set at that
+location.
 
 Used in I- and C-style CLIs.
 
