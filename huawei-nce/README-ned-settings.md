@@ -127,6 +127,24 @@
       filter for product-name from huawei-nce-resource-inventory:cards API.
 
 
+    - query-encoding <enum> (default rfc3986)
+
+      Selects how query strings are encoded when building REST URLs toward the Huawei NCE
+      controller.
+
+      rfc3986          - Preserves reserved characters such as '*', '/', '=' that have semantic
+                         meaning in Huawei NCE filter expressions (e.g. 'filter=addrv4 like *192*').
+
+      form-urlencoded  - Percent-encodes reserved characters such as '/', ':'. Use only when the
+                         remote endpoint expects HTML form encoding.
+
+
+    - include-status-response-get-post-action <true|false> (default true)
+
+      when 'get-any' or 'post-any' action is called, choose if the Status code of the response is
+      included or not.
+
+
 # 2. ned-settings huawei-nce connection
 ---------------------------------------
 

@@ -591,6 +591,140 @@ admin@ncs(config)# commit
   There is an action for the NCE-FAN feature as well. Please find details at 12.11 tail-f action to fetch OLTs' status section.
 
 
+  ## `get-any` and `post-any`
+
+  The NED provides two generic live-status actions that allow the user to execute arbitrary GET or POST requests
+  against the Huawei NCE controller. These are useful for troubleshooting, querying data not yet modeled
+  in the NED or validating API responses.
+
+  ### `get-any`
+
+  Executes a GET request against the NCE controller. The user provides the URL path and optionally a query string.
+  The query can be provided either as a separate `query` parameter, or embedded directly in the URL after a `?` separator.
+
+  The response is returned as a formatted JSON string.
+
+  **Parameters:**
+
+  | Parameter | Required | Description |
+  |-----------|----------|-------------|
+  | `url`     | Yes      | The REST API path (starting with /restconf/ or /rest/). May include query after `?`. |
+  | `query`   | No       | Query string to append to the URL. If omitted and the URL contains `?`, the query is extracted from it. |
+
+  **Examples:**
+
+  Using a separate query parameter:
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec get-any url /restconf/v2/data/huawei-nce-resource-inventory:ltps query "is-sub-ltp=true&parent-ltp-id=ee71b69b-aaa3-4623-9613-fc79a7bea7a8&addrv4=192.168.1.1&filter=addrv4 like *192*&mac=6c:04:7a:92:0d:a8&limit=1000&name=100GE7/0/18.35"
+  result
+  {
+      "ltps":{
+          "ltp":[{
+              "is-in-ont":false,
+              "native-name":"100GE7/0/18.35",
+              ...
+          }]
+      }
+  }
+  ```
+
+  The similar GET request above, but without query parameter:
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec get-any url "/restconf/v2/data/huawei-nce-resource-inventory:ltps?is-sub-ltp=true&parent-ltp-id=ee71b69b-aaa3-4623-9613-fc79a7bea7a8&addrv4=192.168.1.1&filter=addrv4 like *192*&mac=6c:04:7a:92:0d:a8&limit=1000&name=100GE7/0/18.35"
+  result
+  {...}
+  ```
+
+  Without a query parameter:
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec get-any url /restconf/v2/data/huawei-nce-resource-inventory:network-elements
+  result
+  { ... }
+  ```
+
+
+  ### `post-any`
+
+  Executes a POST request against the NCE controller. The user provides the URL path and a JSON payload.
+  This is typically used for query-style POST APIs (e.g., `/rest/v1/.../query-serviceport`) that require
+  a request body to filter or retrieve data.
+
+  The query string can be embedded in the URL after a `?` separator if needed.
+
+  **Parameters:**
+
+  | Parameter | Required | Description |
+  |-----------|----------|-------------|
+  | `url`     | Yes      | The REST API path (i.e. starting with /restconf/). May include query after `?`. |
+  | `payload` | Yes      | A valid JSON string representing the request body. Must not be empty or `{}`. |
+
+  **Examples:**
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec post-any url /restconf/v1/operations/huawei-nce-ip-devm:query-device-info payload
+  Value for 'payload' (<string>):
+  [Multiline mode, exit with ctrl-D.]
+  > {
+  > "huawei-nce-ip-devm:input" : {
+  > "device-id" : "792792fe-efb4-4aff-8d10-5c09e7df21eb"
+  > }
+  > }
+  >
+  result
+  { ... }
+  ```
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec post-any url /restconf/v1/operations/huawei-nce-ip-devm:query-device-info payload
+  Value for 'payload' (<string>):
+  [Multiline mode, exit with ctrl-D.]
+  > {
+  > "huawei-nce-ip-devm:input" : {
+  > "device-id" : "792792fe-efb4-4aff-8d10-5c09e7df21eb"
+  > }
+  > }
+  >
+  result
+  { ... }
+  ```
+
+  ```
+  admin@ncs(config)# devices device dev-1 live-status exec post-any url /restconf/v1/operations/huawei-nce-common-oam-insights:stop-testcases payload
+  Value for 'payload' (<string>):
+  [Multiline mode, exit with ctrl-D.]
+  > {
+  >     "huawei-nce-common-oam-insights:input": {
+  >         "testcase-type": "y1731",
+  >         "testcase-ids": {
+  >             "testcase-id": [
+  >                 "f1e2d3c4-b5a6-4987-8765-43210fe44449",
+  >                 "a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a22226",
+  >                 "e4b5c6d7-f8a9-40b1-c2d3-e4f5a6b71119"
+  >             ]
+  >         }
+  >     }
+  > }
+  >
+  result
+  Status: 200 OK
+  {
+      "response":""
+  }
+  ```
+
+
+  **Notes:**
+  - The `paylod` parameter accepts multiline input. Paste your JSON payload directly, press Enter, then press ctrl-D to exit and submit the request.
+  - Both actions return the raw JSON response from the controller, formatted for readability.
+  - There is a ned-setting called 'include-status-response-get-post-action', which controls whether the HTTP status code is included in the response  
+  body returned by `get-any` and `post-any` actions. The values are:
+      - `true` — HTTP status is included in the response (default behaviour).
+      - `false` — Only the response body is returned, without HTTP status information.
+
+
 # 6. Built in live-status show
 ------------------------------
 
@@ -708,6 +842,8 @@ admin@ncs(config)# commit
   ```
   admin@ncs# packages reload
   ```
+
+
 
 
 # 10. IP-services-feature
@@ -2347,8 +2483,7 @@ admin@ncs(config-device-dev-1)# connect
 ```
 
 Note:
- - since there are cases when hundreds or thousands of OLTs are present on a huawei-nce controller, the user can disable  
-the sync-from operation and use partial sync-from per OLT.
+ - since there are cases when hundreds or thousands of OLTs are present on a huawei-nce controller, the user can disable the sync-from operation and use partial sync-from per OLT.
 
 To disable sync-from:
 
@@ -2369,8 +2504,7 @@ admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[n
 ```
 
 Note:
- - When the sync-from operation is performed, (with or without filtering enabled, i.e. "enable-olt-filtering" enabled, or "get-ne-data" in "full" or "light" format),  
- the related OLTs cards information(product-name and slot) are saved to operational DB. To check those, the user can run the following command:
+ - When the sync-from operation is performed, (with or without filtering enabled, i.e. "enable-olt-filtering" enabled, or "get-ne-data" in "full" or "light" format),the related OLTs cards information(product-name and slot) are saved to operational DB. To check those, the user can run the following command:
 
 ```
  admin@ncs# show devices device dev-1 platform olt-cards
