@@ -77,7 +77,7 @@ Bring a project up to date.
       [{<<"resource-manager">>,undefined}]
       ncs-project: No version found for dependency: "resource-manager" ,
          trying git and the stable branch
-      ncs-project: git clone "ssh://git@stash.tail-f.com/pkg/resource-manager.git"
+      ncs-project: git clone "https://github.com/tailf-pkg/resource-manager.git"
          "/home/my/mpls-vpn-project/packages/resource-manager"
       ncs-project: git checkout -q "stable"
       ncs-project: filtering missing pkgs for

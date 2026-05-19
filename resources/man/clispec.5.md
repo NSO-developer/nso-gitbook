@@ -2116,11 +2116,18 @@ enters ctrl-c in the CLI. Possible values are:
 > The command is sent the ctrl-c character which is interpreted by the
 > pty.
 
-### `/clispec/$MODE/cmd/callback/exec/options/ignoreExitValue`(xs:boolean) \[false\]
+### `/clispec/$MODE/cmd/callback/exec/options/ignoreExitValue`(xs:token)
 
 The "ignoreExitValue" element specifies if the CLI engine should ignore
 the fact that the command returns a non-zero value. Normally it signals
 an error on stdout if a non-zero value is returned.
+
+### `/clispec/$MODE/cmd/callback/exec/options/suppressUserGroupWarnings`(xs:token)
+
+The "suppressUserGroupWarnings" element specifies that the CLI engine
+should suppress user- and/or group-warnings. Normally it signals a
+warning on stderr if user or group resolution fails. This is useful when
+running confd as a non-root user.
 
 ### `/clispec/$MODE/cmd/callback/execStop`
 
