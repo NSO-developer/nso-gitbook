@@ -817,22 +817,102 @@ admin@ncs(config)# commit
 
   - List all available ASM policies.
 
-  ```cli
-  admin@ncs> request devices device <device-name> live-status bigip-actions asm policy get-policies
+  ```
+  live-status bigip-actions asm policy get-policies
   ```
 
-  **Output:**
+  Example output:
   ```
   policy {
-      name appliCodessl
-      id U1Z-9m6gv53xAOM592TY0Q
-  }
-  policy {
-      name test
-      id MrLpFzRHNarvj_zuAOD0fw
+      name test-policy-name-1
+      id UhAjlT0xpHSO3hqzkOvoqw
+      partition Common
+      policyLink /mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw
+      caseInsensitive true
+      server-technologies {
+          serverTechnologyName Backbone.js
+          serverTechnologyId Wz9l7EGoDYGsgn4SWygh6w
+          serverTechnologyLink /mgmt/tm/asm/server-technologies/_WDnh-M5Q4gtCQXPkCarEA
+      }
+      server-technologies {
+          serverTechnologyName AngularJS
+          serverTechnologyId jWZbH0buXdW9X5zjVI4igw
+          serverTechnologyLink /mgmt/tm/asm/server-technologies/USn59IEHV_bwz3NWdesFQQ
+      }
+      ...
   }
   result successful
   ```
+
+  ---
+  ### 5.4.2.1 Policy server-technologies-task handling
+
+  ## Available sub-actions
+  ```
+  live-status bigip-actions asm policy server-technologies-task action
+  Possible completions:
+    delete-task                Delete the apply-server-technologies task
+    get-task-status            Get status of the apply-server-technologies task
+    list-server-technologies   List all server technologies configured on the device
+    run-task                   Run apply-server-technologies task for a policy
+  ```
+
+  ## Run apply-server-technologies task
+  - Scope: add server technologies to the policy, by ids. 
+  - Pre-requisites: 
+    - collect and identify policy-id targeted, ex UhAjlT0xpHSO3hqzkOvoqw
+
+  - Example run:
+    ```
+    live-status bigip-actions asm policy server-technologies-task action run-task policy-id UhAjlT0xpHSO3hqzkOvoqw server-technology-ids [ USn59IEHV_bwz3NWdesFQQ rmJS-0tJyICXEV_B5PrXCQ ng2oQ44eOKHDD0t2znO43Q ]
+    ```
+
+    Output:
+    ```
+    http-status 201
+    task-id GcmCff51B8-R46hYdSvKHg
+    status NEW
+    task-link /mgmt/tm/asm/tasks/apply-server-technologies/GcmCff51B8-R46hYdSvKHg
+    start-time 2026-05-18T19:59:07Z
+    ```
+
+  ## Get task status
+    ```
+    live-status bigip-actions asm policy server-technologies-task action get-task-status task-id GcmCff51B8-R46hYdSvKHg
+    ```
+
+  Output:
+    ```
+    http-status 200
+    task-id GcmCff51B8-R46hYdSvKHg
+    status COMPLETED
+    task-link /mgmt/tm/asm/tasks/apply-server-technologies/GcmCff51B8-R46hYdSvKHg
+    start-time 2026-05-18T19:59:07Z
+    end-time 2026-05-18T19:59:08Z
+    ```
+
+  ## Delete task
+    ```
+    live-status bigip-actions asm policy server-technologies-task action delete-task task-id ddw2BwX2Li-AG8EMSkcS-A
+    ```
+
+  Output (success):
+  ```
+  http-status 200
+  task-id ddw2BwX2Li-AG8EMSkcS-A
+  status COMPLETED
+  task-link /mgmt/tm/asm/tasks/apply-server-technologies/ddw2BwX2Li-AG8EMSkcS-A
+  start-time 2026-05-18T19:51:26Z
+  end-time 2026-05-18T19:51:26Z
+  ```
+
+  Output (already deleted):
+  ```
+  http-status 404
+  errors Could not get the Apply Server Technologies Task, No matching record was found.
+  ```
+
+  ---
 
   ### 5.4.3 Apply Policy
   ---
@@ -901,6 +981,17 @@ admin@ncs(config)# commit
 
   - Execute REST API calls directly against the F5 device.
 
+
+  ```
+    # live-status bigip-actions exec-rest-call ?            
+    Possible completions:
+      body           Request body for the rest call, required for POST and PATCH methods
+      method         HTTP method to use for the rest call.
+      query-params   Query parameters for the rest call, example: ?$select=name%2Cpartition&$filter=partition+eq+Common.
+      url            Relative URL for the rest call, example: /mgmt/tm/ltm/pool.
+  ```
+
+
   ```cli
   admin@ncs> request devices device <device-name> live-status bigip-actions execute-rest-call \
     url /mgmt/tm/cm/traffic-group/traffic-group-1/stats?ver=14.1.0
@@ -909,6 +1000,196 @@ admin@ncs(config)# commit
   **Prerequisites:**
   - REST credentials must be configured (see section 7.2)
   - Hostname verification may need to be disabled (see section 7.16)
+
+
+
+   ### 5.5.2.1 Params configuration
+   Utilizing it is intuitive, but one must be aware of the BigIp iREST APIs, considering its particularities when using these apis. 
+   Otherwise, they're not limited in any other sense. 
+
+   #### Using method      : 
+      - Description: HTTP method to use for the rest call. Default is GET
+        Possible completions:
+          DELETE  GET  PATCH  POST
+
+    #### Using url         : 
+      - Relative URL for the rest call, example: /mgmt/tm/ltm/pool
+
+    #### Using query-params:
+    ##### Query parameter section and combine them for the REST API calls
+    - example: `$select=__select_options__&$filter=__filter_options__&$expand=__expand_options__
+      - Make sure it is quoted so that NSO CLI doesn't trim it > when using it in the CLI
+      - Examples of query params, focusing on the policies; Take any parameters of interest and add them in the query filters as needed: 
+        - `$select` to include certain params in the response:
+          - `$select=caseInsensitive,id,name,fullPath,partition,subPath,parentPolicy,policy-builder,type,hasParent,enforcementMode,enablePassiveMode,parentPolicyName,childPolicyCount,virtualServers,manualVirtualServers,versionDatetime,isModified,server-technologies`
+          or the minimum input necessary:
+          - `$select=caseInsensitive,id,name,server-technologies`
+
+        - `$filter` to filter by type/name etc
+          - `$filter=type+eq+%27security%27&`
+          - `$filter=name+eq+__policy_name__`
+
+        - `$expand` to expand a given subnode/subreference:
+          - `$expand=serverTechnologyReference`
+
+        - `$orderby` to sort by given parameter, i.e. by name:
+          - `$orderby=name+asc`
+
+   ##### Examples of callbacks, replace __parameter-name-or-id__ with targeted info from your env to check it live:
+  ```
+      # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies"
+      # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies/__policy-id__"
+      # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies/__policy-id__/server-technologies"
+
+      # live-status bigip-actions exec-rest-call url "/mgmt/tm/cm/traffic-group/__traffic-group-name__/stats"
+  ```
+
+   ##### Add a query into the mix:
+
+    ```
+    # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies" query-params "$select=caseInsensitive,id,name,fullPath"
+    # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies/__policy-id__" query-params "$select=caseInsensitive,id,name,fullPath"
+    # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies" query-params "$select=id,name,fullPath,serverTechnologyReference"
+    # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies" query-params "$orderby=name+asc&$select=id,name,fullPath,partition,policy-builder,type,virtualServers"
+    # live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies" query-params "$filter=type+eq+%27security%27&$select=id,name,fullPath,partition,virtualServers,enforcementMode&$skip=0&$top=1000"
+  ```
+
+   ##### Sample output for a query filtering by policy name `ui-policy4-vs1` and providing minimal params name, id, caseInsensitive:
+    ```
+    # live-status bigip-actions exec-rest-call method GET url /mgmt/tm/asm/policies query-params $filter=name+eq+ui-policy4-vs1&$select=name,id,caseInsensitive
+  status-code 200
+  result {
+      "kind":"tm:asm:policies:policycollectionstate",
+      "selfLink":"https://localhost/mgmt/tm/asm/policies?$select=name%2Cid%2CcaseInsensitive&ver=16.1.4&$filter=name%20eq%20ui-policy4-vs1",
+      "totalItems":1,
+      "items":[{
+          "kind":"tm:asm:policies:policystate",
+          "selfLink":"https://localhost/mgmt/tm/asm/policies/GNzA3KiwKAV1VQirDpDVHw?ver=16.1.4",
+          "caseInsensitive":false,
+          "name":"ui-policy4-vs1",
+          "id":"GNzA3KiwKAV1VQirDpDVHw"
+      }]
+  }
+  # 
+    ```
+
+  ### 5.5.2.2 Using GET Example on how to read server technologies
+   - Assuming we have a policy with some server-technologies configured, namely `test-with-server-technologies`, we can add $expand query to directly collect it in a single shot:
+    - `$expand=serverTechnologyReference`
+    - `$filter=name+eq+test-with-server-technologies`
+    - `$select=name,id,server-technologies`
+
+      ```
+      # live-status bigip-actions exec-rest-call method GET url /mgmt/tm/asm/policies query-params "$expand=serverTechnologyReference&$filter=name+eq+test-with-server-technologies&$select=name,id,caseInsensitive,server-technologies"
+      status-code 200
+      result {
+          "kind":"tm:asm:policies:policycollectionstate",
+          "selfLink":"https://localhost/mgmt/tm/asm/policies?$expand=serverTechnologyReference&$select=name%2Cid%2CcaseInsensitive%2Cserver-technologies&ver=16.1.4&$filter=name%20eq%20test-with-server-technologies",
+          "totalItems":1,
+          "items":[{
+              "kind":"tm:asm:policies:policystate",
+              "selfLink":"https://localhost/mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw?ver=16.1.4",
+              "caseInsensitive":false,
+              "name":"test-with-server-technologies",
+              "id":"UhAjlT0xpHSO3hqzkOvoqw",
+              "server-technologies":[{
+                  "kind":"tm:asm:policies:server-technologies:server-technologystate",
+                  "selfLink":"https://localhost/mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw/server-technologies/jWZbH0buXdW9X5zjVI4igw?ver=16.1.4",
+                  "id":"jWZbH0buXdW9X5zjVI4igw",
+                  "lastUpdateMicros":1.77763342E15,
+                  "serverTechnologyReference":{
+                      "link":"https://localhost/mgmt/tm/asm/server-technologies/USn59IEHV_bwz3NWdesFQQ?ver=16.1.4",
+                      "serverTechnologyName":"AngularJS"
+                  }
+              },{
+                  "kind":"tm:asm:policies:server-technologies:server-technologystate",
+                  "selfLink":"https://localhost/mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw/server-technologies/-_O2NTajXLFQzXsWKp--Gw?ver=16.1.4",
+                  "id":"-_O2NTajXLFQzXsWKp--Gw",
+                  "lastUpdateMicros":1.77763342E15,
+                  "serverTechnologyReference":{
+                      "link":"https://localhost/mgmt/tm/asm/server-technologies/ex0Rhbg1gU3ng0g_aG6YJQ?ver=16.1.4",
+                      "serverTechnologyName":"Cisco"
+                  }
+              },{
+                  "kind":"tm:asm:policies:server-technologies:server-technologystate",
+                  "selfLink":"https://localhost/mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw/server-technologies/MkkqUu7IQDTbvHAfkzksGw?ver=16.1.4",
+                  "id":"MkkqUu7IQDTbvHAfkzksGw",
+                  "lastUpdateMicros":1.77763342E15,
+                  "serverTechnologyReference":{
+                      "link":"https://localhost/mgmt/tm/asm/server-technologies/9ySigIBMpBbYU4r8FNAt4g?ver=16.1.4",
+                      "serverTechnologyName":"Java Servlets/JSP"
+                  }
+              }]
+          }]
+      }
+      # 
+      ```
+
+  ##### Of course now additional ops can be performed once we get policy id and server tech ids etc. 
+
+    `live-status bigip-actions exec-rest-call method GET url /mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw/server-technologies test-with-server-technologies
+
+  ### 5.5.2.3 Using PATCH; Example on setting asm policies * caseInsensitive
+
+   - method   is set to: `method PATCH` 
+   - url      is set to policy id: `/mgmt/tm/asm/policies/KewMWQSLccssEM_bq7m42w`
+   - body     is set with escaped json and corresponding desired content: `body "{\"caseInsensitive\":false}"`
+   - query-params are also set to minimum necessary to prevent noisy response: `query-params $select=caseInsensitive,id,name,caseInsensitive`
+
+    Example:
+  ```
+      # live-status bigip-actions exec-rest-call method PATCH url /mgmt/tm/asm/policies/KewMWQSLccssEM_bq7m42w body "{\"caseInsensitive\":false}" query-params $select=caseInsensitive,id,name,caseInsensitive
+      status-code 200
+      result {
+          "kind":"tm:asm:policies:policystate",
+          "selfLink":"https://localhost/mgmt/tm/asm/policies/KewMWQSLccssEM_bq7m42w?$select=caseInsensitive%2Cid%2Cname%2CcaseInsensitive&ver=16.1.4",
+          "caseInsensitive":false,
+          "name":"test-with-server-technologies-security-type",
+          "id":"KewMWQSLccssEM_bq7m42w"
+      }
+  ```
+
+  #### Same logic can be extrapolated for POST,DELETE,PATCH,GET. 
+  #### Make sure to escape json components, special chars, etc
+
+  ---
+
+  # exec-rest-call examples (from NSO CLI)
+
+  ## Query all policies with selected fields
+  ```
+  live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies?$select=id,name,fullPath,serverTechnologyReference"
+  ```
+
+  ## Read server technologies attached to a specific policy - by direct id url
+  ```
+  live-status bigip-actions exec-rest-call url /mgmt/tm/asm/policies/UhAjlT0xpHSO3hqzkOvoqw/server-technologies
+  ```
+
+  ## Query policies ordered by name with multiple fields
+  ```
+  live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies?$orderby=name+asc&$select=id,name,fullPath,partition,policy-builder,type,virtualServers"
+  ```
+
+  ## Query CM traffic-group stats
+  ```
+  live-status bigip-actions exec-rest-call url "/mgmt/tm/cm/traffic-group/traffic-group-1/stats"
+  ```
+
+  ## Filter security-type policies with pagination
+  ```
+  live-status bigip-actions exec-rest-call url "/mgmt/tm/asm/policies?$select=id,name,fullPath,partition,virtualServers,enforcementMode&$skip=0&$top=1000"
+  ```
+
+  ## Get specific policy details
+
+  - use _policy_id_ to reference an existing policy :
+  ```
+  live-status bigip-actions exec-rest-call url /mgmt/tm/asm/policies/_policy_id_?$select=caseInsensitive,id,name,fullPath
+  ```
+  ---
+
+
 
   ### 5.5.3 `outside-tmsh-cmds` - Duplicated Commands
   ---
