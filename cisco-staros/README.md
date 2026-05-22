@@ -754,6 +754,144 @@ admin@ncs(config)# commit
      }
      ```
 
+  3. NED cannot sync the `tech-support test-commands password` command into the NSO CDB if it is
+     configured directly on the device, because `***` is not a valid value to sync into CDB. As a
+     result, NED skips `tech-support test-commands password` entries with the value `***`.
+
+     Example in trace output:
+
+     ```
+     --   skipped n lines in context '/' :
+     --    (line n) : '  tech-support test-commands encrypted password ***'
+     ```
+
+     Problem:
+
+     If a user needs to manage `tech-support test-commands password` (for example, to modify the
+     password or delete it), this is not possible via NED. This command is not synced into the NSO
+     CDB and is not managed by NED. If a user tries to configure
+     `tech-support test-commands password <new_pass>` via NED, the commit session will hang and
+     eventually timeout, as the device expects the old-password value to modify or delete the command.
+
+     Valid STAROS commands:
+
+     ```
+     To modify: tech-support test-commands password <new_pass> old-password <old_pass>
+     To delete: no tech-support test-commands password old-password <old_pass>
+     ```
+
+     Solution:
+
+     NOTE: `old-password` is an action command in STAROS, and it is not possible to implement
+     `old-password` in the NED config YANG model.
+
+     STAROS device output:
+
+     ```
+     [local]staros-1# show configuration | grep tech-support
+       tech-support test-commands encrypted password ***
+     [local]staros-1#
+     ```
+
+     NSO CDB output:
+
+     ```
+     admin@ncs# show running-config devices device dev-1 config tech-support test-commands
+     % No entries found.
+     admin@ncs#
+     ```
+
+     There are two solutions to handle this scenario:
+
+     **1. Use the live-status config exec action to modify or delete the non-CDB existing
+     `tech-support test-commands password` command.**
+
+     Modify example:
+
+     ```
+     admin@ncs(config)# devices device dev-1 config exec "tech-support test-commands password new_pass old-password old_pass"
+     result success
+     admin@ncs(config)#
+     ```
+
+     Delete example:
+
+     ```
+     admin@ncs(config)# devices device dev-1 config exec "no tech-support test-commands password old-password old_pass"
+     result success
+     admin@ncs(config)#
+     ```
+
+     **2. To manage `tech-support test-commands password` via the NED config model:**
+
+     Delete the configuration directly on the device, then re-configure it via NSO/NED.
+
+     When `tech-support test-commands password` is managed via NED, NED is aware of the old-password
+     value and will append this at runtime.
+
+     Example workflow:
+
+     STAROS device:
+
+     ```
+     [local]staros-1(config)# do show configuration | grep tech-support
+       tech-support test-commands encrypted password ***
+     [local]staros-1(config)#
+     [local]staros-1(config)# no tech-support test-commands password old-password test
+     [local]staros-1(config)# do show configuration | grep tech-support
+     [local]staros-1(config)#
+     ```
+
+     NSO NED:
+
+     ```
+     admin@ncs(config)# do show running-config devices device staros-1 config tech-support test-commands
+     % No entries found.
+
+     admin@ncs(config)# devices device dev-1 config tech-support test-commands password new_pass
+     admin@ncs(config-config)# commit dry-run outformat native
+     native {
+         device {
+             name dev-1
+             data tech-support test-commands password new_pass
+         }
+     }
+     admin@ncs(config-config)# commit
+     Commit complete.
+     admin@ncs(config-config)#
+     admin@ncs(config)# do show running-config devices device dev-1 config tech-support test-commands
+     devices device dev-1
+      config
+       tech-support test-commands password new_pass
+      !
+     !
+     admin@ncs(config)# devices device dev-1 config tech-support test-commands password new_pass2
+     admin@ncs(config-config)# commit dry-run outformat native
+     native {
+         device {
+             name dev-1
+             data tech-support test-commands password new_pass2 old-password new_pass
+         }
+     }
+     admin@ncs(config-config)# commit
+     Commit complete.
+     admin@ncs(config-config)# do show running-config devices device dev-1 config tech-support test-commands
+     devices device dev-1
+      config
+       tech-support test-commands password new_pass2
+      !
+     !
+     admin@ncs(config-config)#
+     ```
+
+     Summary:
+
+     - NED skips `tech-support test-commands password` command with value `***` as it cannot be
+       synced into CDB.
+     - To modify or delete such commands, use the exec action, or remove the configuration on the
+       device and re-configure via NSO/NED.
+     - Managing the command via NSO/NED enables NED to handle old-password at runtime.
+
 
 # 8. How to report NED issues and feature requests
 --------------------------------------------------
@@ -1002,6 +1140,8 @@ admin@ncs(config)# commit
   ```
   ERROR: external mfa executable failed <....>
   ```
+
+
 
 # 11. NED Secrets - Securing your Secrets
 ------------------------------------------------------
