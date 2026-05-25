@@ -196,6 +196,10 @@
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
   * [README v2.0.53 2026-04-24](onf-tapi_rc/README.md)
 
+* opengear-cm
+  * [README-ned-settings](opengear-cm/README-ned-settings.md)
+  * [README v1.1.1 2026-03-23](opengear-cm/README.md)
+
 * openstack-cos
   * [README-ned-settings](openstack-cos/README-ned-settings.md)
   * [README v4.2.36 2026-03-26](openstack-cos/README.md)
