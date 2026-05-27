@@ -266,12 +266,13 @@ variable NCS_RELOAD_PACKAGES can be set to 'true' to attempt a package
 reload.
 
 The environment variables `NCS_IPC_PORT`, `NCS_IPC_ADDR` and
-`NCS_IPC_PATH` control how to connect to a running NCS daemon. These
-variables generally have no effect when starting the daemon, since the
-values are read from the configuration file
-[ncs.conf(5)](ncs.conf.5.md). The exception is `NCS_IPC_PATH`, which
-overrides the configuration file if set, enabling the Unix domain socket
-at the specified path.
+`NCS_IPC_PATH` control how to connect to a running NCS daemon, with
+`NCS_IPC_PATH` taking precedence. On daemon startup, these values are
+read from the configuration file [ncs.conf(5)](ncs.conf.5.md).
+However, the environment variables override the configuration file. In
+particular, setting `NCS_IPC_PATH` or `NCS_IPC_PORT` selects local or
+TCP IPC (in this order), regardless of the
+[ncs.conf(5)](ncs.conf.5.md) setting.
 
 ## Diagnostics
 

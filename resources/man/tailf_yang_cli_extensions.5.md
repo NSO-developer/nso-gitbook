@@ -1312,11 +1312,13 @@ The following substatements can be used:
 ### tailf:cli-flatten-container
 
 Allows the CLI to exit the container and continue to input from the
-parent container when all leaves in the current container has been set.
+parent container when all leaves in the current container have been set.
+For presence containers, the CLI allows exiting at any point, even if no
+leaves or only some leaves have been set.
 
 Can be used in config nodes only.
 
-Used in I- and C-style CLIs.
+Used in J-, I- and C-style CLIs.
 
 The *cli-flatten-container* statement can be used in: *container*,
 *list*, and *refine*.
