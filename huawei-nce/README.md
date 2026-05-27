@@ -33,6 +33,7 @@
      10.14 CRUD operations on DHCP service
      10.15 tail-f action to query locators by nes
      10.16 tail-f action to send CLI configuration to a target device(Northbound Transparent Transmission)
+     10.17 tail-f action to extract transceivers
   11. DWDM-feature
       11.1 create/delete a 'tunnel' list entry
       11.2 create/modify/delete a service ('client-svc-instances') list entry
@@ -40,11 +41,11 @@
       11.4 Partial sync-from support
       11.5 tail-f action for pre-route calculation
       11.6 tail-f actions to fetch operational data
-            10.6.1 action to extract tunnels
-            10.6.2 action to extract services
-            10.6.3 action to extract networks elements
-            10.6.4 action to extract nodes for a specific network
-            10.6.5 action to extract links for a specific network
+            11.6.1 action to extract tunnels
+            11.6.2 action to extract services
+            11.6.3 action to extract networks elements
+            11.6.4 action to extract nodes for a specific network
+            11.6.5 action to extract links for a specific network
       11.7 Choose how long to wait after a 'client-svc-instance' is going to be created
   12. NCE-FAN feature
       12.1 Introduction
@@ -1929,6 +1930,39 @@ Note:
  - time-out and show-all-replys are not provided, but their default values(time-out=1000 and show-all-replys=true) are part of the payload. If other values are needed, the user must provide them.
 
 
+## 10.17 tail-f action to extract transceivers
+----------------------------------------------
+
+Depending on needs, "all", "none" or particular transceivers can be fetched.
+
+Fetch all available transceivers:
+
+```
+admin@ncs(config)# devices device dev-1 live-status exec get-transceivers-data all
+```
+
+Clear operational database(ODB) for transceivers:
+
+```
+admin@ncs(config)# devices device dev-1 live-status exec get-transceivers-data none
+```
+
+Fetch only specific list of transceivers:
+
+```
+admin@ncs(config)# devices device dev-1 live-status exec get-transceivers-data res-id-transceiver1 res-id-transceiver2
+```
+
+The data for res-id-transceiver1 and res-id-transceiver2 will be written to ODB. The other existing transceivers from ODB remain unchanged.
+
+To display the operational data for transceivers:
+
+```
+admin@ncs# show devices device dev-1 transceivers
+```
+
+
+
 # 11. DWDM-feature
 ------------------
 
@@ -2231,7 +2265,7 @@ Here, the single fetched tunnel is "second-tunnel" and the previous "first-tunne
 To display operational data for tunnels:
 
 ```
-admin@ncs# show devices device tunnels tunnel
+admin@ncs# show devices device dev-1 tunnels tunnel
 ```
 
 
@@ -2247,7 +2281,7 @@ admin@ncs(config)# devices device dev-1 live-status exec get-DWDM-services-oper-
 To display services operational data:
 
 ```
-admin@ncs# show devices device client-svc client-svc-instances
+admin@ncs# show devices device dev-1 client-svc client-svc-instances
 ```
 
 ### 11.6.3 action to extract networks elements
