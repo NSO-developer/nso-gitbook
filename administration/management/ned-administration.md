@@ -886,10 +886,7 @@ For migrating multiple devices, use the `/devices/migrate` action, which takes t
 
 It is possible for a NED migration to fail if the new NED is not entirely backward compatible with the old one and the device has an active configuration that is incompatible with the new NED version. In such cases, NSO will produce an error with the YANG constraint that is not satisfied. Here, you must first manually adjust the device configuration to make it compatible with the new NED, and then you can perform the migration as usual.
 
-Depending on what changes are introduced by the migration and how these impact the services, it might be good to `re-deploy` the affected services before removing the old NED package. It is especially recommended in the following cases:
-
-* When the service touches a list key that has changed. As long as the old schema is loaded, NSO is able to perform an upgrade.
-* When a namespace that was used by the service has been removed. The service diffset, that is, the recorded configuration changes created by the service, will no longer be valid. The diffset is needed for the correct `get-modifications` output, `deep-check-sync`, and similar operations.
+Finally, preform a `re-deploy` of all the affected services before removing the old NED package. This step ensures all the old NED references are removed and allows for a smooth future NED upgrade. If you skip it, the `get-modifications` output, `deep-check-sync`, and similar operations may no longer work correctly.
 
 ## Revision Merge Functionality <a href="#d5e9642" id="d5e9642"></a>
 
