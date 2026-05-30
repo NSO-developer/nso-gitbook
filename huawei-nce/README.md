@@ -23,7 +23,7 @@
      10.4 Choosing how the L3VPN configuration is fetched
      10.5 Partial sync-from support for L3VPN section
      10.6 Interface management feature
-     10.7 Partial sync-from support for interface management
+     10.7 Partial sync-from support for interface management and tunnel-policy
      10.8 Partial sync-from support for interface/trunk-members
      10.9 e-trunk section
      10.10 Partial sync-from support for e-trunk
@@ -1461,8 +1461,8 @@ NED has support for the following elements:
    ```
 
 
-## 10.7 Partial sync-from support for interface management
-----------------------------------------------------------
+## 10.7 Partial sync-from support for interface management and tunnel-policy
+----------------------------------------------------------------------------
 
 NED has support for partial sync-from for "Query NE-Side Information About an Interface" (4.3.15.2 section from "iMaster NCE V100R020C00 Northbound REST API Guide - 11182020.pdf" manual).
 
@@ -1476,13 +1476,19 @@ Examples:
 2. get all interfaces for a specific NE called 4cc09f52-4810-11ea-b783-fa163e0659e8
 
    ```
-   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/device[device-id=4cc09f52-4810-11ea-b783-fa163e0659e8] ]
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/device[device-id=4cc09f52-4810-11ea-b783-fa163e0659e8]/interfaces/ ]
    ```
 
-3. get all interfaces for all NEs
+3. get all interfaces and all tunnel-policys for all NEs
 
    ```
    admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/device ]
+   ```
+
+4. get all tunnel-policys for a specific NE called 4cc09f52-4810-11ea-b783-fa163e0659e8
+
+   ```
+   admin@ncs(config-config)# top devices partial-sync-from path [ /devices/device[name=dev-1]/config/top/device[device-id=4cc09f52-4810-11ea-b783-fa163e0659e8]/tunnel-policy/ ]
    ```
 
 
