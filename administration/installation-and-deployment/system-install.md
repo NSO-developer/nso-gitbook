@@ -37,7 +37,7 @@ Where requirements list a specific or higher version, there always exists a (sma
 
 Primary requirements to do a System Install include:
 
-* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. Linux for production. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. 4 CPU cores minimum. Linux for production. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
 * GNU libc 2.24 or higher.
 * Java JRE 21 or higher. Used by Cisco Smart Licensing.
 * Python 3.10 or higher (3.12 recommended).
@@ -371,7 +371,7 @@ For an extensive guide to NSO deployment, refer to [Development to Production De
 
 NSO can monitor memory through the `/ncs-config/memory-management` section in `ncs.conf`. Configure it to trigger one or more debug dumps before memory pressure reaches the point where the Linux OOM-killer might terminate NSO without leaving useful diagnostics.
 
-This feature can be used while leaving the host in Linux's default heuristic overcommit mode (`vm.overcommit_memory=0`); see [proc_sys_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html). In that mode, the kernel's allocation check is weak and there is still a risk that a process gets OOM-killed, so proactive debug dumps help preserve diagnostic information.
+This feature can be used while leaving the host in Linux's default heuristic overcommit mode (`vm.overcommit_memory=0`); see [proc\_sys\_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html). In that mode, the kernel's allocation check is weak and there is still a risk that a process gets OOM-killed, so proactive debug dumps help preserve diagnostic information.
 
 * On a regular host, NSO uses total memory and available memory (`MemAvailable`), which excludes caches.
 * When NSO runs in a container, NSO uses the container cgroup memory limit and current usage instead of host-wide memory values.
@@ -503,7 +503,7 @@ In a System Install, NSO runs as a system daemon that starts and stops with the 
 
 If NSO was installed with `--run-as-user` and the host has SELinux enabled, starting the service may fail with an error similar to `/bin/su: Permission denied` due to missing SELinux permissions. Consider updating the SELinux policy for NSO or starting NSO unconfined. You may verify the SELinux mode with the command `getenforce`.
 
-If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.&#x20;
+If the issue persists, you may consider disabling SELinux on the host before starting NSO as a non-root user. Set `SELINUX=disabled` in `/etc/sysconfig/selinux` and reboot the host before retrying the startup. Note that disabling SELinux significantly lowers the host security posture and should be done only with care.
 {% endhint %}
 
 1.  Change to Super User privileges.

@@ -88,6 +88,7 @@ To run the images, make sure that your system meets the following requirements:
 
 * A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
 * A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
+* Ensure the system has sufficient resources. NSO containers require at least 4 CPU cores.
 *   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.5` is the image you want to check):
 
     <pre class="language-bash" data-title="Example: Check Java and Python Versions of Container"><code class="lang-bash">docker run --rm cisco-nso-prod:6.5 sh -c "java -version &#x26;&#x26; python --version"
@@ -314,7 +315,7 @@ To disable the health check, use the `--no-healthcheck` command.
 
 NSO can monitor memory through the `/ncs-config/memory-management` section in `ncs.conf`. In containerized deployments, configure it to trigger one or more debug dumps before memory pressure reaches the point where the container or the NSO process might be OOM-killed without leaving useful diagnostics.
 
-This feature can be used while leaving the host in Linux's default heuristic overcommit mode (`vm.overcommit_memory=0`); see [proc_sys_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html). Host overcommit settings remain host-global and cannot be configured per container, but NSO can still use cgroup memory information to trigger debug dumps proactively.
+This feature can be used while leaving the host in Linux's default heuristic overcommit mode (`vm.overcommit_memory=0`); see [proc\_sys\_vm(5)](https://man7.org/linux/man-pages/man5/proc_sys_vm.5.html). Host overcommit settings remain host-global and cannot be configured per container, but NSO can still use cgroup memory information to trigger debug dumps proactively.
 
 * When NSO runs in a container with a configured memory limit, NSO uses the container cgroup memory limit and current usage instead of host-wide memory values.
 * If you need host-based guidance instead, see [Use NSO Memory Monitoring to Capture Debug Dumps Before an OOM Kill](system-install.md#use-nso-memory-monitoring-to-capture-debug-dumps-before-an-oom-kill).

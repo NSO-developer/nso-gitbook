@@ -39,7 +39,7 @@ Where requirements list a specific or higher version, there always exists a (sma
 
 Primary requirements to do a Local Install include:
 
-* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
+* A system running Linux or macOS on either the `x86_64` or `ARM64` architecture for development. 4 CPU cores minimum. For [FIPS](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) mode, OS FIPS compliance may be required depending on your specific requirements.
 * GNU libc 2.24 or higher.
 * Java JRE 21 or higher. Used by Cisco Smart Licensing.
 * Python 3.10 or higher (3.12 recommended).
