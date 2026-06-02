@@ -158,7 +158,7 @@
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
-  * [README v1.0.32 2026-05-18](huawei-nce/README.md)
+  * [README v1.0.33 2026-06-01](huawei-nce/README.md)
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
