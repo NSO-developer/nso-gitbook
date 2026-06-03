@@ -1143,6 +1143,94 @@ print("/operdata/value is now %s" % new_value)
 ```
 {% endcode %}
 
+## Error Codes
+
+The low-level APIs raise `_ncs.error.Error`. The high-level APIs raise `ncs.error.Error`, which uses the same underlying error information. The exception object contains:
+
+* `confd_errno`: the numeric error code.
+* `confd_strerror`: the library error message for the code.
+* `confd_lasterr`: optional additional error text from NSO or application code.
+
+In an exception string such as `external error (19): application communication failure`, `external error` is the `confd_strerror` text, `19` is `confd_errno`, and the text after the colon is `confd_lasterr`.
+
+Use the Python constants from `ncs` or `_ncs` when checking `confd_errno`. Most C `CONFD_ERR_*` constants are exposed as Python `ERR_*` constants. The NSO-specific `NCS_ERR_*` constants keep their names. For codes without a dedicated `confd_strerror()` entry, the base error message is `Unknown error`; the detailed cause is typically carried in `confd_lasterr`.
+
+| Code | Python constant | C constant | Error message | Description |
+| ---- | --------------- | ---------- | ------------- | ----------- |
+| 1 | `ncs.ERR_NOEXISTS` | `CONFD_ERR_NOEXISTS` | `item does not exist` | A requested value or object does not exist, typically when reading through CDB or MAAPI. |
+| 2 | `ncs.ERR_ALREADY_EXISTS` | `CONFD_ERR_ALREADY_EXISTS` | `item already exists` | An attempt was made to create an object that already exists. |
+| 3 | `ncs.ERR_ACCESS_DENIED` | `CONFD_ERR_ACCESS_DENIED` | `access denied` | AAA authorization rules denied access to the object. |
+| 4 | `ncs.ERR_NOT_WRITABLE` | `CONFD_ERR_NOT_WRITABLE` | `item is not writable` | An attempt was made to write an object that is not writable. |
+| 5 | `ncs.ERR_BADTYPE` | `CONFD_ERR_BADTYPE` | `item has a bad/wrong type` | An object was created or written with a value whose type does not match the YANG type. |
+| 6 | `ncs.ERR_NOTCREATABLE` | `CONFD_ERR_NOTCREATABLE` | `item is not creatable` | An attempt was made to create an object that cannot be created. |
+| 7 | `ncs.ERR_NOTDELETABLE` | `CONFD_ERR_NOTDELETABLE` | `item is not deletable` | An attempt was made to delete an object that cannot be deleted. |
+| 8 | `ncs.ERR_BADPATH` | `CONFD_ERR_BADPATH` | `badly formatted or nonexistent path` | A path argument was malformed, referred to a nonexistent node, or was invalid in a printf-style path function. |
+| 9 | `ncs.ERR_NOSTACK` | `CONFD_ERR_NOSTACK` | `cannot pop an empty stack` | A path stack pop was attempted without a preceding push. |
+| 10 | `ncs.ERR_LOCKED` | `CONFD_ERR_LOCKED` | `locked` | An attempt was made to lock an object that is already locked. |
+| 11 | `ncs.ERR_INUSE` | `CONFD_ERR_INUSE` | `in use` | A commit or operation could not proceed because another user or process holds a lock. |
+| 12 | `ncs.ERR_NOTSET` | `CONFD_ERR_NOTSET` | `notset` | A mandatory leaf has no value, either because it was deleted or never set after create. |
+| 13 | `ncs.ERR_NON_UNIQUE` | `CONFD_ERR_NON_UNIQUE` | `non unique` | A set of leaves covered by a YANG `unique` statement is not unique. |
+| 14 | `ncs.ERR_BAD_KEYREF` | `CONFD_ERR_BAD_KEYREF` | `bad keyref` | A key reference points to a target that does not exist. |
+| 15 | `ncs.ERR_TOO_FEW_ELEMS` | `CONFD_ERR_TOO_FEW_ELEMS` | `too few elems` | A `min-elements` constraint was violated; the node has too few elements or entries. |
+| 16 | `ncs.ERR_TOO_MANY_ELEMS` | `CONFD_ERR_TOO_MANY_ELEMS` | `too many elems` | A `max-elements` constraint was violated; the node has too many elements or entries. |
+| 17 | `ncs.ERR_BADSTATE` | `CONFD_ERR_BADSTATE` | `operation in wrong state` | A function was called out of order, for example in a MAAPI commit sequence. |
+| 18 | `ncs.ERR_INTERNAL` | `CONFD_ERR_INTERNAL` | `internal error` | An internal NSO or libconfd error occurred. This normally indicates a product bug or missing specific error code. |
+| 19 | `ncs.ERR_EXTERNAL` | `CONFD_ERR_EXTERNAL` | `external error` | An error originated in user code, such as a service, action, validation, or data provider callback. |
+| 20 | `ncs.ERR_MALLOC` | `CONFD_ERR_MALLOC` | `Failed to allocate` | Memory allocation failed. |
+| 21 | `ncs.ERR_PROTOUSAGE` | `CONFD_ERR_PROTOUSAGE` | `Bad protocol usage or unexpected retval` | An API function or callback was used incorrectly, or a callback returned an unexpected value. |
+| 22 | `ncs.ERR_NOSESSION` | `CONFD_ERR_NOSESSION` | `A session must be established prior to this command` | The function requires an established user session before it is called. |
+| 23 | `ncs.ERR_TOOMANYTRANS` | `CONFD_ERR_TOOMANYTRANS` | `Too many transactions` | A new MAAPI transaction was rejected because the transaction limit was reached. |
+| 24 | `ncs.ERR_OS` | `CONFD_ERR_OS` | `system call failed` | An operating system call failed. Inspect the OS error string or errno for the underlying cause. |
+| 25 | `ncs.ERR_HA_CONNECT` | `CONFD_ERR_HA_CONNECT` | `Failed to connect to remote HA node` | Connecting to a remote HA node failed. |
+| 26 | `ncs.ERR_HA_CLOSED` | `CONFD_ERR_HA_CLOSED` | `Remote HA node closed socket to us` | A remote HA node closed the connection, or a sync response from the primary timed out. |
+| 27 | `ncs.ERR_HA_BADFXS` | `CONFD_ERR_HA_BADFXS` | `Remote HA node has incompatible config to us` | The remote HA node has a different set or version of FXS files. |
+| 28 | `ncs.ERR_HA_BADTOKEN` | `CONFD_ERR_HA_BADTOKEN` | `Remote HA node has bad credentials` | The remote HA node presented a different HA token. |
+| 29 | `ncs.ERR_HA_BADNAME` | `CONFD_ERR_HA_BADNAME` | `remote HA node has other/wrong name` | The remote HA node name differs from the expected name. |
+| 30 | `ncs.ERR_HA_BIND` | `CONFD_ERR_HA_BIND` | `failed to bind HA socket` | Binding the HA socket for incoming HA connections failed. |
+| 31 | `ncs.ERR_HA_NOTICK` | `CONFD_ERR_HA_NOTICK` | `Remote HA node doesn't send us any ticks` | A remote HA node did not produce the expected live ticks. |
+| 32 | `ncs.ERR_VALIDATION_WARNING` | `CONFD_ERR_VALIDATION_WARNING` | `Validation warnings` | `maapi_validate()` returned validation warnings. |
+| 33 | `ncs.ERR_SUBAGENT_DOWN` | `CONFD_ERR_SUBAGENT_DOWN` | `Subagent down` | An operation towards a mounted NETCONF subagent failed because the subagent is not up. |
+| 34 | `ncs.ERR_LIB_NOT_INITIALIZED` | `CONFD_ERR_LIB_NOT_INITIALIZED` | `Library not initialized` | The libconfd library was not initialized properly before use. |
+| 35 | `ncs.ERR_TOO_MANY_SESSIONS` | `CONFD_ERR_TOO_MANY_SESSIONS` | `Maximum number of sessions reached` | The maximum number of sessions has been reached. |
+| 36 | `ncs.ERR_BAD_CONFIG` | `CONFD_ERR_BAD_CONFIG` | `Error in a configuration` | A configuration contains an error. |
+| 37 | `ncs.ERR_RESOURCE_DENIED` | `CONFD_ERR_RESOURCE_DENIED` | `Data provider returned CONFD_ERRCODE_RESOURCE_DENIED` | A data provider callback returned `CONFD_ERRCODE_RESOURCE_DENIED`. |
+| 38 | `ncs.ERR_INCONSISTENT_VALUE` | `CONFD_ERR_INCONSISTENT_VALUE` | `Data provider returned CONFD_ERRCODE_INCONSISTENT_VALUE` | A data provider callback returned `CONFD_ERRCODE_INCONSISTENT_VALUE`. |
+| 39 | `ncs.ERR_APPLICATION_INTERNAL` | `CONFD_ERR_APPLICATION_INTERNAL` | `Data provider returned CONFD_ERRCODE_APPLICATION_INTERNAL` | A data provider callback returned `CONFD_ERRCODE_APPLICATION_INTERNAL`. |
+| 40 | `ncs.ERR_UNSET_CHOICE` | `CONFD_ERR_UNSET_CHOICE` | `No case selected for mandatory choice` | No `case` has been selected for a mandatory YANG `choice`. |
+| 41 | `ncs.ERR_MUST_FAILED` | `CONFD_ERR_MUST_FAILED` | `Unsatisfied must constraint` | A YANG `must` constraint is not satisfied. |
+| 42 | `ncs.ERR_MISSING_INSTANCE` | `CONFD_ERR_MISSING_INSTANCE` | `Required instance does not exist` | An `instance-identifier` leaf with `require-instance true` points to a missing instance. |
+| 43 | `ncs.ERR_INVALID_INSTANCE` | `CONFD_ERR_INVALID_INSTANCE` | `Instance does not conform to path filters` | An `instance-identifier` leaf does not conform to its specified path filters. |
+| 44 | `ncs.ERR_UNAVAILABLE` | `CONFD_ERR_UNAVAILABLE` | `Unavailable functionality` | The requested functionality is unavailable, for example getting or setting attributes on an operational data element. |
+| 45 | `ncs.ERR_EOF` | `CONFD_ERR_EOF` | `Lost connection to ConfD` | Used when an API function returns `CONFD_EOF`; the connection to NSO was closed or no normal success value was returned. |
+| 46 | `ncs.ERR_NOTMOVABLE` | `CONFD_ERR_NOTMOVABLE` | `item is not movable` | An attempt was made to move an object that cannot be moved. |
+| 47 | `ncs.ERR_HA_WITH_UPGRADE` | `CONFD_ERR_HA_WITH_UPGRADE` | `HA secondary not allowed during upgrade` | An in-service data model upgrade was attempted on an HA node, or HA primary/secondary mode was changed during such an upgrade. |
+| 48 | `ncs.ERR_TIMEOUT` | `CONFD_ERR_TIMEOUT` | `Operation timed out` | The operation did not complete within the specified timeout. |
+| 49 | `ncs.ERR_ABORTED` | `CONFD_ERR_ABORTED` | `Operation was aborted` | The operation was aborted. |
+| 50 | `ncs.ERR_XPATH` | `CONFD_ERR_XPATH` | `XPath compilation/evaluation failed` | Compilation or evaluation of an XPath expression failed. |
+| 51 | `ncs.ERR_NOT_IMPLEMENTED` | `CONFD_ERR_NOT_IMPLEMENTED` | `Operation not implemented` | The requested operation is not implemented, often because the library is newer than the NSO daemon. |
+| 52 | `ncs.ERR_HA_BADVSN` | `CONFD_ERR_HA_BADVSN` | `Remote HA node has incompatible version` | The remote HA node uses an incompatible protocol version. |
+| 53 | `ncs.ERR_POLICY_FAILED` | `CONFD_ERR_POLICY_FAILED` | `Policy expression evaluated to false` | A user-defined policy expression evaluated to false. |
+| 54 | `ncs.ERR_POLICY_COMPILATION_FAILED` | `CONFD_ERR_POLICY_COMPILATION_FAILED` | `Policy XPath expression could not be compiled` | A user-defined policy XPath expression could not be compiled. |
+| 55 | `ncs.ERR_POLICY_EVALUATION_FAILED` | `CONFD_ERR_POLICY_EVALUATION_FAILED` | `Policy expression failed XPath evaluation` | A user-defined policy expression failed XPath evaluation. |
+| 56 | `ncs.NCS_ERR_CONNECTION_REFUSED` | `NCS_ERR_CONNECTION_REFUSED` | `Unknown error` | NSO failed to connect to a device. |
+| 57 | `ncs.ERR_START_FAILED` | `CONFD_ERR_START_FAILED` | `Failed to proceed to next start phase` | The NSO daemon failed to proceed to the next start phase. |
+| 58 | `ncs.ERR_DATA_MISSING` | `CONFD_ERR_DATA_MISSING` | `Data provider returned CONFD_ERRCODE_DATA_MISSING` | A data provider callback returned `CONFD_ERRCODE_DATA_MISSING`. |
+| 59 | `ncs.ERR_CLI_CMD` | `CONFD_ERR_CLI_CMD` | `CLI command error` | Execution of a CLI command failed. |
+| 60 | `ncs.ERR_UPGRADE_IN_PROGRESS` | `CONFD_ERR_UPGRADE_IN_PROGRESS` | `Not allowed during upgrade` | The requested operation is not allowed while an in-service data model upgrade is in progress. |
+| 61 | `ncs.ERR_NOTRANS` | `CONFD_ERR_NOTRANS` | `Transaction not found` | An invalid transaction handle was passed to a MAAPI function. |
+| 62 | `ncs.NCS_ERR_SERVICE_CONFLICT` | `NCS_ERR_SERVICE_CONFLICT` | `Unknown error` | A service invocation outside the transaction lock modified data that was also modified by another service invocation. |
+| 63 | `ncs.NCS_ERR_CONNECTION_TIMEOUT` | `NCS_ERR_CONNECTION_TIMEOUT` | `Unknown error` | NSO reported a connection timeout for a device operation. |
+| 64 | `ncs.NCS_ERR_CONNECTION_CLOSED` | `NCS_ERR_CONNECTION_CLOSED` | `Unknown error` | NSO reported that the connection for a device operation was closed. |
+| 65 | `ncs.NCS_ERR_DEVICE` | `NCS_ERR_DEVICE` | `Unknown error` | NSO reported a device-specific error during a device operation. |
+| 66 | `ncs.NCS_ERR_TEMPLATE` | `NCS_ERR_TEMPLATE` | `Unknown error` | NSO reported a template processing error. |
+| 67 | `ncs.ERR_NO_MOUNT_ID` | `CONFD_ERR_NO_MOUNT_ID` | `Path is ambiguous due to traversing a mount point` | A path is ambiguous because it traverses a schema mount point without a mount id. |
+| 68 | `ncs.ERR_STALE_INSTANCE` | `CONFD_ERR_STALE_INSTANCE` | `Required instance does not exist` | An `instance-identifier` leaf with `require-instance true` contains stale data after upgrade. |
+| 69 | `ncs.ERR_HA_BADCONFIG` | `CONFD_ERR_HA_BADCONFIG` | `Remote HA node has bad configuration` | A remote HA node has bad HA application configuration that prevents it from functioning properly. |
+| 70 | `ncs.ERR_TRANSACTION_CONFLICT` | `CONFD_ERR_TRANSACTION_CONFLICT` | `Conflict detected` | A transaction conflict was detected, such as data read by one transaction being modified by another before apply. |
+| 71 | `ncs.ERR_HA_ABORT` | `CONFD_ERR_HA_ABORT` | `Transaction aborted` | A transaction was aborted during an HA transition. |
+| 72 | `ncs.ERR_BAD_PAYLOAD` | `CONFD_ERR_BAD_PAYLOAD` | `Error in payload data` | Payload data was invalid or could not be processed. |
+| 73 | `ncs.ERR_CHECKSUM_MISMATCH` | `CONFD_ERR_CHECKSUM_MISMATCH` | `Checksum mismatch` | A dry-run changeset did not match the commit changeset. |
+
 ## Advanced Topics
 
 ### Schema Loading - Internals <a href="#ncs.development.python_api_overview.advanced.schema_loading" id="ncs.development.python_api_overview.advanced.schema_loading"></a>
