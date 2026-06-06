@@ -793,13 +793,13 @@ XML compliance templates can be placed in the `templates/` subdirectory of a pac
 
 XML compliance templates support all processing instructions available for [service templates](../../development/core-concepts/templates.md), **except** `for`, `foreach`, and `copy-tree`. The supported instructions are:
 
-| Instruction | Description |
-|---|---|
+| Instruction                                    | Description                               |
+| ---------------------------------------------- | ----------------------------------------- |
 | `<?if {xpath-expr}?>` … `<?else?>` … `<?end?>` | Conditionally check parts of the template |
-| `<?set var = {xpath-expr}?>` | Assign a variable |
-| `<?if-ned-id ned-id?>` … `<?end?>` | Conditionally check based on the NED ID |
-| `<?macro name args?>` … `<?endmacro?>` | Define a reusable template fragment |
-| `<?expand macro-name args?>` | Expand a macro |
+| `<?set var = {xpath-expr}?>`                   | Assign a variable                         |
+| `<?if-ned-id ned-id?>` … `<?end?>`             | Conditionally check based on the NED ID   |
+| `<?macro name args?>` … `<?endmacro?>`         | Define a reusable template fragment       |
+| `<?expand macro-name args?>`                   | Expand a macro                            |
 
 #### `<?assert?>` Processing Instruction
 
@@ -903,7 +903,7 @@ ncs# compliance xml-templates reload
 ```
 
 {% hint style="info" %}
-As of NSO 6.7, XML compliance templates cannot be configured in compliance reports. Support for referencing XML templates from compliance report definitions (via `device-check/xml-template`) is planned for the next maintenance release.
+Referencing XML compliance templates from compliance report definitions (via `device-check/xml-template`) is currently not supported.
 {% endhint %}
 
 ## Re-run existing compliance report results
