@@ -9,7 +9,7 @@
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
-  * [README v4.6.3 2026-03-23](accedian-nid/README.md)
+  * [README v4.6.4 2026-06-09](accedian-nid/README.md)
 
 * accedian-skylight_rc
   * [README-ned-settings](accedian-skylight_rc/README-ned-settings.md)
@@ -251,5 +251,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.4.1 2026-05-14](zte-zxros/README.md)
+  * [README v1.4.2 2026-06-09](zte-zxros/README.md)
 
