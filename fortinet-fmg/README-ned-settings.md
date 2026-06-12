@@ -38,7 +38,9 @@
   2. connection
   3. logger
   4. read
-  5. install-config-to-fortigate
+  5. write
+     5.1. api-multiplexing
+  6. install-config-to-fortigate
   ```
 
 
@@ -249,7 +251,61 @@
       call to getTransId() with sync-from.
 
 
-# 5. ned-settings fortinet-fmg install-config-to-fortigate
+# 5. ned-settings fortinet-fmg write
+------------------------------------
+
+  Settings used when writing to device.
+
+
+## 5.1. ned-settings fortinet-fmg write api-multiplexing
+--------------------------------------------------------
+
+  Note: This feature is experimental. Behaviour may vary
+  across FortiManager versions and object types. Test thoroughly
+  in a pre-production environment before enabling in production.
+
+  API multiplexing batches multiple create/update/delete operations
+  into a single JSON-RPC request to FortiManager. While this can
+  significantly reduce round-trip overhead on large transactions,
+  not all FortiManager object types behave correctly when batched
+  (e.g. external-resource is excluded automatically; other types
+  may have similar limitations that have not yet been identified).
+
+  Recommendations:
+  - Validate your specific use cases in a pre-production or
+  staging environment before enabling in production.
+  - If you observe data corruption or missed writes for a
+  particular object type, add the corresponding path to
+  write/api-multiplexing/exclude-paths to force individual
+  dispatch for that type.
+  - Report any such findings so a permanent hard-coded exclusion
+  can be added in a future NED release.
+
+
+    - api-multiplexing enable-multiplexing <true|false> (default false)
+
+      Enable bulk create/update/delete FMG objects.
+      When enabled, the NED will group multiple operations into a single
+      JSON request payload using FortiManager's multiplexing capability.
+
+
+    - api-multiplexing multiplexing-max-batch-size <uint16> (default 100)
+
+      The maximum number of objects to include in a single multiplexed API request.
+
+
+    - api-multiplexing exclude-paths <path>
+
+      Each entry specifies a plain XPath (no namespace prefixes, no key predicates) that should
+      never be multiplexed. Example: /adom/external-resource.
+
+      - path <string>
+
+        Plain XPath prefix to match against operation paths (e.g. /adom/external-resource). Any
+        operation whose plain XPath starts with this value will be sent individually.
+
+
+# 6. ned-settings fortinet-fmg install-config-to-fortigate
 ----------------------------------------------------------
 
   These ned-settings are used to control NED behavior when pushing configurations to fortigate
