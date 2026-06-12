@@ -55,19 +55,30 @@ Always use one of these methods when upgrading to a new version of NSO in an exi
 
 ### Open Transactions During Upgrade
 
-For a data model upgrade, except for a dry run, all transactions must be closed. In particular, users having CLI sessions in configure mode must exit to operational mode. If there are ongoing commit queue items, and the `wait-commit-queue-empty` parameter is supplied, it will wait for the items to finish before proceeding with the reload. During this time, NSO will not allow the creation of any new transactions. Hence, if one of the queue items fails with `rollback-on-error` option set, the commit queue's rollback will also fail, and the queue item will be locked. In this case, the reload will be canceled. A manual investigation of the failure is needed in order to proceed with the reload.
+For a data model upgrade, except for a dry run, special considerations must be made, depending on the chosen upgrade mode.
 
-While the data model upgrade is in progress, all transactions are closed and new transactions are not allowed. This means that starting a new management session, such as a CLI or SSH connection to the NSO, will also fail, producing an error that the node is in upgrade mode.
+By default, all transactions are closed and new transactions are not allowed. Users having CLI sessions in configure mode must exit to operational mode. This means that starting a new management session, such as a CLI or SSH connection to the NSO, will also fail, producing an error that the node is in upgrade mode.
 
-By default, the `reload` action will (when needed) wait up to 10 seconds for the commit queue to empty (if the `wait-commit-queue-empty` parameter is entered) and reload to start.
-
-If there are still open transactions at the end of this period, the upgrade will be canceled and the reload operation will fail. The `max-wait-time` and `timeout-action` parameters to the action can modify this behavior. For example, to wait for up to 30 seconds, and forcibly terminate any transactions that still remain open after this period, we can invoke the action as:
+Here, NSO will wait up to 10 seconds for the existing transactions to close. If there are still open transactions at the end of this period, the upgrade will be canceled and the reload operation will fail. The `max-wait-time` and `timeout-action` parameters to the action can modify this behavior. For example, to wait for up to 30 seconds, and forcibly terminate any transactions that still remain open after this period, invoke the action as:
 
 ```cli
 admin@ncs# packages reload max-wait-time 30 timeout-action kill
 ```
 
-Thus the default values for these parameters are `10` and `fail`, respectively. In case there are no changes to `.fxs` or .`ccl` files, the reload can be carried out without the data model upgrade procedure, and these parameters are ignored since there is no need to close open transactions.
+For in-service upgrades, when `packages reload` and `packages ha sync and-reload` are called with the `optimistic` parameter, NSO keeps accepting and processing requests on the northbound interfaces. The in-flight transactions are upgraded (rebased) to the new data model as part of the upgrade process. However, rebasing, and subsequently the transaction, may fail if the transaction is incompatible with the new schema.
+
+The in-service upgrade may be combined with a `backup` switch, which takes an NSO backup before the upgrade starts.
+
+Examples:
+
+```cli
+admin@ncs# packages reload optimistic backup
+admin@ncs# packages ha sync and-reload { optimistic backup wait-commit-queue-empty }
+```
+
+Regardless of the mode, if there are ongoing commit queue items, and the `wait-commit-queue-empty` parameter is supplied, the upgrade will wait for the `max-wait-time` for items to finish before proceeding with the reload. If new transactions are not allowed and one of the queue items fails with `rollback-on-error` option set, the commit queue's rollback will also fail, and the queue item will be locked. In this case, the reload will be canceled. A manual investigation of the failure is needed in order to proceed with the reload.
+
+In case there are no changes to `.fxs` or .`ccl` files, the reload can be carried out without the data model upgrade procedure, and these parameters are ignored.
 
 ## Redeploying Packages <a href="#ug.package_mgmt.redeploying" id="ug.package_mgmt.redeploying"></a>
 
@@ -121,6 +132,8 @@ Applies to System Install. In production, manage pre-built packages with the `so
 {% endhint %}
 
 In a System Install of NSO, management of pre-built packages is supported through a number of actions. This support is not available in a Local Install, since it is dependent on the directory structure created by the System Install. The supported workflow is to make the package available under `/opt/ncs/packages`, install or deinstall it with the `software packages` actions, and then activate the change with `packages reload` or, in a high-availability setup, `packages ha sync and-reload`. Please refer to the YANG submodule `$NCS_DIR/src/ncs/yang/tailf-ncs-software.yang` for the full details of the functionality described in this section.
+
+Both package reload actions support `optimistic` mode for in-service upgrade, which can be combined with `backup` to create an NSO backup before the upgrade starts.
 
 For the full production package upgrade procedure on System Install, including backup recommendations, single-node upgrades, and high-availability upgrades with `packages ha sync and-reload`, see [Package Upgrade](../installation-and-deployment/upgrade-nso.md#d5e7083).
 
