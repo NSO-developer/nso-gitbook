@@ -134,11 +134,11 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.26.0 2026-05-28](f5-bigip/README.md)
+  * [README v3.26.1 2026-06-12](f5-bigip/README.md)
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.53 2026-05-21](fortinet-fmg/README.md)
+  * [README v4.3.54 2026-06-12](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)

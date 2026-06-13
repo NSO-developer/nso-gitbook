@@ -1880,6 +1880,28 @@ admin@ncs(config)# commit
       - If sent from the NED the above example will result in out-of-sync.
 
 
+  ## 7.20 ltm / persistence / cookie / cookie-encryption-passphrase
+  ---
+
+  - The `ltm persistence cookie` leaf `cookie-encryption-passphrase` is encrypted by the device immediately after being set.
+
+  - **Visibility Constraint:** The plaintext passphrase value can **only be viewed in NSO at creation/modification time** (when committing the configuration). 
+    After the first sync-from, the device returns only the encrypted value, which is not decryptable, hence NSO fills in with placeholders to easily identify that 
+
+  - **Impact on compare-config:** After the initial commit, the device's encrypted passphrase will never match NSO's stored value, causing potential/persisten compare-config diffs, hence we are always setting at show the default value "not-defined".
+
+  - **Example: from F5 tmsh cli**
+    ```cli
+    root@(bigip17)(cfg-sync Standalone)(Active)(/automation)(tmos)# create ltm persistence cookie test-cookie-2 { cookie-encryption disabled cookie-encryption-passphrase TestCookiePAss }
+    root@(bigip17)(cfg-sync Standalone)(Active)(/automation)(tmos)# list ltm persistence cookie test-cookie-2
+    ltm persistence cookie test-cookie-2 {
+        app-service none
+        cookie-encryption disabled
+        cookie-encryption-passphrase $M$yf$gQzzUr7oxtA4fjf+Gqrz8zbjUK3M7Q5dJ2vhPmDdyaI=
+    }
+    ```
+
+
 # 8. How to report NED issues and feature requests
 --------------------------------------------------
 
@@ -1985,6 +2007,8 @@ admin@ncs(config)# commit
   ```
   admin@ncs# packages reload
   ```
+
+
 
 
 
