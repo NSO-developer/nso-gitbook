@@ -138,7 +138,7 @@
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
-  * [README v4.3.54 2026-06-12](fortinet-fmg/README.md)
+  * [README v4.3.54.1 2026-06-15](fortinet-fmg/README.md)
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
