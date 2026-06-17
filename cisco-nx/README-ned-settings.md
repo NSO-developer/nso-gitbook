@@ -624,6 +624,11 @@
       disable (default).
 
 
+    - api ip-prefix-list-strip-seq <true|false> (default false)
+
+      Strip seq number in ip prefix-list and switch to alternate YANG model without seq numbers.
+
+
 # 11. ned-settings cisco-nx read
 --------------------------------
 
