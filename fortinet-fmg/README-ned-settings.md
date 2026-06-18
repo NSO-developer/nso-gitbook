@@ -38,6 +38,7 @@
   2. connection
   3. logger
   4. read
+     4.1. skip-paths
   5. write
      5.1. api-multiplexing
   6. install-config-to-fortigate
@@ -249,6 +250,21 @@
 
       Enable/Disable use of new NSO feature to set provisional transaction-id in show() to save a
       call to getTransId() with sync-from.
+
+
+## 4.1. ned-settings fortinet-fmg read skip-paths
+-------------------------------------------------
+
+  Each entry specifies a plain XPath (no namespace prefixes, no key predicates)
+  that should never be fetched during sync-from/check-sync.
+  Example: /adom/webfilter-profile/youtube-channel-filter
+  /adom/external-resource
+
+    - read skip-paths <path>
+
+      - path <string>
+
+        Plain XPath to skip (e.g. /adom/webfilter-profile/youtube-channel-filter).
 
 
 # 5. ned-settings fortinet-fmg write
