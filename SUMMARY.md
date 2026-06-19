@@ -35,11 +35,11 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.70.6 2026-06-11](alu-sr/README.md)
+  * [README v8.70.7 2026-06-18](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.33 2026-06-11](arista-dcs/README.md)
+  * [README v5.33.1 2026-06-18](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -154,7 +154,7 @@
 
 * huawei-ias
   * [README-ned-settings](huawei-ias/README-ned-settings.md)
-  * [README v2.9.7 2026-04-24](huawei-ias/README.md)
+  * [README v2.9.8 2026-06-18](huawei-ias/README.md)
 
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.85.10 2026-06-08](huawei-vrp/README.md)
+  * [README v6.85.11 2026-06-18](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
