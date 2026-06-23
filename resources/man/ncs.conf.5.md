@@ -964,6 +964,25 @@ how they relate to each other.
 > The value 'pretty' means that the XML data is pretty-printed. The
 > value 'raw' means that it is not.
 
+/ncs-config/logs/conflict-trace-log  
+> conflict-trace-log is a log for understanding and troubleshooting
+> transaction conflicts. When this log is enabled, transactions will
+> record details about reads during validation and present a detailed
+> report in case of a transaction conflict.
+>
+> This will slow down NCS, so be careful when enabling this log. This
+> log is not rotated, i.e. use logrotate(8).
+
+/ncs-config/logs/conflict-trace-log/enabled (boolean) \[false\]  
+> If set to 'true', conflicts are logged.
+
+/ncs-config/logs/conflict-trace-log/filename (string)  
+> The name of the file where the conflict trace log is written
+
+/ncs-config/logs/conflict-trace-log/external/enabled (boolean) \[false\]  
+> enabled is either 'true' or 'false'. If 'true', send log data to
+> external command for processing.
+
 /ncs-config/logs/xpath-trace-log  
 > xpath-trace-log is a log for understanding and troubleshooting XPath
 > evaluations. When this log is enabled, the execution of all XPath

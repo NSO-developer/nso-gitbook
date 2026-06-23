@@ -4,11 +4,11 @@
 
 ## Synopsis
 
-`ncs [--conf ConfFile] [--cd Dir] [--addloadpath Dir] [--nolog ] [--smp Nr] [--foreground [-v | --verbose] [--stop-on-eof]] [--with-package-reload ] [--ignore-initial-validation ] [--full-upgrade-validation ] [--disable-compaction-on-start ] [--start-phase0 ] [--epoll {true | false}]`
+`ncs [--conf ConfFile] [--cd Dir] [--addloadpath Dir] [--nolog ] [--smp Nr] [--dns-resolvers Nr] [--foreground [-v | --verbose] [--stop-on-eof]] [--with-package-reload ] [--ignore-initial-validation ] [--full-upgrade-validation ] [--disable-compaction-on-start ] [--timing-log ] [--start-phase0 ] [--epoll {true | false}]`
 
-`ncs {--wait-phase0[TryTime] | --start-phase1 | --start-phase2 | --wait-started[TryTime] | --reload | --areload | --status | --check-callbacks [Namespace | Path] | --loadfile File | --rollback Nr | --debug-dump File [Options...] | --cli-j-dump File | --loadxmlfiles File | --mergexmlfiles File | --stop } [--timeout MaxTime]`
+`ncs {--wait-phase0[TryTime] | --start-phase1 | --start-phase2 | --wait-started[TryTime] | --reload | --areload | --status | --show-listen-ports | --check-callbacks [Namespace | Path] | --loadfile File | --rollback Nr | --debug-dump File [Options...] | --cli-j-dump File | --loadxmlfiles File | --mergexmlfiles File | --stop } [--timeout MaxTime]`
 
-`ncs {--version | --cdb-debug-dump Directory [Options...] | --cdb-compact Directory}`
+`ncs {--version | --cdb-debug-dump Directory [Options...] | --cdb-compact Directory | --cdb-validate Directory}`
 
 ## Description
 
@@ -40,6 +40,10 @@ These options are relevant when starting the NCS daemon.
 > detected. Giving a value of 1 will disable SMP support, while a value
 > bigger than 1 will enable SMP support, where NCS will at any given
 > time use at most as many logical processors as the number of threads.
+
+`--dns-resolvers` Nr  
+> Number of threads to run hostname lookups on. The default is to use as
+> many threads as the system has logical processors.
 
 `--foreground [ -v | --verbose ] [ --stop-on-eof ]`  
 > Do not start as a daemon. Can be used to start NCS from a process
@@ -95,6 +99,9 @@ These options are relevant when starting the NCS daemon.
 
 `--disable-compaction-on-start`  
 > Do not compact CDB files when starting the NCS daemon.
+
+`--timing-log`  
+> Enables a log that logs execution times in `ncs_timing.log`.
 
 `--start-phase0`  
 > Start the daemon, but only start internal subsystems and CDB. Phase 0
@@ -167,6 +174,10 @@ Guide for details.
 > (i.e. phase2), or stopping (which means that NCS is about to
 > shutdown).
 
+`--show-listen-ports`  
+> List all listening ports established by the NCS daemon and its child
+> processes. Requires `lsof` installed on the system.
+
 `--debug-dump File [Options...]`  
 > Dump debug information from an already running NCS daemon into a
 > \<File\>. The file only makes sense to NCS developers. It is often a
@@ -214,7 +225,8 @@ Guide for details.
 `--cdb-debug-dump Directory [Options...] [Subtrees...]`  
 > Print debug information about the CDB files in \<Directory\> to
 > stdout. This is a completely stand-alone feature and the only thing
-> needed is the .cdb files (no running NCS daemon or .fxs files etc).
+> needed is the CDB data files (no running NCS daemon or .fxs files
+> etc).
 >
 > Additional options may be provided to alter the output format and
 > content.
@@ -249,8 +261,23 @@ Guide for details.
 
 `--cdb-compact Directory`  
 > Compact CDB files in \<Directory\>. This is a completely stand-alone
-> feature and the only thing needed is the .cdb files (no running NCS
-> daemon or .fxs files etc).
+> feature and the only thing needed is the CDB data files (no running
+> NCS daemon or .fxs files etc).
+
+`--cdb-validate Directory [ --log-file File ] [ --log-level Level ] [ --validate Item ]...`  
+> Validate the content of CDB files in \<Directory\>. This is a
+> completely stand-alone feature and the only thing needed is the .cdb
+> files (no running NCS daemon or .fxs files etc).
+>
+> If provided `--log-file`, all logs are written to the corresponding
+> \<File\>.
+>
+> The `--log-level` can be set to `error`, `warning`, `info` or `debug`
+> to control the size of produced log. It is set to `info` by default.
+>
+> The `--validate` option can be set to one of `utf8`, `when-expr`, or
+> `must-expr` to select which type of validation to perform. By default,
+> validation is done for all existing items.
 
 `--version`  
 > Reports the ncs version without interacting with the daemon.
