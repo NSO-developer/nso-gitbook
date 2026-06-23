@@ -428,6 +428,8 @@ If you do not wish to automate the upgrade process, you will need to follow the 
 
 Package upgrades are frequent and routine in development but require the same care as NSO upgrades in the production environment. The reason is that the new packages may contain an updated YANG model, resulting in a data upgrade process similar to a version upgrade. So, if a package is removed or uninstalled and a replacement is not provided, package-specific data, such as service instance data, will also be removed.
 
+Another consideration are inbound requests on a live system. If it is likely such requests will arrive during an upgrade, consider using the in-service `packages reload optimistic` upgrade option. With it, you can also leverage the `backup` parameter to simplify the backup process. See [Package Management](../management/package-mgmt.md#open-transactions-during-upgrade) for the comparison of the two options.
+
 In a single-node environment, the procedure is straightforward. Create a backup with the `ncs-backup` command and ensure the new package is compiled for the current NSO version and available under the `/opt/ncs/packages` directory. Then either manually rearrange the symbolic links in the `/var/opt/ncs/packages` directory or use the `software packages install` command in the NSO CLI. Finally, invoke the `packages reload` command. For example:
 
 ```bash

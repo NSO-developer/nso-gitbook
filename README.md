@@ -48,6 +48,20 @@ Documentation Updates:
 
 <details>
 
+<summary>In-service Package Upgrades</summary>
+
+The improved `packages reload` (and `packages ha sync and-reload`) action now supports the `optimistic` mode for in-service upgrade. In this mode, NSO keeps accepting and processing requests on the northbound interfaces while the upgrade is in progress.
+
+In addition, the new mode supports taking an NSO backup before the upgrade commences, enabled using the newly introduced `backup` switch.
+
+Documentation Updates:
+
+* Updated [Package Management](administration/management/package-mgmt.md) and [Upgrade NSO](administration/installation-and-deployment/upgrade-nso.md) with the new upgrade options.
+
+</details>
+
+<details>
+
 <summary>Compliance XML Templates</summary>
 
 A new type of compliance template is introduced: compliance template specified as an XML file, that lives as part of a package or individually, under a dedicated load-directory.
