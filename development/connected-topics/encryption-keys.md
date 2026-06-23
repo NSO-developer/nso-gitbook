@@ -15,7 +15,7 @@ import ncs
 import _ncs
 # Install the crypto keys used to decrypt the string
 with ncs.maapi.Maapi() as maapi:
-    maapi.install_crypto_keys(maapi.msock)
+    maapi.install_crypto_keys()
 # Decrypt the string
 my_decrypted_str = _ncs.decrypt(my_encrypted_str)
 ```
