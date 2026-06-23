@@ -56,7 +56,7 @@
 * ciena-saos_nc
   * [README-ned-settings](ciena-saos_nc/README-ned-settings.md)
   * [README-rebuild](ciena-saos_nc/README-rebuild.md)
-  * [README v1.1.1 2026-03-26](ciena-saos_nc/README.md)
+  * [README v1.1.1.1 2026-06-22](ciena-saos_nc/README.md)
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
@@ -175,7 +175,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.30 2026-05-13](juniper-junos_nc/README.md)
+  * [README v1.1.30.1 2026-06-22](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
