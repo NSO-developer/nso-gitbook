@@ -27,7 +27,7 @@
 
 * aethra-atos
   * [README-ned-settings](aethra-atos/README-ned-settings.md)
-  * [README v1.4 2026-03-30](aethra-atos/README.md)
+  * [README v1.5 2026-06-23](aethra-atos/README.md)
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
