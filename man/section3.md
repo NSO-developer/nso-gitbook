@@ -14693,11 +14693,13 @@ parameter is a transaction handle. This can be either for a transaction
 created by the application, in which case the application must also
 apply the transaction, or for an attached transaction (which must not be
 applied by the application). The format of the file can be either XML,
-curly bracket Juniper CLI format, Cisco XR style format, or Cisco IOS
-style format. The caller of the function has to indicate which it is by
-using one of the `MAAPI_CONFIG_XML`, `MAAPI_CONFIG_J`, `MAAPI_CONFIG_C`,
+curly bracket Juniper CLI format, Juniper set command format, Cisco XR
+style format, or Cisco IOS style format. The caller of the function has
+to indicate which it is by using one of the `MAAPI_CONFIG_XML`,
+`MAAPI_CONFIG_J`, `MAAPI_CONFIG_J_CMD`, `MAAPI_CONFIG_C`,
 `MAAPI_CONFIG_TURBO_C`, or `MAAPI_CONFIG_C_IOS` flags, with the same
-meanings as for `maapi_save_config()`. If the name of the file ends in
+meanings as for `maapi_save_config()`. Note that `MAAPI_CONFIG_J_CMD` is
+not supported in `maapi_save_config()`. If the name of the file ends in
 .gz (or .Z) then the file is assumed to be gzipped, and will be
 uncompressed as it is loaded.
 
