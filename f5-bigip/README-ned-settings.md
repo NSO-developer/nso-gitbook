@@ -76,7 +76,21 @@
 
     - partition <string> (default Common/)
 
-      Specifying partitions through ned-settings.
+      Specifies the active BIG-IP partition context. 
+      The NED issues a `cd /<partition>` command before fetching or applying configuration.
+
+      In single-partition context default context is Common partition deployments (`Common/`).
+      If custom partition context is desired, set this to the partition that the device instance 
+      should manage but make sure to narrow down the scope by setting 
+      `developer-settings sync-from-all-partitions` to false.
+
+      In multi-partition deployments, leave it default or set to Common/, and enable 
+      `developer-settings sync-from-all-partitions` at least to pull config from all partitions.
+
+      Note: the trailing slash is recommended (e.g. `automation/`, not `automation`).
+
+      See also: `developer-settings sync-from-all-partitions`,
+               `developer-settings multi-partition-check-sync`.
 
 
     - delay-before-send <int64> (default 0)
@@ -222,11 +236,30 @@
 
     - developer-settings multi-partition-check-sync <true|false> (default false)
 
-      If multiple partitions are in use and check-sync shall take it into account then the following NED-Setting needs to be set to true.
+      Set to true so that check-sync (getTransId) includes config from ALL partitions
+      when computing the transaction hash. 
+      Without this flag, check-sync only hashes the single partition set by `partition`, 
+      so changes in other partitions go undetected.
 
-      When issuing a check-sync with the NED-Setting "multi-partition-check-sync" set to true the device sometime return config changes not issued by the  NED.
-      This will cause an out of sync even though there has been no config change through the NED. This can happen sporadically on the device.
-      One way to avoid these kind of sporadical out of sync in check-sync is to exclude these config from being used.
+      DEPENDENCY: this setting MUST be paired with `sync-from-all-partitions true`.
+      If `multi-partition-check-sync` is true and `sync-from-all-partitions` is false,
+      the check-sync hash will include all partitions while sync-from only fetched one.
+      This creates a systematic, persistent out-of-sync on every sync-from + check-sync
+      cycle — not just a sporadic issue.
+
+      Valid combinations:
+        sync-from-all-partitions false + multi-partition-check-sync false  -> single-partition mode
+ (default)
+        sync-from-all-partitions true  + multi-partition-check-sync false  -> multi-partition fetch
+, single-partition hash
+        sync-from-all-partitions true  + multi-partition-check-sync true   -> full multi-partition 
+mode (recommended)
+        sync-from-all-partitions false + multi-partition-check-sync true   -> UNSUPPORTED: causes p
+ersistent out-of-sync
+
+      When `multi-partition-check-sync true` is active, the device can occasionally return
+      config changes that were not issued through the NED (e.g. BIG-IP background sync).
+      To suppress these, use `developer-settings exclude-check-sync-config`.
 
 
     - developer-settings reuse-hardware-data <true|false> (default false)
@@ -237,9 +270,23 @@
 
     - developer-settings sync-from-all-partitions <true|false> (default false)
 
+      When enabled:
+      - The NED discovers all partitions via `list auth partition` on the device.
+      - Each partition is fetched in a separate pass (`cd /<partition>`).
+      - Partition-scoped CDB keys are stamped with the partition prefix
+        (e.g. pool `/Common/pool-1` and pool `/automation/pool-1` coexist in CDB).
+      - Global objects (`sys/*`, `auth/*`, `cli/*`, `net interface`, `net trunk`, etc.)
+        are fetched once from Common and not duplicated per partition.
+      - Sync-from time increases proportionally to the number of partitions.
+
+      DEPENDENCY: if `multi-partition-check-sync true` is also required (recommended
+      for consistent check-sync behaviour), set BOTH settings to true. Setting
+      `multi-partition-check-sync true` without this setting causes persistent
+      out-of-sync — see `multi-partition-check-sync` for details.
+
       Specify true if the configs from all partition should be fetched.
-      Please check README 7.12. Writing and reading to all partitions with one device instance
-      before using this ned-setting
+        Please check README 7.12. Writing and reading to all partitions with one device instance
+        before using this ned-setting
 
 
     - developer-settings sync-from-verbose-detailed <true|false> (default false)

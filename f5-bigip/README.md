@@ -1818,8 +1818,7 @@ admin@ncs(config)# commit
 
   ## 7.19 Configuring cm/device/unicast-address
   ---
-
-  - Following the device's listing order for configuring `/cm/device/unicast-address` keys from the ned is required.
+    - Following the device's listing order for configuring `/cm/device/unicast-address` keys from the ned is required.
 
     The listing order for `/cm/device/unicast-address` keys are:
     - *1.* `effective-ip`
@@ -1879,7 +1878,6 @@ admin@ncs(config)# commit
 
       - If sent from the NED the above example will result in out-of-sync.
 
-
   ## 7.20 ltm / persistence / cookie / cookie-encryption-passphrase
   ---
 
@@ -1888,18 +1886,54 @@ admin@ncs(config)# commit
   - **Visibility Constraint:** The plaintext passphrase value can **only be viewed in NSO at creation/modification time** (when committing the configuration). 
     After the first sync-from, the device returns only the encrypted value, which is not decryptable, hence NSO fills in with placeholders to easily identify that 
 
-  - **Impact on compare-config:** After the initial commit, the device's encrypted passphrase will never match NSO's stored value, causing potential/persisten compare-config diffs, hence we are always setting at show the default value "not-defined".
+  - **Impact on compare-config:** After the initial commit, the device's encrypted passphrase will never match NSO's stored value, causing persistent compare-config diffs. 
+  Hence we will mark the leaf ignorable at compare-config in the schema to maintain the CDB integrity.
 
-  - **Example: from F5 tmsh cli**
+  - **Best Practice:** 
+    1. When setting `cookie-encryption-passphrase`, do so explicitly from NSO (do not set directly on device); eventually overwrite and modify it with the latest desired value to reinitialize the operational cache after a migration to empty cdb; 
+    2. Capture and securely store the plaintext passphrase outside NSO if recovery is needed
+    3. NED stores the last-known passphrase in operational CDB (`show operational-data bigip-oper-data ltm persistence cookie`) for reference
+
+  - **Example:**
+
+    ### Create/set the persistence cookie passphrase and commit transaction in NSO:
     ```cli
-    root@(bigip17)(cfg-sync Standalone)(Active)(/automation)(tmos)# create ltm persistence cookie test-cookie-2 { cookie-encryption disabled cookie-encryption-passphrase TestCookiePAss }
-    root@(bigip17)(cfg-sync Standalone)(Active)(/automation)(tmos)# list ltm persistence cookie test-cookie-2
-    ltm persistence cookie test-cookie-2 {
-        app-service none
-        cookie-encryption disabled
-        cookie-encryption-passphrase $M$yf$gQzzUr7oxtA4fjf+Gqrz8zbjUK3M7Q5dJ2vhPmDdyaI=
-    }
+    admin@ncs% set devices device <device-name> config bigip:ltm persistence cookie <cookie-name> cookie-encryption-passphrase "MySecretPhrase"
+    admin@ncs% commit
+    Commit complete.
     ```
+    ### NSO will store in the operational CDB last commited value; it can be seen outside NCS cli config mode at:
+    ```cli
+    admin@ncs# show devices device bigip-oper-data ltm persistence
+  NAME                 NAME           PASSPHRASE    PASSPHRASE ENCRYPTED                                LAST UPDATE TIMESTAMP             LAST ENCRYPTED SHOW TIME
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  <device-name>      test-cookie-1  -             $M$IB$k0/Orvlh/X53TSIHLdfLHNCQFSXYslkUs8riyoVbZlo=  -                                 2026-06-25T20:56:47.781448+00:00
+                     test-cookie-2  abracadabraa  $M$0x$YFR4blI/DuK3kAJ4O+eXWg==                      2026-06-25T21:08:25.243542+00:00  2026-06-25T21:08:25.96184+00:00
+  admin@ncs#
+    ```
+
+    ### Running a subsequent sync-from, will bring in the encrypted value if changed out of band:
+    ```cli
+    admin@ncs% request devices device <device-name> sync-from
+    admin@ncs% request devices device <device-name> compare-config
+    diff
+     devices {
+       device <device-name> {
+         config {
+           bigip:ltm {
+             persistence {
+               cookie <cookie-name> {
+  -              cookie-encryption-passphrase MySecretPhrase
+  +              cookie-encryption-passphrase J-0^D/M94UG6:kc8Do;;N6<[fP3EZ`_1Ba[Ca
+               }
+             }
+           }
+         }
+       }
+     }
+    ```
+    - This is expected behavior; the diff reflects the device's encryption and cannot be resolved without a mean to decrypt the passphrase.
+    - Operational CDB passphrase store comes as a helper.
 
 
 # 8. How to report NED issues and feature requests
