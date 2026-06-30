@@ -31,6 +31,10 @@ As a rule of thumb, we recommend the `on-demand-v1` mode as it has typical perfo
 
 The CDB persistence is configured under `/ncs-config/cdb/persistence` in the `ncs.conf` file. The `format` leaf selects the desired persistence mode, either `on-demand-v1` or `in-memory-v1` (default is `in-memory-v1`), and the system automatically migrates the data on the next start if needed. Note that the system will not be available for the migration duration.
 
+{% hint style="info" %}
+Before switching persistence mode, ensure CDB is compacted first. You can start the compaction process manually by stopping the ncs daemon and running the `ncs --cdb-compact`  command.
+{% endhint %}
+
 With the `on-demand-v1` mode, additional offloading configuration under `offload` container becomes relevant (`in-memory-v1` keeps all data in RAM and does not perform any offloading). The `offload/interval` specifies how often the system checks its memory consumption and starts the offload process if required.
 
 During the offloading process, data is evicted from memory:
