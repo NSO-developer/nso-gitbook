@@ -671,11 +671,3 @@ admin@ncs(config-dns-config-dns-for-ex2)# commit dry-run
 ```
 
 As a bonus for using an XPath expression to a leaf-list in the service template, you can actually select multiple router devices in a single service instance and they will all be configured.
-
-***
-
-**Next Steps**
-
-{% content-ref url="../core-concepts/implementing-services.md" %}
-[implementing-services.md](../core-concepts/implementing-services.md)
-{% endcontent-ref %}
