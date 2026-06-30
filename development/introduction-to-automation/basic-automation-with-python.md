@@ -36,6 +36,10 @@ with ncs.maapi.single_read_trans('admin', 'python') as t:
 
 In this case, the variable `t` stores the reference to a newly started transaction. Before you can actually access the data, you also need a reference to the root element in the data tree for this transaction. That is, the top element, under which all of the data is located. The `ncs.maagic.get_root()` function, with transaction `t` as a parameter, achieves this goal.
 
+{% hint style="info" %}
+See [Transactions](../core-concepts/transactions.md) for more details on transactions.
+{% endhint %}
+
 ## Read and Write Values <a href="#d5e344" id="d5e344"></a>
 
 Once you have the reference to the root element, say in a variable named `root`, navigating the data model becomes straightforward. Accessing a property on `root` selects a child data node with the same name as the property. For example, `root.nacm` gives you access to the `nacm` container, used to define fine-grained access control. Since `nacm` is itself a container node, you can select one of its children using the same approach. So, the code `root.nacm.enable_nacm` refers to another node inside `nacm`, called `enable-nacm`. This node is a leaf, holding a value, which you can print out with the Python `print()` function. Doing so is conceptually the same as using the `show running-config nacm enable-nacm` command in the CLI.

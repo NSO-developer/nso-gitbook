@@ -118,48 +118,9 @@ NSO Service Manager is responsible for providing the functionality of the common
 
 ## Services and Transactions <a href="#ch_svcref.trans" id="ch_svcref.trans"></a>
 
-NSO calls into Service Manager when accessing actions and operational data under the common service interface, or when the service instance configuration data (the data under the service point) changes. NSO being a transactional system, configuration data changes happen in a transaction.
+NSO calls into Service Manager when accessing actions and operational data under the common service interface, or when the service instance configuration data (the data under the service point) changes. The Service Manager then orchestrates the execution and provisioning of the requested operation.
 
-When applied, a transaction goes through multiple stages, as shown by the progress trace (e.g. using `commit | details` in the CLI). The detailed output breaks up the transaction into four distinct phases:
-
-1. validation
-2. write-start
-3. prepare
-4. commit
-
-These phases deal with how the network-wide transactions work:
-
-The validation phase prepares and validates the new configuration (including NSO copy of device configurations), then the CDB processes the changes and prepares them for local storage in the write-start phase.
-
-The prepare stage sends out the changes to the network through the Device Manager and the HA system. The changes are staged (e.g. in the candidate data store) and validated if the device supports it, otherwise, the changes are activated immediately.
-
-If all systems took the new configuration successfully, enter the commit phase, marking the new NSO configuration as active and activating or committing the staged configuration on remote devices. Otherwise, enter the abort phase, discarding changes, and ask NEDs to revert activated changes on devices that do not support transactions (e.g. without candidate data store).
-
-<div data-with-frame="true"><figure><img src="../../../.gitbook/assets/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure></div>
-
-There are also two types of locks involved with the transaction that are of interest to the service developer; the service write lock and the transaction lock. The latter is a global lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../scaling-and-performance-optimization.md) for more details and their impact on performance.
-
-The first phase, historically called validation, does more than just validate data and is the phase a service deals with the most. The other three support the NSO service framework but a service developer rarely interacts with directly.
-
-We can further break down the first phase into the following stages:
-
-1. rollback creation
-2. pre-transform validation
-3. transforms
-4. full data validation
-5. conflict check and transaction lock
-
-When the transaction starts applying, NSO captures the initial intent and creates a rollback file, which allows one to reverse or roll back the intent. For example, the rollback file might contain the information that you changed a service instance parameter but it would not contain the service-produced device changes.
-
-Then the first, partial validation takes place. It ensures the service input parameters are valid according to the service YANG model, so the service code can safely use provided parameter values.
-
-Next, NSO runs transaction hooks and performs the necessary transforms, which alter the data before it is saved, for example encrypting passwords. This is also where the Service Manager invokes FASTMAP and service mapping callbacks, recording the resulting changes. NSO takes service write locks in this stage, too.
-
-After transforms, there are no more changes to the configuration data, and the full validation starts, including YANG model constraints over the complete configuration, custom validation through validation points, and configuration policies (see [Policies](../../../operation-and-usage/operations/basic-operations.md#d5e319) in Operation and Usage).
-
-<div data-with-frame="true"><figure><img src="../../../.gitbook/assets/deepdive-validate-stages.png" alt="" width="375"><figcaption><p>Stages of Transaction Validation Phase</p></figcaption></figure></div>
-
-Throughout the phase, the transaction engine makes checkpoints, so it can restart the transaction faster in case of concurrency conflicts. The check for conflicts happens at the end of this first phase when NSO also takes the global transaction lock. Concurrency is further discussed in [NSO Concurrency Model](../../core-concepts/nso-concurrency-model.md).
+All service (and corresponding device configuration data) changes are processed inside a transaction. The Service Manager related parts are further described in [Transactions](../../core-concepts/transactions.md#transaction-commit).
 
 ## Service Callbacks <a href="#ch_svcref.cbs" id="ch_svcref.cbs"></a>
 
