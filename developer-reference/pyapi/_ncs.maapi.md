@@ -1658,6 +1658,7 @@ using one of the following flags:
         CONFIG_C -- Cisco XR style
         CONFIG_TURBO_C -- A faster version of CONFIG_C
         CONFIG_C_IOS -- Cisco IOS style
+        CONFIG_J_CMD -- Juniper set command style
 
 Keyword arguments:
 
@@ -3296,6 +3297,7 @@ CONFIG_C_IOS = 32
 CONFIG_HIDE_ALL = 2048
 CONFIG_J = 2
 CONFIG_JSON = 131072
+CONFIG_J_CMD = 16777216
 CONFIG_MERGE = 64
 CONFIG_NO_BACKQUOTE = 2097152
 CONFIG_NO_PARENTS = 524288
