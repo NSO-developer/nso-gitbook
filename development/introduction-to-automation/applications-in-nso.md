@@ -82,8 +82,6 @@ NSO supports a number of extension points for custom callbacks:
 
 Each extension point in the list has a corresponding YANG extension that defines to which part of the data model the callbacks apply, as well as the individual name of the call point. The name is required during callback registration and helps distinguish between multiple uses of the extension. Each extension generally specifies multiple callbacks, however, you often need to implement only the main one, e.g. create for services or action for actions.
 
-In addition, NSO supports some specific callbacks from internal systems, such as the transaction or the authorization engine, but these have very narrow use and are in general not recommended.
-
 ## Monitoring for Change <a href="#ch_apps.kickers" id="ch_apps.kickers"></a>
 
 Services and actions are examples of something that happens directly as a result of a user (or other northbound agent) request. That is, a user takes an active role in starting service instantiation or invoking an action. Contrast this to a change that happens in the network and requires the orchestration system to take some action. In this latter case, the system monitors the notifications that the network generates, such as losing a link, and responds to the new data.

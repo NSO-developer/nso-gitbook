@@ -12,6 +12,10 @@ Using this concurrency model, your code, such as a service mapping or custom val
 
 Transactional systems, such as NSO, must process each request in a way that preserves what are known as the ACID properties, such as atomicity and isolation of requests. A traditional approach to ensure this behavior is by using locking to apply requests or transactions one by one. The main downside is that requests are processed sequentially and may not be able to fully utilize the available resources.
 
+{% hint style="info" %}
+Refer to [Transactions](../core-concepts/transactions.md) for more information on what kind of work NSO performs in a transaction.
+{% endhint %}
+
 Optimistic concurrency, on the other hand, allows transactions to run in parallel. It works on the premise that data conflicts are rare, so most of the time the transactions can be applied concurrently and will retain the required properties. NSO ensures this by checking that there are no conflicts with other transactions just before each transaction is committed. In particular, NSO will verify that all the data accessed as part of the transaction is still valid when applying changes. Otherwise, the system will reject the transaction.
 
 Such a model makes sense because a lot of the time concurrent transactions deal with separate sets of data. Even if multiple transactions share some data in a read-only fashion, it is fine as they still produce the same result.

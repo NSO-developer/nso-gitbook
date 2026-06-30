@@ -84,6 +84,7 @@
   * [Templates](development/core-concepts/templates.md)
   * [Nano Services](development/core-concepts/nano-services.md)
   * [Packages](development/core-concepts/packages.md)
+  * [Transactions](development/core-concepts/transactions.md)
   * [Using CDB](development/core-concepts/using-cdb.md)
   * [YANG](development/core-concepts/yang.md)
   * [NSO Concurrency Model](development/core-concepts/nso-concurrency-model.md)
