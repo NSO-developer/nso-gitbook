@@ -78,7 +78,7 @@ This way, an application in NSO can implement all the required functionality for
 
 NSO supports a number of extension points for custom callbacks:
 
-<table data-full-width="false"><thead><tr><th>Type</th><th>Supported In</th><th>YANG Extension</th><th>Description</th></tr></thead><tbody><tr><td>Service</td><td>Python, Java, Erlang</td><td><code>ncs:servicepoint</code></td><td>Transforms a list or container into a model for service instances. When the configuration of a service instance changes, NSO invokes Service Manager and FASTMAP, which may call service create and similar callbacks. See <a href="develop-a-simple-service.md">Developing a Simple Service</a> for an introduction.</td></tr><tr><td>Action</td><td>Python, Java, Erlang</td><td><code>tailf:actionpoint</code></td><td>Defines callbacks when an action or RPC is invoked. See <a href="actions.md">Actions</a> for an introduction.</td></tr><tr><td>Validation</td><td>Python, Java, Erlang</td><td><code>tailf:validate</code></td><td>Defines callbacks for additional validation of data when the provided YANG functionality, such as <code>must</code> and <code>unique</code> statements are insufficient. See the respective API documentation for examples; the section <a href="../core-concepts/api-overview/python-api-overview.md#validation-point-handler">ValidationPoint Handler</a> (Python), the section <a href="../core-concepts/api-overview/java-api-overview.md#d5e3761">Validation Callbacks</a> (Java), and <a href="../core-concepts/nso-virtual-machines/embedded-erlang-applications.md">Embedded Erlang applications</a> (Erlang).</td></tr><tr><td>Data Provider</td><td>Java, Python (low-level API with experimental high-level API), Erlang</td><td><code>tailf:callpoint</code></td><td>Defines callbacks for transparently accessing external data (data not stored in the CDB) or callbacks for special processing of data nodes (transforms, set, and transaction hooks). Requires careful implementation and understanding of transaction intricacies. Rarely used in NSO.</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Type</th><th>Supported In</th><th>YANG Extension</th><th>Description</th></tr></thead><tbody><tr><td>Service</td><td>Python, Java, Erlang</td><td><code>ncs:servicepoint</code></td><td>Transforms a list or container into a model for service instances. When the configuration of a service instance changes, NSO invokes Service Manager and FASTMAP, which may call service create and similar callbacks. See <a href="develop-a-simple-service.md">Developing a Simple Service</a> for an introduction.</td></tr><tr><td>Action</td><td>Python, Java, Erlang</td><td><code>tailf:actionpoint</code></td><td>Defines callbacks when an action or RPC is invoked. See <a href="../core-concepts/actions.md">Actions</a> for an introduction.</td></tr><tr><td>Validation</td><td>Python, Java, Erlang</td><td><code>tailf:validate</code></td><td>Defines callbacks for additional validation of data when the provided YANG functionality, such as <code>must</code> and <code>unique</code> statements are insufficient. See the respective API documentation for examples; the section <a href="../core-concepts/api-overview/python-api-overview.md#validation-point-handler">ValidationPoint Handler</a> (Python), the section <a href="../core-concepts/api-overview/java-api-overview.md#d5e3761">Validation Callbacks</a> (Java), and <a href="../core-concepts/nso-virtual-machines/embedded-erlang-applications.md">Embedded Erlang applications</a> (Erlang).</td></tr><tr><td>Data Provider</td><td>Java, Python (low-level API with experimental high-level API), Erlang</td><td><code>tailf:callpoint</code></td><td>Defines callbacks for transparently accessing external data (data not stored in the CDB) or callbacks for special processing of data nodes (transforms, set, and transaction hooks). Requires careful implementation and understanding of transaction intricacies. Rarely used in NSO.</td></tr></tbody></table>
 
 Each extension point in the list has a corresponding YANG extension that defines to which part of the data model the callbacks apply, as well as the individual name of the call point. The name is required during callback registration and helps distinguish between multiple uses of the extension. Each extension generally specifies multiple callbacks, however, you often need to implement only the main one, e.g. create for services or action for actions.
 
@@ -121,40 +121,6 @@ Regardless of the programming language you use, the high-level approach to autom
 
 As you have seen, everything in NSO is ultimately tied to the YANG model, making YANG knowledge such a valuable skill for any NSO developer.
 
-## Application Timeouts
-
-NSO uses socket communication to coordinate work with applications, such as a Python or Java service. In addition to the control socket, NSO uses a number of worker sockets to process individual requests: performing service mapping or executing an action, for example. We collectively call these data provider applications, since the data provider protocol underpins all of them.
-
-The communication with data provider applications is subject to timeouts in order to manage the execution time of requests. These are defined in section `/ncs-config/api` in `ncs.conf`:
-
-* `ncs-config/api/action-timeout`
-* `ncs-config/api/query-timeout`
-* `ncs-config/api/new-session-timeout`
-* `ncs-config/api/connect-timeout`
-
-For executing actions invoked by the clients, NSO uses `action-timeout` to ensures the response from data provider is received within the given time. If the data provider fails to do so within the stipulated timeout, NSO will kill the worker sockets executing the actions and trigger the abort action defined in `cb_abort()` without restarting the NSO VMs. The following code shows a trivial implementation of an abort action callback:
-
-```python
-class MyTestAction(Action):
-    def cb_abort(self, uinfo):
-        self.log.info('Action aborted: ')
-```
-
-There are some important points worth noting for action timeout:
-
-* An action callback that times out in one user instance will not affect the result of an action callback in another user instance. This is because NSO executes actions using multiple worker sockets, and an action timeout will only terminate the worker socket executing that specific action.
-* Implementing your own abort action callback in `cb_abort` allows you to handle actions that are timing out. If `cb_abort` is not defined, NSO cannot trigger the abort action during a timeout, preventing it from unlocking the action for a user session. Consequently, you must wait for the action callback to finish before attempting it again.
-
-{% hint style="info" %}
-See [examples.ncs/sdk-api/action-abort-py](https://github.com/NSO-developer/nso-examples/tree/6.7/sdk-api/action-abort-py) for an example of how to implement an abortable Python action that spawns a separate worker process using the multiprocessing library and returns the worker's outcome via a result queue or terminates the worker if the action is aborted.
-{% endhint %}
-
-For NSO operational data queries, NSO uses `query-timeout` to ensure the data provider return operational data within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.
-
-For connection initiation requests between NSO and data providers, NSO uses `connect-timeout` to ensure the data provider send the initial message after connecting the socket to NSO within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.
-
-For requests invoked by NSO, NSO uses `new-session-timeout` to ensure the data provider respond to the control socket request within the given time. If the data provider fails to do so within the stipulated timeout, NSO will close its end of the control socket to the data provider. The NSO VMs will detect the socket close and exit.
-
 ## Application Updates
 
 As your NSO application evolves, you will create newer versions of your application package, which will replace the existing one. If the application becomes sufficiently complex, you might even split it across multiple packages.
@@ -165,4 +131,4 @@ If your schema changes are not backward compatible, you can implement a data mig
 
 Note that changing the schema in any way requires you to recompile the `.fxs` files in the package, which is typically done by running `make` in the package's `src` folder.
 
-However, if the schema does not change, you can request that only the application code and templates be redeployed by using the ` packages package`` `` `_`my-pkg`_` `` ``redeploy ` command.
+However, if the schema does not change, you can request that only the application code and templates be redeployed by using the `packages package <my-pkg> redeploy ` command.
