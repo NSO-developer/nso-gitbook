@@ -4,7 +4,7 @@ description: Traverse and edit NSO configuration using the YANG model.
 
 # Config Editor
 
-The **Configuration editor** view is the main interface for browsing and managing NSO configuration using the underlying YANG model. It displays the loaded YANG modules and configuration data in a hierarchical tree and provides a form-based view of the selected node.&#x20;
+The **Configuration editor** view is the main interface for browsing and managing NSO configuration using the underlying YANG model. It displays the loaded YANG modules and configuration data in a hierarchical tree and provides a form-based view of the selected node.
 
 In this view, you can browse configuration, inspect operational data, edit configurable nodes, invoke actions, and review metadata for the selected node. Depending on how you navigate in the Web UI, you may also be directed to the **Configuration editor** to continue viewing or editing a specific device, service, package, or other NSO object.
 
@@ -50,6 +50,10 @@ The tree shows the following icons depending on the selection of view options:
 | Split/arrows icon <img src="../../.gitbook/assets/choice-icon.png" alt="" data-size="line"> | A choice node                                            |
 | Lightning icon <img src="../../.gitbook/assets/lighting-icon.png" alt="" data-size="line">  | An action node                                           |
 | Database icon <img src="../../.gitbook/assets/database-icon.png" alt="" data-size="line">   | A node with operational data                             |
+
+{% hint style="info" %}
+Nodes that contain uncommitted changes are marked with a visual indicator (blue dot) in the tree. This help users identify pending edits before committing without needing to open each node individually.
+{% endhint %}
 
 ### Rendered Node View
 
