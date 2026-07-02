@@ -161,6 +161,24 @@
       Prefer CDB cache for platform information retrieval.
 
 
+    - connection api-timeout <seconds> (default 300)
+
+      Upper bound, in seconds, on how long the NED waits for FortiManager to
+      respond to a single JSON-RPC API request (the underlying HTTP socket
+      read timeout). Some FortiManager operations (large queries, multiplexed
+      write batches, busy/HA managers) can take a long time to return the
+      first byte of the response; if that wait exceeds this value the NED
+      aborts with a 'Read timed out' error.
+
+      This is independent of the NSO device connect-timeout: connect-timeout
+      only bounds establishing the TCP connection, whereas api-timeout bounds
+      waiting for the response once connected. Raise this value if you observe
+      'Read timed out' errors against a slow or heavily loaded FortiManager.
+
+      Configuration example:
+      # devices device dev-1 ned-settings fortinet-fmg connection api-timeout 600
+
+
 # 3. ned-settings fortinet-fmg logger
 -------------------------------------
 
