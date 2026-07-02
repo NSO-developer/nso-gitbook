@@ -349,17 +349,27 @@ The MCP server does not replace NSO review, authentication, authorization, or op
 
 The following checks are useful when the MCP endpoint does not behave as expected:
 
-### `400 Bad Request` on `/mcp`
+<details>
+
+<summary><code>400 Bad Request</code> on <code>/mcp</code></summary>
 
 If the endpoint returns `400 Bad Request`, verify the WebUI host-name settings.
 
 When `/ncs-config/webui/match-host-name` is `true`, the HTTP `Host` header must match the configured WebUI `server-name` or `server-alias`. For local testing with the default NSO WebUI settings, use `localhost` rather than `127.0.0.1`.
 
-### `405 Method Not Allowed`
+</details>
+
+<details>
+
+<summary><code>405 Method Not Allowed</code></summary>
 
 The MCP endpoint supports HTTP `POST`. Do not use `GET` for MCP requests.
 
-### Fewer tools are visible than expected
+</details>
+
+<details>
+
+<summary>Fewer tools are visible than expected</summary>
 
 If discovery appears to work but only a small set of tools is visible, check:
 
@@ -367,11 +377,19 @@ If discovery appears to work but only a small set of tools is visible, check:
 * the MCP exposure policy under `mcp-server/policies`
 * whether `policies/default-action` is still `restricted`
 
-### Package-authentication works for RESTCONF but not for MCP
+</details>
+
+<details>
+
+<summary>Package-authentication works for RESTCONF but not for MCP</summary>
 
 If package-authentication is used, confirm that the authentication script accepts the AAA context `mcp` in addition to any existing `rest` handling.
 
-### `500 Internal Server Error` or backend unavailable
+</details>
+
+<details>
+
+<summary><code>500 Internal Server Error</code> or backend unavailable</summary>
 
 Check the package logs and the Java VM logs.
 
@@ -381,6 +399,63 @@ Useful log files include:
 * `logs/ncs-java-vm.log` for the Java backend and component lifecycle
 
 On platforms with short Unix-domain socket path limits, such as macOS, very long NSO runtime paths can prevent the internal MCP Unix socket from being created. If the Java backend reports an error such as `Unix domain path too long`, shorten the NSO runtime path and restart the package or deployment.
+
+</details>
+
+## Operational Considerations
+
+AI-based operations can move quickly from intent to execution. In a production NSO environment, this carries a risk of unintended changes. This section offers guidance for careful and deliberate use of the NSO MCP server.
+
+* Treat the MCP endpoint as another NSO northbound interface. An MCP client acts on behalf of the authenticated NSO user, so normal operational practices still apply: use least-privilege users, review intended changes, keep audit context, and verify the result after every state-changing operation.
+* Read-oriented operations are usually the safest way to start. They are useful for discovering devices, services, schema, operational state, and available actions before making a change. However, read access can still expose sensitive configuration or operational data, so it should still be controlled through NSO authentication, NACM, and MCP exposure policies.
+* State-changing tools and actions require more care. Some operations change NSO CDB, some push changes to devices, and some do both. For example, a device `sync-from` reads from the device but immediately updates NSO's copy of the configuration. A `sync-to`, service `re-deploy`, service create/update/delete operation, or another action may change device state or service ownership depending on the underlying NSO operation.
+
+### Recommended Workflow for State-Changing Operations
+
+Before invoking a state-changing MCP tool:
+
+1. Use read operations first to identify the exact service, device, path, or action target.
+2. Ask the client to describe the intended change, affected objects, and expected result.
+3. Prefer narrow targets over broad selectors such as all devices or all services.
+4. When the operation supports it, run a `dry-run` first and review the resulting diff.
+5. Use commit metadata such as `label` and `comment` when available, so rollback files, events, compliance reports, and commit queue entries can be tied back to the reason for the change.
+6. Consider commit parameters such as `no-overwrite`, `confirm-network-state`, `no-networking`, or `commit-queue` only when they match the operational intent and are supported by the invoked operation.
+7. After the operation completes, verify the result with read operations, `check-sync`, `compare-config`, service `check-sync`, or commit queue status as appropriate.
+
+For production use, keep `policies/default-action` set to `restricted` and expose paths, namespaces, or actions that enable state-changing operations only through targeted permit rules. Broad exposure, such as `default-action permit`, is better suited to labs and short-lived evaluation environments.
+
+### Dos and Don'ts
+
+Consider the following when using MCP-based operations.
+
+<details>
+
+<summary>Dos</summary>
+
+* **Access control**: Use NSO users and NACM groups with only the permissions needed for the intended MCP workflows.
+* **MCP policies**: Start from `restricted` and add targeted permit rules for known service paths, namespaces, or actions.
+* **Read first**: Use resources, resource templates, and read helper tools to inspect state before invoking tools that change state.
+* **Dry run**: Use `dry-run` where the underlying NSO operation supports it, especially for service deployment, re-deploy, `sync-to`, or package-related operations.
+* **Auditability**: Use `label` and `comment` when available to make MCP-originated changes easy to find in rollback files, events, and commit queue results.
+* **Verification**: Check the resulting NSO state, affected device sync state, service sync state, and commit queue result after state-changing operations.
+* **Environment**: In local-install or development environments, source the NSO environment, for example `source ncsrc`, before running NSO commands, package scripts, or validation scripts such as `test-mcp.sh`.
+* **Troubleshooting**: Check `logs/cisco-nso-mcp-server.log` for the Erlang proxy layer and `logs/ncs-java-vm.log` for Java backend or component lifecycle issues.
+
+</details>
+
+<details>
+
+<summary>Don'ts</summary>
+
+* **Broad changes**: Do not ask an MCP client to make vague changes such as "fix this service" or "clean up the devices" without first reviewing the proposed target and operation.
+* **Production exposure**: Do not use broad `default-action permit` policies in production unless the deployment is intentionally designed for that level of MCP exposure.
+* **Credentials**: Do not store long-lived administrator credentials in shared client configuration files such as `.vscode/mcp.json`.
+* **Blind changes**: Do not invoke state-changing tools before checking the current NSO state and, where relevant, device or service sync state.
+* **Sync operations**: Do not treat `sync-from` as a harmless read-only operation. It reads from the device but updates NSO's stored configuration.
+* **Commit flags**: Do not use flags such as `no-networking`, `no-out-of-sync-check`, or `no-overwrite` unless the operator understands their NSO behavior and the operation supports them.
+* **Logs**: Do not troubleshoot only from the MCP client response. Also inspect NSO package status, the MCP package logs, Java VM logs, and commit queue or rollback state when a state-changing operation fails.
+
+</details>
 
 ## Example Client Configuration
 
