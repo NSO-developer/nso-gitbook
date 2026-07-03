@@ -1881,59 +1881,268 @@ admin@ncs(config)# commit
   ## 7.20 ltm / persistence / cookie / cookie-encryption-passphrase
   ---
 
+  - THIS IS A BEST EFFORT attempt to provide a workaround to this F5 behavior limitation; 
   - The `ltm persistence cookie` leaf `cookie-encryption-passphrase` is encrypted by the device immediately after being set.
+  - Therefore it cannot be managed properly, breaking idempotency by default. 
 
   - **Visibility Constraint:** The plaintext passphrase value can **only be viewed in NSO at creation/modification time** (when committing the configuration). 
     After the first sync-from, the device returns only the encrypted value, which is not decryptable, hence NSO fills in with placeholders to easily identify that 
 
-  - **Impact on compare-config:** After the initial commit, the device's encrypted passphrase will never match NSO's stored value, causing persistent compare-config diffs. 
+  - **Impact on compare-config:** After the initial commit, if we would keep the device's plaintext passphrase in the CDB config, it will never match device list/show TMSH outputs, as they will show only the encrypted value, causing persistent compare-config diffs. 
   Hence we will mark the leaf ignorable at compare-config in the schema to maintain the CDB integrity.
+  In addition to that, we will use a static placeholder to maintain the config CDB with an uniform value at each sync-from without the proper complete previously stored context.
 
   - **Best Practice:** 
-    1. When setting `cookie-encryption-passphrase`, do so explicitly from NSO (do not set directly on device); eventually overwrite and modify it with the latest desired value to reinitialize the operational cache after a migration to empty cdb; 
-    2. Capture and securely store the plaintext passphrase outside NSO if recovery is needed
-    3. NED stores the last-known passphrase in operational CDB (`show operational-data bigip-oper-data ltm persistence cookie`) for reference
+    1. When setting `cookie-encryption-passphrase`, do so explicitly from NSO (do not set directly on device); 
+       - It would best work if the day0 config would be a sync-from with a `cookie-encryption-passphrase` set to none on the device side
+       - This way in the eventuality of a rollback, NSO would be able to clean it and bring it to the day0 state, that is without any `cookie-encryption-passphrase` set;
+       - Any subsequent post sync-from creation/update would be cached and stored in the persistent Operational data for future transactions handling;
+       - If there is any leftover or migration or partition configuration change of context, use the dedicated ned setting to completely clean the operational cdb at the next sync-from
+    2. Capture and securely store the plaintext passphrase outside NSO if recovery is needed or adapt the service provisioning to always default to some Day 0 predefined passphrase that should be applied at reconcile/rollback if possible
+    3. NED stores the last-known passphrase in operational CDB
+      - check top level outside NSO CLI config mode by running: `show operational-data bigip-oper-data ltm persistence cookie`) for reference
 
   - **Example:**
 
-    ### Create/set the persistence cookie passphrase and commit transaction in NSO:
-    ```cli
-    admin@ncs% set devices device <device-name> config bigip:ltm persistence cookie <cookie-name> cookie-encryption-passphrase "MySecretPhrase"
-    admin@ncs% commit
-    Commit complete.
-    ```
-    ### NSO will store in the operational CDB last commited value; it can be seen outside NCS cli config mode at:
-    ```cli
-    admin@ncs# show devices device bigip-oper-data ltm persistence
-  NAME                 NAME           PASSPHRASE    PASSPHRASE ENCRYPTED                                LAST UPDATE TIMESTAMP             LAST ENCRYPTED SHOW TIME
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  <device-name>      test-cookie-1  -             $M$IB$k0/Orvlh/X53TSIHLdfLHNCQFSXYslkUs8riyoVbZlo=  -                                 2026-06-25T20:56:47.781448+00:00
-                     test-cookie-2  abracadabraa  $M$0x$YFR4blI/DuK3kAJ4O+eXWg==                      2026-06-25T21:08:25.243542+00:00  2026-06-25T21:08:25.96184+00:00
-  admin@ncs#
-    ```
+  ### 7.20.1 Day 0: Understanding a potential day0 context for this approach : sync-from 
 
-    ### Running a subsequent sync-from, will bring in the encrypted value if changed out of band:
-    ```cli
-    admin@ncs% request devices device <device-name> sync-from
-    admin@ncs% request devices device <device-name> compare-config
-    diff
-     devices {
-       device <device-name> {
-         config {
-           bigip:ltm {
-             persistence {
-               cookie <cookie-name> {
-  -              cookie-encryption-passphrase MySecretPhrase
-  +              cookie-encryption-passphrase J-0^D/M94UG6:kc8Do;;N6<[fP3EZ`_1Ba[Ca
-               }
-             }
-           }
-         }
-       }
-     }
-    ```
-    - This is expected behavior; the diff reflects the device's encryption and cannot be resolved without a mean to decrypt the passphrase.
-    - Operational CDB passphrase store comes as a helper.
+
+  - Running a sync-from, will bring in the encrypted values contexts into the Operational CDB only and default them to uniform placeholder `not-defined-by-ned` placeholder in the Config CDB:
+
+      ```cli
+      admin@ncs% request devices device <device-name> sync-from
+      admin@ncs(config-config)# show full ltm persistence cookie cookie-encryption-passphrase
+      devices device bigip-17-common
+      config
+        ltm persistence cookie /Common/test-cookie-1     cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /Common/test-cookie-2     cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /automation/test-cookie-2 cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /automation/test-cookie1  cookie-encryption-passphrase not-defined-by-ned
+      !
+      !
+      ```
+
+  - NSO will store in the operational CDB last commited value; it can be seen outside NCS cli config mode at:
+
+      ```cli
+      admin@ncs# show devices device bigip-17-common bigip-oper-data ltm persistence
+                                                                            LAST
+                                                                            UPDATE
+      NAME                       PASSPHRASE  PASSPHRASE ENCRYPTED            TIMESTAMP  LAST ENCRYPTED SHOW TIME
+      --------------------------------------------------------------------------------------------------------------------
+      /Common/test-cookie-1      -           $M$nO$jwPH8f8IYus0RXF1RP5ciQ==  -          2026-07-02T07:23:59.459048+00:00
+      /Common/test-cookie-2      -           $M$5a$DY5d0KWEe8BgD/u3T1yllA==  -          2026-07-02T07:23:59.481702+00:00
+      /automation/test-cookie-2  -           $M$vz$l8BqOobMmqUIGlhP/UQpdg==  -          2026-07-02T07:28:13.209288+00:00
+      /automation/test-cookie1   -           $M$AG$t2MTerrTheOG+kcH55X94Q==  -          2026-07-02T07:28:13.173977+00:00
+      ```
+
+  ---
+
+  - Placeholder default value: `not-defined-by-ned` and context around it:
+  ---
+
+  * Meaning: **"NSO does not currently know the plaintext for this cookie passphrase or cannot safely apply in the current context."**
+
+  * Where it appears:
+
+    - **In config CDB** whenever we parse matching plaintext from the device and compare it to the available information previously stored in oper CDB (fresh device, OOB change detected, first sync-from after `clean-operational-cdb-on-sync-from` etc.)
+
+    - **Never on the device.** Whenever this value would be automatically generated by NSO as a result of a transaction failure, rollback or any other similar situation, it would be discarded and ignored by the NED and treated as a no-op. It will never be pushed to the device. 
+
+  * Why not just leave the leaf empty or use the raw encrypted value from the device:
+
+    - Compare-config and commit/dry run etc are diff-based; a NULL leaf on one side and any value on the other creates spurious diffs on every sync-from. 
+    - Using the raw device encrypted value would not make sense either as we cannot maintain it potential rollback /failure scenarios either
+    - `tailf:ned-ignore-compare-config` is set on this leaf so the placeholder is ignored during compare-config, but the placeholder would provide a state sense that can be used to decide the next steps. 
+    - Setting the same plaintext changes encrypted value on the device even if the plaintext value is the same, so this is the major detail we will leverage when assessing the integrity of the plain text-encrypted pair check from Operational CDB store if available.
+
+
+  ### 7.20.2 Day 1: Create/set the persistence cookie passphrase and commit transaction in NSO:
+
+  - The ideal Day0 scenario to start with would be, as mentioned above meeting the following conditions:
+    - Initial `cookie-encryption-passphrase` is set to `none` on the F5 device if we target existing cookies
+    - Entire `cookie-encryption-passphrase` will be created from NSO if we target new cookies;
+
+
+  - Let's take a not so ideal Day0 scenario where we have a predefined `cookie-encryption-passphrase`: 
+    - We will have value <not-defined-by-ned> in the Config CDB
+
+  - Day1: 
+    * With this in mind, updating `cookie-encryption-passphrase` and creating a new cookie would flow as depicted below:
+      - Update one existing cookie's passphrase and create a new cookie with a passphrase. 
+      - `commit dry-run` at the CLI layer shows both operations in the CDB diff, replacing the placeholder for cookie-2 and creating cookie-3:
+
+      ```cli
+      admin@ncs(config-config)# ltm persistence cookie /automation/test-cookie-2 cookie-encryption-passphrase Updated-pass-cookie2
+      admin@ncs(config-config)# ltm persistence cookie /automation/test-cookie-3 cookie-encryption-passphrase Created-pass-cookie3
+      admin@ncs(config-config)# commit dry-run
+      cli {
+          local-node {
+              data  devices {
+                        device bigip-17-common {
+                            config {
+                                ltm {
+                                    persistence {
+                                        cookie /automation/test-cookie-2 {
+                  -                        cookie-encryption-passphrase not-defined-by-ned;
+                  +                        cookie-encryption-passphrase Updated-pass-cookie2;
+                                        }
+                  +                    cookie /automation/test-cookie-3 {
+                  +                        cookie-encryption-passphrase Created-pass-cookie3;
+                  +                    }
+                                    }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  - The native diff shows the two TMSH commands that will actually be sent. 
+
+      ```cli
+      admin@ncs(config-config)# commit dry-run outformat native
+      native {
+          device {
+              name bigip-17-common
+              data create /ltm persistence cookie "/automation/test-cookie-3" {  cookie-encryption-passphrase "Created-pass-cookie3" }
+                  modify /ltm persistence cookie "/automation/test-cookie-2" { cookie-encryption-passphrase "Updated-pass-cookie2" }
+          }
+      }
+      admin@ncs(config-config)# commit
+      Commit complete.
+      ```
+
+  - After `commit` + `sync-from`, oper CDB reflects the paired plaintext vs encrypted state for both touched cookies. 
+  - The other three cookies stayed on the placeholder side of the CDB and their oper entries only carry the device-observed `passphrase-encrypted` + `last-encrypted-show-time`:
+
+      ```cli
+      admin@ncs(config-config)# sync-from
+      result true
+      admin@ncs# show devices device bigip-17-common bigip-oper-data ltm persistence
+      NAME                       PASSPHRASE            PASSPHRASE ENCRYPTED                                LAST UPDATE TIMESTAMP             LAST ENCRYPTED SHOW TIME
+      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      /Common/test-cookie-1      -                     $M$nO$jwPH8f8IYus0RXF1RP5ciQ==                      -                                 2026-07-02T07:37:19.47904+00:00
+      /Common/test-cookie-2      -                     $M$5a$DY5d0KWEe8BgD/u3T1yllA==                      -                                 2026-07-02T07:37:19.488883+00:00
+      /automation/test-cookie-2  Updated-pass-cookie2  $M$iG$l2aA6R9QwTTQQzq6DaEecJ3etdtytF0zEfX9Vm28Rao=  2026-07-02T08:51:46.672056+00:00  2026-07-02T08:51:48.315342+00:00
+      /automation/test-cookie-3  Created-pass-cookie3  $M$pi$Envv79xbk1unZJima3fTcekpkVzW08wumUrTKobqwL0=  2026-07-02T08:51:46.691054+00:00  2026-07-02T08:51:48.771251+00:00
+      /automation/test-cookie1   -                     $M$AG$t2MTerrTheOG+kcH55X94Q==                      -                                 2026-07-02T07:41:32.204836+00:00
+
+      admin@ncs#
+      ```
+
+  ---
+
+  Operational CDB Columns description:
+  ---
+
+  - `PASSPHRASE`                — NSO-owned plaintext for cookies that went through an NSO commit. Empty for cookies NSO never wrote.
+  - `PASSPHRASE ENCRYPTED`      — the last `$M$…` the NED observed on the device; refreshed on every sync-from and every post-commit fetch.
+  - `LAST UPDATE TIMESTAMP`     — set together with plaintext at commit time. Answers "when did NSO last write this plaintext?".
+  - `LAST ENCRYPTED SHOW TIME`  — moves forward on every sync-from and every post-commit fetch. Answers "when did the NED last see this cookie's `$M$`?".
+  ---
+
+  ### 7.20.3 Day 2 — rollback of the day 1 transaction
+
+  - Reversing the day 1 commit reintroduces the pre-modify state, which is:
+    - `/automation/test-cookie-2` as placeholder > will be dropped and handled as no-op
+    - `/automation/test-cookie-3` entirely deleted > will be properly processed
+
+  - Config-level dry-run:
+    NSO sees the full symmetric diff, including the reintroduced placeholder:
+
+      ```cli
+      admin@ncs# config
+      admin@ncs(config)# devices device bigip-17-common
+      admin@ncs(config-device-bigip-17-common)# top rollback config
+      admin@ncs(config-device-bigip-17-common)# commit dry-run
+      cli {
+          local-node {
+              data  devices {
+                        device bigip-17-common {
+                            config {
+                                ltm {
+                                    persistence {
+                                        cookie /automation/test-cookie-2 {
+                  -                        cookie-encryption-passphrase Updated-pass-cookie2;
+                  +                        cookie-encryption-passphrase not-defined-by-ned;
+                                        }
+                  -                    cookie /automation/test-cookie-3 {
+                  -                        cookie-encryption-passphrase Created-pass-cookie3;
+                  -                    }
+                                    }
+                                }
+                            }
+                        }
+                    }
+          }
+      }
+      ```
+
+  - Two reverse ops are computed by NSO:
+
+    - `VALUE_SET` on `/automation/test-cookie-2` back to `not-defined-by-ned` 
+      * intercepted by NED, converted to a no-op, with the plaintext + timestamp wiped from oper CDB. 
+      * **Nothing is sent to the device** because the NED cannot restore a plaintext it never had.
+      * F5 device will basically keep `Updated-pass-cookie2` value after this transaction
+
+    - `DELETED` on `/automation/test-cookie-3`
+      * removes the cookie from the device and drops the whole oper entry
+
+  - Native-level dry-run confirms only the delete makes it to the device:
+
+      ```cli
+      admin@ncs(config-device-bigip-17-common)# commit dry-run outformat native
+      native {
+          device {
+              name bigip-17-common
+              data delete /ltm persistence cookie "/automation/test-cookie-3" {  }
+          }
+      }
+      admin@ncs(config-device-bigip-17-common)# commit
+      Commit complete.
+      ```
+
+  - Post-rollback config CDB — cookie-2 is back on the placeholder, cookie-3 is gone. 
+    - This is the current intended NSO/CDB view ad we can't guarantee the pre-modify plaintext, so we mark it as unknown:
+
+      ```cli
+      admin@ncs(config-config)# show full ltm persistence cookie cookie-encryption-passphrase
+      devices device bigip-17-common
+      config
+        ltm persistence cookie /Common/test-cookie-1     cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /Common/test-cookie-2     cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /automation/test-cookie-2 cookie-encryption-passphrase not-defined-by-ned
+        ltm persistence cookie /automation/test-cookie1  cookie-encryption-passphrase not-defined-by-ned
+      !
+      !
+      ```
+
+  - Post-rollback oper CDB state:
+    — cookie-3 is gone (the DELETE executed successfully). 
+    - Cookie-2 kept its `passphrase-encrypted` snapshot (refreshed to whatever the device still has after the no-op) but plaintext and `last-update-timestamp` are cleaned:
+
+      ```
+      admin@ncs# show devices device bigip-17-common bigip-oper-data ltm persistence
+                                                                                                LAST
+                                                                                                UPDATE
+      NAME                       PASSPHRASE  PASSPHRASE ENCRYPTED                                TIMESTAMP  LAST ENCRYPTED SHOW TIME
+      ----------------------------------------------------------------------------------------------------------------------------------------
+      /Common/test-cookie-1      -           $M$nO$jwPH8f8IYus0RXF1RP5ciQ==                      -          2026-07-02T07:37:19.47904+00:00
+      /Common/test-cookie-2      -           $M$5a$DY5d0KWEe8BgD/u3T1yllA==                      -          2026-07-02T07:37:19.488883+00:00
+      /automation/test-cookie-2  -           $M$iG$l2aA6R9QwTTQQzq6DaEecJ3etdtytF0zEfX9Vm28Rao=  -          2026-07-02T08:51:48.315342+00:00
+      /automation/test-cookie1   -           $M$AG$t2MTerrTheOG+kcH55X94Q==                      -          2026-07-02T07:41:32.204836+00:00
+
+      admin@ncs#
+      ```
+
+  - This is expected current behavior; the diff reflects the device's encryption and cannot be resolved without a mean to decrypt the passphrase.
+  - Operational CDB passphrase store comes as a helper
+  #### IMPORTANT NOTE: For existing cookies, if the day0 for the impacted cookies would contain all cookies with `none` default values for `cookie-encryption-passphrase`, the rollback would be fully applyable. Hence the recommendation to either run live-status commands to set them to `none` or templatize the creation of the cookies with no explicit `cookie-encryption-passphrase` applied and construct from there
+
+
+  ---
 
 
 # 8. How to report NED issues and feature requests

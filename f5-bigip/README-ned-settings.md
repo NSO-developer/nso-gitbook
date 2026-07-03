@@ -203,6 +203,11 @@
   Contains settings used for debugging (intended for NED developers).
 
 
+    - developer-settings clean-operational-cdb-on-sync-from <true|false> (default false)
+
+      Set to true if the operational CDB should be cleaned on each sync-from.
+
+
     - developer-settings selective-sync-from <true|false> (default false)
 
       Set to true if a check over what modules the device has is needed before fetching config.

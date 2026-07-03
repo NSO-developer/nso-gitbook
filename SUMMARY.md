@@ -106,7 +106,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59.3 2026-06-05](cisco-staros/README.md)
+  * [README v5.59.4 2026-07-02](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -134,7 +134,7 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.26.2 2026-06-26](f5-bigip/README.md)
+  * [README v3.26.3 2026-07-02](f5-bigip/README.md)
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
