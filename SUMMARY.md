@@ -114,7 +114,7 @@
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.9 2026-03-20](eci-muse/README.md)
+  * [README v1.9.1 2026-07-06](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
