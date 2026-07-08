@@ -31,7 +31,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.12 2026-06-24](alu-isam/README.md)
+  * [README v1.5.13 2026-07-07](alu-isam/README.md)
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.34.2 2026-06-16](cisco-nx/README.md)
+  * [README v5.34.3 2026-07-07](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
