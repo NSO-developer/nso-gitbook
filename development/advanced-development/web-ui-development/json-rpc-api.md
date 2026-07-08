@@ -1079,7 +1079,7 @@ The `result_as` param when set to `json` or `json2`:
 
 <summary><mark style="color:green;"><code>load</code></mark></summary>
 
-`load` - Load XML configuration into the current transaction.
+`load` - Load configuration data into the current transaction.
 
 **Params**
 
@@ -1087,11 +1087,22 @@ The `result_as` param when set to `json` or `json2`:
 {"th": <integer>,
  "data": <string>
  "path": <string, default: "/">
- "format": <"json" | "xml", default: "xml">
+ "format": <"json" | "xml" | "cli_j" | "cli_c" | "cli_j_cmd",
+            default: "xml">
  "mode": <"create" | "merge" | "replace", default: "merge">}
 ```
 
-The `data` param is the data to be loaded into the transaction. `mode` controls how the data is loaded into the transaction, analogous with the CLI command load. `format` informs load about which format `data` is in. If `format` is `xml`, the data must be an XML document encoded as a string. If `format` is `json`, data can either be a JSON document encoded as a string or the JSON data itself.
+The `data` param is the data to be loaded into the transaction. `mode` controls how the data is loaded into the transaction, analogous with the CLI command load.
+
+`format` informs load about which format `data` is in:
+
+* `xml` - an XML document encoded as a string.
+* `json` - a JSON document encoded as a string, or the JSON data itself (as a JSON object literal).
+* `cli_j` - Juniper-style curly-bracket CLI configuration, the format produced by `save_config` and `show configuration` in a J-style CLI.
+* `cli_c` - Cisco-XR-style CLI commands.
+* `cli_j_cmd` - Juniper-style `set ...` command lines (the flat representation of a J-style configuration).
+
+For the CLI formats, `data` must be a string. They are only supported for configuration transactions; loading into an action transaction with `cli_j`, `cli_c`, or `cli_j_cmd` returns an `Invalid parameters` error.
 
 **Result**
 
