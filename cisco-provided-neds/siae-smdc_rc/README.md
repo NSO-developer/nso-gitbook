@@ -1,2 +1,0 @@
-# siae-smdc\_rc
-

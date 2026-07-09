@@ -1,2 +1,0 @@
-# cisco-cnc\_rc
-

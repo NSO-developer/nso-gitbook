@@ -1,2 +1,0 @@
-# ceragon-ip20
-

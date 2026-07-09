@@ -1,2 +1,0 @@
-# nokia-sros\_nc
-
