@@ -22,8 +22,8 @@ It's important to understand the functionality of a NED and the capabilities it 
 
 <summary>YANG Data Model</summary>
 
-The NED provides a YANG data model of the device to NSO and services, enabling standardized configuration management. This applies only to NEDs where Cisco creates and maintains the device data model—commonly referred to as classic NEDs, which includes both the CLI-based and Generic NEDs—and excludes third-party YANG (3PY) NEDs, where the model is provided externally.\
-\
+The NED provides a YANG data model of the device to NSO and services, enabling standardized configuration management. This applies only to NEDs where Cisco creates and maintains the device data model—commonly referred to as classic NEDs, which includes both the CLI-based and Generic NEDs—and excludes third-party YANG (3PY) NEDs, where the model is provided externally.
+
 Note that for classic NEDs, the device model is typically implemented as a superset, covering multiple versions or variants of a given device type. This approach allows a single NED package to support a broad range of software versions or hardware flavors. The benefit is simplified deployment and upgrade handling across similar devices. However, a side effect is that certain parts of the model may not apply to the specific device instance in use.
 
 </details>
@@ -243,7 +243,7 @@ Most NEDs are instrumented with a large number of NED settings that can be used 
 
 Each managed device in NSO has a device type that informs NSO how to communicate with the device. When managing NEDs, the device type is either `cli` or `generic`. The other two device types, `netconf` and `snmp`, are used in NETCONF and SNMP packages and are further described in this guide.
 
-In addition, a special NED ID identifier is needed. Simply put, this identifier is a handle in NSO pointing to the NED package. NSO uses the identifier when it is about to invoke the driver in a NED package. The identifier ensures that the driver of the correct NED package is called for a given device instance. For more information on how to set up a new device instance, see [Configuring a device with the new Cisco-provided NED](ned-administration.md#sec.config_device.with.ciscoid).
+In addition, a special identifier, NED ID, is needed. Simply put, this identifier is a handle in NSO pointing to the NED package. NSO uses the identifier when it is about to invoke the driver in a NED package. The identifier ensures that the driver of the correct NED package is called for a given device instance. For more information on how to set up a new device instance, see [Configuring a device with the new Cisco-provided NED](ned-administration.md#sec.config_device.with.ciscoid).
 
 Each NED package has a NED ID, which is mandatory. The NED ID is a simple string that can have any format. For NEDs developed by the Cisco NSO NED team, the NED ID is formatted as `<NED NAME>-<gen | cli>-<NED VERSION MAJOR>.<NED VERSION MINOR>`.
 
@@ -256,23 +256,21 @@ The NED ID for a certain NED package stays the same from one version to another,
 
 Upgrading a NED package from one version to another, where the NED ID is not the same (typically indicated by a change of major or minor number in the NED version), requires additional steps. The new NED package first needs to be installed side-by-side with the old one. Then, a NED migration needs to be performed. This procedure is thoroughly described in [NED Migration](ned-administration.md#sec.ned_migration).
 
-The Cisco NSO NED team ensures that our CLI NEDs, as well as Generic NEDs with Cisco-owned models, have version numbers and NED ID that indicate any possible backward incompatible YANG model changes. When a NED with such an incompatible change is released, the minor digit in the version is always incremented. The case is a bit different for our third-party YANG NEDs since it is up to the end user to select the NED ID to be used. This is further described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing_thirdparty_neds).
+### NED Versioning
 
-### NED Versioning Scheme (Classic NEDs Only) <a href="#sec.ned_migration_version-scheme" id="sec.ned_migration_version-scheme"></a>
+As a best practice, a NED is assigned a version number consisting of a sequence of numbers separated by dots. The first two numbers represent the major and minor version, and the third number represents the maintenance version (semantic versioning).
 
-{% hint style="warning" %}
-Not applicable to Cisco third-party NEDs.
-{% endhint %}
+For example, the number 1.2.3 indicates a maintenance release (3) for the minor release 1.2. This scheme updates either the major or minor version number when the YANG model changes significantly or incompatible changes are introduced. Meaning any version within the 1.2.x series is backward compatible with the previous versions.
 
-A NED is assigned a version number consisting of a sequence of numbers separated by dots. The first two numbers represent the major and minor version, and the third number represents the maintenance version.
+The Cisco NSO NED team ensures that our CLI NEDs, as well as Generic NEDs with Cisco-owned models, have version numbers and NED ID that indicate any possible backward incompatible YANG model changes. When a NED with such an incompatible change is released, the minor digit in the version is always incremented.
 
-For example, the number 5.8.1 indicates a maintenance release (1) for the minor release 5.8. Incompatible YANG model changes require either the major or minor version number to be changed. This means that any version within the 5.8.x series is backward compatible with the previous versions.
+The case is a bit different for our third-party YANG NEDs since it is up to the user to select the NED ID to be used when building the NED. This is further described in [Managing Cisco-provided third-Party YANG NEDs](ned-administration.md#sec.managing_thirdparty_neds). In this case, it is possible to build two incompatible NEDs with the same NED ID if not taking sufficient care during the process and should be avoided.
 
-When a newer maintenance release with the same major/minor version replaces a NED release, NSO can perform a simple data model upgrade to handle stored instance data in the CDB (Configuration Database). This type of upgrade does not pose a risk of data loss.
+The reason the version numbering is important is to identify a maintenance release. A backward compatible, maintenance release allows NSO to perform a simple data model upgrade to handle stored instance data in the CDB (Configuration Database). This type of upgrade does not pose a risk of data loss.
 
-However, when a NED is replaced by a new major/minor release, it becomes a NED migration. These migrations are complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly.
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt=""><figcaption><p>Recommended NED Version Scheme</p></figcaption></figure></div>
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/ned-versions.png" alt=""><figcaption><p>NED Version Scheme</p></figcaption></figure></div>
+However, when the new NED is not just a maintenance upgrade (typically identified as a new major/minor release), it becomes a NED migration. These migrations are more complex because the YANG model changes can potentially result in the loss of instance data if not handled correctly. Additionally, services in NSO rely on NEDs to perform network provisioning. These services map service-specific configuration to the device data models, provided by the NEDs. As the NED packages can be upgraded independently, they can introduce changes in the device YANG models that cause issues for the services using them.
 
 ## Installing a NED in NSO <a href="#sec.ned_installation_nso" id="sec.ned_installation_nso"></a>
 
@@ -341,40 +339,105 @@ Detailed NED-specific instructions to manage Cisco-provided third-party YANG NED
 
 ## NED Migration <a href="#sec.ned_migration" id="sec.ned_migration"></a>
 
-If you upgrade a managed device (such as installing a new firmware), the device data model can change in a significant way. If this is the case, you usually need to use a different and newer NED with an updated YANG model.
+If you upgrade a managed device (such as installing a new firmware), the device data model can change in a significant way. If this is the case, you usually need to use a different or newer NED with an updated YANG model.
 
-When the changes in the NED are not backward compatible, the NED is assigned a new ned-id to avoid breaking existing code. On the plus side, this allows you to use both versions of the NED at the same time, so some devices can use the new version and some can use the old one. As a result, there is no need to upgrade all devices at the same time. The downside is, NSO doesn't know the two NEDs are related and will not perform any upgrade on its own due to different ned-ids. Instead, you must manually change the NED of a managed device through a NED migration.
+When the changes in the NED are not backward compatible, the NED should be assigned a new ned-id to avoid breaking existing code. This allows you to use both versions of the NED at the same time, so some devices can use the new version and some can use the old one. As a result, there is no need to upgrade all devices at the same time. However, NSO doesn't know the two NEDs are related and will not perform any upgrade on its own due to different ned-ids and a NED migration is required.
 
 {% hint style="info" %}
-For third-party NEDs, the end user is required to configure the NED ID and also be aware of the backward incompatibilities.
+For third-party NEDs, the user is required to configure the ned-id and also be aware of the backward incompatibilities.
 {% endhint %}
 
-Migration is required when upgrading a NED and the NED-ID changes, which is signified by a change in either the first or the second number in the NED package version. For example, if you're upgrading the existing `router-nc-1.0.1` NED to `router-nc-1.2.0` or `router-nc-2.0.2`, you must perform NED migration. On the other hand, upgrading to `router-nc-1.0.2` or `router-nc-1.0.3` retains the same ned-id and you can upgrade the `router-1.0.1` package in place, directly replacing it with the new one. However, note that some third-party, non-Cisco packages may not adhere to this standard versioning convention. In that case, you must check the ned-id values to see whether migration is needed.
+A potential issue with a new NED is that it can break an existing service (or other packages that rely on it) but NSO provides tools to migrate between backward incompatible NED versions. The tools are designed to give you a structured analysis of which paths will change between two NED versions and visibility into the scope of the potential impact that a change in the NED will drive in the service code. This includes identifying the paths and service instances that may be impacted.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/sample-ned-versions.png" alt=""><figcaption><p>Sample NED Package Versioning</p></figcaption></figure></div>
+Using the `/ncs:devices/device/migrate` action, you can change the NED of a device. The action migrates all configuration and service meta-data. The example [examples.ncs/device-management/ned-migration](https://github.com/NSO-developer/nso-examples/tree/6.7/device-management/ned-migration) in the NSO examples collection illustrates how to migrate devices between different NED versions using this action. The actual migration procedure consists of:
 
-A potential issue with a new NED is that it can break an existing service or other packages that rely on it. To help service developers and operators verify or upgrade the service code, NSO provides additional options of migration tooling for identifying the paths and service instances that may be impacted. Therefore, ensure that all the other packages are compatible with the new NED before you start migrating devices.
+1. Requesting a maintenance window (if required) and creating an [NSO backup](system-management/README.md#backup-and-restore).
+2. [Adding](package-mgmt.md) the new NED package and upgrading existing packages if needed.
+3. Updating device templates if used.
+4. Running the `migrate` action for affected devices.
+5. Redeploying the service instances that reference migrated devices.
+6. Optionally removing the old NED.
 
-To prepare for the NED migration process, first, load the new NED package into NSO with either `packages reload` or `packages add` command. Then, use the `show packages` command to verify that both NEDs, the new and the old, are present. Finally, you may perform the migration of devices either one by one or multiple at a time.
+Some or all of the migration steps could be performed during normal operations and not strictly require a maintenance window, as they only read from and do not write to network devices. However, that depends on your specific operational policies.
 
-Depending on your operational policies, this may be done during normal operations and does not strictly require a maintenance window, as the migration only reads from and doesn't write to a network device. Still, it is recommended that you create an NSO backup before proceeding.
+### Migration Preparation
 
-Note that changing a ned-id also affects device templates if you use them. To make existing device templates compatible with the new ned-id, you can use the `copy` action. It will copy the configuration used for one ned-id to another, as long as the schema nodes used haven't changed between the versions. The following example demonstrates the `copy` action usage:
+For a successful migration, prior preparation is required. In particular, **ensure that all the other packages are compatible with the new NED**. If you are a service developer, leverage the `migrate` action to report what paths have been modified and the services affected by those changes. This information can then be used to prepare the service code to handle the new NED version. Useful `migrate` options for reporting include:
+
+- `dry-run` to report but not migrate yet
+- `suppress-modified-paths without-instance-data` to ignore changes in the NED that do not affect your current device configurations
+- `report { all }` to produce a list of services that are affected
+- `no-networking` to only use the CDB copy of device configurations
+
+For example, when a NED device model has renamed or restructured nodes, such as:
+
+```
+   grouping dns {
+-    leaf domain {
++    leaf-list search {
+       type inet:host;
+     }
+```
+
+the migrate dry-run can report:
+
+```bash
+admin@ncs# devices device ex0 migrate new-ned-id router-nc-1.1 suppress-modified-paths without-instance-data report { all } dry-run
+modified-path {
+    path /r:sys/dns/domain
+    modification {
+        info leaf has been removed
+        backward-compatible false
+    }
+    affected-service {
+        id /acme-dns
+    }
+}
+```
+
+The service packages should be updated and tested to work with both versions of the NED. This may require updating [service XML templates](../../development/core-concepts/templates.md) or service mapping code to use the new/updated parts of the model.
+
+Likewise, changing a ned-id also affects device templates if you use them. To reuse existing device templates with the new ned-id, you can use the `copy` template action. It will copy the configuration used for one ned-id to another, as long as the schema nodes used haven't changed between the versions. The following example demonstrates the `copy` action usage:
 
 ```bash
 admin@ncs(config)# devices template acme-ntp ned-id router-nc-1.0
 copy ned-id router-nc-1.2
 ```
 
-For individual devices, use the `/devices/device/migrate` action, with the `new-ned-id` parameter. Without additional options, the command will read and update the device configuration in NSO. As part of this process, NSO migrates all the configuration and service meta-data. Use the `dry-run` option to see what the command would do and `verbose` to list all impacted service instances.
+However, if the device templates reference e.g. renamed schema nodes, you should prepare new templates beforehand and load them after the new NED package is added to the NSO.
 
-You may also use the `no-networking` option to prevent NSO from generating any southbound traffic towards the device. In this case, only the device configuration in the CDB is used for the migration but then NSO can't know if the device is in sync. Afterward, you must use the **compare-config** or the **sync-from** action to remedy this.
+### Migrate Action
 
-For migrating multiple devices, use the `/devices/migrate` action, which takes the same options. However, with this action, you must also specify the `old-ned-id`, which limits the migration to devices using the old NED. You can further restrict the action with the `device` parameter, selecting only specific devices.
+Two versions of `migrate` action are available. For individual devices, use the `/devices/device/migrate` action, with the `new-ned-id` parameter. Without additional options, the command will read and update the device configuration in NSO. As part of this process, NSO migrates all the configuration and service meta-data. Use the `dry-run` option to see what the command would do without performing any changes.
 
-It is possible for a NED migration to fail if the new NED is not entirely backward compatible with the old one and the device has an active configuration that is incompatible with the new NED version. In such cases, NSO will produce an error with the YANG constraint that is not satisfied. Here, you must first manually adjust the device configuration to make it compatible with the new NED, and then you can perform the migration as usual.
+You may use the `no-networking` option to prevent NSO from generating any southbound traffic towards the device. In this case, only the device configuration in the CDB is used for the migration but then NSO _cannot_ know if the device is in sync. Afterward, you must use the **compare-config** or the **sync-from** action to remedy this.
 
-Finally, preform a `re-deploy` of all the affected services before removing the old NED package. This step ensures all the old NED references are removed and allows for a smooth future NED upgrade. If you skip it, the `get-modifications` output, `deep-check-sync`, and similar operations may no longer work correctly.
+For migrating multiple devices, use the `/devices/migrate` action, which takes the same options and executes the migration in parallel. However, with this action, you must also specify the `old-ned-id`, which limits the migration to devices using the old NED. You can further restrict the action with the `device` or `device-group` parameter, selecting only specific devices.
+
+{% hint style="info" %}
+In case the expected ned-id cannot be selected for `new-ned-id` or `old-ned-id`, use the `show packages` command to verify that both NEDs, the new and the old, are present.
+{% endhint %}
+
+It is possible for a NED migration to fail if the device has an active configuration that is incompatible with the new NED version. In such cases, NSO will produce an error with the YANG constraint that is not satisfied. Here, you must first manually adjust the device configuration to make it compatible with the new NED, and then you can perform the migration as usual.
+
+### Redeploy Services Post Migration
+
+After successful device migration, preform a `re-deploy` of all the affected services before removing the old NED package. This step ensures all the old NED references are removed and allows for a smooth future NED upgrade. If you skip re-deploying, the service `get-modifications` output, `deep-check-sync`, and similar operations may no longer work correctly.
+
+It is recommended you start with a service `re-deploy dry-run` to verify the produced configurations are as expected.
+
+The migrate action will output the list of affected services when given `report { all }` option, which you can use, for example, with the [bulk service actions](../../operation-and-usage/operations/managing-network-services.md#bulk-service-actions).
+
+{% hint style="info" %}
+If you are using `packages add` command instead of `packages reload` to add the new NED package, and the mapping for service packages had to be updated, you will also have to re-deploy the affected packages for NSO to pick up the new configuration.
+{% endhint %}
+
+In case the migrate action has already run, you can still list all the services touching a given device via `/devices/device/services/service`, helping you to identify services that require re-deploy. For example:
+
+```bash
+admin@ncs# show devices device ex0 services service
+services service /acme-dns
+```
 
 ## Migrating from Legacy to Third-party NED
 
