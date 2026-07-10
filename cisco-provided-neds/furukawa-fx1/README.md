@@ -1,2 +1,0 @@
-# furukawa-fx1
-

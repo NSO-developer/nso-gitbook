@@ -1,2 +1,0 @@
-# cisco-iosxr\_netconf
-

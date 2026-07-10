@@ -1,2 +1,0 @@
-# adtran-aos\_nc
-
