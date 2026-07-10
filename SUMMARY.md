@@ -112,7 +112,6 @@
     * [CLI NED Development](development/advanced-development/developing-neds/cli-ned-development.md)
     * [Generic NED Development](development/advanced-development/developing-neds/generic-ned-development.md)
     * [SNMP NED](development/advanced-development/developing-neds/snmp-ned.md)
-    * [NED Upgrades and Migration](development/advanced-development/developing-neds/ned-upgrades-and-migration.md)
   * [Developing Alarm Applications](development/advanced-development/developing-alarm-applications.md)
   * [Kicker](development/advanced-development/kicker.md)
   * [Scaling and Performance Optimization](development/advanced-development/scaling-and-performance-optimization.md)
