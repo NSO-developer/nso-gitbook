@@ -118,6 +118,7 @@
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
+  * [README v2.1.8 2026-03-26](ericsson-efn324/README.md)
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
@@ -181,6 +182,7 @@
   * [README v3.8.20 2026-03-24](mrv-masteros/README.md)
 
 * nokia-srlinux_gnmi
+  * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)
   * [README-rebuild](nokia-srlinux_gnmi/README-rebuild.md)
   * [README v1.2.19 2026-05-28](nokia-srlinux_gnmi/README.md)
 
@@ -231,6 +233,7 @@
   * [README v1.0.2 2026-03-23](redhat-openshift-k8s/README.md)
 
 * siae-smdc_rc
+  * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
   * [README v1.0.16 2025-07-02](siae-smdc_rc/README.md)
 
