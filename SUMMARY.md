@@ -31,7 +31,7 @@
 
 * alu-isam
   * [README-ned-settings](alu-isam/README-ned-settings.md)
-  * [README v1.5.13 2026-07-07](alu-isam/README.md)
+  * [README v1.5.14 2026-07-13](alu-isam/README.md)
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.85.12 2026-06-25](huawei-vrp/README.md)
+  * [README v6.85.13 2026-07-13](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
