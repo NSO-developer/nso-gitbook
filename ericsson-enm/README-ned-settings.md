@@ -42,6 +42,7 @@
   5. developer
   6. sync-from
      6.1. filter
+  7. managedElementMap
   ```
 
 
@@ -218,5 +219,15 @@
         CONTAINS     - CONTAINS.
 
       - value <string>
+
+
+# 7. ned-settings ericsson-enm managedElementMap
+------------------------------------------------
+
+    - managedElementMap <shortName> <longName>
+
+      - shortName <string>
+
+      - longName <string>
 
 

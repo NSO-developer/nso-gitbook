@@ -69,7 +69,7 @@
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
   * [README-rebuild](cisco-cnc_rc/README-rebuild.md)
-  * [README v1.0.14 2026-03-30](cisco-cnc_rc/README.md)
+  * [README v1.0.15 2026-07-14](cisco-cnc_rc/README.md)
 
 * cisco-fmc
   * [README-ned-settings](cisco-fmc/README-ned-settings.md)
@@ -122,7 +122,7 @@
 
 * ericsson-enm
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
-  * [README v1.1.3 2026-03-23](ericsson-enm/README.md)
+  * [README v1.2 2026-07-14](ericsson-enm/README.md)
 
 * ericsson-minilink6352
   * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
