@@ -39,7 +39,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.34 2026-06-25](arista-dcs/README.md)
+  * [README v5.34.2 2026-07-16](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -251,5 +251,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.5 2026-07-09](zte-zxros/README.md)
+  * [README v1.5.1 2026-07-16](zte-zxros/README.md)
 
