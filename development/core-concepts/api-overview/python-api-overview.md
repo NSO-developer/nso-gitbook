@@ -1025,6 +1025,8 @@ set_values()
 
 The following example is a script to read and de-crypt a password using the Python low-level MAAPI API.
 
+For a compact high-level equivalent, see the [Encrypted Strings](../../connected-topics/encryption-keys.md) page - `ncs.maapi.Maapi.decrypt()` handles the `install_crypto_keys()` call automatically.
+
 <pre data-title="Example: Setting of Configuration Data using MAAPI"><code>import socket
 import _ncs
 from _ncs import maapi

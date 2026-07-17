@@ -8,7 +8,25 @@ By using the NSO built-in encrypted YANG extension types `tailf:aes-cfb-128-encr
 
 ## Decrypting the Encrypted Strings
 
-Encrypted string values can only be decrypted using `decrypt()`, when NSO is running with the correct [cryptographic keys](../../administration/advanced-topics/cryptographic-keys.md). Python example:
+Encrypted string values can only be decrypted using `decrypt()`, when NSO is running with the correct [cryptographic keys](../../administration/advanced-topics/cryptographic-keys.md).
+
+The recommended way for Python is to use `ncs.maapi.Maapi.decrypt()`, which installs the AES keys into the library on its first call and delegates to the low-level `decrypt` function on subsequent calls:
+
+```python
+import ncs
+with ncs.maapi.single_read_trans('admin', 'system') as t:
+    encrypted = t.get_elem('/path/to/encrypted-leaf')
+    my_decrypted_str = t.maapi.decrypt(encrypted)
+```
+
+If the crypto keys are already installed in the process (e.g. by an earlier `Maapi.install_crypto_keys()` or `Maapi.decrypt()` call), the module-level `ncs.decrypt()` (or `confd.decrypt()`) can be used directly:
+
+```python
+import ncs
+my_decrypted_str = ncs.decrypt(my_encrypted_str)
+```
+
+The low-level `_ncs.decrypt()` is still supported for backwards compatibility but is deprecated and will be removed in a future release. Use the high-level `ncs.maapi.Maapi.decrypt()` (or module-level `ncs.decrypt()`) instead:
 
 ```python
 import ncs

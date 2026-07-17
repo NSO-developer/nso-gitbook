@@ -284,13 +284,11 @@ class GenerateActionHandler(Action):
     def cb_action(self, uinfo, name, keypath, ainput, aoutput, trans):
         '''Action callback'''
         service = ncs.maagic.get_node(trans, keypath)
-        # Install the crypto keys used to decrypt the service passphrase leaf
-        # as input to the key generation.
-        with ncs.maapi.Maapi() as maapi:
-            _maapi.install_crypto_keys(maapi.msock)
-        # Decrypt the passphrase leaf for use when generating the keys
+        # Decrypt the passphrase leaf for use when generating the keys.
+        # trans.maapi.decrypt() installs the crypto keys lazily on the
+        # first call so no explicit install_crypto_keys() is needed.
         encrypted_passphrase = service.passphrase
-        decrypted_passphrase = _ncs.decrypt(str(encrypted_passphrase))
+        decrypted_passphrase = trans.maapi.decrypt(encrypted_passphrase)
         aoutput = True
         # If it does not exist already, generate a private and public key
         if os.path.isfile(f'./{service.local_user}_ed25519') == False:
