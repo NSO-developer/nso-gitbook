@@ -232,6 +232,10 @@
   * [README-ned-settings](redhat-openshift-k8s/README-ned-settings.md)
   * [README v1.0.2 2026-03-23](redhat-openshift-k8s/README.md)
 
+* sfr-nbe300
+  * [README-ned-settings](sfr-nbe300/README-ned-settings.md)
+  * [README v2.2.6 2026-07-20](sfr-nbe300/README.md)
+
 * siae-smdc_rc
   * [README-ned-settings](siae-smdc_rc/README-ned-settings.md)
   * [README-rebuild](siae-smdc_rc/README-rebuild.md)
