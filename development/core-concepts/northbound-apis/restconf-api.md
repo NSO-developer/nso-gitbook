@@ -56,9 +56,9 @@ Here is a minimal example of what is needed in the `ncs.conf`.
 ```
 {% endcode %}
 
-If you want to run RESTCONF with a different transport configuration than what the WebUI is using, you can specify a separate RESTCONF transport section.
+RESTCONF and the WebUI can use separate transport configurations while both remain enabled. The following example configures RESTCONF on TCP port 8090 and the WebUI on TCP port 8080.
 
-{% code title="Example: NSO Separate Transport Configuration for RESTCONF" %}
+{% code title="Example: NSO Separate Transport Configurations for RESTCONF and WebUI" %}
 ```xml
 <restconf>
   <enabled>true</enabled>
@@ -72,7 +72,7 @@ If you want to run RESTCONF with a different transport configuration than what t
 </restconf>
 
 <webui>
-  <enabled>false</enabled>
+  <enabled>true</enabled>
   <transport>
     <tcp>
       <enabled>true</enabled>
@@ -84,7 +84,7 @@ If you want to run RESTCONF with a different transport configuration than what t
 ```
 {% endcode %}
 
-It is now possible to do a RESTCONF requests towards NSO. Any HTTP client can be used, in the following examples curl will be used. The example below will show what a typical RESTCONF request could look like.
+The remaining examples use the shared transport configuration on TCP port 8080. You can send RESTCONF requests to NSO using any HTTP client; the following examples use curl. The example below shows what a typical RESTCONF request looks like.
 
 {% code title="Example: A RESTCONF Request using curl " %}
 ```bash
