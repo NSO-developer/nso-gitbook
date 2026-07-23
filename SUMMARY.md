@@ -106,7 +106,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59.4 2026-07-02](cisco-staros/README.md)
+  * [README v5.59.5 2026-07-22](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
