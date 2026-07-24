@@ -844,14 +844,26 @@
 
     - write ranged-leaf-as-list <true|false> (default false)
 
-      Enable vlan ranged list a...b as opposed to a leaf <a to b> - mostly applied to vlans.
+      Enable vlan ranged list a...b as opposed to a leaf <a to b>.
+
+      Applied to vlans in the following Yang paths:
+      - // interface * / dot1q termination *
+      - // interface * / traffic-policy *
+      - // interface * / qinq termination pe-vid * ce-vid *
+
+      NOTE: only these paths are supported for auto-expansion of the range, other paths, that use the same format, will be ignored.
+
       Enable this to make NSO list ranges aware in cases where the ranged is specified as a leaf or two, of format <a to b>.
       When this is enabled, the NSO format will stop to be <a to b> (only the device format will be that way), and every 
       entry within the range must be set one by one.
       When this is set to false (default), NSO is not aware of the range, hence any modify operations within the range will
       be considered as a new entry and not as an operation over existing entry and not triggering remove-before-change
       behavior - if present.
-      Note that enabling this will lead to multiple additional lines in the configuration input.
+
+      WARNING: enabling this will lead to multiple additional lines in the configuration input (up to 4096 lines for vlan range 1 to 4096), 
+      which might be a problem for large ranges (e.g:  qinq termination pe-vid * ce-vid * with 4096x4096 entries) leading
+      to huge XML files. Use with caution.
+
       E.g for a vlan range 1 to 4096, the input is requiring all 4096 lines.
       When disabled, the input requires the range format - one line - as "1 to 4096".
       For this to take effect, a sync-from is required after setting it.
@@ -886,7 +898,45 @@
           traffic-policy tp-1 inbound vlan 3583
           traffic-policy tp-1 inbound vlan 3584 
 
-      NOTE: this is the oposite behavior of ENCAP_VLAN_AS_LEAF behavior
+      Example with /interface */ qinq termination pe-vid * ce-vid *:
+
+      Instead of default behavior, where the ranges are specified as `to` leafs:
+
+        qinq termination pe-vid 3482 to 3488 ce-vid 1035 to 1037
+
+      When using the ranged-leaf-as-list = true, the input is expanded to a list
+       of all entries within the ranges. As this is a list within a list construct,
+       the expansion done in a nested way, hence the output is:
+
+        qinq termination pe-vid 3482 ce-vid 1035
+        qinq termination pe-vid 3482 ce-vid 1036
+        qinq termination pe-vid 3482 ce-vid 1037
+        qinq termination pe-vid 3483 ce-vid 1035
+        qinq termination pe-vid 3483 ce-vid 1036
+        qinq termination pe-vid 3483 ce-vid 1037
+        qinq termination pe-vid 3484 ce-vid 1035
+        qinq termination pe-vid 3484 ce-vid 1036
+        qinq termination pe-vid 3484 ce-vid 1037
+        qinq termination pe-vid 3485 ce-vid 1035
+        qinq termination pe-vid 3485 ce-vid 1036
+        qinq termination pe-vid 3485 ce-vid 1037
+        qinq termination pe-vid 3486 ce-vid 1035
+        qinq termination pe-vid 3486 ce-vid 1036
+        qinq termination pe-vid 3486 ce-vid 1037
+        qinq termination pe-vid 3487 ce-vid 1035
+        qinq termination pe-vid 3487 ce-vid 1036
+        qinq termination pe-vid 3487 ce-vid 1037
+        qinq termination pe-vid 3488 ce-vid 1035
+        qinq termination pe-vid 3488 ce-vid 1036
+        qinq termination pe-vid 3488 ce-vid 1037
+
+
+
+      NOTE: Set this to avoid destroying per-VLAN backpointers and refcounters. 
+      Without it, as the NED is not range aware, it will cause orphaned VLANs and 
+      configuration drift when individual service instances sharing a compacted range are deleted.
+
+      NOTE: this is the oposite behavior of ENCAP_VLAN_AS_LEAF option
 
 
     - write lock-local-user <true|false> (default false)

@@ -1063,7 +1063,7 @@ admin@ncs(config)# commit
    functionality. 
 
 
-   E.g: to remove a vlan from the range, the user must send it's end result, and not a delete command
+   E.g: to remove a vlan from the range, the user must send its end result, and not a delete command
    for that vlan.
       It should not send 'no vlan 50' (for the above range).
       It should send '1 3 to 6 8 to 49 51 to 100 300'. 

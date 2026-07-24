@@ -1380,6 +1380,10 @@ This NED supports subscribing to telemetry events using the telemetry feature in
 - The NED is used together with **NSO 6.7** or newer.
 - The managed device supports **gNMI Telemetry**.
 
+### Restrictions
+
+The NSO telemetry feature is designed to assist with provisioning — for example, by receiving automatic notifications when a provisioned configuration becomes active. It is generally not intended for high-frequency telemetry data reception.
+
 ### Background: gNMI Telemetry
 
 **gNMI (gRPC Network Management Interface)** is a network management protocol developed by the [OpenConfig](https://www.openconfig.net/) working group. It uses [gRPC](https://grpc.io/) as the transport layer and Protocol Buffers for message encoding, providing a high-performance, modern alternative to traditional management interfaces like NETCONF and SNMP.
@@ -1449,6 +1453,7 @@ The following settings are configured in the `setting` list. Because this list a
 | Key                            | Description                                                  |
 | :----------------------------- | :----------------------------------------------------------- |
 | `allow-aggregation`            | When set to `true`, the NED signals to the device that it is allowed to aggregate multiple subscription updates into a single gNMI message. This can improve efficiency when many paths are changing simultaneously but may increase message latency. Default: `false`. |
+| `config-only`                  | When set to `true`, the telemetry subscription delivers configuration updates only. This option requires the device to support the gNMI extension `ConfigSubscription`. Default: `false`. |
 | `force-raw`                    | When set to `true`, `yang-push`, or `gnmi`, the NED delivers telemetry events to NSO as raw, unparsed messages instead of model-driven data. By default, telemetry events are parsed by NSO and populated into a synthetic transaction, which allows services to perform standard operations such as diff iteration using the `Maagic` API. In some cases it may be preferable to receive the raw data and handle parsing in the service itself. When raw mode is active, the data is made available at: `/devices/device/<name>/telemetry/subscription/<name>/raw-telemetry`.  <br />Valid values: <br />`true` or `yang-push` — the events are first transformed to YANG-Push format by the NED before they are passed to NSO as raw data. <br />`gnmi` — the events are passed as raw JSON-serialized gNMI messages to NSO.<br />Disabled by default. |
 | `gather-updates`               | Some gNMI devices send `periodic` telemetry events as an array of smaller messages, each typically containing an snapshot of a single node. These arrays can contain a large number of messages. <br />When set to `true`, the NED gathers and consolidates such array-based gNMI update messages before forwarding the event to NSO. This can help reduce the number of synthetic transactions created in NSO. Default: `false`. |
 | `heartbeat-interval`           | Heartbeat interval in centiseconds. When set, the device is requested to send periodic heartbeat messages even when no data has changed. This allows the NED to detect a silent connection failure and trigger a reconnection. Disabled by default. |
