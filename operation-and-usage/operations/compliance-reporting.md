@@ -413,6 +413,8 @@ admin@ncs(config-template-internal-dns)# ned-id router-nc-1.0 config sys dns ser
 
 Here, the value of the `/sys/dns/server` must start with `10.`, followed by any string (the regular expression `.+`). Since a dot has a special meaning with regular expressions (any character), it must be escaped with a backslash to match only the actual dot character. But note the required multiple escaping (`\\\\`) in this case.
 
+Compliance-template values support W3C XML Schema regular expressions. The expression must match the entire configuration value. Supported constructs include `.`, character classes such as `[0-9]`, grouping such as `(admin|root)`, alternation (`|`), and the quantifiers `?`, `*`, `+`, and `{m,n}`. Do not use `^` or `$` as start or end anchors; they are treated as literal characters.
+
 As these expressions can be non-trivial to construct, the templates have a `check` command that allows you to quickly check compliance for a set of devices, which is a great development aid.
 
 {% code overflow="wrap" %}
@@ -569,7 +571,7 @@ In some cases, it is insufficient to only check that the required configuration 
 
 To help operators ensure there is no such extraneous configuration on the managed devices, the compliance reporting feature supports the so-called `strict` mode. This mode not only checks whether the required configuration is present but also reports any configuration present on the device that is not part of the template.
 
-You can configure this mode in the report definition, when specifying the device template to check against, for example:
+You can enable `strict` mode in a report definition or when running a compliance-template check directly, for example:
 
 ```bash
 ncs(config)# compliance template interfaces check device ios0 strict
@@ -622,13 +624,17 @@ check-result {
 
 ### `strict` Sub-Tree Tag
 
-In the previous example, the `strict` check shows interfaces that are not mentioned explicitly in the template. This is because `strict` is applied to the entire tree, including everything under `interface`. In order to only have `strict` on certain parts of the tree, a tag can be used.
+A `strict` tag enables strict checking for the tagged configuration statement and its subtree. For a list, the tag can only be applied to a specific list instance, including its key values. It cannot be applied to the list node without selecting an instance.\
+\
+For example, a `strict` tag on `username admin` checks for unexpected configuration below the `admin` entry, but it does not detect other `username` entries. To report usernames other than those represented in the template, such as `admin` and `root`, run the compliance check in whole-template `strict` mode.
+
+The following example applies the `strict` tag to a specific interface list instance:
 
 ```bash
 ncs(config)# tag add compliance template interfaces ned-id cisco-ios-cli-3.8 config interface GigabitEthernet 0/0 strict
 ```
 
-After adding the `strict` tag to interface `GigabitEthernet`, running the check will result in a `strict` check against everything below `GigabitEthernet`.
+This example adds the `strict` tag to the specific `GigabitEthernet 0/0` list instance, so strict checking applies only to that instance’s subtree.
 
 ```bash
 admin@ncs(config)# compliance template interfaces check device ios0                                       check-result {
