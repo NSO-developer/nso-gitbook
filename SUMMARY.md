@@ -85,36 +85,10 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.2 2026-07-09](cisco-iosxr/README.md)
-
-* cisco-iosxr_gnmi
-  * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
-  * [README-rebuild](cisco-iosxr_gnmi/README-rebuild.md)
-  * [README v1.1.12 2025-11-05](cisco-iosxr_gnmi/README.md)
-
-* cisco-iosxr_nc
-  * [README-ned-settings](cisco-iosxr_nc/README-ned-settings.md)
-  * [README-rebuild](cisco-iosxr_nc/README-rebuild.md)
-  * [README v1.1.4 2026-03-26](cisco-iosxr_nc/README.md)
-
-* cisco-iosxr_netconf
-  * [README v26.1.1 2026-04-16](cisco-iosxr_netconf/README.md)
-
-* cisco-nx
-  * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.34.3 2026-07-07](cisco-nx/README.md)
-
-* cisco-staros
-  * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59.5 2026-07-22](cisco-staros/README.md)
-
-* citrix-netscaler
-  * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
-  * [README v4.5.15 2026-04-23](citrix-netscaler/README.md)
 
 * eci-muse
   * [README-ned-settings](eci-muse/README-ned-settings.md)
-  * [README v1.9.1 2026-07-06](eci-muse/README.md)
+  * [README  ](eci-muse/README.md)
 
 * ericsson-efn324
   * [README-ned-settings](ericsson-efn324/README-ned-settings.md)
@@ -170,7 +144,7 @@
   * [README v1.2.1 2026-03-26](huawei-vrp_nc/README.md)
 
 * juniper-junos
-  * [README v4.19.7 2026-07-03](juniper-junos/README.md)
+  * [README v4.19.8 2026-07-24](juniper-junos/README.md)
 
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)

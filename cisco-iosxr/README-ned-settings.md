@@ -233,6 +233,16 @@
       ganymed  - The legacy SSH client (used on all NSO version older than 5.6).
 
 
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
     - connection ssh sshj-force-legacy-sftp <true|false> (default true)
 
       When using the default ssh client (sshj), certain servers announce a faulty sftp protocol
