@@ -511,3 +511,48 @@ ncs(config)# tag add compliance template interfaces ned-id cisco-ios-cli-3.8 con
 {% endcode %}
 
 This example adds the `strict` tag to the specific `GigabitEthernet 0/0` list instance, so strict checking applies only to that instance’s subtree.
+
+### `absent` and `delete` Tags
+
+To ensure that configuration does not exist on a device, add the `absent` tag to the corresponding node in a compliance template. The `delete` tag can also be used and is synonymous with `absent` in compliance templates.
+
+Both tags assert that the tagged configuration must be absent. If neither tag is specified, the compliance template asserts that the configuration is present.
+
+{% code title="" %}
+```
+devices device ios0
+ config
+  no service password-encryption
+  service finger
+ !
+!
+compliance template no-finger
+ ned-id cisco-ios-cli-3.8
+  config
+   ! Tags: absent
+   service finger
+  !
+ !
+!
+```
+{% endcode %}
+
+Using the `delete` tag instead of `absent` in this template produces the same compliance result.
+
+This template results in a violation if `service finger` is configured on the device.
+
+{% code title="" %}
+```
+ncs(config)# compliance template no-finger check device ios0
+check-result {
+    device ios0
+    result violations
+    diff  config {
+     service {
++        finger;
+     }
+ }
+
+}
+```
+{% endcode %}
