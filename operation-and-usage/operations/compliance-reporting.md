@@ -713,9 +713,11 @@ ncs(config)# compliance template no-unreachables check device ios0              
 
 It will still result in violations if the configuration is incorrect, but not if it's empty.
 
-### `absent` Tag
+### `absent` and `delete` Tags
 
-In order to ensure that configuration does not exist on a device, the `absent` tag can be used.
+To ensure that configuration does not exist on a device, add the `absent` tag to the corresponding node in a compliance template. The `delete` tag can also be used and is synonymous with `absent` in compliance templates.
+
+Both tags assert that the tagged configuration must be absent. If neither tag is specified, the compliance template asserts that the configuration is present.
 
 ```bash
 devices device ios0
@@ -733,6 +735,8 @@ compliance template no-finger
  !
 !
 ```
+
+Using the `delete` tag instead of `absent` in this template produces the same compliance result.
 
 This template will result in a violation if `service finger` is configured on the device.
 
