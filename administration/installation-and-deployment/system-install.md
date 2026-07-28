@@ -349,7 +349,7 @@ The System Install by default creates the following directories:
 * The Log Directory is created in `/var/log/ncs`, where the log files are populated.
 * System-wide environment variables are created in `/etc/profile.d/ncs.sh`.
 * The installer creates a `systemd` system service script in `/etc/systemd/system/ncs.service` and enables the NSO service to start at boot, but the service is _not_ started immediately. See the steps below for starting NSO after installation and before rebooting.
-* To allow package reload when starting NSO, an environment file called `/etc/ncs/ncs.systemd.conf` is created. This file is owned by the user that starts NSO.
+* To allow package reload and to set other variables when starting NSO, an environment file called `/etc/ncs/ncs.systemd.conf` is created. This file is owned by the user that starts NSO.
 
 For the `--system-install` option, you can also choose a user-defined (non-default) Installation Directory, Configuration Directory, Running Directory, and Log Directory with `--install-dir`, `--config-dir`, `--run-dir` and `--log-dir` parameters, and specify that NSO should run as a different user than root with the `--run-as-user` parameter.
 
