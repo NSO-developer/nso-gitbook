@@ -170,3 +170,47 @@ NSO transactions support three main extension points for implementing custom fun
 Of the three, only data providers are aware of the transaction lifecycle and support callbacks for transaction state transitions (phases). NSO uses the two-phase commit protocol to ensure that all participants perform the requested operations, which is required to ensure transactional properties.
 
 In addition, NSO supports some specific callbacks from internal systems, such as the transaction or the authorization engine. These may be called during processing of transactions, but have very narrow use (and require careful consideration as they can easily negatively affect performance).
+
+## Nested Transactions
+
+NSO supports creating a transaction on top of another transaction, often called **trans-in-trans**. It uses an already open parent transaction as its backend instead of the `running` or `operational` datastore.
+
+This is useful when you want to stage a group of related edits and then either merge all staged edits into the parent transaction, or discard the whole staged group, without affecting other edits already present in the parent transaction.
+
+Another use case is to work around restrictions in data callbacks, such as using `maapi_load_config()` in a nested transaction where it cannot be used directly on the original attached transaction.
+
+Important semantics:
+
+* Applying the nested transaction does not commit to datastore or devices but only updates the parent transaction.
+* Finishing the nested transaction without apply discards nested edits.
+* Final validation and network commit happen when the parent transaction commits.
+
+Nested transactions can be validated explicitly but can always be applied, even if the validation failed due to invalid configuration. Applying a nested transaction does not itself run a full datastore commit flow.
+
+### Python Example
+
+```python
+import ncs
+
+with ncs.maapi.Maapi() as m:
+    m.start_user_session("admin", "system")
+
+    with m.start_write_trans() as parent:
+        # Parent edits can happen here.
+
+        with m.start_trans_in_trans(parent.th, ncs.READ_WRITE) as nested:
+            # Stage a related set of edits in isolation.
+            root = ncs.maagic.get_root(nested)
+            root.test__items.item.create("example")
+
+            # Optional explicit validation of nested changes.
+            nested.validate(True)
+
+            # Merge nested edits into the parent transaction.
+            nested.apply()
+
+        # Parent can continue with other edits, then commits once.
+        parent.apply()
+```
+
+In the example, if `nested.apply()` is skipped, nested edits are discarded when the nested transaction closes, while the parent transaction remains open and can still be committed or aborted independently.
