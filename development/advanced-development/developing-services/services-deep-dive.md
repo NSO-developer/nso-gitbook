@@ -116,11 +116,17 @@ While not part of `ncs:service-data` as such, you may consider the `service-comm
 
 NSO Service Manager is responsible for providing the functionality of the common service interface, requiring no additional user code. This interface is the same for classic and nano services, whereas nano services further extend the model.
 
-## Services and Transactions <a href="#ch_svcref.trans" id="ch_svcref.trans"></a>
+## Transactions and Service Lock <a href="#ch_svcref.trans" id="ch_svcref.trans"></a>
 
-NSO calls into Service Manager when accessing actions and operational data under the common service interface, or when the service instance configuration data (the data under the service point) changes. The Service Manager then orchestrates the execution and provisioning of the requested operation.
+NSO calls into Service Manager when accessing common service interface actions and operational data, or when the service instance data (the data under the service point) changes. The Service Manager then orchestrates the execution and provisioning of the requested operation.
 
-All service (and corresponding device configuration data) changes are processed inside a transaction. The Service Manager related parts are further described in [Transactions](../../core-concepts/transactions.md#transaction-commit).
+All service and corresponding device configuration changes are processed inside a transaction as detailed in [Transactions](../../core-concepts/transactions.md#transaction-commit). When a transaction is applied, NSO takes the necessary service locks and runs the service mapping code.
+
+Service lock (denoted as `service write-lock` in progress trace) is a special lock type for serializing service processing. It avoids certain types of races in non-thread-safe mapping code and transaction conflicts.
+
+When Service Manager needs to process a service instance, it looks up the instance service type. It checks if the type conflicts any of the other service types that are currently running; either a previously detected service conflict or a statically configured one (see [Automatic Retries](../../core-concepts/nso-concurrency-model.md#d5e8528) and output of **show services scheduling conflict**). In case of conflict, NSO waits for the conflicting services to finish before continuing.
+
+The service lock concerns services in different transactions, services in the same transaction always run serially. Additionally, the service lock does not allow the same service instance to run concurrently from multiple transactions.
 
 ## Service Callbacks <a href="#ch_svcref.cbs" id="ch_svcref.cbs"></a>
 
@@ -457,7 +463,7 @@ admin@ncs(config-device-CE-1)# exit
 admin@ncs(config-python-service-test)# device CE-2 number-of-interfaces 10
 admin@ncs(config-device-CE-2)# exit
 admin@ncs(config-python-service-test)# device PE-1 number-of-interfaces 10
-admin@ncs(config-device-PE-1)# 
+admin@ncs(config-device-PE-1)#
 ```
 
 The two key events we need to focus on are the create event for the service, which provides the execution time of the create callback, and the "saving reverse diff-set and applying changes" event, which shows how long NSO took to calculate the reverse diff-set.
@@ -488,7 +494,7 @@ Let’s capture the same data for 100 and 1000 interfaces to compare the results
 We can observe that the time scales proportionally with the workload in the create callback as well as the size of the diffset. To demonstrate that the time remains consistent regardless of the size of the modification, we add one more interface to the 1000 interfaces already configured.
 
 ```bash
-admin@ncs(config)# commit dry-run 
+admin@ncs(config)# commit dry-run
 cli {
     local-node {
         data  devices {
@@ -567,7 +573,7 @@ list lower-python-service {
   leaf device {
     type leafref {
       path "/ncs:devices/ncs:device/ncs:name";
-    }  
+    }
   }
 
   uses ncs:service-data;
@@ -615,7 +621,7 @@ admin@ncs(config-device-CE-1)# top
 admin@ncs(config)# upper-python-service test device CE-2 number-of-interfaces 1000
 admin@ncs(config-device-CE-2)# top
 admin@ncs(config)# upper-python-service test device PE-1 number-of-interfaces 1000
-admin@ncs(config-device-PE-1)# commit 
+admin@ncs(config-device-PE-1)# commit
 ```
 
 The execution time of the `upper-python-service` turned out to be relatively low, as expected. This is because it only involves a loop with three iterations, where data is passed from the input of the `upper-python-service` to each corresponding `lower-python-service`.
@@ -650,7 +656,7 @@ So, what’s the advantage of stacking services like this? The real benefit beco
 
 ```bash
 admin@ncs(config)# upper-python-service test device CE-1 number-of-interfaces 1001
-admin@ncs(config-device-CE-1)# commit dry-run 
+admin@ncs(config-device-CE-1)# commit dry-run
 cli {
     local-node {
         data  upper-python-service test {
@@ -699,7 +705,7 @@ Focusing on a single device per service also provides significant advantages in 
 The lower service we created uses the device name as its key. The primary reason for this is to ensure a clear separation of service instances based on the devices they are deployed on. One key benefit of this approach is the ability to easily identify all services deployed on a specific device by simply filtering for that device. For example, after adding a few more services, you could list all services associated with a particular device using a `show` command similar to the following.
 
 ```bash
-admin@ncs(config)# show full-configuration lower-python-service CE-1 
+admin@ncs(config)# show full-configuration lower-python-service CE-1
 lower-python-service CE-1 another-instance
  number-of-interfaces 1
 !
@@ -714,7 +720,7 @@ lower-python-service CE-1 yet-another-instance
 While the complete distribution of the service looks like this:
 
 ```bash
-admin@ncs(config)# show full-configuration lower-python-service 
+admin@ncs(config)# show full-configuration lower-python-service
 lower-python-service CE-1 another-instance
  number-of-interfaces 1
 !
@@ -820,7 +826,7 @@ Each element in this list will represent a device and all the services deployed 
 We deploy an L3VPN to our network with two CE endpoints by creating the following `l3vpn` customer-facing service.
 
 ```bash
-admin@ncs(config)# show full-configuration vpn 
+admin@ncs(config)# show full-configuration vpn
 vpn l3vpn volvo
  endpoint c1
   as-number 65001
@@ -856,7 +862,7 @@ vpn l3vpn volvo
 After deploying our service, we can quickly gain an overview of the services deployed on a device without needing to analyze or reverse-engineer its configurations. For example, we can see that the device `PE-1` is acting as a PE for two different endpoints within a VPN.
 
 ```bash
-admin@ncs(config)# show full-configuration resource-facing-services device PE-1 
+admin@ncs(config)# show full-configuration resource-facing-services device PE-1
 resource-facing-services device PE-1
  l3vpn-rfs volvo c1
   role      pe

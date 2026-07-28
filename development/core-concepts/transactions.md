@@ -57,7 +57,9 @@ If all systems acknowledge that they have received the new configuration success
 
 <figure><img src="../../.gitbook/assets/deepdive-trans-phases.png" alt="" width="375"><figcaption><p>Typical Transaction Phases</p></figcaption></figure>
 
-There are also two types of locks involved with the transaction that are of interest to the NSO developer; the service write lock and the transaction lock. The latter is an exclusive (global) lock, required to serialize transactions, while the former is a per-service-type lock for serializing services that cannot be run in parallel. See [Scaling and Performance Optimization](../advanced-development/scaling-and-performance-optimization.md) for more details and their impact on performance.
+There are also two types of locks involved with the transaction that are of interest to the NSO developer; the service write lock and the transaction lock. Transaction lock is an exclusive (global) lock that is required to serialize all the transactions in NSO (e.g. to check for conflicts, persist data to disk etc.). [NSO Concurrency Model](nso-concurrency-model.md) provides details on conflict checking and [Scaling and Performance Optimization](../advanced-development/scaling-and-performance-optimization.md) a discussion of the lock's impact on performance.
+
+Service lock is a per-service-type lock for serializing services to minimize conflicts. See [Services Deep Dive](../advanced-development/developing-services/services-deep-dive.md) to learn more.
 
 {% hint style="info" %}
 Note that transaction lock is distinct from [global running-datastore locks](../../administration/advanced-topics/locks.md), which are managed by the client agents and not tied to the transaction lifetime. For example, a NETCONF client can acquire a global lock via `lock` operation without starting a transaction.
