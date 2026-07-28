@@ -350,6 +350,43 @@ The number of lines in the
       Configure the time in seconds the NED will wait between each connect retry. Default 1s.
 
 
+    - connection character-set <string> (default UTF-8)
+
+      Character set to use for telnet session.
+
+
+    - connection ssh client <enum>
+
+      Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
+
+      ganymed  - The legacy SSH client. Used on all older versions of NSO.
+
+      sshj     - The new SSH client with support for the latest crypto features. This is the default
+                 when using the NED on NSO 5.6 or later.
+
+
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
+
+
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
+
+
 # 10. ned-settings alu-isam logger
 ----------------------------------
 
@@ -384,11 +421,19 @@ The number of lines in the
 
       Connection type between proxy and device.
 
-      ssh     - SSH jump host proxy.
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      telnet  - TELNET jump host proxy.
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      serial  - Terminal server proxy.
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
 
 
     - proxy remote-address <union>
@@ -430,6 +475,16 @@ The number of lines in the
     - proxy remote-ssh-args <string>
 
       Additional arguments used to establish proxy connection (appended to end of ssh cmd line).
+
+
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
     Do as follows to setup to connect to an ISAM device that resides
     behind a proxy or terminal server:
