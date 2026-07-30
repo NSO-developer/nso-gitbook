@@ -40,13 +40,13 @@
   4. development_settings
   5. logger
   6. developer
+  7. proxy
+  8. proxy-2
   ```
 
 
 # 1. ned-settings rad-vx
 ------------------------
-
-  Configure settings specific to the connection between NED and device.
 
 
     - extended-parser <enum> (default auto)
@@ -99,7 +99,7 @@
       Change the default connector, e.g. 'ned-connector-default.json'.
 
 
-    - connection ssh client <enum> (default ganymed)
+    - connection ssh client <enum>
 
       Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
 
@@ -122,6 +122,13 @@
     - connection ssh auth-key private-key-file <string>
 
       Path to openssh formatted private key file.
+
+
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
 
 
 # 3. ned-settings rad-vx deprecated
@@ -215,5 +222,157 @@
     - developer platform version <string>
 
       Override device version.
+
+
+# 7. ned-settings rad-vx proxy
+------------------------------
+
+  Configure NED to access device via a proxy.
+
+
+    - proxy remote-connection <enum>
+
+      Connection type between ned, proxy and device.
+
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
+
+
+    - proxy remote-address <union>
+
+      Address of host behind the proxy.
+
+
+    - proxy remote-port <uint16>
+
+      Port of host behind the proxy.
+
+
+    - proxy remote-name <string>
+
+      User name on the device behind the proxy.
+
+
+    - proxy remote-password <string>
+
+      Password on the device behind the proxy.
+
+
+    - proxy remote-secondary-password <string>
+
+      Second password (e.g. enable) on the device behind the proxy .WARNING MUST UPDATE connector
+      template to use!.
+
+
+    - proxy authgroup <WORD>
+
+      Authentication credentials for the device behind the proxy.
+
+
+    - proxy proxy-prompt <string>
+
+      Prompt pattern on the proxy host before connecting to device.
+
+
+    - proxy remote-ssh-args <string>
+
+      Additional arguments used to establish proxy connection.
+
+
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
+
+
+# 8. ned-settings rad-vx proxy-2
+--------------------------------
+
+  Configure NED to access device via a second proxy.
+
+
+    - proxy-2 remote-connection <enum>
+
+      Connection type between ned, proxy and device.
+
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
+
+
+    - proxy-2 remote-address <union>
+
+      Address of host behind the proxy.
+
+
+    - proxy-2 remote-port <uint16>
+
+      Port of host behind the proxy.
+
+
+    - proxy-2 remote-name <string>
+
+      User name on the device behind the proxy.
+
+
+    - proxy-2 remote-password <string>
+
+      Password on the device behind the proxy.
+
+
+    - proxy-2 remote-secondary-password <string>
+
+      Second password (e.g. enable) on the device behind the proxy .WARNING MUST UPDATE connector
+      template to use!.
+
+
+    - proxy-2 authgroup <WORD>
+
+      Authentication credentials for the device behind the proxy.
+
+
+    - proxy-2 proxy-prompt <string>
+
+      Prompt pattern on the proxy host before connecting to device.
+
+
+    - proxy-2 remote-ssh-args <string>
+
+      Additional arguments used to establish proxy connection.
+
+
+    - proxy-2 auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy-2 host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
 

@@ -37,9 +37,10 @@
   1. ned-settings aethra-atos
   2. developer
   3. proxy
-  4. connection
-  5. transaction
-  6. logger
+  4. proxy-2
+  5. connection
+  6. transaction
+  7. logger
   ```
 
 
@@ -153,13 +154,21 @@
 
     - proxy remote-connection <enum>
 
-      Connection type between proxy and device.
+      Connection type between ned, proxy and device.
 
-      ssh     - ssh.
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      telnet  - telnet.
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      serial  - serial.
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
 
 
     - proxy remote-address <union>
@@ -182,6 +191,17 @@
       Password on the device behind the proxy.
 
 
+    - proxy remote-secondary-password <string>
+
+      Second password (e.g. enable) on the device behind the proxy .WARNING MUST UPDATE connector
+      template to use!.
+
+
+    - proxy authgroup <WORD>
+
+      Authentication credentials for the device behind the proxy.
+
+
     - proxy proxy-prompt <string>
 
       Prompt pattern on the proxy host before connecting to device.
@@ -192,7 +212,93 @@
       Additional arguments used to establish proxy connection.
 
 
-# 4. ned-settings aethra-atos connection
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
+
+
+# 4. ned-settings aethra-atos proxy-2
+-------------------------------------
+
+  Configure NED to access device via a second proxy.
+
+
+    - proxy-2 remote-connection <enum>
+
+      Connection type between ned, proxy and device.
+
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
+
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
+
+
+    - proxy-2 remote-address <union>
+
+      Address of host behind the proxy.
+
+
+    - proxy-2 remote-port <uint16>
+
+      Port of host behind the proxy.
+
+
+    - proxy-2 remote-name <string>
+
+      User name on the device behind the proxy.
+
+
+    - proxy-2 remote-password <string>
+
+      Password on the device behind the proxy.
+
+
+    - proxy-2 remote-secondary-password <string>
+
+      Second password (e.g. enable) on the device behind the proxy .WARNING MUST UPDATE connector
+      template to use!.
+
+
+    - proxy-2 authgroup <WORD>
+
+      Authentication credentials for the device behind the proxy.
+
+
+    - proxy-2 proxy-prompt <string>
+
+      Prompt pattern on the proxy host before connecting to device.
+
+
+    - proxy-2 remote-ssh-args <string>
+
+      Additional arguments used to establish proxy connection.
+
+
+    - proxy-2 auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy-2 host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
+
+
+# 5. ned-settings aethra-atos connection
 ----------------------------------------
 
   Configure settings specific to the connection between NED and device.
@@ -279,7 +385,7 @@
     - connection filtered_sync_from <true|false> (default false)
 
 
-# 5. ned-settings aethra-atos transaction
+# 6. ned-settings aethra-atos transaction
 -----------------------------------------
 
   Transaction specific settings.
@@ -297,7 +403,7 @@
       device-custom   - Use a device custom method to get a value to use for trans-id.
 
 
-# 6. ned-settings aethra-atos logger
+# 7. ned-settings aethra-atos logger
 ------------------------------------
 
   Settings for controlling logs generated.
