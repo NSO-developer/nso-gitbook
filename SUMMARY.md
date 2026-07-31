@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.5 2026-05-15](a10-acos/README.md)
+  * [README v3.27.6 2026-07-30](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -35,7 +35,7 @@
 
 * alu-sr
   * [README-ned-settings](alu-sr/README-ned-settings.md)
-  * [README v8.71.1 2026-07-17](alu-sr/README.md)
+  * [README v8.71.2 2026-07-30](alu-sr/README.md)
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
@@ -64,7 +64,7 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.32 2026-07-23](cisco-asa/README.md)
+  * [README v6.18.33 2026-07-30](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
@@ -179,7 +179,7 @@
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
-  * [README v3.8.20 2026-03-24](mrv-masteros/README.md)
+  * [README v3.8.21 2026-07-30](mrv-masteros/README.md)
 
 * nokia-srlinux_gnmi
   * [README-ned-settings](nokia-srlinux_gnmi/README-ned-settings.md)

@@ -290,15 +290,31 @@ Note, this method is always used when connected to a NETSIM
   Configure NED to access device via a proxy.
 
 
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
+
+
     - proxy remote-connection <enum>
 
       Connection type between proxy and device.
 
-      ssh     - ssh.
+      ssh            - ssh.
 
-      telnet  - telnet.
+      telnet         - telnet.
 
-      serial  - serial.
+      serial         - serial.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
 
 
     - proxy remote-address <union>
@@ -347,15 +363,31 @@ Note, this method is always used when connected to a NETSIM
   Configure NED to access device via a proxy2.
 
 
+    - proxy2 auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy2 host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
+
+
     - proxy2 remote-connection <enum>
 
       Connection type between proxy and device.
 
-      ssh     - ssh.
+      ssh            - ssh.
 
-      telnet  - telnet.
+      telnet         - telnet.
 
-      serial  - serial.
+      serial         - serial.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
 
 
     - proxy2 remote-address <union>
@@ -551,6 +583,13 @@ Note, this method is always used when connected to a NETSIM
     - connection ssh auth-key private-key-file <string>
 
       Path to openssh formatted private key file.
+
+
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
 
 
     - connection connector <WORD>
