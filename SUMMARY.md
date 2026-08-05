@@ -85,7 +85,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.3 2026-07-24](cisco-iosxr/README.md)
+  * [README v7.77.4 2026-08-04](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
