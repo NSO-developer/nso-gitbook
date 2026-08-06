@@ -29,7 +29,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 * [Production Image](containerized-nso.md#production-image)
 * [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th><th>UBI Version</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>None or Local Install</td><td>-</td></tr><tr><td>Build Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>System Install</td><td>UBI 9</td></tr><tr><td>Production Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td>System Install</td><td>UBI 9</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -203,7 +203,15 @@ When using a permanent volume for CDB, and restarting the NSO container multiple
 {% endhint %}
 
 {% hint style="info" %}
-The default `ncs.conf` file performs authentication using only the Linux PAM, with local authentication disabled. For the `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SSHKEY` variables to take effect, NSO's local authentication, in `/ncs-conf/aaa/local-authentication`, needs to be enabled. Alternatively, you can create a local Linux admin user that is authenticated by NSO using Linux PAM.
+The default `ncs.conf` supplied with the NSO Production Image enables Linux PAM authentication and disables NSO local authentication. For `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SSHKEY` to take effect, enable `/ncs-config/aaa/local-authentication`. Alternatively, you can create a local Linux admin user that is authenticated by NSO using Linux PAM.
+{% endhint %}
+
+#### Linux PAM Authentication in Kubernetes
+
+{% hint style="warning" %}
+Due to a limitation in the underlying UBI image, password-based Linux PAM authentication for operating-system users does not work when the NSO Production Image is run in Kubernetes. The issue is confirmed with both UBI 9 and UBI 10. The same authentication works when the container is run using Docker or Podman.
+
+For Kubernetes deployments, use external authentication or, for a simpler setup, NSO local authentication instead. To use NSO local authentication, enable `/ncs-config/aaa/local-authentication` and configure an NSO user using `ADMIN_USERNAME`, `ADMIN_PASSWORD`, or `ADMIN_SSHKEY`. NSO local authentication stores users in CDB and does not use Linux PAM.
 {% endhint %}
 
 ### Exposing Ports <a href="#sec.exposed_ports" id="sec.exposed_ports"></a>
