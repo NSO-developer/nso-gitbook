@@ -64,20 +64,65 @@ When executed, the tool causes the NED to automatically connect to the target de
 
 This list serves as the basis for downloading the models. Additionally, the tool scans each downloaded YANG file for further dependencies specified by import or include statements and attempts to download all such dependent YANG files as well.
 
-  Since the gNMI protocol does currently not support direct YANG model download from the device the models need to be fetched from elsewhere.
+  The gNMI protocol itself does not support direct downloading of YANG models from the device. Therefore, YANG files must be obtained using alternative methods.
 
-  By default the Cisco IOSXR repository on github is used as source for all YANG files.
+  This NED offers two options for downloading YANG files:
+
+  <b>1. gNOI File Transfer</b>
+
+  Recent versions of IOS XR (version 24 and later) support gNOI file transfer, which is the fastest method to download YANG files from the device.
+
+  To use this method, some configuration is required on both the device and the NED.
+
+  By default, IOS XR restricts access to the directory where YANG files are stored, preventing direct download via the gNOI file transfer agent. To bypass this restriction, you must log into the device and create a symbolic link to the YANG files directory:
+
+  ```
+  ssh <user>@<device_ip_address> -p <ssh_port>
+
+  RP/0/RP0/CPU0:xrv9000#bash
+  Wed Aug  5 09:36:31.188 UTC
+  [xrv9000:/misc/scratch]$ cd /disk0:
+  [xrv9000:/disk0:]$ ln -s /pkg/yang .
+  ```
+
+  Next, enable gNOI file transfer in the NED configuration:
+
+  ```
+  $ ncs_cli -C -u admin
+
+  admin@ncs# config
+  Entering configuration mode terminal
+  admin@ncs(config)# devices <device_name> ned-settings cisco-iosxr_gnmi gnoi file yang-model-download enable true
+  admin@ncs(config-device-<device_name>)# commit
+  ```
+
+  <b>2. GitHub File Transfer</b>
+
+  The NED can also fetch the appropriate YANG files directly from the Cisco IOS XR GitHub repository.
+
+  This method is preferred when working with devices running older IOS XR versions or when the gNOI file transfer method is not feasible for any reason.
+
+
+
+  Both methods provide flexible options to obtain the necessary YANG models for device management.
+
+  The NED is configured with pre-defined download profiles for both methods as described below.
 
 ### Simple Usage
 
   The downloader tool is pre-configured with three different profiles:
 
   ```
-  native-um-from-git:      Download the Cisco IOS XR native UM YANG models from git. Default version 24.3.1
-  native-classic-from-git: Download the Cisco IOS XR native Classic YANG models from git. Default version 24.3.1
-  native-all-from-git:     Download the Cisco IOS XR native UM and Classic YANG models from git. Default version 24.3.1
-  openconfig-from-git:     Download all OpenConfig YANG models for Cisco IOS XR including the deviation/augment files from git. Default version 24.3.1
-  all-from-git:            Download all YANG models available for Cisco IOS XR from git. Default version 24.3.1. Use with caution! Mixing native and openconfig models is usually a bad idea.
+  all                      Download all native and OpenConfig YANG directly from the device using gNOI file transfer.
+  all-from-git             Download all native and OpenConfig YANG from the XR GitHub repository. Default version 25.4.1
+  native-all-from-git      Download the Cisco IOS XR native UM and Classic YANG models from git. Default version 25.4.1
+  native-all               Download native UM and Classic YANG directly from the device using gNOI file transfer.
+  native-classic           Download the native Classic YANG directly from the device using gNOI file transfer.
+  native-classic-from-git  Download the native Classic YANG from the XR GitHub repository. Default version 25.4.1
+  native-um                Download the native UM YANG directly from the device using gNOI file transfer.
+  native-um-from-git       Download the native UM YANG from the XR GitHub repository. Default version 25.4.1
+  openconfig               Download the OpenConfig YANG directly from the device using gNOI file transfer.
+  openconfig-from-git      Download the OpenConfig YANG from the XR GitHub repository. Default version 25.4.1
   ```
 
   Do as follows in the NSO CLI to download the files using the profile openconfig-from-git:

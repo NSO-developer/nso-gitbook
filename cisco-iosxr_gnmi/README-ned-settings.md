@@ -49,13 +49,14 @@
      5.4. notif
           5.4.1. stream
      5.5. cache
-  6. general
-     6.1. capabilities
-          6.1.1. regex-exclude
-          6.1.2. regex-include
-          6.1.3. inject
-     6.2. config
-     6.3. live-status
+  6. gnoi
+  7. general
+     7.1. capabilities
+          7.1.1. regex-exclude
+          7.1.2. regex-include
+          7.1.3. inject
+     7.2. config
+     7.3. live-status
   ```
 
 
@@ -473,13 +474,29 @@
       Configure the NED to cache the list of capabilities supported by the device.
 
 
-# 6. ned-settings cisco-iosxr_gnmi general
+# 6. ned-settings cisco-iosxr_gnmi gnoi
+---------------------------------------
+
+  Settings related to gNOI operations.
+
+
+    - gnoi file yang-model-download enable <true|false> (default false)
+
+      Enable gNOI YANG model download.
+
+
+    - gnoi file yang-model-download source <string> (default disk0:/yang)
+
+      Source path to be used when downloading YANG models from the device.
+
+
+# 7. ned-settings cisco-iosxr_gnmi general
 ------------------------------------------
 
   General NED settings.
 
 
-## 6.1. ned-settings cisco-iosxr_gnmi general capabilities
+## 7.1. ned-settings cisco-iosxr_gnmi general capabilities
 ----------------------------------------------------------
 
   Settings related to device capabilities.
@@ -493,7 +510,7 @@
       using that model.
 
 
-### 6.1.1. ned-settings cisco-iosxr_gnmi general capabilities regex-exclude
+### 7.1.1. ned-settings cisco-iosxr_gnmi general capabilities regex-exclude
 ---------------------------------------------------------------------------
 
   Configure a pattern for matching models to exclude from the capabilities list advertised by the
@@ -504,7 +521,7 @@
       - pattern <string>
 
 
-### 6.1.2. ned-settings cisco-iosxr_gnmi general capabilities regex-include
+### 7.1.2. ned-settings cisco-iosxr_gnmi general capabilities regex-include
 ---------------------------------------------------------------------------
 
   Configure a pattern for matching models to include from the capabilities list advertised by the
@@ -515,7 +532,7 @@
       - pattern <string>
 
 
-### 6.1.3. ned-settings cisco-iosxr_gnmi general capabilities inject
+### 7.1.3. ned-settings cisco-iosxr_gnmi general capabilities inject
 --------------------------------------------------------------------
 
   Configure additional names of models to include in the capabilities list. If a device is not able
@@ -527,7 +544,7 @@
       - capa <string>
 
 
-## 6.2. ned-settings cisco-iosxr_gnmi general config
+## 7.2. ned-settings cisco-iosxr_gnmi general config
 ----------------------------------------------------
 
   General settings related to config handling.
@@ -584,7 +601,7 @@
       let the NED bail out on error.
 
 
-## 6.3. ned-settings cisco-iosxr_gnmi general live-status
+## 7.3. ned-settings cisco-iosxr_gnmi general live-status
 ---------------------------------------------------------
 
   General settings related to live-status handling.
@@ -627,140 +644,3 @@
       restore-identityrefs  - restore-identityrefs.
 
 
-# 7. Using the NED to receive gNMI telemetry updates
-
-The gNMI protocol has an advanced built-in method for subscribing on telemetry updates from a device.
-This feature is fully supported by Cisco IOSXR gNMI devices.
-
-It is a very flexible feature regarding what kind of events to subscribe on. The gNMI specification allows for subscriptions on events anywhere in the data tree of a device. You can subscribe on config changes and/or operational data.
-
-The nodes to subscribe on are specified using a list of xpaths that points to the nodes. A xpath can point to a single leaf, a subtree or a full tree.
-
-This NED has full support for receiving telemetry subscriptions. Each received event is relayed into the standard NSO API for notifications as usual.
-
-There are however limitations regarding how NSO can handle this kind of events.
-
-The NSO API for notifications is designed to be compliant with NETCONF notifications (RFC5277) which makes it partly incompatible with gNMI events.
-
-Hence a few additional steps are required to make this work with NSO:
-
-1. The NSO API does require streams to subscribe on. These streams are expected to be advertised by
-   the device which is not possible with gNMI. Instead the NED provides a simple method to configure
-   virtual streams that NSO can subscribe on. These streams will be advertised by the NED instead.
-
-2. The NSO API expects each received notification to be of a well defined structure as declared in
-   a 'notification' YANG construct. This is not compliant with gNMI where a telemety update can contain
-   data of any structure. The data is simply a JSON/XML dump representing the nodes that are being
-   subscribed on.
-
-The NED bridges these incompatible concepts by using an internal 'notification' YANG construct, shown
-below:
-
-```
-notification event {
-  leaf timestamp {
-    // Time of received telemetry update.
-    type uint64;
-  }
-  leaf updates {
-    // Contains all telemetry updates gathered from the device.
-    // Since NSO lacks support for anyxml, the payload is
-    // delivered as a JSON or XML formatted (escaped) string.
-    // To be parsed and acted upon by the receiving service application.
-    type string;
-  }
-  leaf-list deletes {
-    // Contains all telemetry deletes gathered from the device.
-    // Delivered as a list of xpaths. Each xpath represents a node
-    // deleted on the device.
-    // To be parsed and acted upon by the receiving service application.
-    type string;
-  }
-}
-```
-
-For telemetry updates the payload in the received gNMI event is simply inserted as a raw JSON/XML snippet into a notification message before it is relayed to NSO. Telemetry deletes are similarly relayed to NSO as a list of xpaths. Each xpath represents a node that has been deleted on the device.
-
-This means that the data in the notification will be delivered unparsed to any listening service application. It is up to the service application to parse it before acting upon it.
-
-### Example:
-
-The use case is to configure a virtual stream that will subscribe on interface events on the gNMI device.
-This example is using the xpaths as defined by the Cisco IOSXR models.
-
-1. Configure the virtual stream using the NED settings in the device instance, like below in a NSO CLI:
-
-   ```
-    # configure
-    # devices device dev-1
-    # show f ned-settings
-    # ned-settings cisco-iosxr_gnmi gnmi notif stream INTERFACE-EVENTS
-    # paths [ /oc-if:interfaces/interface[name='eth1/1'] /oc-if:interfaces/interface[name='eth1/2'] ]
-    # mode ON_CHANGE
-    # description "Monitor events on interface eth1/1 and eth1/2"
-   ```
-
-2. Try letting NSO display information about available streams
-
-   ```
-   # do show devices device dev-1 notifications stream
-
-                                                                                  REPLAY   REPLAY
-                                                                                  LOG      LOG
-                                                                                  REPLAY   CREATION  AGED
-   NAME              DESCRIPTION                                                  SUPPORT  TIME      TIME
-   ------------------------------------------------------------------------------------------------------
-   INTERFACE-EVENTS  Monitor events on interface eth1/1 and eth1/2
-                  paths: [/oc-if:interfaces/interface[name='eth1/1'], /oc-if:interfaces/interface[name='eth1/2']], mode: ON_CHANGE  false    -         -
-
-   ```
-
-3. Configure a subscription on the stream named INTERFACE-EVENTS
-
-   ```
-   # devices device dev-1 notifications subscription SUBSCRIPTION stream INTERFACE-EVENTS local-user admin store-in-cdb true
-   # commit
-   ```
-
-     Note, the configuration parameter 'store-in-cdb' is set to true in this example just to make sure the
-     received telemetry updates can be displayed properly in step #5 and #6 below. This parameter shall
-     usually be used with caution, since it can have impact on CDB performance and size.
-
-4. Verify that the subscription is now active in NSO
-
-   ```
-   # do show devices device dev-1 notifications subscription SUBSCRIPTION
-                            FAILURE  ERROR
-     NAME          STATUS   REASON   INFO
-     ---------------------------------------
-     SUBSCRIPTION  running  -        -
-   ```
-
-5. Trigger a telemetry update notification by configuring an interface
-
-   ```
-    # devices device dev-1 config oc-if:interfaces interface eth1/1 config description TEST
-    # commit
-    # do show devices device dev-1 notifications received-notifications | display xml
-   ```
-
-    A new entry in the list shall now exist containing a JSON formatted string in the
-    'updates' leaf:
-
-   ```
- TBD
-   ```
-
- 6. Trigger a telemetry delete notification by reverting the previous commit
-
-    ```
-    # no devices device dev-1 config oc-if:interfaces interface eth1/1 config description
-    # commit
-    # do show devices device dev-1 notifications received-notifications | display xml
-    ```
-
- 7. A new entry in the list shall now exist containing a xpath representing the deleted node:
-
-    ```
-
-    ```
