@@ -105,6 +105,8 @@
 
     - connection ssh client <enum>
 
+      Select SSH client library used by NED.
+
       default  - default.
 
       sshj     - sshj.
@@ -121,6 +123,21 @@
     - connection ssh keep-alive-interval <0-4294967295> (default 0)
 
       Configure SSH client keep alive interval in seconds, default 0.
+
+
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
 
 
     - connection disable-pagination-with-config <string>
@@ -382,13 +399,31 @@
 
     - proxy remote-connection <enum>
 
-      Connection type between proxy and device.
+      Connection type between ned, proxy and device.
 
-      ssh     - SSH jump host proxy.
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      telnet  - TELNET jump host proxy.
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      serial  - Terminal server proxy.
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
+
+
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
 
     - proxy remote-address <union>
@@ -509,13 +544,31 @@
 
     - proxy-2 remote-connection <enum>
 
-      Connection type between proxy and device.
+      Connection type between ned, proxy and device.
 
-      ssh     - SSH jump host proxy.
+      ssh            - Start a new ssh client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      telnet  - TELNET jump host proxy.
+      telnet         - Start a new telnet client on proxy and connect to device (i.e. will launch
+                       interactive shell on proxy).
 
-      serial  - Terminal server proxy.
+      serial         - Connect through a terminal server to device.
+
+      ssh-direct     - Direct forward to device using ned local ssh client (i.e. without shell on
+                       proxy).
+
+      telnet-direct  - Direct forward to device using ned local telnet client (i.e. without shell on
+                       proxy).
+
+
+    - proxy-2 auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy-2 host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
 
     - proxy-2 remote-address <union>

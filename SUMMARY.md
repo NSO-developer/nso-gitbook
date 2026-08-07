@@ -39,7 +39,7 @@
 
 * arista-dcs
   * [README-ned-settings](arista-dcs/README-ned-settings.md)
-  * [README v5.34.2 2026-07-16](arista-dcs/README.md)
+  * [README v5.34.3 2026-08-06](arista-dcs/README.md)
 
 * arris-cmts
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.86 2026-07-23](huawei-vrp/README.md)
+  * [README v6.86.1 2026-08-06](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
