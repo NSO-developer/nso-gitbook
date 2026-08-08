@@ -224,6 +224,21 @@
           openssl s_client -connect HOST:PORT
 
 
+    - ssl host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - ssl host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - ssl auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
+
+
 # 3. ned-settings cisco-nx proxy
 --------------------------------
 
@@ -304,6 +319,16 @@
     - proxy send-login-newline <true|false> (default false)
 
       Send a newline after connected to the proxy to wake up the device for a login prompt.
+
+
+    - proxy auth-key private-key-file <string>
+
+      Path to openssh formatted private key file for doing public key auth to device behind proxy.
+
+
+    - proxy host-key-validation <true|false> (default false)
+
+      Set this to true to force host-key validation of device behind proxy.
 
     Do as follows to setup to connect to a NX device that resides
     behind a proxy or terminal server:
@@ -627,6 +652,12 @@
     - api ip-prefix-list-strip-seq <true|false> (default false)
 
       Strip seq number in ip prefix-list and switch to alternate YANG model without seq numbers.
+
+
+    - api class-map-security-modeled <true|false> (default false)
+
+      Set to true to switch from a multi-word-key list to an alternate model with new list id +
+      explicit model.
 
 
 # 11. ned-settings cisco-nx read

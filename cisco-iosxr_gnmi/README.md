@@ -1328,11 +1328,17 @@ This NED supports subscribing to telemetry events using the telemetry feature in
 ### Prerequisites
 
 - The NED is used together with **NSO 6.7** or newer.
-- The managed device supports **gNMI Telemetry**.
+- The managed device supports **gNMI Telemetry**. This is true for all recent versions of IOS XR.
 
 ### Restrictions
 
 The NSO telemetry feature is designed to assist with provisioning — for example, by receiving automatic notifications when a provisioned configuration becomes active. It is generally not intended for high-frequency telemetry data reception.
+
+The Cisco IOS XR platform also has some telemetry-related limitations:
+- Subscriptions can only be made for events related to operational data. Changes to configuration do not currently trigger telemetry events. This restriction applies to all IOS XR versions up to at least 25.4.1.
+- The `on-change` subscription type is supported only for certain parts of the IOS XR YANG schemas. The `periodic` subscription type is supported across the entire IOS XR schema.
+
+For full details, refer to the IOS XR documentation.
 
 ### Background: gNMI Telemetry
 
@@ -1545,67 +1551,63 @@ from ncs.application import Service
 from ncs.cdb import OperSubscriber
 from ncs.dp import Action
 from ncs.maapi import Maapi
-_ncs = __import__('_ncs')  # pylint: disable=invalid-name
-
+_ncs = __import__('_ncs') # pylint: disable=invalid-name
 
 class ClosedLoopDemo(Service):
+    # The create() callback is invoked inside NCS FASTMAP and
+    # must always exist.
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
-        self.log.info(
-            'Service start autonomous BGP on device {0}, '
-            'local-as-number: {1}, peer-as-number: {2}, '
-            'peer-ip-address {3}'.format(
-                service.device,
-                service.local_as_number,
-                service.peer_as_number,
-                service.peer_ip_address))
-
-        name = 'autonomous-bgp-monitor-{0}-{1}'.format(
-            service.device, service.local_as_number)
-
-        # 1. Setup a telemetry kicker
+        self.log.info('Service start autonomous BGB on device {0}, local-as-number: {1}, peer-as-number: {2}, peer-ip-address {3}'.
+                      format(service.device, service.local_as_number, service.peer_as_number, service.peer_ip_address))
+        name = 'autonomous-bgp-monitor-{0}-{1}'.format(service.device, service.local_as_number)
         kicker = root.kicker__kickers.telemetry_kicker.create(name)
-        kicker.selector_expr = \
-            "$SUBSCRIPTION_NAME = '{0}'".format(name)
-        kicker.kick_node = \
-            "/autonomous-bgp-router[device='{0}']" \
-            "[local-as-number='{1}']".format(
-                service.device, service.local_as_number)
+        kicker.selector_expr = "$SUBSCRIPTION_NAME = '{0}'".format(name)
+        kicker.kick_node = "/autonomous-bgp-router[device='{0}'][local-as-number='{1}']".format(service.device, service.local_as_number)
         kicker.action_name = 'handle-autonomous-bgp-notification'
 
-        # 2. Setup telemetry subscription (on-change mode)
+        # 2. Setup Monitor
         device = root.devices.device[service.device]
         entry = device.telemetry.subscription.create(name)
         entry.datastore = 'operational'
-        entry.xpath = \
-            "/configuration/protocols/bgp/" \
-            "group[name='EBGP-PEER-GROUP-65001']"
-        entry.local_user = 'admin'
-        entry.on_change.create()
-        entry.on_change.sync_on_start = False
 
-        # 3. Apply device template
+        entry.xpath = "/oc-netinst:network-instances/network-instance[name='DEFAULT']/protocols/protocol[identifier='oc-pol-types:BGP'][name='bgp']/bgp/neighbors/neighbor[neighbor-address='{0}']/state".format(service.peer_ip_address)
+        entry.local_user = 'admin'
+
+        if service.telemetry_mode == 'periodic':
+            entry.periodic.create()
+            entry.periodic.period = 500
+        else:
+            entry.on_change.create()
+            entry.on_change.sync_on_start = False
+        if service.delivery_mode == 'raw':
+            entry.setting.create('force-raw')
+            entry.setting['force-raw'].value = 'true'
+
+        # 3. Apply Template
         template = ncs.template.Template(service)
         template.apply('closed-loop-demo', None)
 
+class DiffIterator(object):
+    def __init__(self, log):
+        self.count = 0
+        self.log = log
+
+    def __call__(self, kp, op, oldv, newv):
+        self.log.info('kp={0}, op={1}, oldv={2}, newv={3}'.format(str(kp), str(op), str(oldv), str(newv)))
+        self.count += 1
+        return ncs.ITER_RECURSE
 
 class HandleBgpNotification(Action):
-
     def stop_monitoring(self, kp, kicker_id):
-        """Stop the telemetry subscription and kicker, then update
-        the operational state to ESTABLISHED."""
-        with ncs.maapi.single_write_trans(
-                'admin', 'python', db=_ncs.RUNNING) as edit_th:
+        with ncs.maapi.single_write_trans('admin', 'python', db=_ncs.RUNNING) as edit_th:
             self.log.info("Stopping monitor")
             root = ncs.maagic.get_root(edit_th)
             service_node = ncs.maagic.get_node(edit_th, kp)
-            del root.kicker__kickers.telemetry_kicker[kicker_id]
-            del root.devices.device[
-                service_node.device].telemetry.subscription[kicker_id]
+            del(root.kicker__kickers.telemetry_kicker[kicker_id])
+            del(root.devices.device[service_node.device].telemetry.subscription[kicker_id])
             edit_th.apply()
-
-        with ncs.maapi.single_write_trans(
-                'admin', 'python', db=_ncs.OPERATIONAL) as oper_th:
+        with ncs.maapi.single_write_trans('admin', 'python', db=_ncs.OPERATIONAL) as oper_th:
             self.log.info("Setting operational state to ESTABLISHED")
             service_node = ncs.maagic.get_node(oper_th, kp)
             service_node.operational_state = "ESTABLISHED"
@@ -1613,50 +1615,62 @@ class HandleBgpNotification(Action):
 
     @Action.action
     def cb_action(self, uinfo, name, kp, input, output, trans):
-        self.log.info(
-            "Kicker triggered by: {0}".format(input.kicker_id))
-
+        self.log.info("Kicker triggered by: {0}".format(input.kicker_id))
         with ncs.maapi.Maapi() as m:
-            with ncs.maapi.single_read_trans(
-                    'admin', 'python', db=_ncs.RUNNING) as th:
+            with ncs.maapi.single_read_trans('admin', 'python', db=_ncs.RUNNING) as th:
                 service = ncs.maagic.get_node(th, kp)
+                if service.delivery_mode == 'raw':
+                    # Delivery is raw yang-push messages
+                    data = None
+                    self.log.info("RECEIVED RAW TELEMETRY PUSH")
+                    with m.attach(input.tid) as kicker_th:
+                        root = ncs.maagic.get_root(kicker_th)
+                        data = root.devices.device[service.device].telemetry.raw_telemetry
 
-                with m.attach(input.tid) as kicker_th:
-                    root = ncs.maagic.get_root(kicker_th)
-                    group = (root.devices
-                             .device[service.device]
-                             .live_status
-                             .jc__configuration
-                             .jc_protocols__protocols
-                             .bgp.group)
+                    if data and 'ietf-yang-patch:yang-patch' in data:
+                        # This is a raw on-change push message
+                        self.log.info('RECEIVED RAW ON-CHANGE YANG-PUSH')
+                        if '"session-state":"established"' in data.lower():
+                            self.stop_monitoring(kp, input.kicker_id)
+                    elif data:
+                        self.log.info('RECEIVED RAW PERIODIC YANG-PUSH')
+                        if '"session-state":"established"' in data.lower():
+                            self.stop_monitoring(kp, input.kicker_id)
+                else:
+                    self.log.info("RECEIVED %s TELEMETRY PUSH" % str(service.telemetry_mode).upper())
+                    # Standard kicker transaction written by yang-push event
+                    with m.attach(input.tid) as kicker_th:
+                        root = ncs.maagic.get_root(kicker_th)
+                        state = root.devices.device[service.device].live_status.oc_netinst__network_instances.network_instance['DEFAULT'].protocols.protocol['oc-pol-types:BGP','bgp'].bgp.neighbors.neighbor['1.2.3.4'].state
+                        if not state:
+                            return
+                        if state.session_state == 'ESTABLISHED':
+                            self.stop_monitoring(kp, input.kicker_id)
 
-                    if 'EBGP-PEER-GROUP-65001' not in group:
-                        return
-                    neighbor = group['EBGP-PEER-GROUP-65001'].neighbor
-                    if '192.168.0.2' not in neighbor:
-                        return
-
-                    val = neighbor['192.168.0.2'].description
-                    self.log.info(
-                        "Operational state is: {0}".format(val))
-                    if val and str(val).lower() == "established":
-                        self.stop_monitoring(kp, input.kicker_id)
 
 
-# ---------------------------------------------------
-# COMPONENT THREAD THAT WILL BE STARTED BY NCS
-# ---------------------------------------------------
+
+
+# ---------------------------------------------
+# COMPONENT THREAD THAT WILL BE STARTED BY NCS.
+# ---------------------------------------------
 class Main(ncs.application.Application):
 
+    #pylint: disable=attribute-defined-outside-init
     def setup(self):
+        # The application class sets up logging for us. It is accessible
+        # through 'self.log' and is a ncs.log.Log instance.
         self.log.info('Main RUNNING')
-        self.register_service(
-            'closed-loop-demo-servicepoint', ClosedLoopDemo)
-        self.register_action(
-            'handle-autonomous-bgp-notification',
-            HandleBgpNotification)
+
+        self.register_service('closed-loop-demo-servicepoint', ClosedLoopDemo)
+        self.register_action('handle-autonomous-bgp-notification', HandleBgpNotification)
 
     def teardown(self):
+        # When the application is finished (which would happen if NCS went
+        # down, packages were reloaded or some error occurred) this teardown
+        # method will be called.
+
+        #self.sub.stop()
         self.log.info('Main FINISHED')
 ```
 
