@@ -215,14 +215,6 @@ When using a permanent volume for CDB, and restarting the NSO container multiple
 The default `ncs.conf` supplied with the NSO Production Image enables Linux PAM authentication and disables NSO local authentication. For `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SSHKEY` to take effect, enable `/ncs-config/aaa/local-authentication`. Alternatively, you can create a local Linux admin user that is authenticated by NSO using Linux PAM.
 {% endhint %}
 
-#### Linux PAM Authentication in Kubernetes
-
-{% hint style="warning" %}
-Due to a limitation in the underlying UBI image, password-based Linux PAM authentication for operating-system users does not work when the NSO Production Image is run in Kubernetes. The issue is confirmed with both UBI 9 and UBI 10. The same authentication works when the container is run using Docker or Podman.
-
-For Kubernetes deployments, use external authentication or, for a simpler setup, NSO local authentication instead. To use NSO local authentication, enable `/ncs-config/aaa/local-authentication` and configure an NSO user using `ADMIN_USERNAME`, `ADMIN_PASSWORD`, or `ADMIN_SSHKEY`. NSO local authentication stores users in CDB and does not use Linux PAM.
-{% endhint %}
-
 ### Exposing Ports <a href="#sec.exposed_ports" id="sec.exposed_ports"></a>
 
 The default `ncs.conf` NSO configuration file does not enable any northbound interfaces, and no ports are exposed externally to the container. Ports can be exposed externally of the container when starting the container with the northbound interfaces and their ports correspondingly enabled in `ncs.conf`.
