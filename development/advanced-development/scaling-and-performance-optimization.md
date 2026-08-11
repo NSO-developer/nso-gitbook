@@ -615,9 +615,19 @@ For small NSO systems, the schema will usually consume more resources than the i
 NEDs with a large schema and many YANG models often include a significant number of YANG models that are unused. If RAM usage is an issue, consider removing unused YANG models from such NEDs.
 {% endhint %}
 
-#### Note on the Java VM
+#### Java VM Heap Size <a href="#ncs.development.scaling.memory.jvm" id="ncs.development.scaling.memory.jvm"></a>
 
-The Java VM uses its own copy of the schema, which is also why the JVM memory consumption follows the size of the loaded YANG schema.
+The Java VM uses its own copy of the schema, which is why JVM memory consumption follows the size of the loaded YANG schema. Loading packages with additional or larger YANG schemas, such as NED packages, can therefore require a larger Java VM heap.
+
+Configure the maximum heap size with the standard Java `-Xmx` option in the `NCS_JAVA_VM_OPTIONS` environment variable. You can also set the initial heap size with `-Xms`. For example, the following setting limits the maximum heap size to 4 GB:
+
+```bash
+NCS_JAVA_VM_OPTIONS="-Xmx4G"
+```
+
+For a Local Install, export the variable in the environment before starting NSO. For a System Install, set the variable in `/etc/ncs/ncs.systemd.conf`. For a Containerized Install, supply the variable through the container deployment configuration. Restart NSO, or the container, to apply the new setting.
+
+The appropriate heap size depends on the loaded schemas and Java package workload. Measure the Java VM memory use with the production schema and workload, and leave sufficient memory outside the heap for the NSO process, CDB, Java non-heap memory, other virtual machines, and the operating system. Increasing the heap beyond the memory available to the host or container can cause the operating system to terminate processes.
 
 ### The Size of CDB <a href="#d5e8750" id="d5e8750"></a>
 
