@@ -103,6 +103,10 @@ oper-status error-info "template3.xml:2 Unknown servicepoint: templ42-servicepoi
 
 Unlike a full `packages reload` operation, new NED packages can be loaded into the system without disrupting existing transactions. This is only possible for new packages, since these packages don't yet have any instance data.
 
+{% hint style="warning" %}
+Loading additional or larger NED schemas increases memory use in NSO and, when the Java VM is running, its heap use. Before adding NED packages, ensure that the host or container has sufficient memory and that the configured Java VM heap is large enough. See [Java VM Heap Size](../../development/advanced-development/scaling-and-performance-optimization.md#ncs.development.scaling.memory.jvm) for sizing and configuration guidance.
+{% endhint %}
+
 The operation is performed through the `/packages/add` action. No additional input is necessary. The operation scans all the load-paths for any new NED packages and also verifies the existing packages are still present. If packages are modified or deleted, the operation will fail.
 
 Each NED package defines `ned-id`, an identifier that is used in selecting the NED for each managed device. A new NED package is therefore a package with a ned-id value that is not already in use.
