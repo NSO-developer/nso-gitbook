@@ -64,7 +64,7 @@
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
-  * [README v6.18.33 2026-07-30](cisco-asa/README.md)
+  * [README v6.18.34 2026-08-12](cisco-asa/README.md)
 
 * cisco-cnc_rc
   * [README-ned-settings](cisco-cnc_rc/README-ned-settings.md)
@@ -134,7 +134,7 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.26.3 2026-07-02](f5-bigip/README.md)
+  * [README v3.26.4 2026-08-12](f5-bigip/README.md)
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)

@@ -34,6 +34,7 @@
      10.15 tail-f action to query locators by nes
      10.16 tail-f action to send CLI configuration to a target device(Northbound Transparent Transmission)
      10.17 tail-f action to extract transceivers
+     10.18 Filtering network-elements (NEs) by name
   11. DWDM-feature
       11.1 create/delete a 'tunnel' list entry
       11.2 create/modify/delete a service ('client-svc-instances') list entry
@@ -3018,3 +3019,97 @@ admin@ncs(config-config)# no network-elements OLT9010
 admin@ncs(config-config)# commit no-networking
 Commit complete.
 ```
+
+
+## 10.18 Filtering network-elements (NEs) by name
+-------------------------------------------------
+
+During configuration retrieval (sync-from, compare-config and partial-sync-from), the NED
+enumerates all network-elements (NEs) reported by the controller via:
+
+`restconf/v2/data/huawei-nce-resource-inventory:network-elements`
+
+and then reads the interface (and ACL/DHCP/tunnel-policy) configuration for each NE. On large
+NCE deployments this list can be big, while a given NSO device instance may only be interested
+in a subset of NEs. The `filter-ne-name` ned-setting restricts this enumeration to only the
+NEs whose `name` matches one or more patterns.
+
+### Description
+
+`filter-ne-name` is a `leaf-list` of Java regular expressions. An NE is accepted only if its
+`name` matches **at least one** of the configured expressions. Matching is performed with
+`Matcher.matches()`, meaning the regex must match the **entire** NE name (not just a
+substring).
+
+Behaviour:
+ - **Empty list (default)** — no filtering is applied; all NEs are accepted.
+ - **One or more patterns** — only NEs whose `name` fully matches at least one pattern are
+   kept. All other NEs (including NEs with an empty `name`) are skipped.
+ - Invalid regular expressions are logged and ignored (they do not abort the operation).
+
+Because it is a `leaf-list`, you can configure several patterns to cover different NE naming
+conventions used by different NCE devices.
+
+### Scope
+
+`filter-ne-name` applies to the **configuration** retrieval path only. It is honored when the
+NED enumerates the full NE list, i.e. during:
+ - full sync-from / compare-config, and
+ - partial-sync-from of the whole `device` list (path `.../config/top/device`).
+
+It is **not** applied when a partial-sync-from explicitly targets a single NE by key
+(e.g. `.../config/top/device[device-id=<id>]/...`): in that case the NED fetches exactly the
+requested NE, regardless of the configured patterns.
+
+It also does **not** affect the operational `platform` live-status actions such as
+`get-platform-oper-data`, `get-network-element-data` and `get-network-element-data-filters`;
+those actions have their own `name` / `ip-address` filters.
+
+### Configuration
+
+A `disconnect`/`connect` is required for the change to take effect.
+
+Add one or more patterns:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# config
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# connect
+result true
+```
+
+Show the currently configured patterns:
+
+```
+admin@ncs# show running-config devices device dev-1 ned-settings huawei-nce filter-ne-name
+devices device dev-1
+ ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
+!
+```
+
+Remove the filtering (accept all NEs again):
+
+```
+admin@ncs(config)# no devices device dev-1 ned-settings huawei-nce filter-ne-name
+admin@ncs(config)# commit
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# connect
+result true
+```
+
+### Example
+
+The regex `^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$` accepts NE names that:
+ - start with one of the prefixes `PE`, `PS`, `AG`, `MA`, `PAG` or `C`, followed by `-`,
+ - then a middle segment containing no `-` (`[^-]+`), followed by `-`,
+ - and end with exactly two digits followed by `H` (`\d\dH`).
+
+Assume the regex above is set and NCE controller reports these NE names:  
+PE-EDGE-01H AG-CORE-12H MA-ACCESS-07H PAG-SITE-33H C-LEAF-9H SW-TEST-01H
+
+the NED processes only: `PE-EDGE-01H (matches) AG-CORE-12H (matches) MA-ACCESS-07H (matches) PAG-SITE-33H (matches)`
+
+and  skips: `C-LEAF-9H (only one digit before 'H', needs two: \d\d) SW-TEST-01H (prefix 'SW' is not in the allowed list)`

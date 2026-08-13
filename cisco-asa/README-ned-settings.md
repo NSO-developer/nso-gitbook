@@ -205,6 +205,11 @@
       Path to known-hosts file.
 
 
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
     - connection ssh primary-host-key key-data <binary>
 
       The binary data for the primary SSH host key.
@@ -213,6 +218,11 @@
     - connection ssh secondary-host-key key-data <binary>
 
       The binary data for the secondary SSH host key.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
 
 
     - connection populate-smart-license <true|false> (default true)

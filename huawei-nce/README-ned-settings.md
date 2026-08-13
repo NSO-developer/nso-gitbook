@@ -127,6 +127,12 @@
       filter for product-name from huawei-nce-resource-inventory:cards API.
 
 
+    - filter-ne-name <string>
+
+      Accept an NE only if its 'name' matches at least one of these regular expressions. Empty =
+      accept all NEs (no filtering).
+
+
     - query-encoding <enum> (default rfc3986)
 
       Selects how query strings are encoded when building REST URLs toward the Huawei NCE
