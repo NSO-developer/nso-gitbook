@@ -39,7 +39,7 @@ Handling out-of-band changes requires NSO to make additional checks and perform 
 
 This option is great for testing out different scenarios and getting familiar with the out-of-band features of NSO. In addition to `commit`, there are other commands that can also be `confirm-network-state` enabled, such as device`sync-from` and service `re-deploy`.
 
-However, the recommended way for normal, day-to-day use is to enable`confirm-network-state` for a set of devices through device settings. For example:
+However, the recommended way for normal, day-to-day use is to enable `confirm-network-state` for a set of devices through device settings. For example:
 
 ```bash
 admin@ncs(config)# devices device c1 confirm-network-state enabled-by-default true
