@@ -60,7 +60,7 @@
       api   - L3VPN configuration is fetched using APIs for every L3VPN service.
 
 
-    - no-threads-interface-fetch <uint32> (default 10)
+    - no-threads-interface-fetch <uint32> (default 24)
 
       number of threads used to fetch data for:
       'restconf/v1/data/huawei-nce-ip-ifm:devices/device/id/interfaces/interface/id' API.

@@ -3107,7 +3107,7 @@ The regex `^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$` accepts NE names that:
  - then a middle segment containing no `-` (`[^-]+`), followed by `-`,
  - and end with exactly two digits followed by `H` (`\d\dH`).
 
-Assume the regex above is set and NCE controller reports these NE names:  
+Assume the regex above is set and NCE controller reports these NE names:
 PE-EDGE-01H AG-CORE-12H MA-ACCESS-07H PAG-SITE-33H C-LEAF-9H SW-TEST-01H
 
 the NED processes only: `PE-EDGE-01H (matches) AG-CORE-12H (matches) MA-ACCESS-07H (matches) PAG-SITE-33H (matches)`
