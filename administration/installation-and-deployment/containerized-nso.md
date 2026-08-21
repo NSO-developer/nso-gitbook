@@ -4,7 +4,7 @@ description: Deploy NSO in a containerized setup using Cisco-provided images.
 
 # Containerized NSO
 
-NSO can be deployed in your environment using a container, such as Docker. Cisco offers two pre-built images for this purpose that you can use to run NSO and build packages (see [Overview of NSO Images](containerized-nso.md#d5e8294)).
+NSO can be deployed in container environments such as Docker, Podman, Kubernetes, and OpenShift. Cisco offers two pre-built images for this purpose that you can use to run NSO and build packages (see [Overview of NSO Images](containerized-nso.md#d5e8294)).
 
 ***
 
@@ -152,10 +152,13 @@ Migrate:
 6.  Start the container. Example:
 
     ```bash
-    docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
-    --name cisco-nso -e EXTRA_ARGS=--with-package-reload -e ADMIN_USERNAME=admin \
-    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
-    ```
+docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
+--name cisco-nso -e EXTRA_ARGS=--with-package-reload \
+-e NCS_LOCAL_AUTHENTICATION_ENABLED=true -e ADMIN_USERNAME=admin \
+-e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
+```
+
+When using a migrated custom `ncs.conf`, ensure that it enables NSO local authentication. The `NCS_LOCAL_AUTHENTICATION_ENABLED` environment variable affects the default container configuration, or a custom configuration that includes the corresponding environment-variable expression. If the migrated deployment continues to use PAM, omit the `ADMIN_*` variables and configure the required Linux users instead.
 
 Finalize:
 
@@ -176,13 +179,15 @@ If the `ncs.conf` file is edited after startup, it can be reloaded using MAAPI `
 {% endhint %}
 
 {% hint style="info" %}
-The default `ncs.conf` file in `/defaults` has a set of environment variables that can be used to enable interfaces (all interfaces are disabled by default) which is useful when spinning up the Production container for quick testing. An interface can be enabled by setting the corresponding environment variable to `true`.
+The default `ncs.conf` file in `/defaults` has environment variables for configuring northbound interfaces and local authentication. Northbound interfaces are disabled by default. Set an interface variable to `true` to enable its listener.
 
 * `NCS_CLI_SSH`: Enables CLI over SSH on port `2024`.
 * `NCS_WEBUI_TRANSPORT_TCP`: Enables JSON-RPC and RESTCONF over TCP on port `8080`.
 * `NCS_WEBUI_TRANSPORT_SSL`: Enables JSON-RPC and RESTCONF over SSL/TLS on port `8888`.
+* `NCS_WEBUI_MATCH_HOST_NAME`: Controls Web UI host-header matching; defaults to `true`.
 * `NCS_NETCONF_TRANSPORT_SSH`: Enables NETCONF over SSH on port `2022`.
 * `NCS_NETCONF_TRANSPORT_TCP`: Enables NETCONF over TCP on port `2023`.
+* `NCS_LOCAL_AUTHENTICATION_ENABLED`: Enables NSO local AAA authentication; defaults to `false`.
 {% endhint %}
 
 ### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
@@ -199,7 +204,7 @@ The NSO container runs a script called `take-ownership.sh` as part of its startu
 
 ### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
 
-An admin user can be created on startup by the run script in the container. Three environment variables control the addition of an admin user:
+When NSO local authentication is enabled, an admin user can be created on startup by the run script in the container. Three environment variables control the addition of this NSO AAA user:
 
 * `ADMIN_USERNAME`: Username of the admin user to add, default is `admin`.
 * `ADMIN_PASSWORD`: Password of the admin user to add.
@@ -218,12 +223,143 @@ When using a permanent volume for CDB, and restarting the NSO container multiple
 {% endhint %}
 
 {% hint style="info" %}
-The default `ncs.conf` supplied with the NSO Production Image enables Linux PAM authentication and disables NSO local authentication. For `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SSHKEY` to take effect, enable `/ncs-config/aaa/local-authentication`. Alternatively, you can create a local Linux admin user that is authenticated by NSO using Linux PAM.
+The default `ncs.conf` supplied with the NSO Production Image enables Linux PAM authentication and disables NSO local authentication. The `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SSHKEY` variables create an NSO local AAA user; they take effect only when `/ncs-config/aaa/local-authentication` is enabled. Alternatively, create a local Linux user that NSO authenticates through Linux PAM.
 {% endhint %}
+
+### Authentication and Container Runtime Models
+
+Select the authentication model based on the deployment environment and the source of user identities. NSO local authentication, Linux PAM authentication, and external authentication are independent of the container runtime; however, some models fit particular runtimes better than others.
+
+| Authentication model | Suitable deployments | Benefits | Considerations |
+| --- | --- | --- | --- |
+| NSO local authentication | Self-contained Docker deployments, Kubernetes, and OpenShift | NSO stores users and password hashes in CDB. It does not depend on a Linux login identity and works with OpenShift arbitrary UIDs. | Persist CDB. Treat the initial credentials as bootstrap credentials and manage subsequent user and password changes through NSO. |
+| Linux PAM | Standard Docker and Kubernetes deployments with a stable Linux user identity | Integrates with Linux users and existing PAM integrations, such as enterprise identity services configured in the image. | Requires a derived image with a valid Linux account and a working PAM configuration. It is not suitable for the OpenShift arbitrary-UID model. |
+| External authentication | Deployments that require centralized authentication without relying on the container OS user database | Can integrate NSO with an external identity service. | Requires an external authentication executable and its lifecycle, configuration, and availability to be managed. See [External Authentication](../management/aaa-infrastructure.md#ug.aaa.external_authentication). |
+
+Local IPC access for commands such as `ncs_cli` is separate from these northbound authentication models. Local IPC identifies a process running in the container; it does not authenticate SSH, NETCONF, RESTCONF, or Web UI users.
+
+#### NSO Local Authentication
+
+The default container `ncs.conf` makes local authentication configurable with an environment variable:
+
+```xml
+<aaa>
+  <local-authentication>
+    <enabled>${NCS_LOCAL_AUTHENTICATION_ENABLED:-false}</enabled>
+  </local-authentication>
+</aaa>
+```
+
+Set the variable to enable local authentication:
+
+```bash
+NCS_LOCAL_AUTHENTICATION_ENABLED=true
+```
+
+If you supply a custom `ncs.conf` and do not need a runtime override, setting `<enabled>true</enabled>` is also valid.
+
+For a simple Docker deployment, supply the bootstrap credentials when the CDB is first created:
+
+```bash
+docker run -d --name cisco-nso \
+  -v nso-run:/nso/run \
+  -v nso-etc:/nso/etc \
+  -v nso-log:/log \
+  -e NCS_LOCAL_AUTHENTICATION_ENABLED=true \
+  -e ADMIN_USERNAME=admin \
+  -e ADMIN_PASSWORD='replace-with-a-secret' \
+  cisco-nso-prod:VERSION
+```
+
+For Kubernetes and OpenShift, store the bootstrap `ADMIN_USERNAME` and `ADMIN_PASSWORD`, or `ADMIN_SSHKEY`, in a Secret and reference it from the pod environment. OpenShift uses the same Kubernetes Secret resource. Do not put credentials directly in a deployment manifest:
+
+```yaml
+env:
+  - name: NCS_LOCAL_AUTHENTICATION_ENABLED
+    value: "true"
+  - name: ADMIN_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: nso-admin-credentials
+        key: ADMIN_USERNAME
+  - name: ADMIN_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: nso-admin-credentials
+        key: ADMIN_PASSWORD
+```
+
+Secrets are a credential-delivery mechanism, not the NSO user database; protect them with appropriate RBAC and encryption-at-rest configuration. When a persistent CDB already exists, changing `ADMIN_*` values does not by itself update the corresponding NSO user; manage the user through NSO instead.
+
+#### Linux PAM Authentication
+
+The Production Image defaults to PAM. PAM is intended for standard Docker and Kubernetes deployments with a stable Linux user identity. NSO local authentication is also a good fit for many Kubernetes deployments, especially when bootstrap credentials are delivered through Kubernetes Secrets and no Linux or enterprise PAM identity integration is required. PAM does not work with the OpenShift arbitrary-UID model. To use PAM, build a derived image that supplies a stable Linux account and configures its authorization groups. The following example uses the existing `nso` account and gives it the default full-access `ncsadmin` group:
+
+```Dockerfile
+ARG BASEIMAGE
+FROM ${BASEIMAGE}
+
+ARG USERPASSWD
+
+USER root
+RUN groupadd -f ncsadmin \
+    && usermod -aG ncsadmin nso \
+    && echo "nso:${USERPASSWD}" | chpasswd
+
+# These environment variables, not the Dockerfile USER instruction, give
+# kubectl exec sessions a stable local CLI identity.
+ENV USER=nso
+ENV LOGNAME=nso
+
+# Optionally provide a complete custom configuration.
+# COPY --chown=nso:root ncs.conf /nso/etc/ncs.conf
+# RUN chmod g=u /nso/etc/ncs.conf
+
+USER nso
+```
+
+Use a secure build mechanism for production credentials; do not expose production passwords in a Dockerfile, source repository, or shell history. The template illustrates the required account setup only. The default system-install AAA configuration grants full access to `ncsadmin` members and read-only access to `ncsoper` members. Setting a Linux password without assigning an appropriate group is therefore not sufficient.
+
+For Kubernetes, keep the pod UID and primary GID aligned with the `USER nso` account in the derived image. Do not set a different `runAsUser` merely to select a runtime UID. The Dockerfile `USER` instruction sets the process identity but does not set the `USER` or `LOGNAME` environment variables. Because `kubectl exec` does not create a login session, set both variables to the stable Linux account used by the image, as in the template, so that local `ncs_cli` sessions can determine their username. If they are not baked into the derived image, define them in the pod environment instead. Do not set them to `nso` for the OpenShift arbitrary-UID model.
+
+Kubernetes does not automatically apply the supplementary groups from `/etc/group` to the container process. If local `ncs_cli` sessions started through `kubectl exec` must have the same authorization as PAM-authenticated sessions, add the relevant Linux authorization group, such as `ncsadmin` or `ncsoper`, as a pod supplemental group. Determine the group ID from the derived image:
+
+```yaml
+spec:
+  template:
+    spec:
+      securityContext:
+        supplementalGroups:
+          - 1000 # Replace with the ncsadmin or ncsoper gid in the image.
+```
+
+#### OpenShift
+
+OpenShift commonly assigns an arbitrary non-root UID at runtime, usually with primary group `0`. The runtime UID is not a stable Linux login identity, so do not use it as the administrator identity for PAM-based NSO access.
+
+Use the local-authentication model for OpenShift:
+
+1. Run the image with `USE_OPENSHIFT=true`.
+2. Enable `NCS_LOCAL_AUTHENTICATION_ENABLED=true`, or configure local authentication in the supplied `ncs.conf`.
+3. Supply `ADMIN_USERNAME` and `ADMIN_PASSWORD`, or `ADMIN_SSHKEY`, from a Secret when bootstrapping a new CDB.
+4. Use the resulting NSO AAA user for CLI over SSH, NETCONF over SSH, RESTCONF, and Web UI login.
+5. When using a read-only root filesystem, NSO can write only to paths backed by writable volume mounts. Mount persistent volumes at `/nso/run`, `/nso/etc`, and `/log`, and mount writable ephemeral volumes at `/tmp` and `/run`. Do not rely on the image filesystem for persistent or temporary runtime data.
+
+Do not set `runAsUser` or `runAsGroup` to a fixed value for this model. The image prepares its writable data directories and synthesizes the runtime identity required by local tools. The random runtime user and the stable NSO AAA login user are intentionally separate. For local administrative commands, specify the NSO AAA user when appropriate, for example `ncs_cli -u admin`.
+
+If centralized authentication is required in OpenShift, [External Authentication](../management/aaa-infrastructure.md#ug.aaa.external_authentication) is an alternative to local authentication. It requires more deployment and operational work than NSO local AAA, because the external executable and its dependencies must be provided and maintained in the derived image.
 
 ### Exposing Ports <a href="#sec.exposed_ports" id="sec.exposed_ports"></a>
 
-The default `ncs.conf` NSO configuration file does not enable any northbound interfaces, and no ports are exposed externally to the container. Ports can be exposed externally of the container when starting the container with the northbound interfaces and their ports correspondingly enabled in `ncs.conf`.
+The default `ncs.conf` NSO configuration file does not enable any northbound interfaces. First enable the required interface and listener port in `ncs.conf`, or with the corresponding supported environment variable. How the listener is made reachable outside the container depends on the container platform:
+
+| Platform | How to expose NSO northbound ports |
+| --- | --- |
+| Docker or Podman | Publish a container port on the host, for example with `-p host-port:container-port`, or use host networking where appropriate. |
+| Kubernetes | Create a Service targeting the NSO pod. Select the Service type, such as `ClusterIP`, `NodePort`, or `LoadBalancer`, according to cluster policy and the required reachability. Use `kubectl port-forward` only for development and troubleshooting. |
+| OpenShift | Create a Service targeting the NSO pod. Expose HTTPS through an OpenShift Route when appropriate. CLI and NETCONF over SSH require a TCP-capable Service exposure mechanism, such as a cluster-provided LoadBalancer, NodePort, or external TCP gateway; availability is determined by cluster policy. |
+
+The northbound listener configuration is independent of the exposure mechanism. For example, enabling CLI over SSH on port `2024` does not publish that port automatically, and publishing port `2024` does not enable the NSO listener.
 
 ### Backup and Restore <a href="#d5e8524" id="d5e8524"></a>
 
