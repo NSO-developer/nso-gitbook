@@ -850,12 +850,10 @@
 
     - transaction enable-portchannel-set-hook <true|false> (default true)
 
-      There is a set-hook to replicate configuration to joined interfaces for channel-groups (i.e.
-      when port-channel interface is updated, certain config is replicated in the same transaction,
-      within NSO, to stay in sync with device which has this behaviour). The same can easily be
-      achieved in a service, which is more efficient since set-hooks can cause huge overhead.
-      Specifically, if channel-groups are not configured, this set-hook can be disabled, it is of no
-      use then.
+      Replicate port-channel switchport config to its channel-group members in the same transaction,
+      matching device behaviour. Members are set to switchport and config on them is overwritten.
+      Implemented as a transaction-hook despite the leaf name. WARNING: affects commit performance,
+      replicating the config yourself is always better.
 
 
     - transaction abort-on-diff <true|false> (default false)

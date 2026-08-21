@@ -5,7 +5,7 @@
 ## Cisco-provided NEDs
 * a10-acos
   * [README-ned-settings](a10-acos/README-ned-settings.md)
-  * [README v3.27.6 2026-07-30](a10-acos/README.md)
+  * [README v3.27.7 2026-08-20](a10-acos/README.md)
 
 * accedian-nid
   * [README-ned-settings](accedian-nid/README-ned-settings.md)
@@ -47,7 +47,7 @@
 
 * ceragon-ip20
   * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.3 2026-03-20](ceragon-ip20/README.md)
+  * [README v1.10.4 2026-08-20](ceragon-ip20/README.md)
 
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.35 2026-08-07](cisco-nx/README.md)
+  * [README v5.36 2026-08-20](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -162,7 +162,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.86.2 2026-08-13](huawei-vrp/README.md)
+  * [README v6.87 2026-08-20](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -210,7 +210,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.22 2026-06-05](paloalto-panos_cli/README.md)
+  * [README v4.11.23 2026-08-20](paloalto-panos_cli/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)
