@@ -24,7 +24,7 @@ NSO supports the following options for implementing an HA setup to cater to the 
 * [**Rule-based HA**](high-availability.md#ug.ha.builtin): A less sophisticated solution that allows you to influence the primary selection but may require occasional manual operator action.
 * [**External HA**](high-availability.md#read-only-state): NSO only provides data replication; all other functions, such as primary selection and group membership management, are performed by an external application, using the HA framework (HAFW).
 
-All of these options rely on a secure transport for communication, which uses TLS and host certificates. See [Managing Certificates](#managing-certificates) for details.
+All of these options rely on a secure transport for communication, which uses TLS and host certificates. See [Managing Certificates](high-availability.md#managing-certificates) for details.
 
 In addition to data replication, having a fixed address to connect to the current primary in an HA group greatly simplifies access for operators, users, and other systems alike. Use [Tail-f HCC Package](high-availability.md#ug.ha.hcc) or an [external load balancer](high-availability.md#ug.ha.lb) to manage it.
 
@@ -82,7 +82,7 @@ The following is a HA Raft configuration snippet for `ncs.conf` that includes ce
   </ha-raft>
 ```
 
-See [Managing Certificates](#managing-certificates) for more information on creating TLS X509 certificates.
+See [Managing Certificates](high-availability.md#managing-certificates) for more information on creating TLS X509 certificates.
 
 ### Actions <a href="#ch_ha.raft_actions" id="ch_ha.raft_actions"></a>
 
@@ -156,7 +156,10 @@ The cluster name is simply a character string that uniquely identifies this HA c
       <key-file>${NCS_CONFIG_DIR}/dist/ssl/cert/ash.key</key-file>
     </ssl>
     <seed-nodes>
-      <seed-node>birch.example.org</seed-node>
+      <seed-node>
+        <address>birch.example.org</address>
+        <port>4570</port>
+      </seed-node>
     </seed-nodes>
   </ha-raft>
 ```
@@ -423,8 +426,7 @@ Rule-based HA allows administrators to:
 * Assign roles, join HA group, enable/disable rule-based HA through actions
 * View the state of the current HA setup
 
-NSO rule-based HA is defined in `tailf-ncs-high-availability.yang`, with data residing under the `/high-availability/` container. Since NSO 6.7, the HA transport uses TLS and host certificates to secure node communication. See [Managing Certificates](#managing-certificates) for details and recipes.
-
+NSO rule-based HA is defined in `tailf-ncs-high-availability.yang`, with data residing under the `/high-availability/` container. Since NSO 6.7, the HA transport uses TLS and host certificates to secure node communication. See [Managing Certificates](high-availability.md#managing-certificates) for details and recipes.
 
 {% hint style="info" %}
 In environments with high NETCONF traffic, particularly when using `ncs_device_notifs`, it's recommended to enable read-only mode on the designated primary node before performing HA activation or sync. This prevents `app_sync` from being blocked by notification processing.
@@ -636,7 +638,7 @@ Since certificates are valid for a limited time, you can check the validity with
 $ bin/verify-cert n2
 ```
 
-Executing these commands creates a directory named `ca-...` that holds all the certificate and auxiliary data, allowing you to renew or export certificates again. There are a number of other operations available too, see [$NCS_DIR/examples.ncs/high-availability/ca/README.md](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/ca/README.md) for details.
+Executing these commands creates a directory named `ca-...` that holds all the certificate and auxiliary data, allowing you to renew or export certificates again. There are a number of other operations available too, see [$NCS\_DIR/examples.ncs/high-availability/ca/README.md](https://github.com/NSO-developer/nso-examples/tree/6.7/high-availability/ca/README.md) for details.
 
 ### Two-Node Example with HCC VIP <a href="#ug.ha.builtin.twonode" id="ug.ha.builtin.twonode"></a>
 
@@ -734,20 +736,17 @@ There are several ways to handle this:
     admin@ncs(config)# hcc bgp node paris port 1790
     admin@ncs(config)# commit
     ```
-
 2.  Set capability `CAP_NET_BIND_SERVICE` on the `gobgpd` file. This allows GoBGP to bind port 179 without full root privileges. May not be supported by all Linux distributions.
 
     ```bash
     $ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/gobgpd
     ```
-
 3.  Set the owner to `root` and the `setuid` bit of the `gobgpd` file. Works on all Linux distributions but grants broader privileges than option 2.
 
     ```bash
     $ sudo chown root /usr/bin/gobgpd
     $ sudo chmod u+s /usr/bin/gobgpd
     ```
-
 4.  The `vipctl` script, included in the HCC package, uses `sudo` to run the `ip`, `arping`, and `ndsend` commands when NSO is not running as root. If `sudo` is used, you must ensure it does not require password input. For example, if NSO runs as `admin` user, the `sudoers` file can be edited similarly to the following:
 
     ```bash
@@ -816,9 +815,10 @@ admin@ncs(config)# hcc vip 192.168.123.22
 admin@ncs(config)# hcc vip 2001:db8::10
 admin@ncs(config)# commit
 ```
+
 #### **VIP Behavior in Three-Node Raft-based HA**
 
-In the three-node HA Raft example in [NSO HA Raft](high-availability.md#ch_ha.raft.threenode), HCC layer-2 VIP ownership follows the node that currently has <code>role leader</code>:
+In the three-node HA Raft example in [NSO HA Raft](high-availability.md#ch_ha.raft.threenode), HCC layer-2 VIP ownership follows the node that currently has `role leader`:
 
 * Steady state: the VIP is bound on the current leader only.
 * One follower down or returning: the VIP stays on the same leader.
@@ -831,13 +831,13 @@ If a failover leaves leadership on a different node than you prefer, use `ha-raf
 
 #### **VIP Behavior in Two-Node Rule-based HA**
 
-In the two-node rule-based HA example in [NSO Rule-based HA](high-availability.md#ug.ha.builtin.twonode), HCC layer-2 VIP ownership follows the node that currently has <code>mode primary</code>:
+In the two-node rule-based HA example in [NSO Rule-based HA](high-availability.md#ug.ha.builtin.twonode), HCC layer-2 VIP ownership follows the node that currently has `mode primary`:
 
 * Steady state: the VIP is bound on the nominal primary only.
-* Consensus enabled, nominal primary changes to <code>none</code>: no node owns the VIP, so HCC unbinds it.
+* Consensus enabled, nominal primary changes to `none`: no node owns the VIP, so HCC unbinds it.
 * Consensus enabled, failover-primary takes over: the VIP moves to the failover-primary node, which may still be administrator-configured read-only.
 * Consensus disabled, ordinary failover: the VIP moves to the surviving primary and stays there when the failed node returns as a secondary.
-* Consensus disabled, network partition: both nodes may end up in <code>primary</code> mode and both may bind the same VIP until the split brain is manually resolved.
+* Consensus disabled, network partition: both nodes may end up in `primary` mode and both may bind the same VIP until the split brain is manually resolved.
 
 ### Layer-3 BGP <a href="#ug.ha.hcc.layer3" id="ug.ha.hcc.layer3"></a>
 
@@ -1245,12 +1245,12 @@ A similar configuration can be added for other NB interfaces, see the ha-primary
 
 ## Read-only State
 
-Administrators can explicitly configure read-only mode on any NSO node (primary or secondary) using either `/ncs-state/set-read-only` action or `maapi_set_readonly_mode()` MAAPI function, which disables further configuration changes and may be required, for example, during cluster maintenance. This is called _administrator-configured_ read-only mode and can be verified by querying the `/ncs-state/admin-configured-read-only-mode`  leaf.
+Administrators can explicitly configure read-only mode on any NSO node (primary or secondary) using either `/ncs-state/set-read-only` action or `maapi_set_readonly_mode()` MAAPI function, which disables further configuration changes and may be required, for example, during cluster maintenance. This is called _administrator-configured_ read-only mode and can be verified by querying the `/ncs-state/admin-configured-read-only-mode` leaf.
 
 However, an NSO node may also become read-only due to its HA state. The overall read-only state is therefore governed by:
 
 * **Administrator-configured read-only mode**: Explicitly set by an administrator as described above (or invoked by [#ug.ha.builtin](high-availability.md#ug.ha.builtin "mention") in certain situations).
-* &#x20;**Read-only mode imposed by HA operational state**: Automatically set based on the node's HA role, e.g. when secondary or follower.
+* **Read-only mode imposed by HA operational state**: Automatically set based on the node's HA role, e.g. when secondary or follower.
 
 The node will enter a read-only state, as shown in `/ncs-state/read-only-mode`, and reject write transactions when either of these conditions is true. This separation allows administrators to place a node in read-only mode for maintenance or upgrade scenarios, independent of the HA configuration.
 
