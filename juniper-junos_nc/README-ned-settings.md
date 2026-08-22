@@ -48,6 +48,9 @@
           3.1.2. regex-include
           3.1.3. inject
      3.2. ssh
+     3.3. keep-alive
+     3.4. tls
+          3.4.1. mutual-tls
   4. proxy
   5. live-status
      5.1. regex-exclude
@@ -423,6 +426,32 @@
   (hello).
 
 
+    - connection telemetry transport <enum> (default gnmi)
+
+      Configure transport method for subscribing on telemetry events using the gNMI interface.
+
+      gnmi       - gnmi.
+
+      yang-push  - yang-push.
+
+      disabled   - disabled.
+
+
+    - connection grpc port <uint16> (default 50051)
+
+      Configure the gRPC interface port used by the device.
+
+
+    - connection grpc idle-timeout <uint32> (default 30)
+
+      Set the duration without ongoing gRPC RPCs before going to idle mode. Value in minutes.
+
+
+    - connection grpc connect-retries <uint8> (default 1)
+
+      Set number of connect retries.
+
+
 ## 3.1. ned-settings juniper-junos_nc connection capabilities
 -------------------------------------------------------------
 
@@ -582,6 +611,95 @@
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
       keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
       interval.
+
+
+## 3.3. ned-settings juniper-junos_nc connection grpc keep-alive
+----------------------------------------------------------------
+
+  Connection keep alive settings.
+
+
+    - keep-alive enable <true|false> (default false)
+
+      Enable keep alive on the connection. Default false.
+
+
+    - keep-alive time <uint32> (default 60)
+
+      Sets the time without read activity before sending a keepalive ping. Value in seconds.
+
+
+    - keep-alive timeout <uint32> (default 20)
+
+      Sets the time waiting for read activity after sending a keepalive ping. Value in seconds.
+
+
+## 3.4. ned-settings juniper-junos_nc connection grpc tls
+---------------------------------------------------------
+
+  TLS authentication settings.
+
+
+    - tls enable <true|false> (default false)
+
+      Enable TLS authentication.
+
+
+    - tls accept-any <true|false> (default false)
+
+      Accept any server or trust manager certificate. Setting this to true is unsafe and shall only
+      be used for testing purposes.
+
+
+    - tls ciphers <union>
+
+      Configure permitted ciphers to use when doing TLS handshake. Leave empty to use system
+      default.
+
+
+    - tls protocols <union>
+
+      Configure permitted protocol versions to use when doing TLS handshake. Leave empty to use
+      system default.
+
+
+    - tls certificate <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+          "----- BEGIN CERTIFICATE -----".
+
+      Default uses the default trusted certificates installed in Java JVM.
+
+      Simple method to get the PEM of a server:
+          openssl s_client -connect HOST:PORT
+
+
+    - tls override-authority <string>
+
+      Specify names to override authority for. Shall only be used for testing.
+
+
+### 3.4.1. ned-settings juniper-junos_nc connection grpc tls mutual-tls
+-----------------------------------------------------------------------
+
+  Settings related to mTLS.
+
+
+    - mutual-tls client certificate <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+             "----- BEGIN CERTIFICATE -----".
+
+
+    - mutual-tls client key <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+             "-----BEGIN PRIVATE KEY-----".
+
+
+    - mutual-tls client key-password <string>
+
+      Configure password for the client key, if encrypted.
 
 
 # 4. ned-settings juniper-junos_nc proxy

@@ -294,6 +294,19 @@
       been configured.
 
 
+    - transaction revert-with-rollback enable <true|false> (default false)
+
+      Enable revert functionality by executing the MD-CLI rollback command.
+
+
+    - transaction revert-with-rollback disable-reverse-diff <true|false> (default false)
+
+      When revert-with-rollback is enabled, disable the request for a reverse diff. This can improve
+      NSO performance since reverse diff calculation is typically resource-intensive. Note that
+      disabling the reverse diff removes the ability for the NED to fall back to the standard
+      NETCONF revert operation.
+
+
     - transaction annotate-commit <enum> (default disabled)
 
       Enable support for annotating the commit on SROS devices through NSO. When this option is
