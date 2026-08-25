@@ -876,7 +876,7 @@ The BGP configuration parameters are found under `/hcc:hcc/bgp/node{id}`.
 
 Per-Node Layer-3 Configuration:
 
-<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr><tr><td><code>port</code></td><td><code>union (enumeration | int32)</code></td><td>The TCP port GoBGP listens on. Default is <code>179</code>. Set to <code>disabled</code> to turn off the listener entirely, which avoids binding to privileged port <code>179</code> and allows running GoBGP without root privileges when peers accept outbound-only connections. Alternatively, set to a non-privileged port (e.g., <code>1790</code>). See <a href="high-availability.md#ug.ha.hcc.nonroot">Running as Non-Root User</a>.</td></tr></tbody></table>
+<table><thead><tr><th width="194">Parameters</th><th width="190">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>node-id</code></td><td><code>string</code></td><td>Unique node ID. A reference to <code>/ncs:high-availability/ha-node/id</code>.</td></tr><tr><td><code>enabled</code></td><td><code>boolean</code></td><td>If set to <code>true</code>, this node uses BGP to announce VIP addresses when in the HA primary state.</td></tr><tr><td><code>as</code></td><td><code>inet:as-number</code></td><td>The BGP Autonomous System Number for the local BGP daemon.</td></tr><tr><td><code>router-id</code></td><td><code>inet:ip-address</code></td><td>The router ID for the local BGP daemon.</td></tr><tr><td><code>port</code></td><td><code>union (enumeration | int32)</code></td><td>The TCP port GoBGP listens on. Default is <code>179</code>. Set to <code>disabled</code> to turn off the listener entirely, which avoids binding to privileged port <code>179</code> and allows running GoBGP without root privileges when peers accept outbound-only connections. Alternatively, set to a non-privileged port (e.g., <code>1790</code>). See <a href="high-availability.md#ug.ha.hcc.nonroot">Running as Non-Root User</a>.</td></tr><tr><td><code>as-path-prepend-count</code></td><td><code>uint8</code></td><td>Number of times to add the local AS number to the advertised VIP route. The range is <code>0</code> to <code>10</code>, and the default is <code>0</code>. A higher value makes the route less preferred by eBGP peers.</td></tr><tr><td><code>local-pref</code></td><td><code>uint32</code></td><td>Optional local preference for the advertised VIP route. A higher value is preferred within an AS and is normally used with iBGP.</td></tr><tr><td><code>med</code></td><td><code>uint32</code></td><td>Optional Multi-Exit Discriminator for the advertised VIP route. A lower value is preferred when the peer compares MED values.</td></tr></tbody></table>
 
 Each NSO node can connect to a different set of BGP neighbors. For each node, the BGP neighbor list configuration parameters are found under `/hcc:hcc/bgp/node{id}/neighbor{address}`.
 
@@ -895,6 +895,135 @@ admin@ncs(config)# ... repeated for each neighbor if more than one ...
             ... repeated for each node ...
 admin@ncs(config)# commit
 ```
+
+#### **Selecting the Preferred Route During Split Brain**
+
+In a split-brain situation, both nodes can become primary and advertise the same VIP. Starting with tailf-hcc 6.0.9, each node can advertise different BGP route attributes so that upstream routers prefer one route.
+
+The following examples assume that `paris` should be preferred and `london` should be less preferred. Configure the route attributes while HA is healthy by running the commands on the current primary node, which replicates the configuration to the secondary node. If split brain is already active, apply the same complete per-node configuration independently on both isolated nodes because HA replication is unavailable. Use the node IDs from `show high-availability status` in place of `paris` and `london`.
+
+{% hint style="info" %}
+Choose the attribute that matches the BGP design. For most eBGP deployments, use `as-path-prepend-count`. Use `local-pref` for iBGP. Use `med` only when the upstream routers compare MED values. Configuring more than one attribute is normally unnecessary.
+{% endhint %}
+
+The commands below use the C-style (Cisco XR style) NSO CLI, indicated by the `#` prompt. Start this CLI from the NSO host with `ncs_cli -C -u admin`.
+
+Check the HA role and enter configuration mode:
+
+```bash
+admin@ncs# show high-availability status
+admin@ncs# config
+```
+
+Use CLI help to see the available route attributes:
+
+```bash
+admin@ncs(config)# hcc bgp node london ?
+Possible completions:
+  as-path-prepend-count   Number of times to prepend local AS to AS-PATH of
+                          VIP routes (0 = disabled)
+  local-pref              BGP LOCAL_PREF attribute for advertised VIP routes
+  med                     BGP MED (Multi-Exit Discriminator) for advertised
+                          VIP routes
+  ...
+```
+
+Configuring AS Path Prepend:
+
+`as-path-prepend-count` accepts values from `0` to `10`. The default is `0`, which disables prepending. A higher value adds the local AS number more times and makes that node's route less preferred by eBGP peers. Configure the higher value on the node that should lose the route comparison.
+
+Check the accepted values and make `london` less preferred:
+
+```bash
+admin@ncs(config)# hcc bgp node london as-path-prepend-count ?
+Possible completions:
+  <unsignedByte, 0 .. 10>[0]
+admin@ncs(config)# hcc bgp node paris as-path-prepend-count 0
+admin@ncs(config)# hcc bgp node london as-path-prepend-count 3
+admin@ncs(config)# commit
+```
+
+To disable AS path prepending, set the value back to `0`:
+
+```bash
+admin@ncs(config)# hcc bgp node london as-path-prepend-count 0
+admin@ncs(config)# commit
+```
+
+Configuring Local Preference:
+
+`local-pref` is an optional unsigned 32-bit value from `0` to `4294967295`. A higher value is preferred. Use this setting when the route is distributed through iBGP. When the leaf is not configured, HCC does not add a LOCAL_PREF attribute.
+
+Check the accepted value and give `paris` the higher preference:
+
+```bash
+admin@ncs(config)# hcc bgp node paris local-pref ?
+Possible completions:
+  <unsignedInt>
+admin@ncs(config)# hcc bgp node paris local-pref 200
+admin@ncs(config)# hcc bgp node london local-pref 100
+admin@ncs(config)# commit
+```
+
+To stop HCC from adding LOCAL_PREF, remove the leaf from both node entries:
+
+```bash
+admin@ncs(config)# no hcc bgp node paris local-pref
+admin@ncs(config)# no hcc bgp node london local-pref
+admin@ncs(config)# commit
+```
+
+Configuring MED:
+
+`med` is an optional unsigned 32-bit value from `0` to `4294967295`. A lower value is preferred. Use this setting only when the upstream routers are configured to compare MED values, typically for routes received from the same neighboring AS. When the leaf is not configured, HCC does not add a MED attribute.
+
+Check the accepted value and give `paris` the lower MED:
+
+```bash
+admin@ncs(config)# hcc bgp node paris med ?
+Possible completions:
+  <unsignedInt>
+admin@ncs(config)# hcc bgp node paris med 50
+admin@ncs(config)# hcc bgp node london med 100
+admin@ncs(config)# commit
+```
+
+To stop HCC from adding MED, remove the leaf from both node entries:
+
+```bash
+admin@ncs(config)# no hcc bgp node paris med
+admin@ncs(config)# no hcc bgp node london med
+admin@ncs(config)# commit
+```
+
+Verifying the Configuration:
+
+Check the configured values and BGP neighbor state in NSO:
+
+```bash
+admin@ncs# show running-config hcc bgp node | display xpath
+admin@ncs# show hcc
+```
+
+In the J-style NSO CLI, indicated by the `>` prompt, use the following command to display the BGP configuration:
+
+```bash
+admin@ncs> show configuration hcc bgp node | display xpath
+```
+
+On an NSO host running GoBGP, check the advertised VIP route and its attributes:
+
+```bash
+$ gobgp global rib -a ipv4
+   Network                Next Hop  AS_PATH
+*> 192.168.23.122/32      0.0.0.0   64513 64513 64513
+```
+
+The example output shows the local AS repeated three times after configuring `as-path-prepend-count 3` on `london`. Finally, check the VIP route on the upstream BGP router. The exact command depends on the router. Confirm that it selects the route from the intended node. For AS path prepending, the less-preferred node should have the longer AS path.
+
+{% hint style="warning" %}
+These settings influence route selection. They do not prevent or resolve split brain.
+{% endhint %}
 
 ### Layer-3 DNS Update
 
