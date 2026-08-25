@@ -85,7 +85,7 @@
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.5 2026-08-13](cisco-iosxr/README.md)
+  * [README v7.77.6 2026-08-24](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -255,5 +255,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.6.1 2026-08-04](zte-zxros/README.md)
+  * [README v1.6.2 2026-08-24](zte-zxros/README.md)
 
