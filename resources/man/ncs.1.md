@@ -266,7 +266,7 @@ Guide for details.
 
 `--cdb-validate Directory [ --log-file File ] [ --log-level Level ] [ --validate Item ]...`  
 > Validate the content of CDB files in \<Directory\>. This is a
-> completely stand-alone feature and the only thing needed is the .cdb
+> completely stand-alone feature and the only thing needed is the CDB
 > files (no running NCS daemon or .fxs files etc).
 >
 > If provided `--log-file`, all logs are written to the corresponding

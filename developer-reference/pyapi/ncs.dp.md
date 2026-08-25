@@ -17,13 +17,16 @@ Return worker socket to pool.
 ### take_worker_socket
 
 ```python
-take_worker_socket(state, name, key=None)
+take_worker_socket(state, name, key=None, action_key=None)
 ```
 
 Take worker socket associated with a worker thread from Daemon/state.
 
 Take worker socket from pool, must be returned with
 dp.return_worker_socket after use.
+
+If action_key is provided, the _Wsock is also tracked in
+state['action_wsocks'] so the abort wrapper can find and flag it.
 
 
 ## Classes
