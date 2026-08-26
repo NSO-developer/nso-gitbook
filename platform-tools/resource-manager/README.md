@@ -55,7 +55,7 @@ resource-pools id-pool vlans
 !
 ```
 
-Usually the allocation happens in service mapping code, through programmatic API. However, you can manually allocate a new resource from a pool using the corresponding `find-*` helper action. For ID allocation, the action is `find-id`:
+Usually the allocation happens in service mapping code, through programmatic API. However, you can manually allocate a new resource from a pool using the corresponding `find-*` helper action, designed for manual allocation through the CLI. For ID allocation, the action is called `find-id`:
 
 ```sh
 admin@ncs# resource-pools find-id allocation-name my_first_id\
@@ -65,7 +65,7 @@ resource 100
 message Resource found
 ```
 
-This same mechanism can be used to pre-allocate or reserve resources. The unique `allocation-name` is a way to refer to a specific allocation request. It allows a service to find its pre-allocated value, as well as obtain the same resource across service redeploys.
+This mechanism is used to pre-allocate or reserve resources. The unique `allocation-name` is a way to refer to a specific allocation request. It allows a service to find its pre-allocated value, as well as obtain the same resource across service redeploys.
 
 Since the allocation request may fail, such as when there are no resources left in the pool, the action response contains the `success` leaf and, in case of successful allocation, the assigned resource. &#x20;
 
@@ -81,7 +81,7 @@ resource-pools id-pool vlans
 !
 ```
 
-When used programmatically as part of service provisioning, each allocation entry will also contain an `allocating-service` leaf-list, making it easier to correlate resources with their respective services. See individual allocation mechanisms for detailed use of the programmatic API.
+When used programmatically as part of service provisioning, each allocation entry will also contain an `allocating-service` leaf-list, making it easier to correlate resources with their respective services. See individual allocation mechanisms for detailed use of the programmatic API, designed for service code.&#x20;
 
 ### Allocation Options
 

@@ -43,6 +43,8 @@ Manual allocation or pre-allocation is possible with the use of the `/resource-p
 admin@ncs# resource-pools find-id allocation-name my-value pool [ some-pool ]
 ```
 
+The action shares the allocation engine with the programmatic API but is primarily designed for manual use, e.g. through the CLI. In the service code, use programmatic API instead.
+
 See [#allocation-options](./#allocation-options "mention") for more options.
 
 ## Allocate by API
