@@ -98,9 +98,7 @@ where a value may contain space characters but not end with a space.
 
 NSO implements Trace Context alongside the legacy way of handling trace-id, where the trace-id comes as a flag parameter to `validate_commit`. For flags usage see method `commit`. These two different ways of handling trace-id cannot be used at the same time. If both are used, the request generates an error response.
 
-NSO will consider the headers of Trace Context in JSON-RPC requests if the element `<trace-id>true</trace-id>` is set in the logs section of the configuration file. Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
-
-The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
+The information in Trace Context will be presented by the [Progress Trace](../progress-trace.md) output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.&#x20;
 
 The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed. Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
 
@@ -1021,7 +1019,7 @@ The `result_as` param when set to `cli`, `cli-c`, or `xml` :
 {"config": <string>}
 ```
 
-The `result_as`  param when set to `json` or `json2`:
+The `result_as` param when set to `json` or `json2`:
 
 ```json
 {"data": <json>}
@@ -3173,8 +3171,6 @@ curl \
 
 `new_trans` - Creates a new transaction.
 
-
-
 **Params**
 
 ```json
@@ -3192,13 +3188,9 @@ The `conf_mode` param specifies which transaction semantics to use when it comes
 The meaning of `private`, `shared`, and `exclusive` have slightly different meaning depending on how the system is configured; with a writable running, startup, or candidate configuration.
 
 * `private` (\*writable running enabled\*) - Edit a private copy of the running configuration, no lock is taken.
-
-- `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
-
+* `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
 * `exclusive` (\*candidate enabled\*) - Lock the running configuration and the candidate configuration and edit the candidate configuration.
-
-- `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
-
+* `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
 * `shared` (\*writable running enabled, candidate enabled\*) - Is a deprecated setting.
 
 The `tag` param is a way to tag transactions with a keyword so that they can be filtered out when you call the `get_trans` method.
