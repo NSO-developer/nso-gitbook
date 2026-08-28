@@ -1092,7 +1092,7 @@ The `result_as` param when set to `json` or `json2`:
  "mode": <"create" | "merge" | "replace", default: "merge">}
 ```
 
-The `data` param is the data to be loaded into the transaction. `mode` controls how the data is loaded into the transaction, analogous with the CLI command load.
+The `data` param is the data to be loaded into the transaction.
 
 `format` informs load about which format `data` is in:
 
@@ -1102,7 +1102,13 @@ The `data` param is the data to be loaded into the transaction. `mode` controls 
 * `cli_c` - Cisco-XR-style CLI commands.
 * `cli_j_cmd` - Juniper-style `set ...` command lines (the flat representation of a J-style configuration).
 
-For the CLI formats, `data` must be a string. They are only supported for configuration transactions; loading into an action transaction with `cli_j`, `cli_c`, or `cli_j_cmd` returns an `Invalid parameters` error.
+The `mode` param follows NETCONF `edit-config` semantics rather than the modes of the CLI `load` command:
+
+* `merge` (default) - Merge the data into the existing configuration.
+* `replace` - Replace the node at `path` with the loaded data, removing its existing children first.
+* `create` - Fail if any node in `data` already exists. This mode is supported only with the `xml` and `json` formats. Using it with a CLI format returns an `Invalid parameters` error.
+
+For the CLI formats, `data` must be a string and `mode` must be `merge` or `replace`. They are only supported for configuration transactions; loading into an action transaction with `cli_j`, `cli_c`, or `cli_j_cmd` returns an `Invalid parameters` error.
 
 **Result**
 
