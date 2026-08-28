@@ -32,7 +32,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 <table data-full-width="false"><thead><tr><th valign="top">Intended Use</th><th valign="top">Develop NSO Packages</th><th>Build NSO Packages</th><th valign="top">Run NSO</th><th valign="top">NSO Install Type</th><th valign="top">UBI Version</th><th valign="top">Minimum CPU ISA</th></tr></thead><tbody><tr><td valign="top">Development Host</td><td valign="top"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top">None or Local Install</td><td valign="top">-</td><td valign="top">-</td></tr><tr><td valign="top">Build Image</td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top">System Install</td><td valign="top">UBI 10</td><td valign="top">x86-64-v3</td></tr><tr><td valign="top">Production Image</td><td valign="top"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="top"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="top">System Install</td><td valign="top">UBI 10</td><td valign="top">x86-64-v3</td></tr></tbody></table>
 
 {% hint style="warning" %}
-**CPU instruction set requirement**
+**CPU Instruction Set Requirement**
 
 On Linux `x86_64` systems, the Build Image and Production Image are based on Red Hat UBI 10 and require an `x86-64-v3`-compatible CPU. Hosts that support only `x86-64-v2` or lower cannot start these images and may report `Fatal glibc error: CPU does not support x86-64-v3`. Check the CPU features with the `lscpu` command before deploying the images.
 {% endhint %}
@@ -158,11 +158,11 @@ Migrate:
 6.  Start the container. Example:
 
     ```bash
-docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd \
---name cisco-nso -e EXTRA_ARGS=--with-package-reload \
--e NCS_LOCAL_AUTHENTICATION_ENABLED=true -e ADMIN_USERNAME=admin \
--e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
-```
+    docker run -v NSO-rvol:/nso/run -v NSO-evol:/nso/etc -v NSO-lvol:/log -itd
+    --name cisco-nso -e EXTRA_ARGS=--with-package-reload
+    -e NCS_LOCAL_AUTHENTICATION_ENABLED=true -e ADMIN_USERNAME=admin
+    -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
+    ```
 
 When using a migrated or custom `ncs.conf`, ensure that it enables NSO local authentication. The `NCS_LOCAL_AUTHENTICATION_ENABLED` environment variable affects the default container configuration, or a custom configuration that includes the corresponding environment-variable expression. If the migrated deployment continues to use PAM, omit the `ADMIN_*` variables and configure the required Linux users instead.
 
@@ -172,7 +172,7 @@ Finalize:
 2. Plan and execute your cutover transition from the System-Installed NSO to the containerized version with minimal disruption.
 3. Monitor the new setup thoroughly to ensure stability and performance.
 
-### `ncs.conf` File Configuration and Preference <a href="#ug.admin_guide.containers.ncs" id="ug.admin_guide.containers.ncs"></a>
+#### `ncs.conf` File Configuration and Preference <a href="#ug.admin_guide.containers.ncs" id="ug.admin_guide.containers.ncs"></a>
 
 The `run-nso.sh` script runs a check at startup to determine which `ncs.conf` file to use. The order of preference is as below:
 
@@ -196,11 +196,11 @@ The default `ncs.conf` file in `/defaults` has environment variables for configu
 * `NCS_LOCAL_AUTHENTICATION_ENABLED`: Enables NSO local AAA authentication; defaults to `false`.
 {% endhint %}
 
-### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
+#### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
 
 If you need to perform operations before or after the `ncs` process is started in the Production container, you can use Python and/or Bash scripts to achieve this. Add the scripts to the `$NCS_CONFIG_DIR/pre-ncs-start.d/` and `$NCS_CONFIG_DIR/post-ncs-start.d/` directories to have the `run-nso.sh` script run them.
 
-### NSO Runs from a Non-Root User
+#### NSO Runs from a Non-Root User
 
 NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
@@ -208,7 +208,7 @@ When migrating from container versions where NSO has `root` privilege, ensure th
 
 The NSO container runs a script called `take-ownership.sh` as part of its startup, which takes ownership of all the directories that NSO needs. The script will be one of the first things to run. The script can be overridden to take ownership of even more directories, such as mounted volumes or bind mounts.
 
-### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
+#### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
 
 When NSO local authentication is enabled, an admin user can be created by the container startup scripts. The following environment variables control the addition of this NSO AAA user:
 
@@ -236,11 +236,11 @@ The default `ncs.conf` supplied with the NSO Production Image enables Linux PAM 
 
 Select the authentication model based on the deployment environment and the source of user identities. NSO local authentication, Linux PAM authentication, and external authentication are independent of the container runtime; however, some models fit particular runtimes better than others.
 
-| Authentication model | Suitable deployments | Benefits | Considerations |
-| --- | --- | --- | --- |
-| NSO local authentication | Self-contained Docker deployments, Kubernetes, and OpenShift | NSO stores users and password hashes in CDB. It does not depend on a Linux login identity and works with OpenShift arbitrary UIDs. | Persist CDB. Treat the initial credentials as bootstrap credentials and manage subsequent user and password changes through NSO. |
-| Linux PAM | Deployments where NSO external authentication cannot be used but an existing PAM integration must be retained | Can reuse an established PAM-backed identity service. | Requires a derived image with a valid Linux account and working PAM configuration. Do not bake credentials into the image. It is not suitable for the OpenShift arbitrary-UID model. |
-| External authentication | Deployments that require centralized authentication without relying on the container OS user database | Can integrate NSO with an external identity service. | Requires an external authentication executable and its lifecycle, configuration, and availability to be managed. See [External Authentication](../management/aaa-infrastructure.md#ug.aaa.external_authentication). |
+| Authentication model     | Suitable deployments                                                                                          | Benefits                                                                                                                           | Considerations                                                                                                                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NSO local authentication | Self-contained Docker deployments, Kubernetes, and OpenShift                                                  | NSO stores users and password hashes in CDB. It does not depend on a Linux login identity and works with OpenShift arbitrary UIDs. | Persist CDB. Treat the initial credentials as bootstrap credentials and manage subsequent user and password changes through NSO.                                                                                    |
+| Linux PAM                | Deployments where NSO external authentication cannot be used but an existing PAM integration must be retained | Can reuse an established PAM-backed identity service.                                                                              | Requires a derived image with a valid Linux account and working PAM configuration. Do not bake credentials into the image. It is not suitable for the OpenShift arbitrary-UID model.                                |
+| External authentication  | Deployments that require centralized authentication without relying on the container OS user database         | Can integrate NSO with an external identity service.                                                                               | Requires an external authentication executable and its lifecycle, configuration, and availability to be managed. See [External Authentication](../management/aaa-infrastructure.md#ug.aaa.external_authentication). |
 
 Local IPC access for commands such as `ncs_cli` is separate from these northbound authentication models. Local IPC identifies a process running in the container; it does not authenticate SSH, NETCONF, RESTCONF, or Web UI users.
 
@@ -305,7 +305,7 @@ NSO local authentication is often the simpler choice for self-contained Kubernet
 
 To use PAM, build a derived image that supplies a stable Linux account and configures its authorization groups. Do not bake Linux users, passwords, or SSH keys into the image for production use. The following example uses the existing `nso` account with `ncsadmin` as its primary group, giving it the default full NSO access required for occasional local recovery:
 
-```Dockerfile
+```dockerfile
 ARG BASEIMAGE
 FROM ${BASEIMAGE}
 
@@ -354,11 +354,11 @@ If centralized authentication is required in OpenShift, [External Authentication
 
 The default `ncs.conf` NSO configuration file does not enable any northbound interfaces. First enable the required interface and listener port in `ncs.conf`, or with the corresponding supported environment variable. How the listener is made reachable outside the container depends on the container platform:
 
-| Platform | How to expose NSO northbound ports |
-| --- | --- |
-| Docker or Podman | Publish a container port on the host, for example with `-p host-port:container-port`, or use host networking where appropriate. |
-| Kubernetes | Create a Service targeting the NSO pod. Select the Service type, such as `ClusterIP`, `NodePort`, or `LoadBalancer`, according to cluster policy and the required reachability. Use `kubectl port-forward` only for development and troubleshooting. |
-| OpenShift | Create a Service targeting the NSO pod. Expose HTTPS through an OpenShift Route when appropriate. CLI and NETCONF over SSH require a TCP-capable Service exposure mechanism, such as a cluster-provided LoadBalancer, NodePort, or external TCP gateway; availability is determined by cluster policy. |
+| Platform         | How to expose NSO northbound ports                                                                                                                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Docker or Podman | Publish a container port on the host, for example with `-p host-port:container-port`, or use host networking where appropriate.                                                                                                                                                                        |
+| Kubernetes       | Create a Service targeting the NSO pod. Select the Service type, such as `ClusterIP`, `NodePort`, or `LoadBalancer`, according to cluster policy and the required reachability. Use `kubectl port-forward` only for development and troubleshooting.                                                   |
+| OpenShift        | Create a Service targeting the NSO pod. Expose HTTPS through an OpenShift Route when appropriate. CLI and NETCONF over SSH require a TCP-capable Service exposure mechanism, such as a cluster-provided LoadBalancer, NodePort, or external TCP gateway; availability is determined by cluster policy. |
 
 The northbound listener configuration is independent of the exposure mechanism. For example, enabling CLI over SSH on port `2024` does not publish that port automatically, and publishing port `2024` does not enable the NSO listener.
 
