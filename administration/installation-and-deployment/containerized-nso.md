@@ -172,7 +172,7 @@ Finalize:
 2. Plan and execute your cutover transition from the System-Installed NSO to the containerized version with minimal disruption.
 3. Monitor the new setup thoroughly to ensure stability and performance.
 
-#### `ncs.conf` File Configuration and Preference <a href="#ug.admin_guide.containers.ncs" id="ug.admin_guide.containers.ncs"></a>
+### `ncs.conf` File Configuration and Preference <a href="#ug.admin_guide.containers.ncs" id="ug.admin_guide.containers.ncs"></a>
 
 The `run-nso.sh` script runs a check at startup to determine which `ncs.conf` file to use. The order of preference is as below:
 
@@ -196,11 +196,11 @@ The default `ncs.conf` file in `/defaults` has environment variables for configu
 * `NCS_LOCAL_AUTHENTICATION_ENABLED`: Enables NSO local AAA authentication; defaults to `false`.
 {% endhint %}
 
-#### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
+### Pre- and Post-Start Scripts <a href="#d5e8475" id="d5e8475"></a>
 
 If you need to perform operations before or after the `ncs` process is started in the Production container, you can use Python and/or Bash scripts to achieve this. Add the scripts to the `$NCS_CONFIG_DIR/pre-ncs-start.d/` and `$NCS_CONFIG_DIR/post-ncs-start.d/` directories to have the `run-nso.sh` script run them.
 
-#### NSO Runs from a Non-Root User
+### NSO Runs from a Non-Root User
 
 NSO is installed with the `--run-as-user` option for build and production containers to run NSO from the non-root `nso` user that belongs to the `nso` user group.
 
@@ -208,7 +208,7 @@ When migrating from container versions where NSO has `root` privilege, ensure th
 
 The NSO container runs a script called `take-ownership.sh` as part of its startup, which takes ownership of all the directories that NSO needs. The script will be one of the first things to run. The script can be overridden to take ownership of even more directories, such as mounted volumes or bind mounts.
 
-#### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
+### Admin User Creation <a href="#d5e8482" id="d5e8482"></a>
 
 When NSO local authentication is enabled, an admin user can be created by the container startup scripts. The following environment variables control the addition of this NSO AAA user:
 
