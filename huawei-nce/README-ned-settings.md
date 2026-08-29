@@ -37,8 +37,12 @@
   1. ned-settings huawei-nce
   2. connection
   3. logger
-  4. features
-  5. timers
+  4. restconf
+     4.1. stream
+          4.1.1. object-type-info
+  5. live-status
+  6. features
+  7. timers
   ```
 
 
@@ -206,7 +210,98 @@
       Toggle logs to be added to ncs-java-vm.log.
 
 
-# 4. ned-settings huawei-nce features
+# 4. ned-settings huawei-nce restconf
+-------------------------------------
+
+  Settings related to the RESTCONF API.
+
+
+    - restconf notif inactive-stream-reset timeout <uint32> (default 0)
+
+      Configure the maximum allowed number of seconds of inactivity on a stream; The value 0 means
+      indefinite time.
+
+
+    - restconf notif preferred-encoding <enum> (default xml)
+
+      json  - JSON encoding.
+
+      xml   - XML encoding.
+
+
+## 4.1. ned-settings huawei-nce restconf notif stream
+-----------------------------------------------------
+
+  Manually configure info about stream on the device; This is useful when interacting with devices
+  not capable of advertising the supported streams automatically.
+
+    - restconf notif stream <name> <path> <replay-support> <description> <operations>
+
+      - name <string>
+
+        Name of the stream; Maps to the establish-subscription 'topic' (e.g resources, service,
+        alarm).
+
+      - path <string>
+
+        The path to access the stream.
+
+      - replay-support <true|false> (default false)
+
+        Replay support. Set to true if device supports it.
+
+      - description <string>
+
+        Description of this stream.
+
+      - operations <string>
+
+        Restrict the subscription to specific operations; Maps to establish-subscription
+        'operations'; If omitted, all operations are subscribed.
+
+      - alarm-conditions alarm-ids <string>
+
+        Filter by alarm IDs; if omitted, all alarms are reported.
+
+      - alarm-conditions alarm-sources <string>
+
+        Filter by alarm sources; if it is not set, alarms on all NEs will be reported.
+
+      - alarm-conditions severity-levels <string>
+
+        Filter by severity levels (e.g critical, major, minor, warning); if it is not set, alarms at
+        all severities will be reported.
+
+
+### 4.1.1. ned-settings huawei-nce restconf notif stream object-type-info
+-------------------------------------------------------------------------
+
+  Restrict the subscription to specific object types; Maps to establish-subscription
+  'object-type-infos'; If omitted, all object types for the topic are subscribed.
+
+    - object-type-info <object-type> <version>
+
+      - object-type <string>
+
+        Object type to subscribe to (e.g network-element, l3vpn, ltp, l2evpn).
+
+      - version <string>
+
+        Object type schema version (e.g v1, v2(recommended) or v3).
+
+
+# 5. ned-settings huawei-nce live-status
+----------------------------------------
+
+  Configure NED settings related to live-status.
+
+
+    - live-status time-to-live <int32> (default 50)
+
+      Define time-to-live for data fetched from the device via live-status.(default 50).
+
+
+# 6. ned-settings huawei-nce features
 -------------------------------------
 
   Features that are enabled on device.
@@ -221,7 +316,7 @@
     - features NCE-FAN-feature <true|false> (default false)
 
 
-# 5. ned-settings huawei-nce timers
+# 7. ned-settings huawei-nce timers
 -----------------------------------
 
   choose timers;.

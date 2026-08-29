@@ -60,6 +60,20 @@
       12.9 Partial sync-from support
       12.10 sync-from using "product-name" filtering
       12.11 tail-f action to fetch OLTs' status
+  13. Notifications
+      13.1 Check capability
+      13.2 Check available streams
+      13.3 Create a subscription and check the status(subscribing to a stream)
+      13.4 Narrowing what NCE sends (optional)
+      13.5 Additional actions for subscriptions
+            13.5.1 Disconnect
+            13.5.2 Reconnect
+            13.5.3 Unsubscribing
+            13.5.4 Show received notifications
+            13.5.5 Clear received notifications
+      13.6 Event content
+      13.7 Keeping the stream healthy
+      13.8 Troubleshooting
   ```
 
 
@@ -1969,6 +1983,100 @@ admin@ncs# show devices device dev-1 transceivers
 ```
 
 
+## 10.18 Filtering network-elements (NEs) by name
+-------------------------------------------------
+
+During configuration retrieval (sync-from, compare-config and partial-sync-from), the NED
+enumerates all network-elements (NEs) reported by the controller via:
+
+`restconf/v2/data/huawei-nce-resource-inventory:network-elements`
+
+and then reads the interface (and ACL/DHCP/tunnel-policy) configuration for each NE. On large
+NCE deployments this list can be big, while a given NSO device instance may only be interested
+in a subset of NEs. The `filter-ne-name` ned-setting restricts this enumeration to only the
+NEs whose `name` matches one or more patterns.
+
+### Description
+
+`filter-ne-name` is a `leaf-list` of Java regular expressions. An NE is accepted only if its
+`name` matches **at least one** of the configured expressions. Matching is performed with
+`Matcher.matches()`, meaning the regex must match the **entire** NE name (not just a
+substring).
+
+Behaviour:
+ - **Empty list (default)** — no filtering is applied; all NEs are accepted.
+ - **One or more patterns** — only NEs whose `name` fully matches at least one pattern are
+   kept. All other NEs (including NEs with an empty `name`) are skipped.
+ - Invalid regular expressions are logged and ignored (they do not abort the operation).
+
+Because it is a `leaf-list`, you can configure several patterns to cover different NE naming
+conventions used by different NCE devices.
+
+### Scope
+
+`filter-ne-name` applies to the **configuration** retrieval path only. It is honored when the
+NED enumerates the full NE list, i.e. during:
+ - full sync-from / compare-config, and
+ - partial-sync-from of the whole `device` list (path `.../config/top/device`).
+
+It is **not** applied when a partial-sync-from explicitly targets a single NE by key
+(e.g. `.../config/top/device[device-id=<id>]/...`): in that case the NED fetches exactly the
+requested NE, regardless of the configured patterns.
+
+It also does **not** affect the operational `platform` live-status actions such as
+`get-platform-oper-data`, `get-network-element-data` and `get-network-element-data-filters`;
+those actions have their own `name` / `ip-address` filters.
+
+### Configuration
+
+A `disconnect`/`connect` is required for the change to take effect.
+
+Add one or more patterns:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
+admin@ncs(config-device-dev-1)# commit
+Commit complete.
+admin@ncs(config-device-dev-1)# config
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# connect
+result true
+```
+
+Show the currently configured patterns:
+
+```
+admin@ncs# show running-config devices device dev-1 ned-settings huawei-nce filter-ne-name
+devices device dev-1
+ ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
+!
+```
+
+Remove the filtering (accept all NEs again):
+
+```
+admin@ncs(config)# no devices device dev-1 ned-settings huawei-nce filter-ne-name
+admin@ncs(config)# commit
+admin@ncs(config-config)# disconnect
+admin@ncs(config-config)# connect
+result true
+```
+
+### Example
+
+The regex `^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$` accepts NE names that:
+ - start with one of the prefixes `PE`, `PS`, `AG`, `MA`, `PAG` or `C`, followed by `-`,
+ - then a middle segment containing no `-` (`[^-]+`), followed by `-`,
+ - and end with exactly two digits followed by `H` (`\d\dH`).
+
+Assume the regex above is set and NCE controller reports these NE names:
+PE-EDGE-01H AG-CORE-12H MA-ACCESS-07H PAG-SITE-33H C-LEAF-9H SW-TEST-01H
+
+the NED processes only: `PE-EDGE-01H (matches) AG-CORE-12H (matches) MA-ACCESS-07H (matches) PAG-SITE-33H (matches)`
+
+and  skips: `C-LEAF-9H (only one digit before 'H', needs two: \d\d) SW-TEST-01H (prefix 'SW' is not in the allowed list)`
+
+
 
 # 11. DWDM-feature
 ------------------
@@ -2426,7 +2534,7 @@ service-to-test completed
 ... otherwise a timeout will occur and the ervice won't be completed anymore:
 
 ```
-admin@ncs# show devices device <dev> client-svc-instances-status
+admin@ncs# show devices device dev-1 client-svc-instances-status
 NAME STATUS
 -------------------------------------------------
 service-to-test timed-out
@@ -3021,95 +3129,284 @@ Commit complete.
 ```
 
 
-## 10.18 Filtering network-elements (NEs) by name
--------------------------------------------------
+# 13. Notifications
+-------------------
 
-During configuration retrieval (sync-from, compare-config and partial-sync-from), the NED
-enumerates all network-elements (NEs) reported by the controller via:
+The huawei-nce NED can subscribe to Huawei NCE's event streams and forward the
+events to NSO as NETCONF notifications. Events are received over an SSE
+(Server-Sent Events) connection that the NED keeps open for as long as the
+subscription is active.  
+The Notifications NED feature has been tested on the 'IP-services-feature' feature.
 
-`restconf/v2/data/huawei-nce-resource-inventory:network-elements`
 
-and then reads the interface (and ACL/DHCP/tunnel-policy) configuration for each NE. On large
-NCE deployments this list can be big, while a given NSO device instance may only be interested
-in a subset of NEs. The `filter-ne-name` ned-setting restricts this enumeration to only the
-NEs whose `name` matches one or more patterns.
+## 13.1 Check capability
+------------------------
 
-### Description
-
-`filter-ne-name` is a `leaf-list` of Java regular expressions. An NE is accepted only if its
-`name` matches **at least one** of the configured expressions. Matching is performed with
-`Matcher.matches()`, meaning the regex must match the **entire** NE name (not just a
-substring).
-
-Behaviour:
- - **Empty list (default)** — no filtering is applied; all NEs are accepted.
- - **One or more patterns** — only NEs whose `name` fully matches at least one pattern are
-   kept. All other NEs (including NEs with an empty `name`) are skipped.
- - Invalid regular expressions are logged and ignored (they do not abort the operation).
-
-Because it is a `leaf-list`, you can configure several patterns to cover different NE naming
-conventions used by different NCE devices.
-
-### Scope
-
-`filter-ne-name` applies to the **configuration** retrieval path only. It is honored when the
-NED enumerates the full NE list, i.e. during:
- - full sync-from / compare-config, and
- - partial-sync-from of the whole `device` list (path `.../config/top/device`).
-
-It is **not** applied when a partial-sync-from explicitly targets a single NE by key
-(e.g. `.../config/top/device[device-id=<id>]/...`): in that case the NED fetches exactly the
-requested NE, regardless of the configured patterns.
-
-It also does **not** affect the operational `platform` live-status actions such as
-`get-platform-oper-data`, `get-network-element-data` and `get-network-element-data-filters`;
-those actions have their own `name` / `ip-address` filters.
-
-### Configuration
-
-A `disconnect`/`connect` is required for the change to take effect.
-
-Add one or more patterns:
+All NEDs supporting the notification features do advertise the special capability 'http://tail-f.com/ns/ncs-ned/notification/1.0'
 
 ```
-admin@ncs(config)# devices device dev-1 ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
+admin@ncs# devices device dev-1 connect
+result true
+info (admin) Connected to dev-1 - 127.0.0.1:26335
+admin@ncs# show devices device dev-1 capability
+capability http://tail-f.com/ned/huawei-nce
+ revision 2026-08-19
+ module   tailf-ned-huawei-nce
+capability http://tail-f.com/ned/huawei-nce/stats
+ module tailf-ned-huawei-nce-stats
+capability http://tail-f.com/ns/ncs-ned/notification/1.0
+capability http://tail-f.com/ns/ncs-ned/show-partial?path-format=key-path
+capability http://tail-f.com/ns/ncs-ned/show-stats-path
+capability urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=report-all
+admin@ncs#
+```
+
+## 13.2 Check available streams
+--------------------------------
+
+The NED exposes one NSO stream per NCE notification *topic*:
+
+| Stream      | Contents                                |
+|-------------|-----------------------------------------|
+| `resources` | Resource inventory events (create/update/delete of NEs, LTPs, ...) |
+| `service`   | Service related events                  |
+| `alarm`     | Alarm events                            |
+| `incident`  | Incident events                         |
+| `alarm-ack` | Alarm acknowledgement events            |
+| `event`     | Generic events                          |
+
+List them from the CLI:
+
+```
+admin@ncs# show devices device dev-1 notifications stream
+notifications stream alarm
+ description    "Huawei NCE 'alarm' events"
+ replay-support false
+notifications stream alarm-ack
+ description    "Huawei NCE 'alarm-ack' events"
+ replay-support false
+notifications stream event
+ description    "Huawei NCE 'event' events"
+ replay-support false
+notifications stream incident
+ description    "Huawei NCE 'incident' events"
+ replay-support false
+notifications stream resources
+ description    "Huawei NCE 'resources' events"
+ replay-support false
+notifications stream service
+ description    "Huawei NCE 'service' events"
+ replay-support false
+```
+
+> **Note:** NCE does not support event replay. All streams report
+> `replaySupport false`, so `start-time` / replay subscriptions cannot be used.
+
+
+## 13.3 Create a subscription and check the status(subscribing to a stream)
+----------------------------------------------------------------------------
+
+A subscription is ordinary NSO configuration. Point it at the device, the
+stream, and the NSO notification receiver that should get the events:
+
+```
+admin@ncs(config)# devices device dev-1 notifications subscription TEST-SUBSCRIPTION stream resources local-user admin
+admin@ncs(config-subscription-my-sub)# commit
+Commit complete.
+admin@ncs(config-subscription-TEST)# abort
+admin@ncs# show devices device dev-1 notifications subscription 
+notifications subscription TEST
+ status running
+
+admin@ncs# show devices device dev-1 live-status huawei-nce-stats:internal notif-state-info
+live-status internal notif-state-info Ned-Worker-Thread-(huawei-nce-gen-1.0:huawei-nce-gen-1.0)-1
+ stream     resources
+ rx-count   30
+ connection https://127.0.0.1:26335/restconf/streams/sse/v1/identifier/fbc7a194-0f5a-4fe4-92f4-f8b35f016a91
+admin@ncs#
+```
+
+On commit the NED will:
+
+1. send an `establish-subscription` request to NCE,
+2. open the SSE stream returned by NCE(an identifier is returned for establishing a message channel),
+3. start delivering events to NSO.
+
+You may create several subscriptions on the same device, one per stream.
+
+If something didn't work properly and the subscription wasn't successful, you might see something like this when checking the status:
+
+```
+admin@ncs# show devices device dev-1 notifications subscription TEST-SUBSCRIPTION
+notifications subscription TEST-SUBSCRIPTION
+ status         failed
+ failure-reason subscribe
+ error-info     "Failed to create subscription: External error in the NED implementation for device dev-1: 400 Bad Request\r\nReason: all of subscription are invalid"
+```
+
+
+## 13.4 Narrowing what NCE sends (optional)
+-------------------------------------------
+
+By default the NED subscribes to the whole topic. You can restrict a
+subscription with ned-settings for a specific stream, using different filters.
+
+Only receive events for certain object types, specific API version and operations:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce restconf notif stream resources object-type-info network-element version v2
+admin@ncs(config-object-type-info-network-element)# exit
+admin@ncs(config-stream-resources)# operations create update
+admin@ncs(config-stream-resources)# exit
+admin@ncs(config-device-dev-1)# exit
+admin@ncs(config)# commit
+Commit complete.
+```
+
+For alarm-oriented streams you can narrow by alarm id, source and severity:
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce restconf notif stream alarm alarm-conditions severity-levels critical major 
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce restconf notif stream alarm alarm-conditions alarm-ids 12345
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce restconf notif stream alarm alarm-conditions alarm-sources NE-1
+admin@ncs(config)# commit
+Commit complete.
+```
+
+Any section you leave unconfigured is simply omitted from the request, i.e. if the operations field is omitted, then all the  
+operations are subscribed(create, update, delete). Also, if the version is not mentioned, then all the versions(v1, v2, v3) are subscribed.
+
+> Filters are applied **at subscription time**. Change the ned-settings, then
+> re-create (or disable/enable) the subscription for them to take effect.
+
+
+## 13.5 Additional actions for subscriptions
+--------------------------------------------
+
+### 13.5.1 Disconnect
+---------------------
+
+A subscription can be disconnected meaning it is still configured in NSO, but not active.  
+From a NED perspective this means that the corresponding NED Notif handler is shutdown.
+
+```
+admin@ncs# devices device dev-1 notifications subscription TEST-SUBSCRIPTION disconnect
+```
+
+The NED then stops the SSE listener and sends a `delete-subscription` request
+to NCE so the device-side subscription is released as well.
+
+### 13.5.2 Reconnect
+--------------------
+
+A subscription can be reconnected meaning it gets activated again, or refreshed.  
+From a NED perspective this means that the corresponding Notif handler is re-created.
+
+```
+admin@ncs# devices device dev-1 notifications subscription TEST-SUBSCRIPTION reconnect
+```
+
+### 13.5.3 Unsubscribing
+------------------------
+
+Delete the subscription:
+
+```
+admin@ncs(config)# no devices device dev-1 notifications subscription TEST-SUBSCRIPTION
+admin@ncs(config)# commit
+```
+
+### 13.5.4 Show received notifications
+--------------------------------------
+
+```
+admin@ncs# show devices device dev-1 notifications received-notifications | display json
+{
+    "data": {
+        "tailf-ncs:devices": {
+            "device": [{
+                    "name": "dev-1",
+                    "notifications": {
+                        "received-notifications": {
+                            "clear-time": "2026-06-26T13:20:50.078+00:00",
+                            "notification": [{
+                                    "event-time": "2026-08-24T13:37:57.589+00:00",
+                                    "sequence-no": 0,
+                                    "user": "admin",
+                                    "subscription": "TEST-SUBSCRIPTION",
+                                    "stream": "resources",
+                                    "received-time": "2026-08-24T13:42:06.734298+00:00",
+                                    "data": {
+                                        "tailf-ned-huawei-nce-notif:huawei-nce-event": {
+                                            "topic": "resources",
+                                            "object-type": "igp-link",
+                                            "version": "v1",
+                                            "operation": "update",
+                                            "target": "/restconf/data/v1/resources/igp-link/4f1efce3-4120-3581-ad61-2517680d1a6a",
+                                            "notification-id": "082420375700650189"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+### 13.5.5 Clear received notifications
+---------------------------------------
+
+```
+admin@ncs# devices device dev-1 notifications received-notifications clear
+```
+
+
+## 13.6 Event content
+---------------------
+
+Each NCE event is delivered as a `huawei-nce-event` notification
+(namespace `http://tail-f.com/ned/huawei-nce-notif`) with the following fields:
+
+| Leaf              | Description                                  |
+|-------------------|----------------------------------------------|
+| `topic`           | Originating stream/topic                     |
+| `object-type`     | Type of the affected object                  |
+| `version`         | Object/API version                           |
+| `operation`       | `create` / `update` / `delete` / ...         |
+| `target`          | Identifier of the affected object            |
+| `operate-status`  | Result/status reported by NCE                |
+| `notification-id` | NCE notification identifier                  |
+
+
+## 13.7 Keeping the stream healthy
+----------------------------------
+
+NCE sends periodic keep-alive comments on the SSE connection. If nothing at
+all is received for a configurable period, the NED considers the stream dead,
+tears it down and lets NSO re-establish it (`reconnect-interval` ned-setting).
+
+Configure the inactivity timeout (in seconds, `0` = disabled / wait forever and is the default value):
+
+```
+admin@ncs(config)# devices device dev-1 ned-settings huawei-nce restconf notif inactive-stream-reset timeout 300
 admin@ncs(config-device-dev-1)# commit
 Commit complete.
-admin@ncs(config-device-dev-1)# config
-admin@ncs(config-config)# disconnect
-admin@ncs(config-config)# connect
+admin@ncs(config-device-dev-1)# disconnect
+admin@ncs(config-device-dev-1)# connect
 result true
+info (admin) Connected to dev-1 - 127.0.0.1:26335
 ```
 
-Show the currently configured patterns:
+## 13.8 Troubleshooting
+-----------------------
 
-```
-admin@ncs# show running-config devices device dev-1 ned-settings huawei-nce filter-ne-name
-devices device dev-1
- ned-settings huawei-nce filter-ne-name "^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$"
-!
-```
-
-Remove the filtering (accept all NEs again):
-
-```
-admin@ncs(config)# no devices device dev-1 ned-settings huawei-nce filter-ne-name
-admin@ncs(config)# commit
-admin@ncs(config-config)# disconnect
-admin@ncs(config-config)# connect
-result true
-```
-
-### Example
-
-The regex `^(PE|PS|AG|MA|PAG|C)-[^-]+-\d\dH$` accepts NE names that:
- - start with one of the prefixes `PE`, `PS`, `AG`, `MA`, `PAG` or `C`, followed by `-`,
- - then a middle segment containing no `-` (`[^-]+`), followed by `-`,
- - and end with exactly two digits followed by `H` (`\d\dH`).
-
-Assume the regex above is set and NCE controller reports these NE names:
-PE-EDGE-01H AG-CORE-12H MA-ACCESS-07H PAG-SITE-33H C-LEAF-9H SW-TEST-01H
-
-the NED processes only: `PE-EDGE-01H (matches) AG-CORE-12H (matches) MA-ACCESS-07H (matches) PAG-SITE-33H (matches)`
-
-and  skips: `C-LEAF-9H (only one digit before 'H', needs two: \d\d) SW-TEST-01H (prefix 'SW' is not in the allowed list)`
+| Symptom | What to check |
+|---|---|
+| `% No entries found.` on `notifications stream` | Device must be connected; check that the NED advertises the notification capability: `show devices device dev-1 capability \| include notification` |
+| Subscription fails on commit | Enable NED trace and look for the `establish-subscription` request/response; a non-`ok` `subscription-result` means NCE rejected it. The user can check the status with: `admin@ncs# show devices device dev-1 notifications subscription <stream-name>` |
+| No events arriving | Verify the filters in section 3 are not too restrictive; check the NED trace for the SSE connection |
+| Stream keeps reconnecting | Increase `reset-inactive-stream-timeout`, or set it to `0` to disable the inactivity check |
