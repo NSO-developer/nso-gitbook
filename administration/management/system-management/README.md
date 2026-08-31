@@ -10,7 +10,15 @@ NSO consists of a number of modules and executable components. These executable 
 
 When NSO is started, it reads its configuration file and starts all subsystems configured to start (such as NETCONF, CLI, etc.).
 
-By default, NSO starts in the background without an associated terminal. It is recommended to use a [System Install](../../installation-and-deployment/system-install.md) when installing NSO for production deployment. This will create an `init` script that starts NSO when the system boots, and makes NSO start the service manager.
+When started directly with the `ncs` command, NSO starts in the background without an associated terminal. For production deployments, use a [System Install](../../installation-and-deployment/system-install.md) and manage NSO through the generated `ncs.service` systemd unit.
+
+The systemd service starts NSO in foreground mode so that systemd directly tracks the `ncs.smp` process. The `systemctl start ncs` operation waits until NSO is fully started and ready, and has no fixed startup timeout. Use `systemctl status ncs` and `journalctl -u ncs` to monitor startup progress.
+
+### Systemd Process Supervision
+
+The generated service uses `Restart=on-failure`. systemd restarts the complete NSO service after an unexpected process failure, with a short delay between attempts. A clean exit, including one requested with `ncs --stop`, leaves the service stopped. Use `systemctl stop ncs`, `systemctl restart ncs`, and `systemctl reload ncs` for normal service management.
+
+This supervision behavior applies to the generated systemd service. Directly started Local Install instances may behave differently.
 
 ## Licensing NSO <a href="#ug.ncs_sys_mgmt.licensing" id="ug.ncs_sys_mgmt.licensing"></a>
 
@@ -44,7 +52,7 @@ The `ncs.conf` file is described in the [NSO Manual Pages](../../../resources/ma
 However, in a System Install, `systemd` is typically used to start NSO, and it will pass the appropriate options to the `ncs` command. Thus, NSO is started with the command:
 
 ```bash
-# systemctl nso start
+# systemctl start ncs
 ```
 
 It is possible to edit the `ncs.conf` file, and then tell NSO to reload the edited file without restarting the daemon as in:
@@ -425,7 +433,7 @@ If the AAA database is broken, NSO will start but with no authorization rules lo
 
 ### NSO Failure After Startup <a href="#d5e2702" id="d5e2702"></a>
 
-NSO attempts to handle all runtime problems without terminating, e.g., by restarting specific components. However, there are some cases where this is not possible, described below. When NSO is started the default way, i.e. as a daemon, the exit codes will of course not be available, but see the `--foreground` option in the [ncs(1)](../../../resources/man/ncs.1.md) Manual Page.
+NSO attempts to handle all runtime problems without terminating, e.g., by restarting specific components. However, there are some cases where this is not possible, described below. When NSO is started directly as a background daemon, its exit status is not available to the invoking shell; see the `--foreground` option in the [ncs(1)](../../../resources/man/ncs.1.md) Manual Page. For a System Install, systemd runs NSO in foreground mode and records the main process result. Inspect `systemctl status ncs`, the `Result` and `ExecMainStatus` unit properties, and `journalctl -u ncs` when investigating an unexpected exit.
 
 * **Out of memory**: If NSO is unable to allocate memory, it will exit by calling abort(3). This will generate an exit code, as for reception of the SIGABRT signal - e.g. if NSO is started from a shell script, it will see 134, as the exit code (128 + the signal number).
 *   **Out of file descriptors for accept(2)**: If NSO fails to accept a TCP connection due to lack of file descriptors, it will log this and then exit with code 25. To avoid this problem, make sure that the process and system-wide file descriptor limits are set high enough, and if needed configure session limits in `ncs.conf`. The out-of-file descriptors issue may also manifest itself in that applications are no longer able to open new file descriptors.\
