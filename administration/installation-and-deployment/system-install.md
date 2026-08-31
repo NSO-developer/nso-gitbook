@@ -349,7 +349,9 @@ The System Install by default creates the following directories:
 * The Log Directory is created in `/var/log/ncs`, where the log files are populated.
 * System-wide environment variables are created in `/etc/profile.d/ncs.sh`.
 * The installer creates a `systemd` system service script in `/etc/systemd/system/ncs.service` and enables the NSO service to start at boot, but the service is _not_ started immediately. See the steps below for starting NSO after installation and before rebooting.
-* To allow package reload and to set other variables when starting NSO, an environment file called `/etc/ncs/ncs.systemd.conf` is created. This file is owned by the user that starts NSO.
+* To allow package reload and to set other variables when starting NSO, an environment file called `/etc/ncs/ncs.systemd.conf` is created. This file is owned by the user that starts NSO and is intended for user-controlled settings such as `NCS_RELOAD_PACKAGES` and `NCS_EXTRA_ARGS`. Process-supervision settings are managed by the generated service and should not be copied to this file.
+
+The generated systemd service starts NSO in foreground mode, allowing systemd to track the actual `ncs.smp` process directly. The service waits until NSO is fully started and ready before completing the start operation, and does not impose a fixed startup timeout. It restarts NSO after an unexpected process failure, with a short delay between attempts, but does not restart NSO after a clean stop.
 
 For the `--system-install` option, you can also choose a user-defined (non-default) Installation Directory, Configuration Directory, Running Directory, and Log Directory with `--install-dir`, `--config-dir`, `--run-dir` and `--log-dir` parameters, and specify that NSO should run as a different user than root with the `--run-as-user` parameter.
 
@@ -517,6 +519,8 @@ If the issue persists, you may consider disabling SELinux on the host before sta
     # systemctl daemon-reload
     # systemctl start ncs
     ```
+
+    `systemctl start ncs` completes after NSO is fully started and ready. Because the generated service has no fixed startup timeout, long-running package upgrades or other legitimate startup work can complete without systemd terminating NSO. Use `systemctl status ncs` and `journalctl -u ncs -f` to monitor progress.
 
     The Runtime Directory for System Install is set up automatically; you do not need to create it. From now on, the NSO daemon `ncs` is automatically started at boot time.
 3.  The installation program creates a shell script file which sets the environment variables needed to run NSO. With the `--system-install` option, by default, these variables are set on shell startup. To explicitly set the variables, source `ncs.sh` or `ncs.csh` depending on your shell type.

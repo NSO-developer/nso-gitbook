@@ -182,15 +182,14 @@ Set the `NCS_RELOAD_PACKAGES` variable in `/etc/ncs/ncs.systemd.conf` back to it
 
 NSO will perform the necessary data upgrade automatically. However, this process may fail if you have changed or removed any packages. In that case, ensure that the correct versions of all packages are present in `/var/opt/ncs/packages/` and retry the preceding command.
 
-Also, note that with many packages or data entries in the CDB, this process could take more than 90 seconds and result in the following error message:
+With many packages or data entries in CDB, the upgrade may take a significant amount of time. The current generated systemd service has no fixed startup timeout, and `systemctl start ncs` waits until NSO is fully started and ready. Monitor startup progress using:
 
-```
-Starting ncs (via systemctl): Job for ncs.service failed
-because a timeout was exceeded. See "systemctl status
-ncs.service" and "journalctl -xe" for details. [FAILED]
+```bash
+# systemctl status ncs
+# journalctl -u ncs -f
 ```
 
-The above error does not imply that NSO failed to start, just that it took longer than 90 seconds. Therefore, it is recommended you wait some additional time before verifying.
+A custom or retained older systemd unit may still define a finite startup timeout. Inspect the effective value with `systemctl show ncs -p TimeoutStartUSec`. The current generated service reports `TimeoutStartUSec=infinity`.
 {% endstep %}
 {% endstepper %}
 
