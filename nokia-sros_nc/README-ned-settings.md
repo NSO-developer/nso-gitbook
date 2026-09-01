@@ -629,6 +629,13 @@
       interval.
 
 
+    - ssh keep-alive-max-count <0..255>
+
+      Configure the maximum number of consecutive missed keep-alive replies from the server. If this
+      number is exceeded, the SSH client considers the connection stale and automatically
+      disconnects.
+
+
 # 4. ned-settings nokia-sros_nc proxy
 -------------------------------------
 
