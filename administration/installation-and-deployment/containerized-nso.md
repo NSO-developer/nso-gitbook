@@ -22,6 +22,23 @@ Running NSO in a container offers several benefits that you would generally expe
 * Deploy and distribute the same version across your production environment.
 * Use the Build Image containing the necessary environment for compiling NSO packages.
 
+## System Requirements <a href="#sec.system-reqs" id="sec.system-reqs"></a>
+
+To run the images, make sure that your system meets the following requirements:
+
+* A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
+* A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
+* CPU instruction set requirement: On Linux `x86_64` systems, the Build Image and Production Image are based on Red Hat UBI 10 and require an `x86-64-v3`-compatible CPU. Hosts that support only `x86-64-v2` or lower cannot start these images and may report `Fatal glibc error: CPU does not support x86-64-v3`. Check the CPU features with the `lscpu` command before deploying the images.
+* Ensure the system has sufficient resources. NSO containers require at least 4 CPU cores.
+*   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.5` is the image you want to check):
+
+    <pre class="language-bash" data-title="Example: Check Java and Python Versions of Container"><code class="lang-bash">docker run --rm cisco-nso-prod:6.5 sh -c "java -version &#x26;&#x26; python --version"
+    </code></pre>
+
+{% hint style="info" %}
+Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.
+{% endhint %}
+
 ## Overview of NSO Images <a href="#d5e8294" id="d5e8294"></a>
 
 Cisco provides the following two NSO images based on Red Hat UBI.
@@ -29,13 +46,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 * [Production Image](containerized-nso.md#production-image)
 * [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="false"><thead><tr><th valign="middle">Intended Use</th><th valign="middle">Develop NSO Packages</th><th>Build NSO Packages</th><th valign="middle">Run NSO</th><th valign="middle">NSO Install Type</th><th valign="middle">UBI Version</th><th valign="middle">Minimum CPU ISA</th></tr></thead><tbody><tr><td valign="middle">Development Host</td><td valign="middle"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle">None or Local Install</td><td valign="middle">-</td><td valign="middle">-</td></tr><tr><td valign="middle">Build Image</td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle">System Install</td><td valign="middle">UBI 10</td><td valign="middle">x86-64-v3</td></tr><tr><td valign="middle">Production Image</td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="middle">System Install</td><td valign="middle">UBI 10</td><td valign="middle">x86-64-v3</td></tr></tbody></table>
-
-{% hint style="warning" %}
-**CPU instruction set requirement**
-
-On Linux `x86_64` systems, the Build Image and Production Image are based on Red Hat UBI 10 and require an `x86-64-v3`-compatible CPU. Hosts that support only `x86-64-v2` or lower cannot start these images and may report `Fatal glibc error: CPU does not support x86-64-v3`. Check the CPU features with the `lscpu` command before deploying the images.
-{% endhint %}
+<table data-full-width="false"><thead><tr><th valign="middle">Intended Use</th><th valign="middle">Develop NSO Packages</th><th>Build NSO Packages</th><th valign="middle">Run NSO</th><th valign="middle">NSO Install Type</th><th valign="middle">UBI Version</th></tr></thead><tbody><tr><td valign="middle">Development Host</td><td valign="middle"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle">None or Local Install</td><td valign="middle">-</td></tr><tr><td valign="middle">Build Image</td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle">System Install</td><td valign="middle">UBI 10</td></tr><tr><td valign="middle">Production Image</td><td valign="middle"><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td valign="middle"><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td valign="middle">System Install</td><td valign="middle">UBI 10</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -86,22 +97,6 @@ The signed archive file name has the following pattern:
 * `VERSION` denotes the image's NSO version.
 * `PROD_BUILD` denotes the type of the container (i.e., `prod` for Production, and `build` for Build).
 * `ARCH` is the CPU architecture.
-{% endhint %}
-
-## System Requirements <a href="#sec.system-reqs" id="sec.system-reqs"></a>
-
-To run the images, make sure that your system meets the following requirements:
-
-* A system running Linux `x86_64` or `ARM64`, or macOS `x86_64` or Apple Silicon. Linux for production.
-* A container platform. Docker is the recommended platform and is used as an example in this guide for running NSO images. You may use another container runtime of your choice. Note that commands in this guide are Docker-specific. if you use another container runtime, make sure to use the respective commands.
-* Ensure the system has sufficient resources. NSO containers require at least 4 CPU cores.
-*   To check the Java (JDK) and Python versions included in the container, use the following command, (where `cisco-nso-prod:6.5` is the image you want to check):
-
-    <pre class="language-bash" data-title="Example: Check Java and Python Versions of Container"><code class="lang-bash">docker run --rm cisco-nso-prod:6.5 sh -c "java -version &#x26;&#x26; python --version"
-    </code></pre>
-
-{% hint style="info" %}
-Docker on Mac uses a Linux VM to run the Docker engine, which is compatible with the normal Docker images built for Linux. You do not need to recompile your NSO-in-Docker images when moving between a Linux machine and Docker on Mac as they both essentially run Docker on Linux.
 {% endhint %}
 
 ## Administrative Information <a href="#d5e8371" id="d5e8371"></a>
