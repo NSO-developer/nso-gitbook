@@ -304,12 +304,12 @@ If the YANG models are changed, particularly if the nodes are removed or renamed
 
 ### Health Check <a href="#d5e8591" id="d5e8591"></a>
 
-The base Production Image comes with a basic container health check. It uses `ncs_cmd` to get the state that NCS is currently in. Only the result status is observed to check if `ncs_cmd` was able to communicate with the `ncs` process. The result indicates if the `ncs` process is responding to IPC requests.
+The base Production Image comes with a basic container health check. It uses `ncs_cmd` to get the state that NSO is currently in. Only the result status is observed to check if `ncs_cmd` was able to communicate with the `ncs` process. The result indicates if the `ncs` process is responding to IPC requests.
 
 {% hint style="info" %}
-The default `--health-start-period duration` in health check is set to 60 seconds. NSO will report an `unhealthy` state if it takes more than 60 seconds to start up. To resolve this, set the `--health-start-period duration` value to a relatively higher value, such as 600 seconds, or however long you expect NSO will take to start up.
+The default `--health-start-period <duration>` for health check is set to 60 seconds. NSO will report an `unhealthy` state if it takes more than 60 seconds to start up. To resolve this, set the `--health-start-period` value to a relatively higher value, such as `10m`, depending on how long you expect NSO will take to start up.
 
-To disable the health check, use the `--no-healthcheck` command.
+To disable the health check, use the `--no-healthcheck` command. For Kubernetes/OpenShift deployments, use `startupProbe` configuration instead.
 {% endhint %}
 
 ### Use NSO Memory Monitoring to Capture Debug Dumps Before a Container OOM Kill <a href="#d5e8605" id="d5e8605"></a>
