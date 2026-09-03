@@ -38,15 +38,15 @@
   8. How to report NED issues and feature requests
   9. How to rebuild a NED
   10. Configure the NED to use ssh multi factor authentication
-  11. Run Arbitrary Commands on Device
-  12. Display Dry-Run Commit Output in Nokia MD-CLI Format
+  11. Using the NED for Telemetry
+  12. Run arbitrary commands on device
   ```
 
 
 # 1. General
 ------------
 
-  This document describes the nokia-sros_nc NED.
+  This document describes the harmonic-cableos_nc NED.
 
   IMPORTANT:
   This NED is delivered without any of the device YANG models bundled to the NED package.
@@ -83,17 +83,15 @@
   +---------------------------+-----------+------------------------------------------------------------------+
   | netsim                    | yes       |                                                                  |
   |                           |           |                                                                  |
-  | check-sync                | yes       | See the README-ned-settings.md, 'transaction trans-id-method'    |
-  |                           |           | for details.                                                     |
+  | check-sync                | yes       |                                                                  |
   |                           |           |                                                                  |
   | partial-sync-from         | yes       |                                                                  |
   |                           |           |                                                                  |
-  | live-status actions       | yes       | Can run CLI commands through 'exec any', see README.md           |
+  | live-status actions       | no        |                                                                  |
   |                           |           |                                                                  |
-  | live-status show          | yes       | All models are by default mounted under live-status              |
+  | live-status show          | no        |                                                                  |
   |                           |           |                                                                  |
-  | load-native-config        | no        | Since config can be loaded in xml format in NSO, this can be     |
-  |                           |           | used instead.                                                    |
+  | load-native-config        | no        |                                                                  |
   +---------------------------+-----------+------------------------------------------------------------------+
   ```
 
@@ -102,30 +100,16 @@
   +---------------------------+-----------------+--------+---------------------------------------------------+
   | Model                     | Version         | OS     | Info                                              |
   +---------------------------+-----------------+--------+---------------------------------------------------+
-  | 7950                      | 22              | SROS   |                                                   |
-  |                           |                 |        |                                                   |
-  | 7950                      | 23              | SROS   |                                                   |
+  | vCMTS                     | 3.26.8          | CableO | -                                                 |
+  |                           |                 | S      |                                                   |
   +---------------------------+-----------------+--------+---------------------------------------------------+
-  ```
-
-  Verified YANG model bundles
-  ```
-  +---------------------------+-----------------+------------------------------------------------------------+
-  | Bundle                    | Version         | Info                                                       |
-  +---------------------------+-----------------+------------------------------------------------------------+
-  | SROS Combined             | rel22           |                                                            |
-  |                           |                 |                                                            |
-  | SROS Combined             | rel23           |                                                            |
-  |                           |                 |                                                            |
-  | OpenConfig                | 0.10.0          |                                                            |
-  +---------------------------+-----------------+------------------------------------------------------------+
   ```
 
 
 ## 1.1 Extract the NED package
 ------------------------------
 
-  It is assumed the NED package `ncs-<NSO version>-nokia-sros_nc-<NED version>.signed.bin` has already
+  It is assumed the NED package `ncs-<NSO version>-harmonic-cableos_nc-<NED version>.signed.bin` has already
   been downloaded from software.cisco.com.
 
   In this instruction the following example settings will be used:
@@ -138,22 +122,22 @@
 
       ```
       > cd /tmp/ned-package-store
-      > chmod u+x ncs-6.0-nokia-sros_nc-1.0.1.signed.bin
-      > ./ncs-6.0-nokia-sros_nc-1.0.1.signed.bin
+      > chmod u+x ncs-6.0-harmonic-cableos_nc-1.0.1.signed.bin
+      > ./ncs-6.0-harmonic-cableos_nc-1.0.1.signed.bin
       ```
 
   2. In case the signature can not be verified (for instance if no internet connection),
      do as below instead:
 
       ```
-      > ./ncs-6.0-nokia-sros_nc-1.0.1.signed.bin --skip-verification
+      > ./ncs-6.0-harmonic-cableos_nc-1.0.1.signed.bin --skip-verification
       ```
 
   3. The result of the extraction shall be a tar.gz file with the same name as the .bin file:
 
       ```
       > ls *.tar.gz
-      ncs-6.0-nokia-sros_nc-1.0.1.tar.gz
+      ncs-6.0-harmonic-cableos_nc-1.0.1.tar.gz
       ```
 
 
@@ -198,18 +182,18 @@
   It is assumed the NED package has been been unpacked to a tar.gz file as described in 1.1.
 
   1. Untar the tar.gz file. This creates a new sub-directory named:
-     `nokia-sros_nc-<NED major digit>.<NED minor digit>`:
+     `harmonic-cableos_nc-<NED major digit>.<NED minor digit>`:
 
      ```
-     > tar xfz ncs-6.0-nokia-sros_nc-1.0.1.tar.gz
+     > tar xfz ncs-6.0-harmonic-cableos_nc-1.0.1.tar.gz
      > ls -d */
-     nokia-sros_nc-gen-1.0
+     harmonic-cableos_nc-gen-1.0
      ```
 
   2. Install the NED into NSO, using the ncs-setup tool:
 
      ```
-     > ncs-setup --package nokia-sros_nc-gen-1.0 --dest $NSO_RUNDIR
+     > ncs-setup --package harmonic-cableos_nc-gen-1.0 --dest $NSO_RUNDIR
      ```
 
   3. Open a NSO CLI session and load the new NED package like below:
@@ -218,7 +202,7 @@
      > ncs_cli -C -u admin
      admin@ncs# packages reload
      reload-result {
-         package nokia-sros_nc-gen-1.0
+         package harmonic-cableos_nc-gen-1.0
          result true
      }
      ```
@@ -227,11 +211,11 @@
   below instead:
 
   ```
-    > ncs-setup --package ncs-6.0-nokia-sros_nc-1.0.1.tar.gz --dest $NSO_RUNDIR
+    > ncs-setup --package ncs-6.0-harmonic-cableos_nc-1.0.1.tar.gz --dest $NSO_RUNDIR
     > ncs_cli -C -u admin
     admin@ncs# packages reload
     reload-result {
-      package nokia-sros_nc-gen-1.0
+      package harmonic-cableos_nc-gen-1.0
       result true
    }
   ```
@@ -239,7 +223,7 @@
   Set the environment variable NED_ROOT_DIR to point at the NSO NED package:
 
   ```
-  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/nokia-sros_nc-gen-1.0
+  > export NED_ROOT_DIR=$NSO_RUNDIR/packages/harmonic-cableos_nc-gen-1.0
   ```
 
 
@@ -262,10 +246,10 @@
      ```
      > ncs_cli -C -u admin
      admin@ncs# software packages fetch package-from-file \
-               /tmp/ned-package-store/ncs-6.0-nokia-sros_nc-1.0.tar.gz
+               /tmp/ned-package-store/ncs-6.0-harmonic-cableos_nc-1.0.tar.gz
      admin@ncs# software packages list
      package {
-      name ncs-6.0-nokia-sros_nc-1.0.tar.gz
+      name ncs-6.0-harmonic-cableos_nc-1.0.tar.gz
       installable
      }
      ```
@@ -273,10 +257,10 @@
   3. Install the NED package (add the argument replace-existing if a previous version has been loaded):
 
      ```
-     admin@ncs# software packages install nokia-sros_nc-1.0
+     admin@ncs# software packages install harmonic-cableos_nc-1.0
      admin@ncs# software packages list
      package {
-      name ncs-6.0-nokia-sros_nc-1.0.tar.gz
+      name ncs-6.0-harmonic-cableos_nc-1.0.tar.gz
       installed
      }
      ```
@@ -287,7 +271,7 @@
      admin@ncs# packages reload
      admin@ncs# software packages list
      package {
-       name ncs-6.0-nokia-sros_nc-gen-1.0
+       name ncs-6.0-harmonic-cableos_nc-gen-1.0
        loaded
      }
      ```
@@ -325,7 +309,7 @@
     ```
     admin@ncs(config)# devices device dev-1 address <ip address to device>
     admin@ncs(config)# devices device dev-1 port <port on device>
-    admin@ncs(config)# devices device dev-1 device-type generic ned-id nokia-sros_nc-gen-1.0
+    admin@ncs(config)# devices device dev-1 device-type generic ned-id harmonic-cableos_nc-gen-1.0
     admin@ncs(config)# devices device dev-1 state admin-state unlocked
     admin@ncs(config)# devices device dev-1 authgroup my-group
     ```
@@ -363,7 +347,7 @@
   NSO creates one separate trace file for each device instance with tracing enabled.
   Stored in the following location:
 
-  `$NSO_RUNDIR/logs/ned-nokia-sros_nc-gen-1.0-<device name>.trace`
+  `$NSO_RUNDIR/logs/ned-harmonic-cableos_nc-gen-1.0-<device name>.trace`
 
   Do as follows to enable tracing in one specific device instance in NSO:
 
@@ -399,7 +383,7 @@
   4. Configure the log level for printouts to the trace file:
 
      ```
-     admin@ncs(config)# devices device dev-1 ned-settings nokia-sros_nc logger \
+     admin@ncs(config)# devices device dev-1 ned-settings harmonic-cableos_nc logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -408,7 +392,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices device global-settings ned-settings nokia-sros_nc logger \
+     admin@ncs(config)# devices device global-settings ned-settings harmonic-cableos_nc logger \
                        level [debug | verbose | info | error]
      admin@ncs(config)# commit
      ```
@@ -445,7 +429,7 @@
   3. Enable Java logging with level all from the NED package:
 
      ```
-     admin@ncs(config)# java-vm java-logging logger com.tailf.packages.ned.sros \
+     admin@ncs(config)# java-vm java-logging logger com.tailf.packages.ned.cableos \
                        level level-all
      admin@ncs(config)# commit
      ```
@@ -453,7 +437,7 @@
   4. Configure the NED to log to the Java logger
 
      ```
-     admin@ncs(config)# devices device dev-1 ned-settings nokia-sros_nc logger java true
+     admin@ncs(config)# devices device dev-1 ned-settings harmonic-cableos_nc logger java true
      admin@ncs(config)# commit
      ```
 
@@ -461,7 +445,7 @@
      device instances using this NED package.
 
      ```
-     admin@ncs(config)# devices global-settings ned-settings nokia-sros_nc logger java true
+     admin@ncs(config)# devices global-settings ned-settings harmonic-cableos_nc logger java true
      admin@ncs(config)# commit
      ```
 
@@ -502,24 +486,7 @@ admin@ncs(config)# commit
 # 4. Sample device configuration
 --------------------------------
 
-  ```
-  devices authgroups group nokia-auth-group
-   default-map remote-name <user>
-   default-map remote-password <password>
-  !
-  devices device dev-1
-   address         <address>
-   port            <port>
-   authgroup       nokia-auth-group
-   device-type generic ned-id nokia-sros_nc-gen-1.0
-   trace           raw
-   ! Set get-config-no-filter true if openconfig models are being used
-   ned-settings nokia-sros_nc transaction get-config-no-filter true
-   ned-settings nokia-sros_nc transaction exclude-namespaces urn:ietf:params:xml:ns:yang:ietf-interfaces
-   ned-settings nokia-sros_nc live-status filter-invalid-values true
-   state admin-state unlocked
-  !
-  ```
+  NONE
 
 
 # 5. Built in RPC actions
@@ -723,7 +690,7 @@ admin@ncs(config)# commit
       - only-oper-filter <string>
 
 
-      - profile <union> (default sros-combined-from-device)
+      - profile <string>
 
         Use a download profile to match a predefined subset of matching YANG files.
 
@@ -876,7 +843,7 @@ admin@ncs(config)# commit
       - only-oper-filter <string>
 
 
-      - profile <union> (default sros-combined-from-device)
+      - profile <string>
 
         Use a download profile to match a predefined subset of matching YANG files.
 
@@ -962,7 +929,7 @@ admin@ncs(config)# commit
 
         Either of:
 
-          - filter trim-schema nodes <union>
+          - filter trim-schema nodes <string>
 
             List of nodes to trim. Use one of the pre-defined top node names. Alternatively, specify a
             custom xpath to trim (prefix is mandatory on each element in the path).
@@ -1215,83 +1182,39 @@ admin@ncs(config)# commit
 
         Set the number of entries to display in the generated top list.
 
+  ---
+
+  Configuration of CLI interaction through 'live-status exec any <cli-cmd>'.
+
+  In case the default values are different, set these ned-settings before using live-status actions:
+
+  > ned-settings harmonic-cableos_nc live-status cli port 22
+  > ned-settings harmonic-cableos_nc live-status cli prompt-pattern "^[\w@]+(\(\w+\))?[>#][ ]*$"
+  > ned-settings harmonic-cableos_nc live-status cli no-pagination-cmd "paginate false"
+  > commit
+
+  > ned-settings harmonic-cableos_nc live-status cli auto-prompts 1 question "(?is)reboot.*warning.*\?\s*\[\s*yes\s*[/,]\s*no\s*\]\s*[:\s]*$" answer no
+  > ned-settings harmonic-cableos_nc live-status cli auto-prompts 2 question "(?i).*\?\s*\[\s*yes\s*[/,]\s*no\s*\]\s*[:\s]*$" answer yes
+  > commit
+
+  To use the NED for live-status commands only, set the following ned-setting:
+
+  > ned-settings harmonic-cableos_nc connection connection-mode live-status-only
+  > commit
+
+  ---
+
 
 # 6. Built in live-status show
 ------------------------------
 
-  The nokia-sroc_nc NED has full support for fetching operational data via the NSO live-status API.
+  NONE
 
 
 # 7. Limitations
 ----------------
 
-  The SROS device must be properly configured in model driven mode and with netconf enabled for this NED to function properly.
-  Any other mode such as 'mixed mode' makes SROS limited and will prevent the NED from using certain features. For instance
-  the fast transaction id calculation nethod which has been customized for SROS.
-
-  Some issues has been observed when running towards SROS devices. These are briefly described here, please note that these
-  are only what have been observed in specific use-cases, it might be related to device/SROS model/version, and also to specific
-  configuration used in these use-cases. Hence, these issues might not be relevant for your use-case, and of course, there might
-  be other issues which have not been observed.
-
-  As has been observed with many vendors yang-models, SROS seems to contain some leafrefs that are not enforced in the
-  device, which might lead to NSO reporting "illegal reference" when doing sync-from. See file src/customize-schema.schypp
-  for these, i.e. paths which have an 'inline_type' operation in this file. Also see the README-rebuild.md for more info on
-  mitigating "illegal reference".
-
-  In some older versions of SROS, support for yang-library version 1.1 is announced, however, the implementation has bugs in it
-  (this relates at least to SROS versions <= 20.10 which announce yang-library 1.1 support). In this case the NED needs to be
-  configured to make it look like the device actually implements yang-library 1.0. This can be done by setting the
-  below ned-settings:
-
-  ```
-      ned-settings nokia-sros_nc connection capabilities use-yang-library false
-      ned-settings nokia-sros_nc connection capabilities regex-exclude .*yang-library:1.1.*
-      ned-settings nokia-sros_nc connection capabilities inject urn:ietf:params:netconf:capability:yang-library:1.0revision=2019-01-04&module-set-id=20.10.R4
-  ```
-
-  NOTE: The "fake" module-set-id used here is not relevant, it can be anything
-
-  Another issue which has been observed is that while the device announces support for the yang-module ietf-interfaces, it
-  can not be used for example inside the filter of a get-config request. Hence this module needs to be filtered out, which is
-  done with the below ned-setting:
-
-  ```
-      ned-settings nokia-sros_nc transaction exclude-namespaces urn:ietf:params:xml:ns:yang:ietf-interfaces
-  ```
-
-  At least SROS version 22 has problems with properly returning valid data from the openconfig data tree when the NED is doing
-  a get-config request. The device seems to have problems with the default filter used by the NED. If the NED is built with
-  openconfig, this filter will contain namespaces of the openconfig models. This will result in the device returning an error
-  instead of the valid config.
-
-  This issue can be solved by configuring the following NED setting:
-
-  ```
-      ned-settings nokia-sros_nc transaction get-config-no-filter true
-  ```
-
-  All current versions of SROS have a special non rfc compliant behaviour for settings related to the configuration groups 'bof' and 'li'.
-  These configuration trees are regarded as separate datastores by SROS. This means SROS does not allow editing standard config together
-  with 'bof' or 'li' settings in the same transaction. Furthermore editing 'bof' and 'li' settings does require Nokia specific non rfc
-  compliant extensions to the netconf messages.
-
-  Do as follows to enable support for managing 'bof' settings in the NED:
-
-  1. Make sure the Nokia 'bof' models are included when rebuilding the NED.
-     For example, use the profile 'sros-combined-with-bof-from-device' when downloading the models.
-
-  2. Configure the following NED setting:
-  ```
-      ned-settings nokia-sros_nc transaction bof-settings enable true;
-  ```
-
-  3. Set the following NED setting to *true* for devices running SROS version 23 or newer. Default is *false*.
-  ```
-      ned-setinngs nokia-sros_nc transaction bof-settings use-config-region-ns true
-  ```
-
-  The NED does currently not support managing 'li' settings. This is something that can be added upon request.
+  NONE
 
 
 # 8. How to report NED issues and feature requests
@@ -1320,7 +1243,7 @@ admin@ncs(config)# commit
      ```
      ncs_cli -C -u admin
      admin@ncs# configure
-     admin@ncs(config)# devices device dev-1 ned-settings nokia-sros_nc logging level debug
+     admin@ncs(config)# devices device dev-1 ned-settings harmonic-cableos_nc logging level debug
      admin@ncs(config)# commit
      ```
 
@@ -1503,7 +1426,7 @@ admin@ncs(config)# commit
 
   ```
   > devices device dev-1 trace raw
-  > devices device dev-1 ned-settings nokia-sros_nc logger level debug
+  > devices device dev-1 ned-settings harmonic-cableos_nc logger level debug
   > commit
   ```
 
@@ -1530,90 +1453,355 @@ admin@ncs(config)# commit
   ```
 
 
+# 11. Using the NED for Telemetry
 
-# 11. Run Arbitrary Commands on Device
+## Introduction
+
+This NED supports subscribing to telemetry events using the telemetry feature introduced in NSO 6.7. With this capability, NSO can act as a telemetry subscriber towards managed devices, enabling powerful automation patterns at the service layer — such as feedback loops that provision configuration on a device and then automatically react when that configuration becomes active.
+
+### Prerequisites
+
+- The NED is used together with **NSO 6.7** or newer.
+- The managed device supports the **YANG-Push (RFC 8641)** extension for NETCONF.
+
+### Restrictions
+
+The NSO telemetry feature is designed to assist with provisioning — for example, by receiving automatic notifications when a provisioned configuration becomes active. It is generally not intended for high-frequency telemetry data reception.
+
+### Background: YANG-Push (RFC 8641)
+
+**YANG-Push** is an IETF-standardized protocol defined in [RFC 8641](https://datatracker.ietf.org/doc/html/rfc8641). It extends the NETCONF and RESTCONF protocols with the ability for a client to establish *subscriptions* on a YANG datastore, causing the device to stream updates back to the subscriber without repeated polling.
+
+YANG-Push builds on the concepts introduced in the *Subscription to YANG Notifications* framework ([RFC 8639](https://datatracker.ietf.org/doc/html/rfc8639)) and supports two complementary subscription modes:
+
+| Mode          | Behavior                                                     |
+| :------------ | :----------------------------------------------------------- |
+| **Periodic**  | The device sends a complete snapshot of all data under the subscribed path at a fixed interval. Useful for counters, statistics, and any data that changes frequently and continuously. |
+| **On-Change** | The device sends an update *only* when something changes under the subscribed path. Useful for configuration state, session tables, or protocol status fields where changes are discrete events. Note that not all devices support on-change subscriptions across every part of their schema. |
+
+Key characteristics of the protocol include:
+
+- **Datastore awareness** — Subscriptions target a specific YANG datastore (e.g., `running`, `operational`, `candidate`), giving precise control over what kind of data is observed.
+- **Filtering** — Subscriptions can be narrowed using XPath or subtree filters so that only relevant portions of the datastore are streamed.
+- **Dampening** — On-change subscriptions support a dampening period that aggregates rapid-fire changes into fewer, consolidated updates.
+- **Sync-on-start** — On-change subscriptions can optionally deliver a full initial snapshot when the subscription is first established, ensuring the subscriber has a known baseline.
+
+By leveraging YANG-Push through this NED, NSO gains a real-time, event-driven view of device state — a foundation for building closed-loop automation and reactive service logic.
+
+
+
+## Configuring a Telemetry Subscription
+
+Telemetry subscriptions are configured under each device's `telemetry` container:
+
+```none
+/devices/device/<name>/telemetry/subscription/<name>
+```
+
+You can set up one or more subscriptions per device. Each subscription must specify, at a minimum, a **datastore**, a **subscription mode** (`periodic` or `on-change`), and a **path** (XPath or subtree filter) pointing to the location of interest in the device schema.
+
+
+
+### General YANG-Push Subscription Settings
+
+| Setting                      | Description                                                  |
+| :--------------------------- | :----------------------------------------------------------- |
+| `name`                       | Subscription name (used as the list key).                    |
+| `local-user`                 | The NSO user whose authentication credentials are used when connecting to the device for the telemetry session. |
+| `datastore`                  | Target datastore to subscribe to (e.g., `running`, `operational`). |
+| `xpath`                      | XPath filter pointing to the path of interest in the device schema. |
+| `subtree`                    | Subtree filter — an alternative to `xpath` for specifying the path of interest. |
+| `periodic`                   | Enables **periodic** mode. The device sends a full snapshot of data under the subscribed path at regular intervals. |
+| `periodic/period`            | Update interval in centiseconds. Mandatory when using periodic mode. |
+| `periodic/anchor-time`       | Optional anchor time for aligning the periodic interval.     |
+| `on-change`                  | Enables **on-change** mode. The device sends an update only when a node under the subscribed path has changed. Note that on-change may only be supported for certain parts of the device schema. |
+| `on-change/dampening-period` | Minimum time between consecutive updates, in centiseconds.   |
+| `on-change/sync-on-start`    | Whether to send a full synchronization snapshot when the subscription is first established. Default: `true`. |
+| `on-change/excluded-change`  | Change types to exclude from notifications: `create`, `delete`, `insert`, `move`, `replace`. |
+| `reconnect-interval`         | How often (in seconds) to retry a failed subscription. Default: `60`. |
+| `setting`                    | A list of key/value pairs for NED-specific settings (see below). |
+
+
+
+### NED-Specific Settings
+
+The following settings are configured in the `setting` list. Because this list accepts arbitrary key/value string pairs, it is important that both keys and values are spelled **exactly** as shown below.
+
+| Key                            | Description                                                  |
+| :----------------------------- | :----------------------------------------------------------- |
+| `rate-limit-period`            | Rate-limit period in centiseconds. When set, the NED ensures that telemetry messages are not forwarded to NSO more frequently than this interval. This is intended as a safeguard against excessively high-frequency updates (e.g., from a misbehaving device). Disabled by default. |
+| `rate-limit-drop-log-interval` | Controls how often dropped telemetry events are logged when rate limiting is active. Default: `50`. |
+| `force-raw`                    | When set to `true`, the NED delivers telemetry events to NSO as raw, unparsed YANG-Push messages instead of model-driven data. By default, telemetry events are parsed by NSO and populated into a synthetic transaction, which allows services to perform standard operations such as diff iteration using the `Maagic` API. In some cases it may be preferable to receive the raw data and handle parsing in the service itself. When raw mode is active, the data is made available at: `/devices/device/<name>/telemetry/subscription/<name>/raw-telemetry` |
+
+
+
+## Examples
+
+The following examples show how to configure telemetry subscriptions through the NSO CLI.
+
+### Example 1: On-Change Subscription with Rate Limiting
+
+This subscription monitors the interfaces subtree in the `running` datastore and applies a rate limiter to prevent excessive updates.
+
+```shell
+ncs(config)# devices device dev0 telemetry subscription intf-changes \
+    local-user admin \
+    datastore running \
+    xpath /r:sys/r:interfaces \
+    on-change \
+    setting rate-limit-period value 20
+ncs(config-subscription-intf-changes)# commit
+```
+
+### Example 2: Periodic Subscription with Raw Delivery
+
+This subscription polls the interfaces subtree in the `operational` datastore every 10 seconds (1000 centiseconds) and delivers the data as raw YANG-Push messages.
+
+```shell
+ncs(config)# devices device dev0 telemetry subscription intf-poll \
+    local-user admin \
+    datastore operational \
+    xpath /r:sys/r:interfaces \
+    periodic period 1000 \
+    setting force-raw value true
+ncs(config-subscription-intf-poll)# commit
+```
+
+
+
+## Using Telemetry in Service Applications
+
+This section provides an overview of how telemetry can be integrated into service applications to assist with provisioning and monitoring. For full details, refer to the NSO documentation.
+
+### Toolkit Components
+
+The service developer's toolkit for working with telemetry consists of two main components:
+
+1. **Synthetic Telemetry Transactions**
+
+   - For **model-driven** telemetry events, NSO fully populates the received data into a synthetic transaction. This means you can use standard NSO API operations — such as diff iteration and the Python `Maagic` API — to inspect and react to the data.
+   - For **raw** telemetry events, the unparsed data can be read from the synthetic transaction at: `/devices/device/<name>/telemetry/subscription/<name>/raw-telemetry`
+
+2. **Telemetry Kickers**
+
+   - The `telemetry-kicker` (configured under `/kickers`) lets you trigger an action whenever a telemetry event is received that matches a selector expression. This is the primary mechanism for wiring telemetry events into your service logic.
+
+
+
+Together, these components enable patterns such as:
+
+- **Feedback-loop provisioning** — Push configuration to a device, then automatically detect when it has taken effect.
+- **Alarm propagation** — React to operational state changes on the device and propagate them northbound.
+
+
+
+### Example: Feedback-Loop Based BGP Provisioning
+
+The following example demonstrates a very simple service application that provisions a BGP neighbor on a device and uses telemetry to detect when that neighbor reaches the `ESTABLISHED` state. When the telemetry event is received, the service automatically updates an operational leaf, which in turn can notify northbound systems (for instance, via a northbound YANG-Push subscription from NSO).
+
+#### Service YANG Model
+
+```
+module closed-loop-demo {
+  yang-version 1.1;
+  namespace "http://example.com/closed-loop-demo";
+  prefix cld;
+
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+  import tailf-ncs-kicker-extension {
+    prefix kicker;
+  }
+  revision 2026-02-01 {
+    description
+      "Initial revision.";
+  }
+
+  list autonomous-bgp-router {
+    key "device local-as-number";
+    uses ncs:service-data;
+    ncs:servicepoint closed-loop-demo-servicepoint;
+    leaf device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+    leaf local-as-number {
+      type uint32;
+    }
+    leaf peer-as-number {
+      type uint32;
+      mandatory true;
+    }
+    leaf peer-ip-address {
+      type string;
+      mandatory true;
+    }
+    leaf operational-state {
+      type enumeration {
+        enum UNKNOWN;
+        enum ESTABLISHED;
+        enum TIMEOUT;
+      }
+      default UNKNOWN;
+      config false;
+      tailf:cdb-oper {
+        tailf:persistent true;
+      }
+    }
+    tailf:action handle-autonomous-bgp-notification {
+      tailf:actionpoint handle-autonomous-bgp-notification;
+      input {
+        uses kicker:telemetry-action-input-params;
+      }
+      output {
+      }
+    }
+  }
+}
+```
+
+
+
+#### **Service Python module**
+
+```
+# -*- mode: python; python-indent: 4 -*-
+import ncs
+import json
+from ncs.application import Service
+from ncs.cdb import OperSubscriber
+from ncs.dp import Action
+from ncs.maapi import Maapi
+_ncs = __import__('_ncs') # pylint: disable=invalid-name
+
+class ClosedLoopDemo(Service):
+    @Service.create
+    def cb_create(self, tctx, root, service, proplist):
+        self.log.info('Service start autonomous BGB on device {0}, local-as-number: {1}, peer-as-number: {2}, peer-ip-address {3}'.format(service.device, service.local_as_number, service.peer_as_number, service.peer_ip_address))
+
+        name = 'autonomous-bgp-monitor-{0}-{1}'.format(service.device, service.local_as_number)
+
+        # 1. Setup a telemetry kicker
+        kicker = root.kicker__kickers.telemetry_kicker.create(name)
+        kicker.selector_expr = "$SUBSCRIPTION_NAME = '{0}'".format(name)
+        kicker.kick_node = "/autonomous-bgp-router[device='{0}'][local-as-number='{1}']".format(service.device, service.local_as_number)
+        kicker.action_name = 'handle-autonomous-bgp-notification'
+
+        # 2. Setup telemetry subscription. Mode on-change
+        device = root.devices.device[service.device]
+        entry = device.telemetry.subscription.create(name)
+        entry.datastore = 'operational'
+        entry.xpath = "/configuration/protocols/bgp/group[name='EBGP-PEER-GROUP-65001']"
+        entry.local_user = 'admin'
+        entry.on_change.create()
+        entry.on_change.sync_on_start = False
+
+        # 3. Apply Template
+        template = ncs.template.Template(service)
+        template.apply('closed-loop-demo', None)
+
+class HandleBgpNotification(Action):
+    # Stop the telemetry subscription and kicker
+    def stop_monitoring(self, kp, kicker_id):
+        with ncs.maapi.single_write_trans('admin', 'python', db=_ncs.RUNNING) as edit_th:
+            self.log.info("Stopping monitor")
+            root = ncs.maagic.get_root(edit_th)
+            service_node = ncs.maagic.get_node(edit_th, kp)
+            del(root.kicker__kickers.telemetry_kicker[kicker_id])
+            del(root.devices.device[service_node.device].telemetry.subscription[kicker_id])
+            edit_th.apply()
+        with ncs.maapi.single_write_trans('admin', 'python', db=_ncs.OPERATIONAL) as oper_th:
+            self.log.info("Setting operational state to ESTABLISHED")
+            service_node = ncs.maagic.get_node(oper_th, kp)
+            service_node.operational_state = "ESTABLISHED"
+            oper_th.apply()
+
+    @Action.action
+    def cb_action(self, uinfo, name, kp, input, output, trans):
+        self.log.info("Kicker triggered by: {0}".format(input.kicker_id))
+        with ncs.maapi.Maapi() as m:
+            with ncs.maapi.single_read_trans('admin', 'python', db=_ncs.RUNNING) as th:
+                service = ncs.maagic.get_node(th, kp)
+               	with m.attach(input.tid) as kicker_th:
+                    root = ncs.maagic.get_root(kicker_th)
+                    group = root.devices.device[service.device].
+                    live_status.jc__configuration.jc_protocols__protocols.bgp.group
+
+                    if not 'EBGP-PEER-GROUP-65001' in group:
+                        return
+                    neighbor = group['EBGP-PEER-GROUP-65001'].neighbor
+                    if  not '192.168.0.2' in neighbor:
+                        return
+                    val = neighbor['192.168.0.2'].description
+                    self.log.info("Operational state is: {0}".format(val))
+                    if val and str(val).lower() == "established":
+                        self.stop_monitoring(kp, input.kicker_id)
+
+# ---------------------------------------------
+# COMPONENT THREAD THAT WILL BE STARTED BY NCS.
+# ---------------------------------------------
+class Main(ncs.application.Application):
+
+    #pylint: disable=attribute-defined-outside-init
+    def setup(self):
+        # The application class sets up logging for us. It is accessible
+        # through 'self.log' and is a ncs.log.Log instance.
+        self.log.info('Main RUNNING')
+        self.register_service('closed-loop-demo-servicepoint', ClosedLoopDemo)
+        self.register_action('handle-autonomous-bgp-notification', HandleBgpNotification)
+
+    def teardown(self):
+        # When the application is finished (which would happen if NCS went
+        # down, packages were reloaded or some error occurred) this teardown
+        # method will be called.
+        self.log.info('Main FINISHED')
+```
+
+
+
+#### **How it works:**
+
+1. When the service is created, it configures a **telemetry kicker** and an **on-change telemetry subscription** targeting the BGP group on the device.
+2. As the device detects a change in the subscribed BGP group, it pushes an update to NSO via YANG-Push.
+3. The telemetry kicker fires and invokes the `handle-autonomous-bgp-notification` action.
+4. The action inspects the synthetic transaction to check whether the BGP neighbor has reached the `ESTABLISHED` state.
+5. If so, the action removes the subscription and kicker (cleanup) and sets the service's `operational-state` leaf to `ESTABLISHED`.
+6. Northbound systems subscribed to NSO can then be notified of this state change automatically.
+
+
+# 12. Run arbitrary commands on device
 --------------------------------------
 
   Some commands that are available to a user logged in to an interactive CLI
   session on the device might not be available through NETCONF. For situations
-  like this the NED provides the feature to run arbitrary commands on the device.
-
-  The NED feature to execute commands is connected in NSO to a live-status action
-  called 'exec any'.
-
-  The NED does by default use the 'md-cli-raw-command' feature to tunnel commands
-  to the device. This feature is supported by all newer versions of Nokia SROS.
-
-  It is also possible to configure the NED to use an interactive SSH login to
-  the device. This extra SSH session is then handled internally in the NED.
-  This option works also with older versions of SROS.
+  like this the NED provides the feature to run arbitrary commands through an
+  interactive SSH login to the device. This SSH session is handled internally in
+  the NED and connected in NSO to a live-status action called 'exec any'.
 
   There are some ned-settings to control the behaviour of this feature, see the
-  section 'ned-settings nokia-sros_nc live-status exec-any-mode and cli' in
+  section 'ned-settings harmonic-cableos_nc live-status cli' in
   README-ned-settings.md for details on this.
 
+  Specifically, to be able to handle the interactive session towards the device,
+  the NED needs to know the format for the device prompt. It also assumes that
+  pagination is turned off before reading output from command sent (i.e. that
+  the device doesn't pause terminal output, waiting for interactive
+  response). The ned-settings 'prompt-pattern' and 'no-pagniation-cmd' are used
+  to control this. These might have proper default values, please check that
+  this matches your device though before trying this feature, since if not
+  configured correctly the NED will hang until timed out.
+
+  As an example, to run the command 'show running-config' on the device, and get
+  the resulting output as a string from the ncs_cli, run the following:
+
   ```
-  admin@ncs# devices device dev-1 live-status exec any admin display-config
+  admin@ncs# devices device dev-1 live-status exec any show running-config
   ```
 
   Note that when using ncs_cli, the command-line given might need to be quoted
   if it contains characters that are interpreted by the ncs_cli itself.
-
-# 12. Display Dry-Run Commit Output in Nokia MD-CLI Format
-----------------------------------------------------------
-When you run `commit dry-run outformat native` in NSO, this NED will, by default, return a NETCONF XML representation
-of the configuration that would be applied to the device.
-
-You can configure the NED to also generate the same configuration in Nokia MD-CLI format (as a best-effort conversion).
-This feature is intended to make the configuration output more human-readable, which can be useful for auditing and
-reviewing changes.
-
-<u>Important:</u>
-The MD-CLI format is only shown during dry-run operations. When you perform an actual commit,
-only the NETCONF XML is sent to the device.
-
-To enable MD-CLI dry-run output, configure the following NED setting:
-  ```
-  admin@ncs# devices device dev-1 ned-settings nokia-sros_nc transaction dry-run-output-format netconf-and-md-cli
-  admin@ncs# commit
-  ```
-
- Example output:
- ```
- admin@ncs# devices device dev-1 config configure port 1/1/1 description EXAMPLE
- admin@ncs# commit dry-run outformat native
- native {
-    device {
-        name dev-1
-        data #118
-             <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="7">
-               <lock>
-                 <target>
-                   <candidate/>
-                 </target>
-               </lock>
-             </rpc>
-             ##
-             #404
-             <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="8">
-               <edit-config>
-                 <target>
-                   <candidate/>
-                 </target>
-                 <test-option>test-then-set</test-option>
-                 <error-option>rollback-on-error</error-option>
-                 <config>
-                   <configure xmlns="urn:nokia.com:sros:ns:yang:sr:conf">
-                     <port>
-                       <port-id>1/1/1</port-id>
-                       <description>EXAMPLE</description>
-                     </port>
-                   </configure>
-                 </config>
-               </edit-config>
-             </rpc>
-             ##
-             Corresponding operations in MD-CLI format:
-                 /configure port 1/1/1 description EXAMPLE
-    }
-}

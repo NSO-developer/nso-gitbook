@@ -187,6 +187,14 @@
       interval.
 
 
+    - connection ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
+
+
 # 3. ned-settings cisco-staros live-status
 ------------------------------------------
 

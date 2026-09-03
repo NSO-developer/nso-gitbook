@@ -7,11 +7,11 @@
   following locations:
 
   global
-    /ncs:devices/global-settings/ned-settings/nokia-sros_nc/
+    /ncs:devices/global-settings/ned-settings/harmonic-cableos_nc/
   profile
-    /ncs:devices/ncs:profiles/profile:<name>/ned-settings/nokia-sros_nc/
+    /ncs:devices/ncs:profiles/profile:<name>/ned-settings/harmonic-cableos_nc/
   device
-    /ncs:/device/devices/device:<name>/ned-settings/nokia-sros_nc/
+    /ncs:/device/devices/device:<name>/ned-settings/harmonic-cableos_nc/
 
   Profiles setting overrides global-settings and device settings override profile settings,
   hence the narrowest scope of the setting is used by the device.
@@ -23,7 +23,7 @@
 
    ```
    # config
-   # devices device dev-1 ned-settings nokia-sros_nc
+   # devices device dev-1 ned-settings harmonic-cableos_nc
 
    Press TAB to see all the NED settings.
 
@@ -34,20 +34,23 @@
 -------------------
 
   ```
-  1. ned-settings nokia-sros_nc
+  1. ned-settings harmonic-cableos_nc
   2. transaction
      2.1. ignore-rpc-errors
      2.2. extra-get-config-paths
      2.3. exclude-namespaces
      2.4. inject-meta-data
-     2.5. bof-settings
-     2.6. with-defaults-retrieval
+     2.5. inbound
+     2.6. outbound
   3. connection
      3.1. capabilities
           3.1.1. regex-exclude
           3.1.2. regex-include
           3.1.3. inject
      3.2. ssh
+     3.3. keep-alive
+     3.4. tls
+          3.4.1. mutual-tls
   4. proxy
   5. live-status
      5.1. regex-exclude
@@ -58,14 +61,14 @@
   ```
 
 
-# 1. ned-settings nokia-sros_nc
--------------------------------
+# 1. ned-settings harmonic-cableos_nc
+-------------------------------------
 
-  This file describes the ned-settings for nokia-sros_nc.
+  This file describes the ned-settings for harmonic-cableos_nc.
 
 
-# 2. ned-settings nokia-sros_nc transaction
--------------------------------------------
+# 2. ned-settings harmonic-cableos_nc transaction
+-------------------------------------------------
 
   Settings affecting different aspects of NSO transactions towards device.
 
@@ -187,14 +190,14 @@
 
       Either of:
 
-        - devices device ned-settings nokia-sros_nc transaction use-maapi-setvalues <true|false>
+        - devices device ned-settings harmonic-cableos_nc transaction use-maapi-setvalues <true|false>
 
           Use maapi setValues method instead of loadConfigStream to load data to NSO. This method is
           very strict. Inacurracies in the loaded configuration will throw an error.
 
       OR:
 
-        - devices device ned-settings nokia-sros_nc transaction use-maapi-load-config-cmds <true|false>
+        - devices device ned-settings harmonic-cableos_nc transaction use-maapi-load-config-cmds <true|false>
 
           Use maapi loadConfigCmds method instead of loadConfigStream to load data to NSO. This
           method is more relaxed. Inaccuracies in the loaded configuration will be silently ignored.
@@ -257,6 +260,17 @@
       that can be used, see section 9.12 in the README.md.
 
 
+    - transaction enable-config-caching <true|false> (default false)
+
+      Enable this option to allow the NED to handle configuration nodes that may disappear
+      unexpectedly when other configuration changes are made on the device. If such nodes are
+      removed spontaneously, it can cause NSO to become out of sync with the actual device
+      configuration. When this setting is enabled, the NED will cache the affected configuration
+      nodes and reinject them during all subsequent read operations, ensuring NSO remains
+      synchronized with the device. Note: This feature requires the relevant schema nodes to be
+      annotated with 'cache-parent-on' for it to function properly.
+
+
     - transaction force-revert-diff <true|false> (default false)
 
       Enable this setting to force the use of an NSO calculated diff to apply when doing revert on device.
@@ -294,47 +308,8 @@
       been configured.
 
 
-    - transaction revert-with-rollback enable <true|false> (default false)
-
-      Enable revert functionality by executing the MD-CLI rollback command.
-
-
-    - transaction revert-with-rollback disable-reverse-diff <true|false> (default false)
-
-      When revert-with-rollback is enabled, disable the request for a reverse diff. This can improve
-      NSO performance since reverse diff calculation is typically resource-intensive. Note that
-      disabling the reverse diff removes the ability for the NED to fall back to the standard
-      NETCONF revert operation.
-
-
-    - transaction annotate-commit <enum> (default disabled)
-
-      Enable support for annotating the commit on SROS devices through NSO. When this option is
-      enabled, the NED uses the SROS specific non RFC compliant extension to the commit RPC.This
-      feature only works on NSO version 6.5 or later in combination with devices running SROS 23 or
-      newer.
-
-      with-label    - The device commit annotation will use the NSO commit label.
-
-      with-comment  - The device commit annotation will use the NSO commit comment.
-
-      disabled      - disabled.
-
-
-    - transaction dry-run-output-format <enum> (default netconf)
-
-      Specifies the format of the output generated by 'commit dry-run'. By default, the output is in
-      NETCONF XML format. You can also choose to include Nokia MD-CLI format (best effort) in the
-      output.
-
-      netconf             - Output is in NETCONF XML format.
-
-      netconf-and-md-cli  - Output includes both NETCONF XML format and Nokia MD-CLI format (best
-                            effort).
-
-
-## 2.1. ned-settings nokia-sros_nc transaction ignore-rpc-errors
-----------------------------------------------------------------
+## 2.1. ned-settings harmonic-cableos_nc transaction ignore-rpc-errors
+----------------------------------------------------------------------
 
   Configure additional device errors that shall be treated as warnings (i.e. to be ignored, not
   aborting transaction).
@@ -347,8 +322,8 @@
         lowercase letters for device warnings, except for regex keywords.
 
 
-## 2.2. ned-settings nokia-sros_nc transaction extra-get-config-paths
----------------------------------------------------------------------
+## 2.2. ned-settings harmonic-cableos_nc transaction extra-get-config-paths
+---------------------------------------------------------------------------
 
   This list can be used to add extra filters when sending get-config RPC to the device.
   For example if there is a bug in the device which makes it not include all config under
@@ -362,8 +337,8 @@
         Schema path to explicitly add to filter for get-config.
 
 
-## 2.3. ned-settings nokia-sros_nc transaction exclude-namespaces
------------------------------------------------------------------
+## 2.3. ned-settings harmonic-cableos_nc transaction exclude-namespaces
+-----------------------------------------------------------------------
 
   This list can be used to filter out certain namespaces from the configuration
   (i.e. all nodes belonging to namespaces given in this list will be dropped
@@ -376,8 +351,8 @@
         Namespace to exclude (i.e. as it appears in the yang module).
 
 
-## 2.4. ned-settings nokia-sros_nc transaction inject-meta-data
----------------------------------------------------------------
+## 2.4. ned-settings harmonic-cableos_nc transaction inject-meta-data
+---------------------------------------------------------------------
 
   Inject tailf:meta-data extension into schema at given path, used for example to trigger xml
   transform methods (java methods annotated with XMLTransformMethod) before xml is sent to NSO,
@@ -418,65 +393,76 @@
         sub-statement needed).
 
 
-## 2.5. ned-settings nokia-sros_nc transaction bof-settings
------------------------------------------------------------
+## 2.5. ned-settings harmonic-cableos_nc transaction config-replace-patterns inbound
+------------------------------------------------------------------------------------
 
-  Control NED behaviour regarding 'bof' settings.The SROS devices regard 'bof' settings as a
-  separate datastore, meaning that it is not permitted to deploy together with standard config.
+  Specify replace patterns to be applied to inbound XML data before it is parsed and forwarded to
+  NSO.
 
+    - transaction config-replace-patterns inbound <pattern> <replace>
 
-    - bof-settings enable <true|false> (default false)
+      - pattern <string>
 
-      Enable NED support for handling of 'bof' settings through NSO.
-
-
-    - bof-settings use-config-region-ns <true|false> (default false)
-
-      SROS requires special non RFC compliant extensions to the messages used by the netconf
-      protocol to handle 'bof' settings. These extensions should actually be prefixed with their own
-      namespace. However, it seems that older versions of SROS cannot handle extra namespaces. This
-      applies to versions up to SROS 23. For SROS version 23 or newer it is required to set this
-      setting to true.
+      - replace <string>
 
 
-## 2.6. ned-settings nokia-sros_nc transaction with-defaults-retrieval
-----------------------------------------------------------------------
+## 2.6. ned-settings harmonic-cableos_nc transaction config-replace-patterns outbound
+-------------------------------------------------------------------------------------
 
-  Nokia SR OS typically omits system-default values and list entries from standard NETCONF RPC
-  responses. This setting enables targeted retrieval of these hidden defaults using the
-  'with-defaults=report-all' capability. To optimize performance, retrieval is limited to the
-  specific paths defined by subtree or XPath filters.
+  Specify replace patterns to be applied to outbound XML data before it is sent to the device.
 
+    - transaction config-replace-patterns outbound <pattern> <replace>
 
-    - with-defaults-retrieval enable <true|false> (default false)
+      - pattern <string>
 
-      When enabled, the NED performs an additional fetch operation during sync-from, compare-config,
-      and partial-sync-from operations to retrieve default data. Note: For 'partial-sync-from'
-      operations, this additional fetch is performed regardless of whether the requested paths fall
-      within the scope of the configured filters.
+      - replace <string>
 
 
-    - with-defaults-retrieval subtree-filter <string>
-
-      Specify paths in XML subtree format. Keep filters as narrow as possible to minimize the size
-      of the returned configuration payload.
-
-
-    - with-defaults-retrieval xpath-filter <string>
-
-      Specify paths in XPath format. Keep filters as narrow as possible to minimize the size of the
-      returned configuration payload.
-
-
-# 3. ned-settings nokia-sros_nc connection
-------------------------------------------
+# 3. ned-settings harmonic-cableos_nc connection
+------------------------------------------------
 
   Settings related to the initial connection to the device, including the initial hand-shake
   (hello).
 
 
-## 3.1. ned-settings nokia-sros_nc connection capabilities
-----------------------------------------------------------
+    - connection grpc port <uint16> (default 50051)
+
+      Configure the gRPC interface port used by the device.
+
+
+    - connection grpc idle-timeout <uint32> (default 30)
+
+      Set the duration without ongoing gRPC RPCs before going to idle mode. Value in minutes.
+
+
+    - connection grpc connect-retries <uint8> (default 1)
+
+      Set number of connect retries.
+
+
+    - connection telemetry transport <enum> (default disabled)
+
+      Configure transport method for subscribing on telemetry events using the gNMI interface.
+
+      gnmi       - gnmi.
+
+      yang-push  - yang-push.
+
+      disabled   - disabled.
+
+
+    - connection connection-mode <enum> (default netconf)
+
+      Controls whether the NED uses the normal NETCONF session or skips directly to live-status/CLI
+      access.
+
+      netconf           - Use the normal NETCONF connection flow.
+
+      live-status-only  - Skip NETCONF connection setup and use only live-status/CLI access.
+
+
+## 3.1. ned-settings harmonic-cableos_nc connection capabilities
+----------------------------------------------------------------
 
   Settings related the netconf capablities, and the discovery of supported yang modules.
 
@@ -532,8 +518,8 @@
     - capabilities use-all-local-modules <true|false> (default false)
 
 
-### 3.1.1. ned-settings nokia-sros_nc connection capabilities regex-exclude
----------------------------------------------------------------------------
+### 3.1.1. ned-settings harmonic-cableos_nc connection capabilities regex-exclude
+---------------------------------------------------------------------------------
 
   List of regex patterns to use for excluding capabilities sent from device in hello, for example to
   exclude a capability which the device announces in hello, but which is not correctly implemented
@@ -545,8 +531,8 @@
         Regular expression to match contents of capabilities for exclusion.
 
 
-### 3.1.2. ned-settings nokia-sros_nc connection capabilities regex-include
----------------------------------------------------------------------------
+### 3.1.2. ned-settings harmonic-cableos_nc connection capabilities regex-include
+---------------------------------------------------------------------------------
 
   List of regex patterns to use for including capabilities sent from device in hello. Note that
   when this list is non-empty, only capabilities matching any of the patterns in this list will
@@ -559,8 +545,8 @@
         Regular expression to match contents of capabilities for inclusion.
 
 
-### 3.1.3. ned-settings nokia-sros_nc connection capabilities inject
---------------------------------------------------------------------
+### 3.1.3. ned-settings harmonic-cableos_nc connection capabilities inject
+--------------------------------------------------------------------------
 
   This list can be used to inject capabilities into the hello from the device, before processed and sent
   to NSO, for example if a capability sent from the device is invalid, it can be filtered out using
@@ -575,8 +561,8 @@
         appears inside the 'capability' xml-tag, e.g 'urn:ietf:params:netconf:capability:candidate:1.0'.
 
 
-## 3.2. ned-settings nokia-sros_nc connection ssh
--------------------------------------------------
+## 3.2. ned-settings harmonic-cableos_nc connection ssh
+-------------------------------------------------------
 
   Settings related to the SSH client used by the NED to connect to the device.
 
@@ -602,7 +588,7 @@
 
       To view the stored known host-keys, you can for example do the below in ncs_cli:
 
-         admin@ncs# show devices device dev-1 ned-settings nokia-sros_nc-oper known-host-keys
+         admin@ncs# show devices device dev-1 ned-settings harmonic-cableos_nc-oper known-host-keys
          HOST           PORT   FINGERPRINT
          -----------------------------------------------------------------------
          1.2.3.4        22     5c:aa:74:e0:4b:e2:a2:dd:67:0b:83:71:1b:24:42:fe
@@ -612,7 +598,7 @@
       the persistent store first, this can for example be done from the command line with the ncs_cmd
       tool like this:
 
-       $ ncs_cmd -c "mdel /ncs:devices/device{dev-1}/ned-settings/nokia-sros_nc-oper/known-host-keys"
+       $ ncs_cmd -c "mdel /ncs:devices/device{dev-1}/ned-settings/harmonic-cableos_nc-oper/known-host-keys"
 
 
     - ssh auth-key private-key-file <string>
@@ -629,16 +615,97 @@
       interval.
 
 
-    - ssh keep-alive-max-count <uint8> (default 0)
+## 3.3. ned-settings harmonic-cableos_nc connection grpc keep-alive
+-------------------------------------------------------------------
 
-      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
-      limit is exceeded, the SSH client considers the connection stale and automatically
-      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
-      the server can detect a stale connection.
+  Connection keep alive settings.
 
 
-# 4. ned-settings nokia-sros_nc proxy
--------------------------------------
+    - keep-alive enable <true|false> (default false)
+
+      Enable keep alive on the connection. Default false.
+
+
+    - keep-alive time <uint32> (default 60)
+
+      Sets the time without read activity before sending a keepalive ping. Value in seconds.
+
+
+    - keep-alive timeout <uint32> (default 20)
+
+      Sets the time waiting for read activity after sending a keepalive ping. Value in seconds.
+
+
+## 3.4. ned-settings harmonic-cableos_nc connection grpc tls
+------------------------------------------------------------
+
+  TLS authentication settings.
+
+
+    - tls enable <true|false> (default false)
+
+      Enable TLS authentication.
+
+
+    - tls accept-any <true|false> (default false)
+
+      Accept any server or trust manager certificate. Setting this to true is unsafe and shall only
+      be used for testing purposes.
+
+
+    - tls ciphers <union>
+
+      Configure permitted ciphers to use when doing TLS handshake. Leave empty to use system
+      default.
+
+
+    - tls protocols <union>
+
+      Configure permitted protocol versions to use when doing TLS handshake. Leave empty to use
+      system default.
+
+
+    - tls certificate <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+          "----- BEGIN CERTIFICATE -----".
+
+      Default uses the default trusted certificates installed in Java JVM.
+
+      Simple method to get the PEM of a server:
+          openssl s_client -connect HOST:PORT
+
+
+    - tls override-authority <string>
+
+      Specify names to override authority for. Shall only be used for testing.
+
+
+### 3.4.1. ned-settings harmonic-cableos_nc connection grpc tls mutual-tls
+--------------------------------------------------------------------------
+
+  Settings related to mTLS.
+
+
+    - mutual-tls client certificate <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+             "----- BEGIN CERTIFICATE -----".
+
+
+    - mutual-tls client key <string>
+
+      SSL/TLS certificate stored in PEM format including banners like
+             "-----BEGIN PRIVATE KEY-----".
+
+
+    - mutual-tls client key-password <string>
+
+      Configure password for the client key, if encrypted.
+
+
+# 4. ned-settings harmonic-cableos_nc proxy
+-------------------------------------------
 
   Configure NED to access device via an ssh proxy (i.e. a ssh 'jump-host'). By default, when this options is used,
   the address, port, and credentials normally given for the device in NSO, is used as the address and credentials
@@ -671,17 +738,17 @@
 
       Either of:
 
-        - devices device ned-settings nokia-sros_nc proxy remote-name <string>
+        - devices device ned-settings harmonic-cableos_nc proxy remote-name <string>
 
           User name on the device behind the proxy.
 
-        - devices device ned-settings nokia-sros_nc proxy remote-password <string>
+        - devices device ned-settings harmonic-cableos_nc proxy remote-password <string>
 
           Password on the device behind the proxy.
 
       OR:
 
-        - devices device ned-settings nokia-sros_nc proxy authgroup <string>
+        - devices device ned-settings harmonic-cableos_nc proxy authgroup <string>
 
           Authentication credentials for the device behind the proxy.
 
@@ -699,8 +766,8 @@
       preferred, the host-key must be configured in 'connection/ssh/host-key'.
 
 
-# 5. ned-settings nokia-sros_nc live-status
--------------------------------------------
+# 5. ned-settings harmonic-cableos_nc live-status
+-------------------------------------------------
 
   Configure NED settings related to live-status.
 
@@ -770,29 +837,8 @@
       Ask the device to not include 'config true' data in the response.
 
 
-    - live-status ignore-get-error-codes <string> (default unknown-element)
-
-      Some SROS devices do return an error instead of valid data on certain paths advertised by the
-      device when the NED is trying to get operational data. Such errors will typically result in
-      the NED throwing an exception towards NSO, which then will bail out. To avoid this, the NED
-      can be configurued to ignore the error returned by the device and instead return empty data to
-      NSO.
-
-
-    - live-status exec-any-mode <enum> (default md-cli-raw-command)
-
-      Configure how the NED can exceute CLI commands on the device. The default is to use the
-      md-cli-raw-command feature, which is a very efficient SROS specific method to tunnel CLI
-      commands over NETCONF. This feature is only available on SROS version 22 and newer. Older SROS
-      version require the NED to use CLI mode instead.
-
-      md-cli-raw-command  - md-cli-raw-command.
-
-      cli                 - cli.
-
-
-## 5.1. ned-settings nokia-sros_nc live-status regex-exclude
-------------------------------------------------------------
+## 5.1. ned-settings harmonic-cableos_nc live-status regex-exclude
+------------------------------------------------------------------
 
   This list of regular expressions match the schema path of nodes to filter out from live-status (oper)
   data before sending it to NSO. The regex matches on either of the pure tag-path, 'global' path, or the
@@ -807,31 +853,31 @@
         Regular expression matching path/key-path of node(s) to exclude.
 
 
-## 5.2. ned-settings nokia-sros_nc live-status cli
---------------------------------------------------
+## 5.2. ned-settings harmonic-cableos_nc live-status cli
+--------------------------------------------------------
 
   Configuration of CLI interaction through 'exec any <cli-cmd>'.
 
 
-    - cli port <uint16>
+    - cli port <uint16> (default 22)
 
       Alternatative port on device, if interactive CLI not availble on same port as 'netconf'
       subsystem.
 
 
-    - cli prompt-pattern <string> (default ^.*# $)
+    - cli prompt-pattern <string> (default ^[\w@]+(\(\w+\))?[>#][ ]*$)
 
       Regex to match device prompt.
 
 
-    - cli no-pagination-cmd <string> (default environment more false)
+    - cli no-pagination-cmd <string> (default paginate false)
 
       Command line to send after login to turn off pagination on the  device (i.e. to make output from commands not
       stop to prompt user for 'more').
 
 
-### 5.2.1. ned-settings nokia-sros_nc live-status cli auto-prompts
-------------------------------------------------------------------
+### 5.2.1. ned-settings harmonic-cableos_nc live-status cli auto-prompts
+------------------------------------------------------------------------
 
   Sometimes when entering commands in an interative shell, the device prompts for some specific
   input, in cases like this, this list can be configured with pairs of "questions" and "answers" to
@@ -859,8 +905,8 @@
         Answer to device question, i.e verbatim string to send as answer when 'question' is matched.
 
 
-# 6. ned-settings nokia-sros_nc logger
---------------------------------------
+# 6. ned-settings harmonic-cableos_nc logger
+--------------------------------------------
 
   Settings for controlling logs generated.
 
@@ -885,8 +931,8 @@
       instances and might grow very large if level is increased.
 
 
-# 7. ned-settings nokia-sros_nc developer
------------------------------------------
+# 7. ned-settings harmonic-cableos_nc developer
+-----------------------------------------------
 
   Contains settings used by the NED developers.
 

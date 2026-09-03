@@ -148,6 +148,11 @@
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
   * [README v2.0.6 2026-03-27](furukawa-fx1/README.md)
 
+* harmonic-cableos_nc
+  * [README-ned-settings](harmonic-cableos_nc/README-ned-settings.md)
+  * [README-rebuild](harmonic-cableos_nc/README-rebuild.md)
+  * [README v1.0.0 2026-09-02](harmonic-cableos_nc/README.md)
+
 * helm-k8s
   * [README-ned-settings](helm-k8s/README-ned-settings.md)
   * [README v1.0.2 2026-03-26](helm-k8s/README.md)
@@ -189,7 +194,7 @@
 * nokia-sros_nc
   * [README-ned-settings](nokia-sros_nc/README-ned-settings.md)
   * [README-rebuild](nokia-sros_nc/README-rebuild.md)
-  * [README v1.0.34 2026-08-21](nokia-sros_nc/README.md)
+  * [README v1.0.35 2026-09-02](nokia-sros_nc/README.md)
 
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
