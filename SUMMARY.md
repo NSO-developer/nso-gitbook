@@ -106,7 +106,7 @@
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
-  * [README v5.59.6 2026-08-04](cisco-staros/README.md)
+  * [README v5.59.7 2026-09-03](cisco-staros/README.md)
 
 * citrix-netscaler
   * [README-ned-settings](citrix-netscaler/README-ned-settings.md)
@@ -142,7 +142,7 @@
 
 * fortinet-fortios
   * [README-ned-settings](fortinet-fortios/README-ned-settings.md)
-  * [README v5.12.2 2026-04-23](fortinet-fortios/README.md)
+  * [README v5.12.3 2026-09-03](fortinet-fortios/README.md)
 
 * furukawa-fx1
   * [README-ned-settings](furukawa-fx1/README-ned-settings.md)
@@ -167,7 +167,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.87.1 2026-08-27](huawei-vrp/README.md)
+  * [README v6.87.2 2026-09-03](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -180,7 +180,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.31 2026-08-21](juniper-junos_nc/README.md)
+  * [README v1.1.32 2026-09-03](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -215,7 +215,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.11.23 2026-08-20](paloalto-panos_cli/README.md)
+  * [README v4.12 2026-09-03](paloalto-panos_cli/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)

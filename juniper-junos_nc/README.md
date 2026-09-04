@@ -862,6 +862,22 @@ admin@ncs(config)# commit
             Optional extra include paths to be used when searching for YANG files. Each include path
             is relative to the git root directory.
 
+          - remote git authentication method <enum> (default none)
+
+            Configure authentication method to use when the NED interacts with the RESTCONF device.
+
+            pat   - Personal Access Token.
+
+            none  - No additional authentication is done.
+
+          - remote git authentication pat username <string> (default git)
+
+            The username to use for authentication.
+
+          - remote git authentication pat access-token <string>
+
+            The access token to use for authentication.
+
 
   ## 5.14. rpc import-filter-paths
   --------------------------------

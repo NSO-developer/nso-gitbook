@@ -426,17 +426,6 @@
   (hello).
 
 
-    - connection telemetry transport <enum> (default gnmi)
-
-      Configure transport method for subscribing on telemetry events using the gNMI interface.
-
-      gnmi       - gnmi.
-
-      yang-push  - yang-push.
-
-      disabled   - disabled.
-
-
     - connection grpc port <uint16> (default 50051)
 
       Configure the gRPC interface port used by the device.
@@ -450,6 +439,17 @@
     - connection grpc connect-retries <uint8> (default 1)
 
       Set number of connect retries.
+
+
+    - connection telemetry transport <enum> (default gnmi)
+
+      Configure transport method for subscribing on telemetry events using the gNMI interface.
+
+      gnmi       - gnmi.
+
+      yang-push  - yang-push.
+
+      disabled   - disabled.
 
 
 ## 3.1. ned-settings juniper-junos_nc connection capabilities
@@ -611,6 +611,14 @@
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
       keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
       interval.
+
+
+    - ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
 
 
 ## 3.3. ned-settings juniper-junos_nc connection grpc keep-alive
