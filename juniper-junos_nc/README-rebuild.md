@@ -127,6 +127,7 @@ admin@ncs# devices device dev-1 rpc rpc-rebuild-package rebuild-package
 - **profile**: Applies a specified build profile during the rebuild process.
 - **ned-id**: Parameters for customizing the NED ID. For more information, see Chapter **5**.
 - **create-namespace-files:** Builds Python and Java namespace files representing the nodes in the rebuilt schema.
+- **compilation-workers:**  Enable parallel compilation of third-party YANG files to improve performance. **Note:** This option requires NSO 6.8 or later and has no effect on earlier versions.
 
 
 
@@ -137,6 +138,16 @@ The NED must be rebuilt from within the NED package installation root (i.e., `$N
 To rebuild the NED, follow these steps:
 
 ```
+> cd $NED_ROOT_DIR/src
+> make clean all
+```
+
+Starting with NSO 6.8, you can enable parallel compilation for third-party YANG files to improve performance by setting the `NCS_COMPILATION_WORKERS` environment variable.
+
+Example:
+
+```
+> export NCS_COMPILATION_WORKERS=20
 > cd $NED_ROOT_DIR/src
 > make clean all
 ```
