@@ -929,6 +929,12 @@ admin@ncs(config)# commit
         Generate Python and Java namespace classes for each YANG file.
 
 
+      - compilation-workers <union>
+
+        Enable parallel compilation of third-party YANG files to improve performance. Note: This
+        option requires NSO 6.8 or later and has no effect on earlier versions.
+
+
       - use-module-as-prefix <empty>
 
         Instructs the NSO YANG compiler to use the YANG module name as the prefix instead of the

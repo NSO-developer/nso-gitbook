@@ -581,6 +581,13 @@
   Settings related to the SSH client used by the NED to connect to the device.
 
 
+    - ssh client <enum>
+
+      Select the SSH client implementation used for device connectivity.
+
+      sshj  - Default SSH client. Based on SSHJ; supports most modern cryptographic standards.
+
+
     - ssh host-key known-hosts-file <string>
 
       Path to openssh formatted 'known_hosts' file containing valid host keys.
