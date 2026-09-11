@@ -162,8 +162,7 @@ Accept: application/yang-data+xml
   <netconf-state xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring"/>
   <restconf-state xmlns="urn:ietf:params:xml:ns:yang:ietf-restconf-monitoring"/>
   <aaa xmlns="http://tail-f.com/ns/aaa/1.1"/>
-  <confd-state xmls="http://tail-f.com/yang/confd-monitoring"/>
-  <last-logins xmlns="http://tail-f.com/yang/last-login"/>
+  ...
 </data>
 ```
 {% endcode %}
@@ -174,7 +173,7 @@ Let's assume we are interested in the `dhcp/subnet` resource in our configuratio
 
 {% code title="Example: The dhcp.yang Resource" %}
 ```cli
-> yanger -f tree examples.confd/restconf/basic/dhcp.yang
+> yanger -f tree dhcp.yang
 module: dhcp
   +--rw dhcp
   +--rw max-lease-time?       uint32
@@ -1463,7 +1462,7 @@ Accept: application/yang-data+json
 
 This functionality is supported if the `http://tail-f.com/ns/restconf/unhide/1.0` capability is presented. See also [How to View the Capabilities of the RESTCONF Server](restconf-api.md#ncs.northbound.restconf.capabilities).
 
-By default, hidden nodes are not visible in the RESTCONF interface. To unhide hidden nodes for retrieval or editing, clients can use the query parameter `unhide` or set parameter `showHidden` to `true` under `/confdConfig/restconf` in `confd.conf` file. The query parameter `unhide` is supported for RPC and action invocation.
+By default, hidden nodes are not visible in the RESTCONF interface. To unhide hidden nodes for retrieval or editing, clients can use the query parameter `unhide` or set parameter `show-hidden` to `true` under `/ncs-config/restconf` in `ncs.conf` file. The query parameter `unhide` is supported for RPC and action invocation.
 
 The format of the `unhide` parameter is a comma-separated list of
 
@@ -1477,7 +1476,7 @@ As an example:
 unhide=extra,debug;secret
 ```
 
-This example unhides the unprotected group _extra_ and the password-protected group `debug` with the password `secret;`.
+This example unhides the unprotected group _extra_ and the password-protected group `debug` with the password `secret`.
 
 ## Trace Context
 

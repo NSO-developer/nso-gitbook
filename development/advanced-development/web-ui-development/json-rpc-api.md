@@ -4,9 +4,9 @@ description: API documentation for JSON-RPC API.
 
 # JSON-RPC API
 
-## Protocol Overview
+## Protocol Introduction
 
-The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details you need to understand the protocol but a short version is given here:
+The [JSON-RPC 2.0 Specification](https://www.jsonrpc.org/specification) contains all the details of the protocol. The following is only a quick introduction of the basics.
 
 {% tabs %}
 {% tab title="Request Payload" %}
@@ -70,53 +70,15 @@ With a possible response like (first result for `add`, the second result for `su
   "result": 19}]
 ```
 
-### Trace Context
+## Common Concepts
 
-JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by `trace-id`, `span-id` and `tracestate`. Trace Context standardizes the format of `trace-id`, `span-id` and key-value pairs to be sent between distributed entities. The terms `span-id` and `parent-span-id` in NSO correspond to the naming of `parent-id` used in the Trace Context standard.
-
-Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format:
-
-```
-traceparent = <version>-<trace-id>-<parent-id>-<flags>
-```
-
-Where, `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
-
-An example of header `traceparent` in use is:
-
-```
-traceparent: 00-100456789abcde10123456789abcde10-001006789abcdef0-01
-```
-
-Header `tracestate` is a vendor-specific list of key-value pairs. An example of header `tracestate` in use is:
-
-```
-tracestate: key1=value1,key2=value2
-```
-
-Where, a value may contain space characters but not end with a space.
-
-Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
-
-The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
-
-The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed. Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
-
-{% hint style="info" %}
-You can either let methods `validate_commit`, `apply`, or `run_action` automatically generate a Trace Context, or you can add a Trace Context header for one of the involved JSON-RPC methods sharing the same transaction.
-
-If two methods, using the same transaction, are provided with different Trace Context, the latter Trace Context will be used - a procedure not recommended.
-{% endhint %}
-
-### Common Concepts <a href="#ug.jsonrpc.commonconcepts" id="ug.jsonrpc.commonconcepts"></a>
-
-The URL for the JSON-RPC API is `` `/jsonrpc` ``. For logging and debugging purposes, you can add anything as a subpath to the URL, for example turning the URL into `` `/jsonrpc/<method>` `` which will allow you to see the exact method in different browsers' **Developer Tools** - **Network** tab - **Name** column, rather than just an opaque `jsonrpc`.
+The URL for the JSON-RPC API is `/jsonrpc`. For logging and debugging purposes, you can add anything as a subpath to the URL, for example turning the URL into `/jsonrpc/<method>` which will allow you to see the exact method in different browsers' **Developer Tools** - **Network** tab - **Name** column, rather than just an opaque `jsonrpc`.
 
 {% hint style="info" %}
 For brevity, in the upcoming descriptions of each method, only the input `params` and the output `result` are mentioned, although they are part of a fully formed JSON-RPC payload.
 {% endhint %}
 
-* Authorization is based on HTTP cookies. The response to a successful call to `login` would create a session, and set an HTTP-only cookie, and even an HTTP-only secure cookie over HTTPS, named `sessionid`. All subsequent calls are authorized by the presence and the validity of this cookie.
+* Authorization is based on HTTP cookies. The response to a successful call to `login` would create a session, and set an HTTP-only cookie (an HTTP-only secure cookie over HTTPS) named `sessionid`. All subsequent calls are authorized by the presence and the validity of this cookie.
 * The `th` param is a transaction handle identifier as returned from a call to `new_trans`.
 * The `comet_id` param is a unique ID (decided by the client) that must be given first in a call to the `comet` method, and then to upcoming calls which trigger comet notifications.
 * The `handle` param needs to have a semantic value (not just a counter) prefixed with the `comet` ID (for disambiguation), and overrides the handle that would have otherwise been returned by the call. This gives more freedom to the client and sets semantic handles.
@@ -193,7 +155,45 @@ All methods may return one of the following JSON RPC or application-defined erro
 {"type": "session.overload"}
 ```
 
-### FAQs <a href="#ug.jsonrpc.faq" id="ug.jsonrpc.faq"></a>
+### Trace Context
+
+JSON-RPC supports the Trace Context functionality corresponding to the IETF Draft [I-D.draft-ietf-netconf-restconf-trace-ctx-headers-00](https://www.ietf.org/archive/id/draft-ietf-netconf-restconf-trace-ctx-headers-00.html), that is an adaption of the [W3C Trace Context](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) standard. Trace Context makes it possible to follow a client's functionality via progress trace (logging) by `trace-id`, `span-id` and `tracestate`. Trace Context standardizes the format of `trace-id`, `span-id` and key-value pairs to be sent between distributed entities. The terms `span-id` and `parent-span-id` in NSO correspond to the naming of `parent-id` used in the Trace Context standard.
+
+Trace Context consists of two HTTP headers `traceparent` and `tracestate`. Header `traceparent` must be of the format:
+
+```
+traceparent = <version>-<trace-id>-<parent-id>-<flags>
+```
+
+Where, `version = "00"` and `flags = "01"`. The support for the values of `version` and `flags` may change in the future depending on the extension of standard or functionality.
+
+An example of header `traceparent` in use is:
+
+```
+traceparent: 00-100456789abcde10123456789abcde10-001006789abcdef0-01
+```
+
+Header `tracestate` is a vendor-specific list of key-value pairs. An example of header `tracestate` in use is:
+
+```
+tracestate: key1=value1,key2=value2
+```
+
+Where, a value may contain space characters but not end with a space.
+
+Trace Context is handled by the progress trace functionality, see also [Progress Trace](../progress-trace.md).
+
+The information in Trace Context will be presented by the progress trace output when invoking JSON-RPC methods `validate_commit`, `apply`, or `run_action`. Those methods will also generate a Trace Context if it has not already been given in a request.
+
+The functionality a client aims to perform can consist of several JSON-RPC methods up to a transaction commit being executed. Those methods are carried out at the transaction commit and should share a common trace-id. Such a scenario calls for the need to store Trace Context in the transaction involved. For this reason JSON-RPC will only consider a Trace Context header for methods that take a transaction as parameter, with the exception of the method `commit`, which will ignore the Trace Context header.
+
+{% hint style="info" %}
+You can either let methods `validate_commit`, `apply`, or `run_action` automatically generate a Trace Context, or you can add a Trace Context header for one of the involved JSON-RPC methods sharing the same transaction.
+
+If two methods, using the same transaction, are provided with different Trace Context, the latter Trace Context will be used - a procedure not recommended.
+{% endhint %}
+
+### FAQs
 
 <details>
 
@@ -2624,32 +2624,15 @@ curl \
 {"jsonrpc": "2.0",
  "id": 1,
  "result": {
-     "cli-builtin": "cli-builtin",
-     "confd_cfg": "confd_cfg",
-     "iana-crypt-hash": "ianach",
-     "ietf-inet-types": "inet",
-     "ietf-netconf": "nc",
-     "ietf-netconf-acm": "nacm",
-     "ietf-netconf-monitoring": "ncm",
-     "ietf-netconf-notifications": "ncn",
-     "ietf-netconf-with-defaults": "ncwd",
-     "ietf-restconf": "rc",
-     "ietf-restconf-monitoring": "rcmon",
-     "ietf-yang-library": "yanglib",
-     "ietf-yang-types": "yang",
-     "tailf-aaa": "aaa",
-     "tailf-acm": "tacm",
-     "tailf-common-monitoring2": "tfcg2",
-     "tailf-confd-monitoring": "tfcm",
-     "tailf-confd-monitoring2": "tfcm2",
+     "tailf-ncs-rollback": "ncs-rollback",
      "tailf-kicker": "kicker",
-     "tailf-netconf-extensions": "tfnce",
-     "tailf-netconf-monitoring": "tncm",
-     "tailf-netconf-query": "tfncq",
-     "tailf-rest-error": "tfrerr",
-     "tailf-rest-query": "tfrestq",
-     "tailf-rollback": "rollback",
-     "tailf-webui": "webui",
+     "tailf-ncs-webui": "ncs-webui",
+     "tailf-yang-patch-ncs": "ncsypatch",
+     "ietf-netconf-acm": "nacm",
+     "tailf-netconf-rollback": "netconf-rollback",
+     "tailf-restconf-error": "tfrcerr",
+     "tailf-ncs-kicker-extension": "ncs-kicker",
+     ...
     }
 }
 ```
