@@ -523,7 +523,7 @@ $ ncsc -c test.yang
 
 The above command creates an output file `test.fxs` that is a compiled schema that can be loaded into the system. The `ncsc` compiler with all its flags is fully described in [ncsc(1)](../../resources/man/ncsc.1.md) in Manual Pages.
 
-There exist several standards-based auxiliary YANG modules defining various useful data types. These modules, as well as their accompanying `.fxs` files can be found in the `${NCS_DIR}/src/confd/yang` directory in the distribution.
+There exist several standards-based auxiliary YANG modules defining various useful data types. These modules, as well as their accompanying `.fxs` files can be found in the `${NCS_DIR}/src/ncs/yang` directory in the distribution.
 
 The modules are:
 
@@ -684,7 +684,7 @@ leaf b {
 
 This data model snippet says that `b` can only exist if `a` is true. If `a` is true, and `b` has a value, and `a` is set to false, `b` will automatically be deleted.
 
-Since the XPath expression in theory can refer to any node in the data tree, it has to be re-evaluated when any node in the tree is modified. But this would have a disastrous performance impact, so to avoid this, NSO keeps track of dependencies for each when expression. In many cases, the **confdc** can figure out these dependencies by itself. In the example above, NSO will detect that `b` is dependent on `a`, and evaluate `b`'s XPath expression only if `a` is modified. If `confdc` cannot detect the dependencies by itself, it requires a `tailf:dependency` statement in the `when` statement. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages for details.
+Since the XPath expression in theory can refer to any node in the data tree, it has to be re-evaluated when any node in the tree is modified. But this would have a disastrous performance impact, so to avoid this, NSO keeps track of dependencies for each when expression. In many cases, the **ncsc** can figure out these dependencies by itself. In the example above, NSO will detect that `b` is dependent on `a`, and evaluate `b`'s XPath expression only if `a` is modified. If **ncsc** cannot detect the dependencies by itself, it requires a `tailf:dependency` statement in the `when` statement. See `tailf:dependency` in [tailf\_yang\_extensions(5)](../../resources/man/tailf_yang_extensions.5.md) in Manual Pages for details.
 
 ## Using the Tail-f Extensions with YANG <a href="#d5e2188" id="d5e2188"></a>
 
@@ -791,10 +791,10 @@ module test-ann {
 }
 ```
 
-To compile the module with annotations, use the `-a` parameter to `confdc`:
+To compile the module with annotations, use the `-a` parameter to `ncsc`:
 
 ```
-confdc -c -a test-ann.yang test.yang
+ncsc -c -a test-ann.yang test.yang
 ```
 
 ## Custom Help Texts and Error Messages <a href="#d5e2219" id="d5e2219"></a>
@@ -1350,10 +1350,10 @@ module links {
 }
 ```
 
-If the above YANG file is saved on disk, as `links.yang`, we can compile and link it using the `confdc` compiler:
+If the above YANG file is saved on disk, as `links.yang`, we can compile and link it using the `ncsc` compiler:
 
 ```bash
-$ confdc -c links.yang
+$ ncsc -c links.yang
 ```
 
 We now have a ready-to-use schema file named `links.fxs` on disk. To run this example, we need to copy the compiled `links.fxs` to a directory where NSO can find it.
@@ -1445,7 +1445,7 @@ leaf server-port {
 }
 ```
 
-Note that using the `deref` function is syntactic sugar for the basic syntax. The translation between the two formats is trivial. Also note that `deref()` is an extension to YANG, and third-party tools might not understand this syntax. To make sure that only plain YANG constructs are used in a module, the parameter `--strict-yang` can be given to `confdc -c`.
+Note that using the `deref` function is syntactic sugar for the basic syntax. The translation between the two formats is trivial. Also note that `deref()` is an extension to YANG, and third-party tools might not understand this syntax. To make sure that only plain YANG constructs are used in a module, the parameter `--strict-yang` can be given to `ncsc -c`.
 
 ## Using Multiple Namespaces <a href="#d5e2425" id="d5e2425"></a>
 
@@ -1474,7 +1474,7 @@ module datatypes {
 We compile and link `datatypes.yang` into a final schema file representing the `http://example.com/ns/dt` namespace:
 
 ```bash
-$ confdc -c datatypes.yang
+$ ncsc -c datatypes.yang
 ```
 
 To reuse our user defined `countersType`, we must import the `datatypes` module.
@@ -1494,13 +1494,13 @@ module test {
 }
 ```
 
-When compiling this new module that refers to another module, we must indicate to `confdc` where to search for the imported module:
+When compiling this new module that refers to another module, we must indicate to `ncsc` where to search for the imported module:
 
 ```bash
-$ confdc -c test.yang --yangpath /path/to/dt
+$ ncsc -c test.yang --yangpath /path/to/dt
 ```
 
-`confdc` also searches for referred modules in the colon (:) separated path defined by the environment variable `YANG_MODPATH` and . (dot) is implicitly included.
+`ncsc` also searches for referred modules in the colon (:) separated path defined by the environment variable `YANG_MODPATH` and . (dot) is implicitly included.
 
 ## Module Names, Namespaces, and Revisions <a href="#ug.yang.names_namespaces_and_revisions" id="ug.yang.names_namespaces_and_revisions"></a>
 
@@ -1560,11 +1560,11 @@ We have three different entities that define our configuration data.
 
 ## Hash Values and the `id-value` Statement <a href="#ug.yang.id_value" id="ug.yang.id_value"></a>
 
-Internally and in the programming APIs, NSO uses integer values to represent YANG node names and the namespace URI. This conserves space and allows for more efficient comparisons (including `switch` statements) in the user application code. By default, `confdc` automatically computes a hash value for the namespace URI and for each string that is used as a node name.
+Internally and in the programming APIs, NSO uses integer values to represent YANG node names and the namespace URI. This conserves space and allows for more efficient comparisons (including `switch` statements) in the user application code. By default, `ncsc` automatically computes a hash value for the namespace URI and for each string that is used as a node name.
 
 Conflicts can occur in the mapping between strings and integer values - i.e. the initial assignment of integers to strings is unable to provide a unique, bi-directional mapping. Such conflicts are extremely rare (but possible) when the default hashing mechanism is used.
 
-The conflicts are detected either by `confdc` or by the NSO daemon when it loads the `.fxs` files.
+The conflicts are detected either by `ncsc` or by the NSO daemon when it loads the `.fxs` files.
 
 If there are any conflicts reported they will pertain to XML tags (or the namespace URI),
 
