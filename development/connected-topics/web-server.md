@@ -121,7 +121,7 @@ admin@io% set tls certificate cert-data
 [ok][2019-06-10 19:59:36]
 
 [edit]
-admin@confd% set tls private-key key-data
+admin@ncs% set tls private-key key-data
 (<unknown>):
 [Multiline mode, exit with ctrl-D.]
 > -----BEGIN RSA PRIVATE KEY-----
@@ -132,12 +132,12 @@ admin@confd% set tls private-key key-data
 [ok][2019-06-10 20:00:27]
 
 [edit]
-admin@confd% set tls private-key passphrase
+admin@ncs% set tls private-key passphrase
 (<AES encrypted string>): ********
 [ok][2019-06-10 20:00:39]
 
 [edit]
-admin@confd% set tls ca-certificates ca-cert-1 cert-data
+admin@ncs% set tls ca-certificates ca-cert-1 cert-data
 (<unknown>):
 [Multiline mode, exit with ctrl-D.]
 > -----BEGIN CERTIFICATE-----
@@ -147,7 +147,7 @@ admin@confd% set tls ca-certificates ca-cert-1 cert-data
 [ok][2019-06-10 20:02:22]
 
 [edit]
-admin@confd% set tls ca-certificates ca-cert-2 cert-data
+admin@ncs% set tls ca-certificates ca-cert-2 cert-data
 (<unknown>):
 [Multiline mode, exit with ctrl-D.]
 > -----BEGIN CERTIFICATE-----
@@ -157,7 +157,7 @@ admin@confd% set tls ca-certificates ca-cert-2 cert-data
 [ok][2019-06-10 20:03:07]
 
 [edit]
-admin@confd% commit
+admin@ncs% commit
 Commit complete.
 [ok][2019-06-10 20:03:11]
 
