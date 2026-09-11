@@ -81,11 +81,11 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.115.9 2026-09-07](cisco-ios/README.md)
+  * [README v6.115.10 2026-09-10](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
-  * [README v7.77.8 2026-09-07](cisco-iosxr/README.md)
+  * [README v7.77.9 2026-09-10](cisco-iosxr/README.md)
 
 * cisco-iosxr_gnmi
   * [README-ned-settings](cisco-iosxr_gnmi/README-ned-settings.md)
@@ -102,7 +102,7 @@
 
 * cisco-nx
   * [README-ned-settings](cisco-nx/README-ned-settings.md)
-  * [README v5.36.1 2026-08-31](cisco-nx/README.md)
+  * [README v5.37 2026-09-10](cisco-nx/README.md)
 
 * cisco-staros
   * [README-ned-settings](cisco-staros/README-ned-settings.md)
@@ -260,5 +260,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.6.2 2026-08-24](zte-zxros/README.md)
+  * [README v1.6.3 2026-09-10](zte-zxros/README.md)
 

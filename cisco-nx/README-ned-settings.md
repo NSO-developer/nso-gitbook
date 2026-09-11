@@ -189,6 +189,34 @@
       is used as delimiter.
 
 
+    - connection ssh keep-alive-interval <0-4294967295>
+
+      Configure SSH client keep alive interval in seconds, default 0.
+
+
+    - connection ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
+
+
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
+
+
     - connection platform-prefer-cdb <true|false> (default true)
 
       Prefer CDB cache for platform information retrieval. Set to false if want to retrieve at each
@@ -222,21 +250,6 @@
 
           An easy way to get the PEM of a server:
           openssl s_client -connect HOST:PORT
-
-
-    - ssl host-key known-hosts-file <string>
-
-      Path to openssh formatted 'known_hosts' file containing valid host keys.
-
-
-    - ssl host-key public-key-file <string>
-
-      Path to openssh formatted public (.pub) host key file.
-
-
-    - ssl auth-key private-key-file <string>
-
-      Path to openssh formatted private key file.
 
 
 # 3. ned-settings cisco-nx proxy
