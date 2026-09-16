@@ -45,10 +45,6 @@
   * [README-ned-settings](arris-cmts/README-ned-settings.md)
   * [README v1.11.1 2026-03-23](arris-cmts/README.md)
 
-* ceragon-ip20
-  * [README-ned-settings](ceragon-ip20/README-ned-settings.md)
-  * [README v1.10.4 2026-08-20](ceragon-ip20/README.md)
-
 * ciena-acos
   * [README-ned-settings](ciena-acos/README-ned-settings.md)
   * [README v6.6.4 2026-03-24](ciena-acos/README.md)
@@ -124,10 +120,6 @@
   * [README-ned-settings](ericsson-enm/README-ned-settings.md)
   * [README v1.2 2026-07-14](ericsson-enm/README.md)
 
-* ericsson-minilink6352
-  * [README-ned-settings](ericsson-minilink6352/README-ned-settings.md)
-  * [README v1.2.5 2026-03-23](ericsson-minilink6352/README.md)
-
 * ericsson-minilink6600
   * [README-ned-settings](ericsson-minilink6600/README-ned-settings.md)
   * [README v1.3.1 2026-03-23](ericsson-minilink6600/README.md)
@@ -164,10 +156,6 @@
 * huawei-nce
   * [README-ned-settings](huawei-nce/README-ned-settings.md)
   * [README v1.0.37 2026-08-19](huawei-nce/README.md)
-
-* huawei-vrp
-  * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.87.2 2026-09-07](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -249,10 +237,6 @@
 * vecima-rpd
   * [README-ned-settings](vecima-rpd/README-ned-settings.md)
   * [README v1.0.3 2026-03-23](vecima-rpd/README.md)
-
-* viptela-vmanage
-  * [README-ned-settings](viptela-vmanage/README-ned-settings.md)
-  * [README v1.6.29 2026-03-24](viptela-vmanage/README.md)
 
 * zte-xpon
   * [README-ned-settings](zte-xpon/README-ned-settings.md)
