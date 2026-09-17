@@ -12,7 +12,7 @@ The **Transactions** view lets you view and manage current NSO transactions. It 
 
 The **Transactions** view is further divided into the following tabs:
 
-* **Uncommitted**: Shows the changes currently present in the active transaction and provides options to validate, export, load, or revert them.
+* **Uncommitted**: Shows the changes currently present in the active transaction and provides options to view them in a selected format, load, validate, or revert them.
 * **Commit queue**: Displays queued commit operations and their status.
 * **Rollback files**: Lists rollback files created for committed changes so that earlier transactions can be inspected or undone.
 
@@ -30,9 +30,15 @@ Use **Validate** to verify the current transaction before committing it. Validat
 
 Use **Revert changes** to discard the current uncommitted transaction. This removes the pending changes from the active transaction.
 
-### Export Transaction
+### Show Transaction Changes
 
-Use **Export transaction** to save the current uncommitted transaction for later use or review.
+Use **Show as** to view the current uncommitted changes in one of the following formats:
+
+* XML
+* Cisco XR CLI
+* Juniper curly-brace CLI
+
+The drawer lets you copy the displayed changes or save them to a file. **Show as** replaces the earlier **Export transaction** drawer. To view a dry-run result, use the **Commit** drawer instead.
 
 ### Load Transaction
 
