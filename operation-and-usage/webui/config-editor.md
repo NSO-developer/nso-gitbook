@@ -71,10 +71,16 @@ Depending on the field type, changes are applied automatically when you update t
 
 Use **Show as** above the rendered node view to display the selected configuration in one of the following formats:
 
-* XML
-* JSON
 * Cisco XR CLI
 * Juniper curly-brace CLI
+* Set commands
+* XML
+* JSON
+* XPath
+* Keypath
+* RESTCONF paths
+* NETCONF get
+* Maagic objects 
 
 The drawer lets you copy the displayed configuration or save it to a file.
 
