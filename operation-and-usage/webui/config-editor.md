@@ -4,7 +4,7 @@ description: Traverse and edit NSO configuration using the YANG model.
 
 # Config Editor
 
-The **Configuration editor** view is the main interface for browsing and managing NSO configuration using the underlying YANG model. It displays the loaded YANG modules and configuration data in a hierarchical tree and provides a form-based view of the selected node.&#x20;
+The **Configuration editor** view is the main interface for browsing and managing NSO configuration using the underlying YANG model. It displays the loaded YANG modules and configuration data in a hierarchical tree and provides a form-based view of the selected node.
 
 In this view, you can browse configuration, inspect operational data, edit configurable nodes, invoke actions, and review metadata for the selected node. Depending on how you navigate in the Web UI, you may also be directed to the **Configuration editor** to continue viewing or editing a specific device, service, package, or other NSO object.
 
@@ -62,6 +62,23 @@ Input fields in the rendered view depend on the YANG type of the selected node. 
 Field descriptions and default values are shown in the rendered view where applicable. Additional node details, such as type and access information, are available in the **Metadata** panel.
 
 Depending on the field type, changes are applied automatically when you update the value or when you leave the field. If a value is invalid or cannot be applied, the UI indicates the error on the relevant field so that you can correct it before committing the change.
+
+#### **Show Configuration As**
+
+Use **Show as** above the rendered node view to display the selected configuration in one of the following formats:
+
+* XML
+* JSON
+* Cisco XR CLI
+* Juniper curly-braces CLI
+* Juniper set commands
+* XPath
+* Keypath
+* RESTCONF paths
+* NETCONF get
+* Maagic objects
+
+The drawer lets you copy the displayed configuration or save it to a file.
 
 #### Choice
 

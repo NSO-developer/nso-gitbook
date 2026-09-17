@@ -985,7 +985,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 <summary><mark style="color:green;"><code>show_config</code></mark></summary>
 
-`show_config` - Retrieves configuration and operational data from the provided transaction. Output can be returned in several formats (CLI, CLI-C, XML, or JSON variants), with optional pagination and filtering to control the breadth and volume of returned data.
+`show_config` - Retrieves configuration and operational data from the provided transaction. Output can be returned in several formats (XML, JSON and a JSON variant, Juniper curly-braces CLI, Cisco XR CLI, Juniper set commands, XPath, keypath, RESTCONF paths, a NETCONF get request, or Maagic objects), with optional pagination and filtering to control the breadth and volume of returned data.
 
 **Params**
 
@@ -998,7 +998,7 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 ```
 
 ```json
-{"result_as": <"json" | "json2" | "cli" | "cli-c" | "xml", default: "cli">}
+{"result_as": <"json" | "json2" | "cli" | "cli-c" | "cli-set" | "xpath" | "keypath" | "restconf" | "maagic" | "netconf_get" | "xml", default: "cli">}
 ```
 
 ```json
@@ -1033,7 +1033,15 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 {"with_service_meta_data": <boolean, default: false>}
 ```
 
-The `path` param is a keypath to the configuration to be returned. `result_as` controls the output format; `cli` for CLI curly bracket format, `cli-c` for Cisco CLI style format, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, and `json2` for a variant of the RESTCONF JSON format. `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit. The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`. `depth` limits the depth (levels) of the returned subtree below the target `path`. `include` retrieves a subset of nodes below the target `path`, similar to the [RESTCONF fields query parameter](../../core-concepts/northbound-apis/restconf-api.md#d5e1600). `exclude` excludes a subset of nodes below the target `path`, similar to the [RESTCONF exclude query parameter.](../../core-concepts/northbound-apis/restconf-api.md#the-exclude-query-parameter) `offset` controls the number of list elements to skip before returning the requested set of entries. `limit` controls the of list entries to retrieve.
+* The `path` param is a keypath to the configuration to be returned.&#x20;
+* `result_as` controls the output format: `cli` for CLI curly-brace format, `cli-c` for Cisco XR CLI, `cli-set` for Juniper set commands, `xml` for XML compatible with NETCONF, `json` for JSON compatible with RESTCONF, `json2` for a JSON variant, `xpath` for XPath, `keypath` for keypath, `restconf` for RESTCONF paths, `netconf_get` for a NETCONF get request, and `maagic` for Maagic objects.&#x20;
+* `max_size` sets the maximum size of the data field in kB, set to 0 to disable the limit.&#x20;
+* The `with_oper` param, which controls if the operational data should be included, only takes effect when `result_as` is set to `json` or `json2`.&#x20;
+* `depth` limits the depth (levels) of the returned subtree below the target `path`.&#x20;
+* `include` retrieves a subset of nodes below the target `path`, similar to the [RESTCONF fields query parameter](../../core-concepts/northbound-apis/restconf-api.md#d5e1600).&#x20;
+* `exclude` excludes a subset of nodes below the target `path`, similar to the [RESTCONF exclude query parameter](../../core-concepts/northbound-apis/restconf-api.md#the-exclude-query-parameter).&#x20;
+* `offset` controls the number of list elements to skip before returning the requested set of entries.&#x20;
+* `limit` controls the of list entries to retrieve.
 
 **Attributes**
 
@@ -1061,7 +1069,7 @@ The parameter `with_service_meta_data` allows the specific service metadata attr
 
 **Result**
 
-The `result_as` param when set to `cli`, `cli-c`, or `xml` :
+The `result_as` param when set to `cli`, `cli-c`, `cli-set`, `xpath`, `keypath`, `restconf`, `maagic`, `netconf_get`, or `xml`:
 
 ```json
 {"config": <string>}
@@ -3174,13 +3182,9 @@ The `conf_mode` param specifies which transaction semantics to use when it comes
 The meaning of `private`, `shared`, and `exclusive` have slightly different meaning depending on how the system is configured; with a writable running, startup, or candidate configuration.
 
 * `private` (\*writable running enabled\*) - Edit a private copy of the running configuration, no lock is taken.
-
-- `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
-
+* `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
 * `exclusive` (\*candidate enabled\*) - Lock the running configuration and the candidate configuration and edit the candidate configuration.
-
-- `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
-
+* `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
 * `shared` (\*writable running enabled, candidate enabled\*) - Is a deprecated setting.
 
 The `tag` param is a way to tag transactions with a keyword so that they can be filtered out when you call the `get_trans` method.
@@ -3374,12 +3378,13 @@ curl \
 
 <summary><mark style="color:green;"><code>get_trans_diff</code></mark></summary>
 
-`get_trans_diff` - Returns the configuration changes in the transaction compared to the running datastore, in XML format. This method can be called even if the transaction validation has failed.
+`get_trans_diff` - Returns the configuration changes in the transaction compared to the running datastore. The changes can be returned as XML, CLI curly-brace format, or Cisco XR CLI. This method can be called even if the transaction validation has failed.
 
 **Params**
 
 ```json
-{"th": <integer>}
+{"th": <integer>,
+ "result_as": <"xml" | "cli" | "cli-c", default: "xml">}
 ```
 
 **Result**
@@ -3388,7 +3393,7 @@ curl \
 {"diff": <string>}
 ```
 
-The `diff` param is the configuration diff as a single-line XML string.
+The `diff` param is the configuration diff as a string in the selected format.
 
 **Example**
 

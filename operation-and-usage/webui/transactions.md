@@ -12,7 +12,7 @@ The **Transactions** view lets you view and manage current NSO transactions. It 
 
 The **Transactions** view is further divided into the following tabs:
 
-* **Uncommitted**: Shows the changes currently present in the active transaction and provides options to validate, export, load, or revert them.
+* **Uncommitted**: Shows the changes currently present in the active transaction and provides options to view them in a selected format, load, validate, or revert them.
 * **Commit queue**: Displays queued commit operations and their status.
 * **Rollback files**: Lists rollback files created for committed changes so that earlier transactions can be inspected or undone.
 
@@ -30,13 +30,19 @@ Use **Validate** to verify the current transaction before committing it. Validat
 
 Use **Revert changes** to discard the current uncommitted transaction. This removes the pending changes from the active transaction.
 
-### Export Transaction
+### Show Transaction Changes
 
-Use **Export transaction** to save the current uncommitted transaction for later use or review.
+Use **Show as** to view the current uncommitted changes in one of the following formats:
+
+* XML
+* Cisco XR CLI
+* Juniper curly-braces CLI
+
+The drawer lets you copy the displayed changes or save them to a file. **Show as** replaces the earlier **Export transaction** drawer. To view a dry-run result, use the **Commit** drawer instead.
 
 ### Load Transaction
 
-Use **Load transaction** to load configuration data into the current transaction. This can be used to continue working with previously saved changes or to import changes from another source. Options include:&#x20;
+Use **Load transaction** to load configuration data into the current transaction. This can be used to continue working with previously saved changes or to import changes from another source. Options include:
 
 * **Use** **File**: Use a file from your local disk.
 * **Use** **Data**: Paste in the configuration date.
@@ -76,7 +82,7 @@ Use **Purge** in the **Completed** subtab to remove completed commit results fro
 
 When you click **Purge**, the **Purge completed queue items** dialog is displayed. In this dialog, you can specify which queue items to remove. Options include:
 
-* **status**: Select the result status of the queue items to purge. Available values are **completed**, **deleted**, and **failed**.&#x20;
+* **status**: Select the result status of the queue items to purge. Available values are **completed**, **deleted**, and **failed**.
 * **older-than**: Purge items older than specified seconds, minutes, hours, days, or weeks. The time fields can be used to define the age of queue items that should be removed.
 
 To purge completed queue items:
