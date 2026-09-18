@@ -67,6 +67,23 @@ Field descriptions and default values are shown in the rendered view where appli
 
 Depending on the field type, changes are applied automatically when you update the value or when you leave the field. If a value is invalid or cannot be applied, the UI indicates the error on the relevant field so that you can correct it before committing the change.
 
+#### Show Configuration As
+
+Use **Show as** above the rendered node view to display the selected configuration in one of the following formats:
+
+* Cisco XR CLI
+* Juniper curly-braces CLI
+* Juniper set commands
+* XML
+* JSON
+* XPath
+* Keypath
+* RESTCONF paths
+* NETCONF get
+* Maagic objects 
+
+The drawer lets you copy the displayed configuration or save it to a file.
+
 #### Choice
 
 YANG choices are rendered as grouped choice widgets in the content area. In the tree, a choice or case branch can be expanded for navigation, but selecting the parent context renders the choice as a whole widget, while selecting an individual child node renders only that specific node.
