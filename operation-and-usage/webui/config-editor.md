@@ -72,8 +72,8 @@ Depending on the field type, changes are applied automatically when you update t
 Use **Show as** above the rendered node view to display the selected configuration in one of the following formats:
 
 * Cisco XR CLI
-* Juniper curly-brace CLI
-* Set commands
+* Juniper curly-braces CLI
+* Juniper set commands
 * XML
 * JSON
 * XPath
