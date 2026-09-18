@@ -36,7 +36,7 @@ Use **Show as** to view the current uncommitted changes in one of the following 
 
 * XML
 * Cisco XR CLI
-* Juniper curly-brace CLI
+* Juniper curly-braces CLI
 
 The drawer lets you copy the displayed changes or save them to a file. **Show as** replaces the earlier **Export transaction** drawer. To view a dry-run result, use the **Commit** drawer instead.
 
