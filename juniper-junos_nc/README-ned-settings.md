@@ -562,7 +562,19 @@
 ## 3.2. ned-settings juniper-junos_nc connection ssh
 ----------------------------------------------------
 
-  Settings related to the SSH client used by the NED to connect to the device.
+  Settings for the device-connection SSH client.
+
+
+    - ssh client <enum>
+
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: SSHJ is the default for NSO versions
+      up to 6.7.x, while the Apache MINA-based client is the default for NSO 6.8 and later. This
+      auto-detection is overridden if this leaf is explicitly configured.
+
+      sshj  - SSHJ-based client (lacks PQC support).
+
+      mina  - Apache MINA-based client (supports PQC).
 
 
     - ssh host-key known-hosts-file <string>
