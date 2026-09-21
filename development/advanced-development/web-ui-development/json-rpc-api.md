@@ -983,49 +983,6 @@ The `path` param is a keypath pointing to data that contains the choice leaf giv
 
 <details>
 
-<summary><mark style="color:green;"><code>get_trans_diff</code></mark></summary>
-
-`get_trans_diff` - Returns the configuration changes in the transaction compared to the running datastore. The changes can be returned as XML, CLI curly-brace format, or Cisco XR CLI. This method can be called even if the transaction validation has failed.
-
-**Params**
-
-```json
-{"th": <integer>,
- "result_as": <"xml" | "cli" | "cli-c", default: "xml">}
-```
-
-**Result**
-
-```json
-{"diff": <string>}
-```
-
-The `diff` param is the configuration diff as a string in the selected format.
-
-**Example**
-
-{% code title="Example: Method get_trans_diff" %}
-```bash
-curl \
-    --cookie 'sessionid=sess12541119146799620192;' \
-    -X POST \
-    -H 'Content-Type: application/json' \
-    -d '{"jsonrpc": "2.0", "id": 1,
-        "method": "get_trans_diff",
-        "params": {"th": 2}}' \
-    http://127.0.0.1:8008/jsonrpc
-
-{"jsonrpc": "2.0",
- "id":1,
- "result":
- {"diff": "<my-container xmlns=\"http://com/example/mypackage\"><leaf2>test-value</leaf2></my-container>"}}
-```
-{% endcode %}
-
-</details>
-
-<details>
-
 <summary><mark style="color:green;"><code>show_config</code></mark></summary>
 
 `show_config` - Retrieves configuration and operational data from the provided transaction. Output can be returned in several formats (CLI, CLI-C, XML, or JSON variants), with optional pagination and filtering to control the breadth and volume of returned data.
@@ -3183,13 +3140,9 @@ The `conf_mode` param specifies which transaction semantics to use when it comes
 The meaning of `private`, `shared`, and `exclusive` have slightly different meaning depending on how the system is configured; with a writable running, startup, or candidate configuration.
 
 * `private` (\*writable running enabled\*) - Edit a private copy of the running configuration, no lock is taken.
-
-- `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
-
+* `private` (\*writable running disabled, startup enabled\*) - Edit a private copy of the startup configuration, no lock is taken.
 * `exclusive` (\*candidate enabled\*) - Lock the running configuration and the candidate configuration and edit the candidate configuration.
-
-- `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
-
+* `exclusive` (\*candidate disabled, startup enabled\*) - Lock the running configuration (if enabled) and the startup configuration and edit the startup configuration.
 * `shared` (\*writable running enabled, candidate enabled\*) - Is a deprecated setting.
 
 The `tag` param is a way to tag transactions with a keyword so that they can be filtered out when you call the `get_trans` method.
@@ -3374,6 +3327,49 @@ curl \
    "op": "value_set",
    "value": "100",
    "old": ""}]}
+```
+{% endcode %}
+
+</details>
+
+<details>
+
+<summary><mark style="color:green;"><code>get_trans_diff</code></mark></summary>
+
+`get_trans_diff` - Returns the configuration changes in the transaction compared to the running datastore. The changes can be returned as XML, CLI curly-brace format, or Cisco XR CLI. This method can be called even if the transaction validation has failed.
+
+**Params**
+
+```json
+{"th": <integer>,
+ "result_as": <"xml" | "cli" | "cli-c", default: "xml">}
+```
+
+**Result**
+
+```json
+{"diff": <string>}
+```
+
+The `diff` param is the configuration diff as a string in the selected format.
+
+**Example**
+
+{% code title="Example: Method get_trans_diff" %}
+```bash
+curl \
+    --cookie 'sessionid=sess12541119146799620192;' \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"jsonrpc": "2.0", "id": 1,
+        "method": "get_trans_diff",
+        "params": {"th": 2}}' \
+    http://127.0.0.1:8008/jsonrpc
+
+{"jsonrpc": "2.0",
+ "id":1,
+ "result":
+ {"diff": "<my-container xmlns=\"http://com/example/mypackage\"><leaf2>test-value</leaf2></my-container>"}}
 ```
 {% endcode %}
 
