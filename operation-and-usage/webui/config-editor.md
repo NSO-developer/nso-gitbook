@@ -32,7 +32,7 @@ Selecting a node in the tree updates the content area to show the selected node.
 
 For example, to access a specific device, enter **devices** in the filter field, expand **ncs:devices**, select **device** to load the device list, and then select the **ce0** entry to view or configure it.
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/config-navigator.png" alt=""><figcaption><p>Configuration Navigation Example</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/config-navigator (1).png" alt=""><figcaption><p>Configuration Navigation Example</p></figcaption></figure></div>
 
 ### Breadcrumb
 
@@ -80,7 +80,7 @@ Use **Show as** above the rendered node view to display the selected configurati
 * Keypath
 * RESTCONF paths
 * NETCONF get
-* Maagic objects 
+* Maagic objects
 
 The drawer lets you copy the displayed configuration or save it to a file.
 

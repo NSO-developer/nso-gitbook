@@ -8,7 +8,7 @@ description: >-
 
 The **Transactions** view lets you view and manage current NSO transactions. It provides a centralized way to inspect and manage configuration changes in your NSO deployment. You can review uncommitted changes, monitor commit queue activity, validate or revert active changes, and work with rollback files.
 
-<figure><img src="../../.gitbook/assets/transactions.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/transactions (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Transactions** view is further divided into the following tabs:
 
@@ -42,7 +42,7 @@ The drawer lets you copy the displayed changes or save them to a file. **Show as
 
 ### Load Transaction
 
-Use **Load transaction** to load configuration data into the current transaction. This can be used to continue working with previously saved changes or to import changes from another source. Options include:&#x20;
+Use **Load transaction** to load configuration data into the current transaction. This can be used to continue working with previously saved changes or to import changes from another source. Options include:
 
 * **Use** **File**: Use a file from your local disk.
 * **Use** **Data**: Paste in the configuration date.
@@ -82,7 +82,7 @@ Use **Purge** in the **Completed** subtab to remove completed commit results fro
 
 When you click **Purge**, the **Purge completed queue items** dialog is displayed. In this dialog, you can specify which queue items to remove. Options include:
 
-* **status**: Select the result status of the queue items to purge. Available values are **completed**, **deleted**, and **failed**.&#x20;
+* **status**: Select the result status of the queue items to purge. Available values are **completed**, **deleted**, and **failed**.
 * **older-than**: Purge items older than specified seconds, minutes, hours, days, or weeks. The time fields can be used to define the age of queue items that should be removed.
 
 To purge completed queue items:
