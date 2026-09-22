@@ -351,7 +351,7 @@ A potential issue with a new NED is that it can break an existing service (or ot
 
 Using the `/ncs:devices/device/migrate` action, you can change the NED of a device. The action migrates all configuration and service meta-data. The example [examples.ncs/device-management/ned-migration](https://github.com/NSO-developer/nso-examples/tree/6.6/device-management/ned-migration) in the NSO examples collection illustrates how to migrate devices between different NED versions using this action. The actual migration procedure consists of:
 
-1. Requesting a maintenance window (if required) and creating an [NSO backup](system-management/README.md#backup-and-restore).
+1. Requesting a maintenance window (if required) and creating an [NSO backup](system-management/#backup-and-restore).
 2. [Adding](package-mgmt.md) the new NED package and upgrading existing packages if needed.
 3. Updating device templates if used.
 4. Running the `migrate` action for affected devices.
@@ -364,10 +364,10 @@ Some or all of the migration steps could be performed during normal operations a
 
 For a successful migration, prior preparation is required. In particular, **ensure that all the other packages are compatible with the new NED**. If you are a service developer, leverage the `migrate` action to report what paths have been modified and the services affected by those changes. This information can then be used to prepare the service code to handle the new NED version. Useful `migrate` options for reporting include:
 
-- `dry-run` to report but not migrate yet
-- `suppress-modified-paths without-instance-data` to ignore changes in the NED that do not affect your current device configurations
-- `report { all }` to produce a list of services that are affected
-- `no-networking` to only use the CDB copy of device configurations
+* `dry-run` to report but not migrate yet
+* `suppress-modified-paths without-instance-data` to ignore changes in the NED that do not affect your current device configurations
+* `report { all }` to produce a list of services that are affected
+* `no-networking` to only use the CDB copy of device configurations
 
 For example, when a NED device model has renamed or restructured nodes, such as:
 
@@ -422,7 +422,7 @@ It is possible for a NED migration to fail if the device has an active configura
 
 ### Redeploy Services Post Migration
 
-After successful device migration, preform a `re-deploy` of all the affected services before removing the old NED package. This step ensures all the old NED references are removed and allows for a smooth future NED upgrade. If you skip re-deploying, the service `get-modifications` output, `deep-check-sync`, and similar operations may no longer work correctly.
+After successful device migration, perform a `re-deploy` of all the affected services before removing the old NED package. This step ensures all the old NED references are removed and allows for a smooth future NED upgrade. If you skip re-deploying, the service `get-modifications` output, `deep-check-sync`, and similar operations may no longer work correctly.
 
 It is recommended you start with a service `re-deploy dry-run` to verify the produced configurations are as expected.
 
