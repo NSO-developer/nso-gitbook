@@ -733,7 +733,9 @@ RESTCONF event notification streams are described in Sections 6 and 9.2 of [RFC 
 
 RESTCONF event notification is a way for RESTCONF clients to retrieve notifications for different event streams. Event streams configured in NSO can be subscribed to using different channels such as the RESTCONF or the NETCONF channel.
 
-More information on how to define a new notification event using Yang is described in [RFC 6020](https://www.ietf.org/rfc/rfc6020.txt).
+For the notification events and emission conditions of each NSO built-in stream, see [Built-in Notification Streams](nso-netconf-server.md#d5e521).
+
+More information on how to define a new notification event using Yang is described in [RFC 7950](https://www.rfc-editor.org/rfc/rfc7950.txt).
 
 How to add and configure notifications support in NSO is described in the `ncs.conf(3)` man page.
 
@@ -764,7 +766,7 @@ We also enable the built-in replay store which means that NSO automatically stor
 ```
 {% endcode %}
 
-To view the currently enabled event streams, use the `ietf-restconf-monitoring` YANG model. The streams are available under the `/restconf/data/ietf-restconf-monitoring:restconf-state/streams` container.
+To view the currently available event streams, use the `ietf-restconf-monitoring` YANG model. The streams are listed under the `/restconf/data/ietf-restconf-monitoring:restconf-state/streams` container. Each stream entry reports whether replay is supported and provides the available access locations, but does not identify the YANG notification events carried by that stream.
 
 {% code title="Example: View the Example RESTCONF Stream" %}
 ```http
