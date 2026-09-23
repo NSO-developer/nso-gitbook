@@ -419,12 +419,28 @@
   affected. However, all log printouts from all log enabled devices are saved in one single file.
   This means that the usability is limited. Typically single device use cases etc.
 
-  **SSHJ DEBUG LOGGING**
-  For issues related to the ssh connection it is often useful to enable full logging in the SSHJ ssh client.
-  This will make SSHJ print additional log entries in `$NSO_RUNDIR/logs/ncs-java-vm.log`:
+## SSH Client Debug Logging
 
+For issues related to the SSH connection, it is useful to enable full logging. First, identify which SSH client your NED is currently using:
+	1.	Check Configuration: Check the NED setting: `show running-config <ned-name> connection ssh client`.
+	2.	Check Trace Logs: Look in your NED trace file for the initialization line:
+		•	`-- new ssh client (mina-sshd)`
+		•	`-- new ssh client (sshj)`
+
+
+Once you have identified the client, use the appropriate logger setting to see detailed output in $NSO_RUNDIR/logs/ncs-java-vm.log.
+
+### Enabling Logging
+
+#### For SSHJ client:
 ```
 admin@ncs(config)# java-vm java-logging logger net.schmizz.sshj level level-all
+admin@ncs(config)# commit
+```
+
+#### For Apache MINA client:
+```
+admin@ncs(config)# java-vm java-logging logger org.apache.sshd level level-all
 admin@ncs(config)# commit
 ```
 

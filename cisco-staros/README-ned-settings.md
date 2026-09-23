@@ -165,6 +165,13 @@
       Configure the time in seconds the NED will wait between each connect retry.
 
 
+    - connection ssh client <enum>
+
+      Configure the SSH client to use.
+
+      sshj  - The SSHJ based SSH client with support for many crypto features.
+
+
     - connection ssh host-key known-hosts-file <string>
 
       Path to openssh formatted 'known_hosts' file containing valid host keys.
