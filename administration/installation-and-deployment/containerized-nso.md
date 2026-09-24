@@ -220,7 +220,7 @@ docker run -itd --name cisco-nso -e ADMIN_PASSWORD=admin cisco-nso-prod:6.4
 This can be useful when starting up a container in CI for testing or development purposes. It is typically not required in a production environment where CDB already contains the required user accounts.
 
 {% hint style="info" %}
-When using a permanent volume for CDB, and restarting the NSO container multiple times with a different `ADMIN_USERNAME` or `ADMIN_PASSWORD`, the start script uses these environment variables to generate an XML file named `add_admin_user.xml`. The generated XML file is added to the CDB directory to be read at startup. But if the persisted CDB configuration file already exists in the CDB directory, NSO will not load any XML files at startup, instead the generated `add_admin_user.xml` in the CDB directory needs to be loaded manually.
+The startup script writes a temporary `add_admin_user.xml` file in the CDB directory when bootstrap credentials are supplied. NSO consumes this file when it creates a new CDB. After NSO starts successfully, the container removes the file so bootstrap credentials are not retained in plaintext on a persistent volume. When a persistent CDB already exists, changing `ADMIN_*` values does not update the NSO AAA user; in this case, manage users and password rotation through NSO instead.
 {% endhint %}
 
 {% hint style="info" %}
@@ -290,7 +290,7 @@ env:
         key: ADMIN_PASSWORD
 ```
 
-Secrets are a credential-delivery mechanism, not the NSO user database; protect them with appropriate RBAC and encryption-at-rest configuration. When a persistent CDB already exists, changing `ADMIN_*` values does not by itself update the corresponding NSO user; manage the user through NSO instead.
+Secrets are a credential-delivery mechanism, not the NSO user database; protect them with appropriate RBAC and encryption-at-rest configuration. The container removes its temporary plaintext bootstrap XML after a successful NSO startup. When a persistent CDB already exists, changing `ADMIN_*` values does not by itself update the corresponding NSO user; manage the user through NSO instead.
 
 #### Linux PAM Authentication
 
