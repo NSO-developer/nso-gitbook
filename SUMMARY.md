@@ -151,7 +151,7 @@
 * harmonic-cableos_nc
   * [README-ned-settings](harmonic-cableos_nc/README-ned-settings.md)
   * [README-rebuild](harmonic-cableos_nc/README-rebuild.md)
-  * [README v1.0.0 2026-09-02](harmonic-cableos_nc/README.md)
+  * [README v1.0.1 2026-09-23](harmonic-cableos_nc/README.md)
 
 * helm-k8s
   * [README-ned-settings](helm-k8s/README-ned-settings.md)
@@ -260,5 +260,5 @@
 
 * zte-zxros
   * [README-ned-settings](zte-zxros/README-ned-settings.md)
-  * [README v1.6.3 2026-09-10](zte-zxros/README.md)
+  * [README v1.6.4 2026-09-23](zte-zxros/README.md)
 
