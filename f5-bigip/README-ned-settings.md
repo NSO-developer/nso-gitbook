@@ -52,6 +52,7 @@
   8. imish
   9. custom-commands
   10. logger
+  11. connection
   ```
 
 
@@ -254,13 +255,13 @@
 
       Valid combinations:
         sync-from-all-partitions false + multi-partition-check-sync false  -> single-partition mode
- (default)
+        (default)
         sync-from-all-partitions true  + multi-partition-check-sync false  -> multi-partition fetch
-, single-partition hash
+        , single-partition hash
         sync-from-all-partitions true  + multi-partition-check-sync true   -> full multi-partition 
-mode (recommended)
+        mode (recommended)
         sync-from-all-partitions false + multi-partition-check-sync true   -> UNSUPPORTED: causes p
-ersistent out-of-sync
+        ersistent out-of-sync
 
       When `multi-partition-check-sync true` is active, the device can occasionally return
       config changes that were not issued through the NED (e.g. BIG-IP background sync).
@@ -500,6 +501,55 @@ ersistent out-of-sync
     - logger java <true|false> (default false)
 
       Toggle logs to be added to ncs-java-vm.log.
+
+
+# 11. ned-settings f5-bigip connection
+--------------------------------------
+
+  Configure settings specific to the connection between NED and device.
+
+
+    - connection ssh client <enum>
+
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: Ganymed is the default for legacy
+      versions, SSHJ for NSO 6.x versions, and the Apache MINA-based client is the default for NSO
+      6.8 and later. This auto-detection is overridden if this leaf is explicitly configured.
+
+      sshj  - SSHJ-based client. Supports most modern cryptographic standards.
+
+      mina  - Apache MINA-based client. Supports the latest cryptographic standards, including PQC
+              algorithms.
+
+
+    - connection ssh host-key known-hosts-file <string>
+
+      Path to openssh formatted 'known_hosts' file containing valid host keys.
+
+
+    - connection ssh host-key public-key-file <string>
+
+      Path to openssh formatted public (.pub) host key file.
+
+
+    - connection ssh auth-key private-key-file <string>
+
+      Path to openssh formatted private key file.
+
+
+    - connection ssh keep-alive-interval <seconds> (default 0)
+
+      Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
+      keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
+      interval.
+
+
+    - connection ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
 
 
 -# adidional ned settings

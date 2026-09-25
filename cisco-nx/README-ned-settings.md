@@ -189,6 +189,13 @@
       is used as delimiter.
 
 
+    - connection ssh client <enum>
+
+      Configure the SSH client to use.
+
+      sshj  - The SSHJ based SSH client with support for many crypto features.
+
+
     - connection ssh keep-alive-interval <0-4294967295>
 
       Configure SSH client keep alive interval in seconds, default 0.
@@ -1349,6 +1356,11 @@
 -------------------------------------
 
   Contains settings used by the NED developers.
+
+
+    - developer trace-connection <true|false> (default false)
+
+      Enable connection tracing. WARNING: may choke NSO with IPC messages.
 
 
     - developer platform model <string>
