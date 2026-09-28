@@ -141,7 +141,7 @@ This is exactly the same procedure that is used by the OpenSSH server with the e
 
 We need to provide a directory where SSH keys are kept for a specific user and give the absolute path to this directory for the `/aaa/authentication/users/user/ssh_keydir` leaf. If a public key login is not desired at all for a user, the value of the `ssh_keydir` leaf should be set to `""`, i.e. the empty string. Similarly, if the directory does not contain any SSH keys, public key logins for that user will be disabled.
 
-The built-in SSH daemon supports DSA, RSA, and ED25519 keys. To generate and enable RSA keys of size 4096 bits for, say, user "bob", the following steps are required.
+The built-in SSH daemon uses Erlang/OTP SSH for public-key authentication and supports DSA, RSA, ECDSA, ED25519, and ED448 keys. In FIPS mode, some key types may be unavailable. To generate and enable a 4096-bit RSA key for a user such as “bob,” follow these steps.
 
 On the client machine, as user "bob", generate a private/public key pair as:
 
