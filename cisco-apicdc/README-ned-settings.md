@@ -41,6 +41,7 @@
   5. deviceBehaviourWorkaround
   6. ssl
   7. live-status
+  8. connection
   ```
 
 
@@ -87,6 +88,16 @@
       Specify the host;.
 
 
+    - ned-to-file-host-authentication-type <enum> (default password)
+
+      Specifies the authentication method the NED uses to connect to the configuration dump host.
+
+      password    - username and password authentication, 'user-name' and 'user-password' are used.
+
+      shared-key  - pre-shared key, 'user-name', 'private-key-path' and 'private-key-passphrase' are
+                    used, use PEM format: ssh-keygen -t rsa -b 3072 -m PEM.
+
+
     - user-name <string>
 
       Specify the user name;.
@@ -95,6 +106,16 @@
     - user-password <string>
 
       Specify the user password;.
+
+
+    - ned-to-file-host-private-key-path <string>
+
+      Local filesystem path to the private key file.
+
+
+    - ned-to-file-host-private-key-passphrase <string>
+
+      Passphrase for the private key, if protected.
 
 
     - port <string> (default 22)
@@ -109,6 +130,55 @@
       the remote host and the NED will use <protocol> to get that config archive;
       So please note that, the remote host needs to support <protocol>. 
       In case of scp you need to set ned-settings/cisco-apicdc/local-host=true
+
+      ftp   - ftp.
+
+      sftp  - sftp.
+
+      scp   - scp.
+
+
+    - apic-to-file-host-authentication-type <enum> (default password)
+
+      Specifies the authentication method the APIC uses to connect to the configuration dump host.
+
+      password    - username and password authentication, 'user-name' and 'user-password' are used.
+
+      shared-key  - pre-shared key, 'user-name', 'private-key-path' and 'private-key-passphrase' are
+                    used, use PEM format: ssh-keygen -t rsa -b 3072 -m PEM.
+
+
+    - apic-to-file-host-user-name <string>
+
+      username for the APIC -> HOST file transfer. Leave empty if you want to use the common
+      'user-name' field (original behavior).
+
+
+    - apic-to-file-host-user-password <string>
+
+      password for APIC -> HOST if 'apic-to-file-host-user-name' is specified and you're not using
+      shared key login.
+
+
+    - apic-to-file-host-private-key-path <string>
+
+      Local filesystem path to the private key file.
+
+
+    - apic-to-file-host-private-key-passphrase <string>
+
+      Passphrase for the private key, if protected.
+
+
+    - apic-to-file-host-port <string> (default 22)
+
+      APIC -> HOST port number. scp,sftp:22, ftp:21.
+
+
+    - apic-to-file-host-protocol <enum> (default sftp)
+
+      ftp, sftp or scp;
+      The APIC-DC device will use <apic-to-host-protocol> or <protocol> to copy the config archive on the remote host.
 
       ftp   - ftp.
 
@@ -314,5 +384,27 @@
     - live-status time-to-live <int32> (default 50)
 
       Define time-to-live for data fetched from the device via live-status.(default 50).
+
+
+# 8. ned-settings cisco-apicdc connection
+-----------------------------------------
+
+  Configure settings specific to the connection between  NED and intermediary config upload device.
+
+
+    - connection ssh client <enum> (default ganymed)
+
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: Ganymed is the default for legacy
+      versions, SSHJ for NSO 6.x versions, and the Apache MINA-based client is the default for NSO
+      6.8 and later. This auto-detection is overridden if this leaf is explicitly configured.
+
+      ganymed  - Legacy SSH client. Deprecated; may be required for older devices with restricted
+                 cipher support.
+
+      sshj     - SSHJ-based client. Supports most modern cryptographic standards.
+
+      mina     - Apache MINA-based client. Supports the latest cryptographic standards, including
+                 PQC algorithms.
 
 

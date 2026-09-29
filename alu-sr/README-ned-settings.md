@@ -562,12 +562,18 @@ Note, this method is always used when connected to a NETSIM
 
     - connection ssh client <enum>
 
-      Configure the SSH client to use. Relevant only when using the NED with NSO 5.6 or later.
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: Ganymed is the default for legacy
+      versions, SSHJ for NSO 6.x versions, and the Apache MINA-based client is the default for NSO
+      6.8 and later. This auto-detection is overridden if this leaf is explicitly configured.
 
-      ganymed  - The legacy SSH client. Used on all older versions of NSO.
+      ganymed  - Legacy SSH client. Deprecated; may be required for older devices with restricted
+                 cipher support.
 
-      sshj     - The new SSH client. Supports the latest key algorithms etc. This is the default
-                 when using the NED on NSO 5.6 or later.
+      sshj     - SSHJ-based client. Supports most modern cryptographic standards.
+
+      mina     - Apache MINA-based client. Supports the latest cryptographic standards, including
+                 PQC algorithms.
 
 
     - connection ssh host-key known-hosts-file <string>
@@ -590,6 +596,14 @@ Note, this method is always used when connected to a NETSIM
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The
       keep-alive is implemented in the client by sending an ssh 'ignore' message on the given
       interval.
+
+
+    - connection ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
 
 
     - connection connector <WORD>
