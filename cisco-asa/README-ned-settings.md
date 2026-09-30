@@ -200,6 +200,14 @@
       Configure SSH client keep alive interval in seconds, default 0.
 
 
+    - connection ssh keep-alive-max-count <uint8> (default 0)
+
+      Specifies the maximum number of consecutive missed keep-alive replies from the server. If this
+      limit is exceeded, the SSH client considers the connection stale and automatically
+      disconnects. When set to 0, the NED does not track the server's keep-alive replies, so only
+      the server can detect a stale connection.
+
+
     - connection ssh host-key known-hosts-file <WORD> (default )
 
       Path to known-hosts file.
@@ -683,16 +691,16 @@
   SSH connection to the admin login on a single context device
   (i.e. using the cisco-asa context name setting). The reason for
   the admin connection is to be allowed to read secrets using the
-  more command. WARNING: Running-config must be saved or more command
-  will not be used, hence make sure to not have cisco-asa write
-  memory-setting set to disabled.
+        more command. WARNING: Running-config must be saved or more command
+        will not be used, hence make sure to not have cisco-asa write
+        memory-setting set to disabled.
 
-  Furthermore, the cisco-asa read use-startup-config may be needed to
-  handle obfuscated secrets correctly, since they are only shown in
-  cleartext by the admin context.
+        Furthermore, the cisco-asa read use-startup-config may be needed to
+        handle obfuscated secrets correctly, since they are only shown in
+        cleartext by the admin context.
 
-  Finally, an alternative way to avoid having to use admin-device
-  connection (if you are using ASA 9.6.(2) or newer) is to configure a
+        Finally, an alternative way to avoid having to use admin-device
+        connection (if you are using ASA 9.6.(2) or newer) is to configure a
   'storage-url'. By setting this config, a context can use the more
   system:running-config command and show secrets in clear text this way.
 
@@ -700,7 +708,7 @@
     - admin-device name <leafref>
 
       Set with single context use to specify an admin device hostname
-      used to retrieve device secrets using the more command.
+            used to retrieve device secrets using the more command.
 
 
     - admin-device method <enum> (default ssh)
