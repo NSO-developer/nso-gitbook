@@ -618,6 +618,14 @@
       that needs to be configured in 'proxy/auth-key/private-key-file.
 
 
+    - ssh netconf-subsystem check-alive <true|false> (default false)
+
+      When NSO checks with the NED whether the connection to the device is still active, the NED
+      normally only verifies the state of the SSH connection. However, some NETCONF devices
+      occasionally terminate the NETCONF subsystem while leaving the SSH session open. Enable this
+      setting to force the NED to check the status of the NETCONF subsystem as well.
+
+
     - ssh keep-alive-interval <seconds> (default 0)
 
       Configure SSH client keep alive interval in seconds, default 0 (i.e. no keep-alive). The

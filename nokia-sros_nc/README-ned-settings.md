@@ -578,14 +578,19 @@
 ## 3.2. ned-settings nokia-sros_nc connection ssh
 -------------------------------------------------
 
-  Settings related to the SSH client used by the NED to connect to the device.
+  Settings for the device-connection SSH client.
 
 
     - ssh client <enum>
 
-      Select the SSH client implementation used for device connectivity.
+      Specifies the SSH client used for device connectivity. The NED automatically detects the
+      appropriate default based on the installed NSO version: SSHJ is the default for NSO versions
+      up to 6.7.x, while the Apache MINA-based client is the default for NSO 6.8 and later. This
+      auto-detection is overridden if this leaf is explicitly configured.
 
-      sshj  - Default SSH client. Based on SSHJ; supports most modern cryptographic standards.
+      sshj  - SSHJ-based client (lacks PQC support).
+
+      mina  - Apache MINA-based client (supports PQC).
 
 
     - ssh host-key known-hosts-file <string>
@@ -627,6 +632,14 @@
       Path to openssh formatted private key file for doing public key auth to device or proxy. Note
       that if private-key authentication is needed to the device when connecting through a proxy,
       that needs to be configured in 'proxy/auth-key/private-key-file.
+
+
+    - ssh netconf-subsystem check-alive <true|false> (default false)
+
+      When NSO checks with the NED whether the connection to the device is still active, the NED
+      normally only verifies the state of the SSH connection. However, some NETCONF devices
+      occasionally terminate the NETCONF subsystem while leaving the SSH session open. Enable this
+      setting to force the NED to check the status of the NETCONF subsystem as well.
 
 
     - ssh keep-alive-interval <seconds> (default 0)

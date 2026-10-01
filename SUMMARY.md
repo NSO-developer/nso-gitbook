@@ -60,7 +60,7 @@
 
 * cisco-apicdc
   * [README-ned-settings](cisco-apicdc/README-ned-settings.md)
-  * [README v3.22.4 2026-07-09](cisco-apicdc/README.md)
+  * [README v3.22.5 2026-09-30](cisco-apicdc/README.md)
 
 * cisco-asa
   * [README-ned-settings](cisco-asa/README-ned-settings.md)
@@ -215,7 +215,7 @@
 
 * paloalto-panos_cli
   * [README-ned-settings](paloalto-panos_cli/README-ned-settings.md)
-  * [README v4.12 2026-09-03](paloalto-panos_cli/README.md)
+  * [README v4.12.1 2026-09-30](paloalto-panos_cli/README.md)
 
 * rad-vx
   * [README-ned-settings](rad-vx/README-ned-settings.md)

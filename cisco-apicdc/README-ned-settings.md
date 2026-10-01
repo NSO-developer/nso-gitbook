@@ -408,3 +408,93 @@
                  PQC algorithms.
 
 
+# 9. Details regarding the added authentication options for the sync-from file transfer.
+----------------------------------------------------------------------------------------
+
+  During sync-from the configuration archive is transferred in two independent hops:
+  APIC -> HOST (the APIC exports the archive to an intermediary file server) and
+  NED -> HOST (the NED pulls that archive back from the same host). Each hop can use
+  its own credentials, port, protocol and authentication method (username/password
+  or SSH pre-shared key).
+
+  All private-key paths are locations on the local NSO filesystem, even for the APIC
+  hop: the NED reads the key file and forwards its contents to the APIC. Keys must be
+  in PEM format:
+
+  ```
+  ssh-keygen -t rsa -b 3072 -m PEM
+  ```
+
+  - NED -> HOST authentication. Used together with the existing user-name, user-password,
+    port and protocol configuration items.
+
+    ```
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-authentication-type <password/shared-key>
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-private-key-path <local-path>
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-private-key-passphrase <passphrase>
+    ```
+    * password   - username/password auth; uses user-name and user-password.
+    * shared-key - SSH pre-shared key; uses user-name, ned-to-file-host-private-key-path
+                   and ned-to-file-host-private-key-passphrase (passphrase optional).
+
+  - APIC -> HOST authentication. Lets the APIC push hop use credentials/port/protocol
+    that differ from the NED pull hop.
+
+    ```
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-user-name <user-name>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-authentication-type <password/shared-key>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-user-password <user-password>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-private-key-path <local-path>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-private-key-passphrase <passphrase>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-port <port>
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-protocol <sftp/ftp/scp>
+    ```
+    * apic-to-file-host-user-name is the switch. Leave it empty to make the entire APIC
+      hop inherit the NED-hop settings (user, password, port, protocol, auth-type, key
+      path and passphrase) - the original single-credential behavior. Set it to use the
+      independent apic-to-file-host-* settings above.
+    * password   - uses apic-to-file-host-user-name and apic-to-file-host-user-password.
+    * shared-key - uses apic-to-file-host-user-name, apic-to-file-host-private-key-path and
+                   apic-to-file-host-private-key-passphrase. The NED injects the key
+                   contents into the APIC export MO (authType="useSshKeyContents").
+
+
+  - Validation rules:
+    * host and config-path are always required.
+    * NED hop: user-name required. If shared-key, ned-to-file-host-private-key-path is
+      required; otherwise user-password is required. port and protocol are required;
+      protocol must be one of sftp/ftp/scp. ftp requires a password. scp requires
+      local-host true.
+    * APIC hop (enforced only when apic-to-file-host-user-name is set): if shared-key,
+      apic-to-file-host-private-key-path is required; otherwise apic-to-file-host-user-password
+      is required. apic-to-file-host-port and apic-to-file-host-protocol are required with
+      the same protocol/scp/ftp rules.
+
+  - Example: both hops via one shared SSH key (APIC hop inherits the NED hop).
+
+    ```
+    devices device dev-1 ned-settings cisco-apicdc host 10.0.0.9
+    devices device dev-1 ned-settings cisco-apicdc config-path /uploads
+    devices device dev-1 ned-settings cisco-apicdc user-name svc
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-authentication-type shared-key
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-private-key-path /var/opt/ncs/keys/apic_upload
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-private-key-passphrase MyPass
+    devices device dev-1 ned-settings cisco-apicdc protocol sftp
+    ```
+
+  - Example: different credentials per hop (NED pulls with a key; APIC pushes with its
+    own user/password over scp).
+
+    ```
+    devices device dev-1 ned-settings cisco-apicdc host 10.0.0.9
+    devices device dev-1 ned-settings cisco-apicdc config-path /uploads
+    devices device dev-1 ned-settings cisco-apicdc local-host true
+    devices device dev-1 ned-settings cisco-apicdc user-name nedpuller
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-authentication-type shared-key
+    devices device dev-1 ned-settings cisco-apicdc ned-to-file-host-private-key-path /var/opt/ncs/keys/ned_key
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-user-name apicpusher
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-authentication-type password
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-user-password ApicPush123
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-protocol scp
+    devices device dev-1 ned-settings cisco-apicdc apic-to-file-host-port 22
+    ```

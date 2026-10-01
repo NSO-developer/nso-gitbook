@@ -1136,8 +1136,6 @@ admin@ncs(config)# commit
   ```
 
 
-
-
 # 10. Ned read timeout policy
 ---------------------------------
 - From  v3.0.24 the NED adopts a custom timeout policy. When getting the configuration
@@ -1171,3 +1169,21 @@ devices device <apicdcdev> ned-settings cisco-apicdc commit-fully-fit-only (defa
 
 When the "commit-fully-fit-only" field is set to "TRUE" an extra device status read will be performed after login,
 and if the "healt" field is not set to "fully-fit" then the device will be rejected, and the ned will try the devices from the "alternative-hosts" list.
+
+
+#12. Private key login errors
+-----------------------------
+
+When the authenthication type is first changed from "password" to "shared-key" on the APIC device there might be an error at the next sync-from:
+
+```
+admin@ncs# devices device apic-1 sync-from dry-run
+result false
+info Internal error in the NED NCS framework affecting device apic-1: HTTP/1.1 400 Bad Request
+<?xml version="1.0" encoding="UTF-8"?><imdata totalCount="1"><error code="105" text="You must re-type the password when making changes to remote path configuration"/></imdata>
+admin@ncs#
+```
+
+This error appears because there is a stale remote location configuration file that can't be updated by the NED.
+The fix is to login in to the APIC's web us, navigate to ```Admin -> Import/Export -> Remote Locations``` and delete the existing remote location.
+The code will then create a new configuration entry with an extra sufix based on the authenthication mode that tries to limit the problem.
