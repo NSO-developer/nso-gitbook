@@ -81,7 +81,7 @@
 
 * cisco-ios
   * [README-ned-settings](cisco-ios/README-ned-settings.md)
-  * [README v6.115.11 2026-09-24](cisco-ios/README.md)
+  * [README v6.116 2026-10-01](cisco-ios/README.md)
 
 * cisco-iosxr
   * [README-ned-settings](cisco-iosxr/README-ned-settings.md)
@@ -134,7 +134,7 @@
 
 * f5-bigip
   * [README-ned-settings](f5-bigip/README-ned-settings.md)
-  * [README v3.26.5 2026-09-11](f5-bigip/README.md)
+  * [README v3.26.6 2026-10-01](f5-bigip/README.md)
 
 * fortinet-fmg
   * [README-ned-settings](fortinet-fmg/README-ned-settings.md)
@@ -167,7 +167,7 @@
 
 * huawei-vrp
   * [README-ned-settings](huawei-vrp/README-ned-settings.md)
-  * [README v6.87.3 2026-09-16](huawei-vrp/README.md)
+  * [README v6.87.4 2026-10-01](huawei-vrp/README.md)
 
 * huawei-vrp_nc
   * [README-ned-settings](huawei-vrp_nc/README-ned-settings.md)
@@ -180,7 +180,7 @@
 * juniper-junos_nc
   * [README-ned-settings](juniper-junos_nc/README-ned-settings.md)
   * [README-rebuild](juniper-junos_nc/README-rebuild.md)
-  * [README v1.1.33 2026-09-18](juniper-junos_nc/README.md)
+  * [README v1.1.34 2026-10-01](juniper-junos_nc/README.md)
 
 * mrv-masteros
   * [README-ned-settings](mrv-masteros/README-ned-settings.md)
@@ -199,7 +199,7 @@
 * onf-tapi_rc
   * [README-ned-settings](onf-tapi_rc/README-ned-settings.md)
   * [README-rebuild](onf-tapi_rc/README-rebuild.md)
-  * [README v2.0.53 2026-04-24](onf-tapi_rc/README.md)
+  * [README v2.0.54 2026-10-01](onf-tapi_rc/README.md)
 
 * opengear-cm
   * [README-ned-settings](opengear-cm/README-ned-settings.md)
