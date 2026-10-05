@@ -1,5 +1,4 @@
-<a id="cls-XPathAbrevGrammar"></a>
-# XPathAbrevGrammar
+# XPathAbrevGrammar <a href="#cls-XPathAbrevGrammar" id="cls-XPathAbrevGrammar"></a>
 
 ```java
 public class com.tailf.conf.dbg.XPathAbrevGrammar
@@ -12,10 +11,10 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#cls-XPathAbrev
 
 **Constructors**:
 
-- [XPathAbrevGrammar(InputStream)](#m-xpathabrevgrammar-2e473df9b9b4)
-- [XPathAbrevGrammar(InputStream, String)](#m-xpathabrevgrammar-e1a637b61fa2)
-- [XPathAbrevGrammar(Reader)](#m-xpathabrevgrammar-118515e28a0e)
-- [XPathAbrevGrammar(XPathAbrevGrammarTokenManager)](#m-xpathabrevgrammar-a4de409058c6)
+- [XPathAbrevGrammar(InputStream)](#m-XPathAbrevGrammar-2e473df9b9b4)
+- [XPathAbrevGrammar(InputStream, String)](#m-XPathAbrevGrammar-e1a637b61fa2)
+- [XPathAbrevGrammar(Reader)](#m-XPathAbrevGrammar-118515e28a0e)
+- [XPathAbrevGrammar(XPathAbrevGrammarTokenManager)](#m-XPathAbrevGrammar-a4de409058c6)
 
 **Fields**:
 
@@ -55,43 +54,43 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#cls-XPathAbrev
 
 **Methods**:
 
-- [AbbreviatedAxisSpecifier()](#m-abbreviatedaxisspecifier-2077ffc46a36)
-- [AbsoluteLocationPath()](#m-absolutelocationpath-4e8bf87fbecb)
-- [AxisName()](#m-axisname-26f35eaa1e25)
-- [AxisSpecifier()](#m-axisspecifier-3422df92e1f5)
-- [CoreFunctionCall()](#m-corefunctioncall-bbc848cd7f68)
-- [CoreFunctionName()](#m-corefunctionname-a9428b54fc9d)
+- [AbbreviatedAxisSpecifier()](#m-AbbreviatedAxisSpecifier-2077ffc46a36)
+- [AbsoluteLocationPath()](#m-AbsoluteLocationPath-4e8bf87fbecb)
+- [AxisName()](#m-AxisName-26f35eaa1e25)
+- [AxisSpecifier()](#m-AxisSpecifier-3422df92e1f5)
+- [CoreFunctionCall()](#m-CoreFunctionCall-bbc848cd7f68)
+- [CoreFunctionName()](#m-CoreFunctionName-a9428b54fc9d)
 - [disable_tracing()](#m-disable_tracing-6da9cdfdd969)
 - [enable_tracing()](#m-enable_tracing-4b87a1586eda)
-- [EqualityExpr()](#m-equalityexpr-01aa6828049d)
-- [Expression()](#m-expression-202b8d891679)
-- [FilterExpr()](#m-filterexpr-2734d9da846d)
-- [FunctionCall()](#m-functioncall-b53ad6cb019a)
-- [FunctionName()](#m-functionname-e065b916e82a)
-- [generateParseException()](#m-generateparseexception-deb7e661e2f1)
-- [getNextToken()](#m-getnexttoken-dc921ada5024)
-- [getToken(int)](#m-gettoken-dc7acf63f451)
-- [LocationPath()](#m-locationpath-35ea9d0f3255)
-- [LocationStep(ArrayList<Object>)](#m-locationstep-a5e94dba22db)
+- [EqualityExpr()](#m-EqualityExpr-01aa6828049d)
+- [Expression()](#m-Expression-202b8d891679)
+- [FilterExpr()](#m-FilterExpr-2734d9da846d)
+- [FunctionCall()](#m-FunctionCall-b53ad6cb019a)
+- [FunctionName()](#m-FunctionName-e065b916e82a)
+- [generateParseException()](#m-generateParseException-deb7e661e2f1)
+- [getNextToken()](#m-getNextToken-dc921ada5024)
+- [getToken(int)](#m-getToken-dc7acf63f451)
+- [LocationPath()](#m-LocationPath-35ea9d0f3255)
+- [LocationStep(ArrayList<Object>)](#m-LocationStep-a5e94dba22db)
 - [main(String[])](#m-main-1503518a8568)
-- [NCName()](#m-ncname-7b30a4c1f737)
-- [NCName_Without_CoreFunctions()](#m-ncname_without_corefunctions-6566bbe274b7)
-- [NodeTest(ArrayList<Object>)](#m-nodetest-22e2f0747db1)
-- [parseExpression()](#m-parseexpression-09140d7abc03)
-- [PathExpr()](#m-pathexpr-2e73edb0ff0c)
-- [Predicate()](#m-predicate-c03c201960b0)
-- [PrimaryExpr()](#m-primaryexpr-1e465f74325b)
-- [QName()](#m-qname-7107ceb3aca9)
-- [QName_Without_CoreFunctions()](#m-qname_without_corefunctions-158727e2e312)
-- [ReInit(InputStream)](#m-reinit-e03395a4a4ba)
-- [ReInit(InputStream, String)](#m-reinit-330085293cfa)
-- [ReInit(Reader)](#m-reinit-4ce6f3557028)
-- [ReInit(XPathAbrevGrammarTokenManager)](#m-reinit-88ffc30c9b57)
-- [RelationalExpr()](#m-relationalexpr-1f528ea442a1)
-- [RelativeLocationPath()](#m-relativelocationpath-dddce07a8f49)
-- [setCompiler(Compiler)](#m-setcompiler-ba6ce2506c89)
+- [NCName()](#m-NCName-7b30a4c1f737)
+- [NCName_Without_CoreFunctions()](#m-NCName_Without_CoreFunctions-6566bbe274b7)
+- [NodeTest(ArrayList<Object>)](#m-NodeTest-22e2f0747db1)
+- [parseExpression()](#m-parseExpression-09140d7abc03)
+- [PathExpr()](#m-PathExpr-2e73edb0ff0c)
+- [Predicate()](#m-Predicate-c03c201960b0)
+- [PrimaryExpr()](#m-PrimaryExpr-1e465f74325b)
+- [QName()](#m-QName-7107ceb3aca9)
+- [QName_Without_CoreFunctions()](#m-QName_Without_CoreFunctions-158727e2e312)
+- [ReInit(InputStream)](#m-ReInit-e03395a4a4ba)
+- [ReInit(InputStream, String)](#m-ReInit-330085293cfa)
+- [ReInit(Reader)](#m-ReInit-4ce6f3557028)
+- [ReInit(XPathAbrevGrammarTokenManager)](#m-ReInit-88ffc30c9b57)
+- [RelationalExpr()](#m-RelationalExpr-1f528ea442a1)
+- [RelativeLocationPath()](#m-RelativeLocationPath-dddce07a8f49)
+- [setCompiler(Compiler)](#m-setCompiler-ba6ce2506c89)
 - [trace_enabled()](#m-trace_enabled-0d5a0a082fa5)
-- [WildcardName()](#m-wildcardname-8dffbb9f4b24)
+- [WildcardName()](#m-WildcardName-8dffbb9f4b24)
 
 **Nested Types**:
 
@@ -100,8 +99,7 @@ Types: [XPathAbrevGrammarConstants](XPathAbrevGrammarConstants.md#cls-XPathAbrev
 
 ## Constructors
 
-<a id="m-xpathabrevgrammar-2e473df9b9b4"></a>
-### XPathAbrevGrammar(InputStream)
+### XPathAbrevGrammar(InputStream) <a href="#m-XPathAbrevGrammar-2e473df9b9b4" id="m-XPathAbrevGrammar-2e473df9b9b4"></a>
 
 ```java
 public XPathAbrevGrammar(java.io.InputStream stream)
@@ -113,8 +111,7 @@ Constructor with InputStream.
 
 - `java.io.InputStream stream`
 
-<a id="m-xpathabrevgrammar-e1a637b61fa2"></a>
-### XPathAbrevGrammar(InputStream, String)
+### XPathAbrevGrammar(InputStream, String) <a href="#m-XPathAbrevGrammar-e1a637b61fa2" id="m-XPathAbrevGrammar-e1a637b61fa2"></a>
 
 ```java
 public XPathAbrevGrammar(java.io.InputStream stream, String encoding)
@@ -127,8 +124,7 @@ Constructor with InputStream and supplied encoding
 - `java.io.InputStream stream`
 - `String encoding`
 
-<a id="m-xpathabrevgrammar-118515e28a0e"></a>
-### XPathAbrevGrammar(Reader)
+### XPathAbrevGrammar(Reader) <a href="#m-XPathAbrevGrammar-118515e28a0e" id="m-XPathAbrevGrammar-118515e28a0e"></a>
 
 ```java
 public XPathAbrevGrammar(java.io.Reader stream)
@@ -140,8 +136,7 @@ Constructor.
 
 - `java.io.Reader stream`
 
-<a id="m-xpathabrevgrammar-a4de409058c6"></a>
-### XPathAbrevGrammar(XPathAbrevGrammarTokenManager)
+### XPathAbrevGrammar(XPathAbrevGrammarTokenManager) <a href="#m-XPathAbrevGrammar-a4de409058c6" id="m-XPathAbrevGrammar-a4de409058c6"></a>
 
 ```java
 public XPathAbrevGrammar(com.tailf.conf.dbg.XPathAbrevGrammarTokenManager tm)
@@ -158,8 +153,7 @@ Constructor with generated Token Manager.
 
 ## Fields
 
-<a id="m-jj_input_stream"></a>
-### jj_input_stream
+### jj_input_stream <a href="#m-jj_input_stream" id="m-jj_input_stream"></a>
 
 **Package-private**
 
@@ -169,8 +163,7 @@ com.tailf.conf.dbg.JavaCharStream jj_input_stream = null;
 
 Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 
-<a id="m-jj_nt"></a>
-### jj_nt
+### jj_nt <a href="#m-jj_nt" id="m-jj_nt"></a>
 
 ```java
 public com.tailf.conf.dbg.Token jj_nt = null;
@@ -180,8 +173,7 @@ Types: [Token](Token.md#cls-Token)
 
 Next token.
 
-<a id="m-token"></a>
-### token
+### token <a href="#m-token" id="m-token"></a>
 
 ```java
 public com.tailf.conf.dbg.Token token = null;
@@ -191,8 +183,7 @@ Types: [Token](Token.md#cls-Token)
 
 Current token.
 
-<a id="m-token_source"></a>
-### token_source
+### token_source <a href="#m-token_source" id="m-token_source"></a>
 
 ```java
 public com.tailf.conf.dbg.XPathAbrevGrammarTokenManager token_source = null;
@@ -205,8 +196,7 @@ Generated Token Manager.
 
 ## Methods
 
-<a id="m-abbreviatedaxisspecifier-2077ffc46a36"></a>
-### AbbreviatedAxisSpecifier()
+### AbbreviatedAxisSpecifier() <a href="#m-AbbreviatedAxisSpecifier-2077ffc46a36" id="m-AbbreviatedAxisSpecifier-2077ffc46a36"></a>
 
 ```java
 public final int AbbreviatedAxisSpecifier() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
@@ -215,8 +205,7 @@ public final int AbbreviatedAxisSpecifier() throws com.tailf.conf.dbg.ParseExcep
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-absolutelocationpath-4e8bf87fbecb"></a>
-### AbsoluteLocationPath()
+### AbsoluteLocationPath() <a href="#m-AbsoluteLocationPath-4e8bf87fbecb" id="m-AbsoluteLocationPath-4e8bf87fbecb"></a>
 
 ```java
 public final Object AbsoluteLocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -225,8 +214,7 @@ public final Object AbsoluteLocationPath() throws com.tailf.conf.dbg.ParseExcept
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-axisname-26f35eaa1e25"></a>
-### AxisName()
+### AxisName() <a href="#m-AxisName-26f35eaa1e25" id="m-AxisName-26f35eaa1e25"></a>
 
 ```java
 public final int AxisName() throws com.tailf.conf.dbg.ParseException
@@ -234,8 +222,7 @@ public final int AxisName() throws com.tailf.conf.dbg.ParseException
 
 Types: [ParseException](ParseException.md#cls-ParseException)
 
-<a id="m-axisspecifier-3422df92e1f5"></a>
-### AxisSpecifier()
+### AxisSpecifier() <a href="#m-AxisSpecifier-3422df92e1f5" id="m-AxisSpecifier-3422df92e1f5"></a>
 
 ```java
 public final int AxisSpecifier() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
@@ -244,8 +231,7 @@ public final int AxisSpecifier() throws com.tailf.conf.dbg.ParseException, com.t
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-corefunctioncall-bbc848cd7f68"></a>
-### CoreFunctionCall()
+### CoreFunctionCall() <a href="#m-CoreFunctionCall-bbc848cd7f68" id="m-CoreFunctionCall-bbc848cd7f68"></a>
 
 ```java
 public final Object CoreFunctionCall() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException
@@ -254,8 +240,7 @@ public final Object CoreFunctionCall() throws com.tailf.conf.dbg.ParseException,
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-corefunctionname-a9428b54fc9d"></a>
-### CoreFunctionName()
+### CoreFunctionName() <a href="#m-CoreFunctionName-a9428b54fc9d" id="m-CoreFunctionName-a9428b54fc9d"></a>
 
 ```java
 public final int CoreFunctionName() throws com.tailf.conf.dbg.ParseException
@@ -263,8 +248,7 @@ public final int CoreFunctionName() throws com.tailf.conf.dbg.ParseException
 
 Types: [ParseException](ParseException.md#cls-ParseException)
 
-<a id="m-disable_tracing-6da9cdfdd969"></a>
-### disable_tracing()
+### disable_tracing() <a href="#m-disable_tracing-6da9cdfdd969" id="m-disable_tracing-6da9cdfdd969"></a>
 
 ```java
 public final void disable_tracing()
@@ -272,8 +256,7 @@ public final void disable_tracing()
 
 Disable tracing.
 
-<a id="m-enable_tracing-4b87a1586eda"></a>
-### enable_tracing()
+### enable_tracing() <a href="#m-enable_tracing-4b87a1586eda" id="m-enable_tracing-4b87a1586eda"></a>
 
 ```java
 public final void enable_tracing()
@@ -281,8 +264,7 @@ public final void enable_tracing()
 
 Enable tracing.
 
-<a id="m-equalityexpr-01aa6828049d"></a>
-### EqualityExpr()
+### EqualityExpr() <a href="#m-EqualityExpr-01aa6828049d" id="m-EqualityExpr-01aa6828049d"></a>
 
 ```java
 public final Object EqualityExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -291,8 +273,7 @@ public final Object EqualityExpr() throws com.tailf.conf.dbg.ParseException, com
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-expression-202b8d891679"></a>
-### Expression()
+### Expression() <a href="#m-Expression-202b8d891679" id="m-Expression-202b8d891679"></a>
 
 ```java
 public final Object Expression() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -301,8 +282,7 @@ public final Object Expression() throws com.tailf.conf.dbg.ParseException, com.t
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-filterexpr-2734d9da846d"></a>
-### FilterExpr()
+### FilterExpr() <a href="#m-FilterExpr-2734d9da846d" id="m-FilterExpr-2734d9da846d"></a>
 
 ```java
 public final Object FilterExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -311,8 +291,7 @@ public final Object FilterExpr() throws com.tailf.conf.dbg.ParseException, com.t
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-functioncall-b53ad6cb019a"></a>
-### FunctionCall()
+### FunctionCall() <a href="#m-FunctionCall-b53ad6cb019a" id="m-FunctionCall-b53ad6cb019a"></a>
 
 ```java
 public final Object FunctionCall() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -321,8 +300,7 @@ public final Object FunctionCall() throws com.tailf.conf.dbg.ParseException, com
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-functionname-e065b916e82a"></a>
-### FunctionName()
+### FunctionName() <a href="#m-FunctionName-e065b916e82a" id="m-FunctionName-e065b916e82a"></a>
 
 ```java
 public final Object FunctionName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -331,8 +309,7 @@ public final Object FunctionName() throws com.tailf.conf.dbg.ParseException, com
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-generateparseexception-deb7e661e2f1"></a>
-### generateParseException()
+### generateParseException() <a href="#m-generateParseException-deb7e661e2f1" id="m-generateParseException-deb7e661e2f1"></a>
 
 ```java
 public com.tailf.conf.dbg.ParseException generateParseException()
@@ -342,8 +319,7 @@ Types: [ParseException](ParseException.md#cls-ParseException)
 
 Generate ParseException.
 
-<a id="m-getnexttoken-dc921ada5024"></a>
-### getNextToken()
+### getNextToken() <a href="#m-getNextToken-dc921ada5024" id="m-getNextToken-dc921ada5024"></a>
 
 ```java
 public final com.tailf.conf.dbg.Token getNextToken()
@@ -353,8 +329,7 @@ Types: [Token](Token.md#cls-Token)
 
 Get the next Token.
 
-<a id="m-gettoken-dc7acf63f451"></a>
-### getToken(int)
+### getToken(int) <a href="#m-getToken-dc7acf63f451" id="m-getToken-dc7acf63f451"></a>
 
 ```java
 public final com.tailf.conf.dbg.Token getToken(int index)
@@ -368,8 +343,7 @@ Get the specific Token.
 
 - `int index`
 
-<a id="m-locationpath-35ea9d0f3255"></a>
-### LocationPath()
+### LocationPath() <a href="#m-LocationPath-35ea9d0f3255" id="m-LocationPath-35ea9d0f3255"></a>
 
 ```java
 public final Object LocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -378,8 +352,7 @@ public final Object LocationPath() throws com.tailf.conf.dbg.ParseException, com
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-locationstep-a5e94dba22db"></a>
-### LocationStep(ArrayList<Object>)
+### LocationStep(ArrayList<Object>) <a href="#m-LocationStep-a5e94dba22db" id="m-LocationStep-a5e94dba22db"></a>
 
 ```java
 public final void LocationStep(
@@ -394,8 +367,7 @@ Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](.
 
 - `java.util.ArrayList<Object> steps`
 
-<a id="m-main-1503518a8568"></a>
-### main(String[])
+### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
 
 ```java
 public static void main(String[] args)
@@ -405,8 +377,7 @@ public static void main(String[] args)
 
 - `String[] args`
 
-<a id="m-ncname-7b30a4c1f737"></a>
-### NCName()
+### NCName() <a href="#m-NCName-7b30a4c1f737" id="m-NCName-7b30a4c1f737"></a>
 
 ```java
 public final String NCName() throws com.tailf.conf.dbg.ParseException
@@ -414,8 +385,7 @@ public final String NCName() throws com.tailf.conf.dbg.ParseException
 
 Types: [ParseException](ParseException.md#cls-ParseException)
 
-<a id="m-ncname_without_corefunctions-6566bbe274b7"></a>
-### NCName_Without_CoreFunctions()
+### NCName_Without_CoreFunctions() <a href="#m-NCName_Without_CoreFunctions-6566bbe274b7" id="m-NCName_Without_CoreFunctions-6566bbe274b7"></a>
 
 ```java
 public final String NCName_Without_CoreFunctions() throws com.tailf.conf.dbg.ParseException
@@ -423,8 +393,7 @@ public final String NCName_Without_CoreFunctions() throws com.tailf.conf.dbg.Par
 
 Types: [ParseException](ParseException.md#cls-ParseException)
 
-<a id="m-nodetest-22e2f0747db1"></a>
-### NodeTest(ArrayList<Object>)
+### NodeTest(ArrayList<Object>) <a href="#m-NodeTest-22e2f0747db1" id="m-NodeTest-22e2f0747db1"></a>
 
 ```java
 public final void NodeTest(
@@ -439,8 +408,7 @@ Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](.
 
 - `java.util.ArrayList<Object> steps`
 
-<a id="m-parseexpression-09140d7abc03"></a>
-### parseExpression()
+### parseExpression() <a href="#m-parseExpression-09140d7abc03" id="m-parseExpression-09140d7abc03"></a>
 
 ```java
 public final Object parseExpression() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -449,8 +417,7 @@ public final Object parseExpression() throws com.tailf.conf.dbg.ParseException, 
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-pathexpr-2e73edb0ff0c"></a>
-### PathExpr()
+### PathExpr() <a href="#m-PathExpr-2e73edb0ff0c" id="m-PathExpr-2e73edb0ff0c"></a>
 
 ```java
 public final Object PathExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -459,8 +426,7 @@ public final Object PathExpr() throws com.tailf.conf.dbg.ParseException, com.tai
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-predicate-c03c201960b0"></a>
-### Predicate()
+### Predicate() <a href="#m-Predicate-c03c201960b0" id="m-Predicate-c03c201960b0"></a>
 
 ```java
 public final Object Predicate() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -469,8 +435,7 @@ public final Object Predicate() throws com.tailf.conf.dbg.ParseException, com.ta
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-primaryexpr-1e465f74325b"></a>
-### PrimaryExpr()
+### PrimaryExpr() <a href="#m-PrimaryExpr-1e465f74325b" id="m-PrimaryExpr-1e465f74325b"></a>
 
 ```java
 public final Object PrimaryExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -479,8 +444,7 @@ public final Object PrimaryExpr() throws com.tailf.conf.dbg.ParseException, com.
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-qname-7107ceb3aca9"></a>
-### QName()
+### QName() <a href="#m-QName-7107ceb3aca9" id="m-QName-7107ceb3aca9"></a>
 
 ```java
 public final Object QName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -489,8 +453,7 @@ public final Object QName() throws com.tailf.conf.dbg.ParseException, com.tailf.
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-qname_without_corefunctions-158727e2e312"></a>
-### QName_Without_CoreFunctions()
+### QName_Without_CoreFunctions() <a href="#m-QName_Without_CoreFunctions-158727e2e312" id="m-QName_Without_CoreFunctions-158727e2e312"></a>
 
 ```java
 public final Object QName_Without_CoreFunctions() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -499,8 +462,7 @@ public final Object QName_Without_CoreFunctions() throws com.tailf.conf.dbg.Pars
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-reinit-e03395a4a4ba"></a>
-### ReInit(InputStream)
+### ReInit(InputStream) <a href="#m-ReInit-e03395a4a4ba" id="m-ReInit-e03395a4a4ba"></a>
 
 ```java
 public void ReInit(java.io.InputStream stream)
@@ -512,8 +474,7 @@ Reinitialise.
 
 - `java.io.InputStream stream`
 
-<a id="m-reinit-330085293cfa"></a>
-### ReInit(InputStream, String)
+### ReInit(InputStream, String) <a href="#m-ReInit-330085293cfa" id="m-ReInit-330085293cfa"></a>
 
 ```java
 public void ReInit(java.io.InputStream stream, String encoding)
@@ -526,8 +487,7 @@ Reinitialise.
 - `java.io.InputStream stream`
 - `String encoding`
 
-<a id="m-reinit-4ce6f3557028"></a>
-### ReInit(Reader)
+### ReInit(Reader) <a href="#m-ReInit-4ce6f3557028" id="m-ReInit-4ce6f3557028"></a>
 
 ```java
 public void ReInit(java.io.Reader stream)
@@ -539,8 +499,7 @@ Reinitialise.
 
 - `java.io.Reader stream`
 
-<a id="m-reinit-88ffc30c9b57"></a>
-### ReInit(XPathAbrevGrammarTokenManager)
+### ReInit(XPathAbrevGrammarTokenManager) <a href="#m-ReInit-88ffc30c9b57" id="m-ReInit-88ffc30c9b57"></a>
 
 ```java
 public void ReInit(com.tailf.conf.dbg.XPathAbrevGrammarTokenManager tm)
@@ -554,8 +513,7 @@ Reinitialise.
 
 - `com.tailf.conf.dbg.XPathAbrevGrammarTokenManager tm`
 
-<a id="m-relationalexpr-1f528ea442a1"></a>
-### RelationalExpr()
+### RelationalExpr() <a href="#m-RelationalExpr-1f528ea442a1" id="m-RelationalExpr-1f528ea442a1"></a>
 
 ```java
 public final Object RelationalExpr() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -564,8 +522,7 @@ public final Object RelationalExpr() throws com.tailf.conf.dbg.ParseException, c
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-relativelocationpath-dddce07a8f49"></a>
-### RelativeLocationPath()
+### RelativeLocationPath() <a href="#m-RelativeLocationPath-dddce07a8f49" id="m-RelativeLocationPath-dddce07a8f49"></a>
 
 ```java
 public final Object RelativeLocationPath() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException
@@ -574,8 +531,7 @@ public final Object RelativeLocationPath() throws com.tailf.conf.dbg.ParseExcept
 
 Types: [ParseException](ParseException.md#cls-ParseException), [ConfException](../ConfException.md#cls-ConfException)
 
-<a id="m-setcompiler-ba6ce2506c89"></a>
-### setCompiler(Compiler)
+### setCompiler(Compiler) <a href="#m-setCompiler-ba6ce2506c89" id="m-setCompiler-ba6ce2506c89"></a>
 
 ```java
 public void setCompiler(com.tailf.conf.Compiler compiler)
@@ -587,8 +543,7 @@ Types: [Compiler](../Compiler.md#cls-Compiler)
 
 - `com.tailf.conf.Compiler compiler`
 
-<a id="m-trace_enabled-0d5a0a082fa5"></a>
-### trace_enabled()
+### trace_enabled() <a href="#m-trace_enabled-0d5a0a082fa5" id="m-trace_enabled-0d5a0a082fa5"></a>
 
 ```java
 public final boolean trace_enabled()
@@ -596,8 +551,7 @@ public final boolean trace_enabled()
 
 Trace enabled.
 
-<a id="m-wildcardname-8dffbb9f4b24"></a>
-### WildcardName()
+### WildcardName() <a href="#m-WildcardName-8dffbb9f4b24" id="m-WildcardName-8dffbb9f4b24"></a>
 
 ```java
 public final Object WildcardName() throws com.tailf.conf.dbg.ParseException, com.tailf.conf.ConfException, java.io.IOException

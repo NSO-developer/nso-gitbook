@@ -1,5 +1,4 @@
-<a id="cls-AlarmSource"></a>
-# AlarmSource
+# AlarmSource <a href="#cls-AlarmSource" id="cls-AlarmSource"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.consumer.AlarmSource
@@ -14,22 +13,21 @@ This class establishes a listener queue for emitted alarms. It requires the
 
 **Constructors**:
 
-- [AlarmSource()](#m-alarmsource-d590063b7bb5)
-- [AlarmSource(AlarmSourceCentral)](#m-alarmsource-cd47470fa7a3)
+- [AlarmSource()](#m-AlarmSource-d590063b7bb5)
+- [AlarmSource(AlarmSourceCentral)](#m-AlarmSource-cd47470fa7a3)
 
 **Methods**:
 
 - [close()](#m-close-8107c6dc012b)
-- [isListening()](#m-islistening-ad0deb68ad68)
-- [pollAlarm(int, TimeUnit)](#m-pollalarm-d491d8607d37)
-- [startListening()](#m-startlistening-a174d71f92d6)
-- [stopListening()](#m-stoplistening-74b0b8ef5ac2)
-- [takeAlarm()](#m-takealarm-58b71d3346fe)
+- [isListening()](#m-isListening-ad0deb68ad68)
+- [pollAlarm(int, TimeUnit)](#m-pollAlarm-d491d8607d37)
+- [startListening()](#m-startListening-a174d71f92d6)
+- [stopListening()](#m-stopListening-74b0b8ef5ac2)
+- [takeAlarm()](#m-takeAlarm-58b71d3346fe)
 
 ## Constructors
 
-<a id="m-alarmsource-d590063b7bb5"></a>
-### AlarmSource()
+### AlarmSource() <a href="#m-AlarmSource-d590063b7bb5" id="m-AlarmSource-d590063b7bb5"></a>
 
 ```java
 public AlarmSource()
@@ -38,8 +36,7 @@ public AlarmSource()
 Use the AlarmSourceCentral from the thread local NcsMain
  object.
 
-<a id="m-alarmsource-cd47470fa7a3"></a>
-### AlarmSource(AlarmSourceCentral)
+### AlarmSource(AlarmSourceCentral) <a href="#m-AlarmSource-cd47470fa7a3" id="m-AlarmSource-cd47470fa7a3"></a>
 
 ```java
 public AlarmSource(com.tailf.ncs.alarmman.consumer.AlarmSourceCentral sourceCentral)
@@ -56,8 +53,7 @@ Use a specific AlarmSourceCentral.
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
@@ -65,8 +61,7 @@ public void close()
 
 Closes this alarm source by stopping the listening process.
 
-<a id="m-islistening-ad0deb68ad68"></a>
-### isListening()
+### isListening() <a href="#m-isListening-ad0deb68ad68" id="m-isListening-ad0deb68ad68"></a>
 
 ```java
 public boolean isListening()
@@ -76,8 +71,7 @@ Checks if this alarm source is currently listening for alarms.
 
 **Returns:** true if listening, false otherwise
 
-<a id="m-pollalarm-d491d8607d37"></a>
-### pollAlarm(int, TimeUnit)
+### pollAlarm(int, TimeUnit) <a href="#m-pollAlarm-d491d8607d37" id="m-pollAlarm-d491d8607d37"></a>
 
 ```java
 public com.tailf.ncs.alarmman.common.Alarm pollAlarm(
@@ -103,8 +97,7 @@ Retrieves an alarm, waiting if necessary until one becomes available
 
 - `InterruptedException` - if interrupted while waiting
 
-<a id="m-startlistening-a174d71f92d6"></a>
-### startListening()
+### startListening() <a href="#m-startListening-a174d71f92d6" id="m-startListening-a174d71f92d6"></a>
 
 ```java
 public void startListening()
@@ -113,8 +106,7 @@ public void startListening()
 Starts listening for alarms by initializing the queue if not already
  active.
 
-<a id="m-stoplistening-74b0b8ef5ac2"></a>
-### stopListening()
+### stopListening() <a href="#m-stopListening-74b0b8ef5ac2" id="m-stopListening-74b0b8ef5ac2"></a>
 
 ```java
 public void stopListening()
@@ -122,8 +114,7 @@ public void stopListening()
 
 Stops listening for alarms
 
-<a id="m-takealarm-58b71d3346fe"></a>
-### takeAlarm()
+### takeAlarm() <a href="#m-takeAlarm-58b71d3346fe" id="m-takeAlarm-58b71d3346fe"></a>
 
 ```java
 public com.tailf.ncs.alarmman.common.Alarm takeAlarm() throws InterruptedException

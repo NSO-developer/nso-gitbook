@@ -1,5 +1,4 @@
-<a id="cls-MountPointChildren"></a>
-# MountPointChildren
+# MountPointChildren <a href="#cls-MountPointChildren" id="cls-MountPointChildren"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.MountPointChildren
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.MountPointChildren
 
 **Constructors**:
 
-- [MountPointChildren()](#m-mountpointchildren-6ea25a18d23b)
+- [MountPointChildren()](#m-MountPointChildren-6ea25a18d23b)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.MountPointChildren
 
 ## Constructors
 
-<a id="m-mountpointchildren-6ea25a18d23b"></a>
-### MountPointChildren()
+### MountPointChildren() <a href="#m-MountPointChildren-6ea25a18d23b" id="m-MountPointChildren-6ea25a18d23b"></a>
 
 ```java
 public MountPointChildren()
@@ -35,8 +33,7 @@ public MountPointChildren()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MountPointChildren.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.MountPointChildren.Factory factor
 
 Types: [Factory](MountPointChildren/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MountPointChildren.Builder,com.tailf.ncs.maapi.Schema.MountPointChildren.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](MountPointChildren/Builder.md#cls-Builder), [Reader](MountPointChildren/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

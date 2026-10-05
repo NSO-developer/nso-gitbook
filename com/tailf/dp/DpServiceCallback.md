@@ -1,5 +1,4 @@
-<a id="cls-DpServiceCallback"></a>
-# DpServiceCallback
+# DpServiceCallback <a href="#cls-DpServiceCallback" id="cls-DpServiceCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpServiceCallback
@@ -7,7 +6,7 @@ public interface com.tailf.dp.DpServiceCallback
 
 This interface is used for the service callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
 
 ## Members
 
@@ -21,14 +20,13 @@ This interface is used for the service callbacks.
 
 - [create(ServiceContext, NavuNode, NavuNode, Properties)](#m-create-4ddbd09c0e51)
 - [mask()](#m-mask-24c2fa29c6af)
-- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-postmodification-271e17afdb57)
-- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-premodification-92ab0a35864a)
+- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-postModification-271e17afdb57)
+- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-preModification-92ab0a35864a)
 - [servicepoint()](#m-servicepoint-33fbd1d46c70)
 
 ## Fields
 
-<a id="m-M_CREATE"></a>
-### M_CREATE
+### M_CREATE <a href="#m-M_CREATE" id="m-M_CREATE"></a>
 
 ```java
 public static final int M_CREATE = 4;
@@ -36,15 +34,13 @@ public static final int M_CREATE = 4;
 
 Flags for the mask
 
-<a id="m-M_POST_MODIFICATION"></a>
-### M_POST_MODIFICATION
+### M_POST_MODIFICATION <a href="#m-M_POST_MODIFICATION" id="m-M_POST_MODIFICATION"></a>
 
 ```java
 public static final int M_POST_MODIFICATION = 2;
 ```
 
-<a id="m-M_PRE_MODIFICATION"></a>
-### M_PRE_MODIFICATION
+### M_PRE_MODIFICATION <a href="#m-M_PRE_MODIFICATION" id="m-M_PRE_MODIFICATION"></a>
 
 ```java
 public static final int M_PRE_MODIFICATION = 1;
@@ -53,8 +49,7 @@ public static final int M_PRE_MODIFICATION = 1;
 
 ## Methods
 
-<a id="m-create-4ddbd09c0e51"></a>
-### create(ServiceContext, NavuNode, NavuNode, Properties)
+### create(ServiceContext, NavuNode, NavuNode, Properties) <a href="#m-create-4ddbd09c0e51" id="m-create-4ddbd09c0e51"></a>
 
 ```java
 public abstract java.util.Properties create(
@@ -97,8 +92,7 @@ Create callback method.
 
 - `DpCallbackException`
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()
@@ -107,12 +101,11 @@ public abstract int mask()
 Mask of flags for each method that is supported by this callback:
 
 
-- `#M_CREATE`
-   - `#M_PRE_MODIFICATION`
-     - `#M_POST_MODIFICATION`
+- [`M_CREATE`](DpServiceCallback.md#m-M_CREATE)
+   - [`M_PRE_MODIFICATION`](DpServiceCallback.md#m-M_PRE_MODIFICATION)
+     - [`M_POST_MODIFICATION`](DpServiceCallback.md#m-M_POST_MODIFICATION)
 
-<a id="m-postmodification-271e17afdb57"></a>
-### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
+### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#m-postModification-271e17afdb57" id="m-postModification-271e17afdb57"></a>
 
 ```java
 public abstract java.util.Properties postModification(
@@ -154,8 +147,7 @@ Post modification callback
 
 - `DpCallbackException`
 
-<a id="m-premodification-92ab0a35864a"></a>
-### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
+### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#m-preModification-92ab0a35864a" id="m-preModification-92ab0a35864a"></a>
 
 ```java
 public abstract java.util.Properties preModification(
@@ -197,8 +189,7 @@ Pre modification callback
 
 - `DpCallbackException`
 
-<a id="m-servicepoint-33fbd1d46c70"></a>
-### servicepoint()
+### servicepoint() <a href="#m-servicepoint-33fbd1d46c70" id="m-servicepoint-33fbd1d46c70"></a>
 
 ```java
 public abstract String servicepoint()

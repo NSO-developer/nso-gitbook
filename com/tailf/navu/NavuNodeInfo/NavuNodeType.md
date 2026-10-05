@@ -1,5 +1,4 @@
-<a id="cls-NavuNodeType"></a>
-# NavuNodeType
+# NavuNodeType <a href="#cls-NavuNodeType" id="cls-NavuNodeType"></a>
 
 ```java
 protected static enum com.tailf.navu.NavuNodeInfo.NavuNodeType
@@ -24,77 +23,67 @@ Types: [NavuNodeType](NavuNodeType.md#cls-NavuNodeType)
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CS_NODE_IS_ACTION"></a>
-### CS_NODE_IS_ACTION
+### CS_NODE_IS_ACTION <a href="#m-CS_NODE_IS_ACTION" id="m-CS_NODE_IS_ACTION"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_ACTION;
 ```
 
-<a id="m-CS_NODE_IS_CASE"></a>
-### CS_NODE_IS_CASE
+### CS_NODE_IS_CASE <a href="#m-CS_NODE_IS_CASE" id="m-CS_NODE_IS_CASE"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CASE;
 ```
 
-<a id="m-CS_NODE_IS_CDB"></a>
-### CS_NODE_IS_CDB
+### CS_NODE_IS_CDB <a href="#m-CS_NODE_IS_CDB" id="m-CS_NODE_IS_CDB"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CDB;
 ```
 
-<a id="m-CS_NODE_IS_CONTAINER"></a>
-### CS_NODE_IS_CONTAINER
+### CS_NODE_IS_CONTAINER <a href="#m-CS_NODE_IS_CONTAINER" id="m-CS_NODE_IS_CONTAINER"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_CONTAINER;
 ```
 
-<a id="m-CS_NODE_IS_LIST"></a>
-### CS_NODE_IS_LIST
+### CS_NODE_IS_LIST <a href="#m-CS_NODE_IS_LIST" id="m-CS_NODE_IS_LIST"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_LIST;
 ```
 
-<a id="m-CS_NODE_IS_NOTIF"></a>
-### CS_NODE_IS_NOTIF
+### CS_NODE_IS_NOTIF <a href="#m-CS_NODE_IS_NOTIF" id="m-CS_NODE_IS_NOTIF"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_NOTIF;
 ```
 
-<a id="m-CS_NODE_IS_PARAM"></a>
-### CS_NODE_IS_PARAM
+### CS_NODE_IS_PARAM <a href="#m-CS_NODE_IS_PARAM" id="m-CS_NODE_IS_PARAM"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_PARAM;
 ```
 
-<a id="m-CS_NODE_IS_RESULT"></a>
-### CS_NODE_IS_RESULT
+### CS_NODE_IS_RESULT <a href="#m-CS_NODE_IS_RESULT" id="m-CS_NODE_IS_RESULT"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_RESULT;
 ```
 
-<a id="m-CS_NODE_IS_WRITE"></a>
-### CS_NODE_IS_WRITE
+### CS_NODE_IS_WRITE <a href="#m-CS_NODE_IS_WRITE" id="m-CS_NODE_IS_WRITE"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_WRITE;
 ```
 
-<a id="m-CS_NODE_IS_WRITE_ALL"></a>
-### CS_NODE_IS_WRITE_ALL
+### CS_NODE_IS_WRITE_ALL <a href="#m-CS_NODE_IS_WRITE_ALL" id="m-CS_NODE_IS_WRITE_ALL"></a>
 
 ```java
 public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_WRITE_ALL;
@@ -103,8 +92,7 @@ public static final com.tailf.navu.NavuNodeInfo.NavuNodeType CS_NODE_IS_WRITE_AL
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -112,8 +100,7 @@ public int getValue()
 
 **Returns:** the integer value of the enum.
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.navu.NavuNodeInfo.NavuNodeType valueOf(String name)
@@ -125,8 +112,7 @@ Types: [NavuNodeType](NavuNodeType.md#cls-NavuNodeType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.navu.NavuNodeInfo.NavuNodeType[] values()

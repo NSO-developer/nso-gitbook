@@ -1,5 +1,4 @@
-<a id="cls-CdbDiffIterate"></a>
-# CdbDiffIterate
+# CdbDiffIterate <a href="#cls-CdbDiffIterate" id="cls-CdbDiffIterate"></a>
 
 ```java
 public interface com.tailf.cdb.CdbDiffIterate
@@ -73,8 +72,7 @@ The `CdbDiffIterate` interface should be implemented
 
 ## Methods
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public abstract com.tailf.conf.DiffIterateResultFlag iterate(

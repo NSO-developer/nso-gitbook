@@ -1,5 +1,4 @@
-<a id="cls-PerceivedSeverity"></a>
-# PerceivedSeverity
+# PerceivedSeverity <a href="#cls-PerceivedSeverity" id="cls-PerceivedSeverity"></a>
 
 ```java
 public enum com.tailf.ncs.alarmman.common.PerceivedSeverity
@@ -22,52 +21,46 @@ Enum representing the possible perceived severities for an alarm
 
 **Methods**:
 
-- [equalsTo(int)](#m-equalsto-426f9980372b)
-- [getValue()](#m-getvalue-d93864668c40)
-- [stringValue()](#m-stringvalue-a6efca13ec08)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [equalsTo(int)](#m-equalsTo-426f9980372b)
+- [getValue()](#m-getValue-d93864668c40)
+- [stringValue()](#m-stringValue-a6efca13ec08)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CLEARED"></a>
-### CLEARED
+### CLEARED <a href="#m-CLEARED" id="m-CLEARED"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity CLEARED;
 ```
 
-<a id="m-CRITICAL"></a>
-### CRITICAL
+### CRITICAL <a href="#m-CRITICAL" id="m-CRITICAL"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity CRITICAL;
 ```
 
-<a id="m-INDETERMINATE"></a>
-### INDETERMINATE
+### INDETERMINATE <a href="#m-INDETERMINATE" id="m-INDETERMINATE"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity INDETERMINATE;
 ```
 
-<a id="m-MAJOR"></a>
-### MAJOR
+### MAJOR <a href="#m-MAJOR" id="m-MAJOR"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity MAJOR;
 ```
 
-<a id="m-MINOR"></a>
-### MINOR
+### MINOR <a href="#m-MINOR" id="m-MINOR"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity MINOR;
 ```
 
-<a id="m-WARNING"></a>
-### WARNING
+### WARNING <a href="#m-WARNING" id="m-WARNING"></a>
 
 ```java
 public static final com.tailf.ncs.alarmman.common.PerceivedSeverity WARNING;
@@ -76,8 +69,7 @@ public static final com.tailf.ncs.alarmman.common.PerceivedSeverity WARNING;
 
 ## Methods
 
-<a id="m-equalsto-426f9980372b"></a>
-### equalsTo(int)
+### equalsTo(int) <a href="#m-equalsTo-426f9980372b" id="m-equalsTo-426f9980372b"></a>
 
 ```java
 public boolean equalsTo(int i)
@@ -87,22 +79,19 @@ public boolean equalsTo(int i)
 
 - `int i`
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.ncs.alarmman.common.PerceivedSeverity valueOf(int i)
@@ -114,8 +103,7 @@ Types: [PerceivedSeverity](PerceivedSeverity.md#cls-PerceivedSeverity)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.alarmman.common.PerceivedSeverity valueOf(String name)
@@ -127,8 +115,7 @@ Types: [PerceivedSeverity](PerceivedSeverity.md#cls-PerceivedSeverity)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.alarmman.common.PerceivedSeverity[] values()

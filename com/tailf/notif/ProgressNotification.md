@@ -1,5 +1,4 @@
-<a id="cls-ProgressNotification"></a>
-# ProgressNotification
+# ProgressNotification <a href="#cls-ProgressNotification" id="cls-ProgressNotification"></a>
 
 ```java
 public class com.tailf.notif.ProgressNotification
@@ -18,7 +17,7 @@ Data structure for progress notifications.
 
 **Constructors**:
 
-- [ProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>)](#m-progressnotification-c28e5ec8d49c)
+- [ProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>)](#m-ProgressNotification-c28e5ec8d49c)
 
 **Fields**:
 
@@ -26,25 +25,25 @@ Data structure for progress notifications.
 
 **Methods**:
 
-- [getAnnotation()](#m-getannotation-f9c803b8d53c)
-- [getAttributes()](#m-getattributes-34824a17bc02)
-- [getAttributeValue(String)](#m-getattributevalue-74e7ac548f72)
-- [getContext()](#m-getcontext-b18d576df5d9)
-- [getDatastore()](#m-getdatastore-90019829a97f)
-- [getDatastoreStr()](#m-getdatastorestr-c8f9783fbc77)
-- [getDuration()](#m-getduration-aee615ea7fe2)
-- [getLinks()](#m-getlinks-4e85332dc1df)
-- [getMessage()](#m-getmessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getParentSpanId()](#m-getparentspanid-d345b2e6a97f)
-- [getProgressEventType()](#m-getprogresseventtype-1fc5b96f8167)
-- [getSessionId()](#m-getsessionid-aba33c116ed5)
-- [getSpanId()](#m-getspanid-155306b8dcae)
-- [getSubsystem()](#m-getsubsystem-04685ed88e54)
-- [getTimestamp()](#m-gettimestamp-a9e0c6b457f8)
-- [getTraceId()](#m-gettraceid-c3a30b94d9ce)
-- [getTransactionId()](#m-gettransactionid-c986b15287a0)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getAnnotation()](#m-getAnnotation-f9c803b8d53c)
+- [getAttributes()](#m-getAttributes-34824a17bc02)
+- [getAttributeValue(String)](#m-getAttributeValue-74e7ac548f72)
+- [getContext()](#m-getContext-b18d576df5d9)
+- [getDatastore()](#m-getDatastore-90019829a97f)
+- [getDatastoreStr()](#m-getDatastoreStr-c8f9783fbc77)
+- [getDuration()](#m-getDuration-aee615ea7fe2)
+- [getLinks()](#m-getLinks-4e85332dc1df)
+- [getMessage()](#m-getMessage-77b7dae8469e)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getParentSpanId()](#m-getParentSpanId-d345b2e6a97f)
+- [getProgressEventType()](#m-getProgressEventType-1fc5b96f8167)
+- [getSessionId()](#m-getSessionId-aba33c116ed5)
+- [getSpanId()](#m-getSpanId-155306b8dcae)
+- [getSubsystem()](#m-getSubsystem-04685ed88e54)
+- [getTimestamp()](#m-getTimestamp-a9e0c6b457f8)
+- [getTraceId()](#m-getTraceId-c3a30b94d9ce)
+- [getTransactionId()](#m-getTransactionId-c986b15287a0)
+- [toString()](#m-toString-e9d48c5503ef)
 
 **Nested Types**:
 
@@ -52,8 +51,7 @@ Data structure for progress notifications.
 
 ## Constructors
 
-<a id="m-progressnotification-c28e5ec8d49c"></a>
-### ProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>)
+### ProgressNotification(NotificationType, ProgressEventType, Long, Long, String, String, String, int, int, int, String, String, String, String, Map<String,ProgressAttributeValue>, List<ProgressLink>) <a href="#m-ProgressNotification-c28e5ec8d49c" id="m-ProgressNotification-c28e5ec8d49c"></a>
 
 ```java
 public ProgressNotification(
@@ -100,8 +98,7 @@ Types: [NotificationType](NotificationType.md#cls-NotificationType), [ProgressEv
 
 ## Methods
 
-<a id="m-getannotation-f9c803b8d53c"></a>
-### getAnnotation()
+### getAnnotation() <a href="#m-getAnnotation-f9c803b8d53c" id="m-getAnnotation-f9c803b8d53c"></a>
 
 ```java
 public String getAnnotation()
@@ -110,8 +107,7 @@ public String getAnnotation()
 Metadata about the event, indicating error, explains latency or
  show result etc.
 
-<a id="m-getattributes-34824a17bc02"></a>
-### getAttributes()
+### getAttributes() <a href="#m-getAttributes-34824a17bc02" id="m-getAttributes-34824a17bc02"></a>
 
 ```java
 public java.util.Map<String,com.tailf.maapi.ProgressAttributeValue> getAttributes()
@@ -123,8 +119,7 @@ Attributes of the event. The values can be of type
  [`ProgressAttributeLiteral`](../maapi/ProgressAttributeLiteral.md#cls-ProgressAttributeLiteral) or
  [`ProgressAttributeNumber`](../maapi/ProgressAttributeNumber.md#cls-ProgressAttributeNumber).
 
-<a id="m-getattributevalue-74e7ac548f72"></a>
-### getAttributeValue(String)
+### getAttributeValue(String) <a href="#m-getAttributeValue-74e7ac548f72" id="m-getAttributeValue-74e7ac548f72"></a>
 
 ```java
 public com.tailf.maapi.ProgressAttributeValue getAttributeValue(String name)
@@ -140,8 +135,7 @@ Get a specific attribute of the event. The value can be of type
 
 - `String name`
 
-<a id="m-getcontext-b18d576df5d9"></a>
-### getContext()
+### getContext() <a href="#m-getContext-b18d576df5d9" id="m-getContext-b18d576df5d9"></a>
 
 ```java
 public String getContext()
@@ -151,8 +145,7 @@ The context is either one of netconf, cli, webui, snmp,
  rest, system or it can be any other context string
  defined through the use of MAAPI.
 
-<a id="m-getdatastore-90019829a97f"></a>
-### getDatastore()
+### getDatastore() <a href="#m-getDatastore-90019829a97f" id="m-getDatastore-90019829a97f"></a>
 
 ```java
 public int getDatastore()
@@ -169,8 +162,7 @@ Name of the datastore for which the transaction is started:
            - [`Conf#DB_PRE_COMMIT_RUNNING`](../conf/Conf.md#m-DB_PRE_COMMIT_RUNNING)
              - [`Conf#DB_INTENDED`](../conf/Conf.md#m-DB_INTENDED)
 
-<a id="m-getdatastorestr-c8f9783fbc77"></a>
-### getDatastoreStr()
+### getDatastoreStr() <a href="#m-getDatastoreStr-c8f9783fbc77" id="m-getDatastoreStr-c8f9783fbc77"></a>
 
 ```java
 public String getDatastoreStr()
@@ -179,8 +171,7 @@ public String getDatastoreStr()
 Name, as string, of the datastore for which the transaction
  is started.
 
-<a id="m-getduration-aee615ea7fe2"></a>
-### getDuration()
+### getDuration() <a href="#m-getDuration-aee615ea7fe2" id="m-getDuration-aee615ea7fe2"></a>
 
 ```java
 public Long getDuration()
@@ -190,8 +181,7 @@ Duration of the event in microseconds. Generated at the end of an event.
 
  The timestamp subtracted with the duration equals the start of the event.
 
-<a id="m-getlinks-4e85332dc1df"></a>
-### getLinks()
+### getLinks() <a href="#m-getLinks-4e85332dc1df" id="m-getLinks-4e85332dc1df"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.ProgressLink> getLinks()
@@ -201,8 +191,7 @@ Types: [ProgressLink](../maapi/ProgressLink.md#cls-ProgressLink)
 
 Links to other events.
 
-<a id="m-getmessage-77b7dae8469e"></a>
-### getMessage()
+### getMessage() <a href="#m-getMessage-77b7dae8469e" id="m-getMessage-77b7dae8469e"></a>
 
 ```java
 public String getMessage()
@@ -210,8 +199,7 @@ public String getMessage()
 
 Progress event messeage.
 
-<a id="m-getparentspanid-d345b2e6a97f"></a>
-### getParentSpanId()
+### getParentSpanId() <a href="#m-getParentSpanId-d345b2e6a97f" id="m-getParentSpanId-d345b2e6a97f"></a>
 
 ```java
 public String getParentSpanId()
@@ -219,8 +207,7 @@ public String getParentSpanId()
 
 This indicates the id of the parent span.
 
-<a id="m-getprogresseventtype-1fc5b96f8167"></a>
-### getProgressEventType()
+### getProgressEventType() <a href="#m-getProgressEventType-1fc5b96f8167" id="m-getProgressEventType-1fc5b96f8167"></a>
 
 ```java
 public com.tailf.notif.ProgressNotification.ProgressEventType getProgressEventType()
@@ -230,8 +217,7 @@ Types: [ProgressEventType](ProgressNotification/ProgressEventType.md#cls-Progres
 
 Progress event type.
 
-<a id="m-getsessionid-aba33c116ed5"></a>
-### getSessionId()
+### getSessionId() <a href="#m-getSessionId-aba33c116ed5" id="m-getSessionId-aba33c116ed5"></a>
 
 ```java
 public int getSessionId()
@@ -239,8 +225,7 @@ public int getSessionId()
 
 User session id.
 
-<a id="m-getspanid-155306b8dcae"></a>
-### getSpanId()
+### getSpanId() <a href="#m-getSpanId-155306b8dcae" id="m-getSpanId-155306b8dcae"></a>
 
 ```java
 public String getSpanId()
@@ -248,8 +233,7 @@ public String getSpanId()
 
 Indicates the id of the span.
 
-<a id="m-getsubsystem-04685ed88e54"></a>
-### getSubsystem()
+### getSubsystem() <a href="#m-getSubsystem-04685ed88e54" id="m-getSubsystem-04685ed88e54"></a>
 
 ```java
 public String getSubsystem()
@@ -257,8 +241,7 @@ public String getSubsystem()
 
 Subsystem name.
 
-<a id="m-gettimestamp-a9e0c6b457f8"></a>
-### getTimestamp()
+### getTimestamp() <a href="#m-getTimestamp-a9e0c6b457f8" id="m-getTimestamp-a9e0c6b457f8"></a>
 
 ```java
 public Long getTimestamp()
@@ -269,8 +252,7 @@ Timestamp in microseconds since Epoch.
  Depending on the progress event type, this timestamp indicates the start
  of the event, the end of the event, or just when the event occured.
 
-<a id="m-gettraceid-c3a30b94d9ce"></a>
-### getTraceId()
+### getTraceId() <a href="#m-getTraceId-c3a30b94d9ce" id="m-getTraceId-c3a30b94d9ce"></a>
 
 ```java
 public String getTraceId()
@@ -279,8 +261,7 @@ public String getTraceId()
 Per request unique trace id, included in headers and
        entries for relevant logs.
 
-<a id="m-gettransactionid-c986b15287a0"></a>
-### getTransactionId()
+### getTransactionId() <a href="#m-getTransactionId-c986b15287a0" id="m-getTransactionId-c986b15287a0"></a>
 
 ```java
 public int getTransactionId()
@@ -288,8 +269,7 @@ public int getTransactionId()
 
 Transaction id.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

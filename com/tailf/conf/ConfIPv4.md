@@ -1,5 +1,4 @@
-<a id="cls-ConfIPv4"></a>
-# ConfIPv4
+# ConfIPv4 <a href="#cls-ConfIPv4" id="cls-ConfIPv4"></a>
 
 ```java
 public class com.tailf.conf.ConfIPv4
@@ -15,12 +14,12 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv4-address type.
 
 **Constructors**:
 
-- [ConfIPv4(ConfEObject)](#m-confipv4-8dcacfb05794)
-- [ConfIPv4(ConfETuple)](#m-confipv4-d3f86ae66c3a)
-- [ConfIPv4(InetAddress)](#m-confipv4-bac98202aa6d)
-- [ConfIPv4(int, int, int, int)](#m-confipv4-aaa3b71c4274)
-- [ConfIPv4(int[])](#m-confipv4-fbdc6bcb08f5)
-- [ConfIPv4(String)](#m-confipv4-f6d2aab879fd)
+- [ConfIPv4(ConfEObject)](#m-ConfIPv4-8dcacfb05794)
+- [ConfIPv4(ConfETuple)](#m-ConfIPv4-d3f86ae66c3a)
+- [ConfIPv4(InetAddress)](#m-ConfIPv4-bac98202aa6d)
+- [ConfIPv4(int, int, int, int)](#m-ConfIPv4-aaa3b71c4274)
+- [ConfIPv4(int[])](#m-ConfIPv4-fbdc6bcb08f5)
+- [ConfIPv4(String)](#m-ConfIPv4-f6d2aab879fd)
 
 **Fields**:
 
@@ -78,25 +77,24 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv4-address type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfIPv4)](#m-compareto-cce8ff959d69)
+- [compareTo(ConfIPv4)](#m-compareTo-cce8ff959d69)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getRawAddress()](#m-getrawaddress-2dacae94069b)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getRawAddress()](#m-getRawAddress-2dacae94069b)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confipv4-8dcacfb05794"></a>
-### ConfIPv4(ConfEObject)
+### ConfIPv4(ConfEObject) <a href="#m-ConfIPv4-8dcacfb05794" id="m-ConfIPv4-8dcacfb05794"></a>
 
 ```java
 public ConfIPv4(com.tailf.proto.ConfEObject vtup) throws com.tailf.conf.ConfException
@@ -108,8 +106,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject vtup`
 
-<a id="m-confipv4-d3f86ae66c3a"></a>
-### ConfIPv4(ConfETuple)
+### ConfIPv4(ConfETuple) <a href="#m-ConfIPv4-d3f86ae66c3a" id="m-ConfIPv4-d3f86ae66c3a"></a>
 
 ```java
 public ConfIPv4(com.tailf.proto.ConfETuple vtup) throws com.tailf.conf.ConfException
@@ -121,8 +118,7 @@ Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [ConfException](Conf
 
 - `com.tailf.proto.ConfETuple vtup`
 
-<a id="m-confipv4-bac98202aa6d"></a>
-### ConfIPv4(InetAddress)
+### ConfIPv4(InetAddress) <a href="#m-ConfIPv4-bac98202aa6d" id="m-ConfIPv4-bac98202aa6d"></a>
 
 ```java
 public ConfIPv4(java.net.InetAddress addr)
@@ -132,8 +128,7 @@ public ConfIPv4(java.net.InetAddress addr)
 
 - `java.net.InetAddress addr`
 
-<a id="m-confipv4-aaa3b71c4274"></a>
-### ConfIPv4(int, int, int, int)
+### ConfIPv4(int, int, int, int) <a href="#m-ConfIPv4-aaa3b71c4274" id="m-ConfIPv4-aaa3b71c4274"></a>
 
 ```java
 public ConfIPv4(int a, int b, int c, int d)
@@ -146,8 +141,7 @@ public ConfIPv4(int a, int b, int c, int d)
 - `int c`
 - `int d`
 
-<a id="m-confipv4-fbdc6bcb08f5"></a>
-### ConfIPv4(int[])
+### ConfIPv4(int[]) <a href="#m-ConfIPv4-fbdc6bcb08f5" id="m-ConfIPv4-fbdc6bcb08f5"></a>
 
 ```java
 public ConfIPv4(int[] addr)
@@ -157,8 +151,7 @@ public ConfIPv4(int[] addr)
 
 - `int[] addr`
 
-<a id="m-confipv4-f6d2aab879fd"></a>
-### ConfIPv4(String)
+### ConfIPv4(String) <a href="#m-ConfIPv4-f6d2aab879fd" id="m-ConfIPv4-f6d2aab879fd"></a>
 
 ```java
 public ConfIPv4(String s) throws com.tailf.conf.ConfException
@@ -173,8 +166,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-compareto-cce8ff959d69"></a>
-### compareTo(ConfIPv4)
+### compareTo(ConfIPv4) <a href="#m-compareTo-cce8ff959d69" id="m-compareTo-cce8ff959d69"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfIPv4 o)
@@ -186,8 +178,7 @@ Types: [ConfIPv4](ConfIPv4.md#cls-ConfIPv4)
 
 - `com.tailf.conf.ConfIPv4 o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -195,8 +186,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -206,29 +196,25 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public java.net.InetAddress getAddress()
 ```
 
-<a id="m-getrawaddress-2dacae94069b"></a>
-### getRawAddress()
+### getRawAddress() <a href="#m-getRawAddress-2dacae94069b" id="m-getRawAddress-2dacae94069b"></a>
 
 ```java
 public int[] getRawAddress()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

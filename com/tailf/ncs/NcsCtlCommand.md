@@ -1,5 +1,4 @@
-<a id="cls-NcsCtlCommand"></a>
-# NcsCtlCommand
+# NcsCtlCommand <a href="#cls-NcsCtlCommand" id="cls-NcsCtlCommand"></a>
 
 ```java
 public class com.tailf.ncs.NcsCtlCommand
@@ -11,7 +10,7 @@ Ncs Java VM protocol command representation class
 
 **Constructors**:
 
-- [NcsCtlCommand(ConfETuple, Socket)](#m-ncsctlcommand-2e93c877cc48)
+- [NcsCtlCommand(ConfETuple, Socket)](#m-NcsCtlCommand-2e93c877cc48)
 
 **Fields**:
 
@@ -36,15 +35,14 @@ Ncs Java VM protocol command representation class
 
 **Methods**:
 
-- [getCommandString()](#m-getcommandstring-a5d8cbab7e7d)
+- [getCommandString()](#m-getCommandString-a5d8cbab7e7d)
 - [reply(boolean, ConfETuple)](#m-reply-af85a8b7a1c5)
 - [reply(boolean, String)](#m-reply-cf461c3b174d)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-ncsctlcommand-2e93c877cc48"></a>
-### NcsCtlCommand(ConfETuple, Socket)
+### NcsCtlCommand(ConfETuple, Socket) <a href="#m-NcsCtlCommand-2e93c877cc48" id="m-NcsCtlCommand-2e93c877cc48"></a>
 
 ```java
 public NcsCtlCommand(com.tailf.proto.ConfETuple t, java.net.Socket socket)
@@ -60,29 +58,25 @@ Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple)
 
 ## Fields
 
-<a id="m-ADD_PACKAGES"></a>
-### ADD_PACKAGES
+### ADD_PACKAGES <a href="#m-ADD_PACKAGES" id="m-ADD_PACKAGES"></a>
 
 ```java
 public static final int ADD_PACKAGES = 16;
 ```
 
-<a id="m-CLEAR_MOUNT_ID_CACHE"></a>
-### CLEAR_MOUNT_ID_CACHE
+### CLEAR_MOUNT_ID_CACHE <a href="#m-CLEAR_MOUNT_ID_CACHE" id="m-CLEAR_MOUNT_ID_CACHE"></a>
 
 ```java
 public static final int CLEAR_MOUNT_ID_CACHE = 15;
 ```
 
-<a id="m-command"></a>
-### command
+### command <a href="#m-command" id="m-command"></a>
 
 ```java
 public int command = null;
 ```
 
-<a id="m-data"></a>
-### data
+### data <a href="#m-data" id="m-data"></a>
 
 ```java
 public com.tailf.proto.ConfEObject data = null;
@@ -90,99 +84,85 @@ public com.tailf.proto.ConfEObject data = null;
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-DONE_LOADING"></a>
-### DONE_LOADING
+### DONE_LOADING <a href="#m-DONE_LOADING" id="m-DONE_LOADING"></a>
 
 ```java
 public static final int DONE_LOADING = 10;
 ```
 
-<a id="m-INIT_JVM"></a>
-### INIT_JVM
+### INIT_JVM <a href="#m-INIT_JVM" id="m-INIT_JVM"></a>
 
 ```java
 public static final int INIT_JVM = 13;
 ```
 
-<a id="m-INSTANTIATE_COMPONENT"></a>
-### INSTANTIATE_COMPONENT
+### INSTANTIATE_COMPONENT <a href="#m-INSTANTIATE_COMPONENT" id="m-INSTANTIATE_COMPONENT"></a>
 
 ```java
 public static final int INSTANTIATE_COMPONENT = 12;
 ```
 
-<a id="m-LOAD_PACKAGE"></a>
-### LOAD_PACKAGE
+### LOAD_PACKAGE <a href="#m-LOAD_PACKAGE" id="m-LOAD_PACKAGE"></a>
 
 ```java
 public static final int LOAD_PACKAGE = 9;
 ```
 
-<a id="m-LOAD_SHARED_JARS"></a>
-### LOAD_SHARED_JARS
+### LOAD_SHARED_JARS <a href="#m-LOAD_SHARED_JARS" id="m-LOAD_SHARED_JARS"></a>
 
 ```java
 public static final int LOAD_SHARED_JARS = 8;
 ```
 
-<a id="m-REDEPLOY_PACKAGE"></a>
-### REDEPLOY_PACKAGE
+### REDEPLOY_PACKAGE <a href="#m-REDEPLOY_PACKAGE" id="m-REDEPLOY_PACKAGE"></a>
 
 ```java
 public static final int REDEPLOY_PACKAGE = 11;
 ```
 
-<a id="m-RELOAD_SCHEMA"></a>
-### RELOAD_SCHEMA
+### RELOAD_SCHEMA <a href="#m-RELOAD_SCHEMA" id="m-RELOAD_SCHEMA"></a>
 
 ```java
 public static final int RELOAD_SCHEMA = 6;
 ```
 
-<a id="m-requestId"></a>
-### requestId
+### requestId <a href="#m-requestId" id="m-requestId"></a>
 
 ```java
 public int requestId = null;
 ```
 
-<a id="m-RERUN"></a>
-### RERUN
+### RERUN <a href="#m-RERUN" id="m-RERUN"></a>
 
 ```java
 public static final int RERUN = 1;
 ```
 
-<a id="m-SELFTEST"></a>
-### SELFTEST
+### SELFTEST <a href="#m-SELFTEST" id="m-SELFTEST"></a>
 
 ```java
 public static final int SELFTEST = 2;
 ```
 
-<a id="m-STATUS"></a>
-### STATUS
+### STATUS <a href="#m-STATUS" id="m-STATUS"></a>
 
 ```java
 public static final int STATUS = 4;
 ```
 
-<a id="m-STOP_VM"></a>
-### STOP_VM
+### STOP_VM <a href="#m-STOP_VM" id="m-STOP_VM"></a>
 
 ```java
 public static final int STOP_VM = 3;
 ```
 
-<a id="m-UNLOAD_ALL"></a>
-### UNLOAD_ALL
+### UNLOAD_ALL <a href="#m-UNLOAD_ALL" id="m-UNLOAD_ALL"></a>
 
 ```java
 public static final int UNLOAD_ALL = 14;
 ```
 
-<a id="m-UNLOAD_PACKAGE"></a>
-### UNLOAD_PACKAGE
+### UNLOAD_PACKAGE <a href="#m-UNLOAD_PACKAGE" id="m-UNLOAD_PACKAGE"></a>
 
 ```java
 public static final int UNLOAD_PACKAGE = 7;
@@ -191,15 +171,13 @@ public static final int UNLOAD_PACKAGE = 7;
 
 ## Methods
 
-<a id="m-getcommandstring-a5d8cbab7e7d"></a>
-### getCommandString()
+### getCommandString() <a href="#m-getCommandString-a5d8cbab7e7d" id="m-getCommandString-a5d8cbab7e7d"></a>
 
 ```java
 public String getCommandString()
 ```
 
-<a id="m-reply-af85a8b7a1c5"></a>
-### reply(boolean, ConfETuple)
+### reply(boolean, ConfETuple) <a href="#m-reply-af85a8b7a1c5" id="m-reply-af85a8b7a1c5"></a>
 
 ```java
 public void reply(boolean b, com.tailf.proto.ConfETuple obj) throws java.io.IOException
@@ -212,8 +190,7 @@ Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple)
 - `boolean b`
 - `com.tailf.proto.ConfETuple obj`
 
-<a id="m-reply-cf461c3b174d"></a>
-### reply(boolean, String)
+### reply(boolean, String) <a href="#m-reply-cf461c3b174d" id="m-reply-cf461c3b174d"></a>
 
 ```java
 public void reply(boolean b, String str) throws java.io.IOException
@@ -224,8 +201,7 @@ public void reply(boolean b, String str) throws java.io.IOException
 - `boolean b`
 - `String str`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

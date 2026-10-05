@@ -1,5 +1,4 @@
-<a id="cls-ProgressTraceNed"></a>
-# ProgressTraceNed
+# ProgressTraceNed <a href="#cls-ProgressTraceNed" id="cls-ProgressTraceNed"></a>
 
 ```java
 public class com.tailf.progress.ProgressTraceNed
@@ -14,9 +13,9 @@ The purpose of ` ProgressTraceNed ` class
 
  An new event or span requires a device id and a
  device phase. The device id is set in the class constructor
- [`ProgressTraceNed#ProgressTraceNed(Maapi, String)`](ProgressTraceNed.md#m-progresstracened-035453e18770),
+ [`ProgressTraceNed#ProgressTraceNed(Maapi, String)`](ProgressTraceNed.md#m-ProgressTraceNed-035453e18770),
  and the device phase is set using
- [`ProgressTraceNed#setPhase(String)`](ProgressTraceNed.md#m-setphase-06ea7510d166) method. For example:
+ [`ProgressTraceNed#setPhase(String)`](ProgressTraceNed.md#m-setPhase-06ea7510d166) method. For example:
 
 
 ```
@@ -31,27 +30,26 @@ The purpose of ` ProgressTraceNed ` class
 
 **Constructors**:
 
-- [ProgressTraceNed(Maapi, String)](#m-progresstracened-035453e18770)
+- [ProgressTraceNed(Maapi, String)](#m-ProgressTraceNed-035453e18770)
 
 **Methods**:
 
-- [endSpan(Span)](ProgressTrace.md#m-endspan-832d21f903c3) from ProgressTrace
-- [endSpan(Span, String)](ProgressTrace.md#m-endspan-1c44c700da19) from ProgressTrace
+- [endSpan(Span)](ProgressTrace.md#m-endSpan-832d21f903c3) from ProgressTrace
+- [endSpan(Span, String)](ProgressTrace.md#m-endSpan-1c44c700da19) from ProgressTrace
 - [event(String)](#m-event-35c2a3878e07)
 - [event(Verbosity, String)](#m-event-9f8a52e74d94)
 - [event(Verbosity, String, Attributes)](#m-event-cdc8c9e968cd)
-- [getCurrentSpan()](ProgressTrace.md#m-getcurrentspan-95e59db0f66f) from ProgressTrace
-- [setDeviceId(String)](#m-setdeviceid-d5a05ed041f8)
-- [setPhase(String)](#m-setphase-06ea7510d166)
-- [setServicePath(ConfPath)](ProgressTrace.md#m-setservicepath-95207665ae57) from ProgressTrace
-- [startSpan(String)](#m-startspan-a255151f7145)
-- [startSpan(Verbosity, String)](#m-startspan-b310d5a59dbf)
-- [startSpan(Verbosity, String, Attributes, Span[])](#m-startspan-ec78710be35e)
+- [getCurrentSpan()](ProgressTrace.md#m-getCurrentSpan-95e59db0f66f) from ProgressTrace
+- [setDeviceId(String)](#m-setDeviceId-d5a05ed041f8)
+- [setPhase(String)](#m-setPhase-06ea7510d166)
+- [setServicePath(ConfPath)](ProgressTrace.md#m-setServicePath-95207665ae57) from ProgressTrace
+- [startSpan(String)](#m-startSpan-a255151f7145)
+- [startSpan(Verbosity, String)](#m-startSpan-b310d5a59dbf)
+- [startSpan(Verbosity, String, Attributes, Span[])](#m-startSpan-ec78710be35e)
 
 ## Constructors
 
-<a id="m-progresstracened-035453e18770"></a>
-### ProgressTraceNed(Maapi, String)
+### ProgressTraceNed(Maapi, String) <a href="#m-ProgressTraceNed-035453e18770" id="m-ProgressTraceNed-035453e18770"></a>
 
 ```java
 public ProgressTraceNed(
@@ -78,8 +76,7 @@ Creates a new instance of `ProgressTraceNed`
 
 ## Methods
 
-<a id="m-event-35c2a3878e07"></a>
-### event(String)
+### event(String) <a href="#m-event-35c2a3878e07" id="m-event-35c2a3878e07"></a>
 
 ```java
 public void event(String message) throws java.io.IOException, com.tailf.conf.ConfException
@@ -99,8 +96,7 @@ Report an event
 - `ConfException`
 - `IOException`
 
-<a id="m-event-9f8a52e74d94"></a>
-### event(Verbosity, String)
+### event(Verbosity, String) <a href="#m-event-9f8a52e74d94" id="m-event-9f8a52e74d94"></a>
 
 ```java
 public void event(
@@ -126,8 +122,7 @@ Report an event
             device Id or device phase is not set.
 - `IOException`
 
-<a id="m-event-cdc8c9e968cd"></a>
-### event(Verbosity, String, Attributes)
+### event(Verbosity, String, Attributes) <a href="#m-event-cdc8c9e968cd" id="m-event-cdc8c9e968cd"></a>
 
 ```java
 public void event(
@@ -156,8 +151,7 @@ Report an event
             device Id or device phase is not set.
 - `IOException`
 
-<a id="m-setdeviceid-d5a05ed041f8"></a>
-### setDeviceId(String)
+### setDeviceId(String) <a href="#m-setDeviceId-d5a05ed041f8" id="m-setDeviceId-d5a05ed041f8"></a>
 
 ```java
 public void setDeviceId(String deviceId)
@@ -169,8 +163,7 @@ Set a device ID
 
 - `String deviceId` - the device ID
 
-<a id="m-setphase-06ea7510d166"></a>
-### setPhase(String)
+### setPhase(String) <a href="#m-setPhase-06ea7510d166" id="m-setPhase-06ea7510d166"></a>
 
 ```java
 public void setPhase(String phase)
@@ -182,8 +175,7 @@ Set a NED phase
 
 - `String phase` - the NED phase
 
-<a id="m-startspan-a255151f7145"></a>
-### startSpan(String)
+### startSpan(String) <a href="#m-startSpan-a255151f7145" id="m-startSpan-a255151f7145"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(
@@ -201,7 +193,7 @@ Start a new span
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#cls-Span) object that is used
-         for `#endSpan`
+         for `endSpan`
 
 **Throws**
 
@@ -209,8 +201,7 @@ Start a new span
             device Id or device phase is not set.
 - `IOException`
 
-<a id="m-startspan-b310d5a59dbf"></a>
-### startSpan(Verbosity, String)
+### startSpan(Verbosity, String) <a href="#m-startSpan-b310d5a59dbf" id="m-startSpan-b310d5a59dbf"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(
@@ -231,7 +222,7 @@ Start a new span
 - `String message` - message of the span
 
 **Returns:** a [`Span`](Span.md#cls-Span) object that can used
-         in `#endSpan`
+         in `endSpan`
 
 **Throws**
 
@@ -239,8 +230,7 @@ Start a new span
             device Id or device phase is not set.
 - `IOException`
 
-<a id="m-startspan-ec78710be35e"></a>
-### startSpan(Verbosity, String, Attributes, Span[])
+### startSpan(Verbosity, String, Attributes, Span[]) <a href="#m-startSpan-ec78710be35e" id="m-startSpan-ec78710be35e"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(
@@ -267,7 +257,7 @@ Start a new span
         This can be `null`.
 
 **Returns:** a [`Span`](Span.md#cls-Span) object that can used
-         in `#endSpan`
+         in `endSpan`
 
 **Throws**
 

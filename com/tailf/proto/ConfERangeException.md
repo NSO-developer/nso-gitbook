@@ -1,5 +1,4 @@
-<a id="cls-ConfERangeException"></a>
-# ConfERangeException
+# ConfERangeException <a href="#cls-ConfERangeException" id="cls-ConfERangeException"></a>
 
 ```java
 public class com.tailf.proto.ConfERangeException
@@ -17,13 +16,12 @@ Exception raised when an attempt is made to create an E term with data that
 
 **Constructors**:
 
-- [ConfERangeException(String)](#m-conferangeexception-de782d935745)
-- [ConfERangeException(String, Throwable)](#m-conferangeexception-3e21becd1deb)
+- [ConfERangeException(String)](#m-ConfERangeException-de782d935745)
+- [ConfERangeException(String, Throwable)](#m-ConfERangeException-3e21becd1deb)
 
 ## Constructors
 
-<a id="m-conferangeexception-de782d935745"></a>
-### ConfERangeException(String)
+### ConfERangeException(String) <a href="#m-ConfERangeException-de782d935745" id="m-ConfERangeException-de782d935745"></a>
 
 ```java
 public ConfERangeException(String msg)
@@ -33,8 +31,7 @@ public ConfERangeException(String msg)
 
 - `String msg`
 
-<a id="m-conferangeexception-3e21becd1deb"></a>
-### ConfERangeException(String, Throwable)
+### ConfERangeException(String, Throwable) <a href="#m-ConfERangeException-3e21becd1deb" id="m-ConfERangeException-3e21becd1deb"></a>
 
 ```java
 public ConfERangeException(String msg, Throwable cause)

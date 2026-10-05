@@ -1,5 +1,4 @@
-<a id="cls-Attribute"></a>
-# Attribute
+# Attribute <a href="#cls-Attribute" id="cls-Attribute"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.common.Attribute
@@ -17,7 +16,7 @@ Base class for attributes. Use [`AlarmAttribute`](AlarmAttribute.md#cls-AlarmAtt
 
 **Constructors**:
 
-- [Attribute(ConfNamespace, String, ConfValue)](#m-attribute-8450316471c9)
+- [Attribute(ConfNamespace, String, ConfValue)](#m-Attribute-8450316471c9)
 
 **Fields**:
 
@@ -25,15 +24,14 @@ Base class for attributes. Use [`AlarmAttribute`](AlarmAttribute.md#cls-AlarmAtt
 
 **Methods**:
 
-- [getId()](#m-getid-199a349c70ef)
-- [getNameSpace()](#m-getnamespace-e413af21e168)
-- [getValue()](#m-getvalue-d93864668c40)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getId()](#m-getId-199a349c70ef)
+- [getNameSpace()](#m-getNameSpace-e413af21e168)
+- [getValue()](#m-getValue-d93864668c40)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-attribute-8450316471c9"></a>
-### Attribute(ConfNamespace, String, ConfValue)
+### Attribute(ConfNamespace, String, ConfValue) <a href="#m-Attribute-8450316471c9" id="m-Attribute-8450316471c9"></a>
 
 ```java
 protected Attribute(
@@ -58,8 +56,7 @@ Types: [ConfNamespace](../../../conf/ConfNamespace.md#cls-ConfNamespace), [ConfV
 
 ## Fields
 
-<a id="m-node"></a>
-### node
+### node <a href="#m-node" id="m-node"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSNode node = null;
@@ -70,8 +67,7 @@ Types: [CSNode](../../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 ## Methods
 
-<a id="m-getid-199a349c70ef"></a>
-### getId()
+### getId() <a href="#m-getId-199a349c70ef" id="m-getId-199a349c70ef"></a>
 
 ```java
 public String getId()
@@ -79,8 +75,7 @@ public String getId()
 
 **Returns:** String
 
-<a id="m-getnamespace-e413af21e168"></a>
-### getNameSpace()
+### getNameSpace() <a href="#m-getNameSpace-e413af21e168" id="m-getNameSpace-e413af21e168"></a>
 
 ```java
 public com.tailf.conf.ConfNamespace getNameSpace()
@@ -90,8 +85,7 @@ Types: [ConfNamespace](../../../conf/ConfNamespace.md#cls-ConfNamespace)
 
 **Returns:** ConfNamespace
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public com.tailf.conf.ConfValue getValue()
@@ -101,8 +95,7 @@ Types: [ConfValue](../../../conf/ConfValue.md#cls-ConfValue)
 
 **Returns:** ConfValue
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

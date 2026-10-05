@@ -1,5 +1,4 @@
-<a id="cls-ConfAttributeType"></a>
-# ConfAttributeType
+# ConfAttributeType <a href="#cls-ConfAttributeType" id="cls-ConfAttributeType"></a>
 
 ```java
 public enum com.tailf.conf.ConfAttributeType
@@ -25,16 +24,15 @@ Enumeration of attribute types
 
 **Methods**:
 
-- [getType(long)](#m-gettype-362221ab6f0b)
-- [getValue()](#m-getvalue-d93864668c40)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getType(long)](#m-getType-362221ab6f0b)
+- [getValue()](#m-getValue-d93864668c40)
+- [toString()](#m-toString-e9d48c5503ef)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ANNOTATION"></a>
-### ANNOTATION
+### ANNOTATION <a href="#m-ANNOTATION" id="m-ANNOTATION"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType ANNOTATION;
@@ -42,8 +40,7 @@ public static final com.tailf.conf.ConfAttributeType ANNOTATION;
 
 CONFD_ATTR_ANNOTATION: value is ConfBuf/C_STR
 
-<a id="m-BACKPOINTER"></a>
-### BACKPOINTER
+### BACKPOINTER <a href="#m-BACKPOINTER" id="m-BACKPOINTER"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType BACKPOINTER;
@@ -51,8 +48,7 @@ public static final com.tailf.conf.ConfAttributeType BACKPOINTER;
 
 CONFD_ATTR_BACKPOINTER: value is ConfObjectRef'
 
-<a id="m-INACTIVE"></a>
-### INACTIVE
+### INACTIVE <a href="#m-INACTIVE" id="m-INACTIVE"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType INACTIVE;
@@ -60,8 +56,7 @@ public static final com.tailf.conf.ConfAttributeType INACTIVE;
 
 CONFD_ATTR_INACTIVE: value is ConfBool 'true'
 
-<a id="m-ORIGIN"></a>
-### ORIGIN
+### ORIGIN <a href="#m-ORIGIN" id="m-ORIGIN"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType ORIGIN;
@@ -69,15 +64,13 @@ public static final com.tailf.conf.ConfAttributeType ORIGIN;
 
 CONFD_ATTR_ORIGIN: value is ConfIdentityRef
 
-<a id="m-ORIGINAL_VALUE"></a>
-### ORIGINAL_VALUE
+### ORIGINAL_VALUE <a href="#m-ORIGINAL_VALUE" id="m-ORIGINAL_VALUE"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType ORIGINAL_VALUE;
 ```
 
-<a id="m-OUT_OF_BAND"></a>
-### OUT_OF_BAND
+### OUT_OF_BAND <a href="#m-OUT_OF_BAND" id="m-OUT_OF_BAND"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType OUT_OF_BAND;
@@ -85,8 +78,7 @@ public static final com.tailf.conf.ConfAttributeType OUT_OF_BAND;
 
 CONFD_ATTR_OUT_OF_BAND: value is ConfObjectRef'
 
-<a id="m-REFCOUNT"></a>
-### REFCOUNT
+### REFCOUNT <a href="#m-REFCOUNT" id="m-REFCOUNT"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType REFCOUNT;
@@ -94,8 +86,7 @@ public static final com.tailf.conf.ConfAttributeType REFCOUNT;
 
 CONFD_ATTR_REFCOUNT: value is ConfInt32
 
-<a id="m-TAGS"></a>
-### TAGS
+### TAGS <a href="#m-TAGS" id="m-TAGS"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType TAGS;
@@ -103,8 +94,7 @@ public static final com.tailf.conf.ConfAttributeType TAGS;
 
 CONFD_ATTR_TAGS: value is ConfList of ConfBuf/C_STR
 
-<a id="m-WHEN"></a>
-### WHEN
+### WHEN <a href="#m-WHEN" id="m-WHEN"></a>
 
 ```java
 public static final com.tailf.conf.ConfAttributeType WHEN;
@@ -113,8 +103,7 @@ public static final com.tailf.conf.ConfAttributeType WHEN;
 
 ## Methods
 
-<a id="m-gettype-362221ab6f0b"></a>
-### getType(long)
+### getType(long) <a href="#m-getType-362221ab6f0b" id="m-getType-362221ab6f0b"></a>
 
 ```java
 public static com.tailf.conf.ConfAttributeType getType(long l)
@@ -131,8 +120,7 @@ Get a ConfAttributeType for given long value or
 
 **Returns:** ConfAttributeType for this long value
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public long getValue()
@@ -142,8 +130,7 @@ Get the long value representation of this attribute type
 
 **Returns:** long value
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -153,8 +140,7 @@ Get the string label for this attribute type
 
 **Returns:** String label
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.ConfAttributeType valueOf(String name)
@@ -166,8 +152,7 @@ Types: [ConfAttributeType](ConfAttributeType.md#cls-ConfAttributeType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.ConfAttributeType[] values()

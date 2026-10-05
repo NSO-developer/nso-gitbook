@@ -1,5 +1,4 @@
-<a id="cls-DpNotifStream"></a>
-# DpNotifStream
+# DpNotifStream <a href="#cls-DpNotifStream" id="cls-DpNotifStream"></a>
 
 ```java
 public class com.tailf.dp.DpNotifStream
@@ -106,35 +105,34 @@ The application can generate notifications that are sent via the northbound
 
 **Constructors**:
 
-- [DpNotifStream(Dp, String, DpNotifReplayCallback, Socket)](#m-dpnotifstream-f41aba723331)
-- [DpNotifStream(DpNotifStream)](#m-dpnotifstream-ed76b956ec92)
+- [DpNotifStream(Dp, String, DpNotifReplayCallback, Socket)](#m-DpNotifStream-f41aba723331)
+- [DpNotifStream(DpNotifStream)](#m-DpNotifStream-ed76b956ec92)
 
 **Methods**:
 
 - [flush()](#m-flush-a4d76f158943)
-- [getDp()](#m-getdp-b1462199cc2e)
-- [getFD()](#m-getfd-e27232a35a70)
-- [getQRef()](#m-getqref-ee1c8f107982)
-- [getReplayCb()](#m-getreplaycb-026e257d6bdd)
-- [getSocket()](#m-getsocket-d7da2de81b81)
-- [getStreamName()](#m-getstreamname-7146bcdbf461)
-- [getSubId()](#m-getsubid-eca339b724c5)
+- [getDp()](#m-getDp-b1462199cc2e)
+- [getFD()](#m-getFD-e27232a35a70)
+- [getQRef()](#m-getQRef-ee1c8f107982)
+- [getReplayCb()](#m-getReplayCb-026e257d6bdd)
+- [getSocket()](#m-getSocket-d7da2de81b81)
+- [getStreamName()](#m-getStreamName-7146bcdbf461)
+- [getSubId()](#m-getSubId-eca339b724c5)
 - [replay(ConfDatetime, ConfDatetime)](#m-replay-594e7925e57b)
 - [send(ConfDatetime, ConfXMLParam)](#m-send-4e9bbfeb1622)
 - [send(ConfDatetime, ConfXMLParam[])](#m-send-a45ffafb2f21)
 - [send(ConfDatetime, ConfXMLParam[], ConfPath)](#m-send-86adc894c9f5)
 - [send(ConfDatetime, ConfXMLParam[], String, Object[])](#m-send-3fd8e4b13d7a)
-- [sendReplayComplete()](#m-sendreplaycomplete-4f926d53aa64)
-- [sendReplayFailed(String)](#m-sendreplayfailed-145017a72637)
-- [setFD(int)](#m-setfd-501c97b6d464)
-- [setQRef(int)](#m-setqref-dd8de0c4f29b)
-- [setSocket(Socket)](#m-setsocket-183068848e4c)
-- [setSubId(int)](#m-setsubid-b0f01749d8c5)
+- [sendReplayComplete()](#m-sendReplayComplete-4f926d53aa64)
+- [sendReplayFailed(String)](#m-sendReplayFailed-145017a72637)
+- [setFD(int)](#m-setFD-501c97b6d464)
+- [setQRef(int)](#m-setQRef-dd8de0c4f29b)
+- [setSocket(Socket)](#m-setSocket-183068848e4c)
+- [setSubId(int)](#m-setSubId-b0f01749d8c5)
 
 ## Constructors
 
-<a id="m-dpnotifstream-f41aba723331"></a>
-### DpNotifStream(Dp, String, DpNotifReplayCallback, Socket)
+### DpNotifStream(Dp, String, DpNotifReplayCallback, Socket) <a href="#m-DpNotifStream-f41aba723331" id="m-DpNotifStream-f41aba723331"></a>
 
 **Package-private**
 
@@ -164,8 +162,7 @@ This constructor will initialize the DNotifStream class.
 - `IOException`
 - `ConfException`
 
-<a id="m-dpnotifstream-ed76b956ec92"></a>
-### DpNotifStream(DpNotifStream)
+### DpNotifStream(DpNotifStream) <a href="#m-DpNotifStream-ed76b956ec92" id="m-DpNotifStream-ed76b956ec92"></a>
 
 **Package-private**
 
@@ -185,8 +182,7 @@ This method will clone another streams context (same socket should be
 
 ## Methods
 
-<a id="m-flush-a4d76f158943"></a>
-### flush()
+### flush() <a href="#m-flush-a4d76f158943" id="m-flush-a4d76f158943"></a>
 
 ```java
 public synchronized void flush() throws java.io.IOException, com.tailf.conf.ConfException
@@ -210,8 +206,7 @@ Notifications are sent asynchronously, i.e. normally without blocking the
 - `IOException`
 - `ConfException`
 
-<a id="m-getdp-b1462199cc2e"></a>
-### getDp()
+### getDp() <a href="#m-getDp-b1462199cc2e" id="m-getDp-b1462199cc2e"></a>
 
 ```java
 public com.tailf.dp.Dp getDp()
@@ -221,8 +216,7 @@ Types: [Dp](Dp.md#cls-Dp)
 
 The Data Provider main class. provided when registering with a Dp.
 
-<a id="m-getfd-e27232a35a70"></a>
-### getFD()
+### getFD() <a href="#m-getFD-e27232a35a70" id="m-getFD-e27232a35a70"></a>
 
 ```java
 public int getFD()
@@ -230,8 +224,7 @@ public int getFD()
 
 file descriptor
 
-<a id="m-getqref-ee1c8f107982"></a>
-### getQRef()
+### getQRef() <a href="#m-getQRef-ee1c8f107982" id="m-getQRef-ee1c8f107982"></a>
 
 ```java
 public int getQRef()
@@ -239,8 +232,7 @@ public int getQRef()
 
 last qref
 
-<a id="m-getreplaycb-026e257d6bdd"></a>
-### getReplayCb()
+### getReplayCb() <a href="#m-getReplayCb-026e257d6bdd" id="m-getReplayCb-026e257d6bdd"></a>
 
 ```java
 public com.tailf.dp.DpNotifReplayCallback getReplayCb()
@@ -250,8 +242,7 @@ Types: [DpNotifReplayCallback](DpNotifReplayCallback.md#cls-DpNotifReplayCallbac
 
 The replay callback
 
-<a id="m-getsocket-d7da2de81b81"></a>
-### getSocket()
+### getSocket() <a href="#m-getSocket-d7da2de81b81" id="m-getSocket-d7da2de81b81"></a>
 
 ```java
 public java.net.Socket getSocket()
@@ -260,15 +251,13 @@ public java.net.Socket getSocket()
 The worker socket which is connected to ConfD/NCS. This socket will be
  used for sending notifications to ConfD/NCS. Set when allocated by Dp.
 
-<a id="m-getstreamname-7146bcdbf461"></a>
-### getStreamName()
+### getStreamName() <a href="#m-getStreamName-7146bcdbf461" id="m-getStreamName-7146bcdbf461"></a>
 
 ```java
 public String getStreamName()
 ```
 
-<a id="m-getsubid-eca339b724c5"></a>
-### getSubId()
+### getSubId() <a href="#m-getSubId-eca339b724c5" id="m-getSubId-eca339b724c5"></a>
 
 ```java
 public int getSubId()
@@ -276,8 +265,7 @@ public int getSubId()
 
 last subid. subid0 is a replay
 
-<a id="m-replay-594e7925e57b"></a>
-### replay(ConfDatetime, ConfDatetime)
+### replay(ConfDatetime, ConfDatetime) <a href="#m-replay-594e7925e57b" id="m-replay-594e7925e57b"></a>
 
 **Package-private**
 
@@ -305,8 +293,7 @@ Replay is invoked from ConfD/NCS. This will start a new
 - `IOException`
 - `ConfException`
 
-<a id="m-send-4e9bbfeb1622"></a>
-### send(ConfDatetime, ConfXMLParam)
+### send(ConfDatetime, ConfXMLParam) <a href="#m-send-4e9bbfeb1622" id="m-send-4e9bbfeb1622"></a>
 
 ```java
 public synchronized void send(
@@ -331,8 +318,7 @@ Send a notification defined at the top level of a YANG module
 - `IOException`
 - `ConfException`
 
-<a id="m-send-a45ffafb2f21"></a>
-### send(ConfDatetime, ConfXMLParam[])
+### send(ConfDatetime, ConfXMLParam[]) <a href="#m-send-a45ffafb2f21" id="m-send-a45ffafb2f21"></a>
 
 ```java
 public synchronized void send(
@@ -357,8 +343,7 @@ Send a notification defined at the top level of a YANG module
 - `IOException`
 - `ConfException`
 
-<a id="m-send-86adc894c9f5"></a>
-### send(ConfDatetime, ConfXMLParam[], ConfPath)
+### send(ConfDatetime, ConfXMLParam[], ConfPath) <a href="#m-send-86adc894c9f5" id="m-send-86adc894c9f5"></a>
 
 ```java
 public synchronized void send(
@@ -386,8 +371,7 @@ Send a notification defined as a child of a container or list
 - `IOException`
 - `ConfException`
 
-<a id="m-send-3fd8e4b13d7a"></a>
-### send(ConfDatetime, ConfXMLParam[], String, Object[])
+### send(ConfDatetime, ConfXMLParam[], String, Object[]) <a href="#m-send-3fd8e4b13d7a" id="m-send-3fd8e4b13d7a"></a>
 
 ```java
 public synchronized void send(
@@ -417,8 +401,7 @@ Send a notification defined as a child of a container or list
 - `IOException`
 - `ConfException`
 
-<a id="m-sendreplaycomplete-4f926d53aa64"></a>
-### sendReplayComplete()
+### sendReplayComplete() <a href="#m-sendReplayComplete-4f926d53aa64" id="m-sendReplayComplete-4f926d53aa64"></a>
 
 **Package-private**
 
@@ -430,8 +413,7 @@ Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 send a replay complete
 
-<a id="m-sendreplayfailed-145017a72637"></a>
-### sendReplayFailed(String)
+### sendReplayFailed(String) <a href="#m-sendReplayFailed-145017a72637" id="m-sendReplayFailed-145017a72637"></a>
 
 **Package-private**
 
@@ -455,8 +437,7 @@ send a replay failed
 - `IOException`
 - `ConfException`
 
-<a id="m-setfd-501c97b6d464"></a>
-### setFD(int)
+### setFD(int) <a href="#m-setFD-501c97b6d464" id="m-setFD-501c97b6d464"></a>
 
 ```java
 public void setFD(int fd)
@@ -468,8 +449,7 @@ file descriptor
 
 - `int fd`
 
-<a id="m-setqref-dd8de0c4f29b"></a>
-### setQRef(int)
+### setQRef(int) <a href="#m-setQRef-dd8de0c4f29b" id="m-setQRef-dd8de0c4f29b"></a>
 
 ```java
 public void setQRef(int qref)
@@ -481,8 +461,7 @@ last qref
 
 - `int qref`
 
-<a id="m-setsocket-183068848e4c"></a>
-### setSocket(Socket)
+### setSocket(Socket) <a href="#m-setSocket-183068848e4c" id="m-setSocket-183068848e4c"></a>
 
 ```java
 public void setSocket(java.net.Socket socket)
@@ -492,8 +471,7 @@ public void setSocket(java.net.Socket socket)
 
 - `java.net.Socket socket`
 
-<a id="m-setsubid-b0f01749d8c5"></a>
-### setSubId(int)
+### setSubId(int) <a href="#m-setSubId-b0f01749d8c5" id="m-setSubId-b0f01749d8c5"></a>
 
 ```java
 public void setSubId(int subid)

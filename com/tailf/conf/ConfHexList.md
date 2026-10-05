@@ -1,5 +1,4 @@
-<a id="cls-ConfHexList"></a>
-# ConfHexList
+# ConfHexList <a href="#cls-ConfHexList" id="cls-ConfHexList"></a>
 
 ```java
 public class com.tailf.conf.ConfHexList
@@ -28,9 +27,9 @@ DATA_CONTAINER - Corresponds to the YANG `tailf:hex-list` type.
  When a instance of this type is encoded and send over the
  socket through MAAPI or CDB with the
  [`Maapi#setElem(int,com.tailf.conf.ConfObject,
- com.tailf.conf.ConfPath)`](../maapi/Maapi.md#m-setelem-cec1d194abc2),
+ com.tailf.conf.ConfPath)`](../maapi/Maapi.md#m-setElem-cec1d194abc2),
  [`CdbSession#setElem(com.tailf.conf.ConfValue,
- com.tailf.conf.ConfPath)`](../cdb/CdbSession.md#m-setelem-356e5e479e47) method
+ com.tailf.conf.ConfPath)`](../cdb/CdbSession.md#m-setElem-356e5e479e47) method
  it will encode this value as a `ConfBinary` which has the
  effect that the corresponding `getElem` from MAAPI and CDB
  will return a `ConfBinary` instead of a `ConfHexList`.
@@ -41,9 +40,9 @@ DATA_CONTAINER - Corresponds to the YANG `tailf:hex-list` type.
 
 **Constructors**:
 
-- [ConfHexList(byte[])](#m-confhexlist-dd16916d2eda)
-- [ConfHexList(ConfBinary)](#m-confhexlist-192c83339be5)
-- [ConfHexList(String)](#m-confhexlist-e50d3dafa0ee)
+- [ConfHexList(byte[])](#m-ConfHexList-dd16916d2eda)
+- [ConfHexList(ConfBinary)](#m-ConfHexList-192c83339be5)
+- [ConfHexList(String)](#m-ConfHexList-e50d3dafa0ee)
 
 **Fields**:
 
@@ -100,29 +99,28 @@ DATA_CONTAINER - Corresponds to the YANG `tailf:hex-list` type.
 
 **Methods**:
 
-- [bytesValue()](ConfBinary.md#m-bytesvalue-5430ca82d2de) from ConfBinary
+- [bytesValue()](ConfBinary.md#m-bytesValue-5430ca82d2de) from ConfBinary
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBinary)](ConfBinary.md#m-compareto-58d210e19aa1) from ConfBinary
+- [compareTo(ConfBinary)](ConfBinary.md#m-compareTo-58d210e19aa1) from ConfBinary
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](ConfBinary.md#m-encode-fbae522bba37) from ConfBinary
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [setCSType(CSType)](ConfBinary.md#m-setcstype-1d9af222b932) from ConfBinary
-- [toHexListString()](ConfBinary.md#m-tohexliststring-b8ab9a901cf8) from ConfBinary
-- [toOctetListString()](ConfBinary.md#m-tooctetliststring-4e8899a4fa5c) from ConfBinary
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [setCSType(CSType)](ConfBinary.md#m-setCSType-1d9af222b932) from ConfBinary
+- [toHexListString()](ConfBinary.md#m-toHexListString-b8ab9a901cf8) from ConfBinary
+- [toOctetListString()](ConfBinary.md#m-toOctetListString-4e8899a4fa5c) from ConfBinary
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confhexlist-dd16916d2eda"></a>
-### ConfHexList(byte[])
+### ConfHexList(byte[]) <a href="#m-ConfHexList-dd16916d2eda" id="m-ConfHexList-dd16916d2eda"></a>
 
 ```java
 public ConfHexList(byte[] val)
@@ -134,8 +132,7 @@ Construct a `ConfHexList` from a byte array.
 
 - `byte[] val` - byte array representation of the `ConfHexList`
 
-<a id="m-confhexlist-192c83339be5"></a>
-### ConfHexList(ConfBinary)
+### ConfHexList(ConfBinary) <a href="#m-ConfHexList-192c83339be5" id="m-ConfHexList-192c83339be5"></a>
 
 ```java
 public ConfHexList(com.tailf.conf.ConfBinary obj)
@@ -150,8 +147,7 @@ Constructs a `ConfHexList` from a `ConfBinary`
 
 - `com.tailf.conf.ConfBinary obj` - a `ConfBinary` object
 
-<a id="m-confhexlist-e50d3dafa0ee"></a>
-### ConfHexList(String)
+### ConfHexList(String) <a href="#m-ConfHexList-e50d3dafa0ee" id="m-ConfHexList-e50d3dafa0ee"></a>
 
 ```java
 public ConfHexList(String str) throws com.tailf.conf.ConfException
@@ -169,8 +165,7 @@ Construct a `ConfHexList` from a string  of bytes in the
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -180,8 +175,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -196,8 +190,7 @@ Returns a hash code value for the object. This method is
 
 **Returns:** a hash code value for this object.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-CdbProto"></a>
-# CdbProto
+# CdbProto <a href="#cls-CdbProto" id="cls-CdbProto"></a>
 
 ```java
 public class com.tailf.cdb.CdbProto
@@ -11,7 +10,7 @@ General class for protocol constants
 
 **Constructors**:
 
-- [CdbProto()](#m-cdbproto-c4f733603cad)
+- [CdbProto()](#m-CdbProto-c4f733603cad)
 
 **Fields**:
 
@@ -75,8 +74,7 @@ General class for protocol constants
 
 ## Constructors
 
-<a id="m-cdbproto-c4f733603cad"></a>
-### CdbProto()
+### CdbProto() <a href="#m-CdbProto-c4f733603cad" id="m-CdbProto-c4f733603cad"></a>
 
 ```java
 public CdbProto()
@@ -85,400 +83,343 @@ public CdbProto()
 
 ## Fields
 
-<a id="m-ERROR_FLAG_MASK"></a>
-### ERROR_FLAG_MASK
+### ERROR_FLAG_MASK <a href="#m-ERROR_FLAG_MASK" id="m-ERROR_FLAG_MASK"></a>
 
 ```java
 public static final int ERROR_FLAG_MASK = -2147483648;
 ```
 
-<a id="m-OP_CD"></a>
-### OP_CD
+### OP_CD <a href="#m-OP_CD" id="m-OP_CD"></a>
 
 ```java
 public static final int OP_CD = 5;
 ```
 
-<a id="m-OP_CLIENT_INFO"></a>
-### OP_CLIENT_INFO
+### OP_CLIENT_INFO <a href="#m-OP_CLIENT_INFO" id="m-OP_CLIENT_INFO"></a>
 
 ```java
 public static final int OP_CLIENT_INFO = 19;
 ```
 
-<a id="m-OP_CLIENT_NAME"></a>
-### OP_CLIENT_NAME
+### OP_CLIENT_NAME <a href="#m-OP_CLIENT_NAME" id="m-OP_CLIENT_NAME"></a>
 
 ```java
 public static final int OP_CLIENT_NAME = 0;
 ```
 
-<a id="m-OP_CREATE"></a>
-### OP_CREATE
+### OP_CREATE <a href="#m-OP_CREATE" id="m-OP_CREATE"></a>
 
 ```java
 public static final int OP_CREATE = 50;
 ```
 
-<a id="m-OP_DELETE"></a>
-### OP_DELETE
+### OP_DELETE <a href="#m-OP_DELETE" id="m-OP_DELETE"></a>
 
 ```java
 public static final int OP_DELETE = 51;
 ```
 
-<a id="m-OP_END_SESSION"></a>
-### OP_END_SESSION
+### OP_END_SESSION <a href="#m-OP_END_SESSION" id="m-OP_END_SESSION"></a>
 
 ```java
 public static final int OP_END_SESSION = 2;
 ```
 
-<a id="m-OP_EXISTS"></a>
-### OP_EXISTS
+### OP_EXISTS <a href="#m-OP_EXISTS" id="m-OP_EXISTS"></a>
 
 ```java
 public static final int OP_EXISTS = 8;
 ```
 
-<a id="m-OP_GET"></a>
-### OP_GET
+### OP_GET <a href="#m-OP_GET" id="m-OP_GET"></a>
 
 ```java
 public static final int OP_GET = 4;
 ```
 
-<a id="m-OP_GET2"></a>
-### OP_GET2
+### OP_GET2 <a href="#m-OP_GET2" id="m-OP_GET2"></a>
 
 ```java
 public static final int OP_GET2 = 11;
 ```
 
-<a id="m-OP_GET_ATTRS"></a>
-### OP_GET_ATTRS
+### OP_GET_ATTRS <a href="#m-OP_GET_ATTRS" id="m-OP_GET_ATTRS"></a>
 
 ```java
 public static final int OP_GET_ATTRS = 79;
 ```
 
-<a id="m-OP_GET_CASE"></a>
-### OP_GET_CASE
+### OP_GET_CASE <a href="#m-OP_GET_CASE" id="m-OP_GET_CASE"></a>
 
 ```java
 public static final int OP_GET_CASE = 17;
 ```
 
-<a id="m-OP_GET_CLI"></a>
-### OP_GET_CLI
+### OP_GET_CLI <a href="#m-OP_GET_CLI" id="m-OP_GET_CLI"></a>
 
 ```java
 public static final int OP_GET_CLI = 41;
 ```
 
-<a id="m-OP_GET_COMPACTION_INFO"></a>
-### OP_GET_COMPACTION_INFO
+### OP_GET_COMPACTION_INFO <a href="#m-OP_GET_COMPACTION_INFO" id="m-OP_GET_COMPACTION_INFO"></a>
 
 ```java
 public static final int OP_GET_COMPACTION_INFO = 81;
 ```
 
-<a id="m-OP_GET_MODIFICATIONS"></a>
-### OP_GET_MODIFICATIONS
+### OP_GET_MODIFICATIONS <a href="#m-OP_GET_MODIFICATIONS" id="m-OP_GET_MODIFICATIONS"></a>
 
 ```java
 public static final int OP_GET_MODIFICATIONS = 40;
 ```
 
-<a id="m-OP_GET_MOUNT_ID"></a>
-### OP_GET_MOUNT_ID
+### OP_GET_MOUNT_ID <a href="#m-OP_GET_MOUNT_ID" id="m-OP_GET_MOUNT_ID"></a>
 
 ```java
 public static final int OP_GET_MOUNT_ID = 78;
 ```
 
-<a id="m-OP_GET_OBJECT"></a>
-### OP_GET_OBJECT
+### OP_GET_OBJECT <a href="#m-OP_GET_OBJECT" id="m-OP_GET_OBJECT"></a>
 
 ```java
 public static final int OP_GET_OBJECT = 12;
 ```
 
-<a id="m-OP_GET_OBJECTS"></a>
-### OP_GET_OBJECTS
+### OP_GET_OBJECTS <a href="#m-OP_GET_OBJECTS" id="m-OP_GET_OBJECTS"></a>
 
 ```java
 public static final int OP_GET_OBJECTS = 13;
 ```
 
-<a id="m-OP_GET_PHASE"></a>
-### OP_GET_PHASE
+### OP_GET_PHASE <a href="#m-OP_GET_PHASE" id="m-OP_GET_PHASE"></a>
 
 ```java
 public static final int OP_GET_PHASE = 65;
 ```
 
-<a id="m-OP_GET_REPLAY_TXID"></a>
-### OP_GET_REPLAY_TXID
+### OP_GET_REPLAY_TXID <a href="#m-OP_GET_REPLAY_TXID" id="m-OP_GET_REPLAY_TXID"></a>
 
 ```java
 public static final int OP_GET_REPLAY_TXID = 72;
 ```
 
-<a id="m-OP_GET_TRANS_TID"></a>
-### OP_GET_TRANS_TID
+### OP_GET_TRANS_TID <a href="#m-OP_GET_TRANS_TID" id="m-OP_GET_TRANS_TID"></a>
 
 ```java
 public static final int OP_GET_TRANS_TID = 70;
 ```
 
-<a id="m-OP_GET_TXID"></a>
-### OP_GET_TXID
+### OP_GET_TXID <a href="#m-OP_GET_TXID" id="m-OP_GET_TXID"></a>
 
 ```java
 public static final int OP_GET_TXID = 66;
 ```
 
-<a id="m-OP_GET_USER_SESSION"></a>
-### OP_GET_USER_SESSION
+### OP_GET_USER_SESSION <a href="#m-OP_GET_USER_SESSION" id="m-OP_GET_USER_SESSION"></a>
 
 ```java
 public static final int OP_GET_USER_SESSION = 67;
 ```
 
-<a id="m-OP_GET_VALUES"></a>
-### OP_GET_VALUES
+### OP_GET_VALUES <a href="#m-OP_GET_VALUES" id="m-OP_GET_VALUES"></a>
 
 ```java
 public static final int OP_GET_VALUES = 14;
 ```
 
-<a id="m-OP_GETCWD"></a>
-### OP_GETCWD
+### OP_GETCWD <a href="#m-OP_GETCWD" id="m-OP_GETCWD"></a>
 
 ```java
 public static final int OP_GETCWD = 10;
 ```
 
-<a id="m-OP_INITIATE_COMPACTION"></a>
-### OP_INITIATE_COMPACTION
+### OP_INITIATE_COMPACTION <a href="#m-OP_INITIATE_COMPACTION" id="m-OP_INITIATE_COMPACTION"></a>
 
 ```java
 public static final int OP_INITIATE_COMPACTION = 76;
 ```
 
-<a id="m-OP_INITIATE_DBFILE_COMPACTION"></a>
-### OP_INITIATE_DBFILE_COMPACTION
+### OP_INITIATE_DBFILE_COMPACTION <a href="#m-OP_INITIATE_DBFILE_COMPACTION" id="m-OP_INITIATE_DBFILE_COMPACTION"></a>
 
 ```java
 public static final int OP_INITIATE_DBFILE_COMPACTION = 77;
 ```
 
-<a id="m-OP_IS_DEFAULT"></a>
-### OP_IS_DEFAULT
+### OP_IS_DEFAULT <a href="#m-OP_IS_DEFAULT" id="m-OP_IS_DEFAULT"></a>
 
 ```java
 public static final int OP_IS_DEFAULT = 18;
 ```
 
-<a id="m-OP_KEY_INDEX"></a>
-### OP_KEY_INDEX
+### OP_KEY_INDEX <a href="#m-OP_KEY_INDEX" id="m-OP_KEY_INDEX"></a>
 
 ```java
 public static final int OP_KEY_INDEX = 15;
 ```
 
-<a id="m-OP_MANDATORY_SUBSCRIBER"></a>
-### OP_MANDATORY_SUBSCRIBER
+### OP_MANDATORY_SUBSCRIBER <a href="#m-OP_MANDATORY_SUBSCRIBER" id="m-OP_MANDATORY_SUBSCRIBER"></a>
 
 ```java
 public static final int OP_MANDATORY_SUBSCRIBER = 74;
 ```
 
-<a id="m-OP_MASK"></a>
-### OP_MASK
+### OP_MASK <a href="#m-OP_MASK" id="m-OP_MASK"></a>
 
 ```java
 public static final int OP_MASK = 2147483647;
 ```
 
-<a id="m-OP_NEW_SESSION"></a>
-### OP_NEW_SESSION
+### OP_NEW_SESSION <a href="#m-OP_NEW_SESSION" id="m-OP_NEW_SESSION"></a>
 
 ```java
 public static final int OP_NEW_SESSION = 1;
 ```
 
-<a id="m-OP_NUM_INSTANCES"></a>
-### OP_NUM_INSTANCES
+### OP_NUM_INSTANCES <a href="#m-OP_NUM_INSTANCES" id="m-OP_NUM_INSTANCES"></a>
 
 ```java
 public static final int OP_NUM_INSTANCES = 9;
 ```
 
-<a id="m-OP_NXT_INDEX"></a>
-### OP_NXT_INDEX
+### OP_NXT_INDEX <a href="#m-OP_NXT_INDEX" id="m-OP_NXT_INDEX"></a>
 
 ```java
 public static final int OP_NXT_INDEX = 16;
 ```
 
-<a id="m-OP_OPER_SUBSCRIBE"></a>
-### OP_OPER_SUBSCRIBE
+### OP_OPER_SUBSCRIBE <a href="#m-OP_OPER_SUBSCRIBE" id="m-OP_OPER_SUBSCRIBE"></a>
 
 ```java
 public static final int OP_OPER_SUBSCRIBE = 38;
 ```
 
-<a id="m-OP_POPD"></a>
-### OP_POPD
+### OP_POPD <a href="#m-OP_POPD" id="m-OP_POPD"></a>
 
 ```java
 public static final int OP_POPD = 7;
 ```
 
-<a id="m-OP_PUSHD"></a>
-### OP_PUSHD
+### OP_PUSHD <a href="#m-OP_PUSHD" id="m-OP_PUSHD"></a>
 
 ```java
 public static final int OP_PUSHD = 6;
 ```
 
-<a id="m-OP_REPLAY_SUBS"></a>
-### OP_REPLAY_SUBS
+### OP_REPLAY_SUBS <a href="#m-OP_REPLAY_SUBS" id="m-OP_REPLAY_SUBS"></a>
 
 ```java
 public static final int OP_REPLAY_SUBS = 71;
 ```
 
-<a id="m-OP_SET_ATTR"></a>
-### OP_SET_ATTR
+### OP_SET_ATTR <a href="#m-OP_SET_ATTR" id="m-OP_SET_ATTR"></a>
 
 ```java
 public static final int OP_SET_ATTR = 80;
 ```
 
-<a id="m-OP_SET_CASE"></a>
-### OP_SET_CASE
+### OP_SET_CASE <a href="#m-OP_SET_CASE" id="m-OP_SET_CASE"></a>
 
 ```java
 public static final int OP_SET_CASE = 54;
 ```
 
-<a id="m-OP_SET_ELEM"></a>
-### OP_SET_ELEM
+### OP_SET_ELEM <a href="#m-OP_SET_ELEM" id="m-OP_SET_ELEM"></a>
 
 ```java
 public static final int OP_SET_ELEM = 48;
 ```
 
-<a id="m-OP_SET_ELEM2"></a>
-### OP_SET_ELEM2
+### OP_SET_ELEM2 <a href="#m-OP_SET_ELEM2" id="m-OP_SET_ELEM2"></a>
 
 ```java
 public static final int OP_SET_ELEM2 = 49;
 ```
 
-<a id="m-OP_SET_NAMESPACE"></a>
-### OP_SET_NAMESPACE
+### OP_SET_NAMESPACE <a href="#m-OP_SET_NAMESPACE" id="m-OP_SET_NAMESPACE"></a>
 
 ```java
 public static final int OP_SET_NAMESPACE = 3;
 ```
 
-<a id="m-OP_SET_OBJECT"></a>
-### OP_SET_OBJECT
+### OP_SET_OBJECT <a href="#m-OP_SET_OBJECT" id="m-OP_SET_OBJECT"></a>
 
 ```java
 public static final int OP_SET_OBJECT = 52;
 ```
 
-<a id="m-OP_SET_TIMEOUT"></a>
-### OP_SET_TIMEOUT
+### OP_SET_TIMEOUT <a href="#m-OP_SET_TIMEOUT" id="m-OP_SET_TIMEOUT"></a>
 
 ```java
 public static final int OP_SET_TIMEOUT = 73;
 ```
 
-<a id="m-OP_SET_VALUES"></a>
-### OP_SET_VALUES
+### OP_SET_VALUES <a href="#m-OP_SET_VALUES" id="m-OP_SET_VALUES"></a>
 
 ```java
 public static final int OP_SET_VALUES = 53;
 ```
 
-<a id="m-OP_SUB_EVENT"></a>
-### OP_SUB_EVENT
+### OP_SUB_EVENT <a href="#m-OP_SUB_EVENT" id="m-OP_SUB_EVENT"></a>
 
 ```java
 public static final int OP_SUB_EVENT = 33;
 ```
 
-<a id="m-OP_SUB_ITERATE"></a>
-### OP_SUB_ITERATE
+### OP_SUB_ITERATE <a href="#m-OP_SUB_ITERATE" id="m-OP_SUB_ITERATE"></a>
 
 ```java
 public static final int OP_SUB_ITERATE = 36;
 ```
 
-<a id="m-OP_SUB_PROGRESS"></a>
-### OP_SUB_PROGRESS
+### OP_SUB_PROGRESS <a href="#m-OP_SUB_PROGRESS" id="m-OP_SUB_PROGRESS"></a>
 
 ```java
 public static final int OP_SUB_PROGRESS = 39;
 ```
 
-<a id="m-OP_SUBSCRIBE"></a>
-### OP_SUBSCRIBE
+### OP_SUBSCRIBE <a href="#m-OP_SUBSCRIBE" id="m-OP_SUBSCRIBE"></a>
 
 ```java
 public static final int OP_SUBSCRIBE = 32;
 ```
 
-<a id="m-OP_SUBSCRIBE_DONE"></a>
-### OP_SUBSCRIBE_DONE
+### OP_SUBSCRIBE_DONE <a href="#m-OP_SUBSCRIBE_DONE" id="m-OP_SUBSCRIBE_DONE"></a>
 
 ```java
 public static final int OP_SUBSCRIBE_DONE = 37;
 ```
 
-<a id="m-OP_SYNC_SUB"></a>
-### OP_SYNC_SUB
+### OP_SYNC_SUB <a href="#m-OP_SYNC_SUB" id="m-OP_SYNC_SUB"></a>
 
 ```java
 public static final int OP_SYNC_SUB = 34;
 ```
 
-<a id="m-OP_TRIGGER_OPER_SUBS"></a>
-### OP_TRIGGER_OPER_SUBS
+### OP_TRIGGER_OPER_SUBS <a href="#m-OP_TRIGGER_OPER_SUBS" id="m-OP_TRIGGER_OPER_SUBS"></a>
 
 ```java
 public static final int OP_TRIGGER_OPER_SUBS = 75;
 ```
 
-<a id="m-OP_TRIGGER_SUBS"></a>
-### OP_TRIGGER_SUBS
+### OP_TRIGGER_SUBS <a href="#m-OP_TRIGGER_SUBS" id="m-OP_TRIGGER_SUBS"></a>
 
 ```java
 public static final int OP_TRIGGER_SUBS = 68;
 ```
 
-<a id="m-OP_UNSUBSCRIBE"></a>
-### OP_UNSUBSCRIBE
+### OP_UNSUBSCRIBE <a href="#m-OP_UNSUBSCRIBE" id="m-OP_UNSUBSCRIBE"></a>
 
 ```java
 public static final int OP_UNSUBSCRIBE = 35;
 ```
 
-<a id="m-OP_WAIT_START"></a>
-### OP_WAIT_START
+### OP_WAIT_START <a href="#m-OP_WAIT_START" id="m-OP_WAIT_START"></a>
 
 ```java
 public static final int OP_WAIT_START = 64;
 ```
 
-<a id="m-REL_FLAG_MASK"></a>
-### REL_FLAG_MASK
+### REL_FLAG_MASK <a href="#m-REL_FLAG_MASK" id="m-REL_FLAG_MASK"></a>
 
 ```java
 public static final int REL_FLAG_MASK = -2147483648;

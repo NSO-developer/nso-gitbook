@@ -1,5 +1,4 @@
-<a id="cls-DpThreadPoolFactory"></a>
-# DpThreadPoolFactory
+# DpThreadPoolFactory <a href="#cls-DpThreadPoolFactory" id="cls-DpThreadPoolFactory"></a>
 
 ```java
 public class com.tailf.dp.DpThreadPoolFactory
@@ -16,7 +15,7 @@ The customized thread Factory
 
 **Constructors**:
 
-- [DpThreadPoolFactory(String)](#m-dpthreadpoolfactory-210774692872)
+- [DpThreadPoolFactory(String)](#m-DpThreadPoolFactory-210774692872)
 
 **Fields**:
 
@@ -24,12 +23,11 @@ The customized thread Factory
 
 **Methods**:
 
-- [newThread(Runnable)](#m-newthread-d68745b22554)
+- [newThread(Runnable)](#m-newThread-d68745b22554)
 
 ## Constructors
 
-<a id="m-dpthreadpoolfactory-210774692872"></a>
-### DpThreadPoolFactory(String)
+### DpThreadPoolFactory(String) <a href="#m-DpThreadPoolFactory-210774692872" id="m-DpThreadPoolFactory-210774692872"></a>
 
 ```java
 public DpThreadPoolFactory(String poolName)
@@ -42,8 +40,7 @@ public DpThreadPoolFactory(String poolName)
 
 ## Fields
 
-<a id="m-poolName"></a>
-### poolName
+### poolName <a href="#m-poolName" id="m-poolName"></a>
 
 **Package-private**
 
@@ -54,8 +51,7 @@ String poolName = null;
 
 ## Methods
 
-<a id="m-newthread-d68745b22554"></a>
-### newThread(Runnable)
+### newThread(Runnable) <a href="#m-newThread-d68745b22554" id="m-newThread-d68745b22554"></a>
 
 ```java
 public Thread newThread(Runnable runnable)

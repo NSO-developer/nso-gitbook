@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsType.Reader
@@ -10,21 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getNs()](#m-getns-59b97eae2a4a)
-- [getParent()](#m-getparent-45c1b196ed70)
-- [getValue()](#m-getvalue-d93864668c40)
-- [hasName()](#m-hasname-bfe6c334e0d1)
-- [hasParent()](#m-hasparent-eef40f9d4483)
+- [getName()](#m-getName-2634b18b4a25)
+- [getNs()](#m-getNs-59b97eae2a4a)
+- [getParent()](#m-getParent-45c1b196ed70)
+- [getValue()](#m-getValue-d93864668c40)
+- [hasName()](#m-hasName-bfe6c334e0d1)
+- [hasParent()](#m-hasParent-eef40f9d4483)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -51,22 +49,19 @@ Reader(
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="m-getns-59b97eae2a4a"></a>
-### getNs()
+### getNs() <a href="#m-getNs-59b97eae2a4a" id="m-getNs-59b97eae2a4a"></a>
 
 ```java
 public final int getNs()
 ```
 
-<a id="m-getparent-45c1b196ed70"></a>
-### getParent()
+### getParent() <a href="#m-getParent-45c1b196ed70" id="m-getParent-45c1b196ed70"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeReference.Reader getParent()
@@ -74,8 +69,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeReference.Reader getParent()
 
 Types: [Reader](../CsTypeReference/Reader.md#cls-Reader)
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsType.Value.Reader getValue()
@@ -83,15 +77,13 @@ public com.tailf.ncs.maapi.Schema.CsType.Value.Reader getValue()
 
 Types: [Reader](Value/Reader.md#cls-Reader)
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public boolean hasName()
 ```
 
-<a id="m-hasparent-eef40f9d4483"></a>
-### hasParent()
+### hasParent() <a href="#m-hasParent-eef40f9d4483" id="m-hasParent-eef40f9d4483"></a>
 
 ```java
 public boolean hasParent()

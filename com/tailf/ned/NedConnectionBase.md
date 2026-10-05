@@ -1,5 +1,4 @@
-<a id="cls-NedConnectionBase"></a>
-# NedConnectionBase
+# NedConnectionBase <a href="#cls-NedConnectionBase" id="cls-NedConnectionBase"></a>
 
 ```java
 public abstract class com.tailf.ned.NedConnectionBase
@@ -40,7 +39,7 @@ A NedConnection is the interface used by the NedMux for keeping
 
 **Constructors**:
 
-- [NedConnectionBase()](#m-nedconnectionbase-158486610d1d)
+- [NedConnectionBase()](#m-NedConnectionBase-158486610d1d)
 
 **Fields**:
 
@@ -52,45 +51,44 @@ A NedConnection is the interface used by the NedMux for keeping
 - [close(NedWorker)](#m-close-30f80583fb17)
 - [command(NedWorker, String, ConfXMLParam[])](#m-command-e9b29b4222a3)
 - [commit(NedWorker, int)](#m-commit-7dc36c07ab47)
-- [createSubscription(NedWorker, String, String, String, int)](#m-createsubscription-79162376c959)
-- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](#m-createtelemetrysubscription-c3b822b943ab)
+- [createSubscription(NedWorker, String, String, String, int)](#m-createSubscription-79162376c959)
+- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](#m-createTelemetrySubscription-c3b822b943ab)
 - [device_id()](#m-device_id-f50bb7031536)
-- [getCapas()](#m-getcapas-7f9d1774e7a0)
-- [getConnectionId()](#m-getconnectionid-600ebb3e7d7f)
-- [getPlatformData()](#m-getplatformdata-aa820968b919)
-- [getStatsCapas()](#m-getstatscapas-aa8dc0859e62)
-- [getTimeInPool()](#m-gettimeinpool-df6d5c843d53)
-- [getTransactionIdMode()](#m-gettransactionidmode-79b4efc0e31d)
-- [getTransId(NedWorker)](#m-gettransid-01de732a93e8)
-- [getUseStoredCapas()](#m-getusestoredcapas-77d5f5640e81)
-- [getWantRevertDiff()](#m-getwantrevertdiff-ddea9ec7db21)
+- [getCapas()](#m-getCapas-7f9d1774e7a0)
+- [getConnectionId()](#m-getConnectionId-600ebb3e7d7f)
+- [getPlatformData()](#m-getPlatformData-aa820968b919)
+- [getStatsCapas()](#m-getStatsCapas-aa8dc0859e62)
+- [getTimeInPool()](#m-getTimeInPool-df6d5c843d53)
+- [getTransactionIdMode()](#m-getTransactionIdMode-79b4efc0e31d)
+- [getTransId(NedWorker)](#m-getTransId-01de732a93e8)
+- [getUseStoredCapas()](#m-getUseStoredCapas-77d5f5640e81)
+- [getWantRevertDiff()](#m-getWantRevertDiff-ddea9ec7db21)
 - [identity()](#m-identity-16b9d59e26e7)
 - [initialize(NedWorker)](#m-initialize-b9daf0f9b461)
-- [isAlive(NedWorker)](#m-isalive-6915ae01ec8a)
-- [isSessionAlive(NedWorker)](#m-issessionalive-f0d233ff28c0)
-- [keepAlive(NedWorker)](#m-keepalive-92dcaaf81a7a)
-- [keepSessionAlive(NedWorker)](#m-keepsessionalive-f2332bacddd5)
+- [isAlive(NedWorker)](#m-isAlive-6915ae01ec8a)
+- [isSessionAlive(NedWorker)](#m-isSessionAlive-f0d233ff28c0)
+- [keepAlive(NedWorker)](#m-keepAlive-92dcaaf81a7a)
+- [keepSessionAlive(NedWorker)](#m-keepSessionAlive-f2332bacddd5)
 - [modules()](#m-modules-15ef53dcaf36)
 - [persist(NedWorker)](#m-persist-a67bc9247622)
 - [reconnect(NedWorker)](#m-reconnect-a7a5900d41d6)
-- [retrieveIdentity(NedConnectionBase)](#m-retrieveidentity-910704c2eafa)
-- [setCapabilities(NedCapability[])](#m-setcapabilities-67ad7861715a)
-- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](#m-setconnectiondata-3c1697dcc350)
-- [setConnectionId(int)](#m-setconnectionid-7eea4fea28bf)
-- [setPlatformData(ConfXMLParam[])](#m-setplatformdata-a069c83c8fde)
-- [setPoolTimestamp(long)](#m-setpooltimestamp-28239e3d2dc4)
-- [showStatsFilter(NedWorker, int, ConfPath[])](#m-showstatsfilter-f3bd9d17b71c)
-- [showStatsFilter(NedWorker, int, NedShowFilter[])](#m-showstatsfilter-1410355f6f46)
-- [showStatsFilter(NedWorker, int, String[])](#m-showstatsfilter-38409a8f79a0)
-- [showStatsPath(NedWorker, int, ConfPath)](#m-showstatspath-1704122a5ac4)
+- [retrieveIdentity(NedConnectionBase)](#m-retrieveIdentity-910704c2eafa)
+- [setCapabilities(NedCapability[])](#m-setCapabilities-67ad7861715a)
+- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](#m-setConnectionData-3c1697dcc350)
+- [setConnectionId(int)](#m-setConnectionId-7eea4fea28bf)
+- [setPlatformData(ConfXMLParam[])](#m-setPlatformData-a069c83c8fde)
+- [setPoolTimestamp(long)](#m-setPoolTimestamp-28239e3d2dc4)
+- [showStatsFilter(NedWorker, int, ConfPath[])](#m-showStatsFilter-f3bd9d17b71c)
+- [showStatsFilter(NedWorker, int, NedShowFilter[])](#m-showStatsFilter-1410355f6f46)
+- [showStatsFilter(NedWorker, int, String[])](#m-showStatsFilter-38409a8f79a0)
+- [showStatsPath(NedWorker, int, ConfPath)](#m-showStatsPath-1704122a5ac4)
 - [type()](#m-type-7a4a5f26039a)
 - [uninitialize(NedWorker)](#m-uninitialize-bba07dcc2d37)
-- [useStoredCapabilities()](#m-usestoredcapabilities-06864caacb8f)
+- [useStoredCapabilities()](#m-useStoredCapabilities-06864caacb8f)
 
 ## Constructors
 
-<a id="m-nedconnectionbase-158486610d1d"></a>
-### NedConnectionBase()
+### NedConnectionBase() <a href="#m-NedConnectionBase-158486610d1d" id="m-NedConnectionBase-158486610d1d"></a>
 
 ```java
 public NedConnectionBase()
@@ -99,8 +97,7 @@ public NedConnectionBase()
 
 ## Fields
 
-<a id="m-sshClient"></a>
-### sshClient
+### sshClient <a href="#m-sshClient" id="m-sshClient"></a>
 
 ```java
 protected com.tailf.ned.SSHClient sshClient = null;
@@ -111,8 +108,7 @@ Types: [SSHClient](SSHClient.md#cls-SSHClient)
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public abstract void close()
@@ -123,8 +119,7 @@ This method is invoked when a connection close is forced and no
  is removed from the connection pool. No response or trace
  messages can be sent during the operation.
 
-<a id="m-close-30f80583fb17"></a>
-### close(NedWorker)
+### close(NedWorker) <a href="#m-close-30f80583fb17" id="m-close-30f80583fb17"></a>
 
 ```java
 public abstract void close(com.tailf.ned.NedWorker w) throws Exception
@@ -146,8 +141,7 @@ This method is invoked when the connection is terminated. It is
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-command-e9b29b4222a3"></a>
-### command(NedWorker, String, ConfXMLParam[])
+### command(NedWorker, String, ConfXMLParam[]) <a href="#m-command-e9b29b4222a3" id="m-command-e9b29b4222a3"></a>
 
 ```java
 public abstract void command(
@@ -175,8 +169,7 @@ This is for any optional commands on the device that are
 - `String cmdName` - Name of the command (path to action?)
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="m-commit-7dc36c07ab47"></a>
-### commit(NedWorker, int)
+### commit(NedWorker, int) <a href="#m-commit-7dc36c07ab47" id="m-commit-7dc36c07ab47"></a>
 
 ```java
 public abstract void commit(com.tailf.ned.NedWorker w, int timeout) throws Exception
@@ -202,8 +195,7 @@ This indicates that the current set of operations should be
 - `int timeout` - If the commit operation does not complete within 'timeout' seconds
     the operation should be aborted.
 
-<a id="m-createsubscription-79162376c959"></a>
-### createSubscription(NedWorker, String, String, String, int)
+### createSubscription(NedWorker, String, String, String, int) <a href="#m-createSubscription-79162376c959" id="m-createSubscription-79162376c959"></a>
 
 ```java
 public void createSubscription(
@@ -269,8 +261,7 @@ This method is invoked to create a notification subscription.
 
 **See also:** [RFC 3339](https://tools.ietf.org/html/rfc3339), [RFC 5277](https://tools.ietf.org/html/rfc5277), [XSD\-TYPES: XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/)
 
-<a id="m-createtelemetrysubscription-c3b822b943ab"></a>
-### createTelemetrySubscription(NedWorker, Map<String,List<String>>)
+### createTelemetrySubscription(NedWorker, Map<String,List<String>>) <a href="#m-createTelemetrySubscription-c3b822b943ab" id="m-createTelemetrySubscription-c3b822b943ab"></a>
 
 ```java
 public void createTelemetrySubscription(
@@ -314,8 +305,7 @@ This method is invoked to create a telemetry subscription.
 
 **See also:** [RFC 8641](https://tools.ietf.org/html/rfc8641)
 
-<a id="m-device_id-f50bb7031536"></a>
-### device_id()
+### device_id() <a href="#m-device_id-f50bb7031536" id="m-device_id-f50bb7031536"></a>
 
 ```java
 public abstract String device_id()
@@ -325,8 +315,7 @@ The device id is originally provided by NCS to properly identify
  the device. It is the name used for the device by NCS in the
  list of devices.
 
-<a id="m-getcapas-7f9d1774e7a0"></a>
-### getCapas()
+### getCapas() <a href="#m-getCapas-7f9d1774e7a0" id="m-getCapas-7f9d1774e7a0"></a>
 
 ```java
 public com.tailf.ned.NedCapability[] getCapas()
@@ -334,15 +323,13 @@ public com.tailf.ned.NedCapability[] getCapas()
 
 Types: [NedCapability](NedCapability.md#cls-NedCapability)
 
-<a id="m-getconnectionid-600ebb3e7d7f"></a>
-### getConnectionId()
+### getConnectionId() <a href="#m-getConnectionId-600ebb3e7d7f" id="m-getConnectionId-600ebb3e7d7f"></a>
 
 ```java
 public int getConnectionId()
 ```
 
-<a id="m-getplatformdata-aa820968b919"></a>
-### getPlatformData()
+### getPlatformData() <a href="#m-getPlatformData-aa820968b919" id="m-getPlatformData-aa820968b919"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getPlatformData()
@@ -350,8 +337,7 @@ public com.tailf.conf.ConfXMLParam[] getPlatformData()
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
-<a id="m-getstatscapas-aa8dc0859e62"></a>
-### getStatsCapas()
+### getStatsCapas() <a href="#m-getStatsCapas-aa8dc0859e62" id="m-getStatsCapas-aa8dc0859e62"></a>
 
 ```java
 public com.tailf.ned.NedCapability[] getStatsCapas()
@@ -359,15 +345,13 @@ public com.tailf.ned.NedCapability[] getStatsCapas()
 
 Types: [NedCapability](NedCapability.md#cls-NedCapability)
 
-<a id="m-gettimeinpool-df6d5c843d53"></a>
-### getTimeInPool()
+### getTimeInPool() <a href="#m-getTimeInPool-df6d5c843d53" id="m-getTimeInPool-df6d5c843d53"></a>
 
 ```java
 public long getTimeInPool()
 ```
 
-<a id="m-gettransactionidmode-79b4efc0e31d"></a>
-### getTransactionIdMode()
+### getTransactionIdMode() <a href="#m-getTransactionIdMode-79b4efc0e31d" id="m-getTransactionIdMode-79b4efc0e31d"></a>
 
 ```java
 public com.tailf.ned.NedWorker.TransactionIdMode getTransactionIdMode()
@@ -375,8 +359,7 @@ public com.tailf.ned.NedWorker.TransactionIdMode getTransactionIdMode()
 
 Types: [TransactionIdMode](NedWorker/TransactionIdMode.md#cls-TransactionIdMode)
 
-<a id="m-gettransid-01de732a93e8"></a>
-### getTransId(NedWorker)
+### getTransId(NedWorker) <a href="#m-getTransId-01de732a93e8" id="m-getTransId-01de732a93e8"></a>
 
 ```java
 public abstract void getTransId(com.tailf.ned.NedWorker w) throws Exception
@@ -407,22 +390,19 @@ When this method is invoked the NED should produce a transaction
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-getusestoredcapas-77d5f5640e81"></a>
-### getUseStoredCapas()
+### getUseStoredCapas() <a href="#m-getUseStoredCapas-77d5f5640e81" id="m-getUseStoredCapas-77d5f5640e81"></a>
 
 ```java
 public boolean getUseStoredCapas()
 ```
 
-<a id="m-getwantrevertdiff-ddea9ec7db21"></a>
-### getWantRevertDiff()
+### getWantRevertDiff() <a href="#m-getWantRevertDiff-ddea9ec7db21" id="m-getWantRevertDiff-ddea9ec7db21"></a>
 
 ```java
 public boolean getWantRevertDiff()
 ```
 
-<a id="m-identity-16b9d59e26e7"></a>
-### identity()
+### identity() <a href="#m-identity-16b9d59e26e7" id="m-identity-16b9d59e26e7"></a>
 
 ```java
 public String identity()
@@ -432,8 +412,7 @@ This should return the a unique (among registered NedConnection classes)
  identity. It will be used by NCS when creating new connections to
  control which of the registered NedConnection classes to use.
 
-<a id="m-initialize-b9daf0f9b461"></a>
-### initialize(NedWorker)
+### initialize(NedWorker) <a href="#m-initialize-b9daf0f9b461" id="m-initialize-b9daf0f9b461"></a>
 
 ```java
 public void initialize(com.tailf.ned.NedWorker w) throws Exception
@@ -464,8 +443,7 @@ Used for initializing an transaction. For instance if locking
     errors, and trace messages. It is also implements the NedTracer
     API and can be used in, for example, the SSHSession as a tracer.
 
-<a id="m-isalive-6915ae01ec8a"></a>
-### isAlive(NedWorker)
+### isAlive(NedWorker) <a href="#m-isAlive-6915ae01ec8a" id="m-isAlive-6915ae01ec8a"></a>
 
 ```java
 public boolean isAlive(com.tailf.ned.NedWorker w)
@@ -488,8 +466,7 @@ This method is invoked to check if a connection is still
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-issessionalive-f0d233ff28c0"></a>
-### isSessionAlive(NedWorker)
+### isSessionAlive(NedWorker) <a href="#m-isSessionAlive-f0d233ff28c0" id="m-isSessionAlive-f0d233ff28c0"></a>
 
 ```java
 protected void isSessionAlive(com.tailf.ned.NedWorker w) throws Exception
@@ -501,8 +478,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker)
 
 - `com.tailf.ned.NedWorker w`
 
-<a id="m-keepalive-92dcaaf81a7a"></a>
-### keepAlive(NedWorker)
+### keepAlive(NedWorker) <a href="#m-keepAlive-92dcaaf81a7a" id="m-keepAlive-92dcaaf81a7a"></a>
 
 ```java
 public boolean keepAlive(com.tailf.ned.NedWorker w)
@@ -523,8 +499,7 @@ This method is invoked periodically to keep an connection
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-keepsessionalive-f2332bacddd5"></a>
-### keepSessionAlive(NedWorker)
+### keepSessionAlive(NedWorker) <a href="#m-keepSessionAlive-f2332bacddd5" id="m-keepSessionAlive-f2332bacddd5"></a>
 
 ```java
 protected void keepSessionAlive(com.tailf.ned.NedWorker w) throws Exception
@@ -536,8 +511,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker)
 
 - `com.tailf.ned.NedWorker w`
 
-<a id="m-modules-15ef53dcaf36"></a>
-### modules()
+### modules() <a href="#m-modules-15ef53dcaf36" id="m-modules-15ef53dcaf36"></a>
 
 ```java
 public abstract String[] modules()
@@ -548,8 +522,7 @@ Which YANG modules are covered by the class instance. This information
  initiating a new connection, or when re-establishing a connection.
  The modules() method is not actually used.
 
-<a id="m-persist-a67bc9247622"></a>
-### persist(NedWorker)
+### persist(NedWorker) <a href="#m-persist-a67bc9247622" id="m-persist-a67bc9247622"></a>
 
 ```java
 public abstract void persist(com.tailf.ned.NedWorker w) throws Exception
@@ -574,8 +547,7 @@ This method is invoked when the currently committed change set
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-reconnect-a7a5900d41d6"></a>
-### reconnect(NedWorker)
+### reconnect(NedWorker) <a href="#m-reconnect-a7a5900d41d6" id="m-reconnect-a7a5900d41d6"></a>
 
 ```java
 public abstract void reconnect(com.tailf.ned.NedWorker w) throws Exception
@@ -594,8 +566,7 @@ Used for resuming a connection found in the connection pool.
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-retrieveidentity-910704c2eafa"></a>
-### retrieveIdentity(NedConnectionBase)
+### retrieveIdentity(NedConnectionBase) <a href="#m-retrieveIdentity-910704c2eafa" id="m-retrieveIdentity-910704c2eafa"></a>
 
 ```java
 protected static String retrieveIdentity(
@@ -610,8 +581,7 @@ Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase), [NedExce
 
 - `com.tailf.ned.NedConnectionBase ned`
 
-<a id="m-setcapabilities-67ad7861715a"></a>
-### setCapabilities(NedCapability[])
+### setCapabilities(NedCapability[]) <a href="#m-setCapabilities-67ad7861715a" id="m-setCapabilities-67ad7861715a"></a>
 
 ```java
 public void setCapabilities(com.tailf.ned.NedCapability[] capas)
@@ -630,8 +600,7 @@ This function is used to set the capabilities for a specific NED.
 
 - `com.tailf.ned.NedCapability[] capas` - an array of capabilities for config data
 
-<a id="m-setconnectiondata-3c1697dcc350"></a>
-### setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)
+### setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode) <a href="#m-setConnectionData-3c1697dcc350" id="m-setConnectionData-3c1697dcc350"></a>
 
 ```java
 public void setConnectionData(
@@ -659,8 +628,7 @@ This function is used to set the parameters of NedConnection for
     should be implemented. Support for Transaction IDs is required
     for check-sync action.
 
-<a id="m-setconnectionid-7eea4fea28bf"></a>
-### setConnectionId(int)
+### setConnectionId(int) <a href="#m-setConnectionId-7eea4fea28bf" id="m-setConnectionId-7eea4fea28bf"></a>
 
 ```java
 protected void setConnectionId(int connectionId)
@@ -670,8 +638,7 @@ protected void setConnectionId(int connectionId)
 
 - `int connectionId`
 
-<a id="m-setplatformdata-a069c83c8fde"></a>
-### setPlatformData(ConfXMLParam[])
+### setPlatformData(ConfXMLParam[]) <a href="#m-setPlatformData-a069c83c8fde" id="m-setPlatformData-a069c83c8fde"></a>
 
 ```java
 public void setPlatformData(com.tailf.conf.ConfXMLParam[] platformData)
@@ -739,8 +706,7 @@ This function is used to set the platform operational data for
   specific model such data should also be part of this array to be set at
   connection time.
 
-<a id="m-setpooltimestamp-28239e3d2dc4"></a>
-### setPoolTimestamp(long)
+### setPoolTimestamp(long) <a href="#m-setPoolTimestamp-28239e3d2dc4" id="m-setPoolTimestamp-28239e3d2dc4"></a>
 
 ```java
 protected void setPoolTimestamp(long timestamp)
@@ -750,8 +716,7 @@ protected void setPoolTimestamp(long timestamp)
 
 - `long timestamp`
 
-<a id="m-showstatsfilter-f3bd9d17b71c"></a>
-### showStatsFilter(NedWorker, int, ConfPath[])
+### showStatsFilter(NedWorker, int, ConfPath[]) <a href="#m-showStatsFilter-f3bd9d17b71c" id="m-showStatsFilter-f3bd9d17b71c"></a>
 
 ```java
 public void showStatsFilter(
@@ -784,8 +749,7 @@ When this method is invoked the NED should populate the provided
 - `int th` - a transaction handler that can be used in Maapi
 - `com.tailf.conf.ConfPath[] paths` - an array of ConfPath objects indicating what is requested
 
-<a id="m-showstatsfilter-1410355f6f46"></a>
-### showStatsFilter(NedWorker, int, NedShowFilter[])
+### showStatsFilter(NedWorker, int, NedShowFilter[]) <a href="#m-showStatsFilter-1410355f6f46" id="m-showStatsFilter-1410355f6f46"></a>
 
 ```java
 public void showStatsFilter(
@@ -818,8 +782,7 @@ When this method is invoked the NED should populate the provided
 - `int th` - a transaction handler that can be used in Maapi
 - `com.tailf.ned.NedShowFilter[] filters` - an array of NedShowFilter indicating what is requested
 
-<a id="m-showstatsfilter-38409a8f79a0"></a>
-### showStatsFilter(NedWorker, int, String[])
+### showStatsFilter(NedWorker, int, String[]) <a href="#m-showStatsFilter-38409a8f79a0" id="m-showStatsFilter-38409a8f79a0"></a>
 
 ```java
 public void showStatsFilter(com.tailf.ned.NedWorker w, int th, String[] xpaths) throws Exception
@@ -847,8 +810,7 @@ When this method is invoked the NED should populate the provided
 - `int th` - a transaction handler that can be used in Maapi
 - `String[] xpaths` - an array of xpath strings indicating what is requested
 
-<a id="m-showstatspath-1704122a5ac4"></a>
-### showStatsPath(NedWorker, int, ConfPath)
+### showStatsPath(NedWorker, int, ConfPath) <a href="#m-showStatsPath-1704122a5ac4" id="m-showStatsPath-1704122a5ac4"></a>
 
 ```java
 public void showStatsPath(
@@ -895,8 +857,7 @@ When this method is invoked depending on the node type the NED should:
 - `int th` - a transaction handler that can be used in Maapi
 - `com.tailf.conf.ConfPath path` - a ConfPath indication which list is requested
 
-<a id="m-type-7a4a5f26039a"></a>
-### type()
+### type() <a href="#m-type-7a4a5f26039a" id="m-type-7a4a5f26039a"></a>
 
 ```java
 public abstract String type()
@@ -906,8 +867,7 @@ The type is one of "cli" and "generic". This information is sent to
  NCS when the NedMux is started to let NCS know how to communicate
  with each device.
 
-<a id="m-uninitialize-bba07dcc2d37"></a>
-### uninitialize(NedWorker)
+### uninitialize(NedWorker) <a href="#m-uninitialize-bba07dcc2d37" id="m-uninitialize-bba07dcc2d37"></a>
 
 ```java
 public void uninitialize(com.tailf.ned.NedWorker w) throws Exception
@@ -934,8 +894,7 @@ If the transaction is not completed and the NED has done initialize
     implements the NedTracer API and can be used in, for example,
     the SSHSession as a tracer.
 
-<a id="m-usestoredcapabilities-06864caacb8f"></a>
-### useStoredCapabilities()
+### useStoredCapabilities() <a href="#m-useStoredCapabilities-06864caacb8f" id="m-useStoredCapabilities-06864caacb8f"></a>
 
 ```java
 public void useStoredCapabilities()

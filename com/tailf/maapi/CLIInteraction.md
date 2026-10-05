@@ -1,41 +1,39 @@
-<a id="cls-CLIInteraction"></a>
-# CLIInteraction
+# CLIInteraction <a href="#cls-CLIInteraction" id="cls-CLIInteraction"></a>
 
 ```java
 public class com.tailf.maapi.CLIInteraction
 ```
 
 Get CLI Interaction class for interaction with the user via the CLI.
- This class is retrieved using the [`Maapi#getCLIInteraction(int)`](Maapi.md#m-getcliinteraction-9602971a279d)
+ This class is retrieved using the [`Maapi#getCLIInteraction(int)`](Maapi.md#m-getCLIInteraction-9602971a279d)
  method as is intended to be used from inside an action callback
 
 ## Members
 
 **Constructors**:
 
-- [CLIInteraction(Maapi, int)](#m-cliinteraction-6a1b37c9c9ba)
+- [CLIInteraction(Maapi, int)](#m-CLIInteraction-6a1b37c9c9ba)
 
 **Methods**:
 
 - [cmd(String)](#m-cmd-eb782fd04760)
 - [cmd(String, EnumSet<CLIInteractionFlag>)](#m-cmd-6c89d5978ec8)
 - [cmd(String, EnumSet<CLIInteractionFlag>, String)](#m-cmd-2610c4fd95ef)
-- [cmdIO(String, EnumSet<CLIInteractionFlag>, String)](#m-cmdio-b5995307ada1)
+- [cmdIO(String, EnumSet<CLIInteractionFlag>, String)](#m-cmdIO-b5995307ada1)
 - [get(String)](#m-get-e86cd4d90bf3)
 - [printf(String, Object[])](#m-printf-a63ff41f959f)
 - [prompt(String, boolean)](#m-prompt-297d27e3e528)
 - [prompt(String, boolean, int)](#m-prompt-8d2b71411d58)
-- [promptOneOf(String, String[], boolean)](#m-promptoneof-a845984ad36e)
-- [promptOneOf(String, String[], boolean, int)](#m-promptoneof-0a6e79d200d3)
-- [readEOF(boolean)](#m-readeof-0a63a88d6c07)
-- [readEOF(boolean, int)](#m-readeof-303fe4cb25f2)
+- [promptOneOf(String, String[], boolean)](#m-promptOneOf-a845984ad36e)
+- [promptOneOf(String, String[], boolean, int)](#m-promptOneOf-0a6e79d200d3)
+- [readEOF(boolean)](#m-readEOF-0a63a88d6c07)
+- [readEOF(boolean, int)](#m-readEOF-303fe4cb25f2)
 - [set(String, String)](#m-set-6cacddbc8231)
 - [write(String)](#m-write-65e1fbc7c416)
 
 ## Constructors
 
-<a id="m-cliinteraction-6a1b37c9c9ba"></a>
-### CLIInteraction(Maapi, int)
+### CLIInteraction(Maapi, int) <a href="#m-CLIInteraction-6a1b37c9c9ba" id="m-CLIInteraction-6a1b37c9c9ba"></a>
 
 ```java
 protected CLIInteraction(com.tailf.maapi.Maapi maapi, int usid)
@@ -51,8 +49,7 @@ Types: [Maapi](Maapi.md#cls-Maapi)
 
 ## Methods
 
-<a id="m-cmd-eb782fd04760"></a>
-### cmd(String)
+### cmd(String) <a href="#m-cmd-eb782fd04760" id="m-cmd-eb782fd04760"></a>
 
 ```java
 public synchronized void cmd(
@@ -74,8 +71,7 @@ Execute CLI command in ongoing CLI session.
 - `IOException`
 - `ConfException`
 
-<a id="m-cmd-6c89d5978ec8"></a>
-### cmd(String, EnumSet<CLIInteractionFlag>)
+### cmd(String, EnumSet<CLIInteractionFlag>) <a href="#m-cmd-6c89d5978ec8" id="m-cmd-6c89d5978ec8"></a>
 
 ```java
 public synchronized void cmd(
@@ -101,8 +97,7 @@ Execute CLI command in ongoing CLI session. The flags field is used to
 - `IOException`
 - `ConfException`
 
-<a id="m-cmd-2610c4fd95ef"></a>
-### cmd(String, EnumSet<CLIInteractionFlag>, String)
+### cmd(String, EnumSet<CLIInteractionFlag>, String) <a href="#m-cmd-2610c4fd95ef" id="m-cmd-2610c4fd95ef"></a>
 
 ```java
 public synchronized void cmd(
@@ -132,8 +127,7 @@ Execute CLI command in ongoing CLI session. The flags field is used to
 - `IOException`
 - `ConfException`
 
-<a id="m-cmdio-b5995307ada1"></a>
-### cmdIO(String, EnumSet<CLIInteractionFlag>, String)
+### cmdIO(String, EnumSet<CLIInteractionFlag>, String) <a href="#m-cmdIO-b5995307ada1" id="m-cmdIO-b5995307ada1"></a>
 
 ```java
 public synchronized com.tailf.maapi.MaapiInputStream cmdIO(
@@ -167,8 +161,7 @@ Execute CLI command in ongoing CLI session and output result on socket.
 - `IOException`
 - `ConfException`
 
-<a id="m-get-e86cd4d90bf3"></a>
-### get(String)
+### get(String) <a href="#m-get-e86cd4d90bf3" id="m-get-e86cd4d90bf3"></a>
 
 ```java
 public synchronized String get(
@@ -192,8 +185,7 @@ Read CLI session parameter.
 - `IOException`
 - `ConfException`
 
-<a id="m-printf-a63ff41f959f"></a>
-### printf(String, Object[])
+### printf(String, Object[]) <a href="#m-printf-a63ff41f959f" id="m-printf-a63ff41f959f"></a>
 
 ```java
 public synchronized void printf(
@@ -217,8 +209,7 @@ Write to the CLI using printf formatting. This
 - `IOException`
 - `ConfException`
 
-<a id="m-prompt-297d27e3e528"></a>
-### prompt(String, boolean)
+### prompt(String, boolean) <a href="#m-prompt-297d27e3e528" id="m-prompt-297d27e3e528"></a>
 
 ```java
 public synchronized String prompt(
@@ -247,8 +238,7 @@ Prompt user for a string. The echo parameter is used to control if the
 - `IOException`
 - `ConfException`
 
-<a id="m-prompt-8d2b71411d58"></a>
-### prompt(String, boolean, int)
+### prompt(String, boolean, int) <a href="#m-prompt-8d2b71411d58" id="m-prompt-8d2b71411d58"></a>
 
 ```java
 public synchronized String prompt(
@@ -278,8 +268,7 @@ This function does the same as prompt(String promptStr), but also takes a
 - `IOException`
 - `ConfException`
 
-<a id="m-promptoneof-a845984ad36e"></a>
-### promptOneOf(String, String[], boolean)
+### promptOneOf(String, String[], boolean) <a href="#m-promptOneOf-a845984ad36e" id="m-promptOneOf-a845984ad36e"></a>
 
 ```java
 public synchronized String promptOneOf(
@@ -336,8 +325,7 @@ Prompt user for one of the strings given in the choice parameter.
 - `IOException`
 - `ConfException`
 
-<a id="m-promptoneof-0a6e79d200d3"></a>
-### promptOneOf(String, String[], boolean, int)
+### promptOneOf(String, String[], boolean, int) <a href="#m-promptOneOf-0a6e79d200d3" id="m-promptOneOf-0a6e79d200d3"></a>
 
 ```java
 public synchronized String promptOneOf(
@@ -369,8 +357,7 @@ This function does the same as promptOneOf(String promptStr, String[]
 - `IOException`
 - `ConfException`
 
-<a id="m-readeof-0a63a88d6c07"></a>
-### readEOF(boolean)
+### readEOF(boolean) <a href="#m-readEOF-0a63a88d6c07" id="m-readEOF-0a63a88d6c07"></a>
 
 ```java
 public synchronized String readEOF(
@@ -398,8 +385,7 @@ Read a multi line string from the CLI. The user has to end the input
 - `IOException`
 - `ConfException`
 
-<a id="m-readeof-303fe4cb25f2"></a>
-### readEOF(boolean, int)
+### readEOF(boolean, int) <a href="#m-readEOF-303fe4cb25f2" id="m-readEOF-303fe4cb25f2"></a>
 
 ```java
 public synchronized String readEOF(
@@ -427,8 +413,7 @@ This function does the same as readEOF(boolean echo), but also takes a
 - `IOException`
 - `ConfException`
 
-<a id="m-set-6cacddbc8231"></a>
-### set(String, String)
+### set(String, String) <a href="#m-set-6cacddbc8231" id="m-set-6cacddbc8231"></a>
 
 ```java
 public synchronized void set(
@@ -452,8 +437,7 @@ Set CLI session parameter.
 - `IOException`
 - `ConfException`
 
-<a id="m-write-65e1fbc7c416"></a>
-### write(String)
+### write(String) <a href="#m-write-65e1fbc7c416" id="m-write-65e1fbc7c416"></a>
 
 ```java
 public synchronized void write(String str) throws java.io.IOException, com.tailf.conf.ConfException

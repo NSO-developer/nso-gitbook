@@ -1,5 +1,4 @@
-<a id="cls-AuthCallbackProxy"></a>
-# AuthCallbackProxy
+# AuthCallbackProxy <a href="#cls-AuthCallbackProxy" id="cls-AuthCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.AuthCallbackProxy
@@ -16,20 +15,19 @@ Callback proxy for Authorization Callbacks.
 
 **Constructors**:
 
-- [AuthCallbackProxy(Object)](#m-authcallbackproxy-45ee0efcea28)
+- [AuthCallbackProxy(Object)](#m-AuthCallbackProxy-45ee0efcea28)
 
 **Methods**:
 
-- [addActionCapability(AuthCBType)](#m-addactioncapability-833edf722d4a)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [addActionCapability(AuthCBType)](#m-addActionCapability-833edf722d4a)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
 - [auth(DpAuthContext)](#m-auth-34bd42ec3143)
-- [getAuthCallbackProxys(Object)](#m-getauthcallbackproxys-4fdb572f55a0)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
+- [getAuthCallbackProxys(Object)](#m-getAuthCallbackProxys-4fdb572f55a0)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
 
 ## Constructors
 
-<a id="m-authcallbackproxy-45ee0efcea28"></a>
-### AuthCallbackProxy(Object)
+### AuthCallbackProxy(Object) <a href="#m-AuthCallbackProxy-45ee0efcea28" id="m-AuthCallbackProxy-45ee0efcea28"></a>
 
 ```java
 public AuthCallbackProxy(Object backupObject)
@@ -44,8 +42,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-833edf722d4a"></a>
-### addActionCapability(AuthCBType)
+### addActionCapability(AuthCBType) <a href="#m-addActionCapability-833edf722d4a" id="m-addActionCapability-833edf722d4a"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.AuthCBType authCBType)
@@ -60,8 +57,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.AuthCBType authCBType` - the authentication callback type to add
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -74,8 +70,7 @@ Add callback action method to proxy
 - `String name` - the canonical method name
 - `java.lang.reflect.Method method` - the callback method to register
 
-<a id="m-auth-34bd42ec3143"></a>
-### auth(DpAuthContext)
+### auth(DpAuthContext) <a href="#m-auth-34bd42ec3143" id="m-auth-34bd42ec3143"></a>
 
 ```java
 public boolean auth(com.tailf.dp.DpAuthContext atx) throws com.tailf.dp.DpCallbackException
@@ -95,8 +90,7 @@ Delegates authentication callback to the registered POJO method.
 
 - `DpCallbackException` - if the callback fails or is not implemented
 
-<a id="m-getauthcallbackproxys-4fdb572f55a0"></a>
-### getAuthCallbackProxys(Object)
+### getAuthCallbackProxys(Object) <a href="#m-getAuthCallbackProxys-4fdb572f55a0" id="m-getAuthCallbackProxys-4fdb572f55a0"></a>
 
 ```java
 public static com.tailf.dp.annotations.AuthCallbackProxy[] getAuthCallbackProxys(
@@ -121,8 +115,7 @@ Get array of proxy objects from registered POJO callback.
 - `DpCallbackException` - if method signatures don't match or
                              annotation is invalid
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()

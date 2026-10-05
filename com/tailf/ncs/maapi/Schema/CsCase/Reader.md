@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
@@ -10,21 +9,20 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChoices()](#m-getchoices-818fb3fccb86)
-- [getHns()](#m-gethns-457afaf41ae6)
-- [getHtag()](#m-gethtag-3a838d71ddf7)
-- [getNodes()](#m-getnodes-0d0e9b3adfd1)
-- [hasChoices()](#m-haschoices-6534dc5f2f55)
-- [hasNodes()](#m-hasnodes-0c3a4b7d62ab)
+- [getChoices()](#m-getChoices-818fb3fccb86)
+- [getHns()](#m-getHns-457afaf41ae6)
+- [getHtag()](#m-getHtag-3a838d71ddf7)
+- [getNodes()](#m-getNodes-0d0e9b3adfd1)
+- [hasChoices()](#m-hasChoices-6534dc5f2f55)
+- [hasNodes()](#m-hasNodes-0c3a4b7d62ab)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -51,8 +49,7 @@ Reader(
 
 ## Methods
 
-<a id="m-getchoices-818fb3fccb86"></a>
-### getChoices()
+### getChoices() <a href="#m-getChoices-818fb3fccb86" id="m-getChoices-818fb3fccb86"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice.Reader> getChoices()
@@ -60,22 +57,19 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice
 
 Types: [Reader](../CsChoice/Reader.md#cls-Reader)
 
-<a id="m-gethns-457afaf41ae6"></a>
-### getHns()
+### getHns() <a href="#m-getHns-457afaf41ae6" id="m-getHns-457afaf41ae6"></a>
 
 ```java
 public final int getHns()
 ```
 
-<a id="m-gethtag-3a838d71ddf7"></a>
-### getHtag()
+### getHtag() <a href="#m-getHtag-3a838d71ddf7" id="m-getHtag-3a838d71ddf7"></a>
 
 ```java
 public final int getHtag()
 ```
 
-<a id="m-getnodes-0d0e9b3adfd1"></a>
-### getNodes()
+### getNodes() <a href="#m-getNodes-0d0e9b3adfd1" id="m-getNodes-0d0e9b3adfd1"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getNodes()
@@ -83,15 +77,13 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Rea
 
 Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="m-haschoices-6534dc5f2f55"></a>
-### hasChoices()
+### hasChoices() <a href="#m-hasChoices-6534dc5f2f55" id="m-hasChoices-6534dc5f2f55"></a>
 
 ```java
 public final boolean hasChoices()
 ```
 
-<a id="m-hasnodes-0c3a4b7d62ab"></a>
-### hasNodes()
+### hasNodes() <a href="#m-hasNodes-0c3a4b7d62ab" id="m-hasNodes-0c3a4b7d62ab"></a>
 
 ```java
 public final boolean hasNodes()

@@ -1,5 +1,4 @@
-<a id="cls-CSChoice"></a>
-# CSChoice
+# CSChoice <a href="#cls-CSChoice" id="cls-CSChoice"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSChoice
@@ -15,8 +14,8 @@ Class representing a Schema Choice
 
 **Constructors**:
 
-- [CSChoice()](#m-cschoice-68f5778b1ef7)
-- [CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#m-cschoice-c5a1557367a2)
+- [CSChoice()](#m-CSChoice-68f5778b1ef7)
+- [CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)](#m-CSChoice-c5a1557367a2)
 
 **Fields**:
 
@@ -25,22 +24,21 @@ Class representing a Schema Choice
 
 **Methods**:
 
-- [getCaseParent()](#m-getcaseparent-85381d0de39b)
-- [getCases()](#m-getcases-42abc2944fb1)
-- [getDefaultCase()](#m-getdefaultcase-fa7745cee0b4)
-- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
-- [getNS()](#m-getns-3613c99d8888)
-- [getNSHash()](#m-getnshash-2129fb8b3cfe)
-- [getParentNode()](#m-getparentnode-452921385cc4)
-- [getSiblings()](#m-getsiblings-f467dd8b6a33)
-- [getTag()](#m-gettag-315f45956d6f)
-- [getTagHash()](#m-gettaghash-8f057919039c)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getCaseParent()](#m-getCaseParent-85381d0de39b)
+- [getCases()](#m-getCases-42abc2944fb1)
+- [getDefaultCase()](#m-getDefaultCase-fa7745cee0b4)
+- [getMinOccurs()](#m-getMinOccurs-cac79959dff8)
+- [getNS()](#m-getNS-3613c99d8888)
+- [getNSHash()](#m-getNSHash-2129fb8b3cfe)
+- [getParentNode()](#m-getParentNode-452921385cc4)
+- [getSiblings()](#m-getSiblings-f467dd8b6a33)
+- [getTag()](#m-getTag-315f45956d6f)
+- [getTagHash()](#m-getTagHash-8f057919039c)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-cschoice-68f5778b1ef7"></a>
-### CSChoice()
+### CSChoice() <a href="#m-CSChoice-68f5778b1ef7" id="m-CSChoice-68f5778b1ef7"></a>
 
 ```java
 protected CSChoice()
@@ -48,8 +46,7 @@ protected CSChoice()
 
 Constructor for CSChoice class
 
-<a id="m-cschoice-c5a1557367a2"></a>
-### CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice)
+### CSChoice(int, String, CSSchema, int, CSNode, CSCase, CSChoice) <a href="#m-CSChoice-c5a1557367a2" id="m-CSChoice-c5a1557367a2"></a>
 
 ```java
 public CSChoice(
@@ -78,8 +75,7 @@ Types: [CSSchema](CSSchema.md#cls-CSSchema), [CSNode](CSNode.md#cls-CSNode), [CS
 
 ## Fields
 
-<a id="m-case0"></a>
-### case0
+### case0 <a href="#m-case0" id="m-case0"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSCase case0 = null;
@@ -87,8 +83,7 @@ protected com.tailf.maapi.MaapiSchemas.CSCase case0 = null;
 
 Types: [CSCase](CSCase.md#cls-CSCase)
 
-<a id="m-defaultCase"></a>
-### defaultCase
+### defaultCase <a href="#m-defaultCase" id="m-defaultCase"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSCase defaultCase = null;
@@ -99,8 +94,7 @@ Types: [CSCase](CSCase.md#cls-CSCase)
 
 ## Methods
 
-<a id="m-getcaseparent-85381d0de39b"></a>
-### getCaseParent()
+### getCaseParent() <a href="#m-getCaseParent-85381d0de39b" id="m-getCaseParent-85381d0de39b"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getCaseParent()
@@ -113,8 +107,7 @@ If this choice is defined as a case for another choice this method
 
 **Returns:** CsCase the case parent for this case if any
 
-<a id="m-getcases-42abc2944fb1"></a>
-### getCases()
+### getCases() <a href="#m-getCases-42abc2944fb1" id="m-getCases-42abc2944fb1"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSCase> getCases()
@@ -127,8 +120,7 @@ get List of cases for this choice. Cases are represented by CSCase
 
 **Returns:** List of cases
 
-<a id="m-getdefaultcase-fa7745cee0b4"></a>
-### getDefaultCase()
+### getDefaultCase() <a href="#m-getDefaultCase-fa7745cee0b4" id="m-getDefaultCase-fa7745cee0b4"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSCase getDefaultCase()
@@ -141,8 +133,7 @@ get default case for the choice. The case is represented by a CSCase
 
 **Returns:** CSCase default case or null if not defined
 
-<a id="m-getminoccurs-cac79959dff8"></a>
-### getMinOccurs()
+### getMinOccurs() <a href="#m-getMinOccurs-cac79959dff8" id="m-getMinOccurs-cac79959dff8"></a>
 
 ```java
 public int getMinOccurs()
@@ -152,8 +143,7 @@ get MinOccurs for the choice
 
 **Returns:** int minOccurs
 
-<a id="m-getns-3613c99d8888"></a>
-### getNS()
+### getNS() <a href="#m-getNS-3613c99d8888" id="m-getNS-3613c99d8888"></a>
 
 ```java
 public String getNS()
@@ -163,8 +153,7 @@ get namespace represented as string
 
 **Returns:** String namespace
 
-<a id="m-getnshash-2129fb8b3cfe"></a>
-### getNSHash()
+### getNSHash() <a href="#m-getNSHash-2129fb8b3cfe" id="m-getNSHash-2129fb8b3cfe"></a>
 
 ```java
 public int getNSHash()
@@ -174,8 +163,7 @@ get namespace represented as hash value
 
 **Returns:** int hashvalue for the namespace
 
-<a id="m-getparentnode-452921385cc4"></a>
-### getParentNode()
+### getParentNode() <a href="#m-getParentNode-452921385cc4" id="m-getParentNode-452921385cc4"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getParentNode()
@@ -187,8 +175,7 @@ get parent node for the choice.
 
 **Returns:** CSNode parent node
 
-<a id="m-getsiblings-f467dd8b6a33"></a>
-### getSiblings()
+### getSiblings() <a href="#m-getSiblings-f467dd8b6a33" id="m-getSiblings-f467dd8b6a33"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getSiblings()
@@ -201,8 +188,7 @@ get List of sibling choices with the same parent node. The List is a
 
 **Returns:** List of sibling choices
 
-<a id="m-gettag-315f45956d6f"></a>
-### getTag()
+### getTag() <a href="#m-getTag-315f45956d6f" id="m-getTag-315f45956d6f"></a>
 
 ```java
 public String getTag()
@@ -212,8 +198,7 @@ get choice tag represented as string
 
 **Returns:** string tag
 
-<a id="m-gettaghash-8f057919039c"></a>
-### getTagHash()
+### getTagHash() <a href="#m-getTagHash-8f057919039c" id="m-getTagHash-8f057919039c"></a>
 
 ```java
 public int getTagHash()
@@ -223,8 +208,7 @@ get choice tag represented as hash value
 
 **Returns:** int hashvalue for the tag
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

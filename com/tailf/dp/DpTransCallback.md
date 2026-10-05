@@ -1,5 +1,4 @@
-<a id="cls-DpTransCallback"></a>
-# DpTransCallback
+# DpTransCallback <a href="#cls-DpTransCallback" id="cls-DpTransCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpTransCallback
@@ -84,7 +83,7 @@ This interface is used for the user transaction callbacks.
   // And so on ...
 ```
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
 
 ## Members
 
@@ -108,96 +107,86 @@ This interface is used for the user transaction callbacks.
 - [init(DpTrans)](#m-init-16fe8657859c)
 - [mask()](#m-mask-24c2fa29c6af)
 - [prepare(DpTrans)](#m-prepare-ab366f6ce7ea)
-- [transLock(DpTrans)](#m-translock-dc59c2c0e5f8)
-- [transUnlock(DpTrans)](#m-transunlock-d0b9be30b219)
-- [writeStart(DpTrans)](#m-writestart-5fee67274be5)
+- [transLock(DpTrans)](#m-transLock-dc59c2c0e5f8)
+- [transUnlock(DpTrans)](#m-transUnlock-d0b9be30b219)
+- [writeStart(DpTrans)](#m-writeStart-5fee67274be5)
 
 ## Fields
 
-<a id="m-M_ABORT"></a>
-### M_ABORT
+### M_ABORT <a href="#m-M_ABORT" id="m-M_ABORT"></a>
 
 ```java
 public static final int M_ABORT = 32;
 ```
 
-Bit flag for the `DpTrans#abort(DpTrans)` method.
+Bit flag for the `abort(DpTrans)` method.
 
-<a id="m-M_ALL"></a>
-### M_ALL
+### M_ALL <a href="#m-M_ALL" id="m-M_ALL"></a>
 
 ```java
 public static final int M_ALL = 255;
 ```
 
-<a id="m-M_COMMIT"></a>
-### M_COMMIT
+### M_COMMIT <a href="#m-M_COMMIT" id="m-M_COMMIT"></a>
 
 ```java
 public static final int M_COMMIT = 64;
 ```
 
-Bit flag for the `DpTrans#commit(DpTrans)` method.
+Bit flag for the `commit(DpTrans)` method.
 
-<a id="m-M_FINISH"></a>
-### M_FINISH
+### M_FINISH <a href="#m-M_FINISH" id="m-M_FINISH"></a>
 
 ```java
 public static final int M_FINISH = 128;
 ```
 
-Bit flag for the `DpTrans#finish(DpTrans)` method.
+Bit flag for the `finish(DpTrans)` method.
 
-<a id="m-M_INIT"></a>
-### M_INIT
+### M_INIT <a href="#m-M_INIT" id="m-M_INIT"></a>
 
 ```java
 public static final int M_INIT = 1;
 ```
 
-Bit flag for the `DpTrans#init(DpTrans)` method.
+Bit flag for the `init(DpTrans)` method.
 
-<a id="m-M_PREPARE"></a>
-### M_PREPARE
+### M_PREPARE <a href="#m-M_PREPARE" id="m-M_PREPARE"></a>
 
 ```java
 public static final int M_PREPARE = 16;
 ```
 
-Bit flag for the `DpTrans#prepare(DpTrans)` method.
+Bit flag for the `prepare(DpTrans)` method.
 
-<a id="m-M_TRANS_LOCK"></a>
-### M_TRANS_LOCK
+### M_TRANS_LOCK <a href="#m-M_TRANS_LOCK" id="m-M_TRANS_LOCK"></a>
 
 ```java
 public static final int M_TRANS_LOCK = 2;
 ```
 
-Bit flag for the `DpTrans#transLock(DpTrans)` method.
+Bit flag for the `transLock(DpTrans)` method.
 
-<a id="m-M_TRANS_UNLOCK"></a>
-### M_TRANS_UNLOCK
+### M_TRANS_UNLOCK <a href="#m-M_TRANS_UNLOCK" id="m-M_TRANS_UNLOCK"></a>
 
 ```java
 public static final int M_TRANS_UNLOCK = 4;
 ```
 
-Bit flag for the `DpTrans#transUnlock(DpTrans)` method.
+Bit flag for the `transUnlock(DpTrans)` method.
 
-<a id="m-M_WRITE_START"></a>
-### M_WRITE_START
+### M_WRITE_START <a href="#m-M_WRITE_START" id="m-M_WRITE_START"></a>
 
 ```java
 public static final int M_WRITE_START = 8;
 ```
 
-Bit flag for the `DpTrans#writeStart(DpTrans)` method.
+Bit flag for the `writeStart(DpTrans)` method.
 
 
 ## Methods
 
-<a id="m-abort-be36f552f23c"></a>
-### abort(DpTrans)
+### abort(DpTrans) <a href="#m-abort-be36f552f23c" id="m-abort-be36f552f23c"></a>
 
 ```java
 public abstract void abort(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -216,8 +205,7 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-commit-5e7631b9a7e8"></a>
-### commit(DpTrans)
+### commit(DpTrans) <a href="#m-commit-5e7631b9a7e8" id="m-commit-5e7631b9a7e8"></a>
 
 ```java
 public abstract void commit(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -236,8 +224,7 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-finish-1001d416be96"></a>
-### finish(DpTrans)
+### finish(DpTrans) <a href="#m-finish-1001d416be96" id="m-finish-1001d416be96"></a>
 
 ```java
 public abstract void finish(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -256,8 +243,7 @@ This  callback  is  responsible  for
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-init-16fe8657859c"></a>
-### init(DpTrans)
+### init(DpTrans) <a href="#m-init-16fe8657859c" id="m-init-16fe8657859c"></a>
 
 ```java
 public abstract void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -278,8 +264,7 @@ The  callback must indicate which WORKER_SOCKET
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()
@@ -288,17 +273,16 @@ public abstract int mask()
 Mask of flags for each method that is supported by this callback:
 
 
-- `#M_INIT`
-   - `#M_TRANS_LOCK`
-     - `#M_TRANS_UNLOCK`
-       - `#M_WRITE_START`
-         - `#M_PREPARE`
-           - `#M_ABORT`
-             - `#M_COMMIT`
-               - `#M_FINISH`
+- [`M_INIT`](DpTransCallback.md#m-M_INIT)
+   - [`M_TRANS_LOCK`](DpTransCallback.md#m-M_TRANS_LOCK)
+     - [`M_TRANS_UNLOCK`](DpTransCallback.md#m-M_TRANS_UNLOCK)
+       - [`M_WRITE_START`](DpTransCallback.md#m-M_WRITE_START)
+         - [`M_PREPARE`](DpTransCallback.md#m-M_PREPARE)
+           - [`M_ABORT`](DpTransCallback.md#m-M_ABORT)
+             - [`M_COMMIT`](DpTransCallback.md#m-M_COMMIT)
+               - [`M_FINISH`](DpTransCallback.md#m-M_FINISH)
 
-<a id="m-prepare-ab366f6ce7ea"></a>
-### prepare(DpTrans)
+### prepare(DpTrans) <a href="#m-prepare-ab366f6ce7ea" id="m-prepare-ab366f6ce7ea"></a>
 
 ```java
 public abstract void prepare(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -320,8 +304,7 @@ If we have multiple sources of data  it  is  highly  recommended
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-translock-dc59c2c0e5f8"></a>
-### transLock(DpTrans)
+### transLock(DpTrans) <a href="#m-transLock-dc59c2c0e5f8" id="m-transLock-dc59c2c0e5f8"></a>
 
 ```java
 public abstract void transLock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -349,8 +332,7 @@ This callback is invoked when the validation phase of the transaction
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-transunlock-d0b9be30b219"></a>
-### transUnlock(DpTrans)
+### transUnlock(DpTrans) <a href="#m-transUnlock-d0b9be30b219" id="m-transUnlock-d0b9be30b219"></a>
 
 ```java
 public abstract void transUnlock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -375,8 +357,7 @@ This  callback  is called when the validation of the transaction
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-writestart-5fee67274be5"></a>
-### writeStart(DpTrans)
+### writeStart(DpTrans) <a href="#m-writeStart-5fee67274be5" id="m-writeStart-5fee67274be5"></a>
 
 ```java
 public abstract void writeStart(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException

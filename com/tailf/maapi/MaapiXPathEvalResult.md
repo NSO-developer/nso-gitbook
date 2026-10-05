@@ -1,5 +1,4 @@
-<a id="cls-MaapiXPathEvalResult"></a>
-# MaapiXPathEvalResult
+# MaapiXPathEvalResult <a href="#cls-MaapiXPathEvalResult" id="cls-MaapiXPathEvalResult"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiXPathEvalResult
@@ -9,7 +8,7 @@ This interface is used with `xpathEval`
  method in `Maapi`. It allows a way
  to iterate through a set of resulting nodes from evaluating xpath expression.
 
-**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpatheval-8e8640817c0b)
+**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpathEval-8e8640817c0b)
 
 ## Members
 
@@ -19,8 +18,7 @@ This interface is used with `xpathEval`
 
 ## Methods
 
-<a id="m-result-94a00942459a"></a>
-### result(ConfObject[], ConfValue, Object)
+### result(ConfObject[], ConfValue, Object) <a href="#m-result-94a00942459a" id="m-result-94a00942459a"></a>
 
 ```java
 public abstract com.tailf.maapi.XPathNodeIterateResultFlag result(
@@ -44,7 +42,7 @@ For each node in the resulting node set evaluated by the xpath
 
 
  After each invocation this method (done
- by [xpathEval](Maapi.md#m-xpatheval-8e8640817c0b) )
+ by [xpathEval](Maapi.md#m-xpathEval-8e8640817c0b) )
  this method should return either
  [ITER_CONTINUE](XPathNodeIterateResultFlag.md#cls-XPathNodeIterateResultFlag) to
  tell the xpath evaluator to continue with the

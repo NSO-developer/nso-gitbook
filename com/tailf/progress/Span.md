@@ -1,5 +1,4 @@
-<a id="cls-Span"></a>
-# Span
+# Span <a href="#cls-Span" id="cls-Span"></a>
 
 ```java
 public class com.tailf.progress.Span
@@ -19,17 +18,16 @@ Class for `Span` information.
 
 **Constructors**:
 
-- [Span(String, String)](#m-span-6afbb0648a46)
+- [Span(String, String)](#m-Span-6afbb0648a46)
 
 **Methods**:
 
-- [getSpanId()](#m-getspanid-155306b8dcae)
-- [getTraceId()](#m-gettraceid-c3a30b94d9ce)
+- [getSpanId()](#m-getSpanId-155306b8dcae)
+- [getTraceId()](#m-getTraceId-c3a30b94d9ce)
 
 ## Constructors
 
-<a id="m-span-6afbb0648a46"></a>
-### Span(String, String)
+### Span(String, String) <a href="#m-Span-6afbb0648a46" id="m-Span-6afbb0648a46"></a>
 
 ```java
 public Span(String spanId, String traceId)
@@ -45,8 +43,7 @@ Create a new span object
 
 ## Methods
 
-<a id="m-getspanid-155306b8dcae"></a>
-### getSpanId()
+### getSpanId() <a href="#m-getSpanId-155306b8dcae" id="m-getSpanId-155306b8dcae"></a>
 
 ```java
 public String getSpanId()
@@ -54,8 +51,7 @@ public String getSpanId()
 
 **Returns:** the span ID as `String`
 
-<a id="m-gettraceid-c3a30b94d9ce"></a>
-### getTraceId()
+### getTraceId() <a href="#m-getTraceId-c3a30b94d9ce" id="m-getTraceId-c3a30b94d9ce"></a>
 
 ```java
 public String getTraceId()

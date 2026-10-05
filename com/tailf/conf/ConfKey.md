@@ -1,5 +1,4 @@
-<a id="cls-ConfKey"></a>
-# ConfKey
+# ConfKey <a href="#cls-ConfKey" id="cls-ConfKey"></a>
 
 ```java
 public class com.tailf.conf.ConfKey
@@ -20,10 +19,10 @@ This class represents a list key or a leaf-list element.
 
 **Constructors**:
 
-- [ConfKey(ConfEObject)](#m-confkey-31b01a854469)
-- [ConfKey(ConfEObject, String[])](#m-confkey-7e685c765cdb)
-- [ConfKey(ConfObject)](#m-confkey-3fd8f1232248)
-- [ConfKey(ConfObject[])](#m-confkey-b3ccb143be2d)
+- [ConfKey(ConfEObject)](#m-ConfKey-31b01a854469)
+- [ConfKey(ConfEObject, String[])](#m-ConfKey-7e685c765cdb)
+- [ConfKey(ConfObject)](#m-ConfKey-3fd8f1232248)
+- [ConfKey(ConfObject[])](#m-ConfKey-b3ccb143be2d)
 
 **Fields**:
 
@@ -84,21 +83,20 @@ This class represents a list key or a leaf-list element.
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [elementAt(int)](#m-elementat-7ff98e6e0268)
+- [elementAt(int)](#m-elementAt-7ff98e6e0268)
 - [elements()](#m-elements-1ac1cabc0e96)
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
+- [hashCode()](#m-hashCode-ef797a217903)
 - [length()](#m-length-89e7822f25ca)
-- [setPath(InstancePath)](#m-setpath-ad9962db3cab)
-- [toStrictlyQuotedString()](#m-tostrictlyquotedstring-c10aef71d8ba)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(boolean)](#m-tostring-b87d88746a2e)
+- [setPath(InstancePath)](#m-setPath-ad9962db3cab)
+- [toStrictlyQuotedString()](#m-toStrictlyQuotedString-c10aef71d8ba)
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(boolean)](#m-toString-b87d88746a2e)
 
 ## Constructors
 
-<a id="m-confkey-31b01a854469"></a>
-### ConfKey(ConfEObject)
+### ConfKey(ConfEObject) <a href="#m-ConfKey-31b01a854469" id="m-ConfKey-31b01a854469"></a>
 
 ```java
 public ConfKey(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -110,8 +108,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confkey-7e685c765cdb"></a>
-### ConfKey(ConfEObject, String[])
+### ConfKey(ConfEObject, String[]) <a href="#m-ConfKey-7e685c765cdb" id="m-ConfKey-7e685c765cdb"></a>
 
 ```java
 public ConfKey(com.tailf.proto.ConfEObject o, String[] tags) throws com.tailf.conf.ConfException
@@ -124,8 +121,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 - `com.tailf.proto.ConfEObject o`
 - `String[] tags`
 
-<a id="m-confkey-3fd8f1232248"></a>
-### ConfKey(ConfObject)
+### ConfKey(ConfObject) <a href="#m-ConfKey-3fd8f1232248" id="m-ConfKey-3fd8f1232248"></a>
 
 ```java
 public ConfKey(com.tailf.conf.ConfObject o)
@@ -137,8 +133,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 - `com.tailf.conf.ConfObject o`
 
-<a id="m-confkey-b3ccb143be2d"></a>
-### ConfKey(ConfObject[])
+### ConfKey(ConfObject[]) <a href="#m-ConfKey-b3ccb143be2d" id="m-ConfKey-b3ccb143be2d"></a>
 
 ```java
 public ConfKey(com.tailf.conf.ConfObject[] l)
@@ -153,8 +148,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-<a id="m-elementat-7ff98e6e0268"></a>
-### elementAt(int)
+### elementAt(int) <a href="#m-elementAt-7ff98e6e0268" id="m-elementAt-7ff98e6e0268"></a>
 
 ```java
 public com.tailf.conf.ConfObject elementAt(int i)
@@ -166,8 +160,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 - `int i`
 
-<a id="m-elements-1ac1cabc0e96"></a>
-### elements()
+### elements() <a href="#m-elements-1ac1cabc0e96" id="m-elements-1ac1cabc0e96"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] elements()
@@ -175,8 +168,7 @@ public com.tailf.conf.ConfObject[] elements()
 
 Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -184,8 +176,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -203,22 +194,19 @@ Indicates whether a `ConfKey` is "equal to" this.
 **Returns:** `true` if this `ConfKey` is the same as
  the o argument; `false` otherwise.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-length-89e7822f25ca"></a>
-### length()
+### length() <a href="#m-length-89e7822f25ca" id="m-length-89e7822f25ca"></a>
 
 ```java
 public int length()
 ```
 
-<a id="m-setpath-ad9962db3cab"></a>
-### setPath(InstancePath)
+### setPath(InstancePath) <a href="#m-setPath-ad9962db3cab" id="m-setPath-ad9962db3cab"></a>
 
 ```java
 public void setPath(com.tailf.conf.InstancePath path)
@@ -237,8 +225,7 @@ This method is only useful if at least one of the key elements is an
 
 - `com.tailf.conf.InstancePath path`
 
-<a id="m-tostrictlyquotedstring-c10aef71d8ba"></a>
-### toStrictlyQuotedString()
+### toStrictlyQuotedString() <a href="#m-toStrictlyQuotedString-c10aef71d8ba" id="m-toStrictlyQuotedString-c10aef71d8ba"></a>
 
 ```java
 public String toStrictlyQuotedString()
@@ -249,8 +236,7 @@ Returns a string representation of the ConfKey. The key elements will
 
 **Returns:** String representation of the key
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -259,12 +245,11 @@ public String toString()
 Returns a string representation of the ConfKey. The key elements will
  be quoted if necessary. Note however that this string representation is
  available for backward compatibility and is unsuitable for use in
- keypaths. Instead use `#toStrictlyQuotedString()`.
+ keypaths. Instead use [`toStrictlyQuotedString()`](ConfKey.md#m-toStrictlyQuotedString-c10aef71d8ba).
 
 **Returns:** String representation of the key
 
-<a id="m-tostring-b87d88746a2e"></a>
-### toString(boolean)
+### toString(boolean) <a href="#m-toString-b87d88746a2e" id="m-toString-b87d88746a2e"></a>
 
 ```java
 protected String toString(boolean strictQuotation)

@@ -1,5 +1,4 @@
-<a id="cls-DpAuthorizationCallback"></a>
-# DpAuthorizationCallback
+# DpAuthorizationCallback <a href="#cls-DpAuthorizationCallback" id="cls-DpAuthorizationCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpAuthorizationCallback
@@ -30,16 +29,15 @@ We can register two authorization callbacks with ConfD´s AAA subsystem.
 
 **Methods**:
 
-- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#m-checkcommandaccess-db6891a729e3)
-- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#m-checkdataaccess-e7c6a7d5a565)
-- [commandFilter()](#m-commandfilter-75902bf3c954)
-- [dataFilter()](#m-datafilter-5e19142fe25a)
+- [checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)](#m-checkCommandAccess-db6891a729e3)
+- [checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)](#m-checkDataAccess-e7c6a7d5a565)
+- [commandFilter()](#m-commandFilter-75902bf3c954)
+- [dataFilter()](#m-dataFilter-5e19142fe25a)
 - [mask()](#m-mask-24c2fa29c6af)
 
 ## Fields
 
-<a id="m-M_CHECK_CMD_ACCESS"></a>
-### M_CHECK_CMD_ACCESS
+### M_CHECK_CMD_ACCESS <a href="#m-M_CHECK_CMD_ACCESS" id="m-M_CHECK_CMD_ACCESS"></a>
 
 ```java
 public static final int M_CHECK_CMD_ACCESS = 1;
@@ -47,8 +45,7 @@ public static final int M_CHECK_CMD_ACCESS = 1;
 
 Mask for the command access authorization callback.
 
-<a id="m-M_CHECK_DATA_ACCESS"></a>
-### M_CHECK_DATA_ACCESS
+### M_CHECK_DATA_ACCESS <a href="#m-M_CHECK_DATA_ACCESS" id="m-M_CHECK_DATA_ACCESS"></a>
 
 ```java
 public static final int M_CHECK_DATA_ACCESS = 2;
@@ -59,8 +56,7 @@ Mask for the data access authorization callback.
 
 ## Methods
 
-<a id="m-checkcommandaccess-db6891a729e3"></a>
-### checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck)
+### checkCommandAccess(DpAuthorizationContext, String[], AuthorizationOperCheck) <a href="#m-checkCommandAccess-db6891a729e3" id="m-checkCommandAccess-db6891a729e3"></a>
 
 ```java
 public abstract com.tailf.dp.AuthorizationResult checkCommandAccess(
@@ -93,8 +89,7 @@ This callback is invoked for command authorization, i.e. it
 
 - `DpCallbackException` - if an error occurs during the callback
 
-<a id="m-checkdataaccess-e7c6a7d5a565"></a>
-### checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck)
+### checkDataAccess(DpAuthorizationContext, ConfObject[], AuthorizationOperCheck, AuthorizationOperCheck) <a href="#m-checkDataAccess-e7c6a7d5a565" id="m-checkDataAccess-e7c6a7d5a565"></a>
 
 ```java
 public abstract com.tailf.dp.AuthorizationResult checkDataAccess(
@@ -128,8 +123,7 @@ This callback is invoked for data authorization, i.e. it
 
 - `DpCallbackException` - if an error occurs during the callback
 
-<a id="m-commandfilter-75902bf3c954"></a>
-### commandFilter()
+### commandFilter() <a href="#m-commandFilter-75902bf3c954" id="m-commandFilter-75902bf3c954"></a>
 
 ```java
 public abstract java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> commandFilter()
@@ -145,8 +139,7 @@ Thus method can be used to prevent access checks from causing invocation
 
 **Returns:** EnumSet of AuthorizationOperCheck values
 
-<a id="m-datafilter-5e19142fe25a"></a>
-### dataFilter()
+### dataFilter() <a href="#m-dataFilter-5e19142fe25a" id="m-dataFilter-5e19142fe25a"></a>
 
 ```java
 public abstract java.util.EnumSet<com.tailf.dp.AuthorizationOperCheck> dataFilter()
@@ -161,8 +154,7 @@ Thus method can be used to prevent access checks from causing invocation
 
 **Returns:** EnumSet of AuthorizationOperCheck values
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()
@@ -171,7 +163,7 @@ public abstract int mask()
 Mask of flags for each method that is supported by this callback:
 
 
-- `#M_CHECK_CMD_ACCESS`
-   - `#M_CHECK_DATA_ACCESS`
+- [`M_CHECK_CMD_ACCESS`](DpAuthorizationCallback.md#m-M_CHECK_CMD_ACCESS)
+   - [`M_CHECK_DATA_ACCESS`](DpAuthorizationCallback.md#m-M_CHECK_DATA_ACCESS)
 
 **Returns:** bitmask indicating which callback methods are supported

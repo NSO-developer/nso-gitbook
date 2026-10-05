@@ -1,5 +1,4 @@
-<a id="cls-ConfOID"></a>
-# ConfOID
+# ConfOID <a href="#cls-ConfOID" id="cls-ConfOID"></a>
 
 ```java
 public class com.tailf.conf.ConfOID
@@ -15,9 +14,9 @@ DATA_CONTAINER - Corresponds to the YANG tailf:oid type.
 
 **Constructors**:
 
-- [ConfOID(ConfEObject)](#m-confoid-dcf203bff2ff)
-- [ConfOID(long[])](#m-confoid-86c67020a42b)
-- [ConfOID(String)](#m-confoid-7a132a416b24)
+- [ConfOID(ConfEObject)](#m-ConfOID-dcf203bff2ff)
+- [ConfOID(long[])](#m-ConfOID-86c67020a42b)
+- [ConfOID(String)](#m-ConfOID-7a132a416b24)
 
 **Fields**:
 
@@ -75,24 +74,23 @@ DATA_CONTAINER - Corresponds to the YANG tailf:oid type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfOID)](#m-compareto-eefcb76f2453)
+- [compareTo(ConfOID)](#m-compareTo-eefcb76f2453)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [longsValue()](#m-longsvalue-a907dfb6466e)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [longsValue()](#m-longsValue-a907dfb6466e)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confoid-dcf203bff2ff"></a>
-### ConfOID(ConfEObject)
+### ConfOID(ConfEObject) <a href="#m-ConfOID-dcf203bff2ff" id="m-ConfOID-dcf203bff2ff"></a>
 
 ```java
 public ConfOID(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -104,8 +102,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confoid-86c67020a42b"></a>
-### ConfOID(long[])
+### ConfOID(long[]) <a href="#m-ConfOID-86c67020a42b" id="m-ConfOID-86c67020a42b"></a>
 
 ```java
 public ConfOID(long[] oid)
@@ -115,8 +112,7 @@ public ConfOID(long[] oid)
 
 - `long[] oid`
 
-<a id="m-confoid-7a132a416b24"></a>
-### ConfOID(String)
+### ConfOID(String) <a href="#m-ConfOID-7a132a416b24" id="m-ConfOID-7a132a416b24"></a>
 
 ```java
 public ConfOID(String str) throws com.tailf.conf.ConfException
@@ -131,8 +127,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-compareto-eefcb76f2453"></a>
-### compareTo(ConfOID)
+### compareTo(ConfOID) <a href="#m-compareTo-eefcb76f2453" id="m-compareTo-eefcb76f2453"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfOID o)
@@ -144,8 +139,7 @@ Types: [ConfOID](ConfOID.md#cls-ConfOID)
 
 - `com.tailf.conf.ConfOID o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -153,8 +147,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -164,22 +157,19 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-longsvalue-a907dfb6466e"></a>
-### longsValue()
+### longsValue() <a href="#m-longsValue-a907dfb6466e" id="m-longsValue-a907dfb6466e"></a>
 
 ```java
 public long[] longsValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

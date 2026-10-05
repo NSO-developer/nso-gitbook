@@ -1,5 +1,4 @@
-<a id="cls-MaapiXPathEvalTrace"></a>
-# MaapiXPathEvalTrace
+# MaapiXPathEvalTrace <a href="#cls-MaapiXPathEvalTrace" id="cls-MaapiXPathEvalTrace"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiXPathEvalTrace
@@ -8,7 +7,7 @@ public interface com.tailf.maapi.MaapiXPathEvalTrace
 This interface is used with the `xpathEval` method
  in Maapi. It allows a way trace output from the xpath evaluator.
 
-**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpatheval-8e8640817c0b)
+**See also:** [`Maapi#xpathEval`](Maapi.md#m-xpathEval-8e8640817c0b)
 
 ## Members
 
@@ -18,8 +17,7 @@ This interface is used with the `xpathEval` method
 
 ## Methods
 
-<a id="m-trace-108e6d2bbf2f"></a>
-### trace(String)
+### trace(String) <a href="#m-trace-108e6d2bbf2f" id="m-trace-108e6d2bbf2f"></a>
 
 ```java
 public abstract com.tailf.maapi.XPathNodeIterateResultFlag trace(String str)

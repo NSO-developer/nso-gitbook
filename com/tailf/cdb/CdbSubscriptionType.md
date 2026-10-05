@@ -1,5 +1,4 @@
-<a id="cls-CdbSubscriptionType"></a>
-# CdbSubscriptionType
+# CdbSubscriptionType <a href="#cls-CdbSubscriptionType" id="cls-CdbSubscriptionType"></a>
 
 ```java
 public enum com.tailf.cdb.CdbSubscriptionType
@@ -19,14 +18,13 @@ Subscription type used in subscribe() method
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-SUB_OPERATIONAL"></a>
-### SUB_OPERATIONAL
+### SUB_OPERATIONAL <a href="#m-SUB_OPERATIONAL" id="m-SUB_OPERATIONAL"></a>
 
 ```java
 public static final com.tailf.cdb.CdbSubscriptionType SUB_OPERATIONAL;
@@ -34,8 +32,7 @@ public static final com.tailf.cdb.CdbSubscriptionType SUB_OPERATIONAL;
 
 Setup subscription in the operational database
 
-<a id="m-SUB_RUNNING"></a>
-### SUB_RUNNING
+### SUB_RUNNING <a href="#m-SUB_RUNNING" id="m-SUB_RUNNING"></a>
 
 ```java
 public static final com.tailf.cdb.CdbSubscriptionType SUB_RUNNING;
@@ -43,8 +40,7 @@ public static final com.tailf.cdb.CdbSubscriptionType SUB_RUNNING;
 
 Setup subscription in the running database
 
-<a id="m-SUB_RUNNING_TWOPHASE"></a>
-### SUB_RUNNING_TWOPHASE
+### SUB_RUNNING_TWOPHASE <a href="#m-SUB_RUNNING_TWOPHASE" id="m-SUB_RUNNING_TWOPHASE"></a>
 
 ```java
 public static final com.tailf.cdb.CdbSubscriptionType SUB_RUNNING_TWOPHASE;
@@ -56,15 +52,13 @@ Setup subscription for both prepare and commit states of transactions in
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.cdb.CdbSubscriptionType valueOf(String name)
@@ -76,8 +70,7 @@ Types: [CdbSubscriptionType](CdbSubscriptionType.md#cls-CdbSubscriptionType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.cdb.CdbSubscriptionType[] values()

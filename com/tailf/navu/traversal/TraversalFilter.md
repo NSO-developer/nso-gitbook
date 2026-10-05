@@ -1,5 +1,4 @@
-<a id="cls-TraversalFilter"></a>
-# TraversalFilter
+# TraversalFilter <a href="#cls-TraversalFilter" id="cls-TraversalFilter"></a>
 
 ```java
 public interface com.tailf.navu.traversal.TraversalFilter
@@ -9,12 +8,11 @@ public interface com.tailf.navu.traversal.TraversalFilter
 
 **Methods**:
 
-- [currentNode(NavuNode)](#m-currentnode-6c186cdcfd7e)
+- [currentNode(NavuNode)](#m-currentNode-6c186cdcfd7e)
 
 ## Methods
 
-<a id="m-currentnode-6c186cdcfd7e"></a>
-### currentNode(NavuNode)
+### currentNode(NavuNode) <a href="#m-currentNode-6c186cdcfd7e" id="m-currentNode-6c186cdcfd7e"></a>
 
 ```java
 public abstract void currentNode(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException

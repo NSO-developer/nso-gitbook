@@ -1,5 +1,4 @@
-<a id="cls-ConfXMLParamStartDel"></a>
-# ConfXMLParamStartDel
+# ConfXMLParamStartDel <a href="#cls-ConfXMLParamStartDel" id="cls-ConfXMLParamStartDel"></a>
 
 ```java
 public class com.tailf.conf.ConfXMLParamStartDel
@@ -15,11 +14,11 @@ Identifies a starting point in the model for a list item that should be
 
 **Constructors**:
 
-- [ConfXMLParamStartDel(ConfEObject)](#m-confxmlparamstartdel-87c05fd6faa7)
-- [ConfXMLParamStartDel(ConfNamespace, String)](#m-confxmlparamstartdel-aa2e017a1bef)
-- [ConfXMLParamStartDel(ConfPath, MountIdInterface, String, String)](#m-confxmlparamstartdel-4c12603161d6)
-- [ConfXMLParamStartDel(int, int)](#m-confxmlparamstartdel-0d64ef9bae1c)
-- [ConfXMLParamStartDel(String, String)](#m-confxmlparamstartdel-85f7f72cd3a7)
+- [ConfXMLParamStartDel(ConfEObject)](#m-ConfXMLParamStartDel-87c05fd6faa7)
+- [ConfXMLParamStartDel(ConfNamespace, String)](#m-ConfXMLParamStartDel-aa2e017a1bef)
+- [ConfXMLParamStartDel(ConfPath, MountIdInterface, String, String)](#m-ConfXMLParamStartDel-4c12603161d6)
+- [ConfXMLParamStartDel(int, int)](#m-ConfXMLParamStartDel-0d64ef9bae1c)
+- [ConfXMLParamStartDel(String, String)](#m-ConfXMLParamStartDel-85f7f72cd3a7)
 
 **Fields**:
 
@@ -86,42 +85,41 @@ Identifies a starting point in the model for a list item that should be
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [decodeParam(ConfEObject)](ConfXMLParam.md#m-decodeparam-6799ac4705bb) from ConfXMLParam
-- [decodeParams(ConfEObject)](ConfXMLParam.md#m-decodeparams-5a1c83464ae4) from ConfXMLParam
+- [decodeParam(ConfEObject)](ConfXMLParam.md#m-decodeParam-6799ac4705bb) from ConfXMLParam
+- [decodeParams(ConfEObject)](ConfXMLParam.md#m-decodeParams-5a1c83464ae4) from ConfXMLParam
 - [encode()](ConfXMLParam.md#m-encode-fbae522bba37) from ConfXMLParam
 - [encode(ConfXMLParam[])](ConfXMLParam.md#m-encode-7356521b6411) from ConfXMLParam
 - [encode(List<String>)](ConfXMLParam.md#m-encode-da878ca7b20d) from ConfXMLParam
 - [encode(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encode-e9fa5532e6d5) from ConfXMLParam
-- [encodeHKP()](ConfXMLParam.md#m-encodehkp-50d4bf8d0256) from ConfXMLParam
-- [encodeHKP(ConfXMLParam[])](ConfXMLParam.md#m-encodehkp-ebc927cd1ccf) from ConfXMLParam
-- [encodeHKP(List<String>)](ConfXMLParam.md#m-encodehkp-2ff023418b43) from ConfXMLParam
-- [encodeHKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodehkp-6bc3df5e84cb) from ConfXMLParam
-- [encodeIKP()](ConfXMLParam.md#m-encodeikp-b160b87f6433) from ConfXMLParam
-- [encodeIKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeikp-ab4320a110c6) from ConfXMLParam
-- [encodeIKP(List<String>)](ConfXMLParam.md#m-encodeikp-6f358b789ce0) from ConfXMLParam
-- [encodeIKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeikp-c0a89dd54349) from ConfXMLParam
+- [encodeHKP()](ConfXMLParam.md#m-encodeHKP-50d4bf8d0256) from ConfXMLParam
+- [encodeHKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeHKP-ebc927cd1ccf) from ConfXMLParam
+- [encodeHKP(List<String>)](ConfXMLParam.md#m-encodeHKP-2ff023418b43) from ConfXMLParam
+- [encodeHKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeHKP-6bc3df5e84cb) from ConfXMLParam
+- [encodeIKP()](ConfXMLParam.md#m-encodeIKP-b160b87f6433) from ConfXMLParam
+- [encodeIKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeIKP-ab4320a110c6) from ConfXMLParam
+- [encodeIKP(List<String>)](ConfXMLParam.md#m-encodeIKP-6f358b789ce0) from ConfXMLParam
+- [encodeIKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeIKP-c0a89dd54349) from ConfXMLParam
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfNamespace()](ConfXMLParam.md#m-getconfnamespace-87556caf3223) from ConfXMLParam
-- [getNSHash()](ConfXMLParam.md#m-getnshash-2129fb8b3cfe) from ConfXMLParam
-- [getTag()](ConfXMLParam.md#m-gettag-315f45956d6f) from ConfXMLParam
-- [getTagHash()](ConfXMLParam.md#m-gettaghash-8f057919039c) from ConfXMLParam
-- [getValue()](ConfXMLParam.md#m-getvalue-d93864668c40) from ConfXMLParam
-- [hashCode()](#m-hashcode-ef797a217903)
-- [setCdbInstanceInteger(int)](ConfXMLParam.md#m-setcdbinstanceinteger-f7ee747b0f20) from ConfXMLParam
-- [setNamespace(ConfNamespace)](ConfXMLParam.md#m-setnamespace-30316a480cfa) from ConfXMLParam
-- [setNamespaceFromMountId(List<String>)](ConfXMLParam.md#m-setnamespacefrommountid-1aa3f67eb493) from ConfXMLParam
-- [toDOM(ConfXMLParam[])](ConfXMLParam.md#m-todom-13fd8f87f1a2) from ConfXMLParam
-- [toDOM(ConfXMLParam[], String, String)](ConfXMLParam.md#m-todom-a2de025173ef) from ConfXMLParam
-- [toString()](ConfXMLParam.md#m-tostring-e9d48c5503ef) from ConfXMLParam
-- [toXML(ConfXMLParam[])](ConfXMLParam.md#m-toxml-122580fde7a8) from ConfXMLParam
-- [toXML(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toxml-e7cef9be4b1e) from ConfXMLParam
-- [toXMLParams(String, ConfPath)](ConfXMLParam.md#m-toxmlparams-bec6ecc54070) from ConfXMLParam
-- [toXMLParams(String, ConfPath, int)](ConfXMLParam.md#m-toxmlparams-61a6fdf75a13) from ConfXMLParam
+- [getConfNamespace()](ConfXMLParam.md#m-getConfNamespace-87556caf3223) from ConfXMLParam
+- [getNSHash()](ConfXMLParam.md#m-getNSHash-2129fb8b3cfe) from ConfXMLParam
+- [getTag()](ConfXMLParam.md#m-getTag-315f45956d6f) from ConfXMLParam
+- [getTagHash()](ConfXMLParam.md#m-getTagHash-8f057919039c) from ConfXMLParam
+- [getValue()](ConfXMLParam.md#m-getValue-d93864668c40) from ConfXMLParam
+- [hashCode()](#m-hashCode-ef797a217903)
+- [setCdbInstanceInteger(int)](ConfXMLParam.md#m-setCdbInstanceInteger-f7ee747b0f20) from ConfXMLParam
+- [setNamespace(ConfNamespace)](ConfXMLParam.md#m-setNamespace-30316a480cfa) from ConfXMLParam
+- [setNamespaceFromMountId(List<String>)](ConfXMLParam.md#m-setNamespaceFromMountId-1aa3f67eb493) from ConfXMLParam
+- [toDOM(ConfXMLParam[])](ConfXMLParam.md#m-toDOM-13fd8f87f1a2) from ConfXMLParam
+- [toDOM(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toDOM-a2de025173ef) from ConfXMLParam
+- [toString()](ConfXMLParam.md#m-toString-e9d48c5503ef) from ConfXMLParam
+- [toXML(ConfXMLParam[])](ConfXMLParam.md#m-toXML-122580fde7a8) from ConfXMLParam
+- [toXML(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toXML-e7cef9be4b1e) from ConfXMLParam
+- [toXMLParams(String, ConfPath)](ConfXMLParam.md#m-toXMLParams-bec6ecc54070) from ConfXMLParam
+- [toXMLParams(String, ConfPath, int)](ConfXMLParam.md#m-toXMLParams-61a6fdf75a13) from ConfXMLParam
 
 ## Constructors
 
-<a id="m-confxmlparamstartdel-87c05fd6faa7"></a>
-### ConfXMLParamStartDel(ConfEObject)
+### ConfXMLParamStartDel(ConfEObject) <a href="#m-ConfXMLParamStartDel-87c05fd6faa7" id="m-ConfXMLParamStartDel-87c05fd6faa7"></a>
 
 ```java
 public ConfXMLParamStartDel(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -133,8 +131,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confxmlparamstartdel-aa2e017a1bef"></a>
-### ConfXMLParamStartDel(ConfNamespace, String)
+### ConfXMLParamStartDel(ConfNamespace, String) <a href="#m-ConfXMLParamStartDel-aa2e017a1bef" id="m-ConfXMLParamStartDel-aa2e017a1bef"></a>
 
 ```java
 public ConfXMLParamStartDel(com.tailf.conf.ConfNamespace namespace, String tagString)
@@ -147,8 +144,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 - `com.tailf.conf.ConfNamespace namespace`
 - `String tagString`
 
-<a id="m-confxmlparamstartdel-4c12603161d6"></a>
-### ConfXMLParamStartDel(ConfPath, MountIdInterface, String, String)
+### ConfXMLParamStartDel(ConfPath, MountIdInterface, String, String) <a href="#m-ConfXMLParamStartDel-4c12603161d6" id="m-ConfXMLParamStartDel-4c12603161d6"></a>
 
 ```java
 public ConfXMLParamStartDel(
@@ -168,8 +164,7 @@ Types: [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface
 - `String prefix`
 - `String tagString`
 
-<a id="m-confxmlparamstartdel-0d64ef9bae1c"></a>
-### ConfXMLParamStartDel(int, int)
+### ConfXMLParamStartDel(int, int) <a href="#m-ConfXMLParamStartDel-0d64ef9bae1c" id="m-ConfXMLParamStartDel-0d64ef9bae1c"></a>
 
 ```java
 public ConfXMLParamStartDel(int ns, int tag)
@@ -180,8 +175,7 @@ public ConfXMLParamStartDel(int ns, int tag)
 - `int ns`
 - `int tag`
 
-<a id="m-confxmlparamstartdel-85f7f72cd3a7"></a>
-### ConfXMLParamStartDel(String, String)
+### ConfXMLParamStartDel(String, String) <a href="#m-ConfXMLParamStartDel-85f7f72cd3a7" id="m-ConfXMLParamStartDel-85f7f72cd3a7"></a>
 
 ```java
 public ConfXMLParamStartDel(String prefix, String tagString)
@@ -195,8 +189,7 @@ public ConfXMLParamStartDel(String prefix, String tagString)
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -206,8 +199,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()

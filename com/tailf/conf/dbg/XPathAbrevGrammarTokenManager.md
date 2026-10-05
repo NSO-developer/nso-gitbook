@@ -1,5 +1,4 @@
-<a id="cls-XPathAbrevGrammarTokenManager"></a>
-# XPathAbrevGrammarTokenManager
+# XPathAbrevGrammarTokenManager <a href="#cls-XPathAbrevGrammarTokenManager" id="cls-XPathAbrevGrammarTokenManager"></a>
 
 **Package-private**
 
@@ -17,8 +16,8 @@ Token Manager.
 
 **Constructors**:
 
-- [XPathAbrevGrammarTokenManager(JavaCharStream)](#m-xpathabrevgrammartokenmanager-17b8fdcee667)
-- [XPathAbrevGrammarTokenManager(JavaCharStream, int)](#m-xpathabrevgrammartokenmanager-e879d22c6d57)
+- [XPathAbrevGrammarTokenManager(JavaCharStream)](#m-XPathAbrevGrammarTokenManager-17b8fdcee667)
+- [XPathAbrevGrammarTokenManager(JavaCharStream, int)](#m-XPathAbrevGrammarTokenManager-e879d22c6d57)
 
 **Fields**:
 
@@ -112,20 +111,19 @@ Token Manager.
 
 **Methods**:
 
-- [getNextToken()](#m-getnexttoken-dc921ada5024)
-- [jjFillToken()](#m-jjfilltoken-65cab186126c)
-- [MoreLexicalActions()](#m-morelexicalactions-949853b6331d)
-- [ReInit(JavaCharStream)](#m-reinit-b39574178b47)
-- [ReInit(JavaCharStream, int)](#m-reinit-6000a5dcdc64)
-- [setDebugStream(PrintStream)](#m-setdebugstream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#m-skiplexicalactions-424bc724dae7)
-- [SwitchTo(int)](#m-switchto-11e96339668c)
-- [TokenLexicalActions(Token)](#m-tokenlexicalactions-2e44b9f98c7f)
+- [getNextToken()](#m-getNextToken-dc921ada5024)
+- [jjFillToken()](#m-jjFillToken-65cab186126c)
+- [MoreLexicalActions()](#m-MoreLexicalActions-949853b6331d)
+- [ReInit(JavaCharStream)](#m-ReInit-b39574178b47)
+- [ReInit(JavaCharStream, int)](#m-ReInit-6000a5dcdc64)
+- [setDebugStream(PrintStream)](#m-setDebugStream-b3ded1375b4f)
+- [SkipLexicalActions(Token)](#m-SkipLexicalActions-424bc724dae7)
+- [SwitchTo(int)](#m-SwitchTo-11e96339668c)
+- [TokenLexicalActions(Token)](#m-TokenLexicalActions-2e44b9f98c7f)
 
 ## Constructors
 
-<a id="m-xpathabrevgrammartokenmanager-17b8fdcee667"></a>
-### XPathAbrevGrammarTokenManager(JavaCharStream)
+### XPathAbrevGrammarTokenManager(JavaCharStream) <a href="#m-XPathAbrevGrammarTokenManager-17b8fdcee667" id="m-XPathAbrevGrammarTokenManager-17b8fdcee667"></a>
 
 ```java
 public XPathAbrevGrammarTokenManager(com.tailf.conf.dbg.JavaCharStream stream)
@@ -139,8 +137,7 @@ Constructor.
 
 - `com.tailf.conf.dbg.JavaCharStream stream`
 
-<a id="m-xpathabrevgrammartokenmanager-e879d22c6d57"></a>
-### XPathAbrevGrammarTokenManager(JavaCharStream, int)
+### XPathAbrevGrammarTokenManager(JavaCharStream, int) <a href="#m-XPathAbrevGrammarTokenManager-e879d22c6d57" id="m-XPathAbrevGrammarTokenManager-e879d22c6d57"></a>
 
 ```java
 public XPathAbrevGrammarTokenManager(com.tailf.conf.dbg.JavaCharStream stream, int lexState)
@@ -158,15 +155,13 @@ Constructor.
 
 ## Fields
 
-<a id="m-curChar"></a>
-### curChar
+### curChar <a href="#m-curChar" id="m-curChar"></a>
 
 ```java
 protected int curChar = null;
 ```
 
-<a id="m-curLexState"></a>
-### curLexState
+### curLexState <a href="#m-curLexState" id="m-curLexState"></a>
 
 **Package-private**
 
@@ -174,8 +169,7 @@ protected int curChar = null;
 int curLexState = null;
 ```
 
-<a id="m-debugStream"></a>
-### debugStream
+### debugStream <a href="#m-debugStream" id="m-debugStream"></a>
 
 ```java
 public java.io.PrintStream debugStream = null;
@@ -183,8 +177,7 @@ public java.io.PrintStream debugStream = null;
 
 Debug output.
 
-<a id="m-defaultLexState"></a>
-### defaultLexState
+### defaultLexState <a href="#m-defaultLexState" id="m-defaultLexState"></a>
 
 **Package-private**
 
@@ -192,8 +185,7 @@ Debug output.
 int defaultLexState = null;
 ```
 
-<a id="m-input_stream"></a>
-### input_stream
+### input_stream <a href="#m-input_stream" id="m-input_stream"></a>
 
 ```java
 protected com.tailf.conf.dbg.JavaCharStream input_stream = null;
@@ -201,8 +193,7 @@ protected com.tailf.conf.dbg.JavaCharStream input_stream = null;
 
 Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 
-<a id="m-jjbitVec0"></a>
-### jjbitVec0
+### jjbitVec0 <a href="#m-jjbitVec0" id="m-jjbitVec0"></a>
 
 **Package-private**
 
@@ -210,8 +201,7 @@ Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 static final long[] jjbitVec0 = null;
 ```
 
-<a id="m-jjbitVec10"></a>
-### jjbitVec10
+### jjbitVec10 <a href="#m-jjbitVec10" id="m-jjbitVec10"></a>
 
 **Package-private**
 
@@ -219,8 +209,7 @@ static final long[] jjbitVec0 = null;
 static final long[] jjbitVec10 = null;
 ```
 
-<a id="m-jjbitVec11"></a>
-### jjbitVec11
+### jjbitVec11 <a href="#m-jjbitVec11" id="m-jjbitVec11"></a>
 
 **Package-private**
 
@@ -228,8 +217,7 @@ static final long[] jjbitVec10 = null;
 static final long[] jjbitVec11 = null;
 ```
 
-<a id="m-jjbitVec12"></a>
-### jjbitVec12
+### jjbitVec12 <a href="#m-jjbitVec12" id="m-jjbitVec12"></a>
 
 **Package-private**
 
@@ -237,8 +225,7 @@ static final long[] jjbitVec11 = null;
 static final long[] jjbitVec12 = null;
 ```
 
-<a id="m-jjbitVec13"></a>
-### jjbitVec13
+### jjbitVec13 <a href="#m-jjbitVec13" id="m-jjbitVec13"></a>
 
 **Package-private**
 
@@ -246,8 +233,7 @@ static final long[] jjbitVec12 = null;
 static final long[] jjbitVec13 = null;
 ```
 
-<a id="m-jjbitVec14"></a>
-### jjbitVec14
+### jjbitVec14 <a href="#m-jjbitVec14" id="m-jjbitVec14"></a>
 
 **Package-private**
 
@@ -255,8 +241,7 @@ static final long[] jjbitVec13 = null;
 static final long[] jjbitVec14 = null;
 ```
 
-<a id="m-jjbitVec15"></a>
-### jjbitVec15
+### jjbitVec15 <a href="#m-jjbitVec15" id="m-jjbitVec15"></a>
 
 **Package-private**
 
@@ -264,8 +249,7 @@ static final long[] jjbitVec14 = null;
 static final long[] jjbitVec15 = null;
 ```
 
-<a id="m-jjbitVec16"></a>
-### jjbitVec16
+### jjbitVec16 <a href="#m-jjbitVec16" id="m-jjbitVec16"></a>
 
 **Package-private**
 
@@ -273,8 +257,7 @@ static final long[] jjbitVec15 = null;
 static final long[] jjbitVec16 = null;
 ```
 
-<a id="m-jjbitVec17"></a>
-### jjbitVec17
+### jjbitVec17 <a href="#m-jjbitVec17" id="m-jjbitVec17"></a>
 
 **Package-private**
 
@@ -282,8 +265,7 @@ static final long[] jjbitVec16 = null;
 static final long[] jjbitVec17 = null;
 ```
 
-<a id="m-jjbitVec18"></a>
-### jjbitVec18
+### jjbitVec18 <a href="#m-jjbitVec18" id="m-jjbitVec18"></a>
 
 **Package-private**
 
@@ -291,8 +273,7 @@ static final long[] jjbitVec17 = null;
 static final long[] jjbitVec18 = null;
 ```
 
-<a id="m-jjbitVec19"></a>
-### jjbitVec19
+### jjbitVec19 <a href="#m-jjbitVec19" id="m-jjbitVec19"></a>
 
 **Package-private**
 
@@ -300,8 +281,7 @@ static final long[] jjbitVec18 = null;
 static final long[] jjbitVec19 = null;
 ```
 
-<a id="m-jjbitVec2"></a>
-### jjbitVec2
+### jjbitVec2 <a href="#m-jjbitVec2" id="m-jjbitVec2"></a>
 
 **Package-private**
 
@@ -309,8 +289,7 @@ static final long[] jjbitVec19 = null;
 static final long[] jjbitVec2 = null;
 ```
 
-<a id="m-jjbitVec20"></a>
-### jjbitVec20
+### jjbitVec20 <a href="#m-jjbitVec20" id="m-jjbitVec20"></a>
 
 **Package-private**
 
@@ -318,8 +297,7 @@ static final long[] jjbitVec2 = null;
 static final long[] jjbitVec20 = null;
 ```
 
-<a id="m-jjbitVec21"></a>
-### jjbitVec21
+### jjbitVec21 <a href="#m-jjbitVec21" id="m-jjbitVec21"></a>
 
 **Package-private**
 
@@ -327,8 +305,7 @@ static final long[] jjbitVec20 = null;
 static final long[] jjbitVec21 = null;
 ```
 
-<a id="m-jjbitVec22"></a>
-### jjbitVec22
+### jjbitVec22 <a href="#m-jjbitVec22" id="m-jjbitVec22"></a>
 
 **Package-private**
 
@@ -336,8 +313,7 @@ static final long[] jjbitVec21 = null;
 static final long[] jjbitVec22 = null;
 ```
 
-<a id="m-jjbitVec23"></a>
-### jjbitVec23
+### jjbitVec23 <a href="#m-jjbitVec23" id="m-jjbitVec23"></a>
 
 **Package-private**
 
@@ -345,8 +321,7 @@ static final long[] jjbitVec22 = null;
 static final long[] jjbitVec23 = null;
 ```
 
-<a id="m-jjbitVec24"></a>
-### jjbitVec24
+### jjbitVec24 <a href="#m-jjbitVec24" id="m-jjbitVec24"></a>
 
 **Package-private**
 
@@ -354,8 +329,7 @@ static final long[] jjbitVec23 = null;
 static final long[] jjbitVec24 = null;
 ```
 
-<a id="m-jjbitVec25"></a>
-### jjbitVec25
+### jjbitVec25 <a href="#m-jjbitVec25" id="m-jjbitVec25"></a>
 
 **Package-private**
 
@@ -363,8 +337,7 @@ static final long[] jjbitVec24 = null;
 static final long[] jjbitVec25 = null;
 ```
 
-<a id="m-jjbitVec26"></a>
-### jjbitVec26
+### jjbitVec26 <a href="#m-jjbitVec26" id="m-jjbitVec26"></a>
 
 **Package-private**
 
@@ -372,8 +345,7 @@ static final long[] jjbitVec25 = null;
 static final long[] jjbitVec26 = null;
 ```
 
-<a id="m-jjbitVec27"></a>
-### jjbitVec27
+### jjbitVec27 <a href="#m-jjbitVec27" id="m-jjbitVec27"></a>
 
 **Package-private**
 
@@ -381,8 +353,7 @@ static final long[] jjbitVec26 = null;
 static final long[] jjbitVec27 = null;
 ```
 
-<a id="m-jjbitVec28"></a>
-### jjbitVec28
+### jjbitVec28 <a href="#m-jjbitVec28" id="m-jjbitVec28"></a>
 
 **Package-private**
 
@@ -390,8 +361,7 @@ static final long[] jjbitVec27 = null;
 static final long[] jjbitVec28 = null;
 ```
 
-<a id="m-jjbitVec29"></a>
-### jjbitVec29
+### jjbitVec29 <a href="#m-jjbitVec29" id="m-jjbitVec29"></a>
 
 **Package-private**
 
@@ -399,8 +369,7 @@ static final long[] jjbitVec28 = null;
 static final long[] jjbitVec29 = null;
 ```
 
-<a id="m-jjbitVec3"></a>
-### jjbitVec3
+### jjbitVec3 <a href="#m-jjbitVec3" id="m-jjbitVec3"></a>
 
 **Package-private**
 
@@ -408,8 +377,7 @@ static final long[] jjbitVec29 = null;
 static final long[] jjbitVec3 = null;
 ```
 
-<a id="m-jjbitVec30"></a>
-### jjbitVec30
+### jjbitVec30 <a href="#m-jjbitVec30" id="m-jjbitVec30"></a>
 
 **Package-private**
 
@@ -417,8 +385,7 @@ static final long[] jjbitVec3 = null;
 static final long[] jjbitVec30 = null;
 ```
 
-<a id="m-jjbitVec31"></a>
-### jjbitVec31
+### jjbitVec31 <a href="#m-jjbitVec31" id="m-jjbitVec31"></a>
 
 **Package-private**
 
@@ -426,8 +393,7 @@ static final long[] jjbitVec30 = null;
 static final long[] jjbitVec31 = null;
 ```
 
-<a id="m-jjbitVec32"></a>
-### jjbitVec32
+### jjbitVec32 <a href="#m-jjbitVec32" id="m-jjbitVec32"></a>
 
 **Package-private**
 
@@ -435,8 +401,7 @@ static final long[] jjbitVec31 = null;
 static final long[] jjbitVec32 = null;
 ```
 
-<a id="m-jjbitVec33"></a>
-### jjbitVec33
+### jjbitVec33 <a href="#m-jjbitVec33" id="m-jjbitVec33"></a>
 
 **Package-private**
 
@@ -444,8 +409,7 @@ static final long[] jjbitVec32 = null;
 static final long[] jjbitVec33 = null;
 ```
 
-<a id="m-jjbitVec34"></a>
-### jjbitVec34
+### jjbitVec34 <a href="#m-jjbitVec34" id="m-jjbitVec34"></a>
 
 **Package-private**
 
@@ -453,8 +417,7 @@ static final long[] jjbitVec33 = null;
 static final long[] jjbitVec34 = null;
 ```
 
-<a id="m-jjbitVec35"></a>
-### jjbitVec35
+### jjbitVec35 <a href="#m-jjbitVec35" id="m-jjbitVec35"></a>
 
 **Package-private**
 
@@ -462,8 +425,7 @@ static final long[] jjbitVec34 = null;
 static final long[] jjbitVec35 = null;
 ```
 
-<a id="m-jjbitVec36"></a>
-### jjbitVec36
+### jjbitVec36 <a href="#m-jjbitVec36" id="m-jjbitVec36"></a>
 
 **Package-private**
 
@@ -471,8 +433,7 @@ static final long[] jjbitVec35 = null;
 static final long[] jjbitVec36 = null;
 ```
 
-<a id="m-jjbitVec37"></a>
-### jjbitVec37
+### jjbitVec37 <a href="#m-jjbitVec37" id="m-jjbitVec37"></a>
 
 **Package-private**
 
@@ -480,8 +441,7 @@ static final long[] jjbitVec36 = null;
 static final long[] jjbitVec37 = null;
 ```
 
-<a id="m-jjbitVec38"></a>
-### jjbitVec38
+### jjbitVec38 <a href="#m-jjbitVec38" id="m-jjbitVec38"></a>
 
 **Package-private**
 
@@ -489,8 +449,7 @@ static final long[] jjbitVec37 = null;
 static final long[] jjbitVec38 = null;
 ```
 
-<a id="m-jjbitVec39"></a>
-### jjbitVec39
+### jjbitVec39 <a href="#m-jjbitVec39" id="m-jjbitVec39"></a>
 
 **Package-private**
 
@@ -498,8 +457,7 @@ static final long[] jjbitVec38 = null;
 static final long[] jjbitVec39 = null;
 ```
 
-<a id="m-jjbitVec4"></a>
-### jjbitVec4
+### jjbitVec4 <a href="#m-jjbitVec4" id="m-jjbitVec4"></a>
 
 **Package-private**
 
@@ -507,8 +465,7 @@ static final long[] jjbitVec39 = null;
 static final long[] jjbitVec4 = null;
 ```
 
-<a id="m-jjbitVec40"></a>
-### jjbitVec40
+### jjbitVec40 <a href="#m-jjbitVec40" id="m-jjbitVec40"></a>
 
 **Package-private**
 
@@ -516,8 +473,7 @@ static final long[] jjbitVec4 = null;
 static final long[] jjbitVec40 = null;
 ```
 
-<a id="m-jjbitVec41"></a>
-### jjbitVec41
+### jjbitVec41 <a href="#m-jjbitVec41" id="m-jjbitVec41"></a>
 
 **Package-private**
 
@@ -525,8 +481,7 @@ static final long[] jjbitVec40 = null;
 static final long[] jjbitVec41 = null;
 ```
 
-<a id="m-jjbitVec5"></a>
-### jjbitVec5
+### jjbitVec5 <a href="#m-jjbitVec5" id="m-jjbitVec5"></a>
 
 **Package-private**
 
@@ -534,8 +489,7 @@ static final long[] jjbitVec41 = null;
 static final long[] jjbitVec5 = null;
 ```
 
-<a id="m-jjbitVec6"></a>
-### jjbitVec6
+### jjbitVec6 <a href="#m-jjbitVec6" id="m-jjbitVec6"></a>
 
 **Package-private**
 
@@ -543,8 +497,7 @@ static final long[] jjbitVec5 = null;
 static final long[] jjbitVec6 = null;
 ```
 
-<a id="m-jjbitVec7"></a>
-### jjbitVec7
+### jjbitVec7 <a href="#m-jjbitVec7" id="m-jjbitVec7"></a>
 
 **Package-private**
 
@@ -552,8 +505,7 @@ static final long[] jjbitVec6 = null;
 static final long[] jjbitVec7 = null;
 ```
 
-<a id="m-jjbitVec8"></a>
-### jjbitVec8
+### jjbitVec8 <a href="#m-jjbitVec8" id="m-jjbitVec8"></a>
 
 **Package-private**
 
@@ -561,8 +513,7 @@ static final long[] jjbitVec7 = null;
 static final long[] jjbitVec8 = null;
 ```
 
-<a id="m-jjbitVec9"></a>
-### jjbitVec9
+### jjbitVec9 <a href="#m-jjbitVec9" id="m-jjbitVec9"></a>
 
 **Package-private**
 
@@ -570,8 +521,7 @@ static final long[] jjbitVec8 = null;
 static final long[] jjbitVec9 = null;
 ```
 
-<a id="m-jjmatchedKind"></a>
-### jjmatchedKind
+### jjmatchedKind <a href="#m-jjmatchedKind" id="m-jjmatchedKind"></a>
 
 **Package-private**
 
@@ -579,8 +529,7 @@ static final long[] jjbitVec9 = null;
 int jjmatchedKind = null;
 ```
 
-<a id="m-jjmatchedPos"></a>
-### jjmatchedPos
+### jjmatchedPos <a href="#m-jjmatchedPos" id="m-jjmatchedPos"></a>
 
 **Package-private**
 
@@ -588,8 +537,7 @@ int jjmatchedKind = null;
 int jjmatchedPos = null;
 ```
 
-<a id="m-jjnewLexState"></a>
-### jjnewLexState
+### jjnewLexState <a href="#m-jjnewLexState" id="m-jjnewLexState"></a>
 
 ```java
 public static final int[] jjnewLexState = null;
@@ -597,8 +545,7 @@ public static final int[] jjnewLexState = null;
 
 Lex State array.
 
-<a id="m-jjnewStateCnt"></a>
-### jjnewStateCnt
+### jjnewStateCnt <a href="#m-jjnewStateCnt" id="m-jjnewStateCnt"></a>
 
 **Package-private**
 
@@ -606,8 +553,7 @@ Lex State array.
 int jjnewStateCnt = null;
 ```
 
-<a id="m-jjnextStates"></a>
-### jjnextStates
+### jjnextStates <a href="#m-jjnextStates" id="m-jjnextStates"></a>
 
 **Package-private**
 
@@ -615,8 +561,7 @@ int jjnewStateCnt = null;
 static final int[] jjnextStates = null;
 ```
 
-<a id="m-jjround"></a>
-### jjround
+### jjround <a href="#m-jjround" id="m-jjround"></a>
 
 **Package-private**
 
@@ -624,8 +569,7 @@ static final int[] jjnextStates = null;
 int jjround = null;
 ```
 
-<a id="m-jjstrLiteralImages"></a>
-### jjstrLiteralImages
+### jjstrLiteralImages <a href="#m-jjstrLiteralImages" id="m-jjstrLiteralImages"></a>
 
 ```java
 public static final String[] jjstrLiteralImages = null;
@@ -633,8 +577,7 @@ public static final String[] jjstrLiteralImages = null;
 
 Token literal values.
 
-<a id="m-jjtoMore"></a>
-### jjtoMore
+### jjtoMore <a href="#m-jjtoMore" id="m-jjtoMore"></a>
 
 **Package-private**
 
@@ -642,8 +585,7 @@ Token literal values.
 static final long[] jjtoMore = null;
 ```
 
-<a id="m-jjtoSkip"></a>
-### jjtoSkip
+### jjtoSkip <a href="#m-jjtoSkip" id="m-jjtoSkip"></a>
 
 **Package-private**
 
@@ -651,8 +593,7 @@ static final long[] jjtoMore = null;
 static final long[] jjtoSkip = null;
 ```
 
-<a id="m-jjtoSpecial"></a>
-### jjtoSpecial
+### jjtoSpecial <a href="#m-jjtoSpecial" id="m-jjtoSpecial"></a>
 
 **Package-private**
 
@@ -660,8 +601,7 @@ static final long[] jjtoSkip = null;
 static final long[] jjtoSpecial = null;
 ```
 
-<a id="m-jjtoToken"></a>
-### jjtoToken
+### jjtoToken <a href="#m-jjtoToken" id="m-jjtoToken"></a>
 
 **Package-private**
 
@@ -669,8 +609,7 @@ static final long[] jjtoSpecial = null;
 static final long[] jjtoToken = null;
 ```
 
-<a id="m-lexStateNames"></a>
-### lexStateNames
+### lexStateNames <a href="#m-lexStateNames" id="m-lexStateNames"></a>
 
 ```java
 public static final String[] lexStateNames = null;
@@ -681,8 +620,7 @@ Lexer state names.
 
 ## Methods
 
-<a id="m-getnexttoken-dc921ada5024"></a>
-### getNextToken()
+### getNextToken() <a href="#m-getNextToken-dc921ada5024" id="m-getNextToken-dc921ada5024"></a>
 
 ```java
 public com.tailf.conf.dbg.Token getNextToken()
@@ -692,8 +630,7 @@ Types: [Token](Token.md#cls-Token)
 
 Get the next Token.
 
-<a id="m-jjfilltoken-65cab186126c"></a>
-### jjFillToken()
+### jjFillToken() <a href="#m-jjFillToken-65cab186126c" id="m-jjFillToken-65cab186126c"></a>
 
 ```java
 protected com.tailf.conf.dbg.Token jjFillToken()
@@ -701,8 +638,7 @@ protected com.tailf.conf.dbg.Token jjFillToken()
 
 Types: [Token](Token.md#cls-Token)
 
-<a id="m-morelexicalactions-949853b6331d"></a>
-### MoreLexicalActions()
+### MoreLexicalActions() <a href="#m-MoreLexicalActions-949853b6331d" id="m-MoreLexicalActions-949853b6331d"></a>
 
 **Package-private**
 
@@ -710,8 +646,7 @@ Types: [Token](Token.md#cls-Token)
 void MoreLexicalActions()
 ```
 
-<a id="m-reinit-b39574178b47"></a>
-### ReInit(JavaCharStream)
+### ReInit(JavaCharStream) <a href="#m-ReInit-b39574178b47" id="m-ReInit-b39574178b47"></a>
 
 ```java
 public void ReInit(com.tailf.conf.dbg.JavaCharStream stream)
@@ -725,8 +660,7 @@ Reinitialise parser.
 
 - `com.tailf.conf.dbg.JavaCharStream stream`
 
-<a id="m-reinit-6000a5dcdc64"></a>
-### ReInit(JavaCharStream, int)
+### ReInit(JavaCharStream, int) <a href="#m-ReInit-6000a5dcdc64" id="m-ReInit-6000a5dcdc64"></a>
 
 ```java
 public void ReInit(com.tailf.conf.dbg.JavaCharStream stream, int lexState)
@@ -741,8 +675,7 @@ Reinitialise parser.
 - `com.tailf.conf.dbg.JavaCharStream stream`
 - `int lexState`
 
-<a id="m-setdebugstream-b3ded1375b4f"></a>
-### setDebugStream(PrintStream)
+### setDebugStream(PrintStream) <a href="#m-setDebugStream-b3ded1375b4f" id="m-setDebugStream-b3ded1375b4f"></a>
 
 ```java
 public void setDebugStream(java.io.PrintStream ds)
@@ -754,8 +687,7 @@ Set debug output.
 
 - `java.io.PrintStream ds`
 
-<a id="m-skiplexicalactions-424bc724dae7"></a>
-### SkipLexicalActions(Token)
+### SkipLexicalActions(Token) <a href="#m-SkipLexicalActions-424bc724dae7" id="m-SkipLexicalActions-424bc724dae7"></a>
 
 **Package-private**
 
@@ -769,8 +701,7 @@ Types: [Token](Token.md#cls-Token)
 
 - `com.tailf.conf.dbg.Token matchedToken`
 
-<a id="m-switchto-11e96339668c"></a>
-### SwitchTo(int)
+### SwitchTo(int) <a href="#m-SwitchTo-11e96339668c" id="m-SwitchTo-11e96339668c"></a>
 
 ```java
 public void SwitchTo(int lexState)
@@ -782,8 +713,7 @@ Switch to specified lex state.
 
 - `int lexState`
 
-<a id="m-tokenlexicalactions-2e44b9f98c7f"></a>
-### TokenLexicalActions(Token)
+### TokenLexicalActions(Token) <a href="#m-TokenLexicalActions-2e44b9f98c7f" id="m-TokenLexicalActions-2e44b9f98c7f"></a>
 
 **Package-private**
 

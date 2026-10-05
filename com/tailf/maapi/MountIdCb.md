@@ -1,5 +1,4 @@
-<a id="cls-MountIdCb"></a>
-# MountIdCb
+# MountIdCb <a href="#cls-MountIdCb" id="cls-MountIdCb"></a>
 
 ```java
 public class com.tailf.maapi.MountIdCb
@@ -12,17 +11,16 @@ Types: [MountIdInterface](../conf/MountIdInterface.md#cls-MountIdInterface)
 
 **Constructors**:
 
-- [MountIdCb(Maapi, int)](#m-mountidcb-b291d44025b0)
+- [MountIdCb(Maapi, int)](#m-MountIdCb-b291d44025b0)
 
 **Methods**:
 
-- [acceptTagPath()](#m-accepttagpath-3efa26ad697b)
-- [getMountId(ConfPath)](#m-getmountid-83243c09b7c3)
+- [acceptTagPath()](#m-acceptTagPath-3efa26ad697b)
+- [getMountId(ConfPath)](#m-getMountId-83243c09b7c3)
 
 ## Constructors
 
-<a id="m-mountidcb-b291d44025b0"></a>
-### MountIdCb(Maapi, int)
+### MountIdCb(Maapi, int) <a href="#m-MountIdCb-b291d44025b0" id="m-MountIdCb-b291d44025b0"></a>
 
 ```java
 public MountIdCb(com.tailf.maapi.Maapi maapi, int tid)
@@ -38,15 +36,13 @@ Types: [Maapi](Maapi.md#cls-Maapi)
 
 ## Methods
 
-<a id="m-accepttagpath-3efa26ad697b"></a>
-### acceptTagPath()
+### acceptTagPath() <a href="#m-acceptTagPath-3efa26ad697b" id="m-acceptTagPath-3efa26ad697b"></a>
 
 ```java
 public boolean acceptTagPath()
 ```
 
-<a id="m-getmountid-83243c09b7c3"></a>
-### getMountId(ConfPath)
+### getMountId(ConfPath) <a href="#m-getMountId-83243c09b7c3" id="m-getMountId-83243c09b7c3"></a>
 
 ```java
 public java.util.List<String> getMountId(

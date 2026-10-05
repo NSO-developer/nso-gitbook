@@ -11,7 +11,7 @@ NAVU (Navigation Utilities) is an API which provides increased
  [`MaapiSchemas`](../maapi/MaapiSchemas.md#cls-MaapiSchemas) which is a linked structures of
  [`CSNode`](../maapi/MaapiSchemas/CSNode.md#cls-CSNode) nodes. Each node in NAVU
  holds a reference to its corresponding `CSNode` which can be
- obtained through [`NavuNodeInfo#getCSNode()`](NavuNodeInfo.md#m-getcsnode-cf7a085aa7f5):
+ obtained through [`NavuNodeInfo#getCSNode()`](NavuNodeInfo.md#m-getCSNode-cf7a085aa7f5):
 
 
 

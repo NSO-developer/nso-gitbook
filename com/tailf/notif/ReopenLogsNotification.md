@@ -1,5 +1,4 @@
-<a id="cls-ReopenLogsNotification"></a>
-# ReopenLogsNotification
+# ReopenLogsNotification <a href="#cls-ReopenLogsNotification" id="cls-ReopenLogsNotification"></a>
 
 ```java
 public class com.tailf.notif.ReopenLogsNotification
@@ -14,7 +13,7 @@ Data structure for ReopenLogs notifications.
 
 **Constructors**:
 
-- [ReopenLogsNotification()](#m-reopenlogsnotification-3e9efd04d83e)
+- [ReopenLogsNotification()](#m-ReopenLogsNotification-3e9efd04d83e)
 
 **Fields**:
 
@@ -22,13 +21,12 @@ Data structure for ReopenLogs notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-toString-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="m-reopenlogsnotification-3e9efd04d83e"></a>
-### ReopenLogsNotification()
+### ReopenLogsNotification() <a href="#m-ReopenLogsNotification-3e9efd04d83e" id="m-ReopenLogsNotification-3e9efd04d83e"></a>
 
 ```java
 public ReopenLogsNotification()

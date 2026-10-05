@@ -1,5 +1,4 @@
-<a id="cls-DpActionTrans"></a>
-# DpActionTrans
+# DpActionTrans <a href="#cls-DpActionTrans" id="cls-DpActionTrans"></a>
 
 ```java
 public class com.tailf.dp.DpActionTrans
@@ -17,7 +16,7 @@ The action transaction context. Each action transaction is running in
 
 **Constructors**:
 
-- [DpActionTrans(Dp, int, int, DpUserInfo, String, int, int)](#m-dpactiontrans-c00d5e1600e9)
+- [DpActionTrans(Dp, int, int, DpUserInfo, String, int, int)](#m-DpActionTrans-c00d5e1600e9)
 
 **Fields**:
 
@@ -41,47 +40,46 @@ The action transaction context. Each action transaction is running in
 **Methods**:
 
 - [accumulated()](DpTrans.md#m-accumulated-2f58da3048dd) from DpTrans
-- [actionSetTimeout(int)](#m-actionsettimeout-46a0ed69fd5f)
-- [changeActionState(int, int)](#m-changeactionstate-efc056ab7ae2)
-- [dataSetTimeout(int)](DpTrans.md#m-datasettimeout-8ad3068e3a46) from DpTrans
-- [getActionPoint()](#m-getactionpoint-84988ea225fa)
-- [getActionState()](#m-getactionstate-f64b645d471e)
-- [getAPIndex()](#m-getapindex-04b0b49038f1)
-- [getDBName()](DpTrans.md#m-getdbname-65ff0bdb2339) from DpTrans
-- [getDeviceType()](DpTrans.md#m-getdevicetype-c8eec3b01523) from DpTrans
-- [getDevNo()](DpTrans.md#m-getdevno-b1169ef876ed) from DpTrans
-- [getDp()](DpTrans.md#m-getdp-b1462199cc2e) from DpTrans
-- [getMode()](DpTrans.md#m-getmode-c3dc73476e30) from DpTrans
-- [getNsList()](DpTrans.md#m-getnslist-0345f486e876) from DpTrans
-- [getOpaque()](DpTrans.md#m-getopaque-92e4945ec92d) from DpTrans
-- [getSecondaryIndex()](DpTrans.md#m-getsecondaryindex-8efa1ee57e9c) from DpTrans
-- [getSocket()](DpTrans.md#m-getsocket-d7da2de81b81) from DpTrans
-- [getTransaction()](DpTrans.md#m-gettransaction-4f1c72a828a1) from DpTrans
-- [getTransactionUserOpaque()](DpTrans.md#m-gettransactionuseropaque-87a9bf7a20e1) from DpTrans
-- [getUserInfo()](DpTrans.md#m-getuserinfo-3ecef1f24d3d) from DpTrans
-- [getWorkerSocket()](DpTrans.md#m-getworkersocket-ba1472e0f5a7) from DpTrans
-- [honorFilter(boolean)](DpTrans.md#m-honorfilter-5ff04bbbf2d0) from DpTrans
-- [isHideInactive()](DpTrans.md#m-ishideinactive-1d32c2838395) from DpTrans
-- [protoReply(boolean)](DpTrans.md#m-protoreply-e8de0386a2d0) from DpTrans
-- [protoReply(ConfEObject)](DpTrans.md#m-protoreply-47f22a8227a5) from DpTrans
-- [protoReply(ConfObject)](DpTrans.md#m-protoreply-3ecaf76eaab8) from DpTrans
-- [protoReply(ConfObject[])](DpTrans.md#m-protoreply-cee1bb25672e) from DpTrans
-- [protoReplyXMLParam(ConfXMLParam[])](DpTrans.md#m-protoreplyxmlparam-9dcf8f14a8dc) from DpTrans
-- [replyError(ConfEObject)](DpTrans.md#m-replyerror-3184cd2ad634) from DpTrans
-- [replyError(String)](DpTrans.md#m-replyerror-48c78d28e991) from DpTrans
-- [replyError(String, Throwable)](DpTrans.md#m-replyerror-c4e21f52074d) from DpTrans
-- [replyError(Throwable)](DpTrans.md#m-replyerror-26f4ce830453) from DpTrans
-- [replyExtendedError(String, DpCallbackExtendedException)](DpTrans.md#m-replyextendederror-b54351b1555f) from DpTrans
-- [replyOther(boolean, String, String)](DpTrans.md#m-replyother-c2352ec6bb73) from DpTrans
+- [actionSetTimeout(int)](#m-actionSetTimeout-46a0ed69fd5f)
+- [changeActionState(int, int)](#m-changeActionState-efc056ab7ae2)
+- [dataSetTimeout(int)](DpTrans.md#m-dataSetTimeout-8ad3068e3a46) from DpTrans
+- [getActionPoint()](#m-getActionPoint-84988ea225fa)
+- [getActionState()](#m-getActionState-f64b645d471e)
+- [getAPIndex()](#m-getAPIndex-04b0b49038f1)
+- [getDBName()](DpTrans.md#m-getDBName-65ff0bdb2339) from DpTrans
+- [getDeviceType()](DpTrans.md#m-getDeviceType-c8eec3b01523) from DpTrans
+- [getDevNo()](DpTrans.md#m-getDevNo-b1169ef876ed) from DpTrans
+- [getDp()](DpTrans.md#m-getDp-b1462199cc2e) from DpTrans
+- [getMode()](DpTrans.md#m-getMode-c3dc73476e30) from DpTrans
+- [getNsList()](DpTrans.md#m-getNsList-0345f486e876) from DpTrans
+- [getOpaque()](DpTrans.md#m-getOpaque-92e4945ec92d) from DpTrans
+- [getSecondaryIndex()](DpTrans.md#m-getSecondaryIndex-8efa1ee57e9c) from DpTrans
+- [getSocket()](DpTrans.md#m-getSocket-d7da2de81b81) from DpTrans
+- [getTransaction()](DpTrans.md#m-getTransaction-4f1c72a828a1) from DpTrans
+- [getTransactionUserOpaque()](DpTrans.md#m-getTransactionUserOpaque-87a9bf7a20e1) from DpTrans
+- [getUserInfo()](DpTrans.md#m-getUserInfo-3ecef1f24d3d) from DpTrans
+- [getWorkerSocket()](DpTrans.md#m-getWorkerSocket-ba1472e0f5a7) from DpTrans
+- [honorFilter(boolean)](DpTrans.md#m-honorFilter-5ff04bbbf2d0) from DpTrans
+- [isHideInactive()](DpTrans.md#m-isHideInactive-1d32c2838395) from DpTrans
+- [protoReply(boolean)](DpTrans.md#m-protoReply-e8de0386a2d0) from DpTrans
+- [protoReply(ConfEObject)](DpTrans.md#m-protoReply-47f22a8227a5) from DpTrans
+- [protoReply(ConfObject)](DpTrans.md#m-protoReply-3ecaf76eaab8) from DpTrans
+- [protoReply(ConfObject[])](DpTrans.md#m-protoReply-cee1bb25672e) from DpTrans
+- [protoReplyXMLParam(ConfXMLParam[])](DpTrans.md#m-protoReplyXMLParam-9dcf8f14a8dc) from DpTrans
+- [replyError(ConfEObject)](DpTrans.md#m-replyError-3184cd2ad634) from DpTrans
+- [replyError(String)](DpTrans.md#m-replyError-48c78d28e991) from DpTrans
+- [replyError(String, Throwable)](DpTrans.md#m-replyError-c4e21f52074d) from DpTrans
+- [replyError(Throwable)](DpTrans.md#m-replyError-26f4ce830453) from DpTrans
+- [replyExtendedError(String, DpCallbackExtendedException)](DpTrans.md#m-replyExtendedError-b54351b1555f) from DpTrans
+- [replyOther(boolean, String, String)](DpTrans.md#m-replyOther-c2352ec6bb73) from DpTrans
 - [run()](#m-run-b6dbda048863)
-- [setSocket(Socket)](DpTrans.md#m-setsocket-183068848e4c) from DpTrans
-- [setTransactionUserOpaque(Object)](DpTrans.md#m-settransactionuseropaque-ce392ad59d2e) from DpTrans
-- [transReplyOK()](DpTrans.md#m-transreplyok-92425e2f5c67) from DpTrans
+- [setSocket(Socket)](DpTrans.md#m-setSocket-183068848e4c) from DpTrans
+- [setTransactionUserOpaque(Object)](DpTrans.md#m-setTransactionUserOpaque-ce392ad59d2e) from DpTrans
+- [transReplyOK()](DpTrans.md#m-transReplyOK-92425e2f5c67) from DpTrans
 
 ## Constructors
 
-<a id="m-dpactiontrans-c00d5e1600e9"></a>
-### DpActionTrans(Dp, int, int, DpUserInfo, String, int, int)
+### DpActionTrans(Dp, int, int, DpUserInfo, String, int, int) <a href="#m-DpActionTrans-c00d5e1600e9" id="m-DpActionTrans-c00d5e1600e9"></a>
 
 **Package-private**
 
@@ -115,36 +113,31 @@ Lots of parameters here. But since only Dp should be allowed to create
 
 ## Fields
 
-<a id="m-STATE_ABORTED"></a>
-### STATE_ABORTED
+### STATE_ABORTED <a href="#m-STATE_ABORTED" id="m-STATE_ABORTED"></a>
 
 ```java
 public static final int STATE_ABORTED = 4;
 ```
 
-<a id="m-STATE_ACTION"></a>
-### STATE_ACTION
+### STATE_ACTION <a href="#m-STATE_ACTION" id="m-STATE_ACTION"></a>
 
 ```java
 public static final int STATE_ACTION = 2;
 ```
 
-<a id="m-STATE_DELAYED"></a>
-### STATE_DELAYED
+### STATE_DELAYED <a href="#m-STATE_DELAYED" id="m-STATE_DELAYED"></a>
 
 ```java
 public static final int STATE_DELAYED = 3;
 ```
 
-<a id="m-STATE_INIT"></a>
-### STATE_INIT
+### STATE_INIT <a href="#m-STATE_INIT" id="m-STATE_INIT"></a>
 
 ```java
 public static final int STATE_INIT = 1;
 ```
 
-<a id="m-STATE_NONE"></a>
-### STATE_NONE
+### STATE_NONE <a href="#m-STATE_NONE" id="m-STATE_NONE"></a>
 
 ```java
 public static final int STATE_NONE = 0;
@@ -153,8 +146,7 @@ public static final int STATE_NONE = 0;
 
 ## Methods
 
-<a id="m-actionsettimeout-46a0ed69fd5f"></a>
-### actionSetTimeout(int)
+### actionSetTimeout(int) <a href="#m-actionSetTimeout-46a0ed69fd5f" id="m-actionSetTimeout-46a0ed69fd5f"></a>
 
 ```java
 public void actionSetTimeout(
@@ -182,8 +174,7 @@ Some action callbacks may require a significantly longer execution time
 - `IOException`
 - `DpCallbackException`
 
-<a id="m-changeactionstate-efc056ab7ae2"></a>
-### changeActionState(int, int)
+### changeActionState(int, int) <a href="#m-changeActionState-efc056ab7ae2" id="m-changeActionState-efc056ab7ae2"></a>
 
 ```java
 protected synchronized void changeActionState(int oldState, int newState)
@@ -194,15 +185,13 @@ protected synchronized void changeActionState(int oldState, int newState)
 - `int oldState`
 - `int newState`
 
-<a id="m-getactionpoint-84988ea225fa"></a>
-### getActionPoint()
+### getActionPoint() <a href="#m-getActionPoint-84988ea225fa" id="m-getActionPoint-84988ea225fa"></a>
 
 ```java
 public String getActionPoint()
 ```
 
-<a id="m-getactionstate-f64b645d471e"></a>
-### getActionState()
+### getActionState() <a href="#m-getActionState-f64b645d471e" id="m-getActionState-f64b645d471e"></a>
 
 ```java
 public synchronized int getActionState()
@@ -213,22 +202,20 @@ Returns the current state of this action transaction.
 
 
 
-- `#STATE_NONE`
-   - `#STATE_INIT`
-     - `#STATE_ACTION`
-       - `#STATE_ABORTED`
+- [`STATE_NONE`](DpActionTrans.md#m-STATE_NONE)
+   - [`STATE_INIT`](DpActionTrans.md#m-STATE_INIT)
+     - [`STATE_ACTION`](DpActionTrans.md#m-STATE_ACTION)
+       - [`STATE_ABORTED`](DpActionTrans.md#m-STATE_ABORTED)
 
 **Returns:** action state
 
-<a id="m-getapindex-04b0b49038f1"></a>
-### getAPIndex()
+### getAPIndex() <a href="#m-getAPIndex-04b0b49038f1" id="m-getAPIndex-04b0b49038f1"></a>
 
 ```java
 public int getAPIndex()
 ```
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()

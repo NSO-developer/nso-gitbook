@@ -1,5 +1,4 @@
-<a id="cls-ConfIP"></a>
-# ConfIP
+# ConfIP <a href="#cls-ConfIP" id="cls-ConfIP"></a>
 
 ```java
 public abstract class com.tailf.conf.ConfIP
@@ -19,7 +18,7 @@ DATA_CONTAINER - Base class for ConfIPv4 and ConfIPv6 containers
 
 **Constructors**:
 
-- [ConfIP()](#m-confip-ff7682c3ebcc)
+- [ConfIP()](#m-ConfIP-ff7682c3ebcc)
 
 **Fields**:
 
@@ -82,19 +81,18 @@ DATA_CONTAINER - Base class for ConfIPv4 and ConfIPv6 containers
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](ConfValue.md#m-equals-fcd6492e0d6c) from ConfValue
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getRawAddress()](#m-getrawaddress-2dacae94069b)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](ConfValue.md#m-hashcode-ef797a217903) from ConfValue
-- [toString()](ConfValue.md#m-tostring-e9d48c5503ef) from ConfValue
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getRawAddress()](#m-getRawAddress-2dacae94069b)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](ConfValue.md#m-hashCode-ef797a217903) from ConfValue
+- [toString()](ConfValue.md#m-toString-e9d48c5503ef) from ConfValue
 
 ## Constructors
 
-<a id="m-confip-ff7682c3ebcc"></a>
-### ConfIP()
+### ConfIP() <a href="#m-ConfIP-ff7682c3ebcc" id="m-ConfIP-ff7682c3ebcc"></a>
 
 ```java
 public ConfIP()
@@ -103,8 +101,7 @@ public ConfIP()
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public abstract com.tailf.proto.ConfEObject encode()
@@ -112,15 +109,13 @@ public abstract com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public abstract java.net.InetAddress getAddress()
 ```
 
-<a id="m-getrawaddress-2dacae94069b"></a>
-### getRawAddress()
+### getRawAddress() <a href="#m-getRawAddress-2dacae94069b" id="m-getRawAddress-2dacae94069b"></a>
 
 ```java
 public abstract int[] getRawAddress()

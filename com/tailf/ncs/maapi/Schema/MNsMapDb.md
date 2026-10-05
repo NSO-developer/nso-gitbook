@@ -1,5 +1,4 @@
-<a id="cls-MNsMapDb"></a>
-# MNsMapDb
+# MNsMapDb <a href="#cls-MNsMapDb" id="cls-MNsMapDb"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.MNsMapDb
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.MNsMapDb
 
 **Constructors**:
 
-- [MNsMapDb()](#m-mnsmapdb-53955b164b15)
+- [MNsMapDb()](#m-MNsMapDb-53955b164b15)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.MNsMapDb
 
 ## Constructors
 
-<a id="m-mnsmapdb-53955b164b15"></a>
-### MNsMapDb()
+### MNsMapDb() <a href="#m-MNsMapDb-53955b164b15" id="m-MNsMapDb-53955b164b15"></a>
 
 ```java
 public MNsMapDb()
@@ -35,8 +33,7 @@ public MNsMapDb()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.MNsMapDb.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.MNsMapDb.Factory factory = null;
 
 Types: [Factory](MNsMapDb/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.MNsMapDb.Builder,com.tailf.ncs.maapi.Schema.MNsMapDb.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](MNsMapDb/Builder.md#cls-Builder), [Reader](MNsMapDb/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

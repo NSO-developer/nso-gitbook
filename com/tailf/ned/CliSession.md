@@ -1,5 +1,4 @@
-<a id="cls-CliSession"></a>
-# CliSession
+# CliSession <a href="#cls-CliSession" id="cls-CliSession"></a>
 
 ```java
 public interface com.tailf.ned.CliSession
@@ -30,20 +29,18 @@ public interface com.tailf.ned.CliSession
 - [flush()](#m-flush-a4d76f158943)
 - [print(String)](#m-print-b202251f9230)
 - [println(String)](#m-println-15aea44318e6)
-- [serverSideClosed()](#m-serversideclosed-0dfe26b0733e)
-- [setTracer(NedTracer)](#m-settracer-6943f9aadf68)
+- [serverSideClosed()](#m-serverSideClosed-0dfe26b0733e)
+- [setTracer(NedTracer)](#m-setTracer-6943f9aadf68)
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public abstract void close()
 ```
 
-<a id="m-expect-98936155685a"></a>
-### expect(Pattern)
+### expect(Pattern) <a href="#m-expect-98936155685a" id="m-expect-98936155685a"></a>
 
 ```java
 public abstract String expect(
@@ -58,8 +55,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 
 - `java.util.regex.Pattern p`
 
-<a id="m-expect-a363c018c396"></a>
-### expect(Pattern, NedWorker)
+### expect(Pattern, NedWorker) <a href="#m-expect-a363c018c396" id="m-expect-a363c018c396"></a>
 
 ```java
 public abstract String expect(
@@ -76,8 +72,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `java.util.regex.Pattern p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-8149faa90d9d"></a>
-### expect(Pattern[])
+### expect(Pattern[]) <a href="#m-expect-8149faa90d9d" id="m-expect-8149faa90d9d"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -92,8 +87,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 
 - `java.util.regex.Pattern[] p`
 
-<a id="m-expect-5cc2e4122c7b"></a>
-### expect(Pattern[], boolean, int)
+### expect(Pattern[], boolean, int) <a href="#m-expect-5cc2e4122c7b" id="m-expect-5cc2e4122c7b"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -112,8 +106,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-6c58bada9cc6"></a>
-### expect(Pattern[], boolean, int, NedWorker)
+### expect(Pattern[], boolean, int, NedWorker) <a href="#m-expect-6c58bada9cc6" id="m-expect-6c58bada9cc6"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -134,8 +127,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-b0896c6a7b2a"></a>
-### expect(Pattern[], NedWorker)
+### expect(Pattern[], NedWorker) <a href="#m-expect-b0896c6a7b2a" id="m-expect-b0896c6a7b2a"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -152,8 +144,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `java.util.regex.Pattern[] p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-5f5d11ad490b"></a>
-### expect(String)
+### expect(String) <a href="#m-expect-5f5d11ad490b" id="m-expect-5f5d11ad490b"></a>
 
 ```java
 public abstract String expect(
@@ -168,8 +159,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 
 - `String str`
 
-<a id="m-expect-b7ee8aa21949"></a>
-### expect(String, boolean, boolean, int)
+### expect(String, boolean, boolean, int) <a href="#m-expect-b7ee8aa21949" id="m-expect-b7ee8aa21949"></a>
 
 ```java
 public abstract String expect(
@@ -190,8 +180,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 - `boolean full`
 - `int timeout`
 
-<a id="m-expect-a44ee9613d91"></a>
-### expect(String, boolean, boolean, int, NedWorker)
+### expect(String, boolean, boolean, int, NedWorker) <a href="#m-expect-a44ee9613d91" id="m-expect-a44ee9613d91"></a>
 
 ```java
 public abstract String expect(
@@ -214,8 +203,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-16cd2f682137"></a>
-### expect(String, boolean, int)
+### expect(String, boolean, int) <a href="#m-expect-16cd2f682137" id="m-expect-16cd2f682137"></a>
 
 ```java
 public abstract String expect(
@@ -234,8 +222,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-37295e1967db"></a>
-### expect(String, int)
+### expect(String, int) <a href="#m-expect-37295e1967db" id="m-expect-37295e1967db"></a>
 
 ```java
 public abstract String expect(
@@ -252,8 +239,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 - `String str`
 - `int timeout`
 
-<a id="m-expect-4ba232d952f7"></a>
-### expect(String, int, NedWorker)
+### expect(String, int, NedWorker) <a href="#m-expect-4ba232d952f7" id="m-expect-4ba232d952f7"></a>
 
 ```java
 public abstract String expect(
@@ -272,8 +258,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-6426c41e07e7"></a>
-### expect(String, NedWorker)
+### expect(String, NedWorker) <a href="#m-expect-6426c41e07e7" id="m-expect-6426c41e07e7"></a>
 
 ```java
 public abstract String expect(
@@ -290,8 +275,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `String str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-740d81a74e4b"></a>
-### expect(String[])
+### expect(String[]) <a href="#m-expect-740d81a74e4b" id="m-expect-740d81a74e4b"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -306,8 +290,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 
 - `String[] str`
 
-<a id="m-expect-f6cb6c02c198"></a>
-### expect(String[], boolean, int)
+### expect(String[], boolean, int) <a href="#m-expect-f6cb6c02c198" id="m-expect-f6cb6c02c198"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -326,8 +309,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-90d4e3ee7ac2"></a>
-### expect(String[], boolean, int, NedWorker)
+### expect(String[], boolean, int, NedWorker) <a href="#m-expect-90d4e3ee7ac2" id="m-expect-90d4e3ee7ac2"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -348,8 +330,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-4485477b99db"></a>
-### expect(String[], NedWorker)
+### expect(String[], NedWorker) <a href="#m-expect-4485477b99db" id="m-expect-4485477b99db"></a>
 
 ```java
 public abstract com.tailf.ned.NedExpectResult expect(
@@ -366,15 +347,13 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `String[] str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-flush-a4d76f158943"></a>
-### flush()
+### flush() <a href="#m-flush-a4d76f158943" id="m-flush-a4d76f158943"></a>
 
 ```java
 public abstract void flush() throws java.io.IOException
 ```
 
-<a id="m-print-b202251f9230"></a>
-### print(String)
+### print(String) <a href="#m-print-b202251f9230" id="m-print-b202251f9230"></a>
 
 ```java
 public abstract void print(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
@@ -386,8 +365,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 
 - `String s`
 
-<a id="m-println-15aea44318e6"></a>
-### println(String)
+### println(String) <a href="#m-println-15aea44318e6" id="m-println-15aea44318e6"></a>
 
 ```java
 public abstract void println(String s) throws java.io.IOException, com.tailf.ned.SSHSessionException
@@ -399,15 +377,13 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 
 - `String s`
 
-<a id="m-serversideclosed-0dfe26b0733e"></a>
-### serverSideClosed()
+### serverSideClosed() <a href="#m-serverSideClosed-0dfe26b0733e" id="m-serverSideClosed-0dfe26b0733e"></a>
 
 ```java
 public abstract boolean serverSideClosed()
 ```
 
-<a id="m-settracer-6943f9aadf68"></a>
-### setTracer(NedTracer)
+### setTracer(NedTracer) <a href="#m-setTracer-6943f9aadf68" id="m-setTracer-6943f9aadf68"></a>
 
 ```java
 public abstract void setTracer(com.tailf.ned.NedTracer tracer)

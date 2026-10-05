@@ -1,5 +1,4 @@
-<a id="cls-ConfInt8"></a>
-# ConfInt8
+# ConfInt8 <a href="#cls-ConfInt8" id="cls-ConfInt8"></a>
 
 ```java
 public class com.tailf.conf.ConfInt8
@@ -14,8 +13,8 @@ DATA_CONTAINER - Corresponds to the YANG int8 type.
 
 **Constructors**:
 
-- [ConfInt8(ConfEObject)](#m-confint8-61663456b9ac)
-- [ConfInt8(int)](#m-confint8-d1b301e243ae)
+- [ConfInt8(ConfEObject)](#m-ConfInt8-61663456b9ac)
+- [ConfInt8(int)](#m-ConfInt8-d1b301e243ae)
 
 **Fields**:
 
@@ -73,24 +72,23 @@ DATA_CONTAINER - Corresponds to the YANG int8 type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfInt32)](ConfInt32.md#m-compareto-48cc940d0b39) from ConfInt32
+- [compareTo(ConfInt32)](ConfInt32.md#m-compareTo-48cc940d0b39) from ConfInt32
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [intValue()](ConfInt32.md#m-intvalue-2f745d025d8e) from ConfInt32
-- [toString()](ConfInt32.md#m-tostring-e9d48c5503ef) from ConfInt32
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [intValue()](ConfInt32.md#m-intValue-2f745d025d8e) from ConfInt32
+- [toString()](ConfInt32.md#m-toString-e9d48c5503ef) from ConfInt32
 
 ## Constructors
 
-<a id="m-confint8-61663456b9ac"></a>
-### ConfInt8(ConfEObject)
+### ConfInt8(ConfEObject) <a href="#m-ConfInt8-61663456b9ac" id="m-ConfInt8-61663456b9ac"></a>
 
 ```java
 public ConfInt8(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -102,8 +100,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confint8-d1b301e243ae"></a>
-### ConfInt8(int)
+### ConfInt8(int) <a href="#m-ConfInt8-d1b301e243ae" id="m-ConfInt8-d1b301e243ae"></a>
 
 ```java
 public ConfInt8(int i)
@@ -116,8 +113,7 @@ public ConfInt8(int i)
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -125,8 +121,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -136,8 +131,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()

@@ -1,5 +1,4 @@
-<a id="cls-Keys"></a>
-# Keys
+# Keys <a href="#cls-Keys" id="cls-Keys"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.Keys
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Keys
 
 **Constructors**:
 
-- [Keys()](#m-keys-e9aa9f160da2)
+- [Keys()](#m-Keys-e9aa9f160da2)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Keys
 
 ## Constructors
 
-<a id="m-keys-e9aa9f160da2"></a>
-### Keys()
+### Keys() <a href="#m-Keys-e9aa9f160da2" id="m-Keys-e9aa9f160da2"></a>
 
 ```java
 public Keys()
@@ -36,8 +34,7 @@ public Keys()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Keys.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.Cs.Keys.Factory factory = null;
 
 Types: [Factory](Keys/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Keys.Builder,com.tailf.ncs.maapi.Schema.Cs.Keys.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](Keys/Builder.md#cls-Builder), [Reader](Keys/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

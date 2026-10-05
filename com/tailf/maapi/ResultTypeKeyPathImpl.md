@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeKeyPathImpl"></a>
-# ResultTypeKeyPathImpl
+# ResultTypeKeyPathImpl <a href="#cls-ResultTypeKeyPathImpl" id="cls-ResultTypeKeyPathImpl"></a>
 
 **Package-private**
 
@@ -14,16 +13,15 @@ Types: [ResultTypeKeyPath](ResultTypeKeyPath.md#cls-ResultTypeKeyPath)
 
 **Constructors**:
 
-- [ResultTypeKeyPathImpl(ConfObject[])](#m-resulttypekeypathimpl-b28a3014bfec)
+- [ResultTypeKeyPathImpl(ConfObject[])](#m-ResultTypeKeyPathImpl-b28a3014bfec)
 
 **Methods**:
 
-- [keyPath()](#m-keypath-df48f9bfdabb)
+- [keyPath()](#m-keyPath-df48f9bfdabb)
 
 ## Constructors
 
-<a id="m-resulttypekeypathimpl-b28a3014bfec"></a>
-### ResultTypeKeyPathImpl(ConfObject[])
+### ResultTypeKeyPathImpl(ConfObject[]) <a href="#m-ResultTypeKeyPathImpl-b28a3014bfec" id="m-ResultTypeKeyPathImpl-b28a3014bfec"></a>
 
 **Package-private**
 
@@ -40,8 +38,7 @@ Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-<a id="m-keypath-df48f9bfdabb"></a>
-### keyPath()
+### keyPath() <a href="#m-keyPath-df48f9bfdabb" id="m-keyPath-df48f9bfdabb"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] keyPath()

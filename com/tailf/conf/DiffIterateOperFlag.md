@@ -1,5 +1,4 @@
-<a id="cls-DiffIterateOperFlag"></a>
-# DiffIterateOperFlag
+# DiffIterateOperFlag <a href="#cls-DiffIterateOperFlag" id="cls-DiffIterateOperFlag"></a>
 
 ```java
 public enum com.tailf.conf.DiffIterateOperFlag
@@ -33,15 +32,14 @@ The modification flags supplied by the library to
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-MOP_ATTR_SET"></a>
-### MOP_ATTR_SET
+### MOP_ATTR_SET <a href="#m-MOP_ATTR_SET" id="m-MOP_ATTR_SET"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_ATTR_SET;
@@ -49,8 +47,7 @@ public static final com.tailf.conf.DiffIterateOperFlag MOP_ATTR_SET;
 
 MaapiDiffIterate only
 
-<a id="m-MOP_CREATED"></a>
-### MOP_CREATED
+### MOP_CREATED <a href="#m-MOP_CREATED" id="m-MOP_CREATED"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_CREATED;
@@ -59,8 +56,7 @@ public static final com.tailf.conf.DiffIterateOperFlag MOP_CREATED;
 Specifies that list entry, presence container, or leaf of type empty
  given has been created.
 
-<a id="m-MOP_DELETED"></a>
-### MOP_DELETED
+### MOP_DELETED <a href="#m-MOP_DELETED" id="m-MOP_DELETED"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_DELETED;
@@ -77,8 +73,7 @@ The list entry, presence container, or optional leaf has been deleted.
   then deletes that trigger a descendant subscription will also
   generate a call to `iterate`.
 
-<a id="m-MOP_MODIFIED"></a>
-### MOP_MODIFIED
+### MOP_MODIFIED <a href="#m-MOP_MODIFIED" id="m-MOP_MODIFIED"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_MODIFIED;
@@ -86,8 +81,7 @@ public static final com.tailf.conf.DiffIterateOperFlag MOP_MODIFIED;
 
 A descendant of the list entry has been modified.
 
-<a id="m-MOP_MOVED_AFTER"></a>
-### MOP_MOVED_AFTER
+### MOP_MOVED_AFTER <a href="#m-MOP_MOVED_AFTER" id="m-MOP_MOVED_AFTER"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_MOVED_AFTER;
@@ -101,8 +95,7 @@ The list entry given by path, in an ordered-by user list,
  The array is terminated with
    an element that has type C_NOEXISTS.
 
-<a id="m-MOP_VALUE_SET"></a>
-### MOP_VALUE_SET
+### MOP_VALUE_SET <a href="#m-MOP_VALUE_SET" id="m-MOP_VALUE_SET"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateOperFlag MOP_VALUE_SET;
@@ -113,15 +106,13 @@ The value of the leaf given by the path has been set to a new value.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateOperFlag valueOf(int i)
@@ -133,8 +124,7 @@ Types: [DiffIterateOperFlag](DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateOperFlag valueOf(String name)
@@ -146,8 +136,7 @@ Types: [DiffIterateOperFlag](DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateOperFlag[] values()

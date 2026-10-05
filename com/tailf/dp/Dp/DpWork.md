@@ -1,5 +1,4 @@
-<a id="cls-DpWork"></a>
-# DpWork
+# DpWork <a href="#cls-DpWork" id="cls-DpWork"></a>
 
 **Package-private**
 
@@ -15,8 +14,7 @@ static interface com.tailf.dp.Dp.DpWork
 
 ## Methods
 
-<a id="m-call-67d40d1ba51c"></a>
-### call(Socket)
+### call(Socket) <a href="#m-call-67d40d1ba51c" id="m-call-67d40d1ba51c"></a>
 
 ```java
 public abstract void call(java.net.Socket socket) throws Throwable

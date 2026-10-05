@@ -1,5 +1,4 @@
-<a id="cls-ConfUserInfo"></a>
-# ConfUserInfo
+# ConfUserInfo <a href="#cls-ConfUserInfo" id="cls-ConfUserInfo"></a>
 
 ```java
 public class com.tailf.conf.ConfUserInfo
@@ -11,40 +10,39 @@ User session information container.
 
 **Constructors**:
 
-- [ConfUserInfo(ConfETuple)](#m-confuserinfo-9235b8253643)
+- [ConfUserInfo(ConfETuple)](#m-ConfUserInfo-9235b8253643)
 
 **Methods**:
 
-- [getClearpass()](#m-getclearpass-998661a349d6)
-- [getContext()](#m-getcontext-b18d576df5d9)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getIp()](#m-getip-ad5596a8911e)
-- [getIpValue()](#m-getipvalue-dff73fbc4d3c)
-- [getLmode()](#m-getlmode-4aa007381568)
-- [getLogintime()](#m-getlogintime-845d8cf81901)
-- [getPort()](#m-getport-a2225f868a2b)
-- [getProto()](#m-getproto-ae1443b1672f)
-- [getSnmp_v3_ctx()](#m-getsnmp_v3_ctx-032f3fc605fb)
-- [getUsername()](#m-getusername-5638d729c382)
-- [getUsid()](#m-getusid-62d0ecfd68fd)
-- [setClearpass(String)](#m-setclearpass-662e00669ed9)
-- [setContext(String)](#m-setcontext-753d3fbe936b)
-- [setFlags(int)](#m-setflags-ce4598e4465c)
-- [setIp(InetAddress)](#m-setip-49bec735527d)
-- [setIpValue(ConfObject)](#m-setipvalue-cf28767e1148)
-- [setLmode(int)](#m-setlmode-d167e77014bd)
-- [setLogintime(Date)](#m-setlogintime-52b3f9806851)
-- [setPort(int)](#m-setport-d98551ef44a0)
-- [setProto(int)](#m-setproto-d5a7c90ea3b3)
-- [setSnmp_v3_ctx(String)](#m-setsnmp_v3_ctx-f43f32ccecbd)
-- [setUsername(String)](#m-setusername-2c18926653ff)
-- [setUsid(int)](#m-setusid-f5dcd6d3ac5f)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getClearpass()](#m-getClearpass-998661a349d6)
+- [getContext()](#m-getContext-b18d576df5d9)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getIp()](#m-getIp-ad5596a8911e)
+- [getIpValue()](#m-getIpValue-dff73fbc4d3c)
+- [getLmode()](#m-getLmode-4aa007381568)
+- [getLogintime()](#m-getLogintime-845d8cf81901)
+- [getPort()](#m-getPort-a2225f868a2b)
+- [getProto()](#m-getProto-ae1443b1672f)
+- [getSnmp_v3_ctx()](#m-getSnmp_v3_ctx-032f3fc605fb)
+- [getUsername()](#m-getUsername-5638d729c382)
+- [getUsid()](#m-getUsid-62d0ecfd68fd)
+- [setClearpass(String)](#m-setClearpass-662e00669ed9)
+- [setContext(String)](#m-setContext-753d3fbe936b)
+- [setFlags(int)](#m-setFlags-ce4598e4465c)
+- [setIp(InetAddress)](#m-setIp-49bec735527d)
+- [setIpValue(ConfObject)](#m-setIpValue-cf28767e1148)
+- [setLmode(int)](#m-setLmode-d167e77014bd)
+- [setLogintime(Date)](#m-setLogintime-52b3f9806851)
+- [setPort(int)](#m-setPort-d98551ef44a0)
+- [setProto(int)](#m-setProto-d5a7c90ea3b3)
+- [setSnmp_v3_ctx(String)](#m-setSnmp_v3_ctx-f43f32ccecbd)
+- [setUsername(String)](#m-setUsername-2c18926653ff)
+- [setUsid(int)](#m-setUsid-f5dcd6d3ac5f)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confuserinfo-9235b8253643"></a>
-### ConfUserInfo(ConfETuple)
+### ConfUserInfo(ConfETuple) <a href="#m-ConfUserInfo-9235b8253643" id="m-ConfUserInfo-9235b8253643"></a>
 
 ```java
 public ConfUserInfo(com.tailf.proto.ConfETuple usess) throws com.tailf.conf.ConfException
@@ -65,8 +63,7 @@ Internally used constructor to create a UserInfo record
 
 ## Methods
 
-<a id="m-getclearpass-998661a349d6"></a>
-### getClearpass()
+### getClearpass() <a href="#m-getClearpass-998661a349d6" id="m-getClearpass-998661a349d6"></a>
 
 ```java
 public String getClearpass()
@@ -76,8 +73,7 @@ Get User session clear text password if available otherwise ""
 
 **Returns:** password as string
 
-<a id="m-getcontext-b18d576df5d9"></a>
-### getContext()
+### getContext() <a href="#m-getContext-b18d576df5d9" id="m-getContext-b18d576df5d9"></a>
 
 ```java
 public String getContext()
@@ -88,8 +84,7 @@ Get User session context, one of
 
 **Returns:** context as string
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public int getFlags()
@@ -99,8 +94,7 @@ Get User session flags
 
 **Returns:** flags as int
 
-<a id="m-getip-ad5596a8911e"></a>
-### getIp()
+### getIp() <a href="#m-getIp-ad5596a8911e" id="m-getIp-ad5596a8911e"></a>
 
 ```java
 public java.net.InetAddress getIp()
@@ -110,8 +104,7 @@ Get User Session IP address as an Java InetAddress instance
 
 **Returns:** Ip address
 
-<a id="m-getipvalue-dff73fbc4d3c"></a>
-### getIpValue()
+### getIpValue() <a href="#m-getIpValue-dff73fbc4d3c" id="m-getIpValue-dff73fbc4d3c"></a>
 
 ```java
 public com.tailf.conf.ConfObject getIpValue()
@@ -123,8 +116,7 @@ Get User session IP address as ConfIPv4 or ConfIPv6 respectively
 
 **Returns:** IP address as ConfIPv4 or ConfIPv6
 
-<a id="m-getlmode-4aa007381568"></a>
-### getLmode()
+### getLmode() <a href="#m-getLmode-4aa007381568" id="m-getLmode-4aa007381568"></a>
 
 ```java
 public int getLmode()
@@ -134,8 +126,7 @@ Get User session locks
 
 **Returns:** lock mode as int
 
-<a id="m-getlogintime-845d8cf81901"></a>
-### getLogintime()
+### getLogintime() <a href="#m-getLogintime-845d8cf81901" id="m-getLogintime-845d8cf81901"></a>
 
 ```java
 public java.util.Date getLogintime()
@@ -145,8 +136,7 @@ Get user session login time
 
 **Returns:** login time as date
 
-<a id="m-getport-a2225f868a2b"></a>
-### getPort()
+### getPort() <a href="#m-getPort-a2225f868a2b" id="m-getPort-a2225f868a2b"></a>
 
 ```java
 public int getPort()
@@ -156,8 +146,7 @@ Get user session port
 
 **Returns:** port as int
 
-<a id="m-getproto-ae1443b1672f"></a>
-### getProto()
+### getProto() <a href="#m-getProto-ae1443b1672f" id="m-getProto-ae1443b1672f"></a>
 
 ```java
 public int getProto()
@@ -167,8 +156,7 @@ Get User session protocol type
 
 **Returns:** int representing the protocol type
 
-<a id="m-getsnmp_v3_ctx-032f3fc605fb"></a>
-### getSnmp_v3_ctx()
+### getSnmp_v3_ctx() <a href="#m-getSnmp_v3_ctx-032f3fc605fb" id="m-getSnmp_v3_ctx-032f3fc605fb"></a>
 
 ```java
 public String getSnmp_v3_ctx()
@@ -178,8 +166,7 @@ Get snmp v3 context
 
 **Returns:** snmpv3 context as string
 
-<a id="m-getusername-5638d729c382"></a>
-### getUsername()
+### getUsername() <a href="#m-getUsername-5638d729c382" id="m-getUsername-5638d729c382"></a>
 
 ```java
 public String getUsername()
@@ -189,8 +176,7 @@ Get user name
 
 **Returns:** username as string
 
-<a id="m-getusid-62d0ecfd68fd"></a>
-### getUsid()
+### getUsid() <a href="#m-getUsid-62d0ecfd68fd" id="m-getUsid-62d0ecfd68fd"></a>
 
 ```java
 public int getUsid()
@@ -200,8 +186,7 @@ Get user session id
 
 **Returns:** user session id as int
 
-<a id="m-setclearpass-662e00669ed9"></a>
-### setClearpass(String)
+### setClearpass(String) <a href="#m-setClearpass-662e00669ed9" id="m-setClearpass-662e00669ed9"></a>
 
 ```java
 public void setClearpass(String clearpass)
@@ -213,8 +198,7 @@ Internally used method
 
 - `String clearpass`
 
-<a id="m-setcontext-753d3fbe936b"></a>
-### setContext(String)
+### setContext(String) <a href="#m-setContext-753d3fbe936b" id="m-setContext-753d3fbe936b"></a>
 
 ```java
 public void setContext(String context)
@@ -226,8 +210,7 @@ Internally used method
 
 - `String context`
 
-<a id="m-setflags-ce4598e4465c"></a>
-### setFlags(int)
+### setFlags(int) <a href="#m-setFlags-ce4598e4465c" id="m-setFlags-ce4598e4465c"></a>
 
 ```java
 public void setFlags(int flags)
@@ -239,8 +222,7 @@ Internally used method
 
 - `int flags`
 
-<a id="m-setip-49bec735527d"></a>
-### setIp(InetAddress)
+### setIp(InetAddress) <a href="#m-setIp-49bec735527d" id="m-setIp-49bec735527d"></a>
 
 ```java
 public void setIp(java.net.InetAddress ip)
@@ -252,8 +234,7 @@ Internally used method
 
 - `java.net.InetAddress ip`
 
-<a id="m-setipvalue-cf28767e1148"></a>
-### setIpValue(ConfObject)
+### setIpValue(ConfObject) <a href="#m-setIpValue-cf28767e1148" id="m-setIpValue-cf28767e1148"></a>
 
 ```java
 public void setIpValue(com.tailf.conf.ConfObject ipValue)
@@ -267,8 +248,7 @@ Internally used set method
 
 - `com.tailf.conf.ConfObject ipValue`
 
-<a id="m-setlmode-d167e77014bd"></a>
-### setLmode(int)
+### setLmode(int) <a href="#m-setLmode-d167e77014bd" id="m-setLmode-d167e77014bd"></a>
 
 ```java
 public void setLmode(int lmode)
@@ -280,8 +260,7 @@ Internally used method
 
 - `int lmode`
 
-<a id="m-setlogintime-52b3f9806851"></a>
-### setLogintime(Date)
+### setLogintime(Date) <a href="#m-setLogintime-52b3f9806851" id="m-setLogintime-52b3f9806851"></a>
 
 ```java
 public void setLogintime(java.util.Date logintime)
@@ -293,8 +272,7 @@ Internally used method
 
 - `java.util.Date logintime`
 
-<a id="m-setport-d98551ef44a0"></a>
-### setPort(int)
+### setPort(int) <a href="#m-setPort-d98551ef44a0" id="m-setPort-d98551ef44a0"></a>
 
 ```java
 public void setPort(int port)
@@ -306,8 +284,7 @@ Internally used method
 
 - `int port`
 
-<a id="m-setproto-d5a7c90ea3b3"></a>
-### setProto(int)
+### setProto(int) <a href="#m-setProto-d5a7c90ea3b3" id="m-setProto-d5a7c90ea3b3"></a>
 
 ```java
 public void setProto(int proto)
@@ -319,8 +296,7 @@ Internally used method
 
 - `int proto`
 
-<a id="m-setsnmp_v3_ctx-f43f32ccecbd"></a>
-### setSnmp_v3_ctx(String)
+### setSnmp_v3_ctx(String) <a href="#m-setSnmp_v3_ctx-f43f32ccecbd" id="m-setSnmp_v3_ctx-f43f32ccecbd"></a>
 
 ```java
 public void setSnmp_v3_ctx(String snmpV3Ctx)
@@ -332,8 +308,7 @@ Internally used method
 
 - `String snmpV3Ctx`
 
-<a id="m-setusername-2c18926653ff"></a>
-### setUsername(String)
+### setUsername(String) <a href="#m-setUsername-2c18926653ff" id="m-setUsername-2c18926653ff"></a>
 
 ```java
 public void setUsername(String username)
@@ -345,8 +320,7 @@ Internally used method
 
 - `String username`
 
-<a id="m-setusid-f5dcd6d3ac5f"></a>
-### setUsid(int)
+### setUsid(int) <a href="#m-setUsid-f5dcd6d3ac5f" id="m-setUsid-f5dcd6d3ac5f"></a>
 
 ```java
 public void setUsid(int usid)
@@ -358,8 +332,7 @@ Internally used method
 
 - `int usid`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-ConfEDecodeException"></a>
-# ConfEDecodeException
+# ConfEDecodeException <a href="#cls-ConfEDecodeException" id="cls-ConfEDecodeException"></a>
 
 ```java
 public class com.tailf.proto.ConfEDecodeException
@@ -18,13 +17,12 @@ Exception raised when an attempt is made to create an E term by decoding a
 
 **Constructors**:
 
-- [ConfEDecodeException(String)](#m-confedecodeexception-be17763994e7)
-- [ConfEDecodeException(String, Throwable)](#m-confedecodeexception-0e577e411eca)
+- [ConfEDecodeException(String)](#m-ConfEDecodeException-be17763994e7)
+- [ConfEDecodeException(String, Throwable)](#m-ConfEDecodeException-0e577e411eca)
 
 ## Constructors
 
-<a id="m-confedecodeexception-be17763994e7"></a>
-### ConfEDecodeException(String)
+### ConfEDecodeException(String) <a href="#m-ConfEDecodeException-be17763994e7" id="m-ConfEDecodeException-be17763994e7"></a>
 
 ```java
 public ConfEDecodeException(String msg)
@@ -34,8 +32,7 @@ public ConfEDecodeException(String msg)
 
 - `String msg`
 
-<a id="m-confedecodeexception-0e577e411eca"></a>
-### ConfEDecodeException(String, Throwable)
+### ConfEDecodeException(String, Throwable) <a href="#m-ConfEDecodeException-0e577e411eca" id="m-ConfEDecodeException-0e577e411eca"></a>
 
 ```java
 public ConfEDecodeException(String msg, Throwable cause)

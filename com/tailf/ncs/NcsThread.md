@@ -1,5 +1,4 @@
-<a id="cls-NcsThread"></a>
-# NcsThread
+# NcsThread <a href="#cls-NcsThread" id="cls-NcsThread"></a>
 
 ```java
 public class com.tailf.ncs.NcsThread
@@ -13,8 +12,8 @@ NcsThread is a subclass of Thread with the ability to log more info about
 
 **Constructors**:
 
-- [NcsThread(Runnable)](#m-ncsthread-2da10fc87e4c)
-- [NcsThread(Runnable, String)](#m-ncsthread-ff60b8717078)
+- [NcsThread(Runnable)](#m-NcsThread-2da10fc87e4c)
+- [NcsThread(Runnable, String)](#m-NcsThread-ff60b8717078)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ NcsThread is a subclass of Thread with the ability to log more info about
 
 ## Constructors
 
-<a id="m-ncsthread-2da10fc87e4c"></a>
-### NcsThread(Runnable)
+### NcsThread(Runnable) <a href="#m-NcsThread-2da10fc87e4c" id="m-NcsThread-2da10fc87e4c"></a>
 
 ```java
 public NcsThread(Runnable r)
@@ -37,8 +35,7 @@ public NcsThread(Runnable r)
 
 - `Runnable r`
 
-<a id="m-ncsthread-ff60b8717078"></a>
-### NcsThread(Runnable, String)
+### NcsThread(Runnable, String) <a href="#m-NcsThread-ff60b8717078" id="m-NcsThread-ff60b8717078"></a>
 
 ```java
 public NcsThread(Runnable r, String name)
@@ -52,8 +49,7 @@ public NcsThread(Runnable r, String name)
 
 ## Fields
 
-<a id="m-DEFAULT_NAME"></a>
-### DEFAULT_NAME
+### DEFAULT_NAME <a href="#m-DEFAULT_NAME" id="m-DEFAULT_NAME"></a>
 
 ```java
 public static final String DEFAULT_NAME = "NcsWorkerPoolThread";
@@ -62,8 +58,7 @@ public static final String DEFAULT_NAME = "NcsWorkerPoolThread";
 
 ## Methods
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()

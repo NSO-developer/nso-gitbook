@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder
@@ -10,26 +9,25 @@ public static final class com.tailf.ncs.maapi.Schema.CsMeta.Value.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getNone()](#m-getnone-e31bfdbffa7f)
-- [getText()](#m-gettext-e63d55fcdcbd)
-- [hasText()](#m-hastext-9f49522a4f5a)
-- [initText(int)](#m-inittext-6175682972e5)
-- [isNone()](#m-isnone-e8a993ad0453)
-- [isText()](#m-istext-98869fdb86ee)
-- [setNone(Void)](#m-setnone-46764db867d5)
-- [setText(Reader)](#m-settext-e072baf7bad6)
-- [setText(String)](#m-settext-bb5093080571)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getNone()](#m-getNone-e31bfdbffa7f)
+- [getText()](#m-getText-e63d55fcdcbd)
+- [hasText()](#m-hasText-9f49522a4f5a)
+- [initText(int)](#m-initText-6175682972e5)
+- [isNone()](#m-isNone-e8a993ad0453)
+- [isText()](#m-isText-98869fdb86ee)
+- [setNone(Void)](#m-setNone-46764db867d5)
+- [setText(Reader)](#m-setText-e072baf7bad6)
+- [setText(String)](#m-setText-bb5093080571)
 - [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -54,8 +52,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader asReader()
@@ -63,29 +60,25 @@ public final com.tailf.ncs.maapi.Schema.CsMeta.Value.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getnone-e31bfdbffa7f"></a>
-### getNone()
+### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-<a id="m-gettext-e63d55fcdcbd"></a>
-### getText()
+### getText() <a href="#m-getText-e63d55fcdcbd" id="m-getText-e63d55fcdcbd"></a>
 
 ```java
 public final org.capnproto.Text.Builder getText()
 ```
 
-<a id="m-hastext-9f49522a4f5a"></a>
-### hasText()
+### hasText() <a href="#m-hasText-9f49522a4f5a" id="m-hasText-9f49522a4f5a"></a>
 
 ```java
 public final boolean hasText()
 ```
 
-<a id="m-inittext-6175682972e5"></a>
-### initText(int)
+### initText(int) <a href="#m-initText-6175682972e5" id="m-initText-6175682972e5"></a>
 
 ```java
 public final org.capnproto.Text.Builder initText(int size)
@@ -95,22 +88,19 @@ public final org.capnproto.Text.Builder initText(int size)
 
 - `int size`
 
-<a id="m-isnone-e8a993ad0453"></a>
-### isNone()
+### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="m-istext-98869fdb86ee"></a>
-### isText()
+### isText() <a href="#m-isText-98869fdb86ee" id="m-isText-98869fdb86ee"></a>
 
 ```java
 public final boolean isText()
 ```
 
-<a id="m-setnone-46764db867d5"></a>
-### setNone(Void)
+### setNone(Void) <a href="#m-setNone-46764db867d5" id="m-setNone-46764db867d5"></a>
 
 ```java
 public final void setNone(org.capnproto.Void value)
@@ -120,8 +110,7 @@ public final void setNone(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-settext-e072baf7bad6"></a>
-### setText(Reader)
+### setText(Reader) <a href="#m-setText-e072baf7bad6" id="m-setText-e072baf7bad6"></a>
 
 ```java
 public final void setText(org.capnproto.Text.Reader value)
@@ -131,8 +120,7 @@ public final void setText(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-settext-bb5093080571"></a>
-### setText(String)
+### setText(String) <a href="#m-setText-bb5093080571" id="m-setText-bb5093080571"></a>
 
 ```java
 public final void setText(String value)
@@ -142,8 +130,7 @@ public final void setText(String value)
 
 - `String value`
 
-<a id="m-which-0b2d23db5ed0"></a>
-### which()
+### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsMeta.Value.Which which()

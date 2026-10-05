@@ -1,5 +1,4 @@
-<a id="cls-Header"></a>
-# Header
+# Header <a href="#cls-Header" id="cls-Header"></a>
 
 **Package-private**
 
@@ -18,7 +17,7 @@ Schema header, comes first in the schema file with a magic identifying
 
 **Constructors**:
 
-- [Header(Source, int)](#m-header-7e393d717b0e)
+- [Header(Source, int)](#m-Header-7e393d717b0e)
 
 **Fields**:
 
@@ -28,15 +27,14 @@ Schema header, comes first in the schema file with a magic identifying
 
 **Methods**:
 
-- [getTreeLen()](#m-gettreelen-f0ab2ff698f1)
-- [getTreeOff()](#m-gettreeoff-37a8f3ff6546)
+- [getTreeLen()](#m-getTreeLen-f0ab2ff698f1)
+- [getTreeOff()](#m-getTreeOff-37a8f3ff6546)
 - [read(Source, int)](#m-read-c048381a08bd)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-header-7e393d717b0e"></a>
-### Header(Source, int)
+### Header(Source, int) <a href="#m-Header-7e393d717b0e" id="m-Header-7e393d717b0e"></a>
 
 **Package-private**
 
@@ -58,8 +56,7 @@ Types: [Source](Source.md#cls-Source), [MmapSchemaException](../MmapSchemaExcept
 
 ## Fields
 
-<a id="m-BYTE_ORDER_EXPECTED"></a>
-### BYTE_ORDER_EXPECTED
+### BYTE_ORDER_EXPECTED <a href="#m-BYTE_ORDER_EXPECTED" id="m-BYTE_ORDER_EXPECTED"></a>
 
 **Package-private**
 
@@ -67,8 +64,7 @@ Types: [Source](Source.md#cls-Source), [MmapSchemaException](../MmapSchemaExcept
 static final int BYTE_ORDER_EXPECTED = 1;
 ```
 
-<a id="m-BYTE_ORDER_REVERSE"></a>
-### BYTE_ORDER_REVERSE
+### BYTE_ORDER_REVERSE <a href="#m-BYTE_ORDER_REVERSE" id="m-BYTE_ORDER_REVERSE"></a>
 
 **Package-private**
 
@@ -76,8 +72,7 @@ static final int BYTE_ORDER_EXPECTED = 1;
 static final int BYTE_ORDER_REVERSE = 16777216;
 ```
 
-<a id="m-EXPECTED_MAGIC"></a>
-### EXPECTED_MAGIC
+### EXPECTED_MAGIC <a href="#m-EXPECTED_MAGIC" id="m-EXPECTED_MAGIC"></a>
 
 **Package-private**
 
@@ -88,22 +83,19 @@ static final String EXPECTED_MAGIC = "SCHEMA00";
 
 ## Methods
 
-<a id="m-gettreelen-f0ab2ff698f1"></a>
-### getTreeLen()
+### getTreeLen() <a href="#m-getTreeLen-f0ab2ff698f1" id="m-getTreeLen-f0ab2ff698f1"></a>
 
 ```java
 public int getTreeLen()
 ```
 
-<a id="m-gettreeoff-37a8f3ff6546"></a>
-### getTreeOff()
+### getTreeOff() <a href="#m-getTreeOff-37a8f3ff6546" id="m-getTreeOff-37a8f3ff6546"></a>
 
 ```java
 public int getTreeOff()
 ```
 
-<a id="m-read-c048381a08bd"></a>
-### read(Source, int)
+### read(Source, int) <a href="#m-read-c048381a08bd" id="m-read-c048381a08bd"></a>
 
 **Package-private**
 
@@ -122,8 +114,7 @@ Types: [Source](Source.md#cls-Source), [MmapSchemaException](../MmapSchemaExcept
 - `com.tailf.ncs.maapi.MmapSchema.Source src`
 - `int pos0`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-CsValueIPv4Prefix"></a>
-# CsValueIPv4Prefix
+# CsValueIPv4Prefix <a href="#cls-CsValueIPv4Prefix" id="cls-CsValueIPv4Prefix"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix
 
 **Constructors**:
 
-- [CsValueIPv4Prefix()](#m-csvalueipv4prefix-56a91b50c7dc)
+- [CsValueIPv4Prefix()](#m-CsValueIPv4Prefix-56a91b50c7dc)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix
 
 ## Constructors
 
-<a id="m-csvalueipv4prefix-56a91b50c7dc"></a>
-### CsValueIPv4Prefix()
+### CsValueIPv4Prefix() <a href="#m-CsValueIPv4Prefix-56a91b50c7dc" id="m-CsValueIPv4Prefix-56a91b50c7dc"></a>
 
 ```java
 public CsValueIPv4Prefix()
@@ -35,8 +33,7 @@ public CsValueIPv4Prefix()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Factory factory
 
 Types: [Factory](CsValueIPv4Prefix/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder,com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueIPv4Prefix/Builder.md#cls-Builder), [Reader](CsValueIPv4Prefix/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

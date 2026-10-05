@@ -1,5 +1,4 @@
-<a id="cls-ApplyException"></a>
-# ApplyException
+# ApplyException <a href="#cls-ApplyException" id="cls-ApplyException"></a>
 
 ```java
 public class com.tailf.ned.NedCliBaseTemplate.ApplyException
@@ -10,8 +9,8 @@ public class com.tailf.ned.NedCliBaseTemplate.ApplyException
 
 **Constructors**:
 
-- [ApplyException(String, boolean, boolean)](#m-applyexception-7b81fcea900a)
-- [ApplyException(String, String, boolean, boolean)](#m-applyexception-bbb5076611ee)
+- [ApplyException(String, boolean, boolean)](#m-ApplyException-7b81fcea900a)
+- [ApplyException(String, String, boolean, boolean)](#m-ApplyException-bbb5076611ee)
 
 **Fields**:
 
@@ -21,8 +20,7 @@ public class com.tailf.ned.NedCliBaseTemplate.ApplyException
 
 ## Constructors
 
-<a id="m-applyexception-7b81fcea900a"></a>
-### ApplyException(String, boolean, boolean)
+### ApplyException(String, boolean, boolean) <a href="#m-ApplyException-7b81fcea900a" id="m-ApplyException-7b81fcea900a"></a>
 
 ```java
 public ApplyException(String msg, boolean isAtTop, boolean inConfigMode)
@@ -34,8 +32,7 @@ public ApplyException(String msg, boolean isAtTop, boolean inConfigMode)
 - `boolean isAtTop`
 - `boolean inConfigMode`
 
-<a id="m-applyexception-bbb5076611ee"></a>
-### ApplyException(String, String, boolean, boolean)
+### ApplyException(String, String, boolean, boolean) <a href="#m-ApplyException-bbb5076611ee" id="m-ApplyException-bbb5076611ee"></a>
 
 ```java
 public ApplyException(String line, String msg, boolean isAtTop, boolean inConfigMode)
@@ -51,22 +48,19 @@ public ApplyException(String line, String msg, boolean isAtTop, boolean inConfig
 
 ## Fields
 
-<a id="m-inConfigMode"></a>
-### inConfigMode
+### inConfigMode <a href="#m-inConfigMode" id="m-inConfigMode"></a>
 
 ```java
 public boolean inConfigMode = null;
 ```
 
-<a id="m-isAtTop"></a>
-### isAtTop
+### isAtTop <a href="#m-isAtTop" id="m-isAtTop"></a>
 
 ```java
 public boolean isAtTop = null;
 ```
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 ```java
 public static final long serialVersionUID = 1285361782;

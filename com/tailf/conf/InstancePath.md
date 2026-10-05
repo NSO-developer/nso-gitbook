@@ -1,5 +1,4 @@
-<a id="cls-InstancePath"></a>
-# InstancePath
+# InstancePath <a href="#cls-InstancePath" id="cls-InstancePath"></a>
 
 ```java
 public abstract class com.tailf.conf.InstancePath
@@ -23,8 +22,8 @@ Class Representing an path. A Path can be either a schema path
 - Instance of [`ConfEList`](../proto/ConfEList.md#cls-ConfEList) - Applications usually does
  not have to deal with paths that are instances of `ConfEList`.
  Constructors that have this type is usually for internal use:
- [`InstancePath#InstancePath(ConfEBinary)`](InstancePath.md#m-instancepath-e673bc5f9e5a),[`InstancePath#InstancePath(ConfEList)`](InstancePath.md#m-instancepath-5f1d4144a5af),
- [`InstancePath#InstancePath(ConfObject[])`](InstancePath.md#m-instancepath-578db36acd1b)
+ [`InstancePath(ConfEBinary)`](InstancePath.md#m-InstancePath-e673bc5f9e5a),[`InstancePath(ConfEList)`](InstancePath.md#m-InstancePath-5f1d4144a5af),
+ [`InstancePath(ConfObject[])`](InstancePath.md#m-InstancePath-578db36acd1b)
 - Reverted array of [`ConfObject`](ConfObject.md#cls-ConfObject) `ConfObject[]`
  where each element is either
  of the type [`ConfTag`](ConfTag.md#cls-ConfTag) or [`ConfKey`](ConfKey.md#cls-ConfKey). To determine which type
@@ -45,14 +44,14 @@ Class Representing an path. A Path can be either a schema path
 
 **Constructors**:
 
-- [InstancePath(ConfEBinary)](#m-instancepath-e673bc5f9e5a)
-- [InstancePath(ConfEList)](#m-instancepath-5f1d4144a5af)
-- [InstancePath(ConfObject[])](#m-instancepath-578db36acd1b)
-- [InstancePath(MountIdInterface)](#m-instancepath-c47f9e227234)
-- [InstancePath(MountIdInterface, ConfObject[])](#m-instancepath-2505c812ffbf)
-- [InstancePath(MountIdInterface, List<PathElement>)](#m-instancepath-81d41046b20c)
-- [InstancePath(MountIdInterface, String, Object[])](#m-instancepath-01c8746248ca)
-- [InstancePath(String, Object[])](#m-instancepath-f1811b7c9fb8)
+- [InstancePath(ConfEBinary)](#m-InstancePath-e673bc5f9e5a)
+- [InstancePath(ConfEList)](#m-InstancePath-5f1d4144a5af)
+- [InstancePath(ConfObject[])](#m-InstancePath-578db36acd1b)
+- [InstancePath(MountIdInterface)](#m-InstancePath-c47f9e227234)
+- [InstancePath(MountIdInterface, ConfObject[])](#m-InstancePath-2505c812ffbf)
+- [InstancePath(MountIdInterface, List<PathElement>)](#m-InstancePath-81d41046b20c)
+- [InstancePath(MountIdInterface, String, Object[])](#m-InstancePath-01c8746248ca)
+- [InstancePath(String, Object[])](#m-InstancePath-f1811b7c9fb8)
 
 **Fields**:
 
@@ -67,29 +66,29 @@ Class Representing an path. A Path can be either a schema path
 
 **Methods**:
 
-- [chkDeferred()](#m-chkdeferred-f66dc2317846)
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](#m-converttoconfkey-709808909e1b)
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](#m-converttoconfkey-3964b2d32ca6)
+- [chkDeferred()](#m-chkDeferred-f66dc2317846)
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](#m-convertToConfKey-709808909e1b)
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](#m-convertToConfKey-3964b2d32ca6)
 - [encode()](#m-encode-fbae522bba37)
-- [encodeIKP()](#m-encodeikp-b160b87f6433)
+- [encodeIKP()](#m-encodeIKP-b160b87f6433)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getCSNode()](#m-getcsnode-cf7a085aa7f5)
-- [getKP()](#m-getkp-45b2f95adae4)
-- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](#m-getkp-a23f67046fb4)
-- [getLatestMountId()](#m-getlatestmountid-30c9c1f692c7)
-- [getMountIdGetter()](#m-getmountidgetter-64fcfdb6be8c)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isKey()](#m-iskey-7bdf17ac8255)
-- [isParsingDeferred()](#m-isparsingdeferred-b3b266536326)
-- [isRel()](#m-isrel-dca98ac4de7a)
-- [makeKP(ConfObject[])](#m-makekp-32258da68c76)
-- [parseAppend(String, Object[])](#m-parseappend-54d8f4d7c8da)
-- [parseAppend(String, Object[], List<CSNode>)](#m-parseappend-6e40353c0959)
-- [quoteByteArray(byte[])](#m-quotebytearray-1889d341fdce)
-- [quoteString(String, boolean)](#m-quotestring-2ccae847ff76)
-- [setMountIdGetter(MountIdInterface)](#m-setmountidgetter-900228f8453c)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toXPathString()](#m-toxpathstring-81906e391643)
+- [getCSNode()](#m-getCSNode-cf7a085aa7f5)
+- [getKP()](#m-getKP-45b2f95adae4)
+- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](#m-getKP-a23f67046fb4)
+- [getLatestMountId()](#m-getLatestMountId-30c9c1f692c7)
+- [getMountIdGetter()](#m-getMountIdGetter-64fcfdb6be8c)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isKey()](#m-isKey-7bdf17ac8255)
+- [isParsingDeferred()](#m-isParsingDeferred-b3b266536326)
+- [isRel()](#m-isRel-dca98ac4de7a)
+- [makeKP(ConfObject[])](#m-makeKP-32258da68c76)
+- [parseAppend(String, Object[])](#m-parseAppend-54d8f4d7c8da)
+- [parseAppend(String, Object[], List<CSNode>)](#m-parseAppend-6e40353c0959)
+- [quoteByteArray(byte[])](#m-quoteByteArray-1889d341fdce)
+- [quoteString(String, boolean)](#m-quoteString-2ccae847ff76)
+- [setMountIdGetter(MountIdInterface)](#m-setMountIdGetter-900228f8453c)
+- [toString()](#m-toString-e9d48c5503ef)
+- [toXPathString()](#m-toXPathString-81906e391643)
 
 **Nested Types**:
 
@@ -97,8 +96,7 @@ Class Representing an path. A Path can be either a schema path
 
 ## Constructors
 
-<a id="m-instancepath-e673bc5f9e5a"></a>
-### InstancePath(ConfEBinary)
+### InstancePath(ConfEBinary) <a href="#m-InstancePath-e673bc5f9e5a" id="m-InstancePath-e673bc5f9e5a"></a>
 
 ```java
 public InstancePath(com.tailf.proto.ConfEBinary o) throws com.tailf.conf.ConfException
@@ -118,8 +116,7 @@ Initialize a InstancePath.
 
 - `ConfException`
 
-<a id="m-instancepath-5f1d4144a5af"></a>
-### InstancePath(ConfEList)
+### InstancePath(ConfEList) <a href="#m-InstancePath-5f1d4144a5af" id="m-InstancePath-5f1d4144a5af"></a>
 
 ```java
 public InstancePath(com.tailf.proto.ConfEList o)
@@ -135,8 +132,7 @@ Initialize a InstancePath.
 
 - `com.tailf.proto.ConfEList o` - element (reversed) constitute a `InstancePath`
 
-<a id="m-instancepath-578db36acd1b"></a>
-### InstancePath(ConfObject[])
+### InstancePath(ConfObject[]) <a href="#m-InstancePath-578db36acd1b" id="m-InstancePath-578db36acd1b"></a>
 
 ```java
 public InstancePath(com.tailf.conf.ConfObject[] kp)
@@ -153,8 +149,7 @@ Initializes a new instance of this class from a given
 
 - `com.tailf.conf.ConfObject[] kp` - reverted keypath
 
-<a id="m-instancepath-c47f9e227234"></a>
-### InstancePath(MountIdInterface)
+### InstancePath(MountIdInterface) <a href="#m-InstancePath-c47f9e227234" id="m-InstancePath-c47f9e227234"></a>
 
 ```java
 protected InstancePath(com.tailf.conf.MountIdInterface mountGetter)
@@ -166,8 +161,7 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface)
 
 - `com.tailf.conf.MountIdInterface mountGetter`
 
-<a id="m-instancepath-2505c812ffbf"></a>
-### InstancePath(MountIdInterface, ConfObject[])
+### InstancePath(MountIdInterface, ConfObject[]) <a href="#m-InstancePath-2505c812ffbf" id="m-InstancePath-2505c812ffbf"></a>
 
 ```java
 public InstancePath(com.tailf.conf.MountIdInterface mountGetter, com.tailf.conf.ConfObject[] kp)
@@ -180,8 +174,7 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfObject
 - `com.tailf.conf.MountIdInterface mountGetter`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-instancepath-81d41046b20c"></a>
-### InstancePath(MountIdInterface, List<PathElement>)
+### InstancePath(MountIdInterface, List<PathElement>) <a href="#m-InstancePath-81d41046b20c" id="m-InstancePath-81d41046b20c"></a>
 
 ```java
 protected InstancePath(
@@ -197,8 +190,7 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [PathElemen
 - `com.tailf.conf.MountIdInterface mountGetter`
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`
 
-<a id="m-instancepath-01c8746248ca"></a>
-### InstancePath(MountIdInterface, String, Object[])
+### InstancePath(MountIdInterface, String, Object[]) <a href="#m-InstancePath-01c8746248ca" id="m-InstancePath-01c8746248ca"></a>
 
 ```java
 protected InstancePath(
@@ -217,8 +209,7 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfExcept
 - `String fmt`
 - `Object[] arguments`
 
-<a id="m-instancepath-f1811b7c9fb8"></a>
-### InstancePath(String, Object[])
+### InstancePath(String, Object[]) <a href="#m-InstancePath-f1811b7c9fb8" id="m-InstancePath-f1811b7c9fb8"></a>
 
 ```java
 protected InstancePath(String fmt, Object[] arguments) throws com.tailf.conf.ConfException
@@ -258,50 +249,43 @@ Construct a `InstancePath` from a string path representation
 
 ## Fields
 
-<a id="m-arguments"></a>
-### arguments
+### arguments <a href="#m-arguments" id="m-arguments"></a>
 
 ```java
 protected Object[] arguments = null;
 ```
 
-<a id="m-deferred"></a>
-### deferred
+### deferred <a href="#m-deferred" id="m-deferred"></a>
 
 ```java
 protected boolean deferred = null;
 ```
 
-<a id="m-fmt"></a>
-### fmt
+### fmt <a href="#m-fmt" id="m-fmt"></a>
 
 ```java
 protected String fmt = null;
 ```
 
-<a id="m-hasSchema"></a>
-### hasSchema
+### hasSchema <a href="#m-hasSchema" id="m-hasSchema"></a>
 
 ```java
 protected boolean hasSchema = null;
 ```
 
-<a id="m-isRel"></a>
-### isRel
+### isRel <a href="#m-isRel" id="m-isRel"></a>
 
 ```java
 protected boolean isRel = null;
 ```
 
-<a id="m-latestMountId"></a>
-### latestMountId
+### latestMountId <a href="#m-latestMountId" id="m-latestMountId"></a>
 
 ```java
 protected java.util.List<String> latestMountId = null;
 ```
 
-<a id="m-mountGetter"></a>
-### mountGetter
+### mountGetter <a href="#m-mountGetter" id="m-mountGetter"></a>
 
 ```java
 protected com.tailf.conf.MountIdInterface mountGetter = null;
@@ -309,8 +293,7 @@ protected com.tailf.conf.MountIdInterface mountGetter = null;
 
 Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface)
 
-<a id="m-pl"></a>
-### pl
+### pl <a href="#m-pl" id="m-pl"></a>
 
 ```java
 protected java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl = null;
@@ -321,15 +304,13 @@ Types: [PathElement](gen/PathParser/PathElement.md#cls-PathElement)
 
 ## Methods
 
-<a id="m-chkdeferred-f66dc2317846"></a>
-### chkDeferred()
+### chkDeferred() <a href="#m-chkDeferred-f66dc2317846" id="m-chkDeferred-f66dc2317846"></a>
 
 ```java
 protected abstract void chkDeferred()
 ```
 
-<a id="m-converttoconfkey-709808909e1b"></a>
-### convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)
+### convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean) <a href="#m-convertToConfKey-709808909e1b" id="m-convertToConfKey-709808909e1b"></a>
 
 ```java
 protected com.tailf.conf.ConfKey convertToConfKey(
@@ -354,8 +335,7 @@ Types: [ConfKey](ConfKey.md#cls-ConfKey), [PathElement](gen/PathParser/PathEleme
 - `java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys`
 - `boolean displayFormatted`
 
-<a id="m-converttoconfkey-3964b2d32ca6"></a>
-### convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)
+### convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean) <a href="#m-convertToConfKey-3964b2d32ca6" id="m-convertToConfKey-3964b2d32ca6"></a>
 
 ```java
 protected com.tailf.conf.ConfKey convertToConfKey(
@@ -382,8 +362,7 @@ Types: [ConfKey](ConfKey.md#cls-ConfKey), [PathElement](gen/PathParser/PathEleme
 - `boolean displayFormatted`
 - `boolean createPsuedoKey`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEList encode()
@@ -396,8 +375,7 @@ Returns the path encoded as an ConfEList.
 
 **Returns:** ConfEList representation of this path
 
-<a id="m-encodeikp-b160b87f6433"></a>
-### encodeIKP()
+### encodeIKP() <a href="#m-encodeIKP-b160b87f6433" id="m-encodeIKP-b160b87f6433"></a>
 
 ```java
 public com.tailf.proto.ConfEList encodeIKP()
@@ -410,8 +388,7 @@ Returns the path as ConfEList in IKP format.
 
 **Returns:** ConfEList representation of this path
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -421,8 +398,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getcsnode-cf7a085aa7f5"></a>
-### getCSNode()
+### getCSNode() <a href="#m-getCSNode-cf7a085aa7f5" id="m-getCSNode-cf7a085aa7f5"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getCSNode()
@@ -435,8 +411,7 @@ Returns MaapiSchemas node corresponding to the path.
 
 **Returns:** CSNode if the node exists in the schema, null otherwise
 
-<a id="m-getkp-45b2f95adae4"></a>
-### getKP()
+### getKP() <a href="#m-getKP-45b2f95adae4" id="m-getKP-45b2f95adae4"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getKP() throws com.tailf.conf.ConfException
@@ -467,8 +442,7 @@ Returns an array of `ConfTag` and `ConfKey`
          the path is not valid or the parsed path
          has no namespace information.
 
-<a id="m-getkp-a23f67046fb4"></a>
-### getKP(List<PathElement>, boolean, boolean, MountIdInterface)
+### getKP(List<PathElement>, boolean, boolean, MountIdInterface) <a href="#m-getKP-a23f67046fb4" id="m-getKP-a23f67046fb4"></a>
 
 ```java
 public static final com.tailf.conf.ConfObject[] getKP(
@@ -489,15 +463,13 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject), [PathElement](gen/PathParser/
 - `boolean hasSchema`
 - `com.tailf.conf.MountIdInterface mountGetter`
 
-<a id="m-getlatestmountid-30c9c1f692c7"></a>
-### getLatestMountId()
+### getLatestMountId() <a href="#m-getLatestMountId-30c9c1f692c7" id="m-getLatestMountId-30c9c1f692c7"></a>
 
 ```java
 public java.util.List<String> getLatestMountId()
 ```
 
-<a id="m-getmountidgetter-64fcfdb6be8c"></a>
-### getMountIdGetter()
+### getMountIdGetter() <a href="#m-getMountIdGetter-64fcfdb6be8c" id="m-getMountIdGetter-64fcfdb6be8c"></a>
 
 ```java
 public com.tailf.conf.MountIdInterface getMountIdGetter()
@@ -505,8 +477,7 @@ public com.tailf.conf.MountIdInterface getMountIdGetter()
 
 Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface)
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -521,22 +492,19 @@ Returns a hash code value for the path. This method is
 
 **Returns:** a hash code value for this object.
 
-<a id="m-iskey-7bdf17ac8255"></a>
-### isKey()
+### isKey() <a href="#m-isKey-7bdf17ac8255" id="m-isKey-7bdf17ac8255"></a>
 
 ```java
 public boolean isKey()
 ```
 
-<a id="m-isparsingdeferred-b3b266536326"></a>
-### isParsingDeferred()
+### isParsingDeferred() <a href="#m-isParsingDeferred-b3b266536326" id="m-isParsingDeferred-b3b266536326"></a>
 
 ```java
 public boolean isParsingDeferred()
 ```
 
-<a id="m-isrel-dca98ac4de7a"></a>
-### isRel()
+### isRel() <a href="#m-isRel-dca98ac4de7a" id="m-isRel-dca98ac4de7a"></a>
 
 ```java
 public boolean isRel()
@@ -546,8 +514,7 @@ Check if this is a relative path.
 
 **Returns:** true if this is a relative path
 
-<a id="m-makekp-32258da68c76"></a>
-### makeKP(ConfObject[])
+### makeKP(ConfObject[]) <a href="#m-makeKP-32258da68c76" id="m-makeKP-32258da68c76"></a>
 
 ```java
 protected static java.util.List<com.tailf.conf.gen.PathParser.PathElement> makeKP(
@@ -561,8 +528,7 @@ Types: [PathElement](gen/PathParser/PathElement.md#cls-PathElement), [ConfObject
 
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-parseappend-54d8f4d7c8da"></a>
-### parseAppend(String, Object[])
+### parseAppend(String, Object[]) <a href="#m-parseAppend-54d8f4d7c8da" id="m-parseAppend-54d8f4d7c8da"></a>
 
 ```java
 protected final void parseAppend(String format, Object[] args) throws com.tailf.conf.ConfException
@@ -575,8 +541,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 - `String format`
 - `Object[] args`
 
-<a id="m-parseappend-6e40353c0959"></a>
-### parseAppend(String, Object[], List<CSNode>)
+### parseAppend(String, Object[], List<CSNode>) <a href="#m-parseAppend-6e40353c0959" id="m-parseAppend-6e40353c0959"></a>
 
 ```java
 protected final void parseAppend(
@@ -595,8 +560,7 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [ConfException](Con
 - `Object[] args`
 - `java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> pathNodes`
 
-<a id="m-quotebytearray-1889d341fdce"></a>
-### quoteByteArray(byte[])
+### quoteByteArray(byte[]) <a href="#m-quoteByteArray-1889d341fdce" id="m-quoteByteArray-1889d341fdce"></a>
 
 ```java
 protected static byte[] quoteByteArray(byte[] barr)
@@ -606,8 +570,7 @@ protected static byte[] quoteByteArray(byte[] barr)
 
 - `byte[] barr`
 
-<a id="m-quotestring-2ccae847ff76"></a>
-### quoteString(String, boolean)
+### quoteString(String, boolean) <a href="#m-quoteString-2ccae847ff76" id="m-quoteString-2ccae847ff76"></a>
 
 ```java
 protected static String quoteString(String str, boolean strictQuotation)
@@ -618,8 +581,7 @@ protected static String quoteString(String str, boolean strictQuotation)
 - `String str`
 - `boolean strictQuotation`
 
-<a id="m-setmountidgetter-900228f8453c"></a>
-### setMountIdGetter(MountIdInterface)
+### setMountIdGetter(MountIdInterface) <a href="#m-setMountIdGetter-900228f8453c" id="m-setMountIdGetter-900228f8453c"></a>
 
 ```java
 public void setMountIdGetter(
@@ -634,15 +596,13 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfExcept
 
 - `com.tailf.conf.MountIdInterface mountGetter`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-toxpathstring-81906e391643"></a>
-### toXPathString()
+### toXPathString() <a href="#m-toXPathString-81906e391643" id="m-toXPathString-81906e391643"></a>
 
 ```java
 public String toXPathString()

@@ -1,5 +1,4 @@
-<a id="cls-SubagentNotification"></a>
-# SubagentNotification
+# SubagentNotification <a href="#cls-SubagentNotification" id="cls-SubagentNotification"></a>
 
 ```java
 public class com.tailf.notif.SubagentNotification
@@ -14,7 +13,7 @@ Data structure for subagent notifications.
 
 **Constructors**:
 
-- [SubagentNotification(int, String)](#m-subagentnotification-715af773f705)
+- [SubagentNotification(int, String)](#m-SubagentNotification-715af773f705)
 
 **Fields**:
 
@@ -24,15 +23,14 @@ Data structure for subagent notifications.
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getSubAgentInfoType()](#m-getsubagentinfotype-43388cfe9ce2)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getName()](#m-getName-2634b18b4a25)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getSubAgentInfoType()](#m-getSubAgentInfoType-43388cfe9ce2)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-subagentnotification-715af773f705"></a>
-### SubagentNotification(int, String)
+### SubagentNotification(int, String) <a href="#m-SubagentNotification-715af773f705" id="m-SubagentNotification-715af773f705"></a>
 
 ```java
 public SubagentNotification(int subagentInfoType, String name)
@@ -46,15 +44,13 @@ public SubagentNotification(int subagentInfoType, String name)
 
 ## Fields
 
-<a id="m-SUBAGENT_INFO_DOWN"></a>
-### SUBAGENT_INFO_DOWN
+### SUBAGENT_INFO_DOWN <a href="#m-SUBAGENT_INFO_DOWN" id="m-SUBAGENT_INFO_DOWN"></a>
 
 ```java
 public static final int SUBAGENT_INFO_DOWN = 2;
 ```
 
-<a id="m-SUBAGENT_INFO_UP"></a>
-### SUBAGENT_INFO_UP
+### SUBAGENT_INFO_UP <a href="#m-SUBAGENT_INFO_UP" id="m-SUBAGENT_INFO_UP"></a>
 
 ```java
 public static final int SUBAGENT_INFO_UP = 1;
@@ -63,8 +59,7 @@ public static final int SUBAGENT_INFO_UP = 1;
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
@@ -72,8 +67,7 @@ public String getName()
 
 Name of subagent.
 
-<a id="m-getsubagentinfotype-43388cfe9ce2"></a>
-### getSubAgentInfoType()
+### getSubAgentInfoType() <a href="#m-getSubAgentInfoType-43388cfe9ce2" id="m-getSubAgentInfoType-43388cfe9ce2"></a>
 
 ```java
 public int getSubAgentInfoType()
@@ -82,11 +76,10 @@ public int getSubAgentInfoType()
 Subagent information type:
 
 
-- `#SUBAGENT_INFO_UP`
-   - `#SUBAGENT_INFO_DOWN`
+- [`SUBAGENT_INFO_UP`](SubagentNotification.md#m-SUBAGENT_INFO_UP)
+   - [`SUBAGENT_INFO_DOWN`](SubagentNotification.md#m-SUBAGENT_INFO_DOWN)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

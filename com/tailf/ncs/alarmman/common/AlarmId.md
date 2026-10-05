@@ -1,5 +1,4 @@
-<a id="cls-AlarmId"></a>
-# AlarmId
+# AlarmId <a href="#cls-AlarmId" id="cls-AlarmId"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.common.AlarmId
@@ -19,24 +18,23 @@ Represents the unique identity of an NCS alarm. An NCS alarm is uniquely
 
 **Constructors**:
 
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject)](#m-alarmid-f411e7ef5feb)
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf)](#m-alarmid-ad5c8bdf2045)
-- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, String)](#m-alarmid-76778f74e5e5)
+- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject)](#m-AlarmId-f411e7ef5feb)
+- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf)](#m-AlarmId-ad5c8bdf2045)
+- [AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, String)](#m-AlarmId-76778f74e5e5)
 
 **Methods**:
 
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getAlarmType()](#m-getalarmtype-80d08d07e5c6)
-- [getManagedDevice()](#m-getmanageddevice-a92f8741d02f)
-- [getManagedObject()](#m-getmanagedobject-2257610c0381)
-- [getSpecificProblem()](#m-getspecificproblem-236478d10663)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getAlarmType()](#m-getAlarmType-80d08d07e5c6)
+- [getManagedDevice()](#m-getManagedDevice-a92f8741d02f)
+- [getManagedObject()](#m-getManagedObject-2257610c0381)
+- [getSpecificProblem()](#m-getSpecificProblem-236478d10663)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-alarmid-f411e7ef5feb"></a>
-### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject)
+### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject) <a href="#m-AlarmId-f411e7ef5feb" id="m-AlarmId-f411e7ef5feb"></a>
 
 ```java
 public AlarmId(
@@ -57,8 +55,7 @@ Constructs an `AlarmId` with `specificProblem`
 - `com.tailf.conf.ConfIdentityRef alarmType` - Alarm type
 - `com.tailf.ncs.alarmman.common.ManagedObject managedObject` - The managed object
 
-<a id="m-alarmid-ad5c8bdf2045"></a>
-### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf)
+### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, ConfBuf) <a href="#m-AlarmId-ad5c8bdf2045" id="m-AlarmId-ad5c8bdf2045"></a>
 
 ```java
 public AlarmId(
@@ -81,8 +78,7 @@ Constructs an AlarmId with the specified managed device, alarm type,
 - `com.tailf.ncs.alarmman.common.ManagedObject managedObject` - The managed object
 - `com.tailf.conf.ConfBuf specificProblem` - The specific problem as ConfBuf
 
-<a id="m-alarmid-76778f74e5e5"></a>
-### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, String)
+### AlarmId(ManagedDevice, ConfIdentityRef, ManagedObject, String) <a href="#m-AlarmId-76778f74e5e5" id="m-AlarmId-76778f74e5e5"></a>
 
 ```java
 public AlarmId(
@@ -107,8 +103,7 @@ Constructs an `AlarmId` with the specified properties.
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -137,8 +132,7 @@ A unique Alarm instance is the combination of a [`ManagedDevice`](ManagedDevice.
 
 **Returns:** `true` if the specified object is equal to this AlarmId
 
-<a id="m-getalarmtype-80d08d07e5c6"></a>
-### getAlarmType()
+### getAlarmType() <a href="#m-getAlarmType-80d08d07e5c6" id="m-getAlarmType-80d08d07e5c6"></a>
 
 ```java
 public com.tailf.conf.ConfIdentityRef getAlarmType()
@@ -150,8 +144,7 @@ Gets the alarm type identity reference.
 
 **Returns:** ConfIdentityRef the alarm type
 
-<a id="m-getmanageddevice-a92f8741d02f"></a>
-### getManagedDevice()
+### getManagedDevice() <a href="#m-getManagedDevice-a92f8741d02f" id="m-getManagedDevice-a92f8741d02f"></a>
 
 ```java
 public com.tailf.ncs.alarmman.common.ManagedDevice getManagedDevice()
@@ -163,8 +156,7 @@ Gets the managed device associated with this alarm.
 
 **Returns:** ManagedDevice the managed device
 
-<a id="m-getmanagedobject-2257610c0381"></a>
-### getManagedObject()
+### getManagedObject() <a href="#m-getManagedObject-2257610c0381" id="m-getManagedObject-2257610c0381"></a>
 
 ```java
 public com.tailf.ncs.alarmman.common.ManagedObject getManagedObject()
@@ -176,8 +168,7 @@ Gets the managed object associated with this alarm.
 
 **Returns:** ManagedObject the managed object
 
-<a id="m-getspecificproblem-236478d10663"></a>
-### getSpecificProblem()
+### getSpecificProblem() <a href="#m-getSpecificProblem-236478d10663" id="m-getSpecificProblem-236478d10663"></a>
 
 ```java
 public String getSpecificProblem()
@@ -187,8 +178,7 @@ Gets the specific problem string for this alarm.
 
 **Returns:** String the specific problem description
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -199,8 +189,7 @@ Returns a hash code value for this AlarmId. The hash code is computed
 
 **Returns:** int hash code value
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

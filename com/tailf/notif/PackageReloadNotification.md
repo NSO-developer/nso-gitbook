@@ -1,5 +1,4 @@
-<a id="cls-PackageReloadNotification"></a>
-# PackageReloadNotification
+# PackageReloadNotification <a href="#cls-PackageReloadNotification" id="cls-PackageReloadNotification"></a>
 
 ```java
 public class com.tailf.notif.PackageReloadNotification
@@ -14,7 +13,7 @@ Data structure for PackageReload notifications.
 
 **Constructors**:
 
-- [PackageReloadNotification()](#m-packagereloadnotification-6681ea04ae8b)
+- [PackageReloadNotification()](#m-PackageReloadNotification-6681ea04ae8b)
 
 **Fields**:
 
@@ -22,13 +21,12 @@ Data structure for PackageReload notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-toString-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="m-packagereloadnotification-6681ea04ae8b"></a>
-### PackageReloadNotification()
+### PackageReloadNotification() <a href="#m-PackageReloadNotification-6681ea04ae8b" id="m-PackageReloadNotification-6681ea04ae8b"></a>
 
 ```java
 public PackageReloadNotification()

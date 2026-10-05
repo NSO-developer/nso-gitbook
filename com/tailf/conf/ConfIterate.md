@@ -1,5 +1,4 @@
-<a id="cls-ConfIterate"></a>
-# ConfIterate
+# ConfIterate <a href="#cls-ConfIterate" id="cls-ConfIterate"></a>
 
 ```java
 public interface com.tailf.conf.ConfIterate
@@ -20,7 +19,7 @@ The subinterfaces to this interfaces is used as parameter to various
 
  *MAAPI*:
  [`Maapi#diffIterate(
- int,MaapiDiffIterate,Object,String,Object...)`](../maapi/Maapi.md#m-diffiterate-08cf0eebfc90)
+ int,MaapiDiffIterate,Object,String,Object...)`](../maapi/Maapi.md#m-diffIterate-08cf0eebfc90)
 
 
 

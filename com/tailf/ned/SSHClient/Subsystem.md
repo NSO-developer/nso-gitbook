@@ -1,5 +1,4 @@
-<a id="cls-Subsystem"></a>
-# Subsystem
+# Subsystem <a href="#cls-Subsystem" id="cls-Subsystem"></a>
 
 ```java
 public static interface com.tailf.ned.SSHClient.Subsystem
@@ -14,15 +13,14 @@ SSHCLient subsystem interface
 **Methods**:
 
 - [close()](#m-close-8107c6dc012b)
-- [getInputStream()](#m-getinputstream-cb1d1fa14d56)
-- [getOutputStream()](#m-getoutputstream-b7e39f99be28)
-- [isEof()](#m-iseof-8742248f0caf)
-- [isOpen()](#m-isopen-9dae28e82104)
+- [getInputStream()](#m-getInputStream-cb1d1fa14d56)
+- [getOutputStream()](#m-getOutputStream-b7e39f99be28)
+- [isEof()](#m-isEof-8742248f0caf)
+- [isOpen()](#m-isOpen-9dae28e82104)
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public abstract void close() throws java.io.IOException
@@ -34,8 +32,7 @@ Close the subsystem
 
 - `IOException`
 
-<a id="m-getinputstream-cb1d1fa14d56"></a>
-### getInputStream()
+### getInputStream() <a href="#m-getInputStream-cb1d1fa14d56" id="m-getInputStream-cb1d1fa14d56"></a>
 
 ```java
 public abstract java.io.InputStream getInputStream()
@@ -43,8 +40,7 @@ public abstract java.io.InputStream getInputStream()
 
 **Returns:** the input stream used for this subsystem.
 
-<a id="m-getoutputstream-b7e39f99be28"></a>
-### getOutputStream()
+### getOutputStream() <a href="#m-getOutputStream-b7e39f99be28" id="m-getOutputStream-b7e39f99be28"></a>
 
 ```java
 public abstract java.io.OutputStream getOutputStream()
@@ -52,8 +48,7 @@ public abstract java.io.OutputStream getOutputStream()
 
 **Returns:** the output stream used for this subsystem.
 
-<a id="m-iseof-8742248f0caf"></a>
-### isEof()
+### isEof() <a href="#m-isEof-8742248f0caf" id="m-isEof-8742248f0caf"></a>
 
 ```java
 public abstract boolean isEof()
@@ -61,8 +56,7 @@ public abstract boolean isEof()
 
 **Returns:** whether EOF has been received.
 
-<a id="m-isopen-9dae28e82104"></a>
-### isOpen()
+### isOpen() <a href="#m-isOpen-9dae28e82104" id="m-isOpen-9dae28e82104"></a>
 
 ```java
 public abstract boolean isOpen()

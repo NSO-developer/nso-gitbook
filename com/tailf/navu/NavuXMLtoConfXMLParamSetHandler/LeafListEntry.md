@@ -1,5 +1,4 @@
-<a id="cls-LeafListEntry"></a>
-# LeafListEntry
+# LeafListEntry <a href="#cls-LeafListEntry" id="cls-LeafListEntry"></a>
 
 ```java
 protected class com.tailf.navu.NavuXMLtoConfXMLParamSetHandler.LeafListEntry
@@ -11,7 +10,7 @@ Inner class representing a leaf-list
 
 **Constructors**:
 
-- [LeafListEntry(CSNode)](#m-leaflistentry-86fab3e87b87)
+- [LeafListEntry(CSNode)](#m-LeafListEntry-86fab3e87b87)
 
 **Fields**:
 
@@ -20,15 +19,14 @@ Inner class representing a leaf-list
 
 **Methods**:
 
-- [addValue(ConfValue)](#m-addvalue-abe2bc760531)
-- [getNode()](#m-getnode-52e3d8224b48)
-- [getSize()](#m-getsize-572b3725211f)
-- [getValue()](#m-getvalue-d93864668c40)
+- [addValue(ConfValue)](#m-addValue-abe2bc760531)
+- [getNode()](#m-getNode-52e3d8224b48)
+- [getSize()](#m-getSize-572b3725211f)
+- [getValue()](#m-getValue-d93864668c40)
 
 ## Constructors
 
-<a id="m-leaflistentry-86fab3e87b87"></a>
-### LeafListEntry(CSNode)
+### LeafListEntry(CSNode) <a href="#m-LeafListEntry-86fab3e87b87" id="m-LeafListEntry-86fab3e87b87"></a>
 
 ```java
 public LeafListEntry(com.tailf.maapi.MaapiSchemas.CSNode node)
@@ -43,8 +41,7 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
 ## Fields
 
-<a id="m-node"></a>
-### node
+### node <a href="#m-node" id="m-node"></a>
 
 **Package-private**
 
@@ -54,8 +51,7 @@ com.tailf.maapi.MaapiSchemas.CSNode node = null;
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="m-values"></a>
-### values
+### values <a href="#m-values" id="m-values"></a>
 
 **Package-private**
 
@@ -68,8 +64,7 @@ Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue)
 
 ## Methods
 
-<a id="m-addvalue-abe2bc760531"></a>
-### addValue(ConfValue)
+### addValue(ConfValue) <a href="#m-addValue-abe2bc760531" id="m-addValue-abe2bc760531"></a>
 
 ```java
 public void addValue(com.tailf.conf.ConfValue value)
@@ -81,8 +76,7 @@ Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue)
 
 - `com.tailf.conf.ConfValue value`
 
-<a id="m-getnode-52e3d8224b48"></a>
-### getNode()
+### getNode() <a href="#m-getNode-52e3d8224b48" id="m-getNode-52e3d8224b48"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode getNode()
@@ -90,15 +84,13 @@ public com.tailf.maapi.MaapiSchemas.CSNode getNode()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="m-getsize-572b3725211f"></a>
-### getSize()
+### getSize() <a href="#m-getSize-572b3725211f" id="m-getSize-572b3725211f"></a>
 
 ```java
 public int getSize()
 ```
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public com.tailf.conf.ConfList getValue()

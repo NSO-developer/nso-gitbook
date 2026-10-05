@@ -1,5 +1,4 @@
-<a id="cls-NanoServiceCallbackProxy"></a>
-# NanoServiceCallbackProxy
+# NanoServiceCallbackProxy <a href="#cls-NanoServiceCallbackProxy" id="cls-NanoServiceCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.NanoServiceCallbackProxy
@@ -17,7 +16,7 @@ Callback proxy for Nano Service Callbacks.
 
 **Constructors**:
 
-- [NanoServiceCallbackProxy(Object, String, String, String)](#m-nanoservicecallbackproxy-97d281c4d63b)
+- [NanoServiceCallbackProxy(Object, String, String, String)](#m-NanoServiceCallbackProxy-97d281c4d63b)
 
 **Fields**:
 
@@ -26,22 +25,21 @@ Callback proxy for Nano Service Callbacks.
 
 **Methods**:
 
-- [addActionCapability(NanoServiceCBType)](#m-addactioncapability-1cb3659d509e)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
-- [componentType()](#m-componenttype-59add484020d)
+- [addActionCapability(NanoServiceCBType)](#m-addActionCapability-1cb3659d509e)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
+- [componentType()](#m-componentType-59add484020d)
 - [create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#m-create-45a9e9003e1d)
 - [delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)](#m-delete-4ba929210861)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getNanoServiceCallbackProxys(Object)](#m-getnanoservicecallbackproxys-774a1b856b31)
-- [getServicePoint()](#m-getservicepoint-4b0d670b9506)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getNanoServiceCallbackProxys(Object)](#m-getNanoServiceCallbackProxys-774a1b856b31)
+- [getServicePoint()](#m-getServicePoint-4b0d670b9506)
 - [mask()](#m-mask-24c2fa29c6af)
 - [servicepoint()](#m-servicepoint-33fbd1d46c70)
 - [state()](#m-state-54117dea2388)
 
 ## Constructors
 
-<a id="m-nanoservicecallbackproxy-97d281c4d63b"></a>
-### NanoServiceCallbackProxy(Object, String, String, String)
+### NanoServiceCallbackProxy(Object, String, String, String) <a href="#m-NanoServiceCallbackProxy-97d281c4d63b" id="m-NanoServiceCallbackProxy-97d281c4d63b"></a>
 
 ```java
 public NanoServiceCallbackProxy(
@@ -64,8 +62,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-1cb3659d509e"></a>
-### addActionCapability(NanoServiceCBType)
+### addActionCapability(NanoServiceCBType) <a href="#m-addActionCapability-1cb3659d509e" id="m-addActionCapability-1cb3659d509e"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.NanoServiceCBType nanoServiceCBType)
@@ -80,8 +77,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.NanoServiceCBType nanoServiceCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -94,15 +90,13 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-componenttype-59add484020d"></a>
-### componentType()
+### componentType() <a href="#m-componentType-59add484020d" id="m-componentType-59add484020d"></a>
 
 ```java
 public String componentType()
 ```
 
-<a id="m-create-45a9e9003e1d"></a>
-### create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)
+### create(NanoServiceContext, NavuNode, NavuNode, Properties, Properties) <a href="#m-create-45a9e9003e1d" id="m-create-45a9e9003e1d"></a>
 
 ```java
 public java.util.Properties create(
@@ -125,8 +119,7 @@ Types: [NanoServiceContext](../services/NanoServiceContext.md#cls-NanoServiceCon
 - `java.util.Properties opaque`
 - `java.util.Properties componentProperties`
 
-<a id="m-delete-4ba929210861"></a>
-### delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties)
+### delete(NanoServiceContext, NavuNode, NavuNode, Properties, Properties) <a href="#m-delete-4ba929210861" id="m-delete-4ba929210861"></a>
 
 ```java
 public java.util.Properties delete(
@@ -149,8 +142,7 @@ Types: [NanoServiceContext](../services/NanoServiceContext.md#cls-NanoServiceCon
 - `java.util.Properties opaque`
 - `java.util.Properties componentProperties`
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -160,8 +152,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getnanoservicecallbackproxys-774a1b856b31"></a>
-### getNanoServiceCallbackProxys(Object)
+### getNanoServiceCallbackProxys(Object) <a href="#m-getNanoServiceCallbackProxys-774a1b856b31" id="m-getNanoServiceCallbackProxys-774a1b856b31"></a>
 
 ```java
 public static com.tailf.dp.annotations.NanoServiceCallbackProxy[] getNanoServiceCallbackProxys(
@@ -185,8 +176,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-getservicepoint-4b0d670b9506"></a>
-### getServicePoint()
+### getServicePoint() <a href="#m-getServicePoint-4b0d670b9506" id="m-getServicePoint-4b0d670b9506"></a>
 
 ```java
 public String getServicePoint()
@@ -196,22 +186,19 @@ Retrieve the callback servicepoint
 
 **Returns:** servicepoint string
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-<a id="m-servicepoint-33fbd1d46c70"></a>
-### servicepoint()
+### servicepoint() <a href="#m-servicepoint-33fbd1d46c70" id="m-servicepoint-33fbd1d46c70"></a>
 
 ```java
 public String servicepoint()
 ```
 
-<a id="m-state-54117dea2388"></a>
-### state()
+### state() <a href="#m-state-54117dea2388" id="m-state-54117dea2388"></a>
 
 ```java
 public String state()

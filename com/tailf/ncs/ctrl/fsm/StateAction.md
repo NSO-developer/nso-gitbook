@@ -1,5 +1,4 @@
-<a id="cls-StateAction"></a>
-# StateAction
+# StateAction <a href="#cls-StateAction" id="cls-StateAction"></a>
 
 ```java
 public interface com.tailf.ncs.ctrl.fsm.StateAction
@@ -11,13 +10,12 @@ State action callback interface
 
 **Methods**:
 
-- [enterState(String, Object)](#m-enterstate-ec1380c664b4)
-- [leaveState(String, Object)](#m-leavestate-8aeeca64138e)
+- [enterState(String, Object)](#m-enterState-ec1380c664b4)
+- [leaveState(String, Object)](#m-leaveState-8aeeca64138e)
 
 ## Methods
 
-<a id="m-enterstate-ec1380c664b4"></a>
-### enterState(String, Object)
+### enterState(String, Object) <a href="#m-enterState-ec1380c664b4" id="m-enterState-ec1380c664b4"></a>
 
 ```java
 public abstract void enterState(String transitionName, Object opaque) throws Exception
@@ -34,8 +32,7 @@ Method called each time this state is entered
 
 - `Exception`
 
-<a id="m-leavestate-8aeeca64138e"></a>
-### leaveState(String, Object)
+### leaveState(String, Object) <a href="#m-leaveState-8aeeca64138e" id="m-leaveState-8aeeca64138e"></a>
 
 ```java
 public abstract void leaveState(String transitionName, Object opaque) throws Exception

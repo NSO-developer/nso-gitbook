@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getFractionDigits()](#m-getfractiondigits-57dce19c4ffe)
-- [getValue()](#m-getvalue-d93864668c40)
-- [setFractionDigits(byte)](#m-setfractiondigits-4268b060f4fc)
-- [setValue(long)](#m-setvalue-0eb87343a952)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getFractionDigits()](#m-getFractionDigits-57dce19c4ffe)
+- [getValue()](#m-getValue-d93864668c40)
+- [setFractionDigits(byte)](#m-setFractionDigits-4268b060f4fc)
+- [setValue(long)](#m-setValue-0eb87343a952)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -48,8 +46,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader asReader()
@@ -57,22 +54,19 @@ public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getfractiondigits-57dce19c4ffe"></a>
-### getFractionDigits()
+### getFractionDigits() <a href="#m-getFractionDigits-57dce19c4ffe" id="m-getFractionDigits-57dce19c4ffe"></a>
 
 ```java
 public final byte getFractionDigits()
 ```
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public final long getValue()
 ```
 
-<a id="m-setfractiondigits-4268b060f4fc"></a>
-### setFractionDigits(byte)
+### setFractionDigits(byte) <a href="#m-setFractionDigits-4268b060f4fc" id="m-setFractionDigits-4268b060f4fc"></a>
 
 ```java
 public final void setFractionDigits(byte value)
@@ -82,8 +76,7 @@ public final void setFractionDigits(byte value)
 
 - `byte value`
 
-<a id="m-setvalue-0eb87343a952"></a>
-### setValue(long)
+### setValue(long) <a href="#m-setValue-0eb87343a952" id="m-setValue-0eb87343a952"></a>
 
 ```java
 public final void setValue(long value)

@@ -1,5 +1,4 @@
-<a id="cls-NavuTraversalMean"></a>
-# NavuTraversalMean
+# NavuTraversalMean <a href="#cls-NavuTraversalMean" id="cls-NavuTraversalMean"></a>
 
 ```java
 public interface com.tailf.navu.traversal.NavuTraversalMean
@@ -13,8 +12,7 @@ public interface com.tailf.navu.traversal.NavuTraversalMean
 
 ## Methods
 
-<a id="m-traverse-e72c3ea2612b"></a>
-### traverse(NavuNode, List<TraversalFilter>)
+### traverse(NavuNode, List<TraversalFilter>) <a href="#m-traverse-e72c3ea2612b" id="m-traverse-e72c3ea2612b"></a>
 
 ```java
 public abstract java.util.Set<String> traverse(

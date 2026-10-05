@@ -1,5 +1,4 @@
-<a id="cls-DpNotifReplayCallback"></a>
-# DpNotifReplayCallback
+# DpNotifReplayCallback <a href="#cls-DpNotifReplayCallback" id="cls-DpNotifReplayCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpNotifReplayCallback
@@ -7,8 +6,8 @@ public interface com.tailf.dp.DpNotifReplayCallback
 
 This interface is used for the notifications replay callback.
 
- The `DpNotifStream#getLogStartTime(DpNotifStream)` and
- `DpNotifStream#getLogAgedTime(DpNotifStream)` callbacks is called by ConfD/NCS to
+ The `getLogStartTime(DpNotifStream)` and
+ `getLogAgedTime(DpNotifStream)` callbacks is called by ConfD/NCS to
  find out
 
  a) the creation time of the current log and
@@ -51,14 +50,13 @@ This interface is used for the notifications replay callback.
 
 **Methods**:
 
-- [getLogAgedTime(DpNotifStream)](#m-getlogagedtime-52a6ca6114ae)
-- [getLogStartTime(DpNotifStream)](#m-getlogstarttime-19cd5e71b8f6)
+- [getLogAgedTime(DpNotifStream)](#m-getLogAgedTime-52a6ca6114ae)
+- [getLogStartTime(DpNotifStream)](#m-getLogStartTime-19cd5e71b8f6)
 - [replay(DpNotifStream, ConfDatetime, ConfDatetime)](#m-replay-9189095b66c6)
 
 ## Methods
 
-<a id="m-getlogagedtime-52a6ca6114ae"></a>
-### getLogAgedTime(DpNotifStream)
+### getLogAgedTime(DpNotifStream) <a href="#m-getLogAgedTime-52a6ca6114ae" id="m-getLogAgedTime-52a6ca6114ae"></a>
 
 ```java
 public abstract com.tailf.conf.ConfDatetime getLogAgedTime(
@@ -82,8 +80,7 @@ The callback is called by ConfD/NCS to find out the event time of the
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-getlogstarttime-19cd5e71b8f6"></a>
-### getLogStartTime(DpNotifStream)
+### getLogStartTime(DpNotifStream) <a href="#m-getLogStartTime-19cd5e71b8f6" id="m-getLogStartTime-19cd5e71b8f6"></a>
 
 ```java
 public abstract com.tailf.conf.ConfDatetime getLogStartTime(
@@ -107,8 +104,7 @@ The callback is called by ConfD/NCS to find out the log's current start
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-replay-9189095b66c6"></a>
-### replay(DpNotifStream, ConfDatetime, ConfDatetime)
+### replay(DpNotifStream, ConfDatetime, ConfDatetime) <a href="#m-replay-9189095b66c6" id="m-replay-9189095b66c6"></a>
 
 ```java
 public abstract void replay(

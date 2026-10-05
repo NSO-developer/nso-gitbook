@@ -1,5 +1,4 @@
-<a id="cls-ConfXMLParamToXML"></a>
-# ConfXMLParamToXML
+# ConfXMLParamToXML <a href="#cls-ConfXMLParamToXML" id="cls-ConfXMLParamToXML"></a>
 
 ```java
 public class com.tailf.util.ConfXMLParamToXML
@@ -36,22 +35,21 @@ Utility class to transform `ConfXMLParam[]`
 
 **Constructors**:
 
-- [ConfXMLParamToXML()](#m-confxmlparamtoxml-ee47ca2e850d)
+- [ConfXMLParamToXML()](#m-ConfXMLParamToXML-ee47ca2e850d)
 
 **Methods**:
 
 - [clear()](#m-clear-ca3baec040cb)
 - [serialize(Document, OutputStream)](#m-serialize-55bd4c595c9d)
 - [serialize(Document, Writer)](#m-serialize-d15119ec5ca5)
-- [toXML(ConfXMLParam[])](#m-toxml-122580fde7a8)
-- [toXML(ConfXMLParam[], boolean)](#m-toxml-37f46ad3cde5)
-- [toXML(ConfXMLParam[], String, String)](#m-toxml-e7cef9be4b1e)
-- [toXML(ConfXMLParam[], String, String, boolean)](#m-toxml-5c273ed8be98)
+- [toXML(ConfXMLParam[])](#m-toXML-122580fde7a8)
+- [toXML(ConfXMLParam[], boolean)](#m-toXML-37f46ad3cde5)
+- [toXML(ConfXMLParam[], String, String)](#m-toXML-e7cef9be4b1e)
+- [toXML(ConfXMLParam[], String, String, boolean)](#m-toXML-5c273ed8be98)
 
 ## Constructors
 
-<a id="m-confxmlparamtoxml-ee47ca2e850d"></a>
-### ConfXMLParamToXML()
+### ConfXMLParamToXML() <a href="#m-ConfXMLParamToXML-ee47ca2e850d" id="m-ConfXMLParamToXML-ee47ca2e850d"></a>
 
 ```java
 public ConfXMLParamToXML()
@@ -60,18 +58,16 @@ public ConfXMLParamToXML()
 
 ## Methods
 
-<a id="m-clear-ca3baec040cb"></a>
-### clear()
+### clear() <a href="#m-clear-ca3baec040cb" id="m-clear-ca3baec040cb"></a>
 
 ```java
 public void clear()
 ```
 
 Clears the state of the instance of this class which permits
- multiple invocation of `ConfXMLParam#toXML(ConfXMLParam[],boolean)`.
+ multiple invocation of `toXML(ConfXMLParam[],boolean)`.
 
-<a id="m-serialize-55bd4c595c9d"></a>
-### serialize(Document, OutputStream)
+### serialize(Document, OutputStream) <a href="#m-serialize-55bd4c595c9d" id="m-serialize-55bd4c595c9d"></a>
 
 ```java
 public void serialize(
@@ -95,8 +91,7 @@ Flushes the source document `doc` to
 
 - `ConfException` - if occurred while flushing the document
 
-<a id="m-serialize-d15119ec5ca5"></a>
-### serialize(Document, Writer)
+### serialize(Document, Writer) <a href="#m-serialize-d15119ec5ca5" id="m-serialize-d15119ec5ca5"></a>
 
 ```java
 public void serialize(
@@ -120,8 +115,7 @@ Flushes the source document `doc` to
 
 - `ConfException` - if occurred while flushing the document
 
-<a id="m-toxml-122580fde7a8"></a>
-### toXML(ConfXMLParam[])
+### toXML(ConfXMLParam[]) <a href="#m-toXML-122580fde7a8" id="m-toXML-122580fde7a8"></a>
 
 ```java
 public org.w3c.dom.Document toXML(
@@ -150,7 +144,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
  If another root tag is desired use the method
- [`ConfXMLParam#toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toxml-e7cef9be4b1e) where
+ [`toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toXML-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will be the root Node of the *Document*.
 
@@ -168,8 +162,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 - `ConfException` - If some error occurred
 
-<a id="m-toxml-37f46ad3cde5"></a>
-### toXML(ConfXMLParam[], boolean)
+### toXML(ConfXMLParam[], boolean) <a href="#m-toXML-37f46ad3cde5" id="m-toXML-37f46ad3cde5"></a>
 
 ```java
 public org.w3c.dom.Document toXML(
@@ -200,7 +193,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 
  If another root tag is desired use the method
- [`ConfXMLParam#toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toxml-e7cef9be4b1e) where
+ [`toXML(ConfXMLParam[],String,String)`](../conf/ConfXMLParam.md#m-toXML-e7cef9be4b1e) where
  root tag `name` and namespace `uri` string
  could be supplied and will
  be the root Node of the returning `Document`.
@@ -217,8 +210,7 @@ Transforms the supplied parameter `ConfXMLParam[]`
 
 - `ConfException` - If some error occurred
 
-<a id="m-toxml-e7cef9be4b1e"></a>
-### toXML(ConfXMLParam[], String, String)
+### toXML(ConfXMLParam[], String, String) <a href="#m-toXML-e7cef9be4b1e" id="m-toXML-e7cef9be4b1e"></a>
 
 ```java
 public org.w3c.dom.Document toXML(
@@ -248,8 +240,7 @@ Transforms the supplied `ConfXMLParam[]`
 
 - `ConfException` - if a error occurred
 
-<a id="m-toxml-5c273ed8be98"></a>
-### toXML(ConfXMLParam[], String, String, boolean)
+### toXML(ConfXMLParam[], String, String, boolean) <a href="#m-toXML-5c273ed8be98" id="m-toXML-5c273ed8be98"></a>
 
 ```java
 public org.w3c.dom.Document toXML(

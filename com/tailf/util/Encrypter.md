@@ -1,5 +1,4 @@
-<a id="cls-Encrypter"></a>
-# Encrypter
+# Encrypter <a href="#cls-Encrypter" id="cls-Encrypter"></a>
 
 ```java
 public abstract class com.tailf.util.Encrypter
@@ -15,7 +14,7 @@ Base class for encryption algorithm utility classes
 
 **Constructors**:
 
-- [Encrypter()](#m-encrypter-3e84936d4906)
+- [Encrypter()](#m-Encrypter-3e84936d4906)
 
 **Fields**:
 
@@ -29,8 +28,7 @@ Base class for encryption algorithm utility classes
 
 ## Constructors
 
-<a id="m-encrypter-3e84936d4906"></a>
-### Encrypter()
+### Encrypter() <a href="#m-Encrypter-3e84936d4906" id="m-Encrypter-3e84936d4906"></a>
 
 ```java
 public Encrypter()
@@ -39,15 +37,13 @@ public Encrypter()
 
 ## Fields
 
-<a id="m-dcipher"></a>
-### dcipher
+### dcipher <a href="#m-dcipher" id="m-dcipher"></a>
 
 ```java
 protected javax.crypto.Cipher dcipher = null;
 ```
 
-<a id="m-ecipher"></a>
-### ecipher
+### ecipher <a href="#m-ecipher" id="m-ecipher"></a>
 
 ```java
 protected javax.crypto.Cipher ecipher = null;
@@ -56,8 +52,7 @@ protected javax.crypto.Cipher ecipher = null;
 
 ## Methods
 
-<a id="m-decrypt-a219da65e4d1"></a>
-### decrypt(byte[])
+### decrypt(byte[]) <a href="#m-decrypt-a219da65e4d1" id="m-decrypt-a219da65e4d1"></a>
 
 ```java
 public String decrypt(
@@ -70,8 +65,7 @@ public String decrypt(
 
 - `byte[] decodedString`
 
-<a id="m-encrypt-c3e82593a386"></a>
-### encrypt(String)
+### encrypt(String) <a href="#m-encrypt-c3e82593a386" id="m-encrypt-c3e82593a386"></a>
 
 ```java
 public byte[] encrypt(

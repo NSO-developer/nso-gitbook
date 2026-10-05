@@ -1,5 +1,4 @@
-<a id="cls-NavuCursor"></a>
-# NavuCursor
+# NavuCursor <a href="#cls-NavuCursor" id="cls-NavuCursor"></a>
 
 ```java
 public class com.tailf.navu.NavuCursor
@@ -12,8 +11,8 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Constructors**:
 
-- [NavuCursor(CdbSession, NavuNode, String, Object[])](#m-navucursor-a2344014c2ea)
-- [NavuCursor(NavuContext, NavuNode, String, Object[])](#m-navucursor-94fad5f61492)
+- [NavuCursor(CdbSession, NavuNode, String, Object[])](#m-NavuCursor-a2344014c2ea)
+- [NavuCursor(NavuContext, NavuNode, String, Object[])](#m-NavuCursor-94fad5f61492)
 
 **Fields**:
 
@@ -21,12 +20,11 @@ The NavuCursor is a helper class used within NAVU to simplify the
 
 **Methods**:
 
-- [getKeys()](#m-getkeys-a24b9d377db7)
+- [getKeys()](#m-getKeys-a24b9d377db7)
 
 ## Constructors
 
-<a id="m-navucursor-a2344014c2ea"></a>
-### NavuCursor(CdbSession, NavuNode, String, Object[])
+### NavuCursor(CdbSession, NavuNode, String, Object[]) <a href="#m-NavuCursor-a2344014c2ea" id="m-NavuCursor-a2344014c2ea"></a>
 
 ```java
 public NavuCursor(
@@ -48,8 +46,7 @@ Constructor to be used when in CDB mode.
 - `String fmt` - a list node string keypath
 - `Object[] arguments` - zero or more Object arguments to be substituted in fmt
 
-<a id="m-navucursor-94fad5f61492"></a>
-### NavuCursor(NavuContext, NavuNode, String, Object[])
+### NavuCursor(NavuContext, NavuNode, String, Object[]) <a href="#m-NavuCursor-94fad5f61492" id="m-NavuCursor-94fad5f61492"></a>
 
 ```java
 protected NavuCursor(
@@ -80,8 +77,7 @@ Creates and reads all elements of a list node.
 
 ## Fields
 
-<a id="m-keys"></a>
-### keys
+### keys <a href="#m-keys" id="m-keys"></a>
 
 ```java
 protected java.util.List<com.tailf.conf.ConfKey> keys = null;
@@ -92,8 +88,7 @@ Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
 
 ## Methods
 
-<a id="m-getkeys-a24b9d377db7"></a>
-### getKeys()
+### getKeys() <a href="#m-getKeys-a24b9d377db7" id="m-getKeys-a24b9d377db7"></a>
 
 ```java
 public Iterable<com.tailf.conf.ConfKey> getKeys()

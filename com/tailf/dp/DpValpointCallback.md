@@ -1,5 +1,4 @@
-<a id="cls-DpValpointCallback"></a>
-# DpValpointCallback
+# DpValpointCallback <a href="#cls-DpValpointCallback" id="cls-DpValpointCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpValpointCallback
@@ -7,7 +6,7 @@ public interface com.tailf.dp.DpValpointCallback
 
 This interface is used for the user valpoint callbacks.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
 
 ## Members
 
@@ -18,8 +17,7 @@ This interface is used for the user valpoint callbacks.
 
 ## Methods
 
-<a id="m-validate-1a546d06dca5"></a>
-### validate(DpTrans, ConfObject[], ConfValue)
+### validate(DpTrans, ConfObject[], ConfValue) <a href="#m-validate-1a546d06dca5" id="m-validate-1a546d06dca5"></a>
 
 ```java
 public abstract void validate(
@@ -60,8 +58,7 @@ The validate() callback should validate the values and throw a
 - `DpCallbackWarningException` - If a warning should be propagated to the originator of the
              transaction.
 
-<a id="m-valpoint-a064c4954648"></a>
-### valpoint()
+### valpoint() <a href="#m-valpoint-a064c4954648" id="m-valpoint-a064c4954648"></a>
 
 ```java
 public abstract String valpoint()

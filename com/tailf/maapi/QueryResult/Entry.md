@@ -1,5 +1,4 @@
-<a id="cls-Entry"></a>
-# Entry
+# Entry <a href="#cls-Entry" id="cls-Entry"></a>
 
 ```java
 public static class com.tailf.maapi.QueryResult.Entry<E extends com.tailf.maapi.ResultType>
@@ -26,7 +25,7 @@ Represent result entry in a XPath query.
 
 **Constructors**:
 
-- [Entry(List<E>)](#m-entry-3c15f85e762c)
+- [Entry(List<E>)](#m-Entry-3c15f85e762c)
 
 **Methods**:
 
@@ -34,8 +33,7 @@ Represent result entry in a XPath query.
 
 ## Constructors
 
-<a id="m-entry-3c15f85e762c"></a>
-### Entry(List<E>)
+### Entry(List<E>) <a href="#m-Entry-3c15f85e762c" id="m-Entry-3c15f85e762c"></a>
 
 **Package-private**
 
@@ -50,8 +48,7 @@ Entry(java.util.List<E> list)
 
 ## Methods
 
-<a id="m-value-9e1512d1a0ce"></a>
-### value()
+### value() <a href="#m-value-9e1512d1a0ce" id="m-value-9e1512d1a0ce"></a>
 
 ```java
 public java.util.List<E> value()

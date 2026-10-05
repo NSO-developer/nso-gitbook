@@ -15,10 +15,10 @@ Utility package for traversing the NAVU tree (or a subset thereof)
 
 
 - *Passive traversal*: The user implements the method
- [`TraversalFilter#currentNode(com.tailf.navu.NavuNode)`](TraversalFilter.md#m-currentnode-6c186cdcfd7e)
+ [`TraversalFilter#currentNode(com.tailf.navu.NavuNode)`](TraversalFilter.md#m-currentNode-6c186cdcfd7e)
  and registers it in
  [`NavuTreeTraversal#addFilter(
-com.tailf.navu.traversal.TraversalFilter)`](NavuTreeTraversal.md#m-addfilter-8eb81a3c72a2).
+com.tailf.navu.traversal.TraversalFilter)`](NavuTreeTraversal.md#m-addFilter-8eb81a3c72a2).
  When all filters have been registered, the traversal process can be started
  through [`NavuTreeTraversal#traverse()`](NavuTreeTraversal.md#m-traverse-4f872e3540cb). The
  filters are invoked for each node the traversal process encounters.

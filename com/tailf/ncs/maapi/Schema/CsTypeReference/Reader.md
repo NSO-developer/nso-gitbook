@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeReference.Reader
@@ -10,18 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeReference.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getNsHash()](#m-getnshash-f6f3e3ae1e6b)
-- [hasName()](#m-hasname-bfe6c334e0d1)
+- [getName()](#m-getName-2634b18b4a25)
+- [getNsHash()](#m-getNsHash-f6f3e3ae1e6b)
+- [hasName()](#m-hasName-bfe6c334e0d1)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -48,22 +46,19 @@ Reader(
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="m-getnshash-f6f3e3ae1e6b"></a>
-### getNsHash()
+### getNsHash() <a href="#m-getNsHash-f6f3e3ae1e6b" id="m-getNsHash-f6f3e3ae1e6b"></a>
 
 ```java
 public final int getNsHash()
 ```
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public boolean hasName()

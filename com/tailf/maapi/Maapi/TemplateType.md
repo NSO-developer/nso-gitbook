@@ -1,5 +1,4 @@
-<a id="cls-TemplateType"></a>
-# TemplateType
+# TemplateType <a href="#cls-TemplateType" id="cls-TemplateType"></a>
 
 ```java
 public static enum com.tailf.maapi.Maapi.TemplateType
@@ -8,7 +7,7 @@ public static enum com.tailf.maapi.Maapi.TemplateType
 Types: [TemplateType](TemplateType.md#cls-TemplateType)
 
 To be used in:
- `TemplateType#ncsGetTemplateVariables(String, TemplateType)`
+ `ncsGetTemplateVariables(String, TemplateType)`
  Designates informational of template types.
 
 ## Members
@@ -21,13 +20,12 @@ To be used in:
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-COMPLIANCE_TEMPLATE"></a>
-### COMPLIANCE_TEMPLATE
+### COMPLIANCE_TEMPLATE <a href="#m-COMPLIANCE_TEMPLATE" id="m-COMPLIANCE_TEMPLATE"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.TemplateType COMPLIANCE_TEMPLATE;
@@ -38,8 +36,7 @@ Designates compliance template, compliance template used to verify
  predefined configuration, it also means the specific template
  configuration name under /ncs:compliance/ncs:template.
 
-<a id="m-DEVICE_TEMPLATE"></a>
-### DEVICE_TEMPLATE
+### DEVICE_TEMPLATE <a href="#m-DEVICE_TEMPLATE" id="m-DEVICE_TEMPLATE"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.TemplateType DEVICE_TEMPLATE;
@@ -48,8 +45,7 @@ public static final com.tailf.maapi.Maapi.TemplateType DEVICE_TEMPLATE;
 Designates device template, device template means the specific
  template configuration name under /ncs:devices/ncs:template.
 
-<a id="m-SERVICE_TEMPLATE"></a>
-### SERVICE_TEMPLATE
+### SERVICE_TEMPLATE <a href="#m-SERVICE_TEMPLATE" id="m-SERVICE_TEMPLATE"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.TemplateType SERVICE_TEMPLATE;
@@ -62,8 +58,7 @@ Designates service template, service template means the specific
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.TemplateType valueOf(String name)
@@ -75,8 +70,7 @@ Types: [TemplateType](TemplateType.md#cls-TemplateType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.TemplateType[] values()

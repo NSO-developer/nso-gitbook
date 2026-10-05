@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.QTag.Builder
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.QTag.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getHns()](#m-gethns-457afaf41ae6)
-- [getHtag()](#m-gethtag-3a838d71ddf7)
-- [setHns(int)](#m-sethns-7405e78f40fe)
-- [setHtag(int)](#m-sethtag-d40f4d76b210)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getHns()](#m-getHns-457afaf41ae6)
+- [getHtag()](#m-getHtag-3a838d71ddf7)
+- [setHns(int)](#m-setHns-7405e78f40fe)
+- [setHtag(int)](#m-setHtag-d40f4d76b210)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -48,8 +46,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Reader asReader()
@@ -57,22 +54,19 @@ public final com.tailf.ncs.maapi.Schema.QTag.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-gethns-457afaf41ae6"></a>
-### getHns()
+### getHns() <a href="#m-getHns-457afaf41ae6" id="m-getHns-457afaf41ae6"></a>
 
 ```java
 public final int getHns()
 ```
 
-<a id="m-gethtag-3a838d71ddf7"></a>
-### getHtag()
+### getHtag() <a href="#m-getHtag-3a838d71ddf7" id="m-getHtag-3a838d71ddf7"></a>
 
 ```java
 public final int getHtag()
 ```
 
-<a id="m-sethns-7405e78f40fe"></a>
-### setHns(int)
+### setHns(int) <a href="#m-setHns-7405e78f40fe" id="m-setHns-7405e78f40fe"></a>
 
 ```java
 public final void setHns(int value)
@@ -82,8 +76,7 @@ public final void setHns(int value)
 
 - `int value`
 
-<a id="m-sethtag-d40f4d76b210"></a>
-### setHtag(int)
+### setHtag(int) <a href="#m-setHtag-d40f4d76b210" id="m-setHtag-d40f4d76b210"></a>
 
 ```java
 public final void setHtag(int value)

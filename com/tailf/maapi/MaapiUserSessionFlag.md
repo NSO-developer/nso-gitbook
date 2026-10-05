@@ -1,5 +1,4 @@
-<a id="cls-MaapiUserSessionFlag"></a>
-# MaapiUserSessionFlag
+# MaapiUserSessionFlag <a href="#cls-MaapiUserSessionFlag" id="cls-MaapiUserSessionFlag"></a>
 
 ```java
 public enum com.tailf.maapi.MaapiUserSessionFlag
@@ -20,15 +19,14 @@ flags for defining User Session protocol
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-PROTO_CONSOLE"></a>
-### PROTO_CONSOLE
+### PROTO_CONSOLE <a href="#m-PROTO_CONSOLE" id="m-PROTO_CONSOLE"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_CONSOLE;
@@ -36,8 +34,7 @@ public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_CONSOLE;
 
 User session originates from the console.
 
-<a id="m-PROTO_SSH"></a>
-### PROTO_SSH
+### PROTO_SSH <a href="#m-PROTO_SSH" id="m-PROTO_SSH"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSH;
@@ -45,8 +42,7 @@ public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSH;
 
 User session is transported over SSH.
 
-<a id="m-PROTO_SSL"></a>
-### PROTO_SSL
+### PROTO_SSL <a href="#m-PROTO_SSL" id="m-PROTO_SSL"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSL;
@@ -54,8 +50,7 @@ public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_SSL;
 
 User session transported over SSL.
 
-<a id="m-PROTO_TCP"></a>
-### PROTO_TCP
+### PROTO_TCP <a href="#m-PROTO_TCP" id="m-PROTO_TCP"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiUserSessionFlag PROTO_TCP;
@@ -66,15 +61,13 @@ User session transported over TCP.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.MaapiUserSessionFlag valueOf(int i)
@@ -86,8 +79,7 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#cls-MaapiUserSessionFlag)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MaapiUserSessionFlag valueOf(String name)
@@ -99,8 +91,7 @@ Types: [MaapiUserSessionFlag](MaapiUserSessionFlag.md#cls-MaapiUserSessionFlag)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MaapiUserSessionFlag[] values()

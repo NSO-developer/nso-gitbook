@@ -1,5 +1,4 @@
-<a id="cls-Compiler"></a>
-# Compiler
+# Compiler <a href="#cls-Compiler" id="cls-Compiler"></a>
 
 ```java
 public interface com.tailf.conf.Compiler
@@ -31,141 +30,123 @@ public interface com.tailf.conf.Compiler
 **Methods**:
 
 - [equal(Object, Object)](#m-equal-799a2136c547)
-- [expressionPath(Object, Object[], Object[])](#m-expressionpath-5bf270c9d4c4)
+- [expressionPath(Object, Object[], Object[])](#m-expressionPath-5bf270c9d4c4)
 - [function(int, Object[])](#m-function-2c16049fa829)
 - [function(Object, Object[])](#m-function-1cc89eb447db)
-- [getKP()](#m-getkp-45b2f95adae4)
+- [getKP()](#m-getKP-45b2f95adae4)
 - [literal(String)](#m-literal-ad0286a2ebc5)
-- [locationPath(boolean, Object[])](#m-locationpath-62efb77d2c40)
-- [nodeNameTest(Object)](#m-nodenametest-d6890d3b8e88)
-- [nodeTypeTest(int)](#m-nodetypetest-6d6b838bb52c)
+- [locationPath(boolean, Object[])](#m-locationPath-62efb77d2c40)
+- [nodeNameTest(Object)](#m-nodeNameTest-d6890d3b8e88)
+- [nodeTypeTest(int)](#m-nodeTypeTest-6d6b838bb52c)
 - [number(String)](#m-number-249f888e69f1)
 - [qname(String, String)](#m-qname-1189e6474a0b)
 - [step(int, Object, Object[])](#m-step-476841714396)
 
 ## Fields
 
-<a id="m-AXIS_ANCESTOR"></a>
-### AXIS_ANCESTOR
+### AXIS_ANCESTOR <a href="#m-AXIS_ANCESTOR" id="m-AXIS_ANCESTOR"></a>
 
 ```java
 public static final int AXIS_ANCESTOR = 4;
 ```
 
-<a id="m-AXIS_ANCESTOR_OR_SELF"></a>
-### AXIS_ANCESTOR_OR_SELF
+### AXIS_ANCESTOR_OR_SELF <a href="#m-AXIS_ANCESTOR_OR_SELF" id="m-AXIS_ANCESTOR_OR_SELF"></a>
 
 ```java
 public static final int AXIS_ANCESTOR_OR_SELF = 10;
 ```
 
-<a id="m-AXIS_ATTRIBUTE"></a>
-### AXIS_ATTRIBUTE
+### AXIS_ATTRIBUTE <a href="#m-AXIS_ATTRIBUTE" id="m-AXIS_ATTRIBUTE"></a>
 
 ```java
 public static final int AXIS_ATTRIBUTE = 5;
 ```
 
-<a id="m-AXIS_CHILD"></a>
-### AXIS_CHILD
+### AXIS_CHILD <a href="#m-AXIS_CHILD" id="m-AXIS_CHILD"></a>
 
 ```java
 public static final int AXIS_CHILD = 2;
 ```
 
-<a id="m-AXIS_DESCENDANT"></a>
-### AXIS_DESCENDANT
+### AXIS_DESCENDANT <a href="#m-AXIS_DESCENDANT" id="m-AXIS_DESCENDANT"></a>
 
 ```java
 public static final int AXIS_DESCENDANT = 9;
 ```
 
-<a id="m-AXIS_DESCENDANT_OR_SELF"></a>
-### AXIS_DESCENDANT_OR_SELF
+### AXIS_DESCENDANT_OR_SELF <a href="#m-AXIS_DESCENDANT_OR_SELF" id="m-AXIS_DESCENDANT_OR_SELF"></a>
 
 ```java
 public static final int AXIS_DESCENDANT_OR_SELF = 13;
 ```
 
-<a id="m-AXIS_FOLLOWING"></a>
-### AXIS_FOLLOWING
+### AXIS_FOLLOWING <a href="#m-AXIS_FOLLOWING" id="m-AXIS_FOLLOWING"></a>
 
 ```java
 public static final int AXIS_FOLLOWING = 8;
 ```
 
-<a id="m-AXIS_FOLLOWING_SIBLING"></a>
-### AXIS_FOLLOWING_SIBLING
+### AXIS_FOLLOWING_SIBLING <a href="#m-AXIS_FOLLOWING_SIBLING" id="m-AXIS_FOLLOWING_SIBLING"></a>
 
 ```java
 public static final int AXIS_FOLLOWING_SIBLING = 11;
 ```
 
-<a id="m-AXIS_NAMESPACE"></a>
-### AXIS_NAMESPACE
+### AXIS_NAMESPACE <a href="#m-AXIS_NAMESPACE" id="m-AXIS_NAMESPACE"></a>
 
 ```java
 public static final int AXIS_NAMESPACE = 6;
 ```
 
-<a id="m-AXIS_PARENT"></a>
-### AXIS_PARENT
+### AXIS_PARENT <a href="#m-AXIS_PARENT" id="m-AXIS_PARENT"></a>
 
 ```java
 public static final int AXIS_PARENT = 3;
 ```
 
-<a id="m-AXIS_PRECEDING"></a>
-### AXIS_PRECEDING
+### AXIS_PRECEDING <a href="#m-AXIS_PRECEDING" id="m-AXIS_PRECEDING"></a>
 
 ```java
 public static final int AXIS_PRECEDING = 7;
 ```
 
-<a id="m-AXIS_PRECEDING_SIBLING"></a>
-### AXIS_PRECEDING_SIBLING
+### AXIS_PRECEDING_SIBLING <a href="#m-AXIS_PRECEDING_SIBLING" id="m-AXIS_PRECEDING_SIBLING"></a>
 
 ```java
 public static final int AXIS_PRECEDING_SIBLING = 12;
 ```
 
-<a id="m-AXIS_SELF"></a>
-### AXIS_SELF
+### AXIS_SELF <a href="#m-AXIS_SELF" id="m-AXIS_SELF"></a>
 
 ```java
 public static final int AXIS_SELF = 1;
 ```
 
-<a id="m-FUNCTION_CURRENT"></a>
-### FUNCTION_CURRENT
+### FUNCTION_CURRENT <a href="#m-FUNCTION_CURRENT" id="m-FUNCTION_CURRENT"></a>
 
 ```java
 public static final int FUNCTION_CURRENT = 1;
 ```
 
-<a id="m-NODE_TYPE_COMMENT"></a>
-### NODE_TYPE_COMMENT
+### NODE_TYPE_COMMENT <a href="#m-NODE_TYPE_COMMENT" id="m-NODE_TYPE_COMMENT"></a>
 
 ```java
 public static final int NODE_TYPE_COMMENT = 3;
 ```
 
-<a id="m-NODE_TYPE_NODE"></a>
-### NODE_TYPE_NODE
+### NODE_TYPE_NODE <a href="#m-NODE_TYPE_NODE" id="m-NODE_TYPE_NODE"></a>
 
 ```java
 public static final int NODE_TYPE_NODE = 1;
 ```
 
-<a id="m-NODE_TYPE_PI"></a>
-### NODE_TYPE_PI
+### NODE_TYPE_PI <a href="#m-NODE_TYPE_PI" id="m-NODE_TYPE_PI"></a>
 
 ```java
 public static final int NODE_TYPE_PI = 4;
 ```
 
-<a id="m-NODE_TYPE_TEXT"></a>
-### NODE_TYPE_TEXT
+### NODE_TYPE_TEXT <a href="#m-NODE_TYPE_TEXT" id="m-NODE_TYPE_TEXT"></a>
 
 ```java
 public static final int NODE_TYPE_TEXT = 2;
@@ -174,8 +155,7 @@ public static final int NODE_TYPE_TEXT = 2;
 
 ## Methods
 
-<a id="m-equal-799a2136c547"></a>
-### equal(Object, Object)
+### equal(Object, Object) <a href="#m-equal-799a2136c547" id="m-equal-799a2136c547"></a>
 
 ```java
 public abstract Object equal(Object left, Object right) throws com.tailf.conf.ConfException
@@ -193,8 +173,7 @@ Produces an EXPRESSION object representing the comparison:
 
 **Returns:** Object
 
-<a id="m-expressionpath-5bf270c9d4c4"></a>
-### expressionPath(Object, Object[], Object[])
+### expressionPath(Object, Object[], Object[]) <a href="#m-expressionPath-5bf270c9d4c4" id="m-expressionPath-5bf270c9d4c4"></a>
 
 ```java
 public abstract Object expressionPath(Object expression, Object[] predicates, Object[] steps)
@@ -210,8 +189,7 @@ Produces an EXPRESSION object representing a filter expression
 
 **Returns:** Object
 
-<a id="m-function-2c16049fa829"></a>
-### function(int, Object[])
+### function(int, Object[]) <a href="#m-function-2c16049fa829" id="m-function-2c16049fa829"></a>
 
 ```java
 public abstract Object function(int code, Object[] args)
@@ -227,8 +205,7 @@ Produces an EXPRESSION object representing the computation of
 
 **Returns:** Object
 
-<a id="m-function-1cc89eb447db"></a>
-### function(Object, Object[])
+### function(Object, Object[]) <a href="#m-function-1cc89eb447db" id="m-function-1cc89eb447db"></a>
 
 ```java
 public abstract Object function(Object name, Object[] args)
@@ -244,8 +221,7 @@ Produces an EXPRESSION object representing the computation of
 
 **Returns:** Object
 
-<a id="m-getkp-45b2f95adae4"></a>
-### getKP()
+### getKP() <a href="#m-getKP-45b2f95adae4" id="m-getKP-45b2f95adae4"></a>
 
 ```java
 public abstract com.tailf.conf.ConfObject[] getKP()
@@ -253,8 +229,7 @@ public abstract com.tailf.conf.ConfObject[] getKP()
 
 Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
-<a id="m-literal-ad0286a2ebc5"></a>
-### literal(String)
+### literal(String) <a href="#m-literal-ad0286a2ebc5" id="m-literal-ad0286a2ebc5"></a>
 
 ```java
 public abstract Object literal(String value)
@@ -268,8 +243,7 @@ Produces an EXPRESSION object that represents a string constant.
 
 **Returns:** Object
 
-<a id="m-locationpath-62efb77d2c40"></a>
-### locationPath(boolean, Object[])
+### locationPath(boolean, Object[]) <a href="#m-locationPath-62efb77d2c40" id="m-locationPath-62efb77d2c40"></a>
 
 ```java
 public abstract Object locationPath(boolean absolute, Object[] steps)
@@ -284,8 +258,7 @@ Produces an EXPRESSION object representing a location path
 
 **Returns:** Object
 
-<a id="m-nodenametest-d6890d3b8e88"></a>
-### nodeNameTest(Object)
+### nodeNameTest(Object) <a href="#m-nodeNameTest-d6890d3b8e88" id="m-nodeNameTest-d6890d3b8e88"></a>
 
 ```java
 public abstract Object nodeNameTest(Object qname)
@@ -299,8 +272,7 @@ Produces a NODE_TEST object that represents a node name test.
 
 **Returns:** Object
 
-<a id="m-nodetypetest-6d6b838bb52c"></a>
-### nodeTypeTest(int)
+### nodeTypeTest(int) <a href="#m-nodeTypeTest-6d6b838bb52c" id="m-nodeTypeTest-6d6b838bb52c"></a>
 
 ```java
 public abstract Object nodeTypeTest(int nodeType)
@@ -314,8 +286,7 @@ Produces a NODE_TEST object that represents a node type test.
 
 **Returns:** Object
 
-<a id="m-number-249f888e69f1"></a>
-### number(String)
+### number(String) <a href="#m-number-249f888e69f1" id="m-number-249f888e69f1"></a>
 
 ```java
 public abstract Object number(String value)
@@ -329,8 +300,7 @@ Produces an EXPRESSION object that represents a numeric constant.
 
 **Returns:** Object
 
-<a id="m-qname-1189e6474a0b"></a>
-### qname(String, String)
+### qname(String, String) <a href="#m-qname-1189e6474a0b" id="m-qname-1189e6474a0b"></a>
 
 ```java
 public abstract Object qname(
@@ -351,8 +321,7 @@ Produces an QNAME that represents a name with an optional prefix.
 
 **Returns:** Object
 
-<a id="m-step-476841714396"></a>
-### step(int, Object, Object[])
+### step(int, Object, Object[]) <a href="#m-step-476841714396" id="m-step-476841714396"></a>
 
 ```java
 public abstract Object step(int axis, Object nodeTest, Object[] predicates)

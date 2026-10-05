@@ -1,5 +1,4 @@
-<a id="cls-ConfDate"></a>
-# ConfDate
+# ConfDate <a href="#cls-ConfDate" id="cls-ConfDate"></a>
 
 ```java
 public class com.tailf.conf.ConfDate
@@ -16,9 +15,9 @@ DATA_CONTAINER - Corresponds to the confspec xs:date type. No equivalent
 
 **Constructors**:
 
-- [ConfDate(ConfEObject)](#m-confdate-eb5a3796e441)
-- [ConfDate(int, int, int, int, int)](#m-confdate-006f2a841a6a)
-- [ConfDate(String)](#m-confdate-ffa7ee128147)
+- [ConfDate(ConfEObject)](#m-ConfDate-eb5a3796e441)
+- [ConfDate(int, int, int, int, int)](#m-ConfDate-006f2a841a6a)
+- [ConfDate(String)](#m-ConfDate-ffa7ee128147)
 
 **Fields**:
 
@@ -76,29 +75,28 @@ DATA_CONTAINER - Corresponds to the confspec xs:date type. No equivalent
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfDate)](#m-compareto-e102812e610e)
+- [compareTo(ConfDate)](#m-compareTo-e102812e610e)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getDay()](#m-getday-3b07996cd5f6)
-- [getMonth()](#m-getmonth-3813513d5069)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getTimezone()](#m-gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [getYear()](#m-getyear-584af4457cda)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isTimezoneSet()](#m-istimezoneset-bea37cc8df0f)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getDay()](#m-getDay-3b07996cd5f6)
+- [getMonth()](#m-getMonth-3813513d5069)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getTimezone()](#m-getTimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-getTimezoneMinutes-b20d3de8d152)
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [getYear()](#m-getYear-584af4457cda)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isTimezoneSet()](#m-isTimezoneSet-bea37cc8df0f)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confdate-eb5a3796e441"></a>
-### ConfDate(ConfEObject)
+### ConfDate(ConfEObject) <a href="#m-ConfDate-eb5a3796e441" id="m-ConfDate-eb5a3796e441"></a>
 
 ```java
 public ConfDate(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -110,8 +108,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confdate-006f2a841a6a"></a>
-### ConfDate(int, int, int, int, int)
+### ConfDate(int, int, int, int, int) <a href="#m-ConfDate-006f2a841a6a" id="m-ConfDate-006f2a841a6a"></a>
 
 ```java
 public ConfDate(int year, int month, int day, int timezone, int timezoneMinutes)
@@ -125,8 +122,7 @@ public ConfDate(int year, int month, int day, int timezone, int timezoneMinutes)
 - `int timezone`
 - `int timezoneMinutes`
 
-<a id="m-confdate-ffa7ee128147"></a>
-### ConfDate(String)
+### ConfDate(String) <a href="#m-ConfDate-ffa7ee128147" id="m-ConfDate-ffa7ee128147"></a>
 
 ```java
 public ConfDate(String str)
@@ -139,8 +135,7 @@ public ConfDate(String str)
 
 ## Methods
 
-<a id="m-compareto-e102812e610e"></a>
-### compareTo(ConfDate)
+### compareTo(ConfDate) <a href="#m-compareTo-e102812e610e" id="m-compareTo-e102812e610e"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfDate o)
@@ -152,8 +147,7 @@ Types: [ConfDate](ConfDate.md#cls-ConfDate)
 
 - `com.tailf.conf.ConfDate o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -161,8 +155,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -172,57 +165,49 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getday-3b07996cd5f6"></a>
-### getDay()
+### getDay() <a href="#m-getDay-3b07996cd5f6" id="m-getDay-3b07996cd5f6"></a>
 
 ```java
 public int getDay()
 ```
 
-<a id="m-getmonth-3813513d5069"></a>
-### getMonth()
+### getMonth() <a href="#m-getMonth-3813513d5069" id="m-getMonth-3813513d5069"></a>
 
 ```java
 public int getMonth()
 ```
 
-<a id="m-gettimezone-9573790f24e6"></a>
-### getTimezone()
+### getTimezone() <a href="#m-getTimezone-9573790f24e6" id="m-getTimezone-9573790f24e6"></a>
 
 ```java
 public int getTimezone()
 ```
 
-<a id="m-gettimezoneminutes-b20d3de8d152"></a>
-### getTimezoneMinutes()
+### getTimezoneMinutes() <a href="#m-getTimezoneMinutes-b20d3de8d152" id="m-getTimezoneMinutes-b20d3de8d152"></a>
 
 ```java
 public int getTimezoneMinutes()
 ```
 
-<a id="m-getyear-584af4457cda"></a>
-### getYear()
+### getYear() <a href="#m-getYear-584af4457cda" id="m-getYear-584af4457cda"></a>
 
 ```java
 public int getYear()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-istimezoneset-bea37cc8df0f"></a>
-### isTimezoneSet()
+### isTimezoneSet() <a href="#m-isTimezoneSet-bea37cc8df0f" id="m-isTimezoneSet-bea37cc8df0f"></a>
 
 ```java
 public boolean isTimezoneSet()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

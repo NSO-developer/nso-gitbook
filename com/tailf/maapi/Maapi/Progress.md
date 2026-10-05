@@ -1,5 +1,4 @@
-<a id="cls-Progress"></a>
-# Progress
+# Progress <a href="#cls-Progress" id="cls-Progress"></a>
 
 ```java
 public static class com.tailf.maapi.Maapi.Progress
@@ -11,12 +10,11 @@ Progress constants for use in progress reporting.
 
 **Constructors**:
 
-- [Progress()](#m-progress-0edac2dc87c1)
+- [Progress()](#m-Progress-0edac2dc87c1)
 
 ## Constructors
 
-<a id="m-progress-0edac2dc87c1"></a>
-### Progress()
+### Progress() <a href="#m-Progress-0edac2dc87c1" id="m-Progress-0edac2dc87c1"></a>
 
 ```java
 public Progress()

@@ -1,5 +1,4 @@
-<a id="cls-NedTTL"></a>
-# NedTTL
+# NedTTL <a href="#cls-NedTTL" id="cls-NedTTL"></a>
 
 ```java
 public class com.tailf.ned.NedTTL
@@ -12,21 +11,20 @@ The NedTTL class is used to pass time-to-live information
 
 **Constructors**:
 
-- [NedTTL(ConfPath, int)](#m-nedttl-d59ba0f9d8e4)
-- [NedTTL(ConfPath, int, boolean)](#m-nedttl-16d294d5a6a3)
+- [NedTTL(ConfPath, int)](#m-NedTTL-d59ba0f9d8e4)
+- [NedTTL(ConfPath, int, boolean)](#m-NedTTL-16d294d5a6a3)
 
 **Methods**:
 
 - [encode()](#m-encode-fbae522bba37)
-- [getPath()](#m-getpath-88fb21895561)
-- [getTTL()](#m-getttl-7693f68ee5b0)
-- [isSubtree()](#m-issubtree-0d784a2e567c)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getPath()](#m-getPath-88fb21895561)
+- [getTTL()](#m-getTTL-7693f68ee5b0)
+- [isSubtree()](#m-isSubtree-0d784a2e567c)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-nedttl-d59ba0f9d8e4"></a>
-### NedTTL(ConfPath, int)
+### NedTTL(ConfPath, int) <a href="#m-NedTTL-d59ba0f9d8e4" id="m-NedTTL-d59ba0f9d8e4"></a>
 
 ```java
 public NedTTL(com.tailf.conf.ConfPath path, int ttl)
@@ -41,8 +39,7 @@ Creates a single TTL entry.
 - `com.tailf.conf.ConfPath path` - The path for which the TTL holds.
 - `int ttl` - The time-to-live in seconds.
 
-<a id="m-nedttl-16d294d5a6a3"></a>
-### NedTTL(ConfPath, int, boolean)
+### NedTTL(ConfPath, int, boolean) <a href="#m-NedTTL-16d294d5a6a3" id="m-NedTTL-16d294d5a6a3"></a>
 
 ```java
 public NedTTL(com.tailf.conf.ConfPath path, int ttl, boolean isSubtree)
@@ -66,8 +63,7 @@ Creates a single TTL entry.
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -75,8 +71,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-getpath-88fb21895561"></a>
-### getPath()
+### getPath() <a href="#m-getPath-88fb21895561" id="m-getPath-88fb21895561"></a>
 
 ```java
 public com.tailf.conf.ConfPath getPath()
@@ -84,22 +79,19 @@ public com.tailf.conf.ConfPath getPath()
 
 Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
-<a id="m-getttl-7693f68ee5b0"></a>
-### getTTL()
+### getTTL() <a href="#m-getTTL-7693f68ee5b0" id="m-getTTL-7693f68ee5b0"></a>
 
 ```java
 public int getTTL()
 ```
 
-<a id="m-issubtree-0d784a2e567c"></a>
-### isSubtree()
+### isSubtree() <a href="#m-isSubtree-0d784a2e567c" id="m-isSubtree-0d784a2e567c"></a>
 
 ```java
 public boolean isSubtree()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

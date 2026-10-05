@@ -1,5 +1,4 @@
-<a id="cls-W3CRegex"></a>
-# W3CRegex
+# W3CRegex <a href="#cls-W3CRegex" id="cls-W3CRegex"></a>
 
 ```java
 public final class com.tailf.util.W3CRegex
@@ -13,8 +12,7 @@ public final class com.tailf.util.W3CRegex
 
 ## Methods
 
-<a id="m-validate-9990930fde53"></a>
-### validate(String, String)
+### validate(String, String) <a href="#m-validate-9990930fde53" id="m-validate-9990930fde53"></a>
 
 ```java
 public static boolean validate(String regex, String s)

@@ -1,5 +1,4 @@
-<a id="cls-TransValidateCBType"></a>
-# TransValidateCBType
+# TransValidateCBType <a href="#cls-TransValidateCBType" id="cls-TransValidateCBType"></a>
 
 ```java
 public enum com.tailf.dp.proto.TransValidateCBType
@@ -20,21 +19,19 @@ Enumeration of TransValidate callback methods
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-INIT"></a>
-### INIT
+### INIT <a href="#m-INIT" id="m-INIT"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransValidateCBType INIT;
 ```
 
-<a id="m-STOP"></a>
-### STOP
+### STOP <a href="#m-STOP" id="m-STOP"></a>
 
 ```java
 public static final com.tailf.dp.proto.TransValidateCBType STOP;
@@ -43,8 +40,7 @@ public static final com.tailf.dp.proto.TransValidateCBType STOP;
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -54,8 +50,7 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType valueOf(String name)
@@ -67,8 +62,7 @@ Types: [TransValidateCBType](TransValidateCBType.md#cls-TransValidateCBType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.TransValidateCBType[] values()

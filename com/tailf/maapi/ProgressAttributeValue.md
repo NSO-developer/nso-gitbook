@@ -1,5 +1,4 @@
-<a id="cls-ProgressAttributeValue"></a>
-# ProgressAttributeValue
+# ProgressAttributeValue <a href="#cls-ProgressAttributeValue" id="cls-ProgressAttributeValue"></a>
 
 ```java
 public abstract class com.tailf.maapi.ProgressAttributeValue
@@ -14,7 +13,7 @@ public abstract class com.tailf.maapi.ProgressAttributeValue
 
 **Constructors**:
 
-- [ProgressAttributeValue()](#m-progressattributevalue-a4ac928cefaf)
+- [ProgressAttributeValue()](#m-ProgressAttributeValue-a4ac928cefaf)
 
 **Fields**:
 
@@ -23,12 +22,11 @@ public abstract class com.tailf.maapi.ProgressAttributeValue
 
 **Methods**:
 
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-progressattributevalue-a4ac928cefaf"></a>
-### ProgressAttributeValue()
+### ProgressAttributeValue() <a href="#m-ProgressAttributeValue-a4ac928cefaf" id="m-ProgressAttributeValue-a4ac928cefaf"></a>
 
 ```java
 public ProgressAttributeValue()
@@ -37,15 +35,13 @@ public ProgressAttributeValue()
 
 ## Fields
 
-<a id="m-literal"></a>
-### literal
+### literal <a href="#m-literal" id="m-literal"></a>
 
 ```java
 protected String literal = null;
 ```
 
-<a id="m-number"></a>
-### number
+### number <a href="#m-number" id="m-number"></a>
 
 ```java
 protected Long number = null;
@@ -54,8 +50,7 @@ protected Long number = null;
 
 ## Methods
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

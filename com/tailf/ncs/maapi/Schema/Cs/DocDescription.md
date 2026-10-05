@@ -1,5 +1,4 @@
-<a id="cls-DocDescription"></a>
-# DocDescription
+# DocDescription <a href="#cls-DocDescription" id="cls-DocDescription"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.DocDescription
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.DocDescription
 
 **Constructors**:
 
-- [DocDescription()](#m-docdescription-30719d22e6b3)
+- [DocDescription()](#m-DocDescription-30719d22e6b3)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.DocDescription
 
 ## Constructors
 
-<a id="m-docdescription-30719d22e6b3"></a>
-### DocDescription()
+### DocDescription() <a href="#m-DocDescription-30719d22e6b3" id="m-DocDescription-30719d22e6b3"></a>
 
 ```java
 public DocDescription()
@@ -36,8 +34,7 @@ public DocDescription()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.Cs.DocDescription.Factory factory
 
 Types: [Factory](DocDescription/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.DocDescription.Builder,com.tailf.ncs.maapi.Schema.Cs.DocDescription.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](DocDescription/Builder.md#cls-Builder), [Reader](DocDescription/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

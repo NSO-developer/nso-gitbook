@@ -1,5 +1,4 @@
-<a id="cls-ConfIPv6"></a>
-# ConfIPv6
+# ConfIPv6 <a href="#cls-ConfIPv6" id="cls-ConfIPv6"></a>
 
 ```java
 public class com.tailf.conf.ConfIPv6
@@ -15,10 +14,10 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv6-address type.
 
 **Constructors**:
 
-- [ConfIPv6(ConfEObject)](#m-confipv6-2cfebb7138ec)
-- [ConfIPv6(ConfETuple)](#m-confipv6-72e648b3b22f)
-- [ConfIPv6(int, int, int, int, int, int, int, int)](#m-confipv6-e082263fd060)
-- [ConfIPv6(String)](#m-confipv6-a1c5e8e9b75b)
+- [ConfIPv6(ConfEObject)](#m-ConfIPv6-2cfebb7138ec)
+- [ConfIPv6(ConfETuple)](#m-ConfIPv6-72e648b3b22f)
+- [ConfIPv6(int, int, int, int, int, int, int, int)](#m-ConfIPv6-e082263fd060)
+- [ConfIPv6(String)](#m-ConfIPv6-a1c5e8e9b75b)
 
 **Fields**:
 
@@ -76,26 +75,25 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv6-address type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfIPv6)](#m-compareto-1b9334916d85)
+- [compareTo(ConfIPv6)](#m-compareTo-1b9334916d85)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getRawAddress()](#m-getrawaddress-2dacae94069b)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(InetAddress)](#m-tostring-1ff164b9397a)
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getRawAddress()](#m-getRawAddress-2dacae94069b)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(InetAddress)](#m-toString-1ff164b9397a)
 
 ## Constructors
 
-<a id="m-confipv6-2cfebb7138ec"></a>
-### ConfIPv6(ConfEObject)
+### ConfIPv6(ConfEObject) <a href="#m-ConfIPv6-2cfebb7138ec" id="m-ConfIPv6-2cfebb7138ec"></a>
 
 ```java
 public ConfIPv6(com.tailf.proto.ConfEObject vtup) throws com.tailf.conf.ConfException
@@ -107,8 +105,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject vtup`
 
-<a id="m-confipv6-72e648b3b22f"></a>
-### ConfIPv6(ConfETuple)
+### ConfIPv6(ConfETuple) <a href="#m-ConfIPv6-72e648b3b22f" id="m-ConfIPv6-72e648b3b22f"></a>
 
 ```java
 public ConfIPv6(com.tailf.proto.ConfETuple vtup) throws com.tailf.conf.ConfException
@@ -120,8 +117,7 @@ Types: [ConfETuple](../proto/ConfETuple.md#cls-ConfETuple), [ConfException](Conf
 
 - `com.tailf.proto.ConfETuple vtup`
 
-<a id="m-confipv6-e082263fd060"></a>
-### ConfIPv6(int, int, int, int, int, int, int, int)
+### ConfIPv6(int, int, int, int, int, int, int, int) <a href="#m-ConfIPv6-e082263fd060" id="m-ConfIPv6-e082263fd060"></a>
 
 ```java
 public ConfIPv6(int a, int b, int c, int d, int e, int f, int g, int h)
@@ -138,8 +134,7 @@ public ConfIPv6(int a, int b, int c, int d, int e, int f, int g, int h)
 - `int g`
 - `int h`
 
-<a id="m-confipv6-a1c5e8e9b75b"></a>
-### ConfIPv6(String)
+### ConfIPv6(String) <a href="#m-ConfIPv6-a1c5e8e9b75b" id="m-ConfIPv6-a1c5e8e9b75b"></a>
 
 ```java
 public ConfIPv6(String s)
@@ -154,8 +149,7 @@ Constructor for IPv6 expecting string of 8 values separated by :
 
 ## Methods
 
-<a id="m-compareto-1b9334916d85"></a>
-### compareTo(ConfIPv6)
+### compareTo(ConfIPv6) <a href="#m-compareTo-1b9334916d85" id="m-compareTo-1b9334916d85"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfIPv6 o)
@@ -167,8 +161,7 @@ Types: [ConfIPv6](ConfIPv6.md#cls-ConfIPv6)
 
 - `com.tailf.conf.ConfIPv6 o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -176,8 +169,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -187,36 +179,31 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public java.net.InetAddress getAddress()
 ```
 
-<a id="m-getrawaddress-2dacae94069b"></a>
-### getRawAddress()
+### getRawAddress() <a href="#m-getRawAddress-2dacae94069b" id="m-getRawAddress-2dacae94069b"></a>
 
 ```java
 public int[] getRawAddress()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-tostring-1ff164b9397a"></a>
-### toString(InetAddress)
+### toString(InetAddress) <a href="#m-toString-1ff164b9397a" id="m-toString-1ff164b9397a"></a>
 
 ```java
 protected static String toString(java.net.InetAddress addr)

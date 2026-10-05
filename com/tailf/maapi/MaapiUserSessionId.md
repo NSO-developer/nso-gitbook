@@ -1,5 +1,4 @@
-<a id="cls-MaapiUserSessionId"></a>
-# MaapiUserSessionId
+# MaapiUserSessionId <a href="#cls-MaapiUserSessionId" id="cls-MaapiUserSessionId"></a>
 
 ```java
 public class com.tailf.maapi.MaapiUserSessionId
@@ -9,19 +8,18 @@ public class com.tailf.maapi.MaapiUserSessionId
 
 **Constructors**:
 
-- [MaapiUserSessionId(ConfEObject)](#m-maapiusersessionid-25af3d95040e)
+- [MaapiUserSessionId(ConfEObject)](#m-MaapiUserSessionId-25af3d95040e)
 
 **Methods**:
 
-- [getClientId()](#m-getclientid-c217e3b72666)
-- [getProduct()](#m-getproduct-b91c069d055a)
-- [getVendor()](#m-getvendor-0cd0c37b3148)
-- [getVersion()](#m-getversion-bb66b19ad84e)
+- [getClientId()](#m-getClientId-c217e3b72666)
+- [getProduct()](#m-getProduct-b91c069d055a)
+- [getVendor()](#m-getVendor-0cd0c37b3148)
+- [getVersion()](#m-getVersion-bb66b19ad84e)
 
 ## Constructors
 
-<a id="m-maapiusersessionid-25af3d95040e"></a>
-### MaapiUserSessionId(ConfEObject)
+### MaapiUserSessionId(ConfEObject) <a href="#m-MaapiUserSessionId-25af3d95040e" id="m-MaapiUserSessionId-25af3d95040e"></a>
 
 ```java
 public MaapiUserSessionId(com.tailf.proto.ConfEObject o) throws com.tailf.maapi.MaapiException
@@ -36,29 +34,25 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [MaapiException](
 
 ## Methods
 
-<a id="m-getclientid-c217e3b72666"></a>
-### getClientId()
+### getClientId() <a href="#m-getClientId-c217e3b72666" id="m-getClientId-c217e3b72666"></a>
 
 ```java
 public String getClientId()
 ```
 
-<a id="m-getproduct-b91c069d055a"></a>
-### getProduct()
+### getProduct() <a href="#m-getProduct-b91c069d055a" id="m-getProduct-b91c069d055a"></a>
 
 ```java
 public String getProduct()
 ```
 
-<a id="m-getvendor-0cd0c37b3148"></a>
-### getVendor()
+### getVendor() <a href="#m-getVendor-0cd0c37b3148" id="m-getVendor-0cd0c37b3148"></a>
 
 ```java
 public String getVendor()
 ```
 
-<a id="m-getversion-bb66b19ad84e"></a>
-### getVersion()
+### getVersion() <a href="#m-getVersion-bb66b19ad84e" id="m-getVersion-bb66b19ad84e"></a>
 
 ```java
 public String getVersion()

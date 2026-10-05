@@ -1,5 +1,4 @@
-<a id="cls-NedException"></a>
-# NedException
+# NedException <a href="#cls-NedException" id="cls-NedException"></a>
 
 ```java
 public class com.tailf.ned.NedException
@@ -12,17 +11,16 @@ Exception raised from the NED package
 
 **Constructors**:
 
-- [NedException(NedErrorCode, String)](#m-nedexception-b9f14788dc0a)
-- [NedException(NedErrorCode, String, Throwable)](#m-nedexception-076b429c0440)
+- [NedException(NedErrorCode, String)](#m-NedException-b9f14788dc0a)
+- [NedException(NedErrorCode, String, Throwable)](#m-NedException-076b429c0440)
 
 **Methods**:
 
-- [getNedErrorCode()](#m-getnederrorcode-452b35680338)
+- [getNedErrorCode()](#m-getNedErrorCode-452b35680338)
 
 ## Constructors
 
-<a id="m-nedexception-b9f14788dc0a"></a>
-### NedException(NedErrorCode, String)
+### NedException(NedErrorCode, String) <a href="#m-NedException-b9f14788dc0a" id="m-NedException-b9f14788dc0a"></a>
 
 ```java
 public NedException(com.tailf.ned.NedErrorCode aCode, String msg)
@@ -35,8 +33,7 @@ Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 - `com.tailf.ned.NedErrorCode aCode`
 - `String msg`
 
-<a id="m-nedexception-076b429c0440"></a>
-### NedException(NedErrorCode, String, Throwable)
+### NedException(NedErrorCode, String, Throwable) <a href="#m-NedException-076b429c0440" id="m-NedException-076b429c0440"></a>
 
 ```java
 public NedException(com.tailf.ned.NedErrorCode aCode, String msg, Throwable cause)
@@ -53,8 +50,7 @@ Types: [NedErrorCode](NedErrorCode.md#cls-NedErrorCode)
 
 ## Methods
 
-<a id="m-getnederrorcode-452b35680338"></a>
-### getNedErrorCode()
+### getNedErrorCode() <a href="#m-getNedErrorCode-452b35680338" id="m-getNedErrorCode-452b35680338"></a>
 
 ```java
 public com.tailf.ned.NedErrorCode getNedErrorCode()

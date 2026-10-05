@@ -1,5 +1,4 @@
-<a id="cls-CsValueDate"></a>
-# CsValueDate
+# CsValueDate <a href="#cls-CsValueDate" id="cls-CsValueDate"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueDate
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDate
 
 **Constructors**:
 
-- [CsValueDate()](#m-csvaluedate-71cf7570c177)
+- [CsValueDate()](#m-CsValueDate-71cf7570c177)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDate
 
 ## Constructors
 
-<a id="m-csvaluedate-71cf7570c177"></a>
-### CsValueDate()
+### CsValueDate() <a href="#m-CsValueDate-71cf7570c177" id="m-CsValueDate-71cf7570c177"></a>
 
 ```java
 public CsValueDate()
@@ -35,8 +33,7 @@ public CsValueDate()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueDate.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueDate.Factory factory = nul
 
 Types: [Factory](CsValueDate/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDate.Builder,com.tailf.ncs.maapi.Schema.CsValueDate.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueDate/Builder.md#cls-Builder), [Reader](CsValueDate/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

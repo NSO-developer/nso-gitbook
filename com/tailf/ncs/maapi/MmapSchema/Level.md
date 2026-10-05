@@ -1,5 +1,4 @@
-<a id="cls-Level"></a>
-# Level
+# Level <a href="#cls-Level" id="cls-Level"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchema.Level
@@ -11,23 +10,22 @@ Level of data, corresponding to a single node in the schema tree.
 
 **Constructors**:
 
-- [Level(Source, int)](#m-level-9cb7eaef780c)
+- [Level(Source, int)](#m-Level-9cb7eaef780c)
 
 **Methods**:
 
-- [getChild(Source, int)](#m-getchild-fd813ae0d5e9)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getNumChildren()](#m-getnumchildren-532d09a62d4c)
-- [getNumRecords()](#m-getnumrecords-03318f72ab23)
-- [getOff()](#m-getoff-578b9943fd00)
-- [getRecord(Source, int)](#m-getrecord-e26482ff7b93)
+- [getChild(Source, int)](#m-getChild-fd813ae0d5e9)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getNumChildren()](#m-getNumChildren-532d09a62d4c)
+- [getNumRecords()](#m-getNumRecords-03318f72ab23)
+- [getOff()](#m-getOff-578b9943fd00)
+- [getRecord(Source, int)](#m-getRecord-e26482ff7b93)
 - [read(Source, int)](#m-read-c048381a08bd)
-- [readChild(Source, int, Child)](#m-readchild-c2da12eeb9d7)
+- [readChild(Source, int, Child)](#m-readChild-c2da12eeb9d7)
 
 ## Constructors
 
-<a id="m-level-9cb7eaef780c"></a>
-### Level(Source, int)
+### Level(Source, int) <a href="#m-Level-9cb7eaef780c" id="m-Level-9cb7eaef780c"></a>
 
 **Package-private**
 
@@ -45,8 +43,7 @@ Types: [Source](Source.md#cls-Source)
 
 ## Methods
 
-<a id="m-getchild-fd813ae0d5e9"></a>
-### getChild(Source, int)
+### getChild(Source, int) <a href="#m-getChild-fd813ae0d5e9" id="m-getChild-fd813ae0d5e9"></a>
 
 **Package-private**
 
@@ -64,36 +61,31 @@ Types: [Child](Child.md#cls-Child), [Source](Source.md#cls-Source)
 - `com.tailf.ncs.maapi.MmapSchema.Source src`
 - `int childIdx`
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public short getFlags()
 ```
 
-<a id="m-getnumchildren-532d09a62d4c"></a>
-### getNumChildren()
+### getNumChildren() <a href="#m-getNumChildren-532d09a62d4c" id="m-getNumChildren-532d09a62d4c"></a>
 
 ```java
 public int getNumChildren()
 ```
 
-<a id="m-getnumrecords-03318f72ab23"></a>
-### getNumRecords()
+### getNumRecords() <a href="#m-getNumRecords-03318f72ab23" id="m-getNumRecords-03318f72ab23"></a>
 
 ```java
 public short getNumRecords()
 ```
 
-<a id="m-getoff-578b9943fd00"></a>
-### getOff()
+### getOff() <a href="#m-getOff-578b9943fd00" id="m-getOff-578b9943fd00"></a>
 
 ```java
 public int getOff()
 ```
 
-<a id="m-getrecord-e26482ff7b93"></a>
-### getRecord(Source, int)
+### getRecord(Source, int) <a href="#m-getRecord-e26482ff7b93" id="m-getRecord-e26482ff7b93"></a>
 
 **Package-private**
 
@@ -111,8 +103,7 @@ Types: [Record](Record.md#cls-Record), [Source](Source.md#cls-Source)
 - `com.tailf.ncs.maapi.MmapSchema.Source src`
 - `int recordIdx`
 
-<a id="m-read-c048381a08bd"></a>
-### read(Source, int)
+### read(Source, int) <a href="#m-read-c048381a08bd" id="m-read-c048381a08bd"></a>
 
 **Package-private**
 
@@ -127,8 +118,7 @@ Types: [Source](Source.md#cls-Source)
 - `com.tailf.ncs.maapi.MmapSchema.Source src`
 - `int pos`
 
-<a id="m-readchild-c2da12eeb9d7"></a>
-### readChild(Source, int, Child)
+### readChild(Source, int, Child) <a href="#m-readChild-c2da12eeb9d7" id="m-readChild-c2da12eeb9d7"></a>
 
 **Package-private**
 

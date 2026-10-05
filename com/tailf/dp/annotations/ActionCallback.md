@@ -1,5 +1,4 @@
-<a id="cls-ActionCallback"></a>
-# ActionCallback
+# ActionCallback <a href="#cls-ActionCallback" id="cls-ActionCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -15,13 +14,12 @@ Annotation class for Action Callbacks Attributes are callPoint and callType
 
 **Methods**:
 
-- [callPoint()](#m-callpoint-c21f52042879)
-- [callType()](#m-calltype-0d0f9b61a036)
+- [callPoint()](#m-callPoint-c21f52042879)
+- [callType()](#m-callType-0d0f9b61a036)
 
 ## Methods
 
-<a id="m-callpoint-c21f52042879"></a>
-### callPoint()
+### callPoint() <a href="#m-callPoint-c21f52042879" id="m-callPoint-c21f52042879"></a>
 
 ```java
 public abstract String callPoint()
@@ -29,8 +27,7 @@ public abstract String callPoint()
 
 The name of the callpoint implementing the action
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.ActionCBType[] callType()

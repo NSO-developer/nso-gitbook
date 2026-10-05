@@ -1,5 +1,4 @@
-<a id="cls-Ha"></a>
-# Ha
+# Ha <a href="#cls-Ha" id="cls-Ha"></a>
 
 ```java
 public class com.tailf.ha.Ha
@@ -14,22 +13,21 @@ Main class for the HA cluster management. The HA functionality makes it
 
 **Constructors**:
 
-- [Ha(Socket, String)](#m-ha-a01ce05f0fc4)
+- [Ha(Socket, String)](#m-Ha-a01ce05f0fc4)
 
 **Methods**:
 
-- [beNone()](#m-benone-d237c0001505)
-- [bePrimary(ConfValue)](#m-beprimary-53ade4701481)
-- [beRelay()](#m-berelay-c1ba9a75af6e)
-- [beSecondary(ConfValue, ConfHaNode, boolean)](#m-besecondary-fdf817eb2bdb)
+- [beNone()](#m-beNone-d237c0001505)
+- [bePrimary(ConfValue)](#m-bePrimary-53ade4701481)
+- [beRelay()](#m-beRelay-c1ba9a75af6e)
+- [beSecondary(ConfValue, ConfHaNode, boolean)](#m-beSecondary-fdf817eb2bdb)
 - [close()](#m-close-8107c6dc012b)
-- [secondaryDead(ConfValue)](#m-secondarydead-138cc5049b31)
+- [secondaryDead(ConfValue)](#m-secondaryDead-138cc5049b31)
 - [status()](#m-status-f7d72174690b)
 
 ## Constructors
 
-<a id="m-ha-a01ce05f0fc4"></a>
-### Ha(Socket, String)
+### Ha(Socket, String) <a href="#m-Ha-a01ce05f0fc4" id="m-Ha-a01ce05f0fc4"></a>
 
 ```java
 public Ha(java.net.Socket socket, String token) throws java.io.IOException, com.tailf.ha.HaException
@@ -93,8 +91,7 @@ Constructor for management of an HA Cluster node. This constructor
 
 ## Methods
 
-<a id="m-benone-d237c0001505"></a>
-### beNone()
+### beNone() <a href="#m-beNone-d237c0001505" id="m-beNone-d237c0001505"></a>
 
 ```java
 public synchronized void beNone() throws java.io.IOException, com.tailf.ha.HaException
@@ -105,8 +102,7 @@ Types: [HaException](HaException.md#cls-HaException)
 Instruct a node to resume the initial state, i.e. neither primary nor
  secondary.
 
-<a id="m-beprimary-53ade4701481"></a>
-### bePrimary(ConfValue)
+### bePrimary(ConfValue) <a href="#m-bePrimary-53ade4701481" id="m-bePrimary-53ade4701481"></a>
 
 ```java
 public synchronized void bePrimary(
@@ -123,8 +119,7 @@ Instruct an HA node to be primary and also give the node a name.
 
 - `com.tailf.conf.ConfValue myNodeId` - ConfValue naming the ha node
 
-<a id="m-berelay-c1ba9a75af6e"></a>
-### beRelay()
+### beRelay() <a href="#m-beRelay-c1ba9a75af6e" id="m-beRelay-c1ba9a75af6e"></a>
 
 ```java
 public void beRelay() throws java.io.IOException, com.tailf.ha.HaException
@@ -134,8 +129,7 @@ Types: [HaException](HaException.md#cls-HaException)
 
 Instruct a secondary node to be a relay for other secondaries.
 
-<a id="m-besecondary-fdf817eb2bdb"></a>
-### beSecondary(ConfValue, ConfHaNode, boolean)
+### beSecondary(ConfValue, ConfHaNode, boolean) <a href="#m-beSecondary-fdf817eb2bdb" id="m-beSecondary-fdf817eb2bdb"></a>
 
 ```java
 public synchronized void beSecondary(
@@ -169,15 +163,13 @@ Instruct an HA node to be a secondary to a named primary. The waitreply
 - `IOException`
 - `HaException`
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-<a id="m-secondarydead-138cc5049b31"></a>
-### secondaryDead(ConfValue)
+### secondaryDead(ConfValue) <a href="#m-secondaryDead-138cc5049b31" id="m-secondaryDead-138cc5049b31"></a>
 
 ```java
 public synchronized void secondaryDead(
@@ -195,8 +187,7 @@ This function must be used by the application to inform the HA subsystem
 
 - `com.tailf.conf.ConfValue nodeId` - ConfValue naming the cluster node
 
-<a id="m-status-f7d72174690b"></a>
-### status()
+### status() <a href="#m-status-f7d72174690b" id="m-status-f7d72174690b"></a>
 
 ```java
 public synchronized com.tailf.ha.HaStatus status() throws java.io.IOException, com.tailf.ha.HaException

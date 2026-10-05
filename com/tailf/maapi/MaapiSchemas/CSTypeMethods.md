@@ -1,5 +1,4 @@
-<a id="cls-CSTypeMethods"></a>
-# CSTypeMethods
+# CSTypeMethods <a href="#cls-CSTypeMethods" id="cls-CSTypeMethods"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSTypeMethods
@@ -29,18 +28,17 @@ Class which contains type specific conversion and validation
 
 **Constructors**:
 
-- [CSTypeMethods()](#m-cstypemethods-d8284784290b)
+- [CSTypeMethods()](#m-CSTypeMethods-d8284784290b)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#m-stringtovalue-9fef98be9bb2)
+- [stringToValue(CSType, String)](#m-stringToValue-9fef98be9bb2)
 - [validate(CSType, ConfValue)](#m-validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#m-valuetostring-f281f6b6d7d7)
+- [valueToString(CSType, ConfValue)](#m-valueToString-f281f6b6d7d7)
 
 ## Constructors
 
-<a id="m-cstypemethods-d8284784290b"></a>
-### CSTypeMethods()
+### CSTypeMethods() <a href="#m-CSTypeMethods-d8284784290b" id="m-CSTypeMethods-d8284784290b"></a>
 
 ```java
 public CSTypeMethods()
@@ -49,8 +47,7 @@ public CSTypeMethods()
 
 ## Methods
 
-<a id="m-stringtovalue-9fef98be9bb2"></a>
-### stringToValue(CSType, String)
+### stringToValue(CSType, String) <a href="#m-stringToValue-9fef98be9bb2" id="m-stringToValue-9fef98be9bb2"></a>
 
 ```java
 public com.tailf.conf.ConfValue stringToValue(
@@ -76,8 +73,7 @@ parse value located in str and convert to ConfValue, the value is
 
 - `MaapiException`
 
-<a id="m-validate-d2696432436e"></a>
-### validate(CSType, ConfValue)
+### validate(CSType, ConfValue) <a href="#m-validate-d2696432436e" id="m-validate-d2696432436e"></a>
 
 ```java
 public boolean validate(
@@ -102,8 +98,7 @@ Validates ConfValue of with rules from CSType
 
 - `MaapiException`
 
-<a id="m-valuetostring-f281f6b6d7d7"></a>
-### valueToString(CSType, ConfValue)
+### valueToString(CSType, ConfValue) <a href="#m-valueToString-f281f6b6d7d7" id="m-valueToString-f281f6b6d7d7"></a>
 
 ```java
 public String valueToString(com.tailf.maapi.MaapiSchemas.CSType type, com.tailf.conf.ConfValue val)

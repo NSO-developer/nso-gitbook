@@ -1,5 +1,4 @@
-<a id="cls-Scope"></a>
-# Scope
+# Scope <a href="#cls-Scope" id="cls-Scope"></a>
 
 ```java
 public enum com.tailf.ncs.annotations.Scope
@@ -18,14 +17,13 @@ Scope for resources managed by the Resource Manager
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CONTEXT"></a>
-### CONTEXT
+### CONTEXT <a href="#m-CONTEXT" id="m-CONTEXT"></a>
 
 ```java
 public static final com.tailf.ncs.annotations.Scope CONTEXT;
@@ -38,8 +36,7 @@ Context scope implies that the resource is
  be extended between packages.
  If the qualifier is not given it becomes "DEFAULT"
 
-<a id="m-INSTANCE"></a>
-### INSTANCE
+### INSTANCE <a href="#m-INSTANCE" id="m-INSTANCE"></a>
 
 ```java
 public static final com.tailf.ncs.annotations.Scope INSTANCE;
@@ -53,15 +50,13 @@ Instance scope implies that all instances will
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.annotations.Scope valueOf(String name)
@@ -73,8 +68,7 @@ Types: [Scope](Scope.md#cls-Scope)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.annotations.Scope[] values()

@@ -1,5 +1,4 @@
-<a id="cls-MaapiIterate"></a>
-# MaapiIterate
+# MaapiIterate <a href="#cls-MaapiIterate" id="cls-MaapiIterate"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiIterate
@@ -22,8 +21,7 @@ This interface is used with the Iterate method in Maapi. It allows a way
 
 ## Methods
 
-<a id="m-iterate-638caa8f5a2f"></a>
-### iterate(ConfObject[], ConfObject, ConfAttributeValue[], Object)
+### iterate(ConfObject[], ConfObject, ConfAttributeValue[], Object) <a href="#m-iterate-638caa8f5a2f" id="m-iterate-638caa8f5a2f"></a>
 
 ```java
 public abstract com.tailf.conf.ConfIterateResultFlag iterate(

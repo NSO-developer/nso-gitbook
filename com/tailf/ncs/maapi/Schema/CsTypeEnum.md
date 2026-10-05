@@ -1,5 +1,4 @@
-<a id="cls-CsTypeEnum"></a>
-# CsTypeEnum
+# CsTypeEnum <a href="#cls-CsTypeEnum" id="cls-CsTypeEnum"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeEnum
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeEnum
 
 **Constructors**:
 
-- [CsTypeEnum()](#m-cstypeenum-cad52e20f657)
+- [CsTypeEnum()](#m-CsTypeEnum-cad52e20f657)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeEnum
 
 ## Constructors
 
-<a id="m-cstypeenum-cad52e20f657"></a>
-### CsTypeEnum()
+### CsTypeEnum() <a href="#m-CsTypeEnum-cad52e20f657" id="m-CsTypeEnum-cad52e20f657"></a>
 
 ```java
 public CsTypeEnum()
@@ -35,8 +33,7 @@ public CsTypeEnum()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeEnum.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeEnum.Factory factory = null
 
 Types: [Factory](CsTypeEnum/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeEnum.Builder,com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeEnum/Builder.md#cls-Builder), [Reader](CsTypeEnum/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

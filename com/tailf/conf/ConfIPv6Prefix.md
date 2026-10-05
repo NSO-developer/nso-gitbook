@@ -1,5 +1,4 @@
-<a id="cls-ConfIPv6Prefix"></a>
-# ConfIPv6Prefix
+# ConfIPv6Prefix <a href="#cls-ConfIPv6Prefix" id="cls-ConfIPv6Prefix"></a>
 
 ```java
 public class com.tailf.conf.ConfIPv6Prefix
@@ -15,10 +14,10 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv6-prefix type.
 
 **Constructors**:
 
-- [ConfIPv6Prefix(ConfEObject)](#m-confipv6prefix-6129cef4c380)
-- [ConfIPv6Prefix(InetAddress, int)](#m-confipv6prefix-148254bfc12b)
-- [ConfIPv6Prefix(int[], int)](#m-confipv6prefix-238438d93be3)
-- [ConfIPv6Prefix(String)](#m-confipv6prefix-e00ed0f6a384)
+- [ConfIPv6Prefix(ConfEObject)](#m-ConfIPv6Prefix-6129cef4c380)
+- [ConfIPv6Prefix(InetAddress, int)](#m-ConfIPv6Prefix-148254bfc12b)
+- [ConfIPv6Prefix(int[], int)](#m-ConfIPv6Prefix-238438d93be3)
+- [ConfIPv6Prefix(String)](#m-ConfIPv6Prefix-e00ed0f6a384)
 
 **Fields**:
 
@@ -76,26 +75,25 @@ DATA_CONTAINER - Corresponds to the YANG inet:ipv6-prefix type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfIPv6Prefix)](#m-compareto-6654f9a607ad)
+- [compareTo(ConfIPv6Prefix)](#m-compareTo-6654f9a607ad)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getMaskLength()](#m-getmasklength-c45d44e26e53)
-- [getRawAddress()](#m-getrawaddress-2dacae94069b)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getMaskLength()](#m-getMaskLength-c45d44e26e53)
+- [getRawAddress()](#m-getRawAddress-2dacae94069b)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confipv6prefix-6129cef4c380"></a>
-### ConfIPv6Prefix(ConfEObject)
+### ConfIPv6Prefix(ConfEObject) <a href="#m-ConfIPv6Prefix-6129cef4c380" id="m-ConfIPv6Prefix-6129cef4c380"></a>
 
 ```java
 public ConfIPv6Prefix(com.tailf.proto.ConfEObject v) throws com.tailf.conf.ConfException
@@ -107,8 +105,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject v`
 
-<a id="m-confipv6prefix-148254bfc12b"></a>
-### ConfIPv6Prefix(InetAddress, int)
+### ConfIPv6Prefix(InetAddress, int) <a href="#m-ConfIPv6Prefix-148254bfc12b" id="m-ConfIPv6Prefix-148254bfc12b"></a>
 
 ```java
 public ConfIPv6Prefix(java.net.InetAddress addr, int masklen)
@@ -119,8 +116,7 @@ public ConfIPv6Prefix(java.net.InetAddress addr, int masklen)
 - `java.net.InetAddress addr`
 - `int masklen`
 
-<a id="m-confipv6prefix-238438d93be3"></a>
-### ConfIPv6Prefix(int[], int)
+### ConfIPv6Prefix(int[], int) <a href="#m-ConfIPv6Prefix-238438d93be3" id="m-ConfIPv6Prefix-238438d93be3"></a>
 
 ```java
 public ConfIPv6Prefix(int[] addr, int masklen)
@@ -131,8 +127,7 @@ public ConfIPv6Prefix(int[] addr, int masklen)
 - `int[] addr`
 - `int masklen`
 
-<a id="m-confipv6prefix-e00ed0f6a384"></a>
-### ConfIPv6Prefix(String)
+### ConfIPv6Prefix(String) <a href="#m-ConfIPv6Prefix-e00ed0f6a384" id="m-ConfIPv6Prefix-e00ed0f6a384"></a>
 
 ```java
 public ConfIPv6Prefix(String str)
@@ -145,8 +140,7 @@ public ConfIPv6Prefix(String str)
 
 ## Methods
 
-<a id="m-compareto-6654f9a607ad"></a>
-### compareTo(ConfIPv6Prefix)
+### compareTo(ConfIPv6Prefix) <a href="#m-compareTo-6654f9a607ad" id="m-compareTo-6654f9a607ad"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfIPv6Prefix o)
@@ -158,8 +152,7 @@ Types: [ConfIPv6Prefix](ConfIPv6Prefix.md#cls-ConfIPv6Prefix)
 
 - `com.tailf.conf.ConfIPv6Prefix o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -167,8 +160,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -178,36 +170,31 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public java.net.InetAddress getAddress()
 ```
 
-<a id="m-getmasklength-c45d44e26e53"></a>
-### getMaskLength()
+### getMaskLength() <a href="#m-getMaskLength-c45d44e26e53" id="m-getMaskLength-c45d44e26e53"></a>
 
 ```java
 public int getMaskLength()
 ```
 
-<a id="m-getrawaddress-2dacae94069b"></a>
-### getRawAddress()
+### getRawAddress() <a href="#m-getRawAddress-2dacae94069b" id="m-getRawAddress-2dacae94069b"></a>
 
 ```java
 public int[] getRawAddress()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

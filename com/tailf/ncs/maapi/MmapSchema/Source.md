@@ -1,5 +1,4 @@
-<a id="cls-Source"></a>
-# Source
+# Source <a href="#cls-Source" id="cls-Source"></a>
 
 **Package-private**
 
@@ -11,18 +10,17 @@ class com.tailf.ncs.maapi.MmapSchema.Source
 
 **Constructors**:
 
-- [Source(String, ByteBuffer)](#m-source-88a6b5379f91)
+- [Source(String, ByteBuffer)](#m-Source-88a6b5379f91)
 
 **Methods**:
 
-- [getBuffer()](#m-getbuffer-570122302064)
-- [getBufferDuplicate()](#m-getbufferduplicate-cbf9cb33fd3d)
-- [getPath()](#m-getpath-88fb21895561)
+- [getBuffer()](#m-getBuffer-570122302064)
+- [getBufferDuplicate()](#m-getBufferDuplicate-cbf9cb33fd3d)
+- [getPath()](#m-getPath-88fb21895561)
 
 ## Constructors
 
-<a id="m-source-88a6b5379f91"></a>
-### Source(String, ByteBuffer)
+### Source(String, ByteBuffer) <a href="#m-Source-88a6b5379f91" id="m-Source-88a6b5379f91"></a>
 
 **Package-private**
 
@@ -38,15 +36,13 @@ Source(String path, java.nio.ByteBuffer buffer)
 
 ## Methods
 
-<a id="m-getbuffer-570122302064"></a>
-### getBuffer()
+### getBuffer() <a href="#m-getBuffer-570122302064" id="m-getBuffer-570122302064"></a>
 
 ```java
 public java.nio.ByteBuffer getBuffer()
 ```
 
-<a id="m-getbufferduplicate-cbf9cb33fd3d"></a>
-### getBufferDuplicate()
+### getBufferDuplicate() <a href="#m-getBufferDuplicate-cbf9cb33fd3d" id="m-getBufferDuplicate-cbf9cb33fd3d"></a>
 
 ```java
 public java.nio.ByteBuffer getBufferDuplicate()
@@ -57,8 +53,7 @@ Get a duplicate of the buffer with independent position, limit, and
 
 **Returns:** The duplicated byte buffer
 
-<a id="m-getpath-88fb21895561"></a>
-### getPath()
+### getPath() <a href="#m-getPath-88fb21895561" id="m-getPath-88fb21895561"></a>
 
 ```java
 public String getPath()

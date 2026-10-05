@@ -1,5 +1,4 @@
-<a id="cls-QueryResult"></a>
-# QueryResult
+# QueryResult <a href="#cls-QueryResult" id="cls-QueryResult"></a>
 
 ```java
 public class com.tailf.maapi.QueryResult<T extends com.tailf.maapi.ResultType>
@@ -16,16 +15,16 @@ Represent a result from a XPath query.
  specified from parameters in `queryStart`.
 
 
- The `Iterator` that returns from the `#iterator()` method
+ The `Iterator` that returns from the [`iterator()`](QueryResult.md#m-iterator-188aa52d1f86) method
  fetches result in chunks from server for local processing as needed and
  is specified by the `chunksize` in `queryStart`
  method when iterating over the result set.
 
  Iterating trough the result multiple times could be done trough
- a call to `#reset()` and retrieval of a new `#iterator()`
+ a call to [`reset()`](QueryResult.md#m-reset-6927918ac70a) and retrieval of a new [`iterator()`](QueryResult.md#m-iterator-188aa52d1f86)
  is required.
 
- When iteration is done a call to `#stop()` will free up
+ When iteration is done a call to [`stop()`](QueryResult.md#m-stop-a62ecc446f97) will free up
  resources from the server it is good practice to do so when
  done processing on this object.
 
@@ -33,14 +32,14 @@ Represent a result from a XPath query.
 
 **Constructors**:
 
-- [QueryResult(Maapi, ConfELong)](#m-queryresult-cfa1327eaddc)
+- [QueryResult(Maapi, ConfELong)](#m-QueryResult-cfa1327eaddc)
 
 **Methods**:
 
 - [iterator()](#m-iterator-188aa52d1f86)
 - [reset()](#m-reset-6927918ac70a)
 - [reset(int)](#m-reset-0119ff136490)
-- [resultCount()](#m-resultcount-69149d4d6ac3)
+- [resultCount()](#m-resultCount-69149d4d6ac3)
 - [stop()](#m-stop-a62ecc446f97)
 - [value()](QueryResult/Entry.md#m-value-9e1512d1a0ce) from Entry
 
@@ -50,8 +49,7 @@ Represent a result from a XPath query.
 
 ## Constructors
 
-<a id="m-queryresult-cfa1327eaddc"></a>
-### QueryResult(Maapi, ConfELong)
+### QueryResult(Maapi, ConfELong) <a href="#m-QueryResult-cfa1327eaddc" id="m-QueryResult-cfa1327eaddc"></a>
 
 **Package-private**
 
@@ -73,8 +71,7 @@ Types: [Maapi](Maapi.md#cls-Maapi), [ConfELong](../proto/ConfELong.md#cls-ConfEL
 
 ## Methods
 
-<a id="m-iterator-188aa52d1f86"></a>
-### iterator()
+### iterator() <a href="#m-iterator-188aa52d1f86" id="m-iterator-188aa52d1f86"></a>
 
 ```java
 public java.util.Iterator<com.tailf.maapi.QueryResult.Entry<T>> iterator()
@@ -87,8 +84,7 @@ Retrieves an iterator from which one could iterate over the
 
 **Returns:** a query result iterator
 
-<a id="m-reset-6927918ac70a"></a>
-### reset()
+### reset() <a href="#m-reset-6927918ac70a" id="m-reset-6927918ac70a"></a>
 
 ```java
 public void reset() throws com.tailf.conf.ConfException, java.io.IOException
@@ -97,7 +93,7 @@ public void reset() throws com.tailf.conf.ConfException, java.io.IOException
 Types: [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Reset/Rewind a running query so that it starts from the
- beginning again. Next call to `#iterator()`
+ beginning again. Next call to [`iterator()`](QueryResult.md#m-iterator-188aa52d1f86)
  will then return the first chunk of
  results.
 
@@ -106,8 +102,7 @@ Reset/Rewind a running query so that it starts from the
  run the same query again, as well as
  after fetching just one or a couple of results).
 
-<a id="m-reset-0119ff136490"></a>
-### reset(int)
+### reset(int) <a href="#m-reset-0119ff136490" id="m-reset-0119ff136490"></a>
 
 ```java
 public void reset(int offset) throws com.tailf.conf.ConfException, java.io.IOException
@@ -119,7 +114,7 @@ Reset/Rewind a running query to a specific offset.
 
  First element has offset 1.
 
- Next call to `#iterator()`
+ Next call to [`iterator()`](QueryResult.md#m-iterator-188aa52d1f86)
  will then reinitialize with first chunk starting with element at offset.
 
  The method can be called at any time.
@@ -128,8 +123,7 @@ Reset/Rewind a running query to a specific offset.
 
 - `int offset`
 
-<a id="m-resultcount-69149d4d6ac3"></a>
-### resultCount()
+### resultCount() <a href="#m-resultCount-69149d4d6ac3" id="m-resultCount-69149d4d6ac3"></a>
 
 ```java
 public long resultCount() throws com.tailf.conf.ConfException, java.io.IOException
@@ -155,8 +149,7 @@ Get number of elements in the result.
 - `ConfException`
 - `IOException`
 
-<a id="m-stop-a62ecc446f97"></a>
-### stop()
+### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
 
 ```java
 public void stop() throws com.tailf.conf.ConfException, java.io.IOException

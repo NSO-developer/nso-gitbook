@@ -1,5 +1,4 @@
-<a id="cls-AlarmSourceCentral"></a>
-# AlarmSourceCentral
+# AlarmSourceCentral <a href="#cls-AlarmSourceCentral" id="cls-AlarmSourceCentral"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.consumer.AlarmSourceCentral
@@ -32,16 +31,16 @@ The consuming part of the *Alarm API*.
 
 **Constructors**:
 
-- [AlarmSourceCentral(int, Cdb)](#m-alarmsourcecentral-d1b13ad77707)
+- [AlarmSourceCentral(int, Cdb)](#m-AlarmSourceCentral-d1b13ad77707)
 
 **Methods**:
 
-- [getAlarmQueue()](#m-getalarmqueue-86ea427127cc)
-- [getAlarmSource(int, Cdb)](#m-getalarmsource-3dbc04cb0fba)
-- [getQueue()](#m-getqueue-d349d0a1f2e7)
-- [isAlive()](#m-isalive-264918864856)
-- [returnAlarmQueue(ArrayBlockingQueue<Alarm>)](#m-returnalarmqueue-4561d0dee1d9)
-- [returnQueue(ArrayBlockingQueue<Alarm>)](#m-returnqueue-87db70115c92)
+- [getAlarmQueue()](#m-getAlarmQueue-86ea427127cc)
+- [getAlarmSource(int, Cdb)](#m-getAlarmSource-3dbc04cb0fba)
+- [getQueue()](#m-getQueue-d349d0a1f2e7)
+- [isAlive()](#m-isAlive-264918864856)
+- [returnAlarmQueue(ArrayBlockingQueue<Alarm>)](#m-returnAlarmQueue-4561d0dee1d9)
+- [returnQueue(ArrayBlockingQueue<Alarm>)](#m-returnQueue-87db70115c92)
 - [run()](#m-run-b6dbda048863)
 - [start()](#m-start-79e12dafe9f8)
 - [stop()](#m-stop-a62ecc446f97)
@@ -52,8 +51,7 @@ The consuming part of the *Alarm API*.
 
 ## Constructors
 
-<a id="m-alarmsourcecentral-d1b13ad77707"></a>
-### AlarmSourceCentral(int, Cdb)
+### AlarmSourceCentral(int, Cdb) <a href="#m-AlarmSourceCentral-d1b13ad77707" id="m-AlarmSourceCentral-d1b13ad77707"></a>
 
 ```java
 public AlarmSourceCentral(
@@ -81,8 +79,7 @@ Creates a new AlarmSourceCentral object.
 
 ## Methods
 
-<a id="m-getalarmqueue-86ea427127cc"></a>
-### getAlarmQueue()
+### getAlarmQueue() <a href="#m-getAlarmQueue-86ea427127cc" id="m-getAlarmQueue-86ea427127cc"></a>
 
 ```java
 public static java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getAlarmQueue()
@@ -94,10 +91,9 @@ Returns a new alarm queue.
 
 **Returns:** `ArrayBlockingQueue<Alarm>`
 
-**Deprecated:** Use `#getQueue()` instead.
+**Deprecated:** Use [`getQueue()`](AlarmSourceCentral.md#m-getQueue-d349d0a1f2e7) instead.
 
-<a id="m-getalarmsource-3dbc04cb0fba"></a>
-### getAlarmSource(int, Cdb)
+### getAlarmSource(int, Cdb) <a href="#m-getAlarmSource-3dbc04cb0fba" id="m-getAlarmSource-3dbc04cb0fba"></a>
 
 ```java
 public static synchronized com.tailf.ncs.alarmman.consumer.AlarmSourceCentral getAlarmSource(
@@ -124,10 +120,9 @@ Retrieves the alarm source central object.
 - `NavuException` - if there is a Navu error
 - `ConfException` - if there is a protocol error
 
-**Deprecated:** Use [`NcsMain#getSourceCentral()`](../../NcsMain.md#m-getsourcecentral-0714ef465cc3) instead.
+**Deprecated:** Use [`NcsMain#getSourceCentral()`](../../NcsMain.md#m-getSourceCentral-0714ef465cc3) instead.
 
-<a id="m-getqueue-d349d0a1f2e7"></a>
-### getQueue()
+### getQueue() <a href="#m-getQueue-d349d0a1f2e7" id="m-getQueue-d349d0a1f2e7"></a>
 
 ```java
 protected synchronized java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> getQueue()
@@ -139,8 +134,7 @@ Creates a new queue and adds it to the AlarmSource.
 
 **Returns:** ArrayBlockingQueue
 
-<a id="m-isalive-264918864856"></a>
-### isAlive()
+### isAlive() <a href="#m-isAlive-264918864856" id="m-isAlive-264918864856"></a>
 
 ```java
 public boolean isAlive()
@@ -150,8 +144,7 @@ Returns true if the AlarmSourceCentral is running.
 
 **Returns:** true if the AlarmSourceCentral is running, else false.
 
-<a id="m-returnalarmqueue-4561d0dee1d9"></a>
-### returnAlarmQueue(ArrayBlockingQueue<Alarm>)
+### returnAlarmQueue(ArrayBlockingQueue<Alarm>) <a href="#m-returnAlarmQueue-4561d0dee1d9" id="m-returnAlarmQueue-4561d0dee1d9"></a>
 
 ```java
 public static void returnAlarmQueue(
@@ -167,10 +160,9 @@ Returns the queue.
 
 - `java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue` - the queue to return.
 
-**Deprecated:** Use `Alarm#returnQueue(ArrayBlockingQueue<Alarm>)` instead.
+**Deprecated:** Use `returnQueue(ArrayBlockingQueue<Alarm>)` instead.
 
-<a id="m-returnqueue-87db70115c92"></a>
-### returnQueue(ArrayBlockingQueue<Alarm>)
+### returnQueue(ArrayBlockingQueue<Alarm>) <a href="#m-returnQueue-87db70115c92" id="m-returnQueue-87db70115c92"></a>
 
 ```java
 protected void returnQueue(
@@ -187,15 +179,13 @@ Removes the queue from the list of
 
 - `java.util.concurrent.ArrayBlockingQueue<com.tailf.ncs.alarmman.common.Alarm> queue`
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-<a id="m-start-79e12dafe9f8"></a>
-### start()
+### start() <a href="#m-start-79e12dafe9f8" id="m-start-79e12dafe9f8"></a>
 
 ```java
 public void start()
@@ -205,8 +195,7 @@ Start the AlarmSourceCentral which makes
  it possible for AlarmSource's to attach to this
  `AlarmSourceCentral ` and receive notifications.
 
-<a id="m-stop-a62ecc446f97"></a>
-### stop()
+### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
 
 ```java
 public synchronized void stop()

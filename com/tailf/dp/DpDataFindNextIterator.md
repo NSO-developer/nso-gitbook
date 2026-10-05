@@ -1,5 +1,4 @@
-<a id="cls-DpDataFindNextIterator"></a>
-# DpDataFindNextIterator
+# DpDataFindNextIterator <a href="#cls-DpDataFindNextIterator" id="cls-DpDataFindNextIterator"></a>
 
 ```java
 public interface com.tailf.dp.DpDataFindNextIterator
@@ -25,12 +24,11 @@ Extended Iterator interface used to get `findNext` functionality.
 
 **Methods**:
 
-- [findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#m-findnext-76a998cf9bff)
+- [findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#m-findNext-76a998cf9bff)
 
 ## Methods
 
-<a id="m-findnext-76a998cf9bff"></a>
-### findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey)
+### findNext(DpTrans, ConfObject[], ConfFindNextType, ConfKey) <a href="#m-findNext-76a998cf9bff" id="m-findNext-76a998cf9bff"></a>
 
 ```java
 public abstract Object findNext(
@@ -46,9 +44,9 @@ Types: [DpTrans](DpTrans.md#cls-DpTrans), [ConfObject](../conf/ConfObject.md#cls
 This method is called by Dp when a FIND_NEXT or a FIND_NEXT_OBJECT call
  is issued. This iterator method is called to retrieve the element and
  the object is then rendered with the normal
- [`DpDataCallback#getIteratorKey(DpTrans, ConfObject[], Object)`](DpDataCallback.md#m-getiteratorkey-6df7c38f65f8)
+ [`DpDataCallback#getIteratorKey(DpTrans, ConfObject[], Object)`](DpDataCallback.md#m-getIteratorKey-6df7c38f65f8)
  or [`DpDataCallback#getIteratorObject(DpTrans, ConfObject[],
- Object)`](DpDataCallback.md#m-getiteratorobject-425632c26c31)
+ Object)`](DpDataCallback.md#m-getIteratorObject-425632c26c31)
  methods before the element returned.
 
 **Parameters**

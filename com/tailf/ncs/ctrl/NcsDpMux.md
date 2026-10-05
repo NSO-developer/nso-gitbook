@@ -1,5 +1,4 @@
-<a id="cls-NcsDpMux"></a>
-# NcsDpMux
+# NcsDpMux <a href="#cls-NcsDpMux" id="cls-NcsDpMux"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.NcsDpMux
@@ -18,24 +17,23 @@ Ncs abstraction layer for Dp class.
 
 **Constructors**:
 
-- [NcsDpMux(NcsMain, String, String)](#m-ncsdpmux-c6e608d90ef5)
-- [NcsDpMux(NcsMain, String, String, int)](#m-ncsdpmux-24f0ec39e19a)
+- [NcsDpMux(NcsMain, String, String)](#m-NcsDpMux-c6e608d90ef5)
+- [NcsDpMux(NcsMain, String, String, int)](#m-NcsDpMux-24f0ec39e19a)
 
 **Methods**:
 
 - [finish()](#m-finish-8c785ae2e6bb)
-- [getDpThread()](#m-getdpthread-0a74c4d6b35b)
+- [getDpThread()](#m-getDpThread-0a74c4d6b35b)
 - [register(Object)](#m-register-7aae2d334f99)
-- [reportException(Throwable)](#m-reportexception-f2030dd5aa98)
-- [reRegister(Object)](#m-reregister-ec513c61f987)
-- [retrieveMountId(Object)](#m-retrievemountid-c38b7bcdc149)
+- [reportException(Throwable)](#m-reportException-f2030dd5aa98)
+- [reRegister(Object)](#m-reRegister-ec513c61f987)
+- [retrieveMountId(Object)](#m-retrieveMountId-c38b7bcdc149)
 - [run()](#m-run-b6dbda048863)
-- [setReportExceptionsToNcsMain()](#m-setreportexceptionstoncsmain-2320b0a0719c)
+- [setReportExceptionsToNcsMain()](#m-setReportExceptionsToNcsMain-2320b0a0719c)
 
 ## Constructors
 
-<a id="m-ncsdpmux-c6e608d90ef5"></a>
-### NcsDpMux(NcsMain, String, String)
+### NcsDpMux(NcsMain, String, String) <a href="#m-NcsDpMux-c6e608d90ef5" id="m-NcsDpMux-c6e608d90ef5"></a>
 
 ```java
 public NcsDpMux(com.tailf.ncs.NcsMain main, String packageName, String componentName)
@@ -51,8 +49,7 @@ Constructor for NCS Dp abstraction class
 - `String packageName` - name of the package for this Dp Daemon
 - `String componentName` - name of the component for this Dp Daemon
 
-<a id="m-ncsdpmux-24f0ec39e19a"></a>
-### NcsDpMux(NcsMain, String, String, int)
+### NcsDpMux(NcsMain, String, String, int) <a href="#m-NcsDpMux-24f0ec39e19a" id="m-NcsDpMux-24f0ec39e19a"></a>
 
 ```java
 public NcsDpMux(
@@ -77,8 +74,7 @@ Constructor for NCS Dp abstraction class
 
 ## Methods
 
-<a id="m-finish-8c785ae2e6bb"></a>
-### finish()
+### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish()
@@ -86,15 +82,13 @@ public void finish()
 
 stop and clear the Dp and control socket
 
-<a id="m-getdpthread-0a74c4d6b35b"></a>
-### getDpThread()
+### getDpThread() <a href="#m-getDpThread-0a74c4d6b35b" id="m-getDpThread-0a74c4d6b35b"></a>
 
 ```java
 public Thread getDpThread()
 ```
 
-<a id="m-register-7aae2d334f99"></a>
-### register(Object)
+### register(Object) <a href="#m-register-7aae2d334f99" id="m-register-7aae2d334f99"></a>
 
 ```java
 public void register(Object o)
@@ -106,8 +100,7 @@ Register a callback into this dp.
 
 - `Object o` - callback instance
 
-<a id="m-reportexception-f2030dd5aa98"></a>
-### reportException(Throwable)
+### reportException(Throwable) <a href="#m-reportException-f2030dd5aa98" id="m-reportException-f2030dd5aa98"></a>
 
 ```java
 public boolean reportException(Throwable e)
@@ -117,8 +110,7 @@ public boolean reportException(Throwable e)
 
 - `Throwable e`
 
-<a id="m-reregister-ec513c61f987"></a>
-### reRegister(Object)
+### reRegister(Object) <a href="#m-reRegister-ec513c61f987" id="m-reRegister-ec513c61f987"></a>
 
 ```java
 public void reRegister(Object o)
@@ -130,8 +122,7 @@ Register a callback into this dp.
 
 - `Object o` - callback instance
 
-<a id="m-retrievemountid-c38b7bcdc149"></a>
-### retrieveMountId(Object)
+### retrieveMountId(Object) <a href="#m-retrieveMountId-c38b7bcdc149" id="m-retrieveMountId-c38b7bcdc149"></a>
 
 ```java
 public String retrieveMountId(Object obj) throws com.tailf.dp.DpCallbackException
@@ -143,8 +134,7 @@ Types: [DpCallbackException](../../dp/DpCallbackException.md#cls-DpCallbackExcep
 
 - `Object obj`
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
@@ -152,8 +142,7 @@ public void run()
 
 Dp Thread run method
 
-<a id="m-setreportexceptionstoncsmain-2320b0a0719c"></a>
-### setReportExceptionsToNcsMain()
+### setReportExceptionsToNcsMain() <a href="#m-setReportExceptionsToNcsMain-2320b0a0719c" id="m-setReportExceptionsToNcsMain-2320b0a0719c"></a>
 
 ```java
 public void setReportExceptionsToNcsMain()

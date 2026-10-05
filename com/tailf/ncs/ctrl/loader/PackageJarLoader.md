@@ -1,5 +1,4 @@
-<a id="cls-PackageJarLoader"></a>
-# PackageJarLoader
+# PackageJarLoader <a href="#cls-PackageJarLoader" id="cls-PackageJarLoader"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.loader.PackageJarLoader
@@ -10,17 +9,16 @@ public class com.tailf.ncs.ctrl.loader.PackageJarLoader
 
 **Constructors**:
 
-- [PackageJarLoader(String, ClassLoader)](#m-packagejarloader-801a718ab75b)
+- [PackageJarLoader(String, ClassLoader)](#m-PackageJarLoader-801a718ab75b)
 
 **Methods**:
 
-- [addURL(String)](#m-addurl-f2ba0680c96b)
-- [getPackageName()](#m-getpackagename-8e58a29d7a5d)
+- [addURL(String)](#m-addURL-f2ba0680c96b)
+- [getPackageName()](#m-getPackageName-8e58a29d7a5d)
 
 ## Constructors
 
-<a id="m-packagejarloader-801a718ab75b"></a>
-### PackageJarLoader(String, ClassLoader)
+### PackageJarLoader(String, ClassLoader) <a href="#m-PackageJarLoader-801a718ab75b" id="m-PackageJarLoader-801a718ab75b"></a>
 
 ```java
 public PackageJarLoader(String packageName, ClassLoader parent)
@@ -34,8 +32,7 @@ public PackageJarLoader(String packageName, ClassLoader parent)
 
 ## Methods
 
-<a id="m-addurl-f2ba0680c96b"></a>
-### addURL(String)
+### addURL(String) <a href="#m-addURL-f2ba0680c96b" id="m-addURL-f2ba0680c96b"></a>
 
 ```java
 public void addURL(String url) throws java.net.MalformedURLException, java.net.URISyntaxException
@@ -45,8 +42,7 @@ public void addURL(String url) throws java.net.MalformedURLException, java.net.U
 
 - `String url`
 
-<a id="m-getpackagename-8e58a29d7a5d"></a>
-### getPackageName()
+### getPackageName() <a href="#m-getPackageName-8e58a29d7a5d" id="m-getPackageName-8e58a29d7a5d"></a>
 
 ```java
 public String getPackageName()

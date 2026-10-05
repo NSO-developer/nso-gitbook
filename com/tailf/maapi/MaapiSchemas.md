@@ -1,5 +1,4 @@
-<a id="cls-MaapiSchemas"></a>
-# MaapiSchemas
+# MaapiSchemas <a href="#cls-MaapiSchemas" id="cls-MaapiSchemas"></a>
 
 ```java
 public class com.tailf.maapi.MaapiSchemas
@@ -15,8 +14,8 @@ Handles the schema information from the data models loaded.
 
  Methods exist to retrieve a specified schema [`CSSchema`](MaapiSchemas/CSSchema.md#cls-CSSchema)
  or a specified schema node
- `#findCSNode(String,String,Object...)`,
- `CSNode#findCSNode(MaapiSchemas.CSNode,String,String)`.
+ [`findCSNode(String,String,Object...)`](MaapiSchemas.md#m-findCSNode-9fc05e189266),
+ `findCSNode(MaapiSchemas.CSNode,String,String)`.
 
 
 
@@ -36,7 +35,7 @@ Handles the schema information from the data models loaded.
 
 
  There are methods for converting between hashes and strings:
- `#stringToHash(String)` and `#hashToString(int)`
+ [`stringToHash(String)`](MaapiSchemas.md#m-stringToHash-7c2af24796ac) and [`hashToString(int)`](MaapiSchemas.md#m-hashToString-54eaaef71976)
 
 
 
@@ -90,7 +89,7 @@ Handles the schema information from the data models loaded.
 
 **Constructors**:
 
-- [MaapiSchemas(String[])](#m-maapischemas-6fe3b955b5b9)
+- [MaapiSchemas(String[])](#m-MaapiSchemas-6fe3b955b5b9)
 
 **Fields**:
 
@@ -107,47 +106,47 @@ Handles the schema information from the data models loaded.
 
 **Methods**:
 
-- [clearMountIdCache()](#m-clearmountidcache-78b7d5916f44)
-- [compileDisplayHint(byte[])](#m-compiledisplayhint-da77fd4fc4a5)
-- [convertMountId(ConfEObject[])](#m-convertmountid-dd57936915c7)
-- [convertMountId(Map<Integer,CSSchema>, ConfEObject)](#m-convertmountid-2b8b82ff2d45)
-- [convertMountIdHash(Map<Integer,CSSchema>, int, int)](#m-convertmountidhash-20aca1c9464f)
-- [currentMountIdCacheSize()](#m-currentmountidcachesize-54e5c11ad163)
-- [findCSMNsMap(List<String>)](#m-findcsmnsmap-522ac9ee9034)
-- [findCSMNsMap(String)](#m-findcsmnsmap-026c4103f2ca)
-- [findCSNode(CSNode, CSMNsMap, String)](#m-findcsnode-31950d190712)
-- [findCSNode(CSNode, int, int)](#m-findcsnode-052de3dda313)
-- [findCSNode(CSNode, String, String)](#m-findcsnode-5d43b475b623)
-- [findCSNode(MountIdInterface, String, List<PathElement>)](#m-findcsnode-22bcb6b48b20)
-- [findCSNode(MountIdInterface, String, String, Object[])](#m-findcsnode-33ce42d47da2)
-- [findCSNode(String, String, Object[])](#m-findcsnode-9fc05e189266)
-- [findCSRoot(int)](#m-findcsroot-e71c532d0a72)
-- [findCSRoot(String)](#m-findcsroot-ed8e95df57fe)
-- [findCSSchema(int)](#m-findcsschema-880b1533ffd2)
-- [findCSSchema(String)](#m-findcsschema-6023156b0628)
-- [findCSSchemaByPrefix(String)](#m-findcsschemabyprefix-d5a2976f05ae)
-- [findCSSchemaFromUniqueRoot(int)](#m-findcsschemafromuniqueroot-655331fd3352)
-- [findCSSchemaFromUniqueRoot(String)](#m-findcsschemafromuniqueroot-6a2bcf9dd24b)
-- [findMountId(Map<Integer,CSSchema>, ConfEObject)](#m-findmountid-2786e1d58129)
-- [findMountId(Map<Integer,CSSchema>, int, int)](#m-findmountid-9807a9bfdddb)
-- [findSchema(Map<Integer,CSSchema>, int)](#m-findschema-b4d435858143)
-- [findSchema(Map<Integer,CSSchema>, int, String, String, String, String)](#m-findschema-51a71cd5c850)
-- [getConfdType(String)](#m-getconfdtype-0b0b4b688106)
-- [getLoadedMNsMaps()](#m-getloadedmnsmaps-9eef39dd2fe7)
-- [getLoadedSchemas()](#m-getloadedschemas-fe2966b5baf6)
-- [getMountId(MountIdInterface, ConfPath)](#m-getmountid-a4d23d966af3)
-- [getRootMountId()](#m-getrootmountid-542ecf8e1ac1)
-- [getThreadDefaultMountId()](#m-getthreaddefaultmountid-c72bbe29ad4d)
-- [hashToString(int)](#m-hashtostring-54eaaef71976)
+- [clearMountIdCache()](#m-clearMountIdCache-78b7d5916f44)
+- [compileDisplayHint(byte[])](#m-compileDisplayHint-da77fd4fc4a5)
+- [convertMountId(ConfEObject[])](#m-convertMountId-dd57936915c7)
+- [convertMountId(Map<Integer,CSSchema>, ConfEObject)](#m-convertMountId-2b8b82ff2d45)
+- [convertMountIdHash(Map<Integer,CSSchema>, int, int)](#m-convertMountIdHash-20aca1c9464f)
+- [currentMountIdCacheSize()](#m-currentMountIdCacheSize-54e5c11ad163)
+- [findCSMNsMap(List<String>)](#m-findCSMNsMap-522ac9ee9034)
+- [findCSMNsMap(String)](#m-findCSMNsMap-026c4103f2ca)
+- [findCSNode(CSNode, CSMNsMap, String)](#m-findCSNode-31950d190712)
+- [findCSNode(CSNode, int, int)](#m-findCSNode-052de3dda313)
+- [findCSNode(CSNode, String, String)](#m-findCSNode-5d43b475b623)
+- [findCSNode(MountIdInterface, String, List<PathElement>)](#m-findCSNode-22bcb6b48b20)
+- [findCSNode(MountIdInterface, String, String, Object[])](#m-findCSNode-33ce42d47da2)
+- [findCSNode(String, String, Object[])](#m-findCSNode-9fc05e189266)
+- [findCSRoot(int)](#m-findCSRoot-e71c532d0a72)
+- [findCSRoot(String)](#m-findCSRoot-ed8e95df57fe)
+- [findCSSchema(int)](#m-findCSSchema-880b1533ffd2)
+- [findCSSchema(String)](#m-findCSSchema-6023156b0628)
+- [findCSSchemaByPrefix(String)](#m-findCSSchemaByPrefix-d5a2976f05ae)
+- [findCSSchemaFromUniqueRoot(int)](#m-findCSSchemaFromUniqueRoot-655331fd3352)
+- [findCSSchemaFromUniqueRoot(String)](#m-findCSSchemaFromUniqueRoot-6a2bcf9dd24b)
+- [findMountId(Map<Integer,CSSchema>, ConfEObject)](#m-findMountId-2786e1d58129)
+- [findMountId(Map<Integer,CSSchema>, int, int)](#m-findMountId-9807a9bfdddb)
+- [findSchema(Map<Integer,CSSchema>, int)](#m-findSchema-b4d435858143)
+- [findSchema(Map<Integer,CSSchema>, int, String, String, String, String)](#m-findSchema-51a71cd5c850)
+- [getConfdType(String)](#m-getConfdType-0b0b4b688106)
+- [getLoadedMNsMaps()](#m-getLoadedMNsMaps-9eef39dd2fe7)
+- [getLoadedSchemas()](#m-getLoadedSchemas-fe2966b5baf6)
+- [getMountId(MountIdInterface, ConfPath)](#m-getMountId-a4d23d966af3)
+- [getRootMountId()](#m-getRootMountId-542ecf8e1ac1)
+- [getThreadDefaultMountId()](#m-getThreadDefaultMountId-c72bbe29ad4d)
+- [hashToString(int)](#m-hashToString-54eaaef71976)
 - [init(Socket)](#m-init-1f83ed7f5091)
-- [mkInitializedMaapiSchemas(String[], Socket)](#m-mkinitializedmaapischemas-22e4830ffd3c)
-- [registerSchemaRoot(CSSchema)](#m-registerschemaroot-0a458f575f6a)
-- [removeMountIdCachePath(ConfPath)](#m-removemountidcachepath-e2f9028697a6)
-- [setThreadDefaultMountId(List<String>)](#m-setthreaddefaultmountid-9a20aed46fad)
-- [stringToHash(String)](#m-stringtohash-7c2af24796ac)
-- [stringToValue(CSType, String)](#m-stringtovalue-9fef98be9bb2)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [valueToString(CSType, ConfValue)](#m-valuetostring-f281f6b6d7d7)
+- [mkInitializedMaapiSchemas(String[], Socket)](#m-mkInitializedMaapiSchemas-22e4830ffd3c)
+- [registerSchemaRoot(CSSchema)](#m-registerSchemaRoot-0a458f575f6a)
+- [removeMountIdCachePath(ConfPath)](#m-removeMountIdCachePath-e2f9028697a6)
+- [setThreadDefaultMountId(List<String>)](#m-setThreadDefaultMountId-9a20aed46fad)
+- [stringToHash(String)](#m-stringToHash-7c2af24796ac)
+- [stringToValue(CSType, String)](#m-stringToValue-9fef98be9bb2)
+- [toString()](#m-toString-e9d48c5503ef)
+- [valueToString(CSType, ConfValue)](#m-valueToString-f281f6b6d7d7)
 
 **Nested Types**:
 
@@ -185,8 +184,7 @@ Handles the schema information from the data models loaded.
 
 ## Constructors
 
-<a id="m-maapischemas-6fe3b955b5b9"></a>
-### MaapiSchemas(String[])
+### MaapiSchemas(String[]) <a href="#m-MaapiSchemas-6fe3b955b5b9" id="m-MaapiSchemas-6fe3b955b5b9"></a>
 
 ```java
 protected MaapiSchemas(String[] namespaceURIs)
@@ -206,15 +204,13 @@ Construct a new MaapiSchema instance that can be used to handle
 
 ## Fields
 
-<a id="m-address"></a>
-### address
+### address <a href="#m-address" id="m-address"></a>
 
 ```java
 protected java.net.SocketAddress address = null;
 ```
 
-<a id="m-CS_DOC_DESCRIPTION"></a>
-### CS_DOC_DESCRIPTION
+### CS_DOC_DESCRIPTION <a href="#m-CS_DOC_DESCRIPTION" id="m-CS_DOC_DESCRIPTION"></a>
 
 **Package-private**
 
@@ -222,8 +218,7 @@ protected java.net.SocketAddress address = null;
 static final int CS_DOC_DESCRIPTION = 2;
 ```
 
-<a id="m-CS_DOC_HIDDEN"></a>
-### CS_DOC_HIDDEN
+### CS_DOC_HIDDEN <a href="#m-CS_DOC_HIDDEN" id="m-CS_DOC_HIDDEN"></a>
 
 **Package-private**
 
@@ -231,8 +226,7 @@ static final int CS_DOC_DESCRIPTION = 2;
 static final int CS_DOC_HIDDEN = 3;
 ```
 
-<a id="m-CS_DOC_PROMPT"></a>
-### CS_DOC_PROMPT
+### CS_DOC_PROMPT <a href="#m-CS_DOC_PROMPT" id="m-CS_DOC_PROMPT"></a>
 
 **Package-private**
 
@@ -243,15 +237,13 @@ static final int CS_DOC_PROMPT = 1;
 DocData InfoType constant used to tag
  documentation strings sent from server
 
-<a id="m-hashToStringTab"></a>
-### hashToStringTab
+### hashToStringTab <a href="#m-hashToStringTab" id="m-hashToStringTab"></a>
 
 ```java
 protected java.util.Map<Integer,String> hashToStringTab = null;
 ```
 
-<a id="m-mnsMaps"></a>
-### mnsMaps
+### mnsMaps <a href="#m-mnsMaps" id="m-mnsMaps"></a>
 
 ```java
 protected java.util.Map<java.util.List<String>,com.tailf.maapi.MaapiSchemas.CSMNsMap> mnsMaps = null;
@@ -259,8 +251,7 @@ protected java.util.Map<java.util.List<String>,com.tailf.maapi.MaapiSchemas.CSMN
 
 Types: [CSMNsMap](MaapiSchemas/CSMNsMap.md#cls-CSMNsMap)
 
-<a id="m-NO_EXISTS_TYPE"></a>
-### NO_EXISTS_TYPE
+### NO_EXISTS_TYPE <a href="#m-NO_EXISTS_TYPE" id="m-NO_EXISTS_TYPE"></a>
 
 ```java
 public static final com.tailf.conf.ConfNoExists NO_EXISTS_TYPE = null;
@@ -268,8 +259,7 @@ public static final com.tailf.conf.ConfNoExists NO_EXISTS_TYPE = null;
 
 Types: [ConfNoExists](../conf/ConfNoExists.md#cls-ConfNoExists)
 
-<a id="m-schemas"></a>
-### schemas
+### schemas <a href="#m-schemas" id="m-schemas"></a>
 
 ```java
 protected java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas = null;
@@ -277,15 +267,13 @@ protected java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas =
 
 Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 
-<a id="m-specifiedNSURIs"></a>
-### specifiedNSURIs
+### specifiedNSURIs <a href="#m-specifiedNSURIs" id="m-specifiedNSURIs"></a>
 
 ```java
 protected final String[] specifiedNSURIs = null;
 ```
 
-<a id="m-stringToHashTab"></a>
-### stringToHashTab
+### stringToHashTab <a href="#m-stringToHashTab" id="m-stringToHashTab"></a>
 
 ```java
 protected java.util.Map<String,Integer> stringToHashTab = null;
@@ -294,15 +282,13 @@ protected java.util.Map<String,Integer> stringToHashTab = null;
 
 ## Methods
 
-<a id="m-clearmountidcache-78b7d5916f44"></a>
-### clearMountIdCache()
+### clearMountIdCache() <a href="#m-clearMountIdCache-78b7d5916f44" id="m-clearMountIdCache-78b7d5916f44"></a>
 
 ```java
 public void clearMountIdCache()
 ```
 
-<a id="m-compiledisplayhint-da77fd4fc4a5"></a>
-### compileDisplayHint(byte[])
+### compileDisplayHint(byte[]) <a href="#m-compileDisplayHint-da77fd4fc4a5" id="m-compileDisplayHint-da77fd4fc4a5"></a>
 
 ```java
 public static java.util.List<com.tailf.maapi.MaapiSchemas.DisplayHintSpec> compileDisplayHint(
@@ -317,8 +303,7 @@ Types: [DisplayHintSpec](MaapiSchemas/DisplayHintSpec.md#cls-DisplayHintSpec), [
 
 - `byte[] bin`
 
-<a id="m-convertmountid-dd57936915c7"></a>
-### convertMountId(ConfEObject[])
+### convertMountId(ConfEObject[]) <a href="#m-convertMountId-dd57936915c7" id="m-convertMountId-dd57936915c7"></a>
 
 ```java
 public java.util.List<String> convertMountId(
@@ -333,8 +318,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [MaapiException](
 
 - `com.tailf.proto.ConfEObject[] eObjs`
 
-<a id="m-convertmountid-2b8b82ff2d45"></a>
-### convertMountId(Map<Integer,CSSchema>, ConfEObject)
+### convertMountId(Map<Integer,CSSchema>, ConfEObject) <a href="#m-convertMountId-2b8b82ff2d45" id="m-convertMountId-2b8b82ff2d45"></a>
 
 ```java
 public String convertMountId(
@@ -350,8 +334,7 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema), [ConfEObject](../proto
 - `java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemastable`
 - `com.tailf.proto.ConfEObject obj`
 
-<a id="m-convertmountidhash-20aca1c9464f"></a>
-### convertMountIdHash(Map<Integer,CSSchema>, int, int)
+### convertMountIdHash(Map<Integer,CSSchema>, int, int) <a href="#m-convertMountIdHash-20aca1c9464f" id="m-convertMountIdHash-20aca1c9464f"></a>
 
 ```java
 public String convertMountIdHash(
@@ -369,15 +352,13 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 - `int nsHash`
 - `int tagHash`
 
-<a id="m-currentmountidcachesize-54e5c11ad163"></a>
-### currentMountIdCacheSize()
+### currentMountIdCacheSize() <a href="#m-currentMountIdCacheSize-54e5c11ad163" id="m-currentMountIdCacheSize-54e5c11ad163"></a>
 
 ```java
 public int currentMountIdCacheSize()
 ```
 
-<a id="m-findcsmnsmap-522ac9ee9034"></a>
-### findCSMNsMap(List<String>)
+### findCSMNsMap(List<String>) <a href="#m-findCSMNsMap-522ac9ee9034" id="m-findCSMNsMap-522ac9ee9034"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSMNsMap findCSMNsMap(java.util.List<String> mountId)
@@ -389,8 +370,7 @@ Types: [CSMNsMap](MaapiSchemas/CSMNsMap.md#cls-CSMNsMap)
 
 - `java.util.List<String> mountId`
 
-<a id="m-findcsmnsmap-026c4103f2ca"></a>
-### findCSMNsMap(String)
+### findCSMNsMap(String) <a href="#m-findCSMNsMap-026c4103f2ca" id="m-findCSMNsMap-026c4103f2ca"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSMNsMap findCSMNsMap(String mountId)
@@ -402,8 +382,7 @@ Types: [CSMNsMap](MaapiSchemas/CSMNsMap.md#cls-CSMNsMap)
 
 - `String mountId`
 
-<a id="m-findcsnode-31950d190712"></a>
-### findCSNode(CSNode, CSMNsMap, String)
+### findCSNode(CSNode, CSMNsMap, String) <a href="#m-findCSNode-31950d190712" id="m-findCSNode-31950d190712"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -426,8 +405,7 @@ Retrieve a specific node with a given parent node identified by xmltag
 
 **Returns:** CSNode or null if not found
 
-<a id="m-findcsnode-052de3dda313"></a>
-### findCSNode(CSNode, int, int)
+### findCSNode(CSNode, int, int) <a href="#m-findCSNode-052de3dda313" id="m-findCSNode-052de3dda313"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -453,8 +431,7 @@ Find and retrieves specific node in the schema information tree.
 
 **Returns:** CSNode or null if not found
 
-<a id="m-findcsnode-5d43b475b623"></a>
-### findCSNode(CSNode, String, String)
+### findCSNode(CSNode, String, String) <a href="#m-findCSNode-5d43b475b623" id="m-findCSNode-5d43b475b623"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -477,8 +454,7 @@ Retrieve a specific node with a given parent node identified by xmltag
 
 **Returns:** CSNode or null if not found
 
-<a id="m-findcsnode-22bcb6b48b20"></a>
-### findCSNode(MountIdInterface, String, List<PathElement>)
+### findCSNode(MountIdInterface, String, List<PathElement>) <a href="#m-findCSNode-22bcb6b48b20" id="m-findCSNode-22bcb6b48b20"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -505,8 +481,7 @@ Internally used method to find a node defined by an internal path format
 
 - `MaapiException`
 
-<a id="m-findcsnode-33ce42d47da2"></a>
-### findCSNode(MountIdInterface, String, String, Object[])
+### findCSNode(MountIdInterface, String, String, Object[]) <a href="#m-findCSNode-33ce42d47da2" id="m-findCSNode-33ce42d47da2"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -552,8 +527,7 @@ Find and retrieves specific node in the schema information tree.
 
 - `MaapiException`
 
-<a id="m-findcsnode-9fc05e189266"></a>
-### findCSNode(String, String, Object[])
+### findCSNode(String, String, Object[]) <a href="#m-findCSNode-9fc05e189266" id="m-findCSNode-9fc05e189266"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSNode(
@@ -572,8 +546,7 @@ Types: [CSNode](MaapiSchemas/CSNode.md#cls-CSNode), [MaapiException](MaapiExcept
 - `String fmt`
 - `Object[] arguments`
 
-<a id="m-findcsroot-e71c532d0a72"></a>
-### findCSRoot(int)
+### findCSRoot(int) <a href="#m-findCSRoot-e71c532d0a72" id="m-findCSRoot-e71c532d0a72"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSRoot(int nshash)
@@ -589,8 +562,7 @@ Retrieve a specific root node identified by an hash value
 
 **Returns:** CSNode root node or null if not found
 
-<a id="m-findcsroot-ed8e95df57fe"></a>
-### findCSRoot(String)
+### findCSRoot(String) <a href="#m-findCSRoot-ed8e95df57fe" id="m-findCSRoot-ed8e95df57fe"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSNode findCSRoot(String nsName)
@@ -606,8 +578,7 @@ Retrieve a specific root node identified by an namespace string
 
 **Returns:** CSNode root node or null if not found
 
-<a id="m-findcsschema-880b1533ffd2"></a>
-### findCSSchema(int)
+### findCSSchema(int) <a href="#m-findCSSchema-880b1533ffd2" id="m-findCSSchema-880b1533ffd2"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema findCSSchema(int nsHash)
@@ -623,8 +594,7 @@ Retrieve a specified schema identified by an hash value
 
 **Returns:** CSSchemaobject for the identified Namespace of null if not found
 
-<a id="m-findcsschema-6023156b0628"></a>
-### findCSSchema(String)
+### findCSSchema(String) <a href="#m-findCSSchema-6023156b0628" id="m-findCSSchema-6023156b0628"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema findCSSchema(String nsName)
@@ -641,8 +611,7 @@ Retrieve a specific schema identified by an namespace string
 **Returns:** CSSchema object for the identified namespace or null if not
          found.
 
-<a id="m-findcsschemabyprefix-d5a2976f05ae"></a>
-### findCSSchemaByPrefix(String)
+### findCSSchemaByPrefix(String) <a href="#m-findCSSchemaByPrefix-d5a2976f05ae" id="m-findCSSchemaByPrefix-d5a2976f05ae"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema findCSSchemaByPrefix(String prefix)
@@ -654,8 +623,7 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 - `String prefix`
 
-<a id="m-findcsschemafromuniqueroot-655331fd3352"></a>
-### findCSSchemaFromUniqueRoot(int)
+### findCSSchemaFromUniqueRoot(int) <a href="#m-findCSSchemaFromUniqueRoot-655331fd3352" id="m-findCSSchemaFromUniqueRoot-655331fd3352"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema findCSSchemaFromUniqueRoot(int rootHash)
@@ -672,8 +640,7 @@ Returns schema for root node. This requires the root node to be
 
 **Returns:** CSSchema the schema having the tag as root
 
-<a id="m-findcsschemafromuniqueroot-6a2bcf9dd24b"></a>
-### findCSSchemaFromUniqueRoot(String)
+### findCSSchemaFromUniqueRoot(String) <a href="#m-findCSSchemaFromUniqueRoot-6a2bcf9dd24b" id="m-findCSSchemaFromUniqueRoot-6a2bcf9dd24b"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSSchema findCSSchemaFromUniqueRoot(String rootTagName)
@@ -690,8 +657,7 @@ Returns schema for root node. This requires the root node to be
 
 **Returns:** CSSchema the schema having the tag as root
 
-<a id="m-findmountid-2786e1d58129"></a>
-### findMountId(Map<Integer,CSSchema>, ConfEObject)
+### findMountId(Map<Integer,CSSchema>, ConfEObject) <a href="#m-findMountId-2786e1d58129" id="m-findMountId-2786e1d58129"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.MountId findMountId(
@@ -707,8 +673,7 @@ Types: [MountId](MaapiSchemas/MountId.md#cls-MountId), [CSSchema](MaapiSchemas/C
 - `java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemastable`
 - `com.tailf.proto.ConfEObject obj`
 
-<a id="m-findmountid-9807a9bfdddb"></a>
-### findMountId(Map<Integer,CSSchema>, int, int)
+### findMountId(Map<Integer,CSSchema>, int, int) <a href="#m-findMountId-9807a9bfdddb" id="m-findMountId-9807a9bfdddb"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.MountId findMountId(
@@ -726,8 +691,7 @@ Types: [MountId](MaapiSchemas/MountId.md#cls-MountId), [CSSchema](MaapiSchemas/C
 - `int nsHash`
 - `int tagHash`
 
-<a id="m-findschema-b4d435858143"></a>
-### findSchema(Map<Integer,CSSchema>, int)
+### findSchema(Map<Integer,CSSchema>, int) <a href="#m-findSchema-b4d435858143" id="m-findSchema-b4d435858143"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSSchema findSchema(
@@ -743,8 +707,7 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 - `java.util.Map<Integer,com.tailf.maapi.MaapiSchemas.CSSchema> schemas`
 - `int nsHash`
 
-<a id="m-findschema-51a71cd5c850"></a>
-### findSchema(Map<Integer,CSSchema>, int, String, String, String, String)
+### findSchema(Map<Integer,CSSchema>, int, String, String, String, String) <a href="#m-findSchema-51a71cd5c850" id="m-findSchema-51a71cd5c850"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSSchema findSchema(
@@ -768,8 +731,7 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 - `String revision`
 - `String module`
 
-<a id="m-getconfdtype-0b0b4b688106"></a>
-### getConfdType(String)
+### getConfdType(String) <a href="#m-getConfdType-0b0b4b688106" id="m-getConfdType-0b0b4b688106"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSType getConfdType(String name)
@@ -783,8 +745,7 @@ Types: [CSType](MaapiSchemas/CSType.md#cls-CSType)
 
 **Returns:** CSType
 
-<a id="m-getloadedmnsmaps-9eef39dd2fe7"></a>
-### getLoadedMNsMaps()
+### getLoadedMNsMaps() <a href="#m-getLoadedMNsMaps-9eef39dd2fe7" id="m-getLoadedMNsMaps-9eef39dd2fe7"></a>
 
 ```java
 public java.util.Collection<com.tailf.maapi.MaapiSchemas.CSMNsMap> getLoadedMNsMaps()
@@ -792,8 +753,7 @@ public java.util.Collection<com.tailf.maapi.MaapiSchemas.CSMNsMap> getLoadedMNsM
 
 Types: [CSMNsMap](MaapiSchemas/CSMNsMap.md#cls-CSMNsMap)
 
-<a id="m-getloadedschemas-fe2966b5baf6"></a>
-### getLoadedSchemas()
+### getLoadedSchemas() <a href="#m-getLoadedSchemas-fe2966b5baf6" id="m-getLoadedSchemas-fe2966b5baf6"></a>
 
 ```java
 public java.util.Collection<com.tailf.maapi.MaapiSchemas.CSSchema> getLoadedSchemas()
@@ -805,8 +765,7 @@ get all loaded schemas as a Collection of CSSchema objects
 
 **Returns:** Collection of CSSchema objects
 
-<a id="m-getmountid-a4d23d966af3"></a>
-### getMountId(MountIdInterface, ConfPath)
+### getMountId(MountIdInterface, ConfPath) <a href="#m-getMountId-a4d23d966af3" id="m-getMountId-a4d23d966af3"></a>
 
 ```java
 public java.util.List<String> getMountId(
@@ -823,22 +782,19 @@ Types: [MountIdInterface](../conf/MountIdInterface.md#cls-MountIdInterface), [Co
 - `com.tailf.conf.MountIdInterface midif`
 - `com.tailf.conf.ConfPath path`
 
-<a id="m-getrootmountid-542ecf8e1ac1"></a>
-### getRootMountId()
+### getRootMountId() <a href="#m-getRootMountId-542ecf8e1ac1" id="m-getRootMountId-542ecf8e1ac1"></a>
 
 ```java
 public static java.util.List<String> getRootMountId()
 ```
 
-<a id="m-getthreaddefaultmountid-c72bbe29ad4d"></a>
-### getThreadDefaultMountId()
+### getThreadDefaultMountId() <a href="#m-getThreadDefaultMountId-c72bbe29ad4d" id="m-getThreadDefaultMountId-c72bbe29ad4d"></a>
 
 ```java
 public static java.util.List<String> getThreadDefaultMountId()
 ```
 
-<a id="m-hashtostring-54eaaef71976"></a>
-### hashToString(int)
+### hashToString(int) <a href="#m-hashToString-54eaaef71976" id="m-hashToString-54eaaef71976"></a>
 
 ```java
 public String hashToString(int tagHash)
@@ -852,8 +808,7 @@ Convert from hash value to String value for a specified tag.
 
 **Returns:** String value or null if not found
 
-<a id="m-init-1f83ed7f5091"></a>
-### init(Socket)
+### init(Socket) <a href="#m-init-1f83ed7f5091" id="m-init-1f83ed7f5091"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas init(
@@ -878,8 +833,7 @@ Initialization method for a new MaapiSchemas instance.
 
 - `MaapiException` - if an error occurs during loading of schemas.
 
-<a id="m-mkinitializedmaapischemas-22e4830ffd3c"></a>
-### mkInitializedMaapiSchemas(String[], Socket)
+### mkInitializedMaapiSchemas(String[], Socket) <a href="#m-mkInitializedMaapiSchemas-22e4830ffd3c" id="m-mkInitializedMaapiSchemas-22e4830ffd3c"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas mkInitializedMaapiSchemas(
@@ -896,8 +850,7 @@ Types: [MaapiSchemas](MaapiSchemas.md#cls-MaapiSchemas), [MaapiException](MaapiE
 - `String[] namespaceURIs`
 - `java.net.Socket socket`
 
-<a id="m-registerschemaroot-0a458f575f6a"></a>
-### registerSchemaRoot(CSSchema)
+### registerSchemaRoot(CSSchema) <a href="#m-registerSchemaRoot-0a458f575f6a" id="m-registerSchemaRoot-0a458f575f6a"></a>
 
 ```java
 protected void registerSchemaRoot(com.tailf.maapi.MaapiSchemas.CSSchema csschema)
@@ -909,8 +862,7 @@ Types: [CSSchema](MaapiSchemas/CSSchema.md#cls-CSSchema)
 
 - `com.tailf.maapi.MaapiSchemas.CSSchema csschema`
 
-<a id="m-removemountidcachepath-e2f9028697a6"></a>
-### removeMountIdCachePath(ConfPath)
+### removeMountIdCachePath(ConfPath) <a href="#m-removeMountIdCachePath-e2f9028697a6" id="m-removeMountIdCachePath-e2f9028697a6"></a>
 
 ```java
 public void removeMountIdCachePath(com.tailf.conf.ConfPath path)
@@ -922,8 +874,7 @@ Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath)
 
 - `com.tailf.conf.ConfPath path`
 
-<a id="m-setthreaddefaultmountid-9a20aed46fad"></a>
-### setThreadDefaultMountId(List<String>)
+### setThreadDefaultMountId(List<String>) <a href="#m-setThreadDefaultMountId-9a20aed46fad" id="m-setThreadDefaultMountId-9a20aed46fad"></a>
 
 ```java
 public static void setThreadDefaultMountId(java.util.List<String> mountId)
@@ -933,8 +884,7 @@ public static void setThreadDefaultMountId(java.util.List<String> mountId)
 
 - `java.util.List<String> mountId`
 
-<a id="m-stringtohash-7c2af24796ac"></a>
-### stringToHash(String)
+### stringToHash(String) <a href="#m-stringToHash-7c2af24796ac" id="m-stringToHash-7c2af24796ac"></a>
 
 ```java
 public int stringToHash(String tagString)
@@ -948,8 +898,7 @@ Convert from String value to hash value for a specified tag.
 
 **Returns:** integer hash value or zero if not found.
 
-<a id="m-stringtovalue-9fef98be9bb2"></a>
-### stringToValue(CSType, String)
+### stringToValue(CSType, String) <a href="#m-stringToValue-9fef98be9bb2" id="m-stringToValue-9fef98be9bb2"></a>
 
 ```java
 public com.tailf.conf.ConfValue stringToValue(
@@ -975,15 +924,13 @@ parse value located in str and convert to ConfValue, the value is
 
 - `MaapiException`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-valuetostring-f281f6b6d7d7"></a>
-### valueToString(CSType, ConfValue)
+### valueToString(CSType, ConfValue) <a href="#m-valueToString-f281f6b6d7d7" id="m-valueToString-f281f6b6d7d7"></a>
 
 ```java
 public String valueToString(com.tailf.maapi.MaapiSchemas.CSType type, com.tailf.conf.ConfValue val)

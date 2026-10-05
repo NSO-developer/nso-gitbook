@@ -1,5 +1,4 @@
-<a id="cls-MyCompiler"></a>
-# MyCompiler
+# MyCompiler <a href="#cls-MyCompiler" id="cls-MyCompiler"></a>
 
 ```java
 public static class com.tailf.conf.dbg.XPathAbrevGrammar.MyCompiler
@@ -12,7 +11,7 @@ Types: [Compiler](../../Compiler.md#cls-Compiler)
 
 **Constructors**:
 
-- [MyCompiler()](#m-mycompiler-f3bd14588ccc)
+- [MyCompiler()](#m-MyCompiler-f3bd14588ccc)
 
 **Fields**:
 
@@ -38,22 +37,21 @@ Types: [Compiler](../../Compiler.md#cls-Compiler)
 **Methods**:
 
 - [equal(Object, Object)](#m-equal-799a2136c547)
-- [expressionPath(Object, Object[], Object[])](#m-expressionpath-5bf270c9d4c4)
+- [expressionPath(Object, Object[], Object[])](#m-expressionPath-5bf270c9d4c4)
 - [function(int, Object[])](#m-function-2c16049fa829)
 - [function(Object, Object[])](#m-function-1cc89eb447db)
-- [getKP()](#m-getkp-45b2f95adae4)
+- [getKP()](#m-getKP-45b2f95adae4)
 - [literal(String)](#m-literal-ad0286a2ebc5)
-- [locationPath(boolean, Object[])](#m-locationpath-62efb77d2c40)
-- [nodeNameTest(Object)](#m-nodenametest-d6890d3b8e88)
-- [nodeTypeTest(int)](#m-nodetypetest-6d6b838bb52c)
+- [locationPath(boolean, Object[])](#m-locationPath-62efb77d2c40)
+- [nodeNameTest(Object)](#m-nodeNameTest-d6890d3b8e88)
+- [nodeTypeTest(int)](#m-nodeTypeTest-6d6b838bb52c)
 - [number(String)](#m-number-249f888e69f1)
 - [qname(String, String)](#m-qname-1189e6474a0b)
 - [step(int, Object, Object[])](#m-step-476841714396)
 
 ## Constructors
 
-<a id="m-mycompiler-f3bd14588ccc"></a>
-### MyCompiler()
+### MyCompiler() <a href="#m-MyCompiler-f3bd14588ccc" id="m-MyCompiler-f3bd14588ccc"></a>
 
 ```java
 public MyCompiler()
@@ -62,8 +60,7 @@ public MyCompiler()
 
 ## Methods
 
-<a id="m-equal-799a2136c547"></a>
-### equal(Object, Object)
+### equal(Object, Object) <a href="#m-equal-799a2136c547" id="m-equal-799a2136c547"></a>
 
 ```java
 public Object equal(Object left, Object right)
@@ -74,8 +71,7 @@ public Object equal(Object left, Object right)
 - `Object left`
 - `Object right`
 
-<a id="m-expressionpath-5bf270c9d4c4"></a>
-### expressionPath(Object, Object[], Object[])
+### expressionPath(Object, Object[], Object[]) <a href="#m-expressionPath-5bf270c9d4c4" id="m-expressionPath-5bf270c9d4c4"></a>
 
 ```java
 public Object expressionPath(Object expression, Object[] predicates, Object[] steps)
@@ -87,8 +83,7 @@ public Object expressionPath(Object expression, Object[] predicates, Object[] st
 - `Object[] predicates`
 - `Object[] steps`
 
-<a id="m-function-2c16049fa829"></a>
-### function(int, Object[])
+### function(int, Object[]) <a href="#m-function-2c16049fa829" id="m-function-2c16049fa829"></a>
 
 ```java
 public Object function(int code, Object[] args)
@@ -99,8 +94,7 @@ public Object function(int code, Object[] args)
 - `int code`
 - `Object[] args`
 
-<a id="m-function-1cc89eb447db"></a>
-### function(Object, Object[])
+### function(Object, Object[]) <a href="#m-function-1cc89eb447db" id="m-function-1cc89eb447db"></a>
 
 ```java
 public Object function(Object name, Object[] args)
@@ -111,8 +105,7 @@ public Object function(Object name, Object[] args)
 - `Object name`
 - `Object[] args`
 
-<a id="m-getkp-45b2f95adae4"></a>
-### getKP()
+### getKP() <a href="#m-getKP-45b2f95adae4" id="m-getKP-45b2f95adae4"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getKP()
@@ -120,8 +113,7 @@ public com.tailf.conf.ConfObject[] getKP()
 
 Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
 
-<a id="m-literal-ad0286a2ebc5"></a>
-### literal(String)
+### literal(String) <a href="#m-literal-ad0286a2ebc5" id="m-literal-ad0286a2ebc5"></a>
 
 ```java
 public Object literal(String value)
@@ -131,8 +123,7 @@ public Object literal(String value)
 
 - `String value`
 
-<a id="m-locationpath-62efb77d2c40"></a>
-### locationPath(boolean, Object[])
+### locationPath(boolean, Object[]) <a href="#m-locationPath-62efb77d2c40" id="m-locationPath-62efb77d2c40"></a>
 
 ```java
 public Object locationPath(boolean absolute, Object[] steps)
@@ -143,8 +134,7 @@ public Object locationPath(boolean absolute, Object[] steps)
 - `boolean absolute`
 - `Object[] steps`
 
-<a id="m-nodenametest-d6890d3b8e88"></a>
-### nodeNameTest(Object)
+### nodeNameTest(Object) <a href="#m-nodeNameTest-d6890d3b8e88" id="m-nodeNameTest-d6890d3b8e88"></a>
 
 ```java
 public Object nodeNameTest(Object qname)
@@ -154,8 +144,7 @@ public Object nodeNameTest(Object qname)
 
 - `Object qname`
 
-<a id="m-nodetypetest-6d6b838bb52c"></a>
-### nodeTypeTest(int)
+### nodeTypeTest(int) <a href="#m-nodeTypeTest-6d6b838bb52c" id="m-nodeTypeTest-6d6b838bb52c"></a>
 
 ```java
 public Object nodeTypeTest(int nodeType)
@@ -165,8 +154,7 @@ public Object nodeTypeTest(int nodeType)
 
 - `int nodeType`
 
-<a id="m-number-249f888e69f1"></a>
-### number(String)
+### number(String) <a href="#m-number-249f888e69f1" id="m-number-249f888e69f1"></a>
 
 ```java
 public Object number(String value)
@@ -176,8 +164,7 @@ public Object number(String value)
 
 - `String value`
 
-<a id="m-qname-1189e6474a0b"></a>
-### qname(String, String)
+### qname(String, String) <a href="#m-qname-1189e6474a0b" id="m-qname-1189e6474a0b"></a>
 
 ```java
 public Object qname(String prefix, String name)
@@ -188,8 +175,7 @@ public Object qname(String prefix, String name)
 - `String prefix`
 - `String name`
 
-<a id="m-step-476841714396"></a>
-### step(int, Object, Object[])
+### step(int, Object, Object[]) <a href="#m-step-476841714396" id="m-step-476841714396"></a>
 
 ```java
 public Object step(int axis, Object nodeTest, Object[] predicates)

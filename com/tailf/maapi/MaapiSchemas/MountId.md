@@ -1,5 +1,4 @@
-<a id="cls-MountId"></a>
-# MountId
+# MountId <a href="#cls-MountId" id="cls-MountId"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.MountId
@@ -15,13 +14,12 @@ public static class com.tailf.maapi.MaapiSchemas.MountId
 
 - [create(CSSchema, String)](#m-create-0ca8d54a2ca2)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Fields
 
-<a id="m-ROOT_MOUNT_ID"></a>
-### ROOT_MOUNT_ID
+### ROOT_MOUNT_ID <a href="#m-ROOT_MOUNT_ID" id="m-ROOT_MOUNT_ID"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.MountId ROOT_MOUNT_ID = null;
@@ -32,8 +30,7 @@ Types: [MountId](MountId.md#cls-MountId)
 
 ## Methods
 
-<a id="m-create-0ca8d54a2ca2"></a>
-### create(CSSchema, String)
+### create(CSSchema, String) <a href="#m-create-0ca8d54a2ca2" id="m-create-0ca8d54a2ca2"></a>
 
 ```java
 public static com.tailf.maapi.MaapiSchemas.MountId create(
@@ -49,8 +46,7 @@ Types: [MountId](MountId.md#cls-MountId), [CSSchema](CSSchema.md#cls-CSSchema)
 - `com.tailf.maapi.MaapiSchemas.CSSchema schema`
 - `String tag`
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -60,15 +56,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

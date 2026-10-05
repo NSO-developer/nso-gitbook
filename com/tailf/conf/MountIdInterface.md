@@ -1,5 +1,4 @@
-<a id="cls-MountIdInterface"></a>
-# MountIdInterface
+# MountIdInterface <a href="#cls-MountIdInterface" id="cls-MountIdInterface"></a>
 
 ```java
 public interface com.tailf.conf.MountIdInterface
@@ -9,20 +8,18 @@ public interface com.tailf.conf.MountIdInterface
 
 **Methods**:
 
-- [acceptTagPath()](#m-accepttagpath-3efa26ad697b)
-- [getMountId(ConfPath)](#m-getmountid-83243c09b7c3)
+- [acceptTagPath()](#m-acceptTagPath-3efa26ad697b)
+- [getMountId(ConfPath)](#m-getMountId-83243c09b7c3)
 
 ## Methods
 
-<a id="m-accepttagpath-3efa26ad697b"></a>
-### acceptTagPath()
+### acceptTagPath() <a href="#m-acceptTagPath-3efa26ad697b" id="m-acceptTagPath-3efa26ad697b"></a>
 
 ```java
 public abstract boolean acceptTagPath()
 ```
 
-<a id="m-getmountid-83243c09b7c3"></a>
-### getMountId(ConfPath)
+### getMountId(ConfPath) <a href="#m-getMountId-83243c09b7c3" id="m-getMountId-83243c09b7c3"></a>
 
 ```java
 public abstract java.util.List<String> getMountId(

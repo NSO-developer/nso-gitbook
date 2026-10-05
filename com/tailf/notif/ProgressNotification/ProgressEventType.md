@@ -1,5 +1,4 @@
-<a id="cls-ProgressEventType"></a>
-# ProgressEventType
+# ProgressEventType <a href="#cls-ProgressEventType" id="cls-ProgressEventType"></a>
 
 ```java
 public static enum com.tailf.notif.ProgressNotification.ProgressEventType
@@ -19,28 +18,25 @@ Progress event type.
 
 **Methods**:
 
-- [fromInt(int)](#m-fromint-df0c5649c91b)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [fromInt(int)](#m-fromInt-df0c5649c91b)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-INFO"></a>
-### INFO
+### INFO <a href="#m-INFO" id="m-INFO"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType INFO;
 ```
 
-<a id="m-START"></a>
-### START
+### START <a href="#m-START" id="m-START"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType START;
 ```
 
-<a id="m-STOP"></a>
-### STOP
+### STOP <a href="#m-STOP" id="m-STOP"></a>
 
 ```java
 public static final com.tailf.notif.ProgressNotification.ProgressEventType STOP;
@@ -49,8 +45,7 @@ public static final com.tailf.notif.ProgressNotification.ProgressEventType STOP;
 
 ## Methods
 
-<a id="m-fromint-df0c5649c91b"></a>
-### fromInt(int)
+### fromInt(int) <a href="#m-fromInt-df0c5649c91b" id="m-fromInt-df0c5649c91b"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType fromInt(int x)
@@ -62,8 +57,7 @@ Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
 
 - `int x`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType valueOf(String name)
@@ -75,8 +69,7 @@ Types: [ProgressEventType](ProgressEventType.md#cls-ProgressEventType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.notif.ProgressNotification.ProgressEventType[] values()

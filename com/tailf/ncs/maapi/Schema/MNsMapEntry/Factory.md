@@ -1,5 +1,4 @@
-<a id="cls-Factory"></a>
-# Factory
+# Factory <a href="#cls-Factory" id="cls-Factory"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MNsMapEntry.Factory
@@ -12,42 +11,41 @@ Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 **Constructors**:
 
-- [Factory()](#m-factory-0e9f9d7f4e84)
+- [Factory()](#m-Factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asreader-4e0a650997b2)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
-- [getModname()](Builder.md#m-getmodname-40cd7f77aac9) from Builder
-- [getNs()](Builder.md#m-getns-59b97eae2a4a) from Builder
-- [getNsHash()](Builder.md#m-getnshash-f6f3e3ae1e6b) from Builder
-- [getPrefix()](Builder.md#m-getprefix-9268091e0223) from Builder
-- [getXmlns()](Builder.md#m-getxmlns-e2c0fd08466b) from Builder
-- [hasModname()](Builder.md#m-hasmodname-fdd47b76b94a) from Builder
-- [hasNs()](Builder.md#m-hasns-9cd343037be1) from Builder
-- [hasPrefix()](Builder.md#m-hasprefix-ddbc3bbca9c3) from Builder
-- [hasXmlns()](Builder.md#m-hasxmlns-3eb601ca5705) from Builder
-- [initModname(int)](Builder.md#m-initmodname-adbe25a612a2) from Builder
-- [initNs(int)](Builder.md#m-initns-594e96675702) from Builder
-- [initPrefix(int)](Builder.md#m-initprefix-e25b609de101) from Builder
-- [initXmlns(int)](Builder.md#m-initxmlns-17805c1c0d5c) from Builder
-- [setModname(Reader)](Builder.md#m-setmodname-fe28ed5ab65b) from Builder
-- [setModname(String)](Builder.md#m-setmodname-885ff7e8e342) from Builder
-- [setNs(Reader)](Builder.md#m-setns-dcd01c91436e) from Builder
-- [setNs(String)](Builder.md#m-setns-510adfcd3e70) from Builder
-- [setNsHash(int)](Builder.md#m-setnshash-856e3c88b24a) from Builder
-- [setPrefix(Reader)](Builder.md#m-setprefix-5c58f0bf0784) from Builder
-- [setPrefix(String)](Builder.md#m-setprefix-63fe622cb50c) from Builder
-- [setXmlns(Reader)](Builder.md#m-setxmlns-333e49621e27) from Builder
-- [setXmlns(String)](Builder.md#m-setxmlns-8666c0c76ee9) from Builder
-- [structSize()](#m-structsize-1fa68dcadd21)
+- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asReader-4e0a650997b2)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
+- [getModname()](Builder.md#m-getModname-40cd7f77aac9) from Builder
+- [getNs()](Builder.md#m-getNs-59b97eae2a4a) from Builder
+- [getNsHash()](Builder.md#m-getNsHash-f6f3e3ae1e6b) from Builder
+- [getPrefix()](Builder.md#m-getPrefix-9268091e0223) from Builder
+- [getXmlns()](Builder.md#m-getXmlns-e2c0fd08466b) from Builder
+- [hasModname()](Builder.md#m-hasModname-fdd47b76b94a) from Builder
+- [hasNs()](Builder.md#m-hasNs-9cd343037be1) from Builder
+- [hasPrefix()](Builder.md#m-hasPrefix-ddbc3bbca9c3) from Builder
+- [hasXmlns()](Builder.md#m-hasXmlns-3eb601ca5705) from Builder
+- [initModname(int)](Builder.md#m-initModname-adbe25a612a2) from Builder
+- [initNs(int)](Builder.md#m-initNs-594e96675702) from Builder
+- [initPrefix(int)](Builder.md#m-initPrefix-e25b609de101) from Builder
+- [initXmlns(int)](Builder.md#m-initXmlns-17805c1c0d5c) from Builder
+- [setModname(Reader)](Builder.md#m-setModname-fe28ed5ab65b) from Builder
+- [setModname(String)](Builder.md#m-setModname-885ff7e8e342) from Builder
+- [setNs(Reader)](Builder.md#m-setNs-dcd01c91436e) from Builder
+- [setNs(String)](Builder.md#m-setNs-510adfcd3e70) from Builder
+- [setNsHash(int)](Builder.md#m-setNsHash-856e3c88b24a) from Builder
+- [setPrefix(Reader)](Builder.md#m-setPrefix-5c58f0bf0784) from Builder
+- [setPrefix(String)](Builder.md#m-setPrefix-63fe622cb50c) from Builder
+- [setXmlns(Reader)](Builder.md#m-setXmlns-333e49621e27) from Builder
+- [setXmlns(String)](Builder.md#m-setXmlns-8666c0c76ee9) from Builder
+- [structSize()](#m-structSize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="m-factory-0e9f9d7f4e84"></a>
-### Factory()
+### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -56,8 +54,7 @@ public Factory()
 
 ## Methods
 
-<a id="m-asreader-4e0a650997b2"></a>
-### asReader(Builder)
+### asReader(Builder) <a href="#m-asReader-4e0a650997b2" id="m-asReader-4e0a650997b2"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader asReader(
@@ -71,8 +68,7 @@ Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 - `com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder builder`
 
-<a id="m-constructbuilder-5a2abf3209f9"></a>
-### constructBuilder(SegmentBuilder, int, int, int, short)
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder constructBuilder(
@@ -94,8 +90,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="m-constructreader-fbce6f4f912a"></a>
-### constructReader(SegmentReader, int, int, int, short, int)
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader constructReader(
@@ -119,8 +114,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="m-structsize-1fa68dcadd21"></a>
-### structSize()
+### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

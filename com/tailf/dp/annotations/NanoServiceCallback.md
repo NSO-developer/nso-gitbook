@@ -1,5 +1,4 @@
-<a id="cls-NanoServiceCallback"></a>
-# NanoServiceCallback
+# NanoServiceCallback <a href="#cls-NanoServiceCallback" id="cls-NanoServiceCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -31,15 +30,14 @@ Annotation class for Nano Service Callbacks.
 
 **Methods**:
 
-- [callType()](#m-calltype-0d0f9b61a036)
-- [componentType()](#m-componenttype-59add484020d)
-- [servicePoint()](#m-servicepoint-b277aa382c7d)
+- [callType()](#m-callType-0d0f9b61a036)
+- [componentType()](#m-componentType-59add484020d)
+- [servicePoint()](#m-servicePoint-b277aa382c7d)
 - [state()](#m-state-54117dea2388)
 
 ## Methods
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.NanoServiceCBType[] callType()
@@ -47,22 +45,19 @@ public abstract com.tailf.dp.proto.NanoServiceCBType[] callType()
 
 Types: [NanoServiceCBType](../proto/NanoServiceCBType.md#cls-NanoServiceCBType)
 
-<a id="m-componenttype-59add484020d"></a>
-### componentType()
+### componentType() <a href="#m-componentType-59add484020d" id="m-componentType-59add484020d"></a>
 
 ```java
 public abstract String componentType()
 ```
 
-<a id="m-servicepoint-b277aa382c7d"></a>
-### servicePoint()
+### servicePoint() <a href="#m-servicePoint-b277aa382c7d" id="m-servicePoint-b277aa382c7d"></a>
 
 ```java
 public abstract String servicePoint()
 ```
 
-<a id="m-state-54117dea2388"></a>
-### state()
+### state() <a href="#m-state-54117dea2388" id="m-state-54117dea2388"></a>
 
 ```java
 public abstract String state()

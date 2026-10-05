@@ -1,5 +1,4 @@
-<a id="cls-Type"></a>
-# Type
+# Type <a href="#cls-Type" id="cls-Type"></a>
 
 ```java
 public static enum com.tailf.maapi.DryRunResult.DryRunEntry.Type
@@ -17,27 +16,24 @@ Types: [Type](Type.md#cls-Type)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-DEVICE"></a>
-### DEVICE
+### DEVICE <a href="#m-DEVICE" id="m-DEVICE"></a>
 
 ```java
 public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type DEVICE;
 ```
 
-<a id="m-LOCAL_NODE"></a>
-### LOCAL_NODE
+### LOCAL_NODE <a href="#m-LOCAL_NODE" id="m-LOCAL_NODE"></a>
 
 ```java
 public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LOCAL_NODE;
 ```
 
-<a id="m-LSA_NODE"></a>
-### LSA_NODE
+### LSA_NODE <a href="#m-LSA_NODE" id="m-LSA_NODE"></a>
 
 ```java
 public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LSA_NODE;
@@ -46,8 +42,7 @@ public static final com.tailf.maapi.DryRunResult.DryRunEntry.Type LSA_NODE;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.DryRunResult.DryRunEntry.Type valueOf(String name)
@@ -59,8 +54,7 @@ Types: [Type](Type.md#cls-Type)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.DryRunResult.DryRunEntry.Type[] values()

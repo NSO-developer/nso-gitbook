@@ -1,5 +1,4 @@
-<a id="cls-StreamNotification"></a>
-# StreamNotification
+# StreamNotification <a href="#cls-StreamNotification" id="cls-StreamNotification"></a>
 
 ```java
 public class com.tailf.notif.StreamNotification
@@ -14,7 +13,7 @@ Data structure for Stream notifications.
 
 **Constructors**:
 
-- [StreamNotification(int, ConfDatetime, ConfXMLParam[], String)](#m-streamnotification-bd5e6ecc4276)
+- [StreamNotification(int, ConfDatetime, ConfXMLParam[], String)](#m-StreamNotification-bd5e6ecc4276)
 
 **Fields**:
 
@@ -26,17 +25,16 @@ Data structure for Stream notifications.
 
 **Methods**:
 
-- [eventTime()](#m-eventtime-52f779266f34)
-- [getErrorString()](#m-geterrorstring-3b4eba00496b)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getStreamEventType()](#m-getstreameventtype-396b63149e8b)
-- [getValues()](#m-getvalues-06542a92d7fa)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [eventTime()](#m-eventTime-52f779266f34)
+- [getErrorString()](#m-getErrorString-3b4eba00496b)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getStreamEventType()](#m-getStreamEventType-396b63149e8b)
+- [getValues()](#m-getValues-06542a92d7fa)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-streamnotification-bd5e6ecc4276"></a>
-### StreamNotification(int, ConfDatetime, ConfXMLParam[], String)
+### StreamNotification(int, ConfDatetime, ConfXMLParam[], String) <a href="#m-StreamNotification-bd5e6ecc4276" id="m-StreamNotification-bd5e6ecc4276"></a>
 
 ```java
 public StreamNotification(
@@ -59,29 +57,25 @@ Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime), [ConfXMLParam](
 
 ## Fields
 
-<a id="m-STREAM_NOTIFICATION_COMPLETE"></a>
-### STREAM_NOTIFICATION_COMPLETE
+### STREAM_NOTIFICATION_COMPLETE <a href="#m-STREAM_NOTIFICATION_COMPLETE" id="m-STREAM_NOTIFICATION_COMPLETE"></a>
 
 ```java
 public static final int STREAM_NOTIFICATION_COMPLETE = 2;
 ```
 
-<a id="m-STREAM_NOTIFICATION_EVENT"></a>
-### STREAM_NOTIFICATION_EVENT
+### STREAM_NOTIFICATION_EVENT <a href="#m-STREAM_NOTIFICATION_EVENT" id="m-STREAM_NOTIFICATION_EVENT"></a>
 
 ```java
 public static final int STREAM_NOTIFICATION_EVENT = 1;
 ```
 
-<a id="m-STREAM_REPLAY_COMPLETE"></a>
-### STREAM_REPLAY_COMPLETE
+### STREAM_REPLAY_COMPLETE <a href="#m-STREAM_REPLAY_COMPLETE" id="m-STREAM_REPLAY_COMPLETE"></a>
 
 ```java
 public static final int STREAM_REPLAY_COMPLETE = 3;
 ```
 
-<a id="m-STREAM_REPLAY_FAILED"></a>
-### STREAM_REPLAY_FAILED
+### STREAM_REPLAY_FAILED <a href="#m-STREAM_REPLAY_FAILED" id="m-STREAM_REPLAY_FAILED"></a>
 
 ```java
 public static final int STREAM_REPLAY_FAILED = 4;
@@ -90,8 +84,7 @@ public static final int STREAM_REPLAY_FAILED = 4;
 
 ## Methods
 
-<a id="m-eventtime-52f779266f34"></a>
-### eventTime()
+### eventTime() <a href="#m-eventTime-52f779266f34" id="m-eventTime-52f779266f34"></a>
 
 ```java
 public com.tailf.conf.ConfDatetime eventTime()
@@ -99,15 +92,13 @@ public com.tailf.conf.ConfDatetime eventTime()
 
 Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="m-geterrorstring-3b4eba00496b"></a>
-### getErrorString()
+### getErrorString() <a href="#m-getErrorString-3b4eba00496b" id="m-getErrorString-3b4eba00496b"></a>
 
 ```java
 public String getErrorString()
 ```
 
-<a id="m-getstreameventtype-396b63149e8b"></a>
-### getStreamEventType()
+### getStreamEventType() <a href="#m-getStreamEventType-396b63149e8b" id="m-getStreamEventType-396b63149e8b"></a>
 
 ```java
 public int getStreamEventType()
@@ -116,13 +107,12 @@ public int getStreamEventType()
 Stream event type.
 
 
-- `#STREAM_NOTIFICATION_EVENT`
-   - `#STREAM_NOTIFICATION_COMPLETE`
-     - `#STREAM_REPLAY_COMPLETE`
-       - `#STREAM_REPLAY_FAILED`
+- [`STREAM_NOTIFICATION_EVENT`](StreamNotification.md#m-STREAM_NOTIFICATION_EVENT)
+   - [`STREAM_NOTIFICATION_COMPLETE`](StreamNotification.md#m-STREAM_NOTIFICATION_COMPLETE)
+     - [`STREAM_REPLAY_COMPLETE`](StreamNotification.md#m-STREAM_REPLAY_COMPLETE)
+       - [`STREAM_REPLAY_FAILED`](StreamNotification.md#m-STREAM_REPLAY_FAILED)
 
-<a id="m-getvalues-06542a92d7fa"></a>
-### getValues()
+### getValues() <a href="#m-getValues-06542a92d7fa" id="m-getValues-06542a92d7fa"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getValues()
@@ -130,8 +120,7 @@ public com.tailf.conf.ConfXMLParam[] getValues()
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

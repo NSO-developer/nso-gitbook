@@ -1,5 +1,4 @@
-<a id="cls-EmptySpan"></a>
-# EmptySpan
+# EmptySpan <a href="#cls-EmptySpan" id="cls-EmptySpan"></a>
 
 ```java
 public class com.tailf.progress.EmptySpan
@@ -16,25 +15,23 @@ This `EmptySpan`
 
 **Constructors**:
 
-- [EmptySpan()](#m-emptyspan-be196e0d11a0)
-- [EmptySpan(String)](#m-emptyspan-a6a52634dace)
+- [EmptySpan()](#m-EmptySpan-be196e0d11a0)
+- [EmptySpan(String)](#m-EmptySpan-a6a52634dace)
 
 **Methods**:
 
-- [getSpanId()](Span.md#m-getspanid-155306b8dcae) from Span
-- [getTraceId()](Span.md#m-gettraceid-c3a30b94d9ce) from Span
+- [getSpanId()](Span.md#m-getSpanId-155306b8dcae) from Span
+- [getTraceId()](Span.md#m-getTraceId-c3a30b94d9ce) from Span
 
 ## Constructors
 
-<a id="m-emptyspan-be196e0d11a0"></a>
-### EmptySpan()
+### EmptySpan() <a href="#m-EmptySpan-be196e0d11a0" id="m-EmptySpan-be196e0d11a0"></a>
 
 ```java
 public EmptySpan()
 ```
 
-<a id="m-emptyspan-a6a52634dace"></a>
-### EmptySpan(String)
+### EmptySpan(String) <a href="#m-EmptySpan-a6a52634dace" id="m-EmptySpan-a6a52634dace"></a>
 
 ```java
 public EmptySpan(String traceId)

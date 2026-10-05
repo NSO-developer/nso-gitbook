@@ -1,5 +1,4 @@
-<a id="cls-LoggConfigurator"></a>
-# LoggConfigurator
+# LoggConfigurator <a href="#cls-LoggConfigurator" id="cls-LoggConfigurator"></a>
 
 **Package-private**
 
@@ -21,18 +20,17 @@ Helper class to map the Ncs YANG enumeration type log-level- type to
 
 **Constructors**:
 
-- [LoggConfigurator(SocketAddress)](#m-loggconfigurator-6207ae38aa39)
+- [LoggConfigurator(SocketAddress)](#m-LoggConfigurator-6207ae38aa39)
 
 **Methods**:
 
-- [getLog4jLevel(ConfEnumeration)](#m-getlog4jlevel-31ba1eec0be7)
-- [loadLog4JConfig()](#m-loadlog4jconfig-bb849cf7c185)
-- [printLoggerStatus()](#m-printloggerstatus-e55794ea0a00)
+- [getLog4jLevel(ConfEnumeration)](#m-getLog4jLevel-31ba1eec0be7)
+- [loadLog4JConfig()](#m-loadLog4JConfig-bb849cf7c185)
+- [printLoggerStatus()](#m-printLoggerStatus-e55794ea0a00)
 
 ## Constructors
 
-<a id="m-loggconfigurator-6207ae38aa39"></a>
-### LoggConfigurator(SocketAddress)
+### LoggConfigurator(SocketAddress) <a href="#m-LoggConfigurator-6207ae38aa39" id="m-LoggConfigurator-6207ae38aa39"></a>
 
 **Package-private**
 
@@ -47,8 +45,7 @@ LoggConfigurator(java.net.SocketAddress address)
 
 ## Methods
 
-<a id="m-getlog4jlevel-31ba1eec0be7"></a>
-### getLog4jLevel(ConfEnumeration)
+### getLog4jLevel(ConfEnumeration) <a href="#m-getLog4jLevel-31ba1eec0be7" id="m-getLog4jLevel-31ba1eec0be7"></a>
 
 **Package-private**
 
@@ -67,8 +64,7 @@ Maps all the Ncs YANG log-level-types to a log4j corresponding
 
 **Returns:** Corresponding log4j Level
 
-<a id="m-loadlog4jconfig-bb849cf7c185"></a>
-### loadLog4JConfig()
+### loadLog4JConfig() <a href="#m-loadLog4JConfig-bb849cf7c185" id="m-loadLog4JConfig-bb849cf7c185"></a>
 
 **Package-private**
 
@@ -80,8 +76,7 @@ Uses parts of the log4j2 core API.
  When upgrading log4j2 check that LoggerContext, doesn't
  contain changes that break this method.
 
-<a id="m-printloggerstatus-e55794ea0a00"></a>
-### printLoggerStatus()
+### printLoggerStatus() <a href="#m-printLoggerStatus-e55794ea0a00" id="m-printLoggerStatus-e55794ea0a00"></a>
 
 **Package-private**
 

@@ -1,5 +1,4 @@
-<a id="cls-CsValueDQuad"></a>
-# CsValueDQuad
+# CsValueDQuad <a href="#cls-CsValueDQuad" id="cls-CsValueDQuad"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueDQuad
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDQuad
 
 **Constructors**:
 
-- [CsValueDQuad()](#m-csvaluedquad-700f0f35c5e3)
+- [CsValueDQuad()](#m-CsValueDQuad-700f0f35c5e3)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueDQuad
 
 ## Constructors
 
-<a id="m-csvaluedquad-700f0f35c5e3"></a>
-### CsValueDQuad()
+### CsValueDQuad() <a href="#m-CsValueDQuad-700f0f35c5e3" id="m-CsValueDQuad-700f0f35c5e3"></a>
 
 ```java
 public CsValueDQuad()
@@ -35,8 +33,7 @@ public CsValueDQuad()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueDQuad.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueDQuad.Factory factory = nu
 
 Types: [Factory](CsValueDQuad/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder,com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueDQuad/Builder.md#cls-Builder), [Reader](CsValueDQuad/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

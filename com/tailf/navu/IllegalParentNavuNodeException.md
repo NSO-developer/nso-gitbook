@@ -1,5 +1,4 @@
-<a id="cls-IllegalParentNavuNodeException"></a>
-# IllegalParentNavuNodeException
+# IllegalParentNavuNodeException <a href="#cls-IllegalParentNavuNodeException" id="cls-IllegalParentNavuNodeException"></a>
 
 ```java
 public class com.tailf.navu.IllegalParentNavuNodeException
@@ -12,21 +11,20 @@ Types: [NavuException](NavuException.md#cls-NavuException)
 
 **Constructors**:
 
-- [IllegalParentNavuNodeException(String, CSNode, NavuList, String)](#m-illegalparentnavunodeexception-cce18948ed49)
+- [IllegalParentNavuNodeException(String, CSNode, NavuList, String)](#m-IllegalParentNavuNodeException-cce18948ed49)
 
 **Methods**:
 
 - [children()](#m-children-7d31300d62c3)
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](NavuException.md#m-mk-de1cedfc6ea8) from NavuException
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 - [mk(String, CSNode, NavuList)](#m-mk-ec0196cd6485)
 
 ## Constructors
 
-<a id="m-illegalparentnavunodeexception-cce18948ed49"></a>
-### IllegalParentNavuNodeException(String, CSNode, NavuList, String)
+### IllegalParentNavuNodeException(String, CSNode, NavuList, String) <a href="#m-IllegalParentNavuNodeException-cce18948ed49" id="m-IllegalParentNavuNodeException-cce18948ed49"></a>
 
 ```java
 protected IllegalParentNavuNodeException(
@@ -49,8 +47,7 @@ Types: [CSNode](../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [NavuList](NavuList
 
 ## Methods
 
-<a id="m-children-7d31300d62c3"></a>
-### children()
+### children() <a href="#m-children-7d31300d62c3" id="m-children-7d31300d62c3"></a>
 
 ```java
 public java.util.Collection<com.tailf.navu.NavuNode> children() throws com.tailf.navu.NavuException
@@ -58,8 +55,7 @@ public java.util.Collection<com.tailf.navu.NavuNode> children() throws com.tailf
 
 Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-mk-ec0196cd6485"></a>
-### mk(String, CSNode, NavuList)
+### mk(String, CSNode, NavuList) <a href="#m-mk-ec0196cd6485" id="m-mk-ec0196cd6485"></a>
 
 ```java
 public static com.tailf.navu.IllegalParentNavuNodeException mk(

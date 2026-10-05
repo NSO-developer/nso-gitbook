@@ -1,5 +1,4 @@
-<a id="cls-CommitDiffNotification"></a>
-# CommitDiffNotification
+# CommitDiffNotification <a href="#cls-CommitDiffNotification" id="cls-CommitDiffNotification"></a>
 
 ```java
 public class com.tailf.notif.CommitDiffNotification
@@ -21,7 +20,7 @@ Data structure for CommitDiff notifications.
 
 **Constructors**:
 
-- [CommitDiffNotification(int, DpUserInfo, int, String, String)](#m-commitdiffnotification-b085d6f75e0f)
+- [CommitDiffNotification(int, DpUserInfo, int, String, String)](#m-CommitDiffNotification-b085d6f75e0f)
 
 **Fields**:
 
@@ -29,18 +28,17 @@ Data structure for CommitDiff notifications.
 
 **Methods**:
 
-- [getComment()](#m-getcomment-a5625f95afef)
-- [getDatabase()](#m-getdatabase-3c5eb5bcb258)
-- [getLabel()](#m-getlabel-72bf899bf6f1)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getTransaction()](#m-gettransaction-4f1c72a828a1)
-- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getComment()](#m-getComment-a5625f95afef)
+- [getDatabase()](#m-getDatabase-3c5eb5bcb258)
+- [getLabel()](#m-getLabel-72bf899bf6f1)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getTransaction()](#m-getTransaction-4f1c72a828a1)
+- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-commitdiffnotification-b085d6f75e0f"></a>
-### CommitDiffNotification(int, DpUserInfo, int, String, String)
+### CommitDiffNotification(int, DpUserInfo, int, String, String) <a href="#m-CommitDiffNotification-b085d6f75e0f" id="m-CommitDiffNotification-b085d6f75e0f"></a>
 
 ```java
 public CommitDiffNotification(
@@ -65,8 +63,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 ## Methods
 
-<a id="m-getcomment-a5625f95afef"></a>
-### getComment()
+### getComment() <a href="#m-getComment-a5625f95afef" id="m-getComment-a5625f95afef"></a>
 
 ```java
 public String getComment()
@@ -74,8 +71,7 @@ public String getComment()
 
 Commit comment - null if no comment
 
-<a id="m-getdatabase-3c5eb5bcb258"></a>
-### getDatabase()
+### getDatabase() <a href="#m-getDatabase-3c5eb5bcb258" id="m-getDatabase-3c5eb5bcb258"></a>
 
 ```java
 public int getDatabase()
@@ -89,8 +85,7 @@ Database type:
      - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
        - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
 
-<a id="m-getlabel-72bf899bf6f1"></a>
-### getLabel()
+### getLabel() <a href="#m-getLabel-72bf899bf6f1" id="m-getLabel-72bf899bf6f1"></a>
 
 ```java
 public String getLabel()
@@ -98,8 +93,7 @@ public String getLabel()
 
 Commit label - null if no label
 
-<a id="m-gettransaction-4f1c72a828a1"></a>
-### getTransaction()
+### getTransaction() <a href="#m-getTransaction-4f1c72a828a1" id="m-getTransaction-4f1c72a828a1"></a>
 
 ```java
 public int getTransaction()
@@ -107,8 +101,7 @@ public int getTransaction()
 
 Transaction handle
 
-<a id="m-getuserinfo-3ecef1f24d3d"></a>
-### getUserInfo()
+### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
@@ -118,8 +111,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 User information
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

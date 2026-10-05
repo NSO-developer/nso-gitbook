@@ -1,5 +1,4 @@
-<a id="cls-CdbException"></a>
-# CdbException
+# CdbException <a href="#cls-CdbException" id="cls-CdbException"></a>
 
 ```java
 public class com.tailf.cdb.CdbException
@@ -18,25 +17,24 @@ Cdb package generic exception
 
 **Constructors**:
 
-- [CdbException(String)](#m-cdbexception-712018a53039)
-- [CdbException(String, ErrorCode)](#m-cdbexception-aa046b728f43)
-- [CdbException(String, ErrorCode, Throwable)](#m-cdbexception-f772b12ea6ee)
-- [CdbException(String, int)](#m-cdbexception-1a95721d5c78)
-- [CdbException(String, int, Throwable)](#m-cdbexception-9adb758e9e8e)
-- [CdbException(String, Throwable)](#m-cdbexception-5e6f61025d70)
-- [CdbException(Throwable)](#m-cdbexception-7a4196d4ccee)
+- [CdbException(String)](#m-CdbException-712018a53039)
+- [CdbException(String, ErrorCode)](#m-CdbException-aa046b728f43)
+- [CdbException(String, ErrorCode, Throwable)](#m-CdbException-f772b12ea6ee)
+- [CdbException(String, int)](#m-CdbException-1a95721d5c78)
+- [CdbException(String, int, Throwable)](#m-CdbException-9adb758e9e8e)
+- [CdbException(String, Throwable)](#m-CdbException-5e6f61025d70)
+- [CdbException(Throwable)](#m-CdbException-7a4196d4ccee)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
 - [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="m-cdbexception-712018a53039"></a>
-### CdbException(String)
+### CdbException(String) <a href="#m-CdbException-712018a53039" id="m-CdbException-712018a53039"></a>
 
 ```java
 public CdbException(String msg)
@@ -46,8 +44,7 @@ public CdbException(String msg)
 
 - `String msg`
 
-<a id="m-cdbexception-aa046b728f43"></a>
-### CdbException(String, ErrorCode)
+### CdbException(String, ErrorCode) <a href="#m-CdbException-aa046b728f43" id="m-CdbException-aa046b728f43"></a>
 
 ```java
 public CdbException(String msg, com.tailf.conf.ErrorCode code)
@@ -60,8 +57,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-cdbexception-f772b12ea6ee"></a>
-### CdbException(String, ErrorCode, Throwable)
+### CdbException(String, ErrorCode, Throwable) <a href="#m-CdbException-f772b12ea6ee" id="m-CdbException-f772b12ea6ee"></a>
 
 ```java
 public CdbException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -75,8 +71,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-cdbexception-1a95721d5c78"></a>
-### CdbException(String, int)
+### CdbException(String, int) <a href="#m-CdbException-1a95721d5c78" id="m-CdbException-1a95721d5c78"></a>
 
 ```java
 public CdbException(String msg, int codeInteger)
@@ -87,8 +82,7 @@ public CdbException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="m-cdbexception-9adb758e9e8e"></a>
-### CdbException(String, int, Throwable)
+### CdbException(String, int, Throwable) <a href="#m-CdbException-9adb758e9e8e" id="m-CdbException-9adb758e9e8e"></a>
 
 ```java
 public CdbException(String msg, int codeInteger, Throwable cause)
@@ -100,8 +94,7 @@ public CdbException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="m-cdbexception-5e6f61025d70"></a>
-### CdbException(String, Throwable)
+### CdbException(String, Throwable) <a href="#m-CdbException-5e6f61025d70" id="m-CdbException-5e6f61025d70"></a>
 
 ```java
 public CdbException(String msg, Throwable cause)
@@ -112,8 +105,7 @@ public CdbException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="m-cdbexception-7a4196d4ccee"></a>
-### CdbException(Throwable)
+### CdbException(Throwable) <a href="#m-CdbException-7a4196d4ccee" id="m-CdbException-7a4196d4ccee"></a>
 
 ```java
 public CdbException(Throwable t)
@@ -126,8 +118,7 @@ public CdbException(Throwable t)
 
 ## Methods
 
-<a id="m-mk-de1cedfc6ea8"></a>
-### mk(ConfResponse)
+### mk(ConfResponse) <a href="#m-mk-de1cedfc6ea8" id="m-mk-de1cedfc6ea8"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
@@ -139,8 +130,7 @@ Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfRespons
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="m-mk-79e69ffbc022"></a>
-### mk(ConfResponse, ConfPath)
+### mk(ConfResponse, ConfPath) <a href="#m-mk-79e69ffbc022" id="m-mk-79e69ffbc022"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(

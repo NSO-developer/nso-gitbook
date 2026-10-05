@@ -1,5 +1,4 @@
-<a id="cls-AuditNetworkNotification"></a>
-# AuditNetworkNotification
+# AuditNetworkNotification <a href="#cls-AuditNetworkNotification" id="cls-AuditNetworkNotification"></a>
 
 ```java
 public class com.tailf.notif.AuditNetworkNotification
@@ -14,7 +13,7 @@ Data structure for audit network notifications.
 
 **Constructors**:
 
-- [AuditNetworkNotification(int, int, String, String, String, String)](#m-auditnetworknotification-076e0c2c0987)
+- [AuditNetworkNotification(int, int, String, String, String, String)](#m-AuditNetworkNotification-076e0c2c0987)
 
 **Fields**:
 
@@ -22,19 +21,18 @@ Data structure for audit network notifications.
 
 **Methods**:
 
-- [getConfig()](#m-getconfig-5f7a3a2878d2)
-- [getDevice()](#m-getdevice-4acac4557fc6)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getTraceId()](#m-gettraceid-c3a30b94d9ce)
-- [getTransactionId()](#m-gettransactionid-c986b15287a0)
-- [getUser()](#m-getuser-fbcccdd28c7c)
-- [getUserId()](#m-getuserid-46c2e98d8db7)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getConfig()](#m-getConfig-5f7a3a2878d2)
+- [getDevice()](#m-getDevice-4acac4557fc6)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getTraceId()](#m-getTraceId-c3a30b94d9ce)
+- [getTransactionId()](#m-getTransactionId-c986b15287a0)
+- [getUser()](#m-getUser-fbcccdd28c7c)
+- [getUserId()](#m-getUserId-46c2e98d8db7)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-auditnetworknotification-076e0c2c0987"></a>
-### AuditNetworkNotification(int, int, String, String, String, String)
+### AuditNetworkNotification(int, int, String, String, String, String) <a href="#m-AuditNetworkNotification-076e0c2c0987" id="m-AuditNetworkNotification-076e0c2c0987"></a>
 
 ```java
 public AuditNetworkNotification(
@@ -61,8 +59,7 @@ Constructs a new AuditNetworkNotification with the specified parameters.
 
 ## Methods
 
-<a id="m-getconfig-5f7a3a2878d2"></a>
-### getConfig()
+### getConfig() <a href="#m-getConfig-5f7a3a2878d2" id="m-getConfig-5f7a3a2878d2"></a>
 
 ```java
 public String getConfig()
@@ -72,8 +69,7 @@ Gets the configuration data as a string.
 
 **Returns:** the configuration data
 
-<a id="m-getdevice-4acac4557fc6"></a>
-### getDevice()
+### getDevice() <a href="#m-getDevice-4acac4557fc6" id="m-getDevice-4acac4557fc6"></a>
 
 ```java
 public String getDevice()
@@ -83,8 +79,7 @@ Gets the device name or identifier associated with this notification.
 
 **Returns:** the device name or identifier
 
-<a id="m-gettraceid-c3a30b94d9ce"></a>
-### getTraceId()
+### getTraceId() <a href="#m-getTraceId-c3a30b94d9ce" id="m-getTraceId-c3a30b94d9ce"></a>
 
 ```java
 public String getTraceId()
@@ -94,8 +89,7 @@ Gets the trace identifier for tracking purposes.
 
 **Returns:** the trace identifier, or null if not set
 
-<a id="m-gettransactionid-c986b15287a0"></a>
-### getTransactionId()
+### getTransactionId() <a href="#m-getTransactionId-c986b15287a0" id="m-getTransactionId-c986b15287a0"></a>
 
 ```java
 public int getTransactionId()
@@ -105,8 +99,7 @@ Gets the transaction identifier.
 
 **Returns:** the transaction identifier
 
-<a id="m-getuser-fbcccdd28c7c"></a>
-### getUser()
+### getUser() <a href="#m-getUser-fbcccdd28c7c" id="m-getUser-fbcccdd28c7c"></a>
 
 ```java
 public String getUser()
@@ -116,8 +109,7 @@ Gets the username associated with this notification.
 
 **Returns:** the username
 
-<a id="m-getuserid-46c2e98d8db7"></a>
-### getUserId()
+### getUserId() <a href="#m-getUserId-46c2e98d8db7" id="m-getUserId-46c2e98d8db7"></a>
 
 ```java
 public int getUserId()
@@ -127,8 +119,7 @@ Gets the user session identifier.
 
 **Returns:** the user session identifier
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

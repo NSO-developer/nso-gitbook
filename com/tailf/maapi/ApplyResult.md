@@ -1,12 +1,11 @@
-<a id="cls-ApplyResult"></a>
-# ApplyResult
+# ApplyResult <a href="#cls-ApplyResult" id="cls-ApplyResult"></a>
 
 ```java
 public class com.tailf.maapi.ApplyResult
 ```
 
 Represents a successful invocation of the
- [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applytransparams-6c20b7896663) method.
+ [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applyTransParams-6c20b7896663) method.
 
 **Related classes**
 
@@ -17,12 +16,11 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [ApplyResult(ConfResponse)](#m-applyresult-7b53e46df937)
+- [ApplyResult(ConfResponse)](#m-ApplyResult-7b53e46df937)
 
 ## Constructors
 
-<a id="m-applyresult-7b53e46df937"></a>
-### ApplyResult(ConfResponse)
+### ApplyResult(ConfResponse) <a href="#m-ApplyResult-7b53e46df937" id="m-ApplyResult-7b53e46df937"></a>
 
 ```java
 public ApplyResult(

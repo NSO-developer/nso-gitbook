@@ -1,5 +1,4 @@
-<a id="cls-AuthorizationOperCheck"></a>
-# AuthorizationOperCheck
+# AuthorizationOperCheck <a href="#cls-AuthorizationOperCheck" id="cls-AuthorizationOperCheck"></a>
 
 ```java
 public enum com.tailf.dp.AuthorizationOperCheck
@@ -25,15 +24,14 @@ AuthorizationOperCheck used as argument to authorization callbacks.
 
 **Methods**:
 
-- [getType(int)](#m-gettype-ea5f2e669127)
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getType(int)](#m-getType-ea5f2e669127)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CREATE"></a>
-### CREATE
+### CREATE <a href="#m-CREATE" id="m-CREATE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck CREATE;
@@ -41,8 +39,7 @@ public static final com.tailf.dp.AuthorizationOperCheck CREATE;
 
 Create access
 
-<a id="m-DELETE"></a>
-### DELETE
+### DELETE <a href="#m-DELETE" id="m-DELETE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck DELETE;
@@ -50,8 +47,7 @@ public static final com.tailf.dp.AuthorizationOperCheck DELETE;
 
 Delete access
 
-<a id="m-EXECUTE"></a>
-### EXECUTE
+### EXECUTE <a href="#m-EXECUTE" id="m-EXECUTE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck EXECUTE;
@@ -59,8 +55,7 @@ public static final com.tailf.dp.AuthorizationOperCheck EXECUTE;
 
 Execute access
 
-<a id="m-FINAL"></a>
-### FINAL
+### FINAL <a href="#m-FINAL" id="m-FINAL"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck FINAL;
@@ -68,8 +63,7 @@ public static final com.tailf.dp.AuthorizationOperCheck FINAL;
 
 "How" parameter, Access to the specific data node is requested.
 
-<a id="m-INTERMEDIATE"></a>
-### INTERMEDIATE
+### INTERMEDIATE <a href="#m-INTERMEDIATE" id="m-INTERMEDIATE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck INTERMEDIATE;
@@ -80,8 +74,7 @@ public static final com.tailf.dp.AuthorizationOperCheck INTERMEDIATE;
  This is used e.g. in CLI command completion or processing of a
  NETCONF edit-config
 
-<a id="m-READ"></a>
-### READ
+### READ <a href="#m-READ" id="m-READ"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck READ;
@@ -89,8 +82,7 @@ public static final com.tailf.dp.AuthorizationOperCheck READ;
 
 Read access.
 
-<a id="m-UPDATE"></a>
-### UPDATE
+### UPDATE <a href="#m-UPDATE" id="m-UPDATE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck UPDATE;
@@ -98,8 +90,7 @@ public static final com.tailf.dp.AuthorizationOperCheck UPDATE;
 
 Update access
 
-<a id="m-WRITE"></a>
-### WRITE
+### WRITE <a href="#m-WRITE" id="m-WRITE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationOperCheck WRITE;
@@ -112,8 +103,7 @@ Write access. This is used when the specific write operation
 
 ## Methods
 
-<a id="m-gettype-ea5f2e669127"></a>
-### getType(int)
+### getType(int) <a href="#m-getType-ea5f2e669127" id="m-getType-ea5f2e669127"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck getType(int l)
@@ -130,8 +120,7 @@ Get a AuthorizationOperationCheck for given int value or
 
 **Returns:** AuthorizationOperationCheck for this int value
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -141,8 +130,7 @@ Get the int value representation of this authorization operation check
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck valueOf(String name)
@@ -154,8 +142,7 @@ Types: [AuthorizationOperCheck](AuthorizationOperCheck.md#cls-AuthorizationOperC
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationOperCheck[] values()

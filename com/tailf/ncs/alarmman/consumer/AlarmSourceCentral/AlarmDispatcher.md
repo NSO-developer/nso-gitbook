@@ -1,5 +1,4 @@
-<a id="cls-AlarmDispatcher"></a>
-# AlarmDispatcher
+# AlarmDispatcher <a href="#cls-AlarmDispatcher" id="cls-AlarmDispatcher"></a>
 
 ```java
 protected class com.tailf.ncs.alarmman.consumer.AlarmSourceCentral.AlarmDispatcher
@@ -14,7 +13,7 @@ This class implements an alarm dispatching  function.
 
 **Constructors**:
 
-- [AlarmDispatcher(SocketAddress)](#m-alarmdispatcher-613c7e189e3f)
+- [AlarmDispatcher(SocketAddress)](#m-AlarmDispatcher-613c7e189e3f)
 
 **Methods**:
 
@@ -25,8 +24,7 @@ This class implements an alarm dispatching  function.
 
 ## Constructors
 
-<a id="m-alarmdispatcher-613c7e189e3f"></a>
-### AlarmDispatcher(SocketAddress)
+### AlarmDispatcher(SocketAddress) <a href="#m-AlarmDispatcher-613c7e189e3f" id="m-AlarmDispatcher-613c7e189e3f"></a>
 
 ```java
 public AlarmDispatcher(
@@ -44,15 +42,13 @@ Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-<a id="m-finish-8c785ae2e6bb"></a>
-### finish()
+### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish() throws com.tailf.conf.ConfException
@@ -60,8 +56,7 @@ public void finish() throws com.tailf.conf.ConfException
 
 Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-init-e3919b885d98"></a>
-### init()
+### init() <a href="#m-init-e3919b885d98" id="m-init-e3919b885d98"></a>
 
 ```java
 public void init() throws com.tailf.conf.ConfException
@@ -69,8 +64,7 @@ public void init() throws com.tailf.conf.ConfException
 
 Types: [ConfException](../../../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(

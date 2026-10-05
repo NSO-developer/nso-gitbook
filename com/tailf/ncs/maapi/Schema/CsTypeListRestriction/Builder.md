@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Builder
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Build
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getRanges()](#m-getranges-c1cd383e54a0)
-- [hasRanges()](#m-hasranges-77bc63fe4ea8)
-- [initRanges(int)](#m-initranges-d04c09762bd6)
-- [setRanges(Reader<Reader>)](#m-setranges-69bbcdb47f71)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getRanges()](#m-getRanges-c1cd383e54a0)
+- [hasRanges()](#m-hasRanges-77bc63fe4ea8)
+- [initRanges(int)](#m-initRanges-d04c09762bd6)
+- [setRanges(Reader<Reader>)](#m-setRanges-69bbcdb47f71)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -48,8 +46,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader asReader()
@@ -57,8 +54,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getranges-c1cd383e54a0"></a>
-### getRanges()
+### getRanges() <a href="#m-getRanges-c1cd383e54a0" id="m-getRanges-c1cd383e54a0"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> getRanges()
@@ -66,15 +62,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.B
 
 Types: [Builder](../Range/Builder.md#cls-Builder)
 
-<a id="m-hasranges-77bc63fe4ea8"></a>
-### hasRanges()
+### hasRanges() <a href="#m-hasRanges-77bc63fe4ea8" id="m-hasRanges-77bc63fe4ea8"></a>
 
 ```java
 public final boolean hasRanges()
 ```
 
-<a id="m-initranges-d04c09762bd6"></a>
-### initRanges(int)
+### initRanges(int) <a href="#m-initRanges-d04c09762bd6" id="m-initRanges-d04c09762bd6"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.Range.Builder> initRanges(
@@ -88,8 +82,7 @@ Types: [Builder](../Range/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-setranges-69bbcdb47f71"></a>
-### setRanges(Reader<Reader>)
+### setRanges(Reader<Reader>) <a href="#m-setRanges-69bbcdb47f71" id="m-setRanges-69bbcdb47f71"></a>
 
 ```java
 public final void setRanges(

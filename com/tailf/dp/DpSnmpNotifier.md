@@ -1,5 +1,4 @@
-<a id="cls-DpSnmpNotifier"></a>
-# DpSnmpNotifier
+# DpSnmpNotifier <a href="#cls-DpSnmpNotifier" id="cls-DpSnmpNotifier"></a>
 
 ```java
 public class com.tailf.dp.DpSnmpNotifier
@@ -85,25 +84,24 @@ The application can send SNMP notifications and inform requests.
 
 **Constructors**:
 
-- [DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)](#m-dpsnmpnotifier-d883475eb7e7)
+- [DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)](#m-DpSnmpNotifier-d883475eb7e7)
 
 **Methods**:
 
-- [getContextName()](#m-getcontextname-cf9cc7a52502)
-- [getFD()](#m-getfd-e27232a35a70)
-- [getInformCb()](#m-getinformcb-40ebe64ec412)
-- [getNotifyName()](#m-getnotifyname-1cb2918a2d12)
-- [getSocket()](#m-getsocket-d7da2de81b81)
+- [getContextName()](#m-getContextName-cf9cc7a52502)
+- [getFD()](#m-getFD-e27232a35a70)
+- [getInformCb()](#m-getInformCb-40ebe64ec412)
+- [getNotifyName()](#m-getNotifyName-1cb2918a2d12)
+- [getSocket()](#m-getSocket-d7da2de81b81)
 - [send(String, SnmpVarbind[])](#m-send-4c2d30df8160)
 - [send(String, SnmpVarbind[], Integer)](#m-send-616c3e8b0825)
-- [setFD(int)](#m-setfd-501c97b6d464)
-- [setSocket(Socket)](#m-setsocket-183068848e4c)
-- [setSourceAddress(ConfIP)](#m-setsourceaddress-a903bc69b65e)
+- [setFD(int)](#m-setFD-501c97b6d464)
+- [setSocket(Socket)](#m-setSocket-183068848e4c)
+- [setSourceAddress(ConfIP)](#m-setSourceAddress-a903bc69b65e)
 
 ## Constructors
 
-<a id="m-dpsnmpnotifier-d883475eb7e7"></a>
-### DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket)
+### DpSnmpNotifier(String, String, DpSnmpInformResponseCallback, Socket) <a href="#m-DpSnmpNotifier-d883475eb7e7" id="m-DpSnmpNotifier-d883475eb7e7"></a>
 
 **Package-private**
 
@@ -133,15 +131,13 @@ This constructor will initialize the DpSnmpNotifier class.
 
 ## Methods
 
-<a id="m-getcontextname-cf9cc7a52502"></a>
-### getContextName()
+### getContextName() <a href="#m-getContextName-cf9cc7a52502" id="m-getContextName-cf9cc7a52502"></a>
 
 ```java
 public String getContextName()
 ```
 
-<a id="m-getfd-e27232a35a70"></a>
-### getFD()
+### getFD() <a href="#m-getFD-e27232a35a70" id="m-getFD-e27232a35a70"></a>
 
 ```java
 public int getFD()
@@ -149,8 +145,7 @@ public int getFD()
 
 file descriptor
 
-<a id="m-getinformcb-40ebe64ec412"></a>
-### getInformCb()
+### getInformCb() <a href="#m-getInformCb-40ebe64ec412" id="m-getInformCb-40ebe64ec412"></a>
 
 ```java
 public com.tailf.dp.DpSnmpInformResponseCallback getInformCb()
@@ -160,8 +155,7 @@ Types: [DpSnmpInformResponseCallback](DpSnmpInformResponseCallback.md#cls-DpSnmp
 
 The inform callback. null means no callback.
 
-<a id="m-getnotifyname-1cb2918a2d12"></a>
-### getNotifyName()
+### getNotifyName() <a href="#m-getNotifyName-1cb2918a2d12" id="m-getNotifyName-1cb2918a2d12"></a>
 
 ```java
 public String getNotifyName()
@@ -169,8 +163,7 @@ public String getNotifyName()
 
 The notify_init.xml notify name.
 
-<a id="m-getsocket-d7da2de81b81"></a>
-### getSocket()
+### getSocket() <a href="#m-getSocket-d7da2de81b81" id="m-getSocket-d7da2de81b81"></a>
 
 ```java
 public java.net.Socket getSocket()
@@ -179,11 +172,10 @@ public java.net.Socket getSocket()
 The worker socket which is connected to ConfD/NCS. This socket will be
  used for sending SNMP notifications to ConfD/NCS. Set when allocated by
  Dp through
- [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createsnmpnotifier-89f0d186fc8f)
+ [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createSnmpNotifier-89f0d186fc8f)
  .
 
-<a id="m-send-4c2d30df8160"></a>
-### send(String, SnmpVarbind[])
+### send(String, SnmpVarbind[]) <a href="#m-send-4c2d30df8160" id="m-send-4c2d30df8160"></a>
 
 ```java
 public void send(
@@ -212,8 +204,7 @@ Send SNMP notification. Sends a notification to the management targets
 
 **Since:** 3.2.0
 
-<a id="m-send-616c3e8b0825"></a>
-### send(String, SnmpVarbind[], Integer)
+### send(String, SnmpVarbind[], Integer) <a href="#m-send-616c3e8b0825" id="m-send-616c3e8b0825"></a>
 
 ```java
 public void send(
@@ -247,8 +238,7 @@ Send SNMP notification with the option to receive an Inform Response.
 
 **Since:** 3.2.0
 
-<a id="m-setfd-501c97b6d464"></a>
-### setFD(int)
+### setFD(int) <a href="#m-setFD-501c97b6d464" id="m-setFD-501c97b6d464"></a>
 
 ```java
 public void setFD(int fd)
@@ -258,8 +248,7 @@ public void setFD(int fd)
 
 - `int fd`
 
-<a id="m-setsocket-183068848e4c"></a>
-### setSocket(Socket)
+### setSocket(Socket) <a href="#m-setSocket-183068848e4c" id="m-setSocket-183068848e4c"></a>
 
 ```java
 public void setSocket(java.net.Socket socket)
@@ -269,8 +258,7 @@ public void setSocket(java.net.Socket socket)
 
 - `java.net.Socket socket`
 
-<a id="m-setsourceaddress-a903bc69b65e"></a>
-### setSourceAddress(ConfIP)
+### setSourceAddress(ConfIP) <a href="#m-setSourceAddress-a903bc69b65e" id="m-setSourceAddress-a903bc69b65e"></a>
 
 ```java
 public void setSourceAddress(com.tailf.conf.ConfIP sourceIP)

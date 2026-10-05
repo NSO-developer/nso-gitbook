@@ -1,5 +1,4 @@
-<a id="cls-ConfERef"></a>
-# ConfERef
+# ConfERef <a href="#cls-ConfERef" id="cls-ConfERef"></a>
 
 ```java
 public class com.tailf.proto.ConfERef
@@ -16,9 +15,9 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 
 **Constructors**:
 
-- [ConfERef(ConfInputStream)](#m-conferef-ef452c652e20)
-- [ConfERef(String, int, int)](#m-conferef-8d974ce14696)
-- [ConfERef(String, int[], int)](#m-conferef-c26fc44f32e1)
+- [ConfERef(ConfInputStream)](#m-ConfERef-ef452c652e20)
+- [ConfERef(String, int, int)](#m-ConfERef-8d974ce14696)
+- [ConfERef(String, int[], int)](#m-ConfERef-c26fc44f32e1)
 
 **Fields**:
 
@@ -31,17 +30,16 @@ Provides a Java representation of E refs. There are two styles of E refs, old
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
+- [hashCode()](#m-hashCode-ef797a217903)
 - [id()](#m-id-1352448ec267)
 - [ids()](#m-ids-ffb689fcb456)
-- [isNewRef()](#m-isnewref-e4f4038aefac)
+- [isNewRef()](#m-isNewRef-e4f4038aefac)
 - [node()](#m-node-1fe382dfa2c3)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-conferef-ef452c652e20"></a>
-### ConfERef(ConfInputStream)
+### ConfERef(ConfInputStream) <a href="#m-ConfERef-ef452c652e20" id="m-ConfERef-ef452c652e20"></a>
 
 ```java
 public ConfERef(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -61,8 +59,7 @@ Create an E ref from a stream containing a ref encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E ref.
 
-<a id="m-conferef-8d974ce14696"></a>
-### ConfERef(String, int, int)
+### ConfERef(String, int, int) <a href="#m-ConfERef-8d974ce14696" id="m-ConfERef-8d974ce14696"></a>
 
 ```java
 public ConfERef(String node, int id, int creation)
@@ -77,8 +74,7 @@ Create an old style E ref from its components.
 - `int creation` - another arbitrary number. Only the low order 2 bits will be
             used.
 
-<a id="m-conferef-c26fc44f32e1"></a>
-### ConfERef(String, int[], int)
+### ConfERef(String, int[], int) <a href="#m-ConfERef-c26fc44f32e1" id="m-ConfERef-c26fc44f32e1"></a>
 
 ```java
 public ConfERef(String node, int[] ids, int creation)
@@ -99,8 +95,7 @@ Create a new style E ref from its components.
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -111,15 +106,13 @@ static final long serialVersionUID = -7022666480768586521;
 
 ## Methods
 
-<a id="m-clone-164c86c45e9b"></a>
-### clone()
+### clone() <a href="#m-clone-164c86c45e9b" id="m-clone-164c86c45e9b"></a>
 
 ```java
 public Object clone()
 ```
 
-<a id="m-creation-46181b4a88a5"></a>
-### creation()
+### creation() <a href="#m-creation-46181b4a88a5" id="m-creation-46181b4a88a5"></a>
 
 ```java
 public int creation()
@@ -129,8 +122,7 @@ Get the creation number from the ref.
 
 **Returns:** the creation number from the ref.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -144,8 +136,7 @@ Convert this ref to the equivalent E external representation.
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded ref should be written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -161,15 +152,13 @@ Determine if two refs are equal. Refs are equal if their components are
 
 **Returns:** true if the refs are equal, false otherwise.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-id-1352448ec267"></a>
-### id()
+### id() <a href="#m-id-1352448ec267" id="m-id-1352448ec267"></a>
 
 ```java
 public int id()
@@ -180,8 +169,7 @@ Get the id number from the ref. Old style refs have only one id number.
 
 **Returns:** the id number from the ref.
 
-<a id="m-ids-ffb689fcb456"></a>
-### ids()
+### ids() <a href="#m-ids-ffb689fcb456" id="m-ids-ffb689fcb456"></a>
 
 ```java
 public int[] ids()
@@ -193,8 +181,7 @@ Get the array of id numbers from the ref. If this is an old style ref,
 
 **Returns:** the array of id numbers from the ref.
 
-<a id="m-isnewref-e4f4038aefac"></a>
-### isNewRef()
+### isNewRef() <a href="#m-isNewRef-e4f4038aefac" id="m-isNewRef-e4f4038aefac"></a>
 
 ```java
 public boolean isNewRef()
@@ -204,8 +191,7 @@ Determine whether this is a new style ref.
 
 **Returns:** true if this ref is a new style ref, false otherwise.
 
-<a id="m-node-1fe382dfa2c3"></a>
-### node()
+### node() <a href="#m-node-1fe382dfa2c3" id="m-node-1fe382dfa2c3"></a>
 
 ```java
 public String node()
@@ -215,8 +201,7 @@ Get the node name from the ref.
 
 **Returns:** the node name from the ref.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

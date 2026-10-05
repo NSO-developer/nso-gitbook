@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.NamedType.Builder
@@ -10,24 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.NamedType.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getName()](#m-getname-2634b18b4a25)
-- [getType()](#m-gettype-5a52f6f0d4c1)
-- [hasName()](#m-hasname-bfe6c334e0d1)
-- [initName(int)](#m-initname-281e5d2102d4)
-- [initType()](#m-inittype-9d8086c9965a)
-- [setName(Reader)](#m-setname-79f9d1263a41)
-- [setName(String)](#m-setname-c76ccfcb9f18)
-- [setType(Reader)](#m-settype-b1128ee37ec1)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getName()](#m-getName-2634b18b4a25)
+- [getType()](#m-getType-5a52f6f0d4c1)
+- [hasName()](#m-hasName-bfe6c334e0d1)
+- [initName(int)](#m-initName-281e5d2102d4)
+- [initType()](#m-initType-9d8086c9965a)
+- [setName(Reader)](#m-setName-79f9d1263a41)
+- [setName(String)](#m-setName-c76ccfcb9f18)
+- [setType(Reader)](#m-setType-b1128ee37ec1)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -52,8 +50,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.NamedType.Reader asReader()
@@ -61,15 +58,13 @@ public final com.tailf.ncs.maapi.Schema.NamedType.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-<a id="m-gettype-5a52f6f0d4c1"></a>
-### getType()
+### getType() <a href="#m-getType-5a52f6f0d4c1" id="m-getType-5a52f6f0d4c1"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Builder getType()
@@ -77,15 +72,13 @@ public final com.tailf.ncs.maapi.Schema.CsType.Builder getType()
 
 Types: [Builder](../CsType/Builder.md#cls-Builder)
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public final boolean hasName()
 ```
 
-<a id="m-initname-281e5d2102d4"></a>
-### initName(int)
+### initName(int) <a href="#m-initName-281e5d2102d4" id="m-initName-281e5d2102d4"></a>
 
 ```java
 public final org.capnproto.Text.Builder initName(int size)
@@ -95,8 +88,7 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-<a id="m-inittype-9d8086c9965a"></a>
-### initType()
+### initType() <a href="#m-initType-9d8086c9965a" id="m-initType-9d8086c9965a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Builder initType()
@@ -104,8 +96,7 @@ public final com.tailf.ncs.maapi.Schema.CsType.Builder initType()
 
 Types: [Builder](../CsType/Builder.md#cls-Builder)
 
-<a id="m-setname-79f9d1263a41"></a>
-### setName(Reader)
+### setName(Reader) <a href="#m-setName-79f9d1263a41" id="m-setName-79f9d1263a41"></a>
 
 ```java
 public final void setName(org.capnproto.Text.Reader value)
@@ -115,8 +106,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setname-c76ccfcb9f18"></a>
-### setName(String)
+### setName(String) <a href="#m-setName-c76ccfcb9f18" id="m-setName-c76ccfcb9f18"></a>
 
 ```java
 public final void setName(String value)
@@ -126,8 +116,7 @@ public final void setName(String value)
 
 - `String value`
 
-<a id="m-settype-b1128ee37ec1"></a>
-### setType(Reader)
+### setType(Reader) <a href="#m-setType-b1128ee37ec1" id="m-setType-b1128ee37ec1"></a>
 
 ```java
 public final void setType(com.tailf.ncs.maapi.Schema.CsType.Reader value)

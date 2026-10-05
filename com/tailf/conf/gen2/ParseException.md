@@ -1,5 +1,4 @@
-<a id="cls-ParseException"></a>
-# ParseException
+# ParseException <a href="#cls-ParseException" id="cls-ParseException"></a>
 
 ```java
 public class com.tailf.conf.gen2.ParseException
@@ -18,9 +17,9 @@ This exception is thrown when parse errors are encountered.
 
 **Constructors**:
 
-- [ParseException()](#m-parseexception-7765e2a79d08)
-- [ParseException(String)](#m-parseexception-0700cc800bd9)
-- [ParseException(Token, int[][], String[])](#m-parseexception-a33ceea68e14)
+- [ParseException()](#m-ParseException-7765e2a79d08)
+- [ParseException(String)](#m-ParseException-0700cc800bd9)
+- [ParseException(Token, int[][], String[])](#m-ParseException-a33ceea68e14)
 
 **Fields**:
 
@@ -35,8 +34,7 @@ This exception is thrown when parse errors are encountered.
 
 ## Constructors
 
-<a id="m-parseexception-7765e2a79d08"></a>
-### ParseException()
+### ParseException() <a href="#m-ParseException-7765e2a79d08" id="m-ParseException-7765e2a79d08"></a>
 
 ```java
 public ParseException()
@@ -50,8 +48,7 @@ The following constructors are for use by you for whatever
  relevant information.  The JavaCC generated code does not use
  these constructors.
 
-<a id="m-parseexception-0700cc800bd9"></a>
-### ParseException(String)
+### ParseException(String) <a href="#m-ParseException-0700cc800bd9" id="m-ParseException-0700cc800bd9"></a>
 
 ```java
 public ParseException(String message)
@@ -63,8 +60,7 @@ Constructor with message.
 
 - `String message`
 
-<a id="m-parseexception-a33ceea68e14"></a>
-### ParseException(Token, int[][], String[])
+### ParseException(Token, int[][], String[]) <a href="#m-ParseException-a33ceea68e14" id="m-ParseException-a33ceea68e14"></a>
 
 ```java
 public ParseException(
@@ -90,8 +86,7 @@ This constructor is used by the method "generateParseException"
 
 ## Fields
 
-<a id="m-currentToken"></a>
-### currentToken
+### currentToken <a href="#m-currentToken" id="m-currentToken"></a>
 
 ```java
 public com.tailf.conf.gen2.Token currentToken = null;
@@ -103,8 +98,7 @@ This is the last token that has been consumed successfully.  If
  this object has been created due to a parse error, the token
  following this token will (therefore) be the first error token.
 
-<a id="m-EOL"></a>
-### EOL
+### EOL <a href="#m-EOL" id="m-EOL"></a>
 
 ```java
 protected static String EOL = null;
@@ -112,8 +106,7 @@ protected static String EOL = null;
 
 The end of line string for this machine.
 
-<a id="m-expectedTokenSequences"></a>
-### expectedTokenSequences
+### expectedTokenSequences <a href="#m-expectedTokenSequences" id="m-expectedTokenSequences"></a>
 
 ```java
 public int[][] expectedTokenSequences = null;
@@ -123,8 +116,7 @@ Each entry in this array is an array of integers.  Each array
  of integers represents a sequence of tokens (by their ordinal
  values) that is expected at this point of the parse.
 
-<a id="m-tokenImage"></a>
-### tokenImage
+### tokenImage <a href="#m-tokenImage" id="m-tokenImage"></a>
 
 ```java
 public String[] tokenImage = null;
@@ -137,8 +129,7 @@ This is a reference to the "tokenImage" array of the generated
 
 ## Methods
 
-<a id="m-add_escapes-6d7387de134e"></a>
-### add_escapes(String)
+### add_escapes(String) <a href="#m-add_escapes-6d7387de134e" id="m-add_escapes-6d7387de134e"></a>
 
 **Package-private**
 

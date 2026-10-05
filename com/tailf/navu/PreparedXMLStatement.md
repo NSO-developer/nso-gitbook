@@ -1,5 +1,4 @@
-<a id="cls-PreparedXMLStatement"></a>
-# PreparedXMLStatement
+# PreparedXMLStatement <a href="#cls-PreparedXMLStatement" id="cls-PreparedXMLStatement"></a>
 
 ```java
 public class com.tailf.navu.PreparedXMLStatement
@@ -99,24 +98,23 @@ This class represents a parsed XML-string, optionally with parameterized
 
 **Constructors**:
 
-- [PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)](#m-preparedxmlstatement-c488490cc518)
+- [PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)](#m-PreparedXMLStatement-c488490cc518)
 
 **Methods**:
 
 - [put(int, ConfObject)](#m-put-472f1342b5b7)
 - [put(int, String)](#m-put-f549d0ea766e)
 - [reset()](#m-reset-6927918ac70a)
-- [setValues()](#m-setvalues-da0bc3c468bf)
-- [setValues(NavuContext)](#m-setvalues-24042b0e5576)
-- [setValues(NavuNode)](#m-setvalues-5afe5d05dd50)
-- [sharedSetValues()](#m-sharedsetvalues-d34ed76578b4)
-- [sharedSetValues(NavuContext)](#m-sharedsetvalues-ccc5cc08315b)
-- [sharedSetValues(NavuNode)](#m-sharedsetvalues-28aec52d6350)
+- [setValues()](#m-setValues-da0bc3c468bf)
+- [setValues(NavuContext)](#m-setValues-24042b0e5576)
+- [setValues(NavuNode)](#m-setValues-5afe5d05dd50)
+- [sharedSetValues()](#m-sharedSetValues-d34ed76578b4)
+- [sharedSetValues(NavuContext)](#m-sharedSetValues-ccc5cc08315b)
+- [sharedSetValues(NavuNode)](#m-sharedSetValues-28aec52d6350)
 
 ## Constructors
 
-<a id="m-preparedxmlstatement-c488490cc518"></a>
-### PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode)
+### PreparedXMLStatement(ConfXMLParam[], Map<Integer,Object[]>, NavuNode) <a href="#m-PreparedXMLStatement-c488490cc518" id="m-PreparedXMLStatement-c488490cc518"></a>
 
 ```java
 public PreparedXMLStatement(
@@ -137,8 +135,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuNode](Navu
 
 ## Methods
 
-<a id="m-put-472f1342b5b7"></a>
-### put(int, ConfObject)
+### put(int, ConfObject) <a href="#m-put-472f1342b5b7" id="m-put-472f1342b5b7"></a>
 
 ```java
 public void put(int index, com.tailf.conf.ConfObject val)
@@ -154,8 +151,7 @@ Populate the parameterized value at position `index`
 - `int index` - zero-based index of the parameter
 - `com.tailf.conf.ConfObject val` - the value to give to the parameter
 
-<a id="m-put-f549d0ea766e"></a>
-### put(int, String)
+### put(int, String) <a href="#m-put-f549d0ea766e" id="m-put-f549d0ea766e"></a>
 
 ```java
 public void put(int index, String strval)
@@ -171,15 +167,13 @@ Populate the parameterized value at position `index` with
 - `int index` - zero-based index of the parameter
 - `String strval` - string representation of the value to give to the parameter
 
-<a id="m-reset-6927918ac70a"></a>
-### reset()
+### reset() <a href="#m-reset-6927918ac70a" id="m-reset-6927918ac70a"></a>
 
 ```java
 public void reset()
 ```
 
-<a id="m-setvalues-da0bc3c468bf"></a>
-### setValues()
+### setValues() <a href="#m-setValues-da0bc3c468bf" id="m-setValues-da0bc3c468bf"></a>
 
 ```java
 public void setValues() throws com.tailf.navu.NavuException
@@ -191,8 +185,7 @@ When all of the parameterized values have been filled in,
  this method is intended to be invoked for a
  final set operation with the given values.
 
-<a id="m-setvalues-24042b0e5576"></a>
-### setValues(NavuContext)
+### setValues(NavuContext) <a href="#m-setValues-24042b0e5576" id="m-setValues-24042b0e5576"></a>
 
 ```java
 public void setValues(com.tailf.navu.NavuContext context) throws com.tailf.navu.NavuException
@@ -209,8 +202,7 @@ When all of the parameterized values have been filled in,
 - `com.tailf.navu.NavuContext context` - NavuContext object that the setValues() operation should
                 use
 
-<a id="m-setvalues-5afe5d05dd50"></a>
-### setValues(NavuNode)
+### setValues(NavuNode) <a href="#m-setValues-5afe5d05dd50" id="m-setValues-5afe5d05dd50"></a>
 
 ```java
 public void setValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
@@ -218,15 +210,14 @@ public void setValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuEx
 
 Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-Similar to `NavuContext#setValues(NavuContext)` but uses the context of
+Similar to `setValues(NavuContext)` but uses the context of
  the supplied node.
 
 **Parameters**
 
 - `com.tailf.navu.NavuNode node` - node containing the NavuContext to use
 
-<a id="m-sharedsetvalues-d34ed76578b4"></a>
-### sharedSetValues()
+### sharedSetValues() <a href="#m-sharedSetValues-d34ed76578b4" id="m-sharedSetValues-d34ed76578b4"></a>
 
 ```java
 public void sharedSetValues() throws com.tailf.navu.NavuException
@@ -234,10 +225,9 @@ public void sharedSetValues() throws com.tailf.navu.NavuException
 
 Types: [NavuException](NavuException.md#cls-NavuException)
 
-Variant of `#setValues()` with FastMap support.
+Variant of [`setValues()`](PreparedXMLStatement.md#m-setValues-da0bc3c468bf) with FastMap support.
 
-<a id="m-sharedsetvalues-ccc5cc08315b"></a>
-### sharedSetValues(NavuContext)
+### sharedSetValues(NavuContext) <a href="#m-sharedSetValues-ccc5cc08315b" id="m-sharedSetValues-ccc5cc08315b"></a>
 
 ```java
 public void sharedSetValues(com.tailf.navu.NavuContext context) throws com.tailf.navu.NavuException
@@ -245,15 +235,14 @@ public void sharedSetValues(com.tailf.navu.NavuContext context) throws com.tailf
 
 Types: [NavuContext](NavuContext.md#cls-NavuContext), [NavuException](NavuException.md#cls-NavuException)
 
-Variant of `NavuContext#setValues(NavuContext)` with FastMap support.
+Variant of `setValues(NavuContext)` with FastMap support.
 
 **Parameters**
 
 - `com.tailf.navu.NavuContext context` - NavuContext object that the sharedSetValues()
                 operation should use
 
-<a id="m-sharedsetvalues-28aec52d6350"></a>
-### sharedSetValues(NavuNode)
+### sharedSetValues(NavuNode) <a href="#m-sharedSetValues-28aec52d6350" id="m-sharedSetValues-28aec52d6350"></a>
 
 ```java
 public void sharedSetValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.NavuException
@@ -261,7 +250,7 @@ public void sharedSetValues(com.tailf.navu.NavuNode node) throws com.tailf.navu.
 
 Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-Variant of `NavuNode#setValues(NavuNode)` with FastMap support.
+Variant of `setValues(NavuNode)` with FastMap support.
 
 **Parameters**
 

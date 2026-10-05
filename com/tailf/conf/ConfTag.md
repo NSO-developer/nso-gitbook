@@ -1,5 +1,4 @@
-<a id="cls-ConfTag"></a>
-# ConfTag
+# ConfTag <a href="#cls-ConfTag" id="cls-ConfTag"></a>
 
 ```java
 public class com.tailf.conf.ConfTag
@@ -20,15 +19,15 @@ Class representing an element in a model. This class is used e.g
 
 **Constructors**:
 
-- [ConfTag()](#m-conftag-0c8367dd87ad)
-- [ConfTag(ConfEObject)](#m-conftag-44bc0ef54539)
-- [ConfTag(ConfNamespace, int)](#m-conftag-44aa39640f34)
-- [ConfTag(ConfNamespace, String)](#m-conftag-ea99fbb70c5a)
-- [ConfTag(int, int)](#m-conftag-5f08034f3cee)
-- [ConfTag(int, String)](#m-conftag-2ad0f6760145)
-- [ConfTag(String)](#m-conftag-0f38a2807b74)
-- [ConfTag(String, int)](#m-conftag-a8f827e1ffad)
-- [ConfTag(String, String)](#m-conftag-aee19ff3488f)
+- [ConfTag()](#m-ConfTag-0c8367dd87ad)
+- [ConfTag(ConfEObject)](#m-ConfTag-44bc0ef54539)
+- [ConfTag(ConfNamespace, int)](#m-ConfTag-44aa39640f34)
+- [ConfTag(ConfNamespace, String)](#m-ConfTag-ea99fbb70c5a)
+- [ConfTag(int, int)](#m-ConfTag-5f08034f3cee)
+- [ConfTag(int, String)](#m-ConfTag-2ad0f6760145)
+- [ConfTag(String)](#m-ConfTag-0f38a2807b74)
+- [ConfTag(String, int)](#m-ConfTag-a8f827e1ffad)
+- [ConfTag(String, String)](#m-ConfTag-aee19ff3488f)
 
 **Fields**:
 
@@ -90,33 +89,31 @@ Class representing an element in a model. This class is used e.g
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
-- [encodeIKP()](#m-encodeikp-b160b87f6433)
+- [encodeIKP()](#m-encodeIKP-b160b87f6433)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfNamespace()](#m-getconfnamespace-87556caf3223)
-- [getNSHash()](#m-getnshash-2129fb8b3cfe)
-- [getPrefix()](#m-getprefix-9268091e0223)
-- [getTag()](#m-gettag-315f45956d6f)
-- [getTagHash()](#m-gettaghash-8f057919039c)
-- [getURI()](#m-geturi-7ec1ffd8cd93)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isLenient()](#m-islenient-47b594aa27c3)
-- [setConfNamespace(ConfNamespace)](#m-setconfnamespace-7fef1b53f52c)
-- [setLenient(boolean)](#m-setlenient-7cd970533a41)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(ConfNamespace)](#m-tostring-97a6a914714f)
-- [toString(int)](#m-tostring-477fa787d7c7)
+- [getConfNamespace()](#m-getConfNamespace-87556caf3223)
+- [getNSHash()](#m-getNSHash-2129fb8b3cfe)
+- [getPrefix()](#m-getPrefix-9268091e0223)
+- [getTag()](#m-getTag-315f45956d6f)
+- [getTagHash()](#m-getTagHash-8f057919039c)
+- [getURI()](#m-getURI-7ec1ffd8cd93)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isLenient()](#m-isLenient-47b594aa27c3)
+- [setConfNamespace(ConfNamespace)](#m-setConfNamespace-7fef1b53f52c)
+- [setLenient(boolean)](#m-setLenient-7cd970533a41)
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(ConfNamespace)](#m-toString-97a6a914714f)
+- [toString(int)](#m-toString-477fa787d7c7)
 
 ## Constructors
 
-<a id="m-conftag-0c8367dd87ad"></a>
-### ConfTag()
+### ConfTag() <a href="#m-ConfTag-0c8367dd87ad" id="m-ConfTag-0c8367dd87ad"></a>
 
 ```java
 protected ConfTag()
 ```
 
-<a id="m-conftag-44bc0ef54539"></a>
-### ConfTag(ConfEObject)
+### ConfTag(ConfEObject) <a href="#m-ConfTag-44bc0ef54539" id="m-ConfTag-44bc0ef54539"></a>
 
 ```java
 public ConfTag(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -128,8 +125,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-conftag-44aa39640f34"></a>
-### ConfTag(ConfNamespace, int)
+### ConfTag(ConfNamespace, int) <a href="#m-ConfTag-44aa39640f34" id="m-ConfTag-44aa39640f34"></a>
 
 ```java
 public ConfTag(com.tailf.conf.ConfNamespace nsObj, int tag)
@@ -142,8 +138,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 - `com.tailf.conf.ConfNamespace nsObj`
 - `int tag`
 
-<a id="m-conftag-ea99fbb70c5a"></a>
-### ConfTag(ConfNamespace, String)
+### ConfTag(ConfNamespace, String) <a href="#m-ConfTag-ea99fbb70c5a" id="m-ConfTag-ea99fbb70c5a"></a>
 
 ```java
 public ConfTag(com.tailf.conf.ConfNamespace nsObj, String tagName)
@@ -156,8 +151,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 - `com.tailf.conf.ConfNamespace nsObj`
 - `String tagName`
 
-<a id="m-conftag-5f08034f3cee"></a>
-### ConfTag(int, int)
+### ConfTag(int, int) <a href="#m-ConfTag-5f08034f3cee" id="m-ConfTag-5f08034f3cee"></a>
 
 ```java
 public ConfTag(int ns, int tag)
@@ -168,8 +162,7 @@ public ConfTag(int ns, int tag)
 - `int ns`
 - `int tag`
 
-<a id="m-conftag-2ad0f6760145"></a>
-### ConfTag(int, String)
+### ConfTag(int, String) <a href="#m-ConfTag-2ad0f6760145" id="m-ConfTag-2ad0f6760145"></a>
 
 ```java
 public ConfTag(int ns, String tagname)
@@ -180,8 +173,7 @@ public ConfTag(int ns, String tagname)
 - `int ns`
 - `String tagname`
 
-<a id="m-conftag-0f38a2807b74"></a>
-### ConfTag(String)
+### ConfTag(String) <a href="#m-ConfTag-0f38a2807b74" id="m-ConfTag-0f38a2807b74"></a>
 
 ```java
 public ConfTag(String tagName)
@@ -191,8 +183,7 @@ public ConfTag(String tagName)
 
 - `String tagName`
 
-<a id="m-conftag-a8f827e1ffad"></a>
-### ConfTag(String, int)
+### ConfTag(String, int) <a href="#m-ConfTag-a8f827e1ffad" id="m-ConfTag-a8f827e1ffad"></a>
 
 ```java
 public ConfTag(String nsURI, int tag)
@@ -203,8 +194,7 @@ public ConfTag(String nsURI, int tag)
 - `String nsURI`
 - `int tag`
 
-<a id="m-conftag-aee19ff3488f"></a>
-### ConfTag(String, String)
+### ConfTag(String, String) <a href="#m-ConfTag-aee19ff3488f" id="m-ConfTag-aee19ff3488f"></a>
 
 ```java
 public ConfTag(String nsPrefix, String tagName)
@@ -218,8 +208,7 @@ public ConfTag(String nsPrefix, String tagName)
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -227,8 +216,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-encodeikp-b160b87f6433"></a>
-### encodeIKP()
+### encodeIKP() <a href="#m-encodeIKP-b160b87f6433" id="m-encodeIKP-b160b87f6433"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encodeIKP()
@@ -236,8 +224,7 @@ public com.tailf.proto.ConfEObject encodeIKP()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -253,8 +240,7 @@ Determine if two ConfTags are equal.
 
 **Returns:** true if the objects are identical.
 
-<a id="m-getconfnamespace-87556caf3223"></a>
-### getConfNamespace()
+### getConfNamespace() <a href="#m-getConfNamespace-87556caf3223" id="m-getConfNamespace-87556caf3223"></a>
 
 ```java
 public com.tailf.conf.ConfNamespace getConfNamespace()
@@ -262,57 +248,49 @@ public com.tailf.conf.ConfNamespace getConfNamespace()
 
 Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
-<a id="m-getnshash-2129fb8b3cfe"></a>
-### getNSHash()
+### getNSHash() <a href="#m-getNSHash-2129fb8b3cfe" id="m-getNSHash-2129fb8b3cfe"></a>
 
 ```java
 public int getNSHash()
 ```
 
-<a id="m-getprefix-9268091e0223"></a>
-### getPrefix()
+### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
 
 ```java
 public String getPrefix()
 ```
 
-<a id="m-gettag-315f45956d6f"></a>
-### getTag()
+### getTag() <a href="#m-getTag-315f45956d6f" id="m-getTag-315f45956d6f"></a>
 
 ```java
 public String getTag()
 ```
 
-<a id="m-gettaghash-8f057919039c"></a>
-### getTagHash()
+### getTagHash() <a href="#m-getTagHash-8f057919039c" id="m-getTagHash-8f057919039c"></a>
 
 ```java
 public int getTagHash()
 ```
 
-<a id="m-geturi-7ec1ffd8cd93"></a>
-### getURI()
+### getURI() <a href="#m-getURI-7ec1ffd8cd93" id="m-getURI-7ec1ffd8cd93"></a>
 
 ```java
 public String getURI()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-islenient-47b594aa27c3"></a>
-### isLenient()
+### isLenient() <a href="#m-isLenient-47b594aa27c3" id="m-isLenient-47b594aa27c3"></a>
 
 ```java
 public boolean isLenient()
 ```
 
-<a id="m-setconfnamespace-7fef1b53f52c"></a>
-### setConfNamespace(ConfNamespace)
+### setConfNamespace(ConfNamespace) <a href="#m-setConfNamespace-7fef1b53f52c" id="m-setConfNamespace-7fef1b53f52c"></a>
 
 ```java
 public void setConfNamespace(com.tailf.conf.ConfNamespace nsObj)
@@ -324,8 +302,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
 - `com.tailf.conf.ConfNamespace nsObj`
 
-<a id="m-setlenient-7cd970533a41"></a>
-### setLenient(boolean)
+### setLenient(boolean) <a href="#m-setLenient-7cd970533a41" id="m-setLenient-7cd970533a41"></a>
 
 ```java
 public void setLenient(boolean lenient)
@@ -335,15 +312,13 @@ public void setLenient(boolean lenient)
 
 - `boolean lenient`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-tostring-97a6a914714f"></a>
-### toString(ConfNamespace)
+### toString(ConfNamespace) <a href="#m-toString-97a6a914714f" id="m-toString-97a6a914714f"></a>
 
 **Package-private**
 
@@ -357,8 +332,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
 - `com.tailf.conf.ConfNamespace prevNsObj`
 
-<a id="m-tostring-477fa787d7c7"></a>
-### toString(int)
+### toString(int) <a href="#m-toString-477fa787d7c7" id="m-toString-477fa787d7c7"></a>
 
 **Package-private**
 

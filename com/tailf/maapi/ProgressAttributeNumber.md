@@ -1,5 +1,4 @@
-<a id="cls-ProgressAttributeNumber"></a>
-# ProgressAttributeNumber
+# ProgressAttributeNumber <a href="#cls-ProgressAttributeNumber" id="cls-ProgressAttributeNumber"></a>
 
 ```java
 public class com.tailf.maapi.ProgressAttributeNumber
@@ -12,7 +11,7 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#cls-ProgressAttributeV
 
 **Constructors**:
 
-- [ProgressAttributeNumber(Long)](#m-progressattributenumber-49c0433eef5a)
+- [ProgressAttributeNumber(Long)](#m-ProgressAttributeNumber-49c0433eef5a)
 
 **Fields**:
 
@@ -21,13 +20,12 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#cls-ProgressAttributeV
 
 **Methods**:
 
-- [longValue()](#m-longvalue-636bfe2d6862)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [longValue()](#m-longValue-636bfe2d6862)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-progressattributenumber-49c0433eef5a"></a>
-### ProgressAttributeNumber(Long)
+### ProgressAttributeNumber(Long) <a href="#m-ProgressAttributeNumber-49c0433eef5a" id="m-ProgressAttributeNumber-49c0433eef5a"></a>
 
 ```java
 public ProgressAttributeNumber(Long value)
@@ -40,15 +38,13 @@ public ProgressAttributeNumber(Long value)
 
 ## Methods
 
-<a id="m-longvalue-636bfe2d6862"></a>
-### longValue()
+### longValue() <a href="#m-longValue-636bfe2d6862" id="m-longValue-636bfe2d6862"></a>
 
 ```java
 public long longValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

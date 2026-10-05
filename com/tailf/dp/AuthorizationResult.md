@@ -1,5 +1,4 @@
-<a id="cls-AuthorizationResult"></a>
-# AuthorizationResult
+# AuthorizationResult <a href="#cls-AuthorizationResult" id="cls-AuthorizationResult"></a>
 
 ```java
 public enum com.tailf.dp.AuthorizationResult
@@ -20,15 +19,14 @@ Enum for returning authorization result from authorization callbacks
 
 **Methods**:
 
-- [getType(int)](#m-gettype-ea5f2e669127)
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getType(int)](#m-getType-ea5f2e669127)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ACCEPT"></a>
-### ACCEPT
+### ACCEPT <a href="#m-ACCEPT" id="m-ACCEPT"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationResult ACCEPT;
@@ -37,8 +35,7 @@ public static final com.tailf.dp.AuthorizationResult ACCEPT;
 The access is allowed. This is a "final verdict", analogous to a
  "full match" when the AAA rules are used.
 
-<a id="m-CONTINUE"></a>
-### CONTINUE
+### CONTINUE <a href="#m-CONTINUE" id="m-CONTINUE"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationResult CONTINUE;
@@ -49,8 +46,7 @@ The access is allowed "so far". I.e. access to sub-elements is not
  a checkCommandAccess() callback is called with operation == READ or
  a checkDataAccess() callback is called with how == INTERMEDIATE.
 
-<a id="m-DEFAULT"></a>
-### DEFAULT
+### DEFAULT <a href="#m-DEFAULT" id="m-DEFAULT"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationResult DEFAULT;
@@ -59,8 +55,7 @@ public static final com.tailf.dp.AuthorizationResult DEFAULT;
 The request should be handled according to the rules configured in
  the AAA data model.
 
-<a id="m-REJECT"></a>
-### REJECT
+### REJECT <a href="#m-REJECT" id="m-REJECT"></a>
 
 ```java
 public static final com.tailf.dp.AuthorizationResult REJECT;
@@ -71,8 +66,7 @@ The access is denied.
 
 ## Methods
 
-<a id="m-gettype-ea5f2e669127"></a>
-### getType(int)
+### getType(int) <a href="#m-getType-ea5f2e669127" id="m-getType-ea5f2e669127"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationResult getType(int l)
@@ -89,8 +83,7 @@ Get a DpAuthorizationResult for given int value or
 
 **Returns:** AuthorizationResult for this int value
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -100,8 +93,7 @@ Get the int value representation of this authorization result
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationResult valueOf(String name)
@@ -113,8 +105,7 @@ Types: [AuthorizationResult](AuthorizationResult.md#cls-AuthorizationResult)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.AuthorizationResult[] values()

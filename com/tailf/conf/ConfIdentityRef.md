@@ -1,5 +1,4 @@
-<a id="cls-ConfIdentityRef"></a>
-# ConfIdentityRef
+# ConfIdentityRef <a href="#cls-ConfIdentityRef" id="cls-ConfIdentityRef"></a>
 
 ```java
 public class com.tailf.conf.ConfIdentityRef
@@ -15,11 +14,11 @@ DATA_CONTAINER - Corresponds to the YANG identityRef type.
 
 **Constructors**:
 
-- [ConfIdentityRef(ConfEObject)](#m-confidentityref-606d2de13588)
-- [ConfIdentityRef(ConfPath, MountIdInterface, String, String)](#m-confidentityref-2b17c0a14ff7)
-- [ConfIdentityRef(int, int)](#m-confidentityref-efe3515a94c1)
-- [ConfIdentityRef(String)](#m-confidentityref-a0450624b169)
-- [ConfIdentityRef(String, String)](#m-confidentityref-bc8f9fb1df3d)
+- [ConfIdentityRef(ConfEObject)](#m-ConfIdentityRef-606d2de13588)
+- [ConfIdentityRef(ConfPath, MountIdInterface, String, String)](#m-ConfIdentityRef-2b17c0a14ff7)
+- [ConfIdentityRef(int, int)](#m-ConfIdentityRef-efe3515a94c1)
+- [ConfIdentityRef(String)](#m-ConfIdentityRef-a0450624b169)
+- [ConfIdentityRef(String, String)](#m-ConfIdentityRef-bc8f9fb1df3d)
 
 **Fields**:
 
@@ -82,24 +81,23 @@ DATA_CONTAINER - Corresponds to the YANG identityRef type.
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfNamespace()](#m-getconfnamespace-87556caf3223)
-- [getNSHash()](#m-getnshash-2129fb8b3cfe)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getTag()](#m-gettag-315f45956d6f)
-- [getTagHash()](#m-gettaghash-8f057919039c)
-- [getUri()](#m-geturi-e839fdd3e24c)
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [setConfNamespace(ConfNamespace)](#m-setconfnamespace-7fef1b53f52c)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(int)](#m-tostring-477fa787d7c7)
+- [getConfNamespace()](#m-getConfNamespace-87556caf3223)
+- [getNSHash()](#m-getNSHash-2129fb8b3cfe)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getTag()](#m-getTag-315f45956d6f)
+- [getTagHash()](#m-getTagHash-8f057919039c)
+- [getUri()](#m-getUri-e839fdd3e24c)
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [setConfNamespace(ConfNamespace)](#m-setConfNamespace-7fef1b53f52c)
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(int)](#m-toString-477fa787d7c7)
 
 ## Constructors
 
-<a id="m-confidentityref-606d2de13588"></a>
-### ConfIdentityRef(ConfEObject)
+### ConfIdentityRef(ConfEObject) <a href="#m-ConfIdentityRef-606d2de13588" id="m-ConfIdentityRef-606d2de13588"></a>
 
 ```java
 public ConfIdentityRef(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -111,8 +109,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confidentityref-2b17c0a14ff7"></a>
-### ConfIdentityRef(ConfPath, MountIdInterface, String, String)
+### ConfIdentityRef(ConfPath, MountIdInterface, String, String) <a href="#m-ConfIdentityRef-2b17c0a14ff7" id="m-ConfIdentityRef-2b17c0a14ff7"></a>
 
 ```java
 public ConfIdentityRef(
@@ -132,8 +129,7 @@ Types: [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface
 - `String prefix`
 - `String tagname`
 
-<a id="m-confidentityref-efe3515a94c1"></a>
-### ConfIdentityRef(int, int)
+### ConfIdentityRef(int, int) <a href="#m-ConfIdentityRef-efe3515a94c1" id="m-ConfIdentityRef-efe3515a94c1"></a>
 
 ```java
 public ConfIdentityRef(int ns, int tag)
@@ -144,8 +140,7 @@ public ConfIdentityRef(int ns, int tag)
 - `int ns` - Namespace hash
 - `int tag` - tagHash
 
-<a id="m-confidentityref-a0450624b169"></a>
-### ConfIdentityRef(String)
+### ConfIdentityRef(String) <a href="#m-ConfIdentityRef-a0450624b169" id="m-ConfIdentityRef-a0450624b169"></a>
 
 ```java
 public ConfIdentityRef(String tagname)
@@ -155,8 +150,7 @@ public ConfIdentityRef(String tagname)
 
 - `String tagname`
 
-<a id="m-confidentityref-bc8f9fb1df3d"></a>
-### ConfIdentityRef(String, String)
+### ConfIdentityRef(String, String) <a href="#m-ConfIdentityRef-bc8f9fb1df3d" id="m-ConfIdentityRef-bc8f9fb1df3d"></a>
 
 ```java
 public ConfIdentityRef(String nsURI, String tagname)
@@ -170,8 +164,7 @@ public ConfIdentityRef(String nsURI, String tagname)
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -179,8 +172,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -190,8 +182,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getconfnamespace-87556caf3223"></a>
-### getConfNamespace()
+### getConfNamespace() <a href="#m-getConfNamespace-87556caf3223" id="m-getConfNamespace-87556caf3223"></a>
 
 ```java
 public com.tailf.conf.ConfNamespace getConfNamespace()
@@ -199,43 +190,37 @@ public com.tailf.conf.ConfNamespace getConfNamespace()
 
 Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
-<a id="m-getnshash-2129fb8b3cfe"></a>
-### getNSHash()
+### getNSHash() <a href="#m-getNSHash-2129fb8b3cfe" id="m-getNSHash-2129fb8b3cfe"></a>
 
 ```java
 public int getNSHash()
 ```
 
-<a id="m-gettag-315f45956d6f"></a>
-### getTag()
+### getTag() <a href="#m-getTag-315f45956d6f" id="m-getTag-315f45956d6f"></a>
 
 ```java
 public String getTag()
 ```
 
-<a id="m-gettaghash-8f057919039c"></a>
-### getTagHash()
+### getTagHash() <a href="#m-getTagHash-8f057919039c" id="m-getTagHash-8f057919039c"></a>
 
 ```java
 public int getTagHash()
 ```
 
-<a id="m-geturi-e839fdd3e24c"></a>
-### getUri()
+### getUri() <a href="#m-getUri-e839fdd3e24c" id="m-getUri-e839fdd3e24c"></a>
 
 ```java
 public String getUri()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-setconfnamespace-7fef1b53f52c"></a>
-### setConfNamespace(ConfNamespace)
+### setConfNamespace(ConfNamespace) <a href="#m-setConfNamespace-7fef1b53f52c" id="m-setConfNamespace-7fef1b53f52c"></a>
 
 ```java
 public void setConfNamespace(com.tailf.conf.ConfNamespace nsObj)
@@ -247,15 +232,13 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 
 - `com.tailf.conf.ConfNamespace nsObj`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-tostring-477fa787d7c7"></a>
-### toString(int)
+### toString(int) <a href="#m-toString-477fa787d7c7" id="m-toString-477fa787d7c7"></a>
 
 **Package-private**
 

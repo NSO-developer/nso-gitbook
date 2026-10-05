@@ -1,5 +1,4 @@
-<a id="cls-Child"></a>
-# Child
+# Child <a href="#cls-Child" id="cls-Child"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchema.Child
@@ -14,22 +13,21 @@ Child entry, stored in a continuous area of memory after a level record.
 
 **Constructors**:
 
-- [Child()](#m-child-7aab3b03a8c5)
-- [Child(Source, int, int)](#m-child-ad55798fd08a)
+- [Child()](#m-Child-7aab3b03a8c5)
+- [Child(Source, int, int)](#m-Child-ad55798fd08a)
 
 **Methods**:
 
-- [getIdx()](#m-getidx-97576e8cb221)
-- [getLevelOff()](#m-getleveloff-56218c3aecdf)
-- [getNs()](#m-getns-59b97eae2a4a)
-- [getOff()](#m-getoff-578b9943fd00)
-- [getTag()](#m-gettag-315f45956d6f)
+- [getIdx()](#m-getIdx-97576e8cb221)
+- [getLevelOff()](#m-getLevelOff-56218c3aecdf)
+- [getNs()](#m-getNs-59b97eae2a4a)
+- [getOff()](#m-getOff-578b9943fd00)
+- [getTag()](#m-getTag-315f45956d6f)
 - [read(Source, int)](#m-read-c048381a08bd)
 
 ## Constructors
 
-<a id="m-child-7aab3b03a8c5"></a>
-### Child()
+### Child() <a href="#m-Child-7aab3b03a8c5" id="m-Child-7aab3b03a8c5"></a>
 
 **Package-private**
 
@@ -37,8 +35,7 @@ Child entry, stored in a continuous area of memory after a level record.
 Child()
 ```
 
-<a id="m-child-ad55798fd08a"></a>
-### Child(Source, int, int)
+### Child(Source, int, int) <a href="#m-Child-ad55798fd08a" id="m-Child-ad55798fd08a"></a>
 
 **Package-private**
 
@@ -57,43 +54,37 @@ Types: [Source](Source.md#cls-Source)
 
 ## Methods
 
-<a id="m-getidx-97576e8cb221"></a>
-### getIdx()
+### getIdx() <a href="#m-getIdx-97576e8cb221" id="m-getIdx-97576e8cb221"></a>
 
 ```java
 public int getIdx()
 ```
 
-<a id="m-getleveloff-56218c3aecdf"></a>
-### getLevelOff()
+### getLevelOff() <a href="#m-getLevelOff-56218c3aecdf" id="m-getLevelOff-56218c3aecdf"></a>
 
 ```java
 public int getLevelOff()
 ```
 
-<a id="m-getns-59b97eae2a4a"></a>
-### getNs()
+### getNs() <a href="#m-getNs-59b97eae2a4a" id="m-getNs-59b97eae2a4a"></a>
 
 ```java
 public int getNs()
 ```
 
-<a id="m-getoff-578b9943fd00"></a>
-### getOff()
+### getOff() <a href="#m-getOff-578b9943fd00" id="m-getOff-578b9943fd00"></a>
 
 ```java
 public int getOff()
 ```
 
-<a id="m-gettag-315f45956d6f"></a>
-### getTag()
+### getTag() <a href="#m-getTag-315f45956d6f" id="m-getTag-315f45956d6f"></a>
 
 ```java
 public int getTag()
 ```
 
-<a id="m-read-c048381a08bd"></a>
-### read(Source, int)
+### read(Source, int) <a href="#m-read-c048381a08bd" id="m-read-c048381a08bd"></a>
 
 **Package-private**
 

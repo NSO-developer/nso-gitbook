@@ -1,5 +1,4 @@
-<a id="cls-ConfCLIToken"></a>
-# ConfCLIToken
+# ConfCLIToken <a href="#cls-ConfCLIToken" id="cls-ConfCLIToken"></a>
 
 ```java
 public class com.tailf.conf.ConfCLIToken
@@ -9,20 +8,19 @@ public class com.tailf.conf.ConfCLIToken
 
 **Constructors**:
 
-- [ConfCLIToken(ConfObject, ConfBuf)](#m-confclitoken-b0e5e1796b83)
+- [ConfCLIToken(ConfObject, ConfBuf)](#m-ConfCLIToken-b0e5e1796b83)
 
 **Methods**:
 
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getObject()](#m-getobject-723a0ba5640e)
-- [getValue()](#m-getvalue-d93864668c40)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getObject()](#m-getObject-723a0ba5640e)
+- [getValue()](#m-getValue-d93864668c40)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confclitoken-b0e5e1796b83"></a>
-### ConfCLIToken(ConfObject, ConfBuf)
+### ConfCLIToken(ConfObject, ConfBuf) <a href="#m-ConfCLIToken-b0e5e1796b83" id="m-ConfCLIToken-b0e5e1796b83"></a>
 
 ```java
 public ConfCLIToken(com.tailf.conf.ConfObject obj, com.tailf.conf.ConfBuf value)
@@ -38,8 +36,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject), [ConfBuf](ConfBuf.md#cls-Conf
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -49,8 +46,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getobject-723a0ba5640e"></a>
-### getObject()
+### getObject() <a href="#m-getObject-723a0ba5640e" id="m-getObject-723a0ba5640e"></a>
 
 ```java
 public com.tailf.conf.ConfObject getObject()
@@ -58,8 +54,7 @@ public com.tailf.conf.ConfObject getObject()
 
 Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public com.tailf.conf.ConfBuf getValue()
@@ -67,15 +62,13 @@ public com.tailf.conf.ConfBuf getValue()
 
 Types: [ConfBuf](ConfBuf.md#cls-ConfBuf)
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

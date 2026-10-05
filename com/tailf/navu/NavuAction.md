@@ -1,5 +1,4 @@
-<a id="cls-NavuAction"></a>
-# NavuAction
+# NavuAction <a href="#cls-NavuAction" id="cls-NavuAction"></a>
 
 ```java
 public class com.tailf.navu.NavuAction
@@ -18,8 +17,8 @@ This class represents a action modeled in the data model.
 
 **Constructors**:
 
-- [NavuAction(NavuContext, CSNode, NavuNode, Formats)](#m-navuaction-36aac3975fb6)
-- [NavuAction(NavuContext, CSNode, NavuNode, String, Object[])](#m-navuaction-1b629f4351cc)
+- [NavuAction(NavuContext, CSNode, NavuNode, Formats)](#m-NavuAction-36aac3975fb6)
+- [NavuAction(NavuContext, CSNode, NavuNode, String, Object[])](#m-NavuAction-1b629f4351cc)
 
 **Fields**:
 
@@ -44,63 +43,62 @@ This class represents a action modeled in the data model.
 - [container(String)](#m-container-76f5d191b16d)
 - [container(String, String)](#m-container-b76d38390b19)
 - [context()](#m-context-0990f1a0bb68)
-- [encodeValues()](#m-encodevalues-7bd911383b1a)
-- [encodeXML()](#m-encodexml-bdbcd52c2505)
+- [encodeValues()](#m-encodeValues-7bd911383b1a)
+- [encodeXML()](#m-encodeXML-bdbcd52c2505)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
 - [exists()](#m-exists-56968a4c7bda)
-- [filterChildren(CSNode)](NavuNode.md#m-filterchildren-e72b7b1ab25d) from NavuNode
-- [getChangeFlag()](#m-getchangeflag-33cadf5a32ba)
-- [getChanges()](#m-getchanges-9c036516dc6f)
-- [getChanges(boolean)](#m-getchanges-5868a18319f7)
-- [getChanges(boolean, DiffIterateOperFlag[])](#m-getchanges-71d054341fc5)
-- [getChanges(NavuContext)](#m-getchanges-c106383f174d)
-- [getChanges(NavuContext, boolean)](#m-getchanges-bcf5b6dbccf2)
-- [getChanges(NavuContext, boolean, DiffIterateOperFlag[])](#m-getchanges-9f13a683b086)
-- [getConfPath()](NavuNode.md#m-getconfpath-c7ca3cb63c17) from NavuNode
-- [getInfo()](#m-getinfo-259a72b5d74c)
-- [getKeyPath()](#m-getkeypath-4c9200912948)
-- [getName()](#m-getname-2634b18b4a25)
-- [getNavuNode(ConfPath)](#m-getnavunode-d19ad1dd90fc)
-- [getParent()](#m-getparent-45c1b196ed70)
-- [getRootNS()](#m-getrootns-3f1d054cecd6)
-- [getValues(ConfXMLParam[])](#m-getvalues-1eb02439a757)
-- [getValues(String)](#m-getvalues-c03de090764d)
-- [hashCode()](#m-hashcode-ef797a217903)
+- [filterChildren(CSNode)](NavuNode.md#m-filterChildren-e72b7b1ab25d) from NavuNode
+- [getChangeFlag()](#m-getChangeFlag-33cadf5a32ba)
+- [getChanges()](#m-getChanges-9c036516dc6f)
+- [getChanges(boolean)](#m-getChanges-5868a18319f7)
+- [getChanges(boolean, DiffIterateOperFlag[])](#m-getChanges-71d054341fc5)
+- [getChanges(NavuContext)](#m-getChanges-c106383f174d)
+- [getChanges(NavuContext, boolean)](#m-getChanges-bcf5b6dbccf2)
+- [getChanges(NavuContext, boolean, DiffIterateOperFlag[])](#m-getChanges-9f13a683b086)
+- [getConfPath()](NavuNode.md#m-getConfPath-c7ca3cb63c17) from NavuNode
+- [getInfo()](#m-getInfo-259a72b5d74c)
+- [getKeyPath()](#m-getKeyPath-4c9200912948)
+- [getName()](#m-getName-2634b18b4a25)
+- [getNavuNode(ConfPath)](#m-getNavuNode-d19ad1dd90fc)
+- [getParent()](#m-getParent-45c1b196ed70)
+- [getRootNS()](#m-getRootNS-3f1d054cecd6)
+- [getValues(ConfXMLParam[])](#m-getValues-1eb02439a757)
+- [getValues(String)](#m-getValues-c03de090764d)
+- [hashCode()](#m-hashCode-ef797a217903)
 - [leaf(ConfNamespace, String)](NavuNode.md#m-leaf-da3758f37f21) from NavuNode
 - [leaf(Integer)](#m-leaf-47fda8402c20)
 - [leaf(String)](#m-leaf-ac189787d67d)
 - [leaf(String, String)](#m-leaf-db53852a70eb)
-- [leafList(ConfNamespace, String)](NavuNode.md#m-leaflist-a2d5ad836b3e) from NavuNode
-- [leafList(Integer)](#m-leaflist-552c8007ecb4)
-- [leafList(String)](#m-leaflist-5811cbb534ec)
-- [leafList(String, String)](#m-leaflist-79bb39ee2665)
+- [leafList(ConfNamespace, String)](NavuNode.md#m-leafList-a2d5ad836b3e) from NavuNode
+- [leafList(Integer)](#m-leafList-552c8007ecb4)
+- [leafList(String)](#m-leafList-5811cbb534ec)
+- [leafList(String, String)](#m-leafList-79bb39ee2665)
 - [list(ConfNamespace, String)](NavuNode.md#m-list-6b15381fd14a) from NavuNode
 - [list(Integer)](#m-list-7dc96bdbb69a)
 - [list(String)](#m-list-2c1a74a3cf07)
 - [list(String, String)](#m-list-8f28e4f62b19)
 - [namespace(String)](NavuNode.md#m-namespace-e29ad62ed095) from NavuNode
 - [prefix(String)](NavuNode.md#m-prefix-fdd71b8275bb) from NavuNode
-- [prepareXMLCall(String)](NavuNode.md#m-preparexmlcall-c22e250f2cac) from NavuNode
+- [prepareXMLCall(String)](NavuNode.md#m-prepareXMLCall-c22e250f2cac) from NavuNode
 - [refresh()](#m-refresh-3852c3f76c8e)
 - [reset()](#m-reset-6927918ac70a)
 - [select(ConfObject[])](#m-select-336dd76cd112)
 - [select(List<String>)](#m-select-e81f36150174)
 - [select(String)](#m-select-5031325154b9)
-- [setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext)](#m-setchange-0bbeb54ebc15)
-- [setValues(ConfXMLParam[])](NavuNode.md#m-setvalues-50d8edffa795) from NavuNode
-- [setValues(String)](NavuNode.md#m-setvalues-3ec9581ce266) from NavuNode
-- [sharedSetValues(ConfXMLParam[])](NavuNode.md#m-sharedsetvalues-705549be9df0) from NavuNode
-- [sharedSetValues(String)](NavuNode.md#m-sharedsetvalues-ad93c38b671f) from NavuNode
-- [stopCdbSession()](#m-stopcdbsession-17418252a986)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [valueUpdateInd(NavuNode)](#m-valueupdateind-e7cd65f79d78)
-- [xPathSelect(String)](#m-xpathselect-0fb26b9f41e0)
-- [xPathSelectIterate(String, NavuNodeSetIterate)](NavuNode.md#m-xpathselectiterate-12547f34f47c) from NavuNode
+- [setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext)](#m-setChange-0bbeb54ebc15)
+- [setValues(ConfXMLParam[])](NavuNode.md#m-setValues-50d8edffa795) from NavuNode
+- [setValues(String)](NavuNode.md#m-setValues-3ec9581ce266) from NavuNode
+- [sharedSetValues(ConfXMLParam[])](NavuNode.md#m-sharedSetValues-705549be9df0) from NavuNode
+- [sharedSetValues(String)](NavuNode.md#m-sharedSetValues-ad93c38b671f) from NavuNode
+- [stopCdbSession()](#m-stopCdbSession-17418252a986)
+- [toString()](#m-toString-e9d48c5503ef)
+- [valueUpdateInd(NavuNode)](#m-valueUpdateInd-e7cd65f79d78)
+- [xPathSelect(String)](#m-xPathSelect-0fb26b9f41e0)
+- [xPathSelectIterate(String, NavuNodeSetIterate)](NavuNode.md#m-xPathSelectIterate-12547f34f47c) from NavuNode
 
 ## Constructors
 
-<a id="m-navuaction-36aac3975fb6"></a>
-### NavuAction(NavuContext, CSNode, NavuNode, Formats)
+### NavuAction(NavuContext, CSNode, NavuNode, Formats) <a href="#m-NavuAction-36aac3975fb6" id="m-NavuAction-36aac3975fb6"></a>
 
 ```java
 protected NavuAction(
@@ -122,8 +120,7 @@ KeyPath2NavuNode specific constructor
 - `com.tailf.navu.NavuNode parent`
 - `com.tailf.navu.KeyPath2NavuNode.Formats fs`
 
-<a id="m-navuaction-1b629f4351cc"></a>
-### NavuAction(NavuContext, CSNode, NavuNode, String, Object[])
+### NavuAction(NavuContext, CSNode, NavuNode, String, Object[]) <a href="#m-NavuAction-1b629f4351cc" id="m-NavuAction-1b629f4351cc"></a>
 
 ```java
 protected NavuAction(
@@ -148,8 +145,7 @@ Types: [NavuContext](NavuContext.md#cls-NavuContext), [CSNode](../maapi/MaapiSch
 
 ## Fields
 
-<a id="m-nodeInfo"></a>
-### nodeInfo
+### nodeInfo <a href="#m-nodeInfo" id="m-nodeInfo"></a>
 
 ```java
 protected com.tailf.navu.NavuNodeInfo nodeInfo = null;
@@ -157,8 +153,7 @@ protected com.tailf.navu.NavuNodeInfo nodeInfo = null;
 
 Types: [NavuNodeInfo](NavuNodeInfo.md#cls-NavuNodeInfo)
 
-<a id="m-parent"></a>
-### parent
+### parent <a href="#m-parent" id="m-parent"></a>
 
 ```java
 protected com.tailf.navu.NavuNode parent = null;
@@ -169,8 +164,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode)
 
 ## Methods
 
-<a id="m-call-8169b4e243e4"></a>
-### call()
+### call() <a href="#m-call-8169b4e243e4" id="m-call-8169b4e243e4"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] call() throws com.tailf.navu.NavuException
@@ -186,8 +180,7 @@ Issues an action with empty parameters
 
 - `NavuException`
 
-<a id="m-call-387d37c25830"></a>
-### call(ConfXMLParam[])
+### call(ConfXMLParam[]) <a href="#m-call-387d37c25830" id="m-call-387d37c25830"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] call(
@@ -209,8 +202,7 @@ Issues an action call with given parameters
 - `NavuException` - if the NavuContext is not created with
  Maapi
 
-<a id="m-call-803e5e9e2246"></a>
-### call(String)
+### call(String) <a href="#m-call-803e5e9e2246" id="m-call-803e5e9e2246"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] call(String xml) throws com.tailf.navu.NavuException
@@ -228,8 +220,7 @@ Issues an action call with given parameter
 
 - `NavuException`
 
-<a id="m-children-7d31300d62c3"></a>
-### children()
+### children() <a href="#m-children-7d31300d62c3" id="m-children-7d31300d62c3"></a>
 
 ```java
 public java.util.Collection<com.tailf.navu.NavuNode> children() throws com.tailf.navu.NavuException
@@ -241,8 +232,7 @@ Return the children of this node.
 
 **Returns:** children of this node
 
-<a id="m-container-abb10ecdc3f6"></a>
-### container(Integer)
+### container(Integer) <a href="#m-container-abb10ecdc3f6" id="m-container-abb10ecdc3f6"></a>
 
 ```java
 public com.tailf.navu.NavuContainer container(Integer key) throws com.tailf.navu.NavuException
@@ -254,8 +244,7 @@ Types: [NavuContainer](NavuContainer.md#cls-NavuContainer), [NavuException](Navu
 
 - `Integer key`
 
-<a id="m-container-76f5d191b16d"></a>
-### container(String)
+### container(String) <a href="#m-container-76f5d191b16d" id="m-container-76f5d191b16d"></a>
 
 ```java
 public com.tailf.navu.NavuContainer container(String key) throws com.tailf.navu.NavuException
@@ -267,8 +256,7 @@ Types: [NavuContainer](NavuContainer.md#cls-NavuContainer), [NavuException](Navu
 
 - `String key`
 
-<a id="m-container-b76d38390b19"></a>
-### container(String, String)
+### container(String, String) <a href="#m-container-b76d38390b19" id="m-container-b76d38390b19"></a>
 
 ```java
 public com.tailf.navu.NavuContainer container(
@@ -285,8 +273,7 @@ Types: [NavuContainer](NavuContainer.md#cls-NavuContainer), [NavuException](Navu
 - `String prefix`
 - `String key`
 
-<a id="m-context-0990f1a0bb68"></a>
-### context()
+### context() <a href="#m-context-0990f1a0bb68" id="m-context-0990f1a0bb68"></a>
 
 ```java
 public com.tailf.navu.NavuContext context()
@@ -299,8 +286,7 @@ Returns the current [`NavuContext`](NavuContext.md#cls-NavuContext) that this no
 
 **Returns:** current cdbSession().
 
-<a id="m-encodevalues-7bd911383b1a"></a>
-### encodeValues()
+### encodeValues() <a href="#m-encodeValues-7bd911383b1a" id="m-encodeValues-7bd911383b1a"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues() throws com.tailf.navu.NavuException
@@ -309,8 +295,7 @@ public java.util.List<com.tailf.conf.ConfXMLParam> encodeValues() throws com.tai
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-encodexml-bdbcd52c2505"></a>
-### encodeXML()
+### encodeXML() <a href="#m-encodeXML-bdbcd52c2505" id="m-encodeXML-bdbcd52c2505"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfXMLParam> encodeXML() throws com.tailf.navu.NavuException
@@ -318,8 +303,7 @@ public java.util.List<com.tailf.conf.ConfXMLParam> encodeXML() throws com.tailf.
 
 Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -339,8 +323,7 @@ Compares the specified object with this `NavuAction`
 **Returns:** `true` if the specified object is equal to this
          `NavuAction`
 
-<a id="m-exists-56968a4c7bda"></a>
-### exists()
+### exists() <a href="#m-exists-56968a4c7bda" id="m-exists-56968a4c7bda"></a>
 
 ```java
 public boolean exists() throws com.tailf.navu.NavuException
@@ -348,8 +331,7 @@ public boolean exists() throws com.tailf.navu.NavuException
 
 Types: [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-getchangeflag-33cadf5a32ba"></a>
-### getChangeFlag()
+### getChangeFlag() <a href="#m-getChangeFlag-33cadf5a32ba" id="m-getChangeFlag-33cadf5a32ba"></a>
 
 ```java
 public com.tailf.conf.DiffIterateOperFlag getChangeFlag()
@@ -357,10 +339,9 @@ public com.tailf.conf.DiffIterateOperFlag getChangeFlag()
 
 Types: [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#cls-DiffIterateOperFlag)
 
-See: [`NavuNode.getChangeFlag()`](NavuNode.md#m-getchangeflag-33cadf5a32ba)
+See: [`NavuNode.getChangeFlag()`](NavuNode.md#m-getChangeFlag-33cadf5a32ba)
 
-<a id="m-getchanges-9c036516dc6f"></a>
-### getChanges()
+### getChanges() <a href="#m-getChanges-9c036516dc6f" id="m-getChanges-9c036516dc6f"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges() throws com.tailf.navu.NavuException
@@ -368,8 +349,7 @@ public java.util.List<com.tailf.navu.NavuNode> getChanges() throws com.tailf.nav
 
 Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-getchanges-5868a18319f7"></a>
-### getChanges(boolean)
+### getChanges(boolean) <a href="#m-getChanges-5868a18319f7" id="m-getChanges-5868a18319f7"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges(
@@ -384,8 +364,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 
 - `boolean emitSubtree`
 
-<a id="m-getchanges-71d054341fc5"></a>
-### getChanges(boolean, DiffIterateOperFlag[])
+### getChanges(boolean, DiffIterateOperFlag[]) <a href="#m-getChanges-71d054341fc5" id="m-getChanges-71d054341fc5"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges(
@@ -402,8 +381,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [DiffIterateOperFlag](../conf/DiffI
 - `boolean emitSubtree`
 - `com.tailf.conf.DiffIterateOperFlag[] forOps`
 
-<a id="m-getchanges-c106383f174d"></a>
-### getChanges(NavuContext)
+### getChanges(NavuContext) <a href="#m-getChanges-c106383f174d" id="m-getChanges-c106383f174d"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges(
@@ -418,8 +396,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuContext](NavuContext.md#cls-Na
 
 - `com.tailf.navu.NavuContext delcontext`
 
-<a id="m-getchanges-bcf5b6dbccf2"></a>
-### getChanges(NavuContext, boolean)
+### getChanges(NavuContext, boolean) <a href="#m-getChanges-bcf5b6dbccf2" id="m-getChanges-bcf5b6dbccf2"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges(
@@ -436,8 +413,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuContext](NavuContext.md#cls-Na
 - `com.tailf.navu.NavuContext delcontext`
 - `boolean emitSubtree`
 
-<a id="m-getchanges-9f13a683b086"></a>
-### getChanges(NavuContext, boolean, DiffIterateOperFlag[])
+### getChanges(NavuContext, boolean, DiffIterateOperFlag[]) <a href="#m-getChanges-9f13a683b086" id="m-getChanges-9f13a683b086"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> getChanges(
@@ -456,8 +432,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuContext](NavuContext.md#cls-Na
 - `boolean emitSubtree`
 - `com.tailf.conf.DiffIterateOperFlag[] forOps`
 
-<a id="m-getinfo-259a72b5d74c"></a>
-### getInfo()
+### getInfo() <a href="#m-getInfo-259a72b5d74c" id="m-getInfo-259a72b5d74c"></a>
 
 ```java
 public com.tailf.navu.NavuNodeInfo getInfo()
@@ -465,22 +440,19 @@ public com.tailf.navu.NavuNodeInfo getInfo()
 
 Types: [NavuNodeInfo](NavuNodeInfo.md#cls-NavuNodeInfo)
 
-<a id="m-getkeypath-4c9200912948"></a>
-### getKeyPath()
+### getKeyPath() <a href="#m-getKeyPath-4c9200912948" id="m-getKeyPath-4c9200912948"></a>
 
 ```java
 public String getKeyPath()
 ```
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-<a id="m-getnavunode-d19ad1dd90fc"></a>
-### getNavuNode(ConfPath)
+### getNavuNode(ConfPath) <a href="#m-getNavuNode-d19ad1dd90fc" id="m-getNavuNode-d19ad1dd90fc"></a>
 
 ```java
 public com.tailf.navu.NavuNode getNavuNode(
@@ -495,8 +467,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfPath](../conf/ConfPath.md#cls-
 
 - `com.tailf.conf.ConfPath path`
 
-<a id="m-getparent-45c1b196ed70"></a>
-### getParent()
+### getParent() <a href="#m-getParent-45c1b196ed70" id="m-getParent-45c1b196ed70"></a>
 
 ```java
 public com.tailf.navu.NavuNode getParent()
@@ -504,8 +475,7 @@ public com.tailf.navu.NavuNode getParent()
 
 Types: [NavuNode](NavuNode.md#cls-NavuNode)
 
-<a id="m-getrootns-3f1d054cecd6"></a>
-### getRootNS()
+### getRootNS() <a href="#m-getRootNS-3f1d054cecd6" id="m-getRootNS-3f1d054cecd6"></a>
 
 ```java
 public com.tailf.conf.ConfNamespace getRootNS()
@@ -517,8 +487,7 @@ Returns the root namespace of the topmost ancestor.
 
 **Returns:** topmost namespace.
 
-<a id="m-getvalues-1eb02439a757"></a>
-### getValues(ConfXMLParam[])
+### getValues(ConfXMLParam[]) <a href="#m-getValues-1eb02439a757" id="m-getValues-1eb02439a757"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getValues(
@@ -539,8 +508,7 @@ Invokes or *call* an action defined in the data model (see
 
 - `com.tailf.conf.ConfXMLParam[] param`
 
-<a id="m-getvalues-c03de090764d"></a>
-### getValues(String)
+### getValues(String) <a href="#m-getValues-c03de090764d" id="m-getValues-c03de090764d"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] getValues(String xml) throws com.tailf.navu.NavuException
@@ -565,15 +533,13 @@ Invokes or *call* an action defined in the data model (see
 
 **See also:** [`ConfXMLParam`](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-leaf-47fda8402c20"></a>
-### leaf(Integer)
+### leaf(Integer) <a href="#m-leaf-47fda8402c20" id="m-leaf-47fda8402c20"></a>
 
 ```java
 public com.tailf.navu.NavuLeaf leaf(Integer key) throws com.tailf.navu.NavuException
@@ -585,8 +551,7 @@ Types: [NavuLeaf](NavuLeaf.md#cls-NavuLeaf), [NavuException](NavuException.md#cl
 
 - `Integer key`
 
-<a id="m-leaf-ac189787d67d"></a>
-### leaf(String)
+### leaf(String) <a href="#m-leaf-ac189787d67d" id="m-leaf-ac189787d67d"></a>
 
 ```java
 public com.tailf.navu.NavuLeaf leaf(String leaf) throws com.tailf.navu.NavuException
@@ -598,8 +563,7 @@ Types: [NavuLeaf](NavuLeaf.md#cls-NavuLeaf), [NavuException](NavuException.md#cl
 
 - `String leaf`
 
-<a id="m-leaf-db53852a70eb"></a>
-### leaf(String, String)
+### leaf(String, String) <a href="#m-leaf-db53852a70eb" id="m-leaf-db53852a70eb"></a>
 
 ```java
 public com.tailf.navu.NavuLeaf leaf(String prefix, String leaf) throws com.tailf.navu.NavuException
@@ -612,8 +576,7 @@ Types: [NavuLeaf](NavuLeaf.md#cls-NavuLeaf), [NavuException](NavuException.md#cl
 - `String prefix`
 - `String leaf`
 
-<a id="m-leaflist-552c8007ecb4"></a>
-### leafList(Integer)
+### leafList(Integer) <a href="#m-leafList-552c8007ecb4" id="m-leafList-552c8007ecb4"></a>
 
 ```java
 public com.tailf.navu.NavuLeafList leafList(Integer key) throws com.tailf.navu.NavuException
@@ -625,8 +588,7 @@ Types: [NavuLeafList](NavuLeafList.md#cls-NavuLeafList), [NavuException](NavuExc
 
 - `Integer key`
 
-<a id="m-leaflist-5811cbb534ec"></a>
-### leafList(String)
+### leafList(String) <a href="#m-leafList-5811cbb534ec" id="m-leafList-5811cbb534ec"></a>
 
 ```java
 public com.tailf.navu.NavuLeafList leafList(String leafList) throws com.tailf.navu.NavuException
@@ -638,8 +600,7 @@ Types: [NavuLeafList](NavuLeafList.md#cls-NavuLeafList), [NavuException](NavuExc
 
 - `String leafList`
 
-<a id="m-leaflist-79bb39ee2665"></a>
-### leafList(String, String)
+### leafList(String, String) <a href="#m-leafList-79bb39ee2665" id="m-leafList-79bb39ee2665"></a>
 
 ```java
 public com.tailf.navu.NavuLeafList leafList(
@@ -656,8 +617,7 @@ Types: [NavuLeafList](NavuLeafList.md#cls-NavuLeafList), [NavuException](NavuExc
 - `String prefix`
 - `String leafList`
 
-<a id="m-list-7dc96bdbb69a"></a>
-### list(Integer)
+### list(Integer) <a href="#m-list-7dc96bdbb69a" id="m-list-7dc96bdbb69a"></a>
 
 ```java
 public com.tailf.navu.NavuList list(Integer key) throws com.tailf.navu.NavuException
@@ -669,8 +629,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 
 - `Integer key`
 
-<a id="m-list-2c1a74a3cf07"></a>
-### list(String)
+### list(String) <a href="#m-list-2c1a74a3cf07" id="m-list-2c1a74a3cf07"></a>
 
 ```java
 public com.tailf.navu.NavuList list(String key) throws com.tailf.navu.NavuException
@@ -682,8 +641,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 
 - `String key`
 
-<a id="m-list-8f28e4f62b19"></a>
-### list(String, String)
+### list(String, String) <a href="#m-list-8f28e4f62b19" id="m-list-8f28e4f62b19"></a>
 
 ```java
 public com.tailf.navu.NavuList list(String prefix, String key) throws com.tailf.navu.NavuException
@@ -696,8 +654,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 - `String prefix`
 - `String key`
 
-<a id="m-refresh-3852c3f76c8e"></a>
-### refresh()
+### refresh() <a href="#m-refresh-3852c3f76c8e" id="m-refresh-3852c3f76c8e"></a>
 
 ```java
 protected void refresh() throws com.tailf.navu.NavuException
@@ -705,8 +662,7 @@ protected void refresh() throws com.tailf.navu.NavuException
 
 Types: [NavuException](NavuException.md#cls-NavuException)
 
-<a id="m-reset-6927918ac70a"></a>
-### reset()
+### reset() <a href="#m-reset-6927918ac70a" id="m-reset-6927918ac70a"></a>
 
 ```java
 public void reset()
@@ -714,8 +670,7 @@ public void reset()
 
 **Not supported does nothing**
 
-<a id="m-select-336dd76cd112"></a>
-### select(ConfObject[])
+### select(ConfObject[]) <a href="#m-select-336dd76cd112" id="m-select-336dd76cd112"></a>
 
 ```java
 public java.util.Collection<com.tailf.navu.NavuNode> select(
@@ -732,8 +687,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfObject](../conf/ConfObject.md#
 
 **Returns:** a collection a nodes matching a Regular Expression query
 
-<a id="m-select-e81f36150174"></a>
-### select(List<String>)
+### select(List<String>) <a href="#m-select-e81f36150174" id="m-select-e81f36150174"></a>
 
 ```java
 public java.util.Collection<com.tailf.navu.NavuNode> select(
@@ -750,8 +704,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 
 - `java.util.List<String> query`
 
-<a id="m-select-5031325154b9"></a>
-### select(String)
+### select(String) <a href="#m-select-5031325154b9" id="m-select-5031325154b9"></a>
 
 ```java
 public java.util.Collection<com.tailf.navu.NavuNode> select(
@@ -768,8 +721,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 
 - `String query`
 
-<a id="m-setchange-0bbeb54ebc15"></a>
-### setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext)
+### setChange(List<ConfObject>, DiffIterateOperFlag, ConfValue, NavuContext) <a href="#m-setChange-0bbeb54ebc15" id="m-setChange-0bbeb54ebc15"></a>
 
 ```java
 public com.tailf.navu.NavuNode setChange(
@@ -798,22 +750,19 @@ Sets the change type on a node.
 
 - `NavuException`
 
-<a id="m-stopcdbsession-17418252a986"></a>
-### stopCdbSession()
+### stopCdbSession() <a href="#m-stopCdbSession-17418252a986" id="m-stopCdbSession-17418252a986"></a>
 
 ```java
 public void stopCdbSession()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-valueupdateind-e7cd65f79d78"></a>
-### valueUpdateInd(NavuNode)
+### valueUpdateInd(NavuNode) <a href="#m-valueUpdateInd-e7cd65f79d78" id="m-valueUpdateInd-e7cd65f79d78"></a>
 
 ```java
 public void valueUpdateInd(com.tailf.navu.NavuNode child)
@@ -825,8 +774,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode)
 
 - `com.tailf.navu.NavuNode child`
 
-<a id="m-xpathselect-0fb26b9f41e0"></a>
-### xPathSelect(String)
+### xPathSelect(String) <a href="#m-xPathSelect-0fb26b9f41e0" id="m-xPathSelect-0fb26b9f41e0"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> xPathSelect(

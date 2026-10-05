@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeList.Builder
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeList.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getTypeReferences()](#m-gettypereferences-ba94c4f34d9c)
-- [hasTypeReferences()](#m-hastypereferences-8e6b59641fe0)
-- [initTypeReferences(int)](#m-inittypereferences-13fff3e850b8)
-- [setTypeReferences(Reader<Reader>)](#m-settypereferences-6e6dc8393c25)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getTypeReferences()](#m-getTypeReferences-ba94c4f34d9c)
+- [hasTypeReferences()](#m-hasTypeReferences-8e6b59641fe0)
+- [initTypeReferences(int)](#m-initTypeReferences-13fff3e850b8)
+- [setTypeReferences(Reader<Reader>)](#m-setTypeReferences-6e6dc8393c25)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -48,8 +46,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeList.Reader asReader()
@@ -57,8 +54,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeList.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-gettypereferences-ba94c4f34d9c"></a>
-### getTypeReferences()
+### getTypeReferences() <a href="#m-getTypeReferences-ba94c4f34d9c" id="m-getTypeReferences-ba94c4f34d9c"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeReference.Builder> getTypeReferences()
@@ -66,15 +62,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeR
 
 Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
-<a id="m-hastypereferences-8e6b59641fe0"></a>
-### hasTypeReferences()
+### hasTypeReferences() <a href="#m-hasTypeReferences-8e6b59641fe0" id="m-hasTypeReferences-8e6b59641fe0"></a>
 
 ```java
 public final boolean hasTypeReferences()
 ```
 
-<a id="m-inittypereferences-13fff3e850b8"></a>
-### initTypeReferences(int)
+### initTypeReferences(int) <a href="#m-initTypeReferences-13fff3e850b8" id="m-initTypeReferences-13fff3e850b8"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsTypeReference.Builder> initTypeReferences(
@@ -88,8 +82,7 @@ Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-settypereferences-6e6dc8393c25"></a>
-### setTypeReferences(Reader<Reader>)
+### setTypeReferences(Reader<Reader>) <a href="#m-setTypeReferences-6e6dc8393c25" id="m-setTypeReferences-6e6dc8393c25"></a>
 
 ```java
 public final void setTypeReferences(

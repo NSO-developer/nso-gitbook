@@ -1,5 +1,4 @@
-<a id="cls-ErrorCode"></a>
-# ErrorCode
+# ErrorCode <a href="#cls-ErrorCode" id="cls-ErrorCode"></a>
 
 ```java
 public enum com.tailf.conf.ErrorCode
@@ -86,17 +85,16 @@ Error codes for all errors delivered over the protocol.
 
 **Methods**:
 
-- [equalsTo(int)](#m-equalsto-426f9980372b)
-- [getValue()](#m-getvalue-d93864668c40)
-- [stringValue()](#m-stringvalue-a6efca13ec08)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [equalsTo(int)](#m-equalsTo-426f9980372b)
+- [getValue()](#m-getValue-d93864668c40)
+- [stringValue()](#m-stringValue-a6efca13ec08)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ERR_ABORTED"></a>
-### ERR_ABORTED
+### ERR_ABORTED <a href="#m-ERR_ABORTED" id="m-ERR_ABORTED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_ABORTED;
@@ -104,8 +102,7 @@ public static final com.tailf.conf.ErrorCode ERR_ABORTED;
 
 An operation was aborted
 
-<a id="m-ERR_ACCESS_DENIED"></a>
-### ERR_ACCESS_DENIED
+### ERR_ACCESS_DENIED <a href="#m-ERR_ACCESS_DENIED" id="m-ERR_ACCESS_DENIED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_ACCESS_DENIED;
@@ -113,8 +110,7 @@ public static final com.tailf.conf.ErrorCode ERR_ACCESS_DENIED;
 
 Access to an object was denied due to AAA authorization rules
 
-<a id="m-ERR_ALREADY_EXISTS"></a>
-### ERR_ALREADY_EXISTS
+### ERR_ALREADY_EXISTS <a href="#m-ERR_ALREADY_EXISTS" id="m-ERR_ALREADY_EXISTS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_ALREADY_EXISTS;
@@ -122,8 +118,7 @@ public static final com.tailf.conf.ErrorCode ERR_ALREADY_EXISTS;
 
 We tried to create something which already exists
 
-<a id="m-ERR_APPLICATION_INTERNAL"></a>
-### ERR_APPLICATION_INTERNAL
+### ERR_APPLICATION_INTERNAL <a href="#m-ERR_APPLICATION_INTERNAL" id="m-ERR_APPLICATION_INTERNAL"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_APPLICATION_INTERNAL;
@@ -131,8 +126,7 @@ public static final com.tailf.conf.ErrorCode ERR_APPLICATION_INTERNAL;
 
 A data provider callback returned CONFD_ERRCODE_APPLICATION_INTERNAL
 
-<a id="m-ERR_BAD_CONFIG"></a>
-### ERR_BAD_CONFIG
+### ERR_BAD_CONFIG <a href="#m-ERR_BAD_CONFIG" id="m-ERR_BAD_CONFIG"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_BAD_CONFIG;
@@ -140,8 +134,7 @@ public static final com.tailf.conf.ErrorCode ERR_BAD_CONFIG;
 
 An error in a configuration
 
-<a id="m-ERR_BAD_KEYREF"></a>
-### ERR_BAD_KEYREF
+### ERR_BAD_KEYREF <a href="#m-ERR_BAD_KEYREF" id="m-ERR_BAD_KEYREF"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_BAD_KEYREF;
@@ -149,8 +142,7 @@ public static final com.tailf.conf.ErrorCode ERR_BAD_KEYREF;
 
 Dangling pointer
 
-<a id="m-ERR_BADPATH"></a>
-### ERR_BADPATH
+### ERR_BADPATH <a href="#m-ERR_BADPATH" id="m-ERR_BADPATH"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_BADPATH;
@@ -158,8 +150,7 @@ public static final com.tailf.conf.ErrorCode ERR_BADPATH;
 
 We provided a bad path
 
-<a id="m-ERR_BADSTATE"></a>
-### ERR_BADSTATE
+### ERR_BADSTATE <a href="#m-ERR_BADSTATE" id="m-ERR_BADSTATE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_BADSTATE;
@@ -169,8 +160,7 @@ Some function, such as the MAAPI commit functions that require
  several functions to be called in a specific order, was called out
  of order
 
-<a id="m-ERR_BADTYPE"></a>
-### ERR_BADTYPE
+### ERR_BADTYPE <a href="#m-ERR_BADTYPE" id="m-ERR_BADTYPE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_BADTYPE;
@@ -179,8 +169,7 @@ public static final com.tailf.conf.ErrorCode ERR_BADTYPE;
 We tried to create or write an object which is specified to have
  another type than the one we provided
 
-<a id="m-ERR_CLI_CMD"></a>
-### ERR_CLI_CMD
+### ERR_CLI_CMD <a href="#m-ERR_CLI_CMD" id="m-ERR_CLI_CMD"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_CLI_CMD;
@@ -188,8 +177,7 @@ public static final com.tailf.conf.ErrorCode ERR_CLI_CMD;
 
 Execution of a CLI command failed
 
-<a id="m-ERR_CONNECTION_CLOSED"></a>
-### ERR_CONNECTION_CLOSED
+### ERR_CONNECTION_CLOSED <a href="#m-ERR_CONNECTION_CLOSED" id="m-ERR_CONNECTION_CLOSED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_CONNECTION_CLOSED;
@@ -197,8 +185,7 @@ public static final com.tailf.conf.ErrorCode ERR_CONNECTION_CLOSED;
 
 Connection closed
 
-<a id="m-ERR_CONNECTION_REFUSED"></a>
-### ERR_CONNECTION_REFUSED
+### ERR_CONNECTION_REFUSED <a href="#m-ERR_CONNECTION_REFUSED" id="m-ERR_CONNECTION_REFUSED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_CONNECTION_REFUSED;
@@ -206,8 +193,7 @@ public static final com.tailf.conf.ErrorCode ERR_CONNECTION_REFUSED;
 
 Connection was refused
 
-<a id="m-ERR_CONNECTION_TIMEOUT"></a>
-### ERR_CONNECTION_TIMEOUT
+### ERR_CONNECTION_TIMEOUT <a href="#m-ERR_CONNECTION_TIMEOUT" id="m-ERR_CONNECTION_TIMEOUT"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_CONNECTION_TIMEOUT;
@@ -215,8 +201,7 @@ public static final com.tailf.conf.ErrorCode ERR_CONNECTION_TIMEOUT;
 
 Connection timed out
 
-<a id="m-ERR_DATA_MISSING"></a>
-### ERR_DATA_MISSING
+### ERR_DATA_MISSING <a href="#m-ERR_DATA_MISSING" id="m-ERR_DATA_MISSING"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_DATA_MISSING;
@@ -224,8 +209,7 @@ public static final com.tailf.conf.ErrorCode ERR_DATA_MISSING;
 
 A data provider callback returned ERRCODE_DATA_MISSING
 
-<a id="m-ERR_DEVICE"></a>
-### ERR_DEVICE
+### ERR_DEVICE <a href="#m-ERR_DEVICE" id="m-ERR_DEVICE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_DEVICE;
@@ -233,8 +217,7 @@ public static final com.tailf.conf.ErrorCode ERR_DEVICE;
 
 An error occurred on the device
 
-<a id="m-ERR_EOF"></a>
-### ERR_EOF
+### ERR_EOF <a href="#m-ERR_EOF" id="m-ERR_EOF"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_EOF;
@@ -246,8 +229,7 @@ This value is used when a function returns EOF. Thus it is
  success, but the return value is something else, the reason can
  always be found via errno
 
-<a id="m-ERR_EXTERNAL"></a>
-### ERR_EXTERNAL
+### ERR_EXTERNAL <a href="#m-ERR_EXTERNAL" id="m-ERR_EXTERNAL"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_EXTERNAL;
@@ -255,8 +237,7 @@ public static final com.tailf.conf.ErrorCode ERR_EXTERNAL;
 
 All errors that originate in user code
 
-<a id="m-ERR_HA_BADCONFIG"></a>
-### ERR_HA_BADCONFIG
+### ERR_HA_BADCONFIG <a href="#m-ERR_HA_BADCONFIG" id="m-ERR_HA_BADCONFIG"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BADCONFIG;
@@ -264,8 +245,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_BADCONFIG;
 
 A remote HA node has bad configuration
 
-<a id="m-ERR_HA_BADFXS"></a>
-### ERR_HA_BADFXS
+### ERR_HA_BADFXS <a href="#m-ERR_HA_BADFXS" id="m-ERR_HA_BADFXS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BADFXS;
@@ -275,8 +255,7 @@ A remote HA node had a different set of fxs files compared to us.
  It could also be that the set is the same, but the version of some
  fxs file is different
 
-<a id="m-ERR_HA_BADNAME"></a>
-### ERR_HA_BADNAME
+### ERR_HA_BADNAME <a href="#m-ERR_HA_BADNAME" id="m-ERR_HA_BADNAME"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BADNAME;
@@ -284,8 +263,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_BADNAME;
 
 A remote ha node has a different name than the name we think it has
 
-<a id="m-ERR_HA_BADTOKEN"></a>
-### ERR_HA_BADTOKEN
+### ERR_HA_BADTOKEN <a href="#m-ERR_HA_BADTOKEN" id="m-ERR_HA_BADTOKEN"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BADTOKEN;
@@ -293,8 +271,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_BADTOKEN;
 
 A remote HA node has a different token than us
 
-<a id="m-ERR_HA_BADVSN"></a>
-### ERR_HA_BADVSN
+### ERR_HA_BADVSN <a href="#m-ERR_HA_BADVSN" id="m-ERR_HA_BADVSN"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BADVSN;
@@ -302,8 +279,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_BADVSN;
 
 A remote HA node had an incompatible protocol version
 
-<a id="m-ERR_HA_BIND"></a>
-### ERR_HA_BIND
+### ERR_HA_BIND <a href="#m-ERR_HA_BIND" id="m-ERR_HA_BIND"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_BIND;
@@ -311,8 +287,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_BIND;
 
 Failed to bind the ha socket for incoming HA connects
 
-<a id="m-ERR_HA_CLOSED"></a>
-### ERR_HA_CLOSED
+### ERR_HA_CLOSED <a href="#m-ERR_HA_CLOSED" id="m-ERR_HA_CLOSED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_CLOSED;
@@ -322,8 +297,7 @@ A remote HA node closed its connection to us, or there was a
  timeout waiting for a sync response from the primary during a call
  of HA.beSecondary()
 
-<a id="m-ERR_HA_CONNECT"></a>
-### ERR_HA_CONNECT
+### ERR_HA_CONNECT <a href="#m-ERR_HA_CONNECT" id="m-ERR_HA_CONNECT"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_CONNECT;
@@ -331,8 +305,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_CONNECT;
 
 Failed to connect to a remote HA node
 
-<a id="m-ERR_HA_NOTICK"></a>
-### ERR_HA_NOTICK
+### ERR_HA_NOTICK <a href="#m-ERR_HA_NOTICK" id="m-ERR_HA_NOTICK"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_NOTICK;
@@ -340,8 +313,7 @@ public static final com.tailf.conf.ErrorCode ERR_HA_NOTICK;
 
 A remote HA node failed to produce the interval live ticks
 
-<a id="m-ERR_HA_WITH_UPGRADE"></a>
-### ERR_HA_WITH_UPGRADE
+### ERR_HA_WITH_UPGRADE <a href="#m-ERR_HA_WITH_UPGRADE" id="m-ERR_HA_WITH_UPGRADE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_HA_WITH_UPGRADE;
@@ -352,8 +324,7 @@ We tried to perform an in-service data model upgrade on a HA node
  to make the node a HA secondary while an in-service data model upgrade
  was in progress
 
-<a id="m-ERR_INCONSISTENT_VALUE"></a>
-### ERR_INCONSISTENT_VALUE
+### ERR_INCONSISTENT_VALUE <a href="#m-ERR_INCONSISTENT_VALUE" id="m-ERR_INCONSISTENT_VALUE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_INCONSISTENT_VALUE;
@@ -361,8 +332,7 @@ public static final com.tailf.conf.ErrorCode ERR_INCONSISTENT_VALUE;
 
 A data provider callback returned ERRCODE_INCONSISTENT_VALUE
 
-<a id="m-ERR_INTERNAL"></a>
-### ERR_INTERNAL
+### ERR_INTERNAL <a href="#m-ERR_INTERNAL" id="m-ERR_INTERNAL"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_INTERNAL;
@@ -372,8 +342,7 @@ An internal error. This normally indicates a bug in ConfD/NCS or
  libconfd (if nothing else the lack of a better error code), please
  report it to Tail-f support
 
-<a id="m-ERR_INUSE"></a>
-### ERR_INUSE
+### ERR_INUSE <a href="#m-ERR_INUSE" id="m-ERR_INUSE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_INUSE;
@@ -381,8 +350,7 @@ public static final com.tailf.conf.ErrorCode ERR_INUSE;
 
 We tried to commit while someone else holds a lock
 
-<a id="m-ERR_INVALID_INSTANCE"></a>
-### ERR_INVALID_INSTANCE
+### ERR_INVALID_INSTANCE <a href="#m-ERR_INVALID_INSTANCE" id="m-ERR_INVALID_INSTANCE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_INVALID_INSTANCE;
@@ -391,8 +359,7 @@ public static final com.tailf.conf.ErrorCode ERR_INVALID_INSTANCE;
 The value of an instance-identifier leaf does not conform to the
   specified path filters
 
-<a id="m-ERR_LIB_NOT_INITIALIZED"></a>
-### ERR_LIB_NOT_INITIALIZED
+### ERR_LIB_NOT_INITIALIZED <a href="#m-ERR_LIB_NOT_INITIALIZED" id="m-ERR_LIB_NOT_INITIALIZED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_LIB_NOT_INITIALIZED;
@@ -400,8 +367,7 @@ public static final com.tailf.conf.ErrorCode ERR_LIB_NOT_INITIALIZED;
 
 The confd has not been properly initialized
 
-<a id="m-ERR_LOCKED"></a>
-### ERR_LOCKED
+### ERR_LOCKED <a href="#m-ERR_LOCKED" id="m-ERR_LOCKED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_LOCKED;
@@ -409,8 +375,7 @@ public static final com.tailf.conf.ErrorCode ERR_LOCKED;
 
 We tried to lock something which is already locked
 
-<a id="m-ERR_MALLOC"></a>
-### ERR_MALLOC
+### ERR_MALLOC <a href="#m-ERR_MALLOC" id="m-ERR_MALLOC"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_MALLOC;
@@ -418,8 +383,7 @@ public static final com.tailf.conf.ErrorCode ERR_MALLOC;
 
 Failed to allocate memory
 
-<a id="m-ERR_MISSING_INSTANCE"></a>
-### ERR_MISSING_INSTANCE
+### ERR_MISSING_INSTANCE <a href="#m-ERR_MISSING_INSTANCE" id="m-ERR_MISSING_INSTANCE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_MISSING_INSTANCE;
@@ -428,8 +392,7 @@ public static final com.tailf.conf.ErrorCode ERR_MISSING_INSTANCE;
 The value of an instance-identifier leaf with require-instance true
  does not specify an existing instance
 
-<a id="m-ERR_MUST_FAILED"></a>
-### ERR_MUST_FAILED
+### ERR_MUST_FAILED <a href="#m-ERR_MUST_FAILED" id="m-ERR_MUST_FAILED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_MUST_FAILED;
@@ -437,8 +400,7 @@ public static final com.tailf.conf.ErrorCode ERR_MUST_FAILED;
 
 A must constraint is not satisfied
 
-<a id="m-ERR_NOEXISTS"></a>
-### ERR_NOEXISTS
+### ERR_NOEXISTS <a href="#m-ERR_NOEXISTS" id="m-ERR_NOEXISTS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOEXISTS;
@@ -447,8 +409,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOEXISTS;
 Typically we tried to read a value through CDB or MAAPI
   which does not exist
 
-<a id="m-ERR_NON_UNIQUE"></a>
-### ERR_NON_UNIQUE
+### ERR_NON_UNIQUE <a href="#m-ERR_NON_UNIQUE" id="m-ERR_NON_UNIQUE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NON_UNIQUE;
@@ -456,8 +417,7 @@ public static final com.tailf.conf.ErrorCode ERR_NON_UNIQUE;
 
 A group of leafs specified with the unique statement are not unique
 
-<a id="m-ERR_NOSESSION"></a>
-### ERR_NOSESSION
+### ERR_NOSESSION <a href="#m-ERR_NOSESSION" id="m-ERR_NOSESSION"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOSESSION;
@@ -465,8 +425,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOSESSION;
 
 A session must be established prior to executing the function
 
-<a id="m-ERR_NOSTACK"></a>
-### ERR_NOSTACK
+### ERR_NOSTACK <a href="#m-ERR_NOSTACK" id="m-ERR_NOSTACK"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOSTACK;
@@ -474,8 +433,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOSTACK;
 
 We tried to pop without a preceding push
 
-<a id="m-ERR_NOT_IMPLEMENTED"></a>
-### ERR_NOT_IMPLEMENTED
+### ERR_NOT_IMPLEMENTED <a href="#m-ERR_NOT_IMPLEMENTED" id="m-ERR_NOT_IMPLEMENTED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOT_IMPLEMENTED;
@@ -487,8 +445,7 @@ A request was made for an operation that was not implemented. This
  or MAAPI function is used that is only implemented in the library
  version
 
-<a id="m-ERR_NOT_WRITABLE"></a>
-### ERR_NOT_WRITABLE
+### ERR_NOT_WRITABLE <a href="#m-ERR_NOT_WRITABLE" id="m-ERR_NOT_WRITABLE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOT_WRITABLE;
@@ -496,8 +453,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOT_WRITABLE;
 
 We tried to write an object which is not writable
 
-<a id="m-ERR_NOTCREATABLE"></a>
-### ERR_NOTCREATABLE
+### ERR_NOTCREATABLE <a href="#m-ERR_NOTCREATABLE" id="m-ERR_NOTCREATABLE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOTCREATABLE;
@@ -505,8 +461,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOTCREATABLE;
 
 We tried to create an object which is not possible to create
 
-<a id="m-ERR_NOTDELETABLE"></a>
-### ERR_NOTDELETABLE
+### ERR_NOTDELETABLE <a href="#m-ERR_NOTDELETABLE" id="m-ERR_NOTDELETABLE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOTDELETABLE;
@@ -514,8 +469,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOTDELETABLE;
 
 We tried to delete an object which is not possible to delete
 
-<a id="m-ERR_NOTMOVABLE"></a>
-### ERR_NOTMOVABLE
+### ERR_NOTMOVABLE <a href="#m-ERR_NOTMOVABLE" id="m-ERR_NOTMOVABLE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOTMOVABLE;
@@ -523,8 +477,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOTMOVABLE;
 
 We tried to move an object which is not possible to move
 
-<a id="m-ERR_NOTRANS"></a>
-### ERR_NOTRANS
+### ERR_NOTRANS <a href="#m-ERR_NOTRANS" id="m-ERR_NOTRANS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOTRANS;
@@ -532,8 +485,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOTRANS;
 
 An invalid transaction handle (tid) was passed to a Maapi method
 
-<a id="m-ERR_NOTSET"></a>
-### ERR_NOTSET
+### ERR_NOTSET <a href="#m-ERR_NOTSET" id="m-ERR_NOTSET"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_NOTSET;
@@ -542,8 +494,7 @@ public static final com.tailf.conf.ErrorCode ERR_NOTSET;
 A mandatory leaf does not have a value, either because it has been
  deleted, or not set after a create
 
-<a id="m-ERR_OS"></a>
-### ERR_OS
+### ERR_OS <a href="#m-ERR_OS" id="m-ERR_OS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_OS;
@@ -553,8 +504,7 @@ An error occurred in a call to some operating system function, such
  as write(). The proper errno from libc should then be read and used
  as failure indicator
 
-<a id="m-ERR_POLICY_COMPILATION_FAILED"></a>
-### ERR_POLICY_COMPILATION_FAILED
+### ERR_POLICY_COMPILATION_FAILED <a href="#m-ERR_POLICY_COMPILATION_FAILED" id="m-ERR_POLICY_COMPILATION_FAILED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_POLICY_COMPILATION_FAILED;
@@ -562,8 +512,7 @@ public static final com.tailf.conf.ErrorCode ERR_POLICY_COMPILATION_FAILED;
 
 A user-defined policy XPath expression could not be compiled
 
-<a id="m-ERR_POLICY_EVALUATION_FAILED"></a>
-### ERR_POLICY_EVALUATION_FAILED
+### ERR_POLICY_EVALUATION_FAILED <a href="#m-ERR_POLICY_EVALUATION_FAILED" id="m-ERR_POLICY_EVALUATION_FAILED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_POLICY_EVALUATION_FAILED;
@@ -571,8 +520,7 @@ public static final com.tailf.conf.ErrorCode ERR_POLICY_EVALUATION_FAILED;
 
 A user-defined policy expression failed XPath evaluation
 
-<a id="m-ERR_POLICY_FAILED"></a>
-### ERR_POLICY_FAILED
+### ERR_POLICY_FAILED <a href="#m-ERR_POLICY_FAILED" id="m-ERR_POLICY_FAILED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_POLICY_FAILED;
@@ -580,8 +528,7 @@ public static final com.tailf.conf.ErrorCode ERR_POLICY_FAILED;
 
 A user-defined policy expression evaluated to false
 
-<a id="m-ERR_PROTOUSAGE"></a>
-### ERR_PROTOUSAGE
+### ERR_PROTOUSAGE <a href="#m-ERR_PROTOUSAGE" id="m-ERR_PROTOUSAGE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_PROTOUSAGE;
@@ -590,8 +537,7 @@ public static final com.tailf.conf.ErrorCode ERR_PROTOUSAGE;
 Usage of API functions or callbacks was wrong. It typically means
  that we invoke a function when we should not
 
-<a id="m-ERR_RESOURCE_DENIED"></a>
-### ERR_RESOURCE_DENIED
+### ERR_RESOURCE_DENIED <a href="#m-ERR_RESOURCE_DENIED" id="m-ERR_RESOURCE_DENIED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_RESOURCE_DENIED;
@@ -599,8 +545,7 @@ public static final com.tailf.conf.ErrorCode ERR_RESOURCE_DENIED;
 
 A data provider callback returned ERRCODE_RESOURCE_DENIED
 
-<a id="m-ERR_SERVICE_CONFLICT"></a>
-### ERR_SERVICE_CONFLICT
+### ERR_SERVICE_CONFLICT <a href="#m-ERR_SERVICE_CONFLICT" id="m-ERR_SERVICE_CONFLICT"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_SERVICE_CONFLICT;
@@ -608,8 +553,7 @@ public static final com.tailf.conf.ErrorCode ERR_SERVICE_CONFLICT;
 
 Conflict between NCS services
 
-<a id="m-ERR_STALE_INSTANCE"></a>
-### ERR_STALE_INSTANCE
+### ERR_STALE_INSTANCE <a href="#m-ERR_STALE_INSTANCE" id="m-ERR_STALE_INSTANCE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_STALE_INSTANCE;
@@ -617,8 +561,7 @@ public static final com.tailf.conf.ErrorCode ERR_STALE_INSTANCE;
 
 An instance-identifier has stale data after upgrading
 
-<a id="m-ERR_START_FAILED"></a>
-### ERR_START_FAILED
+### ERR_START_FAILED <a href="#m-ERR_START_FAILED" id="m-ERR_START_FAILED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_START_FAILED;
@@ -626,8 +569,7 @@ public static final com.tailf.conf.ErrorCode ERR_START_FAILED;
 
 Daemon failed to proceed to next start-phase
 
-<a id="m-ERR_SUBAGENT_DOWN"></a>
-### ERR_SUBAGENT_DOWN
+### ERR_SUBAGENT_DOWN <a href="#m-ERR_SUBAGENT_DOWN" id="m-ERR_SUBAGENT_DOWN"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_SUBAGENT_DOWN;
@@ -636,8 +578,7 @@ public static final com.tailf.conf.ErrorCode ERR_SUBAGENT_DOWN;
 An operation towards a mounted NETCONF subagent failed due to the
  subagent not being up
 
-<a id="m-ERR_TEMPLATE"></a>
-### ERR_TEMPLATE
+### ERR_TEMPLATE <a href="#m-ERR_TEMPLATE" id="m-ERR_TEMPLATE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TEMPLATE;
@@ -645,8 +586,7 @@ public static final com.tailf.conf.ErrorCode ERR_TEMPLATE;
 
 A template operation failed
 
-<a id="m-ERR_TIMEOUT"></a>
-### ERR_TIMEOUT
+### ERR_TIMEOUT <a href="#m-ERR_TIMEOUT" id="m-ERR_TIMEOUT"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TIMEOUT;
@@ -654,8 +594,7 @@ public static final com.tailf.conf.ErrorCode ERR_TIMEOUT;
 
 An operation did not complete within the specified timeout
 
-<a id="m-ERR_TOO_FEW_ELEMS"></a>
-### ERR_TOO_FEW_ELEMS
+### ERR_TOO_FEW_ELEMS <a href="#m-ERR_TOO_FEW_ELEMS" id="m-ERR_TOO_FEW_ELEMS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TOO_FEW_ELEMS;
@@ -664,8 +603,7 @@ public static final com.tailf.conf.ErrorCode ERR_TOO_FEW_ELEMS;
 A min-elements violation. A node has fewer elements or entries than
  specified with min-elements
 
-<a id="m-ERR_TOO_MANY_ELEMS"></a>
-### ERR_TOO_MANY_ELEMS
+### ERR_TOO_MANY_ELEMS <a href="#m-ERR_TOO_MANY_ELEMS" id="m-ERR_TOO_MANY_ELEMS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TOO_MANY_ELEMS;
@@ -674,8 +612,7 @@ public static final com.tailf.conf.ErrorCode ERR_TOO_MANY_ELEMS;
 A max-elements violation. A node has fewer elements or entries than
  specified with max-elements
 
-<a id="m-ERR_TOO_MANY_SESSIONS"></a>
-### ERR_TOO_MANY_SESSIONS
+### ERR_TOO_MANY_SESSIONS <a href="#m-ERR_TOO_MANY_SESSIONS" id="m-ERR_TOO_MANY_SESSIONS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TOO_MANY_SESSIONS;
@@ -683,8 +620,7 @@ public static final com.tailf.conf.ErrorCode ERR_TOO_MANY_SESSIONS;
 
 Maximum number of sessions reached
 
-<a id="m-ERR_TOOMANYTRANS"></a>
-### ERR_TOOMANYTRANS
+### ERR_TOOMANYTRANS <a href="#m-ERR_TOOMANYTRANS" id="m-ERR_TOOMANYTRANS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TOOMANYTRANS;
@@ -693,8 +629,7 @@ public static final com.tailf.conf.ErrorCode ERR_TOOMANYTRANS;
 A new MAAPI transaction was rejected since the transaction limit
  threshold was reached
 
-<a id="m-ERR_TRANSACTION_CONFLICT"></a>
-### ERR_TRANSACTION_CONFLICT
+### ERR_TRANSACTION_CONFLICT <a href="#m-ERR_TRANSACTION_CONFLICT" id="m-ERR_TRANSACTION_CONFLICT"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_TRANSACTION_CONFLICT;
@@ -702,8 +637,7 @@ public static final com.tailf.conf.ErrorCode ERR_TRANSACTION_CONFLICT;
 
 A transaction conflict was detected
 
-<a id="m-ERR_UNAVAILABLE"></a>
-### ERR_UNAVAILABLE
+### ERR_UNAVAILABLE <a href="#m-ERR_UNAVAILABLE" id="m-ERR_UNAVAILABLE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_UNAVAILABLE;
@@ -712,8 +646,7 @@ public static final com.tailf.conf.ErrorCode ERR_UNAVAILABLE;
 We tried to use some unavailable functionality, e.g. get/set
  attributes on an operational data element
 
-<a id="m-ERR_UNSET_CHOICE"></a>
-### ERR_UNSET_CHOICE
+### ERR_UNSET_CHOICE <a href="#m-ERR_UNSET_CHOICE" id="m-ERR_UNSET_CHOICE"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_UNSET_CHOICE;
@@ -721,8 +654,7 @@ public static final com.tailf.conf.ErrorCode ERR_UNSET_CHOICE;
 
 No case has been selected for a mandatory choice statement
 
-<a id="m-ERR_UPGRADE_IN_PROGRESS"></a>
-### ERR_UPGRADE_IN_PROGRESS
+### ERR_UPGRADE_IN_PROGRESS <a href="#m-ERR_UPGRADE_IN_PROGRESS" id="m-ERR_UPGRADE_IN_PROGRESS"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_UPGRADE_IN_PROGRESS;
@@ -731,8 +663,7 @@ public static final com.tailf.conf.ErrorCode ERR_UPGRADE_IN_PROGRESS;
 A request was made for an operation that is not allowed
   when in-service data model upgrade is in progress
 
-<a id="m-ERR_VALIDATION_WARNING"></a>
-### ERR_VALIDATION_WARNING
+### ERR_VALIDATION_WARNING <a href="#m-ERR_VALIDATION_WARNING" id="m-ERR_VALIDATION_WARNING"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_VALIDATION_WARNING;
@@ -740,8 +671,7 @@ public static final com.tailf.conf.ErrorCode ERR_VALIDATION_WARNING;
 
 Maapi.validateTrans() returned warnings
 
-<a id="m-ERR_XPATH"></a>
-### ERR_XPATH
+### ERR_XPATH <a href="#m-ERR_XPATH" id="m-ERR_XPATH"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode ERR_XPATH;
@@ -749,8 +679,7 @@ public static final com.tailf.conf.ErrorCode ERR_XPATH;
 
 Compilation or evaluation of an XPath expression failed
 
-<a id="m-UNDEFINED"></a>
-### UNDEFINED
+### UNDEFINED <a href="#m-UNDEFINED" id="m-UNDEFINED"></a>
 
 ```java
 public static final com.tailf.conf.ErrorCode UNDEFINED;
@@ -761,8 +690,7 @@ Error with undefined error code
 
 ## Methods
 
-<a id="m-equalsto-426f9980372b"></a>
-### equalsTo(int)
+### equalsTo(int) <a href="#m-equalsTo-426f9980372b" id="m-equalsTo-426f9980372b"></a>
 
 ```java
 public boolean equalsTo(int i)
@@ -772,22 +700,19 @@ public boolean equalsTo(int i)
 
 - `int i`
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.ErrorCode valueOf(int i)
@@ -799,8 +724,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.ErrorCode valueOf(String name)
@@ -812,8 +736,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.ErrorCode[] values()

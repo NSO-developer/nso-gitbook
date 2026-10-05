@@ -1,5 +1,4 @@
-<a id="cls-NotifException"></a>
-# NotifException
+# NotifException <a href="#cls-NotifException" id="cls-NotifException"></a>
 
 ```java
 public class com.tailf.notif.NotifException
@@ -14,22 +13,21 @@ Exceptions raised from the notif package
 
 **Constructors**:
 
-- [NotifException(String, ErrorCode)](#m-notifexception-97ea59f506f8)
-- [NotifException(String, ErrorCode, Throwable)](#m-notifexception-fde89e4ba591)
-- [NotifException(String, int, Throwable)](#m-notifexception-f53608ca5bfd)
-- [NotifException(String, Throwable)](#m-notifexception-c8adc3e6a9e6)
+- [NotifException(String, ErrorCode)](#m-NotifException-97ea59f506f8)
+- [NotifException(String, ErrorCode, Throwable)](#m-NotifException-fde89e4ba591)
+- [NotifException(String, int, Throwable)](#m-NotifException-f53608ca5bfd)
+- [NotifException(String, Throwable)](#m-NotifException-c8adc3e6a9e6)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-notifexception-97ea59f506f8"></a>
-### NotifException(String, ErrorCode)
+### NotifException(String, ErrorCode) <a href="#m-NotifException-97ea59f506f8" id="m-NotifException-97ea59f506f8"></a>
 
 ```java
 public NotifException(String msg, com.tailf.conf.ErrorCode code)
@@ -42,8 +40,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-notifexception-fde89e4ba591"></a>
-### NotifException(String, ErrorCode, Throwable)
+### NotifException(String, ErrorCode, Throwable) <a href="#m-NotifException-fde89e4ba591" id="m-NotifException-fde89e4ba591"></a>
 
 ```java
 public NotifException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -57,8 +54,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-notifexception-f53608ca5bfd"></a>
-### NotifException(String, int, Throwable)
+### NotifException(String, int, Throwable) <a href="#m-NotifException-f53608ca5bfd" id="m-NotifException-f53608ca5bfd"></a>
 
 ```java
 public NotifException(String msg, int codeInteger, Throwable cause)
@@ -70,8 +66,7 @@ public NotifException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="m-notifexception-c8adc3e6a9e6"></a>
-### NotifException(String, Throwable)
+### NotifException(String, Throwable) <a href="#m-NotifException-c8adc3e6a9e6" id="m-NotifException-c8adc3e6a9e6"></a>
 
 ```java
 public NotifException(String msg, Throwable cause)
@@ -85,8 +80,7 @@ public NotifException(String msg, Throwable cause)
 
 ## Methods
 
-<a id="m-mk-de1cedfc6ea8"></a>
-### mk(ConfResponse)
+### mk(ConfResponse) <a href="#m-mk-de1cedfc6ea8" id="m-mk-de1cedfc6ea8"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)

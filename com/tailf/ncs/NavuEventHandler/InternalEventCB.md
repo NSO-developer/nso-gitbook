@@ -1,5 +1,4 @@
-<a id="cls-InternalEventCB"></a>
-# InternalEventCB
+# InternalEventCB <a href="#cls-InternalEventCB" id="cls-InternalEventCB"></a>
 
 ```java
 protected class com.tailf.ncs.NavuEventHandler.InternalEventCB
@@ -12,16 +11,15 @@ Types: [NavuEventCallback](../NavuEventCallback.md#cls-NavuEventCallback)
 
 **Constructors**:
 
-- [InternalEventCB(String)](#m-internaleventcb-e17ccfc19f93)
+- [InternalEventCB(String)](#m-InternalEventCB-e17ccfc19f93)
 
 **Methods**:
 
-- [notifReceived(NavuContainer)](#m-notifreceived-df06be623526)
+- [notifReceived(NavuContainer)](#m-notifReceived-df06be623526)
 
 ## Constructors
 
-<a id="m-internaleventcb-e17ccfc19f93"></a>
-### InternalEventCB(String)
+### InternalEventCB(String) <a href="#m-InternalEventCB-e17ccfc19f93" id="m-InternalEventCB-e17ccfc19f93"></a>
 
 ```java
 public InternalEventCB(String logString)
@@ -34,8 +32,7 @@ public InternalEventCB(String logString)
 
 ## Methods
 
-<a id="m-notifreceived-df06be623526"></a>
-### notifReceived(NavuContainer)
+### notifReceived(NavuContainer) <a href="#m-notifReceived-df06be623526" id="m-notifReceived-df06be623526"></a>
 
 ```java
 public void notifReceived(com.tailf.navu.NavuContainer event) throws com.tailf.ncs.NcsException

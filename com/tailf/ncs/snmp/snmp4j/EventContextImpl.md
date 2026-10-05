@@ -1,5 +1,4 @@
-<a id="cls-EventContextImpl"></a>
-# EventContextImpl
+# EventContextImpl <a href="#cls-EventContextImpl" id="cls-EventContextImpl"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.EventContextImpl
@@ -14,17 +13,16 @@ EventContext implementation class
 
 **Constructors**:
 
-- [EventContextImpl()](#m-eventcontextimpl-f0979f02a693)
+- [EventContextImpl()](#m-EventContextImpl-f0979f02a693)
 
 **Methods**:
 
-- [getDeviceName()](#m-getdevicename-95c72ec0cf27)
-- [setDeviceKey(ConfKey)](#m-setdevicekey-f51d3171cb37)
+- [getDeviceName()](#m-getDeviceName-95c72ec0cf27)
+- [setDeviceKey(ConfKey)](#m-setDeviceKey-f51d3171cb37)
 
 ## Constructors
 
-<a id="m-eventcontextimpl-f0979f02a693"></a>
-### EventContextImpl()
+### EventContextImpl() <a href="#m-EventContextImpl-f0979f02a693" id="m-EventContextImpl-f0979f02a693"></a>
 
 ```java
 protected EventContextImpl()
@@ -33,8 +31,7 @@ protected EventContextImpl()
 
 ## Methods
 
-<a id="m-getdevicename-95c72ec0cf27"></a>
-### getDeviceName()
+### getDeviceName() <a href="#m-getDeviceName-95c72ec0cf27" id="m-getDeviceName-95c72ec0cf27"></a>
 
 ```java
 public String getDeviceName()
@@ -42,8 +39,7 @@ public String getDeviceName()
 
 Get the deviceName for a snmp notification
 
-<a id="m-setdevicekey-f51d3171cb37"></a>
-### setDeviceKey(ConfKey)
+### setDeviceKey(ConfKey) <a href="#m-setDeviceKey-f51d3171cb37" id="m-setDeviceKey-f51d3171cb37"></a>
 
 ```java
 protected void setDeviceKey(com.tailf.conf.ConfKey deviceKey)

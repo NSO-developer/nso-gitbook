@@ -1,5 +1,4 @@
-<a id="cls-NoOverwriteScope"></a>
-# NoOverwriteScope
+# NoOverwriteScope <a href="#cls-NoOverwriteScope" id="cls-NoOverwriteScope"></a>
 
 ```java
 public static enum com.tailf.maapi.CommitParams.NoOverwriteScope
@@ -17,29 +16,26 @@ Types: [NoOverwriteScope](NoOverwriteScope.md#cls-NoOverwriteScope)
 
 **Methods**:
 
-- [fromValue(int)](#m-fromvalue-f24ff0b9d5bf)
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [fromValue(int)](#m-fromValue-f24ff0b9d5bf)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-WRITE_AND_FULL_READ_SET"></a>
-### WRITE_AND_FULL_READ_SET
+### WRITE_AND_FULL_READ_SET <a href="#m-WRITE_AND_FULL_READ_SET" id="m-WRITE_AND_FULL_READ_SET"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_AND_FULL_READ_SET;
 ```
 
-<a id="m-WRITE_AND_SERVICE_READ_SET"></a>
-### WRITE_AND_SERVICE_READ_SET
+### WRITE_AND_SERVICE_READ_SET <a href="#m-WRITE_AND_SERVICE_READ_SET" id="m-WRITE_AND_SERVICE_READ_SET"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_AND_SERVICE_READ_SET;
 ```
 
-<a id="m-WRITE_SET_ONLY"></a>
-### WRITE_SET_ONLY
+### WRITE_SET_ONLY <a href="#m-WRITE_SET_ONLY" id="m-WRITE_SET_ONLY"></a>
 
 ```java
 public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_SET_ONLY;
@@ -48,8 +44,7 @@ public static final com.tailf.maapi.CommitParams.NoOverwriteScope WRITE_SET_ONLY
 
 ## Methods
 
-<a id="m-fromvalue-f24ff0b9d5bf"></a>
-### fromValue(int)
+### fromValue(int) <a href="#m-fromValue-f24ff0b9d5bf" id="m-fromValue-f24ff0b9d5bf"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.NoOverwriteScope fromValue(int value)
@@ -61,15 +56,13 @@ Types: [NoOverwriteScope](NoOverwriteScope.md#cls-NoOverwriteScope)
 
 - `int value`
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.NoOverwriteScope valueOf(String name)
@@ -81,8 +74,7 @@ Types: [NoOverwriteScope](NoOverwriteScope.md#cls-NoOverwriteScope)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CommitParams.NoOverwriteScope[] values()

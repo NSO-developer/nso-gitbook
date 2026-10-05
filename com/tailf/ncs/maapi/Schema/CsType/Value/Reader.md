@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsType.Value.Reader
@@ -10,52 +9,51 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Value.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getBits()](#m-getbits-032b4694ff31)
-- [getDecimal64()](#m-getdecimal64-193bb466ba33)
-- [getDisplayHint()](#m-getdisplayhint-f9cb8b7f487f)
-- [getEnum()](#m-getenum-c3a0d3b9ada8)
-- [getIdentity()](#m-getidentity-249dccdd4d86)
-- [getIdref()](#m-getidref-63813e21dc3f)
-- [getList()](#m-getlist-bb3f8cbe83be)
-- [getListRestriction()](#m-getlistrestriction-ce6c8d137d0a)
-- [getNone()](#m-getnone-e31bfdbffa7f)
-- [getNumber()](#m-getnumber-bb87f37a80c3)
-- [getString()](#m-getstring-4464e45dd212)
-- [getUnion()](#m-getunion-09a450ad6ddb)
-- [hasBits()](#m-hasbits-3d091966c9f9)
-- [hasDecimal64()](#m-hasdecimal64-85dcdb2b131e)
-- [hasDisplayHint()](#m-hasdisplayhint-a0d050b8aab0)
-- [hasEnum()](#m-hasenum-1d114db3fe39)
-- [hasIdentity()](#m-hasidentity-f1490905d6e2)
-- [hasIdref()](#m-hasidref-289f055cad8f)
-- [hasList()](#m-haslist-3712d7ce73ac)
-- [hasListRestriction()](#m-haslistrestriction-c778171a0737)
-- [hasNone()](#m-hasnone-2bfc8643e387)
-- [hasNumber()](#m-hasnumber-0518c2df0887)
-- [hasString()](#m-hasstring-881bf798306f)
-- [hasUnion()](#m-hasunion-b08deffc4123)
-- [isBits()](#m-isbits-fbb2c14b0e4a)
-- [isDecimal64()](#m-isdecimal64-fbfc5a5de098)
-- [isDisplayHint()](#m-isdisplayhint-b573e27dbdd3)
-- [isEnum()](#m-isenum-4f01ba38b65e)
-- [isIdentity()](#m-isidentity-694dbb6ae0ec)
-- [isIdref()](#m-isidref-bb5a2e992bb2)
-- [isList()](#m-islist-c36bce63b506)
-- [isListRestriction()](#m-islistrestriction-be6f3b28620e)
-- [isNone()](#m-isnone-e8a993ad0453)
-- [isNumber()](#m-isnumber-ea698f0863fe)
-- [isString()](#m-isstring-7b1e5678e352)
-- [isUnion()](#m-isunion-6183f968c3e8)
+- [getBits()](#m-getBits-032b4694ff31)
+- [getDecimal64()](#m-getDecimal64-193bb466ba33)
+- [getDisplayHint()](#m-getDisplayHint-f9cb8b7f487f)
+- [getEnum()](#m-getEnum-c3a0d3b9ada8)
+- [getIdentity()](#m-getIdentity-249dccdd4d86)
+- [getIdref()](#m-getIdref-63813e21dc3f)
+- [getList()](#m-getList-bb3f8cbe83be)
+- [getListRestriction()](#m-getListRestriction-ce6c8d137d0a)
+- [getNone()](#m-getNone-e31bfdbffa7f)
+- [getNumber()](#m-getNumber-bb87f37a80c3)
+- [getString()](#m-getString-4464e45dd212)
+- [getUnion()](#m-getUnion-09a450ad6ddb)
+- [hasBits()](#m-hasBits-3d091966c9f9)
+- [hasDecimal64()](#m-hasDecimal64-85dcdb2b131e)
+- [hasDisplayHint()](#m-hasDisplayHint-a0d050b8aab0)
+- [hasEnum()](#m-hasEnum-1d114db3fe39)
+- [hasIdentity()](#m-hasIdentity-f1490905d6e2)
+- [hasIdref()](#m-hasIdref-289f055cad8f)
+- [hasList()](#m-hasList-3712d7ce73ac)
+- [hasListRestriction()](#m-hasListRestriction-c778171a0737)
+- [hasNone()](#m-hasNone-2bfc8643e387)
+- [hasNumber()](#m-hasNumber-0518c2df0887)
+- [hasString()](#m-hasString-881bf798306f)
+- [hasUnion()](#m-hasUnion-b08deffc4123)
+- [isBits()](#m-isBits-fbb2c14b0e4a)
+- [isDecimal64()](#m-isDecimal64-fbfc5a5de098)
+- [isDisplayHint()](#m-isDisplayHint-b573e27dbdd3)
+- [isEnum()](#m-isEnum-4f01ba38b65e)
+- [isIdentity()](#m-isIdentity-694dbb6ae0ec)
+- [isIdref()](#m-isIdref-bb5a2e992bb2)
+- [isList()](#m-isList-c36bce63b506)
+- [isListRestriction()](#m-isListRestriction-be6f3b28620e)
+- [isNone()](#m-isNone-e8a993ad0453)
+- [isNumber()](#m-isNumber-ea698f0863fe)
+- [isString()](#m-isString-7b1e5678e352)
+- [isUnion()](#m-isUnion-6183f968c3e8)
 - [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -82,8 +80,7 @@ Reader(
 
 ## Methods
 
-<a id="m-getbits-032b4694ff31"></a>
-### getBits()
+### getBits() <a href="#m-getBits-032b4694ff31" id="m-getBits-032b4694ff31"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeBits.Reader getBits()
@@ -91,8 +88,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeBits.Reader getBits()
 
 Types: [Reader](../../CsTypeBits/Reader.md#cls-Reader)
 
-<a id="m-getdecimal64-193bb466ba33"></a>
-### getDecimal64()
+### getDecimal64() <a href="#m-getDecimal64-193bb466ba33" id="m-getDecimal64-193bb466ba33"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader getDecimal64()
@@ -100,8 +96,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader getDecimal64()
 
 Types: [Reader](../../CsTypeDecimal64/Reader.md#cls-Reader)
 
-<a id="m-getdisplayhint-f9cb8b7f487f"></a>
-### getDisplayHint()
+### getDisplayHint() <a href="#m-getDisplayHint-f9cb8b7f487f" id="m-getDisplayHint-f9cb8b7f487f"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader getDisplayHint()
@@ -109,8 +104,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader getDisplayHint()
 
 Types: [Reader](../../CsTypeDisplayHint/Reader.md#cls-Reader)
 
-<a id="m-getenum-c3a0d3b9ada8"></a>
-### getEnum()
+### getEnum() <a href="#m-getEnum-c3a0d3b9ada8" id="m-getEnum-c3a0d3b9ada8"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader getEnum()
@@ -118,8 +112,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader getEnum()
 
 Types: [Reader](../../CsTypeEnum/Reader.md#cls-Reader)
 
-<a id="m-getidentity-249dccdd4d86"></a>
-### getIdentity()
+### getIdentity() <a href="#m-getIdentity-249dccdd4d86" id="m-getIdentity-249dccdd4d86"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeIdentity.Reader getIdentity()
@@ -127,8 +120,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeIdentity.Reader getIdentity()
 
 Types: [Reader](../../CsTypeIdentity/Reader.md#cls-Reader)
 
-<a id="m-getidref-63813e21dc3f"></a>
-### getIdref()
+### getIdref() <a href="#m-getIdref-63813e21dc3f" id="m-getIdref-63813e21dc3f"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader getIdref()
@@ -136,8 +128,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader getIdref()
 
 Types: [Reader](../../CsTypeIdref/Reader.md#cls-Reader)
 
-<a id="m-getlist-bb3f8cbe83be"></a>
-### getList()
+### getList() <a href="#m-getList-bb3f8cbe83be" id="m-getList-bb3f8cbe83be"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeList.Reader getList()
@@ -145,8 +136,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeList.Reader getList()
 
 Types: [Reader](../../CsTypeList/Reader.md#cls-Reader)
 
-<a id="m-getlistrestriction-ce6c8d137d0a"></a>
-### getListRestriction()
+### getListRestriction() <a href="#m-getListRestriction-ce6c8d137d0a" id="m-getListRestriction-ce6c8d137d0a"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader getListRestriction()
@@ -154,8 +144,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader getListRestrictio
 
 Types: [Reader](../../CsTypeListRestriction/Reader.md#cls-Reader)
 
-<a id="m-getnone-e31bfdbffa7f"></a>
-### getNone()
+### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeNone.Reader getNone()
@@ -163,8 +152,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeNone.Reader getNone()
 
 Types: [Reader](../../CsTypeNone/Reader.md#cls-Reader)
 
-<a id="m-getnumber-bb87f37a80c3"></a>
-### getNumber()
+### getNumber() <a href="#m-getNumber-bb87f37a80c3" id="m-getNumber-bb87f37a80c3"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeNumber.Reader getNumber()
@@ -172,8 +160,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeNumber.Reader getNumber()
 
 Types: [Reader](../../CsTypeNumber/Reader.md#cls-Reader)
 
-<a id="m-getstring-4464e45dd212"></a>
-### getString()
+### getString() <a href="#m-getString-4464e45dd212" id="m-getString-4464e45dd212"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeString.Reader getString()
@@ -181,8 +168,7 @@ public com.tailf.ncs.maapi.Schema.CsTypeString.Reader getString()
 
 Types: [Reader](../../CsTypeString/Reader.md#cls-Reader)
 
-<a id="m-getunion-09a450ad6ddb"></a>
-### getUnion()
+### getUnion() <a href="#m-getUnion-09a450ad6ddb" id="m-getUnion-09a450ad6ddb"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader getUnion()
@@ -190,176 +176,151 @@ public com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader getUnion()
 
 Types: [Reader](../../CsTypeUnion/Reader.md#cls-Reader)
 
-<a id="m-hasbits-3d091966c9f9"></a>
-### hasBits()
+### hasBits() <a href="#m-hasBits-3d091966c9f9" id="m-hasBits-3d091966c9f9"></a>
 
 ```java
 public boolean hasBits()
 ```
 
-<a id="m-hasdecimal64-85dcdb2b131e"></a>
-### hasDecimal64()
+### hasDecimal64() <a href="#m-hasDecimal64-85dcdb2b131e" id="m-hasDecimal64-85dcdb2b131e"></a>
 
 ```java
 public boolean hasDecimal64()
 ```
 
-<a id="m-hasdisplayhint-a0d050b8aab0"></a>
-### hasDisplayHint()
+### hasDisplayHint() <a href="#m-hasDisplayHint-a0d050b8aab0" id="m-hasDisplayHint-a0d050b8aab0"></a>
 
 ```java
 public boolean hasDisplayHint()
 ```
 
-<a id="m-hasenum-1d114db3fe39"></a>
-### hasEnum()
+### hasEnum() <a href="#m-hasEnum-1d114db3fe39" id="m-hasEnum-1d114db3fe39"></a>
 
 ```java
 public boolean hasEnum()
 ```
 
-<a id="m-hasidentity-f1490905d6e2"></a>
-### hasIdentity()
+### hasIdentity() <a href="#m-hasIdentity-f1490905d6e2" id="m-hasIdentity-f1490905d6e2"></a>
 
 ```java
 public boolean hasIdentity()
 ```
 
-<a id="m-hasidref-289f055cad8f"></a>
-### hasIdref()
+### hasIdref() <a href="#m-hasIdref-289f055cad8f" id="m-hasIdref-289f055cad8f"></a>
 
 ```java
 public boolean hasIdref()
 ```
 
-<a id="m-haslist-3712d7ce73ac"></a>
-### hasList()
+### hasList() <a href="#m-hasList-3712d7ce73ac" id="m-hasList-3712d7ce73ac"></a>
 
 ```java
 public boolean hasList()
 ```
 
-<a id="m-haslistrestriction-c778171a0737"></a>
-### hasListRestriction()
+### hasListRestriction() <a href="#m-hasListRestriction-c778171a0737" id="m-hasListRestriction-c778171a0737"></a>
 
 ```java
 public boolean hasListRestriction()
 ```
 
-<a id="m-hasnone-2bfc8643e387"></a>
-### hasNone()
+### hasNone() <a href="#m-hasNone-2bfc8643e387" id="m-hasNone-2bfc8643e387"></a>
 
 ```java
 public boolean hasNone()
 ```
 
-<a id="m-hasnumber-0518c2df0887"></a>
-### hasNumber()
+### hasNumber() <a href="#m-hasNumber-0518c2df0887" id="m-hasNumber-0518c2df0887"></a>
 
 ```java
 public boolean hasNumber()
 ```
 
-<a id="m-hasstring-881bf798306f"></a>
-### hasString()
+### hasString() <a href="#m-hasString-881bf798306f" id="m-hasString-881bf798306f"></a>
 
 ```java
 public boolean hasString()
 ```
 
-<a id="m-hasunion-b08deffc4123"></a>
-### hasUnion()
+### hasUnion() <a href="#m-hasUnion-b08deffc4123" id="m-hasUnion-b08deffc4123"></a>
 
 ```java
 public boolean hasUnion()
 ```
 
-<a id="m-isbits-fbb2c14b0e4a"></a>
-### isBits()
+### isBits() <a href="#m-isBits-fbb2c14b0e4a" id="m-isBits-fbb2c14b0e4a"></a>
 
 ```java
 public final boolean isBits()
 ```
 
-<a id="m-isdecimal64-fbfc5a5de098"></a>
-### isDecimal64()
+### isDecimal64() <a href="#m-isDecimal64-fbfc5a5de098" id="m-isDecimal64-fbfc5a5de098"></a>
 
 ```java
 public final boolean isDecimal64()
 ```
 
-<a id="m-isdisplayhint-b573e27dbdd3"></a>
-### isDisplayHint()
+### isDisplayHint() <a href="#m-isDisplayHint-b573e27dbdd3" id="m-isDisplayHint-b573e27dbdd3"></a>
 
 ```java
 public final boolean isDisplayHint()
 ```
 
-<a id="m-isenum-4f01ba38b65e"></a>
-### isEnum()
+### isEnum() <a href="#m-isEnum-4f01ba38b65e" id="m-isEnum-4f01ba38b65e"></a>
 
 ```java
 public final boolean isEnum()
 ```
 
-<a id="m-isidentity-694dbb6ae0ec"></a>
-### isIdentity()
+### isIdentity() <a href="#m-isIdentity-694dbb6ae0ec" id="m-isIdentity-694dbb6ae0ec"></a>
 
 ```java
 public final boolean isIdentity()
 ```
 
-<a id="m-isidref-bb5a2e992bb2"></a>
-### isIdref()
+### isIdref() <a href="#m-isIdref-bb5a2e992bb2" id="m-isIdref-bb5a2e992bb2"></a>
 
 ```java
 public final boolean isIdref()
 ```
 
-<a id="m-islist-c36bce63b506"></a>
-### isList()
+### isList() <a href="#m-isList-c36bce63b506" id="m-isList-c36bce63b506"></a>
 
 ```java
 public final boolean isList()
 ```
 
-<a id="m-islistrestriction-be6f3b28620e"></a>
-### isListRestriction()
+### isListRestriction() <a href="#m-isListRestriction-be6f3b28620e" id="m-isListRestriction-be6f3b28620e"></a>
 
 ```java
 public final boolean isListRestriction()
 ```
 
-<a id="m-isnone-e8a993ad0453"></a>
-### isNone()
+### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="m-isnumber-ea698f0863fe"></a>
-### isNumber()
+### isNumber() <a href="#m-isNumber-ea698f0863fe" id="m-isNumber-ea698f0863fe"></a>
 
 ```java
 public final boolean isNumber()
 ```
 
-<a id="m-isstring-7b1e5678e352"></a>
-### isString()
+### isString() <a href="#m-isString-7b1e5678e352" id="m-isString-7b1e5678e352"></a>
 
 ```java
 public final boolean isString()
 ```
 
-<a id="m-isunion-6183f968c3e8"></a>
-### isUnion()
+### isUnion() <a href="#m-isUnion-6183f968c3e8" id="m-isUnion-6183f968c3e8"></a>
 
 ```java
 public final boolean isUnion()
 ```
 
-<a id="m-which-0b2d23db5ed0"></a>
-### which()
+### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsType.Value.Which which()

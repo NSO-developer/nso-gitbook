@@ -1,5 +1,4 @@
-<a id="cls-CliSession"></a>
-# CliSession
+# CliSession <a href="#cls-CliSession" id="cls-CliSession"></a>
 
 ```java
 public static interface com.tailf.ned.SSHClient.CliSession
@@ -45,34 +44,33 @@ The SSH CLI session interface.
 - [expect(String[], boolean, int, NedWorker)](#m-expect-90d4e3ee7ac2)
 - [expect(String[], NedWorker)](#m-expect-4485477b99db)
 - [flush()](#m-flush-a4d76f158943)
-- [getErrorStream()](#m-geterrorstream-8577e8676bda)
-- [getInputStream()](#m-getinputstream-cb1d1fa14d56)
-- [getLine()](#m-getline-6cb6167e418b)
-- [getOutputStream()](#m-getoutputstream-b7e39f99be28)
-- [getReader()](#m-getreader-ca9cb7876cc5)
-- [getReadTimeout()](#m-getreadtimeout-640fc089c1de)
-- [getTermPrintlnMode()](#m-gettermprintlnmode-bbc6ff231fae)
-- [getWriter()](#m-getwriter-23ba297ab3e8)
-- [logDebug(String)](#m-logdebug-91653b5096b0)
-- [logInfo(String)](#m-loginfo-32ae00d19c47)
+- [getErrorStream()](#m-getErrorStream-8577e8676bda)
+- [getInputStream()](#m-getInputStream-cb1d1fa14d56)
+- [getLine()](#m-getLine-6cb6167e418b)
+- [getOutputStream()](#m-getOutputStream-b7e39f99be28)
+- [getReader()](#m-getReader-ca9cb7876cc5)
+- [getReadTimeout()](#m-getReadTimeout-640fc089c1de)
+- [getTermPrintlnMode()](#m-getTermPrintlnMode-bbc6ff231fae)
+- [getWriter()](#m-getWriter-23ba297ab3e8)
+- [logDebug(String)](#m-logDebug-91653b5096b0)
+- [logInfo(String)](#m-logInfo-32ae00d19c47)
 - [print(int)](#m-print-41f2f1534264)
 - [print(String)](#m-print-b202251f9230)
 - [println(int)](#m-println-4c26ee676efb)
 - [println(String)](#m-println-15aea44318e6)
 - [ready()](#m-ready-92162bd485a2)
 - [ready(int)](#m-ready-c585210c0993)
-- [serverSideClosed()](../CliSession.md#m-serversideclosed-0dfe26b0733e) from CliSession
-- [setReadTimeout(int)](#m-setreadtimeout-4f6742da7687)
-- [setTermPrintlnMode(String)](#m-settermprintlnmode-36c6657337c2)
-- [setTracer(NedTracer)](../CliSession.md#m-settracer-6943f9aadf68) from CliSession
+- [serverSideClosed()](../CliSession.md#m-serverSideClosed-0dfe26b0733e) from CliSession
+- [setReadTimeout(int)](#m-setReadTimeout-4f6742da7687)
+- [setTermPrintlnMode(String)](#m-setTermPrintlnMode-36c6657337c2)
+- [setTracer(NedTracer)](../CliSession.md#m-setTracer-6943f9aadf68) from CliSession
 - [trace(String, String)](#m-trace-684478bdb6cc)
-- [traceInBufAppend(String)](#m-traceinbufappend-948da59d599a)
-- [traceInBufFlush()](#m-traceinbufflush-5f53f59ed390)
+- [traceInBufAppend(String)](#m-traceInBufAppend-948da59d599a)
+- [traceInBufFlush()](#m-traceInBufFlush-5f53f59ed390)
 
 ## Fields
 
-<a id="m-MODE_OCRNL"></a>
-### MODE_OCRNL
+### MODE_OCRNL <a href="#m-MODE_OCRNL" id="m-MODE_OCRNL"></a>
 
 ```java
 public static final String MODE_OCRNL = "ocrnl";
@@ -80,15 +78,13 @@ public static final String MODE_OCRNL = "ocrnl";
 
 Newline modes supported by the CLI session
 
-<a id="m-MODE_ONLRET"></a>
-### MODE_ONLRET
+### MODE_ONLRET <a href="#m-MODE_ONLRET" id="m-MODE_ONLRET"></a>
 
 ```java
 public static final String MODE_ONLRET = "onlret";
 ```
 
-<a id="m-MODE_ONOCR"></a>
-### MODE_ONOCR
+### MODE_ONOCR <a href="#m-MODE_ONOCR" id="m-MODE_ONOCR"></a>
 
 ```java
 public static final String MODE_ONOCR = "onocr";
@@ -97,8 +93,7 @@ public static final String MODE_ONOCR = "onocr";
 
 ## Methods
 
-<a id="m-expect-98936155685a"></a>
-### expect(Pattern)
+### expect(Pattern) <a href="#m-expect-98936155685a" id="m-expect-98936155685a"></a>
 
 ```java
 public default String expect(
@@ -113,8 +108,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 - `java.util.regex.Pattern p`
 
-<a id="m-expect-ae0bda32ace3"></a>
-### expect(Pattern, boolean, int)
+### expect(Pattern, boolean, int) <a href="#m-expect-ae0bda32ace3" id="m-expect-ae0bda32ace3"></a>
 
 ```java
 public default String expect(
@@ -133,8 +127,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-7eb828b58e63"></a>
-### expect(Pattern, boolean, int, NedWorker)
+### expect(Pattern, boolean, int, NedWorker) <a href="#m-expect-7eb828b58e63" id="m-expect-7eb828b58e63"></a>
 
 ```java
 public default String expect(
@@ -155,8 +148,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-a363c018c396"></a>
-### expect(Pattern, NedWorker)
+### expect(Pattern, NedWorker) <a href="#m-expect-a363c018c396" id="m-expect-a363c018c396"></a>
 
 ```java
 public default String expect(
@@ -173,8 +165,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `java.util.regex.Pattern p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-8149faa90d9d"></a>
-### expect(Pattern[])
+### expect(Pattern[]) <a href="#m-expect-8149faa90d9d" id="m-expect-8149faa90d9d"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -189,8 +180,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSession
 
 - `java.util.regex.Pattern[] p`
 
-<a id="m-expect-5cc2e4122c7b"></a>
-### expect(Pattern[], boolean, int)
+### expect(Pattern[], boolean, int) <a href="#m-expect-5cc2e4122c7b" id="m-expect-5cc2e4122c7b"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -209,8 +199,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSession
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-7b0546ada421"></a>
-### expect(Pattern[], boolean, int, boolean)
+### expect(Pattern[], boolean, int, boolean) <a href="#m-expect-7b0546ada421" id="m-expect-7b0546ada421"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -231,8 +220,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSession
 - `int timeout`
 - `boolean full`
 
-<a id="m-expect-8367e41003a6"></a>
-### expect(Pattern[], boolean, int, boolean, NedWorker)
+### expect(Pattern[], boolean, int, boolean, NedWorker) <a href="#m-expect-8367e41003a6" id="m-expect-8367e41003a6"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -255,8 +243,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker]
 - `boolean full`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-6c58bada9cc6"></a>
-### expect(Pattern[], boolean, int, NedWorker)
+### expect(Pattern[], boolean, int, NedWorker) <a href="#m-expect-6c58bada9cc6" id="m-expect-6c58bada9cc6"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -277,8 +264,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker]
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-b0896c6a7b2a"></a>
-### expect(Pattern[], NedWorker)
+### expect(Pattern[], NedWorker) <a href="#m-expect-b0896c6a7b2a" id="m-expect-b0896c6a7b2a"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -295,8 +281,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker]
 - `java.util.regex.Pattern[] p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-5f5d11ad490b"></a>
-### expect(String)
+### expect(String) <a href="#m-expect-5f5d11ad490b" id="m-expect-5f5d11ad490b"></a>
 
 ```java
 public default String expect(
@@ -311,8 +296,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 
 - `String str`
 
-<a id="m-expect-b7ee8aa21949"></a>
-### expect(String, boolean, boolean, int)
+### expect(String, boolean, boolean, int) <a href="#m-expect-b7ee8aa21949" id="m-expect-b7ee8aa21949"></a>
 
 ```java
 public default String expect(
@@ -333,8 +317,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 - `boolean full`
 - `int timeout`
 
-<a id="m-expect-a44ee9613d91"></a>
-### expect(String, boolean, boolean, int, NedWorker)
+### expect(String, boolean, boolean, int, NedWorker) <a href="#m-expect-a44ee9613d91" id="m-expect-a44ee9613d91"></a>
 
 ```java
 public default String expect(
@@ -357,8 +340,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-16cd2f682137"></a>
-### expect(String, boolean, int)
+### expect(String, boolean, int) <a href="#m-expect-16cd2f682137" id="m-expect-16cd2f682137"></a>
 
 ```java
 public default String expect(
@@ -377,8 +359,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-6e2d86346550"></a>
-### expect(String, boolean, int, NedWorker)
+### expect(String, boolean, int, NedWorker) <a href="#m-expect-6e2d86346550" id="m-expect-6e2d86346550"></a>
 
 ```java
 public default String expect(
@@ -399,8 +380,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-37295e1967db"></a>
-### expect(String, int)
+### expect(String, int) <a href="#m-expect-37295e1967db" id="m-expect-37295e1967db"></a>
 
 ```java
 public default String expect(
@@ -417,8 +397,7 @@ Types: [SSHSessionException](../SSHSessionException.md#cls-SSHSessionException)
 - `String str`
 - `int timeout`
 
-<a id="m-expect-4ba232d952f7"></a>
-### expect(String, int, NedWorker)
+### expect(String, int, NedWorker) <a href="#m-expect-4ba232d952f7" id="m-expect-4ba232d952f7"></a>
 
 ```java
 public default String expect(
@@ -437,8 +416,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-6426c41e07e7"></a>
-### expect(String, NedWorker)
+### expect(String, NedWorker) <a href="#m-expect-6426c41e07e7" id="m-expect-6426c41e07e7"></a>
 
 ```java
 public default String expect(
@@ -455,8 +433,7 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker), [SSHSessionException](../SSHS
 - `String str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-740d81a74e4b"></a>
-### expect(String[])
+### expect(String[]) <a href="#m-expect-740d81a74e4b" id="m-expect-740d81a74e4b"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -471,8 +448,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSession
 
 - `String[] str`
 
-<a id="m-expect-f6cb6c02c198"></a>
-### expect(String[], boolean, int)
+### expect(String[], boolean, int) <a href="#m-expect-f6cb6c02c198" id="m-expect-f6cb6c02c198"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -491,8 +467,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [SSHSession
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-90d4e3ee7ac2"></a>
-### expect(String[], boolean, int, NedWorker)
+### expect(String[], boolean, int, NedWorker) <a href="#m-expect-90d4e3ee7ac2" id="m-expect-90d4e3ee7ac2"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -513,8 +488,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker]
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-4485477b99db"></a>
-### expect(String[], NedWorker)
+### expect(String[], NedWorker) <a href="#m-expect-4485477b99db" id="m-expect-4485477b99db"></a>
 
 ```java
 public default com.tailf.ned.NedExpectResult expect(
@@ -531,8 +505,7 @@ Types: [NedExpectResult](../NedExpectResult.md#cls-NedExpectResult), [NedWorker]
 - `String[] str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-flush-a4d76f158943"></a>
-### flush()
+### flush() <a href="#m-flush-a4d76f158943" id="m-flush-a4d76f158943"></a>
 
 ```java
 public default void flush()
@@ -542,43 +515,37 @@ Signals that the final chunk of data has to be printed to the output
  transport stream. This method furthermore flushes the transport
  output stream buffer.
 
-<a id="m-geterrorstream-8577e8676bda"></a>
-### getErrorStream()
+### getErrorStream() <a href="#m-getErrorStream-8577e8676bda" id="m-getErrorStream-8577e8676bda"></a>
 
 ```java
 public abstract java.io.InputStream getErrorStream()
 ```
 
-<a id="m-getinputstream-cb1d1fa14d56"></a>
-### getInputStream()
+### getInputStream() <a href="#m-getInputStream-cb1d1fa14d56" id="m-getInputStream-cb1d1fa14d56"></a>
 
 ```java
 public abstract java.io.InputStream getInputStream()
 ```
 
-<a id="m-getline-6cb6167e418b"></a>
-### getLine()
+### getLine() <a href="#m-getLine-6cb6167e418b" id="m-getLine-6cb6167e418b"></a>
 
 ```java
 public abstract StringBuilder getLine()
 ```
 
-<a id="m-getoutputstream-b7e39f99be28"></a>
-### getOutputStream()
+### getOutputStream() <a href="#m-getOutputStream-b7e39f99be28" id="m-getOutputStream-b7e39f99be28"></a>
 
 ```java
 public abstract java.io.OutputStream getOutputStream()
 ```
 
-<a id="m-getreader-ca9cb7876cc5"></a>
-### getReader()
+### getReader() <a href="#m-getReader-ca9cb7876cc5" id="m-getReader-ca9cb7876cc5"></a>
 
 ```java
 public abstract java.io.BufferedReader getReader()
 ```
 
-<a id="m-getreadtimeout-640fc089c1de"></a>
-### getReadTimeout()
+### getReadTimeout() <a href="#m-getReadTimeout-640fc089c1de" id="m-getReadTimeout-640fc089c1de"></a>
 
 ```java
 public abstract int getReadTimeout()
@@ -586,22 +553,19 @@ public abstract int getReadTimeout()
 
 Interface methods that must be implemented
 
-<a id="m-gettermprintlnmode-bbc6ff231fae"></a>
-### getTermPrintlnMode()
+### getTermPrintlnMode() <a href="#m-getTermPrintlnMode-bbc6ff231fae" id="m-getTermPrintlnMode-bbc6ff231fae"></a>
 
 ```java
 public abstract String getTermPrintlnMode()
 ```
 
-<a id="m-getwriter-23ba297ab3e8"></a>
-### getWriter()
+### getWriter() <a href="#m-getWriter-23ba297ab3e8" id="m-getWriter-23ba297ab3e8"></a>
 
 ```java
 public abstract java.io.PrintWriter getWriter()
 ```
 
-<a id="m-logdebug-91653b5096b0"></a>
-### logDebug(String)
+### logDebug(String) <a href="#m-logDebug-91653b5096b0" id="m-logDebug-91653b5096b0"></a>
 
 ```java
 public abstract void logDebug(String msg)
@@ -611,8 +575,7 @@ public abstract void logDebug(String msg)
 
 - `String msg`
 
-<a id="m-loginfo-32ae00d19c47"></a>
-### logInfo(String)
+### logInfo(String) <a href="#m-logInfo-32ae00d19c47" id="m-logInfo-32ae00d19c47"></a>
 
 ```java
 public abstract void logInfo(String msg)
@@ -622,8 +585,7 @@ public abstract void logInfo(String msg)
 
 - `String msg`
 
-<a id="m-print-41f2f1534264"></a>
-### print(int)
+### print(int) <a href="#m-print-41f2f1534264" id="m-print-41f2f1534264"></a>
 
 ```java
 public default void print(int iVal)
@@ -635,8 +597,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="m-print-b202251f9230"></a>
-### print(String)
+### print(String) <a href="#m-print-b202251f9230" id="m-print-b202251f9230"></a>
 
 ```java
 public default void print(String s)
@@ -648,8 +609,7 @@ Prints text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="m-println-4c26ee676efb"></a>
-### println(int)
+### println(int) <a href="#m-println-4c26ee676efb" id="m-println-4c26ee676efb"></a>
 
 ```java
 public default void println(int iVal)
@@ -662,8 +622,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="m-println-15aea44318e6"></a>
-### println(String)
+### println(String) <a href="#m-println-15aea44318e6" id="m-println-15aea44318e6"></a>
 
 ```java
 public default void println(String s)
@@ -676,8 +635,7 @@ Print text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="m-ready-92162bd485a2"></a>
-### ready()
+### ready() <a href="#m-ready-92162bd485a2" id="m-ready-92162bd485a2"></a>
 
 ```java
 public default boolean ready() throws java.io.IOException
@@ -685,8 +643,7 @@ public default boolean ready() throws java.io.IOException
 
 Interface methods with default implementation
 
-<a id="m-ready-c585210c0993"></a>
-### ready(int)
+### ready(int) <a href="#m-ready-c585210c0993" id="m-ready-c585210c0993"></a>
 
 ```java
 public abstract boolean ready(int timeout) throws java.io.IOException
@@ -696,8 +653,7 @@ public abstract boolean ready(int timeout) throws java.io.IOException
 
 - `int timeout`
 
-<a id="m-setreadtimeout-4f6742da7687"></a>
-### setReadTimeout(int)
+### setReadTimeout(int) <a href="#m-setReadTimeout-4f6742da7687" id="m-setReadTimeout-4f6742da7687"></a>
 
 ```java
 public abstract void setReadTimeout(int readTimeout)
@@ -707,8 +663,7 @@ public abstract void setReadTimeout(int readTimeout)
 
 - `int readTimeout`
 
-<a id="m-settermprintlnmode-36c6657337c2"></a>
-### setTermPrintlnMode(String)
+### setTermPrintlnMode(String) <a href="#m-setTermPrintlnMode-36c6657337c2" id="m-setTermPrintlnMode-36c6657337c2"></a>
 
 ```java
 public abstract void setTermPrintlnMode(String mode)
@@ -718,8 +673,7 @@ public abstract void setTermPrintlnMode(String mode)
 
 - `String mode`
 
-<a id="m-trace-684478bdb6cc"></a>
-### trace(String, String)
+### trace(String, String) <a href="#m-trace-684478bdb6cc" id="m-trace-684478bdb6cc"></a>
 
 ```java
 public abstract void trace(String msg, String direction)
@@ -730,8 +684,7 @@ public abstract void trace(String msg, String direction)
 - `String msg`
 - `String direction`
 
-<a id="m-traceinbufappend-948da59d599a"></a>
-### traceInBufAppend(String)
+### traceInBufAppend(String) <a href="#m-traceInBufAppend-948da59d599a" id="m-traceInBufAppend-948da59d599a"></a>
 
 ```java
 public abstract void traceInBufAppend(String msg)
@@ -741,8 +694,7 @@ public abstract void traceInBufAppend(String msg)
 
 - `String msg`
 
-<a id="m-traceinbufflush-5f53f59ed390"></a>
-### traceInBufFlush()
+### traceInBufFlush() <a href="#m-traceInBufFlush-5f53f59ed390" id="m-traceInBufFlush-5f53f59ed390"></a>
 
 ```java
 public abstract void traceInBufFlush()

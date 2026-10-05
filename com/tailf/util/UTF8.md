@@ -1,5 +1,4 @@
-<a id="cls-UTF8"></a>
-# UTF8
+# UTF8 <a href="#cls-UTF8" id="cls-UTF8"></a>
 
 ```java
 public class com.tailf.util.UTF8
@@ -9,19 +8,18 @@ public class com.tailf.util.UTF8
 
 **Constructors**:
 
-- [UTF8()](#m-utf8-276b1ee131b3)
+- [UTF8()](#m-UTF8-276b1ee131b3)
 
 **Methods**:
 
-- [getBytes(String)](#m-getbytes-dc2a63683673)
-- [isEncoding(String, byte[])](#m-isencoding-d2f8137f1dd6)
-- [isUTF8(byte[])](#m-isutf8-69f5acf4ead8)
-- [toString(byte[])](#m-tostring-5d65abc8eb30)
+- [getBytes(String)](#m-getBytes-dc2a63683673)
+- [isEncoding(String, byte[])](#m-isEncoding-d2f8137f1dd6)
+- [isUTF8(byte[])](#m-isUTF8-69f5acf4ead8)
+- [toString(byte[])](#m-toString-5d65abc8eb30)
 
 ## Constructors
 
-<a id="m-utf8-276b1ee131b3"></a>
-### UTF8()
+### UTF8() <a href="#m-UTF8-276b1ee131b3" id="m-UTF8-276b1ee131b3"></a>
 
 ```java
 public UTF8()
@@ -30,8 +28,7 @@ public UTF8()
 
 ## Methods
 
-<a id="m-getbytes-dc2a63683673"></a>
-### getBytes(String)
+### getBytes(String) <a href="#m-getBytes-dc2a63683673" id="m-getBytes-dc2a63683673"></a>
 
 ```java
 public static byte[] getBytes(String str)
@@ -41,8 +38,7 @@ public static byte[] getBytes(String str)
 
 - `String str`
 
-<a id="m-isencoding-d2f8137f1dd6"></a>
-### isEncoding(String, byte[])
+### isEncoding(String, byte[]) <a href="#m-isEncoding-d2f8137f1dd6" id="m-isEncoding-d2f8137f1dd6"></a>
 
 ```java
 public static boolean isEncoding(String encoding, byte[] input)
@@ -53,8 +49,7 @@ public static boolean isEncoding(String encoding, byte[] input)
 - `String encoding`
 - `byte[] input`
 
-<a id="m-isutf8-69f5acf4ead8"></a>
-### isUTF8(byte[])
+### isUTF8(byte[]) <a href="#m-isUTF8-69f5acf4ead8" id="m-isUTF8-69f5acf4ead8"></a>
 
 ```java
 public static boolean isUTF8(byte[] input)
@@ -64,8 +59,7 @@ public static boolean isUTF8(byte[] input)
 
 - `byte[] input`
 
-<a id="m-tostring-5d65abc8eb30"></a>
-### toString(byte[])
+### toString(byte[]) <a href="#m-toString-5d65abc8eb30" id="m-toString-5d65abc8eb30"></a>
 
 ```java
 public static String toString(byte[] input)

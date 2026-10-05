@@ -1,5 +1,4 @@
-<a id="cls-HaException"></a>
-# HaException
+# HaException <a href="#cls-HaException" id="cls-HaException"></a>
 
 ```java
 public class com.tailf.ha.HaException
@@ -14,22 +13,21 @@ Exception for the HA handling
 
 **Constructors**:
 
-- [HaException(String)](#m-haexception-6466f26d1012)
-- [HaException(String, ErrorCode)](#m-haexception-32139dd642cc)
-- [HaException(String, ErrorCode, Throwable)](#m-haexception-c7b840ccd056)
-- [HaException(String, Throwable)](#m-haexception-21b4bcf9175b)
+- [HaException(String)](#m-HaException-6466f26d1012)
+- [HaException(String, ErrorCode)](#m-HaException-32139dd642cc)
+- [HaException(String, ErrorCode, Throwable)](#m-HaException-c7b840ccd056)
+- [HaException(String, Throwable)](#m-HaException-21b4bcf9175b)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-haexception-6466f26d1012"></a>
-### HaException(String)
+### HaException(String) <a href="#m-HaException-6466f26d1012" id="m-HaException-6466f26d1012"></a>
 
 ```java
 public HaException(String msg)
@@ -39,8 +37,7 @@ public HaException(String msg)
 
 - `String msg`
 
-<a id="m-haexception-32139dd642cc"></a>
-### HaException(String, ErrorCode)
+### HaException(String, ErrorCode) <a href="#m-HaException-32139dd642cc" id="m-HaException-32139dd642cc"></a>
 
 ```java
 public HaException(String msg, com.tailf.conf.ErrorCode code)
@@ -53,8 +50,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-haexception-c7b840ccd056"></a>
-### HaException(String, ErrorCode, Throwable)
+### HaException(String, ErrorCode, Throwable) <a href="#m-HaException-c7b840ccd056" id="m-HaException-c7b840ccd056"></a>
 
 ```java
 public HaException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -68,8 +64,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-haexception-21b4bcf9175b"></a>
-### HaException(String, Throwable)
+### HaException(String, Throwable) <a href="#m-HaException-21b4bcf9175b" id="m-HaException-21b4bcf9175b"></a>
 
 ```java
 public HaException(String msg, Throwable cause)
@@ -83,8 +78,7 @@ public HaException(String msg, Throwable cause)
 
 ## Methods
 
-<a id="m-mk-de1cedfc6ea8"></a>
-### mk(ConfResponse)
+### mk(ConfResponse) <a href="#m-mk-de1cedfc6ea8" id="m-mk-de1cedfc6ea8"></a>
 
 ```java
 public static com.tailf.ha.HaException mk(com.tailf.conf.ConfResponse r)

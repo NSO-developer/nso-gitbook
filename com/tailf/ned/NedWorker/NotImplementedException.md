@@ -1,5 +1,4 @@
-<a id="cls-NotImplementedException"></a>
-# NotImplementedException
+# NotImplementedException <a href="#cls-NotImplementedException" id="cls-NotImplementedException"></a>
 
 ```java
 public static class com.tailf.ned.NedWorker.NotImplementedException
@@ -10,7 +9,7 @@ public static class com.tailf.ned.NedWorker.NotImplementedException
 
 **Constructors**:
 
-- [NotImplementedException()](#m-notimplementedexception-01e007d22304)
+- [NotImplementedException()](#m-NotImplementedException-01e007d22304)
 
 **Fields**:
 
@@ -18,8 +17,7 @@ public static class com.tailf.ned.NedWorker.NotImplementedException
 
 ## Constructors
 
-<a id="m-notimplementedexception-01e007d22304"></a>
-### NotImplementedException()
+### NotImplementedException() <a href="#m-NotImplementedException-01e007d22304" id="m-NotImplementedException-01e007d22304"></a>
 
 ```java
 public NotImplementedException()
@@ -28,8 +26,7 @@ public NotImplementedException()
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 ```java
 public static final long serialVersionUID = 1;

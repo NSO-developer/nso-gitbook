@@ -1,5 +1,4 @@
-<a id="cls-CsTypeDisplayHint"></a>
-# CsTypeDisplayHint
+# CsTypeDisplayHint <a href="#cls-CsTypeDisplayHint" id="cls-CsTypeDisplayHint"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint
 
 **Constructors**:
 
-- [CsTypeDisplayHint()](#m-cstypedisplayhint-87bd4df304e3)
+- [CsTypeDisplayHint()](#m-CsTypeDisplayHint-87bd4df304e3)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeDisplayHint
 
 ## Constructors
 
-<a id="m-cstypedisplayhint-87bd4df304e3"></a>
-### CsTypeDisplayHint()
+### CsTypeDisplayHint() <a href="#m-CsTypeDisplayHint-87bd4df304e3" id="m-CsTypeDisplayHint-87bd4df304e3"></a>
 
 ```java
 public CsTypeDisplayHint()
@@ -35,8 +33,7 @@ public CsTypeDisplayHint()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Factory factory
 
 Types: [Factory](CsTypeDisplayHint/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Builder,com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeDisplayHint/Builder.md#cls-Builder), [Reader](CsTypeDisplayHint/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

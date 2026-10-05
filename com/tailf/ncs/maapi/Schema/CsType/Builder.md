@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
@@ -10,28 +9,27 @@ public static final class com.tailf.ncs.maapi.Schema.CsType.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getName()](#m-getname-2634b18b4a25)
-- [getNs()](#m-getns-59b97eae2a4a)
-- [getParent()](#m-getparent-45c1b196ed70)
-- [getValue()](#m-getvalue-d93864668c40)
-- [hasName()](#m-hasname-bfe6c334e0d1)
-- [initName(int)](#m-initname-281e5d2102d4)
-- [initParent()](#m-initparent-42003b75a7dd)
-- [initValue()](#m-initvalue-a7755fffc529)
-- [setName(Reader)](#m-setname-79f9d1263a41)
-- [setName(String)](#m-setname-c76ccfcb9f18)
-- [setNs(int)](#m-setns-3c6980dbfd35)
-- [setParent(Reader)](#m-setparent-9ed68f47e1db)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getName()](#m-getName-2634b18b4a25)
+- [getNs()](#m-getNs-59b97eae2a4a)
+- [getParent()](#m-getParent-45c1b196ed70)
+- [getValue()](#m-getValue-d93864668c40)
+- [hasName()](#m-hasName-bfe6c334e0d1)
+- [initName(int)](#m-initName-281e5d2102d4)
+- [initParent()](#m-initParent-42003b75a7dd)
+- [initValue()](#m-initValue-a7755fffc529)
+- [setName(Reader)](#m-setName-79f9d1263a41)
+- [setName(String)](#m-setName-c76ccfcb9f18)
+- [setNs(int)](#m-setNs-3c6980dbfd35)
+- [setParent(Reader)](#m-setParent-9ed68f47e1db)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -56,8 +54,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Reader asReader()
@@ -65,22 +62,19 @@ public final com.tailf.ncs.maapi.Schema.CsType.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-<a id="m-getns-59b97eae2a4a"></a>
-### getNs()
+### getNs() <a href="#m-getNs-59b97eae2a4a" id="m-getNs-59b97eae2a4a"></a>
 
 ```java
 public final int getNs()
 ```
 
-<a id="m-getparent-45c1b196ed70"></a>
-### getParent()
+### getParent() <a href="#m-getParent-45c1b196ed70" id="m-getParent-45c1b196ed70"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder getParent()
@@ -88,8 +82,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder getParent()
 
 Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder getValue()
@@ -97,15 +90,13 @@ public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder getValue()
 
 Types: [Builder](Value/Builder.md#cls-Builder)
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public final boolean hasName()
 ```
 
-<a id="m-initname-281e5d2102d4"></a>
-### initName(int)
+### initName(int) <a href="#m-initName-281e5d2102d4" id="m-initName-281e5d2102d4"></a>
 
 ```java
 public final org.capnproto.Text.Builder initName(int size)
@@ -115,8 +106,7 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-<a id="m-initparent-42003b75a7dd"></a>
-### initParent()
+### initParent() <a href="#m-initParent-42003b75a7dd" id="m-initParent-42003b75a7dd"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder initParent()
@@ -124,8 +114,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeReference.Builder initParent()
 
 Types: [Builder](../CsTypeReference/Builder.md#cls-Builder)
 
-<a id="m-initvalue-a7755fffc529"></a>
-### initValue()
+### initValue() <a href="#m-initValue-a7755fffc529" id="m-initValue-a7755fffc529"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder initValue()
@@ -133,8 +122,7 @@ public final com.tailf.ncs.maapi.Schema.CsType.Value.Builder initValue()
 
 Types: [Builder](Value/Builder.md#cls-Builder)
 
-<a id="m-setname-79f9d1263a41"></a>
-### setName(Reader)
+### setName(Reader) <a href="#m-setName-79f9d1263a41" id="m-setName-79f9d1263a41"></a>
 
 ```java
 public final void setName(org.capnproto.Text.Reader value)
@@ -144,8 +132,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setname-c76ccfcb9f18"></a>
-### setName(String)
+### setName(String) <a href="#m-setName-c76ccfcb9f18" id="m-setName-c76ccfcb9f18"></a>
 
 ```java
 public final void setName(String value)
@@ -155,8 +142,7 @@ public final void setName(String value)
 
 - `String value`
 
-<a id="m-setns-3c6980dbfd35"></a>
-### setNs(int)
+### setNs(int) <a href="#m-setNs-3c6980dbfd35" id="m-setNs-3c6980dbfd35"></a>
 
 ```java
 public final void setNs(int value)
@@ -166,8 +152,7 @@ public final void setNs(int value)
 
 - `int value`
 
-<a id="m-setparent-9ed68f47e1db"></a>
-### setParent(Reader)
+### setParent(Reader) <a href="#m-setParent-9ed68f47e1db" id="m-setParent-9ed68f47e1db"></a>
 
 ```java
 public final void setParent(com.tailf.ncs.maapi.Schema.CsTypeReference.Reader value)

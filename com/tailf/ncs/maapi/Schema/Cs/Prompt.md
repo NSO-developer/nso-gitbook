@@ -1,5 +1,4 @@
-<a id="cls-Prompt"></a>
-# Prompt
+# Prompt <a href="#cls-Prompt" id="cls-Prompt"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.Prompt
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Prompt
 
 **Constructors**:
 
-- [Prompt()](#m-prompt-2f009c404e2d)
+- [Prompt()](#m-Prompt-2f009c404e2d)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Prompt
 
 ## Constructors
 
-<a id="m-prompt-2f009c404e2d"></a>
-### Prompt()
+### Prompt() <a href="#m-Prompt-2f009c404e2d" id="m-Prompt-2f009c404e2d"></a>
 
 ```java
 public Prompt()
@@ -36,8 +34,7 @@ public Prompt()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Prompt.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.Cs.Prompt.Factory factory = null;
 
 Types: [Factory](Prompt/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Prompt.Builder,com.tailf.ncs.maapi.Schema.Cs.Prompt.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](Prompt/Builder.md#cls-Builder), [Reader](Prompt/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

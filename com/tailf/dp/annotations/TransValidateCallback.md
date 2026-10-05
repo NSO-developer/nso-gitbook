@@ -1,5 +1,4 @@
-<a id="cls-TransValidateCallback"></a>
-# TransValidateCallback
+# TransValidateCallback <a href="#cls-TransValidateCallback" id="cls-TransValidateCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -15,12 +14,11 @@ Annotation class for TransValidate Callbacks Attribute is callType
 
 **Methods**:
 
-- [callType()](#m-calltype-0d0f9b61a036)
+- [callType()](#m-callType-0d0f9b61a036)
 
 ## Methods
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.TransValidateCBType[] callType()

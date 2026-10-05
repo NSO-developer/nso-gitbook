@@ -1,5 +1,4 @@
-<a id="cls-ConfInputStream"></a>
-# ConfInputStream
+# ConfInputStream <a href="#cls-ConfInputStream" id="cls-ConfInputStream"></a>
 
 ```java
 public class com.tailf.proto.ConfInputStream
@@ -16,18 +15,18 @@ Provides a stream for decoding E terms from external format.
 
 **Constructors**:
 
-- [ConfInputStream(byte[])](#m-confinputstream-df1e5054f370)
-- [ConfInputStream(byte[], int, int)](#m-confinputstream-31b08369f344)
+- [ConfInputStream(byte[])](#m-ConfInputStream-df1e5054f370)
+- [ConfInputStream(byte[], int, int)](#m-ConfInputStream-31b08369f344)
 
 **Methods**:
 
-- [getPos()](#m-getpos-ad2d7b30807f)
+- [getPos()](#m-getPos-ad2d7b30807f)
 - [peek()](#m-peek-a38eaaf8a6a7)
 - [read1()](#m-read1-76d98112fce5)
-- [read2BE()](#m-read2be-87624a22731e)
-- [read2LE()](#m-read2le-569d0a96b4e4)
-- [read4BE()](#m-read4be-2b9ce3ff5038)
-- [read4LE()](#m-read4le-ca46fefc73b2)
+- [read2BE()](#m-read2BE-87624a22731e)
+- [read2LE()](#m-read2LE-569d0a96b4e4)
+- [read4BE()](#m-read4BE-2b9ce3ff5038)
+- [read4LE()](#m-read4LE-ca46fefc73b2)
 - [read_any()](#m-read_any-6429f2e0a641)
 - [read_atom()](#m-read_atom-7a1ab1363e25)
 - [read_big()](#m-read_big-ea4cd63e86f0)
@@ -51,15 +50,14 @@ Provides a stream for decoding E terms from external format.
 - [read_uint()](#m-read_uint-a42a72a36f43)
 - [read_ulong()](#m-read_ulong-d0c7d44596b0)
 - [read_ushort()](#m-read_ushort-c2c654db673c)
-- [readBE(int)](#m-readbe-49e938e712e3)
-- [readLE(int)](#m-readle-749de7f756b0)
-- [readN(byte[])](#m-readn-97646f66d503)
-- [setPos(int)](#m-setpos-a83f79498a31)
+- [readBE(int)](#m-readBE-49e938e712e3)
+- [readLE(int)](#m-readLE-749de7f756b0)
+- [readN(byte[])](#m-readN-97646f66d503)
+- [setPos(int)](#m-setPos-a83f79498a31)
 
 ## Constructors
 
-<a id="m-confinputstream-df1e5054f370"></a>
-### ConfInputStream(byte[])
+### ConfInputStream(byte[]) <a href="#m-ConfInputStream-df1e5054f370" id="m-ConfInputStream-df1e5054f370"></a>
 
 ```java
 public ConfInputStream(byte[] buf)
@@ -71,8 +69,7 @@ Create a stream from a buffer containing encoded E terms.
 
 - `byte[] buf`
 
-<a id="m-confinputstream-31b08369f344"></a>
-### ConfInputStream(byte[], int, int)
+### ConfInputStream(byte[], int, int) <a href="#m-ConfInputStream-31b08369f344" id="m-ConfInputStream-31b08369f344"></a>
 
 ```java
 public ConfInputStream(byte[] buf, int offset, int length)
@@ -90,8 +87,7 @@ Create a stream from a buffer containing encoded E terms at the given
 
 ## Methods
 
-<a id="m-getpos-ad2d7b30807f"></a>
-### getPos()
+### getPos() <a href="#m-getPos-ad2d7b30807f" id="m-getPos-ad2d7b30807f"></a>
 
 ```java
 public int getPos()
@@ -101,8 +97,7 @@ Get the current position in the stream.
 
 **Returns:** the current position in the stream.
 
-<a id="m-peek-a38eaaf8a6a7"></a>
-### peek()
+### peek() <a href="#m-peek-a38eaaf8a6a7" id="m-peek-a38eaaf8a6a7"></a>
 
 ```java
 public int peek() throws com.tailf.proto.ConfEDecodeException
@@ -119,8 +114,7 @@ Look ahead one position in the stream without consuming the byte found
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read1-76d98112fce5"></a>
-### read1()
+### read1() <a href="#m-read1-76d98112fce5" id="m-read1-76d98112fce5"></a>
 
 ```java
 public int read1() throws com.tailf.proto.ConfEDecodeException
@@ -136,8 +130,7 @@ Read a one byte integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read2be-87624a22731e"></a>
-### read2BE()
+### read2BE() <a href="#m-read2BE-87624a22731e" id="m-read2BE-87624a22731e"></a>
 
 ```java
 public int read2BE() throws com.tailf.proto.ConfEDecodeException
@@ -153,8 +146,7 @@ Read a two byte big endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read2le-569d0a96b4e4"></a>
-### read2LE()
+### read2LE() <a href="#m-read2LE-569d0a96b4e4" id="m-read2LE-569d0a96b4e4"></a>
 
 ```java
 public int read2LE() throws com.tailf.proto.ConfEDecodeException
@@ -170,8 +162,7 @@ Read a two byte little endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read4be-2b9ce3ff5038"></a>
-### read4BE()
+### read4BE() <a href="#m-read4BE-2b9ce3ff5038" id="m-read4BE-2b9ce3ff5038"></a>
 
 ```java
 public int read4BE() throws com.tailf.proto.ConfEDecodeException
@@ -187,8 +178,7 @@ Read a four byte big endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read4le-ca46fefc73b2"></a>
-### read4LE()
+### read4LE() <a href="#m-read4LE-ca46fefc73b2" id="m-read4LE-ca46fefc73b2"></a>
 
 ```java
 public int read4LE() throws com.tailf.proto.ConfEDecodeException
@@ -204,8 +194,7 @@ Read a four byte little endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read_any-6429f2e0a641"></a>
-### read_any()
+### read_any() <a href="#m-read_any-6429f2e0a641" id="m-read_any-6429f2e0a641"></a>
 
 ```java
 public com.tailf.proto.ConfEObject read_any() throws com.tailf.proto.ConfEDecodeException
@@ -222,8 +211,7 @@ Read an arbitrary E term from the stream.
 - `ConfEDecodeException` - if the stream does not contain a known E type at the next
                 position.
 
-<a id="m-read_atom-7a1ab1363e25"></a>
-### read_atom()
+### read_atom() <a href="#m-read_atom-7a1ab1363e25" id="m-read_atom-7a1ab1363e25"></a>
 
 ```java
 public String read_atom() throws com.tailf.proto.ConfEDecodeException
@@ -239,8 +227,7 @@ Read an E atom from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not an atom.
 
-<a id="m-read_big-ea4cd63e86f0"></a>
-### read_big()
+### read_big() <a href="#m-read_big-ea4cd63e86f0" id="m-read_big-ea4cd63e86f0"></a>
 
 ```java
 public java.math.BigInteger read_big() throws com.tailf.proto.ConfEDecodeException
@@ -248,8 +235,7 @@ public java.math.BigInteger read_big() throws com.tailf.proto.ConfEDecodeExcepti
 
 Types: [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
-<a id="m-read_binary-30b4f7e99f93"></a>
-### read_binary()
+### read_binary() <a href="#m-read_binary-30b4f7e99f93" id="m-read_binary-30b4f7e99f93"></a>
 
 ```java
 public byte[] read_binary() throws com.tailf.proto.ConfEDecodeException
@@ -265,8 +251,7 @@ Read an E binary from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a binary.
 
-<a id="m-read_boolean-e1457cd2eec8"></a>
-### read_boolean()
+### read_boolean() <a href="#m-read_boolean-e1457cd2eec8" id="m-read_boolean-e1457cd2eec8"></a>
 
 ```java
 public boolean read_boolean() throws com.tailf.proto.ConfEDecodeException
@@ -283,8 +268,7 @@ Read an E atom from the stream and interpret the value as a boolean.
 
 - `ConfEDecodeException` - if the next term in the stream is not an atom.
 
-<a id="m-read_byte-ccbde9bd7c37"></a>
-### read_byte()
+### read_byte() <a href="#m-read_byte-ccbde9bd7c37" id="m-read_byte-ccbde9bd7c37"></a>
 
 ```java
 public byte read_byte() throws com.tailf.proto.ConfEDecodeException
@@ -300,8 +284,7 @@ Read one byte from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-read_char-89ee7c714f77"></a>
-### read_char()
+### read_char() <a href="#m-read_char-89ee7c714f77" id="m-read_char-89ee7c714f77"></a>
 
 ```java
 public char read_char() throws com.tailf.proto.ConfEDecodeException
@@ -318,8 +301,7 @@ Read a character from the stream.
 - `ConfEDecodeException` - if the next term in the stream is not an integer that can
                 be represented as a char.
 
-<a id="m-read_double-ed8d67eaa36d"></a>
-### read_double()
+### read_double() <a href="#m-read_double-ed8d67eaa36d" id="m-read_double-ed8d67eaa36d"></a>
 
 ```java
 public double read_double() throws com.tailf.proto.ConfEDecodeException
@@ -335,8 +317,7 @@ Read an E float from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a float.
 
-<a id="m-read_float-db5805e7d389"></a>
-### read_float()
+### read_float() <a href="#m-read_float-db5805e7d389" id="m-read_float-db5805e7d389"></a>
 
 ```java
 public float read_float() throws com.tailf.proto.ConfEDecodeException
@@ -352,8 +333,7 @@ Read an E float from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a float.
 
-<a id="m-read_int-52389c5d26b4"></a>
-### read_int()
+### read_int() <a href="#m-read_int-52389c5d26b4" id="m-read_int-52389c5d26b4"></a>
 
 ```java
 public int read_int() throws com.tailf.proto.ConfEDecodeException
@@ -370,8 +350,7 @@ Read an integer from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be represented as
                 an integer.
 
-<a id="m-read_list_head-4c1fa82518be"></a>
-### read_list_head()
+### read_list_head() <a href="#m-read_list_head-4c1fa82518be" id="m-read_list_head-4c1fa82518be"></a>
 
 ```java
 public int read_list_head() throws com.tailf.proto.ConfEDecodeException
@@ -387,8 +366,7 @@ Read a list header from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a list.
 
-<a id="m-read_long-7a1b9869cec7"></a>
-### read_long()
+### read_long() <a href="#m-read_long-7a1b9869cec7" id="m-read_long-7a1b9869cec7"></a>
 
 ```java
 public long read_long() throws com.tailf.proto.ConfEDecodeException
@@ -405,8 +383,7 @@ Read a long from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be
                 represented as a long.
 
-<a id="m-read_long-0dd206933659"></a>
-### read_long(boolean)
+### read_long(boolean) <a href="#m-read_long-0dd206933659" id="m-read_long-0dd206933659"></a>
 
 ```java
 public long read_long(boolean unsigned) throws com.tailf.proto.ConfEDecodeException
@@ -418,8 +395,7 @@ Types: [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
 - `boolean unsigned`
 
-<a id="m-read_long_big-5576085237ba"></a>
-### read_long_big()
+### read_long_big() <a href="#m-read_long_big-5576085237ba" id="m-read_long_big-5576085237ba"></a>
 
 ```java
 public com.tailf.proto.ConfEObject read_long_big() throws com.tailf.proto.ConfEDecodeException
@@ -427,8 +403,7 @@ public com.tailf.proto.ConfEObject read_long_big() throws com.tailf.proto.ConfED
 
 Types: [ConfEObject](ConfEObject.md#cls-ConfEObject), [ConfEDecodeException](ConfEDecodeException.md#cls-ConfEDecodeException)
 
-<a id="m-read_nil-97eaecbbe8c5"></a>
-### read_nil()
+### read_nil() <a href="#m-read_nil-97eaecbbe8c5" id="m-read_nil-97eaecbbe8c5"></a>
 
 ```java
 public int read_nil() throws com.tailf.proto.ConfEDecodeException
@@ -444,8 +419,7 @@ Read an empty list from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not an empty list.
 
-<a id="m-read_pid-ad121f1992f0"></a>
-### read_pid()
+### read_pid() <a href="#m-read_pid-ad121f1992f0" id="m-read_pid-ad121f1992f0"></a>
 
 ```java
 public com.tailf.proto.ConfEPid read_pid() throws com.tailf.proto.ConfEDecodeException
@@ -461,8 +435,7 @@ Read an E pid from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not an E pid.
 
-<a id="m-read_ref-044fef100aa5"></a>
-### read_ref()
+### read_ref() <a href="#m-read_ref-044fef100aa5" id="m-read_ref-044fef100aa5"></a>
 
 ```java
 public com.tailf.proto.ConfERef read_ref() throws com.tailf.proto.ConfEDecodeException
@@ -478,8 +451,7 @@ Read an E reference from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not an E reference.
 
-<a id="m-read_short-87bcf3ec74f3"></a>
-### read_short()
+### read_short() <a href="#m-read_short-87bcf3ec74f3" id="m-read_short-87bcf3ec74f3"></a>
 
 ```java
 public short read_short() throws com.tailf.proto.ConfEDecodeException
@@ -496,8 +468,7 @@ Read a short from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be represented as a
                 short.
 
-<a id="m-read_string-223a6743c27e"></a>
-### read_string()
+### read_string() <a href="#m-read_string-223a6743c27e" id="m-read_string-223a6743c27e"></a>
 
 ```java
 public String read_string() throws com.tailf.proto.ConfEDecodeException
@@ -513,8 +484,7 @@ Read a string from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a string.
 
-<a id="m-read_tuple_head-c50f9ed9beb5"></a>
-### read_tuple_head()
+### read_tuple_head() <a href="#m-read_tuple_head-c50f9ed9beb5" id="m-read_tuple_head-c50f9ed9beb5"></a>
 
 ```java
 public int read_tuple_head() throws com.tailf.proto.ConfEDecodeException
@@ -530,8 +500,7 @@ Read a tuple header from the stream.
 
 - `ConfEDecodeException` - if the next term in the stream is not a tuple.
 
-<a id="m-read_uint-a42a72a36f43"></a>
-### read_uint()
+### read_uint() <a href="#m-read_uint-a42a72a36f43" id="m-read_uint-a42a72a36f43"></a>
 
 ```java
 public int read_uint() throws com.tailf.proto.ConfEDecodeException
@@ -548,8 +517,7 @@ Read an unsigned integer from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be represented
                 as a positive integer.
 
-<a id="m-read_ulong-d0c7d44596b0"></a>
-### read_ulong()
+### read_ulong() <a href="#m-read_ulong-d0c7d44596b0" id="m-read_ulong-d0c7d44596b0"></a>
 
 ```java
 public long read_ulong() throws com.tailf.proto.ConfEDecodeException
@@ -566,8 +534,7 @@ Read an unsigned long from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be represented as a
                 positive long.
 
-<a id="m-read_ushort-c2c654db673c"></a>
-### read_ushort()
+### read_ushort() <a href="#m-read_ushort-c2c654db673c" id="m-read_ushort-c2c654db673c"></a>
 
 ```java
 public short read_ushort() throws com.tailf.proto.ConfEDecodeException
@@ -584,8 +551,7 @@ Read an unsigned short from the stream.
 - `ConfEDecodeException` - if the next term in the stream can not be represented as a
                 positive short.
 
-<a id="m-readbe-49e938e712e3"></a>
-### readBE(int)
+### readBE(int) <a href="#m-readBE-49e938e712e3" id="m-readBE-49e938e712e3"></a>
 
 ```java
 public long readBE(int n) throws com.tailf.proto.ConfEDecodeException
@@ -605,8 +571,7 @@ Read a big endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-readle-749de7f756b0"></a>
-### readLE(int)
+### readLE(int) <a href="#m-readLE-749de7f756b0" id="m-readLE-749de7f756b0"></a>
 
 ```java
 public long readLE(int n) throws com.tailf.proto.ConfEDecodeException
@@ -626,8 +591,7 @@ Read a little endian integer from the stream.
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-readn-97646f66d503"></a>
-### readN(byte[])
+### readN(byte[]) <a href="#m-readN-97646f66d503" id="m-readN-97646f66d503"></a>
 
 ```java
 public int readN(byte[] buf) throws com.tailf.proto.ConfEDecodeException
@@ -648,8 +612,7 @@ Read an array of bytes from the stream. The method reads at most
 
 - `ConfEDecodeException` - if the next byte cannot be read.
 
-<a id="m-setpos-a83f79498a31"></a>
-### setPos(int)
+### setPos(int) <a href="#m-setPos-a83f79498a31" id="m-setPos-a83f79498a31"></a>
 
 ```java
 public int setPos(int pos)

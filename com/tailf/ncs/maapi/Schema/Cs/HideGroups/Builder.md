@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder
@@ -10,25 +9,24 @@ public static final class com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getNone()](#m-getnone-e31bfdbffa7f)
-- [getValue()](#m-getvalue-d93864668c40)
-- [hasValue()](#m-hasvalue-dad92e423e7a)
-- [initValue(int)](#m-initvalue-a117f5eca48d)
-- [isNone()](#m-isnone-e8a993ad0453)
-- [isValue()](#m-isvalue-7280ea8211f4)
-- [setNone(Void)](#m-setnone-46764db867d5)
-- [setValue(Reader)](#m-setvalue-679a829275f5)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getNone()](#m-getNone-e31bfdbffa7f)
+- [getValue()](#m-getValue-d93864668c40)
+- [hasValue()](#m-hasValue-dad92e423e7a)
+- [initValue(int)](#m-initValue-a117f5eca48d)
+- [isNone()](#m-isNone-e8a993ad0453)
+- [isValue()](#m-isValue-7280ea8211f4)
+- [setNone(Void)](#m-setNone-46764db867d5)
+- [setValue(Reader)](#m-setValue-679a829275f5)
 - [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -53,8 +51,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader asReader()
@@ -62,29 +59,25 @@ public final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getnone-e31bfdbffa7f"></a>
-### getNone()
+### getNone() <a href="#m-getNone-e31bfdbffa7f" id="m-getNone-e31bfdbffa7f"></a>
 
 ```java
 public final org.capnproto.Void getNone()
 ```
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public final org.capnproto.TextList.Builder getValue()
 ```
 
-<a id="m-hasvalue-dad92e423e7a"></a>
-### hasValue()
+### hasValue() <a href="#m-hasValue-dad92e423e7a" id="m-hasValue-dad92e423e7a"></a>
 
 ```java
 public final boolean hasValue()
 ```
 
-<a id="m-initvalue-a117f5eca48d"></a>
-### initValue(int)
+### initValue(int) <a href="#m-initValue-a117f5eca48d" id="m-initValue-a117f5eca48d"></a>
 
 ```java
 public final org.capnproto.TextList.Builder initValue(int size)
@@ -94,22 +87,19 @@ public final org.capnproto.TextList.Builder initValue(int size)
 
 - `int size`
 
-<a id="m-isnone-e8a993ad0453"></a>
-### isNone()
+### isNone() <a href="#m-isNone-e8a993ad0453" id="m-isNone-e8a993ad0453"></a>
 
 ```java
 public final boolean isNone()
 ```
 
-<a id="m-isvalue-7280ea8211f4"></a>
-### isValue()
+### isValue() <a href="#m-isValue-7280ea8211f4" id="m-isValue-7280ea8211f4"></a>
 
 ```java
 public final boolean isValue()
 ```
 
-<a id="m-setnone-46764db867d5"></a>
-### setNone(Void)
+### setNone(Void) <a href="#m-setNone-46764db867d5" id="m-setNone-46764db867d5"></a>
 
 ```java
 public final void setNone(org.capnproto.Void value)
@@ -119,8 +109,7 @@ public final void setNone(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setvalue-679a829275f5"></a>
-### setValue(Reader)
+### setValue(Reader) <a href="#m-setValue-679a829275f5" id="m-setValue-679a829275f5"></a>
 
 ```java
 public final void setValue(org.capnproto.TextList.Reader value)
@@ -130,8 +119,7 @@ public final void setValue(org.capnproto.TextList.Reader value)
 
 - `org.capnproto.TextList.Reader value`
 
-<a id="m-which-0b2d23db5ed0"></a>
-### which()
+### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.Cs.HideGroups.Which which()

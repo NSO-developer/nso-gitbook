@@ -1,5 +1,4 @@
-<a id="cls-CSTypeBits"></a>
-# CSTypeBits
+# CSTypeBits <a href="#cls-CSTypeBits" id="cls-CSTypeBits"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
@@ -9,27 +8,25 @@ public static class com.tailf.maapi.MaapiSchemas.CSTypeBits
 
 **Constructors**:
 
-- [CSTypeBits()](#m-cstypebits-12e7c9036219)
-- [CSTypeBits(int, CSBit[])](#m-cstypebits-db0376dbc16d)
+- [CSTypeBits()](#m-CSTypeBits-12e7c9036219)
+- [CSTypeBits(int, CSBit[])](#m-CSTypeBits-db0376dbc16d)
 
 **Methods**:
 
-- [getBitArray()](#m-getbitarray-34b74fdace40)
-- [getNativeType()](#m-getnativetype-5e881dc4a7e8)
-- [getWidth()](#m-getwidth-aff9ccaa8b54)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getBitArray()](#m-getBitArray-34b74fdace40)
+- [getNativeType()](#m-getNativeType-5e881dc4a7e8)
+- [getWidth()](#m-getWidth-aff9ccaa8b54)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-cstypebits-12e7c9036219"></a>
-### CSTypeBits()
+### CSTypeBits() <a href="#m-CSTypeBits-12e7c9036219" id="m-CSTypeBits-12e7c9036219"></a>
 
 ```java
 public CSTypeBits()
 ```
 
-<a id="m-cstypebits-db0376dbc16d"></a>
-### CSTypeBits(int, CSBit[])
+### CSTypeBits(int, CSBit[]) <a href="#m-CSTypeBits-db0376dbc16d" id="m-CSTypeBits-db0376dbc16d"></a>
 
 ```java
 public CSTypeBits(int width, com.tailf.maapi.MaapiSchemas.CSBit[] bitArray)
@@ -45,8 +42,7 @@ Types: [CSBit](CSBit.md#cls-CSBit)
 
 ## Methods
 
-<a id="m-getbitarray-34b74fdace40"></a>
-### getBitArray()
+### getBitArray() <a href="#m-getBitArray-34b74fdace40" id="m-getBitArray-34b74fdace40"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSBit[] getBitArray()
@@ -54,22 +50,19 @@ public com.tailf.maapi.MaapiSchemas.CSBit[] getBitArray()
 
 Types: [CSBit](CSBit.md#cls-CSBit)
 
-<a id="m-getnativetype-5e881dc4a7e8"></a>
-### getNativeType()
+### getNativeType() <a href="#m-getNativeType-5e881dc4a7e8" id="m-getNativeType-5e881dc4a7e8"></a>
 
 ```java
 public int getNativeType()
 ```
 
-<a id="m-getwidth-aff9ccaa8b54"></a>
-### getWidth()
+### getWidth() <a href="#m-getWidth-aff9ccaa8b54" id="m-getWidth-aff9ccaa8b54"></a>
 
 ```java
 public int getWidth()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

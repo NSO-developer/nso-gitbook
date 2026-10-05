@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Builder
@@ -10,30 +9,29 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getDays()](#m-getdays-046356f0d5f0)
-- [getHours()](#m-gethours-3fa193b38793)
-- [getMicros()](#m-getmicros-062944cf4511)
-- [getMins()](#m-getmins-c1eeffb194a4)
-- [getMonths()](#m-getmonths-980c2a29d103)
-- [getSecs()](#m-getsecs-460472c1be09)
-- [getYears()](#m-getyears-04cc2ca752eb)
-- [setDays(int)](#m-setdays-1ad4dd185830)
-- [setHours(int)](#m-sethours-9f714fc42623)
-- [setMicros(int)](#m-setmicros-9410072f84ff)
-- [setMins(int)](#m-setmins-5fc890f362e6)
-- [setMonths(int)](#m-setmonths-cdd1cef5d14a)
-- [setSecs(int)](#m-setsecs-b16b5f90b69a)
-- [setYears(int)](#m-setyears-d08ddee7575a)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getDays()](#m-getDays-046356f0d5f0)
+- [getHours()](#m-getHours-3fa193b38793)
+- [getMicros()](#m-getMicros-062944cf4511)
+- [getMins()](#m-getMins-c1eeffb194a4)
+- [getMonths()](#m-getMonths-980c2a29d103)
+- [getSecs()](#m-getSecs-460472c1be09)
+- [getYears()](#m-getYears-04cc2ca752eb)
+- [setDays(int)](#m-setDays-1ad4dd185830)
+- [setHours(int)](#m-setHours-9f714fc42623)
+- [setMicros(int)](#m-setMicros-9410072f84ff)
+- [setMins(int)](#m-setMins-5fc890f362e6)
+- [setMonths(int)](#m-setMonths-cdd1cef5d14a)
+- [setSecs(int)](#m-setSecs-b16b5f90b69a)
+- [setYears(int)](#m-setYears-d08ddee7575a)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -58,8 +56,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Reader asReader()
@@ -67,57 +64,49 @@ public final com.tailf.ncs.maapi.Schema.CsValueDuration.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getdays-046356f0d5f0"></a>
-### getDays()
+### getDays() <a href="#m-getDays-046356f0d5f0" id="m-getDays-046356f0d5f0"></a>
 
 ```java
 public final int getDays()
 ```
 
-<a id="m-gethours-3fa193b38793"></a>
-### getHours()
+### getHours() <a href="#m-getHours-3fa193b38793" id="m-getHours-3fa193b38793"></a>
 
 ```java
 public final int getHours()
 ```
 
-<a id="m-getmicros-062944cf4511"></a>
-### getMicros()
+### getMicros() <a href="#m-getMicros-062944cf4511" id="m-getMicros-062944cf4511"></a>
 
 ```java
 public final int getMicros()
 ```
 
-<a id="m-getmins-c1eeffb194a4"></a>
-### getMins()
+### getMins() <a href="#m-getMins-c1eeffb194a4" id="m-getMins-c1eeffb194a4"></a>
 
 ```java
 public final int getMins()
 ```
 
-<a id="m-getmonths-980c2a29d103"></a>
-### getMonths()
+### getMonths() <a href="#m-getMonths-980c2a29d103" id="m-getMonths-980c2a29d103"></a>
 
 ```java
 public final int getMonths()
 ```
 
-<a id="m-getsecs-460472c1be09"></a>
-### getSecs()
+### getSecs() <a href="#m-getSecs-460472c1be09" id="m-getSecs-460472c1be09"></a>
 
 ```java
 public final int getSecs()
 ```
 
-<a id="m-getyears-04cc2ca752eb"></a>
-### getYears()
+### getYears() <a href="#m-getYears-04cc2ca752eb" id="m-getYears-04cc2ca752eb"></a>
 
 ```java
 public final int getYears()
 ```
 
-<a id="m-setdays-1ad4dd185830"></a>
-### setDays(int)
+### setDays(int) <a href="#m-setDays-1ad4dd185830" id="m-setDays-1ad4dd185830"></a>
 
 ```java
 public final void setDays(int value)
@@ -127,8 +116,7 @@ public final void setDays(int value)
 
 - `int value`
 
-<a id="m-sethours-9f714fc42623"></a>
-### setHours(int)
+### setHours(int) <a href="#m-setHours-9f714fc42623" id="m-setHours-9f714fc42623"></a>
 
 ```java
 public final void setHours(int value)
@@ -138,8 +126,7 @@ public final void setHours(int value)
 
 - `int value`
 
-<a id="m-setmicros-9410072f84ff"></a>
-### setMicros(int)
+### setMicros(int) <a href="#m-setMicros-9410072f84ff" id="m-setMicros-9410072f84ff"></a>
 
 ```java
 public final void setMicros(int value)
@@ -149,8 +136,7 @@ public final void setMicros(int value)
 
 - `int value`
 
-<a id="m-setmins-5fc890f362e6"></a>
-### setMins(int)
+### setMins(int) <a href="#m-setMins-5fc890f362e6" id="m-setMins-5fc890f362e6"></a>
 
 ```java
 public final void setMins(int value)
@@ -160,8 +146,7 @@ public final void setMins(int value)
 
 - `int value`
 
-<a id="m-setmonths-cdd1cef5d14a"></a>
-### setMonths(int)
+### setMonths(int) <a href="#m-setMonths-cdd1cef5d14a" id="m-setMonths-cdd1cef5d14a"></a>
 
 ```java
 public final void setMonths(int value)
@@ -171,8 +156,7 @@ public final void setMonths(int value)
 
 - `int value`
 
-<a id="m-setsecs-b16b5f90b69a"></a>
-### setSecs(int)
+### setSecs(int) <a href="#m-setSecs-b16b5f90b69a" id="m-setSecs-b16b5f90b69a"></a>
 
 ```java
 public final void setSecs(int value)
@@ -182,8 +166,7 @@ public final void setSecs(int value)
 
 - `int value`
 
-<a id="m-setyears-d08ddee7575a"></a>
-### setYears(int)
+### setYears(int) <a href="#m-setYears-d08ddee7575a" id="m-setYears-d08ddee7575a"></a>
 
 ```java
 public final void setYears(int value)

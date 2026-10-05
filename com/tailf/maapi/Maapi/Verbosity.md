@@ -1,5 +1,4 @@
-<a id="cls-Verbosity"></a>
-# Verbosity
+# Verbosity <a href="#cls-Verbosity" id="cls-Verbosity"></a>
 
 ```java
 public static enum com.tailf.maapi.Maapi.Verbosity
@@ -8,8 +7,8 @@ public static enum com.tailf.maapi.Maapi.Verbosity
 Types: [Verbosity](Verbosity.md#cls-Verbosity)
 
 To be used in:
- `#reportProgress(int,Verbosity,String)`
- `ConfPath#reportServiceProgress(int,Verbosity,String,ConfPath)`
+ `reportProgress(int,Verbosity,String)`
+ `reportServiceProgress(int,Verbosity,String,ConfPath)`
 
 ## Members
 
@@ -22,13 +21,12 @@ To be used in:
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-DEBUG"></a>
-### DEBUG
+### DEBUG <a href="#m-DEBUG" id="m-DEBUG"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity DEBUG;
@@ -38,8 +36,7 @@ The highest verbosity level. Designates fine-grained informational
  messages usable for debugging the application and its internal
  operations.
 
-<a id="m-NORMAL"></a>
-### NORMAL
+### NORMAL <a href="#m-NORMAL" id="m-NORMAL"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity NORMAL;
@@ -50,8 +47,7 @@ Designates informational messages that highlight the progress
  give a high level overview. This is the default and the lowest
  verbosity level.
 
-<a id="m-VERBOSE"></a>
-### VERBOSE
+### VERBOSE <a href="#m-VERBOSE" id="m-VERBOSE"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity VERBOSE;
@@ -59,8 +55,7 @@ public static final com.tailf.maapi.Maapi.Verbosity VERBOSE;
 
 Designates detailed informational messages from the application.
 
-<a id="m-VERY_VERBOSE"></a>
-### VERY_VERBOSE
+### VERY_VERBOSE <a href="#m-VERY_VERBOSE" id="m-VERY_VERBOSE"></a>
 
 ```java
 public static final com.tailf.maapi.Maapi.Verbosity VERY_VERBOSE;
@@ -72,8 +67,7 @@ Designates very detailed informational messages from the application
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.Verbosity valueOf(String name)
@@ -85,8 +79,7 @@ Types: [Verbosity](Verbosity.md#cls-Verbosity)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.Maapi.Verbosity[] values()

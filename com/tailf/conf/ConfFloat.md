@@ -1,5 +1,4 @@
-<a id="cls-ConfFloat"></a>
-# ConfFloat
+# ConfFloat <a href="#cls-ConfFloat" id="cls-ConfFloat"></a>
 
 ```java
 public class com.tailf.conf.ConfFloat
@@ -15,8 +14,8 @@ DATA_CONTAINER - Corresponds to the confspec xs:float type.
 
 **Constructors**:
 
-- [ConfFloat(ConfEObject)](#m-conffloat-9698cc9b2da5)
-- [ConfFloat(float)](#m-conffloat-c746c357dcee)
+- [ConfFloat(ConfEObject)](#m-ConfFloat-9698cc9b2da5)
+- [ConfFloat(float)](#m-ConfFloat-c746c357dcee)
 
 **Fields**:
 
@@ -74,24 +73,23 @@ DATA_CONTAINER - Corresponds to the confspec xs:float type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfFloat)](#m-compareto-08b770a7c5e6)
+- [compareTo(ConfFloat)](#m-compareTo-08b770a7c5e6)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [floatValue()](#m-floatvalue-6e7c2cd63bb9)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [floatValue()](#m-floatValue-6e7c2cd63bb9)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-conffloat-9698cc9b2da5"></a>
-### ConfFloat(ConfEObject)
+### ConfFloat(ConfEObject) <a href="#m-ConfFloat-9698cc9b2da5" id="m-ConfFloat-9698cc9b2da5"></a>
 
 ```java
 public ConfFloat(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -103,8 +101,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-conffloat-c746c357dcee"></a>
-### ConfFloat(float)
+### ConfFloat(float) <a href="#m-ConfFloat-c746c357dcee" id="m-ConfFloat-c746c357dcee"></a>
 
 ```java
 public ConfFloat(float f)
@@ -117,8 +114,7 @@ public ConfFloat(float f)
 
 ## Methods
 
-<a id="m-compareto-08b770a7c5e6"></a>
-### compareTo(ConfFloat)
+### compareTo(ConfFloat) <a href="#m-compareTo-08b770a7c5e6" id="m-compareTo-08b770a7c5e6"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfFloat o)
@@ -130,8 +126,7 @@ Types: [ConfFloat](ConfFloat.md#cls-ConfFloat)
 
 - `com.tailf.conf.ConfFloat o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -139,8 +134,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -150,22 +144,19 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-floatvalue-6e7c2cd63bb9"></a>
-### floatValue()
+### floatValue() <a href="#m-floatValue-6e7c2cd63bb9" id="m-floatValue-6e7c2cd63bb9"></a>
 
 ```java
 public float floatValue()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

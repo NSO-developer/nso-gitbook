@@ -1,5 +1,4 @@
-<a id="cls-CsValueTime"></a>
-# CsValueTime
+# CsValueTime <a href="#cls-CsValueTime" id="cls-CsValueTime"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueTime
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueTime
 
 **Constructors**:
 
-- [CsValueTime()](#m-csvaluetime-9aad5082b4e4)
+- [CsValueTime()](#m-CsValueTime-9aad5082b4e4)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueTime
 
 ## Constructors
 
-<a id="m-csvaluetime-9aad5082b4e4"></a>
-### CsValueTime()
+### CsValueTime() <a href="#m-CsValueTime-9aad5082b4e4" id="m-CsValueTime-9aad5082b4e4"></a>
 
 ```java
 public CsValueTime()
@@ -35,8 +33,7 @@ public CsValueTime()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueTime.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueTime.Factory factory = nul
 
 Types: [Factory](CsValueTime/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueTime.Builder,com.tailf.ncs.maapi.Schema.CsValueTime.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueTime/Builder.md#cls-Builder), [Reader](CsValueTime/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

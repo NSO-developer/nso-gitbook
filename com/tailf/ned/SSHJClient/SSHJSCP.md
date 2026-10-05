@@ -1,5 +1,4 @@
-<a id="cls-SSHJSCP"></a>
-# SSHJSCP
+# SSHJSCP <a href="#cls-SSHJSCP" id="cls-SSHJSCP"></a>
 
 ```java
 public class com.tailf.ned.SSHJClient.SSHJSCP
@@ -16,7 +15,7 @@ SCP client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJSCP(SCPFileTransfer)](#m-sshjscp-9973136f9754)
+- [SSHJSCP(SCPFileTransfer)](#m-SSHJSCP-9973136f9754)
 
 **Fields**:
 
@@ -30,8 +29,7 @@ SCP client implementation using the net.schmizz.sshj
 
 ## Constructors
 
-<a id="m-sshjscp-9973136f9754"></a>
-### SSHJSCP(SCPFileTransfer)
+### SSHJSCP(SCPFileTransfer) <a href="#m-SSHJSCP-9973136f9754" id="m-SSHJSCP-9973136f9754"></a>
 
 **Package-private**
 
@@ -46,8 +44,7 @@ SSHJSCP(net.schmizz.sshj.xfer.scp.SCPFileTransfer scp)
 
 ## Fields
 
-<a id="m-scp"></a>
-### scp
+### scp <a href="#m-scp" id="m-scp"></a>
 
 **Package-private**
 
@@ -58,8 +55,7 @@ net.schmizz.sshj.xfer.scp.SCPFileTransfer scp = null;
 
 ## Methods
 
-<a id="m-get-e86cd4d90bf3"></a>
-### get(String)
+### get(String) <a href="#m-get-e86cd4d90bf3" id="m-get-e86cd4d90bf3"></a>
 
 ```java
 public String get(String file) throws java.io.IOException
@@ -69,8 +65,7 @@ public String get(String file) throws java.io.IOException
 
 - `String file`
 
-<a id="m-put-cd56c61d877c"></a>
-### put(String, String, int)
+### put(String, String, int) <a href="#m-put-cd56c61d877c" id="m-put-cd56c61d877c"></a>
 
 ```java
 public void put(String buffer, String file, int mode) throws java.io.IOException

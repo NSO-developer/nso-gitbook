@@ -1,5 +1,4 @@
-<a id="cls-SSHJSession"></a>
-# SSHJSession
+# SSHJSession <a href="#cls-SSHJSession" id="cls-SSHJSession"></a>
 
 ```java
 public class com.tailf.ned.SSHJSession
@@ -17,7 +16,7 @@ Class implementing the SSHClient.CliSession interface using
 
 **Constructors**:
 
-- [SSHJSession(SSHJClient, NedWorker, NedConnectionBase, int, int)](#m-sshjsession-fec161c6178e)
+- [SSHJSession(SSHJClient, NedWorker, NedConnectionBase, int, int)](#m-SSHJSession-fec161c6178e)
 
 **Fields**:
 
@@ -52,34 +51,33 @@ Class implementing the SSHClient.CliSession interface using
 - [expect(String[], boolean, int, NedWorker)](SSHClient/CliSession.md#m-expect-90d4e3ee7ac2) from CliSession
 - [expect(String[], NedWorker)](SSHClient/CliSession.md#m-expect-4485477b99db) from CliSession
 - [flush()](SSHClient/CliSession.md#m-flush-a4d76f158943) from CliSession
-- [getErrorStream()](#m-geterrorstream-8577e8676bda)
-- [getInputStream()](#m-getinputstream-cb1d1fa14d56)
-- [getLine()](#m-getline-6cb6167e418b)
-- [getOutputStream()](#m-getoutputstream-b7e39f99be28)
-- [getReader()](#m-getreader-ca9cb7876cc5)
-- [getReadTimeout()](#m-getreadtimeout-640fc089c1de)
-- [getTermPrintlnMode()](#m-gettermprintlnmode-bbc6ff231fae)
-- [getWriter()](#m-getwriter-23ba297ab3e8)
-- [logDebug(String)](#m-logdebug-91653b5096b0)
-- [logInfo(String)](#m-loginfo-32ae00d19c47)
+- [getErrorStream()](#m-getErrorStream-8577e8676bda)
+- [getInputStream()](#m-getInputStream-cb1d1fa14d56)
+- [getLine()](#m-getLine-6cb6167e418b)
+- [getOutputStream()](#m-getOutputStream-b7e39f99be28)
+- [getReader()](#m-getReader-ca9cb7876cc5)
+- [getReadTimeout()](#m-getReadTimeout-640fc089c1de)
+- [getTermPrintlnMode()](#m-getTermPrintlnMode-bbc6ff231fae)
+- [getWriter()](#m-getWriter-23ba297ab3e8)
+- [logDebug(String)](#m-logDebug-91653b5096b0)
+- [logInfo(String)](#m-logInfo-32ae00d19c47)
 - [print(int)](SSHClient/CliSession.md#m-print-41f2f1534264) from CliSession
 - [print(String)](SSHClient/CliSession.md#m-print-b202251f9230) from CliSession
 - [println(int)](SSHClient/CliSession.md#m-println-4c26ee676efb) from CliSession
 - [println(String)](SSHClient/CliSession.md#m-println-15aea44318e6) from CliSession
 - [ready()](SSHClient/CliSession.md#m-ready-92162bd485a2) from CliSession
 - [ready(int)](#m-ready-c585210c0993)
-- [serverSideClosed()](#m-serversideclosed-0dfe26b0733e)
-- [setReadTimeout(int)](#m-setreadtimeout-4f6742da7687)
-- [setTermPrintlnMode(String)](#m-settermprintlnmode-36c6657337c2)
-- [setTracer(NedTracer)](#m-settracer-6943f9aadf68)
+- [serverSideClosed()](#m-serverSideClosed-0dfe26b0733e)
+- [setReadTimeout(int)](#m-setReadTimeout-4f6742da7687)
+- [setTermPrintlnMode(String)](#m-setTermPrintlnMode-36c6657337c2)
+- [setTracer(NedTracer)](#m-setTracer-6943f9aadf68)
 - [trace(String, String)](#m-trace-684478bdb6cc)
-- [traceInBufAppend(String)](#m-traceinbufappend-948da59d599a)
-- [traceInBufFlush()](#m-traceinbufflush-5f53f59ed390)
+- [traceInBufAppend(String)](#m-traceInBufAppend-948da59d599a)
+- [traceInBufFlush()](#m-traceInBufFlush-5f53f59ed390)
 
 ## Constructors
 
-<a id="m-sshjsession-fec161c6178e"></a>
-### SSHJSession(SSHJClient, NedWorker, NedConnectionBase, int, int)
+### SSHJSession(SSHJClient, NedWorker, NedConnectionBase, int, int) <a href="#m-SSHJSession-fec161c6178e" id="m-SSHJSession-fec161c6178e"></a>
 
 **Package-private**
 
@@ -113,8 +111,7 @@ Constructor accessible by the SSHJClient class.
 
 ## Fields
 
-<a id="m-log"></a>
-### log
+### log <a href="#m-log" id="m-log"></a>
 
 ```java
 protected static org.apache.logging.log4j.Logger log = null;
@@ -123,8 +120,7 @@ protected static org.apache.logging.log4j.Logger log = null;
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
@@ -132,22 +128,19 @@ public void close()
 
 Close the SSH session
 
-<a id="m-geterrorstream-8577e8676bda"></a>
-### getErrorStream()
+### getErrorStream() <a href="#m-getErrorStream-8577e8676bda" id="m-getErrorStream-8577e8676bda"></a>
 
 ```java
 public java.io.InputStream getErrorStream()
 ```
 
-<a id="m-getinputstream-cb1d1fa14d56"></a>
-### getInputStream()
+### getInputStream() <a href="#m-getInputStream-cb1d1fa14d56" id="m-getInputStream-cb1d1fa14d56"></a>
 
 ```java
 public java.io.InputStream getInputStream()
 ```
 
-<a id="m-getline-6cb6167e418b"></a>
-### getLine()
+### getLine() <a href="#m-getLine-6cb6167e418b" id="m-getLine-6cb6167e418b"></a>
 
 ```java
 public StringBuilder getLine()
@@ -155,15 +148,13 @@ public StringBuilder getLine()
 
 Return the line buffer
 
-<a id="m-getoutputstream-b7e39f99be28"></a>
-### getOutputStream()
+### getOutputStream() <a href="#m-getOutputStream-b7e39f99be28" id="m-getOutputStream-b7e39f99be28"></a>
 
 ```java
 public java.io.OutputStream getOutputStream()
 ```
 
-<a id="m-getreader-ca9cb7876cc5"></a>
-### getReader()
+### getReader() <a href="#m-getReader-ca9cb7876cc5" id="m-getReader-ca9cb7876cc5"></a>
 
 ```java
 public java.io.BufferedReader getReader()
@@ -171,8 +162,7 @@ public java.io.BufferedReader getReader()
 
 Return the session input reader
 
-<a id="m-getreadtimeout-640fc089c1de"></a>
-### getReadTimeout()
+### getReadTimeout() <a href="#m-getReadTimeout-640fc089c1de" id="m-getReadTimeout-640fc089c1de"></a>
 
 ```java
 public int getReadTimeout()
@@ -180,8 +170,7 @@ public int getReadTimeout()
 
 Return the configured read timeout
 
-<a id="m-gettermprintlnmode-bbc6ff231fae"></a>
-### getTermPrintlnMode()
+### getTermPrintlnMode() <a href="#m-getTermPrintlnMode-bbc6ff231fae" id="m-getTermPrintlnMode-bbc6ff231fae"></a>
 
 ```java
 public String getTermPrintlnMode()
@@ -189,8 +178,7 @@ public String getTermPrintlnMode()
 
 Get configured println mode
 
-<a id="m-getwriter-23ba297ab3e8"></a>
-### getWriter()
+### getWriter() <a href="#m-getWriter-23ba297ab3e8" id="m-getWriter-23ba297ab3e8"></a>
 
 ```java
 public java.io.PrintWriter getWriter()
@@ -198,8 +186,7 @@ public java.io.PrintWriter getWriter()
 
 Return the session output writer
 
-<a id="m-logdebug-91653b5096b0"></a>
-### logDebug(String)
+### logDebug(String) <a href="#m-logDebug-91653b5096b0" id="m-logDebug-91653b5096b0"></a>
 
 ```java
 public void logDebug(String msg)
@@ -211,8 +198,7 @@ Log on debug level
 
 - `String msg`
 
-<a id="m-loginfo-32ae00d19c47"></a>
-### logInfo(String)
+### logInfo(String) <a href="#m-logInfo-32ae00d19c47" id="m-logInfo-32ae00d19c47"></a>
 
 ```java
 public void logInfo(String msg)
@@ -224,8 +210,7 @@ Log on info level
 
 - `String msg`
 
-<a id="m-ready-c585210c0993"></a>
-### ready(int)
+### ready(int) <a href="#m-ready-c585210c0993" id="m-ready-c585210c0993"></a>
 
 ```java
 public synchronized boolean ready(int timeout) throws java.io.IOException
@@ -245,8 +230,7 @@ Checks if the input reader is ready for reading.
 
 - `IOException` - if an I/O error occurs
 
-<a id="m-serversideclosed-0dfe26b0733e"></a>
-### serverSideClosed()
+### serverSideClosed() <a href="#m-serverSideClosed-0dfe26b0733e" id="m-serverSideClosed-0dfe26b0733e"></a>
 
 ```java
 public boolean serverSideClosed()
@@ -254,8 +238,7 @@ public boolean serverSideClosed()
 
 Returns true if session has been closed
 
-<a id="m-setreadtimeout-4f6742da7687"></a>
-### setReadTimeout(int)
+### setReadTimeout(int) <a href="#m-setReadTimeout-4f6742da7687" id="m-setReadTimeout-4f6742da7687"></a>
 
 ```java
 public void setReadTimeout(int readTimeout)
@@ -267,8 +250,7 @@ Configure the readTimeout
 
 - `int readTimeout`
 
-<a id="m-settermprintlnmode-36c6657337c2"></a>
-### setTermPrintlnMode(String)
+### setTermPrintlnMode(String) <a href="#m-setTermPrintlnMode-36c6657337c2" id="m-setTermPrintlnMode-36c6657337c2"></a>
 
 ```java
 public void setTermPrintlnMode(String mode)
@@ -280,8 +262,7 @@ Configure println mode
 
 - `String mode`
 
-<a id="m-settracer-6943f9aadf68"></a>
-### setTracer(NedTracer)
+### setTracer(NedTracer) <a href="#m-setTracer-6943f9aadf68" id="m-setTracer-6943f9aadf68"></a>
 
 ```java
 public void setTracer(com.tailf.ned.NedTracer tracer)
@@ -295,8 +276,7 @@ Enable tracer
 
 - `com.tailf.ned.NedTracer tracer`
 
-<a id="m-trace-684478bdb6cc"></a>
-### trace(String, String)
+### trace(String, String) <a href="#m-trace-684478bdb6cc" id="m-trace-684478bdb6cc"></a>
 
 ```java
 public void trace(String msg, String direction)
@@ -309,8 +289,7 @@ Append to tracer
 - `String msg`
 - `String direction`
 
-<a id="m-traceinbufappend-948da59d599a"></a>
-### traceInBufAppend(String)
+### traceInBufAppend(String) <a href="#m-traceInBufAppend-948da59d599a" id="m-traceInBufAppend-948da59d599a"></a>
 
 ```java
 public void traceInBufAppend(String msg)
@@ -322,8 +301,7 @@ Append to trace in buf
 
 - `String msg`
 
-<a id="m-traceinbufflush-5f53f59ed390"></a>
-### traceInBufFlush()
+### traceInBufFlush() <a href="#m-traceInBufFlush-5f53f59ed390" id="m-traceInBufFlush-5f53f59ed390"></a>
 
 ```java
 public void traceInBufFlush()

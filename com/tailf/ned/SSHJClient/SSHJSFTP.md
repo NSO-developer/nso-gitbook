@@ -1,5 +1,4 @@
-<a id="cls-SSHJSFTP"></a>
-# SSHJSFTP
+# SSHJSFTP <a href="#cls-SSHJSFTP" id="cls-SSHJSFTP"></a>
 
 ```java
 public class com.tailf.ned.SSHJClient.SSHJSFTP
@@ -16,7 +15,7 @@ SFTP client implementation using the net.schmizz.sshj
 
 **Constructors**:
 
-- [SSHJSFTP(SFTPClient)](#m-sshjsftp-e05f05dfb741)
+- [SSHJSFTP(SFTPClient)](#m-SSHJSFTP-e05f05dfb741)
 
 **Methods**:
 
@@ -26,8 +25,7 @@ SFTP client implementation using the net.schmizz.sshj
 
 ## Constructors
 
-<a id="m-sshjsftp-e05f05dfb741"></a>
-### SSHJSFTP(SFTPClient)
+### SSHJSFTP(SFTPClient) <a href="#m-SSHJSFTP-e05f05dfb741" id="m-SSHJSFTP-e05f05dfb741"></a>
 
 **Package-private**
 
@@ -42,8 +40,7 @@ SSHJSFTP(net.schmizz.sshj.sftp.SFTPClient sftp)
 
 ## Methods
 
-<a id="m-get-e86cd4d90bf3"></a>
-### get(String)
+### get(String) <a href="#m-get-e86cd4d90bf3" id="m-get-e86cd4d90bf3"></a>
 
 ```java
 public String get(String file) throws java.io.IOException
@@ -53,8 +50,7 @@ public String get(String file) throws java.io.IOException
 
 - `String file`
 
-<a id="m-put-cd56c61d877c"></a>
-### put(String, String, int)
+### put(String, String, int) <a href="#m-put-cd56c61d877c" id="m-put-cd56c61d877c"></a>
 
 ```java
 public void put(String buffer, String file, int mode) throws java.io.IOException

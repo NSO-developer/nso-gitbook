@@ -1,5 +1,4 @@
-<a id="cls-NcsLogger"></a>
-# NcsLogger
+# NcsLogger <a href="#cls-NcsLogger" id="cls-NcsLogger"></a>
 
 ```java
 public class com.tailf.ncs.logging.NcsLogger
@@ -44,8 +43,7 @@ NCS Logging Management.
 
 ## Methods
 
-<a id="m-config-27b84e0fef53"></a>
-### config(SocketAddress)
+### config(SocketAddress) <a href="#m-config-27b84e0fef53" id="m-config-27b84e0fef53"></a>
 
 ```java
 public static void config(java.net.SocketAddress address)
@@ -55,8 +53,7 @@ public static void config(java.net.SocketAddress address)
 
 - `java.net.SocketAddress address`
 
-<a id="m-config-ecb3e9b393e2"></a>
-### config(SocketAddress, boolean)
+### config(SocketAddress, boolean) <a href="#m-config-ecb3e9b393e2" id="m-config-ecb3e9b393e2"></a>
 
 ```java
 public static void config(java.net.SocketAddress address, boolean readConfig)
@@ -67,8 +64,7 @@ public static void config(java.net.SocketAddress address, boolean readConfig)
 - `java.net.SocketAddress address`
 - `boolean readConfig`
 
-<a id="m-config-1ba577c4f8cb"></a>
-### config(String, int)
+### config(String, int) <a href="#m-config-1ba577c4f8cb" id="m-config-1ba577c4f8cb"></a>
 
 ```java
 public static void config(String host, int port)
@@ -92,8 +88,7 @@ Creates and setup a subscriber that listen on changes
 - `String host` - hostname or ip for ncs
 - `int port` - port number
 
-<a id="m-config-69cc5a37a307"></a>
-### config(String, int, boolean)
+### config(String, int, boolean) <a href="#m-config-69cc5a37a307" id="m-config-69cc5a37a307"></a>
 
 ```java
 public static void config(String host, int port, boolean readConfig)
@@ -105,15 +100,13 @@ public static void config(String host, int port, boolean readConfig)
 - `int port`
 - `boolean readConfig`
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-<a id="m-stop-a62ecc446f97"></a>
-### stop()
+### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
 
 ```java
 public static void stop()

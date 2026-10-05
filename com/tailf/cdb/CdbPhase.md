@@ -1,5 +1,4 @@
-<a id="cls-CdbPhase"></a>
-# CdbPhase
+# CdbPhase <a href="#cls-CdbPhase" id="cls-CdbPhase"></a>
 
 ```java
 public class com.tailf.cdb.CdbPhase
@@ -18,7 +17,7 @@ Represents the start-phase CDB is currently in.
 
 **Constructors**:
 
-- [CdbPhase(int, int)](#m-cdbphase-5f54e2f87484)
+- [CdbPhase(int, int)](#m-CdbPhase-5f54e2f87484)
 
 **Fields**:
 
@@ -27,14 +26,13 @@ Represents the start-phase CDB is currently in.
 
 **Methods**:
 
-- [getCurrentPhase()](#m-getcurrentphase-32ff5b066755)
-- [getFlag()](#m-getflag-9cd662045dd4)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getCurrentPhase()](#m-getCurrentPhase-32ff5b066755)
+- [getFlag()](#m-getFlag-9cd662045dd4)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-cdbphase-5f54e2f87484"></a>
-### CdbPhase(int, int)
+### CdbPhase(int, int) <a href="#m-CdbPhase-5f54e2f87484" id="m-CdbPhase-5f54e2f87484"></a>
 
 **Package-private**
 
@@ -50,8 +48,7 @@ CdbPhase(int phase, int flag)
 
 ## Fields
 
-<a id="m-FLAG_INIT"></a>
-### FLAG_INIT
+### FLAG_INIT <a href="#m-FLAG_INIT" id="m-FLAG_INIT"></a>
 
 ```java
 public static final int FLAG_INIT = 1;
@@ -59,8 +56,7 @@ public static final int FLAG_INIT = 1;
 
 CDB has an init transaction , when phase 0
 
-<a id="m-FLAG_UPGRADE"></a>
-### FLAG_UPGRADE
+### FLAG_UPGRADE <a href="#m-FLAG_UPGRADE" id="m-FLAG_UPGRADE"></a>
 
 ```java
 public static final int FLAG_UPGRADE = 2;
@@ -71,8 +67,7 @@ CDB has an upgrade transaction , when phase 0
 
 ## Methods
 
-<a id="m-getcurrentphase-32ff5b066755"></a>
-### getCurrentPhase()
+### getCurrentPhase() <a href="#m-getCurrentPhase-32ff5b066755" id="m-getCurrentPhase-32ff5b066755"></a>
 
 ```java
 public int getCurrentPhase()
@@ -80,8 +75,7 @@ public int getCurrentPhase()
 
 The phase CDB is currently in.
 
-<a id="m-getflag-9cd662045dd4"></a>
-### getFlag()
+### getFlag() <a href="#m-getFlag-9cd662045dd4" id="m-getFlag-9cd662045dd4"></a>
 
 ```java
 public int getFlag()
@@ -90,11 +84,10 @@ public int getFlag()
 The flag is set if CDB is in phase 0 to any of the values:
 
 
-- `#FLAG_INIT`
-   - `#FLAG_UPGRADE`
+- [`FLAG_INIT`](CdbPhase.md#m-FLAG_INIT)
+   - [`FLAG_UPGRADE`](CdbPhase.md#m-FLAG_UPGRADE)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

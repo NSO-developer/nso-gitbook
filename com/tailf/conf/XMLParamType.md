@@ -1,5 +1,4 @@
-<a id="cls-XMLParamType"></a>
-# XMLParamType
+# XMLParamType <a href="#cls-XMLParamType" id="cls-XMLParamType"></a>
 
 ```java
 public enum com.tailf.conf.XMLParamType
@@ -22,41 +21,36 @@ Enum identifying type of ConfXMLParam subclass.
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-DELETE"></a>
-### DELETE
+### DELETE <a href="#m-DELETE" id="m-DELETE"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType DELETE;
 ```
 
-<a id="m-LEAF"></a>
-### LEAF
+### LEAF <a href="#m-LEAF" id="m-LEAF"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType LEAF;
 ```
 
-<a id="m-START"></a>
-### START
+### START <a href="#m-START" id="m-START"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType START;
 ```
 
-<a id="m-STOP"></a>
-### STOP
+### STOP <a href="#m-STOP" id="m-STOP"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType STOP;
 ```
 
-<a id="m-VALUE"></a>
-### VALUE
+### VALUE <a href="#m-VALUE" id="m-VALUE"></a>
 
 ```java
 public static final com.tailf.conf.XMLParamType VALUE;
@@ -65,8 +59,7 @@ public static final com.tailf.conf.XMLParamType VALUE;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.XMLParamType valueOf(String name)
@@ -78,8 +71,7 @@ Types: [XMLParamType](XMLParamType.md#cls-XMLParamType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.XMLParamType[] values()

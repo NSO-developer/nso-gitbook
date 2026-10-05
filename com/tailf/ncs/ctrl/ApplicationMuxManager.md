@@ -1,5 +1,4 @@
-<a id="cls-ApplicationMuxManager"></a>
-# ApplicationMuxManager
+# ApplicationMuxManager <a href="#cls-ApplicationMuxManager" id="cls-ApplicationMuxManager"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.ApplicationMuxManager
@@ -14,23 +13,22 @@ Manager for Application components
 
 **Constructors**:
 
-- [ApplicationMuxManager(NcsMain)](#m-applicationmuxmanager-a0e66f3399bd)
+- [ApplicationMuxManager(NcsMain)](#m-ApplicationMuxManager-a0e66f3399bd)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#m-addtodeployexception-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#m-doneloadingevent-b85c1c01738a)
+- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#m-addToDeployException-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent()](#m-doneLoadingEvent-b85c1c01738a)
 - [finish()](#m-finish-8c785ae2e6bb)
-- [getPDEntry(String)](#m-getpdentry-342c37e0891e)
-- [instantiateComponentAction(String, String, Object)](#m-instantiatecomponentaction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#m-instantiatecomponentevent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#m-loadpackageevent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#m-unloadpackageevent-f14422e73a47)
+- [getPDEntry(String)](#m-getPDEntry-342c37e0891e)
+- [instantiateComponentAction(String, String, Object)](#m-instantiateComponentAction-9e067ecafe91)
+- [instantiateComponentEvent(NcsComponentData)](#m-instantiateComponentEvent-9050503646b9)
+- [loadPackageEvent(NcsComponentData)](#m-loadPackageEvent-4650a75a851a)
+- [unloadPackageEvent(NcsComponentData)](#m-unloadPackageEvent-f14422e73a47)
 
 ## Constructors
 
-<a id="m-applicationmuxmanager-a0e66f3399bd"></a>
-### ApplicationMuxManager(NcsMain)
+### ApplicationMuxManager(NcsMain) <a href="#m-ApplicationMuxManager-a0e66f3399bd" id="m-ApplicationMuxManager-a0e66f3399bd"></a>
 
 ```java
 public ApplicationMuxManager(com.tailf.ncs.NcsMain main)
@@ -45,8 +43,7 @@ Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-<a id="m-doneloadingevent-b85c1c01738a"></a>
-### doneLoadingEvent()
+### doneLoadingEvent() <a href="#m-doneLoadingEvent-b85c1c01738a" id="m-doneLoadingEvent-b85c1c01738a"></a>
 
 ```java
 public void doneLoadingEvent() throws Exception
@@ -54,8 +51,7 @@ public void doneLoadingEvent() throws Exception
 
 Handling doneLoading events received by the NcsMain FSM
 
-<a id="m-finish-8c785ae2e6bb"></a>
-### finish()
+### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish()
@@ -63,8 +59,7 @@ public void finish()
 
 Stop and cleanup all components of this type
 
-<a id="m-getpdentry-342c37e0891e"></a>
-### getPDEntry(String)
+### getPDEntry(String) <a href="#m-getPDEntry-342c37e0891e" id="m-getPDEntry-342c37e0891e"></a>
 
 ```java
 public com.tailf.ncs.ctrl.AppPDEntry getPDEntry(String uniqueName)
@@ -80,8 +75,7 @@ Get component for name "package_name:component_name"
 
 **Returns:** AppPDEntry metadata for this component
 
-<a id="m-instantiatecomponentaction-9e067ecafe91"></a>
-### instantiateComponentAction(String, String, Object)
+### instantiateComponentAction(String, String, Object) <a href="#m-instantiateComponentAction-9e067ecafe91" id="m-instantiateComponentAction-9e067ecafe91"></a>
 
 ```java
 public void instantiateComponentAction(
@@ -105,8 +99,7 @@ Handles instantiateComponent events received by the
 
 - `Exception`
 
-<a id="m-instantiatecomponentevent-9050503646b9"></a>
-### instantiateComponentEvent(NcsComponentData)
+### instantiateComponentEvent(NcsComponentData) <a href="#m-instantiateComponentEvent-9050503646b9" id="m-instantiateComponentEvent-9050503646b9"></a>
 
 ```java
 public void instantiateComponentEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
@@ -121,8 +114,7 @@ Handling instantiateComponent events received by the NcsMain FSM and
 
 - `com.tailf.ncs.ctrl.NcsComponentData data`
 
-<a id="m-loadpackageevent-4650a75a851a"></a>
-### loadPackageEvent(NcsComponentData)
+### loadPackageEvent(NcsComponentData) <a href="#m-loadPackageEvent-4650a75a851a" id="m-loadPackageEvent-4650a75a851a"></a>
 
 ```java
 public void loadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
@@ -137,8 +129,7 @@ Handling loadPackage events received by the NcsMain FSM and relays to
 
 - `com.tailf.ncs.ctrl.NcsComponentData data`
 
-<a id="m-unloadpackageevent-f14422e73a47"></a>
-### unloadPackageEvent(NcsComponentData)
+### unloadPackageEvent(NcsComponentData) <a href="#m-unloadPackageEvent-f14422e73a47" id="m-unloadPackageEvent-f14422e73a47"></a>
 
 ```java
 public void unloadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception

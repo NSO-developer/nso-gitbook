@@ -1,5 +1,4 @@
-<a id="cls-MountIdLRUMap"></a>
-# MountIdLRUMap
+# MountIdLRUMap <a href="#cls-MountIdLRUMap" id="cls-MountIdLRUMap"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.MountIdLRUMap<K, V>
@@ -10,16 +9,15 @@ public static class com.tailf.maapi.MaapiSchemas.MountIdLRUMap<K, V>
 
 **Constructors**:
 
-- [MountIdLRUMap(int)](#m-mountidlrumap-7436757c8be6)
+- [MountIdLRUMap(int)](#m-MountIdLRUMap-7436757c8be6)
 
 **Methods**:
 
-- [removeEldestEntry(Entry<K,V>)](#m-removeeldestentry-2ee85ed7aee8)
+- [removeEldestEntry(Entry<K,V>)](#m-removeEldestEntry-2ee85ed7aee8)
 
 ## Constructors
 
-<a id="m-mountidlrumap-7436757c8be6"></a>
-### MountIdLRUMap(int)
+### MountIdLRUMap(int) <a href="#m-MountIdLRUMap-7436757c8be6" id="m-MountIdLRUMap-7436757c8be6"></a>
 
 ```java
 protected MountIdLRUMap(int threshold)
@@ -32,8 +30,7 @@ protected MountIdLRUMap(int threshold)
 
 ## Methods
 
-<a id="m-removeeldestentry-2ee85ed7aee8"></a>
-### removeEldestEntry(Entry<K,V>)
+### removeEldestEntry(Entry<K,V>) <a href="#m-removeEldestEntry-2ee85ed7aee8" id="m-removeEldestEntry-2ee85ed7aee8"></a>
 
 ```java
 protected boolean removeEldestEntry(java.util.Map.Entry<K,V> eldest)

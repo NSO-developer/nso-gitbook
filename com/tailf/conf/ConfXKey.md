@@ -1,5 +1,4 @@
-<a id="cls-ConfXKey"></a>
-# ConfXKey
+# ConfXKey <a href="#cls-ConfXKey" id="cls-ConfXKey"></a>
 
 ```java
 public class com.tailf.conf.ConfXKey
@@ -12,7 +11,7 @@ Types: [ConfKey](ConfKey.md#cls-ConfKey)
 
 **Constructors**:
 
-- [ConfXKey(ConfObject[], Map<CSNode,ConfValue>)](#m-confxkey-412c4b0647ab)
+- [ConfXKey(ConfObject[], Map<CSNode,ConfValue>)](#m-ConfXKey-412c4b0647ab)
 
 **Fields**:
 
@@ -73,21 +72,20 @@ Types: [ConfKey](ConfKey.md#cls-ConfKey)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [elementAt(int)](ConfKey.md#m-elementat-7ff98e6e0268) from ConfKey
+- [elementAt(int)](ConfKey.md#m-elementAt-7ff98e6e0268) from ConfKey
 - [elements()](ConfKey.md#m-elements-1ac1cabc0e96) from ConfKey
 - [encode()](ConfKey.md#m-encode-fbae522bba37) from ConfKey
 - [equals(Object)](ConfKey.md#m-equals-fcd6492e0d6c) from ConfKey
-- [hashCode()](ConfKey.md#m-hashcode-ef797a217903) from ConfKey
+- [hashCode()](ConfKey.md#m-hashCode-ef797a217903) from ConfKey
 - [length()](ConfKey.md#m-length-89e7822f25ca) from ConfKey
-- [setPath(InstancePath)](ConfKey.md#m-setpath-ad9962db3cab) from ConfKey
-- [toStrictlyQuotedString()](ConfKey.md#m-tostrictlyquotedstring-c10aef71d8ba) from ConfKey
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(boolean)](ConfKey.md#m-tostring-b87d88746a2e) from ConfKey
+- [setPath(InstancePath)](ConfKey.md#m-setPath-ad9962db3cab) from ConfKey
+- [toStrictlyQuotedString()](ConfKey.md#m-toStrictlyQuotedString-c10aef71d8ba) from ConfKey
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(boolean)](ConfKey.md#m-toString-b87d88746a2e) from ConfKey
 
 ## Constructors
 
-<a id="m-confxkey-412c4b0647ab"></a>
-### ConfXKey(ConfObject[], Map<CSNode,ConfValue>)
+### ConfXKey(ConfObject[], Map<CSNode,ConfValue>) <a href="#m-ConfXKey-412c4b0647ab" id="m-ConfXKey-412c4b0647ab"></a>
 
 ```java
 public ConfXKey(
@@ -106,8 +104,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject), [CSNode](../maapi/MaapiSchema
 
 ## Methods
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

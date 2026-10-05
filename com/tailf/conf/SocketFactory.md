@@ -1,5 +1,4 @@
-<a id="cls-SocketFactory"></a>
-# SocketFactory
+# SocketFactory <a href="#cls-SocketFactory" id="cls-SocketFactory"></a>
 
 ```java
 public class com.tailf.conf.SocketFactory
@@ -24,24 +23,23 @@ Class for creation and control of sockets.
 
 **Methods**:
 
-- [getSocket(InetAddress, int)](#m-getsocket-60f7047e1210)
-- [getSocket(Object, InetAddress, int)](#m-getsocket-2fc4ed37c8ec)
-- [getSocket(Object, Socket)](#m-getsocket-e33d64204891)
-- [getSocket(Object, SocketAddress)](#m-getsocket-56f7f9efbb5e)
-- [getSocket(Object, String, int)](#m-getsocket-716fbc8e8570)
-- [getSocket(Socket)](#m-getsocket-843c18d87453)
-- [getSocket(SocketAddress)](#m-getsocket-294002c373e6)
-- [getSocket(String, int)](#m-getsocket-30dffcd0af21)
-- [getSocketFactoryCb()](#m-getsocketfactorycb-374cd9148ad9)
-- [getUnconnectedSocket(Object, ProtocolFamily)](#m-getunconnectedsocket-4d9322b795e2)
-- [getUnconnectedSocket(ProtocolFamily)](#m-getunconnectedsocket-2b37476a3a26)
-- [registerCallback(SocketFactoryCallback)](#m-registercallback-6bd9f054044b)
-- [wrapSocket(Socket)](#m-wrapsocket-52cbce4e91a6)
+- [getSocket(InetAddress, int)](#m-getSocket-60f7047e1210)
+- [getSocket(Object, InetAddress, int)](#m-getSocket-2fc4ed37c8ec)
+- [getSocket(Object, Socket)](#m-getSocket-e33d64204891)
+- [getSocket(Object, SocketAddress)](#m-getSocket-56f7f9efbb5e)
+- [getSocket(Object, String, int)](#m-getSocket-716fbc8e8570)
+- [getSocket(Socket)](#m-getSocket-843c18d87453)
+- [getSocket(SocketAddress)](#m-getSocket-294002c373e6)
+- [getSocket(String, int)](#m-getSocket-30dffcd0af21)
+- [getSocketFactoryCb()](#m-getSocketFactoryCb-374cd9148ad9)
+- [getUnconnectedSocket(Object, ProtocolFamily)](#m-getUnconnectedSocket-4d9322b795e2)
+- [getUnconnectedSocket(ProtocolFamily)](#m-getUnconnectedSocket-2b37476a3a26)
+- [registerCallback(SocketFactoryCallback)](#m-registerCallback-6bd9f054044b)
+- [wrapSocket(Socket)](#m-wrapSocket-52cbce4e91a6)
 
 ## Methods
 
-<a id="m-getsocket-60f7047e1210"></a>
-### getSocket(InetAddress, int)
+### getSocket(InetAddress, int) <a href="#m-getSocket-60f7047e1210" id="m-getSocket-60f7047e1210"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -67,8 +65,7 @@ Retrieve a socket connected to a specified destination
 - `IOException`
 - `ConfException`
 
-<a id="m-getsocket-2fc4ed37c8ec"></a>
-### getSocket(Object, InetAddress, int)
+### getSocket(Object, InetAddress, int) <a href="#m-getSocket-2fc4ed37c8ec" id="m-getSocket-2fc4ed37c8ec"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -96,10 +93,9 @@ Retrieve a socket connected to a specified destination
 - `IOException`
 - `ConfException`
 
-**Deprecated:** Use `#getSocket(InetAddress, int)`.
+**Deprecated:** Use [`getSocket(InetAddress, int)`](SocketFactory.md#m-getSocket-60f7047e1210).
 
-<a id="m-getsocket-e33d64204891"></a>
-### getSocket(Object, Socket)
+### getSocket(Object, Socket) <a href="#m-getSocket-e33d64204891" id="m-getSocket-e33d64204891"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -121,10 +117,9 @@ Retrieve a socket connected to the same remote address as a
 
 **Returns:** the resulting socket
 
-**Deprecated:** Use `#getSocket(Socket)`.
+**Deprecated:** Use [`getSocket(Socket)`](SocketFactory.md#m-getSocket-843c18d87453).
 
-<a id="m-getsocket-56f7f9efbb5e"></a>
-### getSocket(Object, SocketAddress)
+### getSocket(Object, SocketAddress) <a href="#m-getSocket-56f7f9efbb5e" id="m-getSocket-56f7f9efbb5e"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -145,10 +140,9 @@ Retrieve a socket connected to a specified address.
 
 **Returns:** the resulting socket
 
-**Deprecated:** Use `#getSocket(SocketAddress)`.
+**Deprecated:** Use [`getSocket(SocketAddress)`](SocketFactory.md#m-getSocket-294002c373e6).
 
-<a id="m-getsocket-716fbc8e8570"></a>
-### getSocket(Object, String, int)
+### getSocket(Object, String, int) <a href="#m-getSocket-716fbc8e8570" id="m-getSocket-716fbc8e8570"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -176,10 +170,9 @@ Retrieve a socket connected to a specified destination
 - `IOException`
 - `ConfException`
 
-**Deprecated:** Use `#getSocket(String, int)`.
+**Deprecated:** Use [`getSocket(String, int)`](SocketFactory.md#m-getSocket-30dffcd0af21).
 
-<a id="m-getsocket-843c18d87453"></a>
-### getSocket(Socket)
+### getSocket(Socket) <a href="#m-getSocket-843c18d87453" id="m-getSocket-843c18d87453"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -199,8 +192,7 @@ Retrieve a socket connected to the same remote address as a
 
 **Returns:** the resulting socket
 
-<a id="m-getsocket-294002c373e6"></a>
-### getSocket(SocketAddress)
+### getSocket(SocketAddress) <a href="#m-getSocket-294002c373e6" id="m-getSocket-294002c373e6"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -219,8 +211,7 @@ Retrieve a socket connected to a specified address.
 
 **Returns:** the resulting socket
 
-<a id="m-getsocket-30dffcd0af21"></a>
-### getSocket(String, int)
+### getSocket(String, int) <a href="#m-getSocket-30dffcd0af21" id="m-getSocket-30dffcd0af21"></a>
 
 ```java
 public static java.net.Socket getSocket(
@@ -246,8 +237,7 @@ Retrieve a socket connected to a specified destination
 - `IOException`
 - `ConfException`
 
-<a id="m-getsocketfactorycb-374cd9148ad9"></a>
-### getSocketFactoryCb()
+### getSocketFactoryCb() <a href="#m-getSocketFactoryCb-374cd9148ad9" id="m-getSocketFactoryCb-374cd9148ad9"></a>
 
 ```java
 public static com.tailf.conf.SocketFactoryCallback getSocketFactoryCb()
@@ -261,8 +251,7 @@ Retrieve the SocketFactoryCallback. This always exists, if the user have
 
 **Returns:** the current SocketFactoryCallback
 
-<a id="m-getunconnectedsocket-4d9322b795e2"></a>
-### getUnconnectedSocket(Object, ProtocolFamily)
+### getUnconnectedSocket(Object, ProtocolFamily) <a href="#m-getUnconnectedSocket-4d9322b795e2" id="m-getUnconnectedSocket-4d9322b795e2"></a>
 
 ```java
 public static java.net.Socket getUnconnectedSocket(
@@ -290,10 +279,9 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 - `IOException`
 - `ConfException`
 
-**Deprecated:** Use `#getUnconnectedSocket(ProtocolFamily)`.
+**Deprecated:** Use [`getUnconnectedSocket(ProtocolFamily)`](SocketFactory.md#m-getUnconnectedSocket-2b37476a3a26).
 
-<a id="m-getunconnectedsocket-2b37476a3a26"></a>
-### getUnconnectedSocket(ProtocolFamily)
+### getUnconnectedSocket(ProtocolFamily) <a href="#m-getUnconnectedSocket-2b37476a3a26" id="m-getUnconnectedSocket-2b37476a3a26"></a>
 
 ```java
 public static java.net.Socket getUnconnectedSocket(
@@ -319,8 +307,7 @@ Retrieve an unconnected socket. Such socket can be used when e.g a
 - `IOException`
 - `ConfException`
 
-<a id="m-registercallback-6bd9f054044b"></a>
-### registerCallback(SocketFactoryCallback)
+### registerCallback(SocketFactoryCallback) <a href="#m-registerCallback-6bd9f054044b" id="m-registerCallback-6bd9f054044b"></a>
 
 ```java
 public static void registerCallback(com.tailf.conf.SocketFactoryCallback cb)
@@ -335,8 +322,7 @@ Register a SocketFactoryCallback that will be responsible for all
 
 - `com.tailf.conf.SocketFactoryCallback cb` - SocketFactoryCallback instance
 
-<a id="m-wrapsocket-52cbce4e91a6"></a>
-### wrapSocket(Socket)
+### wrapSocket(Socket) <a href="#m-wrapSocket-52cbce4e91a6" id="m-wrapSocket-52cbce4e91a6"></a>
 
 ```java
 public static java.net.Socket wrapSocket(java.net.Socket socket)

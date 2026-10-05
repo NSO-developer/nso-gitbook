@@ -1,5 +1,4 @@
-<a id="cls-NcsThreadPoolFactory"></a>
-# NcsThreadPoolFactory
+# NcsThreadPoolFactory <a href="#cls-NcsThreadPoolFactory" id="cls-NcsThreadPoolFactory"></a>
 
 ```java
 public class com.tailf.ncs.NcsThreadPoolFactory
@@ -16,17 +15,16 @@ The customized thread Factory
 
 **Constructors**:
 
-- [NcsThreadPoolFactory(String)](#m-ncsthreadpoolfactory-118adbedb509)
+- [NcsThreadPoolFactory(String)](#m-NcsThreadPoolFactory-118adbedb509)
 
 **Methods**:
 
-- [getPoolName()](#m-getpoolname-b9fe3e660a7e)
-- [newThread(Runnable)](#m-newthread-d68745b22554)
+- [getPoolName()](#m-getPoolName-b9fe3e660a7e)
+- [newThread(Runnable)](#m-newThread-d68745b22554)
 
 ## Constructors
 
-<a id="m-ncsthreadpoolfactory-118adbedb509"></a>
-### NcsThreadPoolFactory(String)
+### NcsThreadPoolFactory(String) <a href="#m-NcsThreadPoolFactory-118adbedb509" id="m-NcsThreadPoolFactory-118adbedb509"></a>
 
 ```java
 public NcsThreadPoolFactory(String poolName)
@@ -39,15 +37,13 @@ public NcsThreadPoolFactory(String poolName)
 
 ## Methods
 
-<a id="m-getpoolname-b9fe3e660a7e"></a>
-### getPoolName()
+### getPoolName() <a href="#m-getPoolName-b9fe3e660a7e" id="m-getPoolName-b9fe3e660a7e"></a>
 
 ```java
 public String getPoolName()
 ```
 
-<a id="m-newthread-d68745b22554"></a>
-### newThread(Runnable)
+### newThread(Runnable) <a href="#m-newThread-d68745b22554" id="m-newThread-d68745b22554"></a>
 
 ```java
 public Thread newThread(Runnable runnable)

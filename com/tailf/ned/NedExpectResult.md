@@ -1,5 +1,4 @@
-<a id="cls-NedExpectResult"></a>
-# NedExpectResult
+# NedExpectResult <a href="#cls-NedExpectResult" id="cls-NedExpectResult"></a>
 
 ```java
 public class com.tailf.ned.NedExpectResult
@@ -13,19 +12,18 @@ The result of a expect() method invocation. It contains
 
 **Constructors**:
 
-- [NedExpectResult(int, String)](#m-nedexpectresult-066aa0c6fc6d)
-- [NedExpectResult(int, String, String)](#m-nedexpectresult-7f02cc765eaa)
+- [NedExpectResult(int, String)](#m-NedExpectResult-066aa0c6fc6d)
+- [NedExpectResult(int, String, String)](#m-NedExpectResult-7f02cc765eaa)
 
 **Methods**:
 
-- [getHit()](#m-gethit-282efa757bc8)
-- [getMatch()](#m-getmatch-554153f4610e)
-- [getText()](#m-gettext-e63d55fcdcbd)
+- [getHit()](#m-getHit-282efa757bc8)
+- [getMatch()](#m-getMatch-554153f4610e)
+- [getText()](#m-getText-e63d55fcdcbd)
 
 ## Constructors
 
-<a id="m-nedexpectresult-066aa0c6fc6d"></a>
-### NedExpectResult(int, String)
+### NedExpectResult(int, String) <a href="#m-NedExpectResult-066aa0c6fc6d" id="m-NedExpectResult-066aa0c6fc6d"></a>
 
 ```java
 public NedExpectResult(int hit, String text)
@@ -36,8 +34,7 @@ public NedExpectResult(int hit, String text)
 - `int hit`
 - `String text`
 
-<a id="m-nedexpectresult-7f02cc765eaa"></a>
-### NedExpectResult(int, String, String)
+### NedExpectResult(int, String, String) <a href="#m-NedExpectResult-7f02cc765eaa" id="m-NedExpectResult-7f02cc765eaa"></a>
 
 ```java
 public NedExpectResult(int hit, String text, String match)
@@ -52,22 +49,19 @@ public NedExpectResult(int hit, String text, String match)
 
 ## Methods
 
-<a id="m-gethit-282efa757bc8"></a>
-### getHit()
+### getHit() <a href="#m-getHit-282efa757bc8" id="m-getHit-282efa757bc8"></a>
 
 ```java
 public int getHit()
 ```
 
-<a id="m-getmatch-554153f4610e"></a>
-### getMatch()
+### getMatch() <a href="#m-getMatch-554153f4610e" id="m-getMatch-554153f4610e"></a>
 
 ```java
 public String getMatch()
 ```
 
-<a id="m-gettext-e63d55fcdcbd"></a>
-### getText()
+### getText() <a href="#m-getText-e63d55fcdcbd" id="m-getText-e63d55fcdcbd"></a>
 
 ```java
 public String getText()

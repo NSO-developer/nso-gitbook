@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.NameToHash.Reader
@@ -10,18 +9,17 @@ public static final class com.tailf.ncs.maapi.Schema.NameToHash.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getHash()](#m-gethash-7efe0716cf4b)
-- [getName()](#m-getname-2634b18b4a25)
-- [hasName()](#m-hasname-bfe6c334e0d1)
+- [getHash()](#m-getHash-7efe0716cf4b)
+- [getName()](#m-getName-2634b18b4a25)
+- [hasName()](#m-hasName-bfe6c334e0d1)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -48,22 +46,19 @@ Reader(
 
 ## Methods
 
-<a id="m-gethash-7efe0716cf4b"></a>
-### getHash()
+### getHash() <a href="#m-getHash-7efe0716cf4b" id="m-getHash-7efe0716cf4b"></a>
 
 ```java
 public final int getHash()
 ```
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public boolean hasName()

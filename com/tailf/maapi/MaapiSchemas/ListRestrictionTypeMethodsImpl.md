@@ -1,5 +1,4 @@
-<a id="cls-ListRestrictionTypeMethodsImpl"></a>
-# ListRestrictionTypeMethodsImpl
+# ListRestrictionTypeMethodsImpl <a href="#cls-ListRestrictionTypeMethodsImpl" id="cls-ListRestrictionTypeMethodsImpl"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.ListRestrictionTypeMethodsImpl
@@ -12,18 +11,17 @@ Types: [CSTypeMethods](CSTypeMethods.md#cls-CSTypeMethods)
 
 **Constructors**:
 
-- [ListRestrictionTypeMethodsImpl()](#m-listrestrictiontypemethodsimpl-01f04b462a16)
+- [ListRestrictionTypeMethodsImpl()](#m-ListRestrictionTypeMethodsImpl-01f04b462a16)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#m-stringtovalue-9fef98be9bb2)
+- [stringToValue(CSType, String)](#m-stringToValue-9fef98be9bb2)
 - [validate(CSType, ConfValue)](#m-validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#m-valuetostring-f281f6b6d7d7)
+- [valueToString(CSType, ConfValue)](#m-valueToString-f281f6b6d7d7)
 
 ## Constructors
 
-<a id="m-listrestrictiontypemethodsimpl-01f04b462a16"></a>
-### ListRestrictionTypeMethodsImpl()
+### ListRestrictionTypeMethodsImpl() <a href="#m-ListRestrictionTypeMethodsImpl-01f04b462a16" id="m-ListRestrictionTypeMethodsImpl-01f04b462a16"></a>
 
 ```java
 public ListRestrictionTypeMethodsImpl()
@@ -32,8 +30,7 @@ public ListRestrictionTypeMethodsImpl()
 
 ## Methods
 
-<a id="m-stringtovalue-9fef98be9bb2"></a>
-### stringToValue(CSType, String)
+### stringToValue(CSType, String) <a href="#m-stringToValue-9fef98be9bb2" id="m-stringToValue-9fef98be9bb2"></a>
 
 ```java
 public com.tailf.conf.ConfValue stringToValue(
@@ -50,8 +47,7 @@ Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [CSType](CSType.md#cl
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `String str`
 
-<a id="m-validate-d2696432436e"></a>
-### validate(CSType, ConfValue)
+### validate(CSType, ConfValue) <a href="#m-validate-d2696432436e" id="m-validate-d2696432436e"></a>
 
 ```java
 public boolean validate(
@@ -68,8 +64,7 @@ Types: [CSType](CSType.md#cls-CSType), [ConfValue](../../conf/ConfValue.md#cls-C
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `com.tailf.conf.ConfValue val`
 
-<a id="m-valuetostring-f281f6b6d7d7"></a>
-### valueToString(CSType, ConfValue)
+### valueToString(CSType, ConfValue) <a href="#m-valueToString-f281f6b6d7d7" id="m-valueToString-f281f6b6d7d7"></a>
 
 ```java
 public String valueToString(com.tailf.maapi.MaapiSchemas.CSType type, com.tailf.conf.ConfValue val)

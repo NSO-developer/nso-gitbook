@@ -1,5 +1,4 @@
-<a id="cls-MaapiMNsException"></a>
-# MaapiMNsException
+# MaapiMNsException <a href="#cls-MaapiMNsException" id="cls-MaapiMNsException"></a>
 
 ```java
 public class com.tailf.maapi.MaapiMNsException
@@ -18,29 +17,27 @@ Warnings raised from the maapi package
 
 **Constructors**:
 
-- [MaapiMNsException()](#m-maapimnsexception-ecaf045bb69f)
-- [MaapiMNsException(String)](#m-maapimnsexception-685feed2a82c)
-- [MaapiMNsException(String, Throwable)](#m-maapimnsexception-9b2e85d8ea1e)
-- [MaapiMNsException(Throwable)](#m-maapimnsexception-f03a76028dfc)
+- [MaapiMNsException()](#m-MaapiMNsException-ecaf045bb69f)
+- [MaapiMNsException(String)](#m-MaapiMNsException-685feed2a82c)
+- [MaapiMNsException(String, Throwable)](#m-MaapiMNsException-9b2e85d8ea1e)
+- [MaapiMNsException(Throwable)](#m-MaapiMNsException-f03a76028dfc)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](MaapiException.md#m-mk-de1cedfc6ea8) from MaapiException
 - [mk(ConfResponse, ConfPath)](MaapiException.md#m-mk-79e69ffbc022) from MaapiException
 
 ## Constructors
 
-<a id="m-maapimnsexception-ecaf045bb69f"></a>
-### MaapiMNsException()
+### MaapiMNsException() <a href="#m-MaapiMNsException-ecaf045bb69f" id="m-MaapiMNsException-ecaf045bb69f"></a>
 
 ```java
 public MaapiMNsException()
 ```
 
-<a id="m-maapimnsexception-685feed2a82c"></a>
-### MaapiMNsException(String)
+### MaapiMNsException(String) <a href="#m-MaapiMNsException-685feed2a82c" id="m-MaapiMNsException-685feed2a82c"></a>
 
 ```java
 protected MaapiMNsException(String message)
@@ -50,8 +47,7 @@ protected MaapiMNsException(String message)
 
 - `String message`
 
-<a id="m-maapimnsexception-9b2e85d8ea1e"></a>
-### MaapiMNsException(String, Throwable)
+### MaapiMNsException(String, Throwable) <a href="#m-MaapiMNsException-9b2e85d8ea1e" id="m-MaapiMNsException-9b2e85d8ea1e"></a>
 
 ```java
 protected MaapiMNsException(String message, Throwable e)
@@ -62,8 +58,7 @@ protected MaapiMNsException(String message, Throwable e)
 - `String message`
 - `Throwable e`
 
-<a id="m-maapimnsexception-f03a76028dfc"></a>
-### MaapiMNsException(Throwable)
+### MaapiMNsException(Throwable) <a href="#m-MaapiMNsException-f03a76028dfc" id="m-MaapiMNsException-f03a76028dfc"></a>
 
 ```java
 public MaapiMNsException(Throwable e)

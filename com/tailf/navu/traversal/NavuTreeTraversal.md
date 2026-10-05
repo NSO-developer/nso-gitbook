@@ -1,5 +1,4 @@
-<a id="cls-NavuTreeTraversal"></a>
-# NavuTreeTraversal
+# NavuTreeTraversal <a href="#cls-NavuTreeTraversal" id="cls-NavuTreeTraversal"></a>
 
 ```java
 public class com.tailf.navu.traversal.NavuTreeTraversal
@@ -18,17 +17,16 @@ Starting point for both *Active* and *Passive* mode traversal
 
 **Methods**:
 
-- [addFilter(TraversalFilter)](#m-addfilter-8eb81a3c72a2)
-- [createInstance(NavuContext, NavuTraversalMean)](#m-createinstance-60ebd53e9e1f)
+- [addFilter(TraversalFilter)](#m-addFilter-8eb81a3c72a2)
+- [createInstance(NavuContext, NavuTraversalMean)](#m-createInstance-60ebd53e9e1f)
 - [iterator(NavuContext)](#m-iterator-56e43ce23a9e)
 - [iterator(NavuNode)](#m-iterator-509e808ecab4)
-- [printChain(NavuNode)](#m-printchain-5285eb03e708)
+- [printChain(NavuNode)](#m-printChain-5285eb03e708)
 - [traverse()](#m-traverse-4f872e3540cb)
 
 ## Methods
 
-<a id="m-addfilter-8eb81a3c72a2"></a>
-### addFilter(TraversalFilter)
+### addFilter(TraversalFilter) <a href="#m-addFilter-8eb81a3c72a2" id="m-addFilter-8eb81a3c72a2"></a>
 
 ```java
 public void addFilter(com.tailf.navu.traversal.TraversalFilter filter)
@@ -40,8 +38,7 @@ Types: [TraversalFilter](TraversalFilter.md#cls-TraversalFilter)
 
 - `com.tailf.navu.traversal.TraversalFilter filter`
 
-<a id="m-createinstance-60ebd53e9e1f"></a>
-### createInstance(NavuContext, NavuTraversalMean)
+### createInstance(NavuContext, NavuTraversalMean) <a href="#m-createInstance-60ebd53e9e1f" id="m-createInstance-60ebd53e9e1f"></a>
 
 ```java
 public static com.tailf.navu.traversal.NavuTreeTraversal createInstance(
@@ -62,8 +59,7 @@ Factory method to retrieve an instance of this class.
 
 **Returns:** an instance of this class
 
-<a id="m-iterator-56e43ce23a9e"></a>
-### iterator(NavuContext)
+### iterator(NavuContext) <a href="#m-iterator-56e43ce23a9e" id="m-iterator-56e43ce23a9e"></a>
 
 ```java
 public static java.util.Iterator<com.tailf.navu.NavuNode> iterator(com.tailf.navu.NavuContext ctx)
@@ -89,8 +85,7 @@ Retrieve an iterator to traverse the entire NAVU tree.
 
 - `com.tailf.navu.NavuContext ctx` - NavuContext for which to perform the iteration
 
-<a id="m-iterator-509e808ecab4"></a>
-### iterator(NavuNode)
+### iterator(NavuNode) <a href="#m-iterator-509e808ecab4" id="m-iterator-509e808ecab4"></a>
 
 ```java
 public static java.util.Iterator<com.tailf.navu.NavuNode> iterator(
@@ -117,8 +112,7 @@ Retrieve an iterator to traverse part of a NAVU tree.
 
 **Returns:** iterator starting from the given `NavuNode`
 
-<a id="m-printchain-5285eb03e708"></a>
-### printChain(NavuNode)
+### printChain(NavuNode) <a href="#m-printChain-5285eb03e708" id="m-printChain-5285eb03e708"></a>
 
 ```java
 public void printChain(com.tailf.navu.NavuNode node)
@@ -130,8 +124,7 @@ Types: [NavuNode](../NavuNode.md#cls-NavuNode)
 
 - `com.tailf.navu.NavuNode node`
 
-<a id="m-traverse-4f872e3540cb"></a>
-### traverse()
+### traverse() <a href="#m-traverse-4f872e3540cb" id="m-traverse-4f872e3540cb"></a>
 
 ```java
 public java.util.Set<String> traverse() throws com.tailf.navu.NavuException

@@ -1,5 +1,4 @@
-<a id="cls-RetrictedNumberTypeMethodsImpl"></a>
-# RetrictedNumberTypeMethodsImpl
+# RetrictedNumberTypeMethodsImpl <a href="#cls-RetrictedNumberTypeMethodsImpl" id="cls-RetrictedNumberTypeMethodsImpl"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.RetrictedNumberTypeMethodsImpl
@@ -12,18 +11,17 @@ Types: [CSTypeMethods](CSTypeMethods.md#cls-CSTypeMethods)
 
 **Constructors**:
 
-- [RetrictedNumberTypeMethodsImpl()](#m-retrictednumbertypemethodsimpl-b3e8353977f6)
+- [RetrictedNumberTypeMethodsImpl()](#m-RetrictedNumberTypeMethodsImpl-b3e8353977f6)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](CSTypeMethods.md#m-stringtovalue-9fef98be9bb2) from CSTypeMethods
+- [stringToValue(CSType, String)](CSTypeMethods.md#m-stringToValue-9fef98be9bb2) from CSTypeMethods
 - [validate(CSType, ConfValue)](#m-validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](CSTypeMethods.md#m-valuetostring-f281f6b6d7d7) from CSTypeMethods
+- [valueToString(CSType, ConfValue)](CSTypeMethods.md#m-valueToString-f281f6b6d7d7) from CSTypeMethods
 
 ## Constructors
 
-<a id="m-retrictednumbertypemethodsimpl-b3e8353977f6"></a>
-### RetrictedNumberTypeMethodsImpl()
+### RetrictedNumberTypeMethodsImpl() <a href="#m-RetrictedNumberTypeMethodsImpl-b3e8353977f6" id="m-RetrictedNumberTypeMethodsImpl-b3e8353977f6"></a>
 
 ```java
 public RetrictedNumberTypeMethodsImpl()
@@ -32,8 +30,7 @@ public RetrictedNumberTypeMethodsImpl()
 
 ## Methods
 
-<a id="m-validate-d2696432436e"></a>
-### validate(CSType, ConfValue)
+### validate(CSType, ConfValue) <a href="#m-validate-d2696432436e" id="m-validate-d2696432436e"></a>
 
 ```java
 public boolean validate(

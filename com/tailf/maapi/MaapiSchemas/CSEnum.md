@@ -1,5 +1,4 @@
-<a id="cls-CSEnum"></a>
-# CSEnum
+# CSEnum <a href="#cls-CSEnum" id="cls-CSEnum"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSEnum
@@ -9,18 +8,17 @@ public static class com.tailf.maapi.MaapiSchemas.CSEnum
 
 **Constructors**:
 
-- [CSEnum(String, long)](#m-csenum-dfd954eec0e1)
+- [CSEnum(String, long)](#m-CSEnum-dfd954eec0e1)
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getValue()](#m-getvalue-d93864668c40)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getName()](#m-getName-2634b18b4a25)
+- [getValue()](#m-getValue-d93864668c40)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-csenum-dfd954eec0e1"></a>
-### CSEnum(String, long)
+### CSEnum(String, long) <a href="#m-CSEnum-dfd954eec0e1" id="m-CSEnum-dfd954eec0e1"></a>
 
 ```java
 public CSEnum(String name, long value)
@@ -34,22 +32,19 @@ public CSEnum(String name, long value)
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public long getValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

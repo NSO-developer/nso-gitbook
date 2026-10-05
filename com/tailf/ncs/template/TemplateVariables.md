@@ -1,5 +1,4 @@
-<a id="cls-TemplateVariables"></a>
-# TemplateVariables
+# TemplateVariables <a href="#cls-TemplateVariables" id="cls-TemplateVariables"></a>
 
 ```java
 public class com.tailf.ncs.template.TemplateVariables
@@ -12,16 +11,15 @@ public class com.tailf.ncs.template.TemplateVariables
 
 **Constructors**:
 
-- [TemplateVariables()](#m-templatevariables-3563335fc6a2)
+- [TemplateVariables()](#m-TemplateVariables-3563335fc6a2)
 
 **Methods**:
 
-- [putQuoted(String, String)](#m-putquoted-6dd8179b4b5e)
+- [putQuoted(String, String)](#m-putQuoted-6dd8179b4b5e)
 
 ## Constructors
 
-<a id="m-templatevariables-3563335fc6a2"></a>
-### TemplateVariables()
+### TemplateVariables() <a href="#m-TemplateVariables-3563335fc6a2" id="m-TemplateVariables-3563335fc6a2"></a>
 
 ```java
 public TemplateVariables()
@@ -30,8 +28,7 @@ public TemplateVariables()
 
 ## Methods
 
-<a id="m-putquoted-6dd8179b4b5e"></a>
-### putQuoted(String, String)
+### putQuoted(String, String) <a href="#m-putQuoted-6dd8179b4b5e" id="m-putQuoted-6dd8179b4b5e"></a>
 
 ```java
 public Object putQuoted(String key, String value)
@@ -39,13 +36,13 @@ public Object putQuoted(String key, String value)
 
 Assigns a string value to an XPath variable. The assigned value is
  enclosed by single quotes or duoble quotes and set using
- `Properties#setProperty(String, String)`. In XPath
+ `TemplateVariables#setProperty(String, String)`. In XPath
  there is no quoting mechanism. Strings are enclosed by either
  single quotes or double quotes. If value contains both
  single and double quotes the double quotes are replaced by
  single quotes and the string is enclosed by double quotes.
  If this is not the desired behavior use the method
- `Properties#setProperty(String, String)` instead.
+ `TemplateVariables#setProperty(String, String)` instead.
  Neither key nor the value can be `null`.
 
 **Parameters**

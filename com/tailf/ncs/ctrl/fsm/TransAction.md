@@ -1,5 +1,4 @@
-<a id="cls-TransAction"></a>
-# TransAction
+# TransAction <a href="#cls-TransAction" id="cls-TransAction"></a>
 
 ```java
 public interface com.tailf.ncs.ctrl.fsm.TransAction
@@ -15,8 +14,7 @@ Transition action callback
 
 ## Methods
 
-<a id="m-execute-4f9764c84c43"></a>
-### execute(String, String, Object)
+### execute(String, String, Object) <a href="#m-execute-4f9764c84c43" id="m-execute-4f9764c84c43"></a>
 
 ```java
 public abstract void execute(String currentState, String newState, Object opaque) throws Exception

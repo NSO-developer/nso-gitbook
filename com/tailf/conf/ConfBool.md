@@ -1,5 +1,4 @@
-<a id="cls-ConfBool"></a>
-# ConfBool
+# ConfBool <a href="#cls-ConfBool" id="cls-ConfBool"></a>
 
 ```java
 public class com.tailf.conf.ConfBool
@@ -15,8 +14,8 @@ DATA_CONTAINER - Corresponds to the YANG boolean type.
 
 **Constructors**:
 
-- [ConfBool(boolean)](#m-confbool-e261a5845ec0)
-- [ConfBool(String)](#m-confbool-61ec81a5e410)
+- [ConfBool(boolean)](#m-ConfBool-e261a5845ec0)
+- [ConfBool(String)](#m-ConfBool-61ec81a5e410)
 
 **Fields**:
 
@@ -72,26 +71,25 @@ DATA_CONTAINER - Corresponds to the YANG boolean type.
 
 **Methods**:
 
-- [booleanValue()](#m-booleanvalue-8b1662434d74)
+- [booleanValue()](#m-booleanValue-8b1662434d74)
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBool)](#m-compareto-017db059f6ce)
+- [compareTo(ConfBool)](#m-compareTo-017db059f6ce)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confbool-e261a5845ec0"></a>
-### ConfBool(boolean)
+### ConfBool(boolean) <a href="#m-ConfBool-e261a5845ec0" id="m-ConfBool-e261a5845ec0"></a>
 
 ```java
 public ConfBool(boolean b)
@@ -101,8 +99,7 @@ public ConfBool(boolean b)
 
 - `boolean b`
 
-<a id="m-confbool-61ec81a5e410"></a>
-### ConfBool(String)
+### ConfBool(String) <a href="#m-ConfBool-61ec81a5e410" id="m-ConfBool-61ec81a5e410"></a>
 
 ```java
 public ConfBool(String s) throws com.tailf.conf.ConfException
@@ -117,15 +114,13 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-booleanvalue-8b1662434d74"></a>
-### booleanValue()
+### booleanValue() <a href="#m-booleanValue-8b1662434d74" id="m-booleanValue-8b1662434d74"></a>
 
 ```java
 public boolean booleanValue()
 ```
 
-<a id="m-compareto-017db059f6ce"></a>
-### compareTo(ConfBool)
+### compareTo(ConfBool) <a href="#m-compareTo-017db059f6ce" id="m-compareTo-017db059f6ce"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfBool o)
@@ -137,8 +132,7 @@ Types: [ConfBool](ConfBool.md#cls-ConfBool)
 
 - `com.tailf.conf.ConfBool o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -146,8 +140,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -157,15 +150,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

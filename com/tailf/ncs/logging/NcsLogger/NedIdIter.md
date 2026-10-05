@@ -1,5 +1,4 @@
-<a id="cls-NedIdIter"></a>
-# NedIdIter
+# NedIdIter <a href="#cls-NedIdIter" id="cls-NedIdIter"></a>
 
 **Package-private**
 
@@ -14,7 +13,7 @@ Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 **Constructors**:
 
-- [NedIdIter()](#m-nediditer-97d6da7077c5)
+- [NedIdIter()](#m-NedIdIter-97d6da7077c5)
 
 **Methods**:
 
@@ -22,8 +21,7 @@ Types: [CdbDiffIterate](../../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 ## Constructors
 
-<a id="m-nediditer-97d6da7077c5"></a>
-### NedIdIter()
+### NedIdIter() <a href="#m-NedIdIter-97d6da7077c5" id="m-NedIdIter-97d6da7077c5"></a>
 
 **Package-private**
 
@@ -34,8 +32,7 @@ NedIdIter()
 
 ## Methods
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(

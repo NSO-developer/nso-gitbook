@@ -1,5 +1,4 @@
-<a id="cls-HaStatus"></a>
-# HaStatus
+# HaStatus <a href="#cls-HaStatus" id="cls-HaStatus"></a>
 
 ```java
 public class com.tailf.ha.HaStatus
@@ -15,17 +14,16 @@ This class represents a status for an HA node in an HA cluster. First, the
 
 **Constructors**:
 
-- [HaStatus(HaStateType, ConfHaNode[])](#m-hastatus-e22b8611269d)
+- [HaStatus(HaStateType, ConfHaNode[])](#m-HaStatus-e22b8611269d)
 
 **Methods**:
 
-- [getHaState()](#m-gethastate-2f8260e75c6b)
-- [getNodes()](#m-getnodes-0d0e9b3adfd1)
+- [getHaState()](#m-getHaState-2f8260e75c6b)
+- [getNodes()](#m-getNodes-0d0e9b3adfd1)
 
 ## Constructors
 
-<a id="m-hastatus-e22b8611269d"></a>
-### HaStatus(HaStateType, ConfHaNode[])
+### HaStatus(HaStateType, ConfHaNode[]) <a href="#m-HaStatus-e22b8611269d" id="m-HaStatus-e22b8611269d"></a>
 
 ```java
 public HaStatus(com.tailf.ha.HaStateType state, com.tailf.conf.ConfHaNode[] nodes)
@@ -41,8 +39,7 @@ Types: [HaStateType](HaStateType.md#cls-HaStateType), [ConfHaNode](../conf/ConfH
 
 ## Methods
 
-<a id="m-gethastate-2f8260e75c6b"></a>
-### getHaState()
+### getHaState() <a href="#m-getHaState-2f8260e75c6b" id="m-getHaState-2f8260e75c6b"></a>
 
 ```java
 public com.tailf.ha.HaStateType getHaState()
@@ -54,8 +51,7 @@ Get the HA node state - PRIMARY/SECONDARY/SECONDARY_RELAY/NONE
 
 **Returns:** HaStateType
 
-<a id="m-getnodes-0d0e9b3adfd1"></a>
-### getNodes()
+### getNodes() <a href="#m-getNodes-0d0e9b3adfd1" id="m-getNodes-0d0e9b3adfd1"></a>
 
 ```java
 public com.tailf.conf.ConfHaNode[] getNodes()

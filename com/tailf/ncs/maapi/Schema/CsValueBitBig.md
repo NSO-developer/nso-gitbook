@@ -1,5 +1,4 @@
-<a id="cls-CsValueBitBig"></a>
-# CsValueBitBig
+# CsValueBitBig <a href="#cls-CsValueBitBig" id="cls-CsValueBitBig"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueBitBig
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueBitBig
 
 **Constructors**:
 
-- [CsValueBitBig()](#m-csvaluebitbig-b13645f44024)
+- [CsValueBitBig()](#m-CsValueBitBig-b13645f44024)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueBitBig
 
 ## Constructors
 
-<a id="m-csvaluebitbig-b13645f44024"></a>
-### CsValueBitBig()
+### CsValueBitBig() <a href="#m-CsValueBitBig-b13645f44024" id="m-CsValueBitBig-b13645f44024"></a>
 
 ```java
 public CsValueBitBig()
@@ -35,8 +33,7 @@ public CsValueBitBig()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueBitBig.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueBitBig.Factory factory = n
 
 Types: [Factory](CsValueBitBig/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder,com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueBitBig/Builder.md#cls-Builder), [Reader](CsValueBitBig/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

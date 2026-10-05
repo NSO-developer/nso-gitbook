@@ -1,5 +1,4 @@
-<a id="cls-JJCalls"></a>
-# JJCalls
+# JJCalls <a href="#cls-JJCalls" id="cls-JJCalls"></a>
 
 **Package-private**
 
@@ -11,7 +10,7 @@ static final class com.tailf.conf.dbg.XPathAbrevGrammar.JJCalls
 
 **Constructors**:
 
-- [JJCalls()](#m-jjcalls-343e844686fb)
+- [JJCalls()](#m-JJCalls-343e844686fb)
 
 **Fields**:
 
@@ -22,8 +21,7 @@ static final class com.tailf.conf.dbg.XPathAbrevGrammar.JJCalls
 
 ## Constructors
 
-<a id="m-jjcalls-343e844686fb"></a>
-### JJCalls()
+### JJCalls() <a href="#m-JJCalls-343e844686fb" id="m-JJCalls-343e844686fb"></a>
 
 **Package-private**
 
@@ -34,8 +32,7 @@ JJCalls()
 
 ## Fields
 
-<a id="m-arg"></a>
-### arg
+### arg <a href="#m-arg" id="m-arg"></a>
 
 **Package-private**
 
@@ -43,8 +40,7 @@ JJCalls()
 int arg = null;
 ```
 
-<a id="m-first"></a>
-### first
+### first <a href="#m-first" id="m-first"></a>
 
 **Package-private**
 
@@ -54,8 +50,7 @@ com.tailf.conf.dbg.Token first = null;
 
 Types: [Token](../Token.md#cls-Token)
 
-<a id="m-gen"></a>
-### gen
+### gen <a href="#m-gen" id="m-gen"></a>
 
 **Package-private**
 
@@ -63,8 +58,7 @@ Types: [Token](../Token.md#cls-Token)
 int gen = null;
 ```
 
-<a id="m-next"></a>
-### next
+### next <a href="#m-next" id="m-next"></a>
 
 **Package-private**
 

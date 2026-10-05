@@ -1,5 +1,4 @@
-<a id="cls-ServiceCallback"></a>
-# ServiceCallback
+# ServiceCallback <a href="#cls-ServiceCallback" id="cls-ServiceCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -26,13 +25,12 @@ Annotation class for Service Callbacks.
 
 **Methods**:
 
-- [callType()](#m-calltype-0d0f9b61a036)
-- [servicePoint()](#m-servicepoint-b277aa382c7d)
+- [callType()](#m-callType-0d0f9b61a036)
+- [servicePoint()](#m-servicePoint-b277aa382c7d)
 
 ## Methods
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.ServiceCBType[] callType()
@@ -40,8 +38,7 @@ public abstract com.tailf.dp.proto.ServiceCBType[] callType()
 
 Types: [ServiceCBType](../proto/ServiceCBType.md#cls-ServiceCBType)
 
-<a id="m-servicepoint-b277aa382c7d"></a>
-### servicePoint()
+### servicePoint() <a href="#m-servicePoint-b277aa382c7d" id="m-servicePoint-b277aa382c7d"></a>
 
 ```java
 public abstract String servicePoint()

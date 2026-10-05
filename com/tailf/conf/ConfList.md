@@ -1,5 +1,4 @@
-<a id="cls-ConfList"></a>
-# ConfList
+# ConfList <a href="#cls-ConfList" id="cls-ConfList"></a>
 
 ```java
 public class com.tailf.conf.ConfList
@@ -15,9 +14,9 @@ DATA_CONTAINER - Corresponds to the YANG leaf-list.
 
 **Constructors**:
 
-- [ConfList()](#m-conflist-85031ba51a5a)
-- [ConfList(ConfEObject)](#m-conflist-98473c2678c8)
-- [ConfList(ConfObject[])](#m-conflist-5482a9eba06f)
+- [ConfList()](#m-ConfList-85031ba51a5a)
+- [ConfList(ConfEObject)](#m-ConfList-98473c2678c8)
+- [ConfList(ConfObject[])](#m-ConfList-5482a9eba06f)
 
 **Fields**:
 
@@ -73,10 +72,10 @@ DATA_CONTAINER - Corresponds to the YANG leaf-list.
 
 **Methods**:
 
-- [addElem(ConfObject)](#m-addelem-02ad7a1ca33a)
+- [addElem(ConfObject)](#m-addElem-02ad7a1ca33a)
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfList)](#m-compareto-e983880b8475)
+- [compareTo(ConfList)](#m-compareTo-e983880b8475)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
@@ -85,16 +84,16 @@ DATA_CONTAINER - Corresponds to the YANG leaf-list.
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
 - [get(int)](#m-get-5bd20d94a8b1)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isMember(ConfObject)](#m-ismember-24395e4f17dc)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isMember(ConfObject)](#m-isMember-24395e4f17dc)
 - [length()](#m-length-89e7822f25ca)
 - [move(ConfObject, WhereTo, ConfObject)](#m-move-c3d69b566af0)
 - [set(int, ConfObject)](#m-set-1cd8a8c79368)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 **Nested Types**:
 
@@ -102,15 +101,13 @@ DATA_CONTAINER - Corresponds to the YANG leaf-list.
 
 ## Constructors
 
-<a id="m-conflist-85031ba51a5a"></a>
-### ConfList()
+### ConfList() <a href="#m-ConfList-85031ba51a5a" id="m-ConfList-85031ba51a5a"></a>
 
 ```java
 public ConfList()
 ```
 
-<a id="m-conflist-98473c2678c8"></a>
-### ConfList(ConfEObject)
+### ConfList(ConfEObject) <a href="#m-ConfList-98473c2678c8" id="m-ConfList-98473c2678c8"></a>
 
 ```java
 public ConfList(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -122,8 +119,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-conflist-5482a9eba06f"></a>
-### ConfList(ConfObject[])
+### ConfList(ConfObject[]) <a href="#m-ConfList-5482a9eba06f" id="m-ConfList-5482a9eba06f"></a>
 
 ```java
 public ConfList(com.tailf.conf.ConfObject[] l)
@@ -138,8 +134,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-<a id="m-addelem-02ad7a1ca33a"></a>
-### addElem(ConfObject)
+### addElem(ConfObject) <a href="#m-addElem-02ad7a1ca33a" id="m-addElem-02ad7a1ca33a"></a>
 
 ```java
 public void addElem(com.tailf.conf.ConfObject n)
@@ -153,8 +148,7 @@ Add an element in the end of this ConfList unless it already exists
 
 - `com.tailf.conf.ConfObject n` - object to add
 
-<a id="m-compareto-e983880b8475"></a>
-### compareTo(ConfList)
+### compareTo(ConfList) <a href="#m-compareTo-e983880b8475" id="m-compareTo-e983880b8475"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfList o)
@@ -166,8 +160,7 @@ Types: [ConfList](ConfList.md#cls-ConfList)
 
 - `com.tailf.conf.ConfList o`
 
-<a id="m-delete-fbb37de72a86"></a>
-### delete(ConfObject)
+### delete(ConfObject) <a href="#m-delete-fbb37de72a86" id="m-delete-fbb37de72a86"></a>
 
 ```java
 public void delete(com.tailf.conf.ConfObject n)
@@ -181,8 +174,7 @@ Delete arbitrary object from the ConfList
 
 - `com.tailf.conf.ConfObject n` - object to remove
 
-<a id="m-elements-1ac1cabc0e96"></a>
-### elements()
+### elements() <a href="#m-elements-1ac1cabc0e96" id="m-elements-1ac1cabc0e96"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] elements()
@@ -192,8 +184,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 Return a copy as array of this
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -201,8 +192,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -212,8 +202,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-get-5bd20d94a8b1"></a>
-### get(int)
+### get(int) <a href="#m-get-5bd20d94a8b1" id="m-get-5bd20d94a8b1"></a>
 
 ```java
 public com.tailf.conf.ConfObject get(int index)
@@ -225,15 +214,13 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 - `int index`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-ismember-24395e4f17dc"></a>
-### isMember(ConfObject)
+### isMember(ConfObject) <a href="#m-isMember-24395e4f17dc" id="m-isMember-24395e4f17dc"></a>
 
 ```java
 public boolean isMember(com.tailf.conf.ConfObject o)
@@ -245,15 +232,13 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
 - `com.tailf.conf.ConfObject o`
 
-<a id="m-length-89e7822f25ca"></a>
-### length()
+### length() <a href="#m-length-89e7822f25ca" id="m-length-89e7822f25ca"></a>
 
 ```java
 public int length()
 ```
 
-<a id="m-move-c3d69b566af0"></a>
-### move(ConfObject, WhereTo, ConfObject)
+### move(ConfObject, WhereTo, ConfObject) <a href="#m-move-c3d69b566af0" id="m-move-c3d69b566af0"></a>
 
 ```java
 public void move(
@@ -283,8 +268,7 @@ Move a list element to a new position in the list. The destination
 
 - `ConfException`
 
-<a id="m-set-1cd8a8c79368"></a>
-### set(int, ConfObject)
+### set(int, ConfObject) <a href="#m-set-1cd8a8c79368" id="m-set-1cd8a8c79368"></a>
 
 ```java
 public com.tailf.conf.ConfObject set(int index, com.tailf.conf.ConfObject val)
@@ -297,8 +281,7 @@ Types: [ConfObject](ConfObject.md#cls-ConfObject)
 - `int index`
 - `com.tailf.conf.ConfObject val`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

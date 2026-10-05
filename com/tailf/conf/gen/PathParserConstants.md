@@ -1,5 +1,4 @@
-<a id="cls-PathParserConstants"></a>
-# PathParserConstants
+# PathParserConstants <a href="#cls-PathParserConstants" id="cls-PathParserConstants"></a>
 
 **Package-private**
 
@@ -35,8 +34,7 @@ Token literal values and constants.
 
 ## Fields
 
-<a id="m-CHAR"></a>
-### CHAR
+### CHAR <a href="#m-CHAR" id="m-CHAR"></a>
 
 ```java
 public static final int CHAR = 7;
@@ -44,8 +42,7 @@ public static final int CHAR = 7;
 
 RegularExpression Id.
 
-<a id="m-CHAR2"></a>
-### CHAR2
+### CHAR2 <a href="#m-CHAR2" id="m-CHAR2"></a>
 
 ```java
 public static final int CHAR2 = 19;
@@ -53,8 +50,7 @@ public static final int CHAR2 = 19;
 
 RegularExpression Id.
 
-<a id="m-COLON"></a>
-### COLON
+### COLON <a href="#m-COLON" id="m-COLON"></a>
 
 ```java
 public static final int COLON = 9;
@@ -62,8 +58,7 @@ public static final int COLON = 9;
 
 RegularExpression Id.
 
-<a id="m-DEFAULT"></a>
-### DEFAULT
+### DEFAULT <a href="#m-DEFAULT" id="m-DEFAULT"></a>
 
 ```java
 public static final int DEFAULT = 0;
@@ -71,8 +66,7 @@ public static final int DEFAULT = 0;
 
 Lexical state.
 
-<a id="m-EOF"></a>
-### EOF
+### EOF <a href="#m-EOF" id="m-EOF"></a>
 
 ```java
 public static final int EOF = 0;
@@ -80,8 +74,7 @@ public static final int EOF = 0;
 
 End of File.
 
-<a id="m-IDENTIFIER"></a>
-### IDENTIFIER
+### IDENTIFIER <a href="#m-IDENTIFIER" id="m-IDENTIFIER"></a>
 
 ```java
 public static final int IDENTIFIER = 6;
@@ -89,8 +82,7 @@ public static final int IDENTIFIER = 6;
 
 RegularExpression Id.
 
-<a id="m-IDENTIFIER2"></a>
-### IDENTIFIER2
+### IDENTIFIER2 <a href="#m-IDENTIFIER2" id="m-IDENTIFIER2"></a>
 
 ```java
 public static final int IDENTIFIER2 = 18;
@@ -98,8 +90,7 @@ public static final int IDENTIFIER2 = 18;
 
 RegularExpression Id.
 
-<a id="m-INSIDE_BRACES"></a>
-### INSIDE_BRACES
+### INSIDE_BRACES <a href="#m-INSIDE_BRACES" id="m-INSIDE_BRACES"></a>
 
 ```java
 public static final int INSIDE_BRACES = 1;
@@ -107,8 +98,7 @@ public static final int INSIDE_BRACES = 1;
 
 Lexical state.
 
-<a id="m-INSIDE_QUOTE"></a>
-### INSIDE_QUOTE
+### INSIDE_QUOTE <a href="#m-INSIDE_QUOTE" id="m-INSIDE_QUOTE"></a>
 
 ```java
 public static final int INSIDE_QUOTE = 2;
@@ -116,8 +106,7 @@ public static final int INSIDE_QUOTE = 2;
 
 Lexical state.
 
-<a id="m-LBRACE"></a>
-### LBRACE
+### LBRACE <a href="#m-LBRACE" id="m-LBRACE"></a>
 
 ```java
 public static final int LBRACE = 11;
@@ -125,8 +114,7 @@ public static final int LBRACE = 11;
 
 RegularExpression Id.
 
-<a id="m-LBRACKET"></a>
-### LBRACKET
+### LBRACKET <a href="#m-LBRACKET" id="m-LBRACKET"></a>
 
 ```java
 public static final int LBRACKET = 12;
@@ -134,8 +122,7 @@ public static final int LBRACKET = 12;
 
 RegularExpression Id.
 
-<a id="m-PERCENT"></a>
-### PERCENT
+### PERCENT <a href="#m-PERCENT" id="m-PERCENT"></a>
 
 ```java
 public static final int PERCENT = 8;
@@ -143,8 +130,7 @@ public static final int PERCENT = 8;
 
 RegularExpression Id.
 
-<a id="m-PERCENT2"></a>
-### PERCENT2
+### PERCENT2 <a href="#m-PERCENT2" id="m-PERCENT2"></a>
 
 ```java
 public static final int PERCENT2 = 20;
@@ -152,8 +138,7 @@ public static final int PERCENT2 = 20;
 
 RegularExpression Id.
 
-<a id="m-RBRACE"></a>
-### RBRACE
+### RBRACE <a href="#m-RBRACE" id="m-RBRACE"></a>
 
 ```java
 public static final int RBRACE = 21;
@@ -161,8 +146,7 @@ public static final int RBRACE = 21;
 
 RegularExpression Id.
 
-<a id="m-RBRACKET"></a>
-### RBRACKET
+### RBRACKET <a href="#m-RBRACKET" id="m-RBRACKET"></a>
 
 ```java
 public static final int RBRACKET = 13;
@@ -170,8 +154,7 @@ public static final int RBRACKET = 13;
 
 RegularExpression Id.
 
-<a id="m-SLASH"></a>
-### SLASH
+### SLASH <a href="#m-SLASH" id="m-SLASH"></a>
 
 ```java
 public static final int SLASH = 10;
@@ -179,8 +162,7 @@ public static final int SLASH = 10;
 
 RegularExpression Id.
 
-<a id="m-STRLIT"></a>
-### STRLIT
+### STRLIT <a href="#m-STRLIT" id="m-STRLIT"></a>
 
 ```java
 public static final int STRLIT = 23;
@@ -188,8 +170,7 @@ public static final int STRLIT = 23;
 
 RegularExpression Id.
 
-<a id="m-tokenImage"></a>
-### tokenImage
+### tokenImage <a href="#m-tokenImage" id="m-tokenImage"></a>
 
 ```java
 public static final String[] tokenImage = null;

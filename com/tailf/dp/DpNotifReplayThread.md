@@ -1,5 +1,4 @@
-<a id="cls-DpNotifReplayThread"></a>
-# DpNotifReplayThread
+# DpNotifReplayThread <a href="#cls-DpNotifReplayThread" id="cls-DpNotifReplayThread"></a>
 
 ```java
 public class com.tailf.dp.DpNotifReplayThread
@@ -15,19 +14,18 @@ This class implements the Notification streams thread. The purpose of this
 
 **Constructors**:
 
-- [DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)](#m-dpnotifreplaythread-ff8e548c1579)
+- [DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)](#m-DpNotifReplayThread-ff8e548c1579)
 
 **Methods**:
 
-- [getNotifStream()](#m-getnotifstream-b60ff57383f1)
-- [getStart()](#m-getstart-f15aa51eaab7)
-- [getStop()](#m-getstop-509e70b17b96)
+- [getNotifStream()](#m-getNotifStream-b60ff57383f1)
+- [getStart()](#m-getStart-f15aa51eaab7)
+- [getStop()](#m-getStop-509e70b17b96)
 - [run()](#m-run-b6dbda048863)
 
 ## Constructors
 
-<a id="m-dpnotifreplaythread-ff8e548c1579"></a>
-### DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime)
+### DpNotifReplayThread(DpNotifStream, ConfDatetime, ConfDatetime) <a href="#m-DpNotifReplayThread-ff8e548c1579" id="m-DpNotifReplayThread-ff8e548c1579"></a>
 
 **Package-private**
 
@@ -61,8 +59,7 @@ The constructor will initialize the thread.
 
 ## Methods
 
-<a id="m-getnotifstream-b60ff57383f1"></a>
-### getNotifStream()
+### getNotifStream() <a href="#m-getNotifStream-b60ff57383f1" id="m-getNotifStream-b60ff57383f1"></a>
 
 ```java
 public com.tailf.dp.DpNotifStream getNotifStream()
@@ -72,8 +69,7 @@ Types: [DpNotifStream](DpNotifStream.md#cls-DpNotifStream)
 
 The Notification stream. Holds the context.
 
-<a id="m-getstart-f15aa51eaab7"></a>
-### getStart()
+### getStart() <a href="#m-getStart-f15aa51eaab7" id="m-getStart-f15aa51eaab7"></a>
 
 ```java
 public com.tailf.conf.ConfDatetime getStart()
@@ -81,8 +77,7 @@ public com.tailf.conf.ConfDatetime getStart()
 
 Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="m-getstop-509e70b17b96"></a>
-### getStop()
+### getStop() <a href="#m-getStop-509e70b17b96" id="m-getStop-509e70b17b96"></a>
 
 ```java
 public com.tailf.conf.ConfDatetime getStop()
@@ -90,8 +85,7 @@ public com.tailf.conf.ConfDatetime getStop()
 
 Types: [ConfDatetime](../conf/ConfDatetime.md#cls-ConfDatetime)
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()

@@ -1,5 +1,4 @@
-<a id="cls-SnmpVar"></a>
-# SnmpVar
+# SnmpVar <a href="#cls-SnmpVar" id="cls-SnmpVar"></a>
 
 ```java
 public static class com.tailf.notif.SnmpaNotification.SnmpVar
@@ -11,19 +10,18 @@ Class representing a SNMP variable
 
 **Constructors**:
 
-- [SnmpVar(String, long[], String, long[])](#m-snmpvar-81ac1f12c262)
+- [SnmpVar(String, long[], String, long[])](#m-SnmpVar-81ac1f12c262)
 
 **Methods**:
 
-- [getColumn()](#m-getcolumn-d5f8434d3d26)
-- [getName()](#m-getname-2634b18b4a25)
-- [getOID()](#m-getoid-5906d09df65a)
-- [getRowIndex()](#m-getrowindex-7a54ed7b2c63)
+- [getColumn()](#m-getColumn-d5f8434d3d26)
+- [getName()](#m-getName-2634b18b4a25)
+- [getOID()](#m-getOID-5906d09df65a)
+- [getRowIndex()](#m-getRowIndex-7a54ed7b2c63)
 
 ## Constructors
 
-<a id="m-snmpvar-81ac1f12c262"></a>
-### SnmpVar(String, long[], String, long[])
+### SnmpVar(String, long[], String, long[]) <a href="#m-SnmpVar-81ac1f12c262" id="m-SnmpVar-81ac1f12c262"></a>
 
 ```java
 public SnmpVar(String name, long[] oid, String column, long[] rowindex)
@@ -39,29 +37,25 @@ public SnmpVar(String name, long[] oid, String column, long[] rowindex)
 
 ## Methods
 
-<a id="m-getcolumn-d5f8434d3d26"></a>
-### getColumn()
+### getColumn() <a href="#m-getColumn-d5f8434d3d26" id="m-getColumn-d5f8434d3d26"></a>
 
 ```java
 public String getColumn()
 ```
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-<a id="m-getoid-5906d09df65a"></a>
-### getOID()
+### getOID() <a href="#m-getOID-5906d09df65a" id="m-getOID-5906d09df65a"></a>
 
 ```java
 public long[] getOID()
 ```
 
-<a id="m-getrowindex-7a54ed7b2c63"></a>
-### getRowIndex()
+### getRowIndex() <a href="#m-getRowIndex-7a54ed7b2c63" id="m-getRowIndex-7a54ed7b2c63"></a>
 
 ```java
 public long[] getRowIndex()

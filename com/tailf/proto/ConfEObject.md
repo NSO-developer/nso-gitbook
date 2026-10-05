@@ -1,5 +1,4 @@
-<a id="cls-ConfEObject"></a>
-# ConfEObject
+# ConfEObject <a href="#cls-ConfEObject" id="cls-ConfEObject"></a>
 
 ```java
 public abstract class com.tailf.proto.ConfEObject
@@ -26,7 +25,7 @@ Base class of the E data type classes. This class is used to represent an
 
 **Constructors**:
 
-- [ConfEObject()](#m-confeobject-316d32c106b3)
+- [ConfEObject()](#m-ConfEObject-316d32c106b3)
 
 **Fields**:
 
@@ -38,12 +37,11 @@ Base class of the E data type classes. This class is used to represent an
 - [decode(ConfInputStream)](#m-decode-e63a2a4cac49)
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confeobject-316d32c106b3"></a>
-### ConfEObject()
+### ConfEObject() <a href="#m-ConfEObject-316d32c106b3" id="m-ConfEObject-316d32c106b3"></a>
 
 ```java
 public ConfEObject()
@@ -52,8 +50,7 @@ public ConfEObject()
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -64,15 +61,13 @@ static final long serialVersionUID = -8435938572339430044;
 
 ## Methods
 
-<a id="m-clone-164c86c45e9b"></a>
-### clone()
+### clone() <a href="#m-clone-164c86c45e9b" id="m-clone-164c86c45e9b"></a>
 
 ```java
 public Object clone()
 ```
 
-<a id="m-decode-e63a2a4cac49"></a>
-### decode(ConfInputStream)
+### decode(ConfInputStream) <a href="#m-decode-e63a2a4cac49" id="m-decode-e63a2a4cac49"></a>
 
 ```java
 public static com.tailf.proto.ConfEObject decode(
@@ -98,8 +93,7 @@ Read binary data in the E external format, and produce a corresponding E
 - `ConfEDecodeException` - if the stream does not contain a valid representation of
                 an E term.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public abstract void encode(com.tailf.proto.ConfOutputStream buf)
@@ -115,8 +109,7 @@ Convert the object according to the rules of the E external format. This
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded term should be written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public abstract boolean equals(Object o)
@@ -131,8 +124,7 @@ Determine if two E objects are equal. In general, E objects are equal if
 
 **Returns:** true if the objects are identical.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public abstract String toString()

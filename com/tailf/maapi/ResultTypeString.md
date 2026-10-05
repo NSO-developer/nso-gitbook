@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeString"></a>
-# ResultTypeString
+# ResultTypeString <a href="#cls-ResultTypeString" id="cls-ResultTypeString"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeString
@@ -49,12 +48,11 @@ XPath Result in string format. This format
 
 **Methods**:
 
-- [stringValue()](#m-stringvalue-a6efca13ec08)
+- [stringValue()](#m-stringValue-a6efca13ec08)
 
 ## Methods
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public abstract String stringValue()

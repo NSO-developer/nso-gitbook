@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder
@@ -10,25 +9,24 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getHid()](#m-gethid-34aa6038c623)
-- [getHns()](#m-gethns-457afaf41ae6)
-- [getQname()](#m-getqname-022156d42738)
-- [hasQname()](#m-hasqname-3146e94ee2c2)
-- [initQname(int)](#m-initqname-070346dcfd2a)
-- [setHid(int)](#m-sethid-628b88f6c037)
-- [setHns(int)](#m-sethns-7405e78f40fe)
-- [setQname(Reader)](#m-setqname-5263707f5f9e)
-- [setQname(String)](#m-setqname-d55a4e375433)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getHid()](#m-getHid-34aa6038c623)
+- [getHns()](#m-getHns-457afaf41ae6)
+- [getQname()](#m-getQname-022156d42738)
+- [hasQname()](#m-hasQname-3146e94ee2c2)
+- [initQname(int)](#m-initQname-070346dcfd2a)
+- [setHid(int)](#m-setHid-628b88f6c037)
+- [setHns(int)](#m-setHns-7405e78f40fe)
+- [setQname(Reader)](#m-setQname-5263707f5f9e)
+- [setQname(String)](#m-setQname-d55a4e375433)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -53,8 +51,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader asReader()
@@ -62,36 +59,31 @@ public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-gethid-34aa6038c623"></a>
-### getHid()
+### getHid() <a href="#m-getHid-34aa6038c623" id="m-getHid-34aa6038c623"></a>
 
 ```java
 public final int getHid()
 ```
 
-<a id="m-gethns-457afaf41ae6"></a>
-### getHns()
+### getHns() <a href="#m-getHns-457afaf41ae6" id="m-getHns-457afaf41ae6"></a>
 
 ```java
 public final int getHns()
 ```
 
-<a id="m-getqname-022156d42738"></a>
-### getQname()
+### getQname() <a href="#m-getQname-022156d42738" id="m-getQname-022156d42738"></a>
 
 ```java
 public final org.capnproto.Text.Builder getQname()
 ```
 
-<a id="m-hasqname-3146e94ee2c2"></a>
-### hasQname()
+### hasQname() <a href="#m-hasQname-3146e94ee2c2" id="m-hasQname-3146e94ee2c2"></a>
 
 ```java
 public final boolean hasQname()
 ```
 
-<a id="m-initqname-070346dcfd2a"></a>
-### initQname(int)
+### initQname(int) <a href="#m-initQname-070346dcfd2a" id="m-initQname-070346dcfd2a"></a>
 
 ```java
 public final org.capnproto.Text.Builder initQname(int size)
@@ -101,8 +93,7 @@ public final org.capnproto.Text.Builder initQname(int size)
 
 - `int size`
 
-<a id="m-sethid-628b88f6c037"></a>
-### setHid(int)
+### setHid(int) <a href="#m-setHid-628b88f6c037" id="m-setHid-628b88f6c037"></a>
 
 ```java
 public final void setHid(int value)
@@ -112,8 +103,7 @@ public final void setHid(int value)
 
 - `int value`
 
-<a id="m-sethns-7405e78f40fe"></a>
-### setHns(int)
+### setHns(int) <a href="#m-setHns-7405e78f40fe" id="m-setHns-7405e78f40fe"></a>
 
 ```java
 public final void setHns(int value)
@@ -123,8 +113,7 @@ public final void setHns(int value)
 
 - `int value`
 
-<a id="m-setqname-5263707f5f9e"></a>
-### setQname(Reader)
+### setQname(Reader) <a href="#m-setQname-5263707f5f9e" id="m-setQname-5263707f5f9e"></a>
 
 ```java
 public final void setQname(org.capnproto.Text.Reader value)
@@ -134,8 +123,7 @@ public final void setQname(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setqname-d55a4e375433"></a>
-### setQname(String)
+### setQname(String) <a href="#m-setQname-d55a4e375433" id="m-setQname-d55a4e375433"></a>
 
 ```java
 public final void setQname(String value)

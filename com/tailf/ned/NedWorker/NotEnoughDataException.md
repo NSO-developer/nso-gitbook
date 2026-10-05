@@ -1,5 +1,4 @@
-<a id="cls-NotEnoughDataException"></a>
-# NotEnoughDataException
+# NotEnoughDataException <a href="#cls-NotEnoughDataException" id="cls-NotEnoughDataException"></a>
 
 ```java
 public static class com.tailf.ned.NedWorker.NotEnoughDataException
@@ -10,7 +9,7 @@ public static class com.tailf.ned.NedWorker.NotEnoughDataException
 
 **Constructors**:
 
-- [NotEnoughDataException()](#m-notenoughdataexception-c47b064eeb8d)
+- [NotEnoughDataException()](#m-NotEnoughDataException-c47b064eeb8d)
 
 **Fields**:
 
@@ -18,8 +17,7 @@ public static class com.tailf.ned.NedWorker.NotEnoughDataException
 
 ## Constructors
 
-<a id="m-notenoughdataexception-c47b064eeb8d"></a>
-### NotEnoughDataException()
+### NotEnoughDataException() <a href="#m-NotEnoughDataException-c47b064eeb8d" id="m-NotEnoughDataException-c47b064eeb8d"></a>
 
 ```java
 public NotEnoughDataException()
@@ -28,8 +26,7 @@ public NotEnoughDataException()
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 ```java
 public static final long serialVersionUID = 1;

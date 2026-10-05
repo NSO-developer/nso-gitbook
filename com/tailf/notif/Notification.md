@@ -1,5 +1,4 @@
-<a id="cls-Notification"></a>
-# Notification
+# Notification <a href="#cls-Notification" id="cls-Notification"></a>
 
 ```java
 public class com.tailf.notif.Notification
@@ -37,7 +36,7 @@ Base class for notification data structures.
 
 **Constructors**:
 
-- [Notification()](#m-notification-7fae6ec3923e)
+- [Notification()](#m-Notification-7fae6ec3923e)
 
 **Fields**:
 
@@ -45,13 +44,12 @@ Base class for notification data structures.
 
 **Methods**:
 
-- [getNotificationType()](#m-getnotificationtype-f0e32b7b644f)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getNotificationType()](#m-getNotificationType-f0e32b7b644f)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-notification-7fae6ec3923e"></a>
-### Notification()
+### Notification() <a href="#m-Notification-7fae6ec3923e" id="m-Notification-7fae6ec3923e"></a>
 
 ```java
 public Notification()
@@ -60,8 +58,7 @@ public Notification()
 
 ## Fields
 
-<a id="m-type"></a>
-### type
+### type <a href="#m-type" id="m-type"></a>
 
 ```java
 protected com.tailf.notif.NotificationType type = null;
@@ -72,8 +69,7 @@ Types: [NotificationType](NotificationType.md#cls-NotificationType)
 
 ## Methods
 
-<a id="m-getnotificationtype-f0e32b7b644f"></a>
-### getNotificationType()
+### getNotificationType() <a href="#m-getNotificationType-f0e32b7b644f" id="m-getNotificationType-f0e32b7b644f"></a>
 
 ```java
 public com.tailf.notif.NotificationType getNotificationType()
@@ -81,8 +77,7 @@ public com.tailf.notif.NotificationType getNotificationType()
 
 Types: [NotificationType](NotificationType.md#cls-NotificationType)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

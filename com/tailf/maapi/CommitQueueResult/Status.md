@@ -1,5 +1,4 @@
-<a id="cls-Status"></a>
-# Status
+# Status <a href="#cls-Status" id="cls-Status"></a>
 
 ```java
 public static enum com.tailf.maapi.CommitQueueResult.Status
@@ -20,51 +19,45 @@ Types: [Status](Status.md#cls-Status)
 
 **Methods**:
 
-- [fromOrdinal(int)](#m-fromordinal-b79cdbf4f899)
-- [getOrdinal()](#m-getordinal-a41b33f04fd8)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [fromOrdinal(int)](#m-fromOrdinal-b79cdbf4f899)
+- [getOrdinal()](#m-getOrdinal-a41b33f04fd8)
+- [toString()](#m-toString-e9d48c5503ef)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ASYNC"></a>
-### ASYNC
+### ASYNC <a href="#m-ASYNC" id="m-ASYNC"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status ASYNC;
 ```
 
-<a id="m-COMPLETED"></a>
-### COMPLETED
+### COMPLETED <a href="#m-COMPLETED" id="m-COMPLETED"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status COMPLETED;
 ```
 
-<a id="m-DELETED"></a>
-### DELETED
+### DELETED <a href="#m-DELETED" id="m-DELETED"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status DELETED;
 ```
 
-<a id="m-FAILED"></a>
-### FAILED
+### FAILED <a href="#m-FAILED" id="m-FAILED"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status FAILED;
 ```
 
-<a id="m-NONE"></a>
-### NONE
+### NONE <a href="#m-NONE" id="m-NONE"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status NONE;
 ```
 
-<a id="m-TIMEOUT"></a>
-### TIMEOUT
+### TIMEOUT <a href="#m-TIMEOUT" id="m-TIMEOUT"></a>
 
 ```java
 public static final com.tailf.maapi.CommitQueueResult.Status TIMEOUT;
@@ -73,8 +66,7 @@ public static final com.tailf.maapi.CommitQueueResult.Status TIMEOUT;
 
 ## Methods
 
-<a id="m-fromordinal-b79cdbf4f899"></a>
-### fromOrdinal(int)
+### fromOrdinal(int) <a href="#m-fromOrdinal-b79cdbf4f899" id="m-fromOrdinal-b79cdbf4f899"></a>
 
 ```java
 public static com.tailf.maapi.CommitQueueResult.Status fromOrdinal(int ordinal)
@@ -86,22 +78,19 @@ Types: [Status](Status.md#cls-Status)
 
 - `int ordinal`
 
-<a id="m-getordinal-a41b33f04fd8"></a>
-### getOrdinal()
+### getOrdinal() <a href="#m-getOrdinal-a41b33f04fd8" id="m-getOrdinal-a41b33f04fd8"></a>
 
 ```java
 public int getOrdinal()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CommitQueueResult.Status valueOf(String name)
@@ -113,8 +102,7 @@ Types: [Status](Status.md#cls-Status)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CommitQueueResult.Status[] values()

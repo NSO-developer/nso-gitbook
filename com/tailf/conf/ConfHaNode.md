@@ -1,5 +1,4 @@
-<a id="cls-ConfHaNode"></a>
-# ConfHaNode
+# ConfHaNode <a href="#cls-ConfHaNode" id="cls-ConfHaNode"></a>
 
 ```java
 public class com.tailf.conf.ConfHaNode
@@ -11,20 +10,19 @@ ConfHaNode represents a HA node by identity and IP address
 
 **Constructors**:
 
-- [ConfHaNode(ConfValue, ConfValue)](#m-confhanode-7146bae77a19)
+- [ConfHaNode(ConfValue, ConfValue)](#m-ConfHaNode-7146bae77a19)
 
 **Methods**:
 
-- [getAddr()](#m-getaddr-7643cf1deb7b)
-- [getNodeId()](#m-getnodeid-1bc8b2feefac)
+- [getAddr()](#m-getAddr-7643cf1deb7b)
+- [getNodeId()](#m-getNodeId-1bc8b2feefac)
 - [pack_ha_node(ConfHaNode)](#m-pack_ha_node-dc74c8785624)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [toString()](#m-toString-e9d48c5503ef)
 - [unpack_ha_node(ConfEObject)](#m-unpack_ha_node-25b6274287f0)
 
 ## Constructors
 
-<a id="m-confhanode-7146bae77a19"></a>
-### ConfHaNode(ConfValue, ConfValue)
+### ConfHaNode(ConfValue, ConfValue) <a href="#m-ConfHaNode-7146bae77a19" id="m-ConfHaNode-7146bae77a19"></a>
 
 ```java
 public ConfHaNode(com.tailf.conf.ConfValue nodeid, com.tailf.conf.ConfValue addr)
@@ -42,8 +40,7 @@ Constructor for a HA node
 
 ## Methods
 
-<a id="m-getaddr-7643cf1deb7b"></a>
-### getAddr()
+### getAddr() <a href="#m-getAddr-7643cf1deb7b" id="m-getAddr-7643cf1deb7b"></a>
 
 ```java
 public com.tailf.conf.ConfValue getAddr()
@@ -55,8 +52,7 @@ Get the IP address for the node as ConfIPv4 or ConfIPv6
 
 **Returns:** ConfValue which is either ConfIPv4 or ConfIPv6
 
-<a id="m-getnodeid-1bc8b2feefac"></a>
-### getNodeId()
+### getNodeId() <a href="#m-getNodeId-1bc8b2feefac" id="m-getNodeId-1bc8b2feefac"></a>
 
 ```java
 public com.tailf.conf.ConfValue getNodeId()
@@ -68,8 +64,7 @@ Get the nodeid which is the identity of the HA node
 
 **Returns:** ConfValue nodeid
 
-<a id="m-pack_ha_node-dc74c8785624"></a>
-### pack_ha_node(ConfHaNode)
+### pack_ha_node(ConfHaNode) <a href="#m-pack_ha_node-dc74c8785624" id="m-pack_ha_node-dc74c8785624"></a>
 
 ```java
 public static com.tailf.proto.ConfEObject pack_ha_node(com.tailf.conf.ConfHaNode node)
@@ -86,15 +81,13 @@ Encodes a ConfHaNode into a ConfEObject to be transported by the
 
 **Returns:** ConfEObject
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-unpack_ha_node-25b6274287f0"></a>
-### unpack_ha_node(ConfEObject)
+### unpack_ha_node(ConfEObject) <a href="#m-unpack_ha_node-25b6274287f0" id="m-unpack_ha_node-25b6274287f0"></a>
 
 ```java
 public static com.tailf.conf.ConfHaNode unpack_ha_node(

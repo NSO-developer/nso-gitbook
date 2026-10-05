@@ -1,5 +1,4 @@
-<a id="cls-VerbosityIter"></a>
-# VerbosityIter
+# VerbosityIter <a href="#cls-VerbosityIter" id="cls-VerbosityIter"></a>
 
 **Package-private**
 
@@ -17,7 +16,7 @@ Class make the diffIterate for exception error verbosity and
 
 **Constructors**:
 
-- [VerbosityIter()](#m-verbosityiter-cf703d6c61f3)
+- [VerbosityIter()](#m-VerbosityIter-cf703d6c61f3)
 
 **Methods**:
 
@@ -25,8 +24,7 @@ Class make the diffIterate for exception error verbosity and
 
 ## Constructors
 
-<a id="m-verbosityiter-cf703d6c61f3"></a>
-### VerbosityIter()
+### VerbosityIter() <a href="#m-VerbosityIter-cf703d6c61f3" id="m-VerbosityIter-cf703d6c61f3"></a>
 
 **Package-private**
 
@@ -37,8 +35,7 @@ VerbosityIter()
 
 ## Methods
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(

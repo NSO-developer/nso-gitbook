@@ -1,5 +1,4 @@
-<a id="cls-MaapiCryptoType"></a>
-# MaapiCryptoType
+# MaapiCryptoType <a href="#cls-MaapiCryptoType" id="cls-MaapiCryptoType"></a>
 
 ```java
 public enum com.tailf.maapi.MaapiCryptoType
@@ -23,22 +22,20 @@ Data encryption and decryption helper class for each supported
 - [decrypt(byte[], String, byte[])](#m-decrypt-b3bea7978720)
 - [encrypt(byte[], String)](#m-encrypt-1b582cae7f14)
 - [find(String)](#m-find-e05e0e781b51)
-- [fixedIV(String)](#m-fixediv-d3170dc48d0b)
-- [isEncrypted(String)](#m-isencrypted-1e29023d8a65)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [fixedIV(String)](#m-fixedIV-d3170dc48d0b)
+- [isEncrypted(String)](#m-isEncrypted-1e29023d8a65)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-AES128"></a>
-### AES128
+### AES128 <a href="#m-AES128" id="m-AES128"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiCryptoType AES128;
 ```
 
-<a id="m-AES256"></a>
-### AES256
+### AES256 <a href="#m-AES256" id="m-AES256"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiCryptoType AES256;
@@ -47,8 +44,7 @@ public static final com.tailf.maapi.MaapiCryptoType AES256;
 
 ## Methods
 
-<a id="m-decrypt-f32031492937"></a>
-### decrypt(byte[], String)
+### decrypt(byte[], String) <a href="#m-decrypt-f32031492937" id="m-decrypt-f32031492937"></a>
 
 ```java
 public String decrypt(byte[] key, String encrypted) throws com.tailf.maapi.MaapiException
@@ -56,7 +52,7 @@ public String decrypt(byte[] key, String encrypted) throws com.tailf.maapi.Maapi
 
 Types: [MaapiException](MaapiException.md#cls-MaapiException)
 
-Same as calling `#decrypt(byte[], String, byte[])` with the iv
+Same as calling [`decrypt(byte[], String, byte[])`](MaapiCryptoType.md#m-decrypt-b3bea7978720) with the iv
  parameter set to null.
 
 **Parameters**
@@ -64,8 +60,7 @@ Same as calling `#decrypt(byte[], String, byte[])` with the iv
 - `byte[] key`
 - `String encrypted`
 
-<a id="m-decrypt-b3bea7978720"></a>
-### decrypt(byte[], String, byte[])
+### decrypt(byte[], String, byte[]) <a href="#m-decrypt-b3bea7978720" id="m-decrypt-b3bea7978720"></a>
 
 ```java
 public String decrypt(byte[] key, String encrypted, byte[] iv) throws com.tailf.maapi.MaapiException
@@ -88,8 +83,7 @@ Decrypt an encrypted string using the given key and IV. The encrypted
 
 **Returns:** The decrypted value as a string.
 
-<a id="m-encrypt-1b582cae7f14"></a>
-### encrypt(byte[], String)
+### encrypt(byte[], String) <a href="#m-encrypt-1b582cae7f14" id="m-encrypt-1b582cae7f14"></a>
 
 ```java
 public String encrypt(byte[] key, String plaintext) throws com.tailf.maapi.MaapiException
@@ -107,8 +101,7 @@ Encrypt a plaintext string using a supplied key.
 **Returns:** The encrypted and base64 encoded value as a string with
          a prefix detailing the encryption algoritm used.
 
-<a id="m-find-e05e0e781b51"></a>
-### find(String)
+### find(String) <a href="#m-find-e05e0e781b51" id="m-find-e05e0e781b51"></a>
 
 ```java
 public static com.tailf.maapi.MaapiCryptoType find(String encrypted)
@@ -127,8 +120,7 @@ Find the crypto type corresponding for an encrypted string. Will check
 **Returns:** A [`MaapiCryptoType`](MaapiCryptoType.md#cls-MaapiCryptoType) object or null if the type could not
          be found from the encrypted string.
 
-<a id="m-fixediv-d3170dc48d0b"></a>
-### fixedIV(String)
+### fixedIV(String) <a href="#m-fixedIV-d3170dc48d0b" id="m-fixedIV-d3170dc48d0b"></a>
 
 ```java
 public boolean fixedIV(String value)
@@ -142,8 +134,7 @@ Check if an encrypted string was encrypted using a random or a fixed IV.
 
 **Returns:** true if a fixed IV was used, false otherwise.
 
-<a id="m-isencrypted-1e29023d8a65"></a>
-### isEncrypted(String)
+### isEncrypted(String) <a href="#m-isEncrypted-1e29023d8a65" id="m-isEncrypted-1e29023d8a65"></a>
 
 ```java
 public static boolean isEncrypted(String value)
@@ -157,8 +148,7 @@ Check if a string is encrypted or not based on the prefix of the string.
 
 **Returns:** true of the value is encrypted, false otherwise.
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MaapiCryptoType valueOf(String name)
@@ -170,8 +160,7 @@ Types: [MaapiCryptoType](MaapiCryptoType.md#cls-MaapiCryptoType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MaapiCryptoType[] values()

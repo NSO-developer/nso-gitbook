@@ -1,5 +1,4 @@
-<a id="cls-ConfCdbUpgradePath"></a>
-# ConfCdbUpgradePath
+# ConfCdbUpgradePath <a href="#cls-ConfCdbUpgradePath" id="cls-ConfCdbUpgradePath"></a>
 
 ```java
 public class com.tailf.conf.ConfCdbUpgradePath
@@ -25,8 +24,8 @@ Class Representing a KeyPath path.
 
 **Constructors**:
 
-- [ConfCdbUpgradePath(List<PathElement>)](#m-confcdbupgradepath-f58f3d6a1fe9)
-- [ConfCdbUpgradePath(String, Object[])](#m-confcdbupgradepath-f5d885884ea7)
+- [ConfCdbUpgradePath(List<PathElement>)](#m-ConfCdbUpgradePath-f58f3d6a1fe9)
+- [ConfCdbUpgradePath(String, Object[])](#m-ConfCdbUpgradePath-f5d885884ea7)
 
 **Fields**:
 
@@ -43,39 +42,38 @@ Class Representing a KeyPath path.
 
 - [append(String)](#m-append-0469d86239bd)
 - [append(String, List<CSNode>)](ConfPath.md#m-append-bad0f1c29427) from ConfPath
-- [chkDeferred()](ConfPath.md#m-chkdeferred-f66dc2317846) from ConfPath
+- [chkDeferred()](ConfPath.md#m-chkDeferred-f66dc2317846) from ConfPath
 - [clone()](#m-clone-164c86c45e9b)
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](InstancePath.md#m-converttoconfkey-709808909e1b) from InstancePath
-- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](InstancePath.md#m-converttoconfkey-3964b2d32ca6) from InstancePath
-- [copyAppend(String)](#m-copyappend-d79220720bf1)
-- [copyPop()](#m-copypop-fcaa7a3deb75)
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, ArrayList<PathKey>, boolean)](InstancePath.md#m-convertToConfKey-709808909e1b) from InstancePath
+- [convertToConfKey(StringBuilder, List<PathElement>, ConfTag, ConfTag, List<PathKey>, boolean, boolean)](InstancePath.md#m-convertToConfKey-3964b2d32ca6) from InstancePath
+- [copyAppend(String)](#m-copyAppend-d79220720bf1)
+- [copyPop()](#m-copyPop-fcaa7a3deb75)
 - [encode()](InstancePath.md#m-encode-fbae522bba37) from InstancePath
-- [encodeIKP()](InstancePath.md#m-encodeikp-b160b87f6433) from InstancePath
+- [encodeIKP()](InstancePath.md#m-encodeIKP-b160b87f6433) from InstancePath
 - [equals(Object)](InstancePath.md#m-equals-fcd6492e0d6c) from InstancePath
-- [getCSNode()](InstancePath.md#m-getcsnode-cf7a085aa7f5) from InstancePath
-- [getKP()](InstancePath.md#m-getkp-45b2f95adae4) from InstancePath
-- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](InstancePath.md#m-getkp-a23f67046fb4) from InstancePath
-- [getLatestMountId()](InstancePath.md#m-getlatestmountid-30c9c1f692c7) from InstancePath
-- [getMountIdGetter()](InstancePath.md#m-getmountidgetter-64fcfdb6be8c) from InstancePath
-- [hashCode()](InstancePath.md#m-hashcode-ef797a217903) from InstancePath
-- [isKey()](InstancePath.md#m-iskey-7bdf17ac8255) from InstancePath
-- [isParsingDeferred()](InstancePath.md#m-isparsingdeferred-b3b266536326) from InstancePath
-- [isRel()](InstancePath.md#m-isrel-dca98ac4de7a) from InstancePath
-- [makeKP(ConfObject[])](InstancePath.md#m-makekp-32258da68c76) from InstancePath
-- [parseAppend(String, Object[])](InstancePath.md#m-parseappend-54d8f4d7c8da) from InstancePath
-- [parseAppend(String, Object[], List<CSNode>)](InstancePath.md#m-parseappend-6e40353c0959) from InstancePath
+- [getCSNode()](InstancePath.md#m-getCSNode-cf7a085aa7f5) from InstancePath
+- [getKP()](InstancePath.md#m-getKP-45b2f95adae4) from InstancePath
+- [getKP(List<PathElement>, boolean, boolean, MountIdInterface)](InstancePath.md#m-getKP-a23f67046fb4) from InstancePath
+- [getLatestMountId()](InstancePath.md#m-getLatestMountId-30c9c1f692c7) from InstancePath
+- [getMountIdGetter()](InstancePath.md#m-getMountIdGetter-64fcfdb6be8c) from InstancePath
+- [hashCode()](InstancePath.md#m-hashCode-ef797a217903) from InstancePath
+- [isKey()](InstancePath.md#m-isKey-7bdf17ac8255) from InstancePath
+- [isParsingDeferred()](InstancePath.md#m-isParsingDeferred-b3b266536326) from InstancePath
+- [isRel()](InstancePath.md#m-isRel-dca98ac4de7a) from InstancePath
+- [makeKP(ConfObject[])](InstancePath.md#m-makeKP-32258da68c76) from InstancePath
+- [parseAppend(String, Object[])](InstancePath.md#m-parseAppend-54d8f4d7c8da) from InstancePath
+- [parseAppend(String, Object[], List<CSNode>)](InstancePath.md#m-parseAppend-6e40353c0959) from InstancePath
 - [pop()](ConfPath.md#m-pop-1c15fa891a07) from ConfPath
-- [popConfObject(List<PathElement>)](ConfPath.md#m-popconfobject-12eef6108ea1) from ConfPath
-- [quoteByteArray(byte[])](InstancePath.md#m-quotebytearray-1889d341fdce) from InstancePath
-- [quoteString(String, boolean)](InstancePath.md#m-quotestring-2ccae847ff76) from InstancePath
-- [setMountIdGetter(MountIdInterface)](InstancePath.md#m-setmountidgetter-900228f8453c) from InstancePath
-- [toString()](ConfPath.md#m-tostring-e9d48c5503ef) from ConfPath
-- [toXPathString()](#m-toxpathstring-81906e391643)
+- [popConfObject(List<PathElement>)](ConfPath.md#m-popConfObject-12eef6108ea1) from ConfPath
+- [quoteByteArray(byte[])](InstancePath.md#m-quoteByteArray-1889d341fdce) from InstancePath
+- [quoteString(String, boolean)](InstancePath.md#m-quoteString-2ccae847ff76) from InstancePath
+- [setMountIdGetter(MountIdInterface)](InstancePath.md#m-setMountIdGetter-900228f8453c) from InstancePath
+- [toString()](ConfPath.md#m-toString-e9d48c5503ef) from ConfPath
+- [toXPathString()](#m-toXPathString-81906e391643)
 
 ## Constructors
 
-<a id="m-confcdbupgradepath-f58f3d6a1fe9"></a>
-### ConfCdbUpgradePath(List<PathElement>)
+### ConfCdbUpgradePath(List<PathElement>) <a href="#m-ConfCdbUpgradePath-f58f3d6a1fe9" id="m-ConfCdbUpgradePath-f58f3d6a1fe9"></a>
 
 ```java
 public ConfCdbUpgradePath(java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl)
@@ -87,8 +85,7 @@ Types: [PathElement](gen/PathParser/PathElement.md#cls-PathElement)
 
 - `java.util.List<com.tailf.conf.gen.PathParser.PathElement> pl`
 
-<a id="m-confcdbupgradepath-f5d885884ea7"></a>
-### ConfCdbUpgradePath(String, Object[])
+### ConfCdbUpgradePath(String, Object[]) <a href="#m-ConfCdbUpgradePath-f5d885884ea7" id="m-ConfCdbUpgradePath-f5d885884ea7"></a>
 
 ```java
 public ConfCdbUpgradePath(String fmt, Object[] arguments) throws com.tailf.conf.ConfException
@@ -104,8 +101,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-append-0469d86239bd"></a>
-### append(String)
+### append(String) <a href="#m-append-0469d86239bd" id="m-append-0469d86239bd"></a>
 
 ```java
 public com.tailf.conf.ConfCdbUpgradePath append(String s) throws com.tailf.conf.ConfException
@@ -119,8 +115,7 @@ Appends suffix path to existing keypath
 
 - `String s`
 
-<a id="m-clone-164c86c45e9b"></a>
-### clone()
+### clone() <a href="#m-clone-164c86c45e9b" id="m-clone-164c86c45e9b"></a>
 
 ```java
 public Object clone()
@@ -128,8 +123,7 @@ public Object clone()
 
 Clones the ConfCdbUpgradePath
 
-<a id="m-copyappend-d79220720bf1"></a>
-### copyAppend(String)
+### copyAppend(String) <a href="#m-copyAppend-d79220720bf1" id="m-copyAppend-d79220720bf1"></a>
 
 ```java
 public com.tailf.conf.ConfCdbUpgradePath copyAppend(String s) throws com.tailf.conf.ConfException
@@ -143,8 +137,7 @@ CopyAppends to the keypath
 
 - `String s`
 
-<a id="m-copypop-fcaa7a3deb75"></a>
-### copyPop()
+### copyPop() <a href="#m-copyPop-fcaa7a3deb75" id="m-copyPop-fcaa7a3deb75"></a>
 
 ```java
 public com.tailf.conf.ConfCdbUpgradePath copyPop() throws com.tailf.conf.ConfException
@@ -155,8 +148,7 @@ Types: [ConfCdbUpgradePath](ConfCdbUpgradePath.md#cls-ConfCdbUpgradePath), [Conf
 Creates a new ConfCdbUpgradePath with the current path minus the last
  element including list keys.
 
-<a id="m-toxpathstring-81906e391643"></a>
-### toXPathString()
+### toXPathString() <a href="#m-toXPathString-81906e391643" id="m-toXPathString-81906e391643"></a>
 
 ```java
 public String toXPathString()

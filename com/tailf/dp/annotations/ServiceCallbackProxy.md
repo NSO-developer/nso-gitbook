@@ -1,5 +1,4 @@
-<a id="cls-ServiceCallbackProxy"></a>
-# ServiceCallbackProxy
+# ServiceCallbackProxy <a href="#cls-ServiceCallbackProxy" id="cls-ServiceCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.ServiceCallbackProxy
@@ -17,7 +16,7 @@ Callback proxy for Service Callbacks.
 
 **Constructors**:
 
-- [ServiceCallbackProxy(Object, String)](#m-servicecallbackproxy-91833aef468e)
+- [ServiceCallbackProxy(Object, String)](#m-ServiceCallbackProxy-91833aef468e)
 
 **Fields**:
 
@@ -27,23 +26,22 @@ Callback proxy for Service Callbacks.
 
 **Methods**:
 
-- [addActionCapability(ServiceCBType)](#m-addactioncapability-8c211470558b)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [addActionCapability(ServiceCBType)](#m-addActionCapability-8c211470558b)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
 - [create(ServiceContext, NavuNode, NavuNode, Properties)](#m-create-4ddbd09c0e51)
 - [delete(ServiceContext, NavuNode, Properties)](#m-delete-ec7143c7c683)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getServiceCallbackProxys(Object)](#m-getservicecallbackproxys-83af80ed35d3)
-- [getServicePoint()](#m-getservicepoint-4b0d670b9506)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getServiceCallbackProxys(Object)](#m-getServiceCallbackProxys-83af80ed35d3)
+- [getServicePoint()](#m-getServicePoint-4b0d670b9506)
 - [mask()](#m-mask-24c2fa29c6af)
-- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-postmodification-271e17afdb57)
-- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-premodification-92ab0a35864a)
+- [postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-postModification-271e17afdb57)
+- [preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)](#m-preModification-92ab0a35864a)
 - [servicepoint()](#m-servicepoint-33fbd1d46c70)
 - [update(ServiceContext, NavuNode, NavuNode, Properties)](#m-update-8a22de5c1ca0)
 
 ## Constructors
 
-<a id="m-servicecallbackproxy-91833aef468e"></a>
-### ServiceCallbackProxy(Object, String)
+### ServiceCallbackProxy(Object, String) <a href="#m-ServiceCallbackProxy-91833aef468e" id="m-ServiceCallbackProxy-91833aef468e"></a>
 
 ```java
 public ServiceCallbackProxy(Object backupObject, String servicePoint)
@@ -59,8 +57,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-8c211470558b"></a>
-### addActionCapability(ServiceCBType)
+### addActionCapability(ServiceCBType) <a href="#m-addActionCapability-8c211470558b" id="m-addActionCapability-8c211470558b"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.ServiceCBType serviceCBType)
@@ -75,8 +72,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.ServiceCBType serviceCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -89,8 +85,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-create-4ddbd09c0e51"></a>
-### create(ServiceContext, NavuNode, NavuNode, Properties)
+### create(ServiceContext, NavuNode, NavuNode, Properties) <a href="#m-create-4ddbd09c0e51" id="m-create-4ddbd09c0e51"></a>
 
 ```java
 public java.util.Properties create(
@@ -111,8 +106,7 @@ Types: [ServiceContext](../services/ServiceContext.md#cls-ServiceContext), [Navu
 - `com.tailf.navu.NavuNode root`
 - `java.util.Properties opaque`
 
-<a id="m-delete-ec7143c7c683"></a>
-### delete(ServiceContext, NavuNode, Properties)
+### delete(ServiceContext, NavuNode, Properties) <a href="#m-delete-ec7143c7c683" id="m-delete-ec7143c7c683"></a>
 
 ```java
 public java.util.Properties delete(
@@ -131,8 +125,7 @@ Types: [ServiceContext](../services/ServiceContext.md#cls-ServiceContext), [Navu
 - `com.tailf.navu.NavuNode root`
 - `java.util.Properties opaque`
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -142,8 +135,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getservicecallbackproxys-83af80ed35d3"></a>
-### getServiceCallbackProxys(Object)
+### getServiceCallbackProxys(Object) <a href="#m-getServiceCallbackProxys-83af80ed35d3" id="m-getServiceCallbackProxys-83af80ed35d3"></a>
 
 ```java
 public static com.tailf.dp.annotations.ServiceCallbackProxy[] getServiceCallbackProxys(
@@ -167,8 +159,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-getservicepoint-4b0d670b9506"></a>
-### getServicePoint()
+### getServicePoint() <a href="#m-getServicePoint-4b0d670b9506" id="m-getServicePoint-4b0d670b9506"></a>
 
 ```java
 public String getServicePoint()
@@ -178,15 +169,13 @@ Retrieve the callback servicepoint
 
 **Returns:** servicepoint string
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-<a id="m-postmodification-271e17afdb57"></a>
-### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
+### postModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#m-postModification-271e17afdb57" id="m-postModification-271e17afdb57"></a>
 
 ```java
 public java.util.Properties postModification(
@@ -207,8 +196,7 @@ Types: [ServiceContext](../services/ServiceContext.md#cls-ServiceContext), [Serv
 - `com.tailf.conf.ConfPath path`
 - `java.util.Properties opaque`
 
-<a id="m-premodification-92ab0a35864a"></a>
-### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties)
+### preModification(ServiceContext, ServiceOperationType, ConfPath, Properties) <a href="#m-preModification-92ab0a35864a" id="m-preModification-92ab0a35864a"></a>
 
 ```java
 public java.util.Properties preModification(
@@ -229,15 +217,13 @@ Types: [ServiceContext](../services/ServiceContext.md#cls-ServiceContext), [Serv
 - `com.tailf.conf.ConfPath path`
 - `java.util.Properties opaque`
 
-<a id="m-servicepoint-33fbd1d46c70"></a>
-### servicepoint()
+### servicepoint() <a href="#m-servicepoint-33fbd1d46c70" id="m-servicepoint-33fbd1d46c70"></a>
 
 ```java
 public String servicepoint()
 ```
 
-<a id="m-update-8a22de5c1ca0"></a>
-### update(ServiceContext, NavuNode, NavuNode, Properties)
+### update(ServiceContext, NavuNode, NavuNode, Properties) <a href="#m-update-8a22de5c1ca0" id="m-update-8a22de5c1ca0"></a>
 
 ```java
 public java.util.Properties update(

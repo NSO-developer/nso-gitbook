@@ -1,5 +1,4 @@
-<a id="cls-DpAuthorizationContext"></a>
-# DpAuthorizationContext
+# DpAuthorizationContext <a href="#cls-DpAuthorizationContext" id="cls-DpAuthorizationContext"></a>
 
 ```java
 public class com.tailf.dp.DpAuthorizationContext
@@ -13,18 +12,17 @@ Authorization context class. The DpAuthorizationCallback callback methods
 
 **Constructors**:
 
-- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#m-dpauthorizationcontext-06f65fd62f1d)
+- [DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)](#m-DpAuthorizationContext-06f65fd62f1d)
 
 **Methods**:
 
-- [getGroups()](#m-getgroups-42a63746c815)
-- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
-- [setAuthorizationTimeout(int)](#m-setauthorizationtimeout-b4c17837fa6f)
+- [getGroups()](#m-getGroups-42a63746c815)
+- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [setAuthorizationTimeout(int)](#m-setAuthorizationTimeout-b4c17837fa6f)
 
 ## Constructors
 
-<a id="m-dpauthorizationcontext-06f65fd62f1d"></a>
-### DpAuthorizationContext(DpUserInfo, String[], int, int, Dp)
+### DpAuthorizationContext(DpUserInfo, String[], int, int, Dp) <a href="#m-DpAuthorizationContext-06f65fd62f1d" id="m-DpAuthorizationContext-06f65fd62f1d"></a>
 
 ```java
 public DpAuthorizationContext(
@@ -49,8 +47,7 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo), [Dp](Dp.md#cls-Dp)
 
 ## Methods
 
-<a id="m-getgroups-42a63746c815"></a>
-### getGroups()
+### getGroups() <a href="#m-getGroups-42a63746c815" id="m-getGroups-42a63746c815"></a>
 
 ```java
 public String[] getGroups()
@@ -64,8 +61,7 @@ If success is true, the AAA authentication succeeded, and groups is an
 
 **Returns:** String[] groups
 
-<a id="m-getuserinfo-3ecef1f24d3d"></a>
-### getUserInfo()
+### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
@@ -82,8 +78,7 @@ The uinfo contains an instance of DpUserInfo with details about the user
 
 **Returns:** DpUserInfo userinfo
 
-<a id="m-setauthorizationtimeout-b4c17837fa6f"></a>
-### setAuthorizationTimeout(int)
+### setAuthorizationTimeout(int) <a href="#m-setAuthorizationTimeout-b4c17837fa6f" id="m-setAuthorizationTimeout-b4c17837fa6f"></a>
 
 ```java
 public void setAuthorizationTimeout(int timeoutSecs) throws java.io.IOException

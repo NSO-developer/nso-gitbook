@@ -1,5 +1,4 @@
-<a id="cls-NedSSHAlgorithms"></a>
-# NedSSHAlgorithms
+# NedSSHAlgorithms <a href="#cls-NedSSHAlgorithms" id="cls-NedSSHAlgorithms"></a>
 
 ```java
 public class com.tailf.ned.NedCmd.NedSSHAlgorithms
@@ -9,23 +8,22 @@ public class com.tailf.ned.NedCmd.NedSSHAlgorithms
 
 **Constructors**:
 
-- [NedSSHAlgorithms(List<String>, List<String>, List<String>, List<String>, List<String>, Long, Long, Long)](#m-nedsshalgorithms-bd7d94821172)
+- [NedSSHAlgorithms(List<String>, List<String>, List<String>, List<String>, List<String>, Long, Long, Long)](#m-NedSSHAlgorithms-bd7d94821172)
 
 **Methods**:
 
-- [getCipher()](#m-getcipher-d6df3bb3f677)
-- [getCompression()](#m-getcompression-37ea68461bdc)
-- [getDhGexLimitMax()](#m-getdhgexlimitmax-b4d0e88a3d9e)
-- [getDhGexLimitMin()](#m-getdhgexlimitmin-99dbb3a6e7c8)
-- [getDhGexLimitPreferred()](#m-getdhgexlimitpreferred-4e09d85b2065)
-- [getKex()](#m-getkex-0fc5b93870ec)
-- [getMac()](#m-getmac-9ae00b4c1217)
-- [getPublicKey()](#m-getpublickey-d5ee7d6bb561)
+- [getCipher()](#m-getCipher-d6df3bb3f677)
+- [getCompression()](#m-getCompression-37ea68461bdc)
+- [getDhGexLimitMax()](#m-getDhGexLimitMax-b4d0e88a3d9e)
+- [getDhGexLimitMin()](#m-getDhGexLimitMin-99dbb3a6e7c8)
+- [getDhGexLimitPreferred()](#m-getDhGexLimitPreferred-4e09d85b2065)
+- [getKex()](#m-getKex-0fc5b93870ec)
+- [getMac()](#m-getMac-9ae00b4c1217)
+- [getPublicKey()](#m-getPublicKey-d5ee7d6bb561)
 
 ## Constructors
 
-<a id="m-nedsshalgorithms-bd7d94821172"></a>
-### NedSSHAlgorithms(List<String>, List<String>, List<String>, List<String>, List<String>, Long, Long, Long)
+### NedSSHAlgorithms(List<String>, List<String>, List<String>, List<String>, List<String>, Long, Long, Long) <a href="#m-NedSSHAlgorithms-bd7d94821172" id="m-NedSSHAlgorithms-bd7d94821172"></a>
 
 ```java
 protected NedSSHAlgorithms(
@@ -54,57 +52,49 @@ protected NedSSHAlgorithms(
 
 ## Methods
 
-<a id="m-getcipher-d6df3bb3f677"></a>
-### getCipher()
+### getCipher() <a href="#m-getCipher-d6df3bb3f677" id="m-getCipher-d6df3bb3f677"></a>
 
 ```java
 public java.util.List<String> getCipher()
 ```
 
-<a id="m-getcompression-37ea68461bdc"></a>
-### getCompression()
+### getCompression() <a href="#m-getCompression-37ea68461bdc" id="m-getCompression-37ea68461bdc"></a>
 
 ```java
 public java.util.List<String> getCompression()
 ```
 
-<a id="m-getdhgexlimitmax-b4d0e88a3d9e"></a>
-### getDhGexLimitMax()
+### getDhGexLimitMax() <a href="#m-getDhGexLimitMax-b4d0e88a3d9e" id="m-getDhGexLimitMax-b4d0e88a3d9e"></a>
 
 ```java
 public Long getDhGexLimitMax()
 ```
 
-<a id="m-getdhgexlimitmin-99dbb3a6e7c8"></a>
-### getDhGexLimitMin()
+### getDhGexLimitMin() <a href="#m-getDhGexLimitMin-99dbb3a6e7c8" id="m-getDhGexLimitMin-99dbb3a6e7c8"></a>
 
 ```java
 public Long getDhGexLimitMin()
 ```
 
-<a id="m-getdhgexlimitpreferred-4e09d85b2065"></a>
-### getDhGexLimitPreferred()
+### getDhGexLimitPreferred() <a href="#m-getDhGexLimitPreferred-4e09d85b2065" id="m-getDhGexLimitPreferred-4e09d85b2065"></a>
 
 ```java
 public Long getDhGexLimitPreferred()
 ```
 
-<a id="m-getkex-0fc5b93870ec"></a>
-### getKex()
+### getKex() <a href="#m-getKex-0fc5b93870ec" id="m-getKex-0fc5b93870ec"></a>
 
 ```java
 public java.util.List<String> getKex()
 ```
 
-<a id="m-getmac-9ae00b4c1217"></a>
-### getMac()
+### getMac() <a href="#m-getMac-9ae00b4c1217" id="m-getMac-9ae00b4c1217"></a>
 
 ```java
 public java.util.List<String> getMac()
 ```
 
-<a id="m-getpublickey-d5ee7d6bb561"></a>
-### getPublicKey()
+### getPublicKey() <a href="#m-getPublicKey-d5ee7d6bb561" id="m-getPublicKey-d5ee7d6bb561"></a>
 
 ```java
 public java.util.List<String> getPublicKey()

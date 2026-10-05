@@ -1,5 +1,4 @@
-<a id="cls-SnmpInformResponseCallbackProxy"></a>
-# SnmpInformResponseCallbackProxy
+# SnmpInformResponseCallbackProxy <a href="#cls-SnmpInformResponseCallbackProxy" id="cls-SnmpInformResponseCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.SnmpInformResponseCallbackProxy
@@ -18,15 +17,15 @@ Callback proxy for SnmpInformResponse Callbacks. Implements the
 
 **Constructors**:
 
-- [SnmpInformResponseCallbackProxy(Object, String)](#m-snmpinformresponsecallbackproxy-1bd10efe1404)
+- [SnmpInformResponseCallbackProxy(Object, String)](#m-SnmpInformResponseCallbackProxy-1bd10efe1404)
 
 **Methods**:
 
-- [addActionCapability(SnmpInformResponseCBType)](#m-addactioncapability-080162afcb45)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getCallPoint()](#m-getcallpoint-f816d0a44b26)
-- [getSnmpInformResponseCallbackProxys(Object)](#m-getsnmpinformresponsecallbackproxys-6d27af84ebdb)
+- [addActionCapability(SnmpInformResponseCBType)](#m-addActionCapability-080162afcb45)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getCallPoint()](#m-getCallPoint-f816d0a44b26)
+- [getSnmpInformResponseCallbackProxys(Object)](#m-getSnmpInformResponseCallbackProxys-6d27af84ebdb)
 - [id()](#m-id-1352448ec267)
 - [mask()](#m-mask-24c2fa29c6af)
 - [result(Integer, ConfETuple, Boolean)](#m-result-633f0f760c10)
@@ -34,8 +33,7 @@ Callback proxy for SnmpInformResponse Callbacks. Implements the
 
 ## Constructors
 
-<a id="m-snmpinformresponsecallbackproxy-1bd10efe1404"></a>
-### SnmpInformResponseCallbackProxy(Object, String)
+### SnmpInformResponseCallbackProxy(Object, String) <a href="#m-SnmpInformResponseCallbackProxy-1bd10efe1404" id="m-SnmpInformResponseCallbackProxy-1bd10efe1404"></a>
 
 ```java
 public SnmpInformResponseCallbackProxy(Object backupObject, String callPoint)
@@ -51,8 +49,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-080162afcb45"></a>
-### addActionCapability(SnmpInformResponseCBType)
+### addActionCapability(SnmpInformResponseCBType) <a href="#m-addActionCapability-080162afcb45" id="m-addActionCapability-080162afcb45"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.SnmpInformResponseCBType informCBType)
@@ -67,8 +64,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.SnmpInformResponseCBType informCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -81,8 +77,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -92,8 +87,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getcallpoint-f816d0a44b26"></a>
-### getCallPoint()
+### getCallPoint() <a href="#m-getCallPoint-f816d0a44b26" id="m-getCallPoint-f816d0a44b26"></a>
 
 ```java
 public String getCallPoint()
@@ -103,8 +97,7 @@ Retrieve the callback callpoint
 
 **Returns:** callpoint string
 
-<a id="m-getsnmpinformresponsecallbackproxys-6d27af84ebdb"></a>
-### getSnmpInformResponseCallbackProxys(Object)
+### getSnmpInformResponseCallbackProxys(Object) <a href="#m-getSnmpInformResponseCallbackProxys-6d27af84ebdb" id="m-getSnmpInformResponseCallbackProxys-6d27af84ebdb"></a>
 
 ```java
 public static com.tailf.dp.annotations.SnmpInformResponseCallbackProxy[] getSnmpInformResponseCallbackProxys(
@@ -128,22 +121,19 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-id-1352448ec267"></a>
-### id()
+### id() <a href="#m-id-1352448ec267" id="m-id-1352448ec267"></a>
 
 ```java
 public String id()
 ```
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-<a id="m-result-633f0f760c10"></a>
-### result(Integer, ConfETuple, Boolean)
+### result(Integer, ConfETuple, Boolean) <a href="#m-result-633f0f760c10" id="m-result-633f0f760c10"></a>
 
 ```java
 public void result(
@@ -162,8 +152,7 @@ Types: [ConfETuple](../../proto/ConfETuple.md#cls-ConfETuple), [DpCallbackExcept
 - `com.tailf.proto.ConfETuple target`
 - `Boolean gotResponse`
 
-<a id="m-targets-aaa64a3aa8f3"></a>
-### targets(Integer, ConfETuple[])
+### targets(Integer, ConfETuple[]) <a href="#m-targets-aaa64a3aa8f3" id="m-targets-aaa64a3aa8f3"></a>
 
 ```java
 public void targets(

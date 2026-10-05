@@ -1,5 +1,4 @@
-<a id="cls-CsCase"></a>
-# CsCase
+# CsCase <a href="#cls-CsCase" id="cls-CsCase"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsCase
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsCase
 
 **Constructors**:
 
-- [CsCase()](#m-cscase-a79f29647e9f)
+- [CsCase()](#m-CsCase-a79f29647e9f)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsCase
 
 ## Constructors
 
-<a id="m-cscase-a79f29647e9f"></a>
-### CsCase()
+### CsCase() <a href="#m-CsCase-a79f29647e9f" id="m-CsCase-a79f29647e9f"></a>
 
 ```java
 public CsCase()
@@ -35,8 +33,7 @@ public CsCase()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsCase.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsCase.Factory factory = null;
 
 Types: [Factory](CsCase/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsCase.Builder,com.tailf.ncs.maapi.Schema.CsCase.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsCase/Builder.md#cls-Builder), [Reader](CsCase/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

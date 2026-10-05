@@ -1,5 +1,4 @@
-<a id="cls-MaapiException"></a>
-# MaapiException
+# MaapiException <a href="#cls-MaapiException" id="cls-MaapiException"></a>
 
 ```java
 public class com.tailf.maapi.MaapiException
@@ -19,24 +18,23 @@ Exception raised from the maapi package
 
 **Constructors**:
 
-- [MaapiException(String)](#m-maapiexception-415f096b5036)
-- [MaapiException(String, ErrorCode)](#m-maapiexception-259d1ef61a79)
-- [MaapiException(String, ErrorCode, Throwable)](#m-maapiexception-f9ca62813237)
-- [MaapiException(String, int)](#m-maapiexception-5e33165914c8)
-- [MaapiException(String, int, Throwable)](#m-maapiexception-ecd0bcd458ea)
-- [MaapiException(String, Throwable)](#m-maapiexception-fe7353f5073f)
+- [MaapiException(String)](#m-MaapiException-415f096b5036)
+- [MaapiException(String, ErrorCode)](#m-MaapiException-259d1ef61a79)
+- [MaapiException(String, ErrorCode, Throwable)](#m-MaapiException-f9ca62813237)
+- [MaapiException(String, int)](#m-MaapiException-5e33165914c8)
+- [MaapiException(String, int, Throwable)](#m-MaapiException-ecd0bcd458ea)
+- [MaapiException(String, Throwable)](#m-MaapiException-fe7353f5073f)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
 - [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="m-maapiexception-415f096b5036"></a>
-### MaapiException(String)
+### MaapiException(String) <a href="#m-MaapiException-415f096b5036" id="m-MaapiException-415f096b5036"></a>
 
 ```java
 public MaapiException(String msg)
@@ -46,8 +44,7 @@ public MaapiException(String msg)
 
 - `String msg`
 
-<a id="m-maapiexception-259d1ef61a79"></a>
-### MaapiException(String, ErrorCode)
+### MaapiException(String, ErrorCode) <a href="#m-MaapiException-259d1ef61a79" id="m-MaapiException-259d1ef61a79"></a>
 
 ```java
 public MaapiException(String msg, com.tailf.conf.ErrorCode code)
@@ -60,8 +57,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-maapiexception-f9ca62813237"></a>
-### MaapiException(String, ErrorCode, Throwable)
+### MaapiException(String, ErrorCode, Throwable) <a href="#m-MaapiException-f9ca62813237" id="m-MaapiException-f9ca62813237"></a>
 
 ```java
 public MaapiException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -75,8 +71,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-maapiexception-5e33165914c8"></a>
-### MaapiException(String, int)
+### MaapiException(String, int) <a href="#m-MaapiException-5e33165914c8" id="m-MaapiException-5e33165914c8"></a>
 
 ```java
 public MaapiException(String msg, int codeInteger)
@@ -87,8 +82,7 @@ public MaapiException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="m-maapiexception-ecd0bcd458ea"></a>
-### MaapiException(String, int, Throwable)
+### MaapiException(String, int, Throwable) <a href="#m-MaapiException-ecd0bcd458ea" id="m-MaapiException-ecd0bcd458ea"></a>
 
 ```java
 public MaapiException(String msg, int codeInteger, Throwable cause)
@@ -100,8 +94,7 @@ public MaapiException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="m-maapiexception-fe7353f5073f"></a>
-### MaapiException(String, Throwable)
+### MaapiException(String, Throwable) <a href="#m-MaapiException-fe7353f5073f" id="m-MaapiException-fe7353f5073f"></a>
 
 ```java
 public MaapiException(String msg, Throwable cause)
@@ -115,8 +108,7 @@ public MaapiException(String msg, Throwable cause)
 
 ## Methods
 
-<a id="m-mk-de1cedfc6ea8"></a>
-### mk(ConfResponse)
+### mk(ConfResponse) <a href="#m-mk-de1cedfc6ea8" id="m-mk-de1cedfc6ea8"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
@@ -128,8 +120,7 @@ Types: [ConfException](../conf/ConfException.md#cls-ConfException), [ConfRespons
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="m-mk-79e69ffbc022"></a>
-### mk(ConfResponse, ConfPath)
+### mk(ConfResponse, ConfPath) <a href="#m-mk-79e69ffbc022" id="m-mk-79e69ffbc022"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(

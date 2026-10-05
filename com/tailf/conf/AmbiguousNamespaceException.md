@@ -1,5 +1,4 @@
-<a id="cls-AmbiguousNamespaceException"></a>
-# AmbiguousNamespaceException
+# AmbiguousNamespaceException <a href="#cls-AmbiguousNamespaceException" id="cls-AmbiguousNamespaceException"></a>
 
 ```java
 public class com.tailf.conf.AmbiguousNamespaceException
@@ -12,13 +11,12 @@ Exception thrown when protocol data is malformed.
 
 **Constructors**:
 
-- [AmbiguousNamespaceException(String)](#m-ambiguousnamespaceexception-b6dffc54393a)
-- [AmbiguousNamespaceException(String, Throwable)](#m-ambiguousnamespaceexception-4bae7267e4c3)
+- [AmbiguousNamespaceException(String)](#m-AmbiguousNamespaceException-b6dffc54393a)
+- [AmbiguousNamespaceException(String, Throwable)](#m-AmbiguousNamespaceException-4bae7267e4c3)
 
 ## Constructors
 
-<a id="m-ambiguousnamespaceexception-b6dffc54393a"></a>
-### AmbiguousNamespaceException(String)
+### AmbiguousNamespaceException(String) <a href="#m-AmbiguousNamespaceException-b6dffc54393a" id="m-AmbiguousNamespaceException-b6dffc54393a"></a>
 
 ```java
 public AmbiguousNamespaceException(String msg)
@@ -30,8 +28,7 @@ Exception thrown when protocol data is malformed, message only.
 
 - `String msg` - The message describing the exception
 
-<a id="m-ambiguousnamespaceexception-4bae7267e4c3"></a>
-### AmbiguousNamespaceException(String, Throwable)
+### AmbiguousNamespaceException(String, Throwable) <a href="#m-AmbiguousNamespaceException-4bae7267e4c3" id="m-AmbiguousNamespaceException-4bae7267e4c3"></a>
 
 ```java
 public AmbiguousNamespaceException(String msg, Throwable cause)

@@ -1,5 +1,4 @@
-<a id="cls-MaapiRetryableOp"></a>
-# MaapiRetryableOp
+# MaapiRetryableOp <a href="#cls-MaapiRetryableOp" id="cls-MaapiRetryableOp"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiRetryableOp
@@ -16,8 +15,7 @@ Maapi retryable operation that will be called repeatadly until no
 
 ## Methods
 
-<a id="m-execute-3f0f8a96b258"></a>
-### execute(Maapi, int)
+### execute(Maapi, int) <a href="#m-execute-3f0f8a96b258" id="m-execute-3f0f8a96b258"></a>
 
 ```java
 public abstract boolean execute(

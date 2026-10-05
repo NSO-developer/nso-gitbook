@@ -1,5 +1,4 @@
-<a id="cls-Schema"></a>
-# Schema
+# Schema <a href="#cls-Schema" id="cls-Schema"></a>
 
 ```java
 public final class com.tailf.ncs.maapi.Schema
@@ -9,7 +8,7 @@ public final class com.tailf.ncs.maapi.Schema
 
 **Constructors**:
 
-- [Schema()](#m-schema-10e4e25aa95a)
+- [Schema()](#m-Schema-10e4e25aa95a)
 
 **Nested Types**:
 
@@ -64,8 +63,7 @@ public final class com.tailf.ncs.maapi.Schema
 
 ## Constructors
 
-<a id="m-schema-10e4e25aa95a"></a>
-### Schema()
+### Schema() <a href="#m-Schema-10e4e25aa95a" id="m-Schema-10e4e25aa95a"></a>
 
 ```java
 public Schema()

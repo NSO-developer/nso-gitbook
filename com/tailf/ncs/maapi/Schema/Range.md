@@ -1,5 +1,4 @@
-<a id="cls-Range"></a>
-# Range
+# Range <a href="#cls-Range" id="cls-Range"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Range
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Range
 
 **Constructors**:
 
-- [Range()](#m-range-8e96b54f4900)
+- [Range()](#m-Range-8e96b54f4900)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.Range
 
 ## Constructors
 
-<a id="m-range-8e96b54f4900"></a>
-### Range()
+### Range() <a href="#m-Range-8e96b54f4900" id="m-Range-8e96b54f4900"></a>
 
 ```java
 public Range()
@@ -35,8 +33,7 @@ public Range()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Range.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.Range.Factory factory = null;
 
 Types: [Factory](Range/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Range.Builder,com.tailf.ncs.maapi.Schema.Range.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](Range/Builder.md#cls-Builder), [Reader](Range/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

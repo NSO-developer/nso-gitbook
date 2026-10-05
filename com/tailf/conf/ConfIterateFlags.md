@@ -1,5 +1,4 @@
-<a id="cls-ConfIterateFlags"></a>
-# ConfIterateFlags
+# ConfIterateFlags <a href="#cls-ConfIterateFlags" id="cls-ConfIterateFlags"></a>
 
 ```java
 public enum com.tailf.conf.ConfIterateFlags
@@ -29,15 +28,14 @@ Enumeration flags us by
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ITER_WANT_ANCESTOR_DELETE"></a>
-### ITER_WANT_ANCESTOR_DELETE
+### ITER_WANT_ANCESTOR_DELETE <a href="#m-ITER_WANT_ANCESTOR_DELETE" id="m-ITER_WANT_ANCESTOR_DELETE"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_ANCESTOR_DELETE;
@@ -53,11 +51,10 @@ Control if the deleted of a ancestor will trigger a subscription
  will be the path that was actually deleted.
 
  This option is not default in
- [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffiterate-89b9ae6f39bb)
+ [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffIterate-89b9ae6f39bb)
  which means that the flag needs to be passed explicitly.
 
-<a id="m-ITER_WANT_ATTR"></a>
-### ITER_WANT_ATTR
+### ITER_WANT_ATTR <a href="#m-ITER_WANT_ATTR" id="m-ITER_WANT_ATTR"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_ATTR;
@@ -69,29 +66,25 @@ This is flag that only has meaning in the maapi case.
  [`DiffIterateOperFlag#MOP_ATTR_SET`](DiffIterateOperFlag.md#m-MOP_ATTR_SET) in the iterator and the new
  and old values will be of type [`ConfAttributeValue`](ConfAttributeValue.md#cls-ConfAttributeValue)
 
-<a id="m-ITER_WANT_CLI_STR"></a>
-### ITER_WANT_CLI_STR
+### ITER_WANT_CLI_STR <a href="#m-ITER_WANT_CLI_STR" id="m-ITER_WANT_CLI_STR"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_CLI_STR;
 ```
 
-<a id="m-ITER_WANT_LEAF_FIRST_ORDER"></a>
-### ITER_WANT_LEAF_FIRST_ORDER
+### ITER_WANT_LEAF_FIRST_ORDER <a href="#m-ITER_WANT_LEAF_FIRST_ORDER" id="m-ITER_WANT_LEAF_FIRST_ORDER"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_LEAF_FIRST_ORDER;
 ```
 
-<a id="m-ITER_WANT_LEAF_LAST_ORDER"></a>
-### ITER_WANT_LEAF_LAST_ORDER
+### ITER_WANT_LEAF_LAST_ORDER <a href="#m-ITER_WANT_LEAF_LAST_ORDER" id="m-ITER_WANT_LEAF_LAST_ORDER"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_LEAF_LAST_ORDER;
 ```
 
-<a id="m-ITER_WANT_PREV"></a>
-### ITER_WANT_PREV
+### ITER_WANT_PREV <a href="#m-ITER_WANT_PREV" id="m-ITER_WANT_PREV"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_PREV;
@@ -114,32 +107,28 @@ Include the previous value for modification of a leaf/leaf-list
  "old" operational data method.
 
  This option is default in
- [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffiterate-89b9ae6f39bb)
+ [`CdbSubscription#diffIterate(int, CdbDiffIterate)`](../cdb/CdbSubscription.md#m-diffIterate-89b9ae6f39bb)
  which means that the flag needs not to be passed explicitly.
 
-<a id="m-ITER_WANT_REVERSE"></a>
-### ITER_WANT_REVERSE
+### ITER_WANT_REVERSE <a href="#m-ITER_WANT_REVERSE" id="m-ITER_WANT_REVERSE"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_REVERSE;
 ```
 
-<a id="m-ITER_WANT_SCHEMA_ORDER"></a>
-### ITER_WANT_SCHEMA_ORDER
+### ITER_WANT_SCHEMA_ORDER <a href="#m-ITER_WANT_SCHEMA_ORDER" id="m-ITER_WANT_SCHEMA_ORDER"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_SCHEMA_ORDER;
 ```
 
-<a id="m-ITER_WANT_SUPPRESS_CONF_DEFAULTS"></a>
-### ITER_WANT_SUPPRESS_CONF_DEFAULTS
+### ITER_WANT_SUPPRESS_CONF_DEFAULTS <a href="#m-ITER_WANT_SUPPRESS_CONF_DEFAULTS" id="m-ITER_WANT_SUPPRESS_CONF_DEFAULTS"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_SUPPRESS_CONF_DEFAULTS;
 ```
 
-<a id="m-ITER_WANT_SUPPRESS_OPER_DEFAULTS"></a>
-### ITER_WANT_SUPPRESS_OPER_DEFAULTS
+### ITER_WANT_SUPPRESS_OPER_DEFAULTS <a href="#m-ITER_WANT_SUPPRESS_OPER_DEFAULTS" id="m-ITER_WANT_SUPPRESS_OPER_DEFAULTS"></a>
 
 ```java
 public static final com.tailf.conf.ConfIterateFlags ITER_WANT_SUPPRESS_OPER_DEFAULTS;
@@ -148,15 +137,13 @@ public static final com.tailf.conf.ConfIterateFlags ITER_WANT_SUPPRESS_OPER_DEFA
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.ConfIterateFlags valueOf(int i)
@@ -168,8 +155,7 @@ Types: [ConfIterateFlags](ConfIterateFlags.md#cls-ConfIterateFlags)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.ConfIterateFlags valueOf(String name)
@@ -181,8 +167,7 @@ Types: [ConfIterateFlags](ConfIterateFlags.md#cls-ConfIterateFlags)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.ConfIterateFlags[] values()

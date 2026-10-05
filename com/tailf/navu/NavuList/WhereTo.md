@@ -1,5 +1,4 @@
-<a id="cls-WhereTo"></a>
-# WhereTo
+# WhereTo <a href="#cls-WhereTo" id="cls-WhereTo"></a>
 
 ```java
 public static enum com.tailf.navu.NavuList.WhereTo
@@ -18,34 +17,30 @@ Types: [WhereTo](WhereTo.md#cls-WhereTo)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-AFTER"></a>
-### AFTER
+### AFTER <a href="#m-AFTER" id="m-AFTER"></a>
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo AFTER;
 ```
 
-<a id="m-BEFORE"></a>
-### BEFORE
+### BEFORE <a href="#m-BEFORE" id="m-BEFORE"></a>
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo BEFORE;
 ```
 
-<a id="m-FIRST"></a>
-### FIRST
+### FIRST <a href="#m-FIRST" id="m-FIRST"></a>
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo FIRST;
 ```
 
-<a id="m-LAST"></a>
-### LAST
+### LAST <a href="#m-LAST" id="m-LAST"></a>
 
 ```java
 public static final com.tailf.navu.NavuList.WhereTo LAST;
@@ -54,8 +49,7 @@ public static final com.tailf.navu.NavuList.WhereTo LAST;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.navu.NavuList.WhereTo valueOf(String name)
@@ -67,8 +61,7 @@ Types: [WhereTo](WhereTo.md#cls-WhereTo)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.navu.NavuList.WhereTo[] values()

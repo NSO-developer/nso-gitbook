@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder
@@ -10,24 +9,23 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getD1()](#m-getd1-1ccbbca0d18f)
-- [getD2()](#m-getd2-93b8c43fe331)
-- [getD3()](#m-getd3-1982f3560cd6)
-- [getD4()](#m-getd4-a7608deae360)
-- [setD1(byte)](#m-setd1-123e1073562a)
-- [setD2(byte)](#m-setd2-7e3edbd83eb9)
-- [setD3(byte)](#m-setd3-304a3b391ac1)
-- [setD4(byte)](#m-setd4-fad28190aa51)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getD1()](#m-getD1-1ccbbca0d18f)
+- [getD2()](#m-getD2-93b8c43fe331)
+- [getD3()](#m-getD3-1982f3560cd6)
+- [getD4()](#m-getD4-a7608deae360)
+- [setD1(byte)](#m-setD1-123e1073562a)
+- [setD2(byte)](#m-setD2-7e3edbd83eb9)
+- [setD3(byte)](#m-setD3-304a3b391ac1)
+- [setD4(byte)](#m-setD4-fad28190aa51)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -52,8 +50,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader asReader()
@@ -61,36 +58,31 @@ public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getd1-1ccbbca0d18f"></a>
-### getD1()
+### getD1() <a href="#m-getD1-1ccbbca0d18f" id="m-getD1-1ccbbca0d18f"></a>
 
 ```java
 public final byte getD1()
 ```
 
-<a id="m-getd2-93b8c43fe331"></a>
-### getD2()
+### getD2() <a href="#m-getD2-93b8c43fe331" id="m-getD2-93b8c43fe331"></a>
 
 ```java
 public final byte getD2()
 ```
 
-<a id="m-getd3-1982f3560cd6"></a>
-### getD3()
+### getD3() <a href="#m-getD3-1982f3560cd6" id="m-getD3-1982f3560cd6"></a>
 
 ```java
 public final byte getD3()
 ```
 
-<a id="m-getd4-a7608deae360"></a>
-### getD4()
+### getD4() <a href="#m-getD4-a7608deae360" id="m-getD4-a7608deae360"></a>
 
 ```java
 public final byte getD4()
 ```
 
-<a id="m-setd1-123e1073562a"></a>
-### setD1(byte)
+### setD1(byte) <a href="#m-setD1-123e1073562a" id="m-setD1-123e1073562a"></a>
 
 ```java
 public final void setD1(byte value)
@@ -100,8 +92,7 @@ public final void setD1(byte value)
 
 - `byte value`
 
-<a id="m-setd2-7e3edbd83eb9"></a>
-### setD2(byte)
+### setD2(byte) <a href="#m-setD2-7e3edbd83eb9" id="m-setD2-7e3edbd83eb9"></a>
 
 ```java
 public final void setD2(byte value)
@@ -111,8 +102,7 @@ public final void setD2(byte value)
 
 - `byte value`
 
-<a id="m-setd3-304a3b391ac1"></a>
-### setD3(byte)
+### setD3(byte) <a href="#m-setD3-304a3b391ac1" id="m-setD3-304a3b391ac1"></a>
 
 ```java
 public final void setD3(byte value)
@@ -122,8 +112,7 @@ public final void setD3(byte value)
 
 - `byte value`
 
-<a id="m-setd4-fad28190aa51"></a>
-### setD4(byte)
+### setD4(byte) <a href="#m-setD4-fad28190aa51" id="m-setD4-fad28190aa51"></a>
 
 ```java
 public final void setD4(byte value)

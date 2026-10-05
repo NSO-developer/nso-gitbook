@@ -1,5 +1,4 @@
-<a id="cls-Completion"></a>
-# Completion
+# Completion <a href="#cls-Completion" id="cls-Completion"></a>
 
 ```java
 public abstract class com.tailf.dp.Completion
@@ -63,20 +62,19 @@ Reply structure container for completion callbacks.
 
 **Constructors**:
 
-- [Completion()](#m-completion-b01cd1890a7a)
+- [Completion()](#m-Completion-b01cd1890a7a)
 
 **Methods**:
 
 - [encode()](#m-encode-fbae522bba37)
-- [newDefaultReply()](#m-newdefaultreply-5583906bcd7c)
-- [newRangeEnumReply(int)](#m-newrangeenumreply-5c101dba6437)
-- [newReply()](#m-newreply-15892c4ebb44)
+- [newDefaultReply()](#m-newDefaultReply-5583906bcd7c)
+- [newRangeEnumReply(int)](#m-newRangeEnumReply-5c101dba6437)
+- [newReply()](#m-newReply-15892c4ebb44)
 - [validate()](#m-validate-dc7ca5eb97ec)
 
 ## Constructors
 
-<a id="m-completion-b01cd1890a7a"></a>
-### Completion()
+### Completion() <a href="#m-Completion-b01cd1890a7a" id="m-Completion-b01cd1890a7a"></a>
 
 ```java
 public Completion()
@@ -85,8 +83,7 @@ public Completion()
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 protected abstract com.tailf.proto.ConfEList encode()
@@ -94,8 +91,7 @@ protected abstract com.tailf.proto.ConfEList encode()
 
 Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="m-newdefaultreply-5583906bcd7c"></a>
-### newDefaultReply()
+### newDefaultReply() <a href="#m-newDefaultReply-5583906bcd7c" id="m-newDefaultReply-5583906bcd7c"></a>
 
 ```java
 public static com.tailf.dp.CompletionDefaultReply newDefaultReply()
@@ -115,8 +111,7 @@ The [`CompletionDefaultReply`](CompletionDefaultReply.md#cls-CompletionDefaultRe
 
 **Returns:** CompletionDefaultReply
 
-<a id="m-newrangeenumreply-5c101dba6437"></a>
-### newRangeEnumReply(int)
+### newRangeEnumReply(int) <a href="#m-newRangeEnumReply-5c101dba6437" id="m-newRangeEnumReply-5c101dba6437"></a>
 
 ```java
 public static com.tailf.dp.CompletionRangeEnumReply newRangeEnumReply(int keySize)
@@ -139,8 +134,7 @@ The [`CompletionRangeEnumReply`](CompletionRangeEnumReply.md#cls-CompletionRange
 
 **Returns:** CompletionRangeEnumReply
 
-<a id="m-newreply-15892c4ebb44"></a>
-### newReply()
+### newReply() <a href="#m-newReply-15892c4ebb44" id="m-newReply-15892c4ebb44"></a>
 
 ```java
 public static com.tailf.dp.CompletionReply newReply()
@@ -157,8 +151,7 @@ The [`CompletionReply`](CompletionReply.md#cls-CompletionReply) instance is the 
 
 **Returns:** CompletionReply
 
-<a id="m-validate-dc7ca5eb97ec"></a>
-### validate()
+### validate() <a href="#m-validate-dc7ca5eb97ec" id="m-validate-dc7ca5eb97ec"></a>
 
 **Package-private**
 

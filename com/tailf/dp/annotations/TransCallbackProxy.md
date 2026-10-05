@@ -1,5 +1,4 @@
-<a id="cls-TransCallbackProxy"></a>
-# TransCallbackProxy
+# TransCallbackProxy <a href="#cls-TransCallbackProxy" id="cls-TransCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.TransCallbackProxy
@@ -18,7 +17,7 @@ Callback proxy for Trans Callbacks. Implements the [`DpTransCallback`](../DpTran
 
 **Constructors**:
 
-- [TransCallbackProxy(Object)](#m-transcallbackproxy-4c24784116c5)
+- [TransCallbackProxy(Object)](#m-TransCallbackProxy-4c24784116c5)
 
 **Fields**:
 
@@ -35,23 +34,22 @@ Callback proxy for Trans Callbacks. Implements the [`DpTransCallback`](../DpTran
 **Methods**:
 
 - [abort(DpTrans)](#m-abort-be36f552f23c)
-- [addActionCapability(TransCBType)](#m-addactioncapability-2e8b6a8286db)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [addActionCapability(TransCBType)](#m-addActionCapability-2e8b6a8286db)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
 - [commit(DpTrans)](#m-commit-5e7631b9a7e8)
 - [finish(DpTrans)](#m-finish-1001d416be96)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getTransCallbackProxys(Object)](#m-gettranscallbackproxys-87b043856a25)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getTransCallbackProxys(Object)](#m-getTransCallbackProxys-87b043856a25)
 - [init(DpTrans)](#m-init-16fe8657859c)
 - [mask()](#m-mask-24c2fa29c6af)
 - [prepare(DpTrans)](#m-prepare-ab366f6ce7ea)
-- [transLock(DpTrans)](#m-translock-dc59c2c0e5f8)
-- [transUnlock(DpTrans)](#m-transunlock-d0b9be30b219)
-- [writeStart(DpTrans)](#m-writestart-5fee67274be5)
+- [transLock(DpTrans)](#m-transLock-dc59c2c0e5f8)
+- [transUnlock(DpTrans)](#m-transUnlock-d0b9be30b219)
+- [writeStart(DpTrans)](#m-writeStart-5fee67274be5)
 
 ## Constructors
 
-<a id="m-transcallbackproxy-4c24784116c5"></a>
-### TransCallbackProxy(Object)
+### TransCallbackProxy(Object) <a href="#m-TransCallbackProxy-4c24784116c5" id="m-TransCallbackProxy-4c24784116c5"></a>
 
 ```java
 public TransCallbackProxy(Object backupObject)
@@ -66,8 +64,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-abort-be36f552f23c"></a>
-### abort(DpTrans)
+### abort(DpTrans) <a href="#m-abort-be36f552f23c" id="m-abort-be36f552f23c"></a>
 
 ```java
 public void abort(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -79,8 +76,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-addactioncapability-2e8b6a8286db"></a>
-### addActionCapability(TransCBType)
+### addActionCapability(TransCBType) <a href="#m-addActionCapability-2e8b6a8286db" id="m-addActionCapability-2e8b6a8286db"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.TransCBType transCBType)
@@ -95,8 +91,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.TransCBType transCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -109,8 +104,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-commit-5e7631b9a7e8"></a>
-### commit(DpTrans)
+### commit(DpTrans) <a href="#m-commit-5e7631b9a7e8" id="m-commit-5e7631b9a7e8"></a>
 
 ```java
 public void commit(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -122,8 +116,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-finish-1001d416be96"></a>
-### finish(DpTrans)
+### finish(DpTrans) <a href="#m-finish-1001d416be96" id="m-finish-1001d416be96"></a>
 
 ```java
 public void finish(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -135,8 +128,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -146,8 +138,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-gettranscallbackproxys-87b043856a25"></a>
-### getTransCallbackProxys(Object)
+### getTransCallbackProxys(Object) <a href="#m-getTransCallbackProxys-87b043856a25" id="m-getTransCallbackProxys-87b043856a25"></a>
 
 ```java
 public static com.tailf.dp.annotations.TransCallbackProxy[] getTransCallbackProxys(
@@ -171,8 +162,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-init-16fe8657859c"></a>
-### init(DpTrans)
+### init(DpTrans) <a href="#m-init-16fe8657859c" id="m-init-16fe8657859c"></a>
 
 ```java
 public void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -184,15 +174,13 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-<a id="m-prepare-ab366f6ce7ea"></a>
-### prepare(DpTrans)
+### prepare(DpTrans) <a href="#m-prepare-ab366f6ce7ea" id="m-prepare-ab366f6ce7ea"></a>
 
 ```java
 public void prepare(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -204,8 +192,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-translock-dc59c2c0e5f8"></a>
-### transLock(DpTrans)
+### transLock(DpTrans) <a href="#m-transLock-dc59c2c0e5f8" id="m-transLock-dc59c2c0e5f8"></a>
 
 ```java
 public void transLock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -217,8 +204,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-transunlock-d0b9be30b219"></a>
-### transUnlock(DpTrans)
+### transUnlock(DpTrans) <a href="#m-transUnlock-d0b9be30b219" id="m-transUnlock-d0b9be30b219"></a>
 
 ```java
 public void transUnlock(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -230,8 +216,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-writestart-5fee67274be5"></a>
-### writeStart(DpTrans)
+### writeStart(DpTrans) <a href="#m-writeStart-5fee67274be5" id="m-writeStart-5fee67274be5"></a>
 
 ```java
 public void writeStart(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException

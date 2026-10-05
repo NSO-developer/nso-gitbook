@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Reader
@@ -10,19 +9,18 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getPrefix()](#m-getprefix-9268091e0223)
-- [hasName()](#m-hasname-bfe6c334e0d1)
-- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
+- [getName()](#m-getName-2634b18b4a25)
+- [getPrefix()](#m-getPrefix-9268091e0223)
+- [hasName()](#m-hasName-bfe6c334e0d1)
+- [hasPrefix()](#m-hasPrefix-ddbc3bbca9c3)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -49,29 +47,25 @@ Reader(
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public org.capnproto.Text.Reader getName()
 ```
 
-<a id="m-getprefix-9268091e0223"></a>
-### getPrefix()
+### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
 
 ```java
 public org.capnproto.Text.Reader getPrefix()
 ```
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public boolean hasName()
 ```
 
-<a id="m-hasprefix-ddbc3bbca9c3"></a>
-### hasPrefix()
+### hasPrefix() <a href="#m-hasPrefix-ddbc3bbca9c3" id="m-hasPrefix-ddbc3bbca9c3"></a>
 
 ```java
 public boolean hasPrefix()

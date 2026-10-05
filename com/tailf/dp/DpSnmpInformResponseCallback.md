@@ -1,5 +1,4 @@
-<a id="cls-DpSnmpInformResponseCallback"></a>
-# DpSnmpInformResponseCallback
+# DpSnmpInformResponseCallback <a href="#cls-DpSnmpInformResponseCallback" id="cls-DpSnmpInformResponseCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpSnmpInformResponseCallback
@@ -9,7 +8,7 @@ This interface is used for the SNMP notifier callbacks.
 
 **Since:** 3.2.0
 
-**See also:** [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createsnmpnotifier-89f0d186fc8f)
+**See also:** [`Dp#createSnmpNotifier(String, String, Object)`](Dp.md#m-createSnmpNotifier-89f0d186fc8f)
 
 ## Members
 
@@ -22,8 +21,7 @@ This interface is used for the SNMP notifier callbacks.
 
 ## Methods
 
-<a id="m-id-1352448ec267"></a>
-### id()
+### id() <a href="#m-id-1352448ec267" id="m-id-1352448ec267"></a>
 
 ```java
 public abstract String id()
@@ -31,15 +29,13 @@ public abstract String id()
 
 The id of the SNMP inform callback.
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public abstract int mask()
 ```
 
-<a id="m-result-633f0f760c10"></a>
-### result(Integer, ConfETuple, Boolean)
+### result(Integer, ConfETuple, Boolean) <a href="#m-result-633f0f760c10" id="m-result-633f0f760c10"></a>
 
 ```java
 public abstract void result(
@@ -67,8 +63,7 @@ This callback provides the application with possibility to to take
 
 - `DpCallbackException` - Callback method failed.
 
-<a id="m-targets-aaa64a3aa8f3"></a>
-### targets(Integer, ConfETuple[])
+### targets(Integer, ConfETuple[]) <a href="#m-targets-aaa64a3aa8f3" id="m-targets-aaa64a3aa8f3"></a>
 
 ```java
 public abstract void targets(

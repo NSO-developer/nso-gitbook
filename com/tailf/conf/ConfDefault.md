@@ -1,5 +1,4 @@
-<a id="cls-ConfDefault"></a>
-# ConfDefault
+# ConfDefault <a href="#cls-ConfDefault" id="cls-ConfDefault"></a>
 
 ```java
 public class com.tailf.conf.ConfDefault
@@ -15,7 +14,7 @@ Class representing value of type J_DEFAULT.
 
 **Constructors**:
 
-- [ConfDefault()](#m-confdefault-9102af54982d)
+- [ConfDefault()](#m-ConfDefault-9102af54982d)
 
 **Fields**:
 
@@ -73,23 +72,22 @@ Class representing value of type J_DEFAULT.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfDefault)](#m-compareto-8a21797f4170)
+- [compareTo(ConfDefault)](#m-compareTo-8a21797f4170)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confdefault-9102af54982d"></a>
-### ConfDefault()
+### ConfDefault() <a href="#m-ConfDefault-9102af54982d" id="m-ConfDefault-9102af54982d"></a>
 
 ```java
 public ConfDefault()
@@ -98,8 +96,7 @@ public ConfDefault()
 
 ## Methods
 
-<a id="m-compareto-8a21797f4170"></a>
-### compareTo(ConfDefault)
+### compareTo(ConfDefault) <a href="#m-compareTo-8a21797f4170" id="m-compareTo-8a21797f4170"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfDefault o)
@@ -111,8 +108,7 @@ Types: [ConfDefault](ConfDefault.md#cls-ConfDefault)
 
 - `com.tailf.conf.ConfDefault o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -120,8 +116,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -131,15 +126,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

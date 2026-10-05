@@ -1,5 +1,4 @@
-<a id="cls-NotificationCfg"></a>
-# NotificationCfg
+# NotificationCfg <a href="#cls-NotificationCfg" id="cls-NotificationCfg"></a>
 
 ```java
 public class com.tailf.notif.NotificationCfg
@@ -9,34 +8,33 @@ public class com.tailf.notif.NotificationCfg
 
 **Constructors**:
 
-- [NotificationCfg()](#m-notificationcfg-095bdbf9c2db)
-- [NotificationCfg(int, int)](#m-notificationcfg-3db7173f4b4d)
-- [NotificationCfg(int, int, String, ConfValue, ConfValue, String, int, Verbosity)](#m-notificationcfg-d4b7e7a43fb5)
-- [NotificationCfg(Verbosity)](#m-notificationcfg-c0258cf12ca3)
+- [NotificationCfg()](#m-NotificationCfg-095bdbf9c2db)
+- [NotificationCfg(int, int)](#m-NotificationCfg-3db7173f4b4d)
+- [NotificationCfg(int, int, String, ConfValue, ConfValue, String, int, Verbosity)](#m-NotificationCfg-d4b7e7a43fb5)
+- [NotificationCfg(Verbosity)](#m-NotificationCfg-c0258cf12ca3)
 
 **Methods**:
 
-- [getHealthCheckInterval()](#m-gethealthcheckinterval-a48eba3bd905)
-- [getHeartbeatInterval()](#m-getheartbeatinterval-e473fe40fa59)
-- [getStartTime()](#m-getstarttime-f237c63a0230)
-- [getStopTime()](#m-getstoptime-2b002db8cc27)
-- [getStreamName()](#m-getstreamname-7146bcdbf461)
-- [getUsid()](#m-getusid-62d0ecfd68fd)
-- [getVerbosity()](#m-getverbosity-6b0b3a4f5e03)
-- [getXPathFilter()](#m-getxpathfilter-3bccf218e10c)
-- [setHealthCheckInterval(int)](#m-sethealthcheckinterval-75bd7406cd93)
-- [setHeartbeatInterval(int)](#m-setheartbeatinterval-7c6e8a4c4223)
-- [setStartTime(ConfValue)](#m-setstarttime-65fd39b07ed3)
-- [setStopTime(ConfValue)](#m-setstoptime-01a03233a195)
-- [setStreamName(String)](#m-setstreamname-366567b41990)
-- [setUsid(int)](#m-setusid-f5dcd6d3ac5f)
-- [setVerbosity(Verbosity)](#m-setverbosity-72632efb4fb1)
-- [setXPathFilter(String)](#m-setxpathfilter-c4e977f0220c)
+- [getHealthCheckInterval()](#m-getHealthCheckInterval-a48eba3bd905)
+- [getHeartbeatInterval()](#m-getHeartbeatInterval-e473fe40fa59)
+- [getStartTime()](#m-getStartTime-f237c63a0230)
+- [getStopTime()](#m-getStopTime-2b002db8cc27)
+- [getStreamName()](#m-getStreamName-7146bcdbf461)
+- [getUsid()](#m-getUsid-62d0ecfd68fd)
+- [getVerbosity()](#m-getVerbosity-6b0b3a4f5e03)
+- [getXPathFilter()](#m-getXPathFilter-3bccf218e10c)
+- [setHealthCheckInterval(int)](#m-setHealthCheckInterval-75bd7406cd93)
+- [setHeartbeatInterval(int)](#m-setHeartbeatInterval-7c6e8a4c4223)
+- [setStartTime(ConfValue)](#m-setStartTime-65fd39b07ed3)
+- [setStopTime(ConfValue)](#m-setStopTime-01a03233a195)
+- [setStreamName(String)](#m-setStreamName-366567b41990)
+- [setUsid(int)](#m-setUsid-f5dcd6d3ac5f)
+- [setVerbosity(Verbosity)](#m-setVerbosity-72632efb4fb1)
+- [setXPathFilter(String)](#m-setXPathFilter-c4e977f0220c)
 
 ## Constructors
 
-<a id="m-notificationcfg-095bdbf9c2db"></a>
-### NotificationCfg()
+### NotificationCfg() <a href="#m-NotificationCfg-095bdbf9c2db" id="m-NotificationCfg-095bdbf9c2db"></a>
 
 ```java
 public NotificationCfg()
@@ -45,8 +43,7 @@ public NotificationCfg()
 Default constructor, all values has to be set using
  the setter methods.
 
-<a id="m-notificationcfg-3db7173f4b4d"></a>
-### NotificationCfg(int, int)
+### NotificationCfg(int, int) <a href="#m-NotificationCfg-3db7173f4b4d" id="m-NotificationCfg-3db7173f4b4d"></a>
 
 ```java
 public NotificationCfg(int heartbeatInterval, int healthCheckInterval)
@@ -63,8 +60,7 @@ Creates a NotificationCfg instance with only the
 - `int heartbeatInterval`
 - `int healthCheckInterval`
 
-<a id="m-notificationcfg-d4b7e7a43fb5"></a>
-### NotificationCfg(int, int, String, ConfValue, ConfValue, String, int, Verbosity)
+### NotificationCfg(int, int, String, ConfValue, ConfValue, String, int, Verbosity) <a href="#m-NotificationCfg-d4b7e7a43fb5" id="m-NotificationCfg-d4b7e7a43fb5"></a>
 
 ```java
 public NotificationCfg(
@@ -95,8 +91,7 @@ Convenience constructor setting all values.
 - `int usid` - default 0
 - `com.tailf.maapi.Maapi.Verbosity verbosity` - default Maapi.Verbosity.NORMAL
 
-<a id="m-notificationcfg-c0258cf12ca3"></a>
-### NotificationCfg(Verbosity)
+### NotificationCfg(Verbosity) <a href="#m-NotificationCfg-c0258cf12ca3" id="m-NotificationCfg-c0258cf12ca3"></a>
 
 ```java
 public NotificationCfg(com.tailf.maapi.Maapi.Verbosity verbosity)
@@ -113,8 +108,7 @@ Creates a NotificationCfg instance with only the verbosity.
 
 ## Methods
 
-<a id="m-gethealthcheckinterval-a48eba3bd905"></a>
-### getHealthCheckInterval()
+### getHealthCheckInterval() <a href="#m-getHealthCheckInterval-a48eba3bd905" id="m-getHealthCheckInterval-a48eba3bd905"></a>
 
 ```java
 public int getHealthCheckInterval()
@@ -128,8 +122,7 @@ Get configured Healtcheck interval
 
 **Returns:** healthCheckInterval
 
-<a id="m-getheartbeatinterval-e473fe40fa59"></a>
-### getHeartbeatInterval()
+### getHeartbeatInterval() <a href="#m-getHeartbeatInterval-e473fe40fa59" id="m-getHeartbeatInterval-e473fe40fa59"></a>
 
 ```java
 public int getHeartbeatInterval()
@@ -143,8 +136,7 @@ Get configured Heartbeat interval
 
 **Returns:** heartbeatInterval
 
-<a id="m-getstarttime-f237c63a0230"></a>
-### getStartTime()
+### getStartTime() <a href="#m-getStartTime-f237c63a0230" id="m-getStartTime-f237c63a0230"></a>
 
 ```java
 public com.tailf.conf.ConfValue getStartTime()
@@ -160,8 +152,7 @@ Get configured startTime
 
 **Returns:** startTime
 
-<a id="m-getstoptime-2b002db8cc27"></a>
-### getStopTime()
+### getStopTime() <a href="#m-getStopTime-2b002db8cc27" id="m-getStopTime-2b002db8cc27"></a>
 
 ```java
 public com.tailf.conf.ConfValue getStopTime()
@@ -177,8 +168,7 @@ Get configured stopTime
 
 **Returns:** stopTime
 
-<a id="m-getstreamname-7146bcdbf461"></a>
-### getStreamName()
+### getStreamName() <a href="#m-getStreamName-7146bcdbf461" id="m-getStreamName-7146bcdbf461"></a>
 
 ```java
 public String getStreamName()
@@ -190,8 +180,7 @@ Get configured stream name
 
 **Returns:** streamName
 
-<a id="m-getusid-62d0ecfd68fd"></a>
-### getUsid()
+### getUsid() <a href="#m-getUsid-62d0ecfd68fd" id="m-getUsid-62d0ecfd68fd"></a>
 
 ```java
 public int getUsid()
@@ -203,8 +192,7 @@ Get configured User session id
 
 **Returns:** usid
 
-<a id="m-getverbosity-6b0b3a4f5e03"></a>
-### getVerbosity()
+### getVerbosity() <a href="#m-getVerbosity-6b0b3a4f5e03" id="m-getVerbosity-6b0b3a4f5e03"></a>
 
 ```java
 public com.tailf.maapi.Maapi.Verbosity getVerbosity()
@@ -218,8 +206,7 @@ Get the configured verbosity
 
 **Returns:** verbosity
 
-<a id="m-getxpathfilter-3bccf218e10c"></a>
-### getXPathFilter()
+### getXPathFilter() <a href="#m-getXPathFilter-3bccf218e10c" id="m-getXPathFilter-3bccf218e10c"></a>
 
 ```java
 public String getXPathFilter()
@@ -231,8 +218,7 @@ Get configured XPathFilter
 
 **Returns:** XPathFilter
 
-<a id="m-sethealthcheckinterval-75bd7406cd93"></a>
-### setHealthCheckInterval(int)
+### setHealthCheckInterval(int) <a href="#m-setHealthCheckInterval-75bd7406cd93" id="m-setHealthCheckInterval-75bd7406cd93"></a>
 
 ```java
 public void setHealthCheckInterval(int healthCheckInterval)
@@ -246,8 +232,7 @@ Required if we wish to generate
 
 - `int healthCheckInterval`
 
-<a id="m-setheartbeatinterval-7c6e8a4c4223"></a>
-### setHeartbeatInterval(int)
+### setHeartbeatInterval(int) <a href="#m-setHeartbeatInterval-7c6e8a4c4223" id="m-setHeartbeatInterval-7c6e8a4c4223"></a>
 
 ```java
 public void setHeartbeatInterval(int heartbeatInterval)
@@ -261,8 +246,7 @@ Required if we wish to generate
 
 - `int heartbeatInterval`
 
-<a id="m-setstarttime-65fd39b07ed3"></a>
-### setStartTime(ConfValue)
+### setStartTime(ConfValue) <a href="#m-setStartTime-65fd39b07ed3" id="m-setStartTime-65fd39b07ed3"></a>
 
 ```java
 public void setStartTime(com.tailf.conf.ConfValue startTime)
@@ -280,8 +264,7 @@ Optional for [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#m-NOTIF
 
 - `com.tailf.conf.ConfValue startTime`
 
-<a id="m-setstoptime-01a03233a195"></a>
-### setStopTime(ConfValue)
+### setStopTime(ConfValue) <a href="#m-setStopTime-01a03233a195" id="m-setStopTime-01a03233a195"></a>
 
 ```java
 public void setStopTime(com.tailf.conf.ConfValue stopTime)
@@ -300,8 +283,7 @@ Optional for [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#m-NOTIF
 
 - `com.tailf.conf.ConfValue stopTime`
 
-<a id="m-setstreamname-366567b41990"></a>
-### setStreamName(String)
+### setStreamName(String) <a href="#m-setStreamName-366567b41990" id="m-setStreamName-366567b41990"></a>
 
 ```java
 public void setStreamName(String streamName)
@@ -314,8 +296,7 @@ Required for [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#m-NOTIF
 
 - `String streamName`
 
-<a id="m-setusid-f5dcd6d3ac5f"></a>
-### setUsid(int)
+### setUsid(int) <a href="#m-setUsid-f5dcd6d3ac5f" id="m-setUsid-f5dcd6d3ac5f"></a>
 
 ```java
 public void setUsid(int usid)
@@ -329,8 +310,7 @@ Optional for [`NotificationType#NOTIF_STREAM_EVENT`](NotificationType.md#m-NOTIF
 
 - `int usid`
 
-<a id="m-setverbosity-72632efb4fb1"></a>
-### setVerbosity(Verbosity)
+### setVerbosity(Verbosity) <a href="#m-setVerbosity-72632efb4fb1" id="m-setVerbosity-72632efb4fb1"></a>
 
 ```java
 public void setVerbosity(com.tailf.maapi.Maapi.Verbosity verbosity)
@@ -347,8 +327,7 @@ Optional for [`NotificationType#NOTIF_PROGRESS`](NotificationType.md#m-NOTIF_PRO
 
 - `com.tailf.maapi.Maapi.Verbosity verbosity`
 
-<a id="m-setxpathfilter-c4e977f0220c"></a>
-### setXPathFilter(String)
+### setXPathFilter(String) <a href="#m-setXPathFilter-c4e977f0220c" id="m-setXPathFilter-c4e977f0220c"></a>
 
 ```java
 public void setXPathFilter(String xpathFilter)

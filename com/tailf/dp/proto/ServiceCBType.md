@@ -1,5 +1,4 @@
-<a id="cls-ServiceCBType"></a>
-# ServiceCBType
+# ServiceCBType <a href="#cls-ServiceCBType" id="cls-ServiceCBType"></a>
 
 ```java
 public enum com.tailf.dp.proto.ServiceCBType
@@ -19,14 +18,13 @@ Enumeration of Service callback methods
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CREATE"></a>
-### CREATE
+### CREATE <a href="#m-CREATE" id="m-CREATE"></a>
 
 ```java
 public static final com.tailf.dp.proto.ServiceCBType CREATE;
@@ -37,8 +35,7 @@ Indicates service create callback.
  See `DpServiceCallback#create(ServiceContext context,
  NavuNode service, NavuNode root, Properties opaque)`
 
-<a id="m-POST_MODIFICATION"></a>
-### POST_MODIFICATION
+### POST_MODIFICATION <a href="#m-POST_MODIFICATION" id="m-POST_MODIFICATION"></a>
 
 ```java
 public static final com.tailf.dp.proto.ServiceCBType POST_MODIFICATION;
@@ -49,8 +46,7 @@ Indicates post-modification service callback.
  See `DpServiceCallback#postModification(ServiceContext context,
  ServiceOperationType operation, ConfPath path, Properties opaque)`
 
-<a id="m-PRE_MODIFICATION"></a>
-### PRE_MODIFICATION
+### PRE_MODIFICATION <a href="#m-PRE_MODIFICATION" id="m-PRE_MODIFICATION"></a>
 
 ```java
 public static final com.tailf.dp.proto.ServiceCBType PRE_MODIFICATION;
@@ -64,8 +60,7 @@ Indicates pre-modification service callback.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -75,8 +70,7 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.ServiceCBType valueOf(String name)
@@ -88,8 +82,7 @@ Types: [ServiceCBType](ServiceCBType.md#cls-ServiceCBType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.ServiceCBType[] values()

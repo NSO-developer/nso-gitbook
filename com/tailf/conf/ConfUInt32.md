@@ -1,5 +1,4 @@
-<a id="cls-ConfUInt32"></a>
-# ConfUInt32
+# ConfUInt32 <a href="#cls-ConfUInt32" id="cls-ConfUInt32"></a>
 
 ```java
 public class com.tailf.conf.ConfUInt32
@@ -20,8 +19,8 @@ DATA_CONTAINER - Corresponds to the YANG uint32 type
 
 **Constructors**:
 
-- [ConfUInt32(ConfEObject)](#m-confuint32-0a0ddf1d3f4a)
-- [ConfUInt32(long)](#m-confuint32-aabce5b5ff31)
+- [ConfUInt32(ConfEObject)](#m-ConfUInt32-0a0ddf1d3f4a)
+- [ConfUInt32(long)](#m-ConfUInt32-aabce5b5ff31)
 
 **Fields**:
 
@@ -80,24 +79,23 @@ DATA_CONTAINER - Corresponds to the YANG uint32 type
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfUInt32)](#m-compareto-fbef681f53c7)
+- [compareTo(ConfUInt32)](#m-compareTo-fbef681f53c7)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [longValue()](#m-longvalue-636bfe2d6862)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [longValue()](#m-longValue-636bfe2d6862)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confuint32-0a0ddf1d3f4a"></a>
-### ConfUInt32(ConfEObject)
+### ConfUInt32(ConfEObject) <a href="#m-ConfUInt32-0a0ddf1d3f4a" id="m-ConfUInt32-0a0ddf1d3f4a"></a>
 
 ```java
 public ConfUInt32(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -109,8 +107,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confuint32-aabce5b5ff31"></a>
-### ConfUInt32(long)
+### ConfUInt32(long) <a href="#m-ConfUInt32-aabce5b5ff31" id="m-ConfUInt32-aabce5b5ff31"></a>
 
 ```java
 public ConfUInt32(long l)
@@ -123,8 +120,7 @@ public ConfUInt32(long l)
 
 ## Fields
 
-<a id="m-val"></a>
-### val
+### val <a href="#m-val" id="m-val"></a>
 
 ```java
 protected long val = null;
@@ -133,8 +129,7 @@ protected long val = null;
 
 ## Methods
 
-<a id="m-compareto-fbef681f53c7"></a>
-### compareTo(ConfUInt32)
+### compareTo(ConfUInt32) <a href="#m-compareTo-fbef681f53c7" id="m-compareTo-fbef681f53c7"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfUInt32 o)
@@ -146,8 +141,7 @@ Types: [ConfUInt32](ConfUInt32.md#cls-ConfUInt32)
 
 - `com.tailf.conf.ConfUInt32 o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -155,8 +149,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -166,22 +159,19 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-longvalue-636bfe2d6862"></a>
-### longValue()
+### longValue() <a href="#m-longValue-636bfe2d6862" id="m-longValue-636bfe2d6862"></a>
 
 ```java
 public long longValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

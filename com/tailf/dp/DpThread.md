@@ -1,5 +1,4 @@
-<a id="cls-DpThread"></a>
-# DpThread
+# DpThread <a href="#cls-DpThread" id="cls-DpThread"></a>
 
 ```java
 public class com.tailf.dp.DpThread
@@ -14,8 +13,8 @@ DpThread with the ability to log more info about
 
 **Constructors**:
 
-- [DpThread(Runnable)](#m-dpthread-9efa3f28cb99)
-- [DpThread(Runnable, String)](#m-dpthread-e9bcaa66a795)
+- [DpThread(Runnable)](#m-DpThread-9efa3f28cb99)
+- [DpThread(Runnable, String)](#m-DpThread-e9bcaa66a795)
 
 **Fields**:
 
@@ -24,12 +23,11 @@ DpThread with the ability to log more info about
 **Methods**:
 
 - [run()](#m-run-b6dbda048863)
-- [uncaughtException(Thread, Throwable)](#m-uncaughtexception-ad07d4154b36)
+- [uncaughtException(Thread, Throwable)](#m-uncaughtException-ad07d4154b36)
 
 ## Constructors
 
-<a id="m-dpthread-9efa3f28cb99"></a>
-### DpThread(Runnable)
+### DpThread(Runnable) <a href="#m-DpThread-9efa3f28cb99" id="m-DpThread-9efa3f28cb99"></a>
 
 ```java
 public DpThread(Runnable r)
@@ -39,8 +37,7 @@ public DpThread(Runnable r)
 
 - `Runnable r`
 
-<a id="m-dpthread-e9bcaa66a795"></a>
-### DpThread(Runnable, String)
+### DpThread(Runnable, String) <a href="#m-DpThread-e9bcaa66a795" id="m-DpThread-e9bcaa66a795"></a>
 
 ```java
 public DpThread(Runnable r, String name)
@@ -54,8 +51,7 @@ public DpThread(Runnable r, String name)
 
 ## Fields
 
-<a id="m-DEFAULT_NAME"></a>
-### DEFAULT_NAME
+### DEFAULT_NAME <a href="#m-DEFAULT_NAME" id="m-DEFAULT_NAME"></a>
 
 ```java
 public static final String DEFAULT_NAME = "DpWorkerPoolThread";
@@ -64,15 +60,13 @@ public static final String DEFAULT_NAME = "DpWorkerPoolThread";
 
 ## Methods
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-<a id="m-uncaughtexception-ad07d4154b36"></a>
-### uncaughtException(Thread, Throwable)
+### uncaughtException(Thread, Throwable) <a href="#m-uncaughtException-ad07d4154b36" id="m-uncaughtException-ad07d4154b36"></a>
 
 ```java
 public void uncaughtException(Thread t, Throwable e)

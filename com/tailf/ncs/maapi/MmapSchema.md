@@ -1,5 +1,4 @@
-<a id="cls-MmapSchema"></a>
-# MmapSchema
+# MmapSchema <a href="#cls-MmapSchema" id="cls-MmapSchema"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchema
@@ -9,7 +8,7 @@ public class com.tailf.ncs.maapi.MmapSchema
 
 **Constructors**:
 
-- [MmapSchema(String, Map<Integer,String>, boolean)](#m-mmapschema-f173cb643f1f)
+- [MmapSchema(String, Map<Integer,String>, boolean)](#m-MmapSchema-f173cb643f1f)
 
 **Fields**:
 
@@ -18,25 +17,25 @@ public class com.tailf.ncs.maapi.MmapSchema
 **Methods**:
 
 - [dump()](#m-dump-f69481fc6392)
-- [findChild(Level, CSMNsMap, int)](#m-findchild-7b6f3725d8af)
-- [findChild(Level, int, int)](#m-findchild-f8d62e295bf8)
-- [findRootChild(int, int)](#m-findrootchild-b18c1f12b1d3)
-- [getChild(Level, int)](#m-getchild-115c45c0c72a)
-- [getChildren(Level, Predicate<Child>)](#m-getchildren-505b9cbdd11e)
-- [getCsDb()](#m-getcsdb-e56377c261c7)
-- [getCsDbEntries()](#m-getcsdbentries-e66fa22b89e5)
-- [getDb(int, StructFactory<B,R>)](#m-getdb-350f522f54a8)
-- [getHashDb()](#m-gethashdb-e75daa0effae)
-- [getMnsMapDb()](#m-getmnsmapdb-908581232215)
-- [getMountPointDb()](#m-getmountpointdb-32131a12db04)
-- [getNsDb()](#m-getnsdb-3babeb353172)
-- [getRecord(Level, int)](#m-getrecord-b8c26b20e5af)
-- [getRootLevel()](#m-getrootlevel-e49164e18650)
-- [hashToString(int)](#m-hashtostring-54eaaef71976)
-- [readCs(int)](#m-readcs-7cac4a174403)
-- [readCs(Level)](#m-readcs-2bd562042556)
-- [readLevel(int)](#m-readlevel-2adbe31ff425)
-- [readRecord(int)](#m-readrecord-a6c043785170)
+- [findChild(Level, CSMNsMap, int)](#m-findChild-7b6f3725d8af)
+- [findChild(Level, int, int)](#m-findChild-f8d62e295bf8)
+- [findRootChild(int, int)](#m-findRootChild-b18c1f12b1d3)
+- [getChild(Level, int)](#m-getChild-115c45c0c72a)
+- [getChildren(Level, Predicate<Child>)](#m-getChildren-505b9cbdd11e)
+- [getCsDb()](#m-getCsDb-e56377c261c7)
+- [getCsDbEntries()](#m-getCsDbEntries-e66fa22b89e5)
+- [getDb(int, StructFactory<B,R>)](#m-getDb-350f522f54a8)
+- [getHashDb()](#m-getHashDb-e75daa0effae)
+- [getMnsMapDb()](#m-getMnsMapDb-908581232215)
+- [getMountPointDb()](#m-getMountPointDb-32131a12db04)
+- [getNsDb()](#m-getNsDb-3babeb353172)
+- [getRecord(Level, int)](#m-getRecord-b8c26b20e5af)
+- [getRootLevel()](#m-getRootLevel-e49164e18650)
+- [hashToString(int)](#m-hashToString-54eaaef71976)
+- [readCs(int)](#m-readCs-7cac4a174403)
+- [readCs(Level)](#m-readCs-2bd562042556)
+- [readLevel(int)](#m-readLevel-2adbe31ff425)
+- [readRecord(int)](#m-readRecord-a6c043785170)
 
 **Nested Types**:
 
@@ -49,8 +48,7 @@ public class com.tailf.ncs.maapi.MmapSchema
 
 ## Constructors
 
-<a id="m-mmapschema-f173cb643f1f"></a>
-### MmapSchema(String, Map<Integer,String>, boolean)
+### MmapSchema(String, Map<Integer,String>, boolean) <a href="#m-MmapSchema-f173cb643f1f" id="m-MmapSchema-f173cb643f1f"></a>
 
 ```java
 protected MmapSchema(
@@ -72,8 +70,7 @@ Types: [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
 ## Fields
 
-<a id="m-readerOptions"></a>
-### readerOptions
+### readerOptions <a href="#m-readerOptions" id="m-readerOptions"></a>
 
 **Package-private**
 
@@ -84,8 +81,7 @@ org.capnproto.ReaderOptions readerOptions = null;
 
 ## Methods
 
-<a id="m-dump-f69481fc6392"></a>
-### dump()
+### dump() <a href="#m-dump-f69481fc6392" id="m-dump-f69481fc6392"></a>
 
 ```java
 protected void dump() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -109,8 +105,7 @@ This function is intended for debugging potentialt issues with the
 
 - `MmapSchemaException`
 
-<a id="m-findchild-7b6f3725d8af"></a>
-### findChild(Level, CSMNsMap, int)
+### findChild(Level, CSMNsMap, int) <a href="#m-findChild-7b6f3725d8af" id="m-findChild-7b6f3725d8af"></a>
 
 **Package-private**
 
@@ -131,8 +126,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [Level](MmapSchema/Level.md#cls-L
 - `com.tailf.maapi.MaapiSchemas.CSMNsMap mnsMap`
 - `int htag`
 
-<a id="m-findchild-f8d62e295bf8"></a>
-### findChild(Level, int, int)
+### findChild(Level, int, int) <a href="#m-findChild-f8d62e295bf8" id="m-findChild-f8d62e295bf8"></a>
 
 **Package-private**
 
@@ -153,8 +147,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [Level](MmapSchema/Level.md#cls-L
 - `int hns`
 - `int htag`
 
-<a id="m-findrootchild-b18c1f12b1d3"></a>
-### findRootChild(int, int)
+### findRootChild(int, int) <a href="#m-findRootChild-b18c1f12b1d3" id="m-findRootChild-b18c1f12b1d3"></a>
 
 ```java
 protected com.tailf.ncs.maapi.MmapSchema.Child findRootChild(int hns, int htag)
@@ -167,8 +160,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child)
 - `int hns`
 - `int htag`
 
-<a id="m-getchild-115c45c0c72a"></a>
-### getChild(Level, int)
+### getChild(Level, int) <a href="#m-getChild-115c45c0c72a" id="m-getChild-115c45c0c72a"></a>
 
 ```java
 protected com.tailf.ncs.maapi.MmapSchema.Child getChild(
@@ -184,8 +176,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [Level](MmapSchema/Level.md#cls-L
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
 - `int childIdx`
 
-<a id="m-getchildren-505b9cbdd11e"></a>
-### getChildren(Level, Predicate<Child>)
+### getChildren(Level, Predicate<Child>) <a href="#m-getChildren-505b9cbdd11e" id="m-getChildren-505b9cbdd11e"></a>
 
 ```java
 protected Iterable<com.tailf.ncs.maapi.MmapSchema.Child> getChildren(
@@ -201,8 +192,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [Level](MmapSchema/Level.md#cls-L
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
 - `java.util.function.Predicate<com.tailf.ncs.maapi.MmapSchema.Child> pred`
 
-<a id="m-getcsdb-e56377c261c7"></a>
-### getCsDb()
+### getCsDb() <a href="#m-getCsDb-e56377c261c7" id="m-getCsDb-e56377c261c7"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.CsDb.Reader getCsDb() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -211,8 +201,7 @@ protected com.tailf.ncs.maapi.Schema.CsDb.Reader getCsDb() throws com.tailf.ncs.
 
 Types: [Reader](Schema/CsDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getcsdbentries-e66fa22b89e5"></a>
-### getCsDbEntries()
+### getCsDbEntries() <a href="#m-getCsDbEntries-e66fa22b89e5" id="m-getCsDbEntries-e66fa22b89e5"></a>
 
 **Package-private**
 
@@ -223,8 +212,7 @@ org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Cs.Reader> getCsDbEnt
 
 Types: [Reader](Schema/Cs/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getdb-350f522f54a8"></a>
-### getDb(int, StructFactory<B,R>)
+### getDb(int, StructFactory<B,R>) <a href="#m-getDb-350f522f54a8" id="m-getDb-350f522f54a8"></a>
 
 ```java
 protected <B extends org.capnproto.StructBuilder, R extends org.capnproto.StructReader> R getDb(
@@ -239,8 +227,7 @@ protected <B extends org.capnproto.StructBuilder, R extends org.capnproto.Struct
 - `int offset`
 - `org.capnproto.StructFactory<B,R> factory`
 
-<a id="m-gethashdb-e75daa0effae"></a>
-### getHashDb()
+### getHashDb() <a href="#m-getHashDb-e75daa0effae" id="m-getHashDb-e75daa0effae"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.HashDb.Reader getHashDb() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -249,8 +236,7 @@ protected com.tailf.ncs.maapi.Schema.HashDb.Reader getHashDb() throws com.tailf.
 
 Types: [Reader](Schema/HashDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getmnsmapdb-908581232215"></a>
-### getMnsMapDb()
+### getMnsMapDb() <a href="#m-getMnsMapDb-908581232215" id="m-getMnsMapDb-908581232215"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.MNsMapDb.Reader getMnsMapDb() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -259,8 +245,7 @@ protected com.tailf.ncs.maapi.Schema.MNsMapDb.Reader getMnsMapDb() throws com.ta
 
 Types: [Reader](Schema/MNsMapDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getmountpointdb-32131a12db04"></a>
-### getMountPointDb()
+### getMountPointDb() <a href="#m-getMountPointDb-32131a12db04" id="m-getMountPointDb-32131a12db04"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.MountPointDb.Reader getMountPointDb() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -269,8 +254,7 @@ protected com.tailf.ncs.maapi.Schema.MountPointDb.Reader getMountPointDb() throw
 
 Types: [Reader](Schema/MountPointDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getnsdb-3babeb353172"></a>
-### getNsDb()
+### getNsDb() <a href="#m-getNsDb-3babeb353172" id="m-getNsDb-3babeb353172"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.NsDb.Reader getNsDb() throws com.tailf.ncs.maapi.MmapSchemaException
@@ -279,8 +263,7 @@ protected com.tailf.ncs.maapi.Schema.NsDb.Reader getNsDb() throws com.tailf.ncs.
 
 Types: [Reader](Schema/NsDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getrecord-b8c26b20e5af"></a>
-### getRecord(Level, int)
+### getRecord(Level, int) <a href="#m-getRecord-b8c26b20e5af" id="m-getRecord-b8c26b20e5af"></a>
 
 **Package-private**
 
@@ -299,8 +282,7 @@ Types: [Record](MmapSchema/Record.md#cls-Record), [Level](MmapSchema/Level.md#cl
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
 - `int recordIdx`
 
-<a id="m-getrootlevel-e49164e18650"></a>
-### getRootLevel()
+### getRootLevel() <a href="#m-getRootLevel-e49164e18650" id="m-getRootLevel-e49164e18650"></a>
 
 **Package-private**
 
@@ -310,8 +292,7 @@ com.tailf.ncs.maapi.MmapSchema.Level getRootLevel()
 
 Types: [Level](MmapSchema/Level.md#cls-Level)
 
-<a id="m-hashtostring-54eaaef71976"></a>
-### hashToString(int)
+### hashToString(int) <a href="#m-hashToString-54eaaef71976" id="m-hashToString-54eaaef71976"></a>
 
 ```java
 protected String hashToString(int hash)
@@ -321,8 +302,7 @@ protected String hashToString(int hash)
 
 - `int hash`
 
-<a id="m-readcs-7cac4a174403"></a>
-### readCs(int)
+### readCs(int) <a href="#m-readCs-7cac4a174403" id="m-readCs-7cac4a174403"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.Cs.Reader readCs(
@@ -337,8 +317,7 @@ Types: [Reader](Schema/Cs/Reader.md#cls-Reader), [MmapSchemaException](MmapSchem
 
 - `int idx`
 
-<a id="m-readcs-2bd562042556"></a>
-### readCs(Level)
+### readCs(Level) <a href="#m-readCs-2bd562042556" id="m-readCs-2bd562042556"></a>
 
 ```java
 protected com.tailf.ncs.maapi.Schema.Cs.Reader readCs(
@@ -353,8 +332,7 @@ Types: [Reader](Schema/Cs/Reader.md#cls-Reader), [Level](MmapSchema/Level.md#cls
 
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
 
-<a id="m-readlevel-2adbe31ff425"></a>
-### readLevel(int)
+### readLevel(int) <a href="#m-readLevel-2adbe31ff425" id="m-readLevel-2adbe31ff425"></a>
 
 ```java
 protected com.tailf.ncs.maapi.MmapSchema.Level readLevel(
@@ -369,8 +347,7 @@ Types: [Level](MmapSchema/Level.md#cls-Level), [MmapSchemaException](MmapSchemaE
 
 - `int pos`
 
-<a id="m-readrecord-a6c043785170"></a>
-### readRecord(int)
+### readRecord(int) <a href="#m-readRecord-a6c043785170" id="m-readRecord-a6c043785170"></a>
 
 ```java
 protected com.tailf.ncs.maapi.MmapSchema.Record readRecord(

@@ -1,5 +1,4 @@
-<a id="cls-HaOrderType"></a>
-# HaOrderType
+# HaOrderType <a href="#cls-HaOrderType" id="cls-HaOrderType"></a>
 
 ```java
 public enum com.tailf.ha.HaOrderType
@@ -23,14 +22,13 @@ enum for the different HA cluster protocol operations Used internally by the
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-BENONE"></a>
-### BENONE
+### BENONE <a href="#m-BENONE" id="m-BENONE"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType BENONE;
@@ -38,8 +36,7 @@ public static final com.tailf.ha.HaOrderType BENONE;
 
 Implies that the node should be removed from the cluster
 
-<a id="m-BEPRIMARY"></a>
-### BEPRIMARY
+### BEPRIMARY <a href="#m-BEPRIMARY" id="m-BEPRIMARY"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType BEPRIMARY;
@@ -47,8 +44,7 @@ public static final com.tailf.ha.HaOrderType BEPRIMARY;
 
 Implies that the node should be primary in the cluster
 
-<a id="m-BERELAY"></a>
-### BERELAY
+### BERELAY <a href="#m-BERELAY" id="m-BERELAY"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType BERELAY;
@@ -56,8 +52,7 @@ public static final com.tailf.ha.HaOrderType BERELAY;
 
 Implies that the secondary node should be a relay for other secondaries
 
-<a id="m-BESECONDARY"></a>
-### BESECONDARY
+### BESECONDARY <a href="#m-BESECONDARY" id="m-BESECONDARY"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType BESECONDARY;
@@ -65,8 +60,7 @@ public static final com.tailf.ha.HaOrderType BESECONDARY;
 
 Implies that the node should be secondary in the cluster
 
-<a id="m-GETSTATUS"></a>
-### GETSTATUS
+### GETSTATUS <a href="#m-GETSTATUS" id="m-GETSTATUS"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType GETSTATUS;
@@ -74,8 +68,7 @@ public static final com.tailf.ha.HaOrderType GETSTATUS;
 
 Retrieving node status information
 
-<a id="m-SECONDARY_DEAD"></a>
-### SECONDARY_DEAD
+### SECONDARY_DEAD <a href="#m-SECONDARY_DEAD" id="m-SECONDARY_DEAD"></a>
 
 ```java
 public static final com.tailf.ha.HaOrderType SECONDARY_DEAD;
@@ -86,8 +79,7 @@ Reporting secondary node as dead
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -97,8 +89,7 @@ Get integer value representing this enum
 
 **Returns:** integer value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ha.HaOrderType valueOf(String name)
@@ -110,8 +101,7 @@ Types: [HaOrderType](HaOrderType.md#cls-HaOrderType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ha.HaOrderType[] values()

@@ -1,5 +1,4 @@
-<a id="cls-DryRunEntry"></a>
-# DryRunEntry
+# DryRunEntry <a href="#cls-DryRunEntry" id="cls-DryRunEntry"></a>
 
 ```java
 public static class com.tailf.maapi.DryRunResult.DryRunEntry
@@ -9,14 +8,14 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 
 **Constructors**:
 
-- [DryRunEntry(String, Type, String)](#m-dryrunentry-719d1bc10043)
+- [DryRunEntry(String, Type, String)](#m-DryRunEntry-719d1bc10043)
 
 **Methods**:
 
-- [getData()](#m-getdata-8ef0e36ab01b)
-- [getName()](#m-getname-2634b18b4a25)
-- [getType()](#m-gettype-5a52f6f0d4c1)
-- [getTypeAsString()](#m-gettypeasstring-ea437139f174)
+- [getData()](#m-getData-8ef0e36ab01b)
+- [getName()](#m-getName-2634b18b4a25)
+- [getType()](#m-getType-5a52f6f0d4c1)
+- [getTypeAsString()](#m-getTypeAsString-ea437139f174)
 
 **Nested Types**:
 
@@ -24,8 +23,7 @@ public static class com.tailf.maapi.DryRunResult.DryRunEntry
 
 ## Constructors
 
-<a id="m-dryrunentry-719d1bc10043"></a>
-### DryRunEntry(String, Type, String)
+### DryRunEntry(String, Type, String) <a href="#m-DryRunEntry-719d1bc10043" id="m-DryRunEntry-719d1bc10043"></a>
 
 **Package-private**
 
@@ -44,8 +42,7 @@ Types: [Type](DryRunEntry/Type.md#cls-Type)
 
 ## Methods
 
-<a id="m-getdata-8ef0e36ab01b"></a>
-### getData()
+### getData() <a href="#m-getData-8ef0e36ab01b" id="m-getData-8ef0e36ab01b"></a>
 
 ```java
 public String getData()
@@ -53,8 +50,7 @@ public String getData()
 
 Return the data of the dry-run result.
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
@@ -62,8 +58,7 @@ public String getName()
 
 Return the name of the device/node.
 
-<a id="m-gettype-5a52f6f0d4c1"></a>
-### getType()
+### getType() <a href="#m-getType-5a52f6f0d4c1" id="m-getType-5a52f6f0d4c1"></a>
 
 ```java
 public com.tailf.maapi.DryRunResult.DryRunEntry.Type getType()
@@ -75,16 +70,15 @@ Return whether the result is for a device/node.
 
  The type could be any of the following:
 
- `Type#DEVICE` means that the data is for the device.
+ `DryRunEntry#DEVICE` means that the data is for the device.
 
- `Type#LOCAL_NODE` means that the data is for the
+ `DryRunEntry#LOCAL_NODE` means that the data is for the
  local-node.
 
- `Type#LSA_NODE` means that the data is for the
+ `DryRunEntry#LSA_NODE` means that the data is for the
  lsa-node.
 
-<a id="m-gettypeasstring-ea437139f174"></a>
-### getTypeAsString()
+### getTypeAsString() <a href="#m-getTypeAsString-ea437139f174" id="m-getTypeAsString-ea437139f174"></a>
 
 ```java
 public String getTypeAsString()

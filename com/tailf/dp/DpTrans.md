@@ -1,5 +1,4 @@
-<a id="cls-DpTrans"></a>
-# DpTrans
+# DpTrans <a href="#cls-DpTrans" id="cls-DpTrans"></a>
 
 ```java
 public class com.tailf.dp.DpTrans
@@ -20,9 +19,9 @@ The transaction context.
 
 **Constructors**:
 
-- [DpTrans()](#m-dptrans-e828adde331b)
-- [DpTrans(Dp, int, int, int, int, int, DpUserInfo)](#m-dptrans-d3592aa18486)
-- [DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)](#m-dptrans-f65e37999f51)
+- [DpTrans()](#m-DpTrans-e828adde331b)
+- [DpTrans(Dp, int, int, int, int, int, DpUserInfo)](#m-DpTrans-d3592aa18486)
+- [DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)](#m-DpTrans-f65e37999f51)
 
 **Fields**:
 
@@ -41,42 +40,41 @@ The transaction context.
 **Methods**:
 
 - [accumulated()](#m-accumulated-2f58da3048dd)
-- [dataSetTimeout(int)](#m-datasettimeout-8ad3068e3a46)
-- [getDBName()](#m-getdbname-65ff0bdb2339)
-- [getDeviceType()](#m-getdevicetype-c8eec3b01523)
-- [getDevNo()](#m-getdevno-b1169ef876ed)
-- [getDp()](#m-getdp-b1462199cc2e)
-- [getMode()](#m-getmode-c3dc73476e30)
-- [getNsList()](#m-getnslist-0345f486e876)
-- [getOpaque()](#m-getopaque-92e4945ec92d)
-- [getSecondaryIndex()](#m-getsecondaryindex-8efa1ee57e9c)
-- [getSocket()](#m-getsocket-d7da2de81b81)
-- [getTransaction()](#m-gettransaction-4f1c72a828a1)
-- [getTransactionUserOpaque()](#m-gettransactionuseropaque-87a9bf7a20e1)
-- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
-- [getWorkerSocket()](#m-getworkersocket-ba1472e0f5a7)
-- [honorFilter(boolean)](#m-honorfilter-5ff04bbbf2d0)
-- [isHideInactive()](#m-ishideinactive-1d32c2838395)
-- [protoReply(boolean)](#m-protoreply-e8de0386a2d0)
-- [protoReply(ConfEObject)](#m-protoreply-47f22a8227a5)
-- [protoReply(ConfObject)](#m-protoreply-3ecaf76eaab8)
-- [protoReply(ConfObject[])](#m-protoreply-cee1bb25672e)
-- [protoReplyXMLParam(ConfXMLParam[])](#m-protoreplyxmlparam-9dcf8f14a8dc)
-- [replyError(ConfEObject)](#m-replyerror-3184cd2ad634)
-- [replyError(String)](#m-replyerror-48c78d28e991)
-- [replyError(String, Throwable)](#m-replyerror-c4e21f52074d)
-- [replyError(Throwable)](#m-replyerror-26f4ce830453)
-- [replyExtendedError(String, DpCallbackExtendedException)](#m-replyextendederror-b54351b1555f)
-- [replyOther(boolean, String, String)](#m-replyother-c2352ec6bb73)
+- [dataSetTimeout(int)](#m-dataSetTimeout-8ad3068e3a46)
+- [getDBName()](#m-getDBName-65ff0bdb2339)
+- [getDeviceType()](#m-getDeviceType-c8eec3b01523)
+- [getDevNo()](#m-getDevNo-b1169ef876ed)
+- [getDp()](#m-getDp-b1462199cc2e)
+- [getMode()](#m-getMode-c3dc73476e30)
+- [getNsList()](#m-getNsList-0345f486e876)
+- [getOpaque()](#m-getOpaque-92e4945ec92d)
+- [getSecondaryIndex()](#m-getSecondaryIndex-8efa1ee57e9c)
+- [getSocket()](#m-getSocket-d7da2de81b81)
+- [getTransaction()](#m-getTransaction-4f1c72a828a1)
+- [getTransactionUserOpaque()](#m-getTransactionUserOpaque-87a9bf7a20e1)
+- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [getWorkerSocket()](#m-getWorkerSocket-ba1472e0f5a7)
+- [honorFilter(boolean)](#m-honorFilter-5ff04bbbf2d0)
+- [isHideInactive()](#m-isHideInactive-1d32c2838395)
+- [protoReply(boolean)](#m-protoReply-e8de0386a2d0)
+- [protoReply(ConfEObject)](#m-protoReply-47f22a8227a5)
+- [protoReply(ConfObject)](#m-protoReply-3ecaf76eaab8)
+- [protoReply(ConfObject[])](#m-protoReply-cee1bb25672e)
+- [protoReplyXMLParam(ConfXMLParam[])](#m-protoReplyXMLParam-9dcf8f14a8dc)
+- [replyError(ConfEObject)](#m-replyError-3184cd2ad634)
+- [replyError(String)](#m-replyError-48c78d28e991)
+- [replyError(String, Throwable)](#m-replyError-c4e21f52074d)
+- [replyError(Throwable)](#m-replyError-26f4ce830453)
+- [replyExtendedError(String, DpCallbackExtendedException)](#m-replyExtendedError-b54351b1555f)
+- [replyOther(boolean, String, String)](#m-replyOther-c2352ec6bb73)
 - [run()](#m-run-b6dbda048863)
-- [setSocket(Socket)](#m-setsocket-183068848e4c)
-- [setTransactionUserOpaque(Object)](#m-settransactionuseropaque-ce392ad59d2e)
-- [transReplyOK()](#m-transreplyok-92425e2f5c67)
+- [setSocket(Socket)](#m-setSocket-183068848e4c)
+- [setTransactionUserOpaque(Object)](#m-setTransactionUserOpaque-ce392ad59d2e)
+- [transReplyOK()](#m-transReplyOK-92425e2f5c67)
 
 ## Constructors
 
-<a id="m-dptrans-e828adde331b"></a>
-### DpTrans()
+### DpTrans() <a href="#m-DpTrans-e828adde331b" id="m-DpTrans-e828adde331b"></a>
 
 **Package-private**
 
@@ -86,8 +84,7 @@ DpTrans()
 
 Constructor.
 
-<a id="m-dptrans-d3592aa18486"></a>
-### DpTrans(Dp, int, int, int, int, int, DpUserInfo)
+### DpTrans(Dp, int, int, int, int, int, DpUserInfo) <a href="#m-DpTrans-d3592aa18486" id="m-DpTrans-d3592aa18486"></a>
 
 **Package-private**
 
@@ -118,8 +115,7 @@ Lots of parameters here. But since only Dp should be allowed to
 - `int op`
 - `com.tailf.dp.DpUserInfo uinfo`
 
-<a id="m-dptrans-f65e37999f51"></a>
-### DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean)
+### DpTrans(Dp, int, int, int, int, int, DpUserInfo, boolean) <a href="#m-DpTrans-f65e37999f51" id="m-DpTrans-f65e37999f51"></a>
 
 **Package-private**
 
@@ -152,8 +148,7 @@ Types: [Dp](Dp.md#cls-Dp), [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 ## Fields
 
-<a id="m-dp"></a>
-### dp
+### dp <a href="#m-dp" id="m-dp"></a>
 
 ```java
 protected com.tailf.dp.Dp dp = null;
@@ -161,71 +156,61 @@ protected com.tailf.dp.Dp dp = null;
 
 Types: [Dp](Dp.md#cls-Dp)
 
-<a id="m-index"></a>
-### index
+### index <a href="#m-index" id="m-index"></a>
 
 ```java
 protected int index = null;
 ```
 
-<a id="m-lastDid"></a>
-### lastDid
+### lastDid <a href="#m-lastDid" id="m-lastDid"></a>
 
 ```java
 protected int lastDid = null;
 ```
 
-<a id="m-lastOp"></a>
-### lastOp
+### lastOp <a href="#m-lastOp" id="m-lastOp"></a>
 
 ```java
 protected int lastOp = null;
 ```
 
-<a id="m-lastProtoOp"></a>
-### lastProtoOp
+### lastProtoOp <a href="#m-lastProtoOp" id="m-lastProtoOp"></a>
 
 ```java
 protected int lastProtoOp = null;
 ```
 
-<a id="m-lastQref"></a>
-### lastQref
+### lastQref <a href="#m-lastQref" id="m-lastQref"></a>
 
 ```java
 protected int lastQref = null;
 ```
 
-<a id="m-opaque"></a>
-### opaque
+### opaque <a href="#m-opaque" id="m-opaque"></a>
 
 ```java
 protected String opaque = null;
 ```
 
-<a id="m-socket"></a>
-### socket
+### socket <a href="#m-socket" id="m-socket"></a>
 
 ```java
 protected java.net.Socket socket = null;
 ```
 
-<a id="m-stop"></a>
-### stop
+### stop <a href="#m-stop" id="m-stop"></a>
 
 ```java
 protected boolean stop = null;
 ```
 
-<a id="m-thandle"></a>
-### thandle
+### thandle <a href="#m-thandle" id="m-thandle"></a>
 
 ```java
 protected int thandle = null;
 ```
 
-<a id="m-uinfo"></a>
-### uinfo
+### uinfo <a href="#m-uinfo" id="m-uinfo"></a>
 
 ```java
 protected com.tailf.dp.DpUserInfo uinfo = null;
@@ -236,8 +221,7 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 ## Methods
 
-<a id="m-accumulated-2f58da3048dd"></a>
-### accumulated()
+### accumulated() <a href="#m-accumulated-2f58da3048dd" id="m-accumulated-2f58da3048dd"></a>
 
 ```java
 public java.util.Iterator<com.tailf.dp.DpAccumulate> accumulated()
@@ -248,8 +232,7 @@ Types: [DpAccumulate](DpAccumulate.md#cls-DpAccumulate)
 Returns an iterator for the accumulated
  objects.
 
-<a id="m-datasettimeout-8ad3068e3a46"></a>
-### dataSetTimeout(int)
+### dataSetTimeout(int) <a href="#m-dataSetTimeout-8ad3068e3a46" id="m-dataSetTimeout-8ad3068e3a46"></a>
 
 ```java
 public void dataSetTimeout(
@@ -279,8 +262,7 @@ A data callback should normally complete "quickly", since e.g. the
 - `IOException`
 - `DpCallbackException`
 
-<a id="m-getdbname-65ff0bdb2339"></a>
-### getDBName()
+### getDBName() <a href="#m-getDBName-65ff0bdb2339" id="m-getDBName-65ff0bdb2339"></a>
 
 ```java
 public int getDBName()
@@ -296,8 +278,7 @@ The database name.
       - [`Conf#DB_CANDIDATE`](../conf/Conf.md#m-DB_CANDIDATE) -
         - [`Conf#DB_NONE`](../conf/Conf.md#m-DB_NONE) -
 
-<a id="m-getdevicetype-c8eec3b01523"></a>
-### getDeviceType()
+### getDeviceType() <a href="#m-getDeviceType-c8eec3b01523" id="m-getDeviceType-c8eec3b01523"></a>
 
 ```java
 public int getDeviceType()
@@ -307,8 +288,7 @@ for ConfM
  The device type
  (needs to be public since access from Maapi package)
 
-<a id="m-getdevno-b1169ef876ed"></a>
-### getDevNo()
+### getDevNo() <a href="#m-getDevNo-b1169ef876ed" id="m-getDevNo-b1169ef876ed"></a>
 
 ```java
 public int getDevNo()
@@ -318,8 +298,7 @@ for ConfM
  The device number
  (needs to be public since access from Maapi package)
 
-<a id="m-getdp-b1462199cc2e"></a>
-### getDp()
+### getDp() <a href="#m-getDp-b1462199cc2e" id="m-getDp-b1462199cc2e"></a>
 
 ```java
 public com.tailf.dp.Dp getDp()
@@ -332,8 +311,7 @@ Return the data provider (DP) instance that this transaction
 
 **Returns:** Data provider instance
 
-<a id="m-getmode-c3dc73476e30"></a>
-### getMode()
+### getMode() <a href="#m-getMode-c3dc73476e30" id="m-getMode-c3dc73476e30"></a>
 
 ```java
 public int getMode()
@@ -342,8 +320,7 @@ public int getMode()
 The mode.  Is always either Conf.MODE_READ or
   Conf.MODE_READ_WRITE
 
-<a id="m-getnslist-0345f486e876"></a>
-### getNsList()
+### getNsList() <a href="#m-getNsList-0345f486e876" id="m-getNsList-0345f486e876"></a>
 
 ```java
 public java.util.ArrayList<com.tailf.conf.ConfNamespace> getNsList()
@@ -353,8 +330,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 Returns the namespace list stored by the data provider.
 
-<a id="m-getopaque-92e4945ec92d"></a>
-### getOpaque()
+### getOpaque() <a href="#m-getOpaque-92e4945ec92d" id="m-getOpaque-92e4945ec92d"></a>
 
 ```java
 public String getOpaque()
@@ -364,8 +340,7 @@ If the tailf:opaque substatement has been used with the tailf:callpoint
  statement in the data model, the argument string is made available to
  the callbacks via this method
 
-<a id="m-getsecondaryindex-8efa1ee57e9c"></a>
-### getSecondaryIndex()
+### getSecondaryIndex() <a href="#m-getSecondaryIndex-8efa1ee57e9c" id="m-getSecondaryIndex-8efa1ee57e9c"></a>
 
 ```java
 public long getSecondaryIndex()
@@ -375,8 +350,7 @@ Secondary index.
  When specified in get-next operations the provider needs to
  sort objects on this named secondary-index.
 
-<a id="m-getsocket-d7da2de81b81"></a>
-### getSocket()
+### getSocket() <a href="#m-getSocket-d7da2de81b81" id="m-getSocket-d7da2de81b81"></a>
 
 ```java
 public java.net.Socket getSocket()
@@ -388,8 +362,7 @@ Return the worker socket `socket`.
   this can be changed with setSocket from
   the init callback (e.g before the socket is connected to Conf)
 
-<a id="m-gettransaction-4f1c72a828a1"></a>
-### getTransaction()
+### getTransaction() <a href="#m-getTransaction-4f1c72a828a1" id="m-getTransaction-4f1c72a828a1"></a>
 
 ```java
 public int getTransaction()
@@ -399,8 +372,7 @@ Return the current transaction handle.
 
 **Returns:** transaction handle
 
-<a id="m-gettransactionuseropaque-87a9bf7a20e1"></a>
-### getTransactionUserOpaque()
+### getTransactionUserOpaque() <a href="#m-getTransactionUserOpaque-87a9bf7a20e1" id="m-getTransactionUserOpaque-87a9bf7a20e1"></a>
 
 ```java
 public Object getTransactionUserOpaque()
@@ -414,8 +386,7 @@ Get method for User owned opaque data.
  used by the various DataProvider callbacks such as getElem()
  and setElem()
 
-<a id="m-getuserinfo-3ecef1f24d3d"></a>
-### getUserInfo()
+### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
@@ -425,15 +396,13 @@ Types: [DpUserInfo](DpUserInfo.md#cls-DpUserInfo)
 
 The user information.
 
-<a id="m-getworkersocket-ba1472e0f5a7"></a>
-### getWorkerSocket()
+### getWorkerSocket() <a href="#m-getWorkerSocket-ba1472e0f5a7" id="m-getWorkerSocket-ba1472e0f5a7"></a>
 
 ```java
 public java.net.Socket getWorkerSocket()
 ```
 
-<a id="m-honorfilter-5ff04bbbf2d0"></a>
-### honorFilter(boolean)
+### honorFilter(boolean) <a href="#m-honorFilter-5ff04bbbf2d0" id="m-honorFilter-5ff04bbbf2d0"></a>
 
 ```java
 public void honorFilter(boolean h)
@@ -449,8 +418,7 @@ Tell the server whether the currently requested filtering is being
 
 - `boolean h` - whether or not the filter is being honored
 
-<a id="m-ishideinactive-1d32c2838395"></a>
-### isHideInactive()
+### isHideInactive() <a href="#m-isHideInactive-1d32c2838395" id="m-isHideInactive-1d32c2838395"></a>
 
 ```java
 public boolean isHideInactive()
@@ -459,8 +427,7 @@ public boolean isHideInactive()
 hideInactive flag.
  Set to true if inactive element is not present.
 
-<a id="m-protoreply-e8de0386a2d0"></a>
-### protoReply(boolean)
+### protoReply(boolean) <a href="#m-protoReply-e8de0386a2d0" id="m-protoReply-e8de0386a2d0"></a>
 
 ```java
 protected void protoReply(boolean val) throws java.io.IOException
@@ -470,8 +437,7 @@ protected void protoReply(boolean val) throws java.io.IOException
 
 - `boolean val`
 
-<a id="m-protoreply-47f22a8227a5"></a>
-### protoReply(ConfEObject)
+### protoReply(ConfEObject) <a href="#m-protoReply-47f22a8227a5" id="m-protoReply-47f22a8227a5"></a>
 
 ```java
 protected void protoReply(com.tailf.proto.ConfEObject term) throws java.io.IOException
@@ -483,8 +449,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 - `com.tailf.proto.ConfEObject term`
 
-<a id="m-protoreply-3ecaf76eaab8"></a>
-### protoReply(ConfObject)
+### protoReply(ConfObject) <a href="#m-protoReply-3ecaf76eaab8" id="m-protoReply-3ecaf76eaab8"></a>
 
 ```java
 protected void protoReply(com.tailf.conf.ConfObject val) throws java.io.IOException
@@ -498,8 +463,7 @@ Send back a valid reply to ConfD/NCS.
 
 - `com.tailf.conf.ConfObject val`
 
-<a id="m-protoreply-cee1bb25672e"></a>
-### protoReply(ConfObject[])
+### protoReply(ConfObject[]) <a href="#m-protoReply-cee1bb25672e" id="m-protoReply-cee1bb25672e"></a>
 
 ```java
 protected void protoReply(com.tailf.conf.ConfObject[] vals) throws java.io.IOException
@@ -511,8 +475,7 @@ Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject)
 
 - `com.tailf.conf.ConfObject[] vals`
 
-<a id="m-protoreplyxmlparam-9dcf8f14a8dc"></a>
-### protoReplyXMLParam(ConfXMLParam[])
+### protoReplyXMLParam(ConfXMLParam[]) <a href="#m-protoReplyXMLParam-9dcf8f14a8dc" id="m-protoReplyXMLParam-9dcf8f14a8dc"></a>
 
 ```java
 protected void protoReplyXMLParam(com.tailf.conf.ConfXMLParam[] params) throws java.io.IOException
@@ -524,8 +487,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="m-replyerror-3184cd2ad634"></a>
-### replyError(ConfEObject)
+### replyError(ConfEObject) <a href="#m-replyError-3184cd2ad634" id="m-replyError-3184cd2ad634"></a>
 
 ```java
 protected void replyError(com.tailf.proto.ConfEObject errEObj) throws java.io.IOException
@@ -537,8 +499,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 - `com.tailf.proto.ConfEObject errEObj`
 
-<a id="m-replyerror-48c78d28e991"></a>
-### replyError(String)
+### replyError(String) <a href="#m-replyError-48c78d28e991" id="m-replyError-48c78d28e991"></a>
 
 ```java
 protected void replyError(String errStr) throws java.io.IOException
@@ -548,8 +509,7 @@ protected void replyError(String errStr) throws java.io.IOException
 
 - `String errStr`
 
-<a id="m-replyerror-c4e21f52074d"></a>
-### replyError(String, Throwable)
+### replyError(String, Throwable) <a href="#m-replyError-c4e21f52074d" id="m-replyError-c4e21f52074d"></a>
 
 ```java
 protected void replyError(String errStr, Throwable e) throws java.io.IOException
@@ -560,8 +520,7 @@ protected void replyError(String errStr, Throwable e) throws java.io.IOException
 - `String errStr`
 - `Throwable e`
 
-<a id="m-replyerror-26f4ce830453"></a>
-### replyError(Throwable)
+### replyError(Throwable) <a href="#m-replyError-26f4ce830453" id="m-replyError-26f4ce830453"></a>
 
 ```java
 protected void replyError(Throwable e) throws java.io.IOException
@@ -573,8 +532,7 @@ Send back an error to ConfD/NCS.
 
 - `Throwable e`
 
-<a id="m-replyextendederror-b54351b1555f"></a>
-### replyExtendedError(String, DpCallbackExtendedException)
+### replyExtendedError(String, DpCallbackExtendedException) <a href="#m-replyExtendedError-b54351b1555f" id="m-replyExtendedError-b54351b1555f"></a>
 
 ```java
 protected void replyExtendedError(
@@ -591,8 +549,7 @@ Types: [DpCallbackExtendedException](DpCallbackExtendedException.md#cls-DpCallba
 - `String errStr`
 - `com.tailf.dp.DpCallbackExtendedException e`
 
-<a id="m-replyother-c2352ec6bb73"></a>
-### replyOther(boolean, String, String)
+### replyOther(boolean, String, String) <a href="#m-replyOther-c2352ec6bb73" id="m-replyOther-c2352ec6bb73"></a>
 
 ```java
 protected void replyOther(boolean retstr, String atom, String errStr) throws java.io.IOException
@@ -604,8 +561,7 @@ protected void replyOther(boolean retstr, String atom, String errStr) throws jav
 - `String atom`
 - `String errStr`
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
@@ -613,8 +569,7 @@ public void run()
 
 Runs the thread.
 
-<a id="m-setsocket-183068848e4c"></a>
-### setSocket(Socket)
+### setSocket(Socket) <a href="#m-setSocket-183068848e4c" id="m-setSocket-183068848e4c"></a>
 
 ```java
 public void setSocket(java.net.Socket sock)
@@ -633,8 +588,7 @@ A possibility to give a specified worker socket
 
 - `java.net.Socket sock` - A socket connected to ConfD/NCS.
 
-<a id="m-settransactionuseropaque-ce392ad59d2e"></a>
-### setTransactionUserOpaque(Object)
+### setTransactionUserOpaque(Object) <a href="#m-setTransactionUserOpaque-ce392ad59d2e" id="m-setTransactionUserOpaque-ce392ad59d2e"></a>
 
 ```java
 public void setTransactionUserOpaque(Object opaque)
@@ -652,8 +606,7 @@ Set method for User owned opaque data.
 
 - `Object opaque`
 
-<a id="m-transreplyok-92425e2f5c67"></a>
-### transReplyOK()
+### transReplyOK() <a href="#m-transReplyOK-92425e2f5c67" id="m-transReplyOK-92425e2f5c67"></a>
 
 ```java
 protected void transReplyOK() throws java.io.IOException, com.tailf.dp.DpException

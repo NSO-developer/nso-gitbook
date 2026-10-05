@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeKeyPath"></a>
-# ResultTypeKeyPath
+# ResultTypeKeyPath <a href="#cls-ResultTypeKeyPath" id="cls-ResultTypeKeyPath"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeKeyPath
@@ -39,12 +38,11 @@ XPath Result in keypath format.
 
 **Methods**:
 
-- [keyPath()](#m-keypath-df48f9bfdabb)
+- [keyPath()](#m-keyPath-df48f9bfdabb)
 
 ## Methods
 
-<a id="m-keypath-df48f9bfdabb"></a>
-### keyPath()
+### keyPath() <a href="#m-keyPath-df48f9bfdabb" id="m-keyPath-df48f9bfdabb"></a>
 
 ```java
 public abstract com.tailf.conf.ConfObject[] keyPath()

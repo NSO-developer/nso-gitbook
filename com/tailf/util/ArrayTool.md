@@ -1,5 +1,4 @@
-<a id="cls-ArrayTool"></a>
-# ArrayTool
+# ArrayTool <a href="#cls-ArrayTool" id="cls-ArrayTool"></a>
 
 ```java
 public class com.tailf.util.ArrayTool
@@ -11,14 +10,13 @@ Tools for array manipulation.
 
 **Methods**:
 
-- [concatArrays(Object[], Object)](#m-concatarrays-f32733fb7851)
-- [concatArrays(Object[], Object[])](#m-concatarrays-d5889ad0c069)
-- [copyOfRange(T[], int, int)](#m-copyofrange-69de5e44fd9f)
+- [concatArrays(Object[], Object)](#m-concatArrays-f32733fb7851)
+- [concatArrays(Object[], Object[])](#m-concatArrays-d5889ad0c069)
+- [copyOfRange(T[], int, int)](#m-copyOfRange-69de5e44fd9f)
 
 ## Methods
 
-<a id="m-concatarrays-f32733fb7851"></a>
-### concatArrays(Object[], Object)
+### concatArrays(Object[], Object) <a href="#m-concatArrays-f32733fb7851" id="m-concatArrays-f32733fb7851"></a>
 
 ```java
 public static Object[] concatArrays(Object[] a, Object o)
@@ -33,8 +31,7 @@ Appends an object to the end of an array, creating a new array.
 
 **Returns:** new array with the object appended
 
-<a id="m-concatarrays-d5889ad0c069"></a>
-### concatArrays(Object[], Object[])
+### concatArrays(Object[], Object[]) <a href="#m-concatArrays-d5889ad0c069" id="m-concatArrays-d5889ad0c069"></a>
 
 ```java
 public static Object[] concatArrays(Object[] a, Object[] b)
@@ -49,8 +46,7 @@ Concatenates two arrays into a new array.
 
 **Returns:** new array containing elements from both arrays
 
-<a id="m-copyofrange-69de5e44fd9f"></a>
-### copyOfRange(T[], int, int)
+### copyOfRange(T[], int, int) <a href="#m-copyOfRange-69de5e44fd9f" id="m-copyOfRange-69de5e44fd9f"></a>
 
 ```java
 public static <T> T[] copyOfRange(T[] original, int from, int to)

@@ -1,5 +1,4 @@
-<a id="cls-ConfEException"></a>
-# ConfEException
+# ConfEException <a href="#cls-ConfEException" id="cls-ConfEException"></a>
 
 ```java
 public abstract class com.tailf.proto.ConfEException
@@ -17,14 +16,13 @@ Base class for the other Conf E exception classes.
 
 **Constructors**:
 
-- [ConfEException(String)](#m-confeexception-c640f41f4223)
-- [ConfEException(String, Throwable)](#m-confeexception-db09789b919c)
-- [ConfEException(Throwable)](#m-confeexception-e03f5666b3e4)
+- [ConfEException(String)](#m-ConfEException-c640f41f4223)
+- [ConfEException(String, Throwable)](#m-ConfEException-db09789b919c)
+- [ConfEException(Throwable)](#m-ConfEException-e03f5666b3e4)
 
 ## Constructors
 
-<a id="m-confeexception-c640f41f4223"></a>
-### ConfEException(String)
+### ConfEException(String) <a href="#m-ConfEException-c640f41f4223" id="m-ConfEException-c640f41f4223"></a>
 
 ```java
 public ConfEException(String msg)
@@ -34,8 +32,7 @@ public ConfEException(String msg)
 
 - `String msg`
 
-<a id="m-confeexception-db09789b919c"></a>
-### ConfEException(String, Throwable)
+### ConfEException(String, Throwable) <a href="#m-ConfEException-db09789b919c" id="m-ConfEException-db09789b919c"></a>
 
 ```java
 public ConfEException(String msg, Throwable cause)
@@ -48,8 +45,7 @@ Provides a detailed message.
 - `String msg`
 - `Throwable cause`
 
-<a id="m-confeexception-e03f5666b3e4"></a>
-### ConfEException(Throwable)
+### ConfEException(Throwable) <a href="#m-ConfEException-e03f5666b3e4" id="m-ConfEException-e03f5666b3e4"></a>
 
 ```java
 public ConfEException(Throwable cause)

@@ -1,5 +1,4 @@
-<a id="cls-CSNodeType"></a>
-# CSNodeType
+# CSNodeType <a href="#cls-CSNodeType" id="cls-CSNodeType"></a>
 
 ```java
 public static enum com.tailf.maapi.MaapiSchemas.CSNodeType
@@ -42,189 +41,163 @@ Enum containing all possible node values for a node type.
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CS_NODE_HAS_CHILD_ACTION"></a>
-### CS_NODE_HAS_CHILD_ACTION
+### CS_NODE_HAS_CHILD_ACTION <a href="#m-CS_NODE_HAS_CHILD_ACTION" id="m-CS_NODE_HAS_CHILD_ACTION"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_ACTION;
 ```
 
-<a id="m-CS_NODE_HAS_CHILD_CONF_ACTION"></a>
-### CS_NODE_HAS_CHILD_CONF_ACTION
+### CS_NODE_HAS_CHILD_CONF_ACTION <a href="#m-CS_NODE_HAS_CHILD_CONF_ACTION" id="m-CS_NODE_HAS_CHILD_CONF_ACTION"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_CONF_ACTION;
 ```
 
-<a id="m-CS_NODE_HAS_CHILD_OPER_ACTION"></a>
-### CS_NODE_HAS_CHILD_OPER_ACTION
+### CS_NODE_HAS_CHILD_OPER_ACTION <a href="#m-CS_NODE_HAS_CHILD_OPER_ACTION" id="m-CS_NODE_HAS_CHILD_OPER_ACTION"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_OPER_ACTION;
 ```
 
-<a id="m-CS_NODE_HAS_CHILD_READ_ONLY"></a>
-### CS_NODE_HAS_CHILD_READ_ONLY
+### CS_NODE_HAS_CHILD_READ_ONLY <a href="#m-CS_NODE_HAS_CHILD_READ_ONLY" id="m-CS_NODE_HAS_CHILD_READ_ONLY"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_READ_ONLY;
 ```
 
-<a id="m-CS_NODE_HAS_CHILD_READ_WRITE"></a>
-### CS_NODE_HAS_CHILD_READ_WRITE
+### CS_NODE_HAS_CHILD_READ_WRITE <a href="#m-CS_NODE_HAS_CHILD_READ_WRITE" id="m-CS_NODE_HAS_CHILD_READ_WRITE"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_CHILD_READ_WRITE;
 ```
 
-<a id="m-CS_NODE_HAS_DISPLAY_WHEN"></a>
-### CS_NODE_HAS_DISPLAY_WHEN
+### CS_NODE_HAS_DISPLAY_WHEN <a href="#m-CS_NODE_HAS_DISPLAY_WHEN" id="m-CS_NODE_HAS_DISPLAY_WHEN"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_DISPLAY_WHEN;
 ```
 
-<a id="m-CS_NODE_HAS_DOC_DESCRIPTION"></a>
-### CS_NODE_HAS_DOC_DESCRIPTION
+### CS_NODE_HAS_DOC_DESCRIPTION <a href="#m-CS_NODE_HAS_DOC_DESCRIPTION" id="m-CS_NODE_HAS_DOC_DESCRIPTION"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_DOC_DESCRIPTION;
 ```
 
-<a id="m-CS_NODE_HAS_MOUNT_POINT"></a>
-### CS_NODE_HAS_MOUNT_POINT
+### CS_NODE_HAS_MOUNT_POINT <a href="#m-CS_NODE_HAS_MOUNT_POINT" id="m-CS_NODE_HAS_MOUNT_POINT"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_MOUNT_POINT;
 ```
 
-<a id="m-CS_NODE_HAS_PROMPT"></a>
-### CS_NODE_HAS_PROMPT
+### CS_NODE_HAS_PROMPT <a href="#m-CS_NODE_HAS_PROMPT" id="m-CS_NODE_HAS_PROMPT"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_PROMPT;
 ```
 
-<a id="m-CS_NODE_HAS_SERVICEPOINT"></a>
-### CS_NODE_HAS_SERVICEPOINT
+### CS_NODE_HAS_SERVICEPOINT <a href="#m-CS_NODE_HAS_SERVICEPOINT" id="m-CS_NODE_HAS_SERVICEPOINT"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_SERVICEPOINT;
 ```
 
-<a id="m-CS_NODE_HAS_WHEN"></a>
-### CS_NODE_HAS_WHEN
+### CS_NODE_HAS_WHEN <a href="#m-CS_NODE_HAS_WHEN" id="m-CS_NODE_HAS_WHEN"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_HAS_WHEN;
 ```
 
-<a id="m-CS_NODE_IS_ACTION"></a>
-### CS_NODE_IS_ACTION
+### CS_NODE_IS_ACTION <a href="#m-CS_NODE_IS_ACTION" id="m-CS_NODE_IS_ACTION"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_ACTION;
 ```
 
-<a id="m-CS_NODE_IS_CASE"></a>
-### CS_NODE_IS_CASE
+### CS_NODE_IS_CASE <a href="#m-CS_NODE_IS_CASE" id="m-CS_NODE_IS_CASE"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CASE;
 ```
 
-<a id="m-CS_NODE_IS_CDB"></a>
-### CS_NODE_IS_CDB
+### CS_NODE_IS_CDB <a href="#m-CS_NODE_IS_CDB" id="m-CS_NODE_IS_CDB"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CDB;
 ```
 
-<a id="m-CS_NODE_IS_CONTAINER"></a>
-### CS_NODE_IS_CONTAINER
+### CS_NODE_IS_CONTAINER <a href="#m-CS_NODE_IS_CONTAINER" id="m-CS_NODE_IS_CONTAINER"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_CONTAINER;
 ```
 
-<a id="m-CS_NODE_IS_HIDDEN"></a>
-### CS_NODE_IS_HIDDEN
+### CS_NODE_IS_HIDDEN <a href="#m-CS_NODE_IS_HIDDEN" id="m-CS_NODE_IS_HIDDEN"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_HIDDEN;
 ```
 
-<a id="m-CS_NODE_IS_LEAF_LIST"></a>
-### CS_NODE_IS_LEAF_LIST
+### CS_NODE_IS_LEAF_LIST <a href="#m-CS_NODE_IS_LEAF_LIST" id="m-CS_NODE_IS_LEAF_LIST"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LEAF_LIST;
 ```
 
-<a id="m-CS_NODE_IS_LEAFREF"></a>
-### CS_NODE_IS_LEAFREF
+### CS_NODE_IS_LEAFREF <a href="#m-CS_NODE_IS_LEAFREF" id="m-CS_NODE_IS_LEAFREF"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LEAFREF;
 ```
 
-<a id="m-CS_NODE_IS_LIST"></a>
-### CS_NODE_IS_LIST
+### CS_NODE_IS_LIST <a href="#m-CS_NODE_IS_LIST" id="m-CS_NODE_IS_LIST"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_LIST;
 ```
 
-<a id="m-CS_NODE_IS_NOTIF"></a>
-### CS_NODE_IS_NOTIF
+### CS_NODE_IS_NOTIF <a href="#m-CS_NODE_IS_NOTIF" id="m-CS_NODE_IS_NOTIF"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_NOTIF;
 ```
 
-<a id="m-CS_NODE_IS_PARAM"></a>
-### CS_NODE_IS_PARAM
+### CS_NODE_IS_PARAM <a href="#m-CS_NODE_IS_PARAM" id="m-CS_NODE_IS_PARAM"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_PARAM;
 ```
 
-<a id="m-CS_NODE_IS_RESULT"></a>
-### CS_NODE_IS_RESULT
+### CS_NODE_IS_RESULT <a href="#m-CS_NODE_IS_RESULT" id="m-CS_NODE_IS_RESULT"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_RESULT;
 ```
 
-<a id="m-CS_NODE_IS_STRING_AS_BINARY"></a>
-### CS_NODE_IS_STRING_AS_BINARY
+### CS_NODE_IS_STRING_AS_BINARY <a href="#m-CS_NODE_IS_STRING_AS_BINARY" id="m-CS_NODE_IS_STRING_AS_BINARY"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_STRING_AS_BINARY;
 ```
 
-<a id="m-CS_NODE_IS_WRITE"></a>
-### CS_NODE_IS_WRITE
+### CS_NODE_IS_WRITE <a href="#m-CS_NODE_IS_WRITE" id="m-CS_NODE_IS_WRITE"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_WRITE;
 ```
 
-<a id="m-CS_NODE_IS_WRITE_ALL"></a>
-### CS_NODE_IS_WRITE_ALL
+### CS_NODE_IS_WRITE_ALL <a href="#m-CS_NODE_IS_WRITE_ALL" id="m-CS_NODE_IS_WRITE_ALL"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_IS_WRITE_ALL;
 ```
 
-<a id="m-CS_NODE_META_DATA"></a>
-### CS_NODE_META_DATA
+### CS_NODE_META_DATA <a href="#m-CS_NODE_META_DATA" id="m-CS_NODE_META_DATA"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_META_DATA;
@@ -233,8 +206,7 @@ public static final com.tailf.maapi.MaapiSchemas.CSNodeType CS_NODE_META_DATA;
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -242,8 +214,7 @@ public int getValue()
 
 **Returns:** the integer value of the enum.
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MaapiSchemas.CSNodeType valueOf(String name)
@@ -255,8 +226,7 @@ Types: [CSNodeType](CSNodeType.md#cls-CSNodeType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MaapiSchemas.CSNodeType[] values()

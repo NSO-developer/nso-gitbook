@@ -1,5 +1,4 @@
-<a id="cls-ListFilterExprOp"></a>
-# ListFilterExprOp
+# ListFilterExprOp <a href="#cls-ListFilterExprOp" id="cls-ListFilterExprOp"></a>
 
 ```java
 public enum com.tailf.dp.ListFilterExprOp
@@ -31,14 +30,13 @@ The type of comparison or function to employ when the filter type is
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CONFD_CMP_EQ"></a>
-### CONFD_CMP_EQ
+### CONFD_CMP_EQ <a href="#m-CONFD_CMP_EQ" id="m-CONFD_CMP_EQ"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_EQ;
@@ -46,8 +44,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_EQ;
 
 Equality
 
-<a id="m-CONFD_CMP_GT"></a>
-### CONFD_CMP_GT
+### CONFD_CMP_GT <a href="#m-CONFD_CMP_GT" id="m-CONFD_CMP_GT"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_GT;
@@ -55,8 +52,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_GT;
 
 Greater than
 
-<a id="m-CONFD_CMP_GTE"></a>
-### CONFD_CMP_GTE
+### CONFD_CMP_GTE <a href="#m-CONFD_CMP_GTE" id="m-CONFD_CMP_GTE"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_GTE;
@@ -64,8 +60,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_GTE;
 
 Greater than or equal
 
-<a id="m-CONFD_CMP_LT"></a>
-### CONFD_CMP_LT
+### CONFD_CMP_LT <a href="#m-CONFD_CMP_LT" id="m-CONFD_CMP_LT"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_LT;
@@ -73,8 +68,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_LT;
 
 Less than
 
-<a id="m-CONFD_CMP_LTE"></a>
-### CONFD_CMP_LTE
+### CONFD_CMP_LTE <a href="#m-CONFD_CMP_LTE" id="m-CONFD_CMP_LTE"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_LTE;
@@ -82,8 +76,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_LTE;
 
 Less than or equal
 
-<a id="m-CONFD_CMP_NEQ"></a>
-### CONFD_CMP_NEQ
+### CONFD_CMP_NEQ <a href="#m-CONFD_CMP_NEQ" id="m-CONFD_CMP_NEQ"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_NEQ;
@@ -91,8 +84,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_NEQ;
 
 Inequality
 
-<a id="m-CONFD_CMP_NOP"></a>
-### CONFD_CMP_NOP
+### CONFD_CMP_NOP <a href="#m-CONFD_CMP_NOP" id="m-CONFD_CMP_NOP"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_NOP;
@@ -100,8 +92,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_CMP_NOP;
 
 No operation.
 
-<a id="m-CONFD_EXEC_COMPARE"></a>
-### CONFD_EXEC_COMPARE
+### CONFD_EXEC_COMPARE <a href="#m-CONFD_EXEC_COMPARE" id="m-CONFD_EXEC_COMPARE"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_COMPARE;
@@ -109,8 +100,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_COMPARE;
 
 compare function
 
-<a id="m-CONFD_EXEC_CONTAINS"></a>
-### CONFD_EXEC_CONTAINS
+### CONFD_EXEC_CONTAINS <a href="#m-CONFD_EXEC_CONTAINS" id="m-CONFD_EXEC_CONTAINS"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_CONTAINS;
@@ -118,8 +108,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_CONTAINS;
 
 contains function
 
-<a id="m-CONFD_EXEC_DERIVED_FROM"></a>
-### CONFD_EXEC_DERIVED_FROM
+### CONFD_EXEC_DERIVED_FROM <a href="#m-CONFD_EXEC_DERIVED_FROM" id="m-CONFD_EXEC_DERIVED_FROM"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_DERIVED_FROM;
@@ -127,8 +116,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_DERIVED_FROM;
 
 derived-from function
 
-<a id="m-CONFD_EXEC_DERIVED_FROM_OR_SELF"></a>
-### CONFD_EXEC_DERIVED_FROM_OR_SELF
+### CONFD_EXEC_DERIVED_FROM_OR_SELF <a href="#m-CONFD_EXEC_DERIVED_FROM_OR_SELF" id="m-CONFD_EXEC_DERIVED_FROM_OR_SELF"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_DERIVED_FROM_OR_SELF;
@@ -136,8 +124,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_DERIVED_FROM_OR_SEL
 
 derived-from-or-self function
 
-<a id="m-CONFD_EXEC_RE_MATCH"></a>
-### CONFD_EXEC_RE_MATCH
+### CONFD_EXEC_RE_MATCH <a href="#m-CONFD_EXEC_RE_MATCH" id="m-CONFD_EXEC_RE_MATCH"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_RE_MATCH;
@@ -145,8 +132,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_RE_MATCH;
 
 re-match function
 
-<a id="m-CONFD_EXEC_STARTS_WITH"></a>
-### CONFD_EXEC_STARTS_WITH
+### CONFD_EXEC_STARTS_WITH <a href="#m-CONFD_EXEC_STARTS_WITH" id="m-CONFD_EXEC_STARTS_WITH"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_STARTS_WITH;
@@ -154,8 +140,7 @@ public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_STARTS_WITH;
 
 starts-with function
 
-<a id="m-CONFD_EXEC_STRING_COMPARE"></a>
-### CONFD_EXEC_STRING_COMPARE
+### CONFD_EXEC_STRING_COMPARE <a href="#m-CONFD_EXEC_STRING_COMPARE" id="m-CONFD_EXEC_STRING_COMPARE"></a>
 
 ```java
 public static final com.tailf.dp.ListFilterExprOp CONFD_EXEC_STRING_COMPARE;
@@ -166,8 +151,7 @@ string-compare function
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -177,8 +161,7 @@ Get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.ListFilterExprOp valueOf(String name)
@@ -190,8 +173,7 @@ Types: [ListFilterExprOp](ListFilterExprOp.md#cls-ListFilterExprOp)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.ListFilterExprOp[] values()

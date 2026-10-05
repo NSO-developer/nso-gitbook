@@ -1,5 +1,4 @@
-<a id="cls-ConfEDouble"></a>
-# ConfEDouble
+# ConfEDouble <a href="#cls-ConfEDouble" id="cls-ConfEDouble"></a>
 
 ```java
 public class com.tailf.proto.ConfEDouble
@@ -21,8 +20,8 @@ Provides a Java representation of E floats and doubles. E defines only one
 
 **Constructors**:
 
-- [ConfEDouble(ConfInputStream)](#m-confedouble-5d29c11b7f1f)
-- [ConfEDouble(double)](#m-confedouble-2d502f9ddc23)
+- [ConfEDouble(ConfInputStream)](#m-ConfEDouble-5d29c11b7f1f)
+- [ConfEDouble(double)](#m-ConfEDouble-2d502f9ddc23)
 
 **Fields**:
 
@@ -32,17 +31,16 @@ Provides a Java representation of E floats and doubles. E defines only one
 
 - [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
-- [doubleValue()](#m-doublevalue-aea67f67de5a)
+- [doubleValue()](#m-doubleValue-aea67f67de5a)
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [floatValue()](#m-floatvalue-6e7c2cd63bb9)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [floatValue()](#m-floatValue-6e7c2cd63bb9)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confedouble-5d29c11b7f1f"></a>
-### ConfEDouble(ConfInputStream)
+### ConfEDouble(ConfInputStream) <a href="#m-ConfEDouble-5d29c11b7f1f" id="m-ConfEDouble-5d29c11b7f1f"></a>
 
 ```java
 public ConfEDouble(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -62,8 +60,7 @@ Create an E float from a stream containing a double encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E float.
 
-<a id="m-confedouble-2d502f9ddc23"></a>
-### ConfEDouble(double)
+### ConfEDouble(double) <a href="#m-ConfEDouble-2d502f9ddc23" id="m-ConfEDouble-2d502f9ddc23"></a>
 
 ```java
 public ConfEDouble(double d)
@@ -78,8 +75,7 @@ Create an E float from the given double value.
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -90,8 +86,7 @@ static final long serialVersionUID = 132947104811974021;
 
 ## Methods
 
-<a id="m-doublevalue-aea67f67de5a"></a>
-### doubleValue()
+### doubleValue() <a href="#m-doubleValue-aea67f67de5a" id="m-doubleValue-aea67f67de5a"></a>
 
 ```java
 public double doubleValue()
@@ -101,8 +96,7 @@ Get the value, as a double.
 
 **Returns:** the value of this object, as a double.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -116,8 +110,7 @@ Convert this double to the equivalent E external representation.
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded value should be written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -132,8 +125,7 @@ Determine if two floats are equal. Floats are equal if they contain the
 
 **Returns:** true if the floats have the same value.
 
-<a id="m-floatvalue-6e7c2cd63bb9"></a>
-### floatValue()
+### floatValue() <a href="#m-floatValue-6e7c2cd63bb9" id="m-floatValue-6e7c2cd63bb9"></a>
 
 ```java
 public float floatValue() throws com.tailf.proto.ConfERangeException
@@ -149,15 +141,13 @@ Get the value, as a float.
 
 - `ConfERangeException` - if the value cannot be represented as a float.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

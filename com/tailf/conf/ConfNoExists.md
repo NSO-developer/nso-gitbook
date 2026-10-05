@@ -1,5 +1,4 @@
-<a id="cls-ConfNoExists"></a>
-# ConfNoExists
+# ConfNoExists <a href="#cls-ConfNoExists" id="cls-ConfNoExists"></a>
 
 ```java
 public class com.tailf.conf.ConfNoExists
@@ -16,7 +15,7 @@ Class representing value of type J_NOEXISTS. Normally not instantiated by
 
 **Constructors**:
 
-- [ConfNoExists()](#m-confnoexists-fb66efaec78a)
+- [ConfNoExists()](#m-ConfNoExists-fb66efaec78a)
 
 **Fields**:
 
@@ -74,23 +73,22 @@ Class representing value of type J_NOEXISTS. Normally not instantiated by
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfNoExists)](#m-compareto-500d3c450d1c)
+- [compareTo(ConfNoExists)](#m-compareTo-500d3c450d1c)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confnoexists-fb66efaec78a"></a>
-### ConfNoExists()
+### ConfNoExists() <a href="#m-ConfNoExists-fb66efaec78a" id="m-ConfNoExists-fb66efaec78a"></a>
 
 ```java
 public ConfNoExists()
@@ -99,8 +97,7 @@ public ConfNoExists()
 
 ## Methods
 
-<a id="m-compareto-500d3c450d1c"></a>
-### compareTo(ConfNoExists)
+### compareTo(ConfNoExists) <a href="#m-compareTo-500d3c450d1c" id="m-compareTo-500d3c450d1c"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfNoExists o)
@@ -112,8 +109,7 @@ Types: [ConfNoExists](ConfNoExists.md#cls-ConfNoExists)
 
 - `com.tailf.conf.ConfNoExists o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -121,8 +117,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -132,15 +127,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

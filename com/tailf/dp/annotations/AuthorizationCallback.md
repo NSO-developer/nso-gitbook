@@ -1,5 +1,4 @@
-<a id="cls-AuthorizationCallback"></a>
-# AuthorizationCallback
+# AuthorizationCallback <a href="#cls-AuthorizationCallback" id="cls-AuthorizationCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -13,12 +12,11 @@ Annotation class for Authorization Callbacks Attribute are callType
 
 **Methods**:
 
-- [callType()](#m-calltype-0d0f9b61a036)
+- [callType()](#m-callType-0d0f9b61a036)
 
 ## Methods
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.dp.proto.AuthorizationCBType[] callType()

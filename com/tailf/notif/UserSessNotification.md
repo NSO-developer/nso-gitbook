@@ -1,5 +1,4 @@
-<a id="cls-UserSessNotification"></a>
-# UserSessNotification
+# UserSessNotification <a href="#cls-UserSessNotification" id="cls-UserSessNotification"></a>
 
 ```java
 public class com.tailf.notif.UserSessNotification
@@ -14,7 +13,7 @@ Data structure for user session start/stop notifications.
 
 **Constructors**:
 
-- [UserSessNotification(int, DpUserInfo, int)](#m-usersessnotification-4c5eb009d958)
+- [UserSessNotification(int, DpUserInfo, int)](#m-UserSessNotification-4c5eb009d958)
 
 **Fields**:
 
@@ -28,16 +27,15 @@ Data structure for user session start/stop notifications.
 
 **Methods**:
 
-- [getDatabase()](#m-getdatabase-3c5eb5bcb258)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
-- [getUserSessionType()](#m-getusersessiontype-8e4f1d95b050)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getDatabase()](#m-getDatabase-3c5eb5bcb258)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [getUserSessionType()](#m-getUserSessionType-8e4f1d95b050)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-usersessnotification-4c5eb009d958"></a>
-### UserSessNotification(int, DpUserInfo, int)
+### UserSessNotification(int, DpUserInfo, int) <a href="#m-UserSessNotification-4c5eb009d958" id="m-UserSessNotification-4c5eb009d958"></a>
 
 ```java
 public UserSessNotification(int userSessType, com.tailf.dp.DpUserInfo uinfo, int database)
@@ -54,43 +52,37 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 ## Fields
 
-<a id="m-USER_SESS_LOCK"></a>
-### USER_SESS_LOCK
+### USER_SESS_LOCK <a href="#m-USER_SESS_LOCK" id="m-USER_SESS_LOCK"></a>
 
 ```java
 public static final int USER_SESS_LOCK = 3;
 ```
 
-<a id="m-USER_SESS_START"></a>
-### USER_SESS_START
+### USER_SESS_START <a href="#m-USER_SESS_START" id="m-USER_SESS_START"></a>
 
 ```java
 public static final int USER_SESS_START = 1;
 ```
 
-<a id="m-USER_SESS_START_TRANS"></a>
-### USER_SESS_START_TRANS
+### USER_SESS_START_TRANS <a href="#m-USER_SESS_START_TRANS" id="m-USER_SESS_START_TRANS"></a>
 
 ```java
 public static final int USER_SESS_START_TRANS = 5;
 ```
 
-<a id="m-USER_SESS_STOP"></a>
-### USER_SESS_STOP
+### USER_SESS_STOP <a href="#m-USER_SESS_STOP" id="m-USER_SESS_STOP"></a>
 
 ```java
 public static final int USER_SESS_STOP = 2;
 ```
 
-<a id="m-USER_SESS_STOP_TRANS"></a>
-### USER_SESS_STOP_TRANS
+### USER_SESS_STOP_TRANS <a href="#m-USER_SESS_STOP_TRANS" id="m-USER_SESS_STOP_TRANS"></a>
 
 ```java
 public static final int USER_SESS_STOP_TRANS = 6;
 ```
 
-<a id="m-USER_SESS_UNLOCK"></a>
-### USER_SESS_UNLOCK
+### USER_SESS_UNLOCK <a href="#m-USER_SESS_UNLOCK" id="m-USER_SESS_UNLOCK"></a>
 
 ```java
 public static final int USER_SESS_UNLOCK = 4;
@@ -99,8 +91,7 @@ public static final int USER_SESS_UNLOCK = 4;
 
 ## Methods
 
-<a id="m-getdatabase-3c5eb5bcb258"></a>
-### getDatabase()
+### getDatabase() <a href="#m-getDatabase-3c5eb5bcb258" id="m-getDatabase-3c5eb5bcb258"></a>
 
 ```java
 public int getDatabase()
@@ -114,8 +105,7 @@ Database type:
      - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
        - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
 
-<a id="m-getuserinfo-3ecef1f24d3d"></a>
-### getUserInfo()
+### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
@@ -125,8 +115,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 User information.
 
-<a id="m-getusersessiontype-8e4f1d95b050"></a>
-### getUserSessionType()
+### getUserSessionType() <a href="#m-getUserSessionType-8e4f1d95b050" id="m-getUserSessionType-8e4f1d95b050"></a>
 
 ```java
 public int getUserSessionType()
@@ -135,15 +124,14 @@ public int getUserSessionType()
 User session event type:
 
 
-- `#USER_SESS_START`
-   - `#USER_SESS_STOP`
-     - `#USER_SESS_LOCK`
-       - `#USER_SESS_UNLOCK`
-         - `#USER_SESS_START_TRANS`
-           - `#USER_SESS_STOP_TRANS`
+- [`USER_SESS_START`](UserSessNotification.md#m-USER_SESS_START)
+   - [`USER_SESS_STOP`](UserSessNotification.md#m-USER_SESS_STOP)
+     - [`USER_SESS_LOCK`](UserSessNotification.md#m-USER_SESS_LOCK)
+       - [`USER_SESS_UNLOCK`](UserSessNotification.md#m-USER_SESS_UNLOCK)
+         - [`USER_SESS_START_TRANS`](UserSessNotification.md#m-USER_SESS_START_TRANS)
+           - [`USER_SESS_STOP_TRANS`](UserSessNotification.md#m-USER_SESS_STOP_TRANS)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

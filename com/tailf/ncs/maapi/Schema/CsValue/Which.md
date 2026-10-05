@@ -1,5 +1,4 @@
-<a id="cls-Which"></a>
-# Which
+# Which <a href="#cls-Which" id="cls-Which"></a>
 
 ```java
 public static enum com.tailf.ncs.maapi.Schema.CsValue.Which
@@ -64,356 +63,306 @@ Types: [Which](Which.md#cls-Which)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-_NOT_IN_SCHEMA"></a>
-### _NOT_IN_SCHEMA
+### _NOT_IN_SCHEMA <a href="#m-_NOT_IN_SCHEMA" id="m-_NOT_IN_SCHEMA"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which _NOT_IN_SCHEMA;
 ```
 
-<a id="m-BINARY"></a>
-### BINARY
+### BINARY <a href="#m-BINARY" id="m-BINARY"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BINARY;
 ```
 
-<a id="m-BIT32"></a>
-### BIT32
+### BIT32 <a href="#m-BIT32" id="m-BIT32"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BIT32;
 ```
 
-<a id="m-BIT64"></a>
-### BIT64
+### BIT64 <a href="#m-BIT64" id="m-BIT64"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BIT64;
 ```
 
-<a id="m-BITBIG"></a>
-### BITBIG
+### BITBIG <a href="#m-BITBIG" id="m-BITBIG"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BITBIG;
 ```
 
-<a id="m-BOOL"></a>
-### BOOL
+### BOOL <a href="#m-BOOL" id="m-BOOL"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BOOL;
 ```
 
-<a id="m-BUF"></a>
-### BUF
+### BUF <a href="#m-BUF" id="m-BUF"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which BUF;
 ```
 
-<a id="m-CDB_BEGIN"></a>
-### CDB_BEGIN
+### CDB_BEGIN <a href="#m-CDB_BEGIN" id="m-CDB_BEGIN"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which CDB_BEGIN;
 ```
 
-<a id="m-DATE"></a>
-### DATE
+### DATE <a href="#m-DATE" id="m-DATE"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DATE;
 ```
 
-<a id="m-DATETIME"></a>
-### DATETIME
+### DATETIME <a href="#m-DATETIME" id="m-DATETIME"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DATETIME;
 ```
 
-<a id="m-DECIMAL64"></a>
-### DECIMAL64
+### DECIMAL64 <a href="#m-DECIMAL64" id="m-DECIMAL64"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DECIMAL64;
 ```
 
-<a id="m-DEFAULT"></a>
-### DEFAULT
+### DEFAULT <a href="#m-DEFAULT" id="m-DEFAULT"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DEFAULT;
 ```
 
-<a id="m-DOUBLE"></a>
-### DOUBLE
+### DOUBLE <a href="#m-DOUBLE" id="m-DOUBLE"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DOUBLE;
 ```
 
-<a id="m-DQUAD"></a>
-### DQUAD
+### DQUAD <a href="#m-DQUAD" id="m-DQUAD"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DQUAD;
 ```
 
-<a id="m-DURATION"></a>
-### DURATION
+### DURATION <a href="#m-DURATION" id="m-DURATION"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which DURATION;
 ```
 
-<a id="m-EMPTY"></a>
-### EMPTY
+### EMPTY <a href="#m-EMPTY" id="m-EMPTY"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which EMPTY;
 ```
 
-<a id="m-ENUM_VALUE"></a>
-### ENUM_VALUE
+### ENUM_VALUE <a href="#m-ENUM_VALUE" id="m-ENUM_VALUE"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which ENUM_VALUE;
 ```
 
-<a id="m-HEXSTR"></a>
-### HEXSTR
+### HEXSTR <a href="#m-HEXSTR" id="m-HEXSTR"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which HEXSTR;
 ```
 
-<a id="m-IDENTITYREF"></a>
-### IDENTITYREF
+### IDENTITYREF <a href="#m-IDENTITYREF" id="m-IDENTITYREF"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IDENTITYREF;
 ```
 
-<a id="m-INT16"></a>
-### INT16
+### INT16 <a href="#m-INT16" id="m-INT16"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which INT16;
 ```
 
-<a id="m-INT32"></a>
-### INT32
+### INT32 <a href="#m-INT32" id="m-INT32"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which INT32;
 ```
 
-<a id="m-INT64"></a>
-### INT64
+### INT64 <a href="#m-INT64" id="m-INT64"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which INT64;
 ```
 
-<a id="m-INT8"></a>
-### INT8
+### INT8 <a href="#m-INT8" id="m-INT8"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which INT8;
 ```
 
-<a id="m-IPV4"></a>
-### IPV4
+### IPV4 <a href="#m-IPV4" id="m-IPV4"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV4;
 ```
 
-<a id="m-IPV4_AND_PLEN"></a>
-### IPV4_AND_PLEN
+### IPV4_AND_PLEN <a href="#m-IPV4_AND_PLEN" id="m-IPV4_AND_PLEN"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV4_AND_PLEN;
 ```
 
-<a id="m-IPV4PREFIX"></a>
-### IPV4PREFIX
+### IPV4PREFIX <a href="#m-IPV4PREFIX" id="m-IPV4PREFIX"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV4PREFIX;
 ```
 
-<a id="m-IPV6"></a>
-### IPV6
+### IPV6 <a href="#m-IPV6" id="m-IPV6"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV6;
 ```
 
-<a id="m-IPV6_AND_PLEN"></a>
-### IPV6_AND_PLEN
+### IPV6_AND_PLEN <a href="#m-IPV6_AND_PLEN" id="m-IPV6_AND_PLEN"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV6_AND_PLEN;
 ```
 
-<a id="m-IPV6PREFIX"></a>
-### IPV6PREFIX
+### IPV6PREFIX <a href="#m-IPV6PREFIX" id="m-IPV6PREFIX"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which IPV6PREFIX;
 ```
 
-<a id="m-LIST"></a>
-### LIST
+### LIST <a href="#m-LIST" id="m-LIST"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which LIST;
 ```
 
-<a id="m-NOEXISTS"></a>
-### NOEXISTS
+### NOEXISTS <a href="#m-NOEXISTS" id="m-NOEXISTS"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which NOEXISTS;
 ```
 
-<a id="m-OBJECTREF"></a>
-### OBJECTREF
+### OBJECTREF <a href="#m-OBJECTREF" id="m-OBJECTREF"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which OBJECTREF;
 ```
 
-<a id="m-OID"></a>
-### OID
+### OID <a href="#m-OID" id="m-OID"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which OID;
 ```
 
-<a id="m-PTR"></a>
-### PTR
+### PTR <a href="#m-PTR" id="m-PTR"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which PTR;
 ```
 
-<a id="m-QNAME"></a>
-### QNAME
+### QNAME <a href="#m-QNAME" id="m-QNAME"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which QNAME;
 ```
 
-<a id="m-STR"></a>
-### STR
+### STR <a href="#m-STR" id="m-STR"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which STR;
 ```
 
-<a id="m-SYMBOL"></a>
-### SYMBOL
+### SYMBOL <a href="#m-SYMBOL" id="m-SYMBOL"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which SYMBOL;
 ```
 
-<a id="m-TIME"></a>
-### TIME
+### TIME <a href="#m-TIME" id="m-TIME"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which TIME;
 ```
 
-<a id="m-UINT16"></a>
-### UINT16
+### UINT16 <a href="#m-UINT16" id="m-UINT16"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UINT16;
 ```
 
-<a id="m-UINT32"></a>
-### UINT32
+### UINT32 <a href="#m-UINT32" id="m-UINT32"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UINT32;
 ```
 
-<a id="m-UINT64"></a>
-### UINT64
+### UINT64 <a href="#m-UINT64" id="m-UINT64"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UINT64;
 ```
 
-<a id="m-UINT8"></a>
-### UINT8
+### UINT8 <a href="#m-UINT8" id="m-UINT8"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UINT8;
 ```
 
-<a id="m-UNION"></a>
-### UNION
+### UNION <a href="#m-UNION" id="m-UNION"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UNION;
 ```
 
-<a id="m-UNKNOWN"></a>
-### UNKNOWN
+### UNKNOWN <a href="#m-UNKNOWN" id="m-UNKNOWN"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which UNKNOWN;
 ```
 
-<a id="m-XML_MOVE_END"></a>
-### XML_MOVE_END
+### XML_MOVE_END <a href="#m-XML_MOVE_END" id="m-XML_MOVE_END"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XML_MOVE_END;
 ```
 
-<a id="m-XML_MOVE_FIRST"></a>
-### XML_MOVE_FIRST
+### XML_MOVE_FIRST <a href="#m-XML_MOVE_FIRST" id="m-XML_MOVE_FIRST"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XML_MOVE_FIRST;
 ```
 
-<a id="m-XMLBEGIN"></a>
-### XMLBEGIN
+### XMLBEGIN <a href="#m-XMLBEGIN" id="m-XMLBEGIN"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XMLBEGIN;
 ```
 
-<a id="m-XMLBEGINDEL"></a>
-### XMLBEGINDEL
+### XMLBEGINDEL <a href="#m-XMLBEGINDEL" id="m-XMLBEGINDEL"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XMLBEGINDEL;
 ```
 
-<a id="m-XMLEND"></a>
-### XMLEND
+### XMLEND <a href="#m-XMLEND" id="m-XMLEND"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XMLEND;
 ```
 
-<a id="m-XMLTAG"></a>
-### XMLTAG
+### XMLTAG <a href="#m-XMLTAG" id="m-XMLTAG"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValue.Which XMLTAG;
@@ -422,8 +371,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValue.Which XMLTAG;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.CsValue.Which valueOf(String name)
@@ -435,8 +383,7 @@ Types: [Which](Which.md#cls-Which)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.CsValue.Which[] values()

@@ -1,5 +1,4 @@
-<a id="cls-ConfFindNextType"></a>
-# ConfFindNextType
+# ConfFindNextType <a href="#cls-ConfFindNextType" id="cls-ConfFindNextType"></a>
 
 ```java
 public enum com.tailf.conf.ConfFindNextType
@@ -19,15 +18,14 @@ Enum used in findNext calls to determine if the element extraction
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-FIND_NEXT"></a>
-### FIND_NEXT
+### FIND_NEXT <a href="#m-FIND_NEXT" id="m-FIND_NEXT"></a>
 
 ```java
 public static final com.tailf.conf.ConfFindNextType FIND_NEXT;
@@ -35,8 +33,7 @@ public static final com.tailf.conf.ConfFindNextType FIND_NEXT;
 
 Find should start after the indicated element
 
-<a id="m-FIND_SAME_OR_NEXT"></a>
-### FIND_SAME_OR_NEXT
+### FIND_SAME_OR_NEXT <a href="#m-FIND_SAME_OR_NEXT" id="m-FIND_SAME_OR_NEXT"></a>
 
 ```java
 public static final com.tailf.conf.ConfFindNextType FIND_SAME_OR_NEXT;
@@ -48,8 +45,7 @@ Find should start with indicated element or the
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -59,8 +55,7 @@ get the ordinal value for the enumeration
 
 **Returns:** ordinal value
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.ConfFindNextType valueOf(int i)
@@ -78,8 +73,7 @@ Static method that creates an enum from an integer
 
 **Returns:** ConfFindNextType enumeration
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.ConfFindNextType valueOf(String name)
@@ -91,8 +85,7 @@ Types: [ConfFindNextType](ConfFindNextType.md#cls-ConfFindNextType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.ConfFindNextType[] values()

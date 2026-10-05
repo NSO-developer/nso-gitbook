@@ -1,5 +1,4 @@
-<a id="cls-MmapSchemaFactory"></a>
-# MmapSchemaFactory
+# MmapSchemaFactory <a href="#cls-MmapSchemaFactory" id="cls-MmapSchemaFactory"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchemaFactory
@@ -12,41 +11,40 @@ Factory for constructing ConfValue (default and ranges) and Schema objects
 
 **Constructors**:
 
-- [MmapSchemaFactory(MmapSchema, SchemaLookup)](#m-mmapschemafactory-02496b09ceb8)
+- [MmapSchemaFactory(MmapSchema, SchemaLookup)](#m-MmapSchemaFactory-02496b09ceb8)
 
 **Methods**:
 
-- [findChild(MmapCSNode, CSMNsMap, int)](#m-findchild-59723d77ce04)
-- [findChild(MmapCSNode, int, int)](#m-findchild-f5cfc441caa5)
-- [getChildren(Level)](#m-getchildren-f609229c3d1b)
-- [getHashDb()](#m-gethashdb-e75daa0effae)
-- [getMnsMapDb()](#m-getmnsmapdb-908581232215)
-- [getMountPointDb()](#m-getmountpointdb-32131a12db04)
-- [getNsDb()](#m-getnsdb-3babeb353172)
-- [getRootLevel()](#m-getrootlevel-e49164e18650)
-- [lookupCSTypes(Reader<Reader>)](#m-lookupcstypes-60e79757ffda)
-- [makeCSChoice(CSNode, CSCase, Reader<Reader>)](#m-makecschoice-d388221a3673)
-- [makeCSNode(MmapCSNode, Child)](#m-makecsnode-0bd521678531)
-- [makeCSNode(MmapCSNode, int)](#m-makecsnode-8b300a95d544)
-- [makeCSNodeInfo(CSNode, CSSchema, Reader, int)](#m-makecsnodeinfo-931b4e653bae)
-- [makeCSRoot(int, int, CSSchema, List<CSNode>)](#m-makecsroot-e163411e6b2f)
-- [makeCSType(int, Reader)](#m-makecstype-a31b505d063e)
-- [makeCSTypeBits(Reader, CSType)](#m-makecstypebits-0c69839e71ad)
-- [makeCSTypeDecimal64(Reader, CSType)](#m-makecstypedecimal64-f6b0c5408f54)
-- [makeCSTypeDisplayHint(Reader, CSType)](#m-makecstypedisplayhint-3065ba550816)
-- [makeCSTypeEnum(Reader, CSType)](#m-makecstypeenum-056633384f04)
-- [makeCSTypeIdref(Reader, CSType)](#m-makecstypeidref-9d16e7b3d78b)
-- [makeCSTypeList(Reader, CSType)](#m-makecstypelist-fd7ca47b4fb9)
-- [makeCSTypeListRestriction(Reader, CSType)](#m-makecstypelistrestriction-0d4c8f9bd4be)
-- [makeCSTypeNumber(int, Reader, CSType)](#m-makecstypenumber-4035fabd7771)
-- [makeCSTypeRangeArray(Reader<Reader>)](#m-makecstyperangearray-f4c1155d4bc5)
-- [makeCSTypeString(Reader, CSType)](#m-makecstypestring-bf018492601d)
-- [makeCSTypeUnion(Reader, CSType)](#m-makecstypeunion-55d1543c92b9)
+- [findChild(MmapCSNode, CSMNsMap, int)](#m-findChild-59723d77ce04)
+- [findChild(MmapCSNode, int, int)](#m-findChild-f5cfc441caa5)
+- [getChildren(Level)](#m-getChildren-f609229c3d1b)
+- [getHashDb()](#m-getHashDb-e75daa0effae)
+- [getMnsMapDb()](#m-getMnsMapDb-908581232215)
+- [getMountPointDb()](#m-getMountPointDb-32131a12db04)
+- [getNsDb()](#m-getNsDb-3babeb353172)
+- [getRootLevel()](#m-getRootLevel-e49164e18650)
+- [lookupCSTypes(Reader<Reader>)](#m-lookupCSTypes-60e79757ffda)
+- [makeCSChoice(CSNode, CSCase, Reader<Reader>)](#m-makeCSChoice-d388221a3673)
+- [makeCSNode(MmapCSNode, Child)](#m-makeCSNode-0bd521678531)
+- [makeCSNode(MmapCSNode, int)](#m-makeCSNode-8b300a95d544)
+- [makeCSNodeInfo(CSNode, CSSchema, Reader, int)](#m-makeCSNodeInfo-931b4e653bae)
+- [makeCSRoot(int, int, CSSchema, List<CSNode>)](#m-makeCSRoot-e163411e6b2f)
+- [makeCSType(int, Reader)](#m-makeCSType-a31b505d063e)
+- [makeCSTypeBits(Reader, CSType)](#m-makeCSTypeBits-0c69839e71ad)
+- [makeCSTypeDecimal64(Reader, CSType)](#m-makeCSTypeDecimal64-f6b0c5408f54)
+- [makeCSTypeDisplayHint(Reader, CSType)](#m-makeCSTypeDisplayHint-3065ba550816)
+- [makeCSTypeEnum(Reader, CSType)](#m-makeCSTypeEnum-056633384f04)
+- [makeCSTypeIdref(Reader, CSType)](#m-makeCSTypeIdref-9d16e7b3d78b)
+- [makeCSTypeList(Reader, CSType)](#m-makeCSTypeList-fd7ca47b4fb9)
+- [makeCSTypeListRestriction(Reader, CSType)](#m-makeCSTypeListRestriction-0d4c8f9bd4be)
+- [makeCSTypeNumber(int, Reader, CSType)](#m-makeCSTypeNumber-4035fabd7771)
+- [makeCSTypeRangeArray(Reader<Reader>)](#m-makeCSTypeRangeArray-f4c1155d4bc5)
+- [makeCSTypeString(Reader, CSType)](#m-makeCSTypeString-bf018492601d)
+- [makeCSTypeUnion(Reader, CSType)](#m-makeCSTypeUnion-55d1543c92b9)
 
 ## Constructors
 
-<a id="m-mmapschemafactory-02496b09ceb8"></a>
-### MmapSchemaFactory(MmapSchema, SchemaLookup)
+### MmapSchemaFactory(MmapSchema, SchemaLookup) <a href="#m-MmapSchemaFactory-02496b09ceb8" id="m-MmapSchemaFactory-02496b09ceb8"></a>
 
 **Package-private**
 
@@ -67,8 +65,7 @@ Types: [MmapSchema](MmapSchema.md#cls-MmapSchema), [SchemaLookup](MmapMaapiSchem
 
 ## Methods
 
-<a id="m-findchild-59723d77ce04"></a>
-### findChild(MmapCSNode, CSMNsMap, int)
+### findChild(MmapCSNode, CSMNsMap, int) <a href="#m-findChild-59723d77ce04" id="m-findChild-59723d77ce04"></a>
 
 **Package-private**
 
@@ -88,8 +85,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [MmapCSNode](MmapCSNode.md#cls-Mm
 - `com.tailf.maapi.MaapiSchemas.CSMNsMap mnsMap`
 - `int htag`
 
-<a id="m-findchild-f5cfc441caa5"></a>
-### findChild(MmapCSNode, int, int)
+### findChild(MmapCSNode, int, int) <a href="#m-findChild-f5cfc441caa5" id="m-findChild-f5cfc441caa5"></a>
 
 **Package-private**
 
@@ -109,8 +105,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [MmapCSNode](MmapCSNode.md#cls-Mm
 - `int hns`
 - `int htag`
 
-<a id="m-getchildren-f609229c3d1b"></a>
-### getChildren(Level)
+### getChildren(Level) <a href="#m-getChildren-f609229c3d1b" id="m-getChildren-f609229c3d1b"></a>
 
 ```java
 protected Iterable<com.tailf.ncs.maapi.MmapSchema.Child> getChildren(
@@ -124,8 +119,7 @@ Types: [Child](MmapSchema/Child.md#cls-Child), [Level](MmapSchema/Level.md#cls-L
 
 - `com.tailf.ncs.maapi.MmapSchema.Level level`
 
-<a id="m-gethashdb-e75daa0effae"></a>
-### getHashDb()
+### getHashDb() <a href="#m-getHashDb-e75daa0effae" id="m-getHashDb-e75daa0effae"></a>
 
 **Package-private**
 
@@ -135,8 +129,7 @@ com.tailf.ncs.maapi.Schema.HashDb.Reader getHashDb() throws com.tailf.ncs.maapi.
 
 Types: [Reader](Schema/HashDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getmnsmapdb-908581232215"></a>
-### getMnsMapDb()
+### getMnsMapDb() <a href="#m-getMnsMapDb-908581232215" id="m-getMnsMapDb-908581232215"></a>
 
 **Package-private**
 
@@ -147,8 +140,7 @@ com.tailf.ncs.maapi.Schema.MNsMapDb.Reader getMnsMapDb() throws com.tailf.ncs.ma
 
 Types: [Reader](Schema/MNsMapDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getmountpointdb-32131a12db04"></a>
-### getMountPointDb()
+### getMountPointDb() <a href="#m-getMountPointDb-32131a12db04" id="m-getMountPointDb-32131a12db04"></a>
 
 **Package-private**
 
@@ -159,8 +151,7 @@ com.tailf.ncs.maapi.Schema.MountPointDb.Reader getMountPointDb() throws com.tail
 
 Types: [Reader](Schema/MountPointDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getnsdb-3babeb353172"></a>
-### getNsDb()
+### getNsDb() <a href="#m-getNsDb-3babeb353172" id="m-getNsDb-3babeb353172"></a>
 
 **Package-private**
 
@@ -170,8 +161,7 @@ com.tailf.ncs.maapi.Schema.NsDb.Reader getNsDb() throws com.tailf.ncs.maapi.Mmap
 
 Types: [Reader](Schema/NsDb/Reader.md#cls-Reader), [MmapSchemaException](MmapSchemaException.md#cls-MmapSchemaException)
 
-<a id="m-getrootlevel-e49164e18650"></a>
-### getRootLevel()
+### getRootLevel() <a href="#m-getRootLevel-e49164e18650" id="m-getRootLevel-e49164e18650"></a>
 
 **Package-private**
 
@@ -181,8 +171,7 @@ com.tailf.ncs.maapi.MmapSchema.Level getRootLevel()
 
 Types: [Level](MmapSchema/Level.md#cls-Level)
 
-<a id="m-lookupcstypes-60e79757ffda"></a>
-### lookupCSTypes(Reader<Reader>)
+### lookupCSTypes(Reader<Reader>) <a href="#m-lookupCSTypes-60e79757ffda" id="m-lookupCSTypes-60e79757ffda"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSType[] lookupCSTypes(
@@ -197,8 +186,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsTypeReference.Reader> referencesr`
 
-<a id="m-makecschoice-d388221a3673"></a>
-### makeCSChoice(CSNode, CSCase, Reader<Reader>)
+### makeCSChoice(CSNode, CSCase, Reader<Reader>) <a href="#m-makeCSChoice-d388221a3673" id="m-makeCSChoice-d388221a3673"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSChoice makeCSChoice(
@@ -216,8 +204,7 @@ Types: [CSChoice](../../maapi/MaapiSchemas/CSChoice.md#cls-CSChoice), [CSNode](.
 - `com.tailf.maapi.MaapiSchemas.CSCase caseParent`
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice.Reader> choices`
 
-<a id="m-makecsnode-0bd521678531"></a>
-### makeCSNode(MmapCSNode, Child)
+### makeCSNode(MmapCSNode, Child) <a href="#m-makeCSNode-0bd521678531" id="m-makeCSNode-0bd521678531"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSNode makeCSNode(
@@ -233,8 +220,7 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [MmapCSNode](Mma
 - `com.tailf.ncs.maapi.MmapCSNode parent`
 - `com.tailf.ncs.maapi.MmapSchema.Child child`
 
-<a id="m-makecsnode-8b300a95d544"></a>
-### makeCSNode(MmapCSNode, int)
+### makeCSNode(MmapCSNode, int) <a href="#m-makeCSNode-8b300a95d544" id="m-makeCSNode-8b300a95d544"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSNode makeCSNode(
@@ -250,8 +236,7 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [MmapCSNode](Mma
 - `com.tailf.ncs.maapi.MmapCSNode parent`
 - `int childIdx`
 
-<a id="m-makecsnodeinfo-931b4e653bae"></a>
-### makeCSNodeInfo(CSNode, CSSchema, Reader, int)
+### makeCSNodeInfo(CSNode, CSSchema, Reader, int) <a href="#m-makeCSNodeInfo-931b4e653bae" id="m-makeCSNodeInfo-931b4e653bae"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSNodeInfo makeCSNodeInfo(
@@ -271,8 +256,7 @@ Types: [CSNodeInfo](../../maapi/MaapiSchemas/CSNodeInfo.md#cls-CSNodeInfo), [CSN
 - `com.tailf.ncs.maapi.Schema.Cs.Reader cs`
 - `int csIdx`
 
-<a id="m-makecsroot-e163411e6b2f"></a>
-### makeCSRoot(int, int, CSSchema, List<CSNode>)
+### makeCSRoot(int, int, CSSchema, List<CSNode>) <a href="#m-makeCSRoot-e163411e6b2f" id="m-makeCSRoot-e163411e6b2f"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSNode makeCSRoot(
@@ -292,8 +276,7 @@ Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode), [CSSchema](../..
 - `com.tailf.maapi.MaapiSchemas.CSSchema schema`
 - `java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> siblings`
 
-<a id="m-makecstype-a31b505d063e"></a>
-### makeCSType(int, Reader)
+### makeCSType(int, Reader) <a href="#m-makeCSType-a31b505d063e" id="m-makeCSType-a31b505d063e"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSType makeCSType(
@@ -310,8 +293,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `int shallowType`
 - `com.tailf.ncs.maapi.Schema.CsType.Reader csType`
 
-<a id="m-makecstypebits-0c69839e71ad"></a>
-### makeCSTypeBits(Reader, CSType)
+### makeCSTypeBits(Reader, CSType) <a href="#m-makeCSTypeBits-0c69839e71ad" id="m-makeCSTypeBits-0c69839e71ad"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeBits(
@@ -327,8 +309,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeBits.Reader bitsr`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypedecimal64-f6b0c5408f54"></a>
-### makeCSTypeDecimal64(Reader, CSType)
+### makeCSTypeDecimal64(Reader, CSType) <a href="#m-makeCSTypeDecimal64-f6b0c5408f54" id="m-makeCSTypeDecimal64-f6b0c5408f54"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeDecimal64(
@@ -344,8 +325,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader d64`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypedisplayhint-3065ba550816"></a>
-### makeCSTypeDisplayHint(Reader, CSType)
+### makeCSTypeDisplayHint(Reader, CSType) <a href="#m-makeCSTypeDisplayHint-3065ba550816" id="m-makeCSTypeDisplayHint-3065ba550816"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeDisplayHint(
@@ -361,8 +341,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeDisplayHint.Reader csType`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypeenum-056633384f04"></a>
-### makeCSTypeEnum(Reader, CSType)
+### makeCSTypeEnum(Reader, CSType) <a href="#m-makeCSTypeEnum-056633384f04" id="m-makeCSTypeEnum-056633384f04"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeEnum(
@@ -378,8 +357,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader aEnum`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypeidref-9d16e7b3d78b"></a>
-### makeCSTypeIdref(Reader, CSType)
+### makeCSTypeIdref(Reader, CSType) <a href="#m-makeCSTypeIdref-9d16e7b3d78b" id="m-makeCSTypeIdref-9d16e7b3d78b"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeIdref(
@@ -395,8 +373,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeIdref.Reader idrefr`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypelist-fd7ca47b4fb9"></a>
-### makeCSTypeList(Reader, CSType)
+### makeCSTypeList(Reader, CSType) <a href="#m-makeCSTypeList-fd7ca47b4fb9" id="m-makeCSTypeList-fd7ca47b4fb9"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSType makeCSTypeList(
@@ -413,8 +390,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeList.Reader l`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypelistrestriction-0d4c8f9bd4be"></a>
-### makeCSTypeListRestriction(Reader, CSType)
+### makeCSTypeListRestriction(Reader, CSType) <a href="#m-makeCSTypeListRestriction-0d4c8f9bd4be" id="m-makeCSTypeListRestriction-0d4c8f9bd4be"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeListRestriction(
@@ -430,8 +406,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader csType`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypenumber-4035fabd7771"></a>
-### makeCSTypeNumber(int, Reader, CSType)
+### makeCSTypeNumber(int, Reader, CSType) <a href="#m-makeCSTypeNumber-4035fabd7771" id="m-makeCSTypeNumber-4035fabd7771"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeNumber(
@@ -449,8 +424,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeNumber.Reader csType`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstyperangearray-f4c1155d4bc5"></a>
-### makeCSTypeRangeArray(Reader<Reader>)
+### makeCSTypeRangeArray(Reader<Reader>) <a href="#m-makeCSTypeRangeArray-f4c1155d4bc5" id="m-makeCSTypeRangeArray-f4c1155d4bc5"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSTypeRange[] makeCSTypeRangeArray(
@@ -464,8 +438,7 @@ Types: [CSTypeRange](../../maapi/MaapiSchemas/CSTypeRange.md#cls-CSTypeRange), [
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Range.Reader> rangesr`
 
-<a id="m-makecstypestring-bf018492601d"></a>
-### makeCSTypeString(Reader, CSType)
+### makeCSTypeString(Reader, CSType) <a href="#m-makeCSTypeString-bf018492601d" id="m-makeCSTypeString-bf018492601d"></a>
 
 ```java
 protected static com.tailf.maapi.MaapiSchemas.CSType makeCSTypeString(
@@ -481,8 +454,7 @@ Types: [CSType](../../maapi/MaapiSchemas/CSType.md#cls-CSType), [Reader](Schema/
 - `com.tailf.ncs.maapi.Schema.CsTypeString.Reader csType`
 - `com.tailf.maapi.MaapiSchemas.CSType parentType`
 
-<a id="m-makecstypeunion-55d1543c92b9"></a>
-### makeCSTypeUnion(Reader, CSType)
+### makeCSTypeUnion(Reader, CSType) <a href="#m-makeCSTypeUnion-55d1543c92b9" id="m-makeCSTypeUnion-55d1543c92b9"></a>
 
 ```java
 protected com.tailf.maapi.MaapiSchemas.CSType makeCSTypeUnion(

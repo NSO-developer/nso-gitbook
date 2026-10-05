@@ -1,5 +1,4 @@
-<a id="cls-Template"></a>
-# Template
+# Template <a href="#cls-Template" id="cls-Template"></a>
 
 ```java
 public class com.tailf.ncs.template.Template
@@ -12,9 +11,9 @@ public class com.tailf.ncs.template.Template
 
 **Constructors**:
 
-- [Template(Maapi, String)](#m-template-b9516245ebda)
-- [Template(NavuContext, String)](#m-template-feaf74f200fb)
-- [Template(ServiceContext, String)](#m-template-0d1b4c642e2d)
+- [Template(Maapi, String)](#m-Template-b9516245ebda)
+- [Template(NavuContext, String)](#m-Template-feaf74f200fb)
+- [Template(ServiceContext, String)](#m-Template-0d1b4c642e2d)
 
 **Fields**:
 
@@ -29,17 +28,16 @@ public class com.tailf.ncs.template.Template
 - [exists(Maapi, String)](#m-exists-1e9581ff660e)
 - [exists(NavuContext, String)](#m-exists-a77fd90bdc9b)
 - [exists(ServiceContext, String)](#m-exists-c68e459f4029)
-- [getCreateShared()](#m-getcreateshared-5dab242fc9a3)
-- [getTemplates(Maapi)](#m-gettemplates-7e8250894e0f)
-- [getTemplates(NavuContext)](#m-gettemplates-1025fddc1c4f)
-- [getTemplates(ServiceContext)](#m-gettemplates-d75e5ab7a744)
-- [getVariables()](#m-getvariables-94c6f2182e29)
-- [setCreateShared(boolean)](#m-setcreateshared-745f84731eb7)
+- [getCreateShared()](#m-getCreateShared-5dab242fc9a3)
+- [getTemplates(Maapi)](#m-getTemplates-7e8250894e0f)
+- [getTemplates(NavuContext)](#m-getTemplates-1025fddc1c4f)
+- [getTemplates(ServiceContext)](#m-getTemplates-d75e5ab7a744)
+- [getVariables()](#m-getVariables-94c6f2182e29)
+- [setCreateShared(boolean)](#m-setCreateShared-745f84731eb7)
 
 ## Constructors
 
-<a id="m-template-b9516245ebda"></a>
-### Template(Maapi, String)
+### Template(Maapi, String) <a href="#m-Template-b9516245ebda" id="m-Template-b9516245ebda"></a>
 
 ```java
 public Template(
@@ -56,8 +54,7 @@ Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfE
 - `com.tailf.maapi.Maapi aMaapi`
 - `String aTemplateName`
 
-<a id="m-template-feaf74f200fb"></a>
-### Template(NavuContext, String)
+### Template(NavuContext, String) <a href="#m-Template-feaf74f200fb" id="m-Template-feaf74f200fb"></a>
 
 ```java
 public Template(
@@ -74,8 +71,7 @@ Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException]
 - `com.tailf.navu.NavuContext aContext`
 - `String aTemplateName`
 
-<a id="m-template-0d1b4c642e2d"></a>
-### Template(ServiceContext, String)
+### Template(ServiceContext, String) <a href="#m-Template-0d1b4c642e2d" id="m-Template-0d1b4c642e2d"></a>
 
 ```java
 public Template(
@@ -98,8 +94,7 @@ Construct a Template. Note that the template has to have already been
 
 ## Fields
 
-<a id="m-createShared"></a>
-### createShared
+### createShared <a href="#m-createShared" id="m-createShared"></a>
 
 **Package-private**
 
@@ -107,8 +102,7 @@ Construct a Template. Note that the template has to have already been
 boolean createShared = null;
 ```
 
-<a id="m-maapi"></a>
-### maapi
+### maapi <a href="#m-maapi" id="m-maapi"></a>
 
 **Package-private**
 
@@ -118,8 +112,7 @@ com.tailf.maapi.Maapi maapi = null;
 
 Types: [Maapi](../../maapi/Maapi.md#cls-Maapi)
 
-<a id="m-tid"></a>
-### tid
+### tid <a href="#m-tid" id="m-tid"></a>
 
 **Package-private**
 
@@ -130,8 +123,7 @@ int tid = null;
 
 ## Methods
 
-<a id="m-apply-4c072cad4101"></a>
-### apply(Maapi, int, ConfPath, TemplateVariables)
+### apply(Maapi, int, ConfPath, TemplateVariables) <a href="#m-apply-4c072cad4101" id="m-apply-4c072cad4101"></a>
 
 ```java
 public void apply(
@@ -157,8 +149,7 @@ Apply a template in the specified context
 - `com.tailf.ncs.template.TemplateVariables variables` - a set of key value pairs where each key will be
                   an XPath variable.
 
-<a id="m-apply-ea8ea18a91df"></a>
-### apply(NavuNode, TemplateVariables)
+### apply(NavuNode, TemplateVariables) <a href="#m-apply-ea8ea18a91df" id="m-apply-ea8ea18a91df"></a>
 
 ```java
 public void apply(
@@ -179,8 +170,7 @@ Apply a template in the specified context
 - `com.tailf.ncs.template.TemplateVariables variables` - a set of key value pairs where each key will be
                   an XPath variable.
 
-<a id="m-exists-1e9581ff660e"></a>
-### exists(Maapi, String)
+### exists(Maapi, String) <a href="#m-exists-1e9581ff660e" id="m-exists-1e9581ff660e"></a>
 
 ```java
 public static boolean exists(
@@ -197,8 +187,7 @@ Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfE
 - `com.tailf.maapi.Maapi maapi`
 - `String template`
 
-<a id="m-exists-a77fd90bdc9b"></a>
-### exists(NavuContext, String)
+### exists(NavuContext, String) <a href="#m-exists-a77fd90bdc9b" id="m-exists-a77fd90bdc9b"></a>
 
 ```java
 public static boolean exists(
@@ -215,8 +204,7 @@ Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException]
 - `com.tailf.navu.NavuContext context`
 - `String template`
 
-<a id="m-exists-c68e459f4029"></a>
-### exists(ServiceContext, String)
+### exists(ServiceContext, String) <a href="#m-exists-c68e459f4029" id="m-exists-c68e459f4029"></a>
 
 ```java
 public static boolean exists(
@@ -238,8 +226,7 @@ Tests for existence of a template.
 **Returns:** `true` or `false` depending on whether the
          template is loaded or not.
 
-<a id="m-getcreateshared-5dab242fc9a3"></a>
-### getCreateShared()
+### getCreateShared() <a href="#m-getCreateShared-5dab242fc9a3" id="m-getCreateShared-5dab242fc9a3"></a>
 
 **Package-private**
 
@@ -251,8 +238,7 @@ Returns the setting of the createShared flag
 
 **Returns:** `true` or `false`.
 
-<a id="m-gettemplates-7e8250894e0f"></a>
-### getTemplates(Maapi)
+### getTemplates(Maapi) <a href="#m-getTemplates-7e8250894e0f" id="m-getTemplates-7e8250894e0f"></a>
 
 ```java
 public static java.util.Set<String> getTemplates(
@@ -267,8 +253,7 @@ Types: [Maapi](../../maapi/Maapi.md#cls-Maapi), [ConfException](../../conf/ConfE
 
 - `com.tailf.maapi.Maapi maapi`
 
-<a id="m-gettemplates-1025fddc1c4f"></a>
-### getTemplates(NavuContext)
+### getTemplates(NavuContext) <a href="#m-getTemplates-1025fddc1c4f" id="m-getTemplates-1025fddc1c4f"></a>
 
 ```java
 public static java.util.Set<String> getTemplates(
@@ -283,8 +268,7 @@ Types: [NavuContext](../../navu/NavuContext.md#cls-NavuContext), [ConfException]
 
 - `com.tailf.navu.NavuContext context`
 
-<a id="m-gettemplates-d75e5ab7a744"></a>
-### getTemplates(ServiceContext)
+### getTemplates(ServiceContext) <a href="#m-getTemplates-d75e5ab7a744" id="m-getTemplates-d75e5ab7a744"></a>
 
 ```java
 public static java.util.Set<String> getTemplates(
@@ -303,8 +287,7 @@ Returns a set consisting of the loaded templates.
 
 **Returns:** `Set` of loaded templates.
 
-<a id="m-getvariables-94c6f2182e29"></a>
-### getVariables()
+### getVariables() <a href="#m-getVariables-94c6f2182e29" id="m-getVariables-94c6f2182e29"></a>
 
 ```java
 public String[] getVariables() throws com.tailf.conf.ConfException
@@ -312,8 +295,7 @@ public String[] getVariables() throws com.tailf.conf.ConfException
 
 Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-setcreateshared-745f84731eb7"></a>
-### setCreateShared(boolean)
+### setCreateShared(boolean) <a href="#m-setCreateShared-745f84731eb7" id="m-setCreateShared-745f84731eb7"></a>
 
 **Package-private**
 

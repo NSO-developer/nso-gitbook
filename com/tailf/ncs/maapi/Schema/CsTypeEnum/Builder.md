@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeEnum.Builder
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeEnum.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getValues()](#m-getvalues-06542a92d7fa)
-- [hasValues()](#m-hasvalues-64d4a87b971a)
-- [initValues(int)](#m-initvalues-28f8d9e6476f)
-- [setValues(Reader<Reader>)](#m-setvalues-3ba13bd16732)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getValues()](#m-getValues-06542a92d7fa)
+- [hasValues()](#m-hasValues-64d4a87b971a)
+- [initValues(int)](#m-initValues-28f8d9e6476f)
+- [setValues(Reader<Reader>)](#m-setValues-3ba13bd16732)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -48,8 +46,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader asReader()
@@ -57,8 +54,7 @@ public final com.tailf.ncs.maapi.Schema.CsTypeEnum.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getvalues-06542a92d7fa"></a>
-### getValues()
+### getValues() <a href="#m-getValues-06542a92d7fa" id="m-getValues-06542a92d7fa"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NameToHash.Builder> getValues()
@@ -66,15 +62,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NameToH
 
 Types: [Builder](../NameToHash/Builder.md#cls-Builder)
 
-<a id="m-hasvalues-64d4a87b971a"></a>
-### hasValues()
+### hasValues() <a href="#m-hasValues-64d4a87b971a" id="m-hasValues-64d4a87b971a"></a>
 
 ```java
 public final boolean hasValues()
 ```
 
-<a id="m-initvalues-28f8d9e6476f"></a>
-### initValues(int)
+### initValues(int) <a href="#m-initValues-28f8d9e6476f" id="m-initValues-28f8d9e6476f"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.NameToHash.Builder> initValues(
@@ -88,8 +82,7 @@ Types: [Builder](../NameToHash/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-setvalues-3ba13bd16732"></a>
-### setValues(Reader<Reader>)
+### setValues(Reader<Reader>) <a href="#m-setValues-3ba13bd16732" id="m-setValues-3ba13bd16732"></a>
 
 ```java
 public final void setValues(

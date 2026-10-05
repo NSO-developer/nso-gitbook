@@ -1,5 +1,4 @@
-<a id="cls-DryRunResult"></a>
-# DryRunResult
+# DryRunResult <a href="#cls-DryRunResult" id="cls-DryRunResult"></a>
 
 ```java
 public class com.tailf.maapi.DryRunResult
@@ -10,7 +9,7 @@ public class com.tailf.maapi.DryRunResult
 Types: [ApplyResult](ApplyResult.md#cls-ApplyResult), [DryRunEntry](DryRunResult/DryRunEntry.md#cls-DryRunEntry)
 
 Represents a successful invocation of the
- [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applytransparams-6c20b7896663) method.
+ [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applyTransParams-6c20b7896663) method.
 
  The purpose of this class is to represent the result of a transaction
  without actually having committed the changes.
@@ -19,16 +18,16 @@ Represents a successful invocation of the
 
 **Constructors**:
 
-- [DryRunResult(ConfResponse)](#m-dryrunresult-91936489d995)
+- [DryRunResult(ConfResponse)](#m-DryRunResult-91936489d995)
 
 **Methods**:
 
-- [getData()](DryRunResult/DryRunEntry.md#m-getdata-8ef0e36ab01b) from DryRunEntry
-- [getFormat()](#m-getformat-8617415c2f83)
-- [getFormatAsString()](#m-getformatasstring-e50e8059b9b9)
-- [getName()](DryRunResult/DryRunEntry.md#m-getname-2634b18b4a25) from DryRunEntry
-- [getType()](DryRunResult/DryRunEntry.md#m-gettype-5a52f6f0d4c1) from DryRunEntry
-- [getTypeAsString()](DryRunResult/DryRunEntry.md#m-gettypeasstring-ea437139f174) from DryRunEntry
+- [getData()](DryRunResult/DryRunEntry.md#m-getData-8ef0e36ab01b) from DryRunEntry
+- [getFormat()](#m-getFormat-8617415c2f83)
+- [getFormatAsString()](#m-getFormatAsString-e50e8059b9b9)
+- [getName()](DryRunResult/DryRunEntry.md#m-getName-2634b18b4a25) from DryRunEntry
+- [getType()](DryRunResult/DryRunEntry.md#m-getType-5a52f6f0d4c1) from DryRunEntry
+- [getTypeAsString()](DryRunResult/DryRunEntry.md#m-getTypeAsString-ea437139f174) from DryRunEntry
 - [iterator()](#m-iterator-188aa52d1f86)
 
 **Nested Types**:
@@ -38,8 +37,7 @@ Represents a successful invocation of the
 
 ## Constructors
 
-<a id="m-dryrunresult-91936489d995"></a>
-### DryRunResult(ConfResponse)
+### DryRunResult(ConfResponse) <a href="#m-DryRunResult-91936489d995" id="m-DryRunResult-91936489d995"></a>
 
 ```java
 public DryRunResult(
@@ -57,8 +55,7 @@ Types: [ConfResponse](../conf/ConfResponse.md#cls-ConfResponse), [MaapiException
 
 ## Methods
 
-<a id="m-getformat-8617415c2f83"></a>
-### getFormat()
+### getFormat() <a href="#m-getFormat-8617415c2f83" id="m-getFormat-8617415c2f83"></a>
 
 ```java
 public com.tailf.maapi.DryRunResult.Format getFormat()
@@ -82,8 +79,7 @@ Return the format of the dry-run result.
  [`Format#NATIVE`](DryRunResult/Format.md#m-NATIVE) means that only changes under
   /devices/device/config is displayed in native device format.
 
-<a id="m-getformatasstring-e50e8059b9b9"></a>
-### getFormatAsString()
+### getFormatAsString() <a href="#m-getFormatAsString-e50e8059b9b9" id="m-getFormatAsString-e50e8059b9b9"></a>
 
 ```java
 public String getFormatAsString()
@@ -91,8 +87,7 @@ public String getFormatAsString()
 
 Return the format as a string.
 
-<a id="m-iterator-188aa52d1f86"></a>
-### iterator()
+### iterator() <a href="#m-iterator-188aa52d1f86" id="m-iterator-188aa52d1f86"></a>
 
 ```java
 public java.util.Iterator<com.tailf.maapi.DryRunResult.DryRunEntry> iterator()

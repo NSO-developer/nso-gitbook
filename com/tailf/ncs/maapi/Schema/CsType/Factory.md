@@ -1,5 +1,4 @@
-<a id="cls-Factory"></a>
-# Factory
+# Factory <a href="#cls-Factory" id="cls-Factory"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsType.Factory
@@ -12,32 +11,31 @@ Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 **Constructors**:
 
-- [Factory()](#m-factory-0e9f9d7f4e84)
+- [Factory()](#m-Factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asreader-11797013b2fb)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
-- [getName()](Builder.md#m-getname-2634b18b4a25) from Builder
-- [getNs()](Builder.md#m-getns-59b97eae2a4a) from Builder
-- [getParent()](Builder.md#m-getparent-45c1b196ed70) from Builder
-- [getValue()](Builder.md#m-getvalue-d93864668c40) from Builder
-- [hasName()](Builder.md#m-hasname-bfe6c334e0d1) from Builder
-- [initName(int)](Builder.md#m-initname-281e5d2102d4) from Builder
-- [initParent()](Builder.md#m-initparent-42003b75a7dd) from Builder
-- [initValue()](Builder.md#m-initvalue-a7755fffc529) from Builder
-- [setName(Reader)](Builder.md#m-setname-79f9d1263a41) from Builder
-- [setName(String)](Builder.md#m-setname-c76ccfcb9f18) from Builder
-- [setNs(int)](Builder.md#m-setns-3c6980dbfd35) from Builder
-- [setParent(Reader)](Builder.md#m-setparent-9ed68f47e1db) from Builder
-- [structSize()](#m-structsize-1fa68dcadd21)
+- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asReader-11797013b2fb)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
+- [getName()](Builder.md#m-getName-2634b18b4a25) from Builder
+- [getNs()](Builder.md#m-getNs-59b97eae2a4a) from Builder
+- [getParent()](Builder.md#m-getParent-45c1b196ed70) from Builder
+- [getValue()](Builder.md#m-getValue-d93864668c40) from Builder
+- [hasName()](Builder.md#m-hasName-bfe6c334e0d1) from Builder
+- [initName(int)](Builder.md#m-initName-281e5d2102d4) from Builder
+- [initParent()](Builder.md#m-initParent-42003b75a7dd) from Builder
+- [initValue()](Builder.md#m-initValue-a7755fffc529) from Builder
+- [setName(Reader)](Builder.md#m-setName-79f9d1263a41) from Builder
+- [setName(String)](Builder.md#m-setName-c76ccfcb9f18) from Builder
+- [setNs(int)](Builder.md#m-setNs-3c6980dbfd35) from Builder
+- [setParent(Reader)](Builder.md#m-setParent-9ed68f47e1db) from Builder
+- [structSize()](#m-structSize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="m-factory-0e9f9d7f4e84"></a>
-### Factory()
+### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -46,8 +44,7 @@ public Factory()
 
 ## Methods
 
-<a id="m-asreader-11797013b2fb"></a>
-### asReader(Builder)
+### asReader(Builder) <a href="#m-asReader-11797013b2fb" id="m-asReader-11797013b2fb"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Reader asReader(
@@ -61,8 +58,7 @@ Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 - `com.tailf.ncs.maapi.Schema.CsType.Builder builder`
 
-<a id="m-constructbuilder-5a2abf3209f9"></a>
-### constructBuilder(SegmentBuilder, int, int, int, short)
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Builder constructBuilder(
@@ -84,8 +80,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="m-constructreader-fbce6f4f912a"></a>
-### constructReader(SegmentReader, int, int, int, short, int)
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsType.Reader constructReader(
@@ -109,8 +104,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="m-structsize-1fa68dcadd21"></a>
-### structSize()
+### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

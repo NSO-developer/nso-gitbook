@@ -1,5 +1,4 @@
-<a id="cls-HeartbeatNotification"></a>
-# HeartbeatNotification
+# HeartbeatNotification <a href="#cls-HeartbeatNotification" id="cls-HeartbeatNotification"></a>
 
 ```java
 public class com.tailf.notif.HeartbeatNotification
@@ -14,7 +13,7 @@ Data structure for Heartbeat notifications.
 
 **Constructors**:
 
-- [HeartbeatNotification()](#m-heartbeatnotification-dac5c197dc5f)
+- [HeartbeatNotification()](#m-HeartbeatNotification-dac5c197dc5f)
 
 **Fields**:
 
@@ -22,13 +21,12 @@ Data structure for Heartbeat notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-toString-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="m-heartbeatnotification-dac5c197dc5f"></a>
-### HeartbeatNotification()
+### HeartbeatNotification() <a href="#m-HeartbeatNotification-dac5c197dc5f" id="m-HeartbeatNotification-dac5c197dc5f"></a>
 
 ```java
 public HeartbeatNotification()

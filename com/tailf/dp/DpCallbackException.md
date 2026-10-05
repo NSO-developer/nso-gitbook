@@ -1,5 +1,4 @@
-<a id="cls-DpCallbackException"></a>
-# DpCallbackException
+# DpCallbackException <a href="#cls-DpCallbackException" id="cls-DpCallbackException"></a>
 
 ```java
 public class com.tailf.dp.DpCallbackException
@@ -20,23 +19,22 @@ Exception thrown from inside callbacks to identify problems.
 
 **Constructors**:
 
-- [DpCallbackException(String)](#m-dpcallbackexception-a5652d7c1d08)
-- [DpCallbackException(String, ErrorCode)](#m-dpcallbackexception-53b98f1d2897)
-- [DpCallbackException(String, ErrorCode, Throwable)](#m-dpcallbackexception-1c2ed9d506c2)
-- [DpCallbackException(String, Throwable)](#m-dpcallbackexception-3f993a79a901)
-- [DpCallbackException(Throwable)](#m-dpcallbackexception-24c1c7bd7c34)
+- [DpCallbackException(String)](#m-DpCallbackException-a5652d7c1d08)
+- [DpCallbackException(String, ErrorCode)](#m-DpCallbackException-53b98f1d2897)
+- [DpCallbackException(String, ErrorCode, Throwable)](#m-DpCallbackException-1c2ed9d506c2)
+- [DpCallbackException(String, Throwable)](#m-DpCallbackException-3f993a79a901)
+- [DpCallbackException(Throwable)](#m-DpCallbackException-24c1c7bd7c34)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](DpException.md#m-mk-de1cedfc6ea8) from DpException
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-dpcallbackexception-a5652d7c1d08"></a>
-### DpCallbackException(String)
+### DpCallbackException(String) <a href="#m-DpCallbackException-a5652d7c1d08" id="m-DpCallbackException-a5652d7c1d08"></a>
 
 ```java
 public DpCallbackException(String msg)
@@ -46,8 +44,7 @@ public DpCallbackException(String msg)
 
 - `String msg`
 
-<a id="m-dpcallbackexception-53b98f1d2897"></a>
-### DpCallbackException(String, ErrorCode)
+### DpCallbackException(String, ErrorCode) <a href="#m-DpCallbackException-53b98f1d2897" id="m-DpCallbackException-53b98f1d2897"></a>
 
 ```java
 public DpCallbackException(String msg, com.tailf.conf.ErrorCode code)
@@ -60,8 +57,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-dpcallbackexception-1c2ed9d506c2"></a>
-### DpCallbackException(String, ErrorCode, Throwable)
+### DpCallbackException(String, ErrorCode, Throwable) <a href="#m-DpCallbackException-1c2ed9d506c2" id="m-DpCallbackException-1c2ed9d506c2"></a>
 
 ```java
 public DpCallbackException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -75,8 +71,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-dpcallbackexception-3f993a79a901"></a>
-### DpCallbackException(String, Throwable)
+### DpCallbackException(String, Throwable) <a href="#m-DpCallbackException-3f993a79a901" id="m-DpCallbackException-3f993a79a901"></a>
 
 ```java
 public DpCallbackException(String msg, Throwable cause)
@@ -87,8 +82,7 @@ public DpCallbackException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="m-dpcallbackexception-24c1c7bd7c34"></a>
-### DpCallbackException(Throwable)
+### DpCallbackException(Throwable) <a href="#m-DpCallbackException-24c1c7bd7c34" id="m-DpCallbackException-24c1c7bd7c34"></a>
 
 ```java
 public DpCallbackException(Throwable cause)

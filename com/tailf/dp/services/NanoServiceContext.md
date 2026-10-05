@@ -1,5 +1,4 @@
-<a id="cls-NanoServiceContext"></a>
-# NanoServiceContext
+# NanoServiceContext <a href="#cls-NanoServiceContext" id="cls-NanoServiceContext"></a>
 
 ```java
 public interface com.tailf.dp.services.NanoServiceContext
@@ -16,51 +15,46 @@ The Nano service context object.
 
 **Methods**:
 
-- [decodeComponentProperties()](#m-decodecomponentproperties-92dc7d27cfae)
-- [getComponentName()](#m-getcomponentname-7c7a8acb1be7)
-- [getComponentType()](#m-getcomponenttype-8cb31666621f)
-- [getNedIdByDeviceName(String)](ServiceContext.md#m-getnedidbydevicename-11861342f251) from ServiceContext
-- [getRootNode()](ServiceContext.md#m-getrootnode-eed9b3c70129) from ServiceContext
-- [getServiceNode()](ServiceContext.md#m-getservicenode-ffc6dd44e182) from ServiceContext
-- [getState()](#m-getstate-6661a5722798)
-- [getStateNode()](#m-getstatenode-69968ad036f3)
-- [setFailed()](#m-setfailed-87e27ea56b52)
-- [setNotReached()](#m-setnotreached-82612c28e78a)
-- [setReached()](#m-setreached-d006785646d0)
-- [setTimeout(int)](ServiceContext.md#m-settimeout-cbe758ecb5d8) from ServiceContext
+- [decodeComponentProperties()](#m-decodeComponentProperties-92dc7d27cfae)
+- [getComponentName()](#m-getComponentName-7c7a8acb1be7)
+- [getComponentType()](#m-getComponentType-8cb31666621f)
+- [getNedIdByDeviceName(String)](ServiceContext.md#m-getNedIdByDeviceName-11861342f251) from ServiceContext
+- [getRootNode()](ServiceContext.md#m-getRootNode-eed9b3c70129) from ServiceContext
+- [getServiceNode()](ServiceContext.md#m-getServiceNode-ffc6dd44e182) from ServiceContext
+- [getState()](#m-getState-6661a5722798)
+- [getStateNode()](#m-getStateNode-69968ad036f3)
+- [setFailed()](#m-setFailed-87e27ea56b52)
+- [setNotReached()](#m-setNotReached-82612c28e78a)
+- [setReached()](#m-setReached-d006785646d0)
+- [setTimeout(int)](ServiceContext.md#m-setTimeout-cbe758ecb5d8) from ServiceContext
 
 ## Methods
 
-<a id="m-decodecomponentproperties-92dc7d27cfae"></a>
-### decodeComponentProperties()
+### decodeComponentProperties() <a href="#m-decodeComponentProperties-92dc7d27cfae" id="m-decodeComponentProperties-92dc7d27cfae"></a>
 
 ```java
 public abstract java.util.Properties decodeComponentProperties()
 ```
 
-<a id="m-getcomponentname-7c7a8acb1be7"></a>
-### getComponentName()
+### getComponentName() <a href="#m-getComponentName-7c7a8acb1be7" id="m-getComponentName-7c7a8acb1be7"></a>
 
 ```java
 public abstract String getComponentName()
 ```
 
-<a id="m-getcomponenttype-8cb31666621f"></a>
-### getComponentType()
+### getComponentType() <a href="#m-getComponentType-8cb31666621f" id="m-getComponentType-8cb31666621f"></a>
 
 ```java
 public abstract String getComponentType()
 ```
 
-<a id="m-getstate-6661a5722798"></a>
-### getState()
+### getState() <a href="#m-getState-6661a5722798" id="m-getState-6661a5722798"></a>
 
 ```java
 public abstract String getState()
 ```
 
-<a id="m-getstatenode-69968ad036f3"></a>
-### getStateNode()
+### getStateNode() <a href="#m-getStateNode-69968ad036f3" id="m-getStateNode-69968ad036f3"></a>
 
 ```java
 public abstract com.tailf.navu.NavuNode getStateNode() throws com.tailf.conf.ConfException
@@ -68,8 +62,7 @@ public abstract com.tailf.navu.NavuNode getStateNode() throws com.tailf.conf.Con
 
 Types: [NavuNode](../../navu/NavuNode.md#cls-NavuNode), [ConfException](../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-setfailed-87e27ea56b52"></a>
-### setFailed()
+### setFailed() <a href="#m-setFailed-87e27ea56b52" id="m-setFailed-87e27ea56b52"></a>
 
 ```java
 public abstract void setFailed() throws com.tailf.dp.DpCallbackException
@@ -77,8 +70,7 @@ public abstract void setFailed() throws com.tailf.dp.DpCallbackException
 
 Types: [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
-<a id="m-setnotreached-82612c28e78a"></a>
-### setNotReached()
+### setNotReached() <a href="#m-setNotReached-82612c28e78a" id="m-setNotReached-82612c28e78a"></a>
 
 ```java
 public abstract void setNotReached() throws com.tailf.dp.DpCallbackException
@@ -86,8 +78,7 @@ public abstract void setNotReached() throws com.tailf.dp.DpCallbackException
 
 Types: [DpCallbackException](../DpCallbackException.md#cls-DpCallbackException)
 
-<a id="m-setreached-d006785646d0"></a>
-### setReached()
+### setReached() <a href="#m-setReached-d006785646d0" id="m-setReached-d006785646d0"></a>
 
 ```java
 public abstract void setReached() throws com.tailf.dp.DpCallbackException

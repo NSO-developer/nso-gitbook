@@ -1,5 +1,4 @@
-<a id="cls-NoSuchNavuChoiceException"></a>
-# NoSuchNavuChoiceException
+# NoSuchNavuChoiceException <a href="#cls-NoSuchNavuChoiceException" id="cls-NoSuchNavuChoiceException"></a>
 
 ```java
 public class com.tailf.navu.NoSuchNavuChoiceException
@@ -12,20 +11,19 @@ Types: [NavuException](NavuException.md#cls-NavuException)
 
 **Constructors**:
 
-- [NoSuchNavuChoiceException(NavuContainer, String, String)](#m-nosuchnavuchoiceexception-bcaffba36e7e)
+- [NoSuchNavuChoiceException(NavuContainer, String, String)](#m-NoSuchNavuChoiceException-bcaffba36e7e)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](NavuException.md#m-mk-de1cedfc6ea8) from NavuException
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 - [mk(NavuContainer, String)](#m-mk-6170c505319c)
 
 ## Constructors
 
-<a id="m-nosuchnavuchoiceexception-bcaffba36e7e"></a>
-### NoSuchNavuChoiceException(NavuContainer, String, String)
+### NoSuchNavuChoiceException(NavuContainer, String, String) <a href="#m-NoSuchNavuChoiceException-bcaffba36e7e" id="m-NoSuchNavuChoiceException-bcaffba36e7e"></a>
 
 ```java
 public NoSuchNavuChoiceException(
@@ -46,8 +44,7 @@ Types: [NavuContainer](NavuContainer.md#cls-NavuContainer)
 
 ## Methods
 
-<a id="m-mk-6170c505319c"></a>
-### mk(NavuContainer, String)
+### mk(NavuContainer, String) <a href="#m-mk-6170c505319c" id="m-mk-6170c505319c"></a>
 
 ```java
 public static com.tailf.navu.NoSuchNavuChoiceException mk(

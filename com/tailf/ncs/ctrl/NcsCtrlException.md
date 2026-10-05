@@ -1,5 +1,4 @@
-<a id="cls-NcsCtrlException"></a>
-# NcsCtrlException
+# NcsCtrlException <a href="#cls-NcsCtrlException" id="cls-NcsCtrlException"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.NcsCtrlException
@@ -14,22 +13,21 @@ Ncs exception capable of storing multiple exception causes.
 
 **Constructors**:
 
-- [NcsCtrlException(String)](#m-ncsctrlexception-221a6565f48e)
+- [NcsCtrlException(String)](#m-NcsCtrlException-221a6565f48e)
 
 **Methods**:
 
-- [addCause(Throwable)](#m-addcause-351e6181965d)
-- [getCauseList()](#m-getcauselist-b2e766c8dc20)
-- [getErrorCode()](../../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getMessage()](#m-getmessage-77b7dae8469e)
-- [getOpaque()](../../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [addCause(Throwable)](#m-addCause-351e6181965d)
+- [getCauseList()](#m-getCauseList-b2e766c8dc20)
+- [getErrorCode()](../../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getMessage()](#m-getMessage-77b7dae8469e)
+- [getOpaque()](../../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](../../conf/ConfException.md#m-mk-de1cedfc6ea8) from ConfException
 - [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-ncsctrlexception-221a6565f48e"></a>
-### NcsCtrlException(String)
+### NcsCtrlException(String) <a href="#m-NcsCtrlException-221a6565f48e" id="m-NcsCtrlException-221a6565f48e"></a>
 
 ```java
 public NcsCtrlException(String msg)
@@ -42,8 +40,7 @@ public NcsCtrlException(String msg)
 
 ## Methods
 
-<a id="m-addcause-351e6181965d"></a>
-### addCause(Throwable)
+### addCause(Throwable) <a href="#m-addCause-351e6181965d" id="m-addCause-351e6181965d"></a>
 
 ```java
 public void addCause(Throwable e)
@@ -53,15 +50,13 @@ public void addCause(Throwable e)
 
 - `Throwable e`
 
-<a id="m-getcauselist-b2e766c8dc20"></a>
-### getCauseList()
+### getCauseList() <a href="#m-getCauseList-b2e766c8dc20" id="m-getCauseList-b2e766c8dc20"></a>
 
 ```java
 public java.util.List<Throwable> getCauseList()
 ```
 
-<a id="m-getmessage-77b7dae8469e"></a>
-### getMessage()
+### getMessage() <a href="#m-getMessage-77b7dae8469e" id="m-getMessage-77b7dae8469e"></a>
 
 ```java
 public String getMessage()

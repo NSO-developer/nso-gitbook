@@ -1,5 +1,4 @@
-<a id="cls-UnSetCaseInChoice"></a>
-# UnSetCaseInChoice
+# UnSetCaseInChoice <a href="#cls-UnSetCaseInChoice" id="cls-UnSetCaseInChoice"></a>
 
 ```java
 public static enum com.tailf.navu.NavuContextBase.UnSetCaseInChoice
@@ -22,13 +21,12 @@ The enumeration specifies the behavior
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ERROR_EXCEPTION"></a>
-### ERROR_EXCEPTION
+### ERROR_EXCEPTION <a href="#m-ERROR_EXCEPTION" id="m-ERROR_EXCEPTION"></a>
 
 ```java
 public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice ERROR_EXCEPTION;
@@ -37,8 +35,7 @@ public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice ERROR_EXCEP
 Threat a unset case as a error
   throws exception NavuException.
 
-<a id="m-MUTE"></a>
-### MUTE
+### MUTE <a href="#m-MUTE" id="m-MUTE"></a>
 
 ```java
 public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice MUTE;
@@ -47,8 +44,7 @@ public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice MUTE;
 Mute all warning messages in the log and
   no exception will be thrown.
 
-<a id="m-WARN_LOG"></a>
-### WARN_LOG
+### WARN_LOG <a href="#m-WARN_LOG" id="m-WARN_LOG"></a>
 
 ```java
 public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice WARN_LOG;
@@ -57,8 +53,7 @@ public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice WARN_LOG;
 Print warn message in the log
   no exception will be thrown.
 
-<a id="m-WARN_LOG_EXCEPTION"></a>
-### WARN_LOG_EXCEPTION
+### WARN_LOG_EXCEPTION <a href="#m-WARN_LOG_EXCEPTION" id="m-WARN_LOG_EXCEPTION"></a>
 
 ```java
 public static final com.tailf.navu.NavuContextBase.UnSetCaseInChoice WARN_LOG_EXCEPTION;
@@ -71,8 +66,7 @@ Print warn message in the log
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.navu.NavuContextBase.UnSetCaseInChoice valueOf(String name)
@@ -84,8 +78,7 @@ Types: [UnSetCaseInChoice](UnSetCaseInChoice.md#cls-UnSetCaseInChoice)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.navu.NavuContextBase.UnSetCaseInChoice[] values()

@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder
@@ -10,38 +9,37 @@ public static final class com.tailf.ncs.maapi.Schema.MNsMapEntry.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getModname()](#m-getmodname-40cd7f77aac9)
-- [getNs()](#m-getns-59b97eae2a4a)
-- [getNsHash()](#m-getnshash-f6f3e3ae1e6b)
-- [getPrefix()](#m-getprefix-9268091e0223)
-- [getXmlns()](#m-getxmlns-e2c0fd08466b)
-- [hasModname()](#m-hasmodname-fdd47b76b94a)
-- [hasNs()](#m-hasns-9cd343037be1)
-- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
-- [hasXmlns()](#m-hasxmlns-3eb601ca5705)
-- [initModname(int)](#m-initmodname-adbe25a612a2)
-- [initNs(int)](#m-initns-594e96675702)
-- [initPrefix(int)](#m-initprefix-e25b609de101)
-- [initXmlns(int)](#m-initxmlns-17805c1c0d5c)
-- [setModname(Reader)](#m-setmodname-fe28ed5ab65b)
-- [setModname(String)](#m-setmodname-885ff7e8e342)
-- [setNs(Reader)](#m-setns-dcd01c91436e)
-- [setNs(String)](#m-setns-510adfcd3e70)
-- [setNsHash(int)](#m-setnshash-856e3c88b24a)
-- [setPrefix(Reader)](#m-setprefix-5c58f0bf0784)
-- [setPrefix(String)](#m-setprefix-63fe622cb50c)
-- [setXmlns(Reader)](#m-setxmlns-333e49621e27)
-- [setXmlns(String)](#m-setxmlns-8666c0c76ee9)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getModname()](#m-getModname-40cd7f77aac9)
+- [getNs()](#m-getNs-59b97eae2a4a)
+- [getNsHash()](#m-getNsHash-f6f3e3ae1e6b)
+- [getPrefix()](#m-getPrefix-9268091e0223)
+- [getXmlns()](#m-getXmlns-e2c0fd08466b)
+- [hasModname()](#m-hasModname-fdd47b76b94a)
+- [hasNs()](#m-hasNs-9cd343037be1)
+- [hasPrefix()](#m-hasPrefix-ddbc3bbca9c3)
+- [hasXmlns()](#m-hasXmlns-3eb601ca5705)
+- [initModname(int)](#m-initModname-adbe25a612a2)
+- [initNs(int)](#m-initNs-594e96675702)
+- [initPrefix(int)](#m-initPrefix-e25b609de101)
+- [initXmlns(int)](#m-initXmlns-17805c1c0d5c)
+- [setModname(Reader)](#m-setModname-fe28ed5ab65b)
+- [setModname(String)](#m-setModname-885ff7e8e342)
+- [setNs(Reader)](#m-setNs-dcd01c91436e)
+- [setNs(String)](#m-setNs-510adfcd3e70)
+- [setNsHash(int)](#m-setNsHash-856e3c88b24a)
+- [setPrefix(Reader)](#m-setPrefix-5c58f0bf0784)
+- [setPrefix(String)](#m-setPrefix-63fe622cb50c)
+- [setXmlns(Reader)](#m-setXmlns-333e49621e27)
+- [setXmlns(String)](#m-setXmlns-8666c0c76ee9)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -66,8 +64,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader asReader()
@@ -75,71 +72,61 @@ public final com.tailf.ncs.maapi.Schema.MNsMapEntry.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getmodname-40cd7f77aac9"></a>
-### getModname()
+### getModname() <a href="#m-getModname-40cd7f77aac9" id="m-getModname-40cd7f77aac9"></a>
 
 ```java
 public final org.capnproto.Text.Builder getModname()
 ```
 
-<a id="m-getns-59b97eae2a4a"></a>
-### getNs()
+### getNs() <a href="#m-getNs-59b97eae2a4a" id="m-getNs-59b97eae2a4a"></a>
 
 ```java
 public final org.capnproto.Text.Builder getNs()
 ```
 
-<a id="m-getnshash-f6f3e3ae1e6b"></a>
-### getNsHash()
+### getNsHash() <a href="#m-getNsHash-f6f3e3ae1e6b" id="m-getNsHash-f6f3e3ae1e6b"></a>
 
 ```java
 public final int getNsHash()
 ```
 
-<a id="m-getprefix-9268091e0223"></a>
-### getPrefix()
+### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
 
 ```java
 public final org.capnproto.Text.Builder getPrefix()
 ```
 
-<a id="m-getxmlns-e2c0fd08466b"></a>
-### getXmlns()
+### getXmlns() <a href="#m-getXmlns-e2c0fd08466b" id="m-getXmlns-e2c0fd08466b"></a>
 
 ```java
 public final org.capnproto.Text.Builder getXmlns()
 ```
 
-<a id="m-hasmodname-fdd47b76b94a"></a>
-### hasModname()
+### hasModname() <a href="#m-hasModname-fdd47b76b94a" id="m-hasModname-fdd47b76b94a"></a>
 
 ```java
 public final boolean hasModname()
 ```
 
-<a id="m-hasns-9cd343037be1"></a>
-### hasNs()
+### hasNs() <a href="#m-hasNs-9cd343037be1" id="m-hasNs-9cd343037be1"></a>
 
 ```java
 public final boolean hasNs()
 ```
 
-<a id="m-hasprefix-ddbc3bbca9c3"></a>
-### hasPrefix()
+### hasPrefix() <a href="#m-hasPrefix-ddbc3bbca9c3" id="m-hasPrefix-ddbc3bbca9c3"></a>
 
 ```java
 public final boolean hasPrefix()
 ```
 
-<a id="m-hasxmlns-3eb601ca5705"></a>
-### hasXmlns()
+### hasXmlns() <a href="#m-hasXmlns-3eb601ca5705" id="m-hasXmlns-3eb601ca5705"></a>
 
 ```java
 public final boolean hasXmlns()
 ```
 
-<a id="m-initmodname-adbe25a612a2"></a>
-### initModname(int)
+### initModname(int) <a href="#m-initModname-adbe25a612a2" id="m-initModname-adbe25a612a2"></a>
 
 ```java
 public final org.capnproto.Text.Builder initModname(int size)
@@ -149,8 +136,7 @@ public final org.capnproto.Text.Builder initModname(int size)
 
 - `int size`
 
-<a id="m-initns-594e96675702"></a>
-### initNs(int)
+### initNs(int) <a href="#m-initNs-594e96675702" id="m-initNs-594e96675702"></a>
 
 ```java
 public final org.capnproto.Text.Builder initNs(int size)
@@ -160,8 +146,7 @@ public final org.capnproto.Text.Builder initNs(int size)
 
 - `int size`
 
-<a id="m-initprefix-e25b609de101"></a>
-### initPrefix(int)
+### initPrefix(int) <a href="#m-initPrefix-e25b609de101" id="m-initPrefix-e25b609de101"></a>
 
 ```java
 public final org.capnproto.Text.Builder initPrefix(int size)
@@ -171,8 +156,7 @@ public final org.capnproto.Text.Builder initPrefix(int size)
 
 - `int size`
 
-<a id="m-initxmlns-17805c1c0d5c"></a>
-### initXmlns(int)
+### initXmlns(int) <a href="#m-initXmlns-17805c1c0d5c" id="m-initXmlns-17805c1c0d5c"></a>
 
 ```java
 public final org.capnproto.Text.Builder initXmlns(int size)
@@ -182,8 +166,7 @@ public final org.capnproto.Text.Builder initXmlns(int size)
 
 - `int size`
 
-<a id="m-setmodname-fe28ed5ab65b"></a>
-### setModname(Reader)
+### setModname(Reader) <a href="#m-setModname-fe28ed5ab65b" id="m-setModname-fe28ed5ab65b"></a>
 
 ```java
 public final void setModname(org.capnproto.Text.Reader value)
@@ -193,8 +176,7 @@ public final void setModname(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setmodname-885ff7e8e342"></a>
-### setModname(String)
+### setModname(String) <a href="#m-setModname-885ff7e8e342" id="m-setModname-885ff7e8e342"></a>
 
 ```java
 public final void setModname(String value)
@@ -204,8 +186,7 @@ public final void setModname(String value)
 
 - `String value`
 
-<a id="m-setns-dcd01c91436e"></a>
-### setNs(Reader)
+### setNs(Reader) <a href="#m-setNs-dcd01c91436e" id="m-setNs-dcd01c91436e"></a>
 
 ```java
 public final void setNs(org.capnproto.Text.Reader value)
@@ -215,8 +196,7 @@ public final void setNs(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setns-510adfcd3e70"></a>
-### setNs(String)
+### setNs(String) <a href="#m-setNs-510adfcd3e70" id="m-setNs-510adfcd3e70"></a>
 
 ```java
 public final void setNs(String value)
@@ -226,8 +206,7 @@ public final void setNs(String value)
 
 - `String value`
 
-<a id="m-setnshash-856e3c88b24a"></a>
-### setNsHash(int)
+### setNsHash(int) <a href="#m-setNsHash-856e3c88b24a" id="m-setNsHash-856e3c88b24a"></a>
 
 ```java
 public final void setNsHash(int value)
@@ -237,8 +216,7 @@ public final void setNsHash(int value)
 
 - `int value`
 
-<a id="m-setprefix-5c58f0bf0784"></a>
-### setPrefix(Reader)
+### setPrefix(Reader) <a href="#m-setPrefix-5c58f0bf0784" id="m-setPrefix-5c58f0bf0784"></a>
 
 ```java
 public final void setPrefix(org.capnproto.Text.Reader value)
@@ -248,8 +226,7 @@ public final void setPrefix(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setprefix-63fe622cb50c"></a>
-### setPrefix(String)
+### setPrefix(String) <a href="#m-setPrefix-63fe622cb50c" id="m-setPrefix-63fe622cb50c"></a>
 
 ```java
 public final void setPrefix(String value)
@@ -259,8 +236,7 @@ public final void setPrefix(String value)
 
 - `String value`
 
-<a id="m-setxmlns-333e49621e27"></a>
-### setXmlns(Reader)
+### setXmlns(Reader) <a href="#m-setXmlns-333e49621e27" id="m-setXmlns-333e49621e27"></a>
 
 ```java
 public final void setXmlns(org.capnproto.Text.Reader value)
@@ -270,8 +246,7 @@ public final void setXmlns(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setxmlns-8666c0c76ee9"></a>
-### setXmlns(String)
+### setXmlns(String) <a href="#m-setXmlns-8666c0c76ee9" id="m-setXmlns-8666c0c76ee9"></a>
 
 ```java
 public final void setXmlns(String value)

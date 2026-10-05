@@ -1,5 +1,4 @@
-<a id="cls-ConfQname"></a>
-# ConfQname
+# ConfQname <a href="#cls-ConfQname" id="cls-ConfQname"></a>
 
 ```java
 public class com.tailf.conf.ConfQname
@@ -15,8 +14,8 @@ DATA_CONTAINER - Corresponds to the confspec xs:qName type.
 
 **Constructors**:
 
-- [ConfQname(ConfEObject)](#m-confqname-6240a0da9b4d)
-- [ConfQname(String, String)](#m-confqname-8c7f44047839)
+- [ConfQname(ConfEObject)](#m-ConfQname-6240a0da9b4d)
+- [ConfQname(String, String)](#m-ConfQname-8c7f44047839)
 
 **Fields**:
 
@@ -74,25 +73,24 @@ DATA_CONTAINER - Corresponds to the confspec xs:qName type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfQname)](#m-compareto-cb407127c21a)
+- [compareTo(ConfQname)](#m-compareTo-cb407127c21a)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getName()](#m-getname-2634b18b4a25)
-- [getPrefix()](#m-getprefix-9268091e0223)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getName()](#m-getName-2634b18b4a25)
+- [getPrefix()](#m-getPrefix-9268091e0223)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confqname-6240a0da9b4d"></a>
-### ConfQname(ConfEObject)
+### ConfQname(ConfEObject) <a href="#m-ConfQname-6240a0da9b4d" id="m-ConfQname-6240a0da9b4d"></a>
 
 ```java
 public ConfQname(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -104,8 +102,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confqname-8c7f44047839"></a>
-### ConfQname(String, String)
+### ConfQname(String, String) <a href="#m-ConfQname-8c7f44047839" id="m-ConfQname-8c7f44047839"></a>
 
 ```java
 public ConfQname(String prefix, String name)
@@ -119,8 +116,7 @@ public ConfQname(String prefix, String name)
 
 ## Methods
 
-<a id="m-compareto-cb407127c21a"></a>
-### compareTo(ConfQname)
+### compareTo(ConfQname) <a href="#m-compareTo-cb407127c21a" id="m-compareTo-cb407127c21a"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfQname o)
@@ -132,8 +128,7 @@ Types: [ConfQname](ConfQname.md#cls-ConfQname)
 
 - `com.tailf.conf.ConfQname o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -141,8 +136,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -152,29 +146,25 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
 ```
 
-<a id="m-getprefix-9268091e0223"></a>
-### getPrefix()
+### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
 
 ```java
 public String getPrefix()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

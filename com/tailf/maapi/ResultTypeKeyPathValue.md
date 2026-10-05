@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeKeyPathValue"></a>
-# ResultTypeKeyPathValue
+# ResultTypeKeyPathValue <a href="#cls-ResultTypeKeyPathValue" id="cls-ResultTypeKeyPathValue"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeKeyPathValue
@@ -39,13 +38,12 @@ XPath Result in keypath and value format. This format
 
 **Methods**:
 
-- [confValue()](#m-confvalue-baca27cbbecf)
-- [keyPath()](ResultTypeKeyPath.md#m-keypath-df48f9bfdabb) from ResultTypeKeyPath
+- [confValue()](#m-confValue-baca27cbbecf)
+- [keyPath()](ResultTypeKeyPath.md#m-keyPath-df48f9bfdabb) from ResultTypeKeyPath
 
 ## Methods
 
-<a id="m-confvalue-baca27cbbecf"></a>
-### confValue()
+### confValue() <a href="#m-confValue-baca27cbbecf" id="m-confValue-baca27cbbecf"></a>
 
 ```java
 public abstract com.tailf.conf.ConfValue confValue()

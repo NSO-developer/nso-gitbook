@@ -1,5 +1,4 @@
-<a id="cls-DiffIterateResultFlag"></a>
-# DiffIterateResultFlag
+# DiffIterateResultFlag <a href="#cls-DiffIterateResultFlag" id="cls-DiffIterateResultFlag"></a>
 
 ```java
 public enum com.tailf.conf.DiffIterateResultFlag
@@ -21,15 +20,14 @@ flags us by DiffIterate interface The iterate() method should return any
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ITER_CONTINUE"></a>
-### ITER_CONTINUE
+### ITER_CONTINUE <a href="#m-ITER_CONTINUE" id="m-ITER_CONTINUE"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateResultFlag ITER_CONTINUE;
@@ -38,8 +36,7 @@ public static final com.tailf.conf.DiffIterateResultFlag ITER_CONTINUE;
 The iterate() method should return ITER_CONTINUE when iteration should
  continue with the nodes siblings. (if any)
 
-<a id="m-ITER_RECURSE"></a>
-### ITER_RECURSE
+### ITER_RECURSE <a href="#m-ITER_RECURSE" id="m-ITER_RECURSE"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateResultFlag ITER_RECURSE;
@@ -48,8 +45,7 @@ public static final com.tailf.conf.DiffIterateResultFlag ITER_RECURSE;
 The iterate() method should return ITER_RECURSE when iteration should
  continue on all the nodes children. (if any)
 
-<a id="m-ITER_STOP"></a>
-### ITER_STOP
+### ITER_STOP <a href="#m-ITER_STOP" id="m-ITER_STOP"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateResultFlag ITER_STOP;
@@ -58,8 +54,7 @@ public static final com.tailf.conf.DiffIterateResultFlag ITER_STOP;
 The iterate() method should return ITER_STOP when no more iteration
  should be done.
 
-<a id="m-ITER_SUSPEND"></a>
-### ITER_SUSPEND
+### ITER_SUSPEND <a href="#m-ITER_SUSPEND" id="m-ITER_SUSPEND"></a>
 
 ```java
 public static final com.tailf.conf.DiffIterateResultFlag ITER_SUSPEND;
@@ -68,15 +63,13 @@ public static final com.tailf.conf.DiffIterateResultFlag ITER_SUSPEND;
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateResultFlag valueOf(int i)
@@ -88,8 +81,7 @@ Types: [DiffIterateResultFlag](DiffIterateResultFlag.md#cls-DiffIterateResultFla
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateResultFlag valueOf(String name)
@@ -101,8 +93,7 @@ Types: [DiffIterateResultFlag](DiffIterateResultFlag.md#cls-DiffIterateResultFla
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.conf.DiffIterateResultFlag[] values()

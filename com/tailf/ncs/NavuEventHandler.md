@@ -1,5 +1,4 @@
-<a id="cls-NavuEventHandler"></a>
-# NavuEventHandler
+# NavuEventHandler <a href="#cls-NavuEventHandler" id="cls-NavuEventHandler"></a>
 
 ```java
 public class com.tailf.ncs.NavuEventHandler
@@ -81,11 +80,11 @@ This class represents the a running daemon where it provides the means
 
  A user provided implementation of a [`NavuEventCallback`](NavuEventCallback.md#cls-NavuEventCallback) is
  registered with the
- `NavuEventCallback#registerInterfaceCallback(String,String,NavuEventCallback)`
+ `registerInterfaceCallback(String,String,NavuEventCallback)`
  method. Optionally a plain java pojo could be annotated
  with the annotation [`EventCallback`](annotations/EventCallback.md#cls-EventCallback) and
  registered the annotated instance with
- `#registerAnnotatedCallbacks(Object)`.
+ [`registerAnnotatedCallbacks(Object)`](NavuEventHandler.md#m-registerAnnotatedCallbacks-ffaebadbfc42).
 
  When registering a reacting callback user needs to provide the
  device name and the stream name in either the explicitly
@@ -97,7 +96,7 @@ This class represents the a running daemon where it provides the means
 
  As soon as the notifications arrives the user implementation of the
  `NavuEventCallback`
- [`NavuEventCallback#notifReceived(NavuContainer)`](NavuEventCallback.md#m-notifreceived-df06be623526) is invoked
+ [`NavuEventCallback#notifReceived(NavuContainer)`](NavuEventCallback.md#m-notifReceived-df06be623526) is invoked
  by the NavuEventHandler for the device and stream the callback
  is interested in.
 
@@ -110,8 +109,8 @@ This class represents the a running daemon where it provides the means
 
 **Constructors**:
 
-- [NavuEventHandler(SocketAddress, String)](#m-navueventhandler-891bd346a2fa)
-- [NavuEventHandler(String, int, String)](#m-navueventhandler-e6148b2b8e5e)
+- [NavuEventHandler(SocketAddress, String)](#m-NavuEventHandler-891bd346a2fa)
+- [NavuEventHandler(String, int, String)](#m-NavuEventHandler-e6148b2b8e5e)
 
 **Fields**:
 
@@ -119,14 +118,14 @@ This class represents the a running daemon where it provides the means
 
 **Methods**:
 
-- [awaitStopped()](#m-awaitstopped-07bdf4883d6b)
-- [getCallbacks(String, String)](#m-getcallbacks-cf69c24d830b)
-- [invokeNavuEventCallbacks(String, String, NavuNode)](#m-invokenavueventcallbacks-d6eb2ab2120a)
-- [isRunning()](#m-isrunning-02db4ec84a8d)
-- [isStopped()](#m-isstopped-9ec54eaf1bc2)
+- [awaitStopped()](#m-awaitStopped-07bdf4883d6b)
+- [getCallbacks(String, String)](#m-getCallbacks-cf69c24d830b)
+- [invokeNavuEventCallbacks(String, String, NavuNode)](#m-invokeNavuEventCallbacks-d6eb2ab2120a)
+- [isRunning()](#m-isRunning-02db4ec84a8d)
+- [isStopped()](#m-isStopped-9ec54eaf1bc2)
 - [main(String[])](#m-main-1503518a8568)
-- [registerAnnotatedCallbacks(Object)](#m-registerannotatedcallbacks-ffaebadbfc42)
-- [registerInterfaceCallback(String, String, NavuEventCallback)](#m-registerinterfacecallback-266c7a185b0e)
+- [registerAnnotatedCallbacks(Object)](#m-registerAnnotatedCallbacks-ffaebadbfc42)
+- [registerInterfaceCallback(String, String, NavuEventCallback)](#m-registerInterfaceCallback-266c7a185b0e)
 - [run()](#m-run-b6dbda048863)
 - [start()](#m-start-79e12dafe9f8)
 - [stop()](#m-stop-a62ecc446f97)
@@ -138,8 +137,7 @@ This class represents the a running daemon where it provides the means
 
 ## Constructors
 
-<a id="m-navueventhandler-891bd346a2fa"></a>
-### NavuEventHandler(SocketAddress, String)
+### NavuEventHandler(SocketAddress, String) <a href="#m-NavuEventHandler-891bd346a2fa" id="m-NavuEventHandler-891bd346a2fa"></a>
 
 ```java
 public NavuEventHandler(
@@ -159,8 +157,7 @@ Create an instance of the NavuEventHandler with a
 - `java.net.SocketAddress address` - The addres to NCS
 - `String notifSubscriberName`
 
-<a id="m-navueventhandler-e6148b2b8e5e"></a>
-### NavuEventHandler(String, int, String)
+### NavuEventHandler(String, int, String) <a href="#m-NavuEventHandler-e6148b2b8e5e" id="m-NavuEventHandler-e6148b2b8e5e"></a>
 
 ```java
 public NavuEventHandler(
@@ -185,8 +182,7 @@ Create an instance of the NavuEventHandler with a
 
 ## Fields
 
-<a id="m-NOTIFICATION_EVENT_PATH"></a>
-### NOTIFICATION_EVENT_PATH
+### NOTIFICATION_EVENT_PATH <a href="#m-NOTIFICATION_EVENT_PATH" id="m-NOTIFICATION_EVENT_PATH"></a>
 
 ```java
 public static final String NOTIFICATION_EVENT_PATH = "/ncs:devices/device/notifications/received-notifications/notification";
@@ -195,20 +191,18 @@ public static final String NOTIFICATION_EVENT_PATH = "/ncs:devices/device/notifi
 This path has been deprecated in the YANG model.
  Once this part of the model has been removed this variable
  will point to the same path as in
- `#NOTIFICATION_EVENT_PATH`.
+ [`NOTIFICATION_EVENT_PATH`](NavuEventHandler.md#m-NOTIFICATION_EVENT_PATH).
 
 
 ## Methods
 
-<a id="m-awaitstopped-07bdf4883d6b"></a>
-### awaitStopped()
+### awaitStopped() <a href="#m-awaitStopped-07bdf4883d6b" id="m-awaitStopped-07bdf4883d6b"></a>
 
 ```java
 public void awaitStopped() throws InterruptedException
 ```
 
-<a id="m-getcallbacks-cf69c24d830b"></a>
-### getCallbacks(String, String)
+### getCallbacks(String, String) <a href="#m-getCallbacks-cf69c24d830b" id="m-getCallbacks-cf69c24d830b"></a>
 
 ```java
 protected java.util.List<com.tailf.ncs.NavuEventCallback> getCallbacks(
@@ -224,8 +218,7 @@ Types: [NavuEventCallback](NavuEventCallback.md#cls-NavuEventCallback)
 - `String devName`
 - `String subName`
 
-<a id="m-invokenavueventcallbacks-d6eb2ab2120a"></a>
-### invokeNavuEventCallbacks(String, String, NavuNode)
+### invokeNavuEventCallbacks(String, String, NavuNode) <a href="#m-invokeNavuEventCallbacks-d6eb2ab2120a" id="m-invokeNavuEventCallbacks-d6eb2ab2120a"></a>
 
 ```java
 protected void invokeNavuEventCallbacks(
@@ -244,22 +237,19 @@ Types: [NavuNode](../navu/NavuNode.md#cls-NavuNode), [NcsException](NcsException
 - `String subName`
 - `com.tailf.navu.NavuNode recievedNotif`
 
-<a id="m-isrunning-02db4ec84a8d"></a>
-### isRunning()
+### isRunning() <a href="#m-isRunning-02db4ec84a8d" id="m-isRunning-02db4ec84a8d"></a>
 
 ```java
 public boolean isRunning()
 ```
 
-<a id="m-isstopped-9ec54eaf1bc2"></a>
-### isStopped()
+### isStopped() <a href="#m-isStopped-9ec54eaf1bc2" id="m-isStopped-9ec54eaf1bc2"></a>
 
 ```java
 public boolean isStopped()
 ```
 
-<a id="m-main-1503518a8568"></a>
-### main(String[])
+### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
 
 ```java
 public static void main(String[] args)
@@ -294,8 +284,7 @@ The main method of the NavuEventHandler is a notification probe that
 
 - `String[] args`
 
-<a id="m-registerannotatedcallbacks-ffaebadbfc42"></a>
-### registerAnnotatedCallbacks(Object)
+### registerAnnotatedCallbacks(Object) <a href="#m-registerAnnotatedCallbacks-ffaebadbfc42" id="m-registerAnnotatedCallbacks-ffaebadbfc42"></a>
 
 ```java
 public void registerAnnotatedCallbacks(Object obj) throws com.tailf.ncs.NcsException
@@ -334,8 +323,7 @@ Method to register pojo classes as notification callbacks. This method
 
 - `NcsException`
 
-<a id="m-registerinterfacecallback-266c7a185b0e"></a>
-### registerInterfaceCallback(String, String, NavuEventCallback)
+### registerInterfaceCallback(String, String, NavuEventCallback) <a href="#m-registerInterfaceCallback-266c7a185b0e" id="m-registerInterfaceCallback-266c7a185b0e"></a>
 
 ```java
 public void registerInterfaceCallback(
@@ -362,15 +350,13 @@ Method to register classes that implements the `NavuEventHandler`
 - `com.tailf.ncs.NavuEventCallback callback` - User provided implementation of the
     NavuEventCallback.
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-<a id="m-start-79e12dafe9f8"></a>
-### start()
+### start() <a href="#m-start-79e12dafe9f8" id="m-start-79e12dafe9f8"></a>
 
 ```java
 public void start()
@@ -387,8 +373,7 @@ Starts this `NavuEventHandler` to receive notifications.
  `CdbSubscriber` asynchronously, if the underlying
  subscriber is not has already started.
 
-<a id="m-stop-a62ecc446f97"></a>
-### stop()
+### stop() <a href="#m-stop-a62ecc446f97" id="m-stop-a62ecc446f97"></a>
 
 ```java
 public void stop()

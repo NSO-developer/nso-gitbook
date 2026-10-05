@@ -1,5 +1,4 @@
-<a id="cls-CsTypeString"></a>
-# CsTypeString
+# CsTypeString <a href="#cls-CsTypeString" id="cls-CsTypeString"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeString
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeString
 
 **Constructors**:
 
-- [CsTypeString()](#m-cstypestring-22e5621be6b9)
+- [CsTypeString()](#m-CsTypeString-22e5621be6b9)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeString
 
 ## Constructors
 
-<a id="m-cstypestring-22e5621be6b9"></a>
-### CsTypeString()
+### CsTypeString() <a href="#m-CsTypeString-22e5621be6b9" id="m-CsTypeString-22e5621be6b9"></a>
 
 ```java
 public CsTypeString()
@@ -35,8 +33,7 @@ public CsTypeString()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeString.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeString.Factory factory = nu
 
 Types: [Factory](CsTypeString/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeString.Builder,com.tailf.ncs.maapi.Schema.CsTypeString.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeString/Builder.md#cls-Builder), [Reader](CsTypeString/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

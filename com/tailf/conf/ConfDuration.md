@@ -1,5 +1,4 @@
-<a id="cls-ConfDuration"></a>
-# ConfDuration
+# ConfDuration <a href="#cls-ConfDuration" id="cls-ConfDuration"></a>
 
 ```java
 public class com.tailf.conf.ConfDuration
@@ -17,9 +16,9 @@ DATA_CONTAINER - Corresponds to the confspec xs:duration type.
 
 **Constructors**:
 
-- [ConfDuration(ConfEObject)](#m-confduration-6805da06c25a)
-- [ConfDuration(int, int, int, int, int, int, int)](#m-confduration-28f4f99d0270)
-- [ConfDuration(String)](#m-confduration-e96aca2980b4)
+- [ConfDuration(ConfEObject)](#m-ConfDuration-6805da06c25a)
+- [ConfDuration(int, int, int, int, int, int, int)](#m-ConfDuration-28f4f99d0270)
+- [ConfDuration(String)](#m-ConfDuration-e96aca2980b4)
 
 **Fields**:
 
@@ -77,31 +76,30 @@ DATA_CONTAINER - Corresponds to the confspec xs:duration type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfDuration)](#m-compareto-0acbc8e8bd56)
+- [compareTo(ConfDuration)](#m-compareTo-0acbc8e8bd56)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getCalendar()](#m-getcalendar-a652e6440a1a)
-- [getDay()](#m-getday-3b07996cd5f6)
-- [getHour()](#m-gethour-32c719f425c9)
-- [getMicro()](#m-getmicro-37aa6b436572)
-- [getMin()](#m-getmin-8654ceab94db)
-- [getMonth()](#m-getmonth-3813513d5069)
-- [getSec()](#m-getsec-c0fe657f6906)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [getYear()](#m-getyear-584af4457cda)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getCalendar()](#m-getCalendar-a652e6440a1a)
+- [getDay()](#m-getDay-3b07996cd5f6)
+- [getHour()](#m-getHour-32c719f425c9)
+- [getMicro()](#m-getMicro-37aa6b436572)
+- [getMin()](#m-getMin-8654ceab94db)
+- [getMonth()](#m-getMonth-3813513d5069)
+- [getSec()](#m-getSec-c0fe657f6906)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [getYear()](#m-getYear-584af4457cda)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confduration-6805da06c25a"></a>
-### ConfDuration(ConfEObject)
+### ConfDuration(ConfEObject) <a href="#m-ConfDuration-6805da06c25a" id="m-ConfDuration-6805da06c25a"></a>
 
 ```java
 public ConfDuration(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -113,8 +111,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confduration-28f4f99d0270"></a>
-### ConfDuration(int, int, int, int, int, int, int)
+### ConfDuration(int, int, int, int, int, int, int) <a href="#m-ConfDuration-28f4f99d0270" id="m-ConfDuration-28f4f99d0270"></a>
 
 ```java
 public ConfDuration(int year, int month, int day, int hour, int min, int sec, int micro)
@@ -130,8 +127,7 @@ public ConfDuration(int year, int month, int day, int hour, int min, int sec, in
 - `int sec`
 - `int micro`
 
-<a id="m-confduration-e96aca2980b4"></a>
-### ConfDuration(String)
+### ConfDuration(String) <a href="#m-ConfDuration-e96aca2980b4" id="m-ConfDuration-e96aca2980b4"></a>
 
 ```java
 public ConfDuration(String str)
@@ -144,8 +140,7 @@ public ConfDuration(String str)
 
 ## Methods
 
-<a id="m-compareto-0acbc8e8bd56"></a>
-### compareTo(ConfDuration)
+### compareTo(ConfDuration) <a href="#m-compareTo-0acbc8e8bd56" id="m-compareTo-0acbc8e8bd56"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfDuration o)
@@ -157,8 +152,7 @@ Types: [ConfDuration](ConfDuration.md#cls-ConfDuration)
 
 - `com.tailf.conf.ConfDuration o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -166,8 +160,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -177,71 +170,61 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getcalendar-a652e6440a1a"></a>
-### getCalendar()
+### getCalendar() <a href="#m-getCalendar-a652e6440a1a" id="m-getCalendar-a652e6440a1a"></a>
 
 ```java
 public java.util.GregorianCalendar getCalendar()
 ```
 
-<a id="m-getday-3b07996cd5f6"></a>
-### getDay()
+### getDay() <a href="#m-getDay-3b07996cd5f6" id="m-getDay-3b07996cd5f6"></a>
 
 ```java
 public int getDay()
 ```
 
-<a id="m-gethour-32c719f425c9"></a>
-### getHour()
+### getHour() <a href="#m-getHour-32c719f425c9" id="m-getHour-32c719f425c9"></a>
 
 ```java
 public int getHour()
 ```
 
-<a id="m-getmicro-37aa6b436572"></a>
-### getMicro()
+### getMicro() <a href="#m-getMicro-37aa6b436572" id="m-getMicro-37aa6b436572"></a>
 
 ```java
 public int getMicro()
 ```
 
-<a id="m-getmin-8654ceab94db"></a>
-### getMin()
+### getMin() <a href="#m-getMin-8654ceab94db" id="m-getMin-8654ceab94db"></a>
 
 ```java
 public int getMin()
 ```
 
-<a id="m-getmonth-3813513d5069"></a>
-### getMonth()
+### getMonth() <a href="#m-getMonth-3813513d5069" id="m-getMonth-3813513d5069"></a>
 
 ```java
 public int getMonth()
 ```
 
-<a id="m-getsec-c0fe657f6906"></a>
-### getSec()
+### getSec() <a href="#m-getSec-c0fe657f6906" id="m-getSec-c0fe657f6906"></a>
 
 ```java
 public int getSec()
 ```
 
-<a id="m-getyear-584af4457cda"></a>
-### getYear()
+### getYear() <a href="#m-getYear-584af4457cda" id="m-getYear-584af4457cda"></a>
 
 ```java
 public int getYear()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

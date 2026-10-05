@@ -1,5 +1,4 @@
-<a id="cls-NavuChange"></a>
-# NavuChange
+# NavuChange <a href="#cls-NavuChange" id="cls-NavuChange"></a>
 
 ```java
 public class com.tailf.navu.NavuChange
@@ -13,27 +12,26 @@ This class handles changes on a node. The changes can be CREATE or
 
 **Constructors**:
 
-- [NavuChange(ConfKey)](#m-navuchange-f9837a9c397b)
+- [NavuChange(ConfKey)](#m-NavuChange-f9837a9c397b)
 
 **Methods**:
 
 - [add(NavuNode)](#m-add-2bf2a742c2a6)
 - [contains(NavuNode)](#m-contains-d5aea0a3a91f)
 - [get(int)](#m-get-5bd20d94a8b1)
-- [getChange()](#m-getchange-6190c59d58da)
-- [getKey()](#m-getkey-9a8856159458)
-- [isEmpty()](#m-isempty-4dde48126244)
+- [getChange()](#m-getChange-6190c59d58da)
+- [getKey()](#m-getKey-9a8856159458)
+- [isEmpty()](#m-isEmpty-4dde48126244)
 - [iterator()](#m-iterator-188aa52d1f86)
-- [setChange(DiffIterateOperFlag)](#m-setchange-05fa40d4fa0e)
+- [setChange(DiffIterateOperFlag)](#m-setChange-05fa40d4fa0e)
 - [size()](#m-size-c6d8505255fd)
-- [subList(int, int)](#m-sublist-0fe73c4cdfba)
-- [toArray()](#m-toarray-4819af4b68f9)
-- [toArray(T[])](#m-toarray-d0a3b39b53fc)
+- [subList(int, int)](#m-subList-0fe73c4cdfba)
+- [toArray()](#m-toArray-4819af4b68f9)
+- [toArray(T[])](#m-toArray-d0a3b39b53fc)
 
 ## Constructors
 
-<a id="m-navuchange-f9837a9c397b"></a>
-### NavuChange(ConfKey)
+### NavuChange(ConfKey) <a href="#m-NavuChange-f9837a9c397b" id="m-NavuChange-f9837a9c397b"></a>
 
 ```java
 protected NavuChange(com.tailf.conf.ConfKey key)
@@ -48,8 +46,7 @@ Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
 
 ## Methods
 
-<a id="m-add-2bf2a742c2a6"></a>
-### add(NavuNode)
+### add(NavuNode) <a href="#m-add-2bf2a742c2a6" id="m-add-2bf2a742c2a6"></a>
 
 ```java
 public boolean add(com.tailf.navu.NavuNode e)
@@ -65,8 +62,7 @@ Adds a node.
 
 **Returns:** true if this node already was added.
 
-<a id="m-contains-d5aea0a3a91f"></a>
-### contains(NavuNode)
+### contains(NavuNode) <a href="#m-contains-d5aea0a3a91f" id="m-contains-d5aea0a3a91f"></a>
 
 ```java
 public boolean contains(com.tailf.navu.NavuNode node)
@@ -82,8 +78,7 @@ Checks if a node is already contained by the change.
 
 **Returns:** true if it is contained.
 
-<a id="m-get-5bd20d94a8b1"></a>
-### get(int)
+### get(int) <a href="#m-get-5bd20d94a8b1" id="m-get-5bd20d94a8b1"></a>
 
 ```java
 public com.tailf.navu.NavuNode get(int index)
@@ -99,8 +94,7 @@ Returns a node at a certain position.
 
 **Returns:** the node at this position. null if no node exists.
 
-<a id="m-getchange-6190c59d58da"></a>
-### getChange()
+### getChange() <a href="#m-getChange-6190c59d58da" id="m-getChange-6190c59d58da"></a>
 
 ```java
 public com.tailf.conf.DiffIterateOperFlag getChange()
@@ -110,8 +104,7 @@ Types: [DiffIterateOperFlag](../conf/DiffIterateOperFlag.md#cls-DiffIterateOperF
 
 **Returns:** the change type.
 
-<a id="m-getkey-9a8856159458"></a>
-### getKey()
+### getKey() <a href="#m-getKey-9a8856159458" id="m-getKey-9a8856159458"></a>
 
 ```java
 public com.tailf.conf.ConfKey getKey()
@@ -121,8 +114,7 @@ Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey)
 
 **Returns:** the key of the change.
 
-<a id="m-isempty-4dde48126244"></a>
-### isEmpty()
+### isEmpty() <a href="#m-isEmpty-4dde48126244" id="m-isEmpty-4dde48126244"></a>
 
 ```java
 public boolean isEmpty()
@@ -130,8 +122,7 @@ public boolean isEmpty()
 
 **Returns:** true if no changes exists.
 
-<a id="m-iterator-188aa52d1f86"></a>
-### iterator()
+### iterator() <a href="#m-iterator-188aa52d1f86" id="m-iterator-188aa52d1f86"></a>
 
 ```java
 public java.util.Iterator<com.tailf.navu.NavuNode> iterator()
@@ -141,8 +132,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode)
 
 **Returns:** an iterator of the changes.
 
-<a id="m-setchange-05fa40d4fa0e"></a>
-### setChange(DiffIterateOperFlag)
+### setChange(DiffIterateOperFlag) <a href="#m-setChange-05fa40d4fa0e" id="m-setChange-05fa40d4fa0e"></a>
 
 ```java
 public void setChange(com.tailf.conf.DiffIterateOperFlag op)
@@ -156,8 +146,7 @@ Sets the change type.
 
 - `com.tailf.conf.DiffIterateOperFlag op` - change type.
 
-<a id="m-size-c6d8505255fd"></a>
-### size()
+### size() <a href="#m-size-c6d8505255fd" id="m-size-c6d8505255fd"></a>
 
 ```java
 public int size()
@@ -165,8 +154,7 @@ public int size()
 
 **Returns:** the number of changes.
 
-<a id="m-sublist-0fe73c4cdfba"></a>
-### subList(int, int)
+### subList(int, int) <a href="#m-subList-0fe73c4cdfba" id="m-subList-0fe73c4cdfba"></a>
 
 ```java
 public java.util.List<com.tailf.navu.NavuNode> subList(int startIndex, int stopindex)
@@ -181,8 +169,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode)
 
 **Returns:** a subList
 
-<a id="m-toarray-4819af4b68f9"></a>
-### toArray()
+### toArray() <a href="#m-toArray-4819af4b68f9" id="m-toArray-4819af4b68f9"></a>
 
 ```java
 public Object[] toArray()
@@ -192,8 +179,7 @@ Converts the list of changes to an array.
 
 **Returns:** an array of objects.
 
-<a id="m-toarray-d0a3b39b53fc"></a>
-### toArray(T[])
+### toArray(T[]) <a href="#m-toArray-d0a3b39b53fc" id="m-toArray-d0a3b39b53fc"></a>
 
 ```java
 public <T> T[] toArray(T[] a)

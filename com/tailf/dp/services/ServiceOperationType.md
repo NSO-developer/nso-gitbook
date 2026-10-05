@@ -1,5 +1,4 @@
-<a id="cls-ServiceOperationType"></a>
-# ServiceOperationType
+# ServiceOperationType <a href="#cls-ServiceOperationType" id="cls-ServiceOperationType"></a>
 
 ```java
 public enum com.tailf.dp.services.ServiceOperationType
@@ -19,28 +18,25 @@ The service operation type
 
 **Methods**:
 
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CREATE"></a>
-### CREATE
+### CREATE <a href="#m-CREATE" id="m-CREATE"></a>
 
 ```java
 public static final com.tailf.dp.services.ServiceOperationType CREATE;
 ```
 
-<a id="m-DELETE"></a>
-### DELETE
+### DELETE <a href="#m-DELETE" id="m-DELETE"></a>
 
 ```java
 public static final com.tailf.dp.services.ServiceOperationType DELETE;
 ```
 
-<a id="m-UPDATE"></a>
-### UPDATE
+### UPDATE <a href="#m-UPDATE" id="m-UPDATE"></a>
 
 ```java
 public static final com.tailf.dp.services.ServiceOperationType UPDATE;
@@ -49,8 +45,7 @@ public static final com.tailf.dp.services.ServiceOperationType UPDATE;
 
 ## Methods
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.dp.services.ServiceOperationType valueOf(int ordinal)
@@ -66,8 +61,7 @@ Get ServiceOperationType from ordinal value
 
 **Returns:** ServiceOperationType
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.services.ServiceOperationType valueOf(String name)
@@ -79,8 +73,7 @@ Types: [ServiceOperationType](ServiceOperationType.md#cls-ServiceOperationType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.services.ServiceOperationType[] values()

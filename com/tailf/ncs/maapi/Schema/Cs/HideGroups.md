@@ -1,5 +1,4 @@
-<a id="cls-HideGroups"></a>
-# HideGroups
+# HideGroups <a href="#cls-HideGroups" id="cls-HideGroups"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.HideGroups
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.HideGroups
 
 **Constructors**:
 
-- [HideGroups()](#m-hidegroups-55a7d1ce86d4)
+- [HideGroups()](#m-HideGroups-55a7d1ce86d4)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.HideGroups
 
 ## Constructors
 
-<a id="m-hidegroups-55a7d1ce86d4"></a>
-### HideGroups()
+### HideGroups() <a href="#m-HideGroups-55a7d1ce86d4" id="m-HideGroups-55a7d1ce86d4"></a>
 
 ```java
 public HideGroups()
@@ -36,8 +34,7 @@ public HideGroups()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.Cs.HideGroups.Factory factory = n
 
 Types: [Factory](HideGroups/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.HideGroups.Builder,com.tailf.ncs.maapi.Schema.Cs.HideGroups.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](HideGroups/Builder.md#cls-Builder), [Reader](HideGroups/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

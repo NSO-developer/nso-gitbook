@@ -1,5 +1,4 @@
-<a id="cls-NedMux"></a>
-# NedMux
+# NedMux <a href="#cls-NedMux" id="cls-NedMux"></a>
 
 ```java
 public class com.tailf.ned.NedMux
@@ -15,31 +14,30 @@ The NedMux is used as the interface between NCS and the NedConnections.
 
 **Constructors**:
 
-- [NedMux(NcsMain)](#m-nedmux-5d47e1091ec5)
+- [NedMux(NcsMain)](#m-NedMux-5d47e1091ec5)
 
 **Methods**:
 
-- [addToConnectionList(NedConnectionBase)](#m-addtoconnectionlist-0d53d864a35a)
+- [addToConnectionList(NedConnectionBase)](#m-addToConnectionList-0d53d864a35a)
 - [dorun()](#m-dorun-4965d2173fd3)
-- [getConnection(int)](#m-getconnection-a8fbfff22e02)
-- [getErrorMessageFormatter()](#m-geterrormessageformatter-8c75ba6f07e5)
-- [getErrorVerbosity()](#m-geterrorverbosity-defe49ca237d)
-- [getNewNeds()](#m-getnewneds-1ea8feed407d)
-- [listOpenConnections()](#m-listopenconnections-28eee6f299b2)
+- [getConnection(int)](#m-getConnection-a8fbfff22e02)
+- [getErrorMessageFormatter()](#m-getErrorMessageFormatter-8c75ba6f07e5)
+- [getErrorVerbosity()](#m-getErrorVerbosity-defe49ca237d)
+- [getNewNeds()](#m-getNewNeds-1ea8feed407d)
+- [listOpenConnections()](#m-listOpenConnections-28eee6f299b2)
 - [register(NedConnectionBase)](#m-register-86d55bf880b4)
-- [removeFromConnectionList(int)](#m-removefromconnectionlist-2e9ec1695419)
-- [reRegister(NedConnectionBase)](#m-reregister-69b675594a1f)
-- [resetNewNeds()](#m-resetnewneds-8a4fddc81846)
+- [removeFromConnectionList(int)](#m-removeFromConnectionList-2e9ec1695419)
+- [reRegister(NedConnectionBase)](#m-reRegister-69b675594a1f)
+- [resetNewNeds()](#m-resetNewNeds-8a4fddc81846)
 - [run()](#m-run-b6dbda048863)
-- [setErrorVerbosity(ErrorVerbosity)](#m-seterrorverbosity-bab7950e55c8)
+- [setErrorVerbosity(ErrorVerbosity)](#m-setErrorVerbosity-bab7950e55c8)
 - [start()](#m-start-79e12dafe9f8)
-- [stopRequest()](#m-stoprequest-5e6b3185772c)
-- [termRead(Socket)](#m-termread-a6eabc408efc)
+- [stopRequest()](#m-stopRequest-5e6b3185772c)
+- [termRead(Socket)](#m-termRead-a6eabc408efc)
 
 ## Constructors
 
-<a id="m-nedmux-5d47e1091ec5"></a>
-### NedMux(NcsMain)
+### NedMux(NcsMain) <a href="#m-NedMux-5d47e1091ec5" id="m-NedMux-5d47e1091ec5"></a>
 
 ```java
 public NedMux(com.tailf.ncs.NcsMain main)
@@ -54,8 +52,7 @@ Types: [NcsMain](../ncs/NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-<a id="m-addtoconnectionlist-0d53d864a35a"></a>
-### addToConnectionList(NedConnectionBase)
+### addToConnectionList(NedConnectionBase) <a href="#m-addToConnectionList-0d53d864a35a" id="m-addToConnectionList-0d53d864a35a"></a>
 
 ```java
 protected int addToConnectionList(
@@ -73,8 +70,7 @@ This makes the mux aware of a new connection and returns
 
 - `com.tailf.ned.NedConnectionBase con`
 
-<a id="m-dorun-4965d2173fd3"></a>
-### dorun()
+### dorun() <a href="#m-dorun-4965d2173fd3" id="m-dorun-4965d2173fd3"></a>
 
 **Package-private**
 
@@ -82,8 +78,7 @@ This makes the mux aware of a new connection and returns
 void dorun() throws Exception
 ```
 
-<a id="m-getconnection-a8fbfff22e02"></a>
-### getConnection(int)
+### getConnection(int) <a href="#m-getConnection-a8fbfff22e02" id="m-getConnection-a8fbfff22e02"></a>
 
 ```java
 public com.tailf.ned.NedConnectionBase getConnection(int id)
@@ -95,8 +90,7 @@ Types: [NedConnectionBase](NedConnectionBase.md#cls-NedConnectionBase)
 
 - `int id`
 
-<a id="m-geterrormessageformatter-8c75ba6f07e5"></a>
-### getErrorMessageFormatter()
+### getErrorMessageFormatter() <a href="#m-getErrorMessageFormatter-8c75ba6f07e5" id="m-getErrorMessageFormatter-8c75ba6f07e5"></a>
 
 ```java
 public com.tailf.conf.ErrorMessageFormatter getErrorMessageFormatter()
@@ -108,8 +102,7 @@ Return the errorMessageFormatter for this NedMux.
 
 **Returns:** ErrorMessageFormatter for this NedMux
 
-<a id="m-geterrorverbosity-defe49ca237d"></a>
-### getErrorVerbosity()
+### getErrorVerbosity() <a href="#m-getErrorVerbosity-defe49ca237d" id="m-getErrorVerbosity-defe49ca237d"></a>
 
 ```java
 public com.tailf.conf.ErrorVerbosity getErrorVerbosity()
@@ -123,8 +116,7 @@ Get the local verbosity level for reported errors
 
 **Returns:** current errorVerbosity
 
-<a id="m-getnewneds-1ea8feed407d"></a>
-### getNewNeds()
+### getNewNeds() <a href="#m-getNewNeds-1ea8feed407d" id="m-getNewNeds-1ea8feed407d"></a>
 
 ```java
 public com.tailf.proto.ConfEList getNewNeds() throws Exception
@@ -132,15 +124,13 @@ public com.tailf.proto.ConfEList getNewNeds() throws Exception
 
 Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="m-listopenconnections-28eee6f299b2"></a>
-### listOpenConnections()
+### listOpenConnections() <a href="#m-listOpenConnections-28eee6f299b2" id="m-listOpenConnections-28eee6f299b2"></a>
 
 ```java
 public String[] listOpenConnections()
 ```
 
-<a id="m-register-86d55bf880b4"></a>
-### register(NedConnectionBase)
+### register(NedConnectionBase) <a href="#m-register-86d55bf880b4" id="m-register-86d55bf880b4"></a>
 
 ```java
 public void register(com.tailf.ned.NedConnectionBase userMod)
@@ -157,8 +147,7 @@ Register a new NedConnection with the mux. It will be reported
 
 - `com.tailf.ned.NedConnectionBase userMod`
 
-<a id="m-removefromconnectionlist-2e9ec1695419"></a>
-### removeFromConnectionList(int)
+### removeFromConnectionList(int) <a href="#m-removeFromConnectionList-2e9ec1695419" id="m-removeFromConnectionList-2e9ec1695419"></a>
 
 ```java
 protected void removeFromConnectionList(int id)
@@ -172,8 +161,7 @@ Removes the connection from the mux, indicating that it has
 
 - `int id` - is the connection_id of the terminated connection
 
-<a id="m-reregister-69b675594a1f"></a>
-### reRegister(NedConnectionBase)
+### reRegister(NedConnectionBase) <a href="#m-reRegister-69b675594a1f" id="m-reRegister-69b675594a1f"></a>
 
 ```java
 public boolean reRegister(com.tailf.ned.NedConnectionBase userMod)
@@ -190,22 +178,19 @@ The reRegister method will, NCS unknowingly, exchange the
 
 - `com.tailf.ned.NedConnectionBase userMod`
 
-<a id="m-resetnewneds-8a4fddc81846"></a>
-### resetNewNeds()
+### resetNewNeds() <a href="#m-resetNewNeds-8a4fddc81846" id="m-resetNewNeds-8a4fddc81846"></a>
 
 ```java
 public void resetNewNeds()
 ```
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
 ```
 
-<a id="m-seterrorverbosity-bab7950e55c8"></a>
-### setErrorVerbosity(ErrorVerbosity)
+### setErrorVerbosity(ErrorVerbosity) <a href="#m-setErrorVerbosity-bab7950e55c8" id="m-setErrorVerbosity-bab7950e55c8"></a>
 
 ```java
 public void setErrorVerbosity(com.tailf.conf.ErrorVerbosity verbosity)
@@ -221,22 +206,19 @@ set the local verbosity level for reported errors
 
 - `com.tailf.conf.ErrorVerbosity verbosity`
 
-<a id="m-start-79e12dafe9f8"></a>
-### start()
+### start() <a href="#m-start-79e12dafe9f8" id="m-start-79e12dafe9f8"></a>
 
 ```java
 public void start()
 ```
 
-<a id="m-stoprequest-5e6b3185772c"></a>
-### stopRequest()
+### stopRequest() <a href="#m-stopRequest-5e6b3185772c" id="m-stopRequest-5e6b3185772c"></a>
 
 ```java
 public void stopRequest()
 ```
 
-<a id="m-termread-a6eabc408efc"></a>
-### termRead(Socket)
+### termRead(Socket) <a href="#m-termRead-a6eabc408efc" id="m-termRead-a6eabc408efc"></a>
 
 ```java
 protected com.tailf.proto.ConfEObject termRead(

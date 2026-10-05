@@ -1,5 +1,4 @@
-<a id="cls-ConfExternal"></a>
-# ConfExternal
+# ConfExternal <a href="#cls-ConfExternal" id="cls-ConfExternal"></a>
 
 ```java
 public class com.tailf.proto.ConfExternal
@@ -38,8 +37,7 @@ Provides a collection of constants used when encoding and decoding E terms.
 
 ## Fields
 
-<a id="m-atomTag"></a>
-### atomTag
+### atomTag <a href="#m-atomTag" id="m-atomTag"></a>
 
 ```java
 public static final int atomTag = 100;
@@ -48,8 +46,7 @@ public static final int atomTag = 100;
 The tag used for atoms.
  Starting with OTP 26 atoms are no longer encoded with this tag
 
-<a id="m-binTag"></a>
-### binTag
+### binTag <a href="#m-binTag" id="m-binTag"></a>
 
 ```java
 public static final int binTag = 109;
@@ -57,8 +54,7 @@ public static final int binTag = 109;
 
 The tag used for binaries
 
-<a id="m-compressed"></a>
-### compressed
+### compressed <a href="#m-compressed" id="m-compressed"></a>
 
 ```java
 public static final int compressed = 80;
@@ -66,8 +62,7 @@ public static final int compressed = 80;
 
 The tag is used for compressed terms
 
-<a id="m-doubleTag"></a>
-### doubleTag
+### doubleTag <a href="#m-doubleTag" id="m-doubleTag"></a>
 
 ```java
 public static final int doubleTag = 70;
@@ -75,8 +70,7 @@ public static final int doubleTag = 70;
 
 The tag used for double numbers
 
-<a id="m-erlMax"></a>
-### erlMax
+### erlMax <a href="#m-erlMax" id="m-erlMax"></a>
 
 ```java
 public static final int erlMax = 134217727;
@@ -84,8 +78,7 @@ public static final int erlMax = 134217727;
 
 The largest value that can be encoded as an integer
 
-<a id="m-erlMin"></a>
-### erlMin
+### erlMin <a href="#m-erlMin" id="m-erlMin"></a>
 
 ```java
 public static final int erlMin = -134217728;
@@ -93,8 +86,7 @@ public static final int erlMin = -134217728;
 
 The smallest value that can be encoded as an integer
 
-<a id="m-floatTag"></a>
-### floatTag
+### floatTag <a href="#m-floatTag" id="m-floatTag"></a>
 
 ```java
 public static final int floatTag = 99;
@@ -102,8 +94,7 @@ public static final int floatTag = 99;
 
 The tag used for floating point numbers
 
-<a id="m-intTag"></a>
-### intTag
+### intTag <a href="#m-intTag" id="m-intTag"></a>
 
 ```java
 public static final int intTag = 98;
@@ -111,8 +102,7 @@ public static final int intTag = 98;
 
 The tag used for integers
 
-<a id="m-largeBigTag"></a>
-### largeBigTag
+### largeBigTag <a href="#m-largeBigTag" id="m-largeBigTag"></a>
 
 ```java
 public static final int largeBigTag = 111;
@@ -120,8 +110,7 @@ public static final int largeBigTag = 111;
 
 The tag used for large bignums
 
-<a id="m-largeTupleTag"></a>
-### largeTupleTag
+### largeTupleTag <a href="#m-largeTupleTag" id="m-largeTupleTag"></a>
 
 ```java
 public static final int largeTupleTag = 105;
@@ -129,8 +118,7 @@ public static final int largeTupleTag = 105;
 
 The tag used for large tuples
 
-<a id="m-listTag"></a>
-### listTag
+### listTag <a href="#m-listTag" id="m-listTag"></a>
 
 ```java
 public static final int listTag = 108;
@@ -138,8 +126,7 @@ public static final int listTag = 108;
 
 The tag used for non-empty lists
 
-<a id="m-maxAtomLength"></a>
-### maxAtomLength
+### maxAtomLength <a href="#m-maxAtomLength" id="m-maxAtomLength"></a>
 
 ```java
 public static final int maxAtomLength = 255;
@@ -147,8 +134,7 @@ public static final int maxAtomLength = 255;
 
 The longest allowed E atom
 
-<a id="m-newPidTag"></a>
-### newPidTag
+### newPidTag <a href="#m-newPidTag" id="m-newPidTag"></a>
 
 ```java
 public static final int newPidTag = 88;
@@ -157,8 +143,7 @@ public static final int newPidTag = 88;
 The new tag used for PIDs.
  Starting with OTP 23 all pids are now encoded using NEW_PID_EXT
 
-<a id="m-newRefTag"></a>
-### newRefTag
+### newRefTag <a href="#m-newRefTag" id="m-newRefTag"></a>
 
 ```java
 public static final int newRefTag = 114;
@@ -166,8 +151,7 @@ public static final int newRefTag = 114;
 
 The tag used for new style references
 
-<a id="m-nilTag"></a>
-### nilTag
+### nilTag <a href="#m-nilTag" id="m-nilTag"></a>
 
 ```java
 public static final int nilTag = 106;
@@ -175,8 +159,7 @@ public static final int nilTag = 106;
 
 The tag used for empty lists
 
-<a id="m-pidTag"></a>
-### pidTag
+### pidTag <a href="#m-pidTag" id="m-pidTag"></a>
 
 ```java
 public static final int pidTag = 103;
@@ -185,8 +168,7 @@ public static final int pidTag = 103;
 The tag used for PIDs.
  Starting with OTP 23 PIDs are no longer encoded with this tag
 
-<a id="m-portTag"></a>
-### portTag
+### portTag <a href="#m-portTag" id="m-portTag"></a>
 
 ```java
 public static final int portTag = 102;
@@ -194,8 +176,7 @@ public static final int portTag = 102;
 
 The tag used for ports
 
-<a id="m-refTag"></a>
-### refTag
+### refTag <a href="#m-refTag" id="m-refTag"></a>
 
 ```java
 public static final int refTag = 101;
@@ -203,8 +184,7 @@ public static final int refTag = 101;
 
 The tag used for old stype references
 
-<a id="m-smallAtomUtf8Tag"></a>
-### smallAtomUtf8Tag
+### smallAtomUtf8Tag <a href="#m-smallAtomUtf8Tag" id="m-smallAtomUtf8Tag"></a>
 
 ```java
 public static final int smallAtomUtf8Tag = 119;
@@ -213,8 +193,7 @@ public static final int smallAtomUtf8Tag = 119;
 The tag used for small atoms UTF-8.
  Starting with OTP 26 atoms are encoded using SMALL_ATOM_UTF8_EXT
 
-<a id="m-smallBigTag"></a>
-### smallBigTag
+### smallBigTag <a href="#m-smallBigTag" id="m-smallBigTag"></a>
 
 ```java
 public static final int smallBigTag = 110;
@@ -222,8 +201,7 @@ public static final int smallBigTag = 110;
 
 The tag used for small bignums
 
-<a id="m-smallIntTag"></a>
-### smallIntTag
+### smallIntTag <a href="#m-smallIntTag" id="m-smallIntTag"></a>
 
 ```java
 public static final int smallIntTag = 97;
@@ -231,8 +209,7 @@ public static final int smallIntTag = 97;
 
 The tag used for small integers
 
-<a id="m-smallTupleTag"></a>
-### smallTupleTag
+### smallTupleTag <a href="#m-smallTupleTag" id="m-smallTupleTag"></a>
 
 ```java
 public static final int smallTupleTag = 104;
@@ -240,8 +217,7 @@ public static final int smallTupleTag = 104;
 
 The tag used for small tuples
 
-<a id="m-stringTag"></a>
-### stringTag
+### stringTag <a href="#m-stringTag" id="m-stringTag"></a>
 
 ```java
 public static final int stringTag = 107;
@@ -249,8 +225,7 @@ public static final int stringTag = 107;
 
 The tag used for strings and lists of small integers
 
-<a id="m-versionTag"></a>
-### versionTag
+### versionTag <a href="#m-versionTag" id="m-versionTag"></a>
 
 ```java
 public static final int versionTag = 131;

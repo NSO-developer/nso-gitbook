@@ -1,5 +1,4 @@
-<a id="cls-ConfEnumeration"></a>
-# ConfEnumeration
+# ConfEnumeration <a href="#cls-ConfEnumeration" id="cls-ConfEnumeration"></a>
 
 ```java
 public class com.tailf.conf.ConfEnumeration
@@ -15,9 +14,9 @@ DATA_CONTAINER - Corresponds to the YANG Enumeration type.
 
 **Constructors**:
 
-- [ConfEnumeration(ConfEObject)](#m-confenumeration-0b36d185ab36)
-- [ConfEnumeration(int)](#m-confenumeration-18cc3e275631)
-- [ConfEnumeration(String)](#m-confenumeration-d75ad7199e37)
+- [ConfEnumeration(ConfEObject)](#m-ConfEnumeration-0b36d185ab36)
+- [ConfEnumeration(int)](#m-ConfEnumeration-18cc3e275631)
+- [ConfEnumeration(String)](#m-ConfEnumeration-d75ad7199e37)
 
 **Fields**:
 
@@ -75,30 +74,29 @@ DATA_CONTAINER - Corresponds to the YANG Enumeration type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfEnumeration)](#m-compareto-1d190ddeef7e)
+- [compareTo(ConfEnumeration)](#m-compareTo-1d190ddeef7e)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getEnumByLabel(ConfPath, String)](#m-getenumbylabel-e5d8287d588c)
-- [getEnumByLabel(String, String)](#m-getenumbylabel-a88365b46872)
-- [getLabelByEnum(ConfPath, ConfEnumeration)](#m-getlabelbyenum-05e670d1aeff)
-- [getLabelByEnum(String, ConfEnumeration)](#m-getlabelbyenum-b3622f0dc16e)
-- [getOrdinalValue()](#m-getordinalvalue-8885c94e3344)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
+- [getEnumByLabel(ConfPath, String)](#m-getEnumByLabel-e5d8287d588c)
+- [getEnumByLabel(String, String)](#m-getEnumByLabel-a88365b46872)
+- [getLabelByEnum(ConfPath, ConfEnumeration)](#m-getLabelByEnum-05e670d1aeff)
+- [getLabelByEnum(String, ConfEnumeration)](#m-getLabelByEnum-b3622f0dc16e)
+- [getOrdinalValue()](#m-getOrdinalValue-8885c94e3344)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
 - [mk(int)](#m-mk-716c24a113ee)
-- [setCSType(CSType)](#m-setcstype-1d9af222b932)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [setCSType(CSType)](#m-setCSType-1d9af222b932)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confenumeration-0b36d185ab36"></a>
-### ConfEnumeration(ConfEObject)
+### ConfEnumeration(ConfEObject) <a href="#m-ConfEnumeration-0b36d185ab36" id="m-ConfEnumeration-0b36d185ab36"></a>
 
 ```java
 public ConfEnumeration(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -110,8 +108,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confenumeration-18cc3e275631"></a>
-### ConfEnumeration(int)
+### ConfEnumeration(int) <a href="#m-ConfEnumeration-18cc3e275631" id="m-ConfEnumeration-18cc3e275631"></a>
 
 ```java
 public ConfEnumeration(int ordinalValue) throws com.tailf.conf.ConfException
@@ -129,8 +126,7 @@ Constructor for ConfEnumeration.
 
 - `ConfException` - Never, for API backwards compatibility.
 
-<a id="m-confenumeration-d75ad7199e37"></a>
-### ConfEnumeration(String)
+### ConfEnumeration(String) <a href="#m-ConfEnumeration-d75ad7199e37" id="m-ConfEnumeration-d75ad7199e37"></a>
 
 ```java
 protected ConfEnumeration(String str) throws com.tailf.conf.ConfException
@@ -145,8 +141,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-compareto-1d190ddeef7e"></a>
-### compareTo(ConfEnumeration)
+### compareTo(ConfEnumeration) <a href="#m-compareTo-1d190ddeef7e" id="m-compareTo-1d190ddeef7e"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfEnumeration o)
@@ -158,8 +153,7 @@ Types: [ConfEnumeration](ConfEnumeration.md#cls-ConfEnumeration)
 
 - `com.tailf.conf.ConfEnumeration o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -167,8 +161,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -178,8 +171,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getenumbylabel-e5d8287d588c"></a>
-### getEnumByLabel(ConfPath, String)
+### getEnumByLabel(ConfPath, String) <a href="#m-getEnumByLabel-e5d8287d588c" id="m-getEnumByLabel-e5d8287d588c"></a>
 
 ```java
 public static com.tailf.conf.ConfEnumeration getEnumByLabel(
@@ -210,8 +202,7 @@ Get an ConfEnumeration from the string label at a given
 
 - `ConfException`
 
-<a id="m-getenumbylabel-a88365b46872"></a>
-### getEnumByLabel(String, String)
+### getEnumByLabel(String, String) <a href="#m-getEnumByLabel-a88365b46872" id="m-getEnumByLabel-a88365b46872"></a>
 
 ```java
 public static com.tailf.conf.ConfEnumeration getEnumByLabel(
@@ -242,8 +233,7 @@ Get an ConfEnumeration from the string label at a given
 
 - `ConfException`
 
-<a id="m-getlabelbyenum-05e670d1aeff"></a>
-### getLabelByEnum(ConfPath, ConfEnumeration)
+### getLabelByEnum(ConfPath, ConfEnumeration) <a href="#m-getLabelByEnum-05e670d1aeff" id="m-getLabelByEnum-05e670d1aeff"></a>
 
 ```java
 public static String getLabelByEnum(
@@ -274,8 +264,7 @@ Get the string label of an enumeration at a given
 
 - `ConfException`
 
-<a id="m-getlabelbyenum-b3622f0dc16e"></a>
-### getLabelByEnum(String, ConfEnumeration)
+### getLabelByEnum(String, ConfEnumeration) <a href="#m-getLabelByEnum-b3622f0dc16e" id="m-getLabelByEnum-b3622f0dc16e"></a>
 
 ```java
 public static String getLabelByEnum(
@@ -305,8 +294,7 @@ Get the string label of an enumeration at a given
 
 - `ConfException`
 
-<a id="m-getordinalvalue-8885c94e3344"></a>
-### getOrdinalValue()
+### getOrdinalValue() <a href="#m-getOrdinalValue-8885c94e3344" id="m-getOrdinalValue-8885c94e3344"></a>
 
 ```java
 public int getOrdinalValue()
@@ -316,8 +304,7 @@ Get the ordinal value (integer value) for this enumeration.
 
 **Returns:** the ordinalValue
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -325,8 +312,7 @@ public int hashCode()
 
 Java object hash code for this object instance
 
-<a id="m-mk-716c24a113ee"></a>
-### mk(int)
+### mk(int) <a href="#m-mk-716c24a113ee" id="m-mk-716c24a113ee"></a>
 
 ```java
 public static com.tailf.conf.ConfEnumeration mk(int ordinalValue)
@@ -344,8 +330,7 @@ Construct a ConfEnumeration from the given ordinalValue, provided as
 
 **Returns:** New ConfEnumeration object.
 
-<a id="m-setcstype-1d9af222b932"></a>
-### setCSType(CSType)
+### setCSType(CSType) <a href="#m-setCSType-1d9af222b932" id="m-setCSType-1d9af222b932"></a>
 
 ```java
 public void setCSType(com.tailf.maapi.MaapiSchemas.CSType csType)
@@ -361,8 +346,7 @@ The MaapiSchemas type for this enum.
 
 - `com.tailf.maapi.MaapiSchemas.CSType csType` - MaapiSchemas.CsType
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

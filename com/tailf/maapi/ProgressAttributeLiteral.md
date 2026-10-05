@@ -1,5 +1,4 @@
-<a id="cls-ProgressAttributeLiteral"></a>
-# ProgressAttributeLiteral
+# ProgressAttributeLiteral <a href="#cls-ProgressAttributeLiteral" id="cls-ProgressAttributeLiteral"></a>
 
 ```java
 public class com.tailf.maapi.ProgressAttributeLiteral
@@ -12,7 +11,7 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#cls-ProgressAttributeV
 
 **Constructors**:
 
-- [ProgressAttributeLiteral(String)](#m-progressattributeliteral-bf152c82d55f)
+- [ProgressAttributeLiteral(String)](#m-ProgressAttributeLiteral-bf152c82d55f)
 
 **Fields**:
 
@@ -21,13 +20,12 @@ Types: [ProgressAttributeValue](ProgressAttributeValue.md#cls-ProgressAttributeV
 
 **Methods**:
 
-- [stringValue()](#m-stringvalue-a6efca13ec08)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [stringValue()](#m-stringValue-a6efca13ec08)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-progressattributeliteral-bf152c82d55f"></a>
-### ProgressAttributeLiteral(String)
+### ProgressAttributeLiteral(String) <a href="#m-ProgressAttributeLiteral-bf152c82d55f" id="m-ProgressAttributeLiteral-bf152c82d55f"></a>
 
 ```java
 public ProgressAttributeLiteral(String value)
@@ -40,15 +38,13 @@ public ProgressAttributeLiteral(String value)
 
 ## Methods
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

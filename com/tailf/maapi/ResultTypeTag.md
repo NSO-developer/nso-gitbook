@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeTag"></a>
-# ResultTypeTag
+# ResultTypeTag <a href="#cls-ResultTypeTag" id="cls-ResultTypeTag"></a>
 
 ```java
 public interface com.tailf.maapi.ResultTypeTag
@@ -41,8 +40,7 @@ XPath Result in ConfXMLParam format. This
 
 ## Methods
 
-<a id="m-tag-7b2271ab156c"></a>
-### tag()
+### tag() <a href="#m-tag-7b2271ab156c" id="m-tag-7b2271ab156c"></a>
 
 ```java
 public abstract com.tailf.conf.ConfXMLParam tag()

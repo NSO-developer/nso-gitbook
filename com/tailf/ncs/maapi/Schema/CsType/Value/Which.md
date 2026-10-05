@@ -1,5 +1,4 @@
-<a id="cls-Which"></a>
-# Which
+# Which <a href="#cls-Which" id="cls-Which"></a>
 
 ```java
 public static enum com.tailf.ncs.maapi.Schema.CsType.Value.Which
@@ -27,97 +26,84 @@ Types: [Which](Which.md#cls-Which)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-_NOT_IN_SCHEMA"></a>
-### _NOT_IN_SCHEMA
+### _NOT_IN_SCHEMA <a href="#m-_NOT_IN_SCHEMA" id="m-_NOT_IN_SCHEMA"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which _NOT_IN_SCHEMA;
 ```
 
-<a id="m-BITS"></a>
-### BITS
+### BITS <a href="#m-BITS" id="m-BITS"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which BITS;
 ```
 
-<a id="m-DECIMAL64"></a>
-### DECIMAL64
+### DECIMAL64 <a href="#m-DECIMAL64" id="m-DECIMAL64"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which DECIMAL64;
 ```
 
-<a id="m-DISPLAY_HINT"></a>
-### DISPLAY_HINT
+### DISPLAY_HINT <a href="#m-DISPLAY_HINT" id="m-DISPLAY_HINT"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which DISPLAY_HINT;
 ```
 
-<a id="m-ENUM"></a>
-### ENUM
+### ENUM <a href="#m-ENUM" id="m-ENUM"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which ENUM;
 ```
 
-<a id="m-IDENTITY"></a>
-### IDENTITY
+### IDENTITY <a href="#m-IDENTITY" id="m-IDENTITY"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which IDENTITY;
 ```
 
-<a id="m-IDREF"></a>
-### IDREF
+### IDREF <a href="#m-IDREF" id="m-IDREF"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which IDREF;
 ```
 
-<a id="m-LIST"></a>
-### LIST
+### LIST <a href="#m-LIST" id="m-LIST"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which LIST;
 ```
 
-<a id="m-LIST_RESTRICTION"></a>
-### LIST_RESTRICTION
+### LIST_RESTRICTION <a href="#m-LIST_RESTRICTION" id="m-LIST_RESTRICTION"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which LIST_RESTRICTION;
 ```
 
-<a id="m-NONE"></a>
-### NONE
+### NONE <a href="#m-NONE" id="m-NONE"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which NONE;
 ```
 
-<a id="m-NUMBER"></a>
-### NUMBER
+### NUMBER <a href="#m-NUMBER" id="m-NUMBER"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which NUMBER;
 ```
 
-<a id="m-STRING"></a>
-### STRING
+### STRING <a href="#m-STRING" id="m-STRING"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which STRING;
 ```
 
-<a id="m-UNION"></a>
-### UNION
+### UNION <a href="#m-UNION" id="m-UNION"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which UNION;
@@ -126,8 +112,7 @@ public static final com.tailf.ncs.maapi.Schema.CsType.Value.Which UNION;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.CsType.Value.Which valueOf(String name)
@@ -139,8 +124,7 @@ Types: [Which](Which.md#cls-Which)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.CsType.Value.Which[] values()

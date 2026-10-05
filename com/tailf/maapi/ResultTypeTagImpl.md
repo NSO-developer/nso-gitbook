@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeTagImpl"></a>
-# ResultTypeTagImpl
+# ResultTypeTagImpl <a href="#cls-ResultTypeTagImpl" id="cls-ResultTypeTagImpl"></a>
 
 **Package-private**
 
@@ -14,7 +13,7 @@ Types: [ResultTypeTag](ResultTypeTag.md#cls-ResultTypeTag)
 
 **Constructors**:
 
-- [ResultTypeTagImpl(ConfXMLParam)](#m-resulttypetagimpl-588cebf1bfba)
+- [ResultTypeTagImpl(ConfXMLParam)](#m-ResultTypeTagImpl-588cebf1bfba)
 
 **Methods**:
 
@@ -22,8 +21,7 @@ Types: [ResultTypeTag](ResultTypeTag.md#cls-ResultTypeTag)
 
 ## Constructors
 
-<a id="m-resulttypetagimpl-588cebf1bfba"></a>
-### ResultTypeTagImpl(ConfXMLParam)
+### ResultTypeTagImpl(ConfXMLParam) <a href="#m-ResultTypeTagImpl-588cebf1bfba" id="m-ResultTypeTagImpl-588cebf1bfba"></a>
 
 **Package-private**
 
@@ -40,8 +38,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam)
 
 ## Methods
 
-<a id="m-tag-7b2271ab156c"></a>
-### tag()
+### tag() <a href="#m-tag-7b2271ab156c" id="m-tag-7b2271ab156c"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam tag()

@@ -1,5 +1,4 @@
-<a id="cls-NedMuxManager"></a>
-# NedMuxManager
+# NedMuxManager <a href="#cls-NedMuxManager" id="cls-NedMuxManager"></a>
 
 ```java
 public class com.tailf.ncs.ctrl.NedMuxManager
@@ -14,30 +13,29 @@ Manager for Ned components
 
 **Constructors**:
 
-- [NedMuxManager(NcsMain)](#m-nedmuxmanager-bf00c2f19d8f)
+- [NedMuxManager(NcsMain)](#m-NedMuxManager-bf00c2f19d8f)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#m-addtodeployexception-90e2cb8f32b2) from MuxManager
-- [doneLoadingEvent()](#m-doneloadingevent-b85c1c01738a)
+- [addToDeployException(NcsCtrlException, String, Throwable)](MuxManager.md#m-addToDeployException-90e2cb8f32b2) from MuxManager
+- [doneLoadingEvent()](#m-doneLoadingEvent-b85c1c01738a)
 - [finish()](#m-finish-8c785ae2e6bb)
-- [getNewNeds()](#m-getnewneds-1ea8feed407d)
-- [getPDEntry(String)](#m-getpdentry-342c37e0891e)
-- [initMux()](#m-initmux-0da83a337e4c)
-- [instantiateComponentAction(String, String, Object)](#m-instantiatecomponentaction-9e067ecafe91)
-- [instantiateComponentEvent(NcsComponentData)](#m-instantiatecomponentevent-9050503646b9)
-- [listOpenConnections()](#m-listopenconnections-28eee6f299b2)
-- [listPackageComponents()](#m-listpackagecomponents-23eafc7a674c)
-- [loadPackageEvent(NcsComponentData)](#m-loadpackageevent-4650a75a851a)
-- [numberOfCachedMountIdPaths()](#m-numberofcachedmountidpaths-b7e5d13d5dcf)
-- [startMux()](#m-startmux-b821d879ccff)
-- [stopNedMux()](#m-stopnedmux-84005222c0d3)
-- [unloadPackageEvent(NcsComponentData)](#m-unloadpackageevent-f14422e73a47)
+- [getNewNeds()](#m-getNewNeds-1ea8feed407d)
+- [getPDEntry(String)](#m-getPDEntry-342c37e0891e)
+- [initMux()](#m-initMux-0da83a337e4c)
+- [instantiateComponentAction(String, String, Object)](#m-instantiateComponentAction-9e067ecafe91)
+- [instantiateComponentEvent(NcsComponentData)](#m-instantiateComponentEvent-9050503646b9)
+- [listOpenConnections()](#m-listOpenConnections-28eee6f299b2)
+- [listPackageComponents()](#m-listPackageComponents-23eafc7a674c)
+- [loadPackageEvent(NcsComponentData)](#m-loadPackageEvent-4650a75a851a)
+- [numberOfCachedMountIdPaths()](#m-numberOfCachedMountIdPaths-b7e5d13d5dcf)
+- [startMux()](#m-startMux-b821d879ccff)
+- [stopNedMux()](#m-stopNedMux-84005222c0d3)
+- [unloadPackageEvent(NcsComponentData)](#m-unloadPackageEvent-f14422e73a47)
 
 ## Constructors
 
-<a id="m-nedmuxmanager-bf00c2f19d8f"></a>
-### NedMuxManager(NcsMain)
+### NedMuxManager(NcsMain) <a href="#m-NedMuxManager-bf00c2f19d8f" id="m-NedMuxManager-bf00c2f19d8f"></a>
 
 ```java
 public NedMuxManager(com.tailf.ncs.NcsMain main)
@@ -52,22 +50,19 @@ Types: [NcsMain](../NcsMain.md#cls-NcsMain)
 
 ## Methods
 
-<a id="m-doneloadingevent-b85c1c01738a"></a>
-### doneLoadingEvent()
+### doneLoadingEvent() <a href="#m-doneLoadingEvent-b85c1c01738a" id="m-doneLoadingEvent-b85c1c01738a"></a>
 
 ```java
 public void doneLoadingEvent() throws Exception
 ```
 
-<a id="m-finish-8c785ae2e6bb"></a>
-### finish()
+### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish()
 ```
 
-<a id="m-getnewneds-1ea8feed407d"></a>
-### getNewNeds()
+### getNewNeds() <a href="#m-getNewNeds-1ea8feed407d" id="m-getNewNeds-1ea8feed407d"></a>
 
 ```java
 public com.tailf.proto.ConfEList getNewNeds() throws Exception
@@ -75,8 +70,7 @@ public com.tailf.proto.ConfEList getNewNeds() throws Exception
 
 Types: [ConfEList](../../proto/ConfEList.md#cls-ConfEList)
 
-<a id="m-getpdentry-342c37e0891e"></a>
-### getPDEntry(String)
+### getPDEntry(String) <a href="#m-getPDEntry-342c37e0891e" id="m-getPDEntry-342c37e0891e"></a>
 
 ```java
 public com.tailf.ncs.ctrl.NedPDEntry getPDEntry(String uniqueName)
@@ -88,8 +82,7 @@ Types: [NedPDEntry](NedPDEntry.md#cls-NedPDEntry)
 
 - `String uniqueName`
 
-<a id="m-initmux-0da83a337e4c"></a>
-### initMux()
+### initMux() <a href="#m-initMux-0da83a337e4c" id="m-initMux-0da83a337e4c"></a>
 
 ```java
 public void initMux()
@@ -97,8 +90,7 @@ public void initMux()
 
 Initialize the NedMux
 
-<a id="m-instantiatecomponentaction-9e067ecafe91"></a>
-### instantiateComponentAction(String, String, Object)
+### instantiateComponentAction(String, String, Object) <a href="#m-instantiateComponentAction-9e067ecafe91" id="m-instantiateComponentAction-9e067ecafe91"></a>
 
 ```java
 public void instantiateComponentAction(
@@ -122,8 +114,7 @@ Handles instantiateComponent events received by the
 
 - `Exception`
 
-<a id="m-instantiatecomponentevent-9050503646b9"></a>
-### instantiateComponentEvent(NcsComponentData)
+### instantiateComponentEvent(NcsComponentData) <a href="#m-instantiateComponentEvent-9050503646b9" id="m-instantiateComponentEvent-9050503646b9"></a>
 
 ```java
 public void instantiateComponentEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
@@ -140,22 +131,19 @@ Handling instantiateComponent events received by the NcsMain FSM and
 
 - `com.tailf.ncs.ctrl.NcsComponentData data`
 
-<a id="m-listopenconnections-28eee6f299b2"></a>
-### listOpenConnections()
+### listOpenConnections() <a href="#m-listOpenConnections-28eee6f299b2" id="m-listOpenConnections-28eee6f299b2"></a>
 
 ```java
 public String[] listOpenConnections()
 ```
 
-<a id="m-listpackagecomponents-23eafc7a674c"></a>
-### listPackageComponents()
+### listPackageComponents() <a href="#m-listPackageComponents-23eafc7a674c" id="m-listPackageComponents-23eafc7a674c"></a>
 
 ```java
 public String[] listPackageComponents()
 ```
 
-<a id="m-loadpackageevent-4650a75a851a"></a>
-### loadPackageEvent(NcsComponentData)
+### loadPackageEvent(NcsComponentData) <a href="#m-loadPackageEvent-4650a75a851a" id="m-loadPackageEvent-4650a75a851a"></a>
 
 ```java
 public void loadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
@@ -173,15 +161,13 @@ Handling loadPackage events called by JVM-Launcher thread
 
 - `com.tailf.ncs.ctrl.NcsComponentData data` - The component data to be loaded.
 
-<a id="m-numberofcachedmountidpaths-b7e5d13d5dcf"></a>
-### numberOfCachedMountIdPaths()
+### numberOfCachedMountIdPaths() <a href="#m-numberOfCachedMountIdPaths-b7e5d13d5dcf" id="m-numberOfCachedMountIdPaths-b7e5d13d5dcf"></a>
 
 ```java
 public int numberOfCachedMountIdPaths()
 ```
 
-<a id="m-startmux-b821d879ccff"></a>
-### startMux()
+### startMux() <a href="#m-startMux-b821d879ccff" id="m-startMux-b821d879ccff"></a>
 
 ```java
 public void startMux()
@@ -189,8 +175,7 @@ public void startMux()
 
 Start the NedMux
 
-<a id="m-stopnedmux-84005222c0d3"></a>
-### stopNedMux()
+### stopNedMux() <a href="#m-stopNedMux-84005222c0d3" id="m-stopNedMux-84005222c0d3"></a>
 
 ```java
 public void stopNedMux()
@@ -198,8 +183,7 @@ public void stopNedMux()
 
 Stop the NedMux
 
-<a id="m-unloadpackageevent-f14422e73a47"></a>
-### unloadPackageEvent(NcsComponentData)
+### unloadPackageEvent(NcsComponentData) <a href="#m-unloadPackageEvent-f14422e73a47" id="m-unloadPackageEvent-f14422e73a47"></a>
 
 ```java
 public void unloadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception

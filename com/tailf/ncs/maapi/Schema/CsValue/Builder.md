@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValue.Builder
@@ -10,202 +9,201 @@ public static final class com.tailf.ncs.maapi.Schema.CsValue.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getBinary()](#m-getbinary-f332a896a1bb)
-- [getBit32()](#m-getbit32-27693f0a3df1)
-- [getBit64()](#m-getbit64-51ba19e6036e)
-- [getBitbig()](#m-getbitbig-ce729847bcfd)
-- [getBool()](#m-getbool-bfc6de52d8c0)
-- [getBuf()](#m-getbuf-3beb55b0999e)
-- [getCdbBegin()](#m-getcdbbegin-de343abd3d60)
-- [getDate()](#m-getdate-835e7d70e8d1)
-- [getDatetime()](#m-getdatetime-388189505619)
-- [getDecimal64()](#m-getdecimal64-193bb466ba33)
-- [getDefault()](#m-getdefault-3b99fa7321e2)
-- [getDouble()](#m-getdouble-2f3cdb03174e)
-- [getDquad()](#m-getdquad-4a29a8e328e2)
-- [getDuration()](#m-getduration-aee615ea7fe2)
-- [getEmpty()](#m-getempty-500b00e51161)
-- [getEnumValue()](#m-getenumvalue-5222f58810c9)
-- [getHexstr()](#m-gethexstr-7bdee4ec31cf)
-- [getIdentityref()](#m-getidentityref-da99f3e4419f)
-- [getInt16()](#m-getint16-5744ecc89efb)
-- [getInt32()](#m-getint32-81084bf6c564)
-- [getInt64()](#m-getint64-12855180ebd0)
-- [getInt8()](#m-getint8-f88ea0bcdca8)
-- [getIpv4()](#m-getipv4-9ce1b70400a4)
-- [getIpv4AndPlen()](#m-getipv4andplen-6283b58ee146)
-- [getIpv4prefix()](#m-getipv4prefix-01000113e705)
-- [getIpv6()](#m-getipv6-075bb9cd9153)
-- [getIpv6AndPlen()](#m-getipv6andplen-de70a17471a3)
-- [getIpv6prefix()](#m-getipv6prefix-474193492c1a)
-- [getList()](#m-getlist-bb3f8cbe83be)
-- [getNoexists()](#m-getnoexists-f692a7fc16f3)
-- [getObjectref()](#m-getobjectref-eb216e093ad4)
-- [getOid()](#m-getoid-2faa98066d96)
-- [getPtr()](#m-getptr-9b1702eaedfe)
-- [getQname()](#m-getqname-022156d42738)
-- [getShallowType()](#m-getshallowtype-2e2b5f294983)
-- [getStr()](#m-getstr-52d1ecf4d92e)
-- [getSymbol()](#m-getsymbol-702f4641963e)
-- [getTime()](#m-gettime-1429b351f3a0)
-- [getUint16()](#m-getuint16-2c1ad5a64222)
-- [getUint32()](#m-getuint32-fa11eb2e5b91)
-- [getUint64()](#m-getuint64-f84c3cc8734c)
-- [getUint8()](#m-getuint8-35a48ed7f6a6)
-- [getUnion()](#m-getunion-09a450ad6ddb)
-- [getUnknown()](#m-getunknown-70adb8ae54c3)
-- [getXmlbegin()](#m-getxmlbegin-d03e242d4096)
-- [getXmlbegindel()](#m-getxmlbegindel-920a8ac89e37)
-- [getXmlend()](#m-getxmlend-ae3cef179327)
-- [getXmlMoveEnd()](#m-getxmlmoveend-9e767f8514b2)
-- [getXmlMoveFirst()](#m-getxmlmovefirst-580a69a9f9d8)
-- [getXmltag()](#m-getxmltag-15a59d5d02ef)
-- [hasBinary()](#m-hasbinary-ca7a9e4bd9ff)
-- [hasBuf()](#m-hasbuf-89f2325600ad)
-- [hasHexstr()](#m-hashexstr-dcb9d92bfaa7)
-- [hasList()](#m-haslist-3712d7ce73ac)
-- [hasObjectref()](#m-hasobjectref-a79354acdb9f)
-- [hasOid()](#m-hasoid-64b45096c850)
-- [hasStr()](#m-hasstr-4da753ffd6f2)
-- [initBinary(int)](#m-initbinary-da8376321dd1)
-- [initBitbig()](#m-initbitbig-fd6227122084)
-- [initBuf(int)](#m-initbuf-283316a1539d)
-- [initDate()](#m-initdate-0d1ab510efb2)
-- [initDatetime()](#m-initdatetime-e2839d63f272)
-- [initDecimal64()](#m-initdecimal64-beda8ac08084)
-- [initDquad()](#m-initdquad-27bd6cd9a9ed)
-- [initDuration()](#m-initduration-21d0c79353af)
-- [initHexstr(int)](#m-inithexstr-547aec4d26f3)
-- [initIdentityref()](#m-initidentityref-1b5ab2bb6330)
-- [initIpv4()](#m-initipv4-17f92309b472)
-- [initIpv4AndPlen()](#m-initipv4andplen-9c9e2cd3eaa1)
-- [initIpv4prefix()](#m-initipv4prefix-b565b6b79384)
-- [initIpv6()](#m-initipv6-36bf15e539f7)
-- [initIpv6AndPlen()](#m-initipv6andplen-a9fe90c6f7de)
-- [initIpv6prefix()](#m-initipv6prefix-a2792366b617)
-- [initList(int)](#m-initlist-619d59db076f)
-- [initObjectref(int)](#m-initobjectref-935e26a90e6e)
-- [initOid(int)](#m-initoid-715b58cbb921)
-- [initQname()](#m-initqname-748564905228)
-- [initStr(int)](#m-initstr-af52d7d08f9f)
-- [initSymbol()](#m-initsymbol-df0c748a0655)
-- [initTime()](#m-inittime-eeed5ea5f00a)
-- [initUnion()](#m-initunion-8c18e3f27de0)
-- [initXmltag()](#m-initxmltag-bb2742edf9eb)
-- [isBinary()](#m-isbinary-d92620e842a5)
-- [isBit32()](#m-isbit32-ae0f1c3885a6)
-- [isBit64()](#m-isbit64-2ec3459ff82c)
-- [isBitbig()](#m-isbitbig-84cd2f0ebaeb)
-- [isBool()](#m-isbool-e771ae3d3e55)
-- [isBuf()](#m-isbuf-254af72d81f0)
-- [isCdbBegin()](#m-iscdbbegin-aeff9465850d)
-- [isDate()](#m-isdate-c423781b293a)
-- [isDatetime()](#m-isdatetime-4e79c97b2bd5)
-- [isDecimal64()](#m-isdecimal64-fbfc5a5de098)
-- [isDefault()](#m-isdefault-9a6b81cd55f6)
-- [isDouble()](#m-isdouble-47da85f502c9)
-- [isDquad()](#m-isdquad-1986dbac6f44)
-- [isDuration()](#m-isduration-7960407492db)
-- [isEmpty()](#m-isempty-4dde48126244)
-- [isEnumValue()](#m-isenumvalue-b6e22d09884f)
-- [isHexstr()](#m-ishexstr-b866520006d5)
-- [isIdentityref()](#m-isidentityref-975db106a225)
-- [isInt16()](#m-isint16-7462eecb083e)
-- [isInt32()](#m-isint32-3341e7603763)
-- [isInt64()](#m-isint64-c54b20486cbe)
-- [isInt8()](#m-isint8-908482a868e0)
-- [isIpv4()](#m-isipv4-f769f8c600b5)
-- [isIpv4AndPlen()](#m-isipv4andplen-e1536a127f9e)
-- [isIpv4prefix()](#m-isipv4prefix-7b973eaefa1d)
-- [isIpv6()](#m-isipv6-a32651632b39)
-- [isIpv6AndPlen()](#m-isipv6andplen-1963093ce68a)
-- [isIpv6prefix()](#m-isipv6prefix-6dce0b40b9d7)
-- [isList()](#m-islist-c36bce63b506)
-- [isNoexists()](#m-isnoexists-a1ec13d21a56)
-- [isObjectref()](#m-isobjectref-2120317a92dd)
-- [isOid()](#m-isoid-368ae9c713d1)
-- [isPtr()](#m-isptr-276f1553635d)
-- [isQname()](#m-isqname-79c1cbb01029)
-- [isStr()](#m-isstr-81c3840f26d4)
-- [isSymbol()](#m-issymbol-d7206a92c0eb)
-- [isTime()](#m-istime-250a56dbdac5)
-- [isUint16()](#m-isuint16-d8c251a40ead)
-- [isUint32()](#m-isuint32-fd3a00ffba15)
-- [isUint64()](#m-isuint64-ce4ee69a295b)
-- [isUint8()](#m-isuint8-9f400b8116f3)
-- [isUnion()](#m-isunion-6183f968c3e8)
-- [isUnknown()](#m-isunknown-88a5b80751a0)
-- [isXmlbegin()](#m-isxmlbegin-3a07f5fed3da)
-- [isXmlbegindel()](#m-isxmlbegindel-4e1966d82109)
-- [isXmlend()](#m-isxmlend-9111f39d186c)
-- [isXmlMoveEnd()](#m-isxmlmoveend-45ed9b27d7cf)
-- [isXmlMoveFirst()](#m-isxmlmovefirst-7c07b98bd060)
-- [isXmltag()](#m-isxmltag-da0707b0ae43)
-- [setBinary(byte[])](#m-setbinary-b01c99e75889)
-- [setBinary(Reader)](#m-setbinary-8a1cf4ce84a9)
-- [setBit32(int)](#m-setbit32-1316fc224e19)
-- [setBit64(long)](#m-setbit64-a3a27f6ef6d2)
-- [setBitbig(Reader)](#m-setbitbig-a514b9d55ab1)
-- [setBool(boolean)](#m-setbool-88160242dcf7)
-- [setBuf(byte[])](#m-setbuf-881fa0552479)
-- [setBuf(Reader)](#m-setbuf-610948d9381a)
-- [setCdbBegin(Void)](#m-setcdbbegin-902391c8a14e)
-- [setDate(Reader)](#m-setdate-3bcb9c346567)
-- [setDatetime(Reader)](#m-setdatetime-6dc599e86f6a)
-- [setDecimal64(Reader)](#m-setdecimal64-7a6a8717701c)
-- [setDefault(Void)](#m-setdefault-298bc2ea4f4c)
-- [setDouble(double)](#m-setdouble-00357c17ab3e)
-- [setDquad(Reader)](#m-setdquad-0ea8faa4deab)
-- [setDuration(Reader)](#m-setduration-c6226971f7aa)
-- [setEmpty(Void)](#m-setempty-02e106b89f69)
-- [setEnumValue(int)](#m-setenumvalue-b69852580f08)
-- [setHexstr(byte[])](#m-sethexstr-f501765c9de4)
-- [setHexstr(Reader)](#m-sethexstr-d236864650dc)
-- [setIdentityref(Reader)](#m-setidentityref-8c7c2d7f9e09)
-- [setInt16(short)](#m-setint16-50cfe70769f2)
-- [setInt32(int)](#m-setint32-92c50824ef51)
-- [setInt64(long)](#m-setint64-f17f1ec8e04c)
-- [setInt8(byte)](#m-setint8-2ac62944aabe)
-- [setIpv4(Reader)](#m-setipv4-619e62fbc436)
-- [setIpv4AndPlen(Reader)](#m-setipv4andplen-93f3be1ab458)
-- [setIpv4prefix(Reader)](#m-setipv4prefix-91794916e9c8)
-- [setIpv6(Reader)](#m-setipv6-5b31d658aa62)
-- [setIpv6AndPlen(Reader)](#m-setipv6andplen-99b5b9880429)
-- [setIpv6prefix(Reader)](#m-setipv6prefix-691f4193aeb7)
-- [setList(Reader<Reader>)](#m-setlist-6e8e469cc90d)
-- [setNoexists(Void)](#m-setnoexists-168255f46871)
-- [setObjectref(Reader<Reader>)](#m-setobjectref-c835e9918173)
-- [setOid(Reader)](#m-setoid-543cdf0a3811)
-- [setPtr(Void)](#m-setptr-3ef5da141ca3)
-- [setQname(Reader)](#m-setqname-a6726111b988)
-- [setShallowType(ShallowType)](#m-setshallowtype-d21ce22018e7)
-- [setStr(Reader)](#m-setstr-6d57a5d11cf3)
-- [setStr(String)](#m-setstr-21fe97a65221)
-- [setSymbol(Reader)](#m-setsymbol-4da320ce2606)
-- [setTime(Reader)](#m-settime-fc6f93bd991e)
-- [setUint16(short)](#m-setuint16-043282128543)
-- [setUint32(int)](#m-setuint32-0f4bc4823456)
-- [setUint64(long)](#m-setuint64-14de0afc3c33)
-- [setUint8(byte)](#m-setuint8-a2e25ee00758)
-- [setUnion(Reader)](#m-setunion-f269d70e4284)
-- [setUnknown(Void)](#m-setunknown-6d434acf5507)
-- [setXmlbegin(Void)](#m-setxmlbegin-299c46b694bb)
-- [setXmlbegindel(Void)](#m-setxmlbegindel-c87f2fa20081)
-- [setXmlend(Void)](#m-setxmlend-24c58d6147d3)
-- [setXmlMoveEnd(Void)](#m-setxmlmoveend-e11b6c17145f)
-- [setXmlMoveFirst(Void)](#m-setxmlmovefirst-3d1233316007)
-- [setXmltag(Reader)](#m-setxmltag-b5877e9f93d5)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getBinary()](#m-getBinary-f332a896a1bb)
+- [getBit32()](#m-getBit32-27693f0a3df1)
+- [getBit64()](#m-getBit64-51ba19e6036e)
+- [getBitbig()](#m-getBitbig-ce729847bcfd)
+- [getBool()](#m-getBool-bfc6de52d8c0)
+- [getBuf()](#m-getBuf-3beb55b0999e)
+- [getCdbBegin()](#m-getCdbBegin-de343abd3d60)
+- [getDate()](#m-getDate-835e7d70e8d1)
+- [getDatetime()](#m-getDatetime-388189505619)
+- [getDecimal64()](#m-getDecimal64-193bb466ba33)
+- [getDefault()](#m-getDefault-3b99fa7321e2)
+- [getDouble()](#m-getDouble-2f3cdb03174e)
+- [getDquad()](#m-getDquad-4a29a8e328e2)
+- [getDuration()](#m-getDuration-aee615ea7fe2)
+- [getEmpty()](#m-getEmpty-500b00e51161)
+- [getEnumValue()](#m-getEnumValue-5222f58810c9)
+- [getHexstr()](#m-getHexstr-7bdee4ec31cf)
+- [getIdentityref()](#m-getIdentityref-da99f3e4419f)
+- [getInt16()](#m-getInt16-5744ecc89efb)
+- [getInt32()](#m-getInt32-81084bf6c564)
+- [getInt64()](#m-getInt64-12855180ebd0)
+- [getInt8()](#m-getInt8-f88ea0bcdca8)
+- [getIpv4()](#m-getIpv4-9ce1b70400a4)
+- [getIpv4AndPlen()](#m-getIpv4AndPlen-6283b58ee146)
+- [getIpv4prefix()](#m-getIpv4prefix-01000113e705)
+- [getIpv6()](#m-getIpv6-075bb9cd9153)
+- [getIpv6AndPlen()](#m-getIpv6AndPlen-de70a17471a3)
+- [getIpv6prefix()](#m-getIpv6prefix-474193492c1a)
+- [getList()](#m-getList-bb3f8cbe83be)
+- [getNoexists()](#m-getNoexists-f692a7fc16f3)
+- [getObjectref()](#m-getObjectref-eb216e093ad4)
+- [getOid()](#m-getOid-2faa98066d96)
+- [getPtr()](#m-getPtr-9b1702eaedfe)
+- [getQname()](#m-getQname-022156d42738)
+- [getShallowType()](#m-getShallowType-2e2b5f294983)
+- [getStr()](#m-getStr-52d1ecf4d92e)
+- [getSymbol()](#m-getSymbol-702f4641963e)
+- [getTime()](#m-getTime-1429b351f3a0)
+- [getUint16()](#m-getUint16-2c1ad5a64222)
+- [getUint32()](#m-getUint32-fa11eb2e5b91)
+- [getUint64()](#m-getUint64-f84c3cc8734c)
+- [getUint8()](#m-getUint8-35a48ed7f6a6)
+- [getUnion()](#m-getUnion-09a450ad6ddb)
+- [getUnknown()](#m-getUnknown-70adb8ae54c3)
+- [getXmlbegin()](#m-getXmlbegin-d03e242d4096)
+- [getXmlbegindel()](#m-getXmlbegindel-920a8ac89e37)
+- [getXmlend()](#m-getXmlend-ae3cef179327)
+- [getXmlMoveEnd()](#m-getXmlMoveEnd-9e767f8514b2)
+- [getXmlMoveFirst()](#m-getXmlMoveFirst-580a69a9f9d8)
+- [getXmltag()](#m-getXmltag-15a59d5d02ef)
+- [hasBinary()](#m-hasBinary-ca7a9e4bd9ff)
+- [hasBuf()](#m-hasBuf-89f2325600ad)
+- [hasHexstr()](#m-hasHexstr-dcb9d92bfaa7)
+- [hasList()](#m-hasList-3712d7ce73ac)
+- [hasObjectref()](#m-hasObjectref-a79354acdb9f)
+- [hasOid()](#m-hasOid-64b45096c850)
+- [hasStr()](#m-hasStr-4da753ffd6f2)
+- [initBinary(int)](#m-initBinary-da8376321dd1)
+- [initBitbig()](#m-initBitbig-fd6227122084)
+- [initBuf(int)](#m-initBuf-283316a1539d)
+- [initDate()](#m-initDate-0d1ab510efb2)
+- [initDatetime()](#m-initDatetime-e2839d63f272)
+- [initDecimal64()](#m-initDecimal64-beda8ac08084)
+- [initDquad()](#m-initDquad-27bd6cd9a9ed)
+- [initDuration()](#m-initDuration-21d0c79353af)
+- [initHexstr(int)](#m-initHexstr-547aec4d26f3)
+- [initIdentityref()](#m-initIdentityref-1b5ab2bb6330)
+- [initIpv4()](#m-initIpv4-17f92309b472)
+- [initIpv4AndPlen()](#m-initIpv4AndPlen-9c9e2cd3eaa1)
+- [initIpv4prefix()](#m-initIpv4prefix-b565b6b79384)
+- [initIpv6()](#m-initIpv6-36bf15e539f7)
+- [initIpv6AndPlen()](#m-initIpv6AndPlen-a9fe90c6f7de)
+- [initIpv6prefix()](#m-initIpv6prefix-a2792366b617)
+- [initList(int)](#m-initList-619d59db076f)
+- [initObjectref(int)](#m-initObjectref-935e26a90e6e)
+- [initOid(int)](#m-initOid-715b58cbb921)
+- [initQname()](#m-initQname-748564905228)
+- [initStr(int)](#m-initStr-af52d7d08f9f)
+- [initSymbol()](#m-initSymbol-df0c748a0655)
+- [initTime()](#m-initTime-eeed5ea5f00a)
+- [initUnion()](#m-initUnion-8c18e3f27de0)
+- [initXmltag()](#m-initXmltag-bb2742edf9eb)
+- [isBinary()](#m-isBinary-d92620e842a5)
+- [isBit32()](#m-isBit32-ae0f1c3885a6)
+- [isBit64()](#m-isBit64-2ec3459ff82c)
+- [isBitbig()](#m-isBitbig-84cd2f0ebaeb)
+- [isBool()](#m-isBool-e771ae3d3e55)
+- [isBuf()](#m-isBuf-254af72d81f0)
+- [isCdbBegin()](#m-isCdbBegin-aeff9465850d)
+- [isDate()](#m-isDate-c423781b293a)
+- [isDatetime()](#m-isDatetime-4e79c97b2bd5)
+- [isDecimal64()](#m-isDecimal64-fbfc5a5de098)
+- [isDefault()](#m-isDefault-9a6b81cd55f6)
+- [isDouble()](#m-isDouble-47da85f502c9)
+- [isDquad()](#m-isDquad-1986dbac6f44)
+- [isDuration()](#m-isDuration-7960407492db)
+- [isEmpty()](#m-isEmpty-4dde48126244)
+- [isEnumValue()](#m-isEnumValue-b6e22d09884f)
+- [isHexstr()](#m-isHexstr-b866520006d5)
+- [isIdentityref()](#m-isIdentityref-975db106a225)
+- [isInt16()](#m-isInt16-7462eecb083e)
+- [isInt32()](#m-isInt32-3341e7603763)
+- [isInt64()](#m-isInt64-c54b20486cbe)
+- [isInt8()](#m-isInt8-908482a868e0)
+- [isIpv4()](#m-isIpv4-f769f8c600b5)
+- [isIpv4AndPlen()](#m-isIpv4AndPlen-e1536a127f9e)
+- [isIpv4prefix()](#m-isIpv4prefix-7b973eaefa1d)
+- [isIpv6()](#m-isIpv6-a32651632b39)
+- [isIpv6AndPlen()](#m-isIpv6AndPlen-1963093ce68a)
+- [isIpv6prefix()](#m-isIpv6prefix-6dce0b40b9d7)
+- [isList()](#m-isList-c36bce63b506)
+- [isNoexists()](#m-isNoexists-a1ec13d21a56)
+- [isObjectref()](#m-isObjectref-2120317a92dd)
+- [isOid()](#m-isOid-368ae9c713d1)
+- [isPtr()](#m-isPtr-276f1553635d)
+- [isQname()](#m-isQname-79c1cbb01029)
+- [isStr()](#m-isStr-81c3840f26d4)
+- [isSymbol()](#m-isSymbol-d7206a92c0eb)
+- [isTime()](#m-isTime-250a56dbdac5)
+- [isUint16()](#m-isUint16-d8c251a40ead)
+- [isUint32()](#m-isUint32-fd3a00ffba15)
+- [isUint64()](#m-isUint64-ce4ee69a295b)
+- [isUint8()](#m-isUint8-9f400b8116f3)
+- [isUnion()](#m-isUnion-6183f968c3e8)
+- [isUnknown()](#m-isUnknown-88a5b80751a0)
+- [isXmlbegin()](#m-isXmlbegin-3a07f5fed3da)
+- [isXmlbegindel()](#m-isXmlbegindel-4e1966d82109)
+- [isXmlend()](#m-isXmlend-9111f39d186c)
+- [isXmlMoveEnd()](#m-isXmlMoveEnd-45ed9b27d7cf)
+- [isXmlMoveFirst()](#m-isXmlMoveFirst-7c07b98bd060)
+- [isXmltag()](#m-isXmltag-da0707b0ae43)
+- [setBinary(byte[])](#m-setBinary-b01c99e75889)
+- [setBinary(Reader)](#m-setBinary-8a1cf4ce84a9)
+- [setBit32(int)](#m-setBit32-1316fc224e19)
+- [setBit64(long)](#m-setBit64-a3a27f6ef6d2)
+- [setBitbig(Reader)](#m-setBitbig-a514b9d55ab1)
+- [setBool(boolean)](#m-setBool-88160242dcf7)
+- [setBuf(byte[])](#m-setBuf-881fa0552479)
+- [setBuf(Reader)](#m-setBuf-610948d9381a)
+- [setCdbBegin(Void)](#m-setCdbBegin-902391c8a14e)
+- [setDate(Reader)](#m-setDate-3bcb9c346567)
+- [setDatetime(Reader)](#m-setDatetime-6dc599e86f6a)
+- [setDecimal64(Reader)](#m-setDecimal64-7a6a8717701c)
+- [setDefault(Void)](#m-setDefault-298bc2ea4f4c)
+- [setDouble(double)](#m-setDouble-00357c17ab3e)
+- [setDquad(Reader)](#m-setDquad-0ea8faa4deab)
+- [setDuration(Reader)](#m-setDuration-c6226971f7aa)
+- [setEmpty(Void)](#m-setEmpty-02e106b89f69)
+- [setEnumValue(int)](#m-setEnumValue-b69852580f08)
+- [setHexstr(byte[])](#m-setHexstr-f501765c9de4)
+- [setHexstr(Reader)](#m-setHexstr-d236864650dc)
+- [setIdentityref(Reader)](#m-setIdentityref-8c7c2d7f9e09)
+- [setInt16(short)](#m-setInt16-50cfe70769f2)
+- [setInt32(int)](#m-setInt32-92c50824ef51)
+- [setInt64(long)](#m-setInt64-f17f1ec8e04c)
+- [setInt8(byte)](#m-setInt8-2ac62944aabe)
+- [setIpv4(Reader)](#m-setIpv4-619e62fbc436)
+- [setIpv4AndPlen(Reader)](#m-setIpv4AndPlen-93f3be1ab458)
+- [setIpv4prefix(Reader)](#m-setIpv4prefix-91794916e9c8)
+- [setIpv6(Reader)](#m-setIpv6-5b31d658aa62)
+- [setIpv6AndPlen(Reader)](#m-setIpv6AndPlen-99b5b9880429)
+- [setIpv6prefix(Reader)](#m-setIpv6prefix-691f4193aeb7)
+- [setList(Reader<Reader>)](#m-setList-6e8e469cc90d)
+- [setNoexists(Void)](#m-setNoexists-168255f46871)
+- [setObjectref(Reader<Reader>)](#m-setObjectref-c835e9918173)
+- [setOid(Reader)](#m-setOid-543cdf0a3811)
+- [setPtr(Void)](#m-setPtr-3ef5da141ca3)
+- [setQname(Reader)](#m-setQname-a6726111b988)
+- [setShallowType(ShallowType)](#m-setShallowType-d21ce22018e7)
+- [setStr(Reader)](#m-setStr-6d57a5d11cf3)
+- [setStr(String)](#m-setStr-21fe97a65221)
+- [setSymbol(Reader)](#m-setSymbol-4da320ce2606)
+- [setTime(Reader)](#m-setTime-fc6f93bd991e)
+- [setUint16(short)](#m-setUint16-043282128543)
+- [setUint32(int)](#m-setUint32-0f4bc4823456)
+- [setUint64(long)](#m-setUint64-14de0afc3c33)
+- [setUint8(byte)](#m-setUint8-a2e25ee00758)
+- [setUnion(Reader)](#m-setUnion-f269d70e4284)
+- [setUnknown(Void)](#m-setUnknown-6d434acf5507)
+- [setXmlbegin(Void)](#m-setXmlbegin-299c46b694bb)
+- [setXmlbegindel(Void)](#m-setXmlbegindel-c87f2fa20081)
+- [setXmlend(Void)](#m-setXmlend-24c58d6147d3)
+- [setXmlMoveEnd(Void)](#m-setXmlMoveEnd-e11b6c17145f)
+- [setXmlMoveFirst(Void)](#m-setXmlMoveFirst-3d1233316007)
+- [setXmltag(Reader)](#m-setXmltag-b5877e9f93d5)
 - [which()](#m-which-0b2d23db5ed0)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -230,8 +228,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Reader asReader()
@@ -239,29 +236,25 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getbinary-f332a896a1bb"></a>
-### getBinary()
+### getBinary() <a href="#m-getBinary-f332a896a1bb" id="m-getBinary-f332a896a1bb"></a>
 
 ```java
 public final org.capnproto.Data.Builder getBinary()
 ```
 
-<a id="m-getbit32-27693f0a3df1"></a>
-### getBit32()
+### getBit32() <a href="#m-getBit32-27693f0a3df1" id="m-getBit32-27693f0a3df1"></a>
 
 ```java
 public final int getBit32()
 ```
 
-<a id="m-getbit64-51ba19e6036e"></a>
-### getBit64()
+### getBit64() <a href="#m-getBit64-51ba19e6036e" id="m-getBit64-51ba19e6036e"></a>
 
 ```java
 public final long getBit64()
 ```
 
-<a id="m-getbitbig-ce729847bcfd"></a>
-### getBitbig()
+### getBitbig() <a href="#m-getBitbig-ce729847bcfd" id="m-getBitbig-ce729847bcfd"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder getBitbig()
@@ -269,29 +262,25 @@ public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder getBitbig()
 
 Types: [Builder](../CsValueBitBig/Builder.md#cls-Builder)
 
-<a id="m-getbool-bfc6de52d8c0"></a>
-### getBool()
+### getBool() <a href="#m-getBool-bfc6de52d8c0" id="m-getBool-bfc6de52d8c0"></a>
 
 ```java
 public final boolean getBool()
 ```
 
-<a id="m-getbuf-3beb55b0999e"></a>
-### getBuf()
+### getBuf() <a href="#m-getBuf-3beb55b0999e" id="m-getBuf-3beb55b0999e"></a>
 
 ```java
 public final org.capnproto.Data.Builder getBuf()
 ```
 
-<a id="m-getcdbbegin-de343abd3d60"></a>
-### getCdbBegin()
+### getCdbBegin() <a href="#m-getCdbBegin-de343abd3d60" id="m-getCdbBegin-de343abd3d60"></a>
 
 ```java
 public final org.capnproto.Void getCdbBegin()
 ```
 
-<a id="m-getdate-835e7d70e8d1"></a>
-### getDate()
+### getDate() <a href="#m-getDate-835e7d70e8d1" id="m-getDate-835e7d70e8d1"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDate.Builder getDate()
@@ -299,8 +288,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDate.Builder getDate()
 
 Types: [Builder](../CsValueDate/Builder.md#cls-Builder)
 
-<a id="m-getdatetime-388189505619"></a>
-### getDatetime()
+### getDatetime() <a href="#m-getDatetime-388189505619" id="m-getDatetime-388189505619"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder getDatetime()
@@ -308,8 +296,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder getDatetime()
 
 Types: [Builder](../CsValueDateTime/Builder.md#cls-Builder)
 
-<a id="m-getdecimal64-193bb466ba33"></a>
-### getDecimal64()
+### getDecimal64() <a href="#m-getDecimal64-193bb466ba33" id="m-getDecimal64-193bb466ba33"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder getDecimal64()
@@ -317,22 +304,19 @@ public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder getDecimal64()
 
 Types: [Builder](../CsValueDecimal64/Builder.md#cls-Builder)
 
-<a id="m-getdefault-3b99fa7321e2"></a>
-### getDefault()
+### getDefault() <a href="#m-getDefault-3b99fa7321e2" id="m-getDefault-3b99fa7321e2"></a>
 
 ```java
 public final org.capnproto.Void getDefault()
 ```
 
-<a id="m-getdouble-2f3cdb03174e"></a>
-### getDouble()
+### getDouble() <a href="#m-getDouble-2f3cdb03174e" id="m-getDouble-2f3cdb03174e"></a>
 
 ```java
 public final double getDouble()
 ```
 
-<a id="m-getdquad-4a29a8e328e2"></a>
-### getDquad()
+### getDquad() <a href="#m-getDquad-4a29a8e328e2" id="m-getDquad-4a29a8e328e2"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder getDquad()
@@ -340,8 +324,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder getDquad()
 
 Types: [Builder](../CsValueDQuad/Builder.md#cls-Builder)
 
-<a id="m-getduration-aee615ea7fe2"></a>
-### getDuration()
+### getDuration() <a href="#m-getDuration-aee615ea7fe2" id="m-getDuration-aee615ea7fe2"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Builder getDuration()
@@ -349,29 +332,25 @@ public final com.tailf.ncs.maapi.Schema.CsValueDuration.Builder getDuration()
 
 Types: [Builder](../CsValueDuration/Builder.md#cls-Builder)
 
-<a id="m-getempty-500b00e51161"></a>
-### getEmpty()
+### getEmpty() <a href="#m-getEmpty-500b00e51161" id="m-getEmpty-500b00e51161"></a>
 
 ```java
 public final org.capnproto.Void getEmpty()
 ```
 
-<a id="m-getenumvalue-5222f58810c9"></a>
-### getEnumValue()
+### getEnumValue() <a href="#m-getEnumValue-5222f58810c9" id="m-getEnumValue-5222f58810c9"></a>
 
 ```java
 public final int getEnumValue()
 ```
 
-<a id="m-gethexstr-7bdee4ec31cf"></a>
-### getHexstr()
+### getHexstr() <a href="#m-getHexstr-7bdee4ec31cf" id="m-getHexstr-7bdee4ec31cf"></a>
 
 ```java
 public final org.capnproto.Data.Builder getHexstr()
 ```
 
-<a id="m-getidentityref-da99f3e4419f"></a>
-### getIdentityref()
+### getIdentityref() <a href="#m-getIdentityref-da99f3e4419f" id="m-getIdentityref-da99f3e4419f"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder getIdentityref()
@@ -379,36 +358,31 @@ public final com.tailf.ncs.maapi.Schema.QTag.Builder getIdentityref()
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-getint16-5744ecc89efb"></a>
-### getInt16()
+### getInt16() <a href="#m-getInt16-5744ecc89efb" id="m-getInt16-5744ecc89efb"></a>
 
 ```java
 public final short getInt16()
 ```
 
-<a id="m-getint32-81084bf6c564"></a>
-### getInt32()
+### getInt32() <a href="#m-getInt32-81084bf6c564" id="m-getInt32-81084bf6c564"></a>
 
 ```java
 public final int getInt32()
 ```
 
-<a id="m-getint64-12855180ebd0"></a>
-### getInt64()
+### getInt64() <a href="#m-getInt64-12855180ebd0" id="m-getInt64-12855180ebd0"></a>
 
 ```java
 public final long getInt64()
 ```
 
-<a id="m-getint8-f88ea0bcdca8"></a>
-### getInt8()
+### getInt8() <a href="#m-getInt8-f88ea0bcdca8" id="m-getInt8-f88ea0bcdca8"></a>
 
 ```java
 public final byte getInt8()
 ```
 
-<a id="m-getipv4-9ce1b70400a4"></a>
-### getIpv4()
+### getIpv4() <a href="#m-getIpv4-9ce1b70400a4" id="m-getIpv4-9ce1b70400a4"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4()
@@ -416,8 +390,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4()
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-getipv4andplen-6283b58ee146"></a>
-### getIpv4AndPlen()
+### getIpv4AndPlen() <a href="#m-getIpv4AndPlen-6283b58ee146" id="m-getIpv4AndPlen-6283b58ee146"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4AndPlen()
@@ -425,8 +398,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4AndPlen
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-getipv4prefix-01000113e705"></a>
-### getIpv4prefix()
+### getIpv4prefix() <a href="#m-getIpv4prefix-01000113e705" id="m-getIpv4prefix-01000113e705"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4prefix()
@@ -434,8 +406,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder getIpv4prefix(
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-getipv6-075bb9cd9153"></a>
-### getIpv6()
+### getIpv6() <a href="#m-getIpv6-075bb9cd9153" id="m-getIpv6-075bb9cd9153"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6()
@@ -443,8 +414,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6()
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-getipv6andplen-de70a17471a3"></a>
-### getIpv6AndPlen()
+### getIpv6AndPlen() <a href="#m-getIpv6AndPlen-de70a17471a3" id="m-getIpv6AndPlen-de70a17471a3"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6AndPlen()
@@ -452,8 +422,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6AndPlen
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-getipv6prefix-474193492c1a"></a>
-### getIpv6prefix()
+### getIpv6prefix() <a href="#m-getIpv6prefix-474193492c1a" id="m-getIpv6prefix-474193492c1a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6prefix()
@@ -461,8 +430,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder getIpv6prefix(
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-getlist-bb3f8cbe83be"></a>
-### getList()
+### getList() <a href="#m-getList-bb3f8cbe83be" id="m-getList-bb3f8cbe83be"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue.Builder> getList()
@@ -470,15 +438,13 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue
 
 Types: [Builder](Builder.md#cls-Builder)
 
-<a id="m-getnoexists-f692a7fc16f3"></a>
-### getNoexists()
+### getNoexists() <a href="#m-getNoexists-f692a7fc16f3" id="m-getNoexists-f692a7fc16f3"></a>
 
 ```java
 public final org.capnproto.Void getNoexists()
 ```
 
-<a id="m-getobjectref-eb216e093ad4"></a>
-### getObjectref()
+### getObjectref() <a href="#m-getObjectref-eb216e093ad4" id="m-getObjectref-eb216e093ad4"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue.Builder> getObjectref()
@@ -486,22 +452,19 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue
 
 Types: [Builder](Builder.md#cls-Builder)
 
-<a id="m-getoid-2faa98066d96"></a>
-### getOid()
+### getOid() <a href="#m-getOid-2faa98066d96" id="m-getOid-2faa98066d96"></a>
 
 ```java
 public final org.capnproto.PrimitiveList.Long.Builder getOid()
 ```
 
-<a id="m-getptr-9b1702eaedfe"></a>
-### getPtr()
+### getPtr() <a href="#m-getPtr-9b1702eaedfe" id="m-getPtr-9b1702eaedfe"></a>
 
 ```java
 public final org.capnproto.Void getPtr()
 ```
 
-<a id="m-getqname-022156d42738"></a>
-### getQname()
+### getQname() <a href="#m-getQname-022156d42738" id="m-getQname-022156d42738"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueQName.Builder getQname()
@@ -509,8 +472,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Builder getQname()
 
 Types: [Builder](../CsValueQName/Builder.md#cls-Builder)
 
-<a id="m-getshallowtype-2e2b5f294983"></a>
-### getShallowType()
+### getShallowType() <a href="#m-getShallowType-2e2b5f294983" id="m-getShallowType-2e2b5f294983"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.ShallowType getShallowType()
@@ -518,15 +480,13 @@ public final com.tailf.ncs.maapi.Schema.ShallowType getShallowType()
 
 Types: [ShallowType](../ShallowType.md#cls-ShallowType)
 
-<a id="m-getstr-52d1ecf4d92e"></a>
-### getStr()
+### getStr() <a href="#m-getStr-52d1ecf4d92e" id="m-getStr-52d1ecf4d92e"></a>
 
 ```java
 public final org.capnproto.Text.Builder getStr()
 ```
 
-<a id="m-getsymbol-702f4641963e"></a>
-### getSymbol()
+### getSymbol() <a href="#m-getSymbol-702f4641963e" id="m-getSymbol-702f4641963e"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder getSymbol()
@@ -534,8 +494,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder getSymbol()
 
 Types: [Builder](../CsValueSymbol/Builder.md#cls-Builder)
 
-<a id="m-gettime-1429b351f3a0"></a>
-### getTime()
+### getTime() <a href="#m-getTime-1429b351f3a0" id="m-getTime-1429b351f3a0"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueTime.Builder getTime()
@@ -543,36 +502,31 @@ public final com.tailf.ncs.maapi.Schema.CsValueTime.Builder getTime()
 
 Types: [Builder](../CsValueTime/Builder.md#cls-Builder)
 
-<a id="m-getuint16-2c1ad5a64222"></a>
-### getUint16()
+### getUint16() <a href="#m-getUint16-2c1ad5a64222" id="m-getUint16-2c1ad5a64222"></a>
 
 ```java
 public final short getUint16()
 ```
 
-<a id="m-getuint32-fa11eb2e5b91"></a>
-### getUint32()
+### getUint32() <a href="#m-getUint32-fa11eb2e5b91" id="m-getUint32-fa11eb2e5b91"></a>
 
 ```java
 public final int getUint32()
 ```
 
-<a id="m-getuint64-f84c3cc8734c"></a>
-### getUint64()
+### getUint64() <a href="#m-getUint64-f84c3cc8734c" id="m-getUint64-f84c3cc8734c"></a>
 
 ```java
 public final long getUint64()
 ```
 
-<a id="m-getuint8-35a48ed7f6a6"></a>
-### getUint8()
+### getUint8() <a href="#m-getUint8-35a48ed7f6a6" id="m-getUint8-35a48ed7f6a6"></a>
 
 ```java
 public final byte getUint8()
 ```
 
-<a id="m-getunion-09a450ad6ddb"></a>
-### getUnion()
+### getUnion() <a href="#m-getUnion-09a450ad6ddb" id="m-getUnion-09a450ad6ddb"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder getUnion()
@@ -580,50 +534,43 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Builder getUnion()
 
 Types: [Builder](Builder.md#cls-Builder)
 
-<a id="m-getunknown-70adb8ae54c3"></a>
-### getUnknown()
+### getUnknown() <a href="#m-getUnknown-70adb8ae54c3" id="m-getUnknown-70adb8ae54c3"></a>
 
 ```java
 public final org.capnproto.Void getUnknown()
 ```
 
-<a id="m-getxmlbegin-d03e242d4096"></a>
-### getXmlbegin()
+### getXmlbegin() <a href="#m-getXmlbegin-d03e242d4096" id="m-getXmlbegin-d03e242d4096"></a>
 
 ```java
 public final org.capnproto.Void getXmlbegin()
 ```
 
-<a id="m-getxmlbegindel-920a8ac89e37"></a>
-### getXmlbegindel()
+### getXmlbegindel() <a href="#m-getXmlbegindel-920a8ac89e37" id="m-getXmlbegindel-920a8ac89e37"></a>
 
 ```java
 public final org.capnproto.Void getXmlbegindel()
 ```
 
-<a id="m-getxmlend-ae3cef179327"></a>
-### getXmlend()
+### getXmlend() <a href="#m-getXmlend-ae3cef179327" id="m-getXmlend-ae3cef179327"></a>
 
 ```java
 public final org.capnproto.Void getXmlend()
 ```
 
-<a id="m-getxmlmoveend-9e767f8514b2"></a>
-### getXmlMoveEnd()
+### getXmlMoveEnd() <a href="#m-getXmlMoveEnd-9e767f8514b2" id="m-getXmlMoveEnd-9e767f8514b2"></a>
 
 ```java
 public final org.capnproto.Void getXmlMoveEnd()
 ```
 
-<a id="m-getxmlmovefirst-580a69a9f9d8"></a>
-### getXmlMoveFirst()
+### getXmlMoveFirst() <a href="#m-getXmlMoveFirst-580a69a9f9d8" id="m-getXmlMoveFirst-580a69a9f9d8"></a>
 
 ```java
 public final org.capnproto.Void getXmlMoveFirst()
 ```
 
-<a id="m-getxmltag-15a59d5d02ef"></a>
-### getXmltag()
+### getXmltag() <a href="#m-getXmltag-15a59d5d02ef" id="m-getXmltag-15a59d5d02ef"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder getXmltag()
@@ -631,57 +578,49 @@ public final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder getXmltag()
 
 Types: [Builder](../CsValueXmlTag/Builder.md#cls-Builder)
 
-<a id="m-hasbinary-ca7a9e4bd9ff"></a>
-### hasBinary()
+### hasBinary() <a href="#m-hasBinary-ca7a9e4bd9ff" id="m-hasBinary-ca7a9e4bd9ff"></a>
 
 ```java
 public final boolean hasBinary()
 ```
 
-<a id="m-hasbuf-89f2325600ad"></a>
-### hasBuf()
+### hasBuf() <a href="#m-hasBuf-89f2325600ad" id="m-hasBuf-89f2325600ad"></a>
 
 ```java
 public final boolean hasBuf()
 ```
 
-<a id="m-hashexstr-dcb9d92bfaa7"></a>
-### hasHexstr()
+### hasHexstr() <a href="#m-hasHexstr-dcb9d92bfaa7" id="m-hasHexstr-dcb9d92bfaa7"></a>
 
 ```java
 public final boolean hasHexstr()
 ```
 
-<a id="m-haslist-3712d7ce73ac"></a>
-### hasList()
+### hasList() <a href="#m-hasList-3712d7ce73ac" id="m-hasList-3712d7ce73ac"></a>
 
 ```java
 public final boolean hasList()
 ```
 
-<a id="m-hasobjectref-a79354acdb9f"></a>
-### hasObjectref()
+### hasObjectref() <a href="#m-hasObjectref-a79354acdb9f" id="m-hasObjectref-a79354acdb9f"></a>
 
 ```java
 public final boolean hasObjectref()
 ```
 
-<a id="m-hasoid-64b45096c850"></a>
-### hasOid()
+### hasOid() <a href="#m-hasOid-64b45096c850" id="m-hasOid-64b45096c850"></a>
 
 ```java
 public final boolean hasOid()
 ```
 
-<a id="m-hasstr-4da753ffd6f2"></a>
-### hasStr()
+### hasStr() <a href="#m-hasStr-4da753ffd6f2" id="m-hasStr-4da753ffd6f2"></a>
 
 ```java
 public final boolean hasStr()
 ```
 
-<a id="m-initbinary-da8376321dd1"></a>
-### initBinary(int)
+### initBinary(int) <a href="#m-initBinary-da8376321dd1" id="m-initBinary-da8376321dd1"></a>
 
 ```java
 public final org.capnproto.Data.Builder initBinary(int size)
@@ -691,8 +630,7 @@ public final org.capnproto.Data.Builder initBinary(int size)
 
 - `int size`
 
-<a id="m-initbitbig-fd6227122084"></a>
-### initBitbig()
+### initBitbig() <a href="#m-initBitbig-fd6227122084" id="m-initBitbig-fd6227122084"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder initBitbig()
@@ -700,8 +638,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueBitBig.Builder initBitbig()
 
 Types: [Builder](../CsValueBitBig/Builder.md#cls-Builder)
 
-<a id="m-initbuf-283316a1539d"></a>
-### initBuf(int)
+### initBuf(int) <a href="#m-initBuf-283316a1539d" id="m-initBuf-283316a1539d"></a>
 
 ```java
 public final org.capnproto.Data.Builder initBuf(int size)
@@ -711,8 +648,7 @@ public final org.capnproto.Data.Builder initBuf(int size)
 
 - `int size`
 
-<a id="m-initdate-0d1ab510efb2"></a>
-### initDate()
+### initDate() <a href="#m-initDate-0d1ab510efb2" id="m-initDate-0d1ab510efb2"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDate.Builder initDate()
@@ -720,8 +656,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDate.Builder initDate()
 
 Types: [Builder](../CsValueDate/Builder.md#cls-Builder)
 
-<a id="m-initdatetime-e2839d63f272"></a>
-### initDatetime()
+### initDatetime() <a href="#m-initDatetime-e2839d63f272" id="m-initDatetime-e2839d63f272"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder initDatetime()
@@ -729,8 +664,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder initDatetime()
 
 Types: [Builder](../CsValueDateTime/Builder.md#cls-Builder)
 
-<a id="m-initdecimal64-beda8ac08084"></a>
-### initDecimal64()
+### initDecimal64() <a href="#m-initDecimal64-beda8ac08084" id="m-initDecimal64-beda8ac08084"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder initDecimal64()
@@ -738,8 +672,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDecimal64.Builder initDecimal64()
 
 Types: [Builder](../CsValueDecimal64/Builder.md#cls-Builder)
 
-<a id="m-initdquad-27bd6cd9a9ed"></a>
-### initDquad()
+### initDquad() <a href="#m-initDquad-27bd6cd9a9ed" id="m-initDquad-27bd6cd9a9ed"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder initDquad()
@@ -747,8 +680,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDQuad.Builder initDquad()
 
 Types: [Builder](../CsValueDQuad/Builder.md#cls-Builder)
 
-<a id="m-initduration-21d0c79353af"></a>
-### initDuration()
+### initDuration() <a href="#m-initDuration-21d0c79353af" id="m-initDuration-21d0c79353af"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Builder initDuration()
@@ -756,8 +688,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueDuration.Builder initDuration()
 
 Types: [Builder](../CsValueDuration/Builder.md#cls-Builder)
 
-<a id="m-inithexstr-547aec4d26f3"></a>
-### initHexstr(int)
+### initHexstr(int) <a href="#m-initHexstr-547aec4d26f3" id="m-initHexstr-547aec4d26f3"></a>
 
 ```java
 public final org.capnproto.Data.Builder initHexstr(int size)
@@ -767,8 +698,7 @@ public final org.capnproto.Data.Builder initHexstr(int size)
 
 - `int size`
 
-<a id="m-initidentityref-1b5ab2bb6330"></a>
-### initIdentityref()
+### initIdentityref() <a href="#m-initIdentityref-1b5ab2bb6330" id="m-initIdentityref-1b5ab2bb6330"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder initIdentityref()
@@ -776,8 +706,7 @@ public final com.tailf.ncs.maapi.Schema.QTag.Builder initIdentityref()
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-initipv4-17f92309b472"></a>
-### initIpv4()
+### initIpv4() <a href="#m-initIpv4-17f92309b472" id="m-initIpv4-17f92309b472"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4()
@@ -785,8 +714,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4()
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-initipv4andplen-9c9e2cd3eaa1"></a>
-### initIpv4AndPlen()
+### initIpv4AndPlen() <a href="#m-initIpv4AndPlen-9c9e2cd3eaa1" id="m-initIpv4AndPlen-9c9e2cd3eaa1"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4AndPlen()
@@ -794,8 +722,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4AndPle
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-initipv4prefix-b565b6b79384"></a>
-### initIpv4prefix()
+### initIpv4prefix() <a href="#m-initIpv4prefix-b565b6b79384" id="m-initIpv4prefix-b565b6b79384"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4prefix()
@@ -803,8 +730,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Builder initIpv4prefix
 
 Types: [Builder](../CsValueIPv4Prefix/Builder.md#cls-Builder)
 
-<a id="m-initipv6-36bf15e539f7"></a>
-### initIpv6()
+### initIpv6() <a href="#m-initIpv6-36bf15e539f7" id="m-initIpv6-36bf15e539f7"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6()
@@ -812,8 +738,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6()
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-initipv6andplen-a9fe90c6f7de"></a>
-### initIpv6AndPlen()
+### initIpv6AndPlen() <a href="#m-initIpv6AndPlen-a9fe90c6f7de" id="m-initIpv6AndPlen-a9fe90c6f7de"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6AndPlen()
@@ -821,8 +746,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6AndPle
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-initipv6prefix-a2792366b617"></a>
-### initIpv6prefix()
+### initIpv6prefix() <a href="#m-initIpv6prefix-a2792366b617" id="m-initIpv6prefix-a2792366b617"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6prefix()
@@ -830,8 +754,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder initIpv6prefix
 
 Types: [Builder](../CsValueIPv6Prefix/Builder.md#cls-Builder)
 
-<a id="m-initlist-619d59db076f"></a>
-### initList(int)
+### initList(int) <a href="#m-initList-619d59db076f" id="m-initList-619d59db076f"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue.Builder> initList(
@@ -845,8 +768,7 @@ Types: [Builder](Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-initobjectref-935e26a90e6e"></a>
-### initObjectref(int)
+### initObjectref(int) <a href="#m-initObjectref-935e26a90e6e" id="m-initObjectref-935e26a90e6e"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsValue.Builder> initObjectref(
@@ -860,8 +782,7 @@ Types: [Builder](Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-initoid-715b58cbb921"></a>
-### initOid(int)
+### initOid(int) <a href="#m-initOid-715b58cbb921" id="m-initOid-715b58cbb921"></a>
 
 ```java
 public final org.capnproto.PrimitiveList.Long.Builder initOid(int size)
@@ -871,8 +792,7 @@ public final org.capnproto.PrimitiveList.Long.Builder initOid(int size)
 
 - `int size`
 
-<a id="m-initqname-748564905228"></a>
-### initQname()
+### initQname() <a href="#m-initQname-748564905228" id="m-initQname-748564905228"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueQName.Builder initQname()
@@ -880,8 +800,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Builder initQname()
 
 Types: [Builder](../CsValueQName/Builder.md#cls-Builder)
 
-<a id="m-initstr-af52d7d08f9f"></a>
-### initStr(int)
+### initStr(int) <a href="#m-initStr-af52d7d08f9f" id="m-initStr-af52d7d08f9f"></a>
 
 ```java
 public final org.capnproto.Text.Builder initStr(int size)
@@ -891,8 +810,7 @@ public final org.capnproto.Text.Builder initStr(int size)
 
 - `int size`
 
-<a id="m-initsymbol-df0c748a0655"></a>
-### initSymbol()
+### initSymbol() <a href="#m-initSymbol-df0c748a0655" id="m-initSymbol-df0c748a0655"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder initSymbol()
@@ -900,8 +818,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder initSymbol()
 
 Types: [Builder](../CsValueSymbol/Builder.md#cls-Builder)
 
-<a id="m-inittime-eeed5ea5f00a"></a>
-### initTime()
+### initTime() <a href="#m-initTime-eeed5ea5f00a" id="m-initTime-eeed5ea5f00a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueTime.Builder initTime()
@@ -909,8 +826,7 @@ public final com.tailf.ncs.maapi.Schema.CsValueTime.Builder initTime()
 
 Types: [Builder](../CsValueTime/Builder.md#cls-Builder)
 
-<a id="m-initunion-8c18e3f27de0"></a>
-### initUnion()
+### initUnion() <a href="#m-initUnion-8c18e3f27de0" id="m-initUnion-8c18e3f27de0"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValue.Builder initUnion()
@@ -918,8 +834,7 @@ public final com.tailf.ncs.maapi.Schema.CsValue.Builder initUnion()
 
 Types: [Builder](Builder.md#cls-Builder)
 
-<a id="m-initxmltag-bb2742edf9eb"></a>
-### initXmltag()
+### initXmltag() <a href="#m-initXmltag-bb2742edf9eb" id="m-initXmltag-bb2742edf9eb"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder initXmltag()
@@ -927,351 +842,301 @@ public final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder initXmltag()
 
 Types: [Builder](../CsValueXmlTag/Builder.md#cls-Builder)
 
-<a id="m-isbinary-d92620e842a5"></a>
-### isBinary()
+### isBinary() <a href="#m-isBinary-d92620e842a5" id="m-isBinary-d92620e842a5"></a>
 
 ```java
 public final boolean isBinary()
 ```
 
-<a id="m-isbit32-ae0f1c3885a6"></a>
-### isBit32()
+### isBit32() <a href="#m-isBit32-ae0f1c3885a6" id="m-isBit32-ae0f1c3885a6"></a>
 
 ```java
 public final boolean isBit32()
 ```
 
-<a id="m-isbit64-2ec3459ff82c"></a>
-### isBit64()
+### isBit64() <a href="#m-isBit64-2ec3459ff82c" id="m-isBit64-2ec3459ff82c"></a>
 
 ```java
 public final boolean isBit64()
 ```
 
-<a id="m-isbitbig-84cd2f0ebaeb"></a>
-### isBitbig()
+### isBitbig() <a href="#m-isBitbig-84cd2f0ebaeb" id="m-isBitbig-84cd2f0ebaeb"></a>
 
 ```java
 public final boolean isBitbig()
 ```
 
-<a id="m-isbool-e771ae3d3e55"></a>
-### isBool()
+### isBool() <a href="#m-isBool-e771ae3d3e55" id="m-isBool-e771ae3d3e55"></a>
 
 ```java
 public final boolean isBool()
 ```
 
-<a id="m-isbuf-254af72d81f0"></a>
-### isBuf()
+### isBuf() <a href="#m-isBuf-254af72d81f0" id="m-isBuf-254af72d81f0"></a>
 
 ```java
 public final boolean isBuf()
 ```
 
-<a id="m-iscdbbegin-aeff9465850d"></a>
-### isCdbBegin()
+### isCdbBegin() <a href="#m-isCdbBegin-aeff9465850d" id="m-isCdbBegin-aeff9465850d"></a>
 
 ```java
 public final boolean isCdbBegin()
 ```
 
-<a id="m-isdate-c423781b293a"></a>
-### isDate()
+### isDate() <a href="#m-isDate-c423781b293a" id="m-isDate-c423781b293a"></a>
 
 ```java
 public final boolean isDate()
 ```
 
-<a id="m-isdatetime-4e79c97b2bd5"></a>
-### isDatetime()
+### isDatetime() <a href="#m-isDatetime-4e79c97b2bd5" id="m-isDatetime-4e79c97b2bd5"></a>
 
 ```java
 public final boolean isDatetime()
 ```
 
-<a id="m-isdecimal64-fbfc5a5de098"></a>
-### isDecimal64()
+### isDecimal64() <a href="#m-isDecimal64-fbfc5a5de098" id="m-isDecimal64-fbfc5a5de098"></a>
 
 ```java
 public final boolean isDecimal64()
 ```
 
-<a id="m-isdefault-9a6b81cd55f6"></a>
-### isDefault()
+### isDefault() <a href="#m-isDefault-9a6b81cd55f6" id="m-isDefault-9a6b81cd55f6"></a>
 
 ```java
 public final boolean isDefault()
 ```
 
-<a id="m-isdouble-47da85f502c9"></a>
-### isDouble()
+### isDouble() <a href="#m-isDouble-47da85f502c9" id="m-isDouble-47da85f502c9"></a>
 
 ```java
 public final boolean isDouble()
 ```
 
-<a id="m-isdquad-1986dbac6f44"></a>
-### isDquad()
+### isDquad() <a href="#m-isDquad-1986dbac6f44" id="m-isDquad-1986dbac6f44"></a>
 
 ```java
 public final boolean isDquad()
 ```
 
-<a id="m-isduration-7960407492db"></a>
-### isDuration()
+### isDuration() <a href="#m-isDuration-7960407492db" id="m-isDuration-7960407492db"></a>
 
 ```java
 public final boolean isDuration()
 ```
 
-<a id="m-isempty-4dde48126244"></a>
-### isEmpty()
+### isEmpty() <a href="#m-isEmpty-4dde48126244" id="m-isEmpty-4dde48126244"></a>
 
 ```java
 public final boolean isEmpty()
 ```
 
-<a id="m-isenumvalue-b6e22d09884f"></a>
-### isEnumValue()
+### isEnumValue() <a href="#m-isEnumValue-b6e22d09884f" id="m-isEnumValue-b6e22d09884f"></a>
 
 ```java
 public final boolean isEnumValue()
 ```
 
-<a id="m-ishexstr-b866520006d5"></a>
-### isHexstr()
+### isHexstr() <a href="#m-isHexstr-b866520006d5" id="m-isHexstr-b866520006d5"></a>
 
 ```java
 public final boolean isHexstr()
 ```
 
-<a id="m-isidentityref-975db106a225"></a>
-### isIdentityref()
+### isIdentityref() <a href="#m-isIdentityref-975db106a225" id="m-isIdentityref-975db106a225"></a>
 
 ```java
 public final boolean isIdentityref()
 ```
 
-<a id="m-isint16-7462eecb083e"></a>
-### isInt16()
+### isInt16() <a href="#m-isInt16-7462eecb083e" id="m-isInt16-7462eecb083e"></a>
 
 ```java
 public final boolean isInt16()
 ```
 
-<a id="m-isint32-3341e7603763"></a>
-### isInt32()
+### isInt32() <a href="#m-isInt32-3341e7603763" id="m-isInt32-3341e7603763"></a>
 
 ```java
 public final boolean isInt32()
 ```
 
-<a id="m-isint64-c54b20486cbe"></a>
-### isInt64()
+### isInt64() <a href="#m-isInt64-c54b20486cbe" id="m-isInt64-c54b20486cbe"></a>
 
 ```java
 public final boolean isInt64()
 ```
 
-<a id="m-isint8-908482a868e0"></a>
-### isInt8()
+### isInt8() <a href="#m-isInt8-908482a868e0" id="m-isInt8-908482a868e0"></a>
 
 ```java
 public final boolean isInt8()
 ```
 
-<a id="m-isipv4-f769f8c600b5"></a>
-### isIpv4()
+### isIpv4() <a href="#m-isIpv4-f769f8c600b5" id="m-isIpv4-f769f8c600b5"></a>
 
 ```java
 public final boolean isIpv4()
 ```
 
-<a id="m-isipv4andplen-e1536a127f9e"></a>
-### isIpv4AndPlen()
+### isIpv4AndPlen() <a href="#m-isIpv4AndPlen-e1536a127f9e" id="m-isIpv4AndPlen-e1536a127f9e"></a>
 
 ```java
 public final boolean isIpv4AndPlen()
 ```
 
-<a id="m-isipv4prefix-7b973eaefa1d"></a>
-### isIpv4prefix()
+### isIpv4prefix() <a href="#m-isIpv4prefix-7b973eaefa1d" id="m-isIpv4prefix-7b973eaefa1d"></a>
 
 ```java
 public final boolean isIpv4prefix()
 ```
 
-<a id="m-isipv6-a32651632b39"></a>
-### isIpv6()
+### isIpv6() <a href="#m-isIpv6-a32651632b39" id="m-isIpv6-a32651632b39"></a>
 
 ```java
 public final boolean isIpv6()
 ```
 
-<a id="m-isipv6andplen-1963093ce68a"></a>
-### isIpv6AndPlen()
+### isIpv6AndPlen() <a href="#m-isIpv6AndPlen-1963093ce68a" id="m-isIpv6AndPlen-1963093ce68a"></a>
 
 ```java
 public final boolean isIpv6AndPlen()
 ```
 
-<a id="m-isipv6prefix-6dce0b40b9d7"></a>
-### isIpv6prefix()
+### isIpv6prefix() <a href="#m-isIpv6prefix-6dce0b40b9d7" id="m-isIpv6prefix-6dce0b40b9d7"></a>
 
 ```java
 public final boolean isIpv6prefix()
 ```
 
-<a id="m-islist-c36bce63b506"></a>
-### isList()
+### isList() <a href="#m-isList-c36bce63b506" id="m-isList-c36bce63b506"></a>
 
 ```java
 public final boolean isList()
 ```
 
-<a id="m-isnoexists-a1ec13d21a56"></a>
-### isNoexists()
+### isNoexists() <a href="#m-isNoexists-a1ec13d21a56" id="m-isNoexists-a1ec13d21a56"></a>
 
 ```java
 public final boolean isNoexists()
 ```
 
-<a id="m-isobjectref-2120317a92dd"></a>
-### isObjectref()
+### isObjectref() <a href="#m-isObjectref-2120317a92dd" id="m-isObjectref-2120317a92dd"></a>
 
 ```java
 public final boolean isObjectref()
 ```
 
-<a id="m-isoid-368ae9c713d1"></a>
-### isOid()
+### isOid() <a href="#m-isOid-368ae9c713d1" id="m-isOid-368ae9c713d1"></a>
 
 ```java
 public final boolean isOid()
 ```
 
-<a id="m-isptr-276f1553635d"></a>
-### isPtr()
+### isPtr() <a href="#m-isPtr-276f1553635d" id="m-isPtr-276f1553635d"></a>
 
 ```java
 public final boolean isPtr()
 ```
 
-<a id="m-isqname-79c1cbb01029"></a>
-### isQname()
+### isQname() <a href="#m-isQname-79c1cbb01029" id="m-isQname-79c1cbb01029"></a>
 
 ```java
 public final boolean isQname()
 ```
 
-<a id="m-isstr-81c3840f26d4"></a>
-### isStr()
+### isStr() <a href="#m-isStr-81c3840f26d4" id="m-isStr-81c3840f26d4"></a>
 
 ```java
 public final boolean isStr()
 ```
 
-<a id="m-issymbol-d7206a92c0eb"></a>
-### isSymbol()
+### isSymbol() <a href="#m-isSymbol-d7206a92c0eb" id="m-isSymbol-d7206a92c0eb"></a>
 
 ```java
 public final boolean isSymbol()
 ```
 
-<a id="m-istime-250a56dbdac5"></a>
-### isTime()
+### isTime() <a href="#m-isTime-250a56dbdac5" id="m-isTime-250a56dbdac5"></a>
 
 ```java
 public final boolean isTime()
 ```
 
-<a id="m-isuint16-d8c251a40ead"></a>
-### isUint16()
+### isUint16() <a href="#m-isUint16-d8c251a40ead" id="m-isUint16-d8c251a40ead"></a>
 
 ```java
 public final boolean isUint16()
 ```
 
-<a id="m-isuint32-fd3a00ffba15"></a>
-### isUint32()
+### isUint32() <a href="#m-isUint32-fd3a00ffba15" id="m-isUint32-fd3a00ffba15"></a>
 
 ```java
 public final boolean isUint32()
 ```
 
-<a id="m-isuint64-ce4ee69a295b"></a>
-### isUint64()
+### isUint64() <a href="#m-isUint64-ce4ee69a295b" id="m-isUint64-ce4ee69a295b"></a>
 
 ```java
 public final boolean isUint64()
 ```
 
-<a id="m-isuint8-9f400b8116f3"></a>
-### isUint8()
+### isUint8() <a href="#m-isUint8-9f400b8116f3" id="m-isUint8-9f400b8116f3"></a>
 
 ```java
 public final boolean isUint8()
 ```
 
-<a id="m-isunion-6183f968c3e8"></a>
-### isUnion()
+### isUnion() <a href="#m-isUnion-6183f968c3e8" id="m-isUnion-6183f968c3e8"></a>
 
 ```java
 public final boolean isUnion()
 ```
 
-<a id="m-isunknown-88a5b80751a0"></a>
-### isUnknown()
+### isUnknown() <a href="#m-isUnknown-88a5b80751a0" id="m-isUnknown-88a5b80751a0"></a>
 
 ```java
 public final boolean isUnknown()
 ```
 
-<a id="m-isxmlbegin-3a07f5fed3da"></a>
-### isXmlbegin()
+### isXmlbegin() <a href="#m-isXmlbegin-3a07f5fed3da" id="m-isXmlbegin-3a07f5fed3da"></a>
 
 ```java
 public final boolean isXmlbegin()
 ```
 
-<a id="m-isxmlbegindel-4e1966d82109"></a>
-### isXmlbegindel()
+### isXmlbegindel() <a href="#m-isXmlbegindel-4e1966d82109" id="m-isXmlbegindel-4e1966d82109"></a>
 
 ```java
 public final boolean isXmlbegindel()
 ```
 
-<a id="m-isxmlend-9111f39d186c"></a>
-### isXmlend()
+### isXmlend() <a href="#m-isXmlend-9111f39d186c" id="m-isXmlend-9111f39d186c"></a>
 
 ```java
 public final boolean isXmlend()
 ```
 
-<a id="m-isxmlmoveend-45ed9b27d7cf"></a>
-### isXmlMoveEnd()
+### isXmlMoveEnd() <a href="#m-isXmlMoveEnd-45ed9b27d7cf" id="m-isXmlMoveEnd-45ed9b27d7cf"></a>
 
 ```java
 public final boolean isXmlMoveEnd()
 ```
 
-<a id="m-isxmlmovefirst-7c07b98bd060"></a>
-### isXmlMoveFirst()
+### isXmlMoveFirst() <a href="#m-isXmlMoveFirst-7c07b98bd060" id="m-isXmlMoveFirst-7c07b98bd060"></a>
 
 ```java
 public final boolean isXmlMoveFirst()
 ```
 
-<a id="m-isxmltag-da0707b0ae43"></a>
-### isXmltag()
+### isXmltag() <a href="#m-isXmltag-da0707b0ae43" id="m-isXmltag-da0707b0ae43"></a>
 
 ```java
 public final boolean isXmltag()
 ```
 
-<a id="m-setbinary-b01c99e75889"></a>
-### setBinary(byte[])
+### setBinary(byte[]) <a href="#m-setBinary-b01c99e75889" id="m-setBinary-b01c99e75889"></a>
 
 ```java
 public final void setBinary(byte[] value)
@@ -1281,8 +1146,7 @@ public final void setBinary(byte[] value)
 
 - `byte[] value`
 
-<a id="m-setbinary-8a1cf4ce84a9"></a>
-### setBinary(Reader)
+### setBinary(Reader) <a href="#m-setBinary-8a1cf4ce84a9" id="m-setBinary-8a1cf4ce84a9"></a>
 
 ```java
 public final void setBinary(org.capnproto.Data.Reader value)
@@ -1292,8 +1156,7 @@ public final void setBinary(org.capnproto.Data.Reader value)
 
 - `org.capnproto.Data.Reader value`
 
-<a id="m-setbit32-1316fc224e19"></a>
-### setBit32(int)
+### setBit32(int) <a href="#m-setBit32-1316fc224e19" id="m-setBit32-1316fc224e19"></a>
 
 ```java
 public final void setBit32(int value)
@@ -1303,8 +1166,7 @@ public final void setBit32(int value)
 
 - `int value`
 
-<a id="m-setbit64-a3a27f6ef6d2"></a>
-### setBit64(long)
+### setBit64(long) <a href="#m-setBit64-a3a27f6ef6d2" id="m-setBit64-a3a27f6ef6d2"></a>
 
 ```java
 public final void setBit64(long value)
@@ -1314,8 +1176,7 @@ public final void setBit64(long value)
 
 - `long value`
 
-<a id="m-setbitbig-a514b9d55ab1"></a>
-### setBitbig(Reader)
+### setBitbig(Reader) <a href="#m-setBitbig-a514b9d55ab1" id="m-setBitbig-a514b9d55ab1"></a>
 
 ```java
 public final void setBitbig(com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader value)
@@ -1327,8 +1188,7 @@ Types: [Reader](../CsValueBitBig/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueBitBig.Reader value`
 
-<a id="m-setbool-88160242dcf7"></a>
-### setBool(boolean)
+### setBool(boolean) <a href="#m-setBool-88160242dcf7" id="m-setBool-88160242dcf7"></a>
 
 ```java
 public final void setBool(boolean value)
@@ -1338,8 +1198,7 @@ public final void setBool(boolean value)
 
 - `boolean value`
 
-<a id="m-setbuf-881fa0552479"></a>
-### setBuf(byte[])
+### setBuf(byte[]) <a href="#m-setBuf-881fa0552479" id="m-setBuf-881fa0552479"></a>
 
 ```java
 public final void setBuf(byte[] value)
@@ -1349,8 +1208,7 @@ public final void setBuf(byte[] value)
 
 - `byte[] value`
 
-<a id="m-setbuf-610948d9381a"></a>
-### setBuf(Reader)
+### setBuf(Reader) <a href="#m-setBuf-610948d9381a" id="m-setBuf-610948d9381a"></a>
 
 ```java
 public final void setBuf(org.capnproto.Data.Reader value)
@@ -1360,8 +1218,7 @@ public final void setBuf(org.capnproto.Data.Reader value)
 
 - `org.capnproto.Data.Reader value`
 
-<a id="m-setcdbbegin-902391c8a14e"></a>
-### setCdbBegin(Void)
+### setCdbBegin(Void) <a href="#m-setCdbBegin-902391c8a14e" id="m-setCdbBegin-902391c8a14e"></a>
 
 ```java
 public final void setCdbBegin(org.capnproto.Void value)
@@ -1371,8 +1228,7 @@ public final void setCdbBegin(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setdate-3bcb9c346567"></a>
-### setDate(Reader)
+### setDate(Reader) <a href="#m-setDate-3bcb9c346567" id="m-setDate-3bcb9c346567"></a>
 
 ```java
 public final void setDate(com.tailf.ncs.maapi.Schema.CsValueDate.Reader value)
@@ -1384,8 +1240,7 @@ Types: [Reader](../CsValueDate/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDate.Reader value`
 
-<a id="m-setdatetime-6dc599e86f6a"></a>
-### setDatetime(Reader)
+### setDatetime(Reader) <a href="#m-setDatetime-6dc599e86f6a" id="m-setDatetime-6dc599e86f6a"></a>
 
 ```java
 public final void setDatetime(com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader value)
@@ -1397,8 +1252,7 @@ Types: [Reader](../CsValueDateTime/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader value`
 
-<a id="m-setdecimal64-7a6a8717701c"></a>
-### setDecimal64(Reader)
+### setDecimal64(Reader) <a href="#m-setDecimal64-7a6a8717701c" id="m-setDecimal64-7a6a8717701c"></a>
 
 ```java
 public final void setDecimal64(com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader value)
@@ -1410,8 +1264,7 @@ Types: [Reader](../CsValueDecimal64/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDecimal64.Reader value`
 
-<a id="m-setdefault-298bc2ea4f4c"></a>
-### setDefault(Void)
+### setDefault(Void) <a href="#m-setDefault-298bc2ea4f4c" id="m-setDefault-298bc2ea4f4c"></a>
 
 ```java
 public final void setDefault(org.capnproto.Void value)
@@ -1421,8 +1274,7 @@ public final void setDefault(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setdouble-00357c17ab3e"></a>
-### setDouble(double)
+### setDouble(double) <a href="#m-setDouble-00357c17ab3e" id="m-setDouble-00357c17ab3e"></a>
 
 ```java
 public final void setDouble(double value)
@@ -1432,8 +1284,7 @@ public final void setDouble(double value)
 
 - `double value`
 
-<a id="m-setdquad-0ea8faa4deab"></a>
-### setDquad(Reader)
+### setDquad(Reader) <a href="#m-setDquad-0ea8faa4deab" id="m-setDquad-0ea8faa4deab"></a>
 
 ```java
 public final void setDquad(com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader value)
@@ -1445,8 +1296,7 @@ Types: [Reader](../CsValueDQuad/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDQuad.Reader value`
 
-<a id="m-setduration-c6226971f7aa"></a>
-### setDuration(Reader)
+### setDuration(Reader) <a href="#m-setDuration-c6226971f7aa" id="m-setDuration-c6226971f7aa"></a>
 
 ```java
 public final void setDuration(com.tailf.ncs.maapi.Schema.CsValueDuration.Reader value)
@@ -1458,8 +1308,7 @@ Types: [Reader](../CsValueDuration/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDuration.Reader value`
 
-<a id="m-setempty-02e106b89f69"></a>
-### setEmpty(Void)
+### setEmpty(Void) <a href="#m-setEmpty-02e106b89f69" id="m-setEmpty-02e106b89f69"></a>
 
 ```java
 public final void setEmpty(org.capnproto.Void value)
@@ -1469,8 +1318,7 @@ public final void setEmpty(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setenumvalue-b69852580f08"></a>
-### setEnumValue(int)
+### setEnumValue(int) <a href="#m-setEnumValue-b69852580f08" id="m-setEnumValue-b69852580f08"></a>
 
 ```java
 public final void setEnumValue(int value)
@@ -1480,8 +1328,7 @@ public final void setEnumValue(int value)
 
 - `int value`
 
-<a id="m-sethexstr-f501765c9de4"></a>
-### setHexstr(byte[])
+### setHexstr(byte[]) <a href="#m-setHexstr-f501765c9de4" id="m-setHexstr-f501765c9de4"></a>
 
 ```java
 public final void setHexstr(byte[] value)
@@ -1491,8 +1338,7 @@ public final void setHexstr(byte[] value)
 
 - `byte[] value`
 
-<a id="m-sethexstr-d236864650dc"></a>
-### setHexstr(Reader)
+### setHexstr(Reader) <a href="#m-setHexstr-d236864650dc" id="m-setHexstr-d236864650dc"></a>
 
 ```java
 public final void setHexstr(org.capnproto.Data.Reader value)
@@ -1502,8 +1348,7 @@ public final void setHexstr(org.capnproto.Data.Reader value)
 
 - `org.capnproto.Data.Reader value`
 
-<a id="m-setidentityref-8c7c2d7f9e09"></a>
-### setIdentityref(Reader)
+### setIdentityref(Reader) <a href="#m-setIdentityref-8c7c2d7f9e09" id="m-setIdentityref-8c7c2d7f9e09"></a>
 
 ```java
 public final void setIdentityref(com.tailf.ncs.maapi.Schema.QTag.Reader value)
@@ -1515,8 +1360,7 @@ Types: [Reader](../QTag/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.QTag.Reader value`
 
-<a id="m-setint16-50cfe70769f2"></a>
-### setInt16(short)
+### setInt16(short) <a href="#m-setInt16-50cfe70769f2" id="m-setInt16-50cfe70769f2"></a>
 
 ```java
 public final void setInt16(short value)
@@ -1526,8 +1370,7 @@ public final void setInt16(short value)
 
 - `short value`
 
-<a id="m-setint32-92c50824ef51"></a>
-### setInt32(int)
+### setInt32(int) <a href="#m-setInt32-92c50824ef51" id="m-setInt32-92c50824ef51"></a>
 
 ```java
 public final void setInt32(int value)
@@ -1537,8 +1380,7 @@ public final void setInt32(int value)
 
 - `int value`
 
-<a id="m-setint64-f17f1ec8e04c"></a>
-### setInt64(long)
+### setInt64(long) <a href="#m-setInt64-f17f1ec8e04c" id="m-setInt64-f17f1ec8e04c"></a>
 
 ```java
 public final void setInt64(long value)
@@ -1548,8 +1390,7 @@ public final void setInt64(long value)
 
 - `long value`
 
-<a id="m-setint8-2ac62944aabe"></a>
-### setInt8(byte)
+### setInt8(byte) <a href="#m-setInt8-2ac62944aabe" id="m-setInt8-2ac62944aabe"></a>
 
 ```java
 public final void setInt8(byte value)
@@ -1559,8 +1400,7 @@ public final void setInt8(byte value)
 
 - `byte value`
 
-<a id="m-setipv4-619e62fbc436"></a>
-### setIpv4(Reader)
+### setIpv4(Reader) <a href="#m-setIpv4-619e62fbc436" id="m-setIpv4-619e62fbc436"></a>
 
 ```java
 public final void setIpv4(com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value)
@@ -1572,8 +1412,7 @@ Types: [Reader](../CsValueIPv4Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value`
 
-<a id="m-setipv4andplen-93f3be1ab458"></a>
-### setIpv4AndPlen(Reader)
+### setIpv4AndPlen(Reader) <a href="#m-setIpv4AndPlen-93f3be1ab458" id="m-setIpv4AndPlen-93f3be1ab458"></a>
 
 ```java
 public final void setIpv4AndPlen(com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value)
@@ -1585,8 +1424,7 @@ Types: [Reader](../CsValueIPv4Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value`
 
-<a id="m-setipv4prefix-91794916e9c8"></a>
-### setIpv4prefix(Reader)
+### setIpv4prefix(Reader) <a href="#m-setIpv4prefix-91794916e9c8" id="m-setIpv4prefix-91794916e9c8"></a>
 
 ```java
 public final void setIpv4prefix(com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value)
@@ -1598,8 +1436,7 @@ Types: [Reader](../CsValueIPv4Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv4Prefix.Reader value`
 
-<a id="m-setipv6-5b31d658aa62"></a>
-### setIpv6(Reader)
+### setIpv6(Reader) <a href="#m-setIpv6-5b31d658aa62" id="m-setIpv6-5b31d658aa62"></a>
 
 ```java
 public final void setIpv6(com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value)
@@ -1611,8 +1448,7 @@ Types: [Reader](../CsValueIPv6Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value`
 
-<a id="m-setipv6andplen-99b5b9880429"></a>
-### setIpv6AndPlen(Reader)
+### setIpv6AndPlen(Reader) <a href="#m-setIpv6AndPlen-99b5b9880429" id="m-setIpv6AndPlen-99b5b9880429"></a>
 
 ```java
 public final void setIpv6AndPlen(com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value)
@@ -1624,8 +1460,7 @@ Types: [Reader](../CsValueIPv6Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value`
 
-<a id="m-setipv6prefix-691f4193aeb7"></a>
-### setIpv6prefix(Reader)
+### setIpv6prefix(Reader) <a href="#m-setIpv6prefix-691f4193aeb7" id="m-setIpv6prefix-691f4193aeb7"></a>
 
 ```java
 public final void setIpv6prefix(com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value)
@@ -1637,8 +1472,7 @@ Types: [Reader](../CsValueIPv6Prefix/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader value`
 
-<a id="m-setlist-6e8e469cc90d"></a>
-### setList(Reader<Reader>)
+### setList(Reader<Reader>) <a href="#m-setList-6e8e469cc90d" id="m-setList-6e8e469cc90d"></a>
 
 ```java
 public final void setList(
@@ -1652,8 +1486,7 @@ Types: [Reader](Reader.md#cls-Reader)
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsValue.Reader> value`
 
-<a id="m-setnoexists-168255f46871"></a>
-### setNoexists(Void)
+### setNoexists(Void) <a href="#m-setNoexists-168255f46871" id="m-setNoexists-168255f46871"></a>
 
 ```java
 public final void setNoexists(org.capnproto.Void value)
@@ -1663,8 +1496,7 @@ public final void setNoexists(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setobjectref-c835e9918173"></a>
-### setObjectref(Reader<Reader>)
+### setObjectref(Reader<Reader>) <a href="#m-setObjectref-c835e9918173" id="m-setObjectref-c835e9918173"></a>
 
 ```java
 public final void setObjectref(
@@ -1678,8 +1510,7 @@ Types: [Reader](Reader.md#cls-Reader)
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsValue.Reader> value`
 
-<a id="m-setoid-543cdf0a3811"></a>
-### setOid(Reader)
+### setOid(Reader) <a href="#m-setOid-543cdf0a3811" id="m-setOid-543cdf0a3811"></a>
 
 ```java
 public final void setOid(org.capnproto.PrimitiveList.Long.Reader value)
@@ -1689,8 +1520,7 @@ public final void setOid(org.capnproto.PrimitiveList.Long.Reader value)
 
 - `org.capnproto.PrimitiveList.Long.Reader value`
 
-<a id="m-setptr-3ef5da141ca3"></a>
-### setPtr(Void)
+### setPtr(Void) <a href="#m-setPtr-3ef5da141ca3" id="m-setPtr-3ef5da141ca3"></a>
 
 ```java
 public final void setPtr(org.capnproto.Void value)
@@ -1700,8 +1530,7 @@ public final void setPtr(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setqname-a6726111b988"></a>
-### setQname(Reader)
+### setQname(Reader) <a href="#m-setQname-a6726111b988" id="m-setQname-a6726111b988"></a>
 
 ```java
 public final void setQname(com.tailf.ncs.maapi.Schema.CsValueQName.Reader value)
@@ -1713,8 +1542,7 @@ Types: [Reader](../CsValueQName/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueQName.Reader value`
 
-<a id="m-setshallowtype-d21ce22018e7"></a>
-### setShallowType(ShallowType)
+### setShallowType(ShallowType) <a href="#m-setShallowType-d21ce22018e7" id="m-setShallowType-d21ce22018e7"></a>
 
 ```java
 public final void setShallowType(com.tailf.ncs.maapi.Schema.ShallowType value)
@@ -1726,8 +1554,7 @@ Types: [ShallowType](../ShallowType.md#cls-ShallowType)
 
 - `com.tailf.ncs.maapi.Schema.ShallowType value`
 
-<a id="m-setstr-6d57a5d11cf3"></a>
-### setStr(Reader)
+### setStr(Reader) <a href="#m-setStr-6d57a5d11cf3" id="m-setStr-6d57a5d11cf3"></a>
 
 ```java
 public final void setStr(org.capnproto.Text.Reader value)
@@ -1737,8 +1564,7 @@ public final void setStr(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setstr-21fe97a65221"></a>
-### setStr(String)
+### setStr(String) <a href="#m-setStr-21fe97a65221" id="m-setStr-21fe97a65221"></a>
 
 ```java
 public final void setStr(String value)
@@ -1748,8 +1574,7 @@ public final void setStr(String value)
 
 - `String value`
 
-<a id="m-setsymbol-4da320ce2606"></a>
-### setSymbol(Reader)
+### setSymbol(Reader) <a href="#m-setSymbol-4da320ce2606" id="m-setSymbol-4da320ce2606"></a>
 
 ```java
 public final void setSymbol(com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader value)
@@ -1761,8 +1586,7 @@ Types: [Reader](../CsValueSymbol/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader value`
 
-<a id="m-settime-fc6f93bd991e"></a>
-### setTime(Reader)
+### setTime(Reader) <a href="#m-setTime-fc6f93bd991e" id="m-setTime-fc6f93bd991e"></a>
 
 ```java
 public final void setTime(com.tailf.ncs.maapi.Schema.CsValueTime.Reader value)
@@ -1774,8 +1598,7 @@ Types: [Reader](../CsValueTime/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueTime.Reader value`
 
-<a id="m-setuint16-043282128543"></a>
-### setUint16(short)
+### setUint16(short) <a href="#m-setUint16-043282128543" id="m-setUint16-043282128543"></a>
 
 ```java
 public final void setUint16(short value)
@@ -1785,8 +1608,7 @@ public final void setUint16(short value)
 
 - `short value`
 
-<a id="m-setuint32-0f4bc4823456"></a>
-### setUint32(int)
+### setUint32(int) <a href="#m-setUint32-0f4bc4823456" id="m-setUint32-0f4bc4823456"></a>
 
 ```java
 public final void setUint32(int value)
@@ -1796,8 +1618,7 @@ public final void setUint32(int value)
 
 - `int value`
 
-<a id="m-setuint64-14de0afc3c33"></a>
-### setUint64(long)
+### setUint64(long) <a href="#m-setUint64-14de0afc3c33" id="m-setUint64-14de0afc3c33"></a>
 
 ```java
 public final void setUint64(long value)
@@ -1807,8 +1628,7 @@ public final void setUint64(long value)
 
 - `long value`
 
-<a id="m-setuint8-a2e25ee00758"></a>
-### setUint8(byte)
+### setUint8(byte) <a href="#m-setUint8-a2e25ee00758" id="m-setUint8-a2e25ee00758"></a>
 
 ```java
 public final void setUint8(byte value)
@@ -1818,8 +1638,7 @@ public final void setUint8(byte value)
 
 - `byte value`
 
-<a id="m-setunion-f269d70e4284"></a>
-### setUnion(Reader)
+### setUnion(Reader) <a href="#m-setUnion-f269d70e4284" id="m-setUnion-f269d70e4284"></a>
 
 ```java
 public final void setUnion(com.tailf.ncs.maapi.Schema.CsValue.Reader value)
@@ -1831,8 +1650,7 @@ Types: [Reader](Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValue.Reader value`
 
-<a id="m-setunknown-6d434acf5507"></a>
-### setUnknown(Void)
+### setUnknown(Void) <a href="#m-setUnknown-6d434acf5507" id="m-setUnknown-6d434acf5507"></a>
 
 ```java
 public final void setUnknown(org.capnproto.Void value)
@@ -1842,8 +1660,7 @@ public final void setUnknown(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmlbegin-299c46b694bb"></a>
-### setXmlbegin(Void)
+### setXmlbegin(Void) <a href="#m-setXmlbegin-299c46b694bb" id="m-setXmlbegin-299c46b694bb"></a>
 
 ```java
 public final void setXmlbegin(org.capnproto.Void value)
@@ -1853,8 +1670,7 @@ public final void setXmlbegin(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmlbegindel-c87f2fa20081"></a>
-### setXmlbegindel(Void)
+### setXmlbegindel(Void) <a href="#m-setXmlbegindel-c87f2fa20081" id="m-setXmlbegindel-c87f2fa20081"></a>
 
 ```java
 public final void setXmlbegindel(org.capnproto.Void value)
@@ -1864,8 +1680,7 @@ public final void setXmlbegindel(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmlend-24c58d6147d3"></a>
-### setXmlend(Void)
+### setXmlend(Void) <a href="#m-setXmlend-24c58d6147d3" id="m-setXmlend-24c58d6147d3"></a>
 
 ```java
 public final void setXmlend(org.capnproto.Void value)
@@ -1875,8 +1690,7 @@ public final void setXmlend(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmlmoveend-e11b6c17145f"></a>
-### setXmlMoveEnd(Void)
+### setXmlMoveEnd(Void) <a href="#m-setXmlMoveEnd-e11b6c17145f" id="m-setXmlMoveEnd-e11b6c17145f"></a>
 
 ```java
 public final void setXmlMoveEnd(org.capnproto.Void value)
@@ -1886,8 +1700,7 @@ public final void setXmlMoveEnd(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmlmovefirst-3d1233316007"></a>
-### setXmlMoveFirst(Void)
+### setXmlMoveFirst(Void) <a href="#m-setXmlMoveFirst-3d1233316007" id="m-setXmlMoveFirst-3d1233316007"></a>
 
 ```java
 public final void setXmlMoveFirst(org.capnproto.Void value)
@@ -1897,8 +1710,7 @@ public final void setXmlMoveFirst(org.capnproto.Void value)
 
 - `org.capnproto.Void value`
 
-<a id="m-setxmltag-b5877e9f93d5"></a>
-### setXmltag(Reader)
+### setXmltag(Reader) <a href="#m-setXmltag-b5877e9f93d5" id="m-setXmltag-b5877e9f93d5"></a>
 
 ```java
 public final void setXmltag(com.tailf.ncs.maapi.Schema.CsValueXmlTag.Reader value)
@@ -1910,8 +1722,7 @@ Types: [Reader](../CsValueXmlTag/Reader.md#cls-Reader)
 
 - `com.tailf.ncs.maapi.Schema.CsValueXmlTag.Reader value`
 
-<a id="m-which-0b2d23db5ed0"></a>
-### which()
+### which() <a href="#m-which-0b2d23db5ed0" id="m-which-0b2d23db5ed0"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.CsValue.Which which()

@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeKeyPathValueImpl"></a>
-# ResultTypeKeyPathValueImpl
+# ResultTypeKeyPathValueImpl <a href="#cls-ResultTypeKeyPathValueImpl" id="cls-ResultTypeKeyPathValueImpl"></a>
 
 **Package-private**
 
@@ -14,17 +13,16 @@ Types: [ResultTypeKeyPathValue](ResultTypeKeyPathValue.md#cls-ResultTypeKeyPathV
 
 **Constructors**:
 
-- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#m-resulttypekeypathvalueimpl-451cc5da8f7a)
+- [ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)](#m-ResultTypeKeyPathValueImpl-451cc5da8f7a)
 
 **Methods**:
 
-- [confValue()](#m-confvalue-baca27cbbecf)
-- [keyPath()](#m-keypath-df48f9bfdabb)
+- [confValue()](#m-confValue-baca27cbbecf)
+- [keyPath()](#m-keyPath-df48f9bfdabb)
 
 ## Constructors
 
-<a id="m-resulttypekeypathvalueimpl-451cc5da8f7a"></a>
-### ResultTypeKeyPathValueImpl(ConfObject[], ConfValue)
+### ResultTypeKeyPathValueImpl(ConfObject[], ConfValue) <a href="#m-ResultTypeKeyPathValueImpl-451cc5da8f7a" id="m-ResultTypeKeyPathValueImpl-451cc5da8f7a"></a>
 
 **Package-private**
 
@@ -42,8 +40,7 @@ Types: [ConfObject](../conf/ConfObject.md#cls-ConfObject), [ConfValue](../conf/C
 
 ## Methods
 
-<a id="m-confvalue-baca27cbbecf"></a>
-### confValue()
+### confValue() <a href="#m-confValue-baca27cbbecf" id="m-confValue-baca27cbbecf"></a>
 
 ```java
 public com.tailf.conf.ConfValue confValue()
@@ -51,8 +48,7 @@ public com.tailf.conf.ConfValue confValue()
 
 Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue)
 
-<a id="m-keypath-df48f9bfdabb"></a>
-### keyPath()
+### keyPath() <a href="#m-keyPath-df48f9bfdabb" id="m-keyPath-df48f9bfdabb"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] keyPath()

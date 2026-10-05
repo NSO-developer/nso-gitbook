@@ -1,5 +1,4 @@
-<a id="cls-ConfTagDefault"></a>
-# ConfTagDefault
+# ConfTagDefault <a href="#cls-ConfTagDefault" id="cls-ConfTagDefault"></a>
 
 ```java
 public class com.tailf.conf.ConfTagDefault
@@ -16,7 +15,7 @@ Class representing an element in a model. This class is used to indicate
 
 **Constructors**:
 
-- [ConfTagDefault()](#m-conftagdefault-2837c3747bb4)
+- [ConfTagDefault()](#m-ConfTagDefault-2837c3747bb4)
 
 **Fields**:
 
@@ -74,31 +73,30 @@ Class representing an element in a model. This class is used to indicate
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfTagDefault)](#m-compareto-faec48f817d8)
+- [compareTo(ConfTagDefault)](#m-compareTo-faec48f817d8)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
-- [encodeIKP()](ConfTag.md#m-encodeikp-b160b87f6433) from ConfTag
+- [encodeIKP()](ConfTag.md#m-encodeIKP-b160b87f6433) from ConfTag
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfNamespace()](ConfTag.md#m-getconfnamespace-87556caf3223) from ConfTag
-- [getNSHash()](ConfTag.md#m-getnshash-2129fb8b3cfe) from ConfTag
-- [getPrefix()](ConfTag.md#m-getprefix-9268091e0223) from ConfTag
-- [getTag()](ConfTag.md#m-gettag-315f45956d6f) from ConfTag
-- [getTagHash()](ConfTag.md#m-gettaghash-8f057919039c) from ConfTag
-- [getURI()](ConfTag.md#m-geturi-7ec1ffd8cd93) from ConfTag
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isLenient()](ConfTag.md#m-islenient-47b594aa27c3) from ConfTag
-- [setConfNamespace(ConfNamespace)](ConfTag.md#m-setconfnamespace-7fef1b53f52c) from ConfTag
-- [setLenient(boolean)](ConfTag.md#m-setlenient-7cd970533a41) from ConfTag
-- [toString()](#m-tostring-e9d48c5503ef)
-- [toString(ConfNamespace)](ConfTag.md#m-tostring-97a6a914714f) from ConfTag
-- [toString(int)](ConfTag.md#m-tostring-477fa787d7c7) from ConfTag
+- [getConfNamespace()](ConfTag.md#m-getConfNamespace-87556caf3223) from ConfTag
+- [getNSHash()](ConfTag.md#m-getNSHash-2129fb8b3cfe) from ConfTag
+- [getPrefix()](ConfTag.md#m-getPrefix-9268091e0223) from ConfTag
+- [getTag()](ConfTag.md#m-getTag-315f45956d6f) from ConfTag
+- [getTagHash()](ConfTag.md#m-getTagHash-8f057919039c) from ConfTag
+- [getURI()](ConfTag.md#m-getURI-7ec1ffd8cd93) from ConfTag
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isLenient()](ConfTag.md#m-isLenient-47b594aa27c3) from ConfTag
+- [setConfNamespace(ConfNamespace)](ConfTag.md#m-setConfNamespace-7fef1b53f52c) from ConfTag
+- [setLenient(boolean)](ConfTag.md#m-setLenient-7cd970533a41) from ConfTag
+- [toString()](#m-toString-e9d48c5503ef)
+- [toString(ConfNamespace)](ConfTag.md#m-toString-97a6a914714f) from ConfTag
+- [toString(int)](ConfTag.md#m-toString-477fa787d7c7) from ConfTag
 
 ## Constructors
 
-<a id="m-conftagdefault-2837c3747bb4"></a>
-### ConfTagDefault()
+### ConfTagDefault() <a href="#m-ConfTagDefault-2837c3747bb4" id="m-ConfTagDefault-2837c3747bb4"></a>
 
 ```java
 public ConfTagDefault()
@@ -107,8 +105,7 @@ public ConfTagDefault()
 
 ## Methods
 
-<a id="m-compareto-faec48f817d8"></a>
-### compareTo(ConfTagDefault)
+### compareTo(ConfTagDefault) <a href="#m-compareTo-faec48f817d8" id="m-compareTo-faec48f817d8"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfTagDefault o)
@@ -120,8 +117,7 @@ Types: [ConfTagDefault](ConfTagDefault.md#cls-ConfTagDefault)
 
 - `com.tailf.conf.ConfTagDefault o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -129,8 +125,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -140,15 +135,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

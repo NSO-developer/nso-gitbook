@@ -1,5 +1,4 @@
-<a id="cls-CSNodeInfo"></a>
-# CSNodeInfo
+# CSNodeInfo <a href="#cls-CSNodeInfo" id="cls-CSNodeInfo"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSNodeInfo
@@ -11,31 +10,30 @@ Class representing node information for a Schema node
 
 **Constructors**:
 
-- [CSNodeInfo()](#m-csnodeinfo-68cf9a9fd5a0)
-- [CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)](#m-csnodeinfo-afd67fc5b2ab)
-- [CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])](#m-csnodeinfo-9613813dad32)
+- [CSNodeInfo()](#m-CSNodeInfo-68cf9a9fd5a0)
+- [CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)](#m-CSNodeInfo-afd67fc5b2ab)
+- [CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])](#m-CSNodeInfo-9613813dad32)
 
 **Methods**:
 
-- [getChoices()](#m-getchoices-818fb3fccb86)
-- [getDefval()](#m-getdefval-561ad5494c47)
-- [getDocDescription()](#m-getdocdescription-08369bbe26a9)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getHideGroups()](#m-gethidegroups-d566f1e3343e)
-- [getKeys()](#m-getkeys-a24b9d377db7)
-- [getMaxOccurs()](#m-getmaxoccurs-365e8c5a408f)
-- [getMetaData()](#m-getmetadata-15c2d5006ca5)
-- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
-- [getMountId()](#m-getmountid-c5175827f949)
-- [getPrompt()](#m-getprompt-6a58866a8699)
-- [getShallowType()](#m-getshallowtype-2e2b5f294983)
-- [getType()](#m-gettype-5a52f6f0d4c1)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getChoices()](#m-getChoices-818fb3fccb86)
+- [getDefval()](#m-getDefval-561ad5494c47)
+- [getDocDescription()](#m-getDocDescription-08369bbe26a9)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getHideGroups()](#m-getHideGroups-d566f1e3343e)
+- [getKeys()](#m-getKeys-a24b9d377db7)
+- [getMaxOccurs()](#m-getMaxOccurs-365e8c5a408f)
+- [getMetaData()](#m-getMetaData-15c2d5006ca5)
+- [getMinOccurs()](#m-getMinOccurs-cac79959dff8)
+- [getMountId()](#m-getMountId-c5175827f949)
+- [getPrompt()](#m-getPrompt-6a58866a8699)
+- [getShallowType()](#m-getShallowType-2e2b5f294983)
+- [getType()](#m-getType-5a52f6f0d4c1)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-csnodeinfo-68cf9a9fd5a0"></a>
-### CSNodeInfo()
+### CSNodeInfo() <a href="#m-CSNodeInfo-68cf9a9fd5a0" id="m-CSNodeInfo-68cf9a9fd5a0"></a>
 
 ```java
 protected CSNodeInfo()
@@ -43,8 +41,7 @@ protected CSNodeInfo()
 
 Constructor for CSNodeInfo class
 
-<a id="m-csnodeinfo-afd67fc5b2ab"></a>
-### CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType)
+### CSNodeInfo(CSNodeInfo, int[], int, int, int, CSType) <a href="#m-CSNodeInfo-afd67fc5b2ab" id="m-CSNodeInfo-afd67fc5b2ab"></a>
 
 ```java
 protected CSNodeInfo(
@@ -68,8 +65,7 @@ Types: [CSNodeInfo](CSNodeInfo.md#cls-CSNodeInfo), [CSType](CSType.md#cls-CSType
 - `int shallowType`
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 
-<a id="m-csnodeinfo-9613813dad32"></a>
-### CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[])
+### CSNodeInfo(int[], int, int, int, CSType, ConfObject, CSChoice, int, HashMap<String,String>, MountId, String, String, String[]) <a href="#m-CSNodeInfo-9613813dad32" id="m-CSNodeInfo-9613813dad32"></a>
 
 ```java
 public CSNodeInfo(
@@ -110,8 +106,7 @@ Types: [CSType](CSType.md#cls-CSType), [ConfObject](../../conf/ConfObject.md#cls
 
 ## Methods
 
-<a id="m-getchoices-818fb3fccb86"></a>
-### getChoices()
+### getChoices() <a href="#m-getChoices-818fb3fccb86" id="m-getChoices-818fb3fccb86"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSChoice> getChoices()
@@ -124,8 +119,7 @@ get List object of choices for this node. A Choice is represented by
 
 **Returns:** List of Choices
 
-<a id="m-getdefval-561ad5494c47"></a>
-### getDefval()
+### getDefval() <a href="#m-getDefval-561ad5494c47" id="m-getDefval-561ad5494c47"></a>
 
 ```java
 public com.tailf.conf.ConfObject getDefval()
@@ -137,8 +131,7 @@ get default value represented as a subclass to ConfObject
 
 **Returns:** ConfObject
 
-<a id="m-getdocdescription-08369bbe26a9"></a>
-### getDocDescription()
+### getDocDescription() <a href="#m-getDocDescription-08369bbe26a9" id="m-getDocDescription-08369bbe26a9"></a>
 
 ```java
 public String getDocDescription()
@@ -151,8 +144,7 @@ Get documentation description for this node.
 
 **Returns:** String documentation description or null.
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public int getFlags()
@@ -162,8 +154,7 @@ get flags for this node. Currently not used
 
 **Returns:** int flags
 
-<a id="m-gethidegroups-d566f1e3343e"></a>
-### getHideGroups()
+### getHideGroups() <a href="#m-getHideGroups-d566f1e3343e" id="m-getHideGroups-d566f1e3343e"></a>
 
 ```java
 public String[] getHideGroups()
@@ -177,8 +168,7 @@ Get the hide group(s) for this node.
 
 **Returns:** String array of hide group names, or null if not hidden.
 
-<a id="m-getkeys-a24b9d377db7"></a>
-### getKeys()
+### getKeys() <a href="#m-getKeys-a24b9d377db7" id="m-getKeys-a24b9d377db7"></a>
 
 ```java
 public int[] getKeys()
@@ -190,8 +180,7 @@ get keys for the node. keys are represented as a int array of
 
 **Returns:** int[] array of keys or null if not exists
 
-<a id="m-getmaxoccurs-365e8c5a408f"></a>
-### getMaxOccurs()
+### getMaxOccurs() <a href="#m-getMaxOccurs-365e8c5a408f" id="m-getMaxOccurs-365e8c5a408f"></a>
 
 ```java
 public int getMaxOccurs()
@@ -201,8 +190,7 @@ get MaxOccurs for the node
 
 **Returns:** int maxOccurs
 
-<a id="m-getmetadata-15c2d5006ca5"></a>
-### getMetaData()
+### getMetaData() <a href="#m-getMetaData-15c2d5006ca5" id="m-getMetaData-15c2d5006ca5"></a>
 
 ```java
 public java.util.HashMap<String,String> getMetaData()
@@ -213,8 +201,7 @@ get meta data for this node.
 
 **Returns:** HashMapString, String
 
-<a id="m-getminoccurs-cac79959dff8"></a>
-### getMinOccurs()
+### getMinOccurs() <a href="#m-getMinOccurs-cac79959dff8" id="m-getMinOccurs-cac79959dff8"></a>
 
 ```java
 public int getMinOccurs()
@@ -224,15 +211,13 @@ get MinOccurs for the node
 
 **Returns:** int minOccurs
 
-<a id="m-getmountid-c5175827f949"></a>
-### getMountId()
+### getMountId() <a href="#m-getMountId-c5175827f949" id="m-getMountId-c5175827f949"></a>
 
 ```java
 public java.util.List<String> getMountId()
 ```
 
-<a id="m-getprompt-6a58866a8699"></a>
-### getPrompt()
+### getPrompt() <a href="#m-getPrompt-6a58866a8699" id="m-getPrompt-6a58866a8699"></a>
 
 ```java
 public String getPrompt()
@@ -243,8 +228,7 @@ Get prompt for this node.
 
 **Returns:** String prompt or null
 
-<a id="m-getshallowtype-2e2b5f294983"></a>
-### getShallowType()
+### getShallowType() <a href="#m-getShallowType-2e2b5f294983" id="m-getShallowType-2e2b5f294983"></a>
 
 ```java
 public int getShallowType()
@@ -254,8 +238,7 @@ get shallowtype represented as final static int in [`ConfObject`](../../conf/Con
 
 **Returns:** int shallow type
 
-<a id="m-gettype-5a52f6f0d4c1"></a>
-### getType()
+### getType() <a href="#m-getType-5a52f6f0d4c1" id="m-getType-5a52f6f0d4c1"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSType getType()
@@ -267,8 +250,7 @@ get type for the node
 
 **Returns:** CSType type for the node
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-ProxyUtils"></a>
-# ProxyUtils
+# ProxyUtils <a href="#cls-ProxyUtils" id="cls-ProxyUtils"></a>
 
 ```java
 public class com.tailf.dp.annotations.ProxyUtils
@@ -11,17 +10,16 @@ Helper class for callback proxys
 
 **Constructors**:
 
-- [ProxyUtils()](#m-proxyutils-58dca161942d)
+- [ProxyUtils()](#m-ProxyUtils-58dca161942d)
 
 **Methods**:
 
-- [compareMethods(Method, Method)](#m-comparemethods-ffc443ede70d)
-- [invocationTargetCheck(InvocationTargetException)](#m-invocationtargetcheck-20a147521b60)
+- [compareMethods(Method, Method)](#m-compareMethods-ffc443ede70d)
+- [invocationTargetCheck(InvocationTargetException)](#m-invocationTargetCheck-20a147521b60)
 
 ## Constructors
 
-<a id="m-proxyutils-58dca161942d"></a>
-### ProxyUtils()
+### ProxyUtils() <a href="#m-ProxyUtils-58dca161942d" id="m-ProxyUtils-58dca161942d"></a>
 
 ```java
 public ProxyUtils()
@@ -30,8 +28,7 @@ public ProxyUtils()
 
 ## Methods
 
-<a id="m-comparemethods-ffc443ede70d"></a>
-### compareMethods(Method, Method)
+### compareMethods(Method, Method) <a href="#m-compareMethods-ffc443ede70d" id="m-compareMethods-ffc443ede70d"></a>
 
 ```java
 public static boolean compareMethods(
@@ -50,8 +47,7 @@ Comparison of method signatures. Compares arguments and return types but
 
 **Returns:** true if arguments and return type of methods coincide
 
-<a id="m-invocationtargetcheck-20a147521b60"></a>
-### invocationTargetCheck(InvocationTargetException)
+### invocationTargetCheck(InvocationTargetException) <a href="#m-invocationTargetCheck-20a147521b60" id="m-invocationTargetCheck-20a147521b60"></a>
 
 ```java
 public static com.tailf.dp.DpCallbackException invocationTargetCheck(

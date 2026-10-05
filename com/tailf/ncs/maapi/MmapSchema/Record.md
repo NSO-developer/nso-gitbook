@@ -1,5 +1,4 @@
-<a id="cls-Record"></a>
-# Record
+# Record <a href="#cls-Record" id="cls-Record"></a>
 
 **Package-private**
 
@@ -13,19 +12,18 @@ Pointer to a unique schema record.
 
 **Constructors**:
 
-- [Record(Source, int)](#m-record-b0cdb48ebc6b)
+- [Record(Source, int)](#m-Record-b0cdb48ebc6b)
 
 **Methods**:
 
-- [getCsIdx()](#m-getcsidx-c6cc07a1d6c3)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getOff()](#m-getoff-578b9943fd00)
+- [getCsIdx()](#m-getCsIdx-c6cc07a1d6c3)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getOff()](#m-getOff-578b9943fd00)
 - [read(Source, int)](#m-read-c048381a08bd)
 
 ## Constructors
 
-<a id="m-record-b0cdb48ebc6b"></a>
-### Record(Source, int)
+### Record(Source, int) <a href="#m-Record-b0cdb48ebc6b" id="m-Record-b0cdb48ebc6b"></a>
 
 **Package-private**
 
@@ -43,29 +41,25 @@ Types: [Source](Source.md#cls-Source)
 
 ## Methods
 
-<a id="m-getcsidx-c6cc07a1d6c3"></a>
-### getCsIdx()
+### getCsIdx() <a href="#m-getCsIdx-c6cc07a1d6c3" id="m-getCsIdx-c6cc07a1d6c3"></a>
 
 ```java
 public int getCsIdx()
 ```
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public short getFlags()
 ```
 
-<a id="m-getoff-578b9943fd00"></a>
-### getOff()
+### getOff() <a href="#m-getOff-578b9943fd00" id="m-getOff-578b9943fd00"></a>
 
 ```java
 public int getOff()
 ```
 
-<a id="m-read-c048381a08bd"></a>
-### read(Source, int)
+### read(Source, int) <a href="#m-read-c048381a08bd" id="m-read-c048381a08bd"></a>
 
 **Package-private**
 

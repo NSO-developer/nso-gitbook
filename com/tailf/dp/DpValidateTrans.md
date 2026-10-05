@@ -1,5 +1,4 @@
-<a id="cls-DpValidateTrans"></a>
-# DpValidateTrans
+# DpValidateTrans <a href="#cls-DpValidateTrans" id="cls-DpValidateTrans"></a>
 
 ```java
 public class com.tailf.dp.DpValidateTrans
@@ -11,13 +10,13 @@ Types: [DpTrans](DpTrans.md#cls-DpTrans)
 The validate transaction context. Each transaction is running in separate
  thread.
 
-**See also:** [`DpValpointCallback`](DpValpointCallback.md#cls-DpValpointCallback), [`DpTransValidateCallback`](DpTransValidateCallback.md#cls-DpTransValidateCallback), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
+**See also:** [`DpValpointCallback`](DpValpointCallback.md#cls-DpValpointCallback), [`DpTransValidateCallback`](DpTransValidateCallback.md#cls-DpTransValidateCallback), [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
 
 ## Members
 
 **Constructors**:
 
-- [DpValidateTrans(Dp, int, int, int, int, DpUserInfo)](#m-dpvalidatetrans-3745a66aa93e)
+- [DpValidateTrans(Dp, int, int, int, int, DpUserInfo)](#m-DpValidateTrans-3745a66aa93e)
 
 **Fields**:
 
@@ -36,44 +35,43 @@ The validate transaction context. Each transaction is running in separate
 **Methods**:
 
 - [accumulated()](DpTrans.md#m-accumulated-2f58da3048dd) from DpTrans
-- [dataSetTimeout(int)](DpTrans.md#m-datasettimeout-8ad3068e3a46) from DpTrans
-- [getDBName()](DpTrans.md#m-getdbname-65ff0bdb2339) from DpTrans
-- [getDeviceType()](DpTrans.md#m-getdevicetype-c8eec3b01523) from DpTrans
-- [getDevNo()](DpTrans.md#m-getdevno-b1169ef876ed) from DpTrans
-- [getDp()](DpTrans.md#m-getdp-b1462199cc2e) from DpTrans
-- [getMode()](DpTrans.md#m-getmode-c3dc73476e30) from DpTrans
-- [getNsList()](DpTrans.md#m-getnslist-0345f486e876) from DpTrans
-- [getOpaque()](DpTrans.md#m-getopaque-92e4945ec92d) from DpTrans
-- [getSecondaryIndex()](DpTrans.md#m-getsecondaryindex-8efa1ee57e9c) from DpTrans
-- [getSocket()](DpTrans.md#m-getsocket-d7da2de81b81) from DpTrans
-- [getTransaction()](DpTrans.md#m-gettransaction-4f1c72a828a1) from DpTrans
-- [getTransactionUserOpaque()](DpTrans.md#m-gettransactionuseropaque-87a9bf7a20e1) from DpTrans
-- [getUserInfo()](DpTrans.md#m-getuserinfo-3ecef1f24d3d) from DpTrans
-- [getValidationUserOpaque()](#m-getvalidationuseropaque-17a29486bf22)
-- [getWorkerSocket()](DpTrans.md#m-getworkersocket-ba1472e0f5a7) from DpTrans
-- [honorFilter(boolean)](DpTrans.md#m-honorfilter-5ff04bbbf2d0) from DpTrans
-- [isHideInactive()](DpTrans.md#m-ishideinactive-1d32c2838395) from DpTrans
-- [protoReply(boolean)](DpTrans.md#m-protoreply-e8de0386a2d0) from DpTrans
-- [protoReply(ConfEObject)](DpTrans.md#m-protoreply-47f22a8227a5) from DpTrans
-- [protoReply(ConfObject)](DpTrans.md#m-protoreply-3ecaf76eaab8) from DpTrans
-- [protoReply(ConfObject[])](DpTrans.md#m-protoreply-cee1bb25672e) from DpTrans
-- [protoReplyXMLParam(ConfXMLParam[])](DpTrans.md#m-protoreplyxmlparam-9dcf8f14a8dc) from DpTrans
-- [replyError(ConfEObject)](DpTrans.md#m-replyerror-3184cd2ad634) from DpTrans
-- [replyError(String)](DpTrans.md#m-replyerror-48c78d28e991) from DpTrans
-- [replyError(String, Throwable)](DpTrans.md#m-replyerror-c4e21f52074d) from DpTrans
-- [replyError(Throwable)](DpTrans.md#m-replyerror-26f4ce830453) from DpTrans
-- [replyExtendedError(String, DpCallbackExtendedException)](DpTrans.md#m-replyextendederror-b54351b1555f) from DpTrans
-- [replyOther(boolean, String, String)](DpTrans.md#m-replyother-c2352ec6bb73) from DpTrans
+- [dataSetTimeout(int)](DpTrans.md#m-dataSetTimeout-8ad3068e3a46) from DpTrans
+- [getDBName()](DpTrans.md#m-getDBName-65ff0bdb2339) from DpTrans
+- [getDeviceType()](DpTrans.md#m-getDeviceType-c8eec3b01523) from DpTrans
+- [getDevNo()](DpTrans.md#m-getDevNo-b1169ef876ed) from DpTrans
+- [getDp()](DpTrans.md#m-getDp-b1462199cc2e) from DpTrans
+- [getMode()](DpTrans.md#m-getMode-c3dc73476e30) from DpTrans
+- [getNsList()](DpTrans.md#m-getNsList-0345f486e876) from DpTrans
+- [getOpaque()](DpTrans.md#m-getOpaque-92e4945ec92d) from DpTrans
+- [getSecondaryIndex()](DpTrans.md#m-getSecondaryIndex-8efa1ee57e9c) from DpTrans
+- [getSocket()](DpTrans.md#m-getSocket-d7da2de81b81) from DpTrans
+- [getTransaction()](DpTrans.md#m-getTransaction-4f1c72a828a1) from DpTrans
+- [getTransactionUserOpaque()](DpTrans.md#m-getTransactionUserOpaque-87a9bf7a20e1) from DpTrans
+- [getUserInfo()](DpTrans.md#m-getUserInfo-3ecef1f24d3d) from DpTrans
+- [getValidationUserOpaque()](#m-getValidationUserOpaque-17a29486bf22)
+- [getWorkerSocket()](DpTrans.md#m-getWorkerSocket-ba1472e0f5a7) from DpTrans
+- [honorFilter(boolean)](DpTrans.md#m-honorFilter-5ff04bbbf2d0) from DpTrans
+- [isHideInactive()](DpTrans.md#m-isHideInactive-1d32c2838395) from DpTrans
+- [protoReply(boolean)](DpTrans.md#m-protoReply-e8de0386a2d0) from DpTrans
+- [protoReply(ConfEObject)](DpTrans.md#m-protoReply-47f22a8227a5) from DpTrans
+- [protoReply(ConfObject)](DpTrans.md#m-protoReply-3ecaf76eaab8) from DpTrans
+- [protoReply(ConfObject[])](DpTrans.md#m-protoReply-cee1bb25672e) from DpTrans
+- [protoReplyXMLParam(ConfXMLParam[])](DpTrans.md#m-protoReplyXMLParam-9dcf8f14a8dc) from DpTrans
+- [replyError(ConfEObject)](DpTrans.md#m-replyError-3184cd2ad634) from DpTrans
+- [replyError(String)](DpTrans.md#m-replyError-48c78d28e991) from DpTrans
+- [replyError(String, Throwable)](DpTrans.md#m-replyError-c4e21f52074d) from DpTrans
+- [replyError(Throwable)](DpTrans.md#m-replyError-26f4ce830453) from DpTrans
+- [replyExtendedError(String, DpCallbackExtendedException)](DpTrans.md#m-replyExtendedError-b54351b1555f) from DpTrans
+- [replyOther(boolean, String, String)](DpTrans.md#m-replyOther-c2352ec6bb73) from DpTrans
 - [run()](#m-run-b6dbda048863)
-- [setSocket(Socket)](DpTrans.md#m-setsocket-183068848e4c) from DpTrans
-- [setTransactionUserOpaque(Object)](DpTrans.md#m-settransactionuseropaque-ce392ad59d2e) from DpTrans
-- [setValidationUserOpaque(Object)](#m-setvalidationuseropaque-1b3063fe7f25)
-- [transReplyOK()](DpTrans.md#m-transreplyok-92425e2f5c67) from DpTrans
+- [setSocket(Socket)](DpTrans.md#m-setSocket-183068848e4c) from DpTrans
+- [setTransactionUserOpaque(Object)](DpTrans.md#m-setTransactionUserOpaque-ce392ad59d2e) from DpTrans
+- [setValidationUserOpaque(Object)](#m-setValidationUserOpaque-1b3063fe7f25)
+- [transReplyOK()](DpTrans.md#m-transReplyOK-92425e2f5c67) from DpTrans
 
 ## Constructors
 
-<a id="m-dpvalidatetrans-3745a66aa93e"></a>
-### DpValidateTrans(Dp, int, int, int, int, DpUserInfo)
+### DpValidateTrans(Dp, int, int, int, int, DpUserInfo) <a href="#m-DpValidateTrans-3745a66aa93e" id="m-DpValidateTrans-3745a66aa93e"></a>
 
 **Package-private**
 
@@ -105,8 +103,7 @@ Lots of parameters here. But since only Dp should be allowed to create
 
 ## Methods
 
-<a id="m-getvalidationuseropaque-17a29486bf22"></a>
-### getValidationUserOpaque()
+### getValidationUserOpaque() <a href="#m-getValidationUserOpaque-17a29486bf22" id="m-getValidationUserOpaque-17a29486bf22"></a>
 
 ```java
 public Object getValidationUserOpaque()
@@ -116,8 +113,7 @@ Get method for user owned opaque data.
  Intended to pass data between method calls in
  an validation callback
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
@@ -125,8 +121,7 @@ public void run()
 
 Runs the thread.
 
-<a id="m-setvalidationuseropaque-1b3063fe7f25"></a>
-### setValidationUserOpaque(Object)
+### setValidationUserOpaque(Object) <a href="#m-setValidationUserOpaque-1b3063fe7f25" id="m-setValidationUserOpaque-1b3063fe7f25"></a>
 
 ```java
 public void setValidationUserOpaque(Object opaque)

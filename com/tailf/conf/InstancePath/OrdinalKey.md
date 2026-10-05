@@ -1,5 +1,4 @@
-<a id="cls-OrdinalKey"></a>
-# OrdinalKey
+# OrdinalKey <a href="#cls-OrdinalKey" id="cls-OrdinalKey"></a>
 
 ```java
 protected static class com.tailf.conf.InstancePath.OrdinalKey
@@ -12,7 +11,7 @@ Types: [ConfKey](../ConfKey.md#cls-ConfKey)
 
 **Constructors**:
 
-- [OrdinalKey(int)](#m-ordinalkey-f334784a7c1a)
+- [OrdinalKey(int)](#m-OrdinalKey-f334784a7c1a)
 
 **Fields**:
 
@@ -73,21 +72,20 @@ Types: [ConfKey](../ConfKey.md#cls-ConfKey)
 - [decode(ConfEObject)](../ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](../ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](../ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [elementAt(int)](../ConfKey.md#m-elementat-7ff98e6e0268) from ConfKey
+- [elementAt(int)](../ConfKey.md#m-elementAt-7ff98e6e0268) from ConfKey
 - [elements()](../ConfKey.md#m-elements-1ac1cabc0e96) from ConfKey
 - [encode()](../ConfKey.md#m-encode-fbae522bba37) from ConfKey
 - [equals(Object)](../ConfKey.md#m-equals-fcd6492e0d6c) from ConfKey
-- [hashCode()](../ConfKey.md#m-hashcode-ef797a217903) from ConfKey
+- [hashCode()](../ConfKey.md#m-hashCode-ef797a217903) from ConfKey
 - [length()](../ConfKey.md#m-length-89e7822f25ca) from ConfKey
-- [setPath(InstancePath)](../ConfKey.md#m-setpath-ad9962db3cab) from ConfKey
-- [toStrictlyQuotedString()](../ConfKey.md#m-tostrictlyquotedstring-c10aef71d8ba) from ConfKey
-- [toString()](../ConfKey.md#m-tostring-e9d48c5503ef) from ConfKey
-- [toString(boolean)](../ConfKey.md#m-tostring-b87d88746a2e) from ConfKey
+- [setPath(InstancePath)](../ConfKey.md#m-setPath-ad9962db3cab) from ConfKey
+- [toStrictlyQuotedString()](../ConfKey.md#m-toStrictlyQuotedString-c10aef71d8ba) from ConfKey
+- [toString()](../ConfKey.md#m-toString-e9d48c5503ef) from ConfKey
+- [toString(boolean)](../ConfKey.md#m-toString-b87d88746a2e) from ConfKey
 
 ## Constructors
 
-<a id="m-ordinalkey-f334784a7c1a"></a>
-### OrdinalKey(int)
+### OrdinalKey(int) <a href="#m-OrdinalKey-f334784a7c1a" id="m-OrdinalKey-f334784a7c1a"></a>
 
 ```java
 public OrdinalKey(int value)

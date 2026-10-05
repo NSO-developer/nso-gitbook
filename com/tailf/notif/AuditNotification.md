@@ -1,5 +1,4 @@
-<a id="cls-AuditNotification"></a>
-# AuditNotification
+# AuditNotification <a href="#cls-AuditNotification" id="cls-AuditNotification"></a>
 
 ```java
 public class com.tailf.notif.AuditNotification
@@ -14,7 +13,7 @@ Data structure for Audit events
 
 **Constructors**:
 
-- [AuditNotification(int, String, int, String)](#m-auditnotification-0d6674fb37d3)
+- [AuditNotification(int, String, int, String)](#m-AuditNotification-0d6674fb37d3)
 
 **Fields**:
 
@@ -22,17 +21,16 @@ Data structure for Audit events
 
 **Methods**:
 
-- [getLogNo()](#m-getlogno-0a53380cc549)
-- [getMessage()](#m-getmessage-77b7dae8469e)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getUser()](#m-getuser-fbcccdd28c7c)
-- [getUserId()](#m-getuserid-46c2e98d8db7)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getLogNo()](#m-getLogNo-0a53380cc549)
+- [getMessage()](#m-getMessage-77b7dae8469e)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getUser()](#m-getUser-fbcccdd28c7c)
+- [getUserId()](#m-getUserId-46c2e98d8db7)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-auditnotification-0d6674fb37d3"></a>
-### AuditNotification(int, String, int, String)
+### AuditNotification(int, String, int, String) <a href="#m-AuditNotification-0d6674fb37d3" id="m-AuditNotification-0d6674fb37d3"></a>
 
 ```java
 public AuditNotification(int logno, String user, int usid, String msg)
@@ -50,8 +48,7 @@ Constructs a new AuditNotification with the specified parameters.
 
 ## Methods
 
-<a id="m-getlogno-0a53380cc549"></a>
-### getLogNo()
+### getLogNo() <a href="#m-getLogNo-0a53380cc549" id="m-getLogNo-0a53380cc549"></a>
 
 ```java
 public int getLogNo()
@@ -62,8 +59,7 @@ Gets the log number from confd_logsyms.h associated with this audit
 
 **Returns:** the log number identifying the type of audit event
 
-<a id="m-getmessage-77b7dae8469e"></a>
-### getMessage()
+### getMessage() <a href="#m-getMessage-77b7dae8469e" id="m-getMessage-77b7dae8469e"></a>
 
 ```java
 public String getMessage()
@@ -73,8 +69,7 @@ Gets the audit message describing the event that occurred.
 
 **Returns:** the descriptive message for this audit event
 
-<a id="m-getuser-fbcccdd28c7c"></a>
-### getUser()
+### getUser() <a href="#m-getUser-fbcccdd28c7c" id="m-getUser-fbcccdd28c7c"></a>
 
 ```java
 public String getUser()
@@ -84,8 +79,7 @@ Gets the username associated with this audit event.
 
 **Returns:** the username
 
-<a id="m-getuserid-46c2e98d8db7"></a>
-### getUserId()
+### getUserId() <a href="#m-getUserId-46c2e98d8db7" id="m-getUserId-46c2e98d8db7"></a>
 
 ```java
 public int getUserId()
@@ -95,8 +89,7 @@ Gets the user session identifier associated with this audit event.
 
 **Returns:** the user session ID
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

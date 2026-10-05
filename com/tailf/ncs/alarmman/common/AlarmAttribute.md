@@ -1,5 +1,4 @@
-<a id="cls-AlarmAttribute"></a>
-# AlarmAttribute
+# AlarmAttribute <a href="#cls-AlarmAttribute" id="cls-AlarmAttribute"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.common.AlarmAttribute
@@ -14,7 +13,7 @@ This class represents an alarm attribute.
 
 **Constructors**:
 
-- [AlarmAttribute(ConfNamespace, String, ConfValue)](#m-alarmattribute-2a564e1a8b6f)
+- [AlarmAttribute(ConfNamespace, String, ConfValue)](#m-AlarmAttribute-2a564e1a8b6f)
 
 **Fields**:
 
@@ -22,15 +21,14 @@ This class represents an alarm attribute.
 
 **Methods**:
 
-- [getId()](Attribute.md#m-getid-199a349c70ef) from Attribute
-- [getNameSpace()](Attribute.md#m-getnamespace-e413af21e168) from Attribute
-- [getValue()](Attribute.md#m-getvalue-d93864668c40) from Attribute
-- [toString()](Attribute.md#m-tostring-e9d48c5503ef) from Attribute
+- [getId()](Attribute.md#m-getId-199a349c70ef) from Attribute
+- [getNameSpace()](Attribute.md#m-getNameSpace-e413af21e168) from Attribute
+- [getValue()](Attribute.md#m-getValue-d93864668c40) from Attribute
+- [toString()](Attribute.md#m-toString-e9d48c5503ef) from Attribute
 
 ## Constructors
 
-<a id="m-alarmattribute-2a564e1a8b6f"></a>
-### AlarmAttribute(ConfNamespace, String, ConfValue)
+### AlarmAttribute(ConfNamespace, String, ConfValue) <a href="#m-AlarmAttribute-2a564e1a8b6f" id="m-AlarmAttribute-2a564e1a8b6f"></a>
 
 ```java
 public AlarmAttribute(

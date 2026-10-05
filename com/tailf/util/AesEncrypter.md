@@ -1,5 +1,4 @@
-<a id="cls-AesEncrypter"></a>
-# AesEncrypter
+# AesEncrypter <a href="#cls-AesEncrypter" id="cls-AesEncrypter"></a>
 
 ```java
 public class com.tailf.util.AesEncrypter
@@ -14,7 +13,7 @@ AES algorithm encryption/decryption utility class
 
 **Constructors**:
 
-- [AesEncrypter(byte[], byte[])](#m-aesencrypter-067df4aa23b0)
+- [AesEncrypter(byte[], byte[])](#m-AesEncrypter-067df4aa23b0)
 
 **Fields**:
 
@@ -28,8 +27,7 @@ AES algorithm encryption/decryption utility class
 
 ## Constructors
 
-<a id="m-aesencrypter-067df4aa23b0"></a>
-### AesEncrypter(byte[], byte[])
+### AesEncrypter(byte[], byte[]) <a href="#m-AesEncrypter-067df4aa23b0" id="m-AesEncrypter-067df4aa23b0"></a>
 
 ```java
 public AesEncrypter(

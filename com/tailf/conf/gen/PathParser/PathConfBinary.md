@@ -1,5 +1,4 @@
-<a id="cls-PathConfBinary"></a>
-# PathConfBinary
+# PathConfBinary <a href="#cls-PathConfBinary" id="cls-PathConfBinary"></a>
 
 ```java
 public static class com.tailf.conf.gen.PathParser.PathConfBinary
@@ -12,7 +11,7 @@ Types: [ConfBinary](../../ConfBinary.md#cls-ConfBinary)
 
 **Constructors**:
 
-- [PathConfBinary(String)](#m-pathconfbinary-bd104eee7d2b)
+- [PathConfBinary(String)](#m-PathConfBinary-bd104eee7d2b)
 
 **Fields**:
 
@@ -69,28 +68,27 @@ Types: [ConfBinary](../../ConfBinary.md#cls-ConfBinary)
 
 **Methods**:
 
-- [bytesValue()](../../ConfBinary.md#m-bytesvalue-5430ca82d2de) from ConfBinary
+- [bytesValue()](../../ConfBinary.md#m-bytesValue-5430ca82d2de) from ConfBinary
 - [clone()](../../ConfObject.md#m-clone-164c86c45e9b) from ConfObject
-- [compareTo(ConfBinary)](../../ConfBinary.md#m-compareto-58d210e19aa1) from ConfBinary
+- [compareTo(ConfBinary)](../../ConfBinary.md#m-compareTo-58d210e19aa1) from ConfBinary
 - [decode(ConfEObject)](../../ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](../../ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](../../ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](../../ConfBinary.md#m-encode-fbae522bba37) from ConfBinary
 - [equals(Object)](../../ConfBinary.md#m-equals-fcd6492e0d6c) from ConfBinary
-- [getStringByValue(ConfPath, ConfValue)](../../ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](../../ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](../../ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](../../ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](../../ConfBinary.md#m-hashcode-ef797a217903) from ConfBinary
-- [setCSType(CSType)](../../ConfBinary.md#m-setcstype-1d9af222b932) from ConfBinary
-- [toHexListString()](../../ConfBinary.md#m-tohexliststring-b8ab9a901cf8) from ConfBinary
-- [toOctetListString()](../../ConfBinary.md#m-tooctetliststring-4e8899a4fa5c) from ConfBinary
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](../../ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](../../ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](../../ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](../../ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](../../ConfBinary.md#m-hashCode-ef797a217903) from ConfBinary
+- [setCSType(CSType)](../../ConfBinary.md#m-setCSType-1d9af222b932) from ConfBinary
+- [toHexListString()](../../ConfBinary.md#m-toHexListString-b8ab9a901cf8) from ConfBinary
+- [toOctetListString()](../../ConfBinary.md#m-toOctetListString-4e8899a4fa5c) from ConfBinary
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-pathconfbinary-bd104eee7d2b"></a>
-### PathConfBinary(String)
+### PathConfBinary(String) <a href="#m-PathConfBinary-bd104eee7d2b" id="m-PathConfBinary-bd104eee7d2b"></a>
 
 ```java
 public PathConfBinary(String str)
@@ -103,8 +101,7 @@ public PathConfBinary(String str)
 
 ## Methods
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

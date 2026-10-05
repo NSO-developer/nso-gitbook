@@ -1,5 +1,4 @@
-<a id="cls-TrapInfo"></a>
-# TrapInfo
+# TrapInfo <a href="#cls-TrapInfo" id="cls-TrapInfo"></a>
 
 ```java
 public static class com.tailf.notif.SnmpaNotification.TrapInfo
@@ -11,19 +10,18 @@ Class representing trapinfo for a trap
 
 **Constructors**:
 
-- [TrapInfo(long[], int, int, int)](#m-trapinfo-8f35ae55a9e3)
+- [TrapInfo(long[], int, int, int)](#m-TrapInfo-8f35ae55a9e3)
 
 **Methods**:
 
-- [getEnterprise()](#m-getenterprise-6b30bda2c9a7)
-- [getGenericTrap()](#m-getgenerictrap-836a3f2b9876)
-- [getSpecificTrap()](#m-getspecifictrap-b6489092e7e6)
-- [getTimestamp()](#m-gettimestamp-a9e0c6b457f8)
+- [getEnterprise()](#m-getEnterprise-6b30bda2c9a7)
+- [getGenericTrap()](#m-getGenericTrap-836a3f2b9876)
+- [getSpecificTrap()](#m-getSpecificTrap-b6489092e7e6)
+- [getTimestamp()](#m-getTimestamp-a9e0c6b457f8)
 
 ## Constructors
 
-<a id="m-trapinfo-8f35ae55a9e3"></a>
-### TrapInfo(long[], int, int, int)
+### TrapInfo(long[], int, int, int) <a href="#m-TrapInfo-8f35ae55a9e3" id="m-TrapInfo-8f35ae55a9e3"></a>
 
 ```java
 public TrapInfo(long[] enterprise, int genericTrap, int specificTrap, int timestamp)
@@ -39,29 +37,25 @@ public TrapInfo(long[] enterprise, int genericTrap, int specificTrap, int timest
 
 ## Methods
 
-<a id="m-getenterprise-6b30bda2c9a7"></a>
-### getEnterprise()
+### getEnterprise() <a href="#m-getEnterprise-6b30bda2c9a7" id="m-getEnterprise-6b30bda2c9a7"></a>
 
 ```java
 public long[] getEnterprise()
 ```
 
-<a id="m-getgenerictrap-836a3f2b9876"></a>
-### getGenericTrap()
+### getGenericTrap() <a href="#m-getGenericTrap-836a3f2b9876" id="m-getGenericTrap-836a3f2b9876"></a>
 
 ```java
 public int getGenericTrap()
 ```
 
-<a id="m-getspecifictrap-b6489092e7e6"></a>
-### getSpecificTrap()
+### getSpecificTrap() <a href="#m-getSpecificTrap-b6489092e7e6" id="m-getSpecificTrap-b6489092e7e6"></a>
 
 ```java
 public int getSpecificTrap()
 ```
 
-<a id="m-gettimestamp-a9e0c6b457f8"></a>
-### getTimestamp()
+### getTimestamp() <a href="#m-getTimestamp-a9e0c6b457f8" id="m-getTimestamp-a9e0c6b457f8"></a>
 
 ```java
 public int getTimestamp()

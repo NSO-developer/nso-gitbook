@@ -1,5 +1,4 @@
-<a id="cls-AlarmSink"></a>
-# AlarmSink
+# AlarmSink <a href="#cls-AlarmSink" id="cls-AlarmSink"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.producer.AlarmSink
@@ -30,21 +29,20 @@ The class `AlarmSink` represents a "sink" where
 
 **Constructors**:
 
-- [AlarmSink()](#m-alarmsink-bfafeb8b3d91)
-- [AlarmSink(AlarmSinkCentral)](#m-alarmsink-b39f3967d739)
-- [AlarmSink(Maapi)](#m-alarmsink-bec483a98b11)
+- [AlarmSink()](#m-AlarmSink-bfafeb8b3d91)
+- [AlarmSink(AlarmSinkCentral)](#m-AlarmSink-b39f3967d739)
+- [AlarmSink(Maapi)](#m-AlarmSink-bec483a98b11)
 
 **Methods**:
 
-- [submitAlarm(Alarm)](#m-submitalarm-aff190c46329)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitalarm-00b8df4003d0)
-- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitalarm-99f8171f0795)
-- [submitAlarmList(List<Alarm>)](#m-submitalarmlist-a59c291d1268)
+- [submitAlarm(Alarm)](#m-submitAlarm-aff190c46329)
+- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitAlarm-00b8df4003d0)
+- [submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])](#m-submitAlarm-99f8171f0795)
+- [submitAlarmList(List<Alarm>)](#m-submitAlarmList-a59c291d1268)
 
 ## Constructors
 
-<a id="m-alarmsink-bfafeb8b3d91"></a>
-### AlarmSink()
+### AlarmSink() <a href="#m-AlarmSink-bfafeb8b3d91" id="m-AlarmSink-bfafeb8b3d91"></a>
 
 ```java
 public AlarmSink()
@@ -59,8 +57,7 @@ Constructs an `AlarmSink`. This sink
  used if you are writing alarms inside the NCS JVM i.e
  in a package component.
 
-<a id="m-alarmsink-b39f3967d739"></a>
-### AlarmSink(AlarmSinkCentral)
+### AlarmSink(AlarmSinkCentral) <a href="#m-AlarmSink-b39f3967d739" id="m-AlarmSink-b39f3967d739"></a>
 
 ```java
 public AlarmSink(com.tailf.ncs.alarmman.producer.AlarmSinkCentral central)
@@ -79,8 +76,7 @@ Construct an `AlarmSink` using the given
 
 - `com.tailf.ncs.alarmman.producer.AlarmSinkCentral central` - object to be used for writing alarms
 
-<a id="m-alarmsink-bec483a98b11"></a>
-### AlarmSink(Maapi)
+### AlarmSink(Maapi) <a href="#m-AlarmSink-bec483a98b11" id="m-AlarmSink-bec483a98b11"></a>
 
 ```java
 public AlarmSink(com.tailf.maapi.Maapi maapi) throws com.tailf.navu.NavuException
@@ -101,8 +97,7 @@ Construct an `AlarmSink` using the given `Maapi`
 
 ## Methods
 
-<a id="m-submitalarm-aff190c46329"></a>
-### submitAlarm(Alarm)
+### submitAlarm(Alarm) <a href="#m-submitAlarm-aff190c46329" id="m-submitAlarm-aff190c46329"></a>
 
 ```java
 public void submitAlarm(
@@ -129,8 +124,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `IOException`
 
-<a id="m-submitalarm-00b8df4003d0"></a>
-### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
+### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, ConfBuf, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[]) <a href="#m-submitAlarm-00b8df4003d0" id="m-submitAlarm-00b8df4003d0"></a>
 
 ```java
 public synchronized boolean submitAlarm(
@@ -188,8 +182,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `NavuException`
 
-<a id="m-submitalarm-99f8171f0795"></a>
-### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[])
+### submitAlarm(ManagedDevice, ManagedObject, ConfIdentityRef, ConfBuf, PerceivedSeverity, String, List<ManagedObject>, List<AlarmId>, List<ManagedObject>, ConfDatetime, Attribute[]) <a href="#m-submitAlarm-99f8171f0795" id="m-submitAlarm-99f8171f0795"></a>
 
 ```java
 public synchronized boolean submitAlarm(
@@ -247,8 +240,7 @@ Submits the specified `Alarm` into the alarm list.
 - `ConfException`
 - `NavuException`
 
-<a id="m-submitalarmlist-a59c291d1268"></a>
-### submitAlarmList(List<Alarm>)
+### submitAlarmList(List<Alarm>) <a href="#m-submitAlarmList-a59c291d1268" id="m-submitAlarmList-a59c291d1268"></a>
 
 ```java
 protected boolean submitAlarmList(

@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Builder
@@ -10,26 +9,25 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueQName.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getName()](#m-getname-2634b18b4a25)
-- [getPrefix()](#m-getprefix-9268091e0223)
-- [hasName()](#m-hasname-bfe6c334e0d1)
-- [hasPrefix()](#m-hasprefix-ddbc3bbca9c3)
-- [initName(int)](#m-initname-281e5d2102d4)
-- [initPrefix(int)](#m-initprefix-e25b609de101)
-- [setName(Reader)](#m-setname-79f9d1263a41)
-- [setName(String)](#m-setname-c76ccfcb9f18)
-- [setPrefix(Reader)](#m-setprefix-5c58f0bf0784)
-- [setPrefix(String)](#m-setprefix-63fe622cb50c)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getName()](#m-getName-2634b18b4a25)
+- [getPrefix()](#m-getPrefix-9268091e0223)
+- [hasName()](#m-hasName-bfe6c334e0d1)
+- [hasPrefix()](#m-hasPrefix-ddbc3bbca9c3)
+- [initName(int)](#m-initName-281e5d2102d4)
+- [initPrefix(int)](#m-initPrefix-e25b609de101)
+- [setName(Reader)](#m-setName-79f9d1263a41)
+- [setName(String)](#m-setName-c76ccfcb9f18)
+- [setPrefix(Reader)](#m-setPrefix-5c58f0bf0784)
+- [setPrefix(String)](#m-setPrefix-63fe622cb50c)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -54,8 +52,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueQName.Reader asReader()
@@ -63,36 +60,31 @@ public final com.tailf.ncs.maapi.Schema.CsValueQName.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public final org.capnproto.Text.Builder getName()
 ```
 
-<a id="m-getprefix-9268091e0223"></a>
-### getPrefix()
+### getPrefix() <a href="#m-getPrefix-9268091e0223" id="m-getPrefix-9268091e0223"></a>
 
 ```java
 public final org.capnproto.Text.Builder getPrefix()
 ```
 
-<a id="m-hasname-bfe6c334e0d1"></a>
-### hasName()
+### hasName() <a href="#m-hasName-bfe6c334e0d1" id="m-hasName-bfe6c334e0d1"></a>
 
 ```java
 public final boolean hasName()
 ```
 
-<a id="m-hasprefix-ddbc3bbca9c3"></a>
-### hasPrefix()
+### hasPrefix() <a href="#m-hasPrefix-ddbc3bbca9c3" id="m-hasPrefix-ddbc3bbca9c3"></a>
 
 ```java
 public final boolean hasPrefix()
 ```
 
-<a id="m-initname-281e5d2102d4"></a>
-### initName(int)
+### initName(int) <a href="#m-initName-281e5d2102d4" id="m-initName-281e5d2102d4"></a>
 
 ```java
 public final org.capnproto.Text.Builder initName(int size)
@@ -102,8 +94,7 @@ public final org.capnproto.Text.Builder initName(int size)
 
 - `int size`
 
-<a id="m-initprefix-e25b609de101"></a>
-### initPrefix(int)
+### initPrefix(int) <a href="#m-initPrefix-e25b609de101" id="m-initPrefix-e25b609de101"></a>
 
 ```java
 public final org.capnproto.Text.Builder initPrefix(int size)
@@ -113,8 +104,7 @@ public final org.capnproto.Text.Builder initPrefix(int size)
 
 - `int size`
 
-<a id="m-setname-79f9d1263a41"></a>
-### setName(Reader)
+### setName(Reader) <a href="#m-setName-79f9d1263a41" id="m-setName-79f9d1263a41"></a>
 
 ```java
 public final void setName(org.capnproto.Text.Reader value)
@@ -124,8 +114,7 @@ public final void setName(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setname-c76ccfcb9f18"></a>
-### setName(String)
+### setName(String) <a href="#m-setName-c76ccfcb9f18" id="m-setName-c76ccfcb9f18"></a>
 
 ```java
 public final void setName(String value)
@@ -135,8 +124,7 @@ public final void setName(String value)
 
 - `String value`
 
-<a id="m-setprefix-5c58f0bf0784"></a>
-### setPrefix(Reader)
+### setPrefix(Reader) <a href="#m-setPrefix-5c58f0bf0784" id="m-setPrefix-5c58f0bf0784"></a>
 
 ```java
 public final void setPrefix(org.capnproto.Text.Reader value)
@@ -146,8 +134,7 @@ public final void setPrefix(org.capnproto.Text.Reader value)
 
 - `org.capnproto.Text.Reader value`
 
-<a id="m-setprefix-63fe622cb50c"></a>
-### setPrefix(String)
+### setPrefix(String) <a href="#m-setPrefix-63fe622cb50c" id="m-setPrefix-63fe622cb50c"></a>
 
 ```java
 public final void setPrefix(String value)

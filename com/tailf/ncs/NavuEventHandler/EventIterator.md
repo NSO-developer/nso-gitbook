@@ -1,5 +1,4 @@
-<a id="cls-EventIterator"></a>
-# EventIterator
+# EventIterator <a href="#cls-EventIterator" id="cls-EventIterator"></a>
 
 ```java
 protected class com.tailf.ncs.NavuEventHandler.EventIterator
@@ -12,7 +11,7 @@ Types: [CdbDiffIterate](../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 **Constructors**:
 
-- [EventIterator(SocketAddress)](#m-eventiterator-35bf486bdb4e)
+- [EventIterator(SocketAddress)](#m-EventIterator-35bf486bdb4e)
 
 **Methods**:
 
@@ -23,8 +22,7 @@ Types: [CdbDiffIterate](../../cdb/CdbDiffIterate.md#cls-CdbDiffIterate)
 
 ## Constructors
 
-<a id="m-eventiterator-35bf486bdb4e"></a>
-### EventIterator(SocketAddress)
+### EventIterator(SocketAddress) <a href="#m-EventIterator-35bf486bdb4e" id="m-EventIterator-35bf486bdb4e"></a>
 
 ```java
 public EventIterator(
@@ -42,15 +40,13 @@ Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-<a id="m-finish-8c785ae2e6bb"></a>
-### finish()
+### finish() <a href="#m-finish-8c785ae2e6bb" id="m-finish-8c785ae2e6bb"></a>
 
 ```java
 public void finish() throws com.tailf.conf.ConfException
@@ -58,8 +54,7 @@ public void finish() throws com.tailf.conf.ConfException
 
 Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-init-e3919b885d98"></a>
-### init()
+### init() <a href="#m-init-e3919b885d98" id="m-init-e3919b885d98"></a>
 
 ```java
 public void init() throws com.tailf.conf.ConfException
@@ -67,8 +62,7 @@ public void init() throws com.tailf.conf.ConfException
 
 Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public com.tailf.conf.DiffIterateResultFlag iterate(

@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Reader
@@ -10,19 +9,18 @@ public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getChildren()](#m-getchildren-fe2038dff10d)
-- [getMountId()](#m-getmountid-c5175827f949)
-- [hasChildren()](#m-haschildren-94c463ee6541)
-- [hasMountId()](#m-hasmountid-cfc15a094ddc)
+- [getChildren()](#m-getChildren-fe2038dff10d)
+- [getMountId()](#m-getMountId-c5175827f949)
+- [hasChildren()](#m-hasChildren-94c463ee6541)
+- [hasMountId()](#m-hasMountId-cfc15a094ddc)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -49,8 +47,7 @@ Reader(
 
 ## Methods
 
-<a id="m-getchildren-fe2038dff10d"></a>
-### getChildren()
+### getChildren() <a href="#m-getChildren-fe2038dff10d" id="m-getChildren-fe2038dff10d"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> getChildren()
@@ -58,8 +55,7 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Rea
 
 Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="m-getmountid-c5175827f949"></a>
-### getMountId()
+### getMountId() <a href="#m-getMountId-c5175827f949" id="m-getMountId-c5175827f949"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.QTag.Reader getMountId()
@@ -67,15 +63,13 @@ public com.tailf.ncs.maapi.Schema.QTag.Reader getMountId()
 
 Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="m-haschildren-94c463ee6541"></a>
-### hasChildren()
+### hasChildren() <a href="#m-hasChildren-94c463ee6541" id="m-hasChildren-94c463ee6541"></a>
 
 ```java
 public final boolean hasChildren()
 ```
 
-<a id="m-hasmountid-cfc15a094ddc"></a>
-### hasMountId()
+### hasMountId() <a href="#m-hasMountId-cfc15a094ddc" id="m-hasMountId-cfc15a094ddc"></a>
 
 ```java
 public boolean hasMountId()

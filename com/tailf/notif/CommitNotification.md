@@ -1,5 +1,4 @@
-<a id="cls-CommitNotification"></a>
-# CommitNotification
+# CommitNotification <a href="#cls-CommitNotification" id="cls-CommitNotification"></a>
 
 ```java
 public class com.tailf.notif.CommitNotification
@@ -14,7 +13,7 @@ Data structure for simple commit notifications.
 
 **Constructors**:
 
-- [CommitNotification(int, boolean, DpUserInfo)](#m-commitnotification-d12b0ad0627b)
+- [CommitNotification(int, boolean, DpUserInfo)](#m-CommitNotification-d12b0ad0627b)
 
 **Fields**:
 
@@ -22,16 +21,15 @@ Data structure for simple commit notifications.
 
 **Methods**:
 
-- [getDatabase()](#m-getdatabase-3c5eb5bcb258)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getUserInfo()](#m-getuserinfo-3ecef1f24d3d)
-- [isDiffAvailable()](#m-isdiffavailable-435088c38777)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getDatabase()](#m-getDatabase-3c5eb5bcb258)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getUserInfo()](#m-getUserInfo-3ecef1f24d3d)
+- [isDiffAvailable()](#m-isDiffAvailable-435088c38777)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-commitnotification-d12b0ad0627b"></a>
-### CommitNotification(int, boolean, DpUserInfo)
+### CommitNotification(int, boolean, DpUserInfo) <a href="#m-CommitNotification-d12b0ad0627b" id="m-CommitNotification-d12b0ad0627b"></a>
 
 ```java
 public CommitNotification(int database, boolean diffAvailable, com.tailf.dp.DpUserInfo uinfo)
@@ -48,8 +46,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 ## Methods
 
-<a id="m-getdatabase-3c5eb5bcb258"></a>
-### getDatabase()
+### getDatabase() <a href="#m-getDatabase-3c5eb5bcb258" id="m-getDatabase-3c5eb5bcb258"></a>
 
 ```java
 public int getDatabase()
@@ -63,8 +60,7 @@ Database type:
      - [`Conf#DB_RUNNING`](../conf/Conf.md#m-DB_RUNNING)
        - [`Conf#DB_STARTUP`](../conf/Conf.md#m-DB_STARTUP)
 
-<a id="m-getuserinfo-3ecef1f24d3d"></a>
-### getUserInfo()
+### getUserInfo() <a href="#m-getUserInfo-3ecef1f24d3d" id="m-getUserInfo-3ecef1f24d3d"></a>
 
 ```java
 public com.tailf.dp.DpUserInfo getUserInfo()
@@ -74,8 +70,7 @@ Types: [DpUserInfo](../dp/DpUserInfo.md#cls-DpUserInfo)
 
 User information
 
-<a id="m-isdiffavailable-435088c38777"></a>
-### isDiffAvailable()
+### isDiffAvailable() <a href="#m-isDiffAvailable-435088c38777" id="m-isDiffAvailable-435088c38777"></a>
 
 ```java
 public boolean isDiffAvailable()
@@ -83,8 +78,7 @@ public boolean isDiffAvailable()
 
 Diff is available
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

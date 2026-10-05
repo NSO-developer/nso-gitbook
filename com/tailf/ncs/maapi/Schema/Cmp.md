@@ -1,5 +1,4 @@
-<a id="cls-Cmp"></a>
-# Cmp
+# Cmp <a href="#cls-Cmp" id="cls-Cmp"></a>
 
 ```java
 public static enum com.tailf.ncs.maapi.Schema.Cmp
@@ -20,48 +19,42 @@ Types: [Cmp](Cmp.md#cls-Cmp)
 
 **Methods**:
 
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-_NOT_IN_SCHEMA"></a>
-### _NOT_IN_SCHEMA
+### _NOT_IN_SCHEMA <a href="#m-_NOT_IN_SCHEMA" id="m-_NOT_IN_SCHEMA"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp _NOT_IN_SCHEMA;
 ```
 
-<a id="m-NORMAL"></a>
-### NORMAL
+### NORMAL <a href="#m-NORMAL" id="m-NORMAL"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp NORMAL;
 ```
 
-<a id="m-SNMP"></a>
-### SNMP
+### SNMP <a href="#m-SNMP" id="m-SNMP"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp SNMP;
 ```
 
-<a id="m-SNMP_IMPLIED"></a>
-### SNMP_IMPLIED
+### SNMP_IMPLIED <a href="#m-SNMP_IMPLIED" id="m-SNMP_IMPLIED"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp SNMP_IMPLIED;
 ```
 
-<a id="m-UNSORTED"></a>
-### UNSORTED
+### UNSORTED <a href="#m-UNSORTED" id="m-UNSORTED"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp UNSORTED;
 ```
 
-<a id="m-USER"></a>
-### USER
+### USER <a href="#m-USER" id="m-USER"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cmp USER;
@@ -70,8 +63,7 @@ public static final com.tailf.ncs.maapi.Schema.Cmp USER;
 
 ## Methods
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.Cmp valueOf(String name)
@@ -83,8 +75,7 @@ Types: [Cmp](Cmp.md#cls-Cmp)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.maapi.Schema.Cmp[] values()

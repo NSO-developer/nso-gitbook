@@ -1,5 +1,4 @@
-<a id="cls-MaapiFlag"></a>
-# MaapiFlag
+# MaapiFlag <a href="#cls-MaapiFlag" id="cls-MaapiFlag"></a>
 
 ```java
 public enum com.tailf.maapi.MaapiFlag
@@ -24,14 +23,13 @@ Flags used by `Maapi#setFlags(int,EnumSet)` method to control
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CONFIG_ONLY"></a>
-### CONFIG_ONLY
+### CONFIG_ONLY <a href="#m-CONFIG_ONLY" id="m-CONFIG_ONLY"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag CONFIG_ONLY;
@@ -42,14 +40,13 @@ This flag will make the `Maapi.getXxx()` method return
 
  if we attempt to read operational data, it will be treated as if the
  nodes did not exist. This is mainly useful in conjunction with
- [`Maapi#getObject(int,String,Object...)`](Maapi.md#m-getobject-8f535bb4e0e8) and list entries or
+ [`Maapi#getObject(int,String,Object...)`](Maapi.md#m-getObject-8f535bb4e0e8) and list entries or
  containers that have both config
  and operational data (the operational data nodes in the returned array
  will be of class [`ConfNoExists`](../conf/ConfNoExists.md#cls-ConfNoExists) (type J_NOEXISTS),
  but the other functions also obey the flag.
 
-<a id="m-DELAYED_WHEN"></a>
-### DELAYED_WHEN
+### DELAYED_WHEN <a href="#m-DELAYED_WHEN" id="m-DELAYED_WHEN"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag DELAYED_WHEN;
@@ -61,11 +58,10 @@ This flag only takes effect when used in
 
  It will cause "delayed when" mode to be enabled from the beginning of
  the transaction.
- See [`Maapi#setDelayedWhen(int, boolean)`](Maapi.md#m-setdelayedwhen-38f32854fd19) for
+ See [`Maapi#setDelayedWhen(int, boolean)`](Maapi.md#m-setDelayedWhen-38f32854fd19) for
  more information about the "delayed when" mode
 
-<a id="m-HIDE_ALL_HIDEGROUPS"></a>
-### HIDE_ALL_HIDEGROUPS
+### HIDE_ALL_HIDEGROUPS <a href="#m-HIDE_ALL_HIDEGROUPS" id="m-HIDE_ALL_HIDEGROUPS"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag HIDE_ALL_HIDEGROUPS;
@@ -76,11 +72,10 @@ This flag only takes effect when used in
 
  It will hide all nodes with `tailf:hidden` statement from the
  dry-run result.
- See [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applytransparams-6c20b7896663) for more
+ See [`Maapi#applyTransParams(int, boolean, CommitParams)`](Maapi.md#m-applyTransParams-6c20b7896663) for more
  information about the dry-run.
 
-<a id="m-HIDE_INACTIVE"></a>
-### HIDE_INACTIVE
+### HIDE_INACTIVE <a href="#m-HIDE_INACTIVE" id="m-HIDE_INACTIVE"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag HIDE_INACTIVE;
@@ -94,8 +89,7 @@ This flag only takes effect when used in
  [`ConfAttributeType#INACTIVE`](../conf/ConfAttributeType.md#m-INACTIVE) attribute set, i.e.
  it will appear as if that data does not exist.
 
-<a id="m-HINT_BULK"></a>
-### HINT_BULK
+### HINT_BULK <a href="#m-HINT_BULK" id="m-HINT_BULK"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag HINT_BULK;
@@ -105,19 +99,18 @@ This flag tells the server that we will be reading substantial amounts
  of data.
 
  The affect of setting this has the effect that the
- [`DpDataCallback#getObject( DpTrans,ConfObject[])`](../dp/DpDataCallback.md#m-getobject-b2d87f9b9270) and
+ [`DpDataCallback#getObject( DpTrans,ConfObject[])`](../dp/DpDataCallback.md#m-getObject-b2d87f9b9270) and
  [`DpDataCallback#iterator(DpTrans,ConfObject[])`](../dp/DpDataCallback.md#m-iterator-89c62926f3e8),
  [`DpDataCallback#getIteratorKey(
-  DpTrans,ConfObject[],Object)`](../dp/DpDataCallback.md#m-getiteratorkey-6df7c38f65f8)
+  DpTrans,ConfObject[],Object)`](../dp/DpDataCallback.md#m-getIteratorKey-6df7c38f65f8)
  callbacks (if available) are used towards external data providers
- when we call [`Maapi#getElem(int,String,Object...)`](Maapi.md#m-getelem-1415a215bb24) etc and
- [`Maapi#getNext(MaapiCursor)`](Maapi.md#m-getnext-94186d85d070).
+ when we call [`Maapi#getElem(int,String,Object...)`](Maapi.md#m-getElem-1415a215bb24) etc and
+ [`Maapi#getNext(MaapiCursor)`](Maapi.md#m-getNext-94186d85d070).
 
- The [`Maapi#getObject(int,String,Object...)`](Maapi.md#m-getobject-8f535bb4e0e8)
+ The [`Maapi#getObject(int,String,Object...)`](Maapi.md#m-getObject-8f535bb4e0e8)
  method always operates as if this flag was set.
 
-<a id="m-NO_DEFAULTS"></a>
-### NO_DEFAULTS
+### NO_DEFAULTS <a href="#m-NO_DEFAULTS" id="m-NO_DEFAULTS"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag NO_DEFAULTS;
@@ -129,10 +122,9 @@ This flag specifies that we want to be informed when we read leafs with
  This is indicated by the returned value being of class
  [`ConfDefault`](../conf/ConfDefault.md#cls-ConfDefault) (type J_DEFAULT) instead of the
  actual value. The default value for such leafs can be obtained from the
- [`Maapi#loadSchemas()`](Maapi.md#m-loadschemas-84ad3496a6f3) tree provided by the library.
+ [`Maapi#loadSchemas()`](Maapi.md#m-loadSchemas-84ad3496a6f3) tree provided by the library.
 
-<a id="m-SKIP_SUBSCRIBERS"></a>
-### SKIP_SUBSCRIBERS
+### SKIP_SUBSCRIBERS <a href="#m-SKIP_SUBSCRIBERS" id="m-SKIP_SUBSCRIBERS"></a>
 
 ```java
 public static final com.tailf.maapi.MaapiFlag SKIP_SUBSCRIBERS;
@@ -146,15 +138,13 @@ This flag only takes effect when used in
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MaapiFlag valueOf(String name)
@@ -166,8 +156,7 @@ Types: [MaapiFlag](MaapiFlag.md#cls-MaapiFlag)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MaapiFlag[] values()

@@ -1,5 +1,4 @@
-<a id="cls-DataCallbackProxy"></a>
-# DataCallbackProxy
+# DataCallbackProxy <a href="#cls-DataCallbackProxy" id="cls-DataCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.DataCallbackProxy
@@ -16,7 +15,7 @@ Callback proxy for Data Callbacks. Implements the [`DpDataCallback`](../DpDataCa
 
 **Constructors**:
 
-- [DataCallbackProxy(Object, String)](#m-datacallbackproxy-3ad070be1b20)
+- [DataCallbackProxy(Object, String)](#m-DataCallbackProxy-3ad070be1b20)
 
 **Fields**:
 
@@ -40,40 +39,39 @@ Callback proxy for Data Callbacks. Implements the [`DpDataCallback`](../DpDataCa
 
 **Methods**:
 
-- [addActionCapability(DataCBType)](#m-addactioncapability-fef5fed819b7)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
-- [addExtraActionCapability(Integer)](#m-addextraactioncapability-8dec5455a1dc)
+- [addActionCapability(DataCBType)](#m-addActionCapability-fef5fed819b7)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
+- [addExtraActionCapability(Integer)](#m-addExtraActionCapability-8dec5455a1dc)
 - [callpoint()](#m-callpoint-d6336403521b)
 - [create(DpTrans, ConfObject[])](#m-create-b5264b1d26e2)
-- [existsOptional(DpTrans, ConfObject[])](#m-existsoptional-3a4437a2a54a)
-- [getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)](#m-getattrs-47ef46821576)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getCallPoint()](#m-getcallpoint-f816d0a44b26)
-- [getCase(DpTrans, ConfObject[], ConfObject[])](#m-getcase-24568d257ce7)
-- [getDataCallbackProxys(String, Object)](#m-getdatacallbackproxys-d0b69f7a129e)
-- [getElem(DpTrans, ConfObject[])](#m-getelem-baf9006121df)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getIteratorKey(DpTrans, ConfObject[], Object)](#m-getiteratorkey-6df7c38f65f8)
-- [getIteratorObject(DpTrans, ConfObject[], Object)](#m-getiteratorobject-425632c26c31)
-- [getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)](#m-getiteratorobjectlist-17a0707464f1)
-- [getObject(DpTrans, ConfObject[])](#m-getobject-b2d87f9b9270)
+- [existsOptional(DpTrans, ConfObject[])](#m-existsOptional-3a4437a2a54a)
+- [getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)](#m-getAttrs-47ef46821576)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getCallPoint()](#m-getCallPoint-f816d0a44b26)
+- [getCase(DpTrans, ConfObject[], ConfObject[])](#m-getCase-24568d257ce7)
+- [getDataCallbackProxys(String, Object)](#m-getDataCallbackProxys-d0b69f7a129e)
+- [getElem(DpTrans, ConfObject[])](#m-getElem-baf9006121df)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getIteratorKey(DpTrans, ConfObject[], Object)](#m-getIteratorKey-6df7c38f65f8)
+- [getIteratorObject(DpTrans, ConfObject[], Object)](#m-getIteratorObject-425632c26c31)
+- [getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)](#m-getIteratorObjectList-17a0707464f1)
+- [getObject(DpTrans, ConfObject[])](#m-getObject-b2d87f9b9270)
 - [iterator(DpTrans, ConfObject[])](#m-iterator-89c62926f3e8)
 - [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey)](#m-iterator-5d250fbe6a8b)
 - [iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter)](#m-iterator-b1da1a451977)
 - [iterator(DpTrans, ConfObject[], DpListFilter)](#m-iterator-02bb74b2989b)
 - [mask()](#m-mask-24c2fa29c6af)
-- [moveAfter(DpTrans, ConfObject[], ConfKey)](#m-moveafter-023d2bce078c)
-- [numInstances(DpTrans, ConfObject[])](#m-numinstances-71fd723ecab5)
+- [moveAfter(DpTrans, ConfObject[], ConfKey)](#m-moveAfter-023d2bce078c)
+- [numInstances(DpTrans, ConfObject[])](#m-numInstances-71fd723ecab5)
 - [remove(DpTrans, ConfObject[])](#m-remove-93340909c9a0)
-- [setAttr(DpTrans, ConfObject[], ConfAttributeValue)](#m-setattr-656af041deec)
-- [setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)](#m-setcase-430d4dbe7c83)
-- [setElem(DpTrans, ConfObject[], ConfValue)](#m-setelem-8a5e46811f6e)
-- [writeAll(DpTrans, ConfObject[])](#m-writeall-a4604e96718c)
+- [setAttr(DpTrans, ConfObject[], ConfAttributeValue)](#m-setAttr-656af041deec)
+- [setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)](#m-setCase-430d4dbe7c83)
+- [setElem(DpTrans, ConfObject[], ConfValue)](#m-setElem-8a5e46811f6e)
+- [writeAll(DpTrans, ConfObject[])](#m-writeAll-a4604e96718c)
 
 ## Constructors
 
-<a id="m-datacallbackproxy-3ad070be1b20"></a>
-### DataCallbackProxy(Object, String)
+### DataCallbackProxy(Object, String) <a href="#m-DataCallbackProxy-3ad070be1b20" id="m-DataCallbackProxy-3ad070be1b20"></a>
 
 ```java
 public DataCallbackProxy(Object backupObject, String callPoint)
@@ -89,8 +87,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-fef5fed819b7"></a>
-### addActionCapability(DataCBType)
+### addActionCapability(DataCBType) <a href="#m-addActionCapability-fef5fed819b7" id="m-addActionCapability-fef5fed819b7"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.DataCBType dataCBType)
@@ -105,8 +102,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.DataCBType dataCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -119,8 +115,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-addextraactioncapability-8dec5455a1dc"></a>
-### addExtraActionCapability(Integer)
+### addExtraActionCapability(Integer) <a href="#m-addExtraActionCapability-8dec5455a1dc" id="m-addExtraActionCapability-8dec5455a1dc"></a>
 
 ```java
 protected void addExtraActionCapability(Integer value)
@@ -130,15 +125,13 @@ protected void addExtraActionCapability(Integer value)
 
 - `Integer value`
 
-<a id="m-callpoint-d6336403521b"></a>
-### callpoint()
+### callpoint() <a href="#m-callpoint-d6336403521b" id="m-callpoint-d6336403521b"></a>
 
 ```java
 public String callpoint()
 ```
 
-<a id="m-create-b5264b1d26e2"></a>
-### create(DpTrans, ConfObject[])
+### create(DpTrans, ConfObject[]) <a href="#m-create-b5264b1d26e2" id="m-create-b5264b1d26e2"></a>
 
 ```java
 public int create(
@@ -155,8 +148,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-existsoptional-3a4437a2a54a"></a>
-### existsOptional(DpTrans, ConfObject[])
+### existsOptional(DpTrans, ConfObject[]) <a href="#m-existsOptional-3a4437a2a54a" id="m-existsOptional-3a4437a2a54a"></a>
 
 ```java
 public boolean existsOptional(
@@ -173,8 +165,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-getattrs-47ef46821576"></a>
-### getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>)
+### getAttrs(DpTrans, ConfObject[], List<ConfAttributeValue>) <a href="#m-getAttrs-47ef46821576" id="m-getAttrs-47ef46821576"></a>
 
 ```java
 public int getAttrs(
@@ -193,8 +184,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `java.util.List<com.tailf.conf.ConfAttributeValue> attrList`
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -204,8 +194,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getcallpoint-f816d0a44b26"></a>
-### getCallPoint()
+### getCallPoint() <a href="#m-getCallPoint-f816d0a44b26" id="m-getCallPoint-f816d0a44b26"></a>
 
 ```java
 public String getCallPoint()
@@ -215,8 +204,7 @@ Retrieve the callback callpoint
 
 **Returns:** callpoint string
 
-<a id="m-getcase-24568d257ce7"></a>
-### getCase(DpTrans, ConfObject[], ConfObject[])
+### getCase(DpTrans, ConfObject[], ConfObject[]) <a href="#m-getCase-24568d257ce7" id="m-getCase-24568d257ce7"></a>
 
 ```java
 public com.tailf.conf.ConfObject getCase(
@@ -235,8 +223,7 @@ Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DpTrans](../DpTra
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfObject[] choice`
 
-<a id="m-getdatacallbackproxys-d0b69f7a129e"></a>
-### getDataCallbackProxys(String, Object)
+### getDataCallbackProxys(String, Object) <a href="#m-getDataCallbackProxys-d0b69f7a129e" id="m-getDataCallbackProxys-d0b69f7a129e"></a>
 
 ```java
 public static com.tailf.dp.annotations.DataCallbackProxy[] getDataCallbackProxys(
@@ -262,8 +249,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-getelem-baf9006121df"></a>
-### getElem(DpTrans, ConfObject[])
+### getElem(DpTrans, ConfObject[]) <a href="#m-getElem-baf9006121df" id="m-getElem-baf9006121df"></a>
 
 ```java
 public com.tailf.conf.ConfValue getElem(
@@ -280,8 +266,7 @@ Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [DpTrans](../DpTrans.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public java.util.EnumSet<com.tailf.dp.proto.DpFlag> getFlags()
@@ -289,8 +274,7 @@ public java.util.EnumSet<com.tailf.dp.proto.DpFlag> getFlags()
 
 Types: [DpFlag](../proto/DpFlag.md#cls-DpFlag)
 
-<a id="m-getiteratorkey-6df7c38f65f8"></a>
-### getIteratorKey(DpTrans, ConfObject[], Object)
+### getIteratorKey(DpTrans, ConfObject[], Object) <a href="#m-getIteratorKey-6df7c38f65f8" id="m-getIteratorKey-6df7c38f65f8"></a>
 
 ```java
 public com.tailf.conf.ConfKey getIteratorKey(
@@ -309,8 +293,7 @@ Types: [ConfKey](../../conf/ConfKey.md#cls-ConfKey), [DpTrans](../DpTrans.md#cls
 - `com.tailf.conf.ConfObject[] kp`
 - `Object obj`
 
-<a id="m-getiteratorobject-425632c26c31"></a>
-### getIteratorObject(DpTrans, ConfObject[], Object)
+### getIteratorObject(DpTrans, ConfObject[], Object) <a href="#m-getIteratorObject-425632c26c31" id="m-getIteratorObject-425632c26c31"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getIteratorObject(
@@ -329,8 +312,7 @@ Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DpTrans](../DpTra
 - `com.tailf.conf.ConfObject[] kp`
 - `Object obj`
 
-<a id="m-getiteratorobjectlist-17a0707464f1"></a>
-### getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>)
+### getIteratorObjectList(DpTrans, ConfObject[], Object, Iterator<? extends Object>) <a href="#m-getIteratorObjectList-17a0707464f1" id="m-getIteratorObjectList-17a0707464f1"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfObject[]> getIteratorObjectList(
@@ -351,8 +333,7 @@ Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DpTrans](../DpTra
 - `Object obj`
 - `java.util.Iterator<? extends Object> iterator`
 
-<a id="m-getobject-b2d87f9b9270"></a>
-### getObject(DpTrans, ConfObject[])
+### getObject(DpTrans, ConfObject[]) <a href="#m-getObject-b2d87f9b9270" id="m-getObject-b2d87f9b9270"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getObject(
@@ -369,8 +350,7 @@ Types: [ConfObject](../../conf/ConfObject.md#cls-ConfObject), [DpTrans](../DpTra
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-iterator-89c62926f3e8"></a>
-### iterator(DpTrans, ConfObject[])
+### iterator(DpTrans, ConfObject[]) <a href="#m-iterator-89c62926f3e8" id="m-iterator-89c62926f3e8"></a>
 
 ```java
 public java.util.Iterator<Object> iterator(
@@ -387,8 +367,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-iterator-5d250fbe6a8b"></a>
-### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey)
+### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey) <a href="#m-iterator-5d250fbe6a8b" id="m-iterator-5d250fbe6a8b"></a>
 
 ```java
 public com.tailf.dp.DpDataFindNextIterator iterator(
@@ -409,8 +388,7 @@ Types: [DpDataFindNextIterator](../DpDataFindNextIterator.md#cls-DpDataFindNextI
 - `com.tailf.conf.ConfFindNextType type`
 - `com.tailf.conf.ConfKey key`
 
-<a id="m-iterator-b1da1a451977"></a>
-### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter)
+### iterator(DpTrans, ConfObject[], ConfFindNextType, ConfKey, DpListFilter) <a href="#m-iterator-b1da1a451977" id="m-iterator-b1da1a451977"></a>
 
 ```java
 public com.tailf.dp.DpDataFindNextIterator iterator(
@@ -433,8 +411,7 @@ Types: [DpDataFindNextIterator](../DpDataFindNextIterator.md#cls-DpDataFindNextI
 - `com.tailf.conf.ConfKey key`
 - `com.tailf.dp.DpListFilter filter`
 
-<a id="m-iterator-02bb74b2989b"></a>
-### iterator(DpTrans, ConfObject[], DpListFilter)
+### iterator(DpTrans, ConfObject[], DpListFilter) <a href="#m-iterator-02bb74b2989b" id="m-iterator-02bb74b2989b"></a>
 
 ```java
 public java.util.Iterator<Object> iterator(
@@ -453,15 +430,13 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.dp.DpListFilter filter`
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()
 ```
 
-<a id="m-moveafter-023d2bce078c"></a>
-### moveAfter(DpTrans, ConfObject[], ConfKey)
+### moveAfter(DpTrans, ConfObject[], ConfKey) <a href="#m-moveAfter-023d2bce078c" id="m-moveAfter-023d2bce078c"></a>
 
 ```java
 public int moveAfter(
@@ -480,8 +455,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfKey prevkey`
 
-<a id="m-numinstances-71fd723ecab5"></a>
-### numInstances(DpTrans, ConfObject[])
+### numInstances(DpTrans, ConfObject[]) <a href="#m-numInstances-71fd723ecab5" id="m-numInstances-71fd723ecab5"></a>
 
 ```java
 public int numInstances(
@@ -498,8 +472,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-remove-93340909c9a0"></a>
-### remove(DpTrans, ConfObject[])
+### remove(DpTrans, ConfObject[]) <a href="#m-remove-93340909c9a0" id="m-remove-93340909c9a0"></a>
 
 ```java
 public int remove(
@@ -516,8 +489,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.dp.DpTrans trans`
 - `com.tailf.conf.ConfObject[] kp`
 
-<a id="m-setattr-656af041deec"></a>
-### setAttr(DpTrans, ConfObject[], ConfAttributeValue)
+### setAttr(DpTrans, ConfObject[], ConfAttributeValue) <a href="#m-setAttr-656af041deec" id="m-setAttr-656af041deec"></a>
 
 ```java
 public int setAttr(
@@ -536,8 +508,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfAttributeValue attr`
 
-<a id="m-setcase-430d4dbe7c83"></a>
-### setCase(DpTrans, ConfObject[], ConfObject[], ConfTag)
+### setCase(DpTrans, ConfObject[], ConfObject[], ConfTag) <a href="#m-setCase-430d4dbe7c83" id="m-setCase-430d4dbe7c83"></a>
 
 ```java
 public int setCase(
@@ -558,8 +529,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] choice`
 - `com.tailf.conf.ConfTag caseval`
 
-<a id="m-setelem-8a5e46811f6e"></a>
-### setElem(DpTrans, ConfObject[], ConfValue)
+### setElem(DpTrans, ConfObject[], ConfValue) <a href="#m-setElem-8a5e46811f6e" id="m-setElem-8a5e46811f6e"></a>
 
 ```java
 public int setElem(
@@ -578,8 +548,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfValue newval`
 
-<a id="m-writeall-a4604e96718c"></a>
-### writeAll(DpTrans, ConfObject[])
+### writeAll(DpTrans, ConfObject[]) <a href="#m-writeAll-a4604e96718c" id="m-writeAll-a4604e96718c"></a>
 
 ```java
 public int writeAll(

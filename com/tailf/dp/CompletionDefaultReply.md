@@ -1,5 +1,4 @@
-<a id="cls-CompletionDefaultReply"></a>
-# CompletionDefaultReply
+# CompletionDefaultReply <a href="#cls-CompletionDefaultReply" id="cls-CompletionDefaultReply"></a>
 
 ```java
 public class com.tailf.dp.CompletionDefaultReply
@@ -16,20 +15,19 @@ Default completion reply for callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionDefaultReply()](#m-completiondefaultreply-fa43ba8d9700)
+- [CompletionDefaultReply()](#m-CompletionDefaultReply-fa43ba8d9700)
 
 **Methods**:
 
 - [encode()](#m-encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#m-newdefaultreply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#m-newrangeenumreply-5c101dba6437) from Completion
-- [newReply()](Completion.md#m-newreply-15892c4ebb44) from Completion
+- [newDefaultReply()](Completion.md#m-newDefaultReply-5583906bcd7c) from Completion
+- [newRangeEnumReply(int)](Completion.md#m-newRangeEnumReply-5c101dba6437) from Completion
+- [newReply()](Completion.md#m-newReply-15892c4ebb44) from Completion
 - [validate()](#m-validate-dc7ca5eb97ec)
 
 ## Constructors
 
-<a id="m-completiondefaultreply-fa43ba8d9700"></a>
-### CompletionDefaultReply()
+### CompletionDefaultReply() <a href="#m-CompletionDefaultReply-fa43ba8d9700" id="m-CompletionDefaultReply-fa43ba8d9700"></a>
 
 ```java
 protected CompletionDefaultReply()
@@ -38,8 +36,7 @@ protected CompletionDefaultReply()
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 protected com.tailf.proto.ConfEList encode()
@@ -47,8 +44,7 @@ protected com.tailf.proto.ConfEList encode()
 
 Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="m-validate-dc7ca5eb97ec"></a>
-### validate()
+### validate() <a href="#m-validate-dc7ca5eb97ec" id="m-validate-dc7ca5eb97ec"></a>
 
 ```java
 protected void validate() throws com.tailf.dp.DpCallbackException

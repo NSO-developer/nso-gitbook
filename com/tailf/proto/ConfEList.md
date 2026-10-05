@@ -1,5 +1,4 @@
-<a id="cls-ConfEList"></a>
-# ConfEList
+# ConfEList <a href="#cls-ConfEList" id="cls-ConfEList"></a>
 
 ```java
 public class com.tailf.proto.ConfEList
@@ -19,12 +18,12 @@ Provides a Java representation of E lists. Lists are created from zero or
 
 **Constructors**:
 
-- [ConfEList()](#m-confelist-6520e4a2b2b0)
-- [ConfEList(ConfEObject)](#m-confelist-b47cbbec1eea)
-- [ConfEList(ConfEObject[])](#m-confelist-d192515762f2)
-- [ConfEList(ConfEObject[], int, int)](#m-confelist-23ce111a3f2d)
-- [ConfEList(ConfInputStream)](#m-confelist-4ee5cf06b592)
-- [ConfEList(String)](#m-confelist-abe60ec15a23)
+- [ConfEList()](#m-ConfEList-6520e4a2b2b0)
+- [ConfEList(ConfEObject)](#m-ConfEList-b47cbbec1eea)
+- [ConfEList(ConfEObject[])](#m-ConfEList-d192515762f2)
+- [ConfEList(ConfEObject[], int, int)](#m-ConfEList-23ce111a3f2d)
+- [ConfEList(ConfInputStream)](#m-ConfEList-4ee5cf06b592)
+- [ConfEList(String)](#m-ConfEList-abe60ec15a23)
 
 **Fields**:
 
@@ -35,21 +34,20 @@ Provides a Java representation of E lists. Lists are created from zero or
 - [arity()](#m-arity-2e3299329464)
 - [clone()](#m-clone-164c86c45e9b)
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
-- [elementAt(int)](#m-elementat-7ff98e6e0268)
+- [elementAt(int)](#m-elementAt-7ff98e6e0268)
 - [elements()](#m-elements-1ac1cabc0e96)
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
+- [hashCode()](#m-hashCode-ef797a217903)
 - [iterator()](#m-iterator-188aa52d1f86)
 - [proper()](#m-proper-e327c5f55f3c)
 - [reverse()](#m-reverse-70d4d279e86c)
-- [setProper(boolean)](#m-setproper-d2777201f8d3)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [setProper(boolean)](#m-setProper-d2777201f8d3)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confelist-6520e4a2b2b0"></a>
-### ConfEList()
+### ConfEList() <a href="#m-ConfEList-6520e4a2b2b0" id="m-ConfEList-6520e4a2b2b0"></a>
 
 ```java
 public ConfEList()
@@ -57,8 +55,7 @@ public ConfEList()
 
 Create an empty list.
 
-<a id="m-confelist-b47cbbec1eea"></a>
-### ConfEList(ConfEObject)
+### ConfEList(ConfEObject) <a href="#m-ConfEList-b47cbbec1eea" id="m-ConfEList-b47cbbec1eea"></a>
 
 ```java
 public ConfEList(com.tailf.proto.ConfEObject elem)
@@ -72,8 +69,7 @@ Create a list containing one element.
 
 - `com.tailf.proto.ConfEObject elem` - the element to make the list from.
 
-<a id="m-confelist-d192515762f2"></a>
-### ConfEList(ConfEObject[])
+### ConfEList(ConfEObject[]) <a href="#m-ConfEList-d192515762f2" id="m-ConfEList-d192515762f2"></a>
 
 ```java
 public ConfEList(com.tailf.proto.ConfEObject[] elems)
@@ -87,8 +83,7 @@ Create a list from an array of arbitrary E terms.
 
 - `com.tailf.proto.ConfEObject[] elems` - the array of terms from which to create the list.
 
-<a id="m-confelist-23ce111a3f2d"></a>
-### ConfEList(ConfEObject[], int, int)
+### ConfEList(ConfEObject[], int, int) <a href="#m-ConfEList-23ce111a3f2d" id="m-ConfEList-23ce111a3f2d"></a>
 
 ```java
 public ConfEList(com.tailf.proto.ConfEObject[] elems, int start, int count)
@@ -104,8 +99,7 @@ Create a list from an array of arbitrary E terms.
 - `int start` - the offset of the first term to insert.
 - `int count` - the number of terms to insert.
 
-<a id="m-confelist-4ee5cf06b592"></a>
-### ConfEList(ConfInputStream)
+### ConfEList(ConfInputStream) <a href="#m-ConfEList-4ee5cf06b592" id="m-ConfEList-4ee5cf06b592"></a>
 
 ```java
 public ConfEList(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -125,8 +119,7 @@ Create a list from a stream containing an list encoded in E external
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E list.
 
-<a id="m-confelist-abe60ec15a23"></a>
-### ConfEList(String)
+### ConfEList(String) <a href="#m-ConfEList-abe60ec15a23" id="m-ConfEList-abe60ec15a23"></a>
 
 ```java
 public ConfEList(String str)
@@ -141,8 +134,7 @@ Create a list of characters.
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -153,8 +145,7 @@ static final long serialVersionUID = 5999112769036676548;
 
 ## Methods
 
-<a id="m-arity-2e3299329464"></a>
-### arity()
+### arity() <a href="#m-arity-2e3299329464" id="m-arity-2e3299329464"></a>
 
 ```java
 public int arity()
@@ -164,15 +155,13 @@ Get the arity of the list.
 
 **Returns:** the number of elements contained in the list.
 
-<a id="m-clone-164c86c45e9b"></a>
-### clone()
+### clone() <a href="#m-clone-164c86c45e9b" id="m-clone-164c86c45e9b"></a>
 
 ```java
 public Object clone()
 ```
 
-<a id="m-elementat-7ff98e6e0268"></a>
-### elementAt(int)
+### elementAt(int) <a href="#m-elementAt-7ff98e6e0268" id="m-elementAt-7ff98e6e0268"></a>
 
 ```java
 public com.tailf.proto.ConfEObject elementAt(int i)
@@ -189,8 +178,7 @@ Get the specified element from the list.
 
 **Returns:** the requested element, of null if i is not a valid element index.
 
-<a id="m-elements-1ac1cabc0e96"></a>
-### elements()
+### elements() <a href="#m-elements-1ac1cabc0e96" id="m-elements-1ac1cabc0e96"></a>
 
 ```java
 public com.tailf.proto.ConfEObject[] elements()
@@ -202,8 +190,7 @@ Get all the elements from the list as an array.
 
 **Returns:** an array containing all of the list's elements.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -219,8 +206,7 @@ Convert this list to the equivalent E external representation. Note that
 
 - `com.tailf.proto.ConfOutputStream buf` - An output stream to which the encoded list should be written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -236,15 +222,13 @@ Determine if two lists are equal. Lists are equal if they have the same
 **Returns:** true if the lists have the same arity and all the elements are
          equal.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-iterator-188aa52d1f86"></a>
-### iterator()
+### iterator() <a href="#m-iterator-188aa52d1f86" id="m-iterator-188aa52d1f86"></a>
 
 ```java
 public java.util.Iterator<com.tailf.proto.ConfEObject> iterator()
@@ -252,15 +236,13 @@ public java.util.Iterator<com.tailf.proto.ConfEObject> iterator()
 
 Types: [ConfEObject](ConfEObject.md#cls-ConfEObject)
 
-<a id="m-proper-e327c5f55f3c"></a>
-### proper()
+### proper() <a href="#m-proper-e327c5f55f3c" id="m-proper-e327c5f55f3c"></a>
 
 ```java
 public boolean proper()
 ```
 
-<a id="m-reverse-70d4d279e86c"></a>
-### reverse()
+### reverse() <a href="#m-reverse-70d4d279e86c" id="m-reverse-70d4d279e86c"></a>
 
 ```java
 public com.tailf.proto.ConfEList reverse()
@@ -268,8 +250,7 @@ public com.tailf.proto.ConfEList reverse()
 
 Types: [ConfEList](ConfEList.md#cls-ConfEList)
 
-<a id="m-setproper-d2777201f8d3"></a>
-### setProper(boolean)
+### setProper(boolean) <a href="#m-setProper-d2777201f8d3" id="m-setProper-d2777201f8d3"></a>
 
 ```java
 public void setProper(boolean p)
@@ -279,8 +260,7 @@ public void setProper(boolean p)
 
 - `boolean p`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

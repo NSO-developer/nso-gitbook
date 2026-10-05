@@ -1,5 +1,4 @@
-<a id="cls-NavuCdbSessionPool"></a>
-# NavuCdbSessionPool
+# NavuCdbSessionPool <a href="#cls-NavuCdbSessionPool" id="cls-NavuCdbSessionPool"></a>
 
 **Package-private**
 
@@ -11,20 +10,19 @@ class com.tailf.navu.NavuCdbSessionPool
 
 **Constructors**:
 
-- [NavuCdbSessionPool()](#m-navucdbsessionpool-d5eff8a65c40)
+- [NavuCdbSessionPool()](#m-NavuCdbSessionPool-d5eff8a65c40)
 
 **Methods**:
 
-- [getCdbSession(Cdb, CdbDBType)](#m-getcdbsession-d341a676ff83)
-- [getCdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-getcdbsession-1e3bd33ef562)
-- [removeAllSessions()](#m-removeallsessions-211f72fa9478)
-- [removeCdbSessions(Cdb)](#m-removecdbsessions-5b75ba1be78f)
-- [setImpl(NavuCdbSessionPoolable)](#m-setimpl-fa30123ffe55)
+- [getCdbSession(Cdb, CdbDBType)](#m-getCdbSession-d341a676ff83)
+- [getCdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-getCdbSession-1e3bd33ef562)
+- [removeAllSessions()](#m-removeAllSessions-211f72fa9478)
+- [removeCdbSessions(Cdb)](#m-removeCdbSessions-5b75ba1be78f)
+- [setImpl(NavuCdbSessionPoolable)](#m-setImpl-fa30123ffe55)
 
 ## Constructors
 
-<a id="m-navucdbsessionpool-d5eff8a65c40"></a>
-### NavuCdbSessionPool()
+### NavuCdbSessionPool() <a href="#m-NavuCdbSessionPool-d5eff8a65c40" id="m-NavuCdbSessionPool-d5eff8a65c40"></a>
 
 **Package-private**
 
@@ -35,8 +33,7 @@ NavuCdbSessionPool()
 
 ## Methods
 
-<a id="m-getcdbsession-d341a676ff83"></a>
-### getCdbSession(Cdb, CdbDBType)
+### getCdbSession(Cdb, CdbDBType) <a href="#m-getCdbSession-d341a676ff83" id="m-getCdbSession-d341a676ff83"></a>
 
 ```java
 public static com.tailf.cdb.CdbSession getCdbSession(
@@ -57,8 +54,7 @@ Return a CdbSession towards the dbType with no locks.
 
 **Returns:** CdbSession
 
-<a id="m-getcdbsession-1e3bd33ef562"></a>
-### getCdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>)
+### getCdbSession(Cdb, CdbDBType, EnumSet<CdbLockType>) <a href="#m-getCdbSession-1e3bd33ef562" id="m-getCdbSession-1e3bd33ef562"></a>
 
 ```java
 public static com.tailf.cdb.CdbSession getCdbSession(
@@ -81,8 +77,7 @@ Return a CdbSession towards the dbType with specified locks.
 
 **Returns:** CdbSession
 
-<a id="m-removeallsessions-211f72fa9478"></a>
-### removeAllSessions()
+### removeAllSessions() <a href="#m-removeAllSessions-211f72fa9478" id="m-removeAllSessions-211f72fa9478"></a>
 
 ```java
 public static void removeAllSessions() throws java.io.IOException, com.tailf.conf.ConfException
@@ -97,8 +92,7 @@ Removes all CdbSession in the session pool
 - `IOException`
 - `ConfException`
 
-<a id="m-removecdbsessions-5b75ba1be78f"></a>
-### removeCdbSessions(Cdb)
+### removeCdbSessions(Cdb) <a href="#m-removeCdbSessions-5b75ba1be78f" id="m-removeCdbSessions-5b75ba1be78f"></a>
 
 ```java
 public static void removeCdbSessions(com.tailf.cdb.Cdb cdb)
@@ -112,8 +106,7 @@ Removes all CdbSessions associated with a root Cdb
 
 - `com.tailf.cdb.Cdb cdb` - root Cdb to identify owner
 
-<a id="m-setimpl-fa30123ffe55"></a>
-### setImpl(NavuCdbSessionPoolable)
+### setImpl(NavuCdbSessionPoolable) <a href="#m-setImpl-fa30123ffe55" id="m-setImpl-fa30123ffe55"></a>
 
 ```java
 public static void setImpl(

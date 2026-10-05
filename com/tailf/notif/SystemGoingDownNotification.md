@@ -1,5 +1,4 @@
-<a id="cls-SystemGoingDownNotification"></a>
-# SystemGoingDownNotification
+# SystemGoingDownNotification <a href="#cls-SystemGoingDownNotification" id="cls-SystemGoingDownNotification"></a>
 
 ```java
 public class com.tailf.notif.SystemGoingDownNotification
@@ -14,7 +13,7 @@ Data structure for SystemGoingDown notifications.
 
 **Constructors**:
 
-- [SystemGoingDownNotification()](#m-systemgoingdownnotification-beaedd19d9a3)
+- [SystemGoingDownNotification()](#m-SystemGoingDownNotification-beaedd19d9a3)
 
 **Fields**:
 
@@ -22,13 +21,12 @@ Data structure for SystemGoingDown notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-toString-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="m-systemgoingdownnotification-beaedd19d9a3"></a>
-### SystemGoingDownNotification()
+### SystemGoingDownNotification() <a href="#m-SystemGoingDownNotification-beaedd19d9a3" id="m-SystemGoingDownNotification-beaedd19d9a3"></a>
 
 ```java
 public SystemGoingDownNotification()

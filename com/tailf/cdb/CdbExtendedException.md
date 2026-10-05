@@ -1,5 +1,4 @@
-<a id="cls-CdbExtendedException"></a>
-# CdbExtendedException
+# CdbExtendedException <a href="#cls-CdbExtendedException" id="cls-CdbExtendedException"></a>
 
 ```java
 public class com.tailf.cdb.CdbExtendedException
@@ -22,9 +21,9 @@ This exception is used by clients of CdbSubscription that needs to report
 
 **Constructors**:
 
-- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#m-cdbextendedexception-d4627df609d2)
-- [CdbExtendedException(int, ConfNamespace, String, String)](#m-cdbextendedexception-dcf45499af32)
-- [CdbExtendedException(int, String)](#m-cdbextendedexception-03279c6b0750)
+- [CdbExtendedException(int, ConfNamespace, String, ConfException)](#m-CdbExtendedException-d4627df609d2)
+- [CdbExtendedException(int, ConfNamespace, String, String)](#m-CdbExtendedException-dcf45499af32)
+- [CdbExtendedException(int, String)](#m-CdbExtendedException-03279c6b0750)
 
 **Fields**:
 
@@ -42,19 +41,18 @@ This exception is used by clients of CdbSubscription that needs to report
 
 **Methods**:
 
-- [getAppNS()](#m-getappns-7c6fc85ea70b)
-- [getAppTag()](#m-getapptag-9f85f05c1736)
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getExtendedErrorCodeString()](#m-getextendederrorcodestring-522ef11dd66a)
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getAppNS()](#m-getAppNS-7c6fc85ea70b)
+- [getAppTag()](#m-getAppTag-9f85f05c1736)
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getExtendedErrorCodeString()](#m-getExtendedErrorCodeString-522ef11dd66a)
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](CdbException.md#m-mk-de1cedfc6ea8) from CdbException
 - [mk(ConfResponse, ConfPath)](CdbException.md#m-mk-79e69ffbc022) from CdbException
 - [mk(int, ConfNamespace, String, ConfResponse)](#m-mk-45b8f9041391)
 
 ## Constructors
 
-<a id="m-cdbextendedexception-d4627df609d2"></a>
-### CdbExtendedException(int, ConfNamespace, String, ConfException)
+### CdbExtendedException(int, ConfNamespace, String, ConfException) <a href="#m-CdbExtendedException-d4627df609d2" id="m-CdbExtendedException-d4627df609d2"></a>
 
 ```java
 public CdbExtendedException(
@@ -81,8 +79,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace), [ConfExcepti
 - `String appTag` - - not implemented, should be null
 - `com.tailf.conf.ConfException ex` - - cause exception
 
-<a id="m-cdbextendedexception-dcf45499af32"></a>
-### CdbExtendedException(int, ConfNamespace, String, String)
+### CdbExtendedException(int, ConfNamespace, String, String) <a href="#m-CdbExtendedException-dcf45499af32" id="m-CdbExtendedException-dcf45499af32"></a>
 
 ```java
 public CdbExtendedException(
@@ -109,8 +106,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 - `String appTag` - - not implemented, should be null
 - `String msg` - - informative text describing this exception
 
-<a id="m-cdbextendedexception-03279c6b0750"></a>
-### CdbExtendedException(int, String)
+### CdbExtendedException(int, String) <a href="#m-CdbExtendedException-03279c6b0750" id="m-CdbExtendedException-03279c6b0750"></a>
 
 ```java
 public CdbExtendedException(int extendedErrorCode, String msg)
@@ -131,78 +127,67 @@ public CdbExtendedException(int extendedErrorCode, String msg)
 
 ## Fields
 
-<a id="m-ERRCODE_ACCESS_DENIED"></a>
-### ERRCODE_ACCESS_DENIED
+### ERRCODE_ACCESS_DENIED <a href="#m-ERRCODE_ACCESS_DENIED" id="m-ERRCODE_ACCESS_DENIED"></a>
 
 ```java
 public static final int ERRCODE_ACCESS_DENIED = 3;
 ```
 
-<a id="m-ERRCODE_APPLICATION"></a>
-### ERRCODE_APPLICATION
+### ERRCODE_APPLICATION <a href="#m-ERRCODE_APPLICATION" id="m-ERRCODE_APPLICATION"></a>
 
 ```java
 public static final int ERRCODE_APPLICATION = 4;
 ```
 
-<a id="m-ERRCODE_APPLICATION_INTERNAL"></a>
-### ERRCODE_APPLICATION_INTERNAL
+### ERRCODE_APPLICATION_INTERNAL <a href="#m-ERRCODE_APPLICATION_INTERNAL" id="m-ERRCODE_APPLICATION_INTERNAL"></a>
 
 ```java
 public static final int ERRCODE_APPLICATION_INTERNAL = 5;
 ```
 
-<a id="m-ERRCODE_DATA_MISSING"></a>
-### ERRCODE_DATA_MISSING
+### ERRCODE_DATA_MISSING <a href="#m-ERRCODE_DATA_MISSING" id="m-ERRCODE_DATA_MISSING"></a>
 
 ```java
 public static final int ERRCODE_DATA_MISSING = 8;
 ```
 
-<a id="m-ERRCODE_IN_USE"></a>
-### ERRCODE_IN_USE
+### ERRCODE_IN_USE <a href="#m-ERRCODE_IN_USE" id="m-ERRCODE_IN_USE"></a>
 
 ```java
 public static final int ERRCODE_IN_USE = 0;
 ```
 
-<a id="m-ERRCODE_INCONSISTENT_VALUE"></a>
-### ERRCODE_INCONSISTENT_VALUE
+### ERRCODE_INCONSISTENT_VALUE <a href="#m-ERRCODE_INCONSISTENT_VALUE" id="m-ERRCODE_INCONSISTENT_VALUE"></a>
 
 ```java
 public static final int ERRCODE_INCONSISTENT_VALUE = 2;
 ```
 
-<a id="m-ERRCODE_INTERNAL"></a>
-### ERRCODE_INTERNAL
+### ERRCODE_INTERNAL <a href="#m-ERRCODE_INTERNAL" id="m-ERRCODE_INTERNAL"></a>
 
 ```java
 protected static final int ERRCODE_INTERNAL = 7;
 ```
 
-<a id="m-ERRCODE_INTERRUPT"></a>
-### ERRCODE_INTERRUPT
+### ERRCODE_INTERRUPT <a href="#m-ERRCODE_INTERRUPT" id="m-ERRCODE_INTERRUPT"></a>
 
 ```java
 public static final int ERRCODE_INTERRUPT = 9;
 ```
 
-<a id="m-ERRCODE_PROTO_USAGE"></a>
-### ERRCODE_PROTO_USAGE
+### ERRCODE_PROTO_USAGE <a href="#m-ERRCODE_PROTO_USAGE" id="m-ERRCODE_PROTO_USAGE"></a>
 
 ```java
 protected static final int ERRCODE_PROTO_USAGE = 6;
 ```
 
-<a id="m-ERRCODE_RESOURCE_DENIED"></a>
-### ERRCODE_RESOURCE_DENIED
+### ERRCODE_RESOURCE_DENIED <a href="#m-ERRCODE_RESOURCE_DENIED" id="m-ERRCODE_RESOURCE_DENIED"></a>
 
 ```java
 public static final int ERRCODE_RESOURCE_DENIED = 1;
 ```
 
-<a id="m-extendedErrorCode"></a>
-### extendedErrorCode
+### extendedErrorCode <a href="#m-extendedErrorCode" id="m-extendedErrorCode"></a>
 
 ```java
 public int extendedErrorCode = null;
@@ -211,8 +196,7 @@ public int extendedErrorCode = null;
 
 ## Methods
 
-<a id="m-getappns-7c6fc85ea70b"></a>
-### getAppNS()
+### getAppNS() <a href="#m-getAppNS-7c6fc85ea70b" id="m-getAppNS-7c6fc85ea70b"></a>
 
 ```java
 public com.tailf.conf.ConfNamespace getAppNS()
@@ -222,8 +206,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 **Returns:** ConfNamespace for this extended exception
 
-<a id="m-getapptag-9f85f05c1736"></a>
-### getAppTag()
+### getAppTag() <a href="#m-getAppTag-9f85f05c1736" id="m-getAppTag-9f85f05c1736"></a>
 
 ```java
 public String getAppTag()
@@ -231,8 +214,7 @@ public String getAppTag()
 
 **Returns:** appTag for the extended exception
 
-<a id="m-getextendederrorcodestring-522ef11dd66a"></a>
-### getExtendedErrorCodeString()
+### getExtendedErrorCodeString() <a href="#m-getExtendedErrorCodeString-522ef11dd66a" id="m-getExtendedErrorCodeString-522ef11dd66a"></a>
 
 ```java
 public String getExtendedErrorCodeString()
@@ -243,8 +225,7 @@ Get string representation of this exception error code.
 **Returns:** String representation of the errorcode for this extended
          exception
 
-<a id="m-mk-45b8f9041391"></a>
-### mk(int, ConfNamespace, String, ConfResponse)
+### mk(int, ConfNamespace, String, ConfResponse) <a href="#m-mk-45b8f9041391" id="m-mk-45b8f9041391"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(

@@ -1,5 +1,4 @@
-<a id="cls-ResultTypeStringImpl"></a>
-# ResultTypeStringImpl
+# ResultTypeStringImpl <a href="#cls-ResultTypeStringImpl" id="cls-ResultTypeStringImpl"></a>
 
 **Package-private**
 
@@ -14,16 +13,15 @@ Types: [ResultTypeString](ResultTypeString.md#cls-ResultTypeString)
 
 **Constructors**:
 
-- [ResultTypeStringImpl(String)](#m-resulttypestringimpl-76604566947b)
+- [ResultTypeStringImpl(String)](#m-ResultTypeStringImpl-76604566947b)
 
 **Methods**:
 
-- [stringValue()](#m-stringvalue-a6efca13ec08)
+- [stringValue()](#m-stringValue-a6efca13ec08)
 
 ## Constructors
 
-<a id="m-resulttypestringimpl-76604566947b"></a>
-### ResultTypeStringImpl(String)
+### ResultTypeStringImpl(String) <a href="#m-ResultTypeStringImpl-76604566947b" id="m-ResultTypeStringImpl-76604566947b"></a>
 
 **Package-private**
 
@@ -38,8 +36,7 @@ ResultTypeStringImpl(String val)
 
 ## Methods
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()

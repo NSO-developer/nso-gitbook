@@ -1,5 +1,4 @@
-<a id="cls-SSHSession"></a>
-# SSHSession
+# SSHSession <a href="#cls-SSHSession" id="cls-SSHSession"></a>
 
 ```java
 public class com.tailf.ned.SSHSession
@@ -26,10 +25,10 @@ A SSH  transport.
 
 **Constructors**:
 
-- [SSHSession(SSHConnection)](#m-sshsession-8292ed2fa199)
-- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase)](#m-sshsession-5bfc258db6fa)
-- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int)](#m-sshsession-5bbe10e388cd)
-- [SSHSession(SSHConnection, NedTracer, NedConnectionBase)](#m-sshsession-fa053fc79631)
+- [SSHSession(SSHConnection)](#m-SSHSession-8292ed2fa199)
+- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase)](#m-SSHSession-5bfc258db6fa)
+- [SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int)](#m-SSHSession-5bbe10e388cd)
+- [SSHSession(SSHConnection, NedTracer, NedConnectionBase)](#m-SSHSession-fa053fc79631)
 
 **Fields**:
 
@@ -60,26 +59,25 @@ A SSH  transport.
 - [expect(String[], boolean, int)](#m-expect-f6cb6c02c198)
 - [expect(String[], boolean, int, NedWorker)](#m-expect-90d4e3ee7ac2)
 - [expect(String[], NedWorker)](#m-expect-4485477b99db)
-- [expectStr(String, boolean, int)](#m-expectstr-a0568beb746e)
+- [expectStr(String, boolean, int)](#m-expectStr-a0568beb746e)
 - [flush()](#m-flush-a4d76f158943)
-- [getReadTimeout()](#m-getreadtimeout-640fc089c1de)
-- [getSession()](#m-getsession-d2df47d6a1b6)
-- [getSSHConnection()](#m-getsshconnection-d215c3958a3d)
+- [getReadTimeout()](#m-getReadTimeout-640fc089c1de)
+- [getSession()](#m-getSession-d2df47d6a1b6)
+- [getSSHConnection()](#m-getSSHConnection-d215c3958a3d)
 - [print(int)](#m-print-41f2f1534264)
 - [print(String)](#m-print-b202251f9230)
 - [println(int)](#m-println-4c26ee676efb)
 - [println(String)](#m-println-15aea44318e6)
-- [readUntilWouldBlock()](#m-readuntilwouldblock-a932110e11be)
+- [readUntilWouldBlock()](#m-readUntilWouldBlock-a932110e11be)
 - [ready()](#m-ready-92162bd485a2)
 - [ready(int)](#m-ready-c585210c0993)
-- [serverSideClosed()](#m-serversideclosed-0dfe26b0733e)
-- [setReadTimeout(int)](#m-setreadtimeout-4f6742da7687)
-- [setTracer(NedTracer)](#m-settracer-6943f9aadf68)
+- [serverSideClosed()](#m-serverSideClosed-0dfe26b0733e)
+- [setReadTimeout(int)](#m-setReadTimeout-4f6742da7687)
+- [setTracer(NedTracer)](#m-setTracer-6943f9aadf68)
 
 ## Constructors
 
-<a id="m-sshsession-8292ed2fa199"></a>
-### SSHSession(SSHConnection)
+### SSHSession(SSHConnection) <a href="#m-SSHSession-8292ed2fa199" id="m-SSHSession-8292ed2fa199"></a>
 
 ```java
 public SSHSession(com.tailf.ned.SSHConnection con) throws java.io.IOException
@@ -100,8 +98,7 @@ Constructor for SSH session object. This method creates a
 
 - `IOException`
 
-<a id="m-sshsession-5bfc258db6fa"></a>
-### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase)
+### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase) <a href="#m-SSHSession-5bfc258db6fa" id="m-SSHSession-5bfc258db6fa"></a>
 
 ```java
 public SSHSession(
@@ -128,8 +125,7 @@ Constructor with an extra argument for a readTimeout timer.
 
 - `IOException`
 
-<a id="m-sshsession-5bbe10e388cd"></a>
-### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int)
+### SSHSession(SSHConnection, int, NedTracer, NedConnectionBase, int, int) <a href="#m-SSHSession-5bbe10e388cd" id="m-SSHSession-5bbe10e388cd"></a>
 
 ```java
 public SSHSession(
@@ -160,8 +156,7 @@ Constructor with extra terminal width and height arguments
 
 - `IOException`
 
-<a id="m-sshsession-fa053fc79631"></a>
-### SSHSession(SSHConnection, NedTracer, NedConnectionBase)
+### SSHSession(SSHConnection, NedTracer, NedConnectionBase) <a href="#m-SSHSession-fa053fc79631" id="m-SSHSession-fa053fc79631"></a>
 
 ```java
 public SSHSession(
@@ -192,8 +187,7 @@ Constructor for SSH session object. This method creates a
 
 ## Fields
 
-<a id="m-readTimeout"></a>
-### readTimeout
+### readTimeout <a href="#m-readTimeout" id="m-readTimeout"></a>
 
 ```java
 protected int readTimeout = null;
@@ -202,8 +196,7 @@ protected int readTimeout = null;
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
@@ -212,8 +205,7 @@ public void close()
 Closes the SSH connection, including all sessions (only one in
  this case, compared to many in Netconf)
 
-<a id="m-expect-98936155685a"></a>
-### expect(Pattern)
+### expect(Pattern) <a href="#m-expect-98936155685a" id="m-expect-98936155685a"></a>
 
 ```java
 public String expect(
@@ -228,8 +220,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 
 - `java.util.regex.Pattern p`
 
-<a id="m-expect-ae0bda32ace3"></a>
-### expect(Pattern, boolean, int)
+### expect(Pattern, boolean, int) <a href="#m-expect-ae0bda32ace3" id="m-expect-ae0bda32ace3"></a>
 
 ```java
 public String expect(
@@ -248,8 +239,7 @@ Types: [SSHSessionException](SSHSessionException.md#cls-SSHSessionException)
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-7eb828b58e63"></a>
-### expect(Pattern, boolean, int, NedWorker)
+### expect(Pattern, boolean, int, NedWorker) <a href="#m-expect-7eb828b58e63" id="m-expect-7eb828b58e63"></a>
 
 ```java
 public String expect(
@@ -270,8 +260,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-a363c018c396"></a>
-### expect(Pattern, NedWorker)
+### expect(Pattern, NedWorker) <a href="#m-expect-a363c018c396" id="m-expect-a363c018c396"></a>
 
 ```java
 public String expect(
@@ -288,8 +277,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `java.util.regex.Pattern p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-8149faa90d9d"></a>
-### expect(Pattern[])
+### expect(Pattern[]) <a href="#m-expect-8149faa90d9d" id="m-expect-8149faa90d9d"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -304,8 +292,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 
 - `java.util.regex.Pattern[] p`
 
-<a id="m-expect-5cc2e4122c7b"></a>
-### expect(Pattern[], boolean, int)
+### expect(Pattern[], boolean, int) <a href="#m-expect-5cc2e4122c7b" id="m-expect-5cc2e4122c7b"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -324,8 +311,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-7b0546ada421"></a>
-### expect(Pattern[], boolean, int, boolean)
+### expect(Pattern[], boolean, int, boolean) <a href="#m-expect-7b0546ada421" id="m-expect-7b0546ada421"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -346,8 +332,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `int timeout`
 - `boolean full`
 
-<a id="m-expect-8367e41003a6"></a>
-### expect(Pattern[], boolean, int, boolean, NedWorker)
+### expect(Pattern[], boolean, int, boolean, NedWorker) <a href="#m-expect-8367e41003a6" id="m-expect-8367e41003a6"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -370,8 +355,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `boolean full`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-6c58bada9cc6"></a>
-### expect(Pattern[], boolean, int, NedWorker)
+### expect(Pattern[], boolean, int, NedWorker) <a href="#m-expect-6c58bada9cc6" id="m-expect-6c58bada9cc6"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -392,8 +376,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-b0896c6a7b2a"></a>
-### expect(Pattern[], NedWorker)
+### expect(Pattern[], NedWorker) <a href="#m-expect-b0896c6a7b2a" id="m-expect-b0896c6a7b2a"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -410,8 +393,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `java.util.regex.Pattern[] p`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-5f5d11ad490b"></a>
-### expect(String)
+### expect(String) <a href="#m-expect-5f5d11ad490b" id="m-expect-5f5d11ad490b"></a>
 
 ```java
 public String expect(String str) throws com.tailf.ned.SSHSessionException, java.io.IOException
@@ -428,8 +410,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-<a id="m-expect-b7ee8aa21949"></a>
-### expect(String, boolean, boolean, int)
+### expect(String, boolean, boolean, int) <a href="#m-expect-b7ee8aa21949" id="m-expect-b7ee8aa21949"></a>
 
 ```java
 public String expect(
@@ -458,8 +439,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-<a id="m-expect-a44ee9613d91"></a>
-### expect(String, boolean, boolean, int, NedWorker)
+### expect(String, boolean, boolean, int, NedWorker) <a href="#m-expect-a44ee9613d91" id="m-expect-a44ee9613d91"></a>
 
 ```java
 public String expect(
@@ -482,8 +462,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-16cd2f682137"></a>
-### expect(String, boolean, int)
+### expect(String, boolean, int) <a href="#m-expect-16cd2f682137" id="m-expect-16cd2f682137"></a>
 
 ```java
 public String expect(
@@ -508,8 +487,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-<a id="m-expect-6e2d86346550"></a>
-### expect(String, boolean, int, NedWorker)
+### expect(String, boolean, int, NedWorker) <a href="#m-expect-6e2d86346550" id="m-expect-6e2d86346550"></a>
 
 ```java
 public String expect(
@@ -530,8 +508,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-37295e1967db"></a>
-### expect(String, int)
+### expect(String, int) <a href="#m-expect-37295e1967db" id="m-expect-37295e1967db"></a>
 
 ```java
 public String expect(
@@ -553,8 +530,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-<a id="m-expect-4ba232d952f7"></a>
-### expect(String, int, NedWorker)
+### expect(String, int, NedWorker) <a href="#m-expect-4ba232d952f7" id="m-expect-4ba232d952f7"></a>
 
 ```java
 public String expect(
@@ -573,8 +549,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-6426c41e07e7"></a>
-### expect(String, NedWorker)
+### expect(String, NedWorker) <a href="#m-expect-6426c41e07e7" id="m-expect-6426c41e07e7"></a>
 
 ```java
 public String expect(
@@ -591,8 +566,7 @@ Types: [NedWorker](NedWorker.md#cls-NedWorker), [SSHSessionException](SSHSession
 - `String str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-740d81a74e4b"></a>
-### expect(String[])
+### expect(String[]) <a href="#m-expect-740d81a74e4b" id="m-expect-740d81a74e4b"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -607,8 +581,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 
 - `String[] str`
 
-<a id="m-expect-f6cb6c02c198"></a>
-### expect(String[], boolean, int)
+### expect(String[], boolean, int) <a href="#m-expect-f6cb6c02c198" id="m-expect-f6cb6c02c198"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -627,8 +600,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [SSHSessionExc
 - `boolean include`
 - `int timeout`
 
-<a id="m-expect-90d4e3ee7ac2"></a>
-### expect(String[], boolean, int, NedWorker)
+### expect(String[], boolean, int, NedWorker) <a href="#m-expect-90d4e3ee7ac2" id="m-expect-90d4e3ee7ac2"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -649,8 +621,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `int timeout`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expect-4485477b99db"></a>
-### expect(String[], NedWorker)
+### expect(String[], NedWorker) <a href="#m-expect-4485477b99db" id="m-expect-4485477b99db"></a>
 
 ```java
 public com.tailf.ned.NedExpectResult expect(
@@ -667,8 +638,7 @@ Types: [NedExpectResult](NedExpectResult.md#cls-NedExpectResult), [NedWorker](Ne
 - `String[] str`
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-expectstr-a0568beb746e"></a>
-### expectStr(String, boolean, int)
+### expectStr(String, boolean, int) <a href="#m-expectStr-a0568beb746e" id="m-expectStr-a0568beb746e"></a>
 
 ```java
 public String expectStr(
@@ -692,8 +662,7 @@ Read from socket until Pattern is encountered.
 
 **Returns:** the characters read.
 
-<a id="m-flush-a4d76f158943"></a>
-### flush()
+### flush() <a href="#m-flush-a4d76f158943" id="m-flush-a4d76f158943"></a>
 
 ```java
 public void flush()
@@ -703,8 +672,7 @@ Signals that the final chunk of data has be printed to the output
  transport stream. This method furthermore flushes the transport
  output stream buffer.
 
-<a id="m-getreadtimeout-640fc089c1de"></a>
-### getReadTimeout()
+### getReadTimeout() <a href="#m-getReadTimeout-640fc089c1de" id="m-getReadTimeout-640fc089c1de"></a>
 
 ```java
 public int getReadTimeout()
@@ -714,8 +682,7 @@ Return the readTimeout value that is used to read data from
  the ssh socket. If a read doesn't complete within the stipulated
  timeout an INMException is thrown *
 
-<a id="m-getsession-d2df47d6a1b6"></a>
-### getSession()
+### getSession() <a href="#m-getSession-d2df47d6a1b6" id="m-getSession-d2df47d6a1b6"></a>
 
 ```java
 public ch.ethz.ssh2.Session getSession()
@@ -740,8 +707,7 @@ Needed by users that need to monitor a session for EOF .
       // socket
 ```
 
-<a id="m-getsshconnection-d215c3958a3d"></a>
-### getSSHConnection()
+### getSSHConnection() <a href="#m-getSSHConnection-d215c3958a3d" id="m-getSSHConnection-d215c3958a3d"></a>
 
 ```java
 public ch.ethz.ssh2.Connection getSSHConnection()
@@ -749,8 +715,7 @@ public ch.ethz.ssh2.Connection getSSHConnection()
 
 Return the underlying ssh connection object
 
-<a id="m-print-41f2f1534264"></a>
-### print(int)
+### print(int) <a href="#m-print-41f2f1534264" id="m-print-41f2f1534264"></a>
 
 ```java
 public void print(int iVal)
@@ -762,8 +727,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="m-print-b202251f9230"></a>
-### print(String)
+### print(String) <a href="#m-print-b202251f9230" id="m-print-b202251f9230"></a>
 
 ```java
 public void print(String s)
@@ -775,8 +739,7 @@ Prints text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="m-println-4c26ee676efb"></a>
-### println(int)
+### println(int) <a href="#m-println-4c26ee676efb" id="m-println-4c26ee676efb"></a>
 
 ```java
 public void println(int iVal)
@@ -789,8 +752,7 @@ Prints an integer (as text) to the output stream.
 
 - `int iVal` - Text to send to the stream.
 
-<a id="m-println-15aea44318e6"></a>
-### println(String)
+### println(String) <a href="#m-println-15aea44318e6" id="m-println-15aea44318e6"></a>
 
 ```java
 public void println(String s)
@@ -803,8 +765,7 @@ Print text to the output stream.
 
 - `String s` - Text to send to the stream.
 
-<a id="m-readuntilwouldblock-a932110e11be"></a>
-### readUntilWouldBlock()
+### readUntilWouldBlock() <a href="#m-readUntilWouldBlock-a932110e11be" id="m-readUntilWouldBlock-a932110e11be"></a>
 
 ```java
 public int readUntilWouldBlock()
@@ -815,8 +776,7 @@ If we have readTimeout set, and an outstanding operation was
 
 **Returns:** number of discarded characters
 
-<a id="m-ready-92162bd485a2"></a>
-### ready()
+### ready() <a href="#m-ready-92162bd485a2" id="m-ready-92162bd485a2"></a>
 
 ```java
 public boolean ready() throws java.io.IOException
@@ -831,8 +791,7 @@ Tell whether this transport is ready to be read.
  To explicitly just check for that, use the serverSideClosed()
  method.
 
-<a id="m-ready-c585210c0993"></a>
-### ready(int)
+### ready(int) <a href="#m-ready-c585210c0993" id="m-ready-c585210c0993"></a>
 
 ```java
 public boolean ready(int timeout) throws java.io.IOException
@@ -842,8 +801,7 @@ public boolean ready(int timeout) throws java.io.IOException
 
 - `int timeout`
 
-<a id="m-serversideclosed-0dfe26b0733e"></a>
-### serverSideClosed()
+### serverSideClosed() <a href="#m-serverSideClosed-0dfe26b0733e" id="m-serverSideClosed-0dfe26b0733e"></a>
 
 ```java
 public boolean serverSideClosed()
@@ -852,8 +810,7 @@ public boolean serverSideClosed()
 given a live SSHSession, check if the server side has
  closed it's end of the ssh socket
 
-<a id="m-setreadtimeout-4f6742da7687"></a>
-### setReadTimeout(int)
+### setReadTimeout(int) <a href="#m-setReadTimeout-4f6742da7687" id="m-setReadTimeout-4f6742da7687"></a>
 
 ```java
 public void setReadTimeout(int readTimeout)
@@ -867,8 +824,7 @@ Set the read timeout
  The readTimeout parameter affects all read operations. If a timeout
  is reached, an INMException is thrown. The socket is not closed.
 
-<a id="m-settracer-6943f9aadf68"></a>
-### setTracer(NedTracer)
+### setTracer(NedTracer) <a href="#m-setTracer-6943f9aadf68" id="m-setTracer-6943f9aadf68"></a>
 
 ```java
 public void setTracer(com.tailf.ned.NedTracer tracer)

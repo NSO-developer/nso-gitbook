@@ -1,5 +1,4 @@
-<a id="cls-ConfValue"></a>
-# ConfValue
+# ConfValue <a href="#cls-ConfValue" id="cls-ConfValue"></a>
 
 ```java
 public abstract class com.tailf.conf.ConfValue
@@ -48,7 +47,7 @@ Base class of the DATA_CONTAINER `Conf<datatype>` classes.
 
 **Constructors**:
 
-- [ConfValue()](#m-confvalue-25fd581e3655)
+- [ConfValue()](#m-ConfValue-25fd581e3655)
 
 **Fields**:
 
@@ -111,17 +110,16 @@ Base class of the DATA_CONTAINER `Conf<datatype>` classes.
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](#m-getstringbyvalue-841fa68ad0f9)
-- [getStringByValue(String, ConfValue)](#m-getstringbyvalue-8ed173dcf8dc)
-- [getValueByString(ConfPath, String)](#m-getvaluebystring-e75fd0337a87)
-- [getValueByString(String, String)](#m-getvaluebystring-7804643cb027)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](#m-getStringByValue-841fa68ad0f9)
+- [getStringByValue(String, ConfValue)](#m-getStringByValue-8ed173dcf8dc)
+- [getValueByString(ConfPath, String)](#m-getValueByString-e75fd0337a87)
+- [getValueByString(String, String)](#m-getValueByString-7804643cb027)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confvalue-25fd581e3655"></a>
-### ConfValue()
+### ConfValue() <a href="#m-ConfValue-25fd581e3655" id="m-ConfValue-25fd581e3655"></a>
 
 ```java
 public ConfValue()
@@ -130,8 +128,7 @@ public ConfValue()
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public abstract com.tailf.proto.ConfEObject encode()
@@ -141,8 +138,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
 encode value.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public abstract boolean equals(Object o)
@@ -157,8 +153,7 @@ Determine if two ConfValue are equal. In general, ConfObjects are
 
 **Returns:** true if the objects are identical.
 
-<a id="m-getstringbyvalue-841fa68ad0f9"></a>
-### getStringByValue(ConfPath, ConfValue)
+### getStringByValue(ConfPath, ConfValue) <a href="#m-getStringByValue-841fa68ad0f9" id="m-getStringByValue-841fa68ad0f9"></a>
 
 ```java
 public static String getStringByValue(
@@ -189,8 +184,7 @@ Get the string representation of a ConfValue at a given
 
 - `ConfException`
 
-<a id="m-getstringbyvalue-8ed173dcf8dc"></a>
-### getStringByValue(String, ConfValue)
+### getStringByValue(String, ConfValue) <a href="#m-getStringByValue-8ed173dcf8dc" id="m-getStringByValue-8ed173dcf8dc"></a>
 
 ```java
 public static String getStringByValue(
@@ -221,8 +215,7 @@ Get the string representation of a ConfValue at a given
 
 - `ConfException`
 
-<a id="m-getvaluebystring-e75fd0337a87"></a>
-### getValueByString(ConfPath, String)
+### getValueByString(ConfPath, String) <a href="#m-getValueByString-e75fd0337a87" id="m-getValueByString-e75fd0337a87"></a>
 
 ```java
 public static com.tailf.conf.ConfValue getValueByString(
@@ -253,8 +246,7 @@ Get a ConfValue representation a string at a given
 
 - `ConfException`
 
-<a id="m-getvaluebystring-7804643cb027"></a>
-### getValueByString(String, String)
+### getValueByString(String, String) <a href="#m-getValueByString-7804643cb027" id="m-getValueByString-7804643cb027"></a>
 
 ```java
 public static com.tailf.conf.ConfValue getValueByString(
@@ -285,15 +277,13 @@ Get a ConfValue representation a string at a given
 
 - `ConfException`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public abstract int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public abstract String toString()

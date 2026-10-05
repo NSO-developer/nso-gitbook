@@ -1,5 +1,4 @@
-<a id="cls-NedGenericBase"></a>
-# NedGenericBase
+# NedGenericBase <a href="#cls-NedGenericBase" id="cls-NedGenericBase"></a>
 
 ```java
 public abstract class com.tailf.ned.NedGenericBase
@@ -18,7 +17,7 @@ This interface must be adhered to by code that talks to
 
 **Constructors**:
 
-- [NedGenericBase()](#m-nedgenericbase-541e27deb596)
+- [NedGenericBase()](#m-NedGenericBase-541e27deb596)
 
 **Fields**:
 
@@ -31,54 +30,53 @@ This interface must be adhered to by code that talks to
 - [close(NedWorker)](NedConnectionBase.md#m-close-30f80583fb17) from NedConnectionBase
 - [command(NedWorker, String, ConfXMLParam[])](NedConnectionBase.md#m-command-e9b29b4222a3) from NedConnectionBase
 - [commit(NedWorker, int)](NedConnectionBase.md#m-commit-7dc36c07ab47) from NedConnectionBase
-- [createSubscription(NedWorker, String, String, String, int)](NedConnectionBase.md#m-createsubscription-79162376c959) from NedConnectionBase
-- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](NedConnectionBase.md#m-createtelemetrysubscription-c3b822b943ab) from NedConnectionBase
+- [createSubscription(NedWorker, String, String, String, int)](NedConnectionBase.md#m-createSubscription-79162376c959) from NedConnectionBase
+- [createTelemetrySubscription(NedWorker, Map<String,List<String>>)](NedConnectionBase.md#m-createTelemetrySubscription-c3b822b943ab) from NedConnectionBase
 - [device_id()](NedConnectionBase.md#m-device_id-f50bb7031536) from NedConnectionBase
-- [getCapas()](NedConnectionBase.md#m-getcapas-7f9d1774e7a0) from NedConnectionBase
-- [getConnectionId()](NedConnectionBase.md#m-getconnectionid-600ebb3e7d7f) from NedConnectionBase
-- [getPlatformData()](NedConnectionBase.md#m-getplatformdata-aa820968b919) from NedConnectionBase
-- [getStatsCapas()](NedConnectionBase.md#m-getstatscapas-aa8dc0859e62) from NedConnectionBase
-- [getTimeInPool()](NedConnectionBase.md#m-gettimeinpool-df6d5c843d53) from NedConnectionBase
-- [getTransactionIdMode()](NedConnectionBase.md#m-gettransactionidmode-79b4efc0e31d) from NedConnectionBase
-- [getTransId(NedWorker)](NedConnectionBase.md#m-gettransid-01de732a93e8) from NedConnectionBase
-- [getUseStoredCapas()](NedConnectionBase.md#m-getusestoredcapas-77d5f5640e81) from NedConnectionBase
-- [getWantRevertDiff()](NedConnectionBase.md#m-getwantrevertdiff-ddea9ec7db21) from NedConnectionBase
+- [getCapas()](NedConnectionBase.md#m-getCapas-7f9d1774e7a0) from NedConnectionBase
+- [getConnectionId()](NedConnectionBase.md#m-getConnectionId-600ebb3e7d7f) from NedConnectionBase
+- [getPlatformData()](NedConnectionBase.md#m-getPlatformData-aa820968b919) from NedConnectionBase
+- [getStatsCapas()](NedConnectionBase.md#m-getStatsCapas-aa8dc0859e62) from NedConnectionBase
+- [getTimeInPool()](NedConnectionBase.md#m-getTimeInPool-df6d5c843d53) from NedConnectionBase
+- [getTransactionIdMode()](NedConnectionBase.md#m-getTransactionIdMode-79b4efc0e31d) from NedConnectionBase
+- [getTransId(NedWorker)](NedConnectionBase.md#m-getTransId-01de732a93e8) from NedConnectionBase
+- [getUseStoredCapas()](NedConnectionBase.md#m-getUseStoredCapas-77d5f5640e81) from NedConnectionBase
+- [getWantRevertDiff()](NedConnectionBase.md#m-getWantRevertDiff-ddea9ec7db21) from NedConnectionBase
 - [identity()](NedConnectionBase.md#m-identity-16b9d59e26e7) from NedConnectionBase
 - [initialize(NedWorker)](NedConnectionBase.md#m-initialize-b9daf0f9b461) from NedConnectionBase
-- [initNoConnect(String, NedMux, NedWorker)](#m-initnoconnect-d8b0c37173df)
-- [isAlive(NedWorker)](NedConnectionBase.md#m-isalive-6915ae01ec8a) from NedConnectionBase
-- [isConnection(String, InetAddress, int, String, boolean, int, int, int)](#m-isconnection-f6b7fa94dbc9)
-- [isSessionAlive(NedWorker)](NedConnectionBase.md#m-issessionalive-f0d233ff28c0) from NedConnectionBase
-- [keepAlive(NedWorker)](NedConnectionBase.md#m-keepalive-92dcaaf81a7a) from NedConnectionBase
-- [keepSessionAlive(NedWorker)](NedConnectionBase.md#m-keepsessionalive-f2332bacddd5) from NedConnectionBase
+- [initNoConnect(String, NedMux, NedWorker)](#m-initNoConnect-d8b0c37173df)
+- [isAlive(NedWorker)](NedConnectionBase.md#m-isAlive-6915ae01ec8a) from NedConnectionBase
+- [isConnection(String, InetAddress, int, String, boolean, int, int, int)](#m-isConnection-f6b7fa94dbc9)
+- [isSessionAlive(NedWorker)](NedConnectionBase.md#m-isSessionAlive-f0d233ff28c0) from NedConnectionBase
+- [keepAlive(NedWorker)](NedConnectionBase.md#m-keepAlive-92dcaaf81a7a) from NedConnectionBase
+- [keepSessionAlive(NedWorker)](NedConnectionBase.md#m-keepSessionAlive-f2332bacddd5) from NedConnectionBase
 - [modules()](NedConnectionBase.md#m-modules-15ef53dcaf36) from NedConnectionBase
-- [newConnection(String, InetAddress, int, String, boolean, int, int, int, NedMux, NedWorker)](#m-newconnection-81f20620b2fb)
+- [newConnection(String, InetAddress, int, String, boolean, int, int, int, NedMux, NedWorker)](#m-newConnection-81f20620b2fb)
 - [persist(NedWorker)](NedConnectionBase.md#m-persist-a67bc9247622) from NedConnectionBase
 - [prepare(NedWorker, NedEditOp[])](#m-prepare-8183aeaecd08)
-- [prepareDry(NedWorker, NedEditOp[])](#m-preparedry-30cbc3061895)
+- [prepareDry(NedWorker, NedEditOp[])](#m-prepareDry-30cbc3061895)
 - [reconnect(NedWorker)](NedConnectionBase.md#m-reconnect-a7a5900d41d6) from NedConnectionBase
-- [retrieveIdentity(NedConnectionBase)](NedConnectionBase.md#m-retrieveidentity-910704c2eafa) from NedConnectionBase
+- [retrieveIdentity(NedConnectionBase)](NedConnectionBase.md#m-retrieveIdentity-910704c2eafa) from NedConnectionBase
 - [revert(NedWorker, NedEditOp[])](#m-revert-1495750cd3ae)
-- [setCapabilities(NedCapability[])](NedConnectionBase.md#m-setcapabilities-67ad7861715a) from NedConnectionBase
-- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](NedConnectionBase.md#m-setconnectiondata-3c1697dcc350) from NedConnectionBase
-- [setConnectionId(int)](NedConnectionBase.md#m-setconnectionid-7eea4fea28bf) from NedConnectionBase
-- [setPlatformData(ConfXMLParam[])](NedConnectionBase.md#m-setplatformdata-a069c83c8fde) from NedConnectionBase
-- [setPoolTimestamp(long)](NedConnectionBase.md#m-setpooltimestamp-28239e3d2dc4) from NedConnectionBase
+- [setCapabilities(NedCapability[])](NedConnectionBase.md#m-setCapabilities-67ad7861715a) from NedConnectionBase
+- [setConnectionData(NedCapability[], NedCapability[], boolean, TransactionIdMode)](NedConnectionBase.md#m-setConnectionData-3c1697dcc350) from NedConnectionBase
+- [setConnectionId(int)](NedConnectionBase.md#m-setConnectionId-7eea4fea28bf) from NedConnectionBase
+- [setPlatformData(ConfXMLParam[])](NedConnectionBase.md#m-setPlatformData-a069c83c8fde) from NedConnectionBase
+- [setPoolTimestamp(long)](NedConnectionBase.md#m-setPoolTimestamp-28239e3d2dc4) from NedConnectionBase
 - [show(NedWorker, int)](#m-show-1eadf587f1ff)
-- [showOffline(NedWorker, int, String)](#m-showoffline-b72264b54a34)
-- [showPartial(NedWorker, int, ConfPath[])](#m-showpartial-550edaaf3468)
-- [showStatsFilter(NedWorker, int, ConfPath[])](NedConnectionBase.md#m-showstatsfilter-f3bd9d17b71c) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, NedShowFilter[])](NedConnectionBase.md#m-showstatsfilter-1410355f6f46) from NedConnectionBase
-- [showStatsFilter(NedWorker, int, String[])](NedConnectionBase.md#m-showstatsfilter-38409a8f79a0) from NedConnectionBase
-- [showStatsPath(NedWorker, int, ConfPath)](NedConnectionBase.md#m-showstatspath-1704122a5ac4) from NedConnectionBase
+- [showOffline(NedWorker, int, String)](#m-showOffline-b72264b54a34)
+- [showPartial(NedWorker, int, ConfPath[])](#m-showPartial-550edaaf3468)
+- [showStatsFilter(NedWorker, int, ConfPath[])](NedConnectionBase.md#m-showStatsFilter-f3bd9d17b71c) from NedConnectionBase
+- [showStatsFilter(NedWorker, int, NedShowFilter[])](NedConnectionBase.md#m-showStatsFilter-1410355f6f46) from NedConnectionBase
+- [showStatsFilter(NedWorker, int, String[])](NedConnectionBase.md#m-showStatsFilter-38409a8f79a0) from NedConnectionBase
+- [showStatsPath(NedWorker, int, ConfPath)](NedConnectionBase.md#m-showStatsPath-1704122a5ac4) from NedConnectionBase
 - [type()](NedConnectionBase.md#m-type-7a4a5f26039a) from NedConnectionBase
 - [uninitialize(NedWorker)](NedConnectionBase.md#m-uninitialize-bba07dcc2d37) from NedConnectionBase
-- [useStoredCapabilities()](NedConnectionBase.md#m-usestoredcapabilities-06864caacb8f) from NedConnectionBase
+- [useStoredCapabilities()](NedConnectionBase.md#m-useStoredCapabilities-06864caacb8f) from NedConnectionBase
 
 ## Constructors
 
-<a id="m-nedgenericbase-541e27deb596"></a>
-### NedGenericBase()
+### NedGenericBase() <a href="#m-NedGenericBase-541e27deb596" id="m-NedGenericBase-541e27deb596"></a>
 
 ```java
 public NedGenericBase()
@@ -87,8 +85,7 @@ public NedGenericBase()
 
 ## Methods
 
-<a id="m-abort-dc5cf5855d78"></a>
-### abort(NedWorker, NedEditOp[])
+### abort(NedWorker, NedEditOp[]) <a href="#m-abort-dc5cf5855d78" id="m-abort-dc5cf5855d78"></a>
 
 ```java
 public abstract void abort(
@@ -107,7 +104,7 @@ Is invoked by NCS to abort the current transaction and
  to reach that state from the current state. The instance may choose
  to use these commands, or use some other mechanism to reach the same
  state. When the operation is completed it should invoke the method
- [abortResponse()](NedWorker.md#m-abortresponse-57f9d5e240e8) in
+ [abortResponse()](NedWorker.md#m-abortResponse-57f9d5e240e8) in
  in `NedWorker w`.
 
 **Parameters**
@@ -123,8 +120,7 @@ Is invoked by NCS to abort the current transaction and
 - `com.tailf.ned.NedEditOp[] ops` - is the edit operations needed for taking the config back to the
     previous state.
 
-<a id="m-initnoconnect-d8b0c37173df"></a>
-### initNoConnect(String, NedMux, NedWorker)
+### initNoConnect(String, NedMux, NedWorker) <a href="#m-initNoConnect-d8b0c37173df" id="m-initNoConnect-d8b0c37173df"></a>
 
 ```java
 public com.tailf.ned.NedGenericBase initNoConnect(
@@ -160,8 +156,7 @@ Make a new instance of Ned object without establishing a connection
 
 **Returns:** the NED instance
 
-<a id="m-isconnection-f6b7fa94dbc9"></a>
-### isConnection(String, InetAddress, int, String, boolean, int, int, int)
+### isConnection(String, InetAddress, int, String, boolean, int, int, int) <a href="#m-isConnection-f6b7fa94dbc9" id="m-isConnection-f6b7fa94dbc9"></a>
 
 ```java
 public abstract boolean isConnection(
@@ -191,8 +186,7 @@ Used by the connection pool to find a matching connection. If
 - `int readTimeout` - in milliseconds
 - `int writeTimeout` - in milliseconds
 
-<a id="m-newconnection-81f20620b2fb"></a>
-### newConnection(String, InetAddress, int, String, boolean, int, int, int, NedMux, NedWorker)
+### newConnection(String, InetAddress, int, String, boolean, int, int, int, NedMux, NedWorker) <a href="#m-newConnection-81f20620b2fb" id="m-newConnection-81f20620b2fb"></a>
 
 ```java
 public abstract com.tailf.ned.NedGenericBase newConnection(
@@ -243,8 +237,7 @@ Establish a new connection to a device and send response to
 
 **Returns:** the connection instance
 
-<a id="m-prepare-8183aeaecd08"></a>
-### prepare(NedWorker, NedEditOp[])
+### prepare(NedWorker, NedEditOp[]) <a href="#m-prepare-8183aeaecd08" id="m-prepare-8183aeaecd08"></a>
 
 ```java
 public abstract void prepare(
@@ -264,7 +257,7 @@ Is invoked by NCS to take the configuration to a new state. The Ned may
  changes are later aborted, or
  reverted, the NCS will provide the necessary changes for restoring the
  configuration to its previous state. The Ned should invoke the
- method [prepareResponse()](NedWorker.md#m-prepareresponse-7eadf3b8db0f) in `NedWorker w`
+ method [prepareResponse()](NedWorker.md#m-prepareResponse-7eadf3b8db0f) in `NedWorker w`
  when the operation is completed.
 
         initialize (prepare transaction)
@@ -291,8 +284,7 @@ Is invoked by NCS to take the configuration to a new state. The Ned may
     as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - Edit operations representing the changes to the configuration.
 
-<a id="m-preparedry-30cbc3061895"></a>
-### prepareDry(NedWorker, NedEditOp[])
+### prepareDry(NedWorker, NedEditOp[]) <a href="#m-prepareDry-30cbc3061895" id="m-prepareDry-30cbc3061895"></a>
 
 ```java
 public void prepareDry(com.tailf.ned.NedWorker w, com.tailf.ned.NedEditOp[] ops) throws Exception
@@ -304,15 +296,15 @@ Is invoked by NCS to ask the NED what actions it would take towards
  the device if it would do a prepare.
 
  The NED can send the preformatted output back to NCS through the
- call to  [prepareDryResponse()](NedWorker.md#m-preparedryresponse-4249bd793b22)
+ call to  [prepareDryResponse()](NedWorker.md#m-prepareDryResponse-4249bd793b22)
 
  The Ned should invoke the method
- [prepareDryResponse()](NedWorker.md#m-preparedryresponse-4249bd793b22) in `NedWorker w`
+ [prepareDryResponse()](NedWorker.md#m-prepareDryResponse-4249bd793b22) in `NedWorker w`
  when the operation is completed.
 
  If the functionality is not supported this method need not be
  implemented. Alternatively the NED can respond with a
- [`NedWorker#prepareDryUnsupportedResponse()`](NedWorker.md#m-preparedryunsupportedresponse-79bc01c84b05).
+ [`NedWorker#prepareDryUnsupportedResponse()`](NedWorker.md#m-prepareDryUnsupportedResponse-79bc01c84b05).
 
 **Parameters**
 
@@ -326,8 +318,7 @@ Is invoked by NCS to ask the NED what actions it would take towards
     as a tracer.
 - `com.tailf.ned.NedEditOp[] ops` - Edit operations representing the changes to the configuration.
 
-<a id="m-revert-1495750cd3ae"></a>
-### revert(NedWorker, NedEditOp[])
+### revert(NedWorker, NedEditOp[]) <a href="#m-revert-1495750cd3ae" id="m-revert-1495750cd3ae"></a>
 
 ```java
 public abstract void revert(
@@ -350,7 +341,7 @@ Is invoked by NCS to undo the changes introduced in the last commit
  [persist()](NedConnectionBase.md#m-persist-a67bc9247622)
  it can no longer be restored to any previous  (potentially saved) state.
  When the revert operation has been completed the method
- [revertResponse](NedWorker.md#m-revertresponse-a85f70d26645)
+ [revertResponse](NedWorker.md#m-revertResponse-a85f70d26645)
  in `NedWorker w` should be called.
 
 **Parameters**
@@ -366,8 +357,7 @@ Is invoked by NCS to undo the changes introduced in the last commit
 - `com.tailf.ned.NedEditOp[] ops` - is the edit operations for taking the config back to the previous
     state.
 
-<a id="m-show-1eadf587f1ff"></a>
-### show(NedWorker, int)
+### show(NedWorker, int) <a href="#m-show-1eadf587f1ff" id="m-show-1eadf587f1ff"></a>
 
 ```java
 public abstract void show(com.tailf.ned.NedWorker w, int th) throws Exception
@@ -380,7 +370,7 @@ Read parts of the configuration and applies it to the transaction
  the method invocation. It may choose to write more into the transaction
  than is actually requested. The response
  is sent by invoking the method
- [showGenericResponse()](NedWorker.md#m-showgenericresponse-be3696329498) in
+ [showGenericResponse()](NedWorker.md#m-showGenericResponse-be3696329498) in
  in the `NedWorker w`.
 
 **Parameters**
@@ -396,8 +386,7 @@ Read parts of the configuration and applies it to the transaction
 - `int th` - is a transaction id that can be used with the Maapi library for
     accessing a transaction.
 
-<a id="m-showoffline-b72264b54a34"></a>
-### showOffline(NedWorker, int, String)
+### showOffline(NedWorker, int, String) <a href="#m-showOffline-b72264b54a34" id="m-showOffline-b72264b54a34"></a>
 
 ```java
 public void showOffline(com.tailf.ned.NedWorker w, int th, String data) throws Exception
@@ -410,7 +399,7 @@ Read parts of the configuration and applies it to the
  It may choose to write more into the transaction
  than is actually requested. The response
  is sent by invoking the method
- [showGenericResponse()](NedWorker.md#m-showgenericresponse-be3696329498) in
+ [showGenericResponse()](NedWorker.md#m-showGenericResponse-be3696329498) in
  in the `NedWorker w`.
 
 **Parameters**
@@ -427,8 +416,7 @@ Read parts of the configuration and applies it to the
     accessing a transaction.
 - `String data` - are the configuration in native format.
 
-<a id="m-showpartial-550edaaf3468"></a>
-### showPartial(NedWorker, int, ConfPath[])
+### showPartial(NedWorker, int, ConfPath[]) <a href="#m-showPartial-550edaaf3468" id="m-showPartial-550edaaf3468"></a>
 
 ```java
 public void showPartial(
@@ -446,7 +434,7 @@ Read parts of the configuration and applies it to the transaction
  the method invocation. It may choose to write more into the transaction
  than is actually requested. The response
  is sent by invoking the method
- [showGenericResponse()](NedWorker.md#m-showgenericresponse-be3696329498) in
+ [showGenericResponse()](NedWorker.md#m-showGenericResponse-be3696329498) in
  in the `NedWorker w`.
 
 **Parameters**

@@ -1,5 +1,4 @@
-<a id="cls-HaStateType"></a>
-# HaStateType
+# HaStateType <a href="#cls-HaStateType" id="cls-HaStateType"></a>
 
 ```java
 public enum com.tailf.ha.HaStateType
@@ -20,15 +19,14 @@ This enum describes the different states a HA node can be in.
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-NONE"></a>
-### NONE
+### NONE <a href="#m-NONE" id="m-NONE"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType NONE;
@@ -36,8 +34,7 @@ public static final com.tailf.ha.HaStateType NONE;
 
 NONE implies that the node is not participating in a HA cluster.
 
-<a id="m-PRIMARY"></a>
-### PRIMARY
+### PRIMARY <a href="#m-PRIMARY" id="m-PRIMARY"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType PRIMARY;
@@ -45,8 +42,7 @@ public static final com.tailf.ha.HaStateType PRIMARY;
 
 PRIMARY implies that the node is primary in a HA cluster.
 
-<a id="m-SECONDARY"></a>
-### SECONDARY
+### SECONDARY <a href="#m-SECONDARY" id="m-SECONDARY"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType SECONDARY;
@@ -54,8 +50,7 @@ public static final com.tailf.ha.HaStateType SECONDARY;
 
 SECONDARY implies that the node is secondary in a HA cluster.
 
-<a id="m-SECONDARY_RELAY"></a>
-### SECONDARY_RELAY
+### SECONDARY_RELAY <a href="#m-SECONDARY_RELAY" id="m-SECONDARY_RELAY"></a>
 
 ```java
 public static final com.tailf.ha.HaStateType SECONDARY_RELAY;
@@ -67,8 +62,7 @@ SECONDARY_RELAY implies that the node is secondary in a HA cluster,
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -78,8 +72,7 @@ Get the integer value represented by this enum value.
 
 **Returns:** integer value for enum
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.ha.HaStateType valueOf(int i)
@@ -95,8 +88,7 @@ Instantiates an HaStateType from an integer value.
 
 **Returns:** an HaStateType object
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ha.HaStateType valueOf(String name)
@@ -108,8 +100,7 @@ Types: [HaStateType](HaStateType.md#cls-HaStateType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ha.HaStateType[] values()

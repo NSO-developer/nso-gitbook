@@ -1,5 +1,4 @@
-<a id="cls-ConfAttributeValue"></a>
-# ConfAttributeValue
+# ConfAttributeValue <a href="#cls-ConfAttributeValue" id="cls-ConfAttributeValue"></a>
 
 ```java
 public class com.tailf.conf.ConfAttributeValue
@@ -18,7 +17,7 @@ Class that represents an attribute value for an element in a model.
 
 **Constructors**:
 
-- [ConfAttributeValue(ConfAttributeType, ConfValue)](#m-confattributevalue-a940824befe4)
+- [ConfAttributeValue(ConfAttributeType, ConfValue)](#m-ConfAttributeValue-a940824befe4)
 
 **Fields**:
 
@@ -76,29 +75,28 @@ Class that represents an attribute value for an element in a model.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfAttributeValue)](#m-compareto-a9ebafb7dd06)
+- [compareTo(ConfAttributeValue)](#m-compareTo-a9ebafb7dd06)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getAttributeType()](#m-getattributetype-ded421773bde)
-- [getAttributeValue()](#m-getattributevalue-4f670a5f6256)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isRemoveValue()](#m-isremovevalue-194c934cfcb9)
-- [setAttributeType(ConfAttributeType)](#m-setattributetype-4d8a1817b957)
-- [setAttributeValue(ConfValue)](#m-setattributevalue-788a6cd6f4d3)
-- [setRemoveValue()](#m-setremovevalue-dfa345a6af6d)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getAttributeType()](#m-getAttributeType-ded421773bde)
+- [getAttributeValue()](#m-getAttributeValue-4f670a5f6256)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isRemoveValue()](#m-isRemoveValue-194c934cfcb9)
+- [setAttributeType(ConfAttributeType)](#m-setAttributeType-4d8a1817b957)
+- [setAttributeValue(ConfValue)](#m-setAttributeValue-788a6cd6f4d3)
+- [setRemoveValue()](#m-setRemoveValue-dfa345a6af6d)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confattributevalue-a940824befe4"></a>
-### ConfAttributeValue(ConfAttributeType, ConfValue)
+### ConfAttributeValue(ConfAttributeType, ConfValue) <a href="#m-ConfAttributeValue-a940824befe4" id="m-ConfAttributeValue-a940824befe4"></a>
 
 ```java
 public ConfAttributeValue(com.tailf.conf.ConfAttributeType typ, com.tailf.conf.ConfValue val)
@@ -119,8 +117,7 @@ Constructor of ConfAttributeValue
 
 ## Methods
 
-<a id="m-compareto-a9ebafb7dd06"></a>
-### compareTo(ConfAttributeValue)
+### compareTo(ConfAttributeValue) <a href="#m-compareTo-a9ebafb7dd06" id="m-compareTo-a9ebafb7dd06"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfAttributeValue o)
@@ -132,8 +129,7 @@ Types: [ConfAttributeValue](ConfAttributeValue.md#cls-ConfAttributeValue)
 
 - `com.tailf.conf.ConfAttributeValue o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -141,8 +137,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -152,8 +147,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getattributetype-ded421773bde"></a>
-### getAttributeType()
+### getAttributeType() <a href="#m-getAttributeType-ded421773bde" id="m-getAttributeType-ded421773bde"></a>
 
 ```java
 public com.tailf.conf.ConfAttributeType getAttributeType()
@@ -165,8 +159,7 @@ Get the Attribute type for this attribute value
 
 **Returns:** ConfAttributeType the attribute type
 
-<a id="m-getattributevalue-4f670a5f6256"></a>
-### getAttributeValue()
+### getAttributeValue() <a href="#m-getAttributeValue-4f670a5f6256" id="m-getAttributeValue-4f670a5f6256"></a>
 
 ```java
 public com.tailf.conf.ConfValue getAttributeValue()
@@ -178,15 +171,13 @@ Get the value of the attribute
 
 **Returns:** ConfValue the value of the attribute
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-isremovevalue-194c934cfcb9"></a>
-### isRemoveValue()
+### isRemoveValue() <a href="#m-isRemoveValue-194c934cfcb9" id="m-isRemoveValue-194c934cfcb9"></a>
 
 ```java
 public boolean isRemoveValue()
@@ -196,8 +187,7 @@ Check if the attribute is set to be removed
 
 **Returns:** boolean true if set to be removed
 
-<a id="m-setattributetype-4d8a1817b957"></a>
-### setAttributeType(ConfAttributeType)
+### setAttributeType(ConfAttributeType) <a href="#m-setAttributeType-4d8a1817b957" id="m-setAttributeType-4d8a1817b957"></a>
 
 ```java
 public void setAttributeType(com.tailf.conf.ConfAttributeType attributeType)
@@ -211,8 +201,7 @@ Set the attribute type for this attribute value
 
 - `com.tailf.conf.ConfAttributeType attributeType` - ConfAttributeType
 
-<a id="m-setattributevalue-788a6cd6f4d3"></a>
-### setAttributeValue(ConfValue)
+### setAttributeValue(ConfValue) <a href="#m-setAttributeValue-788a6cd6f4d3" id="m-setAttributeValue-788a6cd6f4d3"></a>
 
 ```java
 public void setAttributeValue(com.tailf.conf.ConfValue attributeValue)
@@ -226,8 +215,7 @@ Set the value for this attribute value
 
 - `com.tailf.conf.ConfValue attributeValue` - ConfValue
 
-<a id="m-setremovevalue-dfa345a6af6d"></a>
-### setRemoveValue()
+### setRemoveValue() <a href="#m-setRemoveValue-dfa345a6af6d" id="m-setRemoveValue-dfa345a6af6d"></a>
 
 ```java
 public void setRemoveValue()
@@ -235,8 +223,7 @@ public void setRemoveValue()
 
 Mark this attribute value for removal.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

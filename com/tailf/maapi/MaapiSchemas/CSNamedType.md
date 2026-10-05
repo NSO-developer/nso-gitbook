@@ -1,5 +1,4 @@
-<a id="cls-CSNamedType"></a>
-# CSNamedType
+# CSNamedType <a href="#cls-CSNamedType" id="cls-CSNamedType"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.CSNamedType
@@ -13,19 +12,18 @@ Class representing a named type. A named type is represented as a
 
 **Constructors**:
 
-- [CSNamedType()](#m-csnamedtype-f49a833ba022)
-- [CSNamedType(String, CSType)](#m-csnamedtype-456f42d9d5af)
+- [CSNamedType()](#m-CSNamedType-f49a833ba022)
+- [CSNamedType(String, CSType)](#m-CSNamedType-456f42d9d5af)
 
 **Methods**:
 
-- [getName()](#m-getname-2634b18b4a25)
-- [getType()](#m-gettype-5a52f6f0d4c1)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getName()](#m-getName-2634b18b4a25)
+- [getType()](#m-getType-5a52f6f0d4c1)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-csnamedtype-f49a833ba022"></a>
-### CSNamedType()
+### CSNamedType() <a href="#m-CSNamedType-f49a833ba022" id="m-CSNamedType-f49a833ba022"></a>
 
 ```java
 protected CSNamedType()
@@ -33,8 +31,7 @@ protected CSNamedType()
 
 Constructor for CSNamedType class
 
-<a id="m-csnamedtype-456f42d9d5af"></a>
-### CSNamedType(String, CSType)
+### CSNamedType(String, CSType) <a href="#m-CSNamedType-456f42d9d5af" id="m-CSNamedType-456f42d9d5af"></a>
 
 ```java
 public CSNamedType(String name, com.tailf.maapi.MaapiSchemas.CSType type)
@@ -50,8 +47,7 @@ Types: [CSType](CSType.md#cls-CSType)
 
 ## Methods
 
-<a id="m-getname-2634b18b4a25"></a>
-### getName()
+### getName() <a href="#m-getName-2634b18b4a25" id="m-getName-2634b18b4a25"></a>
 
 ```java
 public String getName()
@@ -61,8 +57,7 @@ get the type name
 
 **Returns:** String name
 
-<a id="m-gettype-5a52f6f0d4c1"></a>
-### getType()
+### getType() <a href="#m-getType-5a52f6f0d4c1" id="m-getType-5a52f6f0d4c1"></a>
 
 ```java
 public com.tailf.maapi.MaapiSchemas.CSType getType()
@@ -74,8 +69,7 @@ get the type represented by an instance of CSType
 
 **Returns:** CSType
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

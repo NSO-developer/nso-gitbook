@@ -1,5 +1,4 @@
-<a id="cls-FilterAckInforms"></a>
-# FilterAckInforms
+# FilterAckInforms <a href="#cls-FilterAckInforms" id="cls-FilterAckInforms"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.FilterAckInforms
@@ -18,16 +17,15 @@ Standard filter for sending Acknowledge response to
 
 **Constructors**:
 
-- [FilterAckInforms()](#m-filterackinforms-432b72b87a44)
+- [FilterAckInforms()](#m-FilterAckInforms-432b72b87a44)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processpdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
 
 ## Constructors
 
-<a id="m-filterackinforms-432b72b87a44"></a>
-### FilterAckInforms()
+### FilterAckInforms() <a href="#m-FilterAckInforms-432b72b87a44" id="m-FilterAckInforms-432b72b87a44"></a>
 
 ```java
 public FilterAckInforms()
@@ -38,8 +36,7 @@ Filter constructor
 
 ## Methods
 
-<a id="m-processpdu-6c9b32673c38"></a>
-### processPdu(EventContext, CommandResponderEvent, Object)
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(

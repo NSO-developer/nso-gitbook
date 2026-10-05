@@ -1,5 +1,4 @@
-<a id="cls-NavuCdbSessionPoolable"></a>
-# NavuCdbSessionPoolable
+# NavuCdbSessionPoolable <a href="#cls-NavuCdbSessionPoolable" id="cls-NavuCdbSessionPoolable"></a>
 
 ```java
 public interface com.tailf.navu.NavuCdbSessionPoolable
@@ -98,15 +97,14 @@ This `NavuCdbSessionPoolable` interface should be implemented by
 
 **Methods**:
 
-- [getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-getsession-61014dfb12a7)
-- [poolInUse()](#m-poolinuse-8d190a00726a)
-- [removeAllForCdb(Cdb)](#m-removeallforcdb-58157efc1de6)
-- [removeAllSessions()](#m-removeallsessions-211f72fa9478)
+- [getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)](#m-getSession-61014dfb12a7)
+- [poolInUse()](#m-poolInUse-8d190a00726a)
+- [removeAllForCdb(Cdb)](#m-removeAllForCdb-58157efc1de6)
+- [removeAllSessions()](#m-removeAllSessions-211f72fa9478)
 
 ## Methods
 
-<a id="m-getsession-61014dfb12a7"></a>
-### getSession(Cdb, CdbDBType, EnumSet<CdbLockType>)
+### getSession(Cdb, CdbDBType, EnumSet<CdbLockType>) <a href="#m-getSession-61014dfb12a7" id="m-getSession-61014dfb12a7"></a>
 
 ```java
 public abstract com.tailf.cdb.CdbSession getSession(
@@ -135,8 +133,7 @@ Returns a Cdb session to `dbType` datastore with
 - `IOException` - on I/O failure
 - `ConfException` - on protocol error
 
-<a id="m-poolinuse-8d190a00726a"></a>
-### poolInUse()
+### poolInUse() <a href="#m-poolInUse-8d190a00726a" id="m-poolInUse-8d190a00726a"></a>
 
 ```java
 public abstract boolean poolInUse()
@@ -148,8 +145,7 @@ Returns true if the implementation pool is in use.
 
 **Returns:** true/false whether the implementation pool is in use
 
-<a id="m-removeallforcdb-58157efc1de6"></a>
-### removeAllForCdb(Cdb)
+### removeAllForCdb(Cdb) <a href="#m-removeAllForCdb-58157efc1de6" id="m-removeAllForCdb-58157efc1de6"></a>
 
 ```java
 public abstract void removeAllForCdb(
@@ -179,8 +175,7 @@ Removes or closes all CdbSession associated with the supplied Cdb.
 - `IOException` - on I/O failure
 - `ConfException` - on protocol error
 
-<a id="m-removeallsessions-211f72fa9478"></a>
-### removeAllSessions()
+### removeAllSessions() <a href="#m-removeAllSessions-211f72fa9478" id="m-removeAllSessions-211f72fa9478"></a>
 
 ```java
 public abstract void removeAllSessions() throws java.io.IOException, com.tailf.conf.ConfException

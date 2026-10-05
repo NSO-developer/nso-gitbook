@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsCase.Builder
@@ -10,28 +9,27 @@ public static final class com.tailf.ncs.maapi.Schema.CsCase.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getChoices()](#m-getchoices-818fb3fccb86)
-- [getHns()](#m-gethns-457afaf41ae6)
-- [getHtag()](#m-gethtag-3a838d71ddf7)
-- [getNodes()](#m-getnodes-0d0e9b3adfd1)
-- [hasChoices()](#m-haschoices-6534dc5f2f55)
-- [hasNodes()](#m-hasnodes-0c3a4b7d62ab)
-- [initChoices(int)](#m-initchoices-6d6ca0d6d87e)
-- [initNodes(int)](#m-initnodes-ae27813ecc84)
-- [setChoices(Reader<Reader>)](#m-setchoices-6c56beb14596)
-- [setHns(int)](#m-sethns-7405e78f40fe)
-- [setHtag(int)](#m-sethtag-d40f4d76b210)
-- [setNodes(Reader<Reader>)](#m-setnodes-1a7a637d61d9)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getChoices()](#m-getChoices-818fb3fccb86)
+- [getHns()](#m-getHns-457afaf41ae6)
+- [getHtag()](#m-getHtag-3a838d71ddf7)
+- [getNodes()](#m-getNodes-0d0e9b3adfd1)
+- [hasChoices()](#m-hasChoices-6534dc5f2f55)
+- [hasNodes()](#m-hasNodes-0c3a4b7d62ab)
+- [initChoices(int)](#m-initChoices-6d6ca0d6d87e)
+- [initNodes(int)](#m-initNodes-ae27813ecc84)
+- [setChoices(Reader<Reader>)](#m-setChoices-6c56beb14596)
+- [setHns(int)](#m-setHns-7405e78f40fe)
+- [setHtag(int)](#m-setHtag-d40f4d76b210)
+- [setNodes(Reader<Reader>)](#m-setNodes-1a7a637d61d9)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -56,8 +54,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsCase.Reader asReader()
@@ -65,8 +62,7 @@ public final com.tailf.ncs.maapi.Schema.CsCase.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getchoices-818fb3fccb86"></a>
-### getChoices()
+### getChoices() <a href="#m-getChoices-818fb3fccb86" id="m-getChoices-818fb3fccb86"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsChoice.Builder> getChoices()
@@ -74,22 +70,19 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsChoic
 
 Types: [Builder](../CsChoice/Builder.md#cls-Builder)
 
-<a id="m-gethns-457afaf41ae6"></a>
-### getHns()
+### getHns() <a href="#m-getHns-457afaf41ae6" id="m-getHns-457afaf41ae6"></a>
 
 ```java
 public final int getHns()
 ```
 
-<a id="m-gethtag-3a838d71ddf7"></a>
-### getHtag()
+### getHtag() <a href="#m-getHtag-3a838d71ddf7" id="m-getHtag-3a838d71ddf7"></a>
 
 ```java
 public final int getHtag()
 ```
 
-<a id="m-getnodes-0d0e9b3adfd1"></a>
-### getNodes()
+### getNodes() <a href="#m-getNodes-0d0e9b3adfd1" id="m-getNodes-0d0e9b3adfd1"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> getNodes()
@@ -97,22 +90,19 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Bu
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-haschoices-6534dc5f2f55"></a>
-### hasChoices()
+### hasChoices() <a href="#m-hasChoices-6534dc5f2f55" id="m-hasChoices-6534dc5f2f55"></a>
 
 ```java
 public final boolean hasChoices()
 ```
 
-<a id="m-hasnodes-0c3a4b7d62ab"></a>
-### hasNodes()
+### hasNodes() <a href="#m-hasNodes-0c3a4b7d62ab" id="m-hasNodes-0c3a4b7d62ab"></a>
 
 ```java
 public final boolean hasNodes()
 ```
 
-<a id="m-initchoices-6d6ca0d6d87e"></a>
-### initChoices(int)
+### initChoices(int) <a href="#m-initChoices-6d6ca0d6d87e" id="m-initChoices-6d6ca0d6d87e"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.CsChoice.Builder> initChoices(
@@ -126,8 +116,7 @@ Types: [Builder](../CsChoice/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-initnodes-ae27813ecc84"></a>
-### initNodes(int)
+### initNodes(int) <a href="#m-initNodes-ae27813ecc84" id="m-initNodes-ae27813ecc84"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> initNodes(
@@ -141,8 +130,7 @@ Types: [Builder](../QTag/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-setchoices-6c56beb14596"></a>
-### setChoices(Reader<Reader>)
+### setChoices(Reader<Reader>) <a href="#m-setChoices-6c56beb14596" id="m-setChoices-6c56beb14596"></a>
 
 ```java
 public final void setChoices(
@@ -156,8 +144,7 @@ Types: [Reader](../CsChoice/Reader.md#cls-Reader)
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsChoice.Reader> value`
 
-<a id="m-sethns-7405e78f40fe"></a>
-### setHns(int)
+### setHns(int) <a href="#m-setHns-7405e78f40fe" id="m-setHns-7405e78f40fe"></a>
 
 ```java
 public final void setHns(int value)
@@ -167,8 +154,7 @@ public final void setHns(int value)
 
 - `int value`
 
-<a id="m-sethtag-d40f4d76b210"></a>
-### setHtag(int)
+### setHtag(int) <a href="#m-setHtag-d40f4d76b210" id="m-setHtag-d40f4d76b210"></a>
 
 ```java
 public final void setHtag(int value)
@@ -178,8 +164,7 @@ public final void setHtag(int value)
 
 - `int value`
 
-<a id="m-setnodes-1a7a637d61d9"></a>
-### setNodes(Reader<Reader>)
+### setNodes(Reader<Reader>) <a href="#m-setNodes-1a7a637d61d9" id="m-setNodes-1a7a637d61d9"></a>
 
 ```java
 public final void setNodes(

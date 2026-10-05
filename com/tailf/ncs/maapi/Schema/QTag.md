@@ -1,5 +1,4 @@
-<a id="cls-QTag"></a>
-# QTag
+# QTag <a href="#cls-QTag" id="cls-QTag"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.QTag
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.QTag
 
 **Constructors**:
 
-- [QTag()](#m-qtag-69030ba60fce)
+- [QTag()](#m-QTag-69030ba60fce)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.QTag
 
 ## Constructors
 
-<a id="m-qtag-69030ba60fce"></a>
-### QTag()
+### QTag() <a href="#m-QTag-69030ba60fce" id="m-QTag-69030ba60fce"></a>
 
 ```java
 public QTag()
@@ -35,8 +33,7 @@ public QTag()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.QTag.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.QTag.Factory factory = null;
 
 Types: [Factory](QTag/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.QTag.Builder,com.tailf.ncs.maapi.Schema.QTag.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](QTag/Builder.md#cls-Builder), [Reader](QTag/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

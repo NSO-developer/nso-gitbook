@@ -1,5 +1,4 @@
-<a id="cls-CLIInteractionFlag"></a>
-# CLIInteractionFlag
+# CLIInteractionFlag <a href="#cls-CLIInteractionFlag" id="cls-CLIInteractionFlag"></a>
 
 ```java
 public enum com.tailf.maapi.CLIInteractionFlag
@@ -18,15 +17,14 @@ flags for controlling cmd to CLI via CLIInteraction class
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-NO_FULLPATH"></a>
-### NO_FULLPATH
+### NO_FULLPATH <a href="#m-NO_FULLPATH" id="m-NO_FULLPATH"></a>
 
 ```java
 public static final com.tailf.maapi.CLIInteractionFlag NO_FULLPATH;
@@ -34,8 +32,7 @@ public static final com.tailf.maapi.CLIInteractionFlag NO_FULLPATH;
 
 Do not perform the full path check on show commands.
 
-<a id="m-NO_HIDDEN"></a>
-### NO_HIDDEN
+### NO_HIDDEN <a href="#m-NO_HIDDEN" id="m-NO_HIDDEN"></a>
 
 ```java
 public static final com.tailf.maapi.CLIInteractionFlag NO_HIDDEN;
@@ -46,15 +43,13 @@ Allows execution of hidden CLI commands.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag valueOf(int i)
@@ -66,8 +61,7 @@ Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag valueOf(String name)
@@ -79,8 +73,7 @@ Types: [CLIInteractionFlag](CLIInteractionFlag.md#cls-CLIInteractionFlag)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.CLIInteractionFlag[] values()

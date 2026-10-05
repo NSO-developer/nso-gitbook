@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader
@@ -10,17 +9,16 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getTypeReferences()](#m-gettypereferences-ba94c4f34d9c)
-- [hasTypeReferences()](#m-hastypereferences-8e6b59641fe0)
+- [getTypeReferences()](#m-getTypeReferences-ba94c4f34d9c)
+- [hasTypeReferences()](#m-hasTypeReferences-8e6b59641fe0)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -47,8 +45,7 @@ Reader(
 
 ## Methods
 
-<a id="m-gettypereferences-ba94c4f34d9c"></a>
-### getTypeReferences()
+### getTypeReferences() <a href="#m-getTypeReferences-ba94c4f34d9c" id="m-getTypeReferences-ba94c4f34d9c"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsTypeReference.Reader> getTypeReferences()
@@ -56,8 +53,7 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsTypeRe
 
 Types: [Reader](../CsTypeReference/Reader.md#cls-Reader)
 
-<a id="m-hastypereferences-8e6b59641fe0"></a>
-### hasTypeReferences()
+### hasTypeReferences() <a href="#m-hasTypeReferences-8e6b59641fe0" id="m-hasTypeReferences-8e6b59641fe0"></a>
 
 ```java
 public final boolean hasTypeReferences()

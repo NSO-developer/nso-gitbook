@@ -1,5 +1,4 @@
-<a id="cls-EventCallback"></a>
-# EventCallback
+# EventCallback <a href="#cls-EventCallback" id="cls-EventCallback"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -14,14 +13,13 @@ Annotation class for Event Callbacks Attributes are deviceName,
 
 **Methods**:
 
-- [callType()](#m-calltype-0d0f9b61a036)
-- [deviceName()](#m-devicename-e1bdeb253d0a)
-- [subscriptionName()](#m-subscriptionname-2f5dadeb6aba)
+- [callType()](#m-callType-0d0f9b61a036)
+- [deviceName()](#m-deviceName-e1bdeb253d0a)
+- [subscriptionName()](#m-subscriptionName-2f5dadeb6aba)
 
 ## Methods
 
-<a id="m-calltype-0d0f9b61a036"></a>
-### callType()
+### callType() <a href="#m-callType-0d0f9b61a036" id="m-callType-0d0f9b61a036"></a>
 
 ```java
 public abstract com.tailf.ncs.proto.EventCBType[] callType()
@@ -29,15 +27,13 @@ public abstract com.tailf.ncs.proto.EventCBType[] callType()
 
 Types: [EventCBType](../proto/EventCBType.md#cls-EventCBType)
 
-<a id="m-devicename-e1bdeb253d0a"></a>
-### deviceName()
+### deviceName() <a href="#m-deviceName-e1bdeb253d0a" id="m-deviceName-e1bdeb253d0a"></a>
 
 ```java
 public abstract String deviceName()
 ```
 
-<a id="m-subscriptionname-2f5dadeb6aba"></a>
-### subscriptionName()
+### subscriptionName() <a href="#m-subscriptionName-2f5dadeb6aba" id="m-subscriptionName-2f5dadeb6aba"></a>
 
 ```java
 public abstract String subscriptionName()

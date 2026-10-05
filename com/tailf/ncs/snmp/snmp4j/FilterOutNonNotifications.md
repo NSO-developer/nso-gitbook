@@ -1,5 +1,4 @@
-<a id="cls-FilterOutNonNotifications"></a>
-# FilterOutNonNotifications
+# FilterOutNonNotifications <a href="#cls-FilterOutNonNotifications" id="cls-FilterOutNonNotifications"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.FilterOutNonNotifications
@@ -18,16 +17,15 @@ Standard filter for suppression of received snmp events
 
 **Constructors**:
 
-- [FilterOutNonNotifications()](#m-filteroutnonnotifications-fdfb3a2ec6cb)
+- [FilterOutNonNotifications()](#m-FilterOutNonNotifications-fdfb3a2ec6cb)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processpdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
 
 ## Constructors
 
-<a id="m-filteroutnonnotifications-fdfb3a2ec6cb"></a>
-### FilterOutNonNotifications()
+### FilterOutNonNotifications() <a href="#m-FilterOutNonNotifications-fdfb3a2ec6cb" id="m-FilterOutNonNotifications-fdfb3a2ec6cb"></a>
 
 ```java
 public FilterOutNonNotifications()
@@ -38,8 +36,7 @@ Filter constructor
 
 ## Methods
 
-<a id="m-processpdu-6c9b32673c38"></a>
-### processPdu(EventContext, CommandResponderEvent, Object)
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(

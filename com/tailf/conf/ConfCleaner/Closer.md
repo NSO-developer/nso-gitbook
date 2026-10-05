@@ -1,5 +1,4 @@
-<a id="cls-Closer"></a>
-# Closer
+# Closer <a href="#cls-Closer" id="cls-Closer"></a>
 
 ```java
 public static final class com.tailf.conf.ConfCleaner.Closer
@@ -10,7 +9,7 @@ public static final class com.tailf.conf.ConfCleaner.Closer
 
 **Constructors**:
 
-- [Closer(AutoCloseable[])](#m-closer-dee93e523677)
+- [Closer(AutoCloseable[])](#m-Closer-dee93e523677)
 
 **Methods**:
 
@@ -21,8 +20,7 @@ public static final class com.tailf.conf.ConfCleaner.Closer
 
 ## Constructors
 
-<a id="m-closer-dee93e523677"></a>
-### Closer(AutoCloseable[])
+### Closer(AutoCloseable[]) <a href="#m-Closer-dee93e523677" id="m-Closer-dee93e523677"></a>
 
 ```java
 public Closer(AutoCloseable[] closeables)
@@ -35,8 +33,7 @@ public Closer(AutoCloseable[] closeables)
 
 ## Methods
 
-<a id="m-add-c180b7888b01"></a>
-### add(AutoCloseable[])
+### add(AutoCloseable[]) <a href="#m-add-c180b7888b01" id="m-add-c180b7888b01"></a>
 
 ```java
 public com.tailf.conf.ConfCleaner.Closer add(AutoCloseable[] closeables)
@@ -48,15 +45,13 @@ Types: [Closer](Closer.md#cls-Closer)
 
 - `AutoCloseable[] closeables`
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close()
 ```
 
-<a id="m-remove-a78d7d35b531"></a>
-### remove(AutoCloseable)
+### remove(AutoCloseable) <a href="#m-remove-a78d7d35b531" id="m-remove-a78d7d35b531"></a>
 
 ```java
 public com.tailf.conf.ConfCleaner.Closer remove(AutoCloseable closeable)
@@ -68,8 +63,7 @@ Types: [Closer](Closer.md#cls-Closer)
 
 - `AutoCloseable closeable`
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()

@@ -1,5 +1,4 @@
-<a id="cls-HTag"></a>
-# HTag
+# HTag <a href="#cls-HTag" id="cls-HTag"></a>
 
 **Package-private**
 
@@ -11,18 +10,17 @@ class com.tailf.ncs.maapi.MmapSchema.HTag
 
 **Constructors**:
 
-- [HTag(int)](#m-htag-ec3742d47e9d)
-- [HTag(int, int)](#m-htag-e441b14fddd5)
+- [HTag(int)](#m-HTag-ec3742d47e9d)
+- [HTag(int, int)](#m-HTag-e441b14fddd5)
 
 **Methods**:
 
-- [getNs()](#m-getns-59b97eae2a4a)
-- [getTag()](#m-gettag-315f45956d6f)
+- [getNs()](#m-getNs-59b97eae2a4a)
+- [getTag()](#m-getTag-315f45956d6f)
 
 ## Constructors
 
-<a id="m-htag-ec3742d47e9d"></a>
-### HTag(int)
+### HTag(int) <a href="#m-HTag-ec3742d47e9d" id="m-HTag-ec3742d47e9d"></a>
 
 **Package-private**
 
@@ -34,8 +32,7 @@ HTag(int tag)
 
 - `int tag`
 
-<a id="m-htag-e441b14fddd5"></a>
-### HTag(int, int)
+### HTag(int, int) <a href="#m-HTag-e441b14fddd5" id="m-HTag-e441b14fddd5"></a>
 
 **Package-private**
 
@@ -51,15 +48,13 @@ HTag(int ns, int tag)
 
 ## Methods
 
-<a id="m-getns-59b97eae2a4a"></a>
-### getNs()
+### getNs() <a href="#m-getNs-59b97eae2a4a" id="m-getNs-59b97eae2a4a"></a>
 
 ```java
 public int getNs()
 ```
 
-<a id="m-gettag-315f45956d6f"></a>
-### getTag()
+### getTag() <a href="#m-getTag-315f45956d6f" id="m-getTag-315f45956d6f"></a>
 
 ```java
 public int getTag()

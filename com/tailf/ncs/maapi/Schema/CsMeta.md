@@ -1,5 +1,4 @@
-<a id="cls-CsMeta"></a>
-# CsMeta
+# CsMeta <a href="#cls-CsMeta" id="cls-CsMeta"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsMeta
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsMeta
 
 **Constructors**:
 
-- [CsMeta()](#m-csmeta-a0562865eba3)
+- [CsMeta()](#m-CsMeta-a0562865eba3)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.CsMeta
 
 ## Constructors
 
-<a id="m-csmeta-a0562865eba3"></a>
-### CsMeta()
+### CsMeta() <a href="#m-CsMeta-a0562865eba3" id="m-CsMeta-a0562865eba3"></a>
 
 ```java
 public CsMeta()
@@ -36,8 +34,7 @@ public CsMeta()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsMeta.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.CsMeta.Factory factory = null;
 
 Types: [Factory](CsMeta/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsMeta.Builder,com.tailf.ncs.maapi.Schema.CsMeta.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsMeta/Builder.md#cls-Builder), [Reader](CsMeta/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

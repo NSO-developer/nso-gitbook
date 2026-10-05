@@ -1,5 +1,4 @@
-<a id="cls-Factory"></a>
-# Factory
+# Factory <a href="#cls-Factory" id="cls-Factory"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDuration.Factory
@@ -12,34 +11,33 @@ Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 **Constructors**:
 
-- [Factory()](#m-factory-0e9f9d7f4e84)
+- [Factory()](#m-Factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asreader-f5a8817ee133)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
-- [getDays()](Builder.md#m-getdays-046356f0d5f0) from Builder
-- [getHours()](Builder.md#m-gethours-3fa193b38793) from Builder
-- [getMicros()](Builder.md#m-getmicros-062944cf4511) from Builder
-- [getMins()](Builder.md#m-getmins-c1eeffb194a4) from Builder
-- [getMonths()](Builder.md#m-getmonths-980c2a29d103) from Builder
-- [getSecs()](Builder.md#m-getsecs-460472c1be09) from Builder
-- [getYears()](Builder.md#m-getyears-04cc2ca752eb) from Builder
-- [setDays(int)](Builder.md#m-setdays-1ad4dd185830) from Builder
-- [setHours(int)](Builder.md#m-sethours-9f714fc42623) from Builder
-- [setMicros(int)](Builder.md#m-setmicros-9410072f84ff) from Builder
-- [setMins(int)](Builder.md#m-setmins-5fc890f362e6) from Builder
-- [setMonths(int)](Builder.md#m-setmonths-cdd1cef5d14a) from Builder
-- [setSecs(int)](Builder.md#m-setsecs-b16b5f90b69a) from Builder
-- [setYears(int)](Builder.md#m-setyears-d08ddee7575a) from Builder
-- [structSize()](#m-structsize-1fa68dcadd21)
+- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asReader-f5a8817ee133)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
+- [getDays()](Builder.md#m-getDays-046356f0d5f0) from Builder
+- [getHours()](Builder.md#m-getHours-3fa193b38793) from Builder
+- [getMicros()](Builder.md#m-getMicros-062944cf4511) from Builder
+- [getMins()](Builder.md#m-getMins-c1eeffb194a4) from Builder
+- [getMonths()](Builder.md#m-getMonths-980c2a29d103) from Builder
+- [getSecs()](Builder.md#m-getSecs-460472c1be09) from Builder
+- [getYears()](Builder.md#m-getYears-04cc2ca752eb) from Builder
+- [setDays(int)](Builder.md#m-setDays-1ad4dd185830) from Builder
+- [setHours(int)](Builder.md#m-setHours-9f714fc42623) from Builder
+- [setMicros(int)](Builder.md#m-setMicros-9410072f84ff) from Builder
+- [setMins(int)](Builder.md#m-setMins-5fc890f362e6) from Builder
+- [setMonths(int)](Builder.md#m-setMonths-cdd1cef5d14a) from Builder
+- [setSecs(int)](Builder.md#m-setSecs-b16b5f90b69a) from Builder
+- [setYears(int)](Builder.md#m-setYears-d08ddee7575a) from Builder
+- [structSize()](#m-structSize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="m-factory-0e9f9d7f4e84"></a>
-### Factory()
+### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -48,8 +46,7 @@ public Factory()
 
 ## Methods
 
-<a id="m-asreader-f5a8817ee133"></a>
-### asReader(Builder)
+### asReader(Builder) <a href="#m-asReader-f5a8817ee133" id="m-asReader-f5a8817ee133"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Reader asReader(
@@ -63,8 +60,7 @@ Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 - `com.tailf.ncs.maapi.Schema.CsValueDuration.Builder builder`
 
-<a id="m-constructbuilder-5a2abf3209f9"></a>
-### constructBuilder(SegmentBuilder, int, int, int, short)
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Builder constructBuilder(
@@ -86,8 +82,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="m-constructreader-fbce6f4f912a"></a>
-### constructReader(SegmentReader, int, int, int, short, int)
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDuration.Reader constructReader(
@@ -111,8 +106,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="m-structsize-1fa68dcadd21"></a>
-### structSize()
+### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

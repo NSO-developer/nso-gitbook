@@ -1,5 +1,4 @@
-<a id="cls-IterateFlags"></a>
-# IterateFlags
+# IterateFlags <a href="#cls-IterateFlags" id="cls-IterateFlags"></a>
 
 ```java
 @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
@@ -15,8 +14,7 @@ public @interface com.tailf.conf.IterateFlags
 
 ## Methods
 
-<a id="m-flags-edbfa2eca0ea"></a>
-### flags()
+### flags() <a href="#m-flags-edbfa2eca0ea" id="m-flags-edbfa2eca0ea"></a>
 
 ```java
 public abstract com.tailf.conf.DiffIterateFlags[] flags()

@@ -1,5 +1,4 @@
-<a id="cls-QueryResultIterator"></a>
-# QueryResultIterator
+# QueryResultIterator <a href="#cls-QueryResultIterator" id="cls-QueryResultIterator"></a>
 
 **Package-private**
 
@@ -14,19 +13,18 @@ Types: [Entry](QueryResult/Entry.md#cls-Entry), [ResultType](ResultType.md#cls-R
 
 **Constructors**:
 
-- [QueryResultIterator(Maapi, ConfELong)](#m-queryresultiterator-331ff5362a54)
+- [QueryResultIterator(Maapi, ConfELong)](#m-QueryResultIterator-331ff5362a54)
 
 **Methods**:
 
-- [hasNext()](#m-hasnext-93a8c9169964)
+- [hasNext()](#m-hasNext-93a8c9169964)
 - [next()](#m-next-9a4cfa383e59)
 - [remove()](#m-remove-8a10330a964f)
 - [value()](QueryResult/Entry.md#m-value-9e1512d1a0ce) from Entry
 
 ## Constructors
 
-<a id="m-queryresultiterator-331ff5362a54"></a>
-### QueryResultIterator(Maapi, ConfELong)
+### QueryResultIterator(Maapi, ConfELong) <a href="#m-QueryResultIterator-331ff5362a54" id="m-QueryResultIterator-331ff5362a54"></a>
 
 **Package-private**
 
@@ -48,15 +46,13 @@ Types: [Maapi](Maapi.md#cls-Maapi), [ConfELong](../proto/ConfELong.md#cls-ConfEL
 
 ## Methods
 
-<a id="m-hasnext-93a8c9169964"></a>
-### hasNext()
+### hasNext() <a href="#m-hasNext-93a8c9169964" id="m-hasNext-93a8c9169964"></a>
 
 ```java
 public boolean hasNext()
 ```
 
-<a id="m-next-9a4cfa383e59"></a>
-### next()
+### next() <a href="#m-next-9a4cfa383e59" id="m-next-9a4cfa383e59"></a>
 
 ```java
 public synchronized com.tailf.maapi.QueryResult.Entry<T> next()
@@ -64,8 +60,7 @@ public synchronized com.tailf.maapi.QueryResult.Entry<T> next()
 
 Types: [Entry](QueryResult/Entry.md#cls-Entry)
 
-<a id="m-remove-8a10330a964f"></a>
-### remove()
+### remove() <a href="#m-remove-8a10330a964f" id="m-remove-8a10330a964f"></a>
 
 ```java
 public void remove()

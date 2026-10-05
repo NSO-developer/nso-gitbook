@@ -1,5 +1,4 @@
-<a id="cls-NavuTraversalBfsMean"></a>
-# NavuTraversalBfsMean
+# NavuTraversalBfsMean <a href="#cls-NavuTraversalBfsMean" id="cls-NavuTraversalBfsMean"></a>
 
 ```java
 public class com.tailf.navu.traversal.NavuTraversalBfsMean
@@ -18,7 +17,7 @@ This implements the `NavuTraversalMean` for BFS
 
 **Constructors**:
 
-- [NavuTraversalBfsMean()](#m-navutraversalbfsmean-c7c973dd9b7d)
+- [NavuTraversalBfsMean()](#m-NavuTraversalBfsMean-c7c973dd9b7d)
 
 **Methods**:
 
@@ -26,8 +25,7 @@ This implements the `NavuTraversalMean` for BFS
 
 ## Constructors
 
-<a id="m-navutraversalbfsmean-c7c973dd9b7d"></a>
-### NavuTraversalBfsMean()
+### NavuTraversalBfsMean() <a href="#m-NavuTraversalBfsMean-c7c973dd9b7d" id="m-NavuTraversalBfsMean-c7c973dd9b7d"></a>
 
 ```java
 public NavuTraversalBfsMean()
@@ -36,8 +34,7 @@ public NavuTraversalBfsMean()
 
 ## Methods
 
-<a id="m-traverse-e72c3ea2612b"></a>
-### traverse(NavuNode, List<TraversalFilter>)
+### traverse(NavuNode, List<TraversalFilter>) <a href="#m-traverse-e72c3ea2612b" id="m-traverse-e72c3ea2612b"></a>
 
 ```java
 public java.util.Set<String> traverse(

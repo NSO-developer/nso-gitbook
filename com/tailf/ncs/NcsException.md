@@ -1,5 +1,4 @@
-<a id="cls-NcsException"></a>
-# NcsException
+# NcsException <a href="#cls-NcsException" id="cls-NcsException"></a>
 
 ```java
 public class com.tailf.ncs.NcsException
@@ -18,21 +17,20 @@ Ncs package generic exception
 
 **Constructors**:
 
-- [NcsException(String)](#m-ncsexception-4c8498b021a1)
-- [NcsException(String, ErrorCode, Throwable)](#m-ncsexception-4c5d5b8901ed)
-- [NcsException(String, Throwable)](#m-ncsexception-d4d509601928)
+- [NcsException(String)](#m-NcsException-4c8498b021a1)
+- [NcsException(String, ErrorCode, Throwable)](#m-NcsException-4c5d5b8901ed)
+- [NcsException(String, Throwable)](#m-NcsException-d4d509601928)
 
 **Methods**:
 
-- [getErrorCode()](../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](../conf/ConfException.md#m-mk-de1cedfc6ea8) from ConfException
 - [mk(ConfResponse, ConfPath)](../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-ncsexception-4c8498b021a1"></a>
-### NcsException(String)
+### NcsException(String) <a href="#m-NcsException-4c8498b021a1" id="m-NcsException-4c8498b021a1"></a>
 
 ```java
 protected NcsException(String msg)
@@ -42,8 +40,7 @@ protected NcsException(String msg)
 
 - `String msg`
 
-<a id="m-ncsexception-4c5d5b8901ed"></a>
-### NcsException(String, ErrorCode, Throwable)
+### NcsException(String, ErrorCode, Throwable) <a href="#m-NcsException-4c5d5b8901ed" id="m-NcsException-4c5d5b8901ed"></a>
 
 ```java
 public NcsException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -57,8 +54,7 @@ Types: [ErrorCode](../conf/ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-ncsexception-d4d509601928"></a>
-### NcsException(String, Throwable)
+### NcsException(String, Throwable) <a href="#m-NcsException-d4d509601928" id="m-NcsException-d4d509601928"></a>
 
 ```java
 public NcsException(String msg, Throwable cause)

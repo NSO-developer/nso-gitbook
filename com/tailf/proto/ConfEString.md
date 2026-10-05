@@ -1,5 +1,4 @@
-<a id="cls-ConfEString"></a>
-# ConfEString
+# ConfEString <a href="#cls-ConfEString" id="cls-ConfEString"></a>
 
 ```java
 public class com.tailf.proto.ConfEString
@@ -14,8 +13,8 @@ Provides a Java representation of E strings.
 
 **Constructors**:
 
-- [ConfEString(ConfInputStream)](#m-confestring-56214826ef50)
-- [ConfEString(String)](#m-confestring-1abe12804412)
+- [ConfEString(ConfInputStream)](#m-ConfEString-56214826ef50)
+- [ConfEString(String)](#m-ConfEString-1abe12804412)
 
 **Fields**:
 
@@ -27,14 +26,13 @@ Provides a Java representation of E strings.
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [stringValue()](#m-stringvalue-a6efca13ec08)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [stringValue()](#m-stringValue-a6efca13ec08)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confestring-56214826ef50"></a>
-### ConfEString(ConfInputStream)
+### ConfEString(ConfInputStream) <a href="#m-ConfEString-56214826ef50" id="m-ConfEString-56214826ef50"></a>
 
 ```java
 public ConfEString(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -54,8 +52,7 @@ Create an E string from a stream containing a string encoded in E
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E string.
 
-<a id="m-confestring-1abe12804412"></a>
-### ConfEString(String)
+### ConfEString(String) <a href="#m-ConfEString-1abe12804412" id="m-ConfEString-1abe12804412"></a>
 
 ```java
 public ConfEString(String str)
@@ -70,8 +67,7 @@ Create an E string from the given string.
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -82,8 +78,7 @@ static final long serialVersionUID = -7053595217604929233;
 
 ## Methods
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -98,8 +93,7 @@ Convert this string to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded string should be
             written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -116,15 +110,13 @@ Determine if two strings are equal. They are equal if they represent the
 **Returns:** true if the strings consist of the same sequence of characters,
          false otherwise.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-stringvalue-a6efca13ec08"></a>
-### stringValue()
+### stringValue() <a href="#m-stringValue-a6efca13ec08" id="m-stringValue-a6efca13ec08"></a>
 
 ```java
 public String stringValue()
@@ -135,10 +127,9 @@ Get the actual string contained in this object.
 **Returns:** the raw string contained in this object, without regard to E
          quoting rules.
 
-**See also:** [`toString`](ConfEString.md#m-tostring-e9d48c5503ef)
+**See also:** [`toString`](ConfEString.md#m-toString-e9d48c5503ef)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -148,4 +139,4 @@ Get the printable version of the string contained in this object.
 
 **Returns:** the string contained in this object, quoted.
 
-**See also:** [`stringValue`](ConfEString.md#m-stringvalue-a6efca13ec08)
+**See also:** [`stringValue`](ConfEString.md#m-stringValue-a6efca13ec08)

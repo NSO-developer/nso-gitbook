@@ -1,5 +1,4 @@
-<a id="cls-ConfBuf"></a>
-# ConfBuf
+# ConfBuf <a href="#cls-ConfBuf" id="cls-ConfBuf"></a>
 
 ```java
 public class com.tailf.conf.ConfBuf
@@ -15,8 +14,8 @@ DATA_CONTAINER - Corresponds to the YANG string type.
 
 **Constructors**:
 
-- [ConfBuf(byte[])](#m-confbuf-dba8d104ec21)
-- [ConfBuf(String)](#m-confbuf-8b26dfdf1e58)
+- [ConfBuf(byte[])](#m-ConfBuf-dba8d104ec21)
+- [ConfBuf(String)](#m-ConfBuf-8b26dfdf1e58)
 
 **Fields**:
 
@@ -72,26 +71,25 @@ DATA_CONTAINER - Corresponds to the YANG string type.
 
 **Methods**:
 
-- [bytesValue()](#m-bytesvalue-5430ca82d2de)
+- [bytesValue()](#m-bytesValue-5430ca82d2de)
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBuf)](#m-compareto-1aa9a0d6804f)
+- [compareTo(ConfBuf)](#m-compareTo-1aa9a0d6804f)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confbuf-dba8d104ec21"></a>
-### ConfBuf(byte[])
+### ConfBuf(byte[]) <a href="#m-ConfBuf-dba8d104ec21" id="m-ConfBuf-dba8d104ec21"></a>
 
 ```java
 public ConfBuf(byte[] bytes)
@@ -101,8 +99,7 @@ public ConfBuf(byte[] bytes)
 
 - `byte[] bytes`
 
-<a id="m-confbuf-8b26dfdf1e58"></a>
-### ConfBuf(String)
+### ConfBuf(String) <a href="#m-ConfBuf-8b26dfdf1e58" id="m-ConfBuf-8b26dfdf1e58"></a>
 
 ```java
 public ConfBuf(String str)
@@ -115,15 +112,13 @@ public ConfBuf(String str)
 
 ## Methods
 
-<a id="m-bytesvalue-5430ca82d2de"></a>
-### bytesValue()
+### bytesValue() <a href="#m-bytesValue-5430ca82d2de" id="m-bytesValue-5430ca82d2de"></a>
 
 ```java
 public byte[] bytesValue()
 ```
 
-<a id="m-compareto-1aa9a0d6804f"></a>
-### compareTo(ConfBuf)
+### compareTo(ConfBuf) <a href="#m-compareTo-1aa9a0d6804f" id="m-compareTo-1aa9a0d6804f"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfBuf o)
@@ -135,8 +130,7 @@ Types: [ConfBuf](ConfBuf.md#cls-ConfBuf)
 
 - `com.tailf.conf.ConfBuf o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -144,8 +138,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -155,15 +148,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-CompletionRangeEnumReply"></a>
-# CompletionRangeEnumReply
+# CompletionRangeEnumReply <a href="#cls-CompletionRangeEnumReply" id="cls-CompletionRangeEnumReply"></a>
 
 ```java
 public class com.tailf.dp.CompletionRangeEnumReply
@@ -17,22 +16,21 @@ Reply structure container for completion callbacks invoked by a
 
 **Constructors**:
 
-- [CompletionRangeEnumReply(int)](#m-completionrangeenumreply-0e71c3d85b9e)
+- [CompletionRangeEnumReply(int)](#m-CompletionRangeEnumReply-0e71c3d85b9e)
 
 **Methods**:
 
-- [addEntryKeyValues(List<String>)](#m-addentrykeyvalues-50f532a0c6fd)
-- [addEntryKeyValues(String[])](#m-addentrykeyvalues-863ff2f2eb03)
+- [addEntryKeyValues(List<String>)](#m-addEntryKeyValues-50f532a0c6fd)
+- [addEntryKeyValues(String[])](#m-addEntryKeyValues-863ff2f2eb03)
 - [encode()](#m-encode-fbae522bba37)
-- [newDefaultReply()](Completion.md#m-newdefaultreply-5583906bcd7c) from Completion
-- [newRangeEnumReply(int)](Completion.md#m-newrangeenumreply-5c101dba6437) from Completion
-- [newReply()](Completion.md#m-newreply-15892c4ebb44) from Completion
+- [newDefaultReply()](Completion.md#m-newDefaultReply-5583906bcd7c) from Completion
+- [newRangeEnumReply(int)](Completion.md#m-newRangeEnumReply-5c101dba6437) from Completion
+- [newReply()](Completion.md#m-newReply-15892c4ebb44) from Completion
 - [validate()](#m-validate-dc7ca5eb97ec)
 
 ## Constructors
 
-<a id="m-completionrangeenumreply-0e71c3d85b9e"></a>
-### CompletionRangeEnumReply(int)
+### CompletionRangeEnumReply(int) <a href="#m-CompletionRangeEnumReply-0e71c3d85b9e" id="m-CompletionRangeEnumReply-0e71c3d85b9e"></a>
 
 ```java
 protected CompletionRangeEnumReply(int keySize)
@@ -45,8 +43,7 @@ protected CompletionRangeEnumReply(int keySize)
 
 ## Methods
 
-<a id="m-addentrykeyvalues-50f532a0c6fd"></a>
-### addEntryKeyValues(List<String>)
+### addEntryKeyValues(List<String>) <a href="#m-addEntryKeyValues-50f532a0c6fd" id="m-addEntryKeyValues-50f532a0c6fd"></a>
 
 ```java
 public void addEntryKeyValues(
@@ -59,7 +56,7 @@ Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Add keys for a list entry.
  The number of keys was specified in
- the instantiation using [`Completion#newRangeEnumReply(int)`](Completion.md#m-newrangeenumreply-5c101dba6437)
+ the instantiation using [`Completion#newRangeEnumReply(int)`](Completion.md#m-newRangeEnumReply-5c101dba6437)
  The keyList parameter list size()  be of length keySize or
  an exception is thrown.
 
@@ -72,8 +69,7 @@ Add keys for a list entry.
 
 - `DpCallbackException`
 
-<a id="m-addentrykeyvalues-863ff2f2eb03"></a>
-### addEntryKeyValues(String[])
+### addEntryKeyValues(String[]) <a href="#m-addEntryKeyValues-863ff2f2eb03" id="m-addEntryKeyValues-863ff2f2eb03"></a>
 
 ```java
 public void addEntryKeyValues(String[] keyValues) throws com.tailf.dp.DpCallbackException
@@ -83,7 +79,7 @@ Types: [DpCallbackException](DpCallbackException.md#cls-DpCallbackException)
 
 Add keys for a list entry.
  The number of keys was specified in
- the instantiation using [`Completion#newRangeEnumReply(int)`](Completion.md#m-newrangeenumreply-5c101dba6437)
+ the instantiation using [`Completion#newRangeEnumReply(int)`](Completion.md#m-newRangeEnumReply-5c101dba6437)
  The keyValues parameter array length must be of length keySize or
  an exception is thrown.
 
@@ -92,8 +88,7 @@ Add keys for a list entry.
 - `String[] keyValues` - String[] of keys for this list entry,
                   must be of keySize length
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 protected com.tailf.proto.ConfEList encode()
@@ -101,8 +96,7 @@ protected com.tailf.proto.ConfEList encode()
 
 Types: [ConfEList](../proto/ConfEList.md#cls-ConfEList)
 
-<a id="m-validate-dc7ca5eb97ec"></a>
-### validate()
+### validate() <a href="#m-validate-dc7ca5eb97ec" id="m-validate-dc7ca5eb97ec"></a>
 
 ```java
 protected void validate() throws com.tailf.dp.DpCallbackException

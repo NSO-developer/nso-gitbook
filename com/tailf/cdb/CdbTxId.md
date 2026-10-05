@@ -1,11 +1,10 @@
-<a id="cls-CdbTxId"></a>
-# CdbTxId
+# CdbTxId <a href="#cls-CdbTxId" id="cls-CdbTxId"></a>
 
 ```java
 public class com.tailf.cdb.CdbTxId
 ```
 
-Data structure received from [`Cdb#getTxId()`](Cdb.md#m-gettxid-1817ce3409ba) method. Represents the
+Data structure received from [`Cdb#getTxId()`](Cdb.md#m-getTxId-1817ce3409ba) method. Represents the
  last known transaction that CDB did. This can be used to compare states for a
  managed object. If configuration needs to be re-read or not, in case of
  restarts.
@@ -14,22 +13,21 @@ Data structure received from [`Cdb#getTxId()`](Cdb.md#m-gettxid-1817ce3409ba) me
 
 **Constructors**:
 
-- [CdbTxId(String, int, int, int)](#m-cdbtxid-e81c281fc8c1)
+- [CdbTxId(String, int, int, int)](#m-CdbTxId-e81c281fc8c1)
 
 **Methods**:
 
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getNode()](#m-getnode-52e3d8224b48)
-- [getS1()](#m-gets1-50b10751fabb)
-- [getS2()](#m-gets2-1443594bd6f7)
-- [getS3()](#m-gets3-2ee1ddf494a1)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getNode()](#m-getNode-52e3d8224b48)
+- [getS1()](#m-getS1-50b10751fabb)
+- [getS2()](#m-getS2-1443594bd6f7)
+- [getS3()](#m-getS3-2ee1ddf494a1)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-cdbtxid-e81c281fc8c1"></a>
-### CdbTxId(String, int, int, int)
+### CdbTxId(String, int, int, int) <a href="#m-CdbTxId-e81c281fc8c1" id="m-CdbTxId-e81c281fc8c1"></a>
 
 **Package-private**
 
@@ -49,8 +47,7 @@ Constructor
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object anObject)
@@ -64,8 +61,7 @@ Compares this CdbTxId to the specified object. The result is true if and
 
 - `Object anObject` - Object to compare against
 
-<a id="m-getnode-52e3d8224b48"></a>
-### getNode()
+### getNode() <a href="#m-getNode-52e3d8224b48" id="m-getNode-52e3d8224b48"></a>
 
 ```java
 public String getNode()
@@ -75,8 +71,7 @@ Get the host node;
 
 **Returns:** String the host node
 
-<a id="m-gets1-50b10751fabb"></a>
-### getS1()
+### getS1() <a href="#m-getS1-50b10751fabb" id="m-getS1-50b10751fabb"></a>
 
 ```java
 public int getS1()
@@ -86,8 +81,7 @@ Get the s1 part of timestamp
 
 **Returns:** int s1 part of timestamp
 
-<a id="m-gets2-1443594bd6f7"></a>
-### getS2()
+### getS2() <a href="#m-getS2-1443594bd6f7" id="m-getS2-1443594bd6f7"></a>
 
 ```java
 public int getS2()
@@ -97,8 +91,7 @@ Get the s2 part of timestamp
 
 **Returns:** int s2 part of timestamp
 
-<a id="m-gets3-2ee1ddf494a1"></a>
-### getS3()
+### getS3() <a href="#m-getS3-2ee1ddf494a1" id="m-getS3-2ee1ddf494a1"></a>
 
 ```java
 public int getS3()
@@ -108,15 +101,13 @@ Get the s3 part of timestamp
 
 **Returns:** int s3 part of timestamp
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

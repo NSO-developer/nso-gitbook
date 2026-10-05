@@ -1,5 +1,4 @@
-<a id="cls-ProgressTrace"></a>
-# ProgressTrace
+# ProgressTrace <a href="#cls-ProgressTrace" id="cls-ProgressTrace"></a>
 
 ```java
 public class com.tailf.progress.ProgressTrace
@@ -34,26 +33,25 @@ public class com.tailf.progress.ProgressTrace
 
 **Constructors**:
 
-- [ProgressTrace(Maapi, int)](#m-progresstrace-79427d590b52)
-- [ProgressTrace(Maapi, int, ConfPath)](#m-progresstrace-95f990b53e34)
+- [ProgressTrace(Maapi, int)](#m-ProgressTrace-79427d590b52)
+- [ProgressTrace(Maapi, int, ConfPath)](#m-ProgressTrace-95f990b53e34)
 
 **Methods**:
 
-- [endSpan(Span)](#m-endspan-832d21f903c3)
-- [endSpan(Span, String)](#m-endspan-1c44c700da19)
+- [endSpan(Span)](#m-endSpan-832d21f903c3)
+- [endSpan(Span, String)](#m-endSpan-1c44c700da19)
 - [event(String)](#m-event-35c2a3878e07)
 - [event(Verbosity, String)](#m-event-9f8a52e74d94)
 - [event(Verbosity, String, Attributes)](#m-event-cdc8c9e968cd)
-- [getCurrentSpan()](#m-getcurrentspan-95e59db0f66f)
-- [setServicePath(ConfPath)](#m-setservicepath-95207665ae57)
-- [startSpan(String)](#m-startspan-a255151f7145)
-- [startSpan(Verbosity, String)](#m-startspan-b310d5a59dbf)
-- [startSpan(Verbosity, String, Attributes, Span[])](#m-startspan-ec78710be35e)
+- [getCurrentSpan()](#m-getCurrentSpan-95e59db0f66f)
+- [setServicePath(ConfPath)](#m-setServicePath-95207665ae57)
+- [startSpan(String)](#m-startSpan-a255151f7145)
+- [startSpan(Verbosity, String)](#m-startSpan-b310d5a59dbf)
+- [startSpan(Verbosity, String, Attributes, Span[])](#m-startSpan-ec78710be35e)
 
 ## Constructors
 
-<a id="m-progresstrace-79427d590b52"></a>
-### ProgressTrace(Maapi, int)
+### ProgressTrace(Maapi, int) <a href="#m-ProgressTrace-79427d590b52" id="m-ProgressTrace-79427d590b52"></a>
 
 ```java
 public ProgressTrace(com.tailf.maapi.Maapi maapi, int tid) throws com.tailf.conf.ConfException
@@ -73,8 +71,7 @@ Creates a new instance of `ProgressTrace`
 
 - `ConfException`
 
-<a id="m-progresstrace-95f990b53e34"></a>
-### ProgressTrace(Maapi, int, ConfPath)
+### ProgressTrace(Maapi, int, ConfPath) <a href="#m-ProgressTrace-95f990b53e34" id="m-ProgressTrace-95f990b53e34"></a>
 
 ```java
 public ProgressTrace(com.tailf.maapi.Maapi maapi, int tid, com.tailf.conf.ConfPath servicePath)
@@ -95,8 +92,7 @@ Creates a new instance of `ProgressTrace`.
 
 ## Methods
 
-<a id="m-endspan-832d21f903c3"></a>
-### endSpan(Span)
+### endSpan(Span) <a href="#m-endSpan-832d21f903c3" id="m-endSpan-832d21f903c3"></a>
 
 ```java
 public void endSpan(
@@ -113,8 +109,7 @@ End a span
 
 - `com.tailf.progress.Span span` - the span which was previously started
 
-<a id="m-endspan-1c44c700da19"></a>
-### endSpan(Span, String)
+### endSpan(Span, String) <a href="#m-endSpan-1c44c700da19" id="m-endSpan-1c44c700da19"></a>
 
 ```java
 public void endSpan(
@@ -139,8 +134,7 @@ End a span with annotation
 - `IOException`
 - `ConfException`
 
-<a id="m-event-35c2a3878e07"></a>
-### event(String)
+### event(String) <a href="#m-event-35c2a3878e07" id="m-event-35c2a3878e07"></a>
 
 ```java
 public void event(String message) throws java.io.IOException, com.tailf.conf.ConfException
@@ -159,8 +153,7 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="m-event-9f8a52e74d94"></a>
-### event(Verbosity, String)
+### event(Verbosity, String) <a href="#m-event-9f8a52e74d94" id="m-event-9f8a52e74d94"></a>
 
 ```java
 public void event(
@@ -185,8 +178,7 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="m-event-cdc8c9e968cd"></a>
-### event(Verbosity, String, Attributes)
+### event(Verbosity, String, Attributes) <a href="#m-event-cdc8c9e968cd" id="m-event-cdc8c9e968cd"></a>
 
 ```java
 public void event(
@@ -214,8 +206,7 @@ Report an event
 - `IOException`
 - `ConfException`
 
-<a id="m-getcurrentspan-95e59db0f66f"></a>
-### getCurrentSpan()
+### getCurrentSpan() <a href="#m-getCurrentSpan-95e59db0f66f" id="m-getCurrentSpan-95e59db0f66f"></a>
 
 ```java
 public com.tailf.progress.Span getCurrentSpan()
@@ -232,8 +223,7 @@ Get the current span that is created by this API.
 **Returns:** a [`Span`](Span.md#cls-Span) object or [`EmptySpan`](EmptySpan.md#cls-EmptySpan)
  object if the span is not created by the API.
 
-<a id="m-setservicepath-95207665ae57"></a>
-### setServicePath(ConfPath)
+### setServicePath(ConfPath) <a href="#m-setServicePath-95207665ae57" id="m-setServicePath-95207665ae57"></a>
 
 ```java
 public void setServicePath(com.tailf.conf.ConfPath servicePath)
@@ -247,8 +237,7 @@ Set NSO's service path
 
 - `com.tailf.conf.ConfPath servicePath` - the service path
 
-<a id="m-startspan-a255151f7145"></a>
-### startSpan(String)
+### startSpan(String) <a href="#m-startSpan-a255151f7145" id="m-startSpan-a255151f7145"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(
@@ -273,8 +262,7 @@ Start a new span
 - `IOException`
 - `ConfException`
 
-<a id="m-startspan-b310d5a59dbf"></a>
-### startSpan(Verbosity, String)
+### startSpan(Verbosity, String) <a href="#m-startSpan-b310d5a59dbf" id="m-startSpan-b310d5a59dbf"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(
@@ -302,8 +290,7 @@ Start a new span
 - `IOException`
 - `ConfException`
 
-<a id="m-startspan-ec78710be35e"></a>
-### startSpan(Verbosity, String, Attributes, Span[])
+### startSpan(Verbosity, String, Attributes, Span[]) <a href="#m-startSpan-ec78710be35e" id="m-startSpan-ec78710be35e"></a>
 
 ```java
 public com.tailf.progress.Span startSpan(

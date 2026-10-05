@@ -1,5 +1,4 @@
-<a id="cls-CsValueIPv6Prefix"></a>
-# CsValueIPv6Prefix
+# CsValueIPv6Prefix <a href="#cls-CsValueIPv6Prefix" id="cls-CsValueIPv6Prefix"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix
 
 **Constructors**:
 
-- [CsValueIPv6Prefix()](#m-csvalueipv6prefix-b481569047fb)
+- [CsValueIPv6Prefix()](#m-CsValueIPv6Prefix-b481569047fb)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix
 
 ## Constructors
 
-<a id="m-csvalueipv6prefix-b481569047fb"></a>
-### CsValueIPv6Prefix()
+### CsValueIPv6Prefix() <a href="#m-CsValueIPv6Prefix-b481569047fb" id="m-CsValueIPv6Prefix-b481569047fb"></a>
 
 ```java
 public CsValueIPv6Prefix()
@@ -35,8 +33,7 @@ public CsValueIPv6Prefix()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Factory factory
 
 Types: [Factory](CsValueIPv6Prefix/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Builder,com.tailf.ncs.maapi.Schema.CsValueIPv6Prefix.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueIPv6Prefix/Builder.md#cls-Builder), [Reader](CsValueIPv6Prefix/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

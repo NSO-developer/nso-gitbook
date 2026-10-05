@@ -1,5 +1,4 @@
-<a id="cls-MmapSchemaDumper"></a>
-# MmapSchemaDumper
+# MmapSchemaDumper <a href="#cls-MmapSchemaDumper" id="cls-MmapSchemaDumper"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchemaDumper
@@ -15,7 +14,7 @@ Utility class to dump MmapSchema content from command line
 
 **Constructors**:
 
-- [MmapSchemaDumper()](#m-mmapschemadumper-3be5dcb44ba4)
+- [MmapSchemaDumper()](#m-MmapSchemaDumper-3be5dcb44ba4)
 
 **Methods**:
 
@@ -23,8 +22,7 @@ Utility class to dump MmapSchema content from command line
 
 ## Constructors
 
-<a id="m-mmapschemadumper-3be5dcb44ba4"></a>
-### MmapSchemaDumper()
+### MmapSchemaDumper() <a href="#m-MmapSchemaDumper-3be5dcb44ba4" id="m-MmapSchemaDumper-3be5dcb44ba4"></a>
 
 ```java
 public MmapSchemaDumper()
@@ -33,8 +31,7 @@ public MmapSchemaDumper()
 
 ## Methods
 
-<a id="m-main-1503518a8568"></a>
-### main(String[])
+### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
 
 ```java
 public static void main(String[] args)

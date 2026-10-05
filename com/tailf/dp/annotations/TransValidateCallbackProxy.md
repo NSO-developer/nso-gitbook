@@ -1,5 +1,4 @@
-<a id="cls-TransValidateCallbackProxy"></a>
-# TransValidateCallbackProxy
+# TransValidateCallbackProxy <a href="#cls-TransValidateCallbackProxy" id="cls-TransValidateCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.TransValidateCallbackProxy
@@ -16,21 +15,20 @@ Callback proxy for TransValidate Callbacks. Implements the
 
 **Constructors**:
 
-- [TransValidateCallbackProxy(Object)](#m-transvalidatecallbackproxy-11ae52cb63d7)
+- [TransValidateCallbackProxy(Object)](#m-TransValidateCallbackProxy-11ae52cb63d7)
 
 **Methods**:
 
-- [addActionCapability(TransValidateCBType)](#m-addactioncapability-0a83c7c765a3)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getTransValidateCallbackProxys(Object)](#m-gettransvalidatecallbackproxys-ea8c2c00799a)
+- [addActionCapability(TransValidateCBType)](#m-addActionCapability-0a83c7c765a3)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getTransValidateCallbackProxys(Object)](#m-getTransValidateCallbackProxys-ea8c2c00799a)
 - [init(DpTrans)](#m-init-16fe8657859c)
 - [stop(DpTrans)](#m-stop-1dfe2eb96fb9)
 
 ## Constructors
 
-<a id="m-transvalidatecallbackproxy-11ae52cb63d7"></a>
-### TransValidateCallbackProxy(Object)
+### TransValidateCallbackProxy(Object) <a href="#m-TransValidateCallbackProxy-11ae52cb63d7" id="m-TransValidateCallbackProxy-11ae52cb63d7"></a>
 
 ```java
 public TransValidateCallbackProxy(Object backupObject)
@@ -45,8 +43,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-0a83c7c765a3"></a>
-### addActionCapability(TransValidateCBType)
+### addActionCapability(TransValidateCBType) <a href="#m-addActionCapability-0a83c7c765a3" id="m-addActionCapability-0a83c7c765a3"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.TransValidateCBType transValidCBType)
@@ -61,8 +58,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.TransValidateCBType transValidCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -75,8 +71,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -86,8 +81,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-gettransvalidatecallbackproxys-ea8c2c00799a"></a>
-### getTransValidateCallbackProxys(Object)
+### getTransValidateCallbackProxys(Object) <a href="#m-getTransValidateCallbackProxys-ea8c2c00799a" id="m-getTransValidateCallbackProxys-ea8c2c00799a"></a>
 
 ```java
 public static com.tailf.dp.annotations.TransValidateCallbackProxy[] getTransValidateCallbackProxys(
@@ -111,8 +105,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-init-16fe8657859c"></a>
-### init(DpTrans)
+### init(DpTrans) <a href="#m-init-16fe8657859c" id="m-init-16fe8657859c"></a>
 
 ```java
 public void init(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException
@@ -124,8 +117,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [DpCallbackException](../DpCallback
 
 - `com.tailf.dp.DpTrans trans`
 
-<a id="m-stop-1dfe2eb96fb9"></a>
-### stop(DpTrans)
+### stop(DpTrans) <a href="#m-stop-1dfe2eb96fb9" id="m-stop-1dfe2eb96fb9"></a>
 
 ```java
 public void stop(com.tailf.dp.DpTrans trans) throws com.tailf.dp.DpCallbackException

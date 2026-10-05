@@ -1,5 +1,4 @@
-<a id="cls-StringUtils"></a>
-# StringUtils
+# StringUtils <a href="#cls-StringUtils" id="cls-StringUtils"></a>
 
 ```java
 public class com.tailf.util.StringUtils
@@ -9,16 +8,15 @@ public class com.tailf.util.StringUtils
 
 **Constructors**:
 
-- [StringUtils()](#m-stringutils-ec5c7ec80bba)
+- [StringUtils()](#m-StringUtils-ec5c7ec80bba)
 
 **Methods**:
 
-- [getBytes(String)](#m-getbytes-dc2a63683673)
+- [getBytes(String)](#m-getBytes-dc2a63683673)
 
 ## Constructors
 
-<a id="m-stringutils-ec5c7ec80bba"></a>
-### StringUtils()
+### StringUtils() <a href="#m-StringUtils-ec5c7ec80bba" id="m-StringUtils-ec5c7ec80bba"></a>
 
 ```java
 public StringUtils()
@@ -27,8 +25,7 @@ public StringUtils()
 
 ## Methods
 
-<a id="m-getbytes-dc2a63683673"></a>
-### getBytes(String)
+### getBytes(String) <a href="#m-getBytes-dc2a63683673" id="m-getBytes-dc2a63683673"></a>
 
 ```java
 public static byte[] getBytes(String str) throws java.io.IOException

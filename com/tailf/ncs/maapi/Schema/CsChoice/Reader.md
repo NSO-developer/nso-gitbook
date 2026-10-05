@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsChoice.Reader
@@ -10,22 +9,21 @@ public static final class com.tailf.ncs.maapi.Schema.CsChoice.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getCases()](#m-getcases-42abc2944fb1)
-- [getDefCase()](#m-getdefcase-593fa181831e)
-- [getHns()](#m-gethns-457afaf41ae6)
-- [getHtag()](#m-gethtag-3a838d71ddf7)
-- [getMinOccurs()](#m-getminoccurs-cac79959dff8)
-- [hasCases()](#m-hascases-682cbddafe6a)
-- [hasDefCase()](#m-hasdefcase-417dec2577e2)
+- [getCases()](#m-getCases-42abc2944fb1)
+- [getDefCase()](#m-getDefCase-593fa181831e)
+- [getHns()](#m-getHns-457afaf41ae6)
+- [getHtag()](#m-getHtag-3a838d71ddf7)
+- [getMinOccurs()](#m-getMinOccurs-cac79959dff8)
+- [hasCases()](#m-hasCases-682cbddafe6a)
+- [hasDefCase()](#m-hasDefCase-417dec2577e2)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -52,8 +50,7 @@ Reader(
 
 ## Methods
 
-<a id="m-getcases-42abc2944fb1"></a>
-### getCases()
+### getCases() <a href="#m-getCases-42abc2944fb1" id="m-getCases-42abc2944fb1"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsCase.Reader> getCases()
@@ -61,8 +58,7 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.CsCase.R
 
 Types: [Reader](../CsCase/Reader.md#cls-Reader)
 
-<a id="m-getdefcase-593fa181831e"></a>
-### getDefCase()
+### getDefCase() <a href="#m-getDefCase-593fa181831e" id="m-getDefCase-593fa181831e"></a>
 
 ```java
 public com.tailf.ncs.maapi.Schema.QTag.Reader getDefCase()
@@ -70,36 +66,31 @@ public com.tailf.ncs.maapi.Schema.QTag.Reader getDefCase()
 
 Types: [Reader](../QTag/Reader.md#cls-Reader)
 
-<a id="m-gethns-457afaf41ae6"></a>
-### getHns()
+### getHns() <a href="#m-getHns-457afaf41ae6" id="m-getHns-457afaf41ae6"></a>
 
 ```java
 public final int getHns()
 ```
 
-<a id="m-gethtag-3a838d71ddf7"></a>
-### getHtag()
+### getHtag() <a href="#m-getHtag-3a838d71ddf7" id="m-getHtag-3a838d71ddf7"></a>
 
 ```java
 public final int getHtag()
 ```
 
-<a id="m-getminoccurs-cac79959dff8"></a>
-### getMinOccurs()
+### getMinOccurs() <a href="#m-getMinOccurs-cac79959dff8" id="m-getMinOccurs-cac79959dff8"></a>
 
 ```java
 public final int getMinOccurs()
 ```
 
-<a id="m-hascases-682cbddafe6a"></a>
-### hasCases()
+### hasCases() <a href="#m-hasCases-682cbddafe6a" id="m-hasCases-682cbddafe6a"></a>
 
 ```java
 public final boolean hasCases()
 ```
 
-<a id="m-hasdefcase-417dec2577e2"></a>
-### hasDefCase()
+### hasDefCase() <a href="#m-hasDefCase-417dec2577e2" id="m-hasDefCase-417dec2577e2"></a>
 
 ```java
 public boolean hasDefCase()

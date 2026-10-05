@@ -1,5 +1,4 @@
-<a id="cls-CallHomeInfoNotification"></a>
-# CallHomeInfoNotification
+# CallHomeInfoNotification <a href="#cls-CallHomeInfoNotification" id="cls-CallHomeInfoNotification"></a>
 
 ```java
 public class com.tailf.notif.CallHomeInfoNotification
@@ -14,7 +13,7 @@ Events generated for NETCONF Call Home connections.
 
 **Constructors**:
 
-- [CallHomeInfoNotification(int, String, InetAddress, ConfObject, int, String, String)](#m-callhomeinfonotification-b74c80a89340)
+- [CallHomeInfoNotification(int, String, InetAddress, ConfObject, int, String, String)](#m-CallHomeInfoNotification-b74c80a89340)
 
 **Fields**:
 
@@ -25,20 +24,19 @@ Events generated for NETCONF Call Home connections.
 
 **Methods**:
 
-- [getDevice()](#m-getdevice-4acac4557fc6)
-- [getInfoType()](#m-getinfotype-b2cb4d4dc10b)
-- [getIP()](#m-getip-c2f1d3db411f)
-- [getIPValue()](#m-getipvalue-7154021b2d96)
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getPort()](#m-getport-a2225f868a2b)
-- [getSSHHostKey()](#m-getsshhostkey-7e4df2de094c)
-- [getSSHKeyAlg()](#m-getsshkeyalg-2bd530885260)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getDevice()](#m-getDevice-4acac4557fc6)
+- [getInfoType()](#m-getInfoType-b2cb4d4dc10b)
+- [getIP()](#m-getIP-c2f1d3db411f)
+- [getIPValue()](#m-getIPValue-7154021b2d96)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getPort()](#m-getPort-a2225f868a2b)
+- [getSSHHostKey()](#m-getSSHHostKey-7e4df2de094c)
+- [getSSHKeyAlg()](#m-getSSHKeyAlg-2bd530885260)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-callhomeinfonotification-b74c80a89340"></a>
-### CallHomeInfoNotification(int, String, InetAddress, ConfObject, int, String, String)
+### CallHomeInfoNotification(int, String, InetAddress, ConfObject, int, String, String) <a href="#m-CallHomeInfoNotification-b74c80a89340" id="m-CallHomeInfoNotification-b74c80a89340"></a>
 
 ```java
 public CallHomeInfoNotification(
@@ -70,8 +68,7 @@ Creates a notification describing a Call Home event.
 
 ## Fields
 
-<a id="m-CALL_HOME_DEVICE_CONNECTED"></a>
-### CALL_HOME_DEVICE_CONNECTED
+### CALL_HOME_DEVICE_CONNECTED <a href="#m-CALL_HOME_DEVICE_CONNECTED" id="m-CALL_HOME_DEVICE_CONNECTED"></a>
 
 ```java
 public static final int CALL_HOME_DEVICE_CONNECTED = 1;
@@ -79,8 +76,7 @@ public static final int CALL_HOME_DEVICE_CONNECTED = 1;
 
 Device connected via NETCONF Call Home and recognized/configured.
 
-<a id="m-CALL_HOME_DEVICE_DISCONNECTED"></a>
-### CALL_HOME_DEVICE_DISCONNECTED
+### CALL_HOME_DEVICE_DISCONNECTED <a href="#m-CALL_HOME_DEVICE_DISCONNECTED" id="m-CALL_HOME_DEVICE_DISCONNECTED"></a>
 
 ```java
 public static final int CALL_HOME_DEVICE_DISCONNECTED = 3;
@@ -88,8 +84,7 @@ public static final int CALL_HOME_DEVICE_DISCONNECTED = 3;
 
 Previously connected Call Home device disconnected.
 
-<a id="m-CALL_HOME_UNKNOWN_DEVICE"></a>
-### CALL_HOME_UNKNOWN_DEVICE
+### CALL_HOME_UNKNOWN_DEVICE <a href="#m-CALL_HOME_UNKNOWN_DEVICE" id="m-CALL_HOME_UNKNOWN_DEVICE"></a>
 
 ```java
 public static final int CALL_HOME_UNKNOWN_DEVICE = 2;
@@ -100,8 +95,7 @@ Incoming Call Home connection from an unknown/unconfigured device.
 
 ## Methods
 
-<a id="m-getdevice-4acac4557fc6"></a>
-### getDevice()
+### getDevice() <a href="#m-getDevice-4acac4557fc6" id="m-getDevice-4acac4557fc6"></a>
 
 ```java
 public String getDevice()
@@ -111,8 +105,7 @@ Returns the device name if known.
 
 **Returns:** device name or null if unknown
 
-<a id="m-getinfotype-b2cb4d4dc10b"></a>
-### getInfoType()
+### getInfoType() <a href="#m-getInfoType-b2cb4d4dc10b" id="m-getInfoType-b2cb4d4dc10b"></a>
 
 ```java
 public int getInfoType()
@@ -121,14 +114,13 @@ public int getInfoType()
 Info type:
 
 
-- `#CALL_HOME_DEVICE_CONNECTED`
-   - `#CALL_HOME_UNKNOWN_DEVICE`
-     - `#CALL_HOME_DEVICE_DISCONNECTED`
+- [`CALL_HOME_DEVICE_CONNECTED`](CallHomeInfoNotification.md#m-CALL_HOME_DEVICE_CONNECTED)
+   - [`CALL_HOME_UNKNOWN_DEVICE`](CallHomeInfoNotification.md#m-CALL_HOME_UNKNOWN_DEVICE)
+     - [`CALL_HOME_DEVICE_DISCONNECTED`](CallHomeInfoNotification.md#m-CALL_HOME_DEVICE_DISCONNECTED)
 
 **Returns:** info type constant
 
-<a id="m-getip-c2f1d3db411f"></a>
-### getIP()
+### getIP() <a href="#m-getIP-c2f1d3db411f" id="m-getIP-c2f1d3db411f"></a>
 
 ```java
 public java.net.InetAddress getIP()
@@ -138,8 +130,7 @@ Returns the remote IP address of the Call Home connection.
 
 **Returns:** remote IP address or null if not applicable
 
-<a id="m-getipvalue-7154021b2d96"></a>
-### getIPValue()
+### getIPValue() <a href="#m-getIPValue-7154021b2d96" id="m-getIPValue-7154021b2d96"></a>
 
 ```java
 public com.tailf.conf.ConfObject getIPValue()
@@ -151,8 +142,7 @@ Returns the ConfObject form of the IP address
 
 **Returns:** ConfObject for the IP address or null if not applicable
 
-<a id="m-getport-a2225f868a2b"></a>
-### getPort()
+### getPort() <a href="#m-getPort-a2225f868a2b" id="m-getPort-a2225f868a2b"></a>
 
 ```java
 public int getPort()
@@ -162,8 +152,7 @@ Returns the TCP port used by the remote endpoint.
 
 **Returns:** remote port number or 0 if not set
 
-<a id="m-getsshhostkey-7e4df2de094c"></a>
-### getSSHHostKey()
+### getSSHHostKey() <a href="#m-getSSHHostKey-7e4df2de094c" id="m-getSSHHostKey-7e4df2de094c"></a>
 
 ```java
 public String getSSHHostKey()
@@ -173,8 +162,7 @@ Returns the SSH host key presented by the device.
 
 **Returns:** SSH host key string or null if not available
 
-<a id="m-getsshkeyalg-2bd530885260"></a>
-### getSSHKeyAlg()
+### getSSHKeyAlg() <a href="#m-getSSHKeyAlg-2bd530885260" id="m-getSSHKeyAlg-2bd530885260"></a>
 
 ```java
 public String getSSHKeyAlg()
@@ -185,8 +173,7 @@ Returns the SSH host key algorithm presented by the device during the
 
 **Returns:** the SSH key algorithm
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

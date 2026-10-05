@@ -1,5 +1,4 @@
-<a id="cls-ConfException"></a>
-# ConfException
+# ConfException <a href="#cls-ConfException" id="cls-ConfException"></a>
 
 ```java
 public class com.tailf.conf.ConfException
@@ -26,26 +25,25 @@ Exception base class. Capable of formatting protocol errors into exceptions.
 
 **Constructors**:
 
-- [ConfException(String)](#m-confexception-dc970c7fe4fe)
-- [ConfException(String, ErrorCode)](#m-confexception-d917b21fb864)
-- [ConfException(String, ErrorCode, Throwable)](#m-confexception-2ef26e60c90a)
-- [ConfException(String, ErrorCode, Throwable, Object)](#m-confexception-1d5a0544c033)
-- [ConfException(String, int)](#m-confexception-f9ced700f545)
-- [ConfException(String, int, Throwable)](#m-confexception-b28d9204d01c)
-- [ConfException(String, Throwable)](#m-confexception-c87e2ff2e68c)
-- [ConfException(Throwable)](#m-confexception-97f34dedf669)
+- [ConfException(String)](#m-ConfException-dc970c7fe4fe)
+- [ConfException(String, ErrorCode)](#m-ConfException-d917b21fb864)
+- [ConfException(String, ErrorCode, Throwable)](#m-ConfException-2ef26e60c90a)
+- [ConfException(String, ErrorCode, Throwable, Object)](#m-ConfException-1d5a0544c033)
+- [ConfException(String, int)](#m-ConfException-f9ced700f545)
+- [ConfException(String, int, Throwable)](#m-ConfException-b28d9204d01c)
+- [ConfException(String, Throwable)](#m-ConfException-c87e2ff2e68c)
+- [ConfException(Throwable)](#m-ConfException-97f34dedf669)
 
 **Methods**:
 
-- [getErrorCode()](#m-geterrorcode-812152fc083a)
-- [getOpaque()](#m-getopaque-92e4945ec92d)
+- [getErrorCode()](#m-getErrorCode-812152fc083a)
+- [getOpaque()](#m-getOpaque-92e4945ec92d)
 - [mk(ConfResponse)](#m-mk-de1cedfc6ea8)
 - [mk(ConfResponse, ConfPath)](#m-mk-79e69ffbc022)
 
 ## Constructors
 
-<a id="m-confexception-dc970c7fe4fe"></a>
-### ConfException(String)
+### ConfException(String) <a href="#m-ConfException-dc970c7fe4fe" id="m-ConfException-dc970c7fe4fe"></a>
 
 ```java
 public ConfException(String msg)
@@ -55,8 +53,7 @@ public ConfException(String msg)
 
 - `String msg`
 
-<a id="m-confexception-d917b21fb864"></a>
-### ConfException(String, ErrorCode)
+### ConfException(String, ErrorCode) <a href="#m-ConfException-d917b21fb864" id="m-ConfException-d917b21fb864"></a>
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code)
@@ -69,8 +66,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 - `String msg`
 - `com.tailf.conf.ErrorCode code`
 
-<a id="m-confexception-2ef26e60c90a"></a>
-### ConfException(String, ErrorCode, Throwable)
+### ConfException(String, ErrorCode, Throwable) <a href="#m-ConfException-2ef26e60c90a" id="m-ConfException-2ef26e60c90a"></a>
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code, Throwable cause)
@@ -84,8 +80,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 - `com.tailf.conf.ErrorCode code`
 - `Throwable cause`
 
-<a id="m-confexception-1d5a0544c033"></a>
-### ConfException(String, ErrorCode, Throwable, Object)
+### ConfException(String, ErrorCode, Throwable, Object) <a href="#m-ConfException-1d5a0544c033" id="m-ConfException-1d5a0544c033"></a>
 
 ```java
 public ConfException(String msg, com.tailf.conf.ErrorCode code, Throwable cause, Object o)
@@ -100,8 +95,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 - `Throwable cause`
 - `Object o`
 
-<a id="m-confexception-f9ced700f545"></a>
-### ConfException(String, int)
+### ConfException(String, int) <a href="#m-ConfException-f9ced700f545" id="m-ConfException-f9ced700f545"></a>
 
 ```java
 public ConfException(String msg, int codeInteger)
@@ -112,8 +106,7 @@ public ConfException(String msg, int codeInteger)
 - `String msg`
 - `int codeInteger`
 
-<a id="m-confexception-b28d9204d01c"></a>
-### ConfException(String, int, Throwable)
+### ConfException(String, int, Throwable) <a href="#m-ConfException-b28d9204d01c" id="m-ConfException-b28d9204d01c"></a>
 
 ```java
 public ConfException(String msg, int codeInteger, Throwable cause)
@@ -125,8 +118,7 @@ public ConfException(String msg, int codeInteger, Throwable cause)
 - `int codeInteger`
 - `Throwable cause`
 
-<a id="m-confexception-c87e2ff2e68c"></a>
-### ConfException(String, Throwable)
+### ConfException(String, Throwable) <a href="#m-ConfException-c87e2ff2e68c" id="m-ConfException-c87e2ff2e68c"></a>
 
 ```java
 public ConfException(String msg, Throwable cause)
@@ -137,8 +129,7 @@ public ConfException(String msg, Throwable cause)
 - `String msg`
 - `Throwable cause`
 
-<a id="m-confexception-97f34dedf669"></a>
-### ConfException(Throwable)
+### ConfException(Throwable) <a href="#m-ConfException-97f34dedf669" id="m-ConfException-97f34dedf669"></a>
 
 ```java
 public ConfException(Throwable cause)
@@ -151,8 +142,7 @@ public ConfException(Throwable cause)
 
 ## Methods
 
-<a id="m-geterrorcode-812152fc083a"></a>
-### getErrorCode()
+### getErrorCode() <a href="#m-getErrorCode-812152fc083a" id="m-getErrorCode-812152fc083a"></a>
 
 ```java
 public com.tailf.conf.ErrorCode getErrorCode()
@@ -160,15 +150,13 @@ public com.tailf.conf.ErrorCode getErrorCode()
 
 Types: [ErrorCode](ErrorCode.md#cls-ErrorCode)
 
-<a id="m-getopaque-92e4945ec92d"></a>
-### getOpaque()
+### getOpaque() <a href="#m-getOpaque-92e4945ec92d" id="m-getOpaque-92e4945ec92d"></a>
 
 ```java
 public Object getOpaque()
 ```
 
-<a id="m-mk-de1cedfc6ea8"></a>
-### mk(ConfResponse)
+### mk(ConfResponse) <a href="#m-mk-de1cedfc6ea8" id="m-mk-de1cedfc6ea8"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(com.tailf.conf.ConfResponse r)
@@ -180,8 +168,7 @@ Types: [ConfException](ConfException.md#cls-ConfException), [ConfResponse](ConfR
 
 - `com.tailf.conf.ConfResponse r`
 
-<a id="m-mk-79e69ffbc022"></a>
-### mk(ConfResponse, ConfPath)
+### mk(ConfResponse, ConfPath) <a href="#m-mk-79e69ffbc022" id="m-mk-79e69ffbc022"></a>
 
 ```java
 public static com.tailf.conf.ConfException mk(

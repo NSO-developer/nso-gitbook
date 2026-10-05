@@ -1,5 +1,4 @@
-<a id="cls-ConfObjectRef"></a>
-# ConfObjectRef
+# ConfObjectRef <a href="#cls-ConfObjectRef" id="cls-ConfObjectRef"></a>
 
 ```java
 public class com.tailf.conf.ConfObjectRef
@@ -49,11 +48,11 @@ DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
 **Constructors**:
 
-- [ConfObjectRef(ConfEObject)](#m-confobjectref-869a91fa17a4)
-- [ConfObjectRef(ConfObject[])](#m-confobjectref-97c85f2135c4)
-- [ConfObjectRef(ConfPath)](#m-confobjectref-77a7177f0a69)
-- [ConfObjectRef(String)](#m-confobjectref-74fd21358172)
-- [ConfObjectRef(String, MountIdInterface)](#m-confobjectref-965cdc7987b6)
+- [ConfObjectRef(ConfEObject)](#m-ConfObjectRef-869a91fa17a4)
+- [ConfObjectRef(ConfObject[])](#m-ConfObjectRef-97c85f2135c4)
+- [ConfObjectRef(ConfPath)](#m-ConfObjectRef-77a7177f0a69)
+- [ConfObjectRef(String)](#m-ConfObjectRef-74fd21358172)
+- [ConfObjectRef(String, MountIdInterface)](#m-ConfObjectRef-965cdc7987b6)
 
 **Fields**:
 
@@ -111,24 +110,23 @@ DATA_CONTAINER - Corresponds to the YANG instance-identifier type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfObjectRef)](#m-compareto-c2036e4c3394)
+- [compareTo(ConfObjectRef)](#m-compareTo-c2036e4c3394)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getElems()](#m-getelems-030df7d28888)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getElems()](#m-getElems-030df7d28888)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confobjectref-869a91fa17a4"></a>
-### ConfObjectRef(ConfEObject)
+### ConfObjectRef(ConfEObject) <a href="#m-ConfObjectRef-869a91fa17a4" id="m-ConfObjectRef-869a91fa17a4"></a>
 
 ```java
 public ConfObjectRef(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -142,8 +140,7 @@ It assumes that param is of type ConfEList.
 
 - `com.tailf.proto.ConfEObject o` - is a ConfEList
 
-<a id="m-confobjectref-97c85f2135c4"></a>
-### ConfObjectRef(ConfObject[])
+### ConfObjectRef(ConfObject[]) <a href="#m-ConfObjectRef-97c85f2135c4" id="m-ConfObjectRef-97c85f2135c4"></a>
 
 ```java
 public ConfObjectRef(com.tailf.conf.ConfObject[] elems)
@@ -159,8 +156,7 @@ Constructor using the autoloaded namespaces.
 
 - `com.tailf.conf.ConfObject[] elems`
 
-<a id="m-confobjectref-77a7177f0a69"></a>
-### ConfObjectRef(ConfPath)
+### ConfObjectRef(ConfPath) <a href="#m-ConfObjectRef-77a7177f0a69" id="m-ConfObjectRef-77a7177f0a69"></a>
 
 ```java
 public ConfObjectRef(com.tailf.conf.ConfPath path) throws com.tailf.conf.ConfException
@@ -178,8 +174,7 @@ Construct a ConfObjectRef from a given Absolute ConfPath.
 
 - `ConfException` - if the given path is relative.
 
-<a id="m-confobjectref-74fd21358172"></a>
-### ConfObjectRef(String)
+### ConfObjectRef(String) <a href="#m-ConfObjectRef-74fd21358172" id="m-ConfObjectRef-74fd21358172"></a>
 
 ```java
 public ConfObjectRef(String xpath) throws com.tailf.conf.ConfException
@@ -191,8 +186,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 - `String xpath`
 
-<a id="m-confobjectref-965cdc7987b6"></a>
-### ConfObjectRef(String, MountIdInterface)
+### ConfObjectRef(String, MountIdInterface) <a href="#m-ConfObjectRef-965cdc7987b6" id="m-ConfObjectRef-965cdc7987b6"></a>
 
 ```java
 public ConfObjectRef(
@@ -212,8 +206,7 @@ Types: [MountIdInterface](MountIdInterface.md#cls-MountIdInterface), [ConfExcept
 
 ## Methods
 
-<a id="m-compareto-c2036e4c3394"></a>
-### compareTo(ConfObjectRef)
+### compareTo(ConfObjectRef) <a href="#m-compareTo-c2036e4c3394" id="m-compareTo-c2036e4c3394"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfObjectRef o)
@@ -225,8 +218,7 @@ Types: [ConfObjectRef](ConfObjectRef.md#cls-ConfObjectRef)
 
 - `com.tailf.conf.ConfObjectRef o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -234,8 +226,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -245,8 +236,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getelems-030df7d28888"></a>
-### getElems()
+### getElems() <a href="#m-getElems-030df7d28888" id="m-getElems-030df7d28888"></a>
 
 ```java
 public com.tailf.conf.ConfObject[] getElems()
@@ -254,15 +244,13 @@ public com.tailf.conf.ConfObject[] getElems()
 
 Types: [ConfObject](ConfObject.md#cls-ConfObject)
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

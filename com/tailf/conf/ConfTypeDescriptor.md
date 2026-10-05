@@ -1,5 +1,4 @@
-<a id="cls-ConfTypeDescriptor"></a>
-# ConfTypeDescriptor
+# ConfTypeDescriptor <a href="#cls-ConfTypeDescriptor" id="cls-ConfTypeDescriptor"></a>
 
 ```java
 public class com.tailf.conf.ConfTypeDescriptor
@@ -27,7 +26,7 @@ Conf value type descriptor. This class is used to represent the type of an
 
 **Constructors**:
 
-- [ConfTypeDescriptor(int)](#m-conftypedescriptor-a78131cc6882)
+- [ConfTypeDescriptor(int)](#m-ConfTypeDescriptor-a78131cc6882)
 
 **Fields**:
 
@@ -90,16 +89,15 @@ Conf value type descriptor. This class is used to represent the type of an
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfTypeDescriptor(ConfObject)](#m-getconftypedescriptor-4b309980c132)
-- [getType()](#m-gettype-5a52f6f0d4c1)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [newInstance(String)](#m-newinstance-2c61b9c50ad3)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getConfTypeDescriptor(ConfObject)](#m-getConfTypeDescriptor-4b309980c132)
+- [getType()](#m-getType-5a52f6f0d4c1)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [newInstance(String)](#m-newInstance-2c61b9c50ad3)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-conftypedescriptor-a78131cc6882"></a>
-### ConfTypeDescriptor(int)
+### ConfTypeDescriptor(int) <a href="#m-ConfTypeDescriptor-a78131cc6882" id="m-ConfTypeDescriptor-a78131cc6882"></a>
 
 ```java
 public ConfTypeDescriptor(int type)
@@ -115,8 +113,7 @@ Constructor for ConfTypeDescriptor class
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -124,8 +121,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -135,8 +131,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getconftypedescriptor-4b309980c132"></a>
-### getConfTypeDescriptor(ConfObject)
+### getConfTypeDescriptor(ConfObject) <a href="#m-getConfTypeDescriptor-4b309980c132" id="m-getConfTypeDescriptor-4b309980c132"></a>
 
 ```java
 public static com.tailf.conf.ConfTypeDescriptor getConfTypeDescriptor(com.tailf.conf.ConfObject o)
@@ -154,8 +149,7 @@ Generates a ConfTypeDescriptor representing the type of a specified
 
 **Returns:** the ConfTypeDescriptor or null if ConfObject is of unknown type
 
-<a id="m-gettype-5a52f6f0d4c1"></a>
-### getType()
+### getType() <a href="#m-getType-5a52f6f0d4c1" id="m-getType-5a52f6f0d4c1"></a>
 
 ```java
 public int getType()
@@ -164,15 +158,13 @@ public int getType()
 **Returns:** int representation for ConfValue type
          [`ConfObject`](ConfObject.md#cls-ConfObject)
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-newinstance-2c61b9c50ad3"></a>
-### newInstance(String)
+### newInstance(String) <a href="#m-newInstance-2c61b9c50ad3" id="m-newInstance-2c61b9c50ad3"></a>
 
 ```java
 public com.tailf.conf.ConfValue newInstance(String str) throws com.tailf.conf.ConfException
@@ -193,8 +185,7 @@ Creates a new ConfValue instance of the type described by this
 
 - `ConfException`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

@@ -1,5 +1,4 @@
-<a id="cls-ConfBit32"></a>
-# ConfBit32
+# ConfBit32 <a href="#cls-ConfBit32" id="cls-ConfBit32"></a>
 
 ```java
 public class com.tailf.conf.ConfBit32
@@ -15,8 +14,8 @@ DATA_CONTAINER - Corresponds to the YANG bit32 type. A small bitset
 
 **Constructors**:
 
-- [ConfBit32(long)](#m-confbit32-433542c17e6c)
-- [ConfBit32(String)](#m-confbit32-66d28044dac5)
+- [ConfBit32(long)](#m-ConfBit32-433542c17e6c)
+- [ConfBit32(String)](#m-ConfBit32-66d28044dac5)
 
 **Fields**:
 
@@ -73,36 +72,35 @@ DATA_CONTAINER - Corresponds to the YANG bit32 type. A small bitset
 
 **Methods**:
 
-- [byteArrayValue()](ConfBits.md#m-bytearrayvalue-2e0fef980288) from ConfBits
-- [clearBit(long)](ConfBits.md#m-clearbit-5db4b507737e) from ConfBits
+- [byteArrayValue()](ConfBits.md#m-byteArrayValue-2e0fef980288) from ConfBits
+- [clearBit(long)](ConfBits.md#m-clearBit-5db4b507737e) from ConfBits
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBits)](ConfBits.md#m-compareto-66b77461fdc7) from ConfBits
+- [compareTo(ConfBits)](ConfBits.md#m-compareTo-66b77461fdc7) from ConfBits
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](ConfValue.md#m-encode-fbae522bba37) from ConfValue
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getBitNamesByValue(ConfPath, ConfBits)](ConfBits.md#m-getbitnamesbyvalue-3ba6b28839a1) from ConfBits
-- [getBitNamesByValue(String, ConfBits)](ConfBits.md#m-getbitnamesbyvalue-c649f67dc799) from ConfBits
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByBitNamesString(ConfPath, String)](ConfBits.md#m-getvaluebybitnamesstring-12ca247b9d9d) from ConfBits
-- [getValueByBitNamesString(String, String)](ConfBits.md#m-getvaluebybitnamesstring-c0e8ef407b4c) from ConfBits
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [intValue()](#m-intvalue-2f745d025d8e)
-- [isBitSet(long)](ConfBits.md#m-isbitset-a18cae1da74b) from ConfBits
-- [isBitSetSafe(long)](ConfBits.md#m-isbitsetsafe-dbd99a7b4cbe) from ConfBits
-- [longValue()](#m-longvalue-636bfe2d6862)
-- [setBit(long)](ConfBits.md#m-setbit-ca27ab33dd5d) from ConfBits
-- [toString()](ConfBits.md#m-tostring-e9d48c5503ef) from ConfBits
+- [getBitNamesByValue(ConfPath, ConfBits)](ConfBits.md#m-getBitNamesByValue-3ba6b28839a1) from ConfBits
+- [getBitNamesByValue(String, ConfBits)](ConfBits.md#m-getBitNamesByValue-c649f67dc799) from ConfBits
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByBitNamesString(ConfPath, String)](ConfBits.md#m-getValueByBitNamesString-12ca247b9d9d) from ConfBits
+- [getValueByBitNamesString(String, String)](ConfBits.md#m-getValueByBitNamesString-c0e8ef407b4c) from ConfBits
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [intValue()](#m-intValue-2f745d025d8e)
+- [isBitSet(long)](ConfBits.md#m-isBitSet-a18cae1da74b) from ConfBits
+- [isBitSetSafe(long)](ConfBits.md#m-isBitSetSafe-dbd99a7b4cbe) from ConfBits
+- [longValue()](#m-longValue-636bfe2d6862)
+- [setBit(long)](ConfBits.md#m-setBit-ca27ab33dd5d) from ConfBits
+- [toString()](ConfBits.md#m-toString-e9d48c5503ef) from ConfBits
 
 ## Constructors
 
-<a id="m-confbit32-433542c17e6c"></a>
-### ConfBit32(long)
+### ConfBit32(long) <a href="#m-ConfBit32-433542c17e6c" id="m-ConfBit32-433542c17e6c"></a>
 
 ```java
 public ConfBit32(long l)
@@ -114,8 +112,7 @@ Construct a Confbit32 value from a long representing the bits
 
 - `long l`
 
-<a id="m-confbit32-66d28044dac5"></a>
-### ConfBit32(String)
+### ConfBit32(String) <a href="#m-ConfBit32-66d28044dac5" id="m-ConfBit32-66d28044dac5"></a>
 
 ```java
 public ConfBit32(String str) throws com.tailf.conf.ConfException
@@ -138,8 +135,7 @@ String constructor for ConfBit32.
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -151,8 +147,7 @@ Equals method for ConfBit32
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -160,8 +155,7 @@ public int hashCode()
 
 hashCode method for ConfBit32
 
-<a id="m-intvalue-2f745d025d8e"></a>
-### intValue()
+### intValue() <a href="#m-intValue-2f745d025d8e" id="m-intValue-2f745d025d8e"></a>
 
 ```java
 public int intValue()
@@ -171,8 +165,7 @@ Return the bitset as a int value.
 
 **Returns:** int value
 
-<a id="m-longvalue-636bfe2d6862"></a>
-### longValue()
+### longValue() <a href="#m-longValue-636bfe2d6862" id="m-longValue-636bfe2d6862"></a>
 
 ```java
 public long longValue()

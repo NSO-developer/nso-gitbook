@@ -1,5 +1,4 @@
-<a id="cls-Notif"></a>
-# Notif
+# Notif <a href="#cls-Notif" id="cls-Notif"></a>
 
 ```java
 public class com.tailf.notif.Notif
@@ -21,7 +20,7 @@ This class implements the Notifications API in Java.
  user has somehow modified the configuration. The main difference between this
  event and the above mentioned NOTIF_COMMIT_SIMPLE is that this event is
  synchronous, i.e. the entire transaction hangs until we have explicitly
- called `#diffNotificationDone(int)`. The purpose of this event is to
+ called [`diffNotificationDone(int)`](Notif.md#m-diffNotificationDone-0053d5ba7865). The purpose of this event is to
  give the applications a chance to read the configuration diffs from the
  transaction before it commits. A user subscribing to this event can use the
  MAAPI api to attach (Maapi.attach())to the running transaction and use
@@ -176,28 +175,27 @@ This class implements the Notifications API in Java.
 
 **Constructors**:
 
-- [Notif(Socket, EnumSet<NotificationType>)](#m-notif-ac04d6bc7836)
-- [Notif(Socket, EnumSet<NotificationType>, int)](#m-notif-fb6a151efdc4)
-- [Notif(Socket, EnumSet<NotificationType>, int, int)](#m-notif-844954eeba89)
-- [Notif(Socket, EnumSet<NotificationType>, NotificationCfg)](#m-notif-dae959e25ea9)
-- [Notif(SocketAddress, EnumSet<NotificationType>)](#m-notif-8cfa65ea4683)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int)](#m-notif-0d4f132420ca)
-- [Notif(SocketAddress, EnumSet<NotificationType>, int, int)](#m-notif-5aede5d32ed9)
-- [Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)](#m-notif-9b7386bb0975)
+- [Notif(Socket, EnumSet<NotificationType>)](#m-Notif-ac04d6bc7836)
+- [Notif(Socket, EnumSet<NotificationType>, int)](#m-Notif-fb6a151efdc4)
+- [Notif(Socket, EnumSet<NotificationType>, int, int)](#m-Notif-844954eeba89)
+- [Notif(Socket, EnumSet<NotificationType>, NotificationCfg)](#m-Notif-dae959e25ea9)
+- [Notif(SocketAddress, EnumSet<NotificationType>)](#m-Notif-8cfa65ea4683)
+- [Notif(SocketAddress, EnumSet<NotificationType>, int)](#m-Notif-0d4f132420ca)
+- [Notif(SocketAddress, EnumSet<NotificationType>, int, int)](#m-Notif-5aede5d32ed9)
+- [Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)](#m-Notif-9b7386bb0975)
 
 **Methods**:
 
 - [close()](#m-close-8107c6dc012b)
-- [diffNotificationDone(int)](#m-diffnotificationdone-0053d5ba7865)
+- [diffNotificationDone(int)](#m-diffNotificationDone-0053d5ba7865)
 - [read()](#m-read-b28b830b98d6)
-- [syncAuditNetworkNotification(int)](#m-syncauditnetworknotification-86a6d4e5bafc)
-- [syncAuditNotification(int)](#m-syncauditnotification-0078171f2fe7)
-- [syncHaNotification()](#m-synchanotification-3e08f3cf3c62)
+- [syncAuditNetworkNotification(int)](#m-syncAuditNetworkNotification-86a6d4e5bafc)
+- [syncAuditNotification(int)](#m-syncAuditNotification-0078171f2fe7)
+- [syncHaNotification()](#m-syncHaNotification-3e08f3cf3c62)
 
 ## Constructors
 
-<a id="m-notif-ac04d6bc7836"></a>
-### Notif(Socket, EnumSet<NotificationType>)
+### Notif(Socket, EnumSet<NotificationType>) <a href="#m-Notif-ac04d6bc7836" id="m-Notif-ac04d6bc7836"></a>
 
 ```java
 public Notif(
@@ -210,7 +208,7 @@ public Notif(
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as for
- `Notif#Notif(Socket, EnumSet, NotificationCfg)`
+ `Notif(Socket, EnumSet, NotificationCfg)`
  except that no extra configuration is expected to be set in eventTypes.
 
  Since the ConfD/NCS daemon expects initialization within
@@ -236,8 +234,7 @@ Same functionality as for
 - `ConfException`
 - `IOException`
 
-<a id="m-notif-fb6a151efdc4"></a>
-### Notif(Socket, EnumSet<NotificationType>, int)
+### Notif(Socket, EnumSet<NotificationType>, int) <a href="#m-Notif-fb6a151efdc4" id="m-Notif-fb6a151efdc4"></a>
 
 ```java
 public Notif(
@@ -251,7 +248,7 @@ public Notif(
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as for
- `Notif#Notif(Socket, EnumSet, NotificationCfg)`
+ `Notif(Socket, EnumSet, NotificationCfg)`
  except that only heartbeat notifications are expected to require
  to be configured
 
@@ -279,8 +276,7 @@ Same functionality as for
 - `ConfException`
 - `IOException`
 
-<a id="m-notif-844954eeba89"></a>
-### Notif(Socket, EnumSet<NotificationType>, int, int)
+### Notif(Socket, EnumSet<NotificationType>, int, int) <a href="#m-Notif-844954eeba89" id="m-Notif-844954eeba89"></a>
 
 ```java
 public Notif(
@@ -295,7 +291,7 @@ public Notif(
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
 Same functionality as for
- `Notif#Notif(Socket, EnumSet, NotificationCfg)`
+ `Notif(Socket, EnumSet, NotificationCfg)`
  except that only heartbeat and healtcheck notifications
  are expected to require to be configured.
 
@@ -326,8 +322,7 @@ Same functionality as for
 
 **See also:** [`read`](Notif.md#m-read-b28b830b98d6)
 
-<a id="m-notif-dae959e25ea9"></a>
-### Notif(Socket, EnumSet<NotificationType>, NotificationCfg)
+### Notif(Socket, EnumSet<NotificationType>, NotificationCfg) <a href="#m-Notif-dae959e25ea9" id="m-Notif-dae959e25ea9"></a>
 
 ```java
 public Notif(
@@ -381,8 +376,7 @@ Creates a notification instance. The events will be read from the
 
 **See also:** [`read`](Notif.md#m-read-b28b830b98d6)
 
-<a id="m-notif-8cfa65ea4683"></a>
-### Notif(SocketAddress, EnumSet<NotificationType>)
+### Notif(SocketAddress, EnumSet<NotificationType>) <a href="#m-Notif-8cfa65ea4683" id="m-Notif-8cfa65ea4683"></a>
 
 ```java
 public Notif(
@@ -394,7 +388,7 @@ public Notif(
 
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Same as `Notif#Notif(Socket, EnumSet)` but taking a
+Same as `Notif(Socket, EnumSet)` but taking a
  `SocketAddress` instead with the address to connect to instead
  of an already connected `Socket`.
 
@@ -403,8 +397,7 @@ Same as `Notif#Notif(Socket, EnumSet)` but taking a
 - `java.net.SocketAddress address`
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes`
 
-<a id="m-notif-0d4f132420ca"></a>
-### Notif(SocketAddress, EnumSet<NotificationType>, int)
+### Notif(SocketAddress, EnumSet<NotificationType>, int) <a href="#m-Notif-0d4f132420ca" id="m-Notif-0d4f132420ca"></a>
 
 ```java
 public Notif(
@@ -417,7 +410,7 @@ public Notif(
 
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Same as `Notif#Notif(Socket, EnumSet, int)` but taking a
+Same as `Notif(Socket, EnumSet, int)` but taking a
  `SocketAddress` instead with the address to connect to instead
  of an already connected `Socket`.
 
@@ -427,8 +420,7 @@ Same as `Notif#Notif(Socket, EnumSet, int)` but taking a
 - `java.util.EnumSet<com.tailf.notif.NotificationType> eventTypes`
 - `int heartbeatInterval`
 
-<a id="m-notif-5aede5d32ed9"></a>
-### Notif(SocketAddress, EnumSet<NotificationType>, int, int)
+### Notif(SocketAddress, EnumSet<NotificationType>, int, int) <a href="#m-Notif-5aede5d32ed9" id="m-Notif-5aede5d32ed9"></a>
 
 ```java
 public Notif(
@@ -442,7 +434,7 @@ public Notif(
 
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Same as `Notif#Notif(Socket, EnumSet, int, int)` but taking a
+Same as `Notif(Socket, EnumSet, int, int)` but taking a
  `SocketAddress` instead with the address to connect to instead
  of an already connected `Socket`.
 
@@ -453,8 +445,7 @@ Same as `Notif#Notif(Socket, EnumSet, int, int)` but taking a
 - `int heartbeatInterval`
 - `int healthCheckInterval`
 
-<a id="m-notif-9b7386bb0975"></a>
-### Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg)
+### Notif(SocketAddress, EnumSet<NotificationType>, NotificationCfg) <a href="#m-Notif-9b7386bb0975" id="m-Notif-9b7386bb0975"></a>
 
 ```java
 public Notif(
@@ -467,7 +458,7 @@ public Notif(
 
 Types: [NotificationType](NotificationType.md#cls-NotificationType), [NotificationCfg](NotificationCfg.md#cls-NotificationCfg), [ConfException](../conf/ConfException.md#cls-ConfException)
 
-Same as `Notif#Notif(Socket, EnumSet, NotificationCfg)` but taking a
+Same as `Notif(Socket, EnumSet, NotificationCfg)` but taking a
  `SocketAddress` instead with the address to connect to instead
  of an already connected `Socket`.
 
@@ -480,21 +471,19 @@ Same as `Notif#Notif(Socket, EnumSet, NotificationCfg)` but taking a
 
 ## Methods
 
-<a id="m-close-8107c6dc012b"></a>
-### close()
+### close() <a href="#m-close-8107c6dc012b" id="m-close-8107c6dc012b"></a>
 
 ```java
 public void close() throws java.io.IOException
 ```
 
-<a id="m-diffnotificationdone-0053d5ba7865"></a>
-### diffNotificationDone(int)
+### diffNotificationDone(int) <a href="#m-diffNotificationDone-0053d5ba7865" id="m-diffNotificationDone-0053d5ba7865"></a>
 
 ```java
 public synchronized void diffNotificationDone(int thandle) throws java.io.IOException
 ```
 
-If the received event from `#read()` was a
+If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
  [`CommitDiffNotification`](CommitDiffNotification.md#cls-CommitDiffNotification) it is important that we call this function
  when we are done reading the transaction diffs over MAAPI. The
  transaction is hanging until this function gets called.
@@ -507,8 +496,7 @@ If the received event from `#read()` was a
 
 - `IOException` - Failed to write to the notification socket.
 
-<a id="m-read-b28b830b98d6"></a>
-### read()
+### read() <a href="#m-read-b28b830b98d6" id="m-read-b28b830b98d6"></a>
 
 ```java
 public synchronized com.tailf.notif.Notification read() throws com.tailf.conf.ConfException, java.io.IOException
@@ -548,14 +536,13 @@ Read in the data. The application is responsible for reading the
 - `NotifException` - Failed to read notification.
 - `IOException` - Failed to read from notification socket
 
-<a id="m-syncauditnetworknotification-86a6d4e5bafc"></a>
-### syncAuditNetworkNotification(int)
+### syncAuditNetworkNotification(int) <a href="#m-syncAuditNetworkNotification-86a6d4e5bafc" id="m-syncAuditNetworkNotification-86a6d4e5bafc"></a>
 
 ```java
 public synchronized void syncAuditNetworkNotification(int usid) throws java.io.IOException
 ```
 
-If the received event from `#read()` was a
+If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
  [`AuditNetworkNotification`](AuditNetworkNotification.md#cls-AuditNetworkNotification) which was subscribed using the
  notification type [`NotificationType#NOTIF_AUDIT_NETWORK`](NotificationType.md#m-NOTIF_AUDIT_NETWORK)
  in combination with [`NotificationType#NOTIF_AUDIT_NETWORK_SYNC`](NotificationType.md#m-NOTIF_AUDIT_NETWORK_SYNC)
@@ -570,14 +557,13 @@ If the received event from `#read()` was a
 
 - `IOException` - Failed to write to the notification socket.
 
-<a id="m-syncauditnotification-0078171f2fe7"></a>
-### syncAuditNotification(int)
+### syncAuditNotification(int) <a href="#m-syncAuditNotification-0078171f2fe7" id="m-syncAuditNotification-0078171f2fe7"></a>
 
 ```java
 public synchronized void syncAuditNotification(int usid) throws java.io.IOException
 ```
 
-If the received event from `#read()` was a
+If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
  [`AuditNotification`](AuditNotification.md#cls-AuditNotification) which was subscribed using the
  notification type [`NotificationType#NOTIF_AUDIT`](NotificationType.md#m-NOTIF_AUDIT)
  in combination with [`NotificationType#NOTIF_AUDIT_SYNC`](NotificationType.md#m-NOTIF_AUDIT_SYNC)
@@ -592,14 +578,13 @@ If the received event from `#read()` was a
 
 - `IOException` - Failed to write to the notification socket.
 
-<a id="m-synchanotification-3e08f3cf3c62"></a>
-### syncHaNotification()
+### syncHaNotification() <a href="#m-syncHaNotification-3e08f3cf3c62" id="m-syncHaNotification-3e08f3cf3c62"></a>
 
 ```java
 public synchronized void syncHaNotification() throws java.io.IOException
 ```
 
-If the received event from `#read()` was a
+If the received event from [`read()`](Notif.md#m-read-b28b830b98d6) was a
  [`HaNotification`](HaNotification.md#cls-HaNotification) which was subscribed using the
  notification type [`NotificationType#NOTIF_HA_INFO`](NotificationType.md#m-NOTIF_HA_INFO)
  in combination with [`NotificationType#NOTIF_HA_INFO_SYNC`](NotificationType.md#m-NOTIF_HA_INFO_SYNC)

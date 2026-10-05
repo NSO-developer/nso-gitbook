@@ -1,5 +1,4 @@
-<a id="cls-ServiceModificationContextImpl"></a>
-# ServiceModificationContextImpl
+# ServiceModificationContextImpl <a href="#cls-ServiceModificationContextImpl" id="cls-ServiceModificationContextImpl"></a>
 
 ```java
 public class com.tailf.dp.services.ServiceModificationContextImpl
@@ -15,15 +14,14 @@ Internal class implementing the service context for PRE/POST MODIFICATION
 
 **Constructors**:
 
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#m-servicemodificationcontextimpl-d0eddddd16f2)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#m-servicemodificationcontextimpl-be8c23b53fc7)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#m-servicemodificationcontextimpl-90b24dd80819)
-- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#m-servicemodificationcontextimpl-767900bccb2e)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)](#m-ServiceModificationContextImpl-d0eddddd16f2)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)](#m-ServiceModificationContextImpl-be8c23b53fc7)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEList)](#m-ServiceModificationContextImpl-90b24dd80819)
+- [ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)](#m-ServiceModificationContextImpl-767900bccb2e)
 
 ## Constructors
 
-<a id="m-servicemodificationcontextimpl-d0eddddd16f2"></a>
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject)
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject) <a href="#m-ServiceModificationContextImpl-d0eddddd16f2" id="m-ServiceModificationContextImpl-d0eddddd16f2"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -46,8 +44,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](
 - `com.tailf.proto.ConfEList ePath`
 - `com.tailf.proto.ConfEObject eOpaque`
 
-<a id="m-servicemodificationcontextimpl-be8c23b53fc7"></a>
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType)
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEAtom, ConfEList, ConfEObject, ServiceOperationType) <a href="#m-ServiceModificationContextImpl-be8c23b53fc7" id="m-ServiceModificationContextImpl-be8c23b53fc7"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -72,8 +69,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEAtom](
 - `com.tailf.proto.ConfEObject eOpaque`
 - `com.tailf.dp.services.ServiceOperationType operation`
 
-<a id="m-servicemodificationcontextimpl-90b24dd80819"></a>
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEList)
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEList) <a href="#m-ServiceModificationContextImpl-90b24dd80819" id="m-ServiceModificationContextImpl-90b24dd80819"></a>
 
 ```java
 protected ServiceModificationContextImpl(
@@ -92,8 +88,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [Dp](../Dp.md#cls-Dp), [ConfEList](
 - `com.tailf.dp.Dp dp`
 - `com.tailf.proto.ConfEList eTransTup`
 
-<a id="m-servicemodificationcontextimpl-767900bccb2e"></a>
-### ServiceModificationContextImpl(DpTrans, Dp, ConfEObject)
+### ServiceModificationContextImpl(DpTrans, Dp, ConfEObject) <a href="#m-ServiceModificationContextImpl-767900bccb2e" id="m-ServiceModificationContextImpl-767900bccb2e"></a>
 
 ```java
 public ServiceModificationContextImpl(

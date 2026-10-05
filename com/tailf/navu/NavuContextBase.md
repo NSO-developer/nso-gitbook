@@ -1,5 +1,4 @@
-<a id="cls-NavuContextBase"></a>
-# NavuContextBase
+# NavuContextBase <a href="#cls-NavuContextBase" id="cls-NavuContextBase"></a>
 
 ```java
 public abstract class com.tailf.navu.NavuContextBase
@@ -7,12 +6,12 @@ public abstract class com.tailf.navu.NavuContextBase
 
 This class is the base class for [`NavuContext`](NavuContext.md#cls-NavuContext).
  It many contains methods for handling CDB type contexts i.e contexts created
- by the [`NavuContextBase#NavuContextBase(Cdb)`](NavuContextBase.md#m-navucontextbase-ee046d09a061) or
- [`NavuContextBase#NavuContextBase(CdbSession)`](NavuContextBase.md#m-navucontextbase-00da29370b33) constructors.
+ by the [`NavuContextBase#NavuContextBase(Cdb)`](NavuContextBase.md#m-NavuContextBase-ee046d09a061) or
+ [`NavuContextBase#NavuContextBase(CdbSession)`](NavuContextBase.md#m-NavuContextBase-00da29370b33) constructors.
 
  Note, that instead of using CDB type contexts it is possible to instead use
- the [`NavuContext#NavuContext(Maapi)`](NavuContext.md#m-navucontext-af99f9cc97c7) constructor followed by a call of
- [`NavuContext#startOperationalTrans(int)`](NavuContext.md#m-startoperationaltrans-9d10bde402ce)
+ the [`NavuContext#NavuContext(Maapi)`](NavuContext.md#m-NavuContext-af99f9cc97c7) constructor followed by a call of
+ [`NavuContext#startOperationalTrans(int)`](NavuContext.md#m-startOperationalTrans-9d10bde402ce)
 
 **Related classes**
 
@@ -22,10 +21,10 @@ This class is the base class for [`NavuContext`](NavuContext.md#cls-NavuContext)
 
 **Constructors**:
 
-- [NavuContextBase(Cdb)](#m-navucontextbase-ee046d09a061)
-- [NavuContextBase(CdbSession)](#m-navucontextbase-00da29370b33)
-- [NavuContextBase(CdbSubscription)](#m-navucontextbase-0d85dfcdf9a5)
-- [NavuContextBase(Maapi, int)](#m-navucontextbase-819322861b91)
+- [NavuContextBase(Cdb)](#m-NavuContextBase-ee046d09a061)
+- [NavuContextBase(CdbSession)](#m-NavuContextBase-00da29370b33)
+- [NavuContextBase(CdbSubscription)](#m-NavuContextBase-0d85dfcdf9a5)
+- [NavuContextBase(Maapi, int)](#m-NavuContextBase-819322861b91)
 
 **Fields**:
 
@@ -38,46 +37,46 @@ This class is the base class for [`NavuContext`](NavuContext.md#cls-NavuContext)
 - [create(NavuNode, int, String, Object[])](#m-create-df02612e3971)
 - [delete(NavuNode, String, Object[])](#m-delete-63a54ea2de30)
 - [deref(NavuNode, String, Object[])](#m-deref-ae39a7d6fdde)
-- [diffIterate(MaapiDiffIterate, NavuContextBase)](#m-diffiterate-a6cc344016cf)
-- [getBackingStoreCdb()](#m-getbackingstorecdb-73329cf7d4e1)
-- [getBackingStoreCdbSession()](#m-getbackingstorecdbsession-8b0ef17e8ea3)
-- [getCase(NavuChoice, String, ConfPath)](#m-getcase-653069cc39c6)
-- [getCdbSubscriber()](#m-getcdbsubscriber-f292c8c67d4d)
-- [getElem(NavuNode, String, Object[])](#m-getelem-99bc0267bad6)
-- [getLeafListIterator(NavuLeafList)](#m-getleaflistiterator-7174ac6a32ca)
-- [getMaapi()](#m-getmaapi-0ce8975d8ec6)
-- [getMaapiHandle()](#m-getmaapihandle-ba447f5d4e3f)
-- [getNavuListIterator(NavuList)](#m-getnavulistiterator-c0c49395e08e)
-- [getNsList()](#m-getnslist-0345f486e876)
-- [getReadConfSession()](#m-getreadconfsession-ece7e5773db9)
-- [getReadOperSession()](#m-getreadopersession-7e103aba03ba)
-- [getValues(NavuNode, ConfXMLParam[])](#m-getvalues-ecb3f8096a7c)
-- [getWriteConfSession()](#m-getwriteconfsession-a042057a7cb8)
-- [getWriteOperSession()](#m-getwriteopersession-eb5d274da267)
-- [hasCdbSubscriber()](#m-hascdbsubscriber-3650a7c55283)
-- [idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])](#m-idrefderivedorself-6a08c9a390be)
-- [initMaapiCursor(NavuNode, String, Object[])](#m-initmaapicursor-dfdad1aa4163)
+- [diffIterate(MaapiDiffIterate, NavuContextBase)](#m-diffIterate-a6cc344016cf)
+- [getBackingStoreCdb()](#m-getBackingStoreCdb-73329cf7d4e1)
+- [getBackingStoreCdbSession()](#m-getBackingStoreCdbSession-8b0ef17e8ea3)
+- [getCase(NavuChoice, String, ConfPath)](#m-getCase-653069cc39c6)
+- [getCdbSubscriber()](#m-getCdbSubscriber-f292c8c67d4d)
+- [getElem(NavuNode, String, Object[])](#m-getElem-99bc0267bad6)
+- [getLeafListIterator(NavuLeafList)](#m-getLeafListIterator-7174ac6a32ca)
+- [getMaapi()](#m-getMaapi-0ce8975d8ec6)
+- [getMaapiHandle()](#m-getMaapiHandle-ba447f5d4e3f)
+- [getNavuListIterator(NavuList)](#m-getNavuListIterator-c0c49395e08e)
+- [getNsList()](#m-getNsList-0345f486e876)
+- [getReadConfSession()](#m-getReadConfSession-ece7e5773db9)
+- [getReadOperSession()](#m-getReadOperSession-7e103aba03ba)
+- [getValues(NavuNode, ConfXMLParam[])](#m-getValues-ecb3f8096a7c)
+- [getWriteConfSession()](#m-getWriteConfSession-a042057a7cb8)
+- [getWriteOperSession()](#m-getWriteOperSession-eb5d274da267)
+- [hasCdbSubscriber()](#m-hasCdbSubscriber-3650a7c55283)
+- [idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])](#m-idrefDerivedOrSelf-6a08c9a390be)
+- [initMaapiCursor(NavuNode, String, Object[])](#m-initMaapiCursor-dfdad1aa4163)
 - [insert(NavuList, boolean, String, Object[])](#m-insert-55bd5e6f415f)
-- [isActAsSuper()](#m-isactassuper-ce02ade4553b)
-- [isCdb()](#m-iscdb-20ec16d14862)
-- [isCdbSession()](#m-iscdbsession-71fe8b2aab5d)
-- [isMaapi()](#m-ismaapi-5c500ef256ce)
-- [isOnline()](#m-isonline-90688b264b83)
-- [moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])](#m-moveordered-373c795909ce)
-- [numOfInstances(NavuNode)](#m-numofinstances-d5b1fc4e65c9)
-- [removeCdbSessions()](#m-removecdbsessions-71502a05a702)
-- [requestAction(NavuAction, ConfXMLParam[], String, Object[])](#m-requestaction-164fcf6d0208)
+- [isActAsSuper()](#m-isActAsSuper-ce02ade4553b)
+- [isCdb()](#m-isCdb-20ec16d14862)
+- [isCdbSession()](#m-isCdbSession-71fe8b2aab5d)
+- [isMaapi()](#m-isMaapi-5c500ef256ce)
+- [isOnline()](#m-isOnline-90688b264b83)
+- [moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])](#m-moveOrdered-373c795909ce)
+- [numOfInstances(NavuNode)](#m-numOfInstances-d5b1fc4e65c9)
+- [removeCdbSessions()](#m-removeCdbSessions-71502a05a702)
+- [requestAction(NavuAction, ConfXMLParam[], String, Object[])](#m-requestAction-164fcf6d0208)
 - [set(NavuContextBase)](#m-set-aa955bb80732)
-- [setElem(NavuNode, ConfValue, boolean, String, Object[])](#m-setelem-0daaa25a8e50)
-- [setElem(NavuNode, String, boolean, String, Object[])](#m-setelem-e887291ef6b0)
-- [setMaapiHandle(int)](#m-setmaapihandle-62fe88de5765)
-- [setOption(UnSetCaseInChoice)](#m-setoption-13f7d349ceea)
-- [setReadConfLocks(EnumSet<CdbLockType>)](#m-setreadconflocks-43f86af9b510)
-- [setReadOperLocks(EnumSet<CdbLockType>)](#m-setreadoperlocks-9c615c121ad2)
-- [setValues(NavuNode, ConfXMLParam[], boolean)](#m-setvalues-8ac6838a32ab)
-- [setWriteOperLocks(EnumSet<CdbLockType>)](#m-setwriteoperlocks-d3a3d78b7d7d)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)](#m-xpatheval-9750f496e526)
+- [setElem(NavuNode, ConfValue, boolean, String, Object[])](#m-setElem-0daaa25a8e50)
+- [setElem(NavuNode, String, boolean, String, Object[])](#m-setElem-e887291ef6b0)
+- [setMaapiHandle(int)](#m-setMaapiHandle-62fe88de5765)
+- [setOption(UnSetCaseInChoice)](#m-setOption-13f7d349ceea)
+- [setReadConfLocks(EnumSet<CdbLockType>)](#m-setReadConfLocks-43f86af9b510)
+- [setReadOperLocks(EnumSet<CdbLockType>)](#m-setReadOperLocks-9c615c121ad2)
+- [setValues(NavuNode, ConfXMLParam[], boolean)](#m-setValues-8ac6838a32ab)
+- [setWriteOperLocks(EnumSet<CdbLockType>)](#m-setWriteOperLocks-d3a3d78b7d7d)
+- [toString()](#m-toString-e9d48c5503ef)
+- [xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)](#m-xpathEval-9750f496e526)
 
 **Nested Types**:
 
@@ -85,8 +84,7 @@ This class is the base class for [`NavuContext`](NavuContext.md#cls-NavuContext)
 
 ## Constructors
 
-<a id="m-navucontextbase-ee046d09a061"></a>
-### NavuContextBase(Cdb)
+### NavuContextBase(Cdb) <a href="#m-NavuContextBase-ee046d09a061" id="m-NavuContextBase-ee046d09a061"></a>
 
 ```java
 protected NavuContextBase(com.tailf.cdb.Cdb cdb)
@@ -113,8 +111,7 @@ Constructor for running NAVU with the `Cdb`
 
  `NavuContext`
 
-<a id="m-navucontextbase-00da29370b33"></a>
-### NavuContextBase(CdbSession)
+### NavuContextBase(CdbSession) <a href="#m-NavuContextBase-00da29370b33" id="m-NavuContextBase-00da29370b33"></a>
 
 ```java
 protected NavuContextBase(com.tailf.cdb.CdbSession session)
@@ -131,8 +128,7 @@ CDB Session constructor.
 
 - `com.tailf.cdb.CdbSession session`
 
-<a id="m-navucontextbase-0d85dfcdf9a5"></a>
-### NavuContextBase(CdbSubscription)
+### NavuContextBase(CdbSubscription) <a href="#m-NavuContextBase-0d85dfcdf9a5" id="m-NavuContextBase-0d85dfcdf9a5"></a>
 
 ```java
 protected NavuContextBase(com.tailf.cdb.CdbSubscription cdbsub)
@@ -144,8 +140,7 @@ Types: [CdbSubscription](../cdb/CdbSubscription.md#cls-CdbSubscription)
 
 - `com.tailf.cdb.CdbSubscription cdbsub`
 
-<a id="m-navucontextbase-819322861b91"></a>
-### NavuContextBase(Maapi, int)
+### NavuContextBase(Maapi, int) <a href="#m-NavuContextBase-819322861b91" id="m-NavuContextBase-819322861b91"></a>
 
 ```java
 protected NavuContextBase(com.tailf.maapi.Maapi m, int handle)
@@ -169,8 +164,7 @@ Constructor for running NAVU with the `Maapi`
 
 ## Fields
 
-<a id="m-unsetCaseInChoice"></a>
-### unsetCaseInChoice
+### unsetCaseInChoice <a href="#m-unsetCaseInChoice" id="m-unsetCaseInChoice"></a>
 
 ```java
 public com.tailf.navu.NavuContextBase.UnSetCaseInChoice unsetCaseInChoice = null;
@@ -184,8 +178,7 @@ Default behavior for unset case in choice.
 
 ## Methods
 
-<a id="m-clear-ca3baec040cb"></a>
-### clear()
+### clear() <a href="#m-clear-ca3baec040cb" id="m-clear-ca3baec040cb"></a>
 
 ```java
 protected void clear()
@@ -193,8 +186,7 @@ protected void clear()
 
 Clears all connection attributes.
 
-<a id="m-copy-7436fcb6cfc1"></a>
-### copy(NavuContextBase)
+### copy(NavuContextBase) <a href="#m-copy-7436fcb6cfc1" id="m-copy-7436fcb6cfc1"></a>
 
 ```java
 protected void copy(com.tailf.navu.NavuContextBase context)
@@ -208,8 +200,7 @@ Copy the contents of a context.
 
 - `com.tailf.navu.NavuContextBase context`
 
-<a id="m-create-df02612e3971"></a>
-### create(NavuNode, int, String, Object[])
+### create(NavuNode, int, String, Object[]) <a href="#m-create-df02612e3971" id="m-create-df02612e3971"></a>
 
 ```java
 protected void create(
@@ -230,8 +221,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-<a id="m-delete-63a54ea2de30"></a>
-### delete(NavuNode, String, Object[])
+### delete(NavuNode, String, Object[]) <a href="#m-delete-63a54ea2de30" id="m-delete-63a54ea2de30"></a>
 
 ```java
 protected void delete(
@@ -250,8 +240,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-<a id="m-deref-ae39a7d6fdde"></a>
-### deref(NavuNode, String, Object[])
+### deref(NavuNode, String, Object[]) <a href="#m-deref-ae39a7d6fdde" id="m-deref-ae39a7d6fdde"></a>
 
 ```java
 protected java.util.List<com.tailf.navu.NavuNode> deref(
@@ -270,8 +259,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-<a id="m-diffiterate-a6cc344016cf"></a>
-### diffIterate(MaapiDiffIterate, NavuContextBase)
+### diffIterate(MaapiDiffIterate, NavuContextBase) <a href="#m-diffIterate-a6cc344016cf" id="m-diffIterate-a6cc344016cf"></a>
 
 ```java
 protected void diffIterate(
@@ -288,8 +276,7 @@ Types: [MaapiDiffIterate](../maapi/MaapiDiffIterate.md#cls-MaapiDiffIterate), [N
 - `com.tailf.maapi.MaapiDiffIterate iter`
 - `com.tailf.navu.NavuContextBase delContext`
 
-<a id="m-getbackingstorecdb-73329cf7d4e1"></a>
-### getBackingStoreCdb()
+### getBackingStoreCdb() <a href="#m-getBackingStoreCdb-73329cf7d4e1" id="m-getBackingStoreCdb-73329cf7d4e1"></a>
 
 ```java
 public com.tailf.cdb.Cdb getBackingStoreCdb()
@@ -305,8 +292,7 @@ Get the backing store Cdb instance.
 
 **Returns:** backing store Cdb if applicable for this context
 
-<a id="m-getbackingstorecdbsession-8b0ef17e8ea3"></a>
-### getBackingStoreCdbSession()
+### getBackingStoreCdbSession() <a href="#m-getBackingStoreCdbSession-8b0ef17e8ea3" id="m-getBackingStoreCdbSession-8b0ef17e8ea3"></a>
 
 ```java
 public com.tailf.cdb.CdbSession getBackingStoreCdbSession()
@@ -326,8 +312,7 @@ Get the backing store CdbSession in this context was based on this.
 
 **Returns:** backing store CdbSession if applicable for this context
 
-<a id="m-getcase-653069cc39c6"></a>
-### getCase(NavuChoice, String, ConfPath)
+### getCase(NavuChoice, String, ConfPath) <a href="#m-getCase-653069cc39c6" id="m-getCase-653069cc39c6"></a>
 
 ```java
 protected com.tailf.conf.ConfTag getCase(
@@ -346,8 +331,7 @@ Types: [ConfTag](../conf/ConfTag.md#cls-ConfTag), [NavuChoice](NavuChoice.md#cls
 - `String choiceName`
 - `com.tailf.conf.ConfPath path`
 
-<a id="m-getcdbsubscriber-f292c8c67d4d"></a>
-### getCdbSubscriber()
+### getCdbSubscriber() <a href="#m-getCdbSubscriber-f292c8c67d4d" id="m-getCdbSubscriber-f292c8c67d4d"></a>
 
 ```java
 public com.tailf.cdb.CdbSubscription getCdbSubscriber()
@@ -355,8 +339,7 @@ public com.tailf.cdb.CdbSubscription getCdbSubscriber()
 
 Types: [CdbSubscription](../cdb/CdbSubscription.md#cls-CdbSubscription)
 
-<a id="m-getelem-99bc0267bad6"></a>
-### getElem(NavuNode, String, Object[])
+### getElem(NavuNode, String, Object[]) <a href="#m-getElem-99bc0267bad6" id="m-getElem-99bc0267bad6"></a>
 
 ```java
 protected com.tailf.conf.ConfValue getElem(
@@ -375,8 +358,7 @@ Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#c
 - `String fmt`
 - `Object[] args`
 
-<a id="m-getleaflistiterator-7174ac6a32ca"></a>
-### getLeafListIterator(NavuLeafList)
+### getLeafListIterator(NavuLeafList) <a href="#m-getLeafListIterator-7174ac6a32ca" id="m-getLeafListIterator-7174ac6a32ca"></a>
 
 ```java
 protected com.tailf.navu.NavuLeafListIterator getLeafListIterator(
@@ -391,8 +373,7 @@ Types: [NavuLeafList](NavuLeafList.md#cls-NavuLeafList), [NavuException](NavuExc
 
 - `com.tailf.navu.NavuLeafList navuLeafList`
 
-<a id="m-getmaapi-0ce8975d8ec6"></a>
-### getMaapi()
+### getMaapi() <a href="#m-getMaapi-0ce8975d8ec6" id="m-getMaapi-0ce8975d8ec6"></a>
 
 ```java
 public com.tailf.maapi.Maapi getMaapi()
@@ -404,8 +385,7 @@ Getter for MAAPI
 
 **Returns:** current Maapi object
 
-<a id="m-getmaapihandle-ba447f5d4e3f"></a>
-### getMaapiHandle()
+### getMaapiHandle() <a href="#m-getMaapiHandle-ba447f5d4e3f" id="m-getMaapiHandle-ba447f5d4e3f"></a>
 
 ```java
 public int getMaapiHandle()
@@ -415,8 +395,7 @@ Getter for MAAPI transaction handle.
 
 **Returns:** current maapi transaction handle
 
-<a id="m-getnavulistiterator-c0c49395e08e"></a>
-### getNavuListIterator(NavuList)
+### getNavuListIterator(NavuList) <a href="#m-getNavuListIterator-c0c49395e08e" id="m-getNavuListIterator-c0c49395e08e"></a>
 
 ```java
 protected com.tailf.navu.NavuListEntryIterator getNavuListIterator(
@@ -431,8 +410,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 
 - `com.tailf.navu.NavuList navuList`
 
-<a id="m-getnslist-0345f486e876"></a>
-### getNsList()
+### getNsList() <a href="#m-getNsList-0345f486e876" id="m-getNsList-0345f486e876"></a>
 
 ```java
 public java.util.ArrayList<com.tailf.conf.ConfNamespace> getNsList()
@@ -442,8 +420,7 @@ Types: [ConfNamespace](../conf/ConfNamespace.md#cls-ConfNamespace)
 
 **Returns:** registered namespaces.
 
-<a id="m-getreadconfsession-ece7e5773db9"></a>
-### getReadConfSession()
+### getReadConfSession() <a href="#m-getReadConfSession-ece7e5773db9" id="m-getReadConfSession-ece7e5773db9"></a>
 
 ```java
 public com.tailf.cdb.CdbSession getReadConfSession()
@@ -452,15 +429,14 @@ public com.tailf.cdb.CdbSession getReadConfSession()
 Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession)
 
 If the context is created with
- [`NavuContextBase#NavuContextBase(CdbSession)`](NavuContextBase.md#m-navucontextbase-00da29370b33)
+ [`NavuContextBase#NavuContextBase(CdbSession)`](NavuContextBase.md#m-NavuContextBase-00da29370b33)
  this session will be returned.
  Otherwise retrieves a CdbSession for reading CDB_RUNNING database with
- the default locks if not defined by `#setReadConfLocks(EnumSet)`
+ the default locks if not defined by `setReadConfLocks(EnumSet)`
 
 **Returns:** CdbSession
 
-<a id="m-getreadopersession-7e103aba03ba"></a>
-### getReadOperSession()
+### getReadOperSession() <a href="#m-getReadOperSession-7e103aba03ba" id="m-getReadOperSession-7e103aba03ba"></a>
 
 ```java
 public com.tailf.cdb.CdbSession getReadOperSession()
@@ -469,12 +445,11 @@ public com.tailf.cdb.CdbSession getReadOperSession()
 Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession)
 
 Retrieves a CdbSession for reading CDB_OPERATIONAL database with the
- default locks if not defined by `#setReadOperLocks(EnumSet)`
+ default locks if not defined by `setReadOperLocks(EnumSet)`
 
 **Returns:** CdbSession
 
-<a id="m-getvalues-ecb3f8096a7c"></a>
-### getValues(NavuNode, ConfXMLParam[])
+### getValues(NavuNode, ConfXMLParam[]) <a href="#m-getValues-ecb3f8096a7c" id="m-getValues-ecb3f8096a7c"></a>
 
 ```java
 protected com.tailf.conf.ConfXMLParam[] getValues(
@@ -491,8 +466,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuNode](Navu
 - `com.tailf.navu.NavuNode node`
 - `com.tailf.conf.ConfXMLParam[] confXMLParams`
 
-<a id="m-getwriteconfsession-a042057a7cb8"></a>
-### getWriteConfSession()
+### getWriteConfSession() <a href="#m-getWriteConfSession-a042057a7cb8" id="m-getWriteConfSession-a042057a7cb8"></a>
 
 ```java
 protected com.tailf.cdb.CdbSession getWriteConfSession()
@@ -500,8 +474,7 @@ protected com.tailf.cdb.CdbSession getWriteConfSession()
 
 Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession)
 
-<a id="m-getwriteopersession-eb5d274da267"></a>
-### getWriteOperSession()
+### getWriteOperSession() <a href="#m-getWriteOperSession-eb5d274da267" id="m-getWriteOperSession-eb5d274da267"></a>
 
 ```java
 public com.tailf.cdb.CdbSession getWriteOperSession()
@@ -510,19 +483,17 @@ public com.tailf.cdb.CdbSession getWriteOperSession()
 Types: [CdbSession](../cdb/CdbSession.md#cls-CdbSession)
 
 Retrieves a CdbSession for writing CDB_OPERATIONAL database with the
- default locks if not defined by `#setWriteOperLocks(EnumSet)`
+ default locks if not defined by `setWriteOperLocks(EnumSet)`
 
 **Returns:** CdbSession
 
-<a id="m-hascdbsubscriber-3650a7c55283"></a>
-### hasCdbSubscriber()
+### hasCdbSubscriber() <a href="#m-hasCdbSubscriber-3650a7c55283" id="m-hasCdbSubscriber-3650a7c55283"></a>
 
 ```java
 public boolean hasCdbSubscriber()
 ```
 
-<a id="m-idrefderivedorself-6a08c9a390be"></a>
-### idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[])
+### idrefDerivedOrSelf(NavuNode, ConfIdentityRef, String, Object[]) <a href="#m-idrefDerivedOrSelf-6a08c9a390be" id="m-idrefDerivedOrSelf-6a08c9a390be"></a>
 
 ```java
 protected boolean idrefDerivedOrSelf(
@@ -543,8 +514,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfIdentityRef](../conf/ConfIdent
 - `String fmt`
 - `Object[] args`
 
-<a id="m-initmaapicursor-dfdad1aa4163"></a>
-### initMaapiCursor(NavuNode, String, Object[])
+### initMaapiCursor(NavuNode, String, Object[]) <a href="#m-initMaapiCursor-dfdad1aa4163" id="m-initMaapiCursor-dfdad1aa4163"></a>
 
 ```java
 protected java.util.List<com.tailf.conf.ConfKey> initMaapiCursor(
@@ -563,8 +533,7 @@ Types: [ConfKey](../conf/ConfKey.md#cls-ConfKey), [NavuNode](NavuNode.md#cls-Nav
 - `String fmt`
 - `Object[] arguments`
 
-<a id="m-insert-55bd5e6f415f"></a>
-### insert(NavuList, boolean, String, Object[])
+### insert(NavuList, boolean, String, Object[]) <a href="#m-insert-55bd5e6f415f" id="m-insert-55bd5e6f415f"></a>
 
 ```java
 protected void insert(
@@ -585,29 +554,25 @@ Types: [NavuList](NavuList.md#cls-NavuList), [NavuException](NavuException.md#cl
 - `String fmt`
 - `Object[] args`
 
-<a id="m-isactassuper-ce02ade4553b"></a>
-### isActAsSuper()
+### isActAsSuper() <a href="#m-isActAsSuper-ce02ade4553b" id="m-isActAsSuper-ce02ade4553b"></a>
 
 ```java
 protected boolean isActAsSuper()
 ```
 
-<a id="m-iscdb-20ec16d14862"></a>
-### isCdb()
+### isCdb() <a href="#m-isCdb-20ec16d14862" id="m-isCdb-20ec16d14862"></a>
 
 ```java
 public boolean isCdb()
 ```
 
-<a id="m-iscdbsession-71fe8b2aab5d"></a>
-### isCdbSession()
+### isCdbSession() <a href="#m-isCdbSession-71fe8b2aab5d" id="m-isCdbSession-71fe8b2aab5d"></a>
 
 ```java
 public boolean isCdbSession()
 ```
 
-<a id="m-ismaapi-5c500ef256ce"></a>
-### isMaapi()
+### isMaapi() <a href="#m-isMaapi-5c500ef256ce" id="m-isMaapi-5c500ef256ce"></a>
 
 ```java
 public boolean isMaapi()
@@ -615,15 +580,13 @@ public boolean isMaapi()
 
 **Returns:** true if the a Maapi context.
 
-<a id="m-isonline-90688b264b83"></a>
-### isOnline()
+### isOnline() <a href="#m-isOnline-90688b264b83" id="m-isOnline-90688b264b83"></a>
 
 ```java
 public boolean isOnline()
 ```
 
-<a id="m-moveordered-373c795909ce"></a>
-### moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[])
+### moveOrdered(NavuNode, MoveWhereFlag, ConfKey, String, Object[]) <a href="#m-moveOrdered-373c795909ce" id="m-moveOrdered-373c795909ce"></a>
 
 ```java
 protected void moveOrdered(
@@ -646,8 +609,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [MoveWhereFlag](../maapi/MoveWhereF
 - `String fmt`
 - `Object[] args`
 
-<a id="m-numofinstances-d5b1fc4e65c9"></a>
-### numOfInstances(NavuNode)
+### numOfInstances(NavuNode) <a href="#m-numOfInstances-d5b1fc4e65c9" id="m-numOfInstances-d5b1fc4e65c9"></a>
 
 ```java
 protected int numOfInstances(com.tailf.navu.NavuNode navuList) throws com.tailf.navu.NavuException
@@ -659,8 +621,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [NavuException](NavuException.md#cl
 
 - `com.tailf.navu.NavuNode navuList`
 
-<a id="m-removecdbsessions-71502a05a702"></a>
-### removeCdbSessions()
+### removeCdbSessions() <a href="#m-removeCdbSessions-71502a05a702" id="m-removeCdbSessions-71502a05a702"></a>
 
 ```java
 public void removeCdbSessions()
@@ -669,8 +630,7 @@ public void removeCdbSessions()
 Clears all the CDB sessions associates with the mapping
  between the the supplied Cdb socket and the ( in CDB mode )
 
-<a id="m-requestaction-164fcf6d0208"></a>
-### requestAction(NavuAction, ConfXMLParam[], String, Object[])
+### requestAction(NavuAction, ConfXMLParam[], String, Object[]) <a href="#m-requestAction-164fcf6d0208" id="m-requestAction-164fcf6d0208"></a>
 
 ```java
 protected com.tailf.conf.ConfXMLParam[] requestAction(
@@ -691,8 +651,7 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [NavuAction](Na
 - `String fmt`
 - `Object[] args`
 
-<a id="m-set-aa955bb80732"></a>
-### set(NavuContextBase)
+### set(NavuContextBase) <a href="#m-set-aa955bb80732" id="m-set-aa955bb80732"></a>
 
 ```java
 public void set(com.tailf.navu.NavuContextBase context)
@@ -718,8 +677,7 @@ Set the context attributes using another context object.
 
 - `com.tailf.navu.NavuContextBase context`
 
-<a id="m-setelem-0daaa25a8e50"></a>
-### setElem(NavuNode, ConfValue, boolean, String, Object[])
+### setElem(NavuNode, ConfValue, boolean, String, Object[]) <a href="#m-setElem-0daaa25a8e50" id="m-setElem-0daaa25a8e50"></a>
 
 ```java
 protected void setElem(
@@ -742,8 +700,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfValue](../conf/ConfValue.md#cl
 - `String fmt`
 - `Object[] args`
 
-<a id="m-setelem-e887291ef6b0"></a>
-### setElem(NavuNode, String, boolean, String, Object[])
+### setElem(NavuNode, String, boolean, String, Object[]) <a href="#m-setElem-e887291ef6b0" id="m-setElem-e887291ef6b0"></a>
 
 ```java
 protected com.tailf.conf.ConfValue setElem(
@@ -766,8 +723,7 @@ Types: [ConfValue](../conf/ConfValue.md#cls-ConfValue), [NavuNode](NavuNode.md#c
 - `String fmt`
 - `Object[] args`
 
-<a id="m-setmaapihandle-62fe88de5765"></a>
-### setMaapiHandle(int)
+### setMaapiHandle(int) <a href="#m-setMaapiHandle-62fe88de5765" id="m-setMaapiHandle-62fe88de5765"></a>
 
 ```java
 protected void setMaapiHandle(int th)
@@ -777,8 +733,7 @@ protected void setMaapiHandle(int th)
 
 - `int th`
 
-<a id="m-setoption-13f7d349ceea"></a>
-### setOption(UnSetCaseInChoice)
+### setOption(UnSetCaseInChoice) <a href="#m-setOption-13f7d349ceea" id="m-setOption-13f7d349ceea"></a>
 
 ```java
 public void setOption(com.tailf.navu.NavuContextBase.UnSetCaseInChoice unSetChoiceInCase)
@@ -794,8 +749,7 @@ Set the behavior of how a unset case in choice should be
 - `com.tailf.navu.NavuContextBase.UnSetCaseInChoice unSetChoiceInCase` - the specified option for behavior
                                         of unset case in choice
 
-<a id="m-setreadconflocks-43f86af9b510"></a>
-### setReadConfLocks(EnumSet<CdbLockType>)
+### setReadConfLocks(EnumSet<CdbLockType>) <a href="#m-setReadConfLocks-43f86af9b510" id="m-setReadConfLocks-43f86af9b510"></a>
 
 ```java
 public void setReadConfLocks(java.util.EnumSet<com.tailf.cdb.CdbLockType> locks)
@@ -810,8 +764,7 @@ Sets the locks for a read CDB configuration data session
 
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> locks`
 
-<a id="m-setreadoperlocks-9c615c121ad2"></a>
-### setReadOperLocks(EnumSet<CdbLockType>)
+### setReadOperLocks(EnumSet<CdbLockType>) <a href="#m-setReadOperLocks-9c615c121ad2" id="m-setReadOperLocks-9c615c121ad2"></a>
 
 ```java
 public void setReadOperLocks(java.util.EnumSet<com.tailf.cdb.CdbLockType> locks)
@@ -826,8 +779,7 @@ Sets the locks for a read CDB operational data session
 
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> locks`
 
-<a id="m-setvalues-8ac6838a32ab"></a>
-### setValues(NavuNode, ConfXMLParam[], boolean)
+### setValues(NavuNode, ConfXMLParam[], boolean) <a href="#m-setValues-8ac6838a32ab" id="m-setValues-8ac6838a32ab"></a>
 
 ```java
 protected void setValues(
@@ -846,8 +798,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfXMLParam](../conf/ConfXMLParam
 - `com.tailf.conf.ConfXMLParam[] confXMLParams`
 - `boolean shared`
 
-<a id="m-setwriteoperlocks-d3a3d78b7d7d"></a>
-### setWriteOperLocks(EnumSet<CdbLockType>)
+### setWriteOperLocks(EnumSet<CdbLockType>) <a href="#m-setWriteOperLocks-d3a3d78b7d7d" id="m-setWriteOperLocks-d3a3d78b7d7d"></a>
 
 ```java
 public void setWriteOperLocks(java.util.EnumSet<com.tailf.cdb.CdbLockType> locks)
@@ -862,15 +813,13 @@ Sets the locks for a write CDB operational data session
 
 - `java.util.EnumSet<com.tailf.cdb.CdbLockType> locks`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-xpatheval-9750f496e526"></a>
-### xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String)
+### xpathEval(NavuXPathSelectResultSet, MaapiXPathEvalTrace, String, Object, String) <a href="#m-xpathEval-9750f496e526" id="m-xpathEval-9750f496e526"></a>
 
 ```java
 protected void xpathEval(

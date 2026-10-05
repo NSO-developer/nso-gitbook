@@ -1,5 +1,4 @@
-<a id="cls-NotificationHandler"></a>
-# NotificationHandler
+# NotificationHandler <a href="#cls-NotificationHandler" id="cls-NotificationHandler"></a>
 
 ```java
 public interface com.tailf.ncs.snmp.snmp4j.NotificationHandler
@@ -12,12 +11,11 @@ Interface that all Handlers must implement
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processpdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
 
 ## Methods
 
-<a id="m-processpdu-6c9b32673c38"></a>
-### processPdu(EventContext, CommandResponderEvent, Object)
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
 
 ```java
 public abstract com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(

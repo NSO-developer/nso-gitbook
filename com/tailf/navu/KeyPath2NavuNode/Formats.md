@@ -1,5 +1,4 @@
-<a id="cls-Formats"></a>
-# Formats
+# Formats <a href="#cls-Formats" id="cls-Formats"></a>
 
 ```java
 protected static class com.tailf.navu.KeyPath2NavuNode.Formats
@@ -9,7 +8,7 @@ protected static class com.tailf.navu.KeyPath2NavuNode.Formats
 
 **Constructors**:
 
-- [Formats()](#m-formats-26bb2d200cad)
+- [Formats()](#m-Formats-26bb2d200cad)
 
 **Fields**:
 
@@ -18,12 +17,11 @@ protected static class com.tailf.navu.KeyPath2NavuNode.Formats
 
 **Methods**:
 
-- [getFormats(ConfObject[])](#m-getformats-9877423057ad)
+- [getFormats(ConfObject[])](#m-getFormats-9877423057ad)
 
 ## Constructors
 
-<a id="m-formats-26bb2d200cad"></a>
-### Formats()
+### Formats() <a href="#m-Formats-26bb2d200cad" id="m-Formats-26bb2d200cad"></a>
 
 ```java
 protected Formats()
@@ -32,15 +30,13 @@ protected Formats()
 
 ## Fields
 
-<a id="m-arguments"></a>
-### arguments
+### arguments <a href="#m-arguments" id="m-arguments"></a>
 
 ```java
 public Object[] arguments = null;
 ```
 
-<a id="m-fmt"></a>
-### fmt
+### fmt <a href="#m-fmt" id="m-fmt"></a>
 
 ```java
 public String fmt = null;
@@ -49,8 +45,7 @@ public String fmt = null;
 
 ## Methods
 
-<a id="m-getformats-9877423057ad"></a>
-### getFormats(ConfObject[])
+### getFormats(ConfObject[]) <a href="#m-getFormats-9877423057ad" id="m-getFormats-9877423057ad"></a>
 
 ```java
 public static com.tailf.navu.KeyPath2NavuNode.Formats getFormats(com.tailf.conf.ConfObject[] kpx)

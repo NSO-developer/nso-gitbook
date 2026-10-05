@@ -1,5 +1,4 @@
-<a id="cls-ConfIPAndPrefixLen"></a>
-# ConfIPAndPrefixLen
+# ConfIPAndPrefixLen <a href="#cls-ConfIPAndPrefixLen" id="cls-ConfIPAndPrefixLen"></a>
 
 ```java
 public abstract class com.tailf.conf.ConfIPAndPrefixLen
@@ -20,7 +19,7 @@ DATA_CONTAINER - Base class for ConfIPv4AndPrefixLen and
 
 **Constructors**:
 
-- [ConfIPAndPrefixLen()](#m-confipandprefixlen-c4a3ad152532)
+- [ConfIPAndPrefixLen()](#m-ConfIPAndPrefixLen-c4a3ad152532)
 
 **Fields**:
 
@@ -83,20 +82,19 @@ DATA_CONTAINER - Base class for ConfIPv4AndPrefixLen and
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](ConfValue.md#m-equals-fcd6492e0d6c) from ConfValue
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getMaskLength()](#m-getmasklength-c45d44e26e53)
-- [getRawAddress()](#m-getrawaddress-2dacae94069b)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](ConfValue.md#m-hashcode-ef797a217903) from ConfValue
-- [toString()](ConfValue.md#m-tostring-e9d48c5503ef) from ConfValue
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getMaskLength()](#m-getMaskLength-c45d44e26e53)
+- [getRawAddress()](#m-getRawAddress-2dacae94069b)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](ConfValue.md#m-hashCode-ef797a217903) from ConfValue
+- [toString()](ConfValue.md#m-toString-e9d48c5503ef) from ConfValue
 
 ## Constructors
 
-<a id="m-confipandprefixlen-c4a3ad152532"></a>
-### ConfIPAndPrefixLen()
+### ConfIPAndPrefixLen() <a href="#m-ConfIPAndPrefixLen-c4a3ad152532" id="m-ConfIPAndPrefixLen-c4a3ad152532"></a>
 
 ```java
 public ConfIPAndPrefixLen()
@@ -105,8 +103,7 @@ public ConfIPAndPrefixLen()
 
 ## Methods
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public abstract com.tailf.proto.ConfEObject encode()
@@ -114,22 +111,19 @@ public abstract com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public abstract java.net.InetAddress getAddress()
 ```
 
-<a id="m-getmasklength-c45d44e26e53"></a>
-### getMaskLength()
+### getMaskLength() <a href="#m-getMaskLength-c45d44e26e53" id="m-getMaskLength-c45d44e26e53"></a>
 
 ```java
 public abstract int getMaskLength()
 ```
 
-<a id="m-getrawaddress-2dacae94069b"></a>
-### getRawAddress()
+### getRawAddress() <a href="#m-getRawAddress-2dacae94069b" id="m-getRawAddress-2dacae94069b"></a>
 
 ```java
 public abstract int[] getRawAddress()

@@ -1,5 +1,4 @@
-<a id="cls-ConfXMLParamLeaf"></a>
-# ConfXMLParamLeaf
+# ConfXMLParamLeaf <a href="#cls-ConfXMLParamLeaf" id="cls-ConfXMLParamLeaf"></a>
 
 ```java
 public class com.tailf.conf.ConfXMLParamLeaf
@@ -14,11 +13,11 @@ Identifies a leaf parameter. See [`ConfXMLParam`](ConfXMLParam.md#cls-ConfXMLPar
 
 **Constructors**:
 
-- [ConfXMLParamLeaf(ConfEObject)](#m-confxmlparamleaf-dc3536552489)
-- [ConfXMLParamLeaf(ConfNamespace, String)](#m-confxmlparamleaf-cc52d2216932)
-- [ConfXMLParamLeaf(ConfPath, MountIdInterface, String, String)](#m-confxmlparamleaf-280019d1f34b)
-- [ConfXMLParamLeaf(int, int)](#m-confxmlparamleaf-166d46c702af)
-- [ConfXMLParamLeaf(String, String)](#m-confxmlparamleaf-b1f1406d6ad7)
+- [ConfXMLParamLeaf(ConfEObject)](#m-ConfXMLParamLeaf-dc3536552489)
+- [ConfXMLParamLeaf(ConfNamespace, String)](#m-ConfXMLParamLeaf-cc52d2216932)
+- [ConfXMLParamLeaf(ConfPath, MountIdInterface, String, String)](#m-ConfXMLParamLeaf-280019d1f34b)
+- [ConfXMLParamLeaf(int, int)](#m-ConfXMLParamLeaf-166d46c702af)
+- [ConfXMLParamLeaf(String, String)](#m-ConfXMLParamLeaf-b1f1406d6ad7)
 
 **Fields**:
 
@@ -85,42 +84,41 @@ Identifies a leaf parameter. See [`ConfXMLParam`](ConfXMLParam.md#cls-ConfXMLPar
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [decodeParam(ConfEObject)](ConfXMLParam.md#m-decodeparam-6799ac4705bb) from ConfXMLParam
-- [decodeParams(ConfEObject)](ConfXMLParam.md#m-decodeparams-5a1c83464ae4) from ConfXMLParam
+- [decodeParam(ConfEObject)](ConfXMLParam.md#m-decodeParam-6799ac4705bb) from ConfXMLParam
+- [decodeParams(ConfEObject)](ConfXMLParam.md#m-decodeParams-5a1c83464ae4) from ConfXMLParam
 - [encode()](ConfXMLParam.md#m-encode-fbae522bba37) from ConfXMLParam
 - [encode(ConfXMLParam[])](ConfXMLParam.md#m-encode-7356521b6411) from ConfXMLParam
 - [encode(List<String>)](ConfXMLParam.md#m-encode-da878ca7b20d) from ConfXMLParam
 - [encode(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encode-e9fa5532e6d5) from ConfXMLParam
-- [encodeHKP()](ConfXMLParam.md#m-encodehkp-50d4bf8d0256) from ConfXMLParam
-- [encodeHKP(ConfXMLParam[])](ConfXMLParam.md#m-encodehkp-ebc927cd1ccf) from ConfXMLParam
-- [encodeHKP(List<String>)](ConfXMLParam.md#m-encodehkp-2ff023418b43) from ConfXMLParam
-- [encodeHKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodehkp-6bc3df5e84cb) from ConfXMLParam
-- [encodeIKP()](ConfXMLParam.md#m-encodeikp-b160b87f6433) from ConfXMLParam
-- [encodeIKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeikp-ab4320a110c6) from ConfXMLParam
-- [encodeIKP(List<String>)](ConfXMLParam.md#m-encodeikp-6f358b789ce0) from ConfXMLParam
-- [encodeIKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeikp-c0a89dd54349) from ConfXMLParam
+- [encodeHKP()](ConfXMLParam.md#m-encodeHKP-50d4bf8d0256) from ConfXMLParam
+- [encodeHKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeHKP-ebc927cd1ccf) from ConfXMLParam
+- [encodeHKP(List<String>)](ConfXMLParam.md#m-encodeHKP-2ff023418b43) from ConfXMLParam
+- [encodeHKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeHKP-6bc3df5e84cb) from ConfXMLParam
+- [encodeIKP()](ConfXMLParam.md#m-encodeIKP-b160b87f6433) from ConfXMLParam
+- [encodeIKP(ConfXMLParam[])](ConfXMLParam.md#m-encodeIKP-ab4320a110c6) from ConfXMLParam
+- [encodeIKP(List<String>)](ConfXMLParam.md#m-encodeIKP-6f358b789ce0) from ConfXMLParam
+- [encodeIKP(List<String>, ConfXMLParam[])](ConfXMLParam.md#m-encodeIKP-c0a89dd54349) from ConfXMLParam
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfNamespace()](ConfXMLParam.md#m-getconfnamespace-87556caf3223) from ConfXMLParam
-- [getNSHash()](ConfXMLParam.md#m-getnshash-2129fb8b3cfe) from ConfXMLParam
-- [getTag()](ConfXMLParam.md#m-gettag-315f45956d6f) from ConfXMLParam
-- [getTagHash()](ConfXMLParam.md#m-gettaghash-8f057919039c) from ConfXMLParam
-- [getValue()](ConfXMLParam.md#m-getvalue-d93864668c40) from ConfXMLParam
-- [hashCode()](#m-hashcode-ef797a217903)
-- [setCdbInstanceInteger(int)](ConfXMLParam.md#m-setcdbinstanceinteger-f7ee747b0f20) from ConfXMLParam
-- [setNamespace(ConfNamespace)](ConfXMLParam.md#m-setnamespace-30316a480cfa) from ConfXMLParam
-- [setNamespaceFromMountId(List<String>)](ConfXMLParam.md#m-setnamespacefrommountid-1aa3f67eb493) from ConfXMLParam
-- [toDOM(ConfXMLParam[])](ConfXMLParam.md#m-todom-13fd8f87f1a2) from ConfXMLParam
-- [toDOM(ConfXMLParam[], String, String)](ConfXMLParam.md#m-todom-a2de025173ef) from ConfXMLParam
-- [toString()](ConfXMLParam.md#m-tostring-e9d48c5503ef) from ConfXMLParam
-- [toXML(ConfXMLParam[])](ConfXMLParam.md#m-toxml-122580fde7a8) from ConfXMLParam
-- [toXML(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toxml-e7cef9be4b1e) from ConfXMLParam
-- [toXMLParams(String, ConfPath)](ConfXMLParam.md#m-toxmlparams-bec6ecc54070) from ConfXMLParam
-- [toXMLParams(String, ConfPath, int)](ConfXMLParam.md#m-toxmlparams-61a6fdf75a13) from ConfXMLParam
+- [getConfNamespace()](ConfXMLParam.md#m-getConfNamespace-87556caf3223) from ConfXMLParam
+- [getNSHash()](ConfXMLParam.md#m-getNSHash-2129fb8b3cfe) from ConfXMLParam
+- [getTag()](ConfXMLParam.md#m-getTag-315f45956d6f) from ConfXMLParam
+- [getTagHash()](ConfXMLParam.md#m-getTagHash-8f057919039c) from ConfXMLParam
+- [getValue()](ConfXMLParam.md#m-getValue-d93864668c40) from ConfXMLParam
+- [hashCode()](#m-hashCode-ef797a217903)
+- [setCdbInstanceInteger(int)](ConfXMLParam.md#m-setCdbInstanceInteger-f7ee747b0f20) from ConfXMLParam
+- [setNamespace(ConfNamespace)](ConfXMLParam.md#m-setNamespace-30316a480cfa) from ConfXMLParam
+- [setNamespaceFromMountId(List<String>)](ConfXMLParam.md#m-setNamespaceFromMountId-1aa3f67eb493) from ConfXMLParam
+- [toDOM(ConfXMLParam[])](ConfXMLParam.md#m-toDOM-13fd8f87f1a2) from ConfXMLParam
+- [toDOM(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toDOM-a2de025173ef) from ConfXMLParam
+- [toString()](ConfXMLParam.md#m-toString-e9d48c5503ef) from ConfXMLParam
+- [toXML(ConfXMLParam[])](ConfXMLParam.md#m-toXML-122580fde7a8) from ConfXMLParam
+- [toXML(ConfXMLParam[], String, String)](ConfXMLParam.md#m-toXML-e7cef9be4b1e) from ConfXMLParam
+- [toXMLParams(String, ConfPath)](ConfXMLParam.md#m-toXMLParams-bec6ecc54070) from ConfXMLParam
+- [toXMLParams(String, ConfPath, int)](ConfXMLParam.md#m-toXMLParams-61a6fdf75a13) from ConfXMLParam
 
 ## Constructors
 
-<a id="m-confxmlparamleaf-dc3536552489"></a>
-### ConfXMLParamLeaf(ConfEObject)
+### ConfXMLParamLeaf(ConfEObject) <a href="#m-ConfXMLParamLeaf-dc3536552489" id="m-ConfXMLParamLeaf-dc3536552489"></a>
 
 ```java
 public ConfXMLParamLeaf(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -132,8 +130,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confxmlparamleaf-cc52d2216932"></a>
-### ConfXMLParamLeaf(ConfNamespace, String)
+### ConfXMLParamLeaf(ConfNamespace, String) <a href="#m-ConfXMLParamLeaf-cc52d2216932" id="m-ConfXMLParamLeaf-cc52d2216932"></a>
 
 ```java
 public ConfXMLParamLeaf(com.tailf.conf.ConfNamespace namespace, String tagString)
@@ -146,8 +143,7 @@ Types: [ConfNamespace](ConfNamespace.md#cls-ConfNamespace)
 - `com.tailf.conf.ConfNamespace namespace`
 - `String tagString`
 
-<a id="m-confxmlparamleaf-280019d1f34b"></a>
-### ConfXMLParamLeaf(ConfPath, MountIdInterface, String, String)
+### ConfXMLParamLeaf(ConfPath, MountIdInterface, String, String) <a href="#m-ConfXMLParamLeaf-280019d1f34b" id="m-ConfXMLParamLeaf-280019d1f34b"></a>
 
 ```java
 public ConfXMLParamLeaf(
@@ -167,8 +163,7 @@ Types: [ConfPath](ConfPath.md#cls-ConfPath), [MountIdInterface](MountIdInterface
 - `String prefix`
 - `String tagString`
 
-<a id="m-confxmlparamleaf-166d46c702af"></a>
-### ConfXMLParamLeaf(int, int)
+### ConfXMLParamLeaf(int, int) <a href="#m-ConfXMLParamLeaf-166d46c702af" id="m-ConfXMLParamLeaf-166d46c702af"></a>
 
 ```java
 public ConfXMLParamLeaf(int ns, int tag)
@@ -179,8 +174,7 @@ public ConfXMLParamLeaf(int ns, int tag)
 - `int ns`
 - `int tag`
 
-<a id="m-confxmlparamleaf-b1f1406d6ad7"></a>
-### ConfXMLParamLeaf(String, String)
+### ConfXMLParamLeaf(String, String) <a href="#m-ConfXMLParamLeaf-b1f1406d6ad7" id="m-ConfXMLParamLeaf-b1f1406d6ad7"></a>
 
 ```java
 public ConfXMLParamLeaf(String prefix, String tagString)
@@ -194,8 +188,7 @@ public ConfXMLParamLeaf(String prefix, String tagString)
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -205,8 +198,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()

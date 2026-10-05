@@ -1,5 +1,4 @@
-<a id="cls-CsTypeDecimal64"></a>
-# CsTypeDecimal64
+# CsTypeDecimal64 <a href="#cls-CsTypeDecimal64" id="cls-CsTypeDecimal64"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeDecimal64
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeDecimal64
 
 **Constructors**:
 
-- [CsTypeDecimal64()](#m-cstypedecimal64-f67872cdae8b)
+- [CsTypeDecimal64()](#m-CsTypeDecimal64-f67872cdae8b)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeDecimal64
 
 ## Constructors
 
-<a id="m-cstypedecimal64-f67872cdae8b"></a>
-### CsTypeDecimal64()
+### CsTypeDecimal64() <a href="#m-CsTypeDecimal64-f67872cdae8b" id="m-CsTypeDecimal64-f67872cdae8b"></a>
 
 ```java
 public CsTypeDecimal64()
@@ -35,8 +33,7 @@ public CsTypeDecimal64()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Factory factory =
 
 Types: [Factory](CsTypeDecimal64/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Builder,com.tailf.ncs.maapi.Schema.CsTypeDecimal64.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeDecimal64/Builder.md#cls-Builder), [Reader](CsTypeDecimal64/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

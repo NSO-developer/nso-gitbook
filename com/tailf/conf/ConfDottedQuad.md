@@ -1,5 +1,4 @@
-<a id="cls-ConfDottedQuad"></a>
-# ConfDottedQuad
+# ConfDottedQuad <a href="#cls-ConfDottedQuad" id="cls-ConfDottedQuad"></a>
 
 ```java
 public class com.tailf.conf.ConfDottedQuad
@@ -32,11 +31,11 @@ DATA_CONTAINER - Corresponds to the YANG dotted-quad type.
 
 **Constructors**:
 
-- [ConfDottedQuad(byte, byte, byte, byte)](#m-confdottedquad-7085f8929488)
-- [ConfDottedQuad(byte[])](#m-confdottedquad-017a6bea9459)
-- [ConfDottedQuad(ConfBinary)](#m-confdottedquad-fe6154ba2b45)
-- [ConfDottedQuad(ConfEObject)](#m-confdottedquad-e4b7f68b0f26)
-- [ConfDottedQuad(String)](#m-confdottedquad-9b0ee627e80f)
+- [ConfDottedQuad(byte, byte, byte, byte)](#m-ConfDottedQuad-7085f8929488)
+- [ConfDottedQuad(byte[])](#m-ConfDottedQuad-017a6bea9459)
+- [ConfDottedQuad(ConfBinary)](#m-ConfDottedQuad-fe6154ba2b45)
+- [ConfDottedQuad(ConfEObject)](#m-ConfDottedQuad-e4b7f68b0f26)
+- [ConfDottedQuad(String)](#m-ConfDottedQuad-9b0ee627e80f)
 
 **Fields**:
 
@@ -94,23 +93,22 @@ DATA_CONTAINER - Corresponds to the YANG dotted-quad type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfDottedQuad)](#m-compareto-f6d41d0130e5)
+- [compareTo(ConfDottedQuad)](#m-compareTo-f6d41d0130e5)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confdottedquad-7085f8929488"></a>
-### ConfDottedQuad(byte, byte, byte, byte)
+### ConfDottedQuad(byte, byte, byte, byte) <a href="#m-ConfDottedQuad-7085f8929488" id="m-ConfDottedQuad-7085f8929488"></a>
 
 ```java
 public ConfDottedQuad(byte q1, byte q2, byte q3, byte q4)
@@ -125,8 +123,7 @@ Constructs a ConfdDottedQuad from 4 bytes.
 - `byte q3` - Third byte of quad.
 - `byte q4` - Fourth byte of quad.
 
-<a id="m-confdottedquad-017a6bea9459"></a>
-### ConfDottedQuad(byte[])
+### ConfDottedQuad(byte[]) <a href="#m-ConfDottedQuad-017a6bea9459" id="m-ConfDottedQuad-017a6bea9459"></a>
 
 ```java
 public ConfDottedQuad(byte[] val) throws com.tailf.conf.ConfException
@@ -138,8 +135,7 @@ Types: [ConfException](ConfException.md#cls-ConfException)
 
 - `byte[] val`
 
-<a id="m-confdottedquad-fe6154ba2b45"></a>
-### ConfDottedQuad(ConfBinary)
+### ConfDottedQuad(ConfBinary) <a href="#m-ConfDottedQuad-fe6154ba2b45" id="m-ConfDottedQuad-fe6154ba2b45"></a>
 
 ```java
 public ConfDottedQuad(com.tailf.conf.ConfBinary obj) throws com.tailf.conf.ConfException
@@ -153,8 +149,7 @@ Constructs a ConfDottedQuad from a ConfBinary object.
 
 - `com.tailf.conf.ConfBinary obj`
 
-<a id="m-confdottedquad-e4b7f68b0f26"></a>
-### ConfDottedQuad(ConfEObject)
+### ConfDottedQuad(ConfEObject) <a href="#m-ConfDottedQuad-e4b7f68b0f26" id="m-ConfDottedQuad-e4b7f68b0f26"></a>
 
 ```java
 public ConfDottedQuad(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -166,8 +161,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confdottedquad-9b0ee627e80f"></a>
-### ConfDottedQuad(String)
+### ConfDottedQuad(String) <a href="#m-ConfDottedQuad-9b0ee627e80f" id="m-ConfDottedQuad-9b0ee627e80f"></a>
 
 ```java
 public ConfDottedQuad(String str) throws com.tailf.conf.ConfException
@@ -185,8 +179,7 @@ Construct a ConfDottedQuad from a string of bytes in the format of octets
 
 ## Methods
 
-<a id="m-compareto-f6d41d0130e5"></a>
-### compareTo(ConfDottedQuad)
+### compareTo(ConfDottedQuad) <a href="#m-compareTo-f6d41d0130e5" id="m-compareTo-f6d41d0130e5"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfDottedQuad o)
@@ -198,8 +191,7 @@ Types: [ConfDottedQuad](ConfDottedQuad.md#cls-ConfDottedQuad)
 
 - `com.tailf.conf.ConfDottedQuad o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -207,8 +199,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -218,15 +209,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

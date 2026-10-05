@@ -1,5 +1,4 @@
-<a id="cls-EventContext"></a>
-# EventContext
+# EventContext <a href="#cls-EventContext" id="cls-EventContext"></a>
 
 ```java
 public interface com.tailf.ncs.snmp.snmp4j.EventContext
@@ -11,12 +10,11 @@ This interface describes the context for the notification event
 
 **Methods**:
 
-- [getDeviceName()](#m-getdevicename-95c72ec0cf27)
+- [getDeviceName()](#m-getDeviceName-95c72ec0cf27)
 
 ## Methods
 
-<a id="m-getdevicename-95c72ec0cf27"></a>
-### getDeviceName()
+### getDeviceName() <a href="#m-getDeviceName-95c72ec0cf27" id="m-getDeviceName-95c72ec0cf27"></a>
 
 ```java
 public abstract String getDeviceName()

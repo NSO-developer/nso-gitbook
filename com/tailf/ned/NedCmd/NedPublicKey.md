@@ -1,5 +1,4 @@
-<a id="cls-NedPublicKey"></a>
-# NedPublicKey
+# NedPublicKey <a href="#cls-NedPublicKey" id="cls-NedPublicKey"></a>
 
 ```java
 public class com.tailf.ned.NedCmd.NedPublicKey
@@ -10,20 +9,19 @@ public class com.tailf.ned.NedCmd.NedPublicKey
 
 **Constructors**:
 
-- [NedPublicKey(String, byte[])](#m-nedpublickey-dd44fd2a5eb2)
-- [NedPublicKey(String, byte[], int)](#m-nedpublickey-80765b3cc40a)
+- [NedPublicKey(String, byte[])](#m-NedPublicKey-dd44fd2a5eb2)
+- [NedPublicKey(String, byte[], int)](#m-NedPublicKey-80765b3cc40a)
 
 **Methods**:
 
-- [getAlgName()](#m-getalgname-d8714870a2c4)
-- [getIdentity(NedWorker)](#m-getidentity-807a09f805c8)
-- [getPublicKeyBlob()](#m-getpublickeyblob-7fccff30ba83)
+- [getAlgName()](#m-getAlgName-d8714870a2c4)
+- [getIdentity(NedWorker)](#m-getIdentity-807a09f805c8)
+- [getPublicKeyBlob()](#m-getPublicKeyBlob-7fccff30ba83)
 - [sign(byte[])](#m-sign-24112ece4f25)
 
 ## Constructors
 
-<a id="m-nedpublickey-dd44fd2a5eb2"></a>
-### NedPublicKey(String, byte[])
+### NedPublicKey(String, byte[]) <a href="#m-NedPublicKey-dd44fd2a5eb2" id="m-NedPublicKey-dd44fd2a5eb2"></a>
 
 ```java
 protected NedPublicKey(String algorithm, byte[] blob)
@@ -34,8 +32,7 @@ protected NedPublicKey(String algorithm, byte[] blob)
 - `String algorithm`
 - `byte[] blob`
 
-<a id="m-nedpublickey-80765b3cc40a"></a>
-### NedPublicKey(String, byte[], int)
+### NedPublicKey(String, byte[], int) <a href="#m-NedPublicKey-80765b3cc40a" id="m-NedPublicKey-80765b3cc40a"></a>
 
 ```java
 protected NedPublicKey(String algorithm, byte[] blob, int signIndex)
@@ -50,15 +47,13 @@ protected NedPublicKey(String algorithm, byte[] blob, int signIndex)
 
 ## Methods
 
-<a id="m-getalgname-d8714870a2c4"></a>
-### getAlgName()
+### getAlgName() <a href="#m-getAlgName-d8714870a2c4" id="m-getAlgName-d8714870a2c4"></a>
 
 ```java
 public String getAlgName()
 ```
 
-<a id="m-getidentity-807a09f805c8"></a>
-### getIdentity(NedWorker)
+### getIdentity(NedWorker) <a href="#m-getIdentity-807a09f805c8" id="m-getIdentity-807a09f805c8"></a>
 
 ```java
 protected ch.ethz.ssh2.auth.AgentIdentity getIdentity(com.tailf.ned.NedWorker worker)
@@ -70,15 +65,13 @@ Types: [NedWorker](../NedWorker.md#cls-NedWorker)
 
 - `com.tailf.ned.NedWorker worker`
 
-<a id="m-getpublickeyblob-7fccff30ba83"></a>
-### getPublicKeyBlob()
+### getPublicKeyBlob() <a href="#m-getPublicKeyBlob-7fccff30ba83" id="m-getPublicKeyBlob-7fccff30ba83"></a>
 
 ```java
 public byte[] getPublicKeyBlob()
 ```
 
-<a id="m-sign-24112ece4f25"></a>
-### sign(byte[])
+### sign(byte[]) <a href="#m-sign-24112ece4f25" id="m-sign-24112ece4f25"></a>
 
 ```java
 public byte[] sign(byte[] data)

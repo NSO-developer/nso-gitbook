@@ -1,5 +1,4 @@
-<a id="cls-MuxManager"></a>
-# MuxManager
+# MuxManager <a href="#cls-MuxManager" id="cls-MuxManager"></a>
 
 ```java
 public abstract class com.tailf.ncs.ctrl.MuxManager
@@ -17,20 +16,19 @@ Base class for Component Managers
 
 **Constructors**:
 
-- [MuxManager(String)](#m-muxmanager-4f412e8b0cf6)
+- [MuxManager(String)](#m-MuxManager-4f412e8b0cf6)
 
 **Methods**:
 
-- [addToDeployException(NcsCtrlException, String, Throwable)](#m-addtodeployexception-90e2cb8f32b2)
-- [doneLoadingEvent()](#m-doneloadingevent-b85c1c01738a)
-- [instantiateComponentEvent(NcsComponentData)](#m-instantiatecomponentevent-9050503646b9)
-- [loadPackageEvent(NcsComponentData)](#m-loadpackageevent-4650a75a851a)
-- [unloadPackageEvent(NcsComponentData)](#m-unloadpackageevent-f14422e73a47)
+- [addToDeployException(NcsCtrlException, String, Throwable)](#m-addToDeployException-90e2cb8f32b2)
+- [doneLoadingEvent()](#m-doneLoadingEvent-b85c1c01738a)
+- [instantiateComponentEvent(NcsComponentData)](#m-instantiateComponentEvent-9050503646b9)
+- [loadPackageEvent(NcsComponentData)](#m-loadPackageEvent-4650a75a851a)
+- [unloadPackageEvent(NcsComponentData)](#m-unloadPackageEvent-f14422e73a47)
 
 ## Constructors
 
-<a id="m-muxmanager-4f412e8b0cf6"></a>
-### MuxManager(String)
+### MuxManager(String) <a href="#m-MuxManager-4f412e8b0cf6" id="m-MuxManager-4f412e8b0cf6"></a>
 
 ```java
 public MuxManager(String muxManagerName)
@@ -43,8 +41,7 @@ public MuxManager(String muxManagerName)
 
 ## Methods
 
-<a id="m-addtodeployexception-90e2cb8f32b2"></a>
-### addToDeployException(NcsCtrlException, String, Throwable)
+### addToDeployException(NcsCtrlException, String, Throwable) <a href="#m-addToDeployException-90e2cb8f32b2" id="m-addToDeployException-90e2cb8f32b2"></a>
 
 ```java
 public static com.tailf.ncs.ctrl.NcsCtrlException addToDeployException(
@@ -68,8 +65,7 @@ Convenience method for adding Exception causes in the
 
 **Returns:** NcsCtrlException the modified NcsCtrlException
 
-<a id="m-doneloadingevent-b85c1c01738a"></a>
-### doneLoadingEvent()
+### doneLoadingEvent() <a href="#m-doneLoadingEvent-b85c1c01738a" id="m-doneLoadingEvent-b85c1c01738a"></a>
 
 ```java
 public abstract void doneLoadingEvent() throws Exception
@@ -84,8 +80,7 @@ Method that should handle doneLoading events received by
 
 - `Exception`
 
-<a id="m-instantiatecomponentevent-9050503646b9"></a>
-### instantiateComponentEvent(NcsComponentData)
+### instantiateComponentEvent(NcsComponentData) <a href="#m-instantiateComponentEvent-9050503646b9" id="m-instantiateComponentEvent-9050503646b9"></a>
 
 ```java
 public abstract void instantiateComponentEvent(
@@ -109,8 +104,7 @@ Method that should handle instantiateComponent events received by
 
 - `Exception`
 
-<a id="m-loadpackageevent-4650a75a851a"></a>
-### loadPackageEvent(NcsComponentData)
+### loadPackageEvent(NcsComponentData) <a href="#m-loadPackageEvent-4650a75a851a" id="m-loadPackageEvent-4650a75a851a"></a>
 
 ```java
 public abstract void loadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception
@@ -131,8 +125,7 @@ Method that should handle loadPackage events received by
 
 - `Exception`
 
-<a id="m-unloadpackageevent-f14422e73a47"></a>
-### unloadPackageEvent(NcsComponentData)
+### unloadPackageEvent(NcsComponentData) <a href="#m-unloadPackageEvent-f14422e73a47" id="m-unloadPackageEvent-f14422e73a47"></a>
 
 ```java
 public abstract void unloadPackageEvent(com.tailf.ncs.ctrl.NcsComponentData data) throws Exception

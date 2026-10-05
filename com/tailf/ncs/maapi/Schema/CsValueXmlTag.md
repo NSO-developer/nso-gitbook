@@ -1,5 +1,4 @@
-<a id="cls-CsValueXmlTag"></a>
-# CsValueXmlTag
+# CsValueXmlTag <a href="#cls-CsValueXmlTag" id="cls-CsValueXmlTag"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueXmlTag
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueXmlTag
 
 **Constructors**:
 
-- [CsValueXmlTag()](#m-csvaluexmltag-9180b8e4fe2a)
+- [CsValueXmlTag()](#m-CsValueXmlTag-9180b8e4fe2a)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueXmlTag
 
 ## Constructors
 
-<a id="m-csvaluexmltag-9180b8e4fe2a"></a>
-### CsValueXmlTag()
+### CsValueXmlTag() <a href="#m-CsValueXmlTag-9180b8e4fe2a" id="m-CsValueXmlTag-9180b8e4fe2a"></a>
 
 ```java
 public CsValueXmlTag()
@@ -35,8 +33,7 @@ public CsValueXmlTag()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueXmlTag.Factory factory = n
 
 Types: [Factory](CsValueXmlTag/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueXmlTag.Builder,com.tailf.ncs.maapi.Schema.CsValueXmlTag.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueXmlTag/Builder.md#cls-Builder), [Reader](CsValueXmlTag/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

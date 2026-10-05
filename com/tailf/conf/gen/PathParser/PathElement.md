@@ -1,5 +1,4 @@
-<a id="cls-PathElement"></a>
-# PathElement
+# PathElement <a href="#cls-PathElement" id="cls-PathElement"></a>
 
 ```java
 public static class com.tailf.conf.gen.PathParser.PathElement
@@ -9,7 +8,7 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 
 **Constructors**:
 
-- [PathElement()](#m-pathelement-f49964060be9)
+- [PathElement()](#m-PathElement-f49964060be9)
 
 **Fields**:
 
@@ -23,12 +22,11 @@ public static class com.tailf.conf.gen.PathParser.PathElement
 **Methods**:
 
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
+- [hashCode()](#m-hashCode-ef797a217903)
 
 ## Constructors
 
-<a id="m-pathelement-f49964060be9"></a>
-### PathElement()
+### PathElement() <a href="#m-PathElement-f49964060be9" id="m-PathElement-f49964060be9"></a>
 
 ```java
 public PathElement()
@@ -37,22 +35,19 @@ public PathElement()
 
 ## Fields
 
-<a id="m-isDummy"></a>
-### isDummy
+### isDummy <a href="#m-isDummy" id="m-isDummy"></a>
 
 ```java
 public boolean isDummy = null;
 ```
 
-<a id="m-isRelative"></a>
-### isRelative
+### isRelative <a href="#m-isRelative" id="m-isRelative"></a>
 
 ```java
 public boolean isRelative = null;
 ```
 
-<a id="m-keys"></a>
-### keys
+### keys <a href="#m-keys" id="m-keys"></a>
 
 ```java
 public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys = null;
@@ -60,22 +55,19 @@ public java.util.ArrayList<com.tailf.conf.gen.PathParser.PathKey> keys = null;
 
 Types: [PathKey](PathKey.md#cls-PathKey)
 
-<a id="m-namespace"></a>
-### namespace
+### namespace <a href="#m-namespace" id="m-namespace"></a>
 
 ```java
 public Object namespace = null;
 ```
 
-<a id="m-ordinal"></a>
-### ordinal
+### ordinal <a href="#m-ordinal" id="m-ordinal"></a>
 
 ```java
 public Integer ordinal = null;
 ```
 
-<a id="m-term"></a>
-### term
+### term <a href="#m-term" id="m-term"></a>
 
 ```java
 public com.tailf.conf.ConfObject term = null;
@@ -86,8 +78,7 @@ Types: [ConfObject](../../ConfObject.md#cls-ConfObject)
 
 ## Methods
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object rhs)
@@ -97,8 +88,7 @@ public boolean equals(Object rhs)
 
 - `Object rhs`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()

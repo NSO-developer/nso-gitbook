@@ -1,5 +1,4 @@
-<a id="cls-MmapSchemaException"></a>
-# MmapSchemaException
+# MmapSchemaException <a href="#cls-MmapSchemaException" id="cls-MmapSchemaException"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapSchemaException
@@ -15,22 +14,21 @@ Exception thrown when there are issues with the file that is memory
 
 **Constructors**:
 
-- [MmapSchemaException(String)](#m-mmapschemaexception-5b836f8a9bea)
-- [MmapSchemaException(String, Exception)](#m-mmapschemaexception-7bc027194a0d)
-- [MmapSchemaException(String, String)](#m-mmapschemaexception-075013e40234)
-- [MmapSchemaException(String, String, Exception)](#m-mmapschemaexception-9e6c1063e9ef)
+- [MmapSchemaException(String)](#m-MmapSchemaException-5b836f8a9bea)
+- [MmapSchemaException(String, Exception)](#m-MmapSchemaException-7bc027194a0d)
+- [MmapSchemaException(String, String)](#m-MmapSchemaException-075013e40234)
+- [MmapSchemaException(String, String, Exception)](#m-MmapSchemaException-9e6c1063e9ef)
 
 **Methods**:
 
-- [getErrorCode()](../../conf/ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](../../conf/ConfException.md#m-getopaque-92e4945ec92d) from ConfException
+- [getErrorCode()](../../conf/ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](../../conf/ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
 - [mk(ConfResponse)](../../conf/ConfException.md#m-mk-de1cedfc6ea8) from ConfException
 - [mk(ConfResponse, ConfPath)](../../conf/ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-mmapschemaexception-5b836f8a9bea"></a>
-### MmapSchemaException(String)
+### MmapSchemaException(String) <a href="#m-MmapSchemaException-5b836f8a9bea" id="m-MmapSchemaException-5b836f8a9bea"></a>
 
 **Package-private**
 
@@ -42,8 +40,7 @@ MmapSchemaException(String message)
 
 - `String message`
 
-<a id="m-mmapschemaexception-7bc027194a0d"></a>
-### MmapSchemaException(String, Exception)
+### MmapSchemaException(String, Exception) <a href="#m-MmapSchemaException-7bc027194a0d" id="m-MmapSchemaException-7bc027194a0d"></a>
 
 **Package-private**
 
@@ -56,8 +53,7 @@ MmapSchemaException(String message, Exception ex)
 - `String message`
 - `Exception ex`
 
-<a id="m-mmapschemaexception-075013e40234"></a>
-### MmapSchemaException(String, String)
+### MmapSchemaException(String, String) <a href="#m-MmapSchemaException-075013e40234" id="m-MmapSchemaException-075013e40234"></a>
 
 **Package-private**
 
@@ -70,8 +66,7 @@ MmapSchemaException(String path, String message)
 - `String path`
 - `String message`
 
-<a id="m-mmapschemaexception-9e6c1063e9ef"></a>
-### MmapSchemaException(String, String, Exception)
+### MmapSchemaException(String, String, Exception) <a href="#m-MmapSchemaException-9e6c1063e9ef" id="m-MmapSchemaException-9e6c1063e9ef"></a>
 
 **Package-private**
 

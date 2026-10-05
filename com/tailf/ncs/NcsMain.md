@@ -1,5 +1,4 @@
-<a id="cls-NcsMain"></a>
-# NcsMain
+# NcsMain <a href="#cls-NcsMain" id="cls-NcsMain"></a>
 
 ```java
 public class com.tailf.ncs.NcsMain
@@ -39,49 +38,48 @@ Main class for Ncs java vm management and control.
 
 **Methods**:
 
-- [abortNcsJavaVM(Object)](#m-abortncsjavavm-83777887a888)
-- [abortNcsJavaVM(Object, int)](#m-abortncsjavavm-4b9171d8233f)
-- [abortNcsJavaVM(Object, int, String)](#m-abortncsjavavm-d4e69c891fdb)
-- [deviceKeyPath(String)](#m-devicekeypath-b5a342a26fef)
-- [getAddress()](#m-getaddress-08b11cceec4c)
-- [getApplicationMuxManager()](#m-getapplicationmuxmanager-c8b034860559)
-- [getDPMuxManager()](#m-getdpmuxmanager-d4ac372c0b84)
-- [getInstance()](#m-getinstance-54a685332d87)
-- [getInstance(SocketAddress)](#m-getinstance-947352e78e29)
-- [getInstance(String, int)](#m-getinstance-ca416d27c748)
-- [getLocalInstance()](#m-getlocalinstance-f091157c7ceb)
-- [getNcsHost()](#m-getncshost-13b45e614659)
-- [getNcsPort()](#m-getncsport-ec644cf198c2)
-- [getNedMuxManager()](#m-getnedmuxmanager-639a1e227b1b)
-- [getResourceManager()](#m-getresourcemanager-eb64f13b2c87)
-- [getSinkCentral()](#m-getsinkcentral-92f2bcf80bdb)
-- [getSourceCentral()](#m-getsourcecentral-0714ef465cc3)
-- [handlePackageException(ClassLoader, Throwable)](#m-handlepackageexception-d43bb265decf)
-- [handlePackageException(Object, Throwable)](#m-handlepackageexception-1758c60d1339)
-- [handlePackageException(String, Throwable)](#m-handlepackageexception-bee8ca9aca8e)
-- [instantiatePackageComponent(NcsPDData)](#m-instantiatepackagecomponent-4137ab775b1c)
-- [isAddingPkgs()](#m-isaddingpkgs-cb8b66bb176e)
-- [isRunning()](#m-isrunning-02db4ec84a8d)
-- [isStarted()](#m-isstarted-5c757faf6088)
-- [isUsingTailFClassloader()](#m-isusingtailfclassloader-04efc178552d)
-- [redeployPackage(NcsPDData)](#m-redeploypackage-2a23d31f2642)
-- [reportPackageException(ClassLoader, Throwable)](#m-reportpackageexception-74c8c471ddc2)
-- [reportPackageException(Object, Throwable)](#m-reportpackageexception-746dcb7d1c60)
-- [reportPackageException(String, Throwable)](#m-reportpackageexception-20596ab20eca)
-- [restartPackage(String)](#m-restartpackage-161b2c0a7b51)
-- [restartPackageNow(String)](#m-restartpackagenow-a4a029884619)
+- [abortNcsJavaVM(Object)](#m-abortNcsJavaVM-83777887a888)
+- [abortNcsJavaVM(Object, int)](#m-abortNcsJavaVM-4b9171d8233f)
+- [abortNcsJavaVM(Object, int, String)](#m-abortNcsJavaVM-d4e69c891fdb)
+- [deviceKeyPath(String)](#m-deviceKeyPath-b5a342a26fef)
+- [getAddress()](#m-getAddress-08b11cceec4c)
+- [getApplicationMuxManager()](#m-getApplicationMuxManager-c8b034860559)
+- [getDPMuxManager()](#m-getDPMuxManager-d4ac372c0b84)
+- [getInstance()](#m-getInstance-54a685332d87)
+- [getInstance(SocketAddress)](#m-getInstance-947352e78e29)
+- [getInstance(String, int)](#m-getInstance-ca416d27c748)
+- [getLocalInstance()](#m-getLocalInstance-f091157c7ceb)
+- [getNcsHost()](#m-getNcsHost-13b45e614659)
+- [getNcsPort()](#m-getNcsPort-ec644cf198c2)
+- [getNedMuxManager()](#m-getNedMuxManager-639a1e227b1b)
+- [getResourceManager()](#m-getResourceManager-eb64f13b2c87)
+- [getSinkCentral()](#m-getSinkCentral-92f2bcf80bdb)
+- [getSourceCentral()](#m-getSourceCentral-0714ef465cc3)
+- [handlePackageException(ClassLoader, Throwable)](#m-handlePackageException-d43bb265decf)
+- [handlePackageException(Object, Throwable)](#m-handlePackageException-1758c60d1339)
+- [handlePackageException(String, Throwable)](#m-handlePackageException-bee8ca9aca8e)
+- [instantiatePackageComponent(NcsPDData)](#m-instantiatePackageComponent-4137ab775b1c)
+- [isAddingPkgs()](#m-isAddingPkgs-cb8b66bb176e)
+- [isRunning()](#m-isRunning-02db4ec84a8d)
+- [isStarted()](#m-isStarted-5c757faf6088)
+- [isUsingTailFClassloader()](#m-isUsingTailFClassloader-04efc178552d)
+- [redeployPackage(NcsPDData)](#m-redeployPackage-2a23d31f2642)
+- [reportPackageException(ClassLoader, Throwable)](#m-reportPackageException-74c8c471ddc2)
+- [reportPackageException(Object, Throwable)](#m-reportPackageException-746dcb7d1c60)
+- [reportPackageException(String, Throwable)](#m-reportPackageException-20596ab20eca)
+- [restartPackage(String)](#m-restartPackage-161b2c0a7b51)
+- [restartPackageNow(String)](#m-restartPackageNow-a4a029884619)
 - [run()](#m-run-b6dbda048863)
 - [shutdown()](#m-shutdown-60c9b1d4b111)
-- [submitPackageAlarm(ClassLoader, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitpackagealarm-7e93d8162bbf)
-- [submitPackageAlarm(Object, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitpackagealarm-f8db8fb0345e)
-- [submitPackageAlarm(String, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitpackagealarm-a0a9b95cab23)
-- [uncaughtException(Thread, Throwable)](#m-uncaughtexception-ad07d4154b36)
+- [submitPackageAlarm(ClassLoader, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitPackageAlarm-7e93d8162bbf)
+- [submitPackageAlarm(Object, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitPackageAlarm-f8db8fb0345e)
+- [submitPackageAlarm(String, ConfIdentityRef, PerceivedSeverity, boolean, String)](#m-submitPackageAlarm-a0a9b95cab23)
+- [uncaughtException(Thread, Throwable)](#m-uncaughtException-ad07d4154b36)
 - [unload()](#m-unload-e055e2ceb016)
 
 ## Fields
 
-<a id="m-exitOnStop"></a>
-### exitOnStop
+### exitOnStop <a href="#m-exitOnStop" id="m-exitOnStop"></a>
 
 **Package-private**
 
@@ -89,8 +87,7 @@ Main class for Ncs java vm management and control.
 boolean exitOnStop = null;
 ```
 
-<a id="m-TAILF_CLASSLOADER"></a>
-### TAILF_CLASSLOADER
+### TAILF_CLASSLOADER <a href="#m-TAILF_CLASSLOADER" id="m-TAILF_CLASSLOADER"></a>
 
 ```java
 public static final String TAILF_CLASSLOADER = "TAILF_CLASSLOADER";
@@ -107,8 +104,7 @@ This field represents a system property controlling which classloader
 
 ## Methods
 
-<a id="m-abortncsjavavm-83777887a888"></a>
-### abortNcsJavaVM(Object)
+### abortNcsJavaVM(Object) <a href="#m-abortNcsJavaVM-83777887a888" id="m-abortNcsJavaVM-83777887a888"></a>
 
 ```java
 public static void abortNcsJavaVM(Object obj)
@@ -120,10 +116,9 @@ Aborts the NCS Java VM.
 
 - `Object obj` - the object context (unused)
 
-**Deprecated:** Use `#shutdown()` instead.
+**Deprecated:** Use [`shutdown()`](NcsMain.md#m-shutdown-60c9b1d4b111) instead.
 
-<a id="m-abortncsjavavm-4b9171d8233f"></a>
-### abortNcsJavaVM(Object, int)
+### abortNcsJavaVM(Object, int) <a href="#m-abortNcsJavaVM-4b9171d8233f" id="m-abortNcsJavaVM-4b9171d8233f"></a>
 
 ```java
 public static void abortNcsJavaVM(Object obj, int code)
@@ -136,10 +131,9 @@ Aborts the NCS Java VM with exit code.
 - `Object obj` - the object context (unused)
 - `int code` - the exit code (unused)
 
-**Deprecated:** Use `#shutdown()` instead.
+**Deprecated:** Use [`shutdown()`](NcsMain.md#m-shutdown-60c9b1d4b111) instead.
 
-<a id="m-abortncsjavavm-d4e69c891fdb"></a>
-### abortNcsJavaVM(Object, int, String)
+### abortNcsJavaVM(Object, int, String) <a href="#m-abortNcsJavaVM-d4e69c891fdb" id="m-abortNcsJavaVM-d4e69c891fdb"></a>
 
 ```java
 public static void abortNcsJavaVM(Object obj, int code, String message)
@@ -153,10 +147,9 @@ Abort Ncs Java VM
 - `int code` - the exit code (unused)
 - `String message` - the error message (unused)
 
-**Deprecated:** Use `#shutdown()` instead.
+**Deprecated:** Use [`shutdown()`](NcsMain.md#m-shutdown-60c9b1d4b111) instead.
 
-<a id="m-devicekeypath-b5a342a26fef"></a>
-### deviceKeyPath(String)
+### deviceKeyPath(String) <a href="#m-deviceKeyPath-b5a342a26fef" id="m-deviceKeyPath-b5a342a26fef"></a>
 
 ```java
 public static com.tailf.conf.ConfPath deviceKeyPath(
@@ -181,8 +174,7 @@ Builds the keypath of a device list entry from a device name,
 
 - `ConfException` - if the keypath cannot be constructed
 
-<a id="m-getaddress-08b11cceec4c"></a>
-### getAddress()
+### getAddress() <a href="#m-getAddress-08b11cceec4c" id="m-getAddress-08b11cceec4c"></a>
 
 ```java
 public java.net.SocketAddress getAddress()
@@ -192,8 +184,7 @@ Get the address for the NCS Server.
 
 **Returns:** socket address for the NCS server
 
-<a id="m-getapplicationmuxmanager-c8b034860559"></a>
-### getApplicationMuxManager()
+### getApplicationMuxManager() <a href="#m-getApplicationMuxManager-c8b034860559" id="m-getApplicationMuxManager-c8b034860559"></a>
 
 ```java
 public com.tailf.ncs.ctrl.ApplicationMuxManager getApplicationMuxManager()
@@ -207,8 +198,7 @@ Get the ApplicationMuxManager instance.
 
 **Returns:** ApplicationMuxManager instance
 
-<a id="m-getdpmuxmanager-d4ac372c0b84"></a>
-### getDPMuxManager()
+### getDPMuxManager() <a href="#m-getDPMuxManager-d4ac372c0b84" id="m-getDPMuxManager-d4ac372c0b84"></a>
 
 ```java
 public com.tailf.ncs.ctrl.DpMuxManager getDPMuxManager()
@@ -222,8 +212,7 @@ Get the DpMuxManager instance.
 
 **Returns:** DpMuxManager instance
 
-<a id="m-getinstance-54a685332d87"></a>
-### getInstance()
+### getInstance() <a href="#m-getInstance-54a685332d87" id="m-getInstance-54a685332d87"></a>
 
 ```java
 public static com.tailf.ncs.NcsMain getInstance()
@@ -236,8 +225,7 @@ Gets the NcsMain instance associated with the current thread.
 **Returns:** instance associated with the current thread, or null
          if no instance has been started
 
-<a id="m-getinstance-947352e78e29"></a>
-### getInstance(SocketAddress)
+### getInstance(SocketAddress) <a href="#m-getInstance-947352e78e29" id="m-getInstance-947352e78e29"></a>
 
 ```java
 public static synchronized com.tailf.ncs.NcsMain getInstance(java.net.SocketAddress address)
@@ -255,8 +243,7 @@ Get an instance that should connect to the given address. If an
 **Returns:** an instance that is connected or will connect to the given
          address
 
-<a id="m-getinstance-ca416d27c748"></a>
-### getInstance(String, int)
+### getInstance(String, int) <a href="#m-getInstance-ca416d27c748" id="m-getInstance-ca416d27c748"></a>
 
 ```java
 public static com.tailf.ncs.NcsMain getInstance(String host, int port)
@@ -273,10 +260,9 @@ Gets the singleton instance of the NcsMain class.
 
 **Returns:** NcsMain instance
 
-**Deprecated:** Use `#getInstance(SocketAddress)` instead.
+**Deprecated:** Use [`getInstance(SocketAddress)`](NcsMain.md#m-getInstance-947352e78e29) instead.
 
-<a id="m-getlocalinstance-f091157c7ceb"></a>
-### getLocalInstance()
+### getLocalInstance() <a href="#m-getLocalInstance-f091157c7ceb" id="m-getLocalInstance-f091157c7ceb"></a>
 
 ```java
 public static java.util.Optional<com.tailf.ncs.NcsMain> getLocalInstance()
@@ -289,8 +275,7 @@ Gets the NcsMain instance associated with the current thread.
 **Returns:** an optional containing the instance associated with the
          current thread, or empty of no instance has been started
 
-<a id="m-getncshost-13b45e614659"></a>
-### getNcsHost()
+### getNcsHost() <a href="#m-getNcsHost-13b45e614659" id="m-getNcsHost-13b45e614659"></a>
 
 ```java
 public String getNcsHost()
@@ -300,10 +285,9 @@ Get the hostname or IP address for the NCS Server.
 
 **Returns:** hostname or IP address for NCS server
 
-**Deprecated:** Use the `#getAddress()` method instead
+**Deprecated:** Use the [`getAddress()`](NcsMain.md#m-getAddress-08b11cceec4c) method instead
 
-<a id="m-getncsport-ec644cf198c2"></a>
-### getNcsPort()
+### getNcsPort() <a href="#m-getNcsPort-ec644cf198c2" id="m-getNcsPort-ec644cf198c2"></a>
 
 ```java
 public int getNcsPort()
@@ -313,10 +297,9 @@ Get the port number for the NCS Server.
 
 **Returns:** NCS server port
 
-**Deprecated:** Use the `#getAddress()` method instead
+**Deprecated:** Use the [`getAddress()`](NcsMain.md#m-getAddress-08b11cceec4c) method instead
 
-<a id="m-getnedmuxmanager-639a1e227b1b"></a>
-### getNedMuxManager()
+### getNedMuxManager() <a href="#m-getNedMuxManager-639a1e227b1b" id="m-getNedMuxManager-639a1e227b1b"></a>
 
 ```java
 public com.tailf.ncs.ctrl.NedMuxManager getNedMuxManager()
@@ -330,8 +313,7 @@ Get the NedMuxManager instance.
 
 **Returns:** NedMuxManager instance
 
-<a id="m-getresourcemanager-eb64f13b2c87"></a>
-### getResourceManager()
+### getResourceManager() <a href="#m-getResourceManager-eb64f13b2c87" id="m-getResourceManager-eb64f13b2c87"></a>
 
 ```java
 public com.tailf.ncs.ResourceManager getResourceManager()
@@ -343,8 +325,7 @@ Get the ResourceManager instance.
 
 **Returns:** resource manager for this NCS instance
 
-<a id="m-getsinkcentral-92f2bcf80bdb"></a>
-### getSinkCentral()
+### getSinkCentral() <a href="#m-getSinkCentral-92f2bcf80bdb" id="m-getSinkCentral-92f2bcf80bdb"></a>
 
 ```java
 public com.tailf.ncs.alarmman.producer.AlarmSinkCentral getSinkCentral()
@@ -356,8 +337,7 @@ Get the NCS AlarmSinkCentral instance.
 
 **Returns:** AlarmSinkCentral instance
 
-<a id="m-getsourcecentral-0714ef465cc3"></a>
-### getSourceCentral()
+### getSourceCentral() <a href="#m-getSourceCentral-0714ef465cc3" id="m-getSourceCentral-0714ef465cc3"></a>
 
 ```java
 public com.tailf.ncs.alarmman.consumer.AlarmSourceCentral getSourceCentral()
@@ -369,8 +349,7 @@ Get the NCS AlarmSourceCentral instance.
 
 **Returns:** AlarmSourceCentral instance
 
-<a id="m-handlepackageexception-d43bb265decf"></a>
-### handlePackageException(ClassLoader, Throwable)
+### handlePackageException(ClassLoader, Throwable) <a href="#m-handlePackageException-d43bb265decf" id="m-handlePackageException-d43bb265decf"></a>
 
 ```java
 public Throwable handlePackageException(ClassLoader cl, Throwable e)
@@ -385,8 +364,7 @@ Handles exceptions from package components by class loader context.
 
 **Returns:** the exception to be thrown
 
-<a id="m-handlepackageexception-1758c60d1339"></a>
-### handlePackageException(Object, Throwable)
+### handlePackageException(Object, Throwable) <a href="#m-handlePackageException-1758c60d1339" id="m-handlePackageException-1758c60d1339"></a>
 
 ```java
 public Throwable handlePackageException(Object instance, Throwable e)
@@ -401,8 +379,7 @@ Handles exceptions from package components.
 
 **Returns:** the exception to be thrown
 
-<a id="m-handlepackageexception-bee8ca9aca8e"></a>
-### handlePackageException(String, Throwable)
+### handlePackageException(String, Throwable) <a href="#m-handlePackageException-bee8ca9aca8e" id="m-handlePackageException-bee8ca9aca8e"></a>
 
 ```java
 public Throwable handlePackageException(String packageName, Throwable e)
@@ -417,8 +394,7 @@ Handles exceptions from a specific package by name.
 
 **Returns:** the exception to be thrown
 
-<a id="m-instantiatepackagecomponent-4137ab775b1c"></a>
-### instantiatePackageComponent(NcsPDData)
+### instantiatePackageComponent(NcsPDData) <a href="#m-instantiatePackageComponent-4137ab775b1c" id="m-instantiatePackageComponent-4137ab775b1c"></a>
 
 ```java
 public void instantiatePackageComponent(com.tailf.ncs.ctrl.NcsPDData pdData) throws Exception
@@ -437,8 +413,7 @@ Instantiates and registers components for an NCS package.
 
 - `Exception` - if component instantiation fails
 
-<a id="m-isaddingpkgs-cb8b66bb176e"></a>
-### isAddingPkgs()
+### isAddingPkgs() <a href="#m-isAddingPkgs-cb8b66bb176e" id="m-isAddingPkgs-cb8b66bb176e"></a>
 
 ```java
 public boolean isAddingPkgs()
@@ -448,8 +423,7 @@ Checks if packages are being added to the system.
 
 **Returns:** true if packages are currently being added
 
-<a id="m-isrunning-02db4ec84a8d"></a>
-### isRunning()
+### isRunning() <a href="#m-isRunning-02db4ec84a8d" id="m-isRunning-02db4ec84a8d"></a>
 
 ```java
 public boolean isRunning()
@@ -459,8 +433,7 @@ Checks if the NCS main thread is running.
 
 **Returns:** true if the NCS main thread is running
 
-<a id="m-isstarted-5c757faf6088"></a>
-### isStarted()
+### isStarted() <a href="#m-isStarted-5c757faf6088" id="m-isStarted-5c757faf6088"></a>
 
 ```java
 public static boolean isStarted()
@@ -470,10 +443,9 @@ Checks if the NCS main thread has been started.
 
 **Returns:** true if the NCS main thread is running
 
-**Deprecated:** Use `#isRunning()` instead
+**Deprecated:** Use [`isRunning()`](NcsMain.md#m-isRunning-02db4ec84a8d) instead
 
-<a id="m-isusingtailfclassloader-04efc178552d"></a>
-### isUsingTailFClassloader()
+### isUsingTailFClassloader() <a href="#m-isUsingTailFClassloader-04efc178552d" id="m-isUsingTailFClassloader-04efc178552d"></a>
 
 ```java
 public boolean isUsingTailFClassloader()
@@ -486,8 +458,7 @@ Checks if this instance was started with the Tail-f Jar classloader, as
 
 **Returns:** true if the Tail-f Jar classloader is active
 
-<a id="m-redeploypackage-2a23d31f2642"></a>
-### redeployPackage(NcsPDData)
+### redeployPackage(NcsPDData) <a href="#m-redeployPackage-2a23d31f2642" id="m-redeployPackage-2a23d31f2642"></a>
 
 ```java
 public void redeployPackage(com.tailf.ncs.ctrl.NcsPDData pdData) throws Exception
@@ -505,8 +476,7 @@ Hot redeploy of all components for a package.
 
 - `Exception` - if redeployment fails
 
-<a id="m-reportpackageexception-74c8c471ddc2"></a>
-### reportPackageException(ClassLoader, Throwable)
+### reportPackageException(ClassLoader, Throwable) <a href="#m-reportPackageException-74c8c471ddc2" id="m-reportPackageException-74c8c471ddc2"></a>
 
 ```java
 public static Throwable reportPackageException(ClassLoader cl, Throwable e)
@@ -521,11 +491,10 @@ Reports package exceptions using class loader context.
 
 **Returns:** the processed exception
 
-**Deprecated:** Use `#handlePackageException(ClassLoader, Throwable)`
+**Deprecated:** Use [`handlePackageException(ClassLoader, Throwable)`](NcsMain.md#m-handlePackageException-d43bb265decf)
              instead.
 
-<a id="m-reportpackageexception-746dcb7d1c60"></a>
-### reportPackageException(Object, Throwable)
+### reportPackageException(Object, Throwable) <a href="#m-reportPackageException-746dcb7d1c60" id="m-reportPackageException-746dcb7d1c60"></a>
 
 ```java
 public static Throwable reportPackageException(Object instance, Throwable e)
@@ -540,11 +509,10 @@ Reports package exceptions and initiates restart handling.
 
 **Returns:** the processed exception
 
-**Deprecated:** Use `#handlePackageException(Object, Throwable)`
+**Deprecated:** Use [`handlePackageException(Object, Throwable)`](NcsMain.md#m-handlePackageException-1758c60d1339)
              instead.
 
-<a id="m-reportpackageexception-20596ab20eca"></a>
-### reportPackageException(String, Throwable)
+### reportPackageException(String, Throwable) <a href="#m-reportPackageException-20596ab20eca" id="m-reportPackageException-20596ab20eca"></a>
 
 ```java
 public static Throwable reportPackageException(String packageName, Throwable e)
@@ -559,11 +527,10 @@ Reports package exceptions by package name.
 
 **Returns:** the processed exception
 
-**Deprecated:** Use `#handlePackageException(String, Throwable)`
+**Deprecated:** Use [`handlePackageException(String, Throwable)`](NcsMain.md#m-handlePackageException-bee8ca9aca8e)
              instead.
 
-<a id="m-restartpackage-161b2c0a7b51"></a>
-### restartPackage(String)
+### restartPackage(String) <a href="#m-restartPackage-161b2c0a7b51" id="m-restartPackage-161b2c0a7b51"></a>
 
 ```java
 public void restartPackage(String packageName)
@@ -575,8 +542,7 @@ Schedules a package for restart.
 
 - `String packageName` - the name of the package to restart
 
-<a id="m-restartpackagenow-a4a029884619"></a>
-### restartPackageNow(String)
+### restartPackageNow(String) <a href="#m-restartPackageNow-a4a029884619" id="m-restartPackageNow-a4a029884619"></a>
 
 ```java
 public void restartPackageNow(String packageName)
@@ -588,8 +554,7 @@ Immediately restarts a package
 
 - `String packageName` - the name of the package to restart
 
-<a id="m-run-b6dbda048863"></a>
-### run()
+### run() <a href="#m-run-b6dbda048863" id="m-run-b6dbda048863"></a>
 
 ```java
 public void run()
@@ -597,8 +562,7 @@ public void run()
 
 This method is the Ncs java vm main thread start
 
-<a id="m-shutdown-60c9b1d4b111"></a>
-### shutdown()
+### shutdown() <a href="#m-shutdown-60c9b1d4b111" id="m-shutdown-60c9b1d4b111"></a>
 
 ```java
 public void shutdown()
@@ -606,8 +570,7 @@ public void shutdown()
 
 shutdown Ncs java vm main thread
 
-<a id="m-submitpackagealarm-7e93d8162bbf"></a>
-### submitPackageAlarm(ClassLoader, ConfIdentityRef, PerceivedSeverity, boolean, String)
+### submitPackageAlarm(ClassLoader, ConfIdentityRef, PerceivedSeverity, boolean, String) <a href="#m-submitPackageAlarm-7e93d8162bbf" id="m-submitPackageAlarm-7e93d8162bbf"></a>
 
 ```java
 public static void submitPackageAlarm(
@@ -631,8 +594,7 @@ Submits an alarm for a package using its class loader context.
 - `boolean cleared` - whether the alarm is cleared
 - `String alarmText` - descriptive text for the alarm
 
-<a id="m-submitpackagealarm-f8db8fb0345e"></a>
-### submitPackageAlarm(Object, ConfIdentityRef, PerceivedSeverity, boolean, String)
+### submitPackageAlarm(Object, ConfIdentityRef, PerceivedSeverity, boolean, String) <a href="#m-submitPackageAlarm-f8db8fb0345e" id="m-submitPackageAlarm-f8db8fb0345e"></a>
 
 ```java
 public static void submitPackageAlarm(
@@ -656,8 +618,7 @@ Submits an alarm for a package component instance.
 - `boolean cleared` - whether the alarm is cleared
 - `String alarmText` - descriptive text for the alarm
 
-<a id="m-submitpackagealarm-a0a9b95cab23"></a>
-### submitPackageAlarm(String, ConfIdentityRef, PerceivedSeverity, boolean, String)
+### submitPackageAlarm(String, ConfIdentityRef, PerceivedSeverity, boolean, String) <a href="#m-submitPackageAlarm-a0a9b95cab23" id="m-submitPackageAlarm-a0a9b95cab23"></a>
 
 ```java
 public static void submitPackageAlarm(
@@ -681,8 +642,7 @@ Submits an alarm for a specific package by name.
 - `boolean cleared` - whether the alarm is cleared
 - `String alarmText` - descriptive text for the alarm
 
-<a id="m-uncaughtexception-ad07d4154b36"></a>
-### uncaughtException(Thread, Throwable)
+### uncaughtException(Thread, Throwable) <a href="#m-uncaughtException-ad07d4154b36" id="m-uncaughtException-ad07d4154b36"></a>
 
 ```java
 public void uncaughtException(Thread t, Throwable e)
@@ -696,8 +656,7 @@ Handles uncaught exceptions from any thread by initiating system
 - `Thread t` - the thread that threw the uncaught exception
 - `Throwable e` - the uncaught exception
 
-<a id="m-unload-e055e2ceb016"></a>
-### unload()
+### unload() <a href="#m-unload-e055e2ceb016" id="m-unload-e055e2ceb016"></a>
 
 **Package-private**
 

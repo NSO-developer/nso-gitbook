@@ -1,5 +1,4 @@
-<a id="cls-ConfUInt64"></a>
-# ConfUInt64
+# ConfUInt64 <a href="#cls-ConfUInt64" id="cls-ConfUInt64"></a>
 
 ```java
 public class com.tailf.conf.ConfUInt64
@@ -15,10 +14,10 @@ DATA_CONTAINER - Corresponds to the YANG uint64 type
 
 **Constructors**:
 
-- [ConfUInt64(BigInteger)](#m-confuint64-0915c1e7df0a)
-- [ConfUInt64(byte[])](#m-confuint64-0fd0dff622c6)
-- [ConfUInt64(ConfEObject)](#m-confuint64-209567da6fe3)
-- [ConfUInt64(long)](#m-confuint64-e38f1f82b1b5)
+- [ConfUInt64(BigInteger)](#m-ConfUInt64-0915c1e7df0a)
+- [ConfUInt64(byte[])](#m-ConfUInt64-0fd0dff622c6)
+- [ConfUInt64(ConfEObject)](#m-ConfUInt64-209567da6fe3)
+- [ConfUInt64(long)](#m-ConfUInt64-e38f1f82b1b5)
 
 **Fields**:
 
@@ -75,26 +74,25 @@ DATA_CONTAINER - Corresponds to the YANG uint64 type
 
 **Methods**:
 
-- [bigIntegerValue()](#m-bigintegervalue-d9dd063b5ada)
+- [bigIntegerValue()](#m-bigIntegerValue-d9dd063b5ada)
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfUInt64)](#m-compareto-feac875d334b)
+- [compareTo(ConfUInt64)](#m-compareTo-feac875d334b)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confuint64-0915c1e7df0a"></a>
-### ConfUInt64(BigInteger)
+### ConfUInt64(BigInteger) <a href="#m-ConfUInt64-0915c1e7df0a" id="m-ConfUInt64-0915c1e7df0a"></a>
 
 ```java
 public ConfUInt64(java.math.BigInteger val)
@@ -104,8 +102,7 @@ public ConfUInt64(java.math.BigInteger val)
 
 - `java.math.BigInteger val`
 
-<a id="m-confuint64-0fd0dff622c6"></a>
-### ConfUInt64(byte[])
+### ConfUInt64(byte[]) <a href="#m-ConfUInt64-0fd0dff622c6" id="m-ConfUInt64-0fd0dff622c6"></a>
 
 ```java
 public ConfUInt64(byte[] val)
@@ -115,8 +112,7 @@ public ConfUInt64(byte[] val)
 
 - `byte[] val`
 
-<a id="m-confuint64-209567da6fe3"></a>
-### ConfUInt64(ConfEObject)
+### ConfUInt64(ConfEObject) <a href="#m-ConfUInt64-209567da6fe3" id="m-ConfUInt64-209567da6fe3"></a>
 
 ```java
 public ConfUInt64(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -128,8 +124,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confuint64-e38f1f82b1b5"></a>
-### ConfUInt64(long)
+### ConfUInt64(long) <a href="#m-ConfUInt64-e38f1f82b1b5" id="m-ConfUInt64-e38f1f82b1b5"></a>
 
 ```java
 public ConfUInt64(long l)
@@ -142,8 +137,7 @@ public ConfUInt64(long l)
 
 ## Fields
 
-<a id="m-val"></a>
-### val
+### val <a href="#m-val" id="m-val"></a>
 
 ```java
 protected java.math.BigInteger val = null;
@@ -152,15 +146,13 @@ protected java.math.BigInteger val = null;
 
 ## Methods
 
-<a id="m-bigintegervalue-d9dd063b5ada"></a>
-### bigIntegerValue()
+### bigIntegerValue() <a href="#m-bigIntegerValue-d9dd063b5ada" id="m-bigIntegerValue-d9dd063b5ada"></a>
 
 ```java
 public java.math.BigInteger bigIntegerValue()
 ```
 
-<a id="m-compareto-feac875d334b"></a>
-### compareTo(ConfUInt64)
+### compareTo(ConfUInt64) <a href="#m-compareTo-feac875d334b" id="m-compareTo-feac875d334b"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfUInt64 o)
@@ -172,8 +164,7 @@ Types: [ConfUInt64](ConfUInt64.md#cls-ConfUInt64)
 
 - `com.tailf.conf.ConfUInt64 o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -181,8 +172,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -192,15 +182,13 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

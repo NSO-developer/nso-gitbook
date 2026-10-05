@@ -1,5 +1,4 @@
-<a id="cls-NavuEventCallback"></a>
-# NavuEventCallback
+# NavuEventCallback <a href="#cls-NavuEventCallback" id="cls-NavuEventCallback"></a>
 
 ```java
 public interface com.tailf.ncs.NavuEventCallback
@@ -14,12 +13,11 @@ NavuEventCallback interface is used to implement callback methods to be used
 
 **Methods**:
 
-- [notifReceived(NavuContainer)](#m-notifreceived-df06be623526)
+- [notifReceived(NavuContainer)](#m-notifReceived-df06be623526)
 
 ## Methods
 
-<a id="m-notifreceived-df06be623526"></a>
-### notifReceived(NavuContainer)
+### notifReceived(NavuContainer) <a href="#m-notifReceived-df06be623526" id="m-notifReceived-df06be623526"></a>
 
 ```java
 public abstract void notifReceived(

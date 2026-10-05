@@ -1,5 +1,4 @@
-<a id="cls-ConfETuple"></a>
-# ConfETuple
+# ConfETuple <a href="#cls-ConfETuple" id="cls-ConfETuple"></a>
 
 ```java
 public class com.tailf.proto.ConfETuple
@@ -20,10 +19,10 @@ Provides a Java representation of E tuples. Tuples are created from one or
 
 **Constructors**:
 
-- [ConfETuple(ConfEObject)](#m-confetuple-48ebb7dfd41b)
-- [ConfETuple(ConfEObject[])](#m-confetuple-09ff5654dca7)
-- [ConfETuple(ConfEObject[], int, int)](#m-confetuple-338ae357f4f3)
-- [ConfETuple(ConfInputStream)](#m-confetuple-8cbdf89cb4e7)
+- [ConfETuple(ConfEObject)](#m-ConfETuple-48ebb7dfd41b)
+- [ConfETuple(ConfEObject[])](#m-ConfETuple-09ff5654dca7)
+- [ConfETuple(ConfEObject[], int, int)](#m-ConfETuple-338ae357f4f3)
+- [ConfETuple(ConfInputStream)](#m-ConfETuple-8cbdf89cb4e7)
 
 **Fields**:
 
@@ -34,17 +33,16 @@ Provides a Java representation of E tuples. Tuples are created from one or
 - [arity()](#m-arity-2e3299329464)
 - [clone()](#m-clone-164c86c45e9b)
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
-- [elementAt(int)](#m-elementat-7ff98e6e0268)
+- [elementAt(int)](#m-elementAt-7ff98e6e0268)
 - [elements()](#m-elements-1ac1cabc0e96)
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confetuple-48ebb7dfd41b"></a>
-### ConfETuple(ConfEObject)
+### ConfETuple(ConfEObject) <a href="#m-ConfETuple-48ebb7dfd41b" id="m-ConfETuple-48ebb7dfd41b"></a>
 
 ```java
 public ConfETuple(com.tailf.proto.ConfEObject elem)
@@ -62,8 +60,7 @@ Create a unary tuple containing the given element.
 
 - `IllegalArgumentException` - if the element is null.
 
-<a id="m-confetuple-09ff5654dca7"></a>
-### ConfETuple(ConfEObject[])
+### ConfETuple(ConfEObject[]) <a href="#m-ConfETuple-09ff5654dca7" id="m-ConfETuple-09ff5654dca7"></a>
 
 ```java
 public ConfETuple(com.tailf.proto.ConfEObject[] elems)
@@ -81,8 +78,7 @@ Create a tuple from an array of terms.
 
 - `IllegalArgumentException` - if the array is empty (null) or contains null elements.
 
-<a id="m-confetuple-338ae357f4f3"></a>
-### ConfETuple(ConfEObject[], int, int)
+### ConfETuple(ConfEObject[], int, int) <a href="#m-ConfETuple-338ae357f4f3" id="m-ConfETuple-338ae357f4f3"></a>
 
 ```java
 public ConfETuple(com.tailf.proto.ConfEObject[] elems, int start, int count)
@@ -102,8 +98,7 @@ Create a tuple from an array of terms.
 
 - `IllegalArgumentException` - if the array is empty (null) or contains null elements.
 
-<a id="m-confetuple-8cbdf89cb4e7"></a>
-### ConfETuple(ConfInputStream)
+### ConfETuple(ConfInputStream) <a href="#m-ConfETuple-8cbdf89cb4e7" id="m-ConfETuple-8cbdf89cb4e7"></a>
 
 ```java
 public ConfETuple(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -126,8 +121,7 @@ Create a tuple from a stream containing an tuple encoded in E external
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -138,8 +132,7 @@ static final long serialVersionUID = 9163498658004915935;
 
 ## Methods
 
-<a id="m-arity-2e3299329464"></a>
-### arity()
+### arity() <a href="#m-arity-2e3299329464" id="m-arity-2e3299329464"></a>
 
 ```java
 public int arity()
@@ -149,15 +142,13 @@ Get the arity of the tuple.
 
 **Returns:** the number of elements contained in the tuple.
 
-<a id="m-clone-164c86c45e9b"></a>
-### clone()
+### clone() <a href="#m-clone-164c86c45e9b" id="m-clone-164c86c45e9b"></a>
 
 ```java
 public Object clone()
 ```
 
-<a id="m-elementat-7ff98e6e0268"></a>
-### elementAt(int)
+### elementAt(int) <a href="#m-elementAt-7ff98e6e0268" id="m-elementAt-7ff98e6e0268"></a>
 
 ```java
 public com.tailf.proto.ConfEObject elementAt(int i)
@@ -174,8 +165,7 @@ Get the specified element from the tuple.
 
 **Returns:** the requested element, of null if i is not a valid element index.
 
-<a id="m-elements-1ac1cabc0e96"></a>
-### elements()
+### elements() <a href="#m-elements-1ac1cabc0e96" id="m-elements-1ac1cabc0e96"></a>
 
 ```java
 public com.tailf.proto.ConfEObject[] elements()
@@ -187,8 +177,7 @@ Get all the elements from the tuple as an array.
 
 **Returns:** an array containing all of the tuple's elements.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -202,8 +191,7 @@ Convert this tuple to the equivalent E external representation.
 
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded tuple should be written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -219,15 +207,13 @@ Determine if two tuples are equal. Tuples are equal if they have the same
 **Returns:** true if the tuples have the same arity and all the elements are
          equal.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

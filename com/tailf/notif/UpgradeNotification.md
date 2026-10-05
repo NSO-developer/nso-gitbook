@@ -1,5 +1,4 @@
-<a id="cls-UpgradeNotification"></a>
-# UpgradeNotification
+# UpgradeNotification <a href="#cls-UpgradeNotification" id="cls-UpgradeNotification"></a>
 
 ```java
 public class com.tailf.notif.UpgradeNotification
@@ -14,7 +13,7 @@ Data structure for upgrade notifications.
 
 **Constructors**:
 
-- [UpgradeNotification(int)](#m-upgradenotification-774f8693a908)
+- [UpgradeNotification(int)](#m-UpgradeNotification-774f8693a908)
 
 **Fields**:
 
@@ -27,14 +26,13 @@ Data structure for upgrade notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [getUpgradeType()](#m-getupgradetype-1f6c86f5dc3e)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [getUpgradeType()](#m-getUpgradeType-1f6c86f5dc3e)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-upgradenotification-774f8693a908"></a>
-### UpgradeNotification(int)
+### UpgradeNotification(int) <a href="#m-UpgradeNotification-774f8693a908" id="m-UpgradeNotification-774f8693a908"></a>
 
 ```java
 public UpgradeNotification(int upgradeType)
@@ -47,36 +45,31 @@ public UpgradeNotification(int upgradeType)
 
 ## Fields
 
-<a id="m-UPGRADE_ABORTED"></a>
-### UPGRADE_ABORTED
+### UPGRADE_ABORTED <a href="#m-UPGRADE_ABORTED" id="m-UPGRADE_ABORTED"></a>
 
 ```java
 public static final int UPGRADE_ABORTED = 5;
 ```
 
-<a id="m-UPGRADE_COMMITED"></a>
-### UPGRADE_COMMITED
+### UPGRADE_COMMITED <a href="#m-UPGRADE_COMMITED" id="m-UPGRADE_COMMITED"></a>
 
 ```java
 public static final int UPGRADE_COMMITED = 4;
 ```
 
-<a id="m-UPGRADE_INIT_STARTED"></a>
-### UPGRADE_INIT_STARTED
+### UPGRADE_INIT_STARTED <a href="#m-UPGRADE_INIT_STARTED" id="m-UPGRADE_INIT_STARTED"></a>
 
 ```java
 public static final int UPGRADE_INIT_STARTED = 1;
 ```
 
-<a id="m-UPGRADE_INIT_SUCCEEDED"></a>
-### UPGRADE_INIT_SUCCEEDED
+### UPGRADE_INIT_SUCCEEDED <a href="#m-UPGRADE_INIT_SUCCEEDED" id="m-UPGRADE_INIT_SUCCEEDED"></a>
 
 ```java
 public static final int UPGRADE_INIT_SUCCEEDED = 2;
 ```
 
-<a id="m-UPGRADE_PERFORMED"></a>
-### UPGRADE_PERFORMED
+### UPGRADE_PERFORMED <a href="#m-UPGRADE_PERFORMED" id="m-UPGRADE_PERFORMED"></a>
 
 ```java
 public static final int UPGRADE_PERFORMED = 3;
@@ -85,8 +78,7 @@ public static final int UPGRADE_PERFORMED = 3;
 
 ## Methods
 
-<a id="m-getupgradetype-1f6c86f5dc3e"></a>
-### getUpgradeType()
+### getUpgradeType() <a href="#m-getUpgradeType-1f6c86f5dc3e" id="m-getUpgradeType-1f6c86f5dc3e"></a>
 
 ```java
 public int getUpgradeType()
@@ -95,14 +87,13 @@ public int getUpgradeType()
 Upgrade event type:
 
 
-- `#UPGRADE_INIT_STARTED`
-   - `#UPGRADE_INIT_SUCCEEDED`
-     - `#UPGRADE_PERFORMED`
-       - `#UPGRADE_COMMITED`
-         - `#UPGRADE_ABORTED`
+- [`UPGRADE_INIT_STARTED`](UpgradeNotification.md#m-UPGRADE_INIT_STARTED)
+   - [`UPGRADE_INIT_SUCCEEDED`](UpgradeNotification.md#m-UPGRADE_INIT_SUCCEEDED)
+     - [`UPGRADE_PERFORMED`](UpgradeNotification.md#m-UPGRADE_PERFORMED)
+       - [`UPGRADE_COMMITED`](UpgradeNotification.md#m-UPGRADE_COMMITED)
+         - [`UPGRADE_ABORTED`](UpgradeNotification.md#m-UPGRADE_ABORTED)
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

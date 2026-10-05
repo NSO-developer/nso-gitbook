@@ -1,5 +1,4 @@
-<a id="cls-MaapiDiffIterate"></a>
-# MaapiDiffIterate
+# MaapiDiffIterate <a href="#cls-MaapiDiffIterate" id="cls-MaapiDiffIterate"></a>
 
 ```java
 public interface com.tailf.maapi.MaapiDiffIterate
@@ -12,7 +11,7 @@ This interface is used with the diffIterate method in Maapi. It allows a way
  to iterate through a set of changes and have a user provided method applied
  on each of them.
 
-**See also:** [`Maapi#diffIterate(int,MaapiDiffIterate)`](Maapi.md#m-diffiterate-8d4d9d07b552)
+**See also:** [`Maapi#diffIterate(int,MaapiDiffIterate)`](Maapi.md#m-diffIterate-8d4d9d07b552)
 
 ## Members
 
@@ -22,8 +21,7 @@ This interface is used with the diffIterate method in Maapi. It allows a way
 
 ## Methods
 
-<a id="m-iterate-d80a566b7e0a"></a>
-### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object)
+### iterate(ConfObject[], DiffIterateOperFlag, ConfObject, ConfObject, Object) <a href="#m-iterate-d80a566b7e0a" id="m-iterate-d80a566b7e0a"></a>
 
 ```java
 public abstract com.tailf.conf.DiffIterateResultFlag iterate(

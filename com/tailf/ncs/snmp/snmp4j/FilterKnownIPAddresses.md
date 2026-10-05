@@ -1,5 +1,4 @@
-<a id="cls-FilterKnownIPAddresses"></a>
-# FilterKnownIPAddresses
+# FilterKnownIPAddresses <a href="#cls-FilterKnownIPAddresses" id="cls-FilterKnownIPAddresses"></a>
 
 ```java
 public class com.tailf.ncs.snmp.snmp4j.FilterKnownIPAddresses
@@ -21,16 +20,15 @@ Standard filter for suppression of notifications
 
 **Constructors**:
 
-- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#m-filterknownipaddresses-46bfae603127)
+- [FilterKnownIPAddresses(Map<InetAddress,ConfKey>)](#m-FilterKnownIPAddresses-46bfae603127)
 
 **Methods**:
 
-- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processpdu-6c9b32673c38)
+- [processPdu(EventContext, CommandResponderEvent, Object)](#m-processPdu-6c9b32673c38)
 
 ## Constructors
 
-<a id="m-filterknownipaddresses-46bfae603127"></a>
-### FilterKnownIPAddresses(Map<InetAddress,ConfKey>)
+### FilterKnownIPAddresses(Map<InetAddress,ConfKey>) <a href="#m-FilterKnownIPAddresses-46bfae603127" id="m-FilterKnownIPAddresses-46bfae603127"></a>
 
 ```java
 public FilterKnownIPAddresses(
@@ -50,8 +48,7 @@ Filter constructor
 
 ## Methods
 
-<a id="m-processpdu-6c9b32673c38"></a>
-### processPdu(EventContext, CommandResponderEvent, Object)
+### processPdu(EventContext, CommandResponderEvent, Object) <a href="#m-processPdu-6c9b32673c38" id="m-processPdu-6c9b32673c38"></a>
 
 ```java
 public com.tailf.ncs.snmp.snmp4j.HandlerResponse processPdu(

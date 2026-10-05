@@ -1,5 +1,4 @@
-<a id="cls-NavuTraversalDfsMean"></a>
-# NavuTraversalDfsMean
+# NavuTraversalDfsMean <a href="#cls-NavuTraversalDfsMean" id="cls-NavuTraversalDfsMean"></a>
 
 ```java
 public class com.tailf.navu.traversal.NavuTraversalDfsMean
@@ -20,18 +19,17 @@ This implements the `NavuTraversalMean` for DFS
 
 **Constructors**:
 
-- [NavuTraversalDfsMean()](#m-navutraversaldfsmean-123820830c40)
+- [NavuTraversalDfsMean()](#m-NavuTraversalDfsMean-123820830c40)
 
 **Methods**:
 
 - [dfs(NavuNode)](#m-dfs-5b348f76fa8d)
-- [doDfs(NavuNode, Set<String>)](#m-dodfs-ffb6caf3db53)
+- [doDfs(NavuNode, Set<String>)](#m-doDfs-ffb6caf3db53)
 - [traverse(NavuNode, List<TraversalFilter>)](#m-traverse-e72c3ea2612b)
 
 ## Constructors
 
-<a id="m-navutraversaldfsmean-123820830c40"></a>
-### NavuTraversalDfsMean()
+### NavuTraversalDfsMean() <a href="#m-NavuTraversalDfsMean-123820830c40" id="m-NavuTraversalDfsMean-123820830c40"></a>
 
 ```java
 public NavuTraversalDfsMean()
@@ -40,8 +38,7 @@ public NavuTraversalDfsMean()
 
 ## Methods
 
-<a id="m-dfs-5b348f76fa8d"></a>
-### dfs(NavuNode)
+### dfs(NavuNode) <a href="#m-dfs-5b348f76fa8d" id="m-dfs-5b348f76fa8d"></a>
 
 ```java
 protected java.util.Set<String> dfs(
@@ -56,8 +53,7 @@ Types: [NavuNode](../NavuNode.md#cls-NavuNode), [NavuException](../NavuException
 
 - `com.tailf.navu.NavuNode root`
 
-<a id="m-dodfs-ffb6caf3db53"></a>
-### doDfs(NavuNode, Set<String>)
+### doDfs(NavuNode, Set<String>) <a href="#m-doDfs-ffb6caf3db53" id="m-doDfs-ffb6caf3db53"></a>
 
 ```java
 protected void doDfs(
@@ -74,8 +70,7 @@ Types: [NavuNode](../NavuNode.md#cls-NavuNode), [NavuException](../NavuException
 - `com.tailf.navu.NavuNode root`
 - `java.util.Set<String> visited`
 
-<a id="m-traverse-e72c3ea2612b"></a>
-### traverse(NavuNode, List<TraversalFilter>)
+### traverse(NavuNode, List<TraversalFilter>) <a href="#m-traverse-e72c3ea2612b" id="m-traverse-e72c3ea2612b"></a>
 
 ```java
 public java.util.Set<String> traverse(

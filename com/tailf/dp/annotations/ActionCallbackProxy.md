@@ -1,5 +1,4 @@
-<a id="cls-ActionCallbackProxy"></a>
-# ActionCallbackProxy
+# ActionCallbackProxy <a href="#cls-ActionCallbackProxy" id="cls-ActionCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.ActionCallbackProxy
@@ -18,7 +17,7 @@ Callback proxy for Action Callbacks. Implements the [`DpActionCallback`](../DpAc
 
 **Constructors**:
 
-- [ActionCallbackProxy(Object, String)](#m-actioncallbackproxy-78f40265dddb)
+- [ActionCallbackProxy(Object, String)](#m-ActionCallbackProxy-78f40265dddb)
 
 **Fields**:
 
@@ -33,20 +32,19 @@ Callback proxy for Action Callbacks. Implements the [`DpActionCallback`](../DpAc
 - [abort(DpActionTrans)](#m-abort-cd35d6a916f4)
 - [action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])](#m-action-80bbec157786)
 - [actionpoint()](#m-actionpoint-0569c173260f)
-- [addActionCapability(ActionCBType)](#m-addactioncapability-4494e9279e5a)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
+- [addActionCapability(ActionCBType)](#m-addActionCapability-4494e9279e5a)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
 - [command(DpActionTrans, String, String, String[])](#m-command-cea87613b5a2)
 - [completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)](#m-completion-2f4ed4ef651b)
-- [getActionCallbackProxys(Object)](#m-getactioncallbackproxys-3c92883debd8)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getCallPoint()](#m-getcallpoint-f816d0a44b26)
+- [getActionCallbackProxys(Object)](#m-getActionCallbackProxys-3c92883debd8)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getCallPoint()](#m-getCallPoint-f816d0a44b26)
 - [init(DpActionTrans)](#m-init-ea24b0ff3f23)
 - [mask()](#m-mask-24c2fa29c6af)
 
 ## Constructors
 
-<a id="m-actioncallbackproxy-78f40265dddb"></a>
-### ActionCallbackProxy(Object, String)
+### ActionCallbackProxy(Object, String) <a href="#m-ActionCallbackProxy-78f40265dddb" id="m-ActionCallbackProxy-78f40265dddb"></a>
 
 ```java
 public ActionCallbackProxy(Object backupObject, String callPoint)
@@ -62,8 +60,7 @@ Constructor to Action Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-abort-cd35d6a916f4"></a>
-### abort(DpActionTrans)
+### abort(DpActionTrans) <a href="#m-abort-cd35d6a916f4" id="m-abort-cd35d6a916f4"></a>
 
 ```java
 public void abort(com.tailf.dp.DpActionTrans actx) throws com.tailf.dp.DpCallbackException
@@ -75,8 +72,7 @@ Types: [DpActionTrans](../DpActionTrans.md#cls-DpActionTrans), [DpCallbackExcept
 
 - `com.tailf.dp.DpActionTrans actx`
 
-<a id="m-action-80bbec157786"></a>
-### action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[])
+### action(DpActionTrans, ConfTag, ConfObject[], ConfXMLParam[]) <a href="#m-action-80bbec157786" id="m-action-80bbec157786"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] action(
@@ -97,15 +93,13 @@ Types: [ConfXMLParam](../../conf/ConfXMLParam.md#cls-ConfXMLParam), [DpActionTra
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfXMLParam[] params`
 
-<a id="m-actionpoint-0569c173260f"></a>
-### actionpoint()
+### actionpoint() <a href="#m-actionpoint-0569c173260f" id="m-actionpoint-0569c173260f"></a>
 
 ```java
 public String actionpoint()
 ```
 
-<a id="m-addactioncapability-4494e9279e5a"></a>
-### addActionCapability(ActionCBType)
+### addActionCapability(ActionCBType) <a href="#m-addActionCapability-4494e9279e5a" id="m-addActionCapability-4494e9279e5a"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.ActionCBType actionCBType)
@@ -120,8 +114,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.ActionCBType actionCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -134,8 +127,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-command-cea87613b5a2"></a>
-### command(DpActionTrans, String, String, String[])
+### command(DpActionTrans, String, String, String[]) <a href="#m-command-cea87613b5a2" id="m-command-cea87613b5a2"></a>
 
 ```java
 public String[] command(
@@ -156,8 +148,7 @@ Types: [DpActionTrans](../DpActionTrans.md#cls-DpActionTrans), [DpCallbackExcept
 - `String cmdpath`
 - `String[] params`
 
-<a id="m-completion-2f4ed4ef651b"></a>
-### completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String)
+### completion(DpActionTrans, char, String, char, ConfObject[], String, String, ConfQname, String) <a href="#m-completion-2f4ed4ef651b" id="m-completion-2f4ed4ef651b"></a>
 
 ```java
 public com.tailf.dp.Completion completion(
@@ -188,8 +179,7 @@ Types: [Completion](../Completion.md#cls-Completion), [DpActionTrans](../DpActio
 - `com.tailf.conf.ConfQname simpleType`
 - `String extra`
 
-<a id="m-getactioncallbackproxys-3c92883debd8"></a>
-### getActionCallbackProxys(Object)
+### getActionCallbackProxys(Object) <a href="#m-getActionCallbackProxys-3c92883debd8" id="m-getActionCallbackProxys-3c92883debd8"></a>
 
 ```java
 public static com.tailf.dp.annotations.ActionCallbackProxy[] getActionCallbackProxys(
@@ -213,8 +203,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -224,8 +213,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getcallpoint-f816d0a44b26"></a>
-### getCallPoint()
+### getCallPoint() <a href="#m-getCallPoint-f816d0a44b26" id="m-getCallPoint-f816d0a44b26"></a>
 
 ```java
 public String getCallPoint()
@@ -235,8 +223,7 @@ Retrieve the callback callpoint
 
 **Returns:** callpoint string
 
-<a id="m-init-ea24b0ff3f23"></a>
-### init(DpActionTrans)
+### init(DpActionTrans) <a href="#m-init-ea24b0ff3f23" id="m-init-ea24b0ff3f23"></a>
 
 ```java
 public void init(com.tailf.dp.DpActionTrans actx) throws com.tailf.dp.DpCallbackException
@@ -248,8 +235,7 @@ Types: [DpActionTrans](../DpActionTrans.md#cls-DpActionTrans), [DpCallbackExcept
 
 - `com.tailf.dp.DpActionTrans actx`
 
-<a id="m-mask-24c2fa29c6af"></a>
-### mask()
+### mask() <a href="#m-mask-24c2fa29c6af" id="m-mask-24c2fa29c6af"></a>
 
 ```java
 public int mask()

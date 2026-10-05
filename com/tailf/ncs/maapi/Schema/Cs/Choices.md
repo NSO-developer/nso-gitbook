@@ -1,5 +1,4 @@
-<a id="cls-Choices"></a>
-# Choices
+# Choices <a href="#cls-Choices" id="cls-Choices"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.Cs.Choices
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Choices
 
 **Constructors**:
 
-- [Choices()](#m-choices-56052799ac5f)
+- [Choices()](#m-Choices-56052799ac5f)
 
 **Fields**:
 
@@ -26,8 +25,7 @@ public static class com.tailf.ncs.maapi.Schema.Cs.Choices
 
 ## Constructors
 
-<a id="m-choices-56052799ac5f"></a>
-### Choices()
+### Choices() <a href="#m-Choices-56052799ac5f" id="m-Choices-56052799ac5f"></a>
 
 ```java
 public Choices()
@@ -36,8 +34,7 @@ public Choices()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.Cs.Choices.Factory factory = null;
@@ -45,8 +42,7 @@ public static final com.tailf.ncs.maapi.Schema.Cs.Choices.Factory factory = null
 
 Types: [Factory](Choices/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.Cs.Choices.Builder,com.tailf.ncs.maapi.Schema.Cs.Choices.Reader> listFactory = null;
@@ -54,8 +50,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](Choices/Builder.md#cls-Builder), [Reader](Choices/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

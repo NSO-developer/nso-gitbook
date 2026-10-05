@@ -1,5 +1,4 @@
-<a id="cls-DisplayHintSpec"></a>
-# DisplayHintSpec
+# DisplayHintSpec <a href="#cls-DisplayHintSpec" id="cls-DisplayHintSpec"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
@@ -9,7 +8,7 @@ public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
 
 **Constructors**:
 
-- [DisplayHintSpec(byte, int, byte, byte, byte)](#m-displayhintspec-8a54d55c515d)
+- [DisplayHintSpec(byte, int, byte, byte, byte)](#m-DisplayHintSpec-8a54d55c515d)
 
 **Fields**:
 
@@ -21,8 +20,7 @@ public static class com.tailf.maapi.MaapiSchemas.DisplayHintSpec
 
 ## Constructors
 
-<a id="m-displayhintspec-8a54d55c515d"></a>
-### DisplayHintSpec(byte, int, byte, byte, byte)
+### DisplayHintSpec(byte, int, byte, byte, byte) <a href="#m-DisplayHintSpec-8a54d55c515d" id="m-DisplayHintSpec-8a54d55c515d"></a>
 
 ```java
 protected DisplayHintSpec(byte repeat, int length, byte format, byte seperator, byte terminator)
@@ -39,36 +37,31 @@ protected DisplayHintSpec(byte repeat, int length, byte format, byte seperator, 
 
 ## Fields
 
-<a id="m-format"></a>
-### format
+### format <a href="#m-format" id="m-format"></a>
 
 ```java
 protected char format = null;
 ```
 
-<a id="m-length"></a>
-### length
+### length <a href="#m-length" id="m-length"></a>
 
 ```java
 protected int length = null;
 ```
 
-<a id="m-repeat"></a>
-### repeat
+### repeat <a href="#m-repeat" id="m-repeat"></a>
 
 ```java
 protected byte repeat = null;
 ```
 
-<a id="m-seperator"></a>
-### seperator
+### seperator <a href="#m-seperator" id="m-seperator"></a>
 
 ```java
 protected char seperator = null;
 ```
 
-<a id="m-terminator"></a>
-### terminator
+### terminator <a href="#m-terminator" id="m-terminator"></a>
 
 ```java
 protected char terminator = null;

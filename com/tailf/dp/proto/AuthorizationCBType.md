@@ -1,5 +1,4 @@
-<a id="cls-AuthorizationCBType"></a>
-# AuthorizationCBType
+# AuthorizationCBType <a href="#cls-AuthorizationCBType" id="cls-AuthorizationCBType"></a>
 
 ```java
 public enum com.tailf.dp.proto.AuthorizationCBType
@@ -20,14 +19,13 @@ Enumeration of Authorization callback methods
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-CHECK_CMD_ACCESS"></a>
-### CHECK_CMD_ACCESS
+### CHECK_CMD_ACCESS <a href="#m-CHECK_CMD_ACCESS" id="m-CHECK_CMD_ACCESS"></a>
 
 ```java
 public static final com.tailf.dp.proto.AuthorizationCBType CHECK_CMD_ACCESS;
@@ -36,8 +34,7 @@ public static final com.tailf.dp.proto.AuthorizationCBType CHECK_CMD_ACCESS;
 Authorization callback type for checking command access permissions.
  Used to verify if a user has permission to execute specific commands.
 
-<a id="m-CHECK_DATA_ACCESS"></a>
-### CHECK_DATA_ACCESS
+### CHECK_DATA_ACCESS <a href="#m-CHECK_DATA_ACCESS" id="m-CHECK_DATA_ACCESS"></a>
 
 ```java
 public static final com.tailf.dp.proto.AuthorizationCBType CHECK_DATA_ACCESS;
@@ -46,8 +43,7 @@ public static final com.tailf.dp.proto.AuthorizationCBType CHECK_DATA_ACCESS;
 Authorization callback type for checking data access permissions.
  Used to verify if a user has permission to access specific data elements.
 
-<a id="m-CMD_FILTER"></a>
-### CMD_FILTER
+### CMD_FILTER <a href="#m-CMD_FILTER" id="m-CMD_FILTER"></a>
 
 ```java
 public static final com.tailf.dp.proto.AuthorizationCBType CMD_FILTER;
@@ -57,8 +53,7 @@ Authorization callback type for command filtering.
  Java API construct used to filter available commands based on user
  permissions.
 
-<a id="m-DATA_FILTER"></a>
-### DATA_FILTER
+### DATA_FILTER <a href="#m-DATA_FILTER" id="m-DATA_FILTER"></a>
 
 ```java
 public static final com.tailf.dp.proto.AuthorizationCBType DATA_FILTER;
@@ -71,8 +66,7 @@ Authorization callback type for data filtering.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -82,8 +76,7 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.AuthorizationCBType valueOf(String name)
@@ -95,8 +88,7 @@ Types: [AuthorizationCBType](AuthorizationCBType.md#cls-AuthorizationCBType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.AuthorizationCBType[] values()

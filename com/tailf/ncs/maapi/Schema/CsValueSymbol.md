@@ -1,5 +1,4 @@
-<a id="cls-CsValueSymbol"></a>
-# CsValueSymbol
+# CsValueSymbol <a href="#cls-CsValueSymbol" id="cls-CsValueSymbol"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsValueSymbol
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueSymbol
 
 **Constructors**:
 
-- [CsValueSymbol()](#m-csvaluesymbol-0f69469a6763)
+- [CsValueSymbol()](#m-CsValueSymbol-0f69469a6763)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsValueSymbol
 
 ## Constructors
 
-<a id="m-csvaluesymbol-0f69469a6763"></a>
-### CsValueSymbol()
+### CsValueSymbol() <a href="#m-CsValueSymbol-0f69469a6763" id="m-CsValueSymbol-0f69469a6763"></a>
 
 ```java
 public CsValueSymbol()
@@ -35,8 +33,7 @@ public CsValueSymbol()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsValueSymbol.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsValueSymbol.Factory factory = n
 
 Types: [Factory](CsValueSymbol/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsValueSymbol.Builder,com.tailf.ncs.maapi.Schema.CsValueSymbol.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsValueSymbol/Builder.md#cls-Builder), [Reader](CsValueSymbol/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

@@ -1,5 +1,4 @@
-<a id="cls-MmapCSCase"></a>
-# MmapCSCase
+# MmapCSCase <a href="#cls-MmapCSCase" id="cls-MmapCSCase"></a>
 
 ```java
 public class com.tailf.ncs.maapi.MmapCSCase
@@ -14,7 +13,7 @@ mmap version of CSCase, special handling of getNodes.
 
 **Constructors**:
 
-- [MmapCSCase(Reader<Reader>, CSNode, int, String, CSSchema, CSChoice, CSCase)](#m-mmapcscase-e1cbf71e66cd)
+- [MmapCSCase(Reader<Reader>, CSNode, int, String, CSSchema, CSChoice, CSCase)](#m-MmapCSCase-e1cbf71e66cd)
 
 **Fields**:
 
@@ -22,21 +21,20 @@ mmap version of CSCase, special handling of getNodes.
 
 **Methods**:
 
-- [getChoices()](../../maapi/MaapiSchemas/CSCase.md#m-getchoices-818fb3fccb86) from CSCase
-- [getNodes()](#m-getnodes-0d0e9b3adfd1)
-- [getNS()](../../maapi/MaapiSchemas/CSCase.md#m-getns-3613c99d8888) from CSCase
-- [getNSHash()](../../maapi/MaapiSchemas/CSCase.md#m-getnshash-2129fb8b3cfe) from CSCase
-- [getParentChoice()](../../maapi/MaapiSchemas/CSCase.md#m-getparentchoice-4434d9347d10) from CSCase
-- [getSiblings()](../../maapi/MaapiSchemas/CSCase.md#m-getsiblings-f467dd8b6a33) from CSCase
-- [getTag()](../../maapi/MaapiSchemas/CSCase.md#m-gettag-315f45956d6f) from CSCase
-- [getTagHash()](../../maapi/MaapiSchemas/CSCase.md#m-gettaghash-8f057919039c) from CSCase
-- [setFirstChoice(CSChoice)](#m-setfirstchoice-d4a33b33b18f)
-- [toString()](../../maapi/MaapiSchemas/CSCase.md#m-tostring-e9d48c5503ef) from CSCase
+- [getChoices()](../../maapi/MaapiSchemas/CSCase.md#m-getChoices-818fb3fccb86) from CSCase
+- [getNodes()](#m-getNodes-0d0e9b3adfd1)
+- [getNS()](../../maapi/MaapiSchemas/CSCase.md#m-getNS-3613c99d8888) from CSCase
+- [getNSHash()](../../maapi/MaapiSchemas/CSCase.md#m-getNSHash-2129fb8b3cfe) from CSCase
+- [getParentChoice()](../../maapi/MaapiSchemas/CSCase.md#m-getParentChoice-4434d9347d10) from CSCase
+- [getSiblings()](../../maapi/MaapiSchemas/CSCase.md#m-getSiblings-f467dd8b6a33) from CSCase
+- [getTag()](../../maapi/MaapiSchemas/CSCase.md#m-getTag-315f45956d6f) from CSCase
+- [getTagHash()](../../maapi/MaapiSchemas/CSCase.md#m-getTagHash-8f057919039c) from CSCase
+- [setFirstChoice(CSChoice)](#m-setFirstChoice-d4a33b33b18f)
+- [toString()](../../maapi/MaapiSchemas/CSCase.md#m-toString-e9d48c5503ef) from CSCase
 
 ## Constructors
 
-<a id="m-mmapcscase-e1cbf71e66cd"></a>
-### MmapCSCase(Reader<Reader>, CSNode, int, String, CSSchema, CSChoice, CSCase)
+### MmapCSCase(Reader<Reader>, CSNode, int, String, CSSchema, CSChoice, CSCase) <a href="#m-MmapCSCase-e1cbf71e66cd" id="m-MmapCSCase-e1cbf71e66cd"></a>
 
 ```java
 protected MmapCSCase(
@@ -65,8 +63,7 @@ Types: [Reader](Schema/QTag/Reader.md#cls-Reader), [CSNode](../../maapi/MaapiSch
 
 ## Methods
 
-<a id="m-getnodes-0d0e9b3adfd1"></a>
-### getNodes()
+### getNodes() <a href="#m-getNodes-0d0e9b3adfd1" id="m-getNodes-0d0e9b3adfd1"></a>
 
 ```java
 public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getNodes()
@@ -74,8 +71,7 @@ public java.util.List<com.tailf.maapi.MaapiSchemas.CSNode> getNodes()
 
 Types: [CSNode](../../maapi/MaapiSchemas/CSNode.md#cls-CSNode)
 
-<a id="m-setfirstchoice-d4a33b33b18f"></a>
-### setFirstChoice(CSChoice)
+### setFirstChoice(CSChoice) <a href="#m-setFirstChoice-d4a33b33b18f" id="m-setFirstChoice-d4a33b33b18f"></a>
 
 ```java
 protected void setFirstChoice(com.tailf.maapi.MaapiSchemas.CSChoice choice)

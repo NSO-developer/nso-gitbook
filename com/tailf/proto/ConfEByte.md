@@ -1,5 +1,4 @@
-<a id="cls-ConfEByte"></a>
-# ConfEByte
+# ConfEByte <a href="#cls-ConfEByte" id="cls-ConfEByte"></a>
 
 ```java
 public class com.tailf.proto.ConfEByte
@@ -14,8 +13,8 @@ Provides a Java representation of E integral types.
 
 **Constructors**:
 
-- [ConfEByte(byte)](#m-confebyte-911c8a1dc23a)
-- [ConfEByte(ConfInputStream)](#m-confebyte-ecc85f932bf6)
+- [ConfEByte(byte)](#m-ConfEByte-911c8a1dc23a)
+- [ConfEByte(ConfInputStream)](#m-ConfEByte-ecc85f932bf6)
 
 **Fields**:
 
@@ -23,24 +22,23 @@ Provides a Java representation of E integral types.
 
 **Methods**:
 
-- [byteValue()](ConfELong.md#m-bytevalue-a56aac956c5c) from ConfELong
-- [charValue()](ConfELong.md#m-charvalue-4b3a6b868fe4) from ConfELong
+- [byteValue()](ConfELong.md#m-byteValue-a56aac956c5c) from ConfELong
+- [charValue()](ConfELong.md#m-charValue-4b3a6b868fe4) from ConfELong
 - [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
 - [encode(ConfOutputStream)](ConfELong.md#m-encode-cb1ad9eb7771) from ConfELong
 - [equals(Object)](ConfELong.md#m-equals-fcd6492e0d6c) from ConfELong
-- [hashCode()](ConfELong.md#m-hashcode-ef797a217903) from ConfELong
-- [intValue()](ConfELong.md#m-intvalue-2f745d025d8e) from ConfELong
-- [longValue()](ConfELong.md#m-longvalue-636bfe2d6862) from ConfELong
-- [shortValue()](ConfELong.md#m-shortvalue-438ff2f827fb) from ConfELong
-- [toString()](ConfELong.md#m-tostring-e9d48c5503ef) from ConfELong
-- [uIntValue()](ConfELong.md#m-uintvalue-11d9c2202272) from ConfELong
-- [uShortValue()](ConfELong.md#m-ushortvalue-5c27a3934662) from ConfELong
+- [hashCode()](ConfELong.md#m-hashCode-ef797a217903) from ConfELong
+- [intValue()](ConfELong.md#m-intValue-2f745d025d8e) from ConfELong
+- [longValue()](ConfELong.md#m-longValue-636bfe2d6862) from ConfELong
+- [shortValue()](ConfELong.md#m-shortValue-438ff2f827fb) from ConfELong
+- [toString()](ConfELong.md#m-toString-e9d48c5503ef) from ConfELong
+- [uIntValue()](ConfELong.md#m-uIntValue-11d9c2202272) from ConfELong
+- [uShortValue()](ConfELong.md#m-uShortValue-5c27a3934662) from ConfELong
 
 ## Constructors
 
-<a id="m-confebyte-911c8a1dc23a"></a>
-### ConfEByte(byte)
+### ConfEByte(byte) <a href="#m-ConfEByte-911c8a1dc23a" id="m-ConfEByte-911c8a1dc23a"></a>
 
 ```java
 public ConfEByte(byte b)
@@ -52,8 +50,7 @@ Create an E integer from the given value.
 
 - `byte b` - the byte value to use.
 
-<a id="m-confebyte-ecc85f932bf6"></a>
-### ConfEByte(ConfInputStream)
+### ConfEByte(ConfInputStream) <a href="#m-ConfEByte-ecc85f932bf6" id="m-ConfEByte-ecc85f932bf6"></a>
 
 ```java
 public ConfEByte(
@@ -80,8 +77,7 @@ Create an E integer from a stream containing an integer encoded in E
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 

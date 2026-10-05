@@ -1,5 +1,4 @@
-<a id="cls-CsTypeUnion"></a>
-# CsTypeUnion
+# CsTypeUnion <a href="#cls-CsTypeUnion" id="cls-CsTypeUnion"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeUnion
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeUnion
 
 **Constructors**:
 
-- [CsTypeUnion()](#m-cstypeunion-13eb0cc6db79)
+- [CsTypeUnion()](#m-CsTypeUnion-13eb0cc6db79)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeUnion
 
 ## Constructors
 
-<a id="m-cstypeunion-13eb0cc6db79"></a>
-### CsTypeUnion()
+### CsTypeUnion() <a href="#m-CsTypeUnion-13eb0cc6db79" id="m-CsTypeUnion-13eb0cc6db79"></a>
 
 ```java
 public CsTypeUnion()
@@ -35,8 +33,7 @@ public CsTypeUnion()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeUnion.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeUnion.Factory factory = nul
 
 Types: [Factory](CsTypeUnion/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeUnion.Builder,com.tailf.ncs.maapi.Schema.CsTypeUnion.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeUnion/Builder.md#cls-Builder), [Reader](CsTypeUnion/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

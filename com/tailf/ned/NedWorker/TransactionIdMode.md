@@ -1,5 +1,4 @@
-<a id="cls-TransactionIdMode"></a>
-# TransactionIdMode
+# TransactionIdMode <a href="#cls-TransactionIdMode" id="cls-TransactionIdMode"></a>
 
 ```java
 public static enum com.tailf.ned.NedWorker.TransactionIdMode
@@ -19,14 +18,13 @@ Indicates the mode of Transaction ID supported by the NED.
 
 **Methods**:
 
-- [toString()](#m-tostring-e9d48c5503ef)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [toString()](#m-toString-e9d48c5503ef)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-NONE"></a>
-### NONE
+### NONE <a href="#m-NONE" id="m-NONE"></a>
 
 ```java
 public static final com.tailf.ned.NedWorker.TransactionIdMode NONE;
@@ -34,8 +32,7 @@ public static final com.tailf.ned.NedWorker.TransactionIdMode NONE;
 
 Transaction ID is not supported
 
-<a id="m-UNIQUE_STRING"></a>
-### UNIQUE_STRING
+### UNIQUE_STRING <a href="#m-UNIQUE_STRING" id="m-UNIQUE_STRING"></a>
 
 ```java
 public static final com.tailf.ned.NedWorker.TransactionIdMode UNIQUE_STRING;
@@ -47,15 +44,13 @@ Transaction ID should be a String
 
 ## Methods
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
 ```
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ned.NedWorker.TransactionIdMode valueOf(String name)
@@ -67,8 +62,7 @@ Types: [TransactionIdMode](TransactionIdMode.md#cls-TransactionIdMode)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ned.NedWorker.TransactionIdMode[] values()

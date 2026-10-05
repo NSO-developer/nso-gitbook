@@ -1,5 +1,4 @@
-<a id="cls-Factory"></a>
-# Factory
+# Factory <a href="#cls-Factory" id="cls-Factory"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Factory
@@ -12,29 +11,28 @@ Types: [Builder](Builder.md#cls-Builder), [Reader](Reader.md#cls-Reader)
 
 **Constructors**:
 
-- [Factory()](#m-factory-0e9f9d7f4e84)
+- [Factory()](#m-Factory-0e9f9d7f4e84)
 
 **Methods**:
 
-- [asReader()](Builder.md#m-asreader-b5c0f2a8d115) from Builder
-- [asReader(Builder)](#m-asreader-14351272b8c2)
-- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructbuilder-5a2abf3209f9)
-- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructreader-fbce6f4f912a)
-- [getHid()](Builder.md#m-gethid-34aa6038c623) from Builder
-- [getHns()](Builder.md#m-gethns-457afaf41ae6) from Builder
-- [getQname()](Builder.md#m-getqname-022156d42738) from Builder
-- [hasQname()](Builder.md#m-hasqname-3146e94ee2c2) from Builder
-- [initQname(int)](Builder.md#m-initqname-070346dcfd2a) from Builder
-- [setHid(int)](Builder.md#m-sethid-628b88f6c037) from Builder
-- [setHns(int)](Builder.md#m-sethns-7405e78f40fe) from Builder
-- [setQname(Reader)](Builder.md#m-setqname-5263707f5f9e) from Builder
-- [setQname(String)](Builder.md#m-setqname-d55a4e375433) from Builder
-- [structSize()](#m-structsize-1fa68dcadd21)
+- [asReader()](Builder.md#m-asReader-b5c0f2a8d115) from Builder
+- [asReader(Builder)](#m-asReader-14351272b8c2)
+- [constructBuilder(SegmentBuilder, int, int, int, short)](#m-constructBuilder-5a2abf3209f9)
+- [constructReader(SegmentReader, int, int, int, short, int)](#m-constructReader-fbce6f4f912a)
+- [getHid()](Builder.md#m-getHid-34aa6038c623) from Builder
+- [getHns()](Builder.md#m-getHns-457afaf41ae6) from Builder
+- [getQname()](Builder.md#m-getQname-022156d42738) from Builder
+- [hasQname()](Builder.md#m-hasQname-3146e94ee2c2) from Builder
+- [initQname(int)](Builder.md#m-initQname-070346dcfd2a) from Builder
+- [setHid(int)](Builder.md#m-setHid-628b88f6c037) from Builder
+- [setHns(int)](Builder.md#m-setHns-7405e78f40fe) from Builder
+- [setQname(Reader)](Builder.md#m-setQname-5263707f5f9e) from Builder
+- [setQname(String)](Builder.md#m-setQname-d55a4e375433) from Builder
+- [structSize()](#m-structSize-1fa68dcadd21)
 
 ## Constructors
 
-<a id="m-factory-0e9f9d7f4e84"></a>
-### Factory()
+### Factory() <a href="#m-Factory-0e9f9d7f4e84" id="m-Factory-0e9f9d7f4e84"></a>
 
 ```java
 public Factory()
@@ -43,8 +41,7 @@ public Factory()
 
 ## Methods
 
-<a id="m-asreader-14351272b8c2"></a>
-### asReader(Builder)
+### asReader(Builder) <a href="#m-asReader-14351272b8c2" id="m-asReader-14351272b8c2"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader asReader(
@@ -58,8 +55,7 @@ Types: [Reader](Reader.md#cls-Reader), [Builder](Builder.md#cls-Builder)
 
 - `com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder builder`
 
-<a id="m-constructbuilder-5a2abf3209f9"></a>
-### constructBuilder(SegmentBuilder, int, int, int, short)
+### constructBuilder(SegmentBuilder, int, int, int, short) <a href="#m-constructBuilder-5a2abf3209f9" id="m-constructBuilder-5a2abf3209f9"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Builder constructBuilder(
@@ -81,8 +77,7 @@ Types: [Builder](Builder.md#cls-Builder)
 - `int dataSize`
 - `short pointerCount`
 
-<a id="m-constructreader-fbce6f4f912a"></a>
-### constructReader(SegmentReader, int, int, int, short, int)
+### constructReader(SegmentReader, int, int, int, short, int) <a href="#m-constructReader-fbce6f4f912a" id="m-constructReader-fbce6f4f912a"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsTypeIdref.Ref.Reader constructReader(
@@ -106,8 +101,7 @@ Types: [Reader](Reader.md#cls-Reader)
 - `short pointerCount`
 - `int nestingLimit`
 
-<a id="m-structsize-1fa68dcadd21"></a>
-### structSize()
+### structSize() <a href="#m-structSize-1fa68dcadd21" id="m-structSize-1fa68dcadd21"></a>
 
 ```java
 public final org.capnproto.StructSize structSize()

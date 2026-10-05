@@ -1,5 +1,4 @@
-<a id="cls-KeyPath2NavuNode"></a>
-# KeyPath2NavuNode
+# KeyPath2NavuNode <a href="#cls-KeyPath2NavuNode" id="cls-KeyPath2NavuNode"></a>
 
 ```java
 public class com.tailf.navu.KeyPath2NavuNode
@@ -11,11 +10,11 @@ Utility class for creating [`NavuNode`](NavuNode.md#cls-NavuNode) from [`ConfObj
 
 **Methods**:
 
-- [getList(CSNode, ConfObject[])](#m-getlist-059f57e4e042)
-- [getListOrListEntry(CSNode, ConfObject[])](#m-getlistorlistentry-2d3a88ed873b)
-- [getNode(ConfObject[], NavuContext)](#m-getnode-0dbf03f5ea6c)
-- [getNode(ConfPath, NavuContext)](#m-getnode-440eaae488b9)
-- [getParent(CSNode, ConfObject[])](#m-getparent-c4f035d88579)
+- [getList(CSNode, ConfObject[])](#m-getList-059f57e4e042)
+- [getListOrListEntry(CSNode, ConfObject[])](#m-getListOrListEntry-2d3a88ed873b)
+- [getNode(ConfObject[], NavuContext)](#m-getNode-0dbf03f5ea6c)
+- [getNode(ConfPath, NavuContext)](#m-getNode-440eaae488b9)
+- [getParent(CSNode, ConfObject[])](#m-getParent-c4f035d88579)
 
 **Nested Types**:
 
@@ -23,8 +22,7 @@ Utility class for creating [`NavuNode`](NavuNode.md#cls-NavuNode) from [`ConfObj
 
 ## Methods
 
-<a id="m-getlist-059f57e4e042"></a>
-### getList(CSNode, ConfObject[])
+### getList(CSNode, ConfObject[]) <a href="#m-getList-059f57e4e042" id="m-getList-059f57e4e042"></a>
 
 ```java
 protected com.tailf.navu.NavuList getList(
@@ -41,8 +39,7 @@ Types: [NavuList](NavuList.md#cls-NavuList), [CSNode](../maapi/MaapiSchemas/CSNo
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.conf.ConfObject[] kpx`
 
-<a id="m-getlistorlistentry-2d3a88ed873b"></a>
-### getListOrListEntry(CSNode, ConfObject[])
+### getListOrListEntry(CSNode, ConfObject[]) <a href="#m-getListOrListEntry-2d3a88ed873b" id="m-getListOrListEntry-2d3a88ed873b"></a>
 
 ```java
 protected com.tailf.navu.NavuNode getListOrListEntry(
@@ -59,8 +56,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [CSNode](../maapi/MaapiSchemas/CSNo
 - `com.tailf.maapi.MaapiSchemas.CSNode node`
 - `com.tailf.conf.ConfObject[] kpx`
 
-<a id="m-getnode-0dbf03f5ea6c"></a>
-### getNode(ConfObject[], NavuContext)
+### getNode(ConfObject[], NavuContext) <a href="#m-getNode-0dbf03f5ea6c" id="m-getNode-0dbf03f5ea6c"></a>
 
 ```java
 public static com.tailf.navu.NavuNode getNode(
@@ -77,8 +73,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfObject](../conf/ConfObject.md#
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.navu.NavuContext ctx`
 
-<a id="m-getnode-440eaae488b9"></a>
-### getNode(ConfPath, NavuContext)
+### getNode(ConfPath, NavuContext) <a href="#m-getNode-440eaae488b9" id="m-getNode-440eaae488b9"></a>
 
 ```java
 public static com.tailf.navu.NavuNode getNode(
@@ -95,8 +90,7 @@ Types: [NavuNode](NavuNode.md#cls-NavuNode), [ConfPath](../conf/ConfPath.md#cls-
 - `com.tailf.conf.ConfPath path`
 - `com.tailf.navu.NavuContext ctx`
 
-<a id="m-getparent-c4f035d88579"></a>
-### getParent(CSNode, ConfObject[])
+### getParent(CSNode, ConfObject[]) <a href="#m-getParent-c4f035d88579" id="m-getParent-c4f035d88579"></a>
 
 ```java
 protected com.tailf.navu.NavuNode getParent(

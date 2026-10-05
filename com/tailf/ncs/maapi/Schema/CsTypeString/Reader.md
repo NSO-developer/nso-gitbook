@@ -1,5 +1,4 @@
-<a id="cls-Reader"></a>
-# Reader
+# Reader <a href="#cls-Reader" id="cls-Reader"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Reader
@@ -10,20 +9,19 @@ public static final class com.tailf.ncs.maapi.Schema.CsTypeString.Reader
 
 **Constructors**:
 
-- [Reader(SegmentReader, int, int, int, short, int)](#m-reader-cf5e962c3323)
+- [Reader(SegmentReader, int, int, int, short, int)](#m-Reader-cf5e962c3323)
 
 **Methods**:
 
-- [getInvertMatch()](#m-getinvertmatch-323126ccbf2f)
-- [getPattern()](#m-getpattern-b471c55bbd3b)
-- [getRanges()](#m-getranges-c1cd383e54a0)
-- [hasPattern()](#m-haspattern-e3fe48944019)
-- [hasRanges()](#m-hasranges-77bc63fe4ea8)
+- [getInvertMatch()](#m-getInvertMatch-323126ccbf2f)
+- [getPattern()](#m-getPattern-b471c55bbd3b)
+- [getRanges()](#m-getRanges-c1cd383e54a0)
+- [hasPattern()](#m-hasPattern-e3fe48944019)
+- [hasRanges()](#m-hasRanges-77bc63fe4ea8)
 
 ## Constructors
 
-<a id="m-reader-cf5e962c3323"></a>
-### Reader(SegmentReader, int, int, int, short, int)
+### Reader(SegmentReader, int, int, int, short, int) <a href="#m-Reader-cf5e962c3323" id="m-Reader-cf5e962c3323"></a>
 
 **Package-private**
 
@@ -50,22 +48,19 @@ Reader(
 
 ## Methods
 
-<a id="m-getinvertmatch-323126ccbf2f"></a>
-### getInvertMatch()
+### getInvertMatch() <a href="#m-getInvertMatch-323126ccbf2f" id="m-getInvertMatch-323126ccbf2f"></a>
 
 ```java
 public final boolean getInvertMatch()
 ```
 
-<a id="m-getpattern-b471c55bbd3b"></a>
-### getPattern()
+### getPattern() <a href="#m-getPattern-b471c55bbd3b" id="m-getPattern-b471c55bbd3b"></a>
 
 ```java
 public org.capnproto.Text.Reader getPattern()
 ```
 
-<a id="m-getranges-c1cd383e54a0"></a>
-### getRanges()
+### getRanges() <a href="#m-getRanges-c1cd383e54a0" id="m-getRanges-c1cd383e54a0"></a>
 
 ```java
 public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Range.Reader> getRanges()
@@ -73,15 +68,13 @@ public final org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.Range.Re
 
 Types: [Reader](../Range/Reader.md#cls-Reader)
 
-<a id="m-haspattern-e3fe48944019"></a>
-### hasPattern()
+### hasPattern() <a href="#m-hasPattern-e3fe48944019" id="m-hasPattern-e3fe48944019"></a>
 
 ```java
 public boolean hasPattern()
 ```
 
-<a id="m-hasranges-77bc63fe4ea8"></a>
-### hasRanges()
+### hasRanges() <a href="#m-hasRanges-77bc63fe4ea8" id="m-hasRanges-77bc63fe4ea8"></a>
 
 ```java
 public final boolean hasRanges()

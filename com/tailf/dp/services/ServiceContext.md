@@ -1,5 +1,4 @@
-<a id="cls-ServiceContext"></a>
-# ServiceContext
+# ServiceContext <a href="#cls-ServiceContext" id="cls-ServiceContext"></a>
 
 ```java
 public interface com.tailf.dp.services.ServiceContext
@@ -13,15 +12,14 @@ The service context object.
 
 **Methods**:
 
-- [getNedIdByDeviceName(String)](#m-getnedidbydevicename-11861342f251)
-- [getRootNode()](#m-getrootnode-eed9b3c70129)
-- [getServiceNode()](#m-getservicenode-ffc6dd44e182)
-- [setTimeout(int)](#m-settimeout-cbe758ecb5d8)
+- [getNedIdByDeviceName(String)](#m-getNedIdByDeviceName-11861342f251)
+- [getRootNode()](#m-getRootNode-eed9b3c70129)
+- [getServiceNode()](#m-getServiceNode-ffc6dd44e182)
+- [setTimeout(int)](#m-setTimeout-cbe758ecb5d8)
 
 ## Methods
 
-<a id="m-getnedidbydevicename-11861342f251"></a>
-### getNedIdByDeviceName(String)
+### getNedIdByDeviceName(String) <a href="#m-getNedIdByDeviceName-11861342f251" id="m-getNedIdByDeviceName-11861342f251"></a>
 
 ```java
 public abstract String getNedIdByDeviceName(String name) throws com.tailf.conf.ConfException
@@ -33,8 +31,7 @@ Types: [ConfException](../../conf/ConfException.md#cls-ConfException)
 
 - `String name`
 
-<a id="m-getrootnode-eed9b3c70129"></a>
-### getRootNode()
+### getRootNode() <a href="#m-getRootNode-eed9b3c70129" id="m-getRootNode-eed9b3c70129"></a>
 
 ```java
 public abstract com.tailf.navu.NavuNode getRootNode() throws com.tailf.conf.ConfException
@@ -51,8 +48,7 @@ Returns the path root as a NavuNode with the
 
 - `ConfException`
 
-<a id="m-getservicenode-ffc6dd44e182"></a>
-### getServiceNode()
+### getServiceNode() <a href="#m-getServiceNode-ffc6dd44e182" id="m-getServiceNode-ffc6dd44e182"></a>
 
 ```java
 public abstract com.tailf.navu.NavuNode getServiceNode() throws com.tailf.conf.ConfException
@@ -69,8 +65,7 @@ Returns the current service path as a NavuNode with the
 
 - `ConfException`
 
-<a id="m-settimeout-cbe758ecb5d8"></a>
-### setTimeout(int)
+### setTimeout(int) <a href="#m-setTimeout-cbe758ecb5d8" id="m-setTimeout-cbe758ecb5d8"></a>
 
 ```java
 public abstract void setTimeout(

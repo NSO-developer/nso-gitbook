@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder
@@ -10,34 +9,33 @@ public static final class com.tailf.ncs.maapi.Schema.CsValueDateTime.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getDay()](#m-getday-3b07996cd5f6)
-- [getHour()](#m-gethour-32c719f425c9)
-- [getMicro()](#m-getmicro-37aa6b436572)
-- [getMin()](#m-getmin-8654ceab94db)
-- [getMonth()](#m-getmonth-3813513d5069)
-- [getSec()](#m-getsec-c0fe657f6906)
-- [getTimezone()](#m-gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
-- [getYear()](#m-getyear-584af4457cda)
-- [setDay(byte)](#m-setday-2c873a29eed0)
-- [setHour(byte)](#m-sethour-49c3f93cc667)
-- [setMicro(int)](#m-setmicro-f8ae466800c3)
-- [setMin(byte)](#m-setmin-4bea903ce744)
-- [setMonth(byte)](#m-setmonth-b56a6d48db74)
-- [setSec(byte)](#m-setsec-487f1ad78d76)
-- [setTimezone(byte)](#m-settimezone-c58c111fac16)
-- [setTimezoneMinutes(byte)](#m-settimezoneminutes-69e0ed31afd1)
-- [setYear(short)](#m-setyear-ecdf80e7189d)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getDay()](#m-getDay-3b07996cd5f6)
+- [getHour()](#m-getHour-32c719f425c9)
+- [getMicro()](#m-getMicro-37aa6b436572)
+- [getMin()](#m-getMin-8654ceab94db)
+- [getMonth()](#m-getMonth-3813513d5069)
+- [getSec()](#m-getSec-c0fe657f6906)
+- [getTimezone()](#m-getTimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-getTimezoneMinutes-b20d3de8d152)
+- [getYear()](#m-getYear-584af4457cda)
+- [setDay(byte)](#m-setDay-2c873a29eed0)
+- [setHour(byte)](#m-setHour-49c3f93cc667)
+- [setMicro(int)](#m-setMicro-f8ae466800c3)
+- [setMin(byte)](#m-setMin-4bea903ce744)
+- [setMonth(byte)](#m-setMonth-b56a6d48db74)
+- [setSec(byte)](#m-setSec-487f1ad78d76)
+- [setTimezone(byte)](#m-setTimezone-c58c111fac16)
+- [setTimezoneMinutes(byte)](#m-setTimezoneMinutes-69e0ed31afd1)
+- [setYear(short)](#m-setYear-ecdf80e7189d)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -62,8 +60,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader asReader()
@@ -71,71 +68,61 @@ public final com.tailf.ncs.maapi.Schema.CsValueDateTime.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getday-3b07996cd5f6"></a>
-### getDay()
+### getDay() <a href="#m-getDay-3b07996cd5f6" id="m-getDay-3b07996cd5f6"></a>
 
 ```java
 public final byte getDay()
 ```
 
-<a id="m-gethour-32c719f425c9"></a>
-### getHour()
+### getHour() <a href="#m-getHour-32c719f425c9" id="m-getHour-32c719f425c9"></a>
 
 ```java
 public final byte getHour()
 ```
 
-<a id="m-getmicro-37aa6b436572"></a>
-### getMicro()
+### getMicro() <a href="#m-getMicro-37aa6b436572" id="m-getMicro-37aa6b436572"></a>
 
 ```java
 public final int getMicro()
 ```
 
-<a id="m-getmin-8654ceab94db"></a>
-### getMin()
+### getMin() <a href="#m-getMin-8654ceab94db" id="m-getMin-8654ceab94db"></a>
 
 ```java
 public final byte getMin()
 ```
 
-<a id="m-getmonth-3813513d5069"></a>
-### getMonth()
+### getMonth() <a href="#m-getMonth-3813513d5069" id="m-getMonth-3813513d5069"></a>
 
 ```java
 public final byte getMonth()
 ```
 
-<a id="m-getsec-c0fe657f6906"></a>
-### getSec()
+### getSec() <a href="#m-getSec-c0fe657f6906" id="m-getSec-c0fe657f6906"></a>
 
 ```java
 public final byte getSec()
 ```
 
-<a id="m-gettimezone-9573790f24e6"></a>
-### getTimezone()
+### getTimezone() <a href="#m-getTimezone-9573790f24e6" id="m-getTimezone-9573790f24e6"></a>
 
 ```java
 public final byte getTimezone()
 ```
 
-<a id="m-gettimezoneminutes-b20d3de8d152"></a>
-### getTimezoneMinutes()
+### getTimezoneMinutes() <a href="#m-getTimezoneMinutes-b20d3de8d152" id="m-getTimezoneMinutes-b20d3de8d152"></a>
 
 ```java
 public final byte getTimezoneMinutes()
 ```
 
-<a id="m-getyear-584af4457cda"></a>
-### getYear()
+### getYear() <a href="#m-getYear-584af4457cda" id="m-getYear-584af4457cda"></a>
 
 ```java
 public final short getYear()
 ```
 
-<a id="m-setday-2c873a29eed0"></a>
-### setDay(byte)
+### setDay(byte) <a href="#m-setDay-2c873a29eed0" id="m-setDay-2c873a29eed0"></a>
 
 ```java
 public final void setDay(byte value)
@@ -145,8 +132,7 @@ public final void setDay(byte value)
 
 - `byte value`
 
-<a id="m-sethour-49c3f93cc667"></a>
-### setHour(byte)
+### setHour(byte) <a href="#m-setHour-49c3f93cc667" id="m-setHour-49c3f93cc667"></a>
 
 ```java
 public final void setHour(byte value)
@@ -156,8 +142,7 @@ public final void setHour(byte value)
 
 - `byte value`
 
-<a id="m-setmicro-f8ae466800c3"></a>
-### setMicro(int)
+### setMicro(int) <a href="#m-setMicro-f8ae466800c3" id="m-setMicro-f8ae466800c3"></a>
 
 ```java
 public final void setMicro(int value)
@@ -167,8 +152,7 @@ public final void setMicro(int value)
 
 - `int value`
 
-<a id="m-setmin-4bea903ce744"></a>
-### setMin(byte)
+### setMin(byte) <a href="#m-setMin-4bea903ce744" id="m-setMin-4bea903ce744"></a>
 
 ```java
 public final void setMin(byte value)
@@ -178,8 +162,7 @@ public final void setMin(byte value)
 
 - `byte value`
 
-<a id="m-setmonth-b56a6d48db74"></a>
-### setMonth(byte)
+### setMonth(byte) <a href="#m-setMonth-b56a6d48db74" id="m-setMonth-b56a6d48db74"></a>
 
 ```java
 public final void setMonth(byte value)
@@ -189,8 +172,7 @@ public final void setMonth(byte value)
 
 - `byte value`
 
-<a id="m-setsec-487f1ad78d76"></a>
-### setSec(byte)
+### setSec(byte) <a href="#m-setSec-487f1ad78d76" id="m-setSec-487f1ad78d76"></a>
 
 ```java
 public final void setSec(byte value)
@@ -200,8 +182,7 @@ public final void setSec(byte value)
 
 - `byte value`
 
-<a id="m-settimezone-c58c111fac16"></a>
-### setTimezone(byte)
+### setTimezone(byte) <a href="#m-setTimezone-c58c111fac16" id="m-setTimezone-c58c111fac16"></a>
 
 ```java
 public final void setTimezone(byte value)
@@ -211,8 +192,7 @@ public final void setTimezone(byte value)
 
 - `byte value`
 
-<a id="m-settimezoneminutes-69e0ed31afd1"></a>
-### setTimezoneMinutes(byte)
+### setTimezoneMinutes(byte) <a href="#m-setTimezoneMinutes-69e0ed31afd1" id="m-setTimezoneMinutes-69e0ed31afd1"></a>
 
 ```java
 public final void setTimezoneMinutes(byte value)
@@ -222,8 +202,7 @@ public final void setTimezoneMinutes(byte value)
 
 - `byte value`
 
-<a id="m-setyear-ecdf80e7189d"></a>
-### setYear(short)
+### setYear(short) <a href="#m-setYear-ecdf80e7189d" id="m-setYear-ecdf80e7189d"></a>
 
 ```java
 public final void setYear(short value)

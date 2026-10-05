@@ -1,5 +1,4 @@
-<a id="cls-ConfBits"></a>
-# ConfBits
+# ConfBits <a href="#cls-ConfBits" id="cls-ConfBits"></a>
 
 ```java
 public abstract class com.tailf.conf.ConfBits
@@ -22,9 +21,9 @@ DATA_CONTAINER - This is the superclass for all bits types i.e.
 
 **Constructors**:
 
-- [ConfBits()](#m-confbits-0be881152ad1)
-- [ConfBits(byte[])](#m-confbits-94ed0a76778e)
-- [ConfBits(String)](#m-confbits-0902dfad5c0c)
+- [ConfBits()](#m-ConfBits-0be881152ad1)
+- [ConfBits(byte[])](#m-ConfBits-94ed0a76778e)
+- [ConfBits(String)](#m-ConfBits-0902dfad5c0c)
 
 **Fields**:
 
@@ -81,41 +80,39 @@ DATA_CONTAINER - This is the superclass for all bits types i.e.
 
 **Methods**:
 
-- [byteArrayValue()](#m-bytearrayvalue-2e0fef980288)
-- [clearBit(long)](#m-clearbit-5db4b507737e)
+- [byteArrayValue()](#m-byteArrayValue-2e0fef980288)
+- [clearBit(long)](#m-clearBit-5db4b507737e)
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBits)](#m-compareto-66b77461fdc7)
+- [compareTo(ConfBits)](#m-compareTo-66b77461fdc7)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](ConfValue.md#m-encode-fbae522bba37) from ConfValue
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getBitNamesByValue(ConfPath, ConfBits)](#m-getbitnamesbyvalue-3ba6b28839a1)
-- [getBitNamesByValue(String, ConfBits)](#m-getbitnamesbyvalue-c649f67dc799)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByBitNamesString(ConfPath, String)](#m-getvaluebybitnamesstring-12ca247b9d9d)
-- [getValueByBitNamesString(String, String)](#m-getvaluebybitnamesstring-c0e8ef407b4c)
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isBitSet(long)](#m-isbitset-a18cae1da74b)
-- [isBitSetSafe(long)](#m-isbitsetsafe-dbd99a7b4cbe)
-- [setBit(long)](#m-setbit-ca27ab33dd5d)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getBitNamesByValue(ConfPath, ConfBits)](#m-getBitNamesByValue-3ba6b28839a1)
+- [getBitNamesByValue(String, ConfBits)](#m-getBitNamesByValue-c649f67dc799)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByBitNamesString(ConfPath, String)](#m-getValueByBitNamesString-12ca247b9d9d)
+- [getValueByBitNamesString(String, String)](#m-getValueByBitNamesString-c0e8ef407b4c)
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isBitSet(long)](#m-isBitSet-a18cae1da74b)
+- [isBitSetSafe(long)](#m-isBitSetSafe-dbd99a7b4cbe)
+- [setBit(long)](#m-setBit-ca27ab33dd5d)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confbits-0be881152ad1"></a>
-### ConfBits()
+### ConfBits() <a href="#m-ConfBits-0be881152ad1" id="m-ConfBits-0be881152ad1"></a>
 
 ```java
 protected ConfBits()
 ```
 
-<a id="m-confbits-94ed0a76778e"></a>
-### ConfBits(byte[])
+### ConfBits(byte[]) <a href="#m-ConfBits-94ed0a76778e" id="m-ConfBits-94ed0a76778e"></a>
 
 ```java
 protected ConfBits(byte[] val)
@@ -128,8 +125,7 @@ Construct a bitset value from a byte array with the bytes in
 
 - `byte[] val`
 
-<a id="m-confbits-0902dfad5c0c"></a>
-### ConfBits(String)
+### ConfBits(String) <a href="#m-ConfBits-0902dfad5c0c" id="m-ConfBits-0902dfad5c0c"></a>
 
 ```java
 protected ConfBits(String str) throws com.tailf.conf.ConfException
@@ -152,8 +148,7 @@ String constructor for ConfBitBig.
 
 ## Fields
 
-<a id="m-val"></a>
-### val
+### val <a href="#m-val" id="m-val"></a>
 
 ```java
 protected byte[] val = null;
@@ -162,8 +157,7 @@ protected byte[] val = null;
 
 ## Methods
 
-<a id="m-bytearrayvalue-2e0fef980288"></a>
-### byteArrayValue()
+### byteArrayValue() <a href="#m-byteArrayValue-2e0fef980288" id="m-byteArrayValue-2e0fef980288"></a>
 
 ```java
 public byte[] byteArrayValue()
@@ -173,8 +167,7 @@ Get byte array representing this bitset in little endian order.
 
 **Returns:** little endian byte array of this bitset
 
-<a id="m-clearbit-5db4b507737e"></a>
-### clearBit(long)
+### clearBit(long) <a href="#m-clearBit-5db4b507737e" id="m-clearBit-5db4b507737e"></a>
 
 ```java
 public void clearBit(long pos) throws com.tailf.conf.ConfException
@@ -194,8 +187,7 @@ Clear bit at position pos in bitset. The bitset must initially been
 
 - `ConfException`
 
-<a id="m-compareto-66b77461fdc7"></a>
-### compareTo(ConfBits)
+### compareTo(ConfBits) <a href="#m-compareTo-66b77461fdc7" id="m-compareTo-66b77461fdc7"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfBits o)
@@ -209,8 +201,7 @@ CompareTo method
 
 - `com.tailf.conf.ConfBits o`
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -222,8 +213,7 @@ Equals method
 
 - `Object o`
 
-<a id="m-getbitnamesbyvalue-3ba6b28839a1"></a>
-### getBitNamesByValue(ConfPath, ConfBits)
+### getBitNamesByValue(ConfPath, ConfBits) <a href="#m-getBitNamesByValue-3ba6b28839a1" id="m-getBitNamesByValue-3ba6b28839a1"></a>
 
 ```java
 public static String getBitNamesByValue(
@@ -253,8 +243,7 @@ Get a string of bitnames like  bitnames like "bit1 bit2 ...", i.e
 
 - `ConfException`
 
-<a id="m-getbitnamesbyvalue-c649f67dc799"></a>
-### getBitNamesByValue(String, ConfBits)
+### getBitNamesByValue(String, ConfBits) <a href="#m-getBitNamesByValue-c649f67dc799" id="m-getBitNamesByValue-c649f67dc799"></a>
 
 ```java
 public static String getBitNamesByValue(
@@ -266,7 +255,7 @@ public static String getBitNamesByValue(
 
 Types: [ConfBits](ConfBits.md#cls-ConfBits), [ConfException](ConfException.md#cls-ConfException)
 
-Like `ConfPath#getBitNamesByValue(ConfPath, ConfBits)` but takes a path
+Like `getBitNamesByValue(ConfPath, ConfBits)` but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -280,8 +269,7 @@ Like `ConfPath#getBitNamesByValue(ConfPath, ConfBits)` but takes a path
 
 - `ConfException`
 
-<a id="m-getvaluebybitnamesstring-12ca247b9d9d"></a>
-### getValueByBitNamesString(ConfPath, String)
+### getValueByBitNamesString(ConfPath, String) <a href="#m-getValueByBitNamesString-12ca247b9d9d" id="m-getValueByBitNamesString-12ca247b9d9d"></a>
 
 ```java
 public static com.tailf.conf.ConfBits getValueByBitNamesString(
@@ -312,8 +300,7 @@ Get an ConfBits from the string of bitnames like "bit1 bit2 ...", i.e
 
 - `ConfException`
 
-<a id="m-getvaluebybitnamesstring-c0e8ef407b4c"></a>
-### getValueByBitNamesString(String, String)
+### getValueByBitNamesString(String, String) <a href="#m-getValueByBitNamesString-c0e8ef407b4c" id="m-getValueByBitNamesString-c0e8ef407b4c"></a>
 
 ```java
 public static com.tailf.conf.ConfBits getValueByBitNamesString(
@@ -325,7 +312,7 @@ public static com.tailf.conf.ConfBits getValueByBitNamesString(
 
 Types: [ConfBits](ConfBits.md#cls-ConfBits), [ConfException](ConfException.md#cls-ConfException)
 
-Like `ConfPath#getValueByBitNamesString(ConfPath, String)` but takes a path
+Like `getValueByBitNamesString(ConfPath, String)` but takes a path
  string pointing to the bitset in the schema.
 
 **Parameters**
@@ -339,8 +326,7 @@ Like `ConfPath#getValueByBitNamesString(ConfPath, String)` but takes a path
 
 - `ConfException`
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
@@ -348,8 +334,7 @@ public int hashCode()
 
 hashCode method
 
-<a id="m-isbitset-a18cae1da74b"></a>
-### isBitSet(long)
+### isBitSet(long) <a href="#m-isBitSet-a18cae1da74b" id="m-isBitSet-a18cae1da74b"></a>
 
 ```java
 public boolean isBitSet(long pos) throws com.tailf.conf.ConfException
@@ -372,8 +357,7 @@ Check if bit is set at position pos in bitset.
 
 - `ConfException` - Never, for API backwards compatibility.
 
-<a id="m-isbitsetsafe-dbd99a7b4cbe"></a>
-### isBitSetSafe(long)
+### isBitSetSafe(long) <a href="#m-isBitSetSafe-dbd99a7b4cbe" id="m-isBitSetSafe-dbd99a7b4cbe"></a>
 
 ```java
 public boolean isBitSetSafe(long pos)
@@ -390,8 +374,7 @@ Check if bit is set at position pos in bitset.
 
 **Returns:** boolean true if bit is set.
 
-<a id="m-setbit-ca27ab33dd5d"></a>
-### setBit(long)
+### setBit(long) <a href="#m-setBit-ca27ab33dd5d" id="m-setBit-ca27ab33dd5d"></a>
 
 ```java
 public void setBit(long pos) throws com.tailf.conf.ConfException
@@ -411,8 +394,7 @@ Set bit at position pos in bitset. The bitset must initially been
 
 - `ConfException`
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

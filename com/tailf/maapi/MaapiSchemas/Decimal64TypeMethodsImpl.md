@@ -1,5 +1,4 @@
-<a id="cls-Decimal64TypeMethodsImpl"></a>
-# Decimal64TypeMethodsImpl
+# Decimal64TypeMethodsImpl <a href="#cls-Decimal64TypeMethodsImpl" id="cls-Decimal64TypeMethodsImpl"></a>
 
 ```java
 public static class com.tailf.maapi.MaapiSchemas.Decimal64TypeMethodsImpl
@@ -12,18 +11,17 @@ Types: [CSTypeMethods](CSTypeMethods.md#cls-CSTypeMethods)
 
 **Constructors**:
 
-- [Decimal64TypeMethodsImpl()](#m-decimal64typemethodsimpl-298d5665311f)
+- [Decimal64TypeMethodsImpl()](#m-Decimal64TypeMethodsImpl-298d5665311f)
 
 **Methods**:
 
-- [stringToValue(CSType, String)](#m-stringtovalue-9fef98be9bb2)
+- [stringToValue(CSType, String)](#m-stringToValue-9fef98be9bb2)
 - [validate(CSType, ConfValue)](#m-validate-d2696432436e)
-- [valueToString(CSType, ConfValue)](#m-valuetostring-f281f6b6d7d7)
+- [valueToString(CSType, ConfValue)](#m-valueToString-f281f6b6d7d7)
 
 ## Constructors
 
-<a id="m-decimal64typemethodsimpl-298d5665311f"></a>
-### Decimal64TypeMethodsImpl()
+### Decimal64TypeMethodsImpl() <a href="#m-Decimal64TypeMethodsImpl-298d5665311f" id="m-Decimal64TypeMethodsImpl-298d5665311f"></a>
 
 ```java
 public Decimal64TypeMethodsImpl()
@@ -32,8 +30,7 @@ public Decimal64TypeMethodsImpl()
 
 ## Methods
 
-<a id="m-stringtovalue-9fef98be9bb2"></a>
-### stringToValue(CSType, String)
+### stringToValue(CSType, String) <a href="#m-stringToValue-9fef98be9bb2" id="m-stringToValue-9fef98be9bb2"></a>
 
 ```java
 public com.tailf.conf.ConfValue stringToValue(
@@ -50,8 +47,7 @@ Types: [ConfValue](../../conf/ConfValue.md#cls-ConfValue), [CSType](CSType.md#cl
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `String str`
 
-<a id="m-validate-d2696432436e"></a>
-### validate(CSType, ConfValue)
+### validate(CSType, ConfValue) <a href="#m-validate-d2696432436e" id="m-validate-d2696432436e"></a>
 
 ```java
 public boolean validate(
@@ -68,8 +64,7 @@ Types: [CSType](CSType.md#cls-CSType), [ConfValue](../../conf/ConfValue.md#cls-C
 - `com.tailf.maapi.MaapiSchemas.CSType type`
 - `com.tailf.conf.ConfValue val`
 
-<a id="m-valuetostring-f281f6b6d7d7"></a>
-### valueToString(CSType, ConfValue)
+### valueToString(CSType, ConfValue) <a href="#m-valueToString-f281f6b6d7d7" id="m-valueToString-f281f6b6d7d7"></a>
 
 ```java
 public String valueToString(com.tailf.maapi.MaapiSchemas.CSType type, com.tailf.conf.ConfValue val)

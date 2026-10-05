@@ -1,5 +1,4 @@
-<a id="cls-ActionCBType"></a>
-# ActionCBType
+# ActionCBType <a href="#cls-ActionCBType" id="cls-ActionCBType"></a>
 
 ```java
 public enum com.tailf.dp.proto.ActionCBType
@@ -23,14 +22,13 @@ Enumeration of Action callback methods
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ABORT"></a>
-### ABORT
+### ABORT <a href="#m-ABORT" id="m-ABORT"></a>
 
 ```java
 public static final com.tailf.dp.proto.ActionCBType ABORT;
@@ -38,8 +36,7 @@ public static final com.tailf.dp.proto.ActionCBType ABORT;
 
 Abort callback type for user-initiated action termination.
 
-<a id="m-ACTION"></a>
-### ACTION
+### ACTION <a href="#m-ACTION" id="m-ACTION"></a>
 
 ```java
 public static final com.tailf.dp.proto.ActionCBType ACTION;
@@ -47,8 +44,7 @@ public static final com.tailf.dp.proto.ActionCBType ACTION;
 
 Main action callback type for YANG action execution.
 
-<a id="m-COMMAND"></a>
-### COMMAND
+### COMMAND <a href="#m-COMMAND" id="m-COMMAND"></a>
 
 ```java
 public static final com.tailf.dp.proto.ActionCBType COMMAND;
@@ -56,8 +52,7 @@ public static final com.tailf.dp.proto.ActionCBType COMMAND;
 
 Command callback type for CLI command execution.
 
-<a id="m-COMPLETION"></a>
-### COMPLETION
+### COMPLETION <a href="#m-COMPLETION" id="m-COMPLETION"></a>
 
 ```java
 public static final com.tailf.dp.proto.ActionCBType COMPLETION;
@@ -65,8 +60,7 @@ public static final com.tailf.dp.proto.ActionCBType COMPLETION;
 
 Completion callback type for CLI auto-completion and help.
 
-<a id="m-INIT"></a>
-### INIT
+### INIT <a href="#m-INIT" id="m-INIT"></a>
 
 ```java
 public static final com.tailf.dp.proto.ActionCBType INIT;
@@ -77,8 +71,7 @@ Initialization callback type for action callbacks.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -88,8 +81,7 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.dp.proto.ActionCBType valueOf(String name)
@@ -101,8 +93,7 @@ Types: [ActionCBType](ActionCBType.md#cls-ActionCBType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.dp.proto.ActionCBType[] values()

@@ -1,5 +1,4 @@
-<a id="cls-PathParserTokenManager"></a>
-# PathParserTokenManager
+# PathParserTokenManager <a href="#cls-PathParserTokenManager" id="cls-PathParserTokenManager"></a>
 
 **Package-private**
 
@@ -17,8 +16,8 @@ Token Manager.
 
 **Constructors**:
 
-- [PathParserTokenManager(JavaCharStream)](#m-pathparsertokenmanager-f1d632e41bca)
-- [PathParserTokenManager(JavaCharStream, int)](#m-pathparsertokenmanager-ab57e84d09f3)
+- [PathParserTokenManager(JavaCharStream)](#m-PathParserTokenManager-f1d632e41bca)
+- [PathParserTokenManager(JavaCharStream, int)](#m-PathParserTokenManager-ab57e84d09f3)
 
 **Fields**:
 
@@ -62,20 +61,19 @@ Token Manager.
 
 **Methods**:
 
-- [getNextToken()](#m-getnexttoken-dc921ada5024)
-- [jjFillToken()](#m-jjfilltoken-65cab186126c)
-- [MoreLexicalActions()](#m-morelexicalactions-949853b6331d)
-- [ReInit(JavaCharStream)](#m-reinit-c114d2c1f7c1)
-- [ReInit(JavaCharStream, int)](#m-reinit-eaef39c1af93)
-- [setDebugStream(PrintStream)](#m-setdebugstream-b3ded1375b4f)
-- [SkipLexicalActions(Token)](#m-skiplexicalactions-64f9393655bf)
-- [SwitchTo(int)](#m-switchto-11e96339668c)
-- [TokenLexicalActions(Token)](#m-tokenlexicalactions-f60b6e1bdbf0)
+- [getNextToken()](#m-getNextToken-dc921ada5024)
+- [jjFillToken()](#m-jjFillToken-65cab186126c)
+- [MoreLexicalActions()](#m-MoreLexicalActions-949853b6331d)
+- [ReInit(JavaCharStream)](#m-ReInit-c114d2c1f7c1)
+- [ReInit(JavaCharStream, int)](#m-ReInit-eaef39c1af93)
+- [setDebugStream(PrintStream)](#m-setDebugStream-b3ded1375b4f)
+- [SkipLexicalActions(Token)](#m-SkipLexicalActions-64f9393655bf)
+- [SwitchTo(int)](#m-SwitchTo-11e96339668c)
+- [TokenLexicalActions(Token)](#m-TokenLexicalActions-f60b6e1bdbf0)
 
 ## Constructors
 
-<a id="m-pathparsertokenmanager-f1d632e41bca"></a>
-### PathParserTokenManager(JavaCharStream)
+### PathParserTokenManager(JavaCharStream) <a href="#m-PathParserTokenManager-f1d632e41bca" id="m-PathParserTokenManager-f1d632e41bca"></a>
 
 ```java
 public PathParserTokenManager(com.tailf.conf.gen.JavaCharStream stream)
@@ -89,8 +87,7 @@ Constructor.
 
 - `com.tailf.conf.gen.JavaCharStream stream`
 
-<a id="m-pathparsertokenmanager-ab57e84d09f3"></a>
-### PathParserTokenManager(JavaCharStream, int)
+### PathParserTokenManager(JavaCharStream, int) <a href="#m-PathParserTokenManager-ab57e84d09f3" id="m-PathParserTokenManager-ab57e84d09f3"></a>
 
 ```java
 public PathParserTokenManager(com.tailf.conf.gen.JavaCharStream stream, int lexState)
@@ -108,15 +105,13 @@ Constructor.
 
 ## Fields
 
-<a id="m-curChar"></a>
-### curChar
+### curChar <a href="#m-curChar" id="m-curChar"></a>
 
 ```java
 protected int curChar = null;
 ```
 
-<a id="m-curLexState"></a>
-### curLexState
+### curLexState <a href="#m-curLexState" id="m-curLexState"></a>
 
 **Package-private**
 
@@ -124,8 +119,7 @@ protected int curChar = null;
 int curLexState = null;
 ```
 
-<a id="m-debugStream"></a>
-### debugStream
+### debugStream <a href="#m-debugStream" id="m-debugStream"></a>
 
 ```java
 public java.io.PrintStream debugStream = null;
@@ -133,8 +127,7 @@ public java.io.PrintStream debugStream = null;
 
 Debug output.
 
-<a id="m-defaultLexState"></a>
-### defaultLexState
+### defaultLexState <a href="#m-defaultLexState" id="m-defaultLexState"></a>
 
 **Package-private**
 
@@ -142,8 +135,7 @@ Debug output.
 int defaultLexState = null;
 ```
 
-<a id="m-input_stream"></a>
-### input_stream
+### input_stream <a href="#m-input_stream" id="m-input_stream"></a>
 
 ```java
 protected com.tailf.conf.gen.JavaCharStream input_stream = null;
@@ -151,8 +143,7 @@ protected com.tailf.conf.gen.JavaCharStream input_stream = null;
 
 Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 
-<a id="m-jjbitVec0"></a>
-### jjbitVec0
+### jjbitVec0 <a href="#m-jjbitVec0" id="m-jjbitVec0"></a>
 
 **Package-private**
 
@@ -160,8 +151,7 @@ Types: [JavaCharStream](JavaCharStream.md#cls-JavaCharStream)
 static final long[] jjbitVec0 = null;
 ```
 
-<a id="m-jjbitVec2"></a>
-### jjbitVec2
+### jjbitVec2 <a href="#m-jjbitVec2" id="m-jjbitVec2"></a>
 
 **Package-private**
 
@@ -169,8 +159,7 @@ static final long[] jjbitVec0 = null;
 static final long[] jjbitVec2 = null;
 ```
 
-<a id="m-jjmatchedKind"></a>
-### jjmatchedKind
+### jjmatchedKind <a href="#m-jjmatchedKind" id="m-jjmatchedKind"></a>
 
 **Package-private**
 
@@ -178,8 +167,7 @@ static final long[] jjbitVec2 = null;
 int jjmatchedKind = null;
 ```
 
-<a id="m-jjmatchedPos"></a>
-### jjmatchedPos
+### jjmatchedPos <a href="#m-jjmatchedPos" id="m-jjmatchedPos"></a>
 
 **Package-private**
 
@@ -187,8 +175,7 @@ int jjmatchedKind = null;
 int jjmatchedPos = null;
 ```
 
-<a id="m-jjnewLexState"></a>
-### jjnewLexState
+### jjnewLexState <a href="#m-jjnewLexState" id="m-jjnewLexState"></a>
 
 ```java
 public static final int[] jjnewLexState = null;
@@ -196,8 +183,7 @@ public static final int[] jjnewLexState = null;
 
 Lex State array.
 
-<a id="m-jjnewStateCnt"></a>
-### jjnewStateCnt
+### jjnewStateCnt <a href="#m-jjnewStateCnt" id="m-jjnewStateCnt"></a>
 
 **Package-private**
 
@@ -205,8 +191,7 @@ Lex State array.
 int jjnewStateCnt = null;
 ```
 
-<a id="m-jjnextStates"></a>
-### jjnextStates
+### jjnextStates <a href="#m-jjnextStates" id="m-jjnextStates"></a>
 
 **Package-private**
 
@@ -214,8 +199,7 @@ int jjnewStateCnt = null;
 static final int[] jjnextStates = null;
 ```
 
-<a id="m-jjround"></a>
-### jjround
+### jjround <a href="#m-jjround" id="m-jjround"></a>
 
 **Package-private**
 
@@ -223,8 +207,7 @@ static final int[] jjnextStates = null;
 int jjround = null;
 ```
 
-<a id="m-jjstrLiteralImages"></a>
-### jjstrLiteralImages
+### jjstrLiteralImages <a href="#m-jjstrLiteralImages" id="m-jjstrLiteralImages"></a>
 
 ```java
 public static final String[] jjstrLiteralImages = null;
@@ -232,8 +215,7 @@ public static final String[] jjstrLiteralImages = null;
 
 Token literal values.
 
-<a id="m-jjtoMore"></a>
-### jjtoMore
+### jjtoMore <a href="#m-jjtoMore" id="m-jjtoMore"></a>
 
 **Package-private**
 
@@ -241,8 +223,7 @@ Token literal values.
 static final long[] jjtoMore = null;
 ```
 
-<a id="m-jjtoSkip"></a>
-### jjtoSkip
+### jjtoSkip <a href="#m-jjtoSkip" id="m-jjtoSkip"></a>
 
 **Package-private**
 
@@ -250,8 +231,7 @@ static final long[] jjtoMore = null;
 static final long[] jjtoSkip = null;
 ```
 
-<a id="m-jjtoSpecial"></a>
-### jjtoSpecial
+### jjtoSpecial <a href="#m-jjtoSpecial" id="m-jjtoSpecial"></a>
 
 **Package-private**
 
@@ -259,8 +239,7 @@ static final long[] jjtoSkip = null;
 static final long[] jjtoSpecial = null;
 ```
 
-<a id="m-jjtoToken"></a>
-### jjtoToken
+### jjtoToken <a href="#m-jjtoToken" id="m-jjtoToken"></a>
 
 **Package-private**
 
@@ -268,8 +247,7 @@ static final long[] jjtoSpecial = null;
 static final long[] jjtoToken = null;
 ```
 
-<a id="m-lexStateNames"></a>
-### lexStateNames
+### lexStateNames <a href="#m-lexStateNames" id="m-lexStateNames"></a>
 
 ```java
 public static final String[] lexStateNames = null;
@@ -280,8 +258,7 @@ Lexer state names.
 
 ## Methods
 
-<a id="m-getnexttoken-dc921ada5024"></a>
-### getNextToken()
+### getNextToken() <a href="#m-getNextToken-dc921ada5024" id="m-getNextToken-dc921ada5024"></a>
 
 ```java
 public com.tailf.conf.gen.Token getNextToken()
@@ -291,8 +268,7 @@ Types: [Token](Token.md#cls-Token)
 
 Get the next Token.
 
-<a id="m-jjfilltoken-65cab186126c"></a>
-### jjFillToken()
+### jjFillToken() <a href="#m-jjFillToken-65cab186126c" id="m-jjFillToken-65cab186126c"></a>
 
 ```java
 protected com.tailf.conf.gen.Token jjFillToken()
@@ -300,8 +276,7 @@ protected com.tailf.conf.gen.Token jjFillToken()
 
 Types: [Token](Token.md#cls-Token)
 
-<a id="m-morelexicalactions-949853b6331d"></a>
-### MoreLexicalActions()
+### MoreLexicalActions() <a href="#m-MoreLexicalActions-949853b6331d" id="m-MoreLexicalActions-949853b6331d"></a>
 
 **Package-private**
 
@@ -309,8 +284,7 @@ Types: [Token](Token.md#cls-Token)
 void MoreLexicalActions()
 ```
 
-<a id="m-reinit-c114d2c1f7c1"></a>
-### ReInit(JavaCharStream)
+### ReInit(JavaCharStream) <a href="#m-ReInit-c114d2c1f7c1" id="m-ReInit-c114d2c1f7c1"></a>
 
 ```java
 public void ReInit(com.tailf.conf.gen.JavaCharStream stream)
@@ -324,8 +298,7 @@ Reinitialise parser.
 
 - `com.tailf.conf.gen.JavaCharStream stream`
 
-<a id="m-reinit-eaef39c1af93"></a>
-### ReInit(JavaCharStream, int)
+### ReInit(JavaCharStream, int) <a href="#m-ReInit-eaef39c1af93" id="m-ReInit-eaef39c1af93"></a>
 
 ```java
 public void ReInit(com.tailf.conf.gen.JavaCharStream stream, int lexState)
@@ -340,8 +313,7 @@ Reinitialise parser.
 - `com.tailf.conf.gen.JavaCharStream stream`
 - `int lexState`
 
-<a id="m-setdebugstream-b3ded1375b4f"></a>
-### setDebugStream(PrintStream)
+### setDebugStream(PrintStream) <a href="#m-setDebugStream-b3ded1375b4f" id="m-setDebugStream-b3ded1375b4f"></a>
 
 ```java
 public void setDebugStream(java.io.PrintStream ds)
@@ -353,8 +325,7 @@ Set debug output.
 
 - `java.io.PrintStream ds`
 
-<a id="m-skiplexicalactions-64f9393655bf"></a>
-### SkipLexicalActions(Token)
+### SkipLexicalActions(Token) <a href="#m-SkipLexicalActions-64f9393655bf" id="m-SkipLexicalActions-64f9393655bf"></a>
 
 **Package-private**
 
@@ -368,8 +339,7 @@ Types: [Token](Token.md#cls-Token)
 
 - `com.tailf.conf.gen.Token matchedToken`
 
-<a id="m-switchto-11e96339668c"></a>
-### SwitchTo(int)
+### SwitchTo(int) <a href="#m-SwitchTo-11e96339668c" id="m-SwitchTo-11e96339668c"></a>
 
 ```java
 public void SwitchTo(int lexState)
@@ -381,8 +351,7 @@ Switch to specified lex state.
 
 - `int lexState`
 
-<a id="m-tokenlexicalactions-f60b6e1bdbf0"></a>
-### TokenLexicalActions(Token)
+### TokenLexicalActions(Token) <a href="#m-TokenLexicalActions-f60b6e1bdbf0" id="m-TokenLexicalActions-f60b6e1bdbf0"></a>
 
 **Package-private**
 

@@ -1,5 +1,4 @@
-<a id="cls-NcsJVMLauncher"></a>
-# NcsJVMLauncher
+# NcsJVMLauncher <a href="#cls-NcsJVMLauncher" id="cls-NcsJVMLauncher"></a>
 
 ```java
 public class com.tailf.ncs.NcsJVMLauncher
@@ -12,7 +11,7 @@ Helper class implementing a java main() method which
 
 **Constructors**:
 
-- [NcsJVMLauncher()](#m-ncsjvmlauncher-da3644742c99)
+- [NcsJVMLauncher()](#m-NcsJVMLauncher-da3644742c99)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ Helper class implementing a java main() method which
 
 ## Constructors
 
-<a id="m-ncsjvmlauncher-da3644742c99"></a>
-### NcsJVMLauncher()
+### NcsJVMLauncher() <a href="#m-NcsJVMLauncher-da3644742c99" id="m-NcsJVMLauncher-da3644742c99"></a>
 
 ```java
 public NcsJVMLauncher()
@@ -35,8 +33,7 @@ public NcsJVMLauncher()
 
 ## Fields
 
-<a id="m-SYSTEM_EXIT_ON_STOP"></a>
-### SYSTEM_EXIT_ON_STOP
+### SYSTEM_EXIT_ON_STOP <a href="#m-SYSTEM_EXIT_ON_STOP" id="m-SYSTEM_EXIT_ON_STOP"></a>
 
 ```java
 public static final String SYSTEM_EXIT_ON_STOP = "SYSTEM_EXIT_ON_STOP";
@@ -49,8 +46,7 @@ This field represents a system property controlling how the
 
  java -cp ... -DSYSTEM_EXIT_ON_STOP=false  com...NcsJVMLauncher
 
-<a id="m-TAILF_SOCKET_FACTORY_CB"></a>
-### TAILF_SOCKET_FACTORY_CB
+### TAILF_SOCKET_FACTORY_CB <a href="#m-TAILF_SOCKET_FACTORY_CB" id="m-TAILF_SOCKET_FACTORY_CB"></a>
 
 ```java
 public static final String TAILF_SOCKET_FACTORY_CB = "TAILF_SOCKET_FACTORY_CB";
@@ -68,8 +64,7 @@ This field represents a system property that allows for a customized
 
 ## Methods
 
-<a id="m-main-1503518a8568"></a>
-### main(String[])
+### main(String[]) <a href="#m-main-1503518a8568" id="m-main-1503518a8568"></a>
 
 ```java
 public static void main(String[] arg)

@@ -1,5 +1,4 @@
-<a id="cls-ResultType"></a>
-# ResultType
+# ResultType <a href="#cls-ResultType" id="cls-ResultType"></a>
 
 ```java
 public interface com.tailf.maapi.ResultType

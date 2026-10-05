@@ -1,5 +1,4 @@
-<a id="cls-ConfDatetime"></a>
-# ConfDatetime
+# ConfDatetime <a href="#cls-ConfDatetime" id="cls-ConfDatetime"></a>
 
 ```java
 public class com.tailf.conf.ConfDatetime
@@ -15,9 +14,9 @@ DATA_CONTAINER - Corresponds to the YANG date-and-time type.
 
 **Constructors**:
 
-- [ConfDatetime(ConfEObject)](#m-confdatetime-860b6df919e9)
-- [ConfDatetime(int, int, int, int, int, int, int, int, int)](#m-confdatetime-de3ca2266d87)
-- [ConfDatetime(String)](#m-confdatetime-d9bfdff5ab83)
+- [ConfDatetime(ConfEObject)](#m-ConfDatetime-860b6df919e9)
+- [ConfDatetime(int, int, int, int, int, int, int, int, int)](#m-ConfDatetime-de3ca2266d87)
+- [ConfDatetime(String)](#m-ConfDatetime-d9bfdff5ab83)
 
 **Fields**:
 
@@ -75,34 +74,33 @@ DATA_CONTAINER - Corresponds to the YANG date-and-time type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfDatetime)](#m-compareto-43622009e5d1)
+- [compareTo(ConfDatetime)](#m-compareTo-43622009e5d1)
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getConfDatetime()](#m-getconfdatetime-4da636349f79)
-- [getDay()](#m-getday-3b07996cd5f6)
-- [getHour()](#m-gethour-32c719f425c9)
-- [getMicro()](#m-getmicro-37aa6b436572)
-- [getMin()](#m-getmin-8654ceab94db)
-- [getMonth()](#m-getmonth-3813513d5069)
-- [getSec()](#m-getsec-c0fe657f6906)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getTimezone()](#m-gettimezone-9573790f24e6)
-- [getTimezoneMinutes()](#m-gettimezoneminutes-b20d3de8d152)
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [getYear()](#m-getyear-584af4457cda)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [isTimezoneSet()](#m-istimezoneset-bea37cc8df0f)
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getConfDatetime()](#m-getConfDatetime-4da636349f79)
+- [getDay()](#m-getDay-3b07996cd5f6)
+- [getHour()](#m-getHour-32c719f425c9)
+- [getMicro()](#m-getMicro-37aa6b436572)
+- [getMin()](#m-getMin-8654ceab94db)
+- [getMonth()](#m-getMonth-3813513d5069)
+- [getSec()](#m-getSec-c0fe657f6906)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getTimezone()](#m-getTimezone-9573790f24e6)
+- [getTimezoneMinutes()](#m-getTimezoneMinutes-b20d3de8d152)
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [getYear()](#m-getYear-584af4457cda)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [isTimezoneSet()](#m-isTimezoneSet-bea37cc8df0f)
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confdatetime-860b6df919e9"></a>
-### ConfDatetime(ConfEObject)
+### ConfDatetime(ConfEObject) <a href="#m-ConfDatetime-860b6df919e9" id="m-ConfDatetime-860b6df919e9"></a>
 
 ```java
 public ConfDatetime(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -116,8 +114,7 @@ For internal usage.
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confdatetime-de3ca2266d87"></a>
-### ConfDatetime(int, int, int, int, int, int, int, int, int)
+### ConfDatetime(int, int, int, int, int, int, int, int, int) <a href="#m-ConfDatetime-de3ca2266d87" id="m-ConfDatetime-de3ca2266d87"></a>
 
 ```java
 public ConfDatetime(
@@ -145,8 +142,7 @@ public ConfDatetime(
 - `int timezone` - - Timezone Hour in unit hours
 - `int timezoneMinutes` - - Timezone Minutes in unit minutes
 
-<a id="m-confdatetime-d9bfdff5ab83"></a>
-### ConfDatetime(String)
+### ConfDatetime(String) <a href="#m-ConfDatetime-d9bfdff5ab83" id="m-ConfDatetime-d9bfdff5ab83"></a>
 
 ```java
 public ConfDatetime(String str)
@@ -159,8 +155,7 @@ public ConfDatetime(String str)
 
 ## Methods
 
-<a id="m-compareto-43622009e5d1"></a>
-### compareTo(ConfDatetime)
+### compareTo(ConfDatetime) <a href="#m-compareTo-43622009e5d1" id="m-compareTo-43622009e5d1"></a>
 
 ```java
 public int compareTo(com.tailf.conf.ConfDatetime o)
@@ -172,8 +167,7 @@ Types: [ConfDatetime](ConfDatetime.md#cls-ConfDatetime)
 
 - `com.tailf.conf.ConfDatetime o`
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -181,8 +175,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -192,8 +185,7 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getconfdatetime-4da636349f79"></a>
-### getConfDatetime()
+### getConfDatetime() <a href="#m-getConfDatetime-4da636349f79" id="m-getConfDatetime-4da636349f79"></a>
 
 ```java
 public static com.tailf.conf.ConfDatetime getConfDatetime()
@@ -203,50 +195,43 @@ Types: [ConfDatetime](ConfDatetime.md#cls-ConfDatetime)
 
 **Returns:** Returns the current time in UTC TimeZone.
 
-<a id="m-getday-3b07996cd5f6"></a>
-### getDay()
+### getDay() <a href="#m-getDay-3b07996cd5f6" id="m-getDay-3b07996cd5f6"></a>
 
 ```java
 public int getDay()
 ```
 
-<a id="m-gethour-32c719f425c9"></a>
-### getHour()
+### getHour() <a href="#m-getHour-32c719f425c9" id="m-getHour-32c719f425c9"></a>
 
 ```java
 public int getHour()
 ```
 
-<a id="m-getmicro-37aa6b436572"></a>
-### getMicro()
+### getMicro() <a href="#m-getMicro-37aa6b436572" id="m-getMicro-37aa6b436572"></a>
 
 ```java
 public int getMicro()
 ```
 
-<a id="m-getmin-8654ceab94db"></a>
-### getMin()
+### getMin() <a href="#m-getMin-8654ceab94db" id="m-getMin-8654ceab94db"></a>
 
 ```java
 public int getMin()
 ```
 
-<a id="m-getmonth-3813513d5069"></a>
-### getMonth()
+### getMonth() <a href="#m-getMonth-3813513d5069" id="m-getMonth-3813513d5069"></a>
 
 ```java
 public int getMonth()
 ```
 
-<a id="m-getsec-c0fe657f6906"></a>
-### getSec()
+### getSec() <a href="#m-getSec-c0fe657f6906" id="m-getSec-c0fe657f6906"></a>
 
 ```java
 public int getSec()
 ```
 
-<a id="m-gettimezone-9573790f24e6"></a>
-### getTimezone()
+### getTimezone() <a href="#m-getTimezone-9573790f24e6" id="m-getTimezone-9573790f24e6"></a>
 
 ```java
 public int getTimezone()
@@ -255,8 +240,7 @@ public int getTimezone()
 **Returns:** The Hour timezone in hours, for example
           02:00 will return 2 hours
 
-<a id="m-gettimezoneminutes-b20d3de8d152"></a>
-### getTimezoneMinutes()
+### getTimezoneMinutes() <a href="#m-getTimezoneMinutes-b20d3de8d152" id="m-getTimezoneMinutes-b20d3de8d152"></a>
 
 ```java
 public int getTimezoneMinutes()
@@ -265,29 +249,25 @@ public int getTimezoneMinutes()
 **Returns:** The Minutes timezone in minutes, for example
          02:30 will return 30 minutes
 
-<a id="m-getyear-584af4457cda"></a>
-### getYear()
+### getYear() <a href="#m-getYear-584af4457cda" id="m-getYear-584af4457cda"></a>
 
 ```java
 public int getYear()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-istimezoneset-bea37cc8df0f"></a>
-### isTimezoneSet()
+### isTimezoneSet() <a href="#m-isTimezoneSet-bea37cc8df0f" id="m-isTimezoneSet-bea37cc8df0f"></a>
 
 ```java
 public boolean isTimezoneSet()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

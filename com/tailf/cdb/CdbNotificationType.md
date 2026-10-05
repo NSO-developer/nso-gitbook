@@ -1,5 +1,4 @@
-<a id="cls-CdbNotificationType"></a>
-# CdbNotificationType
+# CdbNotificationType <a href="#cls-CdbNotificationType" id="cls-CdbNotificationType"></a>
 
 ```java
 public enum com.tailf.cdb.CdbNotificationType
@@ -21,15 +20,14 @@ Subscription notification type retrieved from getLatestNotificationType()
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-SUB_ABORT"></a>
-### SUB_ABORT
+### SUB_ABORT <a href="#m-SUB_ABORT" id="m-SUB_ABORT"></a>
 
 ```java
 public static final com.tailf.cdb.CdbNotificationType SUB_ABORT;
@@ -37,8 +35,7 @@ public static final com.tailf.cdb.CdbNotificationType SUB_ABORT;
 
 Notification on aborted transaction
 
-<a id="m-SUB_COMMIT"></a>
-### SUB_COMMIT
+### SUB_COMMIT <a href="#m-SUB_COMMIT" id="m-SUB_COMMIT"></a>
 
 ```java
 public static final com.tailf.cdb.CdbNotificationType SUB_COMMIT;
@@ -46,8 +43,7 @@ public static final com.tailf.cdb.CdbNotificationType SUB_COMMIT;
 
 Notification on transaction in commit state
 
-<a id="m-SUB_OPER"></a>
-### SUB_OPER
+### SUB_OPER <a href="#m-SUB_OPER" id="m-SUB_OPER"></a>
 
 ```java
 public static final com.tailf.cdb.CdbNotificationType SUB_OPER;
@@ -55,8 +51,7 @@ public static final com.tailf.cdb.CdbNotificationType SUB_OPER;
 
 Notification
 
-<a id="m-SUB_PREPARE"></a>
-### SUB_PREPARE
+### SUB_PREPARE <a href="#m-SUB_PREPARE" id="m-SUB_PREPARE"></a>
 
 ```java
 public static final com.tailf.cdb.CdbNotificationType SUB_PREPARE;
@@ -67,15 +62,13 @@ Notification on transaction in prepare state
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.cdb.CdbNotificationType valueOf(int i)
@@ -87,8 +80,7 @@ Types: [CdbNotificationType](CdbNotificationType.md#cls-CdbNotificationType)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.cdb.CdbNotificationType valueOf(String name)
@@ -100,8 +92,7 @@ Types: [CdbNotificationType](CdbNotificationType.md#cls-CdbNotificationType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.cdb.CdbNotificationType[] values()

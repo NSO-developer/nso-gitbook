@@ -1,5 +1,4 @@
-<a id="cls-HealtCheckNotification"></a>
-# HealtCheckNotification
+# HealtCheckNotification <a href="#cls-HealtCheckNotification" id="cls-HealtCheckNotification"></a>
 
 ```java
 public class com.tailf.notif.HealtCheckNotification
@@ -14,7 +13,7 @@ Data structure for HealtCheck notifications.
 
 **Constructors**:
 
-- [HealtCheckNotification()](#m-healtchecknotification-0730a67c1fa1)
+- [HealtCheckNotification()](#m-HealtCheckNotification-0730a67c1fa1)
 
 **Fields**:
 
@@ -22,13 +21,12 @@ Data structure for HealtCheck notifications.
 
 **Methods**:
 
-- [getNotificationType()](Notification.md#m-getnotificationtype-f0e32b7b644f) from Notification
-- [toString()](Notification.md#m-tostring-e9d48c5503ef) from Notification
+- [getNotificationType()](Notification.md#m-getNotificationType-f0e32b7b644f) from Notification
+- [toString()](Notification.md#m-toString-e9d48c5503ef) from Notification
 
 ## Constructors
 
-<a id="m-healtchecknotification-0730a67c1fa1"></a>
-### HealtCheckNotification()
+### HealtCheckNotification() <a href="#m-HealtCheckNotification-0730a67c1fa1" id="m-HealtCheckNotification-0730a67c1fa1"></a>
 
 ```java
 public HealtCheckNotification()

@@ -1,5 +1,4 @@
-<a id="cls-ConfCleaner"></a>
-# ConfCleaner
+# ConfCleaner <a href="#cls-ConfCleaner" id="cls-ConfCleaner"></a>
 
 ```java
 public final class com.tailf.conf.ConfCleaner
@@ -25,8 +24,7 @@ ConfCleaner manages a set of object references and corresponding
 
 ## Fields
 
-<a id="m-CLEANER"></a>
-### CLEANER
+### CLEANER <a href="#m-CLEANER" id="m-CLEANER"></a>
 
 ```java
 public static final java.lang.ref.Cleaner CLEANER = null;
@@ -35,8 +33,7 @@ public static final java.lang.ref.Cleaner CLEANER = null;
 
 ## Methods
 
-<a id="m-register-15a1a2f775a2"></a>
-### register(Object, AutoCloseable, AutoCloseable[])
+### register(Object, AutoCloseable, AutoCloseable[]) <a href="#m-register-15a1a2f775a2" id="m-register-15a1a2f775a2"></a>
 
 ```java
 public static java.lang.ref.Cleaner.Cleanable register(
@@ -57,8 +54,7 @@ Registers an auto closeable object that will be closed when
 
 **Returns:** a Cleanable instance
 
-<a id="m-register-2ca26b8e3d14"></a>
-### register(Object, Runnable)
+### register(Object, Runnable) <a href="#m-register-2ca26b8e3d14" id="m-register-2ca26b8e3d14"></a>
 
 ```java
 public static java.lang.ref.Cleaner.Cleanable register(Object obj, Runnable action)

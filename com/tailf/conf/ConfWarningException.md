@@ -1,5 +1,4 @@
-<a id="cls-ConfWarningException"></a>
-# ConfWarningException
+# ConfWarningException <a href="#cls-ConfWarningException" id="cls-ConfWarningException"></a>
 
 ```java
 public class com.tailf.conf.ConfWarningException
@@ -14,21 +13,20 @@ Warning exception base class.
 
 **Constructors**:
 
-- [ConfWarningException(String, ErrorCode, ConfWarning[])](#m-confwarningexception-05f73704f552)
-- [ConfWarningException(String, int, ConfWarning[])](#m-confwarningexception-535efc462eac)
+- [ConfWarningException(String, ErrorCode, ConfWarning[])](#m-ConfWarningException-05f73704f552)
+- [ConfWarningException(String, int, ConfWarning[])](#m-ConfWarningException-535efc462eac)
 
 **Methods**:
 
-- [getErrorCode()](ConfException.md#m-geterrorcode-812152fc083a) from ConfException
-- [getOpaque()](ConfException.md#m-getopaque-92e4945ec92d) from ConfException
-- [getWarnings()](#m-getwarnings-875cbe661ca7)
+- [getErrorCode()](ConfException.md#m-getErrorCode-812152fc083a) from ConfException
+- [getOpaque()](ConfException.md#m-getOpaque-92e4945ec92d) from ConfException
+- [getWarnings()](#m-getWarnings-875cbe661ca7)
 - [mk(ConfResponse)](ConfException.md#m-mk-de1cedfc6ea8) from ConfException
 - [mk(ConfResponse, ConfPath)](ConfException.md#m-mk-79e69ffbc022) from ConfException
 
 ## Constructors
 
-<a id="m-confwarningexception-05f73704f552"></a>
-### ConfWarningException(String, ErrorCode, ConfWarning[])
+### ConfWarningException(String, ErrorCode, ConfWarning[]) <a href="#m-ConfWarningException-05f73704f552" id="m-ConfWarningException-05f73704f552"></a>
 
 ```java
 public ConfWarningException(
@@ -46,8 +44,7 @@ Types: [ErrorCode](ErrorCode.md#cls-ErrorCode), [ConfWarning](ConfWarning.md#cls
 - `com.tailf.conf.ErrorCode code`
 - `com.tailf.conf.ConfWarning[] ws`
 
-<a id="m-confwarningexception-535efc462eac"></a>
-### ConfWarningException(String, int, ConfWarning[])
+### ConfWarningException(String, int, ConfWarning[]) <a href="#m-ConfWarningException-535efc462eac" id="m-ConfWarningException-535efc462eac"></a>
 
 ```java
 public ConfWarningException(String msg, int codeInteger, com.tailf.conf.ConfWarning[] ws)
@@ -64,8 +61,7 @@ Types: [ConfWarning](ConfWarning.md#cls-ConfWarning)
 
 ## Methods
 
-<a id="m-getwarnings-875cbe661ca7"></a>
-### getWarnings()
+### getWarnings() <a href="#m-getWarnings-875cbe661ca7" id="m-getWarnings-875cbe661ca7"></a>
 
 ```java
 public com.tailf.conf.ConfWarning[] getWarnings()

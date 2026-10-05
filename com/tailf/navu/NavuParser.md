@@ -1,5 +1,4 @@
-<a id="cls-NavuParser"></a>
-# NavuParser
+# NavuParser <a href="#cls-NavuParser" id="cls-NavuParser"></a>
 
 ```java
 public class com.tailf.navu.NavuParser
@@ -19,14 +18,14 @@ XML parser capable of producing a ConfXMLParam[] from an xml snippet.
  produce the same result.
 
  Normally this class should not be used directly, instead
- [`NavuNode#getValues(String)`](NavuNode.md#m-getvalues-c03de090764d), [`NavuNode#setValues(String)`](NavuNode.md#m-setvalues-3ec9581ce266) and
+ [`NavuNode#getValues(String)`](NavuNode.md#m-getValues-c03de090764d), [`NavuNode#setValues(String)`](NavuNode.md#m-setValues-3ec9581ce266) and
  [`PreparedXMLStatement`](PreparedXMLStatement.md#cls-PreparedXMLStatement) will give necessary support for xml snippets.
 
 ## Members
 
 **Constructors**:
 
-- [NavuParser(String, CSNode, ConfPath, int)](#m-navuparser-240b9fa48b57)
+- [NavuParser(String, CSNode, ConfPath, int)](#m-NavuParser-240b9fa48b57)
 
 **Fields**:
 
@@ -38,13 +37,12 @@ XML parser capable of producing a ConfXMLParam[] from an xml snippet.
 
 **Methods**:
 
-- [getParamIndexes()](#m-getparamindexes-649d70a85bbf)
+- [getParamIndexes()](#m-getParamIndexes-649d70a85bbf)
 - [parse()](#m-parse-29d7b3df4ae2)
 
 ## Constructors
 
-<a id="m-navuparser-240b9fa48b57"></a>
-### NavuParser(String, CSNode, ConfPath, int)
+### NavuParser(String, CSNode, ConfPath, int) <a href="#m-NavuParser-240b9fa48b57" id="m-NavuParser-240b9fa48b57"></a>
 
 ```java
 public NavuParser(
@@ -74,31 +72,31 @@ Constructor for the XML parser.
  The parser works in one of five modes:
 
 
-- *`#MODE_GET`*
+- *[`MODE_GET`](NavuParser.md#m-MODE_GET)*
 
  Parsing the xml as preparation for a
-  [`NavuNode#getValues(ConfXMLParam[])`](NavuNode.md#m-getvalues-1eb02439a757) request.
-- *`#MODE_SET`*
+  [`NavuNode#getValues(ConfXMLParam[])`](NavuNode.md#m-getValues-1eb02439a757) request.
+- *[`MODE_SET`](NavuParser.md#m-MODE_SET)*
 
  Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setvalues-50d8edffa795) request.
-- *`#MODE_SET_PREPARE`*
+  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setValues-50d8edffa795) request.
+- *[`MODE_SET_PREPARE`](NavuParser.md#m-MODE_SET_PREPARE)*
 
  Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setvalues-50d8edffa795) request.
+  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setValues-50d8edffa795) request.
   In this mode the xml snippet is expected to contain "?" as leaf values
   to be superposed before using the output.
   This superposing is handled by the [`PreparedXMLStatement`](PreparedXMLStatement.md#cls-PreparedXMLStatement) class
   which should be used in this case
-- *`#MODE_SET_ACTION_PARAM`*
+- *[`MODE_SET_ACTION_PARAM`](NavuParser.md#m-MODE_SET_ACTION_PARAM)*
 
  Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setvalues-50d8edffa795) request.
+  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setValues-50d8edffa795) request.
   In this mode the xml is an action's or rpc's parameters
-- *`#MODE_SET_ACTION_RESULT`*
+- *[`MODE_SET_ACTION_RESULT`](NavuParser.md#m-MODE_SET_ACTION_RESULT)*
 
  Parsing the xml as preparation for a
-  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setvalues-50d8edffa795) request.
+  [`NavuNode#setValues(ConfXMLParam[])`](NavuNode.md#m-setValues-50d8edffa795) request.
   In this mode the xml is an action's or rpc's result
 
 **Parameters**
@@ -106,10 +104,10 @@ Constructor for the XML parser.
 - `String xml` - the xml snippet
 - `com.tailf.maapi.MaapiSchemas.CSNode node` - the root node start parsing from
 - `com.tailf.conf.ConfPath path`
-- `int mode` - one of `#MODE_GET`, `#MODE_SET`,
-                    `#MODE_SET_PREPARE`,
-                    `#MODE_SET_ACTION_PARAM` or
-                    `#MODE_SET_ACTION_RESULT`
+- `int mode` - one of [`MODE_GET`](NavuParser.md#m-MODE_GET), [`MODE_SET`](NavuParser.md#m-MODE_SET),
+                    [`MODE_SET_PREPARE`](NavuParser.md#m-MODE_SET_PREPARE),
+                    [`MODE_SET_ACTION_PARAM`](NavuParser.md#m-MODE_SET_ACTION_PARAM) or
+                    [`MODE_SET_ACTION_RESULT`](NavuParser.md#m-MODE_SET_ACTION_RESULT)
 
 **Throws**
 
@@ -118,8 +116,7 @@ Constructor for the XML parser.
 
 ## Fields
 
-<a id="m-MODE_GET"></a>
-### MODE_GET
+### MODE_GET <a href="#m-MODE_GET" id="m-MODE_GET"></a>
 
 ```java
 public static final int MODE_GET = 1;
@@ -127,8 +124,7 @@ public static final int MODE_GET = 1;
 
 parse xml as preparation for a getValues call
 
-<a id="m-MODE_SET"></a>
-### MODE_SET
+### MODE_SET <a href="#m-MODE_SET" id="m-MODE_SET"></a>
 
 ```java
 public static final int MODE_SET = 2;
@@ -136,8 +132,7 @@ public static final int MODE_SET = 2;
 
 parse xml as preparation for a setValues call
 
-<a id="m-MODE_SET_ACTION_PARAM"></a>
-### MODE_SET_ACTION_PARAM
+### MODE_SET_ACTION_PARAM <a href="#m-MODE_SET_ACTION_PARAM" id="m-MODE_SET_ACTION_PARAM"></a>
 
 ```java
 public static final int MODE_SET_ACTION_PARAM = 4;
@@ -146,8 +141,7 @@ public static final int MODE_SET_ACTION_PARAM = 4;
 parse xml as preparation for a setValues() call
  for action's or rpc's parameters
 
-<a id="m-MODE_SET_ACTION_RESULT"></a>
-### MODE_SET_ACTION_RESULT
+### MODE_SET_ACTION_RESULT <a href="#m-MODE_SET_ACTION_RESULT" id="m-MODE_SET_ACTION_RESULT"></a>
 
 ```java
 public static final int MODE_SET_ACTION_RESULT = 5;
@@ -156,8 +150,7 @@ public static final int MODE_SET_ACTION_RESULT = 5;
 parse xml as preparation for a setValues() call
  for action's or rpc's result
 
-<a id="m-MODE_SET_PREPARE"></a>
-### MODE_SET_PREPARE
+### MODE_SET_PREPARE <a href="#m-MODE_SET_PREPARE" id="m-MODE_SET_PREPARE"></a>
 
 ```java
 public static final int MODE_SET_PREPARE = 3;
@@ -168,18 +161,16 @@ parse xml with "?" arguments as preparation for a setValues call
 
 ## Methods
 
-<a id="m-getparamindexes-649d70a85bbf"></a>
-### getParamIndexes()
+### getParamIndexes() <a href="#m-getParamIndexes-649d70a85bbf" id="m-getParamIndexes-649d70a85bbf"></a>
 
 ```java
 public java.util.Map<Integer,Object[]> getParamIndexes()
 ```
 
-Helper array for parser mode `#MODE_SET_PREPARE` needed to
+Helper array for parser mode [`MODE_SET_PREPARE`](NavuParser.md#m-MODE_SET_PREPARE) needed to
  superpose "?" arguments.
 
-<a id="m-parse-29d7b3df4ae2"></a>
-### parse()
+### parse() <a href="#m-parse-29d7b3df4ae2" id="m-parse-29d7b3df4ae2"></a>
 
 ```java
 public com.tailf.conf.ConfXMLParam[] parse() throws com.tailf.navu.NavuException

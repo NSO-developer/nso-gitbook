@@ -1,5 +1,4 @@
-<a id="cls-StatusChangeAttribute"></a>
-# StatusChangeAttribute
+# StatusChangeAttribute <a href="#cls-StatusChangeAttribute" id="cls-StatusChangeAttribute"></a>
 
 ```java
 public class com.tailf.ncs.alarmman.common.StatusChangeAttribute
@@ -14,7 +13,7 @@ Class representing a status change attribute.
 
 **Constructors**:
 
-- [StatusChangeAttribute(ConfNamespace, String, ConfValue)](#m-statuschangeattribute-31509a8e3de7)
+- [StatusChangeAttribute(ConfNamespace, String, ConfValue)](#m-StatusChangeAttribute-31509a8e3de7)
 
 **Fields**:
 
@@ -22,15 +21,14 @@ Class representing a status change attribute.
 
 **Methods**:
 
-- [getId()](Attribute.md#m-getid-199a349c70ef) from Attribute
-- [getNameSpace()](Attribute.md#m-getnamespace-e413af21e168) from Attribute
-- [getValue()](Attribute.md#m-getvalue-d93864668c40) from Attribute
-- [toString()](Attribute.md#m-tostring-e9d48c5503ef) from Attribute
+- [getId()](Attribute.md#m-getId-199a349c70ef) from Attribute
+- [getNameSpace()](Attribute.md#m-getNameSpace-e413af21e168) from Attribute
+- [getValue()](Attribute.md#m-getValue-d93864668c40) from Attribute
+- [toString()](Attribute.md#m-toString-e9d48c5503ef) from Attribute
 
 ## Constructors
 
-<a id="m-statuschangeattribute-31509a8e3de7"></a>
-### StatusChangeAttribute(ConfNamespace, String, ConfValue)
+### StatusChangeAttribute(ConfNamespace, String, ConfValue) <a href="#m-StatusChangeAttribute-31509a8e3de7" id="m-StatusChangeAttribute-31509a8e3de7"></a>
 
 ```java
 public StatusChangeAttribute(

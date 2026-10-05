@@ -1,5 +1,4 @@
-<a id="cls-CsTypeListRestriction"></a>
-# CsTypeListRestriction
+# CsTypeListRestriction <a href="#cls-CsTypeListRestriction" id="cls-CsTypeListRestriction"></a>
 
 ```java
 public static class com.tailf.ncs.maapi.Schema.CsTypeListRestriction
@@ -9,7 +8,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeListRestriction
 
 **Constructors**:
 
-- [CsTypeListRestriction()](#m-cstypelistrestriction-a51f9dcbaf46)
+- [CsTypeListRestriction()](#m-CsTypeListRestriction-a51f9dcbaf46)
 
 **Fields**:
 
@@ -25,8 +24,7 @@ public static class com.tailf.ncs.maapi.Schema.CsTypeListRestriction
 
 ## Constructors
 
-<a id="m-cstypelistrestriction-a51f9dcbaf46"></a>
-### CsTypeListRestriction()
+### CsTypeListRestriction() <a href="#m-CsTypeListRestriction-a51f9dcbaf46" id="m-CsTypeListRestriction-a51f9dcbaf46"></a>
 
 ```java
 public CsTypeListRestriction()
@@ -35,8 +33,7 @@ public CsTypeListRestriction()
 
 ## Fields
 
-<a id="m-factory"></a>
-### factory
+### factory <a href="#m-factory" id="m-factory"></a>
 
 ```java
 public static final com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Factory factory = null;
@@ -44,8 +41,7 @@ public static final com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Factory fac
 
 Types: [Factory](CsTypeListRestriction/Factory.md#cls-Factory)
 
-<a id="m-listFactory"></a>
-### listFactory
+### listFactory <a href="#m-listFactory" id="m-listFactory"></a>
 
 ```java
 public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Builder,com.tailf.ncs.maapi.Schema.CsTypeListRestriction.Reader> listFactory = null;
@@ -53,8 +49,7 @@ public static final org.capnproto.StructList.Factory<com.tailf.ncs.maapi.Schema.
 
 Types: [Builder](CsTypeListRestriction/Builder.md#cls-Builder), [Reader](CsTypeListRestriction/Reader.md#cls-Reader)
 
-<a id="m-STRUCT_SIZE"></a>
-### STRUCT_SIZE
+### STRUCT_SIZE <a href="#m-STRUCT_SIZE" id="m-STRUCT_SIZE"></a>
 
 ```java
 public static final org.capnproto.StructSize STRUCT_SIZE = null;

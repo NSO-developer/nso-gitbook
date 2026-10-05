@@ -1,5 +1,4 @@
-<a id="cls-MoveWhereFlag"></a>
-# MoveWhereFlag
+# MoveWhereFlag <a href="#cls-MoveWhereFlag" id="cls-MoveWhereFlag"></a>
 
 ```java
 public enum com.tailf.maapi.MoveWhereFlag
@@ -20,15 +19,14 @@ flags us by Maapi.moveOrdered method to control ordered-by user orders
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-MOVE_AFTER"></a>
-### MOVE_AFTER
+### MOVE_AFTER <a href="#m-MOVE_AFTER" id="m-MOVE_AFTER"></a>
 
 ```java
 public static final com.tailf.maapi.MoveWhereFlag MOVE_AFTER;
@@ -36,8 +34,7 @@ public static final com.tailf.maapi.MoveWhereFlag MOVE_AFTER;
 
 Move the entry to the position after a given position.
 
-<a id="m-MOVE_BEFORE"></a>
-### MOVE_BEFORE
+### MOVE_BEFORE <a href="#m-MOVE_BEFORE" id="m-MOVE_BEFORE"></a>
 
 ```java
 public static final com.tailf.maapi.MoveWhereFlag MOVE_BEFORE;
@@ -45,8 +42,7 @@ public static final com.tailf.maapi.MoveWhereFlag MOVE_BEFORE;
 
 Move the entry to the position before a given position.
 
-<a id="m-MOVE_FIRST"></a>
-### MOVE_FIRST
+### MOVE_FIRST <a href="#m-MOVE_FIRST" id="m-MOVE_FIRST"></a>
 
 ```java
 public static final com.tailf.maapi.MoveWhereFlag MOVE_FIRST;
@@ -54,8 +50,7 @@ public static final com.tailf.maapi.MoveWhereFlag MOVE_FIRST;
 
 Move the entry first in the list.
 
-<a id="m-MOVE_LAST"></a>
-### MOVE_LAST
+### MOVE_LAST <a href="#m-MOVE_LAST" id="m-MOVE_LAST"></a>
 
 ```java
 public static final com.tailf.maapi.MoveWhereFlag MOVE_LAST;
@@ -66,15 +61,13 @@ Move the entry last in the list.
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.MoveWhereFlag valueOf(int i)
@@ -86,8 +79,7 @@ Types: [MoveWhereFlag](MoveWhereFlag.md#cls-MoveWhereFlag)
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.MoveWhereFlag valueOf(String name)
@@ -99,8 +91,7 @@ Types: [MoveWhereFlag](MoveWhereFlag.md#cls-MoveWhereFlag)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.MoveWhereFlag[] values()

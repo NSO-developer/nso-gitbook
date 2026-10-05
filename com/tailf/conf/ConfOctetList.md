@@ -1,5 +1,4 @@
-<a id="cls-ConfOctetList"></a>
-# ConfOctetList
+# ConfOctetList <a href="#cls-ConfOctetList" id="cls-ConfOctetList"></a>
 
 ```java
 public class com.tailf.conf.ConfOctetList
@@ -16,9 +15,9 @@ DATA_CONTAINER - Corresponds to the YANG tailf:octet-list type.
 
 **Constructors**:
 
-- [ConfOctetList(byte[])](#m-confoctetlist-a8d1142ea7dd)
-- [ConfOctetList(ConfBinary)](#m-confoctetlist-0b051abc3cda)
-- [ConfOctetList(String)](#m-confoctetlist-cd64cd01bcef)
+- [ConfOctetList(byte[])](#m-ConfOctetList-a8d1142ea7dd)
+- [ConfOctetList(ConfBinary)](#m-ConfOctetList-0b051abc3cda)
+- [ConfOctetList(String)](#m-ConfOctetList-cd64cd01bcef)
 
 **Fields**:
 
@@ -75,29 +74,28 @@ DATA_CONTAINER - Corresponds to the YANG tailf:octet-list type.
 
 **Methods**:
 
-- [bytesValue()](ConfBinary.md#m-bytesvalue-5430ca82d2de) from ConfBinary
+- [bytesValue()](ConfBinary.md#m-bytesValue-5430ca82d2de) from ConfBinary
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfBinary)](ConfBinary.md#m-compareto-58d210e19aa1) from ConfBinary
+- [compareTo(ConfBinary)](ConfBinary.md#m-compareTo-58d210e19aa1) from ConfBinary
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
 - [encode()](ConfBinary.md#m-encode-fbae522bba37) from ConfBinary
 - [equals(Object)](ConfBinary.md#m-equals-fcd6492e0d6c) from ConfBinary
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](ConfBinary.md#m-hashcode-ef797a217903) from ConfBinary
-- [setCSType(CSType)](ConfBinary.md#m-setcstype-1d9af222b932) from ConfBinary
-- [toHexListString()](ConfBinary.md#m-tohexliststring-b8ab9a901cf8) from ConfBinary
-- [toOctetListString()](ConfBinary.md#m-tooctetliststring-4e8899a4fa5c) from ConfBinary
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](ConfBinary.md#m-hashCode-ef797a217903) from ConfBinary
+- [setCSType(CSType)](ConfBinary.md#m-setCSType-1d9af222b932) from ConfBinary
+- [toHexListString()](ConfBinary.md#m-toHexListString-b8ab9a901cf8) from ConfBinary
+- [toOctetListString()](ConfBinary.md#m-toOctetListString-4e8899a4fa5c) from ConfBinary
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confoctetlist-a8d1142ea7dd"></a>
-### ConfOctetList(byte[])
+### ConfOctetList(byte[]) <a href="#m-ConfOctetList-a8d1142ea7dd" id="m-ConfOctetList-a8d1142ea7dd"></a>
 
 ```java
 public ConfOctetList(byte[] val)
@@ -107,8 +105,7 @@ public ConfOctetList(byte[] val)
 
 - `byte[] val`
 
-<a id="m-confoctetlist-0b051abc3cda"></a>
-### ConfOctetList(ConfBinary)
+### ConfOctetList(ConfBinary) <a href="#m-ConfOctetList-0b051abc3cda" id="m-ConfOctetList-0b051abc3cda"></a>
 
 ```java
 public ConfOctetList(com.tailf.conf.ConfBinary obj)
@@ -122,8 +119,7 @@ Constructs a ConfOctetList from a ConfBinary object.
 
 - `com.tailf.conf.ConfBinary obj`
 
-<a id="m-confoctetlist-cd64cd01bcef"></a>
-### ConfOctetList(String)
+### ConfOctetList(String) <a href="#m-ConfOctetList-cd64cd01bcef" id="m-ConfOctetList-cd64cd01bcef"></a>
 
 ```java
 public ConfOctetList(String str) throws com.tailf.conf.ConfException
@@ -141,8 +137,7 @@ Construct a ConfOctetList from a string of bytes in the format of octets
 
 ## Methods
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

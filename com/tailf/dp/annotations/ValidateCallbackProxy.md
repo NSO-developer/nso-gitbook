@@ -1,5 +1,4 @@
-<a id="cls-ValidateCallbackProxy"></a>
-# ValidateCallbackProxy
+# ValidateCallbackProxy <a href="#cls-ValidateCallbackProxy" id="cls-ValidateCallbackProxy"></a>
 
 ```java
 public class com.tailf.dp.annotations.ValidateCallbackProxy
@@ -18,22 +17,21 @@ Callback proxy for Validation Callbacks. Implements the
 
 **Constructors**:
 
-- [ValidateCallbackProxy(Object, String)](#m-validatecallbackproxy-0ddbaa7c282d)
+- [ValidateCallbackProxy(Object, String)](#m-ValidateCallbackProxy-0ddbaa7c282d)
 
 **Methods**:
 
-- [addActionCapability(ValidateCBType)](#m-addactioncapability-2c606e9189d3)
-- [addActionMethod(String, Method)](#m-addactionmethod-cf3e43a67fd9)
-- [getBackupObject()](#m-getbackupobject-a6fb23c24524)
-- [getCallPoint()](#m-getcallpoint-f816d0a44b26)
-- [getValidateCallbackProxys(Object)](#m-getvalidatecallbackproxys-93663cbdace2)
+- [addActionCapability(ValidateCBType)](#m-addActionCapability-2c606e9189d3)
+- [addActionMethod(String, Method)](#m-addActionMethod-cf3e43a67fd9)
+- [getBackupObject()](#m-getBackupObject-a6fb23c24524)
+- [getCallPoint()](#m-getCallPoint-f816d0a44b26)
+- [getValidateCallbackProxys(Object)](#m-getValidateCallbackProxys-93663cbdace2)
 - [validate(DpTrans, ConfObject[], ConfValue)](#m-validate-1a546d06dca5)
 - [valpoint()](#m-valpoint-a064c4954648)
 
 ## Constructors
 
-<a id="m-validatecallbackproxy-0ddbaa7c282d"></a>
-### ValidateCallbackProxy(Object, String)
+### ValidateCallbackProxy(Object, String) <a href="#m-ValidateCallbackProxy-0ddbaa7c282d" id="m-ValidateCallbackProxy-0ddbaa7c282d"></a>
 
 ```java
 public ValidateCallbackProxy(Object backupObject, String callPoint)
@@ -49,8 +47,7 @@ Constructor for Callback proxys. Used internally.
 
 ## Methods
 
-<a id="m-addactioncapability-2c606e9189d3"></a>
-### addActionCapability(ValidateCBType)
+### addActionCapability(ValidateCBType) <a href="#m-addActionCapability-2c606e9189d3" id="m-addActionCapability-2c606e9189d3"></a>
 
 ```java
 public void addActionCapability(com.tailf.dp.proto.ValidateCBType valCBType)
@@ -65,8 +62,7 @@ Add action capability from annotated callType used to register
 
 - `com.tailf.dp.proto.ValidateCBType valCBType` - action type
 
-<a id="m-addactionmethod-cf3e43a67fd9"></a>
-### addActionMethod(String, Method)
+### addActionMethod(String, Method) <a href="#m-addActionMethod-cf3e43a67fd9" id="m-addActionMethod-cf3e43a67fd9"></a>
 
 ```java
 public void addActionMethod(String name, java.lang.reflect.Method method)
@@ -79,8 +75,7 @@ Add callback action method to proxy
 - `String name` - canonical action name
 - `java.lang.reflect.Method method` - registered callback method
 
-<a id="m-getbackupobject-a6fb23c24524"></a>
-### getBackupObject()
+### getBackupObject() <a href="#m-getBackupObject-a6fb23c24524" id="m-getBackupObject-a6fb23c24524"></a>
 
 ```java
 public Object getBackupObject()
@@ -90,8 +85,7 @@ Retrieve the callback POJO
 
 **Returns:** Object registered callback object
 
-<a id="m-getcallpoint-f816d0a44b26"></a>
-### getCallPoint()
+### getCallPoint() <a href="#m-getCallPoint-f816d0a44b26" id="m-getCallPoint-f816d0a44b26"></a>
 
 ```java
 public String getCallPoint()
@@ -101,8 +95,7 @@ Retrieve the callback callpoint
 
 **Returns:** callpoint string
 
-<a id="m-getvalidatecallbackproxys-93663cbdace2"></a>
-### getValidateCallbackProxys(Object)
+### getValidateCallbackProxys(Object) <a href="#m-getValidateCallbackProxys-93663cbdace2" id="m-getValidateCallbackProxys-93663cbdace2"></a>
 
 ```java
 public static com.tailf.dp.annotations.ValidateCallbackProxy[] getValidateCallbackProxys(
@@ -126,8 +119,7 @@ Get array of proxy objects from registered POJO callback. Used internally
 
 - `DpCallbackException`
 
-<a id="m-validate-1a546d06dca5"></a>
-### validate(DpTrans, ConfObject[], ConfValue)
+### validate(DpTrans, ConfObject[], ConfValue) <a href="#m-validate-1a546d06dca5" id="m-validate-1a546d06dca5"></a>
 
 ```java
 public void validate(
@@ -146,8 +138,7 @@ Types: [DpTrans](../DpTrans.md#cls-DpTrans), [ConfObject](../../conf/ConfObject.
 - `com.tailf.conf.ConfObject[] kp`
 - `com.tailf.conf.ConfValue newval`
 
-<a id="m-valpoint-a064c4954648"></a>
-### valpoint()
+### valpoint() <a href="#m-valpoint-a064c4954648" id="m-valpoint-a064c4954648"></a>
 
 ```java
 public String valpoint()

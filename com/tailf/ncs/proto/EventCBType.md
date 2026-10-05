@@ -1,5 +1,4 @@
-<a id="cls-EventCBType"></a>
-# EventCBType
+# EventCBType <a href="#cls-EventCBType" id="cls-EventCBType"></a>
 
 ```java
 public enum com.tailf.ncs.proto.EventCBType
@@ -17,14 +16,13 @@ Enumeration of Event callback methods
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-NOTIF_RECEIVED"></a>
-### NOTIF_RECEIVED
+### NOTIF_RECEIVED <a href="#m-NOTIF_RECEIVED" id="m-NOTIF_RECEIVED"></a>
 
 ```java
 public static final com.tailf.ncs.proto.EventCBType NOTIF_RECEIVED;
@@ -33,8 +31,7 @@ public static final com.tailf.ncs.proto.EventCBType NOTIF_RECEIVED;
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
@@ -44,8 +41,7 @@ get integer value for enum
 
 **Returns:** int value
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.ncs.proto.EventCBType valueOf(String name)
@@ -57,8 +53,7 @@ Types: [EventCBType](EventCBType.md#cls-EventCBType)
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.ncs.proto.EventCBType[] values()

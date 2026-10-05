@@ -1,5 +1,4 @@
-<a id="cls-XPathNodeIterateResultFlag"></a>
-# XPathNodeIterateResultFlag
+# XPathNodeIterateResultFlag <a href="#cls-XPathNodeIterateResultFlag" id="cls-XPathNodeIterateResultFlag"></a>
 
 ```java
 public enum com.tailf.maapi.XPathNodeIterateResultFlag
@@ -19,15 +18,14 @@ The [result(ConfObject[],ConfValue,Object)](MaapiXPathEvalResult.md#cls-MaapiXPa
 
 **Methods**:
 
-- [getValue()](#m-getvalue-d93864668c40)
-- [valueOf(int)](#m-valueof-c0d46d25fc67)
-- [valueOf(String)](#m-valueof-ac61b3547613)
+- [getValue()](#m-getValue-d93864668c40)
+- [valueOf(int)](#m-valueOf-c0d46d25fc67)
+- [valueOf(String)](#m-valueOf-ac61b3547613)
 - [values()](#m-values-406dfe3ca270)
 
 ## Enum Constants
 
-<a id="m-ITER_CONTINUE"></a>
-### ITER_CONTINUE
+### ITER_CONTINUE <a href="#m-ITER_CONTINUE" id="m-ITER_CONTINUE"></a>
 
 ```java
 public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_CONTINUE;
@@ -37,8 +35,7 @@ The `result` method should return
  `ITER_CONTINUE` when iteration should
  continue with the next resulting node (if any).
 
-<a id="m-ITER_STOP"></a>
-### ITER_STOP
+### ITER_STOP <a href="#m-ITER_STOP" id="m-ITER_STOP"></a>
 
 ```java
 public static final com.tailf.maapi.XPathNodeIterateResultFlag ITER_STOP;
@@ -50,15 +47,13 @@ The `result` method should return `ITER_STOP`
 
 ## Methods
 
-<a id="m-getvalue-d93864668c40"></a>
-### getValue()
+### getValue() <a href="#m-getValue-d93864668c40" id="m-getValue-d93864668c40"></a>
 
 ```java
 public int getValue()
 ```
 
-<a id="m-valueof-c0d46d25fc67"></a>
-### valueOf(int)
+### valueOf(int) <a href="#m-valueOf-c0d46d25fc67" id="m-valueOf-c0d46d25fc67"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag valueOf(int i)
@@ -70,8 +65,7 @@ Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeI
 
 - `int i`
 
-<a id="m-valueof-ac61b3547613"></a>
-### valueOf(String)
+### valueOf(String) <a href="#m-valueOf-ac61b3547613" id="m-valueOf-ac61b3547613"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag valueOf(String name)
@@ -83,8 +77,7 @@ Types: [XPathNodeIterateResultFlag](XPathNodeIterateResultFlag.md#cls-XPathNodeI
 
 - `String name`
 
-<a id="m-values-406dfe3ca270"></a>
-### values()
+### values() <a href="#m-values-406dfe3ca270" id="m-values-406dfe3ca270"></a>
 
 ```java
 public static com.tailf.maapi.XPathNodeIterateResultFlag[] values()

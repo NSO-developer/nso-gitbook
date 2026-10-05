@@ -1,5 +1,4 @@
-<a id="cls-ConfDecimal64"></a>
-# ConfDecimal64
+# ConfDecimal64 <a href="#cls-ConfDecimal64" id="cls-ConfDecimal64"></a>
 
 ```java
 public class com.tailf.conf.ConfDecimal64
@@ -14,10 +13,10 @@ DATA_CONTAINER - Corresponds to the YANG decimal64 type.
 
 **Constructors**:
 
-- [ConfDecimal64(BigInteger, int)](#m-confdecimal64-a91060f8ec9e)
-- [ConfDecimal64(ConfEObject)](#m-confdecimal64-83ea193341e4)
-- [ConfDecimal64(long, int)](#m-confdecimal64-3eba51d88b6b)
-- [ConfDecimal64(String)](#m-confdecimal64-f1993d5ec278)
+- [ConfDecimal64(BigInteger, int)](#m-ConfDecimal64-a91060f8ec9e)
+- [ConfDecimal64(ConfEObject)](#m-ConfDecimal64-83ea193341e4)
+- [ConfDecimal64(long, int)](#m-ConfDecimal64-3eba51d88b6b)
+- [ConfDecimal64(String)](#m-ConfDecimal64-f1993d5ec278)
 
 **Fields**:
 
@@ -76,28 +75,27 @@ DATA_CONTAINER - Corresponds to the YANG decimal64 type.
 
 - [clone()](ConfObject.md#m-clone-164c86c45e9b) from ConfObject
 - [compare(ConfObject, ConfObject)](ConfObject.md#m-compare-e78552baa2bf) from ConfObject
-- [compareTo(ConfInt64)](ConfInt64.md#m-compareto-41b235eb3af1) from ConfInt64
+- [compareTo(ConfInt64)](ConfInt64.md#m-compareTo-41b235eb3af1) from ConfInt64
 - [decode(ConfEObject)](ConfObject.md#m-decode-609792d36602) from ConfObject
 - [decode(ConfEObject, ConfPath)](ConfObject.md#m-decode-a814ebf64edc) from ConfObject
 - [decode(ConfEObject, String)](ConfObject.md#m-decode-9b92f1de40d8) from ConfObject
-- [doubleValue()](#m-doublevalue-aea67f67de5a)
+- [doubleValue()](#m-doubleValue-aea67f67de5a)
 - [encode()](#m-encode-fbae522bba37)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [getFractionDigits()](#m-getfractiondigits-57dce19c4ffe)
-- [getLongDataBackstore()](#m-getlongdatabackstore-c6f76b0fb2d0)
-- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getstringbyvalue-841fa68ad0f9) from ConfValue
-- [getStringByValue(String, ConfValue)](ConfValue.md#m-getstringbyvalue-8ed173dcf8dc) from ConfValue
-- [getValueByString(ConfPath, String)](ConfValue.md#m-getvaluebystring-e75fd0337a87) from ConfValue
-- [getValueByString(String, String)](ConfValue.md#m-getvaluebystring-7804643cb027) from ConfValue
-- [hashCode()](#m-hashcode-ef797a217903)
-- [intValue()](#m-intvalue-2f745d025d8e)
-- [longValue()](ConfInt64.md#m-longvalue-636bfe2d6862) from ConfInt64
-- [toString()](#m-tostring-e9d48c5503ef)
+- [getFractionDigits()](#m-getFractionDigits-57dce19c4ffe)
+- [getLongDataBackstore()](#m-getLongDataBackstore-c6f76b0fb2d0)
+- [getStringByValue(ConfPath, ConfValue)](ConfValue.md#m-getStringByValue-841fa68ad0f9) from ConfValue
+- [getStringByValue(String, ConfValue)](ConfValue.md#m-getStringByValue-8ed173dcf8dc) from ConfValue
+- [getValueByString(ConfPath, String)](ConfValue.md#m-getValueByString-e75fd0337a87) from ConfValue
+- [getValueByString(String, String)](ConfValue.md#m-getValueByString-7804643cb027) from ConfValue
+- [hashCode()](#m-hashCode-ef797a217903)
+- [intValue()](#m-intValue-2f745d025d8e)
+- [longValue()](ConfInt64.md#m-longValue-636bfe2d6862) from ConfInt64
+- [toString()](#m-toString-e9d48c5503ef)
 
 ## Constructors
 
-<a id="m-confdecimal64-a91060f8ec9e"></a>
-### ConfDecimal64(BigInteger, int)
+### ConfDecimal64(BigInteger, int) <a href="#m-ConfDecimal64-a91060f8ec9e" id="m-ConfDecimal64-a91060f8ec9e"></a>
 
 ```java
 public ConfDecimal64(java.math.BigInteger b, int fractionDigits)
@@ -108,8 +106,7 @@ public ConfDecimal64(java.math.BigInteger b, int fractionDigits)
 - `java.math.BigInteger b`
 - `int fractionDigits`
 
-<a id="m-confdecimal64-83ea193341e4"></a>
-### ConfDecimal64(ConfEObject)
+### ConfDecimal64(ConfEObject) <a href="#m-ConfDecimal64-83ea193341e4" id="m-ConfDecimal64-83ea193341e4"></a>
 
 ```java
 public ConfDecimal64(com.tailf.proto.ConfEObject o) throws com.tailf.conf.ConfException
@@ -121,8 +118,7 @@ Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject), [ConfException](C
 
 - `com.tailf.proto.ConfEObject o`
 
-<a id="m-confdecimal64-3eba51d88b6b"></a>
-### ConfDecimal64(long, int)
+### ConfDecimal64(long, int) <a href="#m-ConfDecimal64-3eba51d88b6b" id="m-ConfDecimal64-3eba51d88b6b"></a>
 
 ```java
 public ConfDecimal64(long l, int fractionDigits)
@@ -133,8 +129,7 @@ public ConfDecimal64(long l, int fractionDigits)
 - `long l`
 - `int fractionDigits`
 
-<a id="m-confdecimal64-f1993d5ec278"></a>
-### ConfDecimal64(String)
+### ConfDecimal64(String) <a href="#m-ConfDecimal64-f1993d5ec278" id="m-ConfDecimal64-f1993d5ec278"></a>
 
 ```java
 public ConfDecimal64(String str)
@@ -147,15 +142,13 @@ public ConfDecimal64(String str)
 
 ## Methods
 
-<a id="m-doublevalue-aea67f67de5a"></a>
-### doubleValue()
+### doubleValue() <a href="#m-doubleValue-aea67f67de5a" id="m-doubleValue-aea67f67de5a"></a>
 
 ```java
 public double doubleValue()
 ```
 
-<a id="m-encode-fbae522bba37"></a>
-### encode()
+### encode() <a href="#m-encode-fbae522bba37" id="m-encode-fbae522bba37"></a>
 
 ```java
 public com.tailf.proto.ConfEObject encode()
@@ -163,8 +156,7 @@ public com.tailf.proto.ConfEObject encode()
 
 Types: [ConfEObject](../proto/ConfEObject.md#cls-ConfEObject)
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -174,36 +166,31 @@ public boolean equals(Object o)
 
 - `Object o`
 
-<a id="m-getfractiondigits-57dce19c4ffe"></a>
-### getFractionDigits()
+### getFractionDigits() <a href="#m-getFractionDigits-57dce19c4ffe" id="m-getFractionDigits-57dce19c4ffe"></a>
 
 ```java
 public int getFractionDigits()
 ```
 
-<a id="m-getlongdatabackstore-c6f76b0fb2d0"></a>
-### getLongDataBackstore()
+### getLongDataBackstore() <a href="#m-getLongDataBackstore-c6f76b0fb2d0" id="m-getLongDataBackstore-c6f76b0fb2d0"></a>
 
 ```java
 public long getLongDataBackstore()
 ```
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-intvalue-2f745d025d8e"></a>
-### intValue()
+### intValue() <a href="#m-intValue-2f745d025d8e" id="m-intValue-2f745d025d8e"></a>
 
 ```java
 public long intValue()
 ```
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()

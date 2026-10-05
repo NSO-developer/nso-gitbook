@@ -1,5 +1,4 @@
-<a id="cls-ConfELong"></a>
-# ConfELong
+# ConfELong <a href="#cls-ConfELong" id="cls-ConfELong"></a>
 
 ```java
 public class com.tailf.proto.ConfELong
@@ -29,8 +28,8 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Constructors**:
 
-- [ConfELong(ConfInputStream)](#m-confelong-14be370f839d)
-- [ConfELong(long)](#m-confelong-ef6be4714c98)
+- [ConfELong(ConfInputStream)](#m-ConfELong-14be370f839d)
+- [ConfELong(long)](#m-ConfELong-ef6be4714c98)
 
 **Fields**:
 
@@ -38,24 +37,23 @@ Provides a Java representation of E integral types. E does not distinguish
 
 **Methods**:
 
-- [byteValue()](#m-bytevalue-a56aac956c5c)
-- [charValue()](#m-charvalue-4b3a6b868fe4)
+- [byteValue()](#m-byteValue-a56aac956c5c)
+- [charValue()](#m-charValue-4b3a6b868fe4)
 - [clone()](ConfEObject.md#m-clone-164c86c45e9b) from ConfEObject
 - [decode(ConfInputStream)](ConfEObject.md#m-decode-e63a2a4cac49) from ConfEObject
 - [encode(ConfOutputStream)](#m-encode-cb1ad9eb7771)
 - [equals(Object)](#m-equals-fcd6492e0d6c)
-- [hashCode()](#m-hashcode-ef797a217903)
-- [intValue()](#m-intvalue-2f745d025d8e)
-- [longValue()](#m-longvalue-636bfe2d6862)
-- [shortValue()](#m-shortvalue-438ff2f827fb)
-- [toString()](#m-tostring-e9d48c5503ef)
-- [uIntValue()](#m-uintvalue-11d9c2202272)
-- [uShortValue()](#m-ushortvalue-5c27a3934662)
+- [hashCode()](#m-hashCode-ef797a217903)
+- [intValue()](#m-intValue-2f745d025d8e)
+- [longValue()](#m-longValue-636bfe2d6862)
+- [shortValue()](#m-shortValue-438ff2f827fb)
+- [toString()](#m-toString-e9d48c5503ef)
+- [uIntValue()](#m-uIntValue-11d9c2202272)
+- [uShortValue()](#m-uShortValue-5c27a3934662)
 
 ## Constructors
 
-<a id="m-confelong-14be370f839d"></a>
-### ConfELong(ConfInputStream)
+### ConfELong(ConfInputStream) <a href="#m-ConfELong-14be370f839d" id="m-ConfELong-14be370f839d"></a>
 
 ```java
 public ConfELong(com.tailf.proto.ConfInputStream buf) throws com.tailf.proto.ConfEDecodeException
@@ -75,8 +73,7 @@ Create an E integer from a stream containing an integer encoded in E
 - `ConfEDecodeException` - if the buffer does not contain a valid external
                 representation of an E integer.
 
-<a id="m-confelong-ef6be4714c98"></a>
-### ConfELong(long)
+### ConfELong(long) <a href="#m-ConfELong-ef6be4714c98" id="m-ConfELong-ef6be4714c98"></a>
 
 ```java
 public ConfELong(long l)
@@ -91,8 +88,7 @@ Create an E integer from the given value.
 
 ## Fields
 
-<a id="m-serialVersionUID"></a>
-### serialVersionUID
+### serialVersionUID <a href="#m-serialVersionUID" id="m-serialVersionUID"></a>
 
 **Package-private**
 
@@ -103,8 +99,7 @@ static final long serialVersionUID = 1610466859236755096;
 
 ## Methods
 
-<a id="m-bytevalue-a56aac956c5c"></a>
-### byteValue()
+### byteValue() <a href="#m-byteValue-a56aac956c5c" id="m-byteValue-a56aac956c5c"></a>
 
 ```java
 public byte byteValue() throws com.tailf.proto.ConfERangeException
@@ -120,8 +115,7 @@ Get this number as a byte.
 
 - `ConfERangeException` - if the value is too large to be represented as a byte.
 
-<a id="m-charvalue-4b3a6b868fe4"></a>
-### charValue()
+### charValue() <a href="#m-charValue-4b3a6b868fe4" id="m-charValue-4b3a6b868fe4"></a>
 
 ```java
 public char charValue() throws com.tailf.proto.ConfERangeException
@@ -137,8 +131,7 @@ Get this number as a char.
 
 - `ConfERangeException` - if the value is too large to be represented as a char.
 
-<a id="m-encode-cb1ad9eb7771"></a>
-### encode(ConfOutputStream)
+### encode(ConfOutputStream) <a href="#m-encode-cb1ad9eb7771" id="m-encode-cb1ad9eb7771"></a>
 
 ```java
 public void encode(com.tailf.proto.ConfOutputStream buf)
@@ -153,8 +146,7 @@ Convert this number to the equivalent E external representation.
 - `com.tailf.proto.ConfOutputStream buf` - an output stream to which the encoded number should be
             written.
 
-<a id="m-equals-fcd6492e0d6c"></a>
-### equals(Object)
+### equals(Object) <a href="#m-equals-fcd6492e0d6c" id="m-equals-fcd6492e0d6c"></a>
 
 ```java
 public boolean equals(Object o)
@@ -169,15 +161,13 @@ Determine if two numbers are equal. Numbers are equal if they contain the
 
 **Returns:** true if the numbers have the same value.
 
-<a id="m-hashcode-ef797a217903"></a>
-### hashCode()
+### hashCode() <a href="#m-hashCode-ef797a217903" id="m-hashCode-ef797a217903"></a>
 
 ```java
 public int hashCode()
 ```
 
-<a id="m-intvalue-2f745d025d8e"></a>
-### intValue()
+### intValue() <a href="#m-intValue-2f745d025d8e" id="m-intValue-2f745d025d8e"></a>
 
 ```java
 public int intValue() throws com.tailf.proto.ConfERangeException
@@ -193,8 +183,7 @@ Get this number as an int.
 
 - `ConfERangeException` - if the value is too large to be represented as an int.
 
-<a id="m-longvalue-636bfe2d6862"></a>
-### longValue()
+### longValue() <a href="#m-longValue-636bfe2d6862" id="m-longValue-636bfe2d6862"></a>
 
 ```java
 public long longValue()
@@ -204,8 +193,7 @@ Get this number as a long.
 
 **Returns:** the value of this number, as a long.
 
-<a id="m-shortvalue-438ff2f827fb"></a>
-### shortValue()
+### shortValue() <a href="#m-shortValue-438ff2f827fb" id="m-shortValue-438ff2f827fb"></a>
 
 ```java
 public short shortValue() throws com.tailf.proto.ConfERangeException
@@ -221,8 +209,7 @@ Get this number as a short.
 
 - `ConfERangeException` - if the value is too large to be represented as a short.
 
-<a id="m-tostring-e9d48c5503ef"></a>
-### toString()
+### toString() <a href="#m-toString-e9d48c5503ef" id="m-toString-e9d48c5503ef"></a>
 
 ```java
 public String toString()
@@ -232,8 +219,7 @@ Get the string representation of this number.
 
 **Returns:** the string representation of this number.
 
-<a id="m-uintvalue-11d9c2202272"></a>
-### uIntValue()
+### uIntValue() <a href="#m-uIntValue-11d9c2202272" id="m-uIntValue-11d9c2202272"></a>
 
 ```java
 public int uIntValue() throws com.tailf.proto.ConfERangeException
@@ -250,8 +236,7 @@ Get this number as a non-negative int.
 - `ConfERangeException` - if the value is too large to be represented as an int, or
                 if the value is negative.
 
-<a id="m-ushortvalue-5c27a3934662"></a>
-### uShortValue()
+### uShortValue() <a href="#m-uShortValue-5c27a3934662" id="m-uShortValue-5c27a3934662"></a>
 
 ```java
 public short uShortValue() throws com.tailf.proto.ConfERangeException

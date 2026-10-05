@@ -1,5 +1,4 @@
-<a id="cls-DpAuthCallback"></a>
-# DpAuthCallback
+# DpAuthCallback <a href="#cls-DpAuthCallback" id="cls-DpAuthCallback"></a>
 
 ```java
 public interface com.tailf.dp.DpAuthCallback
@@ -19,7 +18,7 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
  invocation keeps failing for some reason, all authentication attempts will
  fail.
 
-**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerannotatedcallbacks-ffaebadbfc42)
+**See also:** [`Dp#registerAnnotatedCallbacks(Object)`](Dp.md#m-registerAnnotatedCallbacks-ffaebadbfc42)
 
 ## Members
 
@@ -29,8 +28,7 @@ With this interface we can register a callback with ConfDs AAA subsystem, to
 
 ## Methods
 
-<a id="m-auth-34bd42ec3143"></a>
-### auth(DpAuthContext)
+### auth(DpAuthContext) <a href="#m-auth-34bd42ec3143" id="m-auth-34bd42ec3143"></a>
 
 ```java
 public abstract boolean auth(com.tailf.dp.DpAuthContext atx) throws com.tailf.dp.DpCallbackException

@@ -1,5 +1,4 @@
-<a id="cls-Builder"></a>
-# Builder
+# Builder <a href="#cls-Builder" id="cls-Builder"></a>
 
 ```java
 public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Builder
@@ -10,23 +9,22 @@ public static final class com.tailf.ncs.maapi.Schema.MountPointChildren.Builder
 
 **Constructors**:
 
-- [Builder(SegmentBuilder, int, int, int, short)](#m-builder-179fba5038bd)
+- [Builder(SegmentBuilder, int, int, int, short)](#m-Builder-179fba5038bd)
 
 **Methods**:
 
-- [asReader()](#m-asreader-b5c0f2a8d115)
-- [getChildren()](#m-getchildren-fe2038dff10d)
-- [getMountId()](#m-getmountid-c5175827f949)
-- [hasChildren()](#m-haschildren-94c463ee6541)
-- [initChildren(int)](#m-initchildren-d6b9d98b47bb)
-- [initMountId()](#m-initmountid-43348a54995c)
-- [setChildren(Reader<Reader>)](#m-setchildren-4b50d7817058)
-- [setMountId(Reader)](#m-setmountid-39bac54ac962)
+- [asReader()](#m-asReader-b5c0f2a8d115)
+- [getChildren()](#m-getChildren-fe2038dff10d)
+- [getMountId()](#m-getMountId-c5175827f949)
+- [hasChildren()](#m-hasChildren-94c463ee6541)
+- [initChildren(int)](#m-initChildren-d6b9d98b47bb)
+- [initMountId()](#m-initMountId-43348a54995c)
+- [setChildren(Reader<Reader>)](#m-setChildren-4b50d7817058)
+- [setMountId(Reader)](#m-setMountId-39bac54ac962)
 
 ## Constructors
 
-<a id="m-builder-179fba5038bd"></a>
-### Builder(SegmentBuilder, int, int, int, short)
+### Builder(SegmentBuilder, int, int, int, short) <a href="#m-Builder-179fba5038bd" id="m-Builder-179fba5038bd"></a>
 
 **Package-private**
 
@@ -51,8 +49,7 @@ Builder(
 
 ## Methods
 
-<a id="m-asreader-b5c0f2a8d115"></a>
-### asReader()
+### asReader() <a href="#m-asReader-b5c0f2a8d115" id="m-asReader-b5c0f2a8d115"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.MountPointChildren.Reader asReader()
@@ -60,8 +57,7 @@ public final com.tailf.ncs.maapi.Schema.MountPointChildren.Reader asReader()
 
 Types: [Reader](Reader.md#cls-Reader)
 
-<a id="m-getchildren-fe2038dff10d"></a>
-### getChildren()
+### getChildren() <a href="#m-getChildren-fe2038dff10d" id="m-getChildren-fe2038dff10d"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> getChildren()
@@ -69,8 +65,7 @@ public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Bu
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-getmountid-c5175827f949"></a>
-### getMountId()
+### getMountId() <a href="#m-getMountId-c5175827f949" id="m-getMountId-c5175827f949"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder getMountId()
@@ -78,15 +73,13 @@ public final com.tailf.ncs.maapi.Schema.QTag.Builder getMountId()
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-haschildren-94c463ee6541"></a>
-### hasChildren()
+### hasChildren() <a href="#m-hasChildren-94c463ee6541" id="m-hasChildren-94c463ee6541"></a>
 
 ```java
 public final boolean hasChildren()
 ```
 
-<a id="m-initchildren-d6b9d98b47bb"></a>
-### initChildren(int)
+### initChildren(int) <a href="#m-initChildren-d6b9d98b47bb" id="m-initChildren-d6b9d98b47bb"></a>
 
 ```java
 public final org.capnproto.StructList.Builder<com.tailf.ncs.maapi.Schema.QTag.Builder> initChildren(
@@ -100,8 +93,7 @@ Types: [Builder](../QTag/Builder.md#cls-Builder)
 
 - `int size`
 
-<a id="m-initmountid-43348a54995c"></a>
-### initMountId()
+### initMountId() <a href="#m-initMountId-43348a54995c" id="m-initMountId-43348a54995c"></a>
 
 ```java
 public final com.tailf.ncs.maapi.Schema.QTag.Builder initMountId()
@@ -109,8 +101,7 @@ public final com.tailf.ncs.maapi.Schema.QTag.Builder initMountId()
 
 Types: [Builder](../QTag/Builder.md#cls-Builder)
 
-<a id="m-setchildren-4b50d7817058"></a>
-### setChildren(Reader<Reader>)
+### setChildren(Reader<Reader>) <a href="#m-setChildren-4b50d7817058" id="m-setChildren-4b50d7817058"></a>
 
 ```java
 public final void setChildren(
@@ -124,8 +115,7 @@ Types: [Reader](../QTag/Reader.md#cls-Reader)
 
 - `org.capnproto.StructList.Reader<com.tailf.ncs.maapi.Schema.QTag.Reader> value`
 
-<a id="m-setmountid-39bac54ac962"></a>
-### setMountId(Reader)
+### setMountId(Reader) <a href="#m-setMountId-39bac54ac962" id="m-setMountId-39bac54ac962"></a>
 
 ```java
 public final void setMountId(com.tailf.ncs.maapi.Schema.QTag.Reader value)

@@ -1,5 +1,4 @@
-<a id="cls-CdbSubscription"></a>
-# CdbSubscription
+# CdbSubscription <a href="#cls-CdbSubscription" id="cls-CdbSubscription"></a>
 
 ```java
 public class com.tailf.cdb.CdbSubscription
@@ -21,7 +20,7 @@ This class provides subscription functionality to CDB.
  data is specified with the [`CdbSubscriptionType`](CdbSubscriptionType.md#cls-CdbSubscriptionType) type.
 
  To subscribe to a particular path the
- `CdbSubscriptionType#subscribe(CdbSubscriptionType,int,ConfNamespace,String,Object...)`
+ `subscribe(CdbSubscriptionType,int,ConfNamespace,String,Object...)`
  should be used. For each invocation of the method a subscription identifier
  (*subscription point*) is returned.
 
@@ -49,7 +48,7 @@ This class provides subscription functionality to CDB.
   notification. The read call will block on the socket until an notification
   is received.
 - As a subscriber has read its subscription notifications using
-   `#read()` it will receive points that was affected by a transaction
+   [`read()`](CdbSubscription.md#m-read-b28b830b98d6) it will receive points that was affected by a transaction
    and it can iterate through the changes that caused the
    particular subscription notification using the `diffIterate`
    method. It is also possible to start a new read-session to
@@ -58,7 +57,7 @@ This class provides subscription functionality to CDB.
 - Once we have read the subscription notification through a call to
  `read` and optionally used the `diffIterate`
  to iterate through the changes as well as acted on the changes to *CDB*,
- we must synchronize `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)`  with
+ we must synchronize `sync(CdbSubscriptionSyncType)`  with
  *CDB* so that *CDB* can continue and deliver further subscription
  messages to subscribers with higher priority numbers.
 
@@ -107,39 +106,38 @@ This class provides subscription functionality to CDB.
 
 **Constructors**:
 
-- [CdbSubscription(Cdb)](#m-cdbsubscription-f5d9a99e8f38)
+- [CdbSubscription(Cdb)](#m-CdbSubscription-f5d9a99e8f38)
 
 **Methods**:
 
-- [abortTransaction(CdbExtendedException)](#m-aborttransaction-c0694458d9be)
-- [acceptTagPath()](#m-accepttagpath-3efa26ad697b)
-- [diffIterate(int, CdbDiffIterate)](#m-diffiterate-89b9ae6f39bb)
-- [diffIterate(int, CdbDiffIterate, EnumSet<DiffIterateFlags>, Object)](#m-diffiterate-ca2d7f4353f7)
-- [getCdb()](#m-getcdb-62d7a3429687)
-- [getFlags()](#m-getflags-3c1ca90fd29c)
-- [getLatestNotificationType()](#m-getlatestnotificationtype-c16a1e94affc)
-- [getModifications(EnumSet<CdbGetModificationFlag>)](#m-getmodifications-f4cc98961a6d)
-- [getModifications(int, EnumSet<CdbGetModificationFlag>, ConfPath)](#m-getmodifications-10bc3a627227)
-- [getModifications(int, EnumSet<CdbGetModificationFlag>, String, Object[])](#m-getmodifications-3667ef39ee3e)
-- [getModificationsCLI(int)](#m-getmodificationscli-45ceff108167)
-- [getModificationsCLI(int, int)](#m-getmodificationscli-2622ef2fb979)
-- [getMountId(ConfPath)](#m-getmountid-83243c09b7c3)
-- [getUserSession()](#m-getusersession-7a9eeeb92f85)
+- [abortTransaction(CdbExtendedException)](#m-abortTransaction-c0694458d9be)
+- [acceptTagPath()](#m-acceptTagPath-3efa26ad697b)
+- [diffIterate(int, CdbDiffIterate)](#m-diffIterate-89b9ae6f39bb)
+- [diffIterate(int, CdbDiffIterate, EnumSet<DiffIterateFlags>, Object)](#m-diffIterate-ca2d7f4353f7)
+- [getCdb()](#m-getCdb-62d7a3429687)
+- [getFlags()](#m-getFlags-3c1ca90fd29c)
+- [getLatestNotificationType()](#m-getLatestNotificationType-c16a1e94affc)
+- [getModifications(EnumSet<CdbGetModificationFlag>)](#m-getModifications-f4cc98961a6d)
+- [getModifications(int, EnumSet<CdbGetModificationFlag>, ConfPath)](#m-getModifications-10bc3a627227)
+- [getModifications(int, EnumSet<CdbGetModificationFlag>, String, Object[])](#m-getModifications-3667ef39ee3e)
+- [getModificationsCLI(int)](#m-getModificationsCLI-45ceff108167)
+- [getModificationsCLI(int, int)](#m-getModificationsCLI-2622ef2fb979)
+- [getMountId(ConfPath)](#m-getMountId-83243c09b7c3)
+- [getUserSession()](#m-getUserSession-7a9eeeb92f85)
 - [read()](#m-read-b28b830b98d6)
-- [setMandatory(String)](#m-setmandatory-bd0c402c922f)
+- [setMandatory(String)](#m-setMandatory-bd0c402c922f)
 - [subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, ConfNamespace, String, Object[])](#m-subscribe-a9fe2d87f620)
 - [subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, int, String, Object[])](#m-subscribe-5ac35b379f66)
 - [subscribe(CdbSubscriptionType, int, ConfNamespace, String, Object[])](#m-subscribe-d63c8b36d369)
 - [subscribe(CdbSubscriptionType, int, int, String, Object[])](#m-subscribe-ed12bc09ef9a)
 - [subscribe(int, ConfNamespace, String, Object[])](#m-subscribe-362f9d74bbcb)
 - [subscribe(int, int, String, Object[])](#m-subscribe-cc3174ab5159)
-- [subscribeDone()](#m-subscribedone-4d52aa9e4d50)
+- [subscribeDone()](#m-subscribeDone-4d52aa9e4d50)
 - [sync(CdbSubscriptionSyncType)](#m-sync-e4ae9cc34a8a)
 
 ## Constructors
 
-<a id="m-cdbsubscription-f5d9a99e8f38"></a>
-### CdbSubscription(Cdb)
+### CdbSubscription(Cdb) <a href="#m-CdbSubscription-f5d9a99e8f38" id="m-CdbSubscription-f5d9a99e8f38"></a>
 
 ```java
 public CdbSubscription(com.tailf.cdb.Cdb cdb)
@@ -157,8 +155,7 @@ Creates a CDB subscription instance, with the specified
 
 ## Methods
 
-<a id="m-aborttransaction-c0694458d9be"></a>
-### abortTransaction(CdbExtendedException)
+### abortTransaction(CdbExtendedException) <a href="#m-abortTransaction-c0694458d9be" id="m-abortTransaction-c0694458d9be"></a>
 
 ```java
 public void abortTransaction(
@@ -173,7 +170,7 @@ Abort the transaction.
 
   This method is used when a two phase subscriber wishes to abort an
  transaction (the opposite to acknowledge it with
- `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)`).
+ `sync(CdbSubscriptionSyncType)`).
 
  The `abortTransaction` call is only valid for notifications with
  notificationType [`CdbNotificationType#SUB_PREPARE`](CdbNotificationType.md#m-SUB_PREPARE).
@@ -194,15 +191,13 @@ Abort the transaction.
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="m-accepttagpath-3efa26ad697b"></a>
-### acceptTagPath()
+### acceptTagPath() <a href="#m-acceptTagPath-3efa26ad697b" id="m-acceptTagPath-3efa26ad697b"></a>
 
 ```java
 public boolean acceptTagPath()
 ```
 
-<a id="m-diffiterate-89b9ae6f39bb"></a>
-### diffIterate(int, CdbDiffIterate)
+### diffIterate(int, CdbDiffIterate) <a href="#m-diffIterate-89b9ae6f39bb" id="m-diffIterate-89b9ae6f39bb"></a>
 
 ```java
 public void diffIterate(
@@ -295,7 +290,7 @@ Iterate over changes made in CDB.
 
   This version sends passes `ITER_WANT_PREV` as default.
  If the ITER_WANT_PREV is not desired or additional flags is require use
- `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet, Object)`
+ `diffIterate(int,CdbDiffIterate,EnumSet, Object)`
 
 **Parameters**
 
@@ -307,8 +302,7 @@ Iterate over changes made in CDB.
 - `CdbException` - Failed to diff iterate
 - `IOException` - Failed to read/write cdb socket
 
-<a id="m-diffiterate-ca2d7f4353f7"></a>
-### diffIterate(int, CdbDiffIterate, EnumSet<DiffIterateFlags>, Object)
+### diffIterate(int, CdbDiffIterate, EnumSet<DiffIterateFlags>, Object) <a href="#m-diffIterate-ca2d7f4353f7" id="m-diffIterate-ca2d7f4353f7"></a>
 
 ```java
 public void diffIterate(
@@ -413,8 +407,7 @@ Iterate over changes made in CDB with additional supplied flags.
 - `CdbException` - Failed to diff iterate
 - `IOException` - Failed to read/write cdb socket
 
-<a id="m-getcdb-62d7a3429687"></a>
-### getCdb()
+### getCdb() <a href="#m-getCdb-62d7a3429687" id="m-getCdb-62d7a3429687"></a>
 
 ```java
 public com.tailf.cdb.Cdb getCdb()
@@ -422,8 +415,7 @@ public com.tailf.cdb.Cdb getCdb()
 
 Types: [Cdb](Cdb.md#cls-Cdb)
 
-<a id="m-getflags-3c1ca90fd29c"></a>
-### getFlags()
+### getFlags() <a href="#m-getFlags-3c1ca90fd29c" id="m-getFlags-3c1ca90fd29c"></a>
 
 ```java
 public java.util.EnumSet<com.tailf.cdb.CdbSubscriptionFlagType> getFlags()
@@ -436,8 +428,7 @@ Returns an `EnumSet<CdbSubscriptionFlagType>` of current
 
 **Returns:** `EnumSet<CdbSubscriptionFlagType>`
 
-<a id="m-getlatestnotificationtype-c16a1e94affc"></a>
-### getLatestNotificationType()
+### getLatestNotificationType() <a href="#m-getLatestNotificationType-c16a1e94affc" id="m-getLatestNotificationType-c16a1e94affc"></a>
 
 ```java
 public com.tailf.cdb.CdbNotificationType getLatestNotificationType()
@@ -447,7 +438,7 @@ Types: [CdbNotificationType](CdbNotificationType.md#cls-CdbNotificationType)
 
 Retrieve the latest notification type.
 
- Each notification retrieved by the `#read()` method has a
+ Each notification retrieved by the [`read()`](CdbSubscription.md#m-read-b28b830b98d6) method has a
  notificationType.
 
  This method retrieves the notification type from  the latest
@@ -459,8 +450,7 @@ Retrieve the latest notification type.
 
 **Returns:** notificationType or null if not applicable
 
-<a id="m-getmodifications-f4cc98961a6d"></a>
-### getModifications(EnumSet<CdbGetModificationFlag>)
+### getModifications(EnumSet<CdbGetModificationFlag>) <a href="#m-getModifications-f4cc98961a6d" id="m-getModifications-f4cc98961a6d"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfXMLParam> getModifications(
@@ -474,9 +464,9 @@ Types: [ConfXMLParam](../conf/ConfXMLParam.md#cls-ConfXMLParam), [CdbGetModifica
 Retrieve changes that caused by subscription notification.
 
  Convenient short-hand of the
- `ConfPath#getModifications(int,EnumSet,ConfPath)`
+ `getModifications(int,EnumSet,ConfPath)`
  method intended to be used from within a iteration started by
- `CdbDiffIterate#diffIterate(int,CdbDiffIterate)`.
+ `diffIterate(int,CdbDiffIterate)`.
 
  In this case no subscription id is needed, and the path is implicitly
  the current position in the iteration.
@@ -501,8 +491,7 @@ Retrieve changes that caused by subscription notification.
 
 **See also:** `#getModifications(int,EnumSet,ConfPath)`
 
-<a id="m-getmodifications-10bc3a627227"></a>
-### getModifications(int, EnumSet<CdbGetModificationFlag>, ConfPath)
+### getModifications(int, EnumSet<CdbGetModificationFlag>, ConfPath) <a href="#m-getModifications-10bc3a627227" id="m-getModifications-10bc3a627227"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfXMLParam> getModifications(
@@ -560,8 +549,7 @@ Retrieve changes that caused by subscription notification.
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="m-getmodifications-3667ef39ee3e"></a>
-### getModifications(int, EnumSet<CdbGetModificationFlag>, String, Object[])
+### getModifications(int, EnumSet<CdbGetModificationFlag>, String, Object[]) <a href="#m-getModifications-3667ef39ee3e" id="m-getModifications-3667ef39ee3e"></a>
 
 ```java
 public java.util.List<com.tailf.conf.ConfXMLParam> getModifications(
@@ -621,8 +609,7 @@ Retrieve changes that caused by subscription notification.
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="m-getmodificationscli-45ceff108167"></a>
-### getModificationsCLI(int)
+### getModificationsCLI(int) <a href="#m-getModificationsCLI-45ceff108167" id="m-getModificationsCLI-45ceff108167"></a>
 
 ```java
 public String getModificationsCLI(
@@ -648,10 +635,9 @@ Return a string with the CLI commands that corresponds to the
          server
 - `ConfException` - if the server reports an error producing CLI data
 
-**See also:** [`getModificationsCLI(int, int)`](CdbSubscription.md#m-getmodificationscli-2622ef2fb979)
+**See also:** [`getModificationsCLI(int, int)`](CdbSubscription.md#m-getModificationsCLI-2622ef2fb979)
 
-<a id="m-getmodificationscli-2622ef2fb979"></a>
-### getModificationsCLI(int, int)
+### getModificationsCLI(int, int) <a href="#m-getModificationsCLI-2622ef2fb979" id="m-getModificationsCLI-2622ef2fb979"></a>
 
 ```java
 public String getModificationsCLI(
@@ -678,8 +664,7 @@ CLI string that corresponds to the changes that triggered subscription.
          server
 - `ConfException` - if the server reports an error producing CLI data
 
-<a id="m-getmountid-83243c09b7c3"></a>
-### getMountId(ConfPath)
+### getMountId(ConfPath) <a href="#m-getMountId-83243c09b7c3" id="m-getMountId-83243c09b7c3"></a>
 
 ```java
 public java.util.List<String> getMountId(
@@ -694,8 +679,7 @@ Types: [ConfPath](../conf/ConfPath.md#cls-ConfPath), [ConfException](../conf/Con
 
 - `com.tailf.conf.ConfPath path`
 
-<a id="m-getusersession-7a9eeeb92f85"></a>
-### getUserSession()
+### getUserSession() <a href="#m-getUserSession-7a9eeeb92f85" id="m-getUserSession-7a9eeeb92f85"></a>
 
 ```java
 public long getUserSession() throws com.tailf.conf.ConfException, java.io.IOException
@@ -713,8 +697,7 @@ Retrieve the user session id associated with this subscription socket.
 - `IOException` - if an I/O error occurs while communicating with the
          server
 
-<a id="m-read-b28b830b98d6"></a>
-### read()
+### read() <a href="#m-read-b28b830b98d6" id="m-read-b28b830b98d6"></a>
 
 ```java
 public int[] read() throws java.io.IOException, com.tailf.conf.ConfException
@@ -727,7 +710,7 @@ Reads the Cdb subscription socket for events and blocks.
  The triggering notification is of a type.
  This information in important in two-phase subscriptions.
  The notificationType can be retrieved using
- `#getLatestNotificationType()`
+ [`getLatestNotificationType()`](CdbSubscription.md#m-getLatestNotificationType-c16a1e94affc)
 
 **Returns:** the subscription points that triggered a change
 
@@ -736,8 +719,7 @@ Reads the Cdb subscription socket for events and blocks.
 - `CdbException` - Failed to read.
 - `IOException` - Failed to read/write cdb socket
 
-<a id="m-setmandatory-bd0c402c922f"></a>
-### setMandatory(String)
+### setMandatory(String) <a href="#m-setMandatory-bd0c402c922f" id="m-setMandatory-bd0c402c922f"></a>
 
 ```java
 public void setMandatory(
@@ -778,8 +760,7 @@ Attaches a mandatory attribute and a mandatory name to this subscriber
 - `IOException` - if an I/O error occurs while sending the request
 - `ConfException` - if the name is invalid or server rejects operation
 
-<a id="m-subscribe-a9fe2d87f620"></a>
-### subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, ConfNamespace, String, Object[])
+### subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, ConfNamespace, String, Object[]) <a href="#m-subscribe-a9fe2d87f620" id="m-subscribe-a9fe2d87f620"></a>
 
 ```java
 public int subscribe(
@@ -798,7 +779,7 @@ Types: [CdbSubscriptionType](CdbSubscriptionType.md#cls-CdbSubscriptionType), [C
 Subscribe to a path.
 
  Same as the
- `CdbSubscriptionType#subscribe(CdbSubscriptionType,EnumSet,int,int,String,Object...)`
+ `subscribe(CdbSubscriptionType,EnumSet,int,int,String,Object...)`
  with the difference that the namespace is given as a ConfNamespace.
 
 **Parameters**
@@ -819,8 +800,7 @@ Subscribe to a path.
 - `IOException` - if an I/O error occurs while sending the request
 - `ConfException` - if the subscription cannot be established
 
-<a id="m-subscribe-5ac35b379f66"></a>
-### subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, int, String, Object[])
+### subscribe(CdbSubscriptionType, EnumSet<CdbSubscrConfigFlag>, int, int, String, Object[]) <a href="#m-subscribe-5ac35b379f66" id="m-subscribe-5ac35b379f66"></a>
 
 ```java
 public int subscribe(
@@ -839,7 +819,7 @@ Types: [CdbSubscriptionType](CdbSubscriptionType.md#cls-CdbSubscriptionType), [C
 Subscribe to a path.
 
  Same as the
- `CdbSubscriptionType#subscribe(CdbSubscriptionType, int, int, String, Object...)`
+ `subscribe(CdbSubscriptionType, int, int, String, Object...)`
  with the addition of the flags parameter which is an EnumSet of
  configuration flags for the subscription see [`CdbSubscrConfigFlag`](CdbSubscrConfigFlag.md#cls-CdbSubscrConfigFlag)
 
@@ -862,8 +842,7 @@ Subscribe to a path.
 - `ConfException` - If failed to subscribe to the given path
  for some reason
 
-<a id="m-subscribe-d63c8b36d369"></a>
-### subscribe(CdbSubscriptionType, int, ConfNamespace, String, Object[])
+### subscribe(CdbSubscriptionType, int, ConfNamespace, String, Object[]) <a href="#m-subscribe-d63c8b36d369" id="m-subscribe-d63c8b36d369"></a>
 
 ```java
 public int subscribe(
@@ -901,10 +880,10 @@ Subscribe to a path.
  This means that a change in a referred leaf will generate a
  notification for the subscription that has referring leaf(s) - but
  currently such a change will not be reported by
- `CdbDiffIterate#diffIterate(int, CdbDiffIterate, EnumSet, Object)`.
+ `diffIterate(int, CdbDiffIterate, EnumSet, Object)`.
  Thus to get the new "effective" value of a referring leaf in this
  case, it is necessary to either read the
- value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getelem-f8219fa65c5d) -
+ value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getElem-f8219fa65c5d) -
  or to use a
  subscription that includes the referred leafs, and use
  `diffIterate()` when a notification for that
@@ -944,14 +923,14 @@ Subscribe to a path.
   CDB will handle the subscriptions in lock-step priority order.
   First all subscribers at the lowest priority are handled, once
   they all have replied and synchronized through calls
-  to `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)`
+  to `sync(CdbSubscriptionSyncType)`
   the next set - at the next priority  level is handled by CDB.
 
   Priority numbers are global, i.e. if there
   are multiple client daemons notifications will still be delivered
   in priority order per all subscriptions, not per daemon.
 
-  See `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet,Object)`
+  See `diffIterate(int,CdbDiffIterate,EnumSet,Object)`
   for ways of filtering  subscription notifications and finding out
   what changed.  The easiest way is though to solely
   rely on the positioning of the subscription points in the tree to
@@ -963,7 +942,7 @@ Subscribe to a path.
 
   Because there can be many subscriptions on the same socket the
   client must notify when it is done subscribing and ready to receive
-  notifications. This is done using `#subscribeDone()`.
+  notifications. This is done using [`subscribeDone()`](CdbSubscription.md#m-subscribeDone-4d52aa9e4d50).
 
 **Parameters**
 
@@ -981,8 +960,7 @@ Subscribe to a path.
 - `IOException` - if an I/O error occurs while sending the request
 - `ConfException` - if the subscription cannot be established
 
-<a id="m-subscribe-ed12bc09ef9a"></a>
-### subscribe(CdbSubscriptionType, int, int, String, Object[])
+### subscribe(CdbSubscriptionType, int, int, String, Object[]) <a href="#m-subscribe-ed12bc09ef9a" id="m-subscribe-ed12bc09ef9a"></a>
 
 ```java
 public int subscribe(
@@ -1020,10 +998,10 @@ Subscribe to a path.
  This means that a change in a referred leaf will generate a
  notification for the subscription that has referring leaf(s) - but
  currently such a change will not be reported by
- `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet,Object)`.
+ `diffIterate(int,CdbDiffIterate,EnumSet,Object)`.
  Thus to get the new "effective" value of a referring leaf in this
  case, it is necessary to either read the
- value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getelem-f8219fa65c5d) -
+ value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getElem-f8219fa65c5d) -
  or to use a
  subscription that includes the referred leafs, and use
  `diffIterate` when a notification for that
@@ -1063,14 +1041,14 @@ Subscribe to a path.
   CDB will handle the subscriptions in lock-step priority order.
   First all subscribers at the lowest priority are handled, once
   they all have replied and synchronized through calls
-  to `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)`
+  to `sync(CdbSubscriptionSyncType)`
   the next set - at the next priority  level is handled by CDB.
 
   Priority numbers are global, i.e. if there
   are multiple client daemons notifications will still be delivered
   in priority order per all subscriptions, not per daemon.
 
-  See `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet,Object)`
+  See `diffIterate(int,CdbDiffIterate,EnumSet,Object)`
   for ways of filtering  subscription notifications and finding out
   what changed.  The easiest way is though to solely
   rely on the positioning of the subscription points in the tree to
@@ -1082,7 +1060,7 @@ Subscribe to a path.
 
   Because there can be many subscriptions on the same socket the
   client must notify when it is done subscribing and ready to receive
-  notifications. This is done using `#subscribeDone()`.
+  notifications. This is done using [`subscribeDone()`](CdbSubscription.md#m-subscribeDone-4d52aa9e4d50).
 
 **Parameters**
 
@@ -1101,8 +1079,7 @@ Subscribe to a path.
 - `ConfException` - If failed to subscribe to the given path
  for some reason
 
-<a id="m-subscribe-362f9d74bbcb"></a>
-### subscribe(int, ConfNamespace, String, Object[])
+### subscribe(int, ConfNamespace, String, Object[]) <a href="#m-subscribe-362f9d74bbcb" id="m-subscribe-362f9d74bbcb"></a>
 
 ```java
 public int subscribe(
@@ -1139,10 +1116,10 @@ Subscribe to a given path.
  This means that a change in a referred leaf will generate a
  notification for the subscription that has referring leaf(s) - but
  currently such a change will not be reported by
-  `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet,Object)`.
+  `diffIterate(int,CdbDiffIterate,EnumSet,Object)`.
  Thus to get the new "effective" value of a referring leaf in this
  case, it is necessary to either read the
- value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getelem-f8219fa65c5d) - or
+ value of the leaf with e.g. [`CdbSession#getElem(ConfPath)`](CdbSession.md#m-getElem-f8219fa65c5d) - or
  to use a
  subscription that includes the referred leafs, and use
  `diffIterate` when a notification for that
@@ -1182,14 +1159,14 @@ Subscribe to a given path.
   CDB will handle the subscriptions in lock-step priority order.
   First all subscribers at the lowest priority are handled, once
   they all have replied and synchronized through calls
-  to `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)`
+  to `sync(CdbSubscriptionSyncType)`
   the next set - at the next priority  level is handled by CDB.
 
   Priority numbers are global, i.e. if there
   are multiple client daemons notifications will still be delivered
   in priority order per all subscriptions, not per daemon.
 
-  See `CdbDiffIterate#diffIterate(int,CdbDiffIterate,EnumSet,Object)`
+  See `diffIterate(int,CdbDiffIterate,EnumSet,Object)`
   for ways of filtering  subscription notifications and finding out
   what changed.  The easiest way is though to solely
   rely on the positioning of the subscription points in the tree to
@@ -1201,7 +1178,7 @@ Subscribe to a given path.
 
   Because there can be many subscriptions on the same socket the
   client must notify when it is done subscribing and ready to receive
-  notifications. This is done using `#subscribeDone()`.
+  notifications. This is done using [`subscribeDone()`](CdbSubscription.md#m-subscribeDone-4d52aa9e4d50).
 
 **Parameters**
 
@@ -1218,8 +1195,7 @@ Subscribe to a given path.
 - `IOException` - if an I/O error occurs while sending the request
 - `ConfException` - if the subscription cannot be established
 
-<a id="m-subscribe-cc3174ab5159"></a>
-### subscribe(int, int, String, Object[])
+### subscribe(int, int, String, Object[]) <a href="#m-subscribe-cc3174ab5159" id="m-subscribe-cc3174ab5159"></a>
 
 ```java
 public int subscribe(
@@ -1276,7 +1252,7 @@ Subscribe to given path.
  CDB  will  handle  the  subscriptions in lock-step priority
  order. First all subscribers at the  lowest  priority  are  handled,
  once  they  all  have  replied  and  synchronized  through  calls to
- `CdbSubscriptionSyncType#sync(CdbSubscriptionSyncType)` the next set - at the
+ `sync(CdbSubscriptionSyncType)` the next set - at the
  next  priority
  level  is handled by CDB. Priority numbers are global, i.e. if there
  are multiple client daemons notifications will still be delivered in
@@ -1290,7 +1266,7 @@ Subscribe to given path.
  instances with separate Cdb instances for operational and configuration
  subscriptions.
 
- See  `CdbDiffIterate#diffIterate(int,CdbDiffIterate)` for ways of filtering
+ See  `diffIterate(int,CdbDiffIterate)` for ways of filtering
  subscription
  notifications and finding out what changed.
 
@@ -1309,8 +1285,7 @@ Subscribe to given path.
 - `CdbException` - Failed to subscribe to the specified path
 - `IOException` - Failed to read/write cdb socket
 
-<a id="m-subscribedone-4d52aa9e4d50"></a>
-### subscribeDone()
+### subscribeDone() <a href="#m-subscribeDone-4d52aa9e4d50" id="m-subscribeDone-4d52aa9e4d50"></a>
 
 ```java
 public void subscribeDone() throws java.io.IOException, com.tailf.conf.ConfException
@@ -1330,8 +1305,7 @@ Finishing the subscription setup.
 - `IOException` - if an I/O error occurs while sending the request
 - `ConfException` - if ConfD/NCS reports an error completing setup
 
-<a id="m-sync-e4ae9cc34a8a"></a>
-### sync(CdbSubscriptionSyncType)
+### sync(CdbSubscriptionSyncType) <a href="#m-sync-e4ae9cc34a8a" id="m-sync-e4ae9cc34a8a"></a>
 
 ```java
 public void sync(
@@ -1345,7 +1319,7 @@ Types: [CdbSubscriptionSyncType](CdbSubscriptionSyncType.md#cls-CdbSubscriptionS
 Synchronize the subscriber.
 
  Once we have read the subscription notification through a call to
- `#read()` and also have acted on the changes to
+ [`read()`](CdbSubscription.md#m-read-b28b830b98d6) and also have acted on the changes to
  CDB, we must synchronize with CDB so that CDB can continue and
  deliver further subscription messages to subscribers with higher
  priority numbers.
