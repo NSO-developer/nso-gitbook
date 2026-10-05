@@ -14,7 +14,7 @@ You achieve this by splitting a service into a main, upper-layer part, and one o
 
 Each RFS node is responsible for its own set of managed devices, mounted under its `/devices` tree, and the upper-layer, CFS node only concerns itself with the RFS nodes. So, the CFS node only mounts the RFS nodes under its `/devices` tree, not managed devices directly. The main advantage of this architecture is that you can add many device RFS nodes that collectively manage a huge number of actual devices—much more than a single node could.
 
-<figure><img src="../../images/layered-service-arch-1.png" alt="" width="563"><figcaption><p>Layered CFS/RFS architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/layered-service-arch-1.png" alt="" width="563"><figcaption><p>Layered CFS/RFS architecture</p></figcaption></figure>
 
 ## Is LSA for Me?
 
@@ -24,7 +24,7 @@ More practically, taking a service in NSO and deploying a single instance on an 
 
 Moreover, multiple NSO nodes present a higher operational complexity and administrative burden. There is no longer a “single pane of glass” view of all the individual devices. That's why you must weigh the benefits of the LSA approach against the scale at which you operate. When LSA starts making sense will depend on the type of devices you manage, the services you have, the geographical distribution of resources, and so on.
 
-A distributed system can push the overall throughput way beyond what a single instance can do. But you will achieve a much better outcome by first focusing on eliminating the bottlenecks in the provisioning code, as discussed in [Scaling and Performance Optimization](../../development/advanced-development/scaling-and-performance-optimization.md). Only when that proves insufficient, consider deploying LSA.
+A distributed system can push the overall throughput way beyond what a single instance can do. But you will achieve a much better outcome by first focusing on eliminating the bottlenecks in the provisioning code, as discussed in [Scaling and Performance Optimization](/broken/pages/hyvVqUJdYxDhJ8hxoyGa). Only when that proves insufficient, consider deploying LSA.
 
 LSA also addresses the memory limitations of NSO when device configurations become very large (individually or all together). If the NSO server is memory-constrained and more memory cannot be added, the LSA approach can be a solution.
 
@@ -75,7 +75,7 @@ Having designed a layered service with the CFS and RFS parts, the CFS must now c
 
 Let's then see how the LSA setup affects the whole service provisioning process. Suppose a new request arrives at the CFS node, such as a new service instance being created through RESTCONF by a customer order portal. The CFS runs the service mapping logic as usual; however, instead of configuring the network devices directly, the CFS configures the appropriate RFS nodes with the generated RFS service instance data. This is the dispatch logic in action.
 
-<figure><img src="../../images/request-flow.png" alt="" width="563"><figcaption><p>LSA Request Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/request-flow.png" alt="" width="563"><figcaption><p>LSA Request Flow</p></figcaption></figure>
 
 As the configuration for the lower-layer nodes happens under the `/devices/device` tree, it is picked up and pushed to the relevant NSO instances by the NED. The NED sends the appropriate NETCONF edit-config RPCs, which trigger the RFS FASTMAP code at the RFS nodes. The RFS mapping logic constructs the necessary network configuration for each RFS instance and the RFS nodes update the actual network devices.
 
@@ -101,7 +101,7 @@ This section describes a small LSA application, which exists as a running exampl
 
 The application is a slight variation on the `examples.ncs/getting-started/developing-with-ncs/4-rfs-service` example where the YANG code has been split up into an upper-layer and a lower-layer implementation. The example topology (based on netsim for the managed devices, and NSO for the upper/lower layer NSO instances) looks like the following:
 
-<figure><img src="../../images/lsa-example-22.png" alt="" width="563"><figcaption><p>Example LSA architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lsa-example-22.png" alt="" width="563"><figcaption><p>Example LSA architecture</p></figcaption></figure>
 
 The upper layer of the YANG service data for this example looks like the following:
 
@@ -533,7 +533,7 @@ Usually, the reasons for rearchitecting an existing application are performance-
 
 In the NSO example collection, one of the most popular real examples is the `examples.ncs/service-provider/mpls-vpn` code. That example contains an almost "real" VPN provisioning example whereby VPNS are provisioned in a network of CPEs, PEs, and P routers according to this picture:
 
-<figure><img src="../../images/network.jpg" alt=""><figcaption><p>VPN network</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/network.jpg" alt=""><figcaption><p>VPN network</p></figcaption></figure>
 
 The service model in this example roughly looks like this:
 
@@ -625,12 +625,12 @@ The `ce-device` leaf is now just a regular string, not a leafref.
 
 So, instead of an NSO topology that looks like:
 
-<figure><img src="../../images/mpls-vpn.png" alt="" width="563"><figcaption><p>NSO topology</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mpls-vpn.png" alt="" width="563"><figcaption><p>NSO topology</p></figcaption></figure>
 
 \
 We want an NSO architecture that looks like this:
 
-<figure><img src="../../images/mpls-vpn-lsa.png" alt="" width="563"><figcaption><p>NSO LSA topology</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mpls-vpn-lsa.png" alt="" width="563"><figcaption><p>NSO LSA topology</p></figcaption></figure>
 
 The task for the upper layer FastMap code is then to instantiate a copy of itself on the right lower layer NSO nodes. The upper layer FastMap code must:
 
@@ -1150,7 +1150,7 @@ Since an LSA deployment consists of multiple NSO nodes (or HA pairs of nodes), e
 
 In general, staying with the Single-Version Deployment is the simplest option and does not require any further LSA-specific upgrade action (except perhaps recompiling the packages). However, the main downside is that, at least for a major upgrade, you must upgrade all the nodes at the same time (otherwise, you no longer have a Single-Version Deployment).
 
-If that is not feasible, the solution is to run a Multi-Version Deployment. Along with all of the requirements, the section [Multi-Version Deployment](layered-service-architecture.md#ncs\_lsa.lsa\_setup.multi\_version) describes a major difference from the Single Version variant: the upper CFS node uses a version-specific `cisco-nso-nc-X.Y` NED ID to refer to lower RFS nodes. That means, if you switch to a Multi-Version Deployment, or perform a major upgrade of the lower-layer RFS node, the `ned-id` should change accordingly. However, do not change it directly but follow the correct NED upgrade procedure described in the section called [NED Migration](../management/ned-administration#sec.ned_migration). Briefly, the procedure consists of these steps:
+If that is not feasible, the solution is to run a Multi-Version Deployment. Along with all of the requirements, the section [Multi-Version Deployment](layered-service-architecture.md#ncs_lsa.lsa_setup.multi_version) describes a major difference from the Single Version variant: the upper CFS node uses a version-specific `cisco-nso-nc-X.Y` NED ID to refer to lower RFS nodes. That means, if you switch to a Multi-Version Deployment, or perform a major upgrade of the lower-layer RFS node, the `ned-id` should change accordingly. However, do not change it directly but follow the correct NED upgrade procedure described in the section called [NED Migration](https://github.com/NSO-developer/nso-gitbook/blob/test-n-play/administration/management/ned-administration/README.md#sec.ned_migration). Briefly, the procedure consists of these steps:
 
 1. Keep the currently configured ned-id for an RFS device and the corresponding packages. If upgrading the CFS node, you will need to recompile the packages for the new NSO version.
 2. Compile and load the packages that are device-compiled with the new `ned-id`, alongside the old packages.

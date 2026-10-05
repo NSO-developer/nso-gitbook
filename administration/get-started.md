@@ -1,6 +1,26 @@
 ---
 description: Administrate and manage NSO.
 icon: chevrons-right
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
 ---
 
 # Get Started
@@ -11,7 +31,7 @@ icon: chevrons-right
 
 ## Management
 
-<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>System Management</strong></td><td>Configure &#x26; manage your NSO deployment.</td><td><a href="management/system-management/">system-management</a></td></tr><tr><td><strong>Package Managament</strong></td><td>Learn about NSO packages and how to use them.</td><td><a href="management/package-mgmt.md">package-mgmt.md</a></td></tr><tr><td><strong>High Availability</strong></td><td>Set up multiple nodes in a highly-available (HA) setup.</td><td><a href="management/high-availability.md">high-availability.md</a></td></tr><tr><td><strong>AAA Infrastructure</strong></td><td>Set up user authentication and authorization.</td><td><a href="management/aaa-infrastructure.md">aaa-infrastructure.md</a></td></tr><tr><td><strong>NED Administration</strong></td><td>Administer and manage Cisco-provided NEDs.</td><td><a href="management/ned-administration.md">ned-administration.md</a></td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>System Management</strong></td><td>Configure &#x26; manage your NSO deployment.</td><td><a href="/broken/pages/DEGP8vLfculUKUKywWpj">Broken link</a></td></tr><tr><td><strong>Package Managament</strong></td><td>Learn about NSO packages and how to use them.</td><td><a href="/broken/pages/71fgY5cHuT265kV6obY2">Broken link</a></td></tr><tr><td><strong>High Availability</strong></td><td>Set up multiple nodes in a highly-available (HA) setup.</td><td><a href="/broken/pages/P31AyRsKNkYRarogK1NX">Broken link</a></td></tr><tr><td><strong>AAA Infrastructure</strong></td><td>Set up user authentication and authorization.</td><td><a href="/broken/pages/4Gph81BtX4bZ4dsqCHE5">Broken link</a></td></tr><tr><td><strong>NED Administration</strong></td><td>Administer and manage Cisco-provided NEDs.</td><td><a href="/broken/pages/At6ky2aOEamjFtYEgSdG">Broken link</a></td></tr></tbody></table>
 
 ## Advanced Topics
 

@@ -29,7 +29,7 @@ Cisco provides the following two NSO images based on Red Hat UBI.
 * [Production Image](containerized-nso.md#production-image)
 * [Build Image](containerized-nso.md#build-image)
 
-<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/reject.png" alt="" data-size="line"></td><td><img src="../../images/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="208">Intended Use</th><th width="139">Develop NSO Packages</th><th width="139">Build NSO Packages</th><th width="114">Run NSO</th><th>NSO Install Type</th></tr></thead><tbody><tr><td>Development Host</td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>None or Local Install</td></tr><tr><td>Build Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td>System Install</td></tr><tr><td>Production Image</td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/reject.png" alt="" data-size="line"></td><td><img src="../../.gitbook/assets/acknowledge.png" alt="" data-size="line"></td><td>System Install</td></tr></tbody></table>
 
 {% hint style="info" %}
 The Red Hat UBI is an OCI-compliant image that is freely distributable and independent of platform and technical dependencies. You can read more about Red Hat UBI [here](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image), and about Open Container Initiative (OCI) [here](https://opencontainers.org/faq/).
@@ -42,11 +42,11 @@ The Production Image is a production-ready NSO image for system-wide deployment 
 Use the pre-built image as the base image in the container file (e.g., Dockerfile) and mount your own packages (such as NEDs and service packages) to run a final image for your production environment (see examples below).
 
 {% hint style="info" %}
-Consult the [Installation](README.md) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
+Consult the [Installation](./) documentation for information on installing NSO on a Docker host, building NSO packages, etc.
 {% endhint %}
 
 {% hint style="info" %}
-See [Developing and Deploying a Nano Service](../../development/introduction-to-automation/develop-and-deploy-a-nano-service.md) for an example that uses the container to deploy an SSH-key-provisioning nano service.
+See [Developing and Deploying a Nano Service](/broken/pages/S357j0vBRT44jzGxmOZV) for an example that uses the container to deploy an SSH-key-provisioning nano service.
 
 The `$NCS_DIR/examples.ncs/development-guide/nano-services/netsim-sshkey/README` provides a link to the container-based deployment variant of the example. See the `setup_ncip.sh` script and `README` in the `netsim-sshkey` deployment example for details.
 {% endhint %}
@@ -368,7 +368,7 @@ Follow the steps below to run the Production Image using Docker CLI:
 docker load -i nso-6.4.container-image-prod.linux.x86_64.tar.gz
 ```
 
-3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin\_guide.containers.ncs).
+3. Start a container from the image. Supply additional arguments to mount the packages and `ncs.conf` as separate volumes ([`-v` flag](https://docs.docker.com/engine/reference/commandline/run/)), and publish ports for networking ([`-p` flag](https://docs.docker.com/engine/reference/commandline/run/)) as needed. The container starts NSO using the `/run-nso.sh` script. To understand how the `ncs.conf` file is used, see [`ncs.conf` File Configuration and Preference](containerized-nso.md#ug.admin_guide.containers.ncs).
 
 ```bash
 docker run -itd --name cisco-nso \

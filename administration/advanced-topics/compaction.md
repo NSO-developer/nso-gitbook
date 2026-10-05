@@ -20,9 +20,9 @@ It is also possible to automatically trigger compaction after a set number of tr
 
 Compaction may require a significant amount of time, during which write transactions cannot be performed. In certain use cases, it may be preferable to disable automatic compaction by CDB and instead trigger compaction manually according to the specific needs. If doing so, it is highly recommended to have another automated system in place.
 
-CDB CAPI provides a set of functions that may be used to create an external mechanism for compaction. See `cdb_initiate_journal_compaction()`, `cdb_initiate_journal_dbfile_compaction()`, and `cdb_get_compaction_info()` in [confd\_lib\_cdb(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd\_lib\_cdb) in Manual Pages.
+CDB CAPI provides a set of functions that may be used to create an external mechanism for compaction. See `cdb_initiate_journal_compaction()`, `cdb_initiate_journal_dbfile_compaction()`, and `cdb_get_compaction_info()` in [confd\_lib\_cdb(3)](https://developer.cisco.com/docs/nso-guides-6.1/#!ncs-man-pages-volume-3/man.3.confd_lib_cdb) in Manual Pages.
 
-Automation of compaction can be done by using a scheduling mechanism such as CRON, or by using the NCS scheduler. See [Scheduler](../../development/connected-topics/scheduler.md) for more information.
+Automation of compaction can be done by using a scheduling mechanism such as CRON, or by using the NCS scheduler. See [Scheduler](/broken/pages/974NxYRnKvHLeEDFyKCc) for more information.
 
 By default, CDB may perform compaction during its boot process. This may be disabled if required, by starting NSO with the flag `--disable-compaction-on-start`.
 
